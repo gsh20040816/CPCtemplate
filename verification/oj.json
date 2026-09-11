@@ -582,5 +582,49 @@
       "Values"
     ],
     "note": "Implicit sequence Treap with recursive output traversal. Does not cover uncalled sequence operations or the ordered Treap in the same bundle."
+  },
+  {
+    "problem": "Luogu P3919",
+    "style": "compact",
+    "algorithm": "PersistentArray",
+    "record": "https://www.luogu.com.cn/record/297520221",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 3130,
+    "memory": "362.85MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3919.compact.cpp",
+    "submitted_source": "verification/submitted/P3919.compact.cpp",
+    "submitted_sha256": "a12b16ffdd501cef65ad6c3a1f8da342b6f5ef0b48c439fda7295001d460e647",
+    "tested_api": [
+      "constructor",
+      "set",
+      "query",
+      "copy"
+    ],
+    "note": "Branching versions, point assignment/query and version copying; not an order-statistics tree. Memory is the judge reported value for this driver and test set."
+  },
+  {
+    "problem": "Luogu P3919",
+    "style": "classic",
+    "algorithm": "PersistentArray",
+    "record": "https://www.luogu.com.cn/record/297520224",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 5180,
+    "memory": "365.41MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3919.classic.cpp",
+    "submitted_source": "verification/submitted/P3919.classic.cpp",
+    "submitted_sha256": "392768668bf06c050e36b3199c63442c98ad280f7f5c214e0518fa8f75795b30",
+    "tested_api": [
+      "Init",
+      "Set",
+      "Query",
+      "Copy"
+    ],
+    "note": "Branching versions, point assignment/query and version copying; static node capacity 23000000. Reinitialization and allocation bounds also tested locally. Not an order-statistics tree."
   }
 ]

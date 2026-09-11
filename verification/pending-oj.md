@@ -13,8 +13,6 @@
 - `verify/luogu/P3649.compact.cpp`
 - `verify/luogu/P3834.classic.cpp`
 - `verify/luogu/P3834.compact.cpp`
-- `verify/luogu/P3919.classic.cpp`
-- `verify/luogu/P3919.compact.cpp`
 - `verify/luogu/P4779.classic.cpp`
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.classic.cpp`
@@ -34,7 +32,7 @@ OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在�
 - `verify/luogu/P2495.classic.cpp` 与 `verify/luogu/P2495.compact.cpp`：已对实际打包程序做枚举删边验证，在线评测待完成。
 - 2026-09-12 曾因 Mac 锁定暂停 UI；之后已可读取，但在准备 P3384 文件时工具报告用户改变了 Firefox 状态，已暂停输入，未提交。
 
-- P3919 双风格已对打包程序验证随机版本分叉与查询编号；P3834 双风格打包程序已检查区间第 k 小。两类模板分别验证，不混用版本语义。
+- P3919 双风格已 AC：动态版 297520221，传统版 297520224；P3834 双风格打包程序已检查区间第 k 小，在线评测仍待补。两类模板分别验证，不混用版本语义。
 
 - P3384 双风格已 AC：动态版 297520172，传统版 297520179，验证递归 HLD + 仿射线段树的路径/子树加法及求和；传统 HLD 的接口为 Heavy_Light_Decomposition<N> + Init(n)。
 
