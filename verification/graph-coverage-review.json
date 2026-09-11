@@ -1,0 +1,211 @@
+{
+  "review_date": "2026-09-12",
+  "code_commit": "9dc4ff279fcbb7f59a16563263b2e7729d06aeb7",
+  "kind": "read-only source/API coverage audit; no algorithm edits or new OJ acceptance",
+  "manifest_recorded_at_utc": "2026-09-11T21:07:15.504006+00:00",
+  "local_hashes": {
+    "src/compact/tarjan.hpp": "15716184cdf5cec0cb5234ba357ea922840277454932e54e06067d7290f929d5",
+    "src/classic/tarjan.hpp": "fbeaaacabbc45e6ad1e90b699c2e839c49c472c4aebf788ba6034f7bd32b8f12",
+    "src/compact/biconnected.hpp": "6ad20e935bbb4f3f41349dd54076910b2ccc91a05522325f65b53e064074313c",
+    "src/classic/biconnected.hpp": "e4a8f7cd76bb572039bf1f41c0d46d222a9dbb4a0a5aec616c51da01abf82024",
+    "src/compact/graph.hpp": "68c64bd031ad21c2308712e4bc3724d27e6345aff86d2d9b346025f2a8b4ff97",
+    "src/classic/graph.hpp": "39b65891c8d0ded3a966eb12dbfe43b580026160cab8c90e74d5dfb1a9ac484e",
+    "tests/tarjan.cpp": "35dd53d553e4435d79a7bc9a81900b4908fc97b35c1a4be99ccf93f09c1815b9",
+    "tests/biconnected.cpp": "de4fa6a9a028408879922a15c0cbe19b80f87ed7be2e274f36766dfb0ed4739f",
+    "tests/graph_contracts.cpp": "af13d8fae85417d2e2e8d69de1c073339587eaa7b5f2616a724b61a4ce0fe322"
+  },
+  "wida_commit": "484e9e0e6e4f127f187eb3df5bc419e9ec863795",
+  "wida_source_hashes": {
+    "01 - 常用在线模板汇总/02 - 图、树、网络流/08 - SCC (Tarjan).cpp": "c32ecd40818b84dae5df8d9520ea184735faaa7d11802e85bf9d970b36508e87",
+    "01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（新版）.cpp": "5236f8ace818f4d02d19f002661e031a59f1984f0ddaba93e0dc957ad3c17efd",
+    "01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（链式前向星旧版，yxc版本）.cpp": "aab1acaacb569aced39b2ac227e3da3af1aabce2337c5c0d5e957df0214bd611",
+    "01 - 常用在线模板汇总/02 - 图、树、网络流/10 - VDCC (Tarjan).cpp": "4ff7d03af67a5f2bf3edc1c1944ded146246e995ea3c66b0f2f2a5963556e12b",
+    "02 - 打印稿模板汇总/03A - 图论.md": "17afd86fc037d1bf87f93b116bffb5dda6aef6e474c8a90c441816acb5da896a",
+    "03 - jiangly模板收集/02 - 图与网络/01 - 强连通分量缩点（SCC）.cpp": "724bf685ebed4dede2b7ac30e0157cb4a3653382d6ad5e3dc526a6ac5fa057b6",
+    "03 - jiangly模板收集/02 - 图与网络/02 - 割边与割边缩点（EBCC）.cpp": "eaad1d94313e42ae8bc8cf83b753714e5801ed85156b4d9577beb7d211f63921"
+  },
+  "kuangbin_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "reviewed_rows": [
+    {
+      "source": "WIDA",
+      "topic": "08 - SCC (Tarjan)",
+      "before": "local-tested",
+      "after": "local-tested",
+      "note": "Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; no directed-SCC OJ record yet. See docs/GRAPH_COVERAGE_REVIEW.md"
+    },
+    {
+      "source": "WIDA",
+      "topic": "（有向图）强连通分量缩点",
+      "before": "pending",
+      "after": "local-tested",
+      "note": "Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; no directed-SCC OJ record yet. See docs/GRAPH_COVERAGE_REVIEW.md"
+    },
+    {
+      "source": "WIDA",
+      "topic": "01 - 强连通分量缩点（SCC）",
+      "before": "pending",
+      "after": "local-tested",
+      "note": "Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; no directed-SCC OJ record yet. See docs/GRAPH_COVERAGE_REVIEW.md"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.4.1 Tarjan",
+      "before": "pending",
+      "after": "local-tested",
+      "note": "Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; no directed-SCC OJ record yet. See docs/GRAPH_COVERAGE_REVIEW.md"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.4.2 Kosaraju",
+      "before": "pending",
+      "after": "local-tested",
+      "note": "Recursive two-pass Kosaraju; cnt/bel, sizes from histogram; current IDs 1-based topological versus upstream 0-based. tests/tarjan.cpp independently checks both styles against reachability; OJ pending"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.4 有向图的强连通分量",
+      "before": "pending",
+      "after": "local-tested",
+      "note": "Both child algorithms implemented and locally verified by tests/tarjan.cpp; component sizes derive from membership. This is not an OJ acceptance claim"
+    },
+    {
+      "source": "WIDA",
+      "topic": "09 - EDCC (Tarjan)（链式前向星旧版，yxc版本）",
+      "before": "pending",
+      "after": "local-tested",
+      "note": "Bridge IDs, edge components and bridge forest covered; logical edge ID maps paired upstream half-edges to one ID. Storage layout differs. P8436 dual AC and tests/biconnected.cpp; see graph review"
+    },
+    {
+      "source": "WIDA",
+      "topic": "09 - EDCC (Tarjan)（新版）",
+      "before": "local-tested",
+      "after": "partial",
+      "note": "Partition and true bridges locally verified/P8436 dual AC. Upstream public bridge set actually records DFS edge orientations, not only bridges; orientation output is not yet supplied. Source bug/field semantics documented in graph review"
+    },
+    {
+      "source": "WIDA",
+      "topic": "（无向图）割边缩点",
+      "before": "pending",
+      "after": "partial",
+      "note": "True bridges, edge-component partition and bridge forest covered; component sizes derive from bel. Explicit direct edge-orientation output remains missing; P8436 dual AC only covers partition"
+    },
+    {
+      "source": "WIDA",
+      "topic": "02 - 割边与割边缩点（EBCC）",
+      "before": "pending",
+      "after": "partial",
+      "note": "Partition and bridge forest covered with multigraph/disconnected support; upstream global E orientation and compress.cnte internal-edge counts still need interfaces and tests"
+    },
+    {
+      "source": "WIDA",
+      "topic": "10 - VDCC (Tarjan)",
+      "before": "local-tested",
+      "after": "local-tested",
+      "note": "Cut vertices, block vertex sets and correct full vertex-block incidence forest covered; P8435 dual AC plus independent block/forest oracles. Upstream boolean point indexing in rebuild is not copied; full forest numbering documented in graph review"
+    },
+    {
+      "source": "WIDA",
+      "topic": "（无向图）割点缩点",
+      "before": "pending",
+      "after": "local-tested",
+      "note": "Cut vertices, block vertex sets and correct full vertex-block incidence forest covered; P8435 dual AC plus independent block/forest oracles. Upstream boolean point indexing in rebuild is not copied; full forest numbering documented in graph review"
+    },
+    {
+      "source": "WIDA",
+      "topic": "缩点（Tarjan 算法）",
+      "before": "pending",
+      "after": "partial",
+      "note": "Directed SCC and vertex blocks covered; edge-component orientation/compression extras remain pending. See individual child rows and graph review"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.6 割点与桥",
+      "before": "pending",
+      "after": "partial",
+      "note": "cut/bridge booleans and original edge IDs locally verified; upstream add_block (connected-component change after deleting each vertex) not yet exposed/tested"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.6.1 模板",
+      "before": "pending",
+      "after": "partial",
+      "note": "cut/bridge booleans and original edge IDs locally verified; upstream add_block (connected-component change after deleting each vertex) not yet exposed/tested"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.6.2 调用",
+      "before": "pending",
+      "after": "partial",
+      "note": "Bridge detection kernel available; UVA796 parsing/sorted output adapter and POJ2117 deletion-component maximum remain unverified"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.5 图的割点、桥和双连通分支的基本概念",
+      "before": "pending",
+      "after": "partial",
+      "note": "Cut/bridge/block kernels and incidence forests covered; leaf-pair augmentation formula/construction still needs scoped application verification"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.7 边双连通分支",
+      "before": "pending",
+      "after": "partial",
+      "note": "Edge components/bridge forest verified; POJ3177 connected-graph augmentation count ceil(leaves/2) and application still pending"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.8 点双连通分支",
+      "before": "pending",
+      "after": "partial",
+      "note": "Vertex block kernel verified; POJ2942 complement graph plus non-bipartite-block/odd-cycle vertex marking is not implemented or verified"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.18.2 强连通缩点法（拓扑排序只能得到任意解）",
+      "before": "pending",
+      "after": "partial",
+      "note": "SCC satisfiability and one assignment implemented using Kosaraju topological IDs; tests/graph_contracts.cpp exhaustive assignment oracle. POJ3648 Wedding literal parser and application adapter pending; not lexicographically minimal"
+    },
+    {
+      "source": "kuangbin",
+      "topic": "4.18 2-SAT",
+      "before": "pending",
+      "after": "partial",
+      "note": "SCC-based satisfiability/one assignment locally verified; lexicographically minimal coloring variant and source application adapters remain pending"
+    }
+  ],
+  "checked_oj_snapshots": [
+    {
+      "problem": "Luogu P8435",
+      "style": "compact",
+      "record": "https://www.luogu.com.cn/record/297517446",
+      "verdict": "Accepted",
+      "submitted_source": "verification/submitted/P8435.compact.cpp",
+      "submitted_sha256": "2340babbf7cd3db81a58445fee116a288c5e06807ebcdd1119133c15709c7df9"
+    },
+    {
+      "problem": "Luogu P8435",
+      "style": "classic",
+      "record": "https://www.luogu.com.cn/record/297517662",
+      "verdict": "Accepted",
+      "submitted_source": "verification/submitted/P8435.classic.cpp",
+      "submitted_sha256": "ba38a7bd2185f201f04f0635c863f5a5226685c744a6f34209ed68bdff88447b"
+    },
+    {
+      "problem": "Luogu P8436",
+      "style": "compact",
+      "record": "https://www.luogu.com.cn/record/297519028",
+      "verdict": "Accepted",
+      "submitted_source": "verification/submitted/P8436.compact.cpp",
+      "submitted_sha256": "96a016421a9675363fceba875ad30c05fd6dc318947ab2a7ad7ed3b30acd35ed"
+    },
+    {
+      "problem": "Luogu P8436",
+      "style": "classic",
+      "record": "https://www.luogu.com.cn/record/297519083",
+      "verdict": "Accepted",
+      "submitted_source": "verification/submitted/P8436.classic.cpp",
+      "submitted_sha256": "a7a5eaed27a03086018edabd23467b03e79c879ac8828bd768ded45f58e0a8a9"
+    }
+  ]
+}

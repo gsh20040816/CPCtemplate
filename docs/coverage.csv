@@ -21,10 +21,10 @@ WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（树链�
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/05 - Djikstra.cpp,,05 - Djikstra,local-tested,src/compact/graph.hpp#Dijkstra,src/classic/graph.hpp#Shortest_Path,tests/graph_contracts.cpp; int128 Floyd distances and reconstructed paths for every source; nonnegative weights; finite shortest distances < LLONG_MAX; OJ pending
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/06 - Floyd.cpp,,06 - Floyd,pending,,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/07 - MST (Kruskal).cpp,,07 - MST (Kruskal),pending,,,
-WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/08 - SCC (Tarjan).cpp,,08 - SCC (Tarjan),local-tested,src/compact/tarjan.hpp,src/classic/tarjan.hpp,tests/tarjan.cpp; cnt/bel and dag() give component IDs and condensation; component sizes are frequencies of bel; OJ pending
-WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（新版）.cpp,,09 - EDCC (Tarjan)（新版）,local-tested,src/compact/biconnected.hpp,src/classic/biconnected.hpp,tests/biconnected.cpp; P8435 and P8436 both styles AC (verification/oj.json); block/bridge forests additionally tested locally
-WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（链式前向星旧版，yxc版本）.cpp,,09 - EDCC (Tarjan)（链式前向星旧版，yxc版本）,pending,,,
-WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/10 - VDCC (Tarjan).cpp,,10 - VDCC (Tarjan),local-tested,src/compact/biconnected.hpp,src/classic/biconnected.hpp,tests/biconnected.cpp; P8435 and P8436 both styles AC (verification/oj.json); block/bridge forests additionally tested locally
+WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/08 - SCC (Tarjan).cpp,,08 - SCC (Tarjan),local-tested,src/compact/tarjan.hpp#TarjanSCC,src/classic/tarjan.hpp#Tarjan_SCC,Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; no directed-SCC OJ record yet. See docs/GRAPH_COVERAGE_REVIEW.md
+WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（新版）.cpp,,09 - EDCC (Tarjan)（新版）,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,"Partition and true bridges locally verified/P8436 dual AC. Upstream public bridge set actually records DFS edge orientations, not only bridges; orientation output is not yet supplied. Source bug/field semantics documented in graph review"
+WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（链式前向星旧版，yxc版本）.cpp,,09 - EDCC (Tarjan)（链式前向星旧版，yxc版本）,local-tested,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,"Bridge IDs, edge components and bridge forest covered; logical edge ID maps paired upstream half-edges to one ID. Storage layout differs. P8436 dual AC and tests/biconnected.cpp; see graph review"
+WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/10 - VDCC (Tarjan).cpp,,10 - VDCC (Tarjan),local-tested,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,"Cut vertices, block vertex sets and correct full vertex-block incidence forest covered; P8435 dual AC plus independent block/forest oracles. Upstream boolean point indexing in rebuild is not copied; full forest numbering documented in graph review"
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/11 - 一般图最大匹配（带花树算法）（新版）.cpp,,11 - 一般图最大匹配（带花树算法）（新版）,local-tested,src/compact/blossom.hpp,src/classic/blossom.hpp,tests/blossom.cpp; maximum cardinality and matching reconstruction; OJ pending
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/11 - 一般图最大匹配（带花树算法）（旧版）.cpp,,11 - 一般图最大匹配（带花树算法）（旧版）,local-tested,src/compact/blossom.hpp,src/classic/blossom.hpp,tests/blossom.cpp; maximum cardinality and matching reconstruction; OJ pending
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/12 - 一般图最大权匹配（带权带花树算法）.cpp,,12 - 一般图最大权匹配（带权带花树算法）,pending,,,
@@ -85,10 +85,10 @@ WIDA,02 - 打印稿模板汇总/03A - 图论.md,,平面图最短路（对偶图�
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,最小生成树（MST问题）,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（稀疏图）Prim算法,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（稠密图）Kruskal算法,pending,,,
-WIDA,02 - 打印稿模板汇总/03A - 图论.md,,缩点（Tarjan 算法）,pending,,,
-WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（有向图）强连通分量缩点,pending,,,
-WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（无向图）割边缩点,pending,,,
-WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（无向图）割点缩点,pending,,,
+WIDA,02 - 打印稿模板汇总/03A - 图论.md,,缩点（Tarjan 算法）,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,Directed SCC and vertex blocks covered; edge-component orientation/compression extras remain pending. See individual child rows and graph review
+WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（有向图）强连通分量缩点,local-tested,src/compact/tarjan.hpp#TarjanSCC,src/classic/tarjan.hpp#Tarjan_SCC,Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; no directed-SCC OJ record yet. See docs/GRAPH_COVERAGE_REVIEW.md
+WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（无向图）割边缩点,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,"True bridges, edge-component partition and bridge forest covered; component sizes derive from bel. Explicit direct edge-orientation output remains missing; P8436 dual AC only covers partition"
+WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（无向图）割点缩点,local-tested,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,"Cut vertices, block vertex sets and correct full vertex-block incidence forest covered; P8435 dual AC plus independent block/forest oracles. Upstream boolean point indexing in rebuild is not copied; full forest numbering documented in graph review"
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,染色法判定二分图 (dfs算法),pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,链式前向星建图与搜索,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,一般图最大匹配（带花树算法）,pending,,,
@@ -475,8 +475,8 @@ WIDA,03 - jiangly模板收集/01 - 杂类/03 - 字符调整.cpp,,03 - 字符调�
 WIDA,03 - jiangly模板收集/01 - 杂类/04A - 二分算法（整数域）.cpp,,04A - 二分算法（整数域）,pending,,,
 WIDA,03 - jiangly模板收集/01 - 杂类/04B - 二分算法（实数域）.cpp,,04B - 二分算法（实数域）,pending,,,
 WIDA,03 - jiangly模板收集/01 - 杂类/05 - 快读.cpp,,05 - 快读,pending,,,
-WIDA,03 - jiangly模板收集/02 - 图与网络/01 - 强连通分量缩点（SCC）.cpp,,01 - 强连通分量缩点（SCC）,pending,,,
-WIDA,03 - jiangly模板收集/02 - 图与网络/02 - 割边与割边缩点（EBCC）.cpp,,02 - 割边与割边缩点（EBCC）,pending,,,
+WIDA,03 - jiangly模板收集/02 - 图与网络/01 - 强连通分量缩点（SCC）.cpp,,01 - 强连通分量缩点（SCC）,local-tested,src/compact/tarjan.hpp#TarjanSCC,src/classic/tarjan.hpp#Tarjan_SCC,Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; no directed-SCC OJ record yet. See docs/GRAPH_COVERAGE_REVIEW.md
+WIDA,03 - jiangly模板收集/02 - 图与网络/02 - 割边与割边缩点（EBCC）.cpp,,02 - 割边与割边缩点（EBCC）,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,Partition and bridge forest covered with multigraph/disconnected support; upstream global E orientation and compress.cnte internal-edge counts still need interfaces and tests
 WIDA,03 - jiangly模板收集/02 - 图与网络/03 - 二分图最大权匹配（MaxAssignment 基于KM）.cpp,,03 - 二分图最大权匹配（MaxAssignment 基于KM）,partial,src/compact/weighted_matching.hpp,src/classic/weighted_matching.hpp,Maximum total weight and assignment covered; upstream labels() dual certificate and weights() optimum for each cardinality remain pending; prefix-row augmentations cannot stand in for cardinality optima
 WIDA,03 - jiangly模板收集/02 - 图与网络/04 - 一般图最大匹配（Graph 带花树算法）【久远】.cpp,,04 - 一般图最大匹配（Graph 带花树算法）【久远】,pending,,,
 WIDA,03 - jiangly模板收集/02 - 图与网络/05 - TwoSat（2-Sat）.cpp,,05 - TwoSat（2-Sat）,pending,,,
@@ -641,15 +641,15 @@ kuangbin,ACM template (2018),133,4.2 最小生成树,pending,,,
 kuangbin,ACM template (2018),133,4.2.1 Prim 算法,pending,,,
 kuangbin,ACM template (2018),134,4.2.2 Kruskal 算法,pending,,,
 kuangbin,ACM template (2018),135,4.3 次小生成树,pending,,,
-kuangbin,ACM template (2018),136,4.4 有向图的强连通分量,pending,,,
-kuangbin,ACM template (2018),136,4.4.1 Tarjan,pending,,,
-kuangbin,ACM template (2018),137,4.4.2 Kosaraju,pending,,,
-kuangbin,ACM template (2018),138,4.5 图的割点、桥和双连通分支的基本概念,pending,,,
-kuangbin,ACM template (2018),139,4.6 割点与桥,pending,,,
-kuangbin,ACM template (2018),139,4.6.1 模板,pending,,,
-kuangbin,ACM template (2018),141,4.6.2 调用,pending,,,
-kuangbin,ACM template (2018),143,4.7 边双连通分支,pending,,,
-kuangbin,ACM template (2018),144,4.8 点双连通分支,pending,,,
+kuangbin,ACM template (2018),136,4.4 有向图的强连通分量,local-tested,src/compact/tarjan.hpp;src/compact/graph.hpp#SCC,src/classic/tarjan.hpp;src/classic/graph.hpp#Strong_Component,Both child algorithms implemented and locally verified by tests/tarjan.cpp; component sizes derive from membership. This is not an OJ acceptance claim
+kuangbin,ACM template (2018),136,4.4.1 Tarjan,local-tested,src/compact/tarjan.hpp#TarjanSCC,src/classic/tarjan.hpp#Tarjan_SCC,Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; no directed-SCC OJ record yet. See docs/GRAPH_COVERAGE_REVIEW.md
+kuangbin,ACM template (2018),137,4.4.2 Kosaraju,local-tested,src/compact/graph.hpp#SCC,src/classic/graph.hpp#Strong_Component,"Recursive two-pass Kosaraju; cnt/bel, sizes from histogram; current IDs 1-based topological versus upstream 0-based. tests/tarjan.cpp independently checks both styles against reachability; OJ pending"
+kuangbin,ACM template (2018),138,4.5 图的割点、桥和双连通分支的基本概念,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,Cut/bridge/block kernels and incidence forests covered; leaf-pair augmentation formula/construction still needs scoped application verification
+kuangbin,ACM template (2018),139,4.6 割点与桥,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,cut/bridge booleans and original edge IDs locally verified; upstream add_block (connected-component change after deleting each vertex) not yet exposed/tested
+kuangbin,ACM template (2018),139,4.6.1 模板,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,cut/bridge booleans and original edge IDs locally verified; upstream add_block (connected-component change after deleting each vertex) not yet exposed/tested
+kuangbin,ACM template (2018),141,4.6.2 调用,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,Bridge detection kernel available; UVA796 parsing/sorted output adapter and POJ2117 deletion-component maximum remain unverified
+kuangbin,ACM template (2018),143,4.7 边双连通分支,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,Edge components/bridge forest verified; POJ3177 connected-graph augmentation count ceil(leaves/2) and application still pending
+kuangbin,ACM template (2018),144,4.8 点双连通分支,partial,src/compact/biconnected.hpp#Biconnected,src/classic/biconnected.hpp#Biconnected_Graph,Vertex block kernel verified; POJ2942 complement graph plus non-bipartite-block/odd-cycle vertex marking is not implemented or verified
 kuangbin,ACM template (2018),147,4.9 最小树形图,pending,,,
 kuangbin,ACM template (2018),149,4.10 二分图匹配,pending,,,
 kuangbin,ACM template (2018),149,4.10.1 邻接矩阵（匈牙利算法）,pending,,,
@@ -670,9 +670,9 @@ kuangbin,ACM template (2018),168,4.16.6 最大流判断多解,pending,,,
 kuangbin,ACM template (2018),169,4.17 最小费用最大流,pending,,,
 kuangbin,ACM template (2018),169,4.17.1 SPF A 版费用流,pending,,,
 kuangbin,ACM template (2018),170,4.17.2 zkw 费用流,pending,,,
-kuangbin,ACM template (2018),172,4.18 2-SAT,pending,,,
+kuangbin,ACM template (2018),172,4.18 2-SAT,partial,src/compact/graph.hpp#TwoSAT,src/classic/graph.hpp#Two_SAT,SCC-based satisfiability/one assignment locally verified; lexicographically minimal coloring variant and source application adapters remain pending
 kuangbin,ACM template (2018),172,4.18.1 染色法（可以得到字典序最小的解）,pending,,,
-kuangbin,ACM template (2018),173,4.18.2 强连通缩点法（拓扑排序只能得到任意解）,pending,,,
+kuangbin,ACM template (2018),173,4.18.2 强连通缩点法（拓扑排序只能得到任意解）,partial,src/compact/graph.hpp#TwoSAT,src/classic/graph.hpp#Two_SAT,SCC satisfiability and one assignment implemented using Kosaraju topological IDs; tests/graph_contracts.cpp exhaustive assignment oracle. POJ3648 Wedding literal parser and application adapter pending; not lexicographically minimal
 kuangbin,ACM template (2018),177,4.19 曼哈顿最小生成树,pending,,,
 kuangbin,ACM template (2018),179,4.20 LCA,pending,,,
 kuangbin,ACM template (2018),179,4.20.1 dfs+ST 在线算法,pending,,,
