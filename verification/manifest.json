@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T23:47:38.116903+00:00",
+  "recorded_at_utc": "2026-09-11T23:58:18.119550+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -72,7 +72,10 @@
       "Incremental lex_two_sat-only check; unchanged-module evidence retained from 7508260:",
       "Lex 2-SAT dual exhaustive assignment oracle, incremental/forced clauses, rollback and 100000-variable recursive chain PASS",
       "Incremental CRT audit; unchanged-module evidence retained from 161a02c (CRT core unchanged):",
-      "CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS"
+      "CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS",
+      "Incremental Widget Factory application audit; unchanged library evidence retained from 5e02aec:",
+      "Widget Factory compact: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
+      "Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -143,7 +146,10 @@
       "Incremental lex_two_sat-only check; unchanged-module evidence retained from 7508260:",
       "Lex 2-SAT dual exhaustive assignment oracle, incremental/forced clauses, rollback and 100000-variable recursive chain PASS",
       "Incremental CRT audit; unchanged-module evidence retained from 161a02c (CRT core unchanged):",
-      "CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS"
+      "CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS",
+      "Incremental Widget Factory application audit; unchanged library evidence retained from 5e02aec:",
+      "Widget Factory compact: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
+      "Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS"
     ]
   },
   "sha256": {
@@ -338,6 +344,7 @@
     "tests/wedding_application.py": "0b77cdad2a0e9cfe2cc29d5b7f8333e50ffa475bce43eeedde5d6e7cd57739e4",
     "tests/weighted_matching.cpp": "1f80caaf1d778999408f9c046bc990c115c67eb19a3655d62ff53064bdd2d2a6",
     "tests/weighted_matching_application.py": "9601f78933cd4944fc1a722f0b79ba648a8b3fb279d2407ba38f9f0b3e506a32",
+    "tests/widget_factory_application.py": "9913af61ce2ffd10d9639579d753b35b4fa999510923d7f1ac0c0eb17354a77f",
     "tests/word_chain.cpp": "cda712bcbd8a9d0a295f2de917bc208ae4e7496143ade2c4164052a8fb744671",
     "tests/word_chain_application.py": "ffc7919a44ae457f6ee79ae68129dae59adf6643ba0af6897fef51a44c4fbf28",
     "tests/xor_basis.cpp": "e06141440ba3865a9605725d7633786ff4d747cb3c2a292de5c576f36bfa2251",

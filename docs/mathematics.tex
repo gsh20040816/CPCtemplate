@@ -56,7 +56,7 @@ P4777 的完整程序按“模数、余数”读入，题目保证有解且周�
 
 此处覆盖一般非互素模数合并。Garner 的混合进制方法仍待补充，
 不能把这一函数当作 OI Wiki 中国剩余定理页面全部内容的覆盖。
-kuangbin 的“解同余方程组”是模 7 的线性方程组消元应用，也不由本节替代。
+kuangbin 的“解同余方程组”是模 7 的线性方程组消元应用，见后面的工厂工期一节。
 来源：\url{https://oi-wiki.org/math/number-theory/crt/}；WIDA 数论模板的 excrt 节。
 
 \section{素数模平方根}\index{Cipolla}\index{quadratic residue}
@@ -150,6 +150,30 @@ BM 从样本得到最短线性递推。要对未来项使用，必须另外证�
 无向图 Laplacian 的对角元为度数，非对角元为负的边重数。删去同一行列后的行列式为生成树数。
 自环不参与生成树；重边需要累加。只有一个顶点时空余子式行列式约定为 1。
 有向图需要重新明确入度/出度 Laplacian 与根向内/向外树的方向，不能直接复用无向封装。
+
+\section{模线性方程组：工厂工期}\index{Widget Factory}\index{模高斯消元}
+POJ2947（同题 UVa1564）给出每位工人制造的产品类型和起止星期。
+设第 $j$ 种产品需 $x_j$ 天，第 $i$ 条记录中出现 $a_{ij}$ 次，
+以星期一为 0、星期日为 6，则
+\[
+\sum_j a_{ij}x_j\equiv \operatorname{finish}_i-\operatorname{start}_i+1\pmod7.
+\]
+起止两天均计入；同一种产品重复出现必须累加系数。
+跨星期无需特判，模数类型负责归一化负数。
+每个余数在 $[3,9]$ 中恰有一个代表，因此模方程的解数就是原问题的解数。
+
+直接使用第~\pageref{compact-LinearAlgebra}~页的模高斯消元，模数取 7。
+增广矩阵有 $m$ 行、$n+1$ 列，最后一列是右端项。
+先判断 \texttt{consistent}：假时输出无解；为真且秩小于 $n$ 时输出多解；
+否则读取特解，余数小于 3 的分量加 7。
+不能先以秩不足判断多解，因为零系数行仍可能有非零右端项。
+本题所有非零系数均可逆；合数模数不具备这一性质，不能直接套用此消元。
+
+完整双版本程序位于 \texttt{verify/poj/2947.*.cpp}。
+验证包含所有起止星期组合、产品重复 7 次导致系数归零、矛盾的零行、
+独立枚举所有 $3\!\sim\!9$ 天赋值，以及用可逆行变换构造的 300 阶稠密系统。
+该应用验证覆盖分类及唯一解输出，不代替零空间基等其他接口的验证。
+来源：\url{https://onlinejudge.org/external/15/1564.pdf}；kuangbin 2.10.2。
 
 \section{概率、期望与博弈}\index{expectation}\index{Sprague-Grundy}
 期望线性性不要求独立：$\mathbb E[\sum X_i]=\sum\mathbb E[X_i]$。

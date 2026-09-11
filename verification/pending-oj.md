@@ -70,6 +70,8 @@
 - `verify/poj/2337.compact.cpp`
 - `verify/poj/2942.classic.cpp`
 - `verify/poj/2942.compact.cpp`
+- `verify/poj/2947.classic.cpp`
+- `verify/poj/2947.compact.cpp`
 - `verify/poj/3648.classic.cpp`
 - `verify/poj/3648.compact.cpp`
 - `verify/sgu/101.classic.cpp`

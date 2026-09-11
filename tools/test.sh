@@ -167,3 +167,5 @@ build/lex_two_sat
 
 "$CXX" "${flags[@]}" tests/crt.cpp -o build/crt
 build/crt
+
+python3 tests/widget_factory_application.py
