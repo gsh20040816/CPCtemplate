@@ -89,3 +89,6 @@ build/interpolation
 
 "$CXX" "${flags[@]}" tests/discrete_log.cpp -o build/discrete_log
 build/discrete_log
+
+"$CXX" "${flags[@]}" -pthread tests/tree_path_kth.cpp -o build/tree_path_kth
+build/tree_path_kth

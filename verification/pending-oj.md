@@ -6,6 +6,8 @@
 - `verify/luogu/CF600E.compact.cpp`
 - `verify/luogu/P2495.classic.cpp`
 - `verify/luogu/P2495.compact.cpp`
+- `verify/luogu/P2633.classic.cpp`
+- `verify/luogu/P2633.compact.cpp`
 - `verify/luogu/P3373.classic.cpp`
 - `verify/luogu/P3386.classic.cpp`
 - `verify/luogu/P3386.compact.cpp`

@@ -362,6 +362,14 @@ PersistentArray(a,changes=0)，a 是非空 0-based 初值数组；第 0 版为�
 
 \lstinputlisting[firstline=6,lastline=109]{../src/compact/persistent_array.hpp}
 
+\chapter{树上路径第 k 小}
+
+\section{树上路径点权第 k 小}\label{compact-TreePathKth}\index{TreePathKth}
+
+TreePathKth(a) 传入非空 0-based 权值数组，节点编号 1..n；add(u,v) 加无向边，要求恰好构成一棵树。build(root=1) 递归 DFS 建立根到各节点的频数版本与倍增表，可换根重建，旧版本自动清空。kth(u,v,k) 返回简单路径上第 k 小的点权，包含两个端点，每个节点计一次；1$\le$k$\le$路径点数。lca(u,v) 返回当前预处理根下的最近公共祖先。使用 root[u]+root[v]-root[lca]-root[parent(lca)]，编号 0 为全零版本，避免少算或重复算 LCA。支持重复值与完整 long long 权值，内部只统计频数；权值和树结构在查询阶段保持不变。预处理 O(n log n)，每次查询 O(log n)，空间 O(n log n)。递归深度最坏 O(n)，保持递归写法。
+
+\lstinputlisting[firstline=7,lastline=136]{../src/compact/tree_path_kth.hpp}
+
 \chapter{图论进阶}
 
 \section{矩形二分图最小权匹配}\label{compact-Hungarian}\index{Hungarian}
@@ -869,6 +877,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 声明 Persistent\_Array<NODES>，Init(a) 初始化；NODES 限制节点总数，不是数组长度。建议按 2n-1 加上修改数乘以 (ceil(log2(n))+1) 分配；Copy 不分配节点。Set、Copy、Query 对应动态接口。大对象放在全局或 static，Init 会丢弃全部旧版本。
 
 \lstinputlisting[firstline=6,lastline=110]{../src/classic/persistent_array.hpp}
+
+\chapter{树上路径第 k 小}
+
+\section{树上路径点权第 k 小}\label{classic-TreePathKth}\index{Tree\_Path\_Kth}
+
+算法约束见动态版本第~\pageref{compact-TreePathKth}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Tree\_Path\_Kth<N,NODES,LOG>，Init(a) 清空图并保存权值；Insert、Build、Kth、Lca 对应动态接口。要求 2 的 LOG 次方大于实际点数，默认 LOG=20。若不同权值数为 D，NODES 至少取 n 乘以 (ceil(log2(D))+1)，另有编号 0 空节点。大对象放在全局或 static；Init 与 Build 分别清空图和重建版本。
+
+\lstinputlisting[firstline=7,lastline=143]{../src/classic/tree_path_kth.hpp}
 
 \chapter{图论进阶}
 

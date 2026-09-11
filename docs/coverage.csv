@@ -617,10 +617,10 @@ kuangbin,ACM template (2018),82,3.5.4 SPOJQTREE5,pending,,,
 kuangbin,ACM template (2018),84,3.5.5 SPOJQTREE6,pending,,,
 kuangbin,ACM template (2018),87,3.5.6 SPOJQTREE7,pending,,,
 kuangbin,ACM template (2018),91,3.5.7 HDU4010,pending,,,
-kuangbin,ACM template (2018),95,3.6 主席树,partial,src/compact/optimization.hpp#PersistentKth,src/classic/optimization.hpp#Persistent_Kth,"Static interval order statistics covered; distinct-count, tree-path kth and dynamic updates in 3.6.1/3.6.3/3.6.4 remain pending"
+kuangbin,ACM template (2018),95,3.6 主席树,partial,src/compact/optimization.hpp#PersistentKth,src/classic/optimization.hpp#Persistent_Kth,Static interval and tree-path order statistics covered; distinct-count and dynamic updates in 3.6.1/3.6.4 remain pending
 kuangbin,ACM template (2018),95,3.6.1 查询区间多少个不同的数,pending,,,
 kuangbin,ACM template (2018),97,3.6.2 静态区间第 k 大,local-tested,src/compact/optimization.hpp#PersistentKth,src/classic/optimization.hpp#Persistent_Kth,"Upstream POJ2104 code actually selects kth smallest; suffix-root counts mapped to prefix-root differences. tests/optimization.cpp, tests/dual.cpp and tests/persistent_kth_application.py; P3834 pending CAPTCHA"
-kuangbin,ACM template (2018),98,3.6.3 树上路径点权第 k 大,pending,,,
+kuangbin,ACM template (2018),98,3.6.3 树上路径点权第 k 大,local-tested,src/compact/tree_path_kth.hpp,src/classic/tree_path_kth.hpp,"SPOJ COT semantics: kth smallest point value on tree path; recursive DFS, four-root frequencies and binary-lifting LCA; tests/tree_path_kth.cpp sorted path oracle, reroot and 200000-node chain; P2633 pending"
 kuangbin,ACM template (2018),102,3.6.4 动态第 k 大,pending,,,
 kuangbin,ACM template (2018),105,3.7 Treap,local-tested,src/compact/gcd_sequence.hpp,src/classic/gcd_sequence.hpp,tests/gcd_sequence.cpp; tagged sequence operations implemented; original ZOJ3765 OJ pending
 kuangbin,ACM template (2018),108,3.8 KD 树,pending,,,
