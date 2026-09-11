@@ -81,3 +81,9 @@
 2026-09-12 修复本库两套圆圆交点：近同心不再当作重合，零半径圆按点处理；仅相同圆心、相同正半径返回无限交点。相切判定改用圆心弦投影到圆周的径向差，避免近同心情况下用两圆心距离接近半径差误判。圆相关容差使用局部尺度，保留浮点问题的误差预算约定。
 
 小角度圆弓面积采用 $\theta-\sin(2\theta)/2=2\theta^3/3-2\theta^5/15+4\theta^7/315+O(\theta^9)$，避免接近外切时直接相减丢失有效位。tests/circle_precision.cpp 使用 Boost 100 位十进制三角函数计算独立面积参考，覆盖近同心、退化点、缩放与近外切。旧实现确实触发新回归断言，证据见 verification/circle-regression.txt；没有把这些测试解释为任意实数输入的精确保证。
+
+## 早期 DFS 实现的递归统一
+
+2026-09-12 将早期 HLD、Kosaraju 的手写 DFS 调用栈改为递归。Kosaraju 保留原来的分量拓扑递增编号，因此 TwoSAT 的使用约定不变；Tarjan 分量编号仍为逆拓扑序。传统版 HLD 改用 Heavy_Light_Decomposition<N> 与 Init(n)，明确静态容量。
+
+对照 WIDA 在线 HLD 的路径/子树修改与查询，组合已验证的区间乘加线段树编写 [P3384](https://www.luogu.com.cn/problem/P3384) 驱动。tests/hld.cpp 检查点权路径、排除 LCA 的边权路径、子树 DFS 区间及换根后重建，还检查 20 万点链；tests/tarjan.cpp 的全部 4 点有向图枚举同时核验两套递归 Kosaraju。

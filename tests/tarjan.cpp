@@ -1,5 +1,7 @@
 #include "../src/compact/tarjan.hpp"
 #include "../src/classic/tarjan.hpp"
+#include "../src/compact/graph.hpp"
+#include "../src/classic/graph.hpp"
 #include <iostream>
 #include <random>
 
@@ -9,6 +11,8 @@ void check(const std::vector<std::vector<int>> &g)
     TarjanSCC a(n);
     static Tarjan_SCC<30> b;
     b.Init(n);
+    SCC c(n);
+    Strong_Component d(n);
     std::vector<std::vector<bool>> reach(n + 1, std::vector<bool>(n + 1));
     for (int u = 1; u <= n; u++)
     {
@@ -17,6 +21,8 @@ void check(const std::vector<std::vector<int>> &g)
         {
             a.add(u, v);
             b.Insert(u, v);
+            c.add(u, v);
+            d.Insert(u, v);
             reach[u][v] = true;
         }
     }
@@ -28,7 +34,9 @@ void check(const std::vector<std::vector<int>> &g)
     {
         a.run();
         b.Run();
-        assert(a.cnt == b.cnt);
+        c.run();
+        d.Run();
+        assert(a.cnt == b.cnt && a.cnt == c.cnt && a.cnt == d.cnt);
         assert(a.st.empty() && b.st.empty());
         for (int u = 1; u <= n; u++)
         {
@@ -39,6 +47,8 @@ void check(const std::vector<std::vector<int>> &g)
                 bool same = reach[u][v] && reach[v][u];
                 assert((a.bel[u] == a.bel[v]) == same);
                 assert((b.bel[u] == b.bel[v]) == same);
+                assert((c.bel[u] == c.bel[v]) == same);
+                assert((d.bel[u] == d.bel[v]) == same);
             }
         }
         auto da = a.dag();
@@ -52,6 +62,8 @@ void check(const std::vector<std::vector<int>> &g)
                 {
                     assert(a.bel[u] > a.bel[v]);
                     assert(b.bel[u] > b.bel[v]);
+                    assert(c.bel[u] < c.bel[v]);
+                    assert(d.bel[u] < d.bel[v]);
                     ea[a.bel[u]].push_back(a.bel[v]);
                     eb[b.bel[u]].push_back(b.bel[v]);
                 }
@@ -82,5 +94,6 @@ int main()
             g[1 + rng() % n].push_back(1 + rng() % n);
         check(g);
     }
-    std::cout << "Tarjan SCC exhaustive digraphs, reachability and condensation oracle PASS\n";
+    std::cout << "Tarjan SCC exhaustive digraphs, reachability and condensation oracle "
+                 "PASS\n";
 }

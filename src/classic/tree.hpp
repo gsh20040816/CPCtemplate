@@ -1,41 +1,22 @@
 #pragma once
-#include <algorithm>
-#include <array>
 #include <cassert>
-#include <climits>
-#include <cmath>
-#include <functional>
-#include <map>
-#include <numeric>
-#include <optional>
-#include <queue>
-#include <random>
-#include <set>
-#include <stdexcept>
-#include <string>
-#include <tuple>
-#include <unordered_map>
-#include <utility>
+#include <algorithm>
 #include <vector>
 using namespace std;
 
-struct Heavy_Light_Decomposition
+template <int N> struct Heavy_Light_Decomposition
 {
     int n, timer = 0;
-    vector<vector<int>> g;
-    vector<int> fa, dep, siz, son, top, dfn, rk;
+    vector<int> g[N + 1];
+    int fa[N + 1], dep[N + 1], siz[N + 1], son[N + 1];
+    int top[N + 1], dfn[N + 1], rk[N + 1];
 
-    Heavy_Light_Decomposition(int n)
-        : n(n),
-          g(n + 1),
-          fa(n + 1),
-          dep(n + 1),
-          siz(n + 1),
-          son(n + 1),
-          top(n + 1),
-          dfn(n + 1),
-          rk(n + 1)
+    void Init(int vertices)
     {
+        assert(0 < vertices && vertices <= N);
+        n = vertices;
+        for ( int u = 1; u <= n; u++ )
+            g[u].clear();
     }
 
     void Insert(int u, int v)
@@ -44,54 +25,46 @@ struct Heavy_Light_Decomposition
         g[v].push_back(u);
     }
 
-    // Connected tree only; iterative build avoids chain-shaped DFS stack overflow.
+    void Dfs1(int u, int p)
+    {
+        fa[u] = p;
+        siz[u] = 1;
+        son[u] = 0;
+        for ( int v : g[u] )
+        {
+            if ( v == p )
+                continue;
+            dep[v] = dep[u] + 1;
+            Dfs1(v, u);
+            siz[u] += siz[v];
+            if ( !son[u] || siz[v] > siz[son[u]] )
+                son[u] = v;
+        }
+    }
+
+    void Dfs2(int u, int t)
+    {
+        top[u] = t;
+        dfn[u] = ++timer;
+        rk[timer] = u;
+        if ( son[u] )
+            Dfs2(son[u], t);
+        for ( int v : g[u] )
+        {
+            if ( v != fa[u] && v != son[u] )
+                Dfs2(v, v);
+        }
+    }
+
+    // Connected tree only. Recursive DFS; subtree interval is [dfn, dfn+siz-1].
     void Build(int root = 1)
     {
-        fill(fa.begin(), fa.end(), 0);
-        fill(son.begin(), son.end(), 0);
-        vector<int> order{root};
-        fa[root] = root;
-        dep[root] = 0;
-        for ( int i = 0; i < (int)order.size(); i++ )
-        {
-            int u = order[i];
-            for ( int v : g[u] )
-                if ( v != fa[u] )
-                {
-                    fa[v] = u;
-                    dep[v] = dep[u] + 1;
-                    order.push_back(v);
-                }
-        }
-        assert((int)order.size() == n);
-        for ( int i = n - 1; i >= 0; i-- )
-        {
-            int u = order[i];
-            siz[u] = 1;
-            for ( int v : g[u] )
-                if ( fa[v] == u && v != u )
-                {
-                    siz[u] += siz[v];
-                    if ( !son[u] || siz[v] > siz[son[u]] )
-                        son[u] = v;
-                }
-        }
+        assert(1 <= root && root <= n);
         timer = 0;
-        vector<pair<int, int>> st{{root, root}};
-        while ( !st.empty() )
-        {
-            auto [u, t] = st.back();
-            st.pop_back();
-            for ( ; u; u = son[u] )
-            {
-                top[u] = t;
-                dfn[u] = ++timer;
-                rk[timer] = u;
-                for ( int v : g[u] )
-                    if ( fa[v] == u && v != u && v != son[u] )
-                        st.push_back({v, v});
-            }
-        }
+        dep[root] = 0;
+        Dfs1(root, root);
+        Dfs2(root, root);
+        assert(timer == n);
     }
 
     int Lca(int u, int v) const

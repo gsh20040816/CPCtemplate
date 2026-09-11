@@ -68,3 +68,6 @@ build/persistent_array
 
 "$CXX" "${flags[@]}" tests/circle_precision.cpp -o build/circle_precision
 build/circle_precision
+
+"$CXX" "${flags[@]}" -pthread tests/hld.cpp -o build/hld
+build/hld

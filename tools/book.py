@@ -57,6 +57,7 @@ for style in ['compact','classic']:
     if name=='AffineSegTree':body.append('声明 Affine\\_Segment\\_Tree<N> 后 Init(a,mod)，N 为最大数组长度。Update(l,r,mul,add) 修改，Query(l,r) 求和；支持重复初始化。大对象放在全局或 static。')
     if name=='VirtualTree':body.append('声明 Virtual\\_Tree<N,LOG>，要求 2 的 LOG 次方大于实际点数，默认 LOG=20。Init(n)、Insert、Prepare、Build 对应初始化、加边、预处理和查询；Lca、Ancestor、Path 为对应辅助接口。大对象放在全局或 static。')
     if name=='PersistentArray':body.append('声明 Persistent\\_Array<NODES>，Init(a) 初始化；NODES 限制节点总数，不是数组长度。建议按 2n-1 加上修改数乘以 (ceil(log2(n))+1) 分配；Copy 不分配节点。Set、Copy、Query 对应动态接口。大对象放在全局或 static，Init 会丢弃全部旧版本。')
+    if name=='HLD':body.append('声明 Heavy\\_Light\\_Decomposition<N> 后 Init(n)，Insert 加边，Build(root) 剖分；Lca 与 Path 对应动态接口。大对象放在全局或 static。')
     if name=='MinCostFlow':body.append('使用 Insert 加边、Flow 求流、Used 查看方案。')
    body.append(r'\lstinputlisting[firstline='+str(start+1)+',lastline='+str(end)+']{../src/'+style+'/'+filename+'.hpp}')
 (root/'docs/generated.tex').write_text('\n\n'.join(body)+'\n')

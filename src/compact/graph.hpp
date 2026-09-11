@@ -73,55 +73,47 @@ struct SCC
         rg[v].push_back(u);
     }
 
-    // Iterative Kosaraju; component IDs are in topological order, 1..cnt.
+    void dfs1(int u, vector<int> &vis, vector<int> &order)
+    {
+        vis[u] = 1;
+        for (int v : g[u])
+        {
+            if (!vis[v])
+                dfs1(v, vis, order);
+        }
+        order.push_back(u);
+    }
+
+    void dfs2(int u)
+    {
+        bel[u] = cnt;
+        for (int v : rg[u])
+        {
+            if (!bel[v])
+                dfs2(v);
+        }
+    }
+
+    // Recursive Kosaraju; component IDs are in topological order, 1..cnt.
     void run()
     {
         vector<int> vis(n + 1), order;
         cnt = 0;
         bel.assign(n + 1, 0);
         for (int s = 1; s <= n; s++)
+        {
             if (!vis[s])
-            {
-                vector<pair<int, int>> st{{s, 0}};
-                vis[s] = 1;
-                while (!st.empty())
-                {
-                    int u = st.back().first, &i = st.back().second;
-                    if (i == (int)g[u].size())
-                    {
-                        order.push_back(u);
-                        st.pop_back();
-                    }
-                    else
-                    {
-                        int v = g[u][i++];
-                        if (!vis[v])
-                        {
-                            vis[v] = 1;
-                            st.push_back({v, 0});
-                        }
-                    }
-                }
-            }
+                dfs1(s, vis, order);
+        }
         reverse(order.begin(), order.end());
         for (int s : order)
+        {
             if (!bel[s])
             {
                 ++cnt;
-                vector<int> st{s};
-                bel[s] = cnt;
-                while (!st.empty())
-                {
-                    int u = st.back();
-                    st.pop_back();
-                    for (int v : rg[u])
-                        if (!bel[v])
-                        {
-                            bel[v] = cnt;
-                            st.push_back(v);
-                        }
-                }
+                dfs2(s);
             }
+        }
     }
 };
 

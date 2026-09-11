@@ -28,54 +28,46 @@ struct HLD
         g[v].push_back(u);
     }
 
-    // Connected tree only; iterative build avoids chain-shaped DFS stack overflow.
+    void dfs1(int u, int p)
+    {
+        fa[u] = p;
+        siz[u] = 1;
+        son[u] = 0;
+        for (int v : g[u])
+        {
+            if (v == p)
+                continue;
+            dep[v] = dep[u] + 1;
+            dfs1(v, u);
+            siz[u] += siz[v];
+            if (!son[u] || siz[v] > siz[son[u]])
+                son[u] = v;
+        }
+    }
+
+    void dfs2(int u, int t)
+    {
+        top[u] = t;
+        dfn[u] = ++timer;
+        rk[timer] = u;
+        if (son[u])
+            dfs2(son[u], t);
+        for (int v : g[u])
+        {
+            if (v != fa[u] && v != son[u])
+                dfs2(v, v);
+        }
+    }
+
+    // Connected tree only. Recursive DFS; subtree interval is [dfn, dfn+siz-1].
     void build(int root = 1)
     {
-        fill(fa.begin(), fa.end(), 0);
-        fill(son.begin(), son.end(), 0);
-        vector<int> order{root};
-        fa[root] = root;
-        dep[root] = 0;
-        for (int i = 0; i < (int)order.size(); i++)
-        {
-            int u = order[i];
-            for (int v : g[u])
-                if (v != fa[u])
-                {
-                    fa[v] = u;
-                    dep[v] = dep[u] + 1;
-                    order.push_back(v);
-                }
-        }
-        assert((int)order.size() == n);
-        for (int i = n - 1; i >= 0; i--)
-        {
-            int u = order[i];
-            siz[u] = 1;
-            for (int v : g[u])
-                if (fa[v] == u && v != u)
-                {
-                    siz[u] += siz[v];
-                    if (!son[u] || siz[v] > siz[son[u]])
-                        son[u] = v;
-                }
-        }
+        assert(1 <= root && root <= n);
         timer = 0;
-        vector<pair<int, int>> st{{root, root}};
-        while (!st.empty())
-        {
-            auto [u, t] = st.back();
-            st.pop_back();
-            for (; u; u = son[u])
-            {
-                top[u] = t;
-                dfn[u] = ++timer;
-                rk[timer] = u;
-                for (int v : g[u])
-                    if (fa[v] == u && v != u && v != son[u])
-                        st.push_back({v, v});
-            }
-        }
+        dep[root] = 0;
+        dfs1(root, root);
+        dfs2(root, root);
+        assert(timer == n);
     }
 
     int lca(int u, int v) const

@@ -98,9 +98,9 @@ add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。
 
 \section{强连通分量}\label{compact-SCC}\index{SCC}
 
-add(u,v)、run()，bel[1..n] 为分量编号，cnt 为数量；分量编号按缩点图拓扑序递增。迭代 Kosaraju 避免递归爆栈；O(V+E)，同时存正反图。
+add(u,v)、run()，bel[1..n] 为分量编号，cnt 为数量；分量编号按缩点图拓扑序递增。递归 Kosaraju，按用户要求保留 DFS 写法；O(V+E)，同时存正反图。
 
-\lstinputlisting[firstline=60,lastline=127]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=60,lastline=119]{../src/compact/graph.hpp}
 
 \Needspace{444pt}
 
@@ -108,13 +108,13 @@ add(u,v)、run()，bel[1..n] 为分量编号，cnt 为数量；分量编号按�
 
 add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性，仅成功时读取 ans。依赖同文件 SCC；O(V+E)，不保证字典序最小。
 
-\lstinputlisting[firstline=128,lastline=162]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=120,lastline=154]{../src/compact/graph.hpp}
 
 \section{二分图最大匹配}\label{compact-BipartiteMatching}\index{BipartiteMatching}
 
 左右两侧分别编号 1..n、1..m；add(u,v)，solve() 返回匹配数，l[u] 与 r[v] 为匹配端点，0 表示未匹配。分层增广；本版本保守按 O(VE) 估计，不宣称已经验证 Hopcroft-Karp 最紧复杂度。
 
-\lstinputlisting[firstline=163,lastline=231]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=155,lastline=223]{../src/compact/graph.hpp}
 
 \Needspace{648pt}
 
@@ -122,15 +122,15 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 
 add(u,v) 返回无向边编号；run() 后 cut[u] 标识割点、bridge[id] 标识桥。按边编号跳过父边，支持重边、自环、不连通图。O(V+E)，递归深度可能 O(V)。
 
-\lstinputlisting[firstline=232,lastline=286]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=224,lastline=278]{../src/compact/graph.hpp}
 
 \chapter{树上算法}
 
 \section{重链剖分与 LCA}\label{compact-HLD}\index{HLD}
 
-add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn、rk。子树对应 [dfn[u],dfn[u]+siz[u]-1]。lca(u,v) 为 O(log n)，path(u,v,work,edge) 分解路径；work(l,r) 仅适用于可交换聚合，边权模式排除 LCA 位置。输入必须是连通无环树，建树 O(n)，无递归。
+add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn、rk。子树对应 [dfn[u],dfn[u]+siz[u]-1]。lca(u,v) 为 O(log n)，path(u,v,work,edge) 分解路径；work(l,r) 仅适用于可交换聚合，边权模式排除 LCA 位置。输入必须是连通无环树，建树 O(n)，两遍递归 DFS；支持改变根后重复 build，dfn 会重新编号。
 
-\lstinputlisting[firstline=6,lastline=107]{../src/compact/tree.hpp}
+\lstinputlisting[firstline=6,lastline=99]{../src/compact/tree.hpp}
 
 \chapter{点分治}
 
@@ -562,7 +562,7 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 算法约束见动态版本第~\pageref{compact-SCC}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=76,lastline=143]{../src/classic/graph.hpp}
+\lstinputlisting[firstline=76,lastline=135]{../src/classic/graph.hpp}
 
 \Needspace{444pt}
 
@@ -570,13 +570,13 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 算法约束见动态版本第~\pageref{compact-TwoSAT}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=144,lastline=178]{../src/classic/graph.hpp}
+\lstinputlisting[firstline=136,lastline=170]{../src/classic/graph.hpp}
 
 \section{二分图最大匹配}\label{classic-BipartiteMatching}\index{Bipartite\_Matching}
 
 算法约束见动态版本第~\pageref{compact-BipartiteMatching}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=179,lastline=247]{../src/classic/graph.hpp}
+\lstinputlisting[firstline=171,lastline=239]{../src/classic/graph.hpp}
 
 \Needspace{648pt}
 
@@ -584,7 +584,7 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 算法约束见动态版本第~\pageref{compact-Lowlink}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=248,lastline=302]{../src/classic/graph.hpp}
+\lstinputlisting[firstline=240,lastline=294]{../src/classic/graph.hpp}
 
 \chapter{树上算法}
 
@@ -592,7 +592,9 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 算法约束见动态版本第~\pageref{compact-HLD}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=22,lastline=123]{../src/classic/tree.hpp}
+声明 Heavy\_Light\_Decomposition<N> 后 Init(n)，Insert 加边，Build(root) 剖分；Lca 与 Path 对应动态接口。大对象放在全局或 static。
+
+\lstinputlisting[firstline=7,lastline=96]{../src/classic/tree.hpp}
 
 \chapter{点分治}
 

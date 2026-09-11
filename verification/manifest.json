@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T16:43:45.202128+00:00",
+  "recorded_at_utc": "2026-09-11T16:54:56.308005+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -34,7 +34,8 @@
       "Virtual tree all-pairs LCA closure, compressed paths, reroot and recursive chain PASS",
       "P2495 dual-style bundled drivers / exhaustive edge cuts PASS",
       "Persistent array branching versions, snapshots, allocation bounds and reserve PASS",
-      "Circle degeneracy, scale invariance and 100-digit overlap reference PASS"
+      "Circle degeneracy, scale invariance and 100-digit overlap reference PASS",
+      "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -67,7 +68,8 @@
       "Virtual tree all-pairs LCA closure, compressed paths, reroot and recursive chain PASS",
       "P2495 dual-style bundled drivers / exhaustive edge cuts PASS",
       "Persistent array branching versions, snapshots, allocation bounds and reserve PASS",
-      "Circle degeneracy, scale invariance and 100-digit overlap reference PASS"
+      "Circle degeneracy, scale invariance and 100-digit overlap reference PASS",
+      "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS"
     ]
   },
   "sha256": {
@@ -84,7 +86,7 @@
     "src/classic/gcd_sequence.hpp": "17b5f8885104e5647fda4138d42db804f89ec8e99e32ac7b9cd6f8b034aa70bb",
     "src/classic/geometry.hpp": "4ddc03277a26dcec3472a42eb8277da2d972c1f9198f1b58610d5d51d6f77167",
     "src/classic/geometry_extra.hpp": "793fa6eec2f6dd0b57829585f91aec872c14c73817978225cb0f914fcea3474c",
-    "src/classic/graph.hpp": "3350b9870a8d849968063645e5c372576500a2ffdf0f7901efc301f7455eb22b",
+    "src/classic/graph.hpp": "3ce21ff2e62498f52fe2363321ee421455e88929e984dbf5a03343ef481e7648",
     "src/classic/graph_advanced.hpp": "ee0c31d0ebf0148c902c0af2bbb36adc1dc48124a3401f6136f9743c237706e8",
     "src/classic/min_cost_flow.hpp": "49d8ee5466edc6396bbe7c8858e8b4bd765b4c0bc18c82a4ea7eae88884e36ca",
     "src/classic/number_theory.hpp": "8a20210a11a6f985d51776dd0a90e9aaa2c385f7805babfe05c63613c57a7352",
@@ -97,7 +99,7 @@
     "src/classic/string.hpp": "ff72541b84ccf9e67bf8fa5d70b0bbfd15462f9ba365ea2b7fc8288fdfe2da12",
     "src/classic/tarjan.hpp": "fbeaaacabbc45e6ad1e90b699c2e839c49c472c4aebf788ba6034f7bd32b8f12",
     "src/classic/treap.hpp": "5fb685f85beaa8a22cd1ea6f59511c164d73fffc5d89e4402f3c10a61f5f35fd",
-    "src/classic/tree.hpp": "9125d548aa7258a8734c4c5d0a8f5c3a39c46a5d11b84fbf2ad25416467c6dbb",
+    "src/classic/tree.hpp": "2a77bab713121961472fc847d82a91cf0008b6fb1c75f50fb6956414d5d13fb1",
     "src/classic/virtual_tree.hpp": "f9f1561dc4b1bf7aa6477cf42401685a189059dfcb86ac2918c322a9cff58496",
     "src/compact/.clang-format": "82ccdaa30f990717cdcdc30b58d7521142e24314daa27095a59d3f965d772b7b",
     "src/compact/affine_segment_tree.hpp": "98bb99f3478bf2176f4850868711af1271729439e346274791b1889cc2ba004b",
@@ -112,7 +114,7 @@
     "src/compact/gcd_sequence.hpp": "88eb3f5442ae39d1dac7d2ff88d5adbcd50a2f23548ed5751d2ad9240465a723",
     "src/compact/geometry.hpp": "156f9ba2fbd9dc36552f7a6668b2a224d957d55e27dae645510deed5f58b7b3b",
     "src/compact/geometry_extra.hpp": "13c597cd4dd46254216f0eb6f9ad402b0e96fdd424e864a8117f05c666ac5e89",
-    "src/compact/graph.hpp": "9e1caf361669f8e63228f5237b58a60cd38b06401f3ecb1ab9150167f8e6656b",
+    "src/compact/graph.hpp": "d7d95d5986b73210add928089535fe5d14d104443bd172b080514f100f765773",
     "src/compact/graph_advanced.hpp": "e2a57a2354904fc55f2038fb4f694842cc60c3e8b76c0aa431ab3b8d9546d1eb",
     "src/compact/number_theory.hpp": "442ed221567f0fa12f9ae38bcb7d873bed4cd0a253020814dae2599c64f3bf0f",
     "src/compact/optimization.hpp": "e031dc5ddb1cc778e49d445e63c5e197cb79519eae97ed38a92a29be06e77f12",
@@ -124,7 +126,7 @@
     "src/compact/string.hpp": "d02a2c926aaacbea0ffac86d8a5765202165909c3c80b91c6e9cc517da3885fc",
     "src/compact/tarjan.hpp": "15716184cdf5cec0cb5234ba357ea922840277454932e54e06067d7290f929d5",
     "src/compact/treap.hpp": "e7d1d5da733dce648b50e8e18e148c7ca06567136e56745a80302ea529f1e671",
-    "src/compact/tree.hpp": "c0ffb45f3aa468a11b8c441f2b9f74982bdfd940f5a212f6c423394c6e1451c2",
+    "src/compact/tree.hpp": "c95a6cb3fc23372d15f80d565bfd1370bd9021aaa5d6d2d77fa8105ab4331860",
     "src/compact/virtual_tree.hpp": "505bcdec60edd10f69bcbd35695e41d66c3c8e8c6d09bc0df0cf7e33de726304",
     "tests/affine_segment_tree.cpp": "739c2a5cc83e1940f14c9b39dc0acbb02898cc6805c261c0fd852390de7dd2be",
     "tests/algebra.cpp": "8a5e1fe4f5515d376e5b3d6c2b620e784c07333cbe754a3268d5c7e8c52295bc",
@@ -139,13 +141,14 @@
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",
+    "tests/hld.cpp": "2cb59f85875e3c9c0002b3e0e9ac029c32ae862fc44230a2272e47203af28d6a",
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",
     "tests/optimization.cpp": "22a2eacb619a32e51d2dfde85462447acf00e1e5eb8b2c587edead8a788d6acc",
     "tests/palindromic_tree.cpp": "579f58e77440a9342e7ad1bc13ede6405a3f45e4a6e64636dcc0a67943645566",
     "tests/persistent_array.cpp": "0e3ec4fab4b3f22ffa6c8981fe51f79efc64105a46cae7f6384395b58454234d",
     "tests/property.cpp": "5e8b384ed682134dcf051b34c6fd278af21ad93e712e220968f8fbd037dcc85d",
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
-    "tests/tarjan.cpp": "c0feeec022557a4ac967ae6695f70e8cc3745f079f6b3801c141959d84a25b48",
+    "tests/tarjan.cpp": "35dd53d553e4435d79a7bc9a81900b4908fc97b35c1a4be99ccf93f09c1815b9",
     "tests/trees.cpp": "c3e3638787018828c717310634b3ffee5b9d5b9d40010680b03c6e527b2df555",
     "tests/virtual_tree.cpp": "4ae46aff4b5c961ea3d3315fb7f7f9d870228d5cf11f29f3697ec034396dd0f3",
     "tests/virtual_tree_application.py": "1ce2b465d0cae162efd7f64406255166b193eed9f5d87a18381b99ae719d32a6"
