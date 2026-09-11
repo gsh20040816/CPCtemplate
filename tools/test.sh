@@ -122,3 +122,6 @@ build/position_basis
 
 "$CXX" "${flags[@]}" tests/basis_intersection.cpp -o build/basis_intersection
 build/basis_intersection
+
+"$CXX" "${flags[@]}" -pthread tests/xor_walk.cpp -o build/xor_walk
+build/xor_walk

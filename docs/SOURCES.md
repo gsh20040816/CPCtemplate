@@ -272,7 +272,7 @@ tests/position_basis.cpp 对小值及小标签穷举序列，每次插入后枚�
 
 [CF1100F 官方题面](https://codeforces.com/problemset/problem/1100/F) 要求对静态区间求最大子集异或，n、q 均至 500000。两套驱动按右端点排序询问，仅插入当前右端点之前的元素，然后用左端点作为阈值。小数据的所有区间均与独立子集闭包对拍，查询顺序打乱；满规模用不同二进制位的周期数组作独立按位或参照。实际记录见 verification/position-basis-driver-tests.txt，在线评测待补。该题只覆盖区间最大值，成员判断、一般标签和满 64 位扩展仍由接口测试覆盖。
 
-重新核对 [OI Wiki 线性基页](https://oi-wiki.org/math/linear-algebra/basis/) 后，普通异或基及时间戳基的已实现范围可与该页对应；交空间的消元法及 Zassenhaus 算法随后已按下节补齐。OI 数学清单仍为 partial：异或表示方案数、值排名及部分图/树路径应用尚待补充，一般线性空间和正交基理论也仍需整理为速查。
+重新核对 [OI Wiki 线性基页](https://oi-wiki.org/math/linear-algebra/basis/) 后，普通异或基及时间戳基的已实现范围可与该页对应；交空间的消元法及 Zassenhaus 算法随后已按下节补齐。OI 数学清单仍为 partial：异或表示方案数、值排名及树路径应用尚待补充，图上最大异或行走已在后续小节验证，一般线性空间和正交基理论也仍需整理为速查。
 
 ## 线性空间求交与 Zassenhaus（2026-09-12）
 
@@ -287,3 +287,15 @@ Zassenhaus 编码 (a,a)、(b,0)，所得空间 H 的高半部投影像为 A+B；
 tests/basis_intersection.cpp 枚举 F2^3 中所有生成元子集的全部配对，用显式集合求和与求交核验两套码风、两种算法，并检查结果独立性、交换输入、维数公式、空空间、同空间、互补位空间和满 64 维。随机高位值与共享向量检查不依赖低维位编号。维数公式作为辅助条件，不以其代替返回向量的成员与张成空间检查。
 
 [Library Checker 官方题面](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/linear_algebra/intersection_of_f2_vector_spaces/task.md)要求输出任意一组独立交空间基，[参数文件](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/linear_algebra/intersection_of_f2_vector_spaces/info.toml)限定 30 位、至多 100000 组。verify/library_checker 中四份驱动分别对应两种方法、两套风格；小例还包含依赖输入的库级扩展，按实际输出所张成的集合检查，满规模使用合法的 30 维独立输入。结果记录在 verification/basis-intersection-driver-tests.txt。当前是本地驱动验证，未获得在线 AC。
+
+## 无向图最大异或行走（2026-09-12）
+
+根据 [P4151 官方题面](https://www.luogu.com.cn/problem/P4151)，边和点允许重复经过，每次经过均参与异或，且可能有自环或重边。补充 XorWalk/Xor_Walk，将递归 DFS 和普通异或线性基组合；它不适用于要求简单路径的同名问题。保留构建根所属连通块的标记，其他连通块的环不能进入本次答案。一次 build 后可查询该块任意两点；换根或加边后重新 build。
+
+正确性分为必要性与可达性。树上根距离 dist 给出任意两点的一条基准路径值。任意其他行走相对基准路径的奇数次经过边集合属于环空间，所有基本环的权值均可由 dist[u] xor dist[v] xor w 得到。因此所有候选异或值都落在基准值加环异或空间中。反过来，在同一连通块里，可以沿连接路径前往一个环、绕环后原路返回；连接路径经过两次而抵消，故任意环异或组合都能用允许重复边的行走实现。这也解释了 u=v 时答案可能非零。
+
+实现只将 cycles 用作异或空间。无向边的反向遍历会产生重复或零向量，其 dependent 标志不能解释为原图的非空行走性质；仅使用空间最大化。DFS 保持递归，不模拟调用栈。init 清空旧图并释放旧邻接表内容，build 重置已访问标记、距离和环基，防止多次构建或切换连通块遗留数据。
+
+tests/xor_walk.cpp 对小图显式构造 (顶点,异或值) 乘积状态图，以 BFS 穷尽任意长度行走的可达状态，逐根、逐点对比较答案。包含自环、重边、零权、断开图、64 位边权、满秩环空间、重新建图和 20 万点递归链。链检查置于 256MB 测试线程栈，不改变模板的递归 DFS。
+
+P4151 的两套实际打包程序还与独立乘积状态图对拍，并检查 N=50000、M=100000 的链加自环构造，边权满足题面上界；另外单独测试 uint64 最大值的库级扩展。记录见 verification/xor-walk-driver-tests.txt。在线评测待补，驱动按题目连通图约束输出 query(1,n) 的值。
