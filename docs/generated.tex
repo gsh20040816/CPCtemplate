@@ -228,6 +228,20 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 
 \lstinputlisting[firstline=275,lastline=321,firstnumber=19]{../src/compact/graph.hpp}
 
+\chapter{字典序最小 2-SAT}
+
+\Needspace{467pt}
+
+\section{递归染色与回滚求最小赋值}\label{compact-LexTwoSAT}\index{LexTwoSAT}
+
+构造 LexTwoSAT(n)，变量号 1..n。add(x,a,y,b) 加入子句 (x=a) OR (y=b)，force(x,v) 强制变量值；solve() 成功后 answer[1..n] 是按变量编号、0 优先于 1 的字典序最小赋值。失败时 answer 为空，n=0 时可满足，answer[0] 始终仅为占位。每个未确定变量先尝试 0，递归传播所有蕴含；冲突时仅撤销本次新增标记，再试 1。history 是撤销记录，不替代递归调用栈。可重复求解，追加子句会清空旧答案；marked/history 仅为内部工作区，失败时不可当作方案。内部 id(x,v)=2(x-1)+v，从 0 开始，可用异或 1 取反；不要混用另一份 SCC 2-SAT 的 1-based 字面量编号。最坏 O(n(n+m)) 时间、O(n+m) 空间，递归栈 O(n)；100000 变量测试是特定蕴含链，不代表一般大规模输入的性能保证。HDU1814 完整程序本地对拍，在线待补。
+
+\lstinputlisting[firstline=7,lastline=37]{../src/compact/lex_two_sat.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=38,lastline=79,firstnumber=32]{../src/compact/lex_two_sat.hpp}
+
 \chapter{有向欧拉路}
 
 \Needspace{533pt}
@@ -1035,6 +1049,22 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 \newpage
 
 \lstinputlisting[firstline=296,lastline=342,firstnumber=19]{../src/classic/graph.hpp}
+
+\chapter{字典序最小 2-SAT}
+
+\Needspace{518pt}
+
+\section{递归染色与回滚求最小赋值}\label{classic-LexTwoSAT}\index{Lex\_Two\_SAT}
+
+算法约束见动态版本第~\pageref{compact-LexTwoSAT}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Lex\_Two\_SAT<N>，Init(n) 清空子句；Add、Force、Solve 与动态版对应，answer[1..n] 为答案。内部 Id 的字面量编号从 0 开始，大对象放全局或 static。
+
+\lstinputlisting[firstline=7,lastline=42]{../src/classic/lex_two_sat.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=43,lastline=84,firstnumber=37]{../src/classic/lex_two_sat.hpp}
 
 \chapter{有向欧拉路}
 

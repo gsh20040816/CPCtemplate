@@ -55,7 +55,7 @@ Tarjan 的跨分量边从大编号到小编号，Kosaraju 的跨分量边从小�
 
 ## 2-SAT
 
-kuangbin 4.18.2 的强连通方法可映射到 `TwoSAT` / `Two_SAT` 的可满足性与任意解接口，但其 POJ3648 Wedding 文本解析、文字到布尔值的约定、强制字面量和输出格式尚无本库驱动验证，因此该子项仍为 partial。父项 4.18 也仍是 partial，因为 4.18.1 要求的字典序最小染色解还未实现。
+kuangbin 4.18.2 的强连通方法映射到 `TwoSAT` / `Two_SAT` 的可满足性与任意解接口；POJ3648 Wedding 解析、强制新娘与输出方案已独立验证。4.18.1 的字典序最小染色法另由 LexTwoSAT / Lex_Two_SAT 提供，见末尾新增验证记录。两子项与父项现为 local-tested，不能把 SCC 任意解误称为最小解。
 
 本库 `add(x,a,y,b)` 表示 `(x==a) OR (y==b)`。变量编号从 1 开始；内部字面量 `id(x,value)=2*x-1+value`，取反要用 `id(x,!value)`，不能直接把这个 1-based 字面量编号异或 1。两套实现使用 Kosaraju 正拓扑分量号，因此按真字面量分量号大于假字面量分量号选择；若换成 Tarjan，不能保留相同比较方向。
 
@@ -63,7 +63,7 @@ kuangbin 4.18.2 的强连通方法可映射到 `TwoSAT` / `Two_SAT` 的可满足
 
 ## 后续缺口
 
-删点连通块增量、边定向及缩点统计已补；桥树增广和奇圈点双应用均已完成本地验证。2-SAT 的字典序最小版本和 Wedding 适配分别验证。kuangbin 4.20.2 的离线 Tarjan LCA 已另行实现与验证，见下节；它与 SCC 是不同算法。
+删点连通块增量、边定向及缩点统计已补；桥树增广和奇圈点双应用均已完成本地验证。2-SAT 的字典序最小版本和 Wedding 适配也已分别完成本地验证。kuangbin 4.20.2 的离线 Tarjan LCA 已另行实现与验证，见下节；它与 SCC 是不同算法。
 
 ## 桥树最少加边补充
 
@@ -168,3 +168,15 @@ odd_cycle_vertices / Odd_Cycle_Vertices 标记属于长度至少为 3 的简单�
 tests/odd_cycle_vertices.cpp 穷举 n≤6 的全部简单图，以枚举不重复顶点的奇环作为独立参照；另有随机重图、自环、空图和块列表重排。100001 点长链接三角形检验标记不会传播到桥后，大星形检验避免平方扫描，大奇环检验递归染色；测试线程栈 512MB，模板仍为递归 DFS。POJ2942 两份完整驱动按不相邻的憎恨关系构补图，并输出未被标记的人数；104 组案例含 1000 点完全图、空图、完全二分图与三角形接长链。格式依据 kuangbin 2018 第 144–146 页，在线待补。
 
 该新增组合模块单独运行普通和 ASan/UBSan 测试，保留此前未变模块的证据。独立日志见 verification/odd-cycle-vertices-tests.txt、verification/odd-cycle-vertices-sanitizer-tests.txt、verification/odd-cycle-vertices-driver-tests.txt。kuangbin 4.8 更新为 local-tested；不把此简单奇环判定扩大到一般带权奇环优化问题。
+
+## 字典序最小 2-SAT 与 Wedding 应用
+
+LexTwoSAT / Lex_Two_SAT 将每个变量的 0 字面量优先尝试，递归求蕴含闭包；若与已选对立字面量冲突，则撤销本轮新增标记，尝试 1。已成功的前缀不会被撤销。对可满足的 2-CNF，保持一致的蕴含闭包可扩展为完整赋值，因此每一步保留最小可行前缀；两次传播均冲突时无解。最坏时间 O(n(n+m))，不是线性 SCC 算法；history 只保存回滚标记，DFS 本身保留递归。
+
+这里变量仍为 1..n，但内部字面量为 2(x-1)+value，从 0 开始，与旧 TwoSAT/Two_SAT 的内部 id 约定不同。公开 add/Add 子句含义相同。force/Force 可添加单位子句，solve/Solve 可重复调用，追加子句清空旧 answer，失败返回空 answer；其他标记不可作为失败后的解。
+
+tests/lex_two_sat.cpp 穷举两变量所有子句集合与全部赋值，另随机测试至九变量；每个子句前缀、重复 solve、强制值与 Init 都检查最小性。十万变量等价链在失败传播后回滚并成功传播，随后加入矛盾强制值检查无解；这是递归和回滚压力测试，并非一般输入的线性性能保证。HDU1814 的 161 个完整程序案例以枚举代表集合检查字典序、NIE 标记与重复数据，包含一万变量蕴含链。
+
+POJ3648 用原来的 SCC TwoSAT/Two_SAT：变量 i+1 为第 i 对夫妻，true 表示妻子在新娘一侧，false 表示丈夫；强制 0w，每个关系对子加入至少一人在该侧的 OR 子句，输出除新娘夫妇外每对的一人。tests/wedding_application.py 枚举可满足性并逐条检查返回赋值，覆盖 183 组、0w/0h、多位编号、空输出及 bad luck。格式与语义依据 kuangbin 2018 第 172–176 页，未声称在线 AC。
+
+新染色模块单独执行普通及 ASan/UBSan 检查，保留未修改模块的回归证据；日志见 verification/lex-two-sat-tests.txt、verification/lex-two-sat-sanitizer-tests.txt、verification/lex-two-sat-driver-tests.txt、verification/wedding-driver-tests.txt。kuangbin 4.18 的两条独立路线及应用都更新为本地覆盖。

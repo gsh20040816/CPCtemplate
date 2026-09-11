@@ -161,3 +161,6 @@ build/mixed_euler
 
 "$CXX" "${flags[@]}" -pthread tests/odd_cycle_vertices.cpp -o build/odd_cycle_vertices
 build/odd_cycle_vertices
+
+"$CXX" "${flags[@]}" -pthread tests/lex_two_sat.cpp -o build/lex_two_sat
+build/lex_two_sat

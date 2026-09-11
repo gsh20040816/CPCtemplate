@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T23:24:46.139573+00:00",
+  "recorded_at_utc": "2026-09-11T23:35:58.931399+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -68,7 +68,9 @@
       "Incremental mixed_euler-only check; unchanged-module evidence retained from 76a4f39:",
       "Mixed Euler dual exhaustive orientations, fixed/free endpoints, loops, isolated vertices, full trail certificates and 100000-node flow chain PASS",
       "Incremental odd_cycle_vertices-only check; unchanged-module evidence retained from 7aa4eb5:",
-      "Odd-cycle vertices dual exhaustive simple-cycle oracle, multigraphs, reordered blocks and 100001-node chain/star/odd-cycle PASS"
+      "Odd-cycle vertices dual exhaustive simple-cycle oracle, multigraphs, reordered blocks and 100001-node chain/star/odd-cycle PASS",
+      "Incremental lex_two_sat-only check; unchanged-module evidence retained from 7508260:",
+      "Lex 2-SAT dual exhaustive assignment oracle, incremental/forced clauses, rollback and 100000-variable recursive chain PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -135,7 +137,9 @@
       "Incremental mixed_euler-only check; unchanged-module evidence retained from 76a4f39:",
       "Mixed Euler dual exhaustive orientations, fixed/free endpoints, loops, isolated vertices, full trail certificates and 100000-node flow chain PASS",
       "Incremental odd_cycle_vertices-only check; unchanged-module evidence retained from 7aa4eb5:",
-      "Odd-cycle vertices dual exhaustive simple-cycle oracle, multigraphs, reordered blocks and 100001-node chain/star/odd-cycle PASS"
+      "Odd-cycle vertices dual exhaustive simple-cycle oracle, multigraphs, reordered blocks and 100001-node chain/star/odd-cycle PASS",
+      "Incremental lex_two_sat-only check; unchanged-module evidence retained from 7508260:",
+      "Lex 2-SAT dual exhaustive assignment oracle, incremental/forced clauses, rollback and 100000-variable recursive chain PASS"
     ]
   },
   "sha256": {
@@ -162,6 +166,7 @@
     "src/classic/graph.hpp": "02421d1ceb9e2772e3a6a035844bca46664a2488c7424e1d3b9910b9a0acdb02",
     "src/classic/graph_advanced.hpp": "ee0c31d0ebf0148c902c0af2bbb36adc1dc48124a3401f6136f9743c237706e8",
     "src/classic/interpolation.hpp": "43f5714b8fb6e16a13dc356f1e7ac01c492974bb53b73f558c9a6fdb5ec84020",
+    "src/classic/lex_two_sat.hpp": "531c4fca134bb016b6a7335e37aaae4f865faa9f309036fa6f112e3b22f6168b",
     "src/classic/lifting_lca.hpp": "0938fc06246035f4f59daf0c4012ef0c4c513e78fed2d70bf8fc50ed49104078",
     "src/classic/maximum_closure.hpp": "47bfa97cd02f9c423e026d1b38af5909725a1c7e6f94e95b7541f29b858c5bad",
     "src/classic/min_cost_flow.hpp": "49d8ee5466edc6396bbe7c8858e8b4bd765b4c0bc18c82a4ea7eae88884e36ca",
@@ -215,6 +220,7 @@
     "src/compact/graph.hpp": "7ea9c43d8616d08088c61eaef8a19c4939084dfe8da806213225c5d33015e8c0",
     "src/compact/graph_advanced.hpp": "e2a57a2354904fc55f2038fb4f694842cc60c3e8b76c0aa431ab3b8d9546d1eb",
     "src/compact/interpolation.hpp": "73f71b029ccab6be4573c4612a5c132accb9b208115503d7f47bde7fc878357a",
+    "src/compact/lex_two_sat.hpp": "f5e50a5af0c5892b8be560ceb4eacf5e7cdcf484da2fec3ad6450cabcd02ec16",
     "src/compact/lifting_lca.hpp": "19cda96f3d6d0f4807f7d554d09b0428f3b88516a40788cff6b6897ac90a64da",
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
     "src/compact/mixed_euler.hpp": "7e84285a001bc52700e00f0da220c28402b866c4c84c742962886b69c7c03ff8",
@@ -281,6 +287,8 @@
     "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
     "tests/interpolation.cpp": "9f7205163b894fdcc3107da60883c88468c0045d92351eee8f71cc8854cefc76",
     "tests/interpolation_application.py": "ffc121af21fdfe606e9079260d818f459e79b3e67e7f06d1e4b02270266f6f12",
+    "tests/lex_two_sat.cpp": "1dff785aab551bde3bc84eb38c70d5e8d83400422c987c2dd60b65f287243d6e",
+    "tests/lex_two_sat_application.py": "86436155e7c0ad492df7c89e5da568dd458887c4622071ebaff2e6eede38828a",
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",
     "tests/lifting_lca_application.py": "068c4b2f662bde0f7f6e6ef9fb7c357be98717d4bfc423c77eea8ceb8f43543a",
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",
@@ -321,6 +329,7 @@
     "tests/vertex_removal_application.py": "7a8c00392838ac15d6a72420c3cdd2965fa98270f376b3629b1896cce82cf6b1",
     "tests/virtual_tree.cpp": "4ae46aff4b5c961ea3d3315fb7f7f9d870228d5cf11f29f3697ec034396dd0f3",
     "tests/virtual_tree_application.py": "1ce2b465d0cae162efd7f64406255166b193eed9f5d87a18381b99ae719d32a6",
+    "tests/wedding_application.py": "0b77cdad2a0e9cfe2cc29d5b7f8333e50ffa475bce43eeedde5d6e7cd57739e4",
     "tests/weighted_matching.cpp": "1f80caaf1d778999408f9c046bc990c115c67eb19a3655d62ff53064bdd2d2a6",
     "tests/weighted_matching_application.py": "9601f78933cd4944fc1a722f0b79ba648a8b3fb279d2407ba38f9f0b3e506a32",
     "tests/word_chain.cpp": "cda712bcbd8a9d0a295f2de917bc208ae4e7496143ade2c4164052a8fb744671",

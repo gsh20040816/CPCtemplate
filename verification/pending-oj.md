@@ -2,6 +2,8 @@
 
 以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/ 与 oj.json 对照生成。
 
+- `verify/hdu/1814.classic.cpp`
+- `verify/hdu/1814.compact.cpp`
 - `verify/library_checker/intersection_intersection.classic.cpp`
 - `verify/library_checker/intersection_intersection.compact.cpp`
 - `verify/library_checker/intersection_zassenhaus.classic.cpp`
@@ -69,6 +71,8 @@
 - `verify/poj/2337.compact.cpp`
 - `verify/poj/2942.classic.cpp`
 - `verify/poj/2942.compact.cpp`
+- `verify/poj/3648.classic.cpp`
+- `verify/poj/3648.compact.cpp`
 - `verify/sgu/101.classic.cpp`
 - `verify/sgu/101.compact.cpp`
 - `verify/uva/796.classic.cpp`
