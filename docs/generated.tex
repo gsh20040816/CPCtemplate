@@ -132,6 +132,14 @@ CentroidPairs(n)，点号 1..n；add(u,v,w) 建树，允许森林但禁止环、
 
 \lstinputlisting[firstline=9,lastline=149]{../src/compact/centroid.hpp}
 
+\chapter{树上启发式合并}
+
+\section{树上启发式合并：子树众数颜色和}\label{compact-SubtreeColors}\index{SubtreeColors}
+
+SubtreeColors(n)，点号 1..n，add(u,v) 建无向树；要求图连通且无环，n=0 可空运行。run(colors,root=1) 传入长度 n+1 的 int 颜色数组，colors[0] 忽略。answer[u] 为子树内所有最高频颜色的原始编号之和，max\_freq[u] 为该频次；支持负颜色与稀疏编号，内部离散化，和用 long long。重复 run 可更换颜色或根。重儿子信息保留，轻儿子通过 DFS 序区间加入；清空整棵临时子树后再重置最大值，不尝试逐次删除时维护众数。O(n log n) 时间、O(n) 空间，全部 DFS 递归。insert 是内部增量统计，可按题目修改统计量，但相应清空规则也必须调整。
+
+\lstinputlisting[firstline=7,lastline=112]{../src/compact/dsu_on_tree.hpp}
+
 \chapter{字符串}
 
 \Needspace{226pt}
@@ -561,6 +569,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 声明 Centroid\_Pairs<N>，Init(n) 初始化，Insert 加边，Build 预处理；Count\_Leq 和 Count\_Exact 返回计数，parent 保存点分树父节点。大对象放在全局或 static。
 
 \lstinputlisting[firstline=9,lastline=146]{../src/classic/centroid.hpp}
+
+\chapter{树上启发式合并}
+
+\section{树上启发式合并：子树众数颜色和}\label{classic-SubtreeColors}\index{Subtree\_Colors}
+
+算法约束见动态版本第~\pageref{compact-SubtreeColors}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Subtree\_Colors<N>，Init(n) 初始化，Insert 加边，Run(colors,root) 计算；answer 与 max\_freq 为最终结果。Add\_Color 为内部统计函数。大对象放在全局或 static。
+
+\lstinputlisting[firstline=7,lastline=116]{../src/classic/dsu_on_tree.hpp}
 
 \chapter{字符串}
 

@@ -51,3 +51,6 @@ build/palindromic_tree
 
 "$CXX" "${flags[@]}" -pthread tests/centroid.cpp -o build/centroid
 build/centroid
+
+"$CXX" "${flags[@]}" -pthread tests/dsu_on_tree.cpp -o build/dsu_on_tree
+build/dsu_on_tree
