@@ -542,7 +542,7 @@ WIDA,03 - jiangly模板收集/04 - 数据结构/10 - 线性基（Basis）.cpp,,1
 WIDA,03 - jiangly模板收集/05 - 字符串/01A - 马拉车（Manacher）.cpp,,01A - 马拉车（Manacher）,pending,,,
 WIDA,03 - jiangly模板收集/05 - 字符串/02 - Z函数.cpp,,02 - Z函数,pending,,,
 WIDA,03 - jiangly模板收集/05 - 字符串/03A - 后缀数组（SuffixArray）.cpp,,03A - 后缀数组（SuffixArray）,local-tested,src/compact/string.hpp#SuffixArray,src/classic/string.hpp#Suffix_Array,"Counting-sort doubling O(n log n+alphabet); byte and integer alphabets, no explicit sentinel; rk/lcp 0-based. tests/suffix_array.cpp exhaustive suffix/LCP oracle and million-character cases; P3809 prepared, OJ pending"
-WIDA,03 - jiangly模板收集/05 - 字符串/03B - 后缀数组（SA）.cpp,,03B - 后缀数组（SA）,partial,src/compact/string.hpp#SuffixArray,src/classic/string.hpp#Suffix_Array,Suffix sorting and adjacent LCP locally verified; upstream lc[i] maps to lcp[i+1]. Included RMQ/lcp/lcs application helpers still pending
+WIDA,03 - jiangly模板收集/05 - 字符串/03B - 后缀数组（SA）.cpp,,03B - 后缀数组（SA）,local-tested,src/compact/string.hpp#SuffixArray;src/compact/suffix_lcp.hpp,src/classic/string.hpp#Suffix_Array;src/classic/suffix_lcp.hpp,"Counting-sort SA plus sparse-table LCP, substring comparison and reverse-prefix LCS; 0-based half-open endpoints; exhaustive byte/integer substring oracles and square-boundary application; P1117 driver local-tested, OJ pending"
 WIDA,03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp,,04A - 后缀自动机（SuffixAutomaton 旧版）,pending,,,
 WIDA,03 - jiangly模板收集/05 - 字符串/04B - 后缀自动机（SAM 新版）.cpp,,04B - 后缀自动机（SAM 新版）,pending,,,
 WIDA,03 - jiangly模板收集/05 - 字符串/05 - 回文自动机（PAM）.cpp,,05 - 回文自动机（PAM）,local-tested,src/compact/palindromic_tree.hpp,src/classic/palindromic_tree.hpp,"tests/palindromic_tree.cpp; suffix count, distinct count, occurrences and representative endpoints; OJ pending"

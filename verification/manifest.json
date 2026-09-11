@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T20:17:03.449477+00:00",
+  "recorded_at_utc": "2026-09-11T20:27:24.004143+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -48,7 +48,8 @@
       "Modular sqrt dual exhaustive prime roots, planted large roots, nonresidues and int64 inputs PASS",
       "Maximum closure dual exhaustive subsets, solution certificates, int64 negatives and recursive chain PASS",
       "Support hull dual exact cloud oracle, ties, int64 bounds and maximum closure composition PASS",
-      "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS"
+      "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
+      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -95,7 +96,8 @@
       "Modular sqrt dual exhaustive prime roots, planted large roots, nonresidues and int64 inputs PASS",
       "Maximum closure dual exhaustive subsets, solution certificates, int64 negatives and recursive chain PASS",
       "Support hull dual exact cloud oracle, ties, int64 bounds and maximum closure composition PASS",
-      "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS"
+      "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
+      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS"
     ]
   },
   "sha256": {
@@ -129,6 +131,7 @@
     "src/classic/recurrence.hpp": "a71d91ecdcd7c7e2502c655ea5f9fcb2ac03104844ded46bd0afb46450422f67",
     "src/classic/splay.hpp": "ba412fda7cd927e9dcab62fa88ee66b59a8cac5b4550bf47699285e8c4522e6b",
     "src/classic/string.hpp": "d199d27567590cebe3b443b572d3b42eae1efeb6f5c80602870ce81695dafb69",
+    "src/classic/suffix_lcp.hpp": "987bb98cc02b8d026c07b7b0a617dc59d2cf075c546bddd465add40700df7aa1",
     "src/classic/support_hull.hpp": "4ca8f77ad085a9422b536e680b1d98faa31cf5c8216deafaa6f50e97e9401ea3",
     "src/classic/tarjan.hpp": "fbeaaacabbc45e6ad1e90b699c2e839c49c472c4aebf788ba6034f7bd32b8f12",
     "src/classic/treap.hpp": "fa4c871c0160cc84bf2ed9ac4c9bb9ddd894bfb58e4a7cb3772844216120522c",
@@ -165,6 +168,7 @@
     "src/compact/recurrence.hpp": "af9e2e7bdefe5586b6f68758c76e3b9402047c0725bf4d07028837446a1fe2d5",
     "src/compact/splay.hpp": "a9959a530dea7ddef50e67a700bf8c0c2c87cb9f39d34b8caed31d141ed8445d",
     "src/compact/string.hpp": "22008ad36d2d0c59ee5568882932a88e4dda9a58f52fc2d06560e4a84b0b010e",
+    "src/compact/suffix_lcp.hpp": "22148bfe88f06576f24d802dfbd9c651888cb45e132ec396da141d4c7d6623ec",
     "src/compact/support_hull.hpp": "443ff3e2f1a8d3c9b7de874316d7ae7f169a1b4c3826626d801077f98fb6956c",
     "src/compact/tarjan.hpp": "15716184cdf5cec0cb5234ba357ea922840277454932e54e06067d7290f929d5",
     "src/compact/treap.hpp": "b282e9598f83bab528b6d7a8cd325ae8d57fd2fc03281da73897f83cdd41d35e",
@@ -213,6 +217,8 @@
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
     "tests/suffix_array.cpp": "bc3ce98f7cce3a68acd4b1e2d98b20ee912b2a2e0676cb1141ab869226dec3d6",
     "tests/suffix_array_application.py": "c8248e4a29056da4455a84d7c2c1d1228131251d1ecbafe84b95aecc1e2769cd",
+    "tests/suffix_lcp.cpp": "b9fa257d4170ce2e20061fb716f0d94344ad77639321b3c03b3b6ff29f31b5e6",
+    "tests/suffix_lcp_application.py": "62ee33e849bcbb5eecaea0c5161dc66ded4bf698dcacb5c0c6c045849cc0fc45",
     "tests/support_hull.cpp": "9b6f1ce2cb81abf6a9393a2673da8db7b0e1f6c050f8337d6a4a0ac66ed3237c",
     "tests/tarjan.cpp": "35dd53d553e4435d79a7bc9a81900b4908fc97b35c1a4be99ccf93f09c1815b9",
     "tests/tree_path_kth.cpp": "055496ce8bbe4c70a00e1f1a2bb3bfb281896ab3d5be320d7dfadf334ba87ac8",

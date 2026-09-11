@@ -234,6 +234,36 @@ extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts()
 
 \lstinputlisting[firstline=302,lastline=376]{../src/compact/string.hpp}
 
+\chapter{后缀查询与重复子串}
+
+\Needspace{439pt}
+
+\section{后缀 LCP 与子串比较}\label{compact-SuffixLCP}\index{SuffixLCP}
+
+先构造 SuffixArray，再构造 SuffixLCP(sa)；传统版对应 Suffix\_Array 和 Suffix\_LCP。init(sa) / Init(sa) 可重新建表。复制所需排名与 LCP 数据，不保存原字符串或源对象引用，源对象可销毁或重建。query(x,y) 返回 s[x..n) 与 s[y..n) 的最长公共前缀，0$\le$x,y$\le$n，允许空后缀；同起点返回 n-x。compare(l1,r1,l2,r2) 比较两个 0-based 半开子串，允许空串，返回 -1/0/1；传统接口为 Query/Compare。若公共前缀覆盖较短子串，按长度比较，否则原后缀排名给出首个不同字符的顺序。字节排序及整数字母表约束继承 SuffixArray。预处理稀疏表 O(n log n) 时间、空间，每次查询 O(1)，无需哈希和原串。n、rk、lg、st 可读，禁止调用方破坏。
+
+\lstinputlisting[firstline=5,lastline=33]{../src/compact/suffix_lcp.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=34,lastline=56,firstnumber=30]{../src/compact/suffix_lcp.hpp}
+
+\Needspace{189pt}
+
+\section{两个前缀的最长公共后缀}\label{compact-prefix_lcs}\index{prefix\_lcs}
+
+prefix\_lcs(reversed,x,y) 返回原序列 s[0..x) 与 s[0..y) 的最长公共后缀，端点满足 0$\le$x,y$\le$n。reversed 必须在原序列的反转序列上构造 SuffixLCP，不能传正向对象；转换为 reversed.query(n-x,n-y)，单次 O(1)。传统版 Prefix\_Lcs 接受 Suffix\_LCP。只需前向 LCP 时不必构造反向对象；该接口中的 LCS 是最长公共后缀，不是最长公共子序列。对于两个任意子串，以右端点查询后还需截断到两个子串长度的最小值。
+
+\lstinputlisting[firstline=60,lastline=66]{../src/compact/suffix_lcp.hpp}
+
+\Needspace{464pt}
+
+\section{重复子串 AA 的起止位置计数}\label{compact-square_counts}\index{square\_counts}
+
+square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long long 数组，start[i]/finish[i] 为开始/结束于位置 i 的非空 AA 型子串个数；结束位置是最后一个字符下标，均 0-based。两对象必须分别对应同一原序列及其反序列，长度相同，允许空序列。传统接口为 Square\_Counts。枚举半长 len，并以其整数倍 i 为锚点；向左匹配截断为 len-1，向右截断为 len，由 LCP/LCS 得出合法起点连续区间，差分累计。左侧不能放宽到 len，否则相邻锚点会重复计数。预处理查询器后，此函数 O(n log n) 时间、O(n) 额外空间。不同出现位置、不同半长分别计数；不要求 A 为最小周期。P1117 的 AABB 拆分数为所有分界点 finish[i]*start[i+1] 之和，累加类型需按题目范围选择，函数本身只返回起止计数。
+
+\lstinputlisting[firstline=70,lastline=100]{../src/compact/suffix_lcp.hpp}
+
 \chapter{回文树}
 
 \section{回文树 PAM：回文后缀与出现次数}\label{compact-PalindromicTree}\index{PalindromicTree}
@@ -801,6 +831,36 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 算法约束见动态版本第~\pageref{compact-SuffixAutomaton}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=318,lastline=392]{../src/classic/string.hpp}
+
+\chapter{后缀查询与重复子串}
+
+\Needspace{439pt}
+
+\section{后缀 LCP 与子串比较}\label{classic-SuffixLCP}\index{Suffix\_LCP}
+
+算法约束见动态版本第~\pageref{compact-SuffixLCP}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=33]{../src/classic/suffix_lcp.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=34,lastline=56,firstnumber=30]{../src/classic/suffix_lcp.hpp}
+
+\Needspace{189pt}
+
+\section{两个前缀的最长公共后缀}\label{classic-prefix_lcs}\index{Prefix\_Lcs}
+
+算法约束见动态版本第~\pageref{compact-prefix_lcs}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=60,lastline=66]{../src/classic/suffix_lcp.hpp}
+
+\Needspace{464pt}
+
+\section{重复子串 AA 的起止位置计数}\label{classic-square_counts}\index{Square\_Counts}
+
+算法约束见动态版本第~\pageref{compact-square_counts}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=70,lastline=100]{../src/classic/suffix_lcp.hpp}
 
 \chapter{回文树}
 

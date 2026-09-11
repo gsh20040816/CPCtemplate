@@ -110,3 +110,6 @@ build/support_hull
 
 "$CXX" "${flags[@]}" tests/suffix_array.cpp -o build/suffix_array
 build/suffix_array
+
+"$CXX" "${flags[@]}" tests/suffix_lcp.cpp -o build/suffix_lcp
+build/suffix_lcp
