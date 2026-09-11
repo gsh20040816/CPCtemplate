@@ -10,6 +10,10 @@
 - `verify/luogu/P3369.splay.classic.cpp`
 - `verify/luogu/P3369.splay.compact.cpp`
 - `verify/luogu/P3373.classic.cpp`
+- `verify/luogu/P3384.classic.cpp`
+- `verify/luogu/P3384.compact.cpp`
+- `verify/luogu/P3386.classic.cpp`
+- `verify/luogu/P3386.compact.cpp`
 - `verify/luogu/P3391.classic.cpp`
 - `verify/luogu/P3391.compact.cpp`
 - `verify/luogu/P3649.classic.cpp`
@@ -36,3 +40,5 @@ OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在�
 - P3919 双风格已对打包程序验证随机版本分叉与查询编号；P3834 双风格打包程序已检查区间第 k 小。两类模板分别验证，不混用版本语义。
 
 - P3384 双风格驱动已完成路径/子树加法及求和的本地组合测试，尚未在线提交；传统 HLD 的接口现为 Heavy_Light_Decomposition<N> + Init(n)。
+
+- P3386 双风格驱动已完成本地检查。Hopcroft–Karp 匹配与最小点覆盖由独立穷举测试验证，尚未在线提交。

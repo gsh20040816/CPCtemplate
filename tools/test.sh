@@ -71,3 +71,6 @@ build/circle_precision
 
 "$CXX" "${flags[@]}" -pthread tests/hld.cpp -o build/hld
 build/hld
+
+"$CXX" "${flags[@]}" -pthread tests/hopcroft_karp.cpp -o build/hopcroft_karp
+build/hopcroft_karp

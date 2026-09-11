@@ -156,68 +156,101 @@ struct BipartiteMatching
 {
     int n, m;
     vector<vector<int>> g;
-    vector<int> l, r, dep;
+    vector<int> l, r, dep, cur;
 
     BipartiteMatching(int n, int m)
-        : n(n), m(m), g(n + 1), l(n + 1), r(m + 1), dep(n + 1)
+        : n(n), m(m), g(n + 1), l(n + 1), r(m + 1), dep(n + 1), cur(n + 1)
     {
     }
 
     void add(int u, int v)
     {
+        assert(1 <= u && u <= n && 1 <= v && v <= m);
         g[u].push_back(v);
     }
 
     bool bfs()
     {
         queue<int> q;
-        fill(dep.begin(), dep.end(), -1);
+        fill(dep.begin(), dep.end(), n + 1);
+        fill(cur.begin(), cur.end(), 0);
         for (int u = 1; u <= n; u++)
+        {
             if (!l[u])
             {
                 dep[u] = 0;
                 q.push(u);
             }
-        bool ok = false;
+        }
         while (!q.empty())
         {
             int u = q.front();
             q.pop();
+            if (dep[u] >= dep[0])
+                continue;
             for (int v : g[u])
-                if (!r[v])
-                    ok = true;
-                else if (dep[r[v]] < 0)
-                {
-                    dep[r[v]] = dep[u] + 1;
-                    q.push(r[v]);
-                }
+            {
+                int next = r[v];
+                if (dep[next] != n + 1)
+                    continue;
+                dep[next] = dep[u] + 1;
+                if (next)
+                    q.push(next);
+            }
         }
-        return ok;
+        return dep[0] != n + 1;
     }
 
     bool dfs(int u)
     {
-        for (int v : g[u])
-            if (!r[v] || (dep[r[v]] == dep[u] + 1 && dfs(r[v])))
+        if (!u)
+            return true;
+        for (int &i = cur[u]; i < (int)g[u].size(); i++)
+        {
+            int v = g[u][i];
+            if (dep[r[v]] == dep[u] + 1 && dfs(r[v]))
             {
                 l[u] = v;
                 r[v] = u;
                 return true;
             }
-        dep[u] = -1;
+        }
+        dep[u] = n + 1;
         return false;
     }
 
+    // Retains an existing matching; edges may be added between calls.
     int solve()
     {
-        int ans = 0;
+        int answer = 0;
         for (int u = 1; u <= n; u++)
-            ans += (l[u] != 0);
+            answer += (l[u] != 0);
         while (bfs())
+        {
             for (int u = 1; u <= n; u++)
-                if (!l[u])
-                    ans += dfs(u);
-        return ans;
+            {
+                if (!l[u] && dfs(u))
+                    answer++;
+            }
+        }
+        return answer;
+    }
+
+    // Call after solve(), before adding more edges. Returns left/right vertex IDs.
+    pair<vector<int>, vector<int>> cover() const
+    {
+        vector<int> left, right;
+        for (int u = 1; u <= n; u++)
+        {
+            if (dep[u] == n + 1)
+                left.push_back(u);
+        }
+        for (int v = 1; v <= m; v++)
+        {
+            if (r[v] && dep[r[v]] != n + 1)
+                right.push_back(v);
+        }
+        return {left, right};
     }
 };
 

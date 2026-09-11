@@ -89,3 +89,9 @@
 对照 WIDA 在线 HLD 的路径/子树修改与查询，组合已验证的区间乘加线段树编写 [P3384](https://www.luogu.com.cn/problem/P3384) 驱动。tests/hld.cpp 检查点权路径、排除 LCA 的边权路径、子树 DFS 区间及换根后重建，还检查 20 万点链；tests/tarjan.cpp 的全部 4 点有向图枚举同时核验两套递归 Kosaraju。
 
 2026-09-12 进一步把 Treap 的序列中序输出、状态序列建树后聚合与删除回收改为递归辅助函数。笛卡尔树构造仍使用算法本身的单调栈。P3369 只调用同头文件中的 OrderedTreap，相关结构和主程序与旧 AC 快照一致，SequenceTreap 的变更由本地独立测试覆盖。
+
+## Hopcroft–Karp 复杂度与方案
+
+算法分析依据：[Hopcroft and Karp, 1973](https://epubs.siam.org/doi/10.1137/0202019)，界为 O((V+E)√V)。本实现用 NIL 层距离限制最短增广路，DFS 带当前弧；最后一次失败 BFS 的交错可达集合用于构造最小点覆盖。替换此前只声明保守 O(VE) 的分层增广版。
+
+核对 WIDA 在线二分图最大匹配条目后实现，接口保留 1-based 编号。tests/hopcroft_karp.cpp 穷举两侧至多 4 点的全部二分图，以子集 DP 核验最大匹配；再检查点覆盖覆盖每条边且大小等于最优匹配数，并验证重边、空侧、增量加边与 10 万点长增广路。

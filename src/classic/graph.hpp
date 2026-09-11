@@ -168,72 +168,110 @@ struct Two_SAT
     }
 };
 
-struct Bipartite_Matching
+template <int N, int M> struct Bipartite_Matching
 {
     int n, m;
-    vector<vector<int>> g;
-    vector<int> l, r, dep;
+    vector<int> g[N + 1];
+    int l[N + 1], r[M + 1], dep[N + 1], cur[N + 1], que[N + 1];
 
-    Bipartite_Matching(int n, int m)
-        : n(n), m(m), g(n + 1), l(n + 1), r(m + 1), dep(n + 1)
+    void Init(int left_size, int right_size)
     {
+        assert(0 <= left_size && left_size <= N && 0 <= right_size && right_size <= M);
+        n = left_size;
+        m = right_size;
+        fill(l, l + n + 1, 0);
+        fill(r, r + m + 1, 0);
+        for ( int u = 1; u <= n; u++ )
+            g[u].clear();
     }
 
     void Insert(int u, int v)
     {
+        assert(1 <= u && u <= n && 1 <= v && v <= m);
         g[u].push_back(v);
     }
 
     bool Bfs()
     {
-        queue<int> q;
-        fill(dep.begin(), dep.end(), -1);
+        int head = 0, tail = 0;
+        fill(dep, dep + n + 1, n + 1);
+        fill(cur, cur + n + 1, 0);
         for ( int u = 1; u <= n; u++ )
+        {
             if ( !l[u] )
             {
                 dep[u] = 0;
-                q.push(u);
+                que[tail++] = u;
             }
-        bool ok = false;
-        while ( !q.empty() )
-        {
-            int u = q.front();
-            q.pop();
-            for ( int v : g[u] )
-                if ( !r[v] )
-                    ok = true;
-                else if ( dep[r[v]] < 0 )
-                {
-                    dep[r[v]] = dep[u] + 1;
-                    q.push(r[v]);
-                }
         }
-        return ok;
+        while ( head < tail )
+        {
+            int u = que[head++];
+            if ( dep[u] >= dep[0] )
+                continue;
+            for ( int v : g[u] )
+            {
+                int next = r[v];
+                if ( dep[next] != n + 1 )
+                    continue;
+                dep[next] = dep[u] + 1;
+                if ( next )
+                    que[tail++] = next;
+            }
+        }
+        return dep[0] != n + 1;
     }
 
     bool Dfs(int u)
     {
-        for ( int v : g[u] )
-            if ( !r[v] || (dep[r[v]] == dep[u] + 1 && Dfs(r[v])) )
+        if ( !u )
+            return true;
+        for ( int &i = cur[u]; i < (int)g[u].size(); i++ )
+        {
+            int v = g[u][i];
+            if ( dep[r[v]] == dep[u] + 1 && Dfs(r[v]) )
             {
                 l[u] = v;
                 r[v] = u;
                 return true;
             }
-        dep[u] = -1;
+        }
+        dep[u] = n + 1;
         return false;
     }
 
+    // Retains an existing matching; edges may be added between calls.
     int Solve()
     {
-        int ans = 0;
+        int answer = 0;
         for ( int u = 1; u <= n; u++ )
-            ans += (l[u] != 0);
+            answer += (l[u] != 0);
         while ( Bfs() )
+        {
             for ( int u = 1; u <= n; u++ )
-                if ( !l[u] )
-                    ans += Dfs(u);
-        return ans;
+            {
+                if ( !l[u] && Dfs(u) )
+                    answer++;
+            }
+        }
+        return answer;
+    }
+
+    // Call after Solve(), before adding more edges. Returns left/right vertex IDs.
+    pair<vector<int>, vector<int>> Cover() const
+    {
+        vector<int> left, right;
+        for ( int u = 1; u <= n; u++ )
+        {
+            if ( dep[u] == n + 1 )
+                left.push_back(u);
+        }
+        for ( int v = 1; v <= m; v++ )
+        {
+            if ( r[v] && dep[r[v]] != n + 1 )
+                right.push_back(v);
+        }
+        return {left, right};
     }
 };
 

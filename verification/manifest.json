@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T17:03:43.325278+00:00",
+  "recorded_at_utc": "2026-09-11T17:14:47.051805+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -35,7 +35,8 @@
       "P2495 dual-style bundled drivers / exhaustive edge cuts PASS",
       "Persistent array branching versions, snapshots, allocation bounds and reserve PASS",
       "Circle degeneracy, scale invariance and 100-digit overlap reference PASS",
-      "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS"
+      "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS",
+      "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -69,7 +70,8 @@
       "P2495 dual-style bundled drivers / exhaustive edge cuts PASS",
       "Persistent array branching versions, snapshots, allocation bounds and reserve PASS",
       "Circle degeneracy, scale invariance and 100-digit overlap reference PASS",
-      "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS"
+      "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS",
+      "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS"
     ]
   },
   "sha256": {
@@ -86,7 +88,7 @@
     "src/classic/gcd_sequence.hpp": "8723618196787697658660b59665baaf1ba060311e57cc42fd8c23ec27234229",
     "src/classic/geometry.hpp": "4ddc03277a26dcec3472a42eb8277da2d972c1f9198f1b58610d5d51d6f77167",
     "src/classic/geometry_extra.hpp": "793fa6eec2f6dd0b57829585f91aec872c14c73817978225cb0f914fcea3474c",
-    "src/classic/graph.hpp": "3ce21ff2e62498f52fe2363321ee421455e88929e984dbf5a03343ef481e7648",
+    "src/classic/graph.hpp": "39b65891c8d0ded3a966eb12dbfe43b580026160cab8c90e74d5dfb1a9ac484e",
     "src/classic/graph_advanced.hpp": "ee0c31d0ebf0148c902c0af2bbb36adc1dc48124a3401f6136f9743c237706e8",
     "src/classic/min_cost_flow.hpp": "49d8ee5466edc6396bbe7c8858e8b4bd765b4c0bc18c82a4ea7eae88884e36ca",
     "src/classic/number_theory.hpp": "8a20210a11a6f985d51776dd0a90e9aaa2c385f7805babfe05c63613c57a7352",
@@ -114,7 +116,7 @@
     "src/compact/gcd_sequence.hpp": "3794e7a66553c2b7bd85d9e79a9556fc7dd9965e4eac1444ec7a84dc81eacb78",
     "src/compact/geometry.hpp": "156f9ba2fbd9dc36552f7a6668b2a224d957d55e27dae645510deed5f58b7b3b",
     "src/compact/geometry_extra.hpp": "13c597cd4dd46254216f0eb6f9ad402b0e96fdd424e864a8117f05c666ac5e89",
-    "src/compact/graph.hpp": "d7d95d5986b73210add928089535fe5d14d104443bd172b080514f100f765773",
+    "src/compact/graph.hpp": "68c64bd031ad21c2308712e4bc3724d27e6345aff86d2d9b346025f2a8b4ff97",
     "src/compact/graph_advanced.hpp": "e2a57a2354904fc55f2038fb4f694842cc60c3e8b76c0aa431ab3b8d9546d1eb",
     "src/compact/number_theory.hpp": "442ed221567f0fa12f9ae38bcb7d873bed4cd0a253020814dae2599c64f3bf0f",
     "src/compact/optimization.hpp": "e031dc5ddb1cc778e49d445e63c5e197cb79519eae97ed38a92a29be06e77f12",
@@ -142,6 +144,7 @@
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",
     "tests/hld.cpp": "2cb59f85875e3c9c0002b3e0e9ac029c32ae862fc44230a2272e47203af28d6a",
+    "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",
     "tests/optimization.cpp": "22a2eacb619a32e51d2dfde85462447acf00e1e5eb8b2c587edead8a788d6acc",
     "tests/palindromic_tree.cpp": "579f58e77440a9342e7ad1bc13ede6405a3f45e4a6e64636dcc0a67943645566",

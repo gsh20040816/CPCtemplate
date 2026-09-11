@@ -110,11 +110,11 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 
 \lstinputlisting[firstline=120,lastline=154]{../src/compact/graph.hpp}
 
-\section{二分图最大匹配}\label{compact-BipartiteMatching}\index{BipartiteMatching}
+\section{Hopcroft–Karp 最大匹配与最小点覆盖}\label{compact-BipartiteMatching}\index{BipartiteMatching}
 
-左右两侧分别编号 1..n、1..m；add(u,v)，solve() 返回匹配数，l[u] 与 r[v] 为匹配端点，0 表示未匹配。分层增广；本版本保守按 O(VE) 估计，不宣称已经验证 Hopcroft-Karp 最紧复杂度。
+左右两侧分别编号 1..n、1..m，可有空侧及重边；add(u,v) 加边，solve() 返回最大匹配总数，l[u] 与 r[v] 为匹配端点，0 表示未匹配。保留已有合法匹配，可加边后再次 solve；不支持删边或手动更改匹配数组。BFS 用 dep[0] 记录最短终点层，递归 DFS 只沿最短层增广，并使用当前弧。V=n+m，单次 solve 最坏 O((V+E)$\sqrt{\vphantom x}$V)，空间 O(V+E)。cover() 在 solve 后、下一次改图前调用，返回 (左侧点列表,右侧点列表)，为最小点覆盖；其补集是最大独立集。覆盖与匹配方案均可直接输出。
 
-\lstinputlisting[firstline=155,lastline=223]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=155,lastline=256]{../src/compact/graph.hpp}
 
 \Needspace{648pt}
 
@@ -122,7 +122,7 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 
 add(u,v) 返回无向边编号；run() 后 cut[u] 标识割点、bridge[id] 标识桥。按边编号跳过父边，支持重边、自环、不连通图。O(V+E)，递归深度可能 O(V)。
 
-\lstinputlisting[firstline=224,lastline=278]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=257,lastline=311]{../src/compact/graph.hpp}
 
 \chapter{树上算法}
 
@@ -572,11 +572,13 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 \lstinputlisting[firstline=136,lastline=170]{../src/classic/graph.hpp}
 
-\section{二分图最大匹配}\label{classic-BipartiteMatching}\index{Bipartite\_Matching}
+\section{Hopcroft–Karp 最大匹配与最小点覆盖}\label{classic-BipartiteMatching}\index{Bipartite\_Matching}
 
 算法约束见动态版本第~\pageref{compact-BipartiteMatching}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=171,lastline=239]{../src/classic/graph.hpp}
+声明 Bipartite\_Matching<N,M> 后 Init(n,m)，两侧容量分别为 N、M。Insert 加边，Solve 求匹配，Cover 返回最小点覆盖；l、r 保存方案。大对象放在全局或 static。
+
+\lstinputlisting[firstline=171,lastline=277]{../src/classic/graph.hpp}
 
 \Needspace{648pt}
 
@@ -584,7 +586,7 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 算法约束见动态版本第~\pageref{compact-Lowlink}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=240,lastline=294]{../src/classic/graph.hpp}
+\lstinputlisting[firstline=278,lastline=332]{../src/classic/graph.hpp}
 
 \chapter{树上算法}
 
