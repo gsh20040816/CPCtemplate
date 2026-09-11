@@ -45,3 +45,6 @@ build/tarjan
 
 "$CXX" "${flags[@]}" -pthread tests/biconnected.cpp -o build/biconnected
 build/biconnected
+
+"$CXX" "${flags[@]}" tests/palindromic_tree.cpp -o build/palindromic_tree
+build/palindromic_tree

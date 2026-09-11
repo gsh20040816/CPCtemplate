@@ -43,3 +43,7 @@
 [OI Wiki 圆方树](https://oi-wiki.org/graph/block-forest/)提供结构定义参考。点双验证题为 [P8435](https://www.luogu.com.cn/problem/P8435)，边双为 [P8436](https://www.luogu.com.cn/problem/P8436)。P8435 双风格已在记录 297517446、297517662 获得 100 分 AC，其余输出接口状态见 verification/oj.json 与本地测试。
 
 测试通过枚举诱导子集并逐点删除，独立求极大无割点连通子图；逐边删除判桥、逐点删除判割点，并核对圆方森林和桥森林。包含 20 万点链及闭环后重算。测试线程配置 256 MiB 栈，模板保持递归 DFS，不包含手写调用栈。
+
+## 回文树 PAM
+
+核对 WIDA 打印稿字符串章节及 jiangly PAM 条目：二者中的 cnt 表示回文后缀链长度，不能直接当作某个回文串的总出现次数。新模板分别使用 suffixes、hits 和 occurrences()，并提供首次出现端点。验证题：[P5496](https://www.luogu.com.cn/problem/P5496) 检查在线解码与回文后缀数量，[P3649](https://www.luogu.com.cn/problem/P3649) 检查出现次数乘长度。OJ 状态单独登记。

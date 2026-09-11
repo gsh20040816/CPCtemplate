@@ -5,3 +5,5 @@
 - P3369 classic Treap, both Splay styles, P3391 both styles: drivers ready, online verification pending.
 - The previous P3369 compact CAPTCHA was completed with action-time authorization, and record 297515150 was accepted. P8435 classic CAPTCHA also completed with action-time authorization; no CAPTCHA currently pending.
 - P8435 compact: AC record 297517446 archived in oj.json. P8435 classic: AC record 297517662 archived. P8436 both styles: bundled and locally checked, not submitted. All use recursive DFS.
+
+- PAM: P5496 compact AC 297518043 archived; P5496 classic and both P3649 drivers ready, not submitted. Decoding/count drivers independently checked locally.

@@ -186,6 +186,14 @@ extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts()
 
 \lstinputlisting[firstline=265,lastline=339]{../src/compact/string.hpp}
 
+\chapter{回文树}
+
+\section{回文树 PAM：回文后缀与出现次数}\label{compact-PalindromicTree}\index{PalindromicTree}
+
+add(ch) 追加小写英文字母，返回最长回文后缀节点，亦保存于 last。节点 0 是长度 0 根，1 是长度 -1 根，实际回文节点从 2 开始；distinct() 为不同非空回文串数。t[u].len 为长度，fail 为最长真回文后缀链接，suffixes 为该节点的非空回文后缀数量；追加后的 t[last].suffixes 就是本位置结尾的回文串数。total 为当前全部回文子串的出现次数之和。end 为首次出现时的 0-based 右端点，可恢复原串子段；hits 仅统计作为最长后缀的次数，不能当出现次数。occurrences() 返回按节点编号的完整出现次数副本，根置零，O(n)；重复调用以及查询后继续追加均安全。init() 清空重建。固定 26 字符集下建树 O(n)，空间 O(26n)。
+
+\lstinputlisting[firstline=6,lastline=83]{../src/compact/palindromic_tree.hpp}
+
 \chapter{数论}
 
 \section{模运算、素性、CRT 与类欧几里德}\label{compact-NumberTheory}\index{NumberTheory}
@@ -597,6 +605,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 算法约束见动态版本第~\pageref{compact-SuffixAutomaton}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=281,lastline=355]{../src/classic/string.hpp}
+
+\chapter{回文树}
+
+\section{回文树 PAM：回文后缀与出现次数}\label{classic-PalindromicTree}\index{Palindromic\_Tree}
+
+算法约束见动态版本第~\pageref{compact-PalindromicTree}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Palindromic\_Tree<N> 后调用 Init()；N 为最大追加字符数，内部另留两个根节点。Insert、Distinct、Occurrences 对应动态版接口；t、last、total 可直接读。大对象放在全局或 static。
+
+\lstinputlisting[firstline=6,lastline=82]{../src/classic/palindromic_tree.hpp}
 
 \chapter{数论}
 
