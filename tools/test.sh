@@ -42,3 +42,6 @@ build/recurrence
 
 "$CXX" "${flags[@]}" tests/tarjan.cpp -o build/tarjan
 build/tarjan
+
+"$CXX" "${flags[@]}" -pthread tests/biconnected.cpp -o build/biconnected
+build/biconnected

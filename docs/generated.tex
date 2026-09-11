@@ -4,9 +4,17 @@
 
 \section{Tarjan 强连通分量与缩点}\label{compact-TarjanSCC}\index{TarjanSCC}
 
-TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u] 为 1..cnt 的强连通分量编号，跨分量边总从大编号指向小编号，可按 cnt..1 做拓扑 DP。dag() 返回缩点邻接表，保留重边；若 DP 需要对不同邻点去重，调用者应排序去重。支持自环、重边、不连通图和重复 run。时间及图存储 O(n+m)，递归 DFS 另需 O(n) 调用栈；长链可能受系统栈限制，可改用已有迭代 Kosaraju。注意已有 SCC 模板的编号方向与本模板相反。
+TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u] 为 1..cnt 的强连通分量编号，跨分量边总从大编号指向小编号，可按 cnt..1 做拓扑 DP。dag() 返回缩点邻接表，保留重边；若 DP 需要对不同邻点去重，调用者应排序去重。支持自环、重边、不连通图和重复 run。时间及图存储 O(n+m)，递归 DFS 另需 O(n) 调用栈；本地验证应配置足够栈内存。注意已有 SCC 模板的编号方向与本模板相反。
 
 \lstinputlisting[firstline=7,lastline=81]{../src/compact/tarjan.hpp}
+
+\chapter{双连通分量与圆方树}
+
+\section{Tarjan 点双、边双与圆方树}\label{compact-Biconnected}\index{Biconnected}
+
+Biconnected(n)，点号 1..n；add(u,v) 返回原边的 0-based 编号，run() 从头计算。blocks 为点双的顶点列表：桥的两端构成一个块，孤立点独立成块；同一个割点可出现在多个块。cut[u] 标记割点，bridge[id] 标记桥；bel[u] 是 1..cnt 的边双编号。block\_forest() 返回圆方森林，原点 1..n，blocks[i] 的方点编号 n+i+1；孤立点也连接自己的单点方块。bridge\_forest() 返回边双缩点森林，邻接项为 (相邻分量,原桥编号)。重边按边号处理；自环保留原边编号但不参与 DFS，不是桥，不额外产生点双。全程 O(n+m)，递归 DFS，分量栈不替代递归调用。两种森林必须在 run 后获取。
+
+\lstinputlisting[firstline=8,lastline=141]{../src/compact/biconnected.hpp}
 
 \chapter{数据结构}
 
@@ -399,6 +407,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 声明 Tarjan\_SCC<N>，先 Init(n)，Insert 加边，Run 求分量，Dag 输出缩点图。bel 与 cnt 可直接读取；大对象放在全局或 static。
 
 \lstinputlisting[firstline=7,lastline=85]{../src/classic/tarjan.hpp}
+
+\chapter{双连通分量与圆方树}
+
+\section{Tarjan 点双、边双与圆方树}\label{classic-Biconnected}\index{Biconnected\_Graph}
+
+算法约束见动态版本第~\pageref{compact-Biconnected}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Biconnected\_Graph<N>，Init(n) 初始化，Insert 加边，Run 分解，Block\_Forest 和 Bridge\_Forest 输出两种森林。blocks、cut、bridge、bel、cnt 可直接读取。大对象放在全局或 static。
+
+\lstinputlisting[firstline=8,lastline=146]{../src/classic/biconnected.hpp}
 
 \chapter{数据结构}
 

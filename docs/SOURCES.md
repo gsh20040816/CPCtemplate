@@ -35,3 +35,11 @@
 - [OI Wiki：Berlekamp–Massey](https://oi-wiki.org/math/berlekamp-massey/)：有限前缀的最短递推及有界阶序列恢复条件。实现采用连接多项式与上次非零偏差更新，独立重写为两套函数。
 - [OI Wiki：常系数齐次线性递推](https://oi-wiki.org/math/poly/linear-recurrence/)：特征多项式降幂。当前提供 O(k² log n) 版；快速多项式版仍待实现，不能把整个页面记为完成。
 - tests/recurrence.cpp 穷举 GF(2)、GF(3) 上长度至多 8 的序列，与枚举系数的最小阶数比较；生成递推后用前 2k 项学习并核验后续项；使用独立矩阵幂核对 uint64 最大下标和合数模数。
+
+## 双连通分量与圆方树
+
+核对 WIDA 的 VDCC、EDCC 新版及 jiangly 圆方树条目，统一输出点双顶点集合、割点、桥、边双编号和两种缩点森林。编号与孤立点约定见手册。
+
+[OI Wiki 圆方树](https://oi-wiki.org/graph/block-forest/)提供结构定义参考。点双验证题为 [P8435](https://www.luogu.com.cn/problem/P8435)，边双为 [P8436](https://www.luogu.com.cn/problem/P8436)。P8435 动态版已在记录 297517446 获得 100 分 AC，其余输出接口状态见 verification/oj.json 与本地测试。
+
+测试通过枚举诱导子集并逐点删除，独立求极大无割点连通子图；逐边删除判桥、逐点删除判割点，并核对圆方森林和桥森林。包含 20 万点链及闭环后重算。测试线程配置 256 MiB 栈，模板保持递归 DFS，不包含手写调用栈。
