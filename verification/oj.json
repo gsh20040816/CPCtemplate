@@ -300,5 +300,88 @@
       "Discrete_Log::Solve"
     ],
     "note": "OJ inputs a,p,b in 1..1e9 and smallest exponent; signed inputs and 1e12 modulus extension checked locally. Unused algebra/number-theory APIs in bundle are not covered by this AC."
+  },
+  {
+    "problem": "Luogu P6577",
+    "style": "compact",
+    "algorithm": "WeightedMatching",
+    "record": "https://www.luogu.com.cn/record/297520123",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 2010,
+    "memory": "4.44MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P6577.compact.cpp",
+    "submitted_source": "verification/submitted/P6577.compact.cpp",
+    "submitted_sha256": "5252f5d3ee408b03364d45d2a5a67ac23a340416e6ab462e7b9e9c6456d2e198",
+    "tested_api": [
+      "add",
+      "solve(false)",
+      "r: right-to-left assignment"
+    ],
+    "note": "Perfect matching with n<=500, missing edges and signed problem-range weights. Optional matches, infeasible graphs, duplicate edges and full int64 weights verified independently locally."
+  },
+  {
+    "problem": "Luogu P6577",
+    "style": "classic",
+    "algorithm": "WeightedMatching",
+    "record": "https://www.luogu.com.cn/record/297520132",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 1860,
+    "memory": "4.41MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P6577.classic.cpp",
+    "submitted_source": "verification/submitted/P6577.classic.cpp",
+    "submitted_sha256": "7d7fbc745258664fc12698c7bcc2f93234c18c6005bbfb31dcef4f3d2f3a7008",
+    "tested_api": [
+      "Init",
+      "Insert",
+      "Solve(false)",
+      "r: right-to-left assignment"
+    ],
+    "note": "Perfect matching with n<=500, missing edges and signed problem-range weights. Optional matches, infeasible graphs, duplicate edges and full int64 weights verified independently locally."
+  },
+  {
+    "problem": "Luogu P4720",
+    "style": "compact",
+    "algorithm": "ExLucas",
+    "record": "https://www.luogu.com.cn/record/297520142",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 61,
+    "memory": "5.60MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4720.compact.cpp",
+    "submitted_source": "verification/submitted/P4720.compact.cpp",
+    "submitted_sha256": "ec75c16d776904caea2b9762db87069987de413ab4dc0b453e585daf9c22a0e6",
+    "tested_api": [
+      "constructor",
+      "choose"
+    ],
+    "note": "One binomial query, 1<=k<=n<=1e18 and 2<=mod<=1e6. Zero/out-of-range k, mod=1, repeated queries and uint64 endpoint verified independently locally."
+  },
+  {
+    "problem": "Luogu P4720",
+    "style": "classic",
+    "algorithm": "ExLucas",
+    "record": "https://www.luogu.com.cn/record/297520151",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 55,
+    "memory": "4.34MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4720.classic.cpp",
+    "submitted_source": "verification/submitted/P4720.classic.cpp",
+    "submitted_sha256": "ee4f56f8ac4693184b1f1360d38098063f0d524b64ac8be0aaf56c9a32b0b797",
+    "tested_api": [
+      "Init",
+      "Choose"
+    ],
+    "note": "One binomial query, 1<=k<=n<=1e18 and 2<=mod<=1e6. Zero/out-of-range k, mod=1, repeated queries/reinitialization and uint64 endpoint verified independently locally."
   }
 ]

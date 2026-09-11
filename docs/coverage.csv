@@ -30,7 +30,7 @@ WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/11 - 一般图最�
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/12 - 一般图最大权匹配（带权带花树算法）.cpp,,12 - 一般图最大权匹配（带权带花树算法）,pending,,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/13 - 二分图最大匹配 (HopcroftKarp).cpp,,13 - 二分图最大匹配 (HopcroftKarp),local-tested,src/compact/graph.hpp#BipartiteMatching,src/classic/graph.hpp#Bipartite_Matching,tests/hopcroft_karp.cpp; shortest-layer Hopcroft-Karp; maximum matching and minimum vertex cover; OJ pending
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/14 - 2-Sat.cpp,,14 - 2-Sat,local-tested,src/compact/graph.hpp#TwoSAT,src/classic/graph.hpp#Two_SAT,tests/graph_contracts.cpp; exhaustive truth assignments and returned solutions in both styles; variable IDs changed from 0-based to 1-based; OJ pending
-WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/15 - 二分图最大权匹配 (KM).cpp,,15 - 二分图最大权匹配 (KM),local-tested,src/compact/weighted_matching.hpp,src/classic/weighted_matching.hpp,tests/weighted_matching.cpp; full-left and optional max-weight matching with explicit missing edges; int64 weights/int128 arithmetic; independent subset-DP optimum and scheme checks; P6577 OJ pending
+WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/15 - 二分图最大权匹配 (KM).cpp,,15 - 二分图最大权匹配 (KM),local-tested,src/compact/weighted_matching.hpp,src/classic/weighted_matching.hpp,tests/weighted_matching.cpp; full-left and optional max-weight matching with explicit missing edges; int64 weights/int128 arithmetic; independent subset-DP optimum and scheme checks; P6577 dual AC 297520123/297520132 (perfect-matching API only)
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/16 - 最大流 (Dinic).cpp,,16 - 最大流 (Dinic),oj_ac_both,src/compact/flow.hpp#Dinic,src/classic/flow.hpp#Network_Flow,verification/oj.json
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/17 - 最大流 (HLPP).cpp,,17 - 最大流 (HLPP),pending,,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/18 - 费用流 (Djikstra).cpp,,18 - 费用流 (Djikstra),pending,,,
@@ -96,7 +96,7 @@ WIDA,02 - 打印稿模板汇总/03A - 图论.md,,一般图最大权匹配（带�
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,二分图最大匹配,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,匈牙利算法（KM算法）解,local-tested,src/compact/graph.hpp#BipartiteMatching,src/classic/graph.hpp#Bipartite_Matching,"Upstream code inspected: unweighted Kuhn matching despite KM heading; covered by Hopcroft-Karp exhaustive matching/cover tests, not the weighted module"
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,HopcroftKarp算法（基于最大流）解,pending,,,
-WIDA,02 - 打印稿模板汇总/03A - 图论.md,,二分图最大权匹配（二分图完美匹配）,local-tested,src/compact/weighted_matching.hpp,src/classic/weighted_matching.hpp,tests/weighted_matching.cpp; full-left and optional max-weight matching with explicit missing edges; int64 weights/int128 arithmetic; independent subset-DP optimum and scheme checks; P6577 OJ pending
+WIDA,02 - 打印稿模板汇总/03A - 图论.md,,二分图最大权匹配（二分图完美匹配）,local-tested,src/compact/weighted_matching.hpp,src/classic/weighted_matching.hpp,tests/weighted_matching.cpp; full-left and optional max-weight matching with explicit missing edges; int64 weights/int128 arithmetic; independent subset-DP optimum and scheme checks; P6577 dual AC 297520123/297520132 (perfect-matching API only)
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,二分图最大独立点集（Konig 定理）,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,最长路（topsort+DP算法）,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,最短路径树（SPT问题）,pending,,,
@@ -656,7 +656,7 @@ kuangbin,ACM template (2018),149,4.10.1 邻接矩阵（匈牙利算法）,pendin
 kuangbin,ACM template (2018),150,4.10.2 邻接表（匈牙利算法）,pending,,,
 kuangbin,ACM template (2018),151,4.10.3 Hopcroft-Karp 算法,pending,,,
 kuangbin,ACM template (2018),152,4.11 二分图多重匹配,pending,,,
-kuangbin,ACM template (2018),153,4.12 二分图最大权匹配（KM 算法）,local-tested,src/compact/weighted_matching.hpp,src/classic/weighted_matching.hpp,tests/weighted_matching.cpp; full-left and optional max-weight matching with explicit missing edges; int64 weights/int128 arithmetic; independent subset-DP optimum and scheme checks; P6577 OJ pending
+kuangbin,ACM template (2018),153,4.12 二分图最大权匹配（KM 算法）,local-tested,src/compact/weighted_matching.hpp,src/classic/weighted_matching.hpp,tests/weighted_matching.cpp; full-left and optional max-weight matching with explicit missing edges; int64 weights/int128 arithmetic; independent subset-DP optimum and scheme checks; P6577 dual AC 297520123/297520132 (perfect-matching API only)
 kuangbin,ACM template (2018),154,4.13 一般图匹配带花树,local-tested,src/compact/blossom.hpp,src/classic/blossom.hpp,tests/blossom.cpp; maximum cardinality and matching reconstruction; OJ pending
 kuangbin,ACM template (2018),157,4.14 一般图最大加权匹配,pending,,,
 kuangbin,ACM template (2018),159,4.15 生成树计数,pending,,,
