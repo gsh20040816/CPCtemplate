@@ -56,6 +56,14 @@ insert(x) 返回是否增加秩；query(x) 返回 x 与所张成空间异或后�
 
 \lstinputlisting[firstline=206,lastline=231]{../src/compact/data_structure.hpp}
 
+\chapter{线段树常用修改}
+
+\section{线段树：区间乘、加、赋值与模意义求和}\label{compact-AffineSegTree}\index{AffineSegTree}
+
+AffineSegTree(a,mod) 传入非空 0-based 初值数组；查询与修改采用 1-based 非空闭区间。update(l,r,mul,add) 将区间元素 x 改为 mul*x+add；乘法用 (mul,0)，加法用 (1,add)，赋值用 (0,value)。query(l,r) 返回区间和。1$\le$mod$\le$INT\_MAX，模数无需为素数，初值和修改参数允许 long long 全范围，入口统一归一化。旧标记 (m,b) 后应用新标记 (a,c)，复合为 (m*a,b*a+c)，乘法取模后再相加。建树 O(n)，单次 O(log n)，空间 O(n)。内部 build、apply 等函数不作为公共接口；动态版重建新对象，传统版可重复 Init。
+
+\lstinputlisting[firstline=6,lastline=111]{../src/compact/affine_segment_tree.hpp}
+
 \chapter{网络流}
 
 \section{最大流与方案}\label{compact-Dinic}\index{Dinic}
@@ -487,6 +495,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 算法约束见动态版本第~\pageref{compact-XorBasis}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=220,lastline=246]{../src/classic/data_structure.hpp}
+
+\chapter{线段树常用修改}
+
+\section{线段树：区间乘、加、赋值与模意义求和}\label{classic-AffineSegTree}\index{Affine\_Segment\_Tree}
+
+算法约束见动态版本第~\pageref{compact-AffineSegTree}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Affine\_Segment\_Tree<N> 后 Init(a,mod)，N 为最大数组长度。Update(l,r,mul,add) 修改，Query(l,r) 求和；支持重复初始化。大对象放在全局或 static。
+
+\lstinputlisting[firstline=6,lastline=113]{../src/classic/affine_segment_tree.hpp}
 
 \chapter{网络流}
 

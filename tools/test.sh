@@ -54,3 +54,6 @@ build/centroid
 
 "$CXX" "${flags[@]}" -pthread tests/dsu_on_tree.cpp -o build/dsu_on_tree
 build/dsu_on_tree
+
+"$CXX" "${flags[@]}" tests/affine_segment_tree.cpp -o build/affine_segment_tree
+build/affine_segment_tree

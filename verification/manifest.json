@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T16:00:09.964891+00:00",
+  "recorded_at_utc": "2026-09-11T16:07:56.461304+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -29,7 +29,8 @@
       "Biconnected subset/removal oracles and block/bridge forests PASS",
       "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS",
       "Centroid distance/Floyd oracle, zero weights, overflow boundary and recursive chain PASS",
-      "DSU-on-tree ancestor histogram, reroot/reset, recursive chain and star PASS"
+      "DSU-on-tree ancestor histogram, reroot/reset, recursive chain and star PASS",
+      "Affine segment tree int128 oracle, composition, modulus one and large range PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -57,11 +58,13 @@
       "Biconnected subset/removal oracles and block/bridge forests PASS",
       "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS",
       "Centroid distance/Floyd oracle, zero weights, overflow boundary and recursive chain PASS",
-      "DSU-on-tree ancestor histogram, reroot/reset, recursive chain and star PASS"
+      "DSU-on-tree ancestor histogram, reroot/reset, recursive chain and star PASS",
+      "Affine segment tree int128 oracle, composition, modulus one and large range PASS"
     ]
   },
   "sha256": {
     "src/classic/.clang-format": "64eb90c541351e58cd1351a8d2d6aa73f1f2b20b40ba07ef412ad6d7cad47447",
+    "src/classic/affine_segment_tree.hpp": "148df422ffd62f94b5a293b1c69a72fe6dc4f3af45fb5324fed692619d42c147",
     "src/classic/algebra.hpp": "303dde25d79b9a12daf956b71f9a6367e0391371e8c47a9736f057f0a5d8b3d2",
     "src/classic/biconnected.hpp": "e4a8f7cd76bb572039bf1f41c0d46d222a9dbb4a0a5aec616c51da01abf82024",
     "src/classic/blossom.hpp": "adfc09ded1ac63d2aedc274f12e61a72609328c48ca04af9deea782b32550790",
@@ -87,6 +90,7 @@
     "src/classic/treap.hpp": "5fb685f85beaa8a22cd1ea6f59511c164d73fffc5d89e4402f3c10a61f5f35fd",
     "src/classic/tree.hpp": "9125d548aa7258a8734c4c5d0a8f5c3a39c46a5d11b84fbf2ad25416467c6dbb",
     "src/compact/.clang-format": "82ccdaa30f990717cdcdc30b58d7521142e24314daa27095a59d3f965d772b7b",
+    "src/compact/affine_segment_tree.hpp": "98bb99f3478bf2176f4850868711af1271729439e346274791b1889cc2ba004b",
     "src/compact/algebra.hpp": "1d2c1ed3abefbf09f267b6580e3b7f0f4c3153f0dbd87c294ee39997e1999ba5",
     "src/compact/biconnected.hpp": "6ad20e935bbb4f3f41349dd54076910b2ccc91a05522325f65b53e064074313c",
     "src/compact/blossom.hpp": "1c0f9fe674d3228d8a2ee3aa2b081cbad202184c14011583774f22fff484d982",
@@ -110,6 +114,7 @@
     "src/compact/tarjan.hpp": "15716184cdf5cec0cb5234ba357ea922840277454932e54e06067d7290f929d5",
     "src/compact/treap.hpp": "e7d1d5da733dce648b50e8e18e148c7ca06567136e56745a80302ea529f1e671",
     "src/compact/tree.hpp": "c0ffb45f3aa468a11b8c441f2b9f74982bdfd940f5a212f6c423394c6e1451c2",
+    "tests/affine_segment_tree.cpp": "739c2a5cc83e1940f14c9b39dc0acbb02898cc6805c261c0fd852390de7dd2be",
     "tests/algebra.cpp": "8a5e1fe4f5515d376e5b3d6c2b620e784c07333cbe754a3268d5c7e8c52295bc",
     "tests/biconnected.cpp": "de4fa6a9a028408879922a15c0cbe19b80f87ed7be2e274f36766dfb0ed4739f",
     "tests/blossom.cpp": "93361601e543fe63e84deccd84e5148b39de9fa919eda4345c18e5f653cf1f96",
