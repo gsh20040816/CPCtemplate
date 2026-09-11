@@ -7,7 +7,7 @@
 
 ## 已取得的赛题资料
 
-- [2025 香港题解](https://qoj.ac/download.php?id=3169&r=1&type=attachments)：A 二分图匹配；F 强连通/拓扑处理；G 线段树维护；K 单调栈、树上倍增与比较。训练账号参加过 QOJ 3169。
+- [2025 香港题解](https://qoj.ac/download.php?id=3169&r=1&type=attachments)：逐题需求、候选组件与缺口见 [赛题映射](contest-coverage.csv)，不按题目名称直接判断模板覆盖。训练账号参加过 QOJ 3169。
 - [2025 CCPC 济南资料](https://contest.ucup.ac/download.php?id=2693&r=0&type=attachments)：已取得，待逐题核对。
 
 这是一份来源登记，不代表完整赛季调研已经结束。不能把题名带有某个关键词直接当作算法证据。
@@ -22,7 +22,7 @@
 | 2025 ICPC 成都 | B Blood Memories | [题解第 10–11 页](https://contest.ucup.ac/download.php?id=2567&r=1&type=attachments) | 状压 DP 的 max-plus 矩阵幂；普通模矩阵乘法不适用 |
 | 2025 ICPC 成都 | I Inside Polygon | 同上第 29–32 页 | 凸多边形切线、旋转双指针与计数；仅有凸包函数不足以覆盖 |
 
-以上是已定位的具体需求，不是三年全部赛站审计完成的声明。
+以上是已定位的具体需求，不是三年全部赛站审计完成的声明。新增 [contest-coverage.csv](contest-coverage.csv) 保存重新核对过的逐题映射，审计方法与状态说明见 [CONTESTS.md](CONTESTS.md)。
 
 ## 一般图匹配的实现核对
 

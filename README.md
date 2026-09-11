@@ -13,7 +13,7 @@
 3. 2023–2025 中国 ICPC/CCPC 赛题使用的缺项，追加已公开的 2026 场次。
 4. OI Wiki 有价值的数学：数论、组合、代数、多项式、概率与数值算法。
 
-完整来源条目见 [coverage.csv](docs/coverage.csv)，来源见 [SOURCES.md](docs/SOURCES.md)。原始目录中的重复实现与旧版本须逐项注明替代关系，不能静默遗漏。
+完整来源条目见 [coverage.csv](docs/coverage.csv)，来源见 [SOURCES.md](docs/SOURCES.md)。中国赛站的逐题需求与缺口另见 [赛题审计](docs/CONTESTS.md)。原始目录中的重复实现与旧版本须逐项注明替代关系，不能静默遗漏。
 
 ## 两套码风
 
