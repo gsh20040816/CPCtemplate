@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T17:14:47.051805+00:00",
+  "recorded_at_utc": "2026-09-11T17:24:48.862413+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -36,7 +36,8 @@
       "Persistent array branching versions, snapshots, allocation bounds and reserve PASS",
       "Circle degeneracy, scale invariance and 100-digit overlap reference PASS",
       "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS",
-      "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS"
+      "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS",
+      "Dual Dijkstra distances/routes and 2-SAT exhaustive assignment oracle PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -71,7 +72,8 @@
       "Persistent array branching versions, snapshots, allocation bounds and reserve PASS",
       "Circle degeneracy, scale invariance and 100-digit overlap reference PASS",
       "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS",
-      "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS"
+      "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS",
+      "Dual Dijkstra distances/routes and 2-SAT exhaustive assignment oracle PASS"
     ]
   },
   "sha256": {
@@ -143,6 +145,8 @@
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",
+    "tests/graph_contracts.cpp": "af13d8fae85417d2e2e8d69de1c073339587eaa7b5f2616a724b61a4ce0fe322",
+    "tests/graph_drivers.py": "c970259c9ff1d93da80409125fc8c420b92d4e17399373340de69e053f0d781f",
     "tests/hld.cpp": "2cb59f85875e3c9c0002b3e0e9ac029c32ae862fc44230a2272e47203af28d6a",
     "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",

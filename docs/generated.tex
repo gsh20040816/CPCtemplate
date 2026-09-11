@@ -92,7 +92,7 @@ add(u,v,lo,hi)，0$\le$lo$\le$hi；solve() 仅调用一次，返回可行性，�
 
 \section{非负权最短路}\label{compact-Dijkstra}\index{Dijkstra}
 
-add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。不可达用 LLONG\_MAX；所有可表示的最短距离必须严格小于该哨兵，w$\ge$0。O((V+E)log V)。
+add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。不可达用 LLONG\_MAX；要求所有有限最短距离严格小于该哨兵，w$\ge$0。O((V+E)log V)。
 
 \lstinputlisting[firstline=6,lastline=59]{../src/compact/graph.hpp}
 

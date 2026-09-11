@@ -74,3 +74,6 @@ build/hld
 
 "$CXX" "${flags[@]}" -pthread tests/hopcroft_karp.cpp -o build/hopcroft_karp
 build/hopcroft_karp
+
+"$CXX" "${flags[@]}" tests/graph_contracts.cpp -o build/graph_contracts
+build/graph_contracts

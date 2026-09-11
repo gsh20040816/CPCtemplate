@@ -18,7 +18,7 @@ WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/03 - HLD.cpp,,03 -
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（无权图树上倍增解）.cpp,,04 - LCA（无权图树上倍增解）,pending,,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（有权图树上倍增解）.cpp,,04 - LCA（有权图树上倍增解）,pending,,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（树链剖分解）.cpp,,04 - LCA（树链剖分解）,pending,,,
-WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/05 - Djikstra.cpp,,05 - Djikstra,pending,,,
+WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/05 - Djikstra.cpp,,05 - Djikstra,local-tested,src/compact/graph.hpp#Dijkstra,src/classic/graph.hpp#Shortest_Path,tests/graph_contracts.cpp; int128 Floyd distances and reconstructed paths for every source; nonnegative weights; finite shortest distances < LLONG_MAX; OJ pending
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/06 - Floyd.cpp,,06 - Floyd,pending,,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/07 - MST (Kruskal).cpp,,07 - MST (Kruskal),pending,,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/08 - SCC (Tarjan).cpp,,08 - SCC (Tarjan),local-tested,src/compact/tarjan.hpp,src/classic/tarjan.hpp,tests/tarjan.cpp; cnt/bel and dag() give component IDs and condensation; component sizes are frequencies of bel; OJ pending
@@ -29,8 +29,8 @@ WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/11 - 一般图最�
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/11 - 一般图最大匹配（带花树算法）（旧版）.cpp,,11 - 一般图最大匹配（带花树算法）（旧版）,local-tested,src/compact/blossom.hpp,src/classic/blossom.hpp,tests/blossom.cpp; maximum cardinality and matching reconstruction; OJ pending
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/12 - 一般图最大权匹配（带权带花树算法）.cpp,,12 - 一般图最大权匹配（带权带花树算法）,pending,,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/13 - 二分图最大匹配 (HopcroftKarp).cpp,,13 - 二分图最大匹配 (HopcroftKarp),local-tested,src/compact/graph.hpp#BipartiteMatching,src/classic/graph.hpp#Bipartite_Matching,tests/hopcroft_karp.cpp; shortest-layer Hopcroft-Karp; maximum matching and minimum vertex cover; OJ pending
-WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/14 - 2-Sat.cpp,,14 - 2-Sat,pending,,,
-WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/15 - 二分图最大权匹配 (KM).cpp,,15 - 二分图最大权匹配 (KM),pending,,,
+WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/14 - 2-Sat.cpp,,14 - 2-Sat,local-tested,src/compact/graph.hpp#TwoSAT,src/classic/graph.hpp#Two_SAT,tests/graph_contracts.cpp; exhaustive truth assignments and returned solutions in both styles; variable IDs changed from 0-based to 1-based; OJ pending
+WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/15 - 二分图最大权匹配 (KM).cpp,,15 - 二分图最大权匹配 (KM),partial,src/compact/graph_advanced.hpp#Hungarian,src/classic/graph_advanced.hpp#Kuhn_Munkres,Complete matrix minimum-cost assignment verified; maximum objective requires safe negation within int64 input domain. Direct maximum-weight and missing-edge semantics still need explicit adaptation; not marked complete
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/16 - 最大流 (Dinic).cpp,,16 - 最大流 (Dinic),oj_ac_both,src/compact/flow.hpp#Dinic,src/classic/flow.hpp#Network_Flow,verification/oj.json
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/17 - 最大流 (HLPP).cpp,,17 - 最大流 (HLPP),pending,,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/18 - 费用流 (Djikstra).cpp,,18 - 费用流 (Djikstra),pending,,,
