@@ -119,3 +119,6 @@ build/xor_basis
 
 "$CXX" "${flags[@]}" tests/position_basis.cpp -o build/position_basis
 build/position_basis
+
+"$CXX" "${flags[@]}" tests/basis_intersection.cpp -o build/basis_intersection
+build/basis_intersection

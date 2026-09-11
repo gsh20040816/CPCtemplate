@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T20:45:33.769904+00:00",
+  "recorded_at_utc": "2026-09-11T20:55:44.613565+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -51,7 +51,8 @@
       "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
       "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS",
       "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS",
-      "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS"
+      "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS",
+      "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -101,13 +102,15 @@
       "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
       "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS",
       "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS",
-      "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS"
+      "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS",
+      "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS"
     ]
   },
   "sha256": {
     "src/classic/.clang-format": "64eb90c541351e58cd1351a8d2d6aa73f1f2b20b40ba07ef412ad6d7cad47447",
     "src/classic/affine_segment_tree.hpp": "148df422ffd62f94b5a293b1c69a72fe6dc4f3af45fb5324fed692619d42c147",
     "src/classic/algebra.hpp": "8a248ba0c28f556bc577895004ef7b80ed39498714a3cec486b2137bd2d529f8",
+    "src/classic/basis_intersection.hpp": "bbd8be0b5a093cf47df51a5304218de56abc648bf0f2eb77861ec0c6de0a44aa",
     "src/classic/biconnected.hpp": "e4a8f7cd76bb572039bf1f41c0d46d222a9dbb4a0a5aec616c51da01abf82024",
     "src/classic/blossom.hpp": "adfc09ded1ac63d2aedc274f12e61a72609328c48ca04af9deea782b32550790",
     "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
@@ -147,6 +150,7 @@
     "src/compact/.clang-format": "82ccdaa30f990717cdcdc30b58d7521142e24314daa27095a59d3f965d772b7b",
     "src/compact/affine_segment_tree.hpp": "98bb99f3478bf2176f4850868711af1271729439e346274791b1889cc2ba004b",
     "src/compact/algebra.hpp": "d647e480c26348e40ed8ea2899f409c6168598ac7daea150a1ab00ca0e3d5d36",
+    "src/compact/basis_intersection.hpp": "001dad36dbe935164488a7a3e3dda79f235874d7c9b1ff60cc97f3a0a23b1364",
     "src/compact/biconnected.hpp": "6ad20e935bbb4f3f41349dd54076910b2ccc91a05522325f65b53e064074313c",
     "src/compact/blossom.hpp": "1c0f9fe674d3228d8a2ee3aa2b081cbad202184c14011583774f22fff484d982",
     "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
@@ -184,6 +188,8 @@
     "src/compact/weighted_matching.hpp": "7c1eb8956cdf41432419582767c1ff2034597b494c89d173bb5c8149c972d64b",
     "tests/affine_segment_tree.cpp": "739c2a5cc83e1940f14c9b39dc0acbb02898cc6805c261c0fd852390de7dd2be",
     "tests/algebra.cpp": "8a5e1fe4f5515d376e5b3d6c2b620e784c07333cbe754a3268d5c7e8c52295bc",
+    "tests/basis_intersection.cpp": "fa79b34708d1115e88d37dfd3b7c8f71b151d47dab5935613013aa4ab4d1b956",
+    "tests/basis_intersection_application.py": "42f1415fd890b96165f7a12ed3a8808ef4b5f165355fc4b9c2c3643554919680",
     "tests/biconnected.cpp": "de4fa6a9a028408879922a15c0cbe19b80f87ed7be2e274f36766dfb0ed4739f",
     "tests/blossom.cpp": "93361601e543fe63e84deccd84e5148b39de9fa919eda4345c18e5f653cf1f96",
     "tests/boundaries.cpp": "a956e11355fbf66131d6cd3ff8eee37b19d2a2d7077d75d317eea53742797dba",

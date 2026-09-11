@@ -272,4 +272,18 @@ tests/position_basis.cpp 对小值及小标签穷举序列，每次插入后枚�
 
 [CF1100F 官方题面](https://codeforces.com/problemset/problem/1100/F) 要求对静态区间求最大子集异或，n、q 均至 500000。两套驱动按右端点排序询问，仅插入当前右端点之前的元素，然后用左端点作为阈值。小数据的所有区间均与独立子集闭包对拍，查询顺序打乱；满规模用不同二进制位的周期数组作独立按位或参照。实际记录见 verification/position-basis-driver-tests.txt，在线评测待补。该题只覆盖区间最大值，成员判断、一般标签和满 64 位扩展仍由接口测试覆盖。
 
-重新核对 [OI Wiki 线性基页](https://oi-wiki.org/math/linear-algebra/basis/) 后，普通异或基及时间戳基的已实现范围可与该页对应；交空间的消元法及 Zassenhaus 算法仍缺实现和验证。因此 OI 数学清单仅将该页更新为 partial，不以普通基合并代替求交。
+重新核对 [OI Wiki 线性基页](https://oi-wiki.org/math/linear-algebra/basis/) 后，普通异或基及时间戳基的已实现范围可与该页对应；交空间的消元法及 Zassenhaus 算法随后已按下节补齐。OI 数学清单仍为 partial：异或表示方案数、值排名及部分图/树路径应用尚待补充，一般线性空间和正交基理论也仍需整理为速查。
+
+## 线性空间求交与 Zassenhaus（2026-09-12）
+
+依据已核对的 [OI Wiki 线性基页](https://oi-wiki.org/math/linear-algebra/basis/) 求交部分，新增 basis_intersection.hpp 两套接口。第一种方法在消元过程中记录来自第二个空间的分量；第二种方法在 128 位空间中编码成对向量，利用高低分块同时得到和空间和交空间。它们均直接使用普通基的主元数组，不需要读取或构造 kth 缓存。
+
+来源跟踪法保持“当前消元向量由 A 的某个元素与 part 异或组成、part 属于 B”的不变式。消元变成 0 时，part 同时属于 A 与 B。处理 B 的独立主元时，每个成功得到的 part 在 B 的输入系数中有一个新的主元，因而这些 part 独立；扩张联合主元失败的次数恰好是 dim(A)+dim(B)-dim(A+B)，所以所得向量张满交空间。
+
+Zassenhaus 编码 (a,a)、(b,0)，所得空间 H 的高半部投影像为 A+B；投影核为 {(0,x):x 属于 A交B}。阶梯形矩阵中高半部非零行的投影独立，低半部主元行给出投影核的一组基。使用 __uint128_t 保证高低两块各能容纳完整 64 位；不使用有符号左移，也不将移位 64 施加于 64 位类型。
+
+两个接口返回的都是独立生成元，不继承原输入的多重集关系。即使原输入能由非空子集产生 0，返回对象仍以独立基为输入，dependent=false。需要枚举整个空间时用 kth(k,false)，使 0 被包含；零空间以空基表示。和空间指线性和，并非一般集合并。
+
+tests/basis_intersection.cpp 枚举 F2^3 中所有生成元子集的全部配对，用显式集合求和与求交核验两套码风、两种算法，并检查结果独立性、交换输入、维数公式、空空间、同空间、互补位空间和满 64 维。随机高位值与共享向量检查不依赖低维位编号。维数公式作为辅助条件，不以其代替返回向量的成员与张成空间检查。
+
+[Library Checker 官方题面](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/linear_algebra/intersection_of_f2_vector_spaces/task.md)要求输出任意一组独立交空间基，[参数文件](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/linear_algebra/intersection_of_f2_vector_spaces/info.toml)限定 30 位、至多 100000 组。verify/library_checker 中四份驱动分别对应两种方法、两套风格；小例还包含依赖输入的库级扩展，按实际输出所张成的集合检查，满规模使用合法的 30 维独立输入。结果记录在 verification/basis-intersection-driver-tests.txt。当前是本地驱动验证，未获得在线 AC。

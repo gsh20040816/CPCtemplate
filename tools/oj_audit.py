@@ -73,9 +73,9 @@ if heading not in pending_text:
     raise ValueError('Missing pending queue history heading')
 history = heading + pending_text.split(heading, 1)[1]
 accepted_drivers = {row['source_driver'] for row in rows if row['verdict'] == 'Accepted'}
-drivers = sorted(str(p.relative_to(root)) for p in (root / 'verify/luogu').glob('*.cpp'))
+drivers = sorted(str(p.relative_to(root)) for p in (root / 'verify').rglob('*.cpp'))
 queue = [p for p in drivers if p not in accepted_drivers]
 pending_path.write_text(
     '# 待在线评测\n\n'
-    '以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/luogu 与 oj.json 对照生成。\n\n'
+    '以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/ 与 oj.json 对照生成。\n\n'
     + ''.join(f'- `{p}`\n' for p in queue) + '\n' + history)

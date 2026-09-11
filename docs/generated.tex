@@ -76,6 +76,24 @@ add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有�
 
 \lstinputlisting[firstline=23,lastline=70,firstnumber=18]{../src/compact/position_basis.hpp}
 
+\chapter{线性空间求交}
+
+\Needspace{411pt}
+
+\section{异或线性空间求交}\label{compact-basis_intersection}\index{basis\_intersection}
+
+basis\_intersection(a,b) 返回 span(a) 与 span(b) 的交空间的一组独立生成元，结果类型 XorBasis；传统版 Basis\_Intersection 接受并返回 Xor\_Basis。支持完整 64 位无符号值，不修改输入，也不要求先 rebuild。使用第一个空间的主元，消去第二个空间的向量，同时记录来自第二个空间的部分；消元为零时，该部分属于交空间。时间 O(64$^{2}$)，额外空间 O(64)。输出按独立生成元解释：dependent 为 false，输入的重复次数及非空零异或关系不传播；表示的是子空间，不是两组原始输入元素的集合交。枚举整个交空间应调用 result.kth(k,false)，包含零；零空间返回空基，rank=0、contains(0)=true。
+
+\lstinputlisting[firstline=5,lastline=31]{../src/compact/basis_intersection.hpp}
+
+\Needspace{497pt}
+
+\section{Zassenhaus：同时求和空间与交空间}\label{compact-basis_sum_intersection}\index{basis\_sum\_intersection}
+
+basis\_sum\_intersection(a,b) 返回 (和空间基,交空间基)，传统版为 Basis\_Sum\_Intersection。和空间指 span(a)+span(b)，一般不是两个空间的集合并；两结果都是独立生成元，其 dependent 均为 false。将 a 的向量 x 编成 (x,x)，b 的向量 y 编成 (y,0)，用 \_\_uint128\_t 储存高低各 64 位并按高位到低位消元。高半部非零的行投影构成和空间的基，高半部为零的行取低半部构成交空间的基。必须先提升到 128 位再左移 64；不能用 64 位变量移位 64。时间 O(128$^{2}$)，额外空间 O(128)。结果满足 dim(A+B)+dim(A交B)=dim(A)+dim(B)，但维数恒等式只是检查条件，不能单独证明返回向量正确。包含空空间、相同空间和输入别名。
+
+\lstinputlisting[firstline=35,lastline=69]{../src/compact/basis_intersection.hpp}
+
 \chapter{线段树常用修改}
 
 \section{线段树：区间乘、加、赋值与模意义求和}\label{compact-AffineSegTree}\index{AffineSegTree}
@@ -671,6 +689,24 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 \newpage
 
 \lstinputlisting[firstline=23,lastline=70,firstnumber=18]{../src/classic/position_basis.hpp}
+
+\chapter{线性空间求交}
+
+\Needspace{411pt}
+
+\section{异或线性空间求交}\label{classic-basis_intersection}\index{Basis\_Intersection}
+
+算法约束见动态版本第~\pageref{compact-basis_intersection}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=31]{../src/classic/basis_intersection.hpp}
+
+\Needspace{497pt}
+
+\section{Zassenhaus：同时求和空间与交空间}\label{classic-basis_sum_intersection}\index{Basis\_Sum\_Intersection}
+
+算法约束见动态版本第~\pageref{compact-basis_sum_intersection}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=35,lastline=69]{../src/classic/basis_intersection.hpp}
 
 \chapter{线段树常用修改}
 
