@@ -23,5 +23,5 @@ if out.exists():
     old={tuple(r[:4]):r for r in list(csv.reader(out.open()))[1:]}
     rows=[old.get(tuple(r[:4]),r) for r in rows]
 with out.open('w') as f:
-    w=csv.writer(f); w.writerow(['source','source_path','page','topic','status','compact','classic','verification']); w.writerows(rows)
+    w=csv.writer(f,lineterminator='\n'); w.writerow(['source','source_path','page','topic','status','compact','classic','verification']); w.writerows([[x.strip() for x in row] for row in rows])
 print(len(rows),'source entries inventoried')
