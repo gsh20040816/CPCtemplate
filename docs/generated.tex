@@ -454,6 +454,20 @@ closest\_pair(points) 返回最短距离平方，少于两个点为 nullopt，�
 
 \lstinputlisting[firstline=120,lastline=165]{../src/compact/geometry_extra.hpp}
 
+\chapter{凸包支撑点查询}
+
+\Needspace{658pt}
+
+\section{支撑点查询恢复下凸包}\label{compact-SupportHull}\index{SupportHull}
+
+静态 build(left,right,oracle) 返回从左到右的严格下凸包顶点，Point 为 \{x,y\}。有限非空整数点集无需显式给出；回调 oracle(a,b) 必须精确返回使 a*x+b*y 最大的可行点，允许任意最优解。left/right 必须分别为最小/最大横坐标中纵坐标最低的点；全体同横坐标时二者必须相同。所有坐标绝对值不超过 10\textasciicircum{}18，方向差使用 long long，叉积先提升至 int128；回调内部也须保证数值精确且无溢出。对弦 a→b 查询方向 (b.y-a.y,a.x-b.x)，严格位于弦下方则递归分治，否则确认边；输出时删除共线中间点。若分治找到 K 个严格改善支撑点，查询次数为 2K+1（同横坐标时为 0），额外时间、空间和最坏递归深度为 O(K+1)。K 包括可能返回的共线非顶点，不将其等同于最终顶点数。不能直接传浮点近似优化器。二分图闭包组合：点为 (|S|,|N(S)|)，左点赋权 a、右点赋权 b，左→邻点依赖；下凸包方向满足 a$\ge$0,b<0，最优闭包的右点恰为邻集。端点为 (0,0) 和 (左点数,全部左点的邻点数)，有孤立右点时后者不等于全部右点数。该组合已做子集枚举对拍，尚不代表关联赛题整题通过。
+
+\lstinputlisting[firstline=6,lastline=20]{../src/compact/support_hull.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=21,lastline=53,firstnumber=16]{../src/compact/support_hull.hpp}
+
 \chapter{动态树}
 
 \section{Link-cut tree：动态森林与路径异或}\label{compact-LinkCutTree}\index{LinkCutTree}
@@ -1017,6 +1031,20 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 算法约束见动态版本第~\pageref{compact-IntegerGeometry3D}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=120,lastline=167]{../src/classic/geometry_extra.hpp}
+
+\chapter{凸包支撑点查询}
+
+\Needspace{658pt}
+
+\section{支撑点查询恢复下凸包}\label{classic-SupportHull}\index{Support\_Hull}
+
+算法约束见动态版本第~\pageref{compact-SupportHull}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=6,lastline=20]{../src/classic/support_hull.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=21,lastline=53,firstnumber=16]{../src/classic/support_hull.hpp}
 
 \chapter{动态树}
 

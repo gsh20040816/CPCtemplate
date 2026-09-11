@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T19:44:32.180864+00:00",
+  "recorded_at_utc": "2026-09-11T19:58:39.804184+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -46,7 +46,8 @@
       "Dynamic kth dual sorted-slice oracle, recycling ownership, reset and large updates PASS",
       "Persistent distinct dual exhaustive set oracle, signed endpoints, reset and large arrays PASS",
       "Modular sqrt dual exhaustive prime roots, planted large roots, nonresidues and int64 inputs PASS",
-      "Maximum closure dual exhaustive subsets, solution certificates, int64 negatives and recursive chain PASS"
+      "Maximum closure dual exhaustive subsets, solution certificates, int64 negatives and recursive chain PASS",
+      "Support hull dual exact cloud oracle, ties, int64 bounds and maximum closure composition PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -91,7 +92,8 @@
       "Dynamic kth dual sorted-slice oracle, recycling ownership, reset and large updates PASS",
       "Persistent distinct dual exhaustive set oracle, signed endpoints, reset and large arrays PASS",
       "Modular sqrt dual exhaustive prime roots, planted large roots, nonresidues and int64 inputs PASS",
-      "Maximum closure dual exhaustive subsets, solution certificates, int64 negatives and recursive chain PASS"
+      "Maximum closure dual exhaustive subsets, solution certificates, int64 negatives and recursive chain PASS",
+      "Support hull dual exact cloud oracle, ties, int64 bounds and maximum closure composition PASS"
     ]
   },
   "sha256": {
@@ -125,6 +127,7 @@
     "src/classic/recurrence.hpp": "a71d91ecdcd7c7e2502c655ea5f9fcb2ac03104844ded46bd0afb46450422f67",
     "src/classic/splay.hpp": "ba412fda7cd927e9dcab62fa88ee66b59a8cac5b4550bf47699285e8c4522e6b",
     "src/classic/string.hpp": "ff72541b84ccf9e67bf8fa5d70b0bbfd15462f9ba365ea2b7fc8288fdfe2da12",
+    "src/classic/support_hull.hpp": "4ca8f77ad085a9422b536e680b1d98faa31cf5c8216deafaa6f50e97e9401ea3",
     "src/classic/tarjan.hpp": "fbeaaacabbc45e6ad1e90b699c2e839c49c472c4aebf788ba6034f7bd32b8f12",
     "src/classic/treap.hpp": "fa4c871c0160cc84bf2ed9ac4c9bb9ddd894bfb58e4a7cb3772844216120522c",
     "src/classic/tree.hpp": "2a77bab713121961472fc847d82a91cf0008b6fb1c75f50fb6956414d5d13fb1",
@@ -160,6 +163,7 @@
     "src/compact/recurrence.hpp": "af9e2e7bdefe5586b6f68758c76e3b9402047c0725bf4d07028837446a1fe2d5",
     "src/compact/splay.hpp": "a9959a530dea7ddef50e67a700bf8c0c2c87cb9f39d34b8caed31d141ed8445d",
     "src/compact/string.hpp": "d02a2c926aaacbea0ffac86d8a5765202165909c3c80b91c6e9cc517da3885fc",
+    "src/compact/support_hull.hpp": "443ff3e2f1a8d3c9b7de874316d7ae7f169a1b4c3826626d801077f98fb6956c",
     "src/compact/tarjan.hpp": "15716184cdf5cec0cb5234ba357ea922840277454932e54e06067d7290f929d5",
     "src/compact/treap.hpp": "b282e9598f83bab528b6d7a8cd325ae8d57fd2fc03281da73897f83cdd41d35e",
     "src/compact/tree.hpp": "c95a6cb3fc23372d15f80d565bfd1370bd9021aaa5d6d2d77fa8105ab4331860",
@@ -205,6 +209,7 @@
     "tests/persistent_kth_application.py": "522954e0693203f36597da0d328273a6fb8562d7b5aae552bb6964fe5d13ee49",
     "tests/property.cpp": "5e8b384ed682134dcf051b34c6fd278af21ad93e712e220968f8fbd037dcc85d",
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
+    "tests/support_hull.cpp": "9b6f1ce2cb81abf6a9393a2673da8db7b0e1f6c050f8337d6a4a0ac66ed3237c",
     "tests/tarjan.cpp": "35dd53d553e4435d79a7bc9a81900b4908fc97b35c1a4be99ccf93f09c1815b9",
     "tests/tree_path_kth.cpp": "055496ce8bbe4c70a00e1f1a2bb3bfb281896ab3d5be320d7dfadf334ba87ac8",
     "tests/tree_path_kth_application.py": "560fa2e926df9fb693f03e996b93f1c200018ecc85912cc7672dbde1dc298fdb",

@@ -104,3 +104,6 @@ build/modular_sqrt
 
 "$CXX" "${flags[@]}" -pthread tests/maximum_closure.cpp -o build/maximum_closure
 build/maximum_closure
+
+"$CXX" "${flags[@]}" tests/support_hull.cpp -o build/support_hull
+build/support_hull

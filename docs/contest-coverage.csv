@@ -3,7 +3,7 @@ icpc_hk_2025,A,Bipartite Graph Matching Problem,22,24,Interval matching; basis e
 icpc_hk_2025,B,Travelling,13,15,Tree knapsack,,application_pending,State design
 icpc_hk_2025,C,Stonebag,27,31,Generating functions; inclusion-exclusion,src/compact/polynomial.hpp;src/classic/polynomial.hpp,candidate,Coefficient model and bounds
 icpc_hk_2025,D,Dumb Problem,25,26,Li Chao DP,src/compact/optimization.hpp#LiChao;src/classic/optimization.hpp#Li_Chao_Tree,candidate,Maximum objective and bounds
-icpc_hk_2025,E,Bipartite Graph Weighting Problem,37,39,Maximum closure; support-oracle hull,src/compact/maximum_closure.hpp#maximum_closure;src/classic/maximum_closure.hpp#Maximum_Closure,missing,Support-oracle hull enumeration and problem validation
+icpc_hk_2025,E,Bipartite Graph Weighting Problem,37,39,Maximum closure; support-oracle hull,src/compact/maximum_closure.hpp#maximum_closure;src/classic/maximum_closure.hpp#Maximum_Closure;src/compact/support_hull.hpp#SupportHull;src/classic/support_hull.hpp#Support_Hull,kernel_partial,Exact hull and closure composition locally verified; full query reduction and problem validation pending
 icpc_hk_2025,F,Find the Circuit,19,21,SCC; cycle pruning,src/compact/tarjan.hpp#TarjanSCC;src/classic/tarjan.hpp#Tarjan_SCC,kernel_partial,Communication protocol and pruning
 icpc_hk_2025,G,Watering System,16,18,Affine-envelope extrema,,missing,Specialized range-search aggregate
 icpc_hk_2025,H,Longest Common Prefix,3,4,Adjacent equality,,application_pending,Observation note only
