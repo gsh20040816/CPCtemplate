@@ -189,7 +189,7 @@
     "geometry",
     "RealGeometry",
     "浮点点线圆构造",
-    "long double，显式 eps 默认 10⁻¹²。要求有限输入及适当尺度；接近退化时按容差分类，不能提供任意实数输入的精确拓扑保证。Result 区分 none/one/two/infinite/degenerate。零长度线返回 degenerate；投影与点到线段距离将零线段视为点。坐标缩放和误差预算应按具体题面复核。"
+    "long double，显式 eps 默认 10⁻¹²。要求有限输入及适当尺度；接近相切时按容差分类，不能提供任意实数输入的精确拓扑保证。Result 区分 none/one/two/infinite/degenerate。圆圆交点仅在圆心和正半径完全相同时返回 infinite；零半径圆按点处理，不把近同心圆当作重合。圆相关交点容差按局部距离和半径缩放，不使用固定的单位长度下限。零长度线返回 degenerate；投影与点到线段距离将零线段视为点。overlap 返回交叠面积，小圆弓用级数避免三角函数相减消失。坐标缩放和误差预算仍须按题面复核。"
   ],
   [
     "optimization",

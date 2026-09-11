@@ -65,3 +65,6 @@ python3 tests/virtual_tree_application.py
 
 "$CXX" "${flags[@]}" tests/persistent_array.cpp -o build/persistent_array
 build/persistent_array
+
+"$CXX" "${flags[@]}" tests/circle_precision.cpp -o build/circle_precision
+build/circle_precision

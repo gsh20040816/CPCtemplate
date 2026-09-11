@@ -308,9 +308,9 @@ solve(a,b,m) 返回最小 x$\ge$0 使 a\textasciicircum{}x$\equiv$b (mod m)，�
 
 \section{浮点点线圆构造}\label{compact-RealGeometry}\index{RealGeometry}
 
-long double，显式 eps 默认 10$^{-12}$。要求有限输入及适当尺度；接近退化时按容差分类，不能提供任意实数输入的精确拓扑保证。Result 区分 none/one/two/infinite/degenerate。零长度线返回 degenerate；投影与点到线段距离将零线段视为点。坐标缩放和误差预算应按具体题面复核。
+long double，显式 eps 默认 10$^{-12}$。要求有限输入及适当尺度；接近相切时按容差分类，不能提供任意实数输入的精确拓扑保证。Result 区分 none/one/two/infinite/degenerate。圆圆交点仅在圆心和正半径完全相同时返回 infinite；零半径圆按点处理，不把近同心圆当作重合。圆相关交点容差按局部距离和半径缩放，不使用固定的单位长度下限。零长度线返回 degenerate；投影与点到线段距离将零线段视为点。overlap 返回交叠面积，小圆弓用级数避免三角函数相减消失。坐标缩放和误差预算仍须按题面复核。
 
-\lstinputlisting[firstline=183,lastline=349]{../src/compact/geometry.hpp}
+\lstinputlisting[firstline=183,lastline=371]{../src/compact/geometry.hpp}
 
 \chapter{优化与可持久化}
 
@@ -780,7 +780,7 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 算法约束见动态版本第~\pageref{compact-RealGeometry}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=200,lastline=366]{../src/classic/geometry.hpp}
+\lstinputlisting[firstline=200,lastline=388]{../src/classic/geometry.hpp}
 
 \chapter{优化与可持久化}
 

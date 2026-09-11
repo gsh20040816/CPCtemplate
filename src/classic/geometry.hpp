@@ -315,7 +315,7 @@ struct Real_Geometry
         if ( len == 0 )
             return {Kind::degenerate, {}};
         Point h = Projection(c.o, a, b);
-        R d = norm(h - c.o), tol = eps * max({R(1), d, c.r});
+        R d = norm(h - c.o), tol = eps * max(d, c.r);
         if ( d > c.r + tol )
             return {Kind::none, {}};
         if ( fabsl(d - c.r) <= tol )
@@ -330,20 +330,33 @@ struct Real_Geometry
         assert(a.r >= 0 && b.r >= 0);
         Point v = b.o - a.o;
         R d = norm(v);
-        R tol = eps * max({R(1), d, a.r, b.r});
-        if ( d <= tol )
+        R tol = eps * max({d, a.r, b.r});
+        // Infinite intersections require identical positive-radius circles.
+        if ( d == 0 )
         {
-            if ( fabsl(a.r - b.r) > tol )
+            if ( a.r != b.r )
                 return {Kind::none, {}};
-            if ( a.r == 0 && b.r == 0 )
+            if ( a.r == 0 )
                 return {Kind::one, {a.o}};
             return {Kind::infinite, {}};
+        }
+        if ( a.r == 0 && b.r == 0 )
+            return {Kind::none, {}};
+        if ( a.r == 0 || b.r == 0 )
+        {
+            R radius = max(a.r, b.r);
+            if ( fabsl(d - radius) > tol )
+                return {Kind::none, {}};
+            return {Kind::one, {a.r == 0 ? a.o : b.o}};
         }
         if ( d > a.r + b.r + tol || d < fabsl(a.r - b.r) - tol )
             return {Kind::none, {}};
         R x = (d * d + (a.r - b.r) * (a.r + b.r)) / (2 * d);
         Point h = a.o + v * (x / d);
-        if ( fabsl(d - (a.r + b.r)) <= tol || fabsl(d - fabsl(a.r - b.r)) <= tol )
+        // Near-concentric circles must not be mistaken for internal tangency.
+        if ( fabsl(x) > a.r + tol )
+            return {Kind::none, {}};
+        if ( fabsl(fabsl(x) - a.r) <= tol )
             return {Kind::one, {h}};
         R y = sqrtl(max(R(0), (a.r - x) * (a.r + x)));
         Point w = perp(v) * (y / d);
@@ -352,15 +365,24 @@ struct Real_Geometry
 
     R Overlap(Circle a, Circle b) const
     {
+        assert(a.r >= 0 && b.r >= 0);
         R d = norm(a.o - b.o), pi = acosl(-1.L);
         if ( d >= a.r + b.r )
             return 0;
         if ( d <= fabsl(a.r - b.r) )
             return pi * min(a.r, b.r) * min(a.r, b.r);
-        R x =
-            acosl(clamp((d * d + a.r * a.r - b.r * b.r) / (2 * d * a.r), R(-1), R(1)));
-        R y =
-            acosl(clamp((d * d + b.r * b.r - a.r * a.r) / (2 * d * b.r), R(-1), R(1)));
-        return a.r * a.r * (x - sinl(2 * x) / 2) + b.r * b.r * (y - sinl(2 * y) / 2);
+        R difference = (a.r - b.r) * (a.r + b.r);
+        R x = acosl(clamp((d * d + difference) / (2 * d * a.r), R(-1), R(1)));
+        R y = acosl(clamp((d * d - difference) / (2 * d * b.r), R(-1), R(1)));
+        auto segment = [](R angle)
+        {
+            if ( angle < 1e-3L )
+            {
+                R z = angle * angle;
+                return angle * z * (R(2) / 3 + z * (-R(2) / 15 + z * R(4) / 315));
+            }
+            return angle - sinl(2 * angle) / 2;
+        };
+        return a.r * a.r * segment(x) + b.r * b.r * segment(y);
     }
 };
