@@ -9,7 +9,7 @@
     "compared_component": "Dinic",
     "component_matches_after_formatting": true,
     "driver_tail_matches_after_formatting": true,
-    "note": "Current bundle additionally includes unused circulation code; its correctness is not established by P3376 AC."
+    "note": "Current bundle includes unused circulation code, not verified by P3376."
   },
   {
     "problem": "Luogu P3376",
@@ -21,7 +21,7 @@
     "compared_component": "Network_Flow",
     "component_matches_after_formatting": true,
     "driver_tail_matches_after_formatting": true,
-    "note": "Current bundle additionally includes unused circulation code; its correctness is not established by P3376 AC."
+    "note": "Current bundle includes unused circulation code, not verified by P3376."
   },
   {
     "problem": "Luogu P3690",
@@ -43,9 +43,13 @@
     "problem": "Luogu P3369",
     "style": "compact",
     "record": "https://www.luogu.com.cn/record/297515150",
-    "current_sha256": "599f69be842874906a9eea2edc3b66f8efa13d6a53a368767860fa2084d846c5",
+    "current_sha256": "8c58dd92d190e4324cba29b49e25fcdccdbb5fa7cd417a08ca4aa917ddfc483b",
     "submitted_sha256": "599f69be842874906a9eea2edc3b66f8efa13d6a53a368767860fa2084d846c5",
-    "exact_bundle_match": true
+    "exact_bundle_match": false,
+    "compared_component": "OrderedTreap",
+    "component_matches_after_formatting": true,
+    "driver_tail_matches_after_formatting": true,
+    "note": "Sequence Treap shares this header but is not called by the P3369 driver."
   },
   {
     "problem": "Luogu P8435",

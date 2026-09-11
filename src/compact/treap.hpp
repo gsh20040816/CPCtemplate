@@ -310,24 +310,20 @@ struct SequenceTreap
         return ans;
     }
 
+    void collect(int p, vector<ll> &out)
+    {
+        if (!p)
+            return;
+        push(p);
+        collect(a[p].l, out);
+        out.push_back(a[p].val);
+        collect(a[p].r, out);
+    }
+
     vector<ll> values()
     {
-        vector<ll> ans;
-        vector<int> st;
-        int p = root;
-        while (p || !st.empty())
-        {
-            while (p)
-            {
-                push(p);
-                st.push_back(p);
-                p = a[p].l;
-            }
-            p = st.back();
-            st.pop_back();
-            ans.push_back(a[p].val);
-            p = a[p].r;
-        }
-        return ans;
+        vector<ll> answer;
+        collect(root, answer);
+        return answer;
     }
 };

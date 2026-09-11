@@ -322,24 +322,20 @@ template <int N> struct Sequence_Treap
         return ans;
     }
 
+    void Collect(int p, vector<ll> &out)
+    {
+        if ( !p )
+            return;
+        Push_Down(p);
+        Collect(tree[p].l, out);
+        out.push_back(tree[p].val);
+        Collect(tree[p].r, out);
+    }
+
     vector<ll> Values()
     {
-        vector<ll> ans;
-        vector<int> st;
-        int p = root;
-        while ( p || !st.empty() )
-        {
-            while ( p )
-            {
-                Push_Down(p);
-                st.push_back(p);
-                p = tree[p].l;
-            }
-            p = st.back();
-            st.pop_back();
-            ans.push_back(tree[p].val);
-            p = tree[p].r;
-        }
-        return ans;
+        vector<ll> answer;
+        Collect(root, answer);
+        return answer;
     }
 };

@@ -106,6 +106,24 @@ struct GcdSequenceTreap
         return r;
     }
 
+    void rebuild(int p)
+    {
+        if (!p)
+            return;
+        rebuild(a[p].l);
+        rebuild(a[p].r);
+        pull(p);
+    }
+
+    void release(int p)
+    {
+        if (!p)
+            return;
+        release(a[p].l);
+        release(a[p].r);
+        recycled.push_back(p);
+    }
+
     // O(n) GCD calls; replaces the current sequence.
     void build(const vector<pair<U, int>> &v)
     {
@@ -129,17 +147,7 @@ struct GcdSequenceTreap
         if (st.empty())
             return;
         root = st.front();
-        vector<int> order{root};
-        for (int i = 0; i < (int)order.size(); i++)
-        {
-            int p = order[i];
-            if (a[p].l)
-                order.push_back(a[p].l);
-            if (a[p].r)
-                order.push_back(a[p].r);
-        }
-        for (int i = (int)order.size() - 1; i >= 0; i--)
-            pull(order[i]);
+        rebuild(root);
     }
 
     // Insert after the first k entries. Range operations below are 1-based.
@@ -158,17 +166,7 @@ struct GcdSequenceTreap
         split(root, r, y, z);
         split(y, l - 1, x, y);
         root = merge(x, z);
-        vector<int> st{y};
-        while (!st.empty())
-        {
-            int p = st.back();
-            st.pop_back();
-            if (a[p].l)
-                st.push_back(a[p].l);
-            if (a[p].r)
-                st.push_back(a[p].r);
-            recycled.push_back(p);
-        }
+        release(y);
     }
 
     void set(int k, U value)

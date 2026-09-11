@@ -87,3 +87,5 @@
 2026-09-12 将早期 HLD、Kosaraju 的手写 DFS 调用栈改为递归。Kosaraju 保留原来的分量拓扑递增编号，因此 TwoSAT 的使用约定不变；Tarjan 分量编号仍为逆拓扑序。传统版 HLD 改用 Heavy_Light_Decomposition<N> 与 Init(n)，明确静态容量。
 
 对照 WIDA 在线 HLD 的路径/子树修改与查询，组合已验证的区间乘加线段树编写 [P3384](https://www.luogu.com.cn/problem/P3384) 驱动。tests/hld.cpp 检查点权路径、排除 LCA 的边权路径、子树 DFS 区间及换根后重建，还检查 20 万点链；tests/tarjan.cpp 的全部 4 点有向图枚举同时核验两套递归 Kosaraju。
+
+2026-09-12 进一步把 Treap 的序列中序输出、状态序列建树后聚合与删除回收改为递归辅助函数。笛卡尔树构造仍使用算法本身的单调栈。P3369 只调用同头文件中的 OrderedTreap，相关结构和主程序与旧 AC 快照一致，SequenceTreap 的变更由本地独立测试覆盖。

@@ -41,19 +41,25 @@ for row in rows:
     entry = dict(problem=row['problem'], style=row['style'], record=row['record'],
                  current_sha256=digest(current), submitted_sha256=digest(archived),
                  exact_bundle_match=current == archived)
-    if current != archived and row['problem'] == 'Luogu P3376':
+    name = None
+    note = None
+    if row['problem'] == 'Luogu P3376':
         name = 'Dinic' if row['style'] == 'compact' else 'Network_Flow'
+        note = 'Current bundle includes unused circulation code, not verified by P3376.'
+    elif row['problem'] == 'Luogu P3369' and row.get('algorithm') == 'OrderedTreap':
+        name = 'OrderedTreap' if row['style'] == 'compact' else 'Ordered_Treap'
+        note = 'Sequence Treap shares this header but is not called by the P3369 driver.'
+    if current != archived and name is not None:
         old = archived.decode()
         new = current.decode()
         entry['compared_component'] = name
         entry['component_matches_after_formatting'] = (
             normalize(component(old, name)) == normalize(component(new, name)))
-        # These two archived drivers follow the final top-level class definition.
+        # These known drivers follow the final top-level class definition.
         entry['driver_tail_matches_after_formatting'] = (
             normalize(old[old.rfind('\n};') + 3:]) ==
             normalize(new[new.rfind('\n};') + 3:]))
-        entry['note'] = ('Current bundle additionally includes unused circulation '
-                         'code; its correctness is not established by P3376 AC.')
+        entry['note'] = note
     report.append(entry)
 (root / 'verification/oj-source-audit.json').write_text(
     json.dumps(report, ensure_ascii=False, indent=2) + '\n')

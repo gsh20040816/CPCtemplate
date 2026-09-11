@@ -113,6 +113,24 @@ template <int N> struct Gcd_Sequence_Treap
         return r;
     }
 
+    void Rebuild(int p)
+    {
+        if ( !p )
+            return;
+        Rebuild(tree[p].l);
+        Rebuild(tree[p].r);
+        Push_Up(p);
+    }
+
+    void Release(int p)
+    {
+        if ( !p )
+            return;
+        Release(tree[p].l);
+        Release(tree[p].r);
+        recycled.push_back(p);
+    }
+
     // O(n) GCD calls; replaces the current sequence.
     void Build(const vector<pair<U, int>> &v)
     {
@@ -138,17 +156,7 @@ template <int N> struct Gcd_Sequence_Treap
         if ( st.empty() )
             return;
         root = st.front();
-        vector<int> order{root};
-        for ( int i = 0; i < (int)order.size(); i++ )
-        {
-            int p = order[i];
-            if ( tree[p].l )
-                order.push_back(tree[p].l);
-            if ( tree[p].r )
-                order.push_back(tree[p].r);
-        }
-        for ( int i = (int)order.size() - 1; i >= 0; i-- )
-            Push_Up(order[i]);
+        Rebuild(root);
     }
 
     // Insert after the first k entries. Range operations below are 1-based.
@@ -167,17 +175,7 @@ template <int N> struct Gcd_Sequence_Treap
         Split(root, r, y, z);
         Split(y, l - 1, x, y);
         root = Merge(x, z);
-        vector<int> st{y};
-        while ( !st.empty() )
-        {
-            int p = st.back();
-            st.pop_back();
-            if ( tree[p].l )
-                st.push_back(tree[p].l);
-            if ( tree[p].r )
-                st.push_back(tree[p].r);
-            recycled.push_back(p);
-        }
+        Release(y);
     }
 
     void Set(int k, U value)
