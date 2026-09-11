@@ -62,3 +62,6 @@ build/affine_segment_tree
 build/virtual_tree
 
 python3 tests/virtual_tree_application.py
+
+"$CXX" "${flags[@]}" tests/persistent_array.cpp -o build/persistent_array
+build/persistent_array

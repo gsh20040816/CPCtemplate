@@ -4,6 +4,8 @@
 
 - `verify/luogu/CF600E.classic.cpp`
 - `verify/luogu/CF600E.compact.cpp`
+- `verify/luogu/P2495.classic.cpp`
+- `verify/luogu/P2495.compact.cpp`
 - `verify/luogu/P3369.classic.cpp`
 - `verify/luogu/P3369.splay.classic.cpp`
 - `verify/luogu/P3369.splay.compact.cpp`
@@ -12,6 +14,10 @@
 - `verify/luogu/P3391.compact.cpp`
 - `verify/luogu/P3649.classic.cpp`
 - `verify/luogu/P3649.compact.cpp`
+- `verify/luogu/P3834.classic.cpp`
+- `verify/luogu/P3834.compact.cpp`
+- `verify/luogu/P3919.classic.cpp`
+- `verify/luogu/P3919.compact.cpp`
 - `verify/luogu/P5496.classic.cpp`
 - `verify/luogu/P6113.classic.cpp`
 - `verify/luogu/P6113.compact.cpp`
@@ -26,3 +32,5 @@ OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在�
 
 - `verify/luogu/P2495.classic.cpp` 与 `verify/luogu/P2495.compact.cpp`：已对实际打包程序做枚举删边验证，在线评测待完成。
 - 2026-09-12 当前 Mac 锁定，Firefox 无法操作；等待用户解锁期间继续离线工作。
+
+- P3919 双风格已对打包程序验证随机版本分叉与查询编号；P3834 双风格打包程序已检查区间第 k 小。两类模板分别验证，不混用版本语义。

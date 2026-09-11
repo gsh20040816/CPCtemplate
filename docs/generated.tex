@@ -334,6 +334,14 @@ a[i][j] 为转移收益，不存在的边为 neg；power(k) 求恰好 k 步的�
 
 \lstinputlisting[firstline=143,lastline=211]{../src/compact/optimization.hpp}
 
+\chapter{可持久化数组}
+
+\section{可持久化数组：历史版本分叉与单点修改}\label{compact-PersistentArray}\index{PersistentArray}
+
+PersistentArray(a,changes=0)，a 是非空 0-based 初值数组；第 0 版为初始状态。set(version,pos,value) 基于任意已有版本修改 1-based 位置，创建并返回新版本编号；copy(version) 以 O(1) 时间复制版本；query(version,pos) 只读且不自动创建版本。values 支持 long long 全范围。每次修改复制根到叶的节点，旧版本不变；build 为内部函数，不可覆盖历史节点。建树 O(n)，修改及查询 O(log n)，初始 2n-1 个节点，每次修改至多 ceil(log2(n))+1 个；总空间 O(n+修改数*log n+版本数)。changes 仅用于预留节点池，低估后可扩容，所有外部引用应使用下标，不保存 vector 元素引用。节点下标用 int，节点总量须可表示。
+
+\lstinputlisting[firstline=6,lastline=109]{../src/compact/persistent_array.hpp}
+
 \chapter{图论进阶}
 
 \section{矩形二分图最小权匹配}\label{compact-Hungarian}\index{Hungarian}
@@ -795,6 +803,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 算法约束见动态版本第~\pageref{compact-PersistentKth}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=159,lastline=227]{../src/classic/optimization.hpp}
+
+\chapter{可持久化数组}
+
+\section{可持久化数组：历史版本分叉与单点修改}\label{classic-PersistentArray}\index{Persistent\_Array}
+
+算法约束见动态版本第~\pageref{compact-PersistentArray}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Persistent\_Array<NODES>，Init(a) 初始化；NODES 限制节点总数，不是数组长度。建议按 2n-1 加上修改数乘以 (ceil(log2(n))+1) 分配；Copy 不分配节点。Set、Copy、Query 对应动态接口。大对象放在全局或 static，Init 会丢弃全部旧版本。
+
+\lstinputlisting[firstline=6,lastline=110]{../src/classic/persistent_array.hpp}
 
 \chapter{图论进阶}
 
