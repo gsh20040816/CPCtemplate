@@ -25,6 +25,8 @@
 - `verify/luogu/P2860.classic.cpp`
 - `verify/luogu/P2860.compact.cpp`
 - `verify/luogu/P3373.classic.cpp`
+- `verify/luogu/P3379.offline.classic.cpp`
+- `verify/luogu/P3379.offline.compact.cpp`
 - `verify/luogu/P3386.classic.cpp`
 - `verify/luogu/P3386.compact.cpp`
 - `verify/luogu/P3649.classic.cpp`
@@ -43,6 +45,8 @@
 - `verify/luogu/P5496.classic.cpp`
 - `verify/luogu/P6113.classic.cpp`
 - `verify/luogu/P6113.compact.cpp`
+- `verify/poj/1470.classic.cpp`
+- `verify/poj/1470.compact.cpp`
 - `verify/poj/2117.classic.cpp`
 - `verify/poj/2117.compact.cpp`
 - `verify/uva/796.classic.cpp`
@@ -79,3 +83,5 @@ OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在�
 
 - P4174 最大权闭合子图双风格已 AC：动态版 297520300，传统版 297520304。OJ 验证最优权值；返回选点集合、极端负权及一般依赖环仍由本地证书检查覆盖。
 - P5491 动态版验证码经用户当次授权处理，记录 297520354 获得 100 分 AC；传统版尚未提交。
+
+- P3379 离线 LCA 动态版提交出现验证码，已请求当次确认，尚无评测记录；传统版未提交。

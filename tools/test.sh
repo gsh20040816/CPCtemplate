@@ -134,3 +134,6 @@ build/edge_components
 
 "$CXX" "${flags[@]}" -pthread tests/bridge_augmentation.cpp -o build/bridge_augmentation
 build/bridge_augmentation
+
+"$CXX" "${flags[@]}" -pthread tests/offline_lca.cpp -o build/offline_lca
+build/offline_lca

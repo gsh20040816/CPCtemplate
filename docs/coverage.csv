@@ -674,9 +674,9 @@ kuangbin,ACM template (2018),172,4.18 2-SAT,partial,src/compact/graph.hpp#TwoSAT
 kuangbin,ACM template (2018),172,4.18.1 染色法（可以得到字典序最小的解）,pending,,,
 kuangbin,ACM template (2018),173,4.18.2 强连通缩点法（拓扑排序只能得到任意解）,partial,src/compact/graph.hpp#TwoSAT,src/classic/graph.hpp#Two_SAT,SCC satisfiability and one assignment implemented using Kosaraju topological IDs; tests/graph_contracts.cpp exhaustive assignment oracle. POJ3648 Wedding literal parser and application adapter pending; not lexicographically minimal
 kuangbin,ACM template (2018),177,4.19 曼哈顿最小生成树,pending,,,
-kuangbin,ACM template (2018),179,4.20 LCA,pending,,,
+kuangbin,ACM template (2018),179,4.20 LCA,partial,src/compact/offline_lca.hpp,src/classic/offline_lca.hpp,Offline Tarjan and POJ1470 application locally tested; Euler-tour ST and dedicated binary-lifting sections not yet audited
 kuangbin,ACM template (2018),179,4.20.1 dfs+ST 在线算法,pending,,,
-kuangbin,ACM template (2018),181,4.20.2 离线 Tarjan 算法,pending,,,
+kuangbin,ACM template (2018),181,4.20.2 离线 Tarjan 算法,local-tested,src/compact/offline_lca.hpp#OfflineLCA,src/classic/offline_lca.hpp#Offline_LCA,tests/offline_lca.cpp; tests/offline_lca_application.py; recursive DFS and ranked DSU; all labelled trees n<=6/all roots/all pairs; n=q=500000; P3379 and POJ1470 dual complete drivers locally tested; online pending
 kuangbin,ACM template (2018),184,4.20.3 LCA 倍增法,pending,,,
 kuangbin,ACM template (2018),186,4.21 欧拉路,pending,,,
 kuangbin,ACM template (2018),186,4.21.1 有向图,pending,,,

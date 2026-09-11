@@ -234,6 +234,20 @@ add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn�
 
 \lstinputlisting[firstline=6,lastline=99]{../src/compact/tree.hpp}
 
+\chapter{离线最近公共祖先}
+
+\Needspace{495pt}
+
+\section{离线 Tarjan LCA}\label{compact-OfflineLCA}\index{OfflineLCA}
+
+构造 OfflineLCA(n)，add(u,v) 加无向树边，add\_query(u,v) 登记查询并返回从 0 开始的编号，run(root=1) 后读取 answer[id]。输入必须是非空树，点号 1..n；允许同点、重复查询及零个查询。run 可重复调用或换根，不清空查询；追加查询后需重新 run，旧答案在重算前不可按新根使用。DFS 与并查集查找均递归。并查集按大小合并并压缩路径，ancestor[find(u)] 保存已合并部分对应的当前树祖先；不能直接拿并查集代表当 LCA。每个子树完成后合并到父点并更新 ancestor；查询另一端已完成时，从其集合读取祖先。总时间 O((n+q) $\alpha$(n))，空间 O(n+q)。全部点对和根的父链对拍、50 万点链及 P3379、POJ1470 完整驱动本地验证，在线待补。
+
+\lstinputlisting[firstline=9,lastline=43]{../src/compact/offline_lca.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=44,lastline=87,firstnumber=36]{../src/compact/offline_lca.hpp}
+
 \chapter{点分治}
 
 \section{点分治：树上距离点对计数}\label{compact-CentroidPairs}\index{CentroidPairs}
@@ -915,6 +929,22 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 声明 Heavy\_Light\_Decomposition<N> 后 Init(n)，Insert 加边，Build(root) 剖分；Lca 与 Path 对应动态接口。大对象放在全局或 static。
 
 \lstinputlisting[firstline=7,lastline=96]{../src/classic/tree.hpp}
+
+\chapter{离线最近公共祖先}
+
+\Needspace{505pt}
+
+\section{离线 Tarjan LCA}\label{classic-OfflineLCA}\index{Offline\_LCA}
+
+算法约束见动态版本第~\pageref{compact-OfflineLCA}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Offline\_LCA<N>，Init(n) 清空树与查询；Insert 加无向树边，Add\_Query 返回从 0 开始的查询编号，Run(root) 统一计算，answer[id] 为答案。大对象放全局或 static。
+
+\lstinputlisting[firstline=9,lastline=44]{../src/classic/offline_lca.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=45,lastline=88,firstnumber=37]{../src/classic/offline_lca.hpp}
 
 \chapter{点分治}
 

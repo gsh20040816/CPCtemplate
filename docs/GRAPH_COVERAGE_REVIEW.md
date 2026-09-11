@@ -63,7 +63,7 @@ kuangbin 4.18.2 的强连通方法可映射到 `TwoSAT` / `Two_SAT` 的可满足
 
 ## 后续缺口
 
-删点连通块增量、边定向及缩点统计已补；桥树增广已完成，下一步验证奇圈点双应用。2-SAT 的字典序最小版本和 Wedding 适配分别验证。kuangbin 4.20.2 的离线 Tarjan LCA 是不同算法，本次未将其映射为 SCC，也未改变它的 pending 状态。
+删点连通块增量、边定向及缩点统计已补；桥树增广已完成，下一步验证奇圈点双应用。2-SAT 的字典序最小版本和 Wedding 适配分别验证。kuangbin 4.20.2 的离线 Tarjan LCA 已另行实现与验证，见下节；它与 SCC 是不同算法。
 
 ## 桥树最少加边补充
 
@@ -72,3 +72,15 @@ kuangbin 4.18.2 的强连通方法可映射到 `TwoSAT` / `Two_SAT` 的可满足
 DFS 叶序中，每条桥一侧的叶集合是循环连续区间。奇数叶时重复首叶，偶数叶表按前后半段配对。对于任意桥，取两侧中较小的非空区间，其长度不超过半周，因此至少一对端点跨过该割。每条原桥由此落在新形成的环上；新边自身也与原图路径形成环。桥树每个叶子都需要新边端点，所以 ceil(L/2) 同时是下界，方案最优。两叶树可能必须新增重边，不应去重。
 
 [tests/bridge_augmentation.cpp](../tests/bridge_augmentation.cpp) 穷举至五点的简单图、随机树与重边/自环图、星形树以及二十万点递归长链；用独立删边连通性验证原图桥、叶子下界及整个加边方案。[P2860](https://www.luogu.com.cn/problem/P2860) 明确允许新路与旧路端点相同；两套完整程序由 tests/bridge_augmentation_application.py 对拍，含 5000 点链、星形与 10000 边图。它只输出最少数量，方案正确性依靠前述本地证据，尚未有本库在线 AC。kuangbin 4.5/4.7 的算法功能据此更新为 local-tested；不将该结论推广到非连通增广或点双增广。
+
+## 离线 Tarjan LCA
+
+`OfflineLCA` / `Offline_LCA<N>` 提供无向树加边、带编号的查询登记、指定根统一求解及 answer 数组。只支持非空树；保留递归 DFS。按大小合并与路径压缩保证 O((n+q) α(n)) 总时间，ancestor 数组独立记录树上祖先，因此不能用 DSU 代表本身代替 LCA。子树完成后才并入父点；查询另一端已完成时，其集合的 ancestor 就是两端 LCA。重复 run 可以换根；追加查询后必须重新 run。
+
+[tests/offline_lca.cpp](../tests/offline_lca.cpp) 穷举 n≤6 的全部标号树、全部根与点对，并用父链独立对拍；包含同点、重复调用、追加查询、重新初始化、零查询及 n=q=500000 的长链，三个根分别验证。P3379 两份打包程序以 n=q=500000 测试；仅本地启动器提供 256MB pthread 栈，提交源码仍为普通递归程序。
+
+kuangbin 4.20.2 的 POJ1470 调用也已提供双风格驱动：解析 `u:(k)` 子节点表，推断根，解析 `(u v)` 查询，再按点号输出非零 LCA 出现次数。测试覆盖乱序子节点行、多组数据、非 1 根、零查询。输入格式依据本地 kuangbin 2018 原文第 181–183 页，而非声称已获 POJ 在线判定。P3379 与 POJ1470 的驱动证据见 verification/offline-lca-driver-tests.txt，在线均待补。
+
+参考：[OI Wiki LCA](https://oi-wiki.org/graph/lca/)、[P3379 题面](https://www.luogu.com.cn/problem/P3379)。kuangbin 原注释的 O(n+Q) 不直接沿用为本实现的复杂度；这里明确包含并查集的反阿克曼因子。父项 4.20 仍为 partial，其他 LCA 实现分别审计。
+
+离线 LCA 库的 50 万层 ASan 测试首次在 256MB 线程栈上触发栈溢出（verification/offline-lca-stack-limit.txt）；测试线程调整为 512MB 后复测。此调整只在 tests/offline_lca.cpp 中，模板 DFS 不变。P3379 普通优化驱动使用的测试线程仍为 256MB。

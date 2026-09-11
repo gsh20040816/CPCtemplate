@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T22:00:59.440494+00:00",
+  "recorded_at_utc": "2026-09-11T22:10:14.347395+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -56,15 +56,8 @@
       "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
       "Vertex removal dual explicit deletion oracle, isolated vertices, multigraphs and recursive chain PASS",
       "Edge compression/orientation dual removal and reachability oracles, multigraph IDs and recursive cycle PASS",
-      "In file included from /opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/cassert:46,",
-      "                 from tests/../src/classic/biconnected.hpp:3,",
-      "                 from tests/../src/classic/bridge_augmentation.hpp:2,",
-      "                 from tests/bridge_augmentation.cpp:2:",
-      "tests/bridge_augmentation.cpp: In function 'void check(int, const std::vector<std::pair<int, int> >&)':",
-      "tests/bridge_augmentation.cpp:64:25: warning: comparison of integer expressions of different signedness: 'std::vector<std::pair<int, int> >::size_type' {aka 'long unsigned int'} and 'int' [-Wsign-compare]",
-      "   64 |     assert(added.size() == (leaves + 1) / 2);",
-      "      |            ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~",
-      "bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed"
+      "bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed",
+      "Offline LCA dual exhaustive labelled trees, all roots/pairs, reset and 500000 recursive chain PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -119,7 +112,8 @@
       "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
       "Vertex removal dual explicit deletion oracle, isolated vertices, multigraphs and recursive chain PASS",
       "Edge compression/orientation dual removal and reachability oracles, multigraph IDs and recursive cycle PASS",
-      "bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed"
+      "bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed",
+      "Offline LCA dual exhaustive labelled trees, all roots/pairs, reset and 500000 recursive chain PASS"
     ]
   },
   "sha256": {
@@ -148,6 +142,7 @@
     "src/classic/min_cost_flow.hpp": "49d8ee5466edc6396bbe7c8858e8b4bd765b4c0bc18c82a4ea7eae88884e36ca",
     "src/classic/modular_sqrt.hpp": "d66b537ac6c009d50519f1b91f7a9d7d3f7177f6523a2ceed2c6d3070d6fa38d",
     "src/classic/number_theory.hpp": "8a20210a11a6f985d51776dd0a90e9aaa2c385f7805babfe05c63613c57a7352",
+    "src/classic/offline_lca.hpp": "cd5f7452c2b1c5ff50b4dc8eb083b9e97239b822534e65d7e13afc64831525b1",
     "src/classic/optimization.hpp": "de968be0f1e4296d0e2e9b38984ab206067adfc4d030366a9dd0d986dc1f2dcc",
     "src/classic/palindromic_tree.hpp": "7b46c4c2162ba35e9f4da2b77d3e32210701a02983e2dea338417f3e4315b186",
     "src/classic/persistent_array.hpp": "4260e4ebca8affcd8618fc0532dbd16478c700e36f1688fd2c914cf2b30219c8",
@@ -191,6 +186,7 @@
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
     "src/compact/modular_sqrt.hpp": "feafcc6e8e95453ba63c6fa4047de98ba1402d6d8c373f41543b5162e730a537",
     "src/compact/number_theory.hpp": "442ed221567f0fa12f9ae38bcb7d873bed4cd0a253020814dae2599c64f3bf0f",
+    "src/compact/offline_lca.hpp": "6bab44707d5c5fd363b990d93cc368f634e83d8de5090810dfe3cf525e6b5971",
     "src/compact/optimization.hpp": "e031dc5ddb1cc778e49d445e63c5e197cb79519eae97ed38a92a29be06e77f12",
     "src/compact/palindromic_tree.hpp": "50b14ace273ef7531e31ec7d79e9ebb4aa0d96bb3416b54897cd59db8c222daf",
     "src/compact/persistent_array.hpp": "6499fb7c51bd3c2aab9a752534f0ec4ab5d4987b3cfa6c74a0c24f971f2b067a",
@@ -248,6 +244,8 @@
     "tests/maximum_closure_application.py": "5ee193618c16170bc235b87c423405802862108b0aa6a3e5c2d4c76af87abca7",
     "tests/modular_sqrt.cpp": "db36b638f77a9e71f669e7c5c7833572e2044bc5666bab2b4ae90674809ea473",
     "tests/modular_sqrt_application.py": "957ea0c1707cdb4271fa70b5371ad922e78f17accf6a81e50c537e38d3878f25",
+    "tests/offline_lca.cpp": "c982b4979d64e617b7aa69b2934ec59d8ed0abc1ce6fd71338a172444b64fe7d",
+    "tests/offline_lca_application.py": "854b8fd50ed85c89c8bce7ce2476d80f563f1988d1e45360989ecfa6ef42e329",
     "tests/optimization.cpp": "22a2eacb619a32e51d2dfde85462447acf00e1e5eb8b2c587edead8a788d6acc",
     "tests/palindromic_tree.cpp": "579f58e77440a9342e7ad1bc13ede6405a3f45e4a6e64636dcc0a67943645566",
     "tests/persistent_array.cpp": "0e3ec4fab4b3f22ffa6c8981fe51f79efc64105a46cae7f6384395b58454234d",

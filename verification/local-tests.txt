@@ -50,12 +50,5 @@ Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-
 XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS
 Vertex removal dual explicit deletion oracle, isolated vertices, multigraphs and recursive chain PASS
 Edge compression/orientation dual removal and reachability oracles, multigraph IDs and recursive cycle PASS
-In file included from /opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/cassert:46,
-                 from tests/../src/classic/biconnected.hpp:3,
-                 from tests/../src/classic/bridge_augmentation.hpp:2,
-                 from tests/bridge_augmentation.cpp:2:
-tests/bridge_augmentation.cpp: In function 'void check(int, const std::vector<std::pair<int, int> >&)':
-tests/bridge_augmentation.cpp:64:25: warning: comparison of integer expressions of different signedness: 'std::vector<std::pair<int, int> >::size_type' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
-   64 |     assert(added.size() == (leaves + 1) / 2);
-      |            ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
 bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed
+Offline LCA dual exhaustive labelled trees, all roots/pairs, reset and 500000 recursive chain PASS
