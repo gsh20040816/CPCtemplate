@@ -131,3 +131,6 @@ build/vertex_removal
 
 "$CXX" "${flags[@]}" -pthread tests/edge_components.cpp -o build/edge_components
 build/edge_components
+
+"$CXX" "${flags[@]}" -pthread tests/bridge_augmentation.cpp -o build/bridge_augmentation
+build/bridge_augmentation

@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T21:46:03.158980+00:00",
+  "recorded_at_utc": "2026-09-11T22:00:59.440494+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -55,7 +55,16 @@
       "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS",
       "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
       "Vertex removal dual explicit deletion oracle, isolated vertices, multigraphs and recursive chain PASS",
-      "Edge compression/orientation dual removal and reachability oracles, multigraph IDs and recursive cycle PASS"
+      "Edge compression/orientation dual removal and reachability oracles, multigraph IDs and recursive cycle PASS",
+      "In file included from /opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/cassert:46,",
+      "                 from tests/../src/classic/biconnected.hpp:3,",
+      "                 from tests/../src/classic/bridge_augmentation.hpp:2,",
+      "                 from tests/bridge_augmentation.cpp:2:",
+      "tests/bridge_augmentation.cpp: In function 'void check(int, const std::vector<std::pair<int, int> >&)':",
+      "tests/bridge_augmentation.cpp:64:25: warning: comparison of integer expressions of different signedness: 'std::vector<std::pair<int, int> >::size_type' {aka 'long unsigned int'} and 'int' [-Wsign-compare]",
+      "   64 |     assert(added.size() == (leaves + 1) / 2);",
+      "      |            ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~",
+      "bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -109,7 +118,8 @@
       "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS",
       "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
       "Vertex removal dual explicit deletion oracle, isolated vertices, multigraphs and recursive chain PASS",
-      "Edge compression/orientation dual removal and reachability oracles, multigraph IDs and recursive cycle PASS"
+      "Edge compression/orientation dual removal and reachability oracles, multigraph IDs and recursive cycle PASS",
+      "bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed"
     ]
   },
   "sha256": {
@@ -119,6 +129,7 @@
     "src/classic/basis_intersection.hpp": "bbd8be0b5a093cf47df51a5304218de56abc648bf0f2eb77861ec0c6de0a44aa",
     "src/classic/biconnected.hpp": "e4a8f7cd76bb572039bf1f41c0d46d222a9dbb4a0a5aec616c51da01abf82024",
     "src/classic/blossom.hpp": "adfc09ded1ac63d2aedc274f12e61a72609328c48ca04af9deea782b32550790",
+    "src/classic/bridge_augmentation.hpp": "b7e30903a84e6c109d116a9764ac408ff0a13982d682ac12a26822c3115e10ae",
     "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
     "src/classic/data_structure.hpp": "c22a85ed4ea5c3a458f4febf18549d611045a255cabe429189debd92113f0a70",
     "src/classic/dsu_on_tree.hpp": "ec9482919c309309980c8ec06d98fbf3ad7aeb1308f1685552245bd3df040434",
@@ -162,6 +173,7 @@
     "src/compact/basis_intersection.hpp": "001dad36dbe935164488a7a3e3dda79f235874d7c9b1ff60cc97f3a0a23b1364",
     "src/compact/biconnected.hpp": "6ad20e935bbb4f3f41349dd54076910b2ccc91a05522325f65b53e064074313c",
     "src/compact/blossom.hpp": "1c0f9fe674d3228d8a2ee3aa2b081cbad202184c14011583774f22fff484d982",
+    "src/compact/bridge_augmentation.hpp": "94b53ae35023a8e157749c97a7406d9d805d823e103feea18046d9072b9b203a",
     "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
     "src/compact/data_structure.hpp": "ffbb46b60f707a3ed44838329a8f7eefbd6cba4c2b64d30ed8a62f207e73327e",
     "src/compact/dsu_on_tree.hpp": "b773f54e4304a7ef348c5e6079233726df17232f8da5843a5a9b284b2bcd94fa",
@@ -205,6 +217,8 @@
     "tests/biconnected.cpp": "de4fa6a9a028408879922a15c0cbe19b80f87ed7be2e274f36766dfb0ed4739f",
     "tests/blossom.cpp": "93361601e543fe63e84deccd84e5148b39de9fa919eda4345c18e5f653cf1f96",
     "tests/boundaries.cpp": "a956e11355fbf66131d6cd3ff8eee37b19d2a2d7077d75d317eea53742797dba",
+    "tests/bridge_augmentation.cpp": "b6d567a637fa3a80bd0526cc8b932ff80ae8d6679d014b09ba35f5f6e78b8125",
+    "tests/bridge_augmentation_application.py": "f43cffa6f6bbf9ffa6f88009416637aec3c24b0c4eb6828417dcf717d7589af4",
     "tests/centroid.cpp": "b2658de09f312df33a90980a940d2e7e01fc078950ed91ed9ab38581e8e9d9c5",
     "tests/circle_precision.cpp": "04170f5d59d33d3605f9d83bf2f5e284a2e44b09eeac7716e25f2482f45b87bd",
     "tests/classic.cpp": "3bc4c9421e6c96b93dbd97dfc38f09fcbe7596b2cdf24eecf7bb2f2652ba462a",

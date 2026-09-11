@@ -44,6 +44,16 @@ orient\_edges(graph) 接受 Lowlink 对象，传统版 Orient\_Edges 接受 Low\
 
 \lstinputlisting[firstline=33,lastline=55]{../src/compact/edge_components.hpp}
 
+\chapter{桥树最少加边}
+
+\Needspace{444pt}
+
+\section{连通无向图最少加边方案}\label{compact-bridge_augmentation}\index{bridge\_augmentation}
+
+先对非空连通无向图调用 Biconnected.run()，再调用 bridge\_augmentation(graph)。返回原图点号构成的新增边列表，不修改原图。允许新增重边，不产生自环；不适用于非连通图。已无桥时返回空列表。桥树有 L 个叶子时最少加 (L+1)/2 条边（整数除法）。递归 DFS 顺序收集叶子，奇数时复制首叶，前后半段配对。每条桥一侧的叶子是循环连续区间，半周配对必跨过该割，故所有桥被消除；每个叶子至少需要一个新边端点，得到同样的下界。分解后本函数 O(n+m) 时间与空间。依赖 biconnected.hpp。P2860 双风格完整程序本地验证；新增方案以逐边删除连通性独立验证，尚无本库在线 AC。
+
+\lstinputlisting[firstline=5,lastline=35]{../src/compact/bridge_augmentation.hpp}
+
 \chapter{数据结构}
 
 \Needspace{492pt}
@@ -699,6 +709,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 算法约束见动态版本第~\pageref{compact-orient_edges}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=35,lastline=57]{../src/classic/edge_components.hpp}
+
+\chapter{桥树最少加边}
+
+\Needspace{455pt}
+
+\section{连通无向图最少加边方案}\label{classic-bridge_augmentation}\index{Bridge\_Augmentation}
+
+算法约束见动态版本第~\pageref{compact-bridge_augmentation}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=36]{../src/classic/bridge_augmentation.hpp}
 
 \chapter{数据结构}
 
