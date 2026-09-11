@@ -199,3 +199,11 @@ tests/dynamic_kth.cpp 以朴素数组修改和排序切片为答案，覆盖重�
 动态版预先 reserve 节点上界，避免百万规模下 vector 扩容峰值；传统版要求 NODES≥n·(ceil(log2(n))+1)，另外保留编号 0 空节点。tests/persistent_distinct.cpp 穷举三值数组至长度 8，并以集合计数核对每个区间；另检查 int64 两端、重复初始化、全相同、全不同、周期值与 20 万规模数组。
 
 [洛谷 P1972](https://www.luogu.com.cn/problem/P1972) 驱动按 n、数组、m、各闭区间的顺序输入。kuangbin 3.6 的四个子功能现在均有分别实现和本地证据；它们尚未全部获得在线 AC，不以章节归并掩盖各自的验证状态。
+
+## 素数模平方根（2026-09-12）
+
+依据 [OI Wiki 二次剩余](https://oi-wiki.org/math/number-theory/quad-residue/) 的 Euler 判别与 Cipolla 方法补充双风格函数。返回升序、去重后的根列表；p=2 和 n=0 单独处理，p≡3 (mod 4) 直接快速幂，其余在二次扩域中计算。仅承诺素数模数 p≤INT_MAX，调用方保证素性。
+
+tests/modular_sqrt.cpp 穷举 p≤2000 的全部素数和全部余数，以枚举 x² 为独立根表；大模数通过已知根生成输入，并测试无解、带符号输入极值。2147483629 经试除确认为素数且模 4 余 1，专门覆盖接近 INT_MAX 的扩域分支；INT_MAX 覆盖 p+1 的提升转换。测试参照乘法用 int128，模板乘法用 long long 并在三因子乘法中间取模。
+
+[洛谷 P5491](https://www.luogu.com.cn/problem/P5491) 驱动按 T 组读取 n,p；无解输出 Hola!，零仅输出一个根。OI Wiki 同页的 Jacobi、二次互反律、Tonelli–Shanks 等仍未全部实现，不将整页标记完成。

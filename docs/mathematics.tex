@@ -31,6 +31,18 @@ Lucas 不能直接套在合数模数。阶乘与逆阶乘预处理要求上限�
 扩展欧拉降幂中，非互质情况不能直接将指数对 $\varphi(m)$ 取模；需要判断原指数是否达到足够阈值。
 大整数指数可以在读入时同时维护余数与是否超过阈值。
 
+\section{素数模平方根}\index{Cipolla}\index{quadratic residue}
+奇素数 $p$ 下，对 $n\not\equiv0\pmod p$，Euler 判别式
+$n^{(p-1)/2}\equiv1\pmod p$ 当且仅当存在平方根，否则为 $-1$。
+当 $p\equiv3\pmod4$ 且有解时，$r=n^{(p+1)/4}$ 为一根，另一根是 $p-r$。
+
+Cipolla 选择 $a$ 使 $w=a^2-n$ 是非平方，令 $\omega^2=w$。
+在扩域中取 $\alpha=a+\omega$，有 $\alpha^p=a-\omega$，故 $\alpha^{p+1}=n$。
+令 $\beta=\alpha^{(p+1)/2}$，则 $\beta^2=n$ 且
+$\beta^{p-1}=n^{(p-1)/2}=1$，所以 $\beta$ 落在原素数域中。
+实现见第~\pageref{compact-mod_sqrt}~页；零和模数 2 单独处理。
+模数为合数时不能照搬此判别和扩域构造。
+
 \section{合数模数组合数与插值}\index{exLucas}\index{Lagrange interpolation}
 对素数幂 $q=p^e$，记 $v_p(n!)=\sum_{j\ge1}\lfloor n/p^j\rfloor$，
 $U_p(n)=n!/p^{v_p(n!)}$。设
@@ -134,7 +146,7 @@ $B=\sum\gcd(|\Delta x|,|\Delta y|)$；不要重复计入边端点。
 
 \paragraph{来源索引}
 本章为重新组织的公式速查，扩展范围依据 \url{https://oi-wiki.org/math/}。
-小模数 exLucas 与有限域拉格朗日插值已有双风格实现和本地验证；仍需补齐二次剩余、原根、Min25、Newton 插值、子集卷积、行列式进阶、数值积分等内容及验证。本章公式不能代替这些待完成代码。
+小模数 exLucas 与有限域拉格朗日插值已有双风格实现和本地验证；素数模平方根已有 Cipolla 实现；仍需补齐二次剩余的其他方法与定理、原根、Min25、Newton 插值、子集卷积、行列式进阶、数值积分等内容及验证。本章公式不能代替这些待完成代码。
 
 \section{线性递推：系数方向与外推条件}
 \index{线性递推}

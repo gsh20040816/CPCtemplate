@@ -278,6 +278,14 @@ ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k �
 
 \lstinputlisting[firstline=89,lastline=107,firstnumber=84]{../src/compact/exlucas.hpp}
 
+\chapter{二次剩余}
+
+\section{素数模平方根（Cipolla）}\label{compact-mod_sqrt}\index{mod\_sqrt}
+
+mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无解返回空向量，零或模数 2 返回单根。要求 p 为素数，2$\le$p$\le$INT\_MAX，n 支持完整 long long 范围并在入口归一化。先用 Euler 判别；p$\equiv$3 (mod 4) 时直接快速幂，其余使用 Cipolla 二次扩域。函数内保存固定种子的伪随机生成器；随机性影响寻找非剩余的尝试次数，不影响结果，通常期望 O(log p) 时间、O(1) 辅助空间。乘法用 long long，扩域实部的三因子乘积中间先取模；指数中的 p+1 先转 long long，避免 INT\_MAX 溢出。此版本不处理合数模数及 64 位大素数，也不用于浮点开方。
+
+\lstinputlisting[firstline=10,lastline=66]{../src/compact/modular_sqrt.hpp}
+
 \chapter{多项式插值}
 
 \section{拉格朗日插值与连续点优化}\label{compact-Lagrange}\index{Lagrange}
@@ -809,6 +817,14 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 \Needspace{231pt}
 
 \lstinputlisting[firstline=96,lastline=114,firstnumber=91]{../src/classic/exlucas.hpp}
+
+\chapter{二次剩余}
+
+\section{素数模平方根（Cipolla）}\label{classic-mod_sqrt}\index{Mod\_Sqrt}
+
+算法约束见动态版本第~\pageref{compact-mod_sqrt}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=10,lastline=66]{../src/classic/modular_sqrt.hpp}
 
 \chapter{多项式插值}
 

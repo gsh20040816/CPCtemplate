@@ -98,3 +98,6 @@ build/dynamic_kth
 
 "$CXX" "${flags[@]}" tests/persistent_distinct.cpp -o build/persistent_distinct
 build/persistent_distinct
+
+"$CXX" "${flags[@]}" tests/modular_sqrt.cpp -o build/modular_sqrt
+build/modular_sqrt
