@@ -626,5 +626,25 @@
       "Copy"
     ],
     "note": "Branching versions, point assignment/query and version copying; static node capacity 23000000. Reinitialization and allocation bounds also tested locally. Not an order-statistics tree."
+  },
+  {
+    "problem": "Luogu P3834",
+    "style": "compact",
+    "algorithm": "PersistentKth",
+    "record": "https://www.luogu.com.cn/record/297520290",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 2895,
+    "memory": "53.98MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3834.compact.cpp",
+    "submitted_source": "verification/submitted/P3834.compact.cpp",
+    "submitted_sha256": "3827a2890ec7d2ff0fb1ec29af032f71a19270b9b630ed338a85643e9890a4fd",
+    "tested_api": [
+      "constructor",
+      "kth"
+    ],
+    "note": "Static interval kth smallest only. Other algorithms bundled in optimization.hpp are not covered. Time is the sum of the 20 displayed test-case times (summary rounds to 2.90s)."
   }
 ]
