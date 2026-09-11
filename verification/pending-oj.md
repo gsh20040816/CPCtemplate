@@ -61,6 +61,8 @@
 - `verify/poj/1330.lifting.compact.cpp`
 - `verify/poj/1470.classic.cpp`
 - `verify/poj/1470.compact.cpp`
+- `verify/poj/1637.classic.cpp`
+- `verify/poj/1637.compact.cpp`
 - `verify/poj/2117.classic.cpp`
 - `verify/poj/2117.compact.cpp`
 - `verify/poj/2337.classic.cpp`

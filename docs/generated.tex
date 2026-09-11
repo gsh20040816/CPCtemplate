@@ -252,6 +252,28 @@ word\_chain(words) 返回可空的编号序列（optional），有解时为原�
 
 \lstinputlisting[firstline=47,lastline=92,firstnumber=40]{../src/compact/undirected_euler.hpp}
 
+\chapter{混合图欧拉定向}
+
+\Needspace{457pt}
+
+\section{欧拉回路与指定端点定向}\label{compact-mixed_euler_orientation}\index{mixed\_euler\_orientation}
+
+mixed\_euler\_orientation(n,edges,start,finish) 返回可空的定向边序列。每条输入为 \{u,v,type\}，type=1 固定 u 到 v，type=0 可反转；点号 1..n，n$\ge$1。省略两个端点或均传 0 时请求任意起点的欧拉回路；两个正端点请求指定起终点的欧拉路径，相等时为指定起点回路。无解返回 nullopt，有解返回与原边顺序对应的端点对；无边图可返回有值空序列。忽略无关孤立点，但正端点须在有边部分。先任意定向可反转边，扣除目标出入度差；每条反转将两端差值分别改变 -2 和 +2，奇数差无解，否则用容量 1 的反转边流调整。检查底层无向连通性后，满流即得到所需方向。最大流图 n+2 点、至多 m+n 条正向边，总时间可按 Dinic 的 O((n+2)$^{2}$(m+n)) 上界计，空间 O(n+m)。依赖 flow.hpp；返回边交给 DirectedEuler 可生成连续走法，指定端点时保持指定起点。定向不保证字典序最小。
+
+\lstinputlisting[firstline=9,lastline=38]{../src/compact/mixed_euler.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=39,lastline=74,firstnumber=31]{../src/compact/mixed_euler.hpp}
+
+\Needspace{394pt}
+
+\section{任意起终点的混合欧拉路径}\label{compact-mixed_euler_trail}\index{mixed\_euler\_trail}
+
+mixed\_euler\_trail(n,edges) 返回任意可行欧拉路径的定向边序列，格式同上一节。忽略边原方向统计度数，自环计 2；若奇度点为 0 个，请求回路；若恰有 2 个，尝试这两个端点的两种顺序；否则无解。最多两次定向求解。返回方向可交给 DirectedEuler 自动选择起点，恢复顶点与原边编号序列。枚举所有可反转边方向、全部固定端点及自由端点对拍；逐边检查固定边不变和连续走法，另有 10 万点长流量路径测试。POJ1637 双驱动本地验证，仅检查回路存在性；完整方向和开放路径依靠本地证据，在线待补。
+
+\lstinputlisting[firstline=78,lastline=104]{../src/compact/mixed_euler.hpp}
+
 \chapter{图上异或行走}
 
 \section{无向图最大异或行走}\label{compact-XorWalk}\index{XorWalk}
@@ -1035,6 +1057,32 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 \newpage
 
 \lstinputlisting[firstline=55,lastline=100,firstnumber=48]{../src/classic/undirected_euler.hpp}
+
+\chapter{混合图欧拉定向}
+
+\Needspace{508pt}
+
+\section{欧拉回路与指定端点定向}\label{classic-mixed_euler_orientation}\index{Mixed\_Euler\_Orientation}
+
+算法约束见动态版本第~\pageref{compact-mixed_euler_orientation}~页。本节代码独立可抄；采用下列实际接口名。
+
+调用时额外传入 Network\_Flow<N,M> 工作区作为临时最大流图；N 至少为 n+2，M 至少为可反转边数+n。大流对象放全局或 static。
+
+\lstinputlisting[firstline=9,lastline=43]{../src/classic/mixed_euler.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=44,lastline=79,firstnumber=36]{../src/classic/mixed_euler.hpp}
+
+\Needspace{404pt}
+
+\section{任意起终点的混合欧拉路径}\label{classic-mixed_euler_trail}\index{Mixed\_Euler\_Trail}
+
+算法约束见动态版本第~\pageref{compact-mixed_euler_trail}~页。本节代码独立可抄；采用下列实际接口名。
+
+调用时额外传入 Network\_Flow<N,M> 工作区作为临时最大流图；N 至少为 n+2，M 至少为可反转边数+n。大流对象放全局或 static。
+
+\lstinputlisting[firstline=83,lastline=110]{../src/classic/mixed_euler.hpp}
 
 \chapter{图上异或行走}
 

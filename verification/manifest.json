@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T23:01:52.396574+00:00",
+  "recorded_at_utc": "2026-09-11T23:15:18.211648+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -64,7 +64,9 @@
       "Directed Euler dual exhaustive trails, lexicographic optimum, edge certificates, multigraphs and 200000 recursive edges PASS",
       "Undirected Euler dual exhaustive trails, lexicographic optimum, edge certificates, loops and 200000 recursive edges PASS",
       "Incremental word_chain-only check; unchanged-module evidence retained from a9a111a:",
-      "Word chain dual permutation oracle, word-vs-vertex order, duplicate IDs, prefixes and 200000 recursive words PASS"
+      "Word chain dual permutation oracle, word-vs-vertex order, duplicate IDs, prefixes and 200000 recursive words PASS",
+      "Incremental mixed_euler-only check; unchanged-module evidence retained from 76a4f39:",
+      "Mixed Euler dual exhaustive orientations, fixed/free endpoints, loops, isolated vertices, full trail certificates and 100000-node flow chain PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -127,7 +129,9 @@
       "Directed Euler dual exhaustive trails, lexicographic optimum, edge certificates, multigraphs and 200000 recursive edges PASS",
       "Undirected Euler dual exhaustive trails, lexicographic optimum, edge certificates, loops and 200000 recursive edges PASS",
       "Incremental word_chain-only check; unchanged-module evidence retained from a9a111a:",
-      "Word chain dual permutation oracle, word-vs-vertex order, duplicate IDs, prefixes and 200000 recursive words PASS"
+      "Word chain dual permutation oracle, word-vs-vertex order, duplicate IDs, prefixes and 200000 recursive words PASS",
+      "Incremental mixed_euler-only check; unchanged-module evidence retained from 76a4f39:",
+      "Mixed Euler dual exhaustive orientations, fixed/free endpoints, loops, isolated vertices, full trail certificates and 100000-node flow chain PASS"
     ]
   },
   "sha256": {
@@ -157,6 +161,7 @@
     "src/classic/lifting_lca.hpp": "0938fc06246035f4f59daf0c4012ef0c4c513e78fed2d70bf8fc50ed49104078",
     "src/classic/maximum_closure.hpp": "47bfa97cd02f9c423e026d1b38af5909725a1c7e6f94e95b7541f29b858c5bad",
     "src/classic/min_cost_flow.hpp": "49d8ee5466edc6396bbe7c8858e8b4bd765b4c0bc18c82a4ea7eae88884e36ca",
+    "src/classic/mixed_euler.hpp": "f288cc25617677f70adcfae0e39a5818a3597b9ce2ae27f78816c0edeede6a6c",
     "src/classic/modular_sqrt.hpp": "d66b537ac6c009d50519f1b91f7a9d7d3f7177f6523a2ceed2c6d3070d6fa38d",
     "src/classic/number_theory.hpp": "8a20210a11a6f985d51776dd0a90e9aaa2c385f7805babfe05c63613c57a7352",
     "src/classic/offline_lca.hpp": "cd5f7452c2b1c5ff50b4dc8eb083b9e97239b822534e65d7e13afc64831525b1",
@@ -207,6 +212,7 @@
     "src/compact/interpolation.hpp": "73f71b029ccab6be4573c4612a5c132accb9b208115503d7f47bde7fc878357a",
     "src/compact/lifting_lca.hpp": "19cda96f3d6d0f4807f7d554d09b0428f3b88516a40788cff6b6897ac90a64da",
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
+    "src/compact/mixed_euler.hpp": "7e84285a001bc52700e00f0da220c28402b866c4c84c742962886b69c7c03ff8",
     "src/compact/modular_sqrt.hpp": "feafcc6e8e95453ba63c6fa4047de98ba1402d6d8c373f41543b5162e730a537",
     "src/compact/number_theory.hpp": "442ed221567f0fa12f9ae38bcb7d873bed4cd0a253020814dae2599c64f3bf0f",
     "src/compact/offline_lca.hpp": "6bab44707d5c5fd363b990d93cc368f634e83d8de5090810dfe3cf525e6b5971",
@@ -274,6 +280,8 @@
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",
     "tests/maximum_closure.cpp": "f949edb7975ca2a6551f97de6b9349a29be7fd692f4266ce226ae76c2de37c1d",
     "tests/maximum_closure_application.py": "5ee193618c16170bc235b87c423405802862108b0aa6a3e5c2d4c76af87abca7",
+    "tests/mixed_euler.cpp": "575fb28b131f391169fa287282e8bcb9a2baba7e3fa04456f3ca02f8fde1bf06",
+    "tests/mixed_euler_application.py": "a2023a900ddbb56599457dcb6f81b36610981c576c5a5e8081aad58dab5cfcc9",
     "tests/modular_sqrt.cpp": "db36b638f77a9e71f669e7c5c7833572e2044bc5666bab2b4ae90674809ea473",
     "tests/modular_sqrt_application.py": "957ea0c1707cdb4271fa70b5371ad922e78f17accf6a81e50c537e38d3878f25",
     "tests/offline_lca.cpp": "c982b4979d64e617b7aa69b2934ec59d8ed0abc1ce6fd71338a172444b64fe7d",

@@ -1,6 +1,6 @@
 # 图论来源与接口覆盖核对（2026-09-12）
 
-本次核对 21 个来源条目，针对的是功能、输入约束、编号约定与验证范围，不要求复制原文件的字段布局。没有修改算法代码，也没有新增在线 AC。7 个原先 pending 的条目现可明确映射到已验证实现；一项原有 local-tested 标记因额外字段尚未覆盖而改为 partial。
+最初审计核对 21 个来源条目，针对的是功能、输入约束、编号约定与验证范围，不要求复制原文件的字段布局。该次审计没有修改算法代码，也没有新增在线 AC。7 个原先 pending 的条目现可明确映射到已验证实现；一项原有 local-tested 标记因额外字段尚未覆盖而改为 partial。
 
 [审计快照](../verification/graph-coverage-review.json)保存参考文件摘要、WIDA 提交号、被检查的本库源码与测试摘要。初次审计时，9 个本库文件的摘要与当时完成的普通回归及 ASan/UBSan 清单逐项一致，测试日志也与该清单完全一致。快照保留当时的基线；后续实现以当前 manifest 和 coverage.csv 为准。删点增量、定向、缩点统计及下表中的调用适配现已补齐本地验证。
 
@@ -81,7 +81,7 @@ DFS 叶序中，每条桥一侧的叶集合是循环连续区间。奇数叶时�
 
 kuangbin 4.20.2 的 POJ1470 调用也已提供双风格驱动：解析 `u:(k)` 子节点表，推断根，解析 `(u v)` 查询，再按点号输出非零 LCA 出现次数。测试覆盖乱序子节点行、多组数据、非 1 根、零查询。输入格式依据本地 kuangbin 2018 原文第 181–183 页，而非声称已获 POJ 在线判定。P3379 与 POJ1470 的驱动证据见 verification/offline-lca-driver-tests.txt，在线均待补。
 
-参考：[OI Wiki LCA](https://oi-wiki.org/graph/lca/)、[P3379 题面](https://www.luogu.com.cn/problem/P3379)。kuangbin 原注释的 O(n+Q) 不直接沿用为本实现的复杂度；这里明确包含并查集的反阿克曼因子。父项 4.20 仍为 partial，其他 LCA 实现分别审计。
+参考：[OI Wiki LCA](https://oi-wiki.org/graph/lca/)、[P3379 题面](https://www.luogu.com.cn/problem/P3379)。kuangbin 原注释的 O(n+Q) 不直接沿用为本实现的复杂度；这里明确包含并查集的反阿克曼因子。三种 LCA 实现现已分别完成本地验证，其他实现的证据见后续小节。
 
 离线 LCA 库的 50 万层 ASan 测试首次在 256MB 线程栈上触发栈溢出（verification/offline-lca-stack-limit.txt）；测试线程调整为 512MB 后复测。此调整只在 tests/offline_lca.cpp 中，模板 DFS 不变。P3379 普通优化驱动使用的测试线程仍为 256MB。
 
@@ -91,7 +91,7 @@ kuangbin 4.20.2 的 POJ1470 调用也已提供双风格驱动：解析 `u:(k)` �
 
 [tests/euler_lca.cpp](../tests/euler_lca.cpp) 穷举 n≤6 的全部标号树、根和点对，以 BFS 父链验证 LCA/无权距离；同时验证欧拉序长度、首次出现位置、重建和重置，另有 50 万点链的三种根测试。P3379 的完整程序测试 n=q=500000；POJ1330 程序从有向父子边推断根，支持多组输入，按 kuangbin 2018 第 179–181 页格式验证，含 n=10000 长链，均为本地证据。日志为 verification/euler-lca-driver-tests.txt；不声称 POJ 在线 AC。
 
-kuangbin 4.20.1 据此更新为 local-tested，4.20 父项仍保留 partial，倍增法单独审计。参考定义与欧拉序方法见 [OI Wiki LCA](https://oi-wiki.org/graph/lca/)，P3379 输入与最大规模见 [题面](https://www.luogu.com.cn/problem/P3379)。
+kuangbin 4.20.1 为 local-tested，倍增法及 4.20 父项的完成证据见后续倍增小节。参考定义与欧拉序方法见 [OI Wiki LCA](https://oi-wiki.org/graph/lca/)，P3379 输入与最大规模见 [题面](https://www.luogu.com.cn/problem/P3379)。
 
 后续倍增范围已核对：kuangbin 4.20.3 是 POJ1330 的祖先倍增实现，不能仅用已有 HLD.lca 关闭；WIDA 打印稿“最近公共祖先 LCA”还包括基础倍增与路径最大边权扩展。其 clac 计算的是边数而非权值和，最大边权 query 以 0 初始化，负边权需要另行规定。后续实现应明确无边路径、负权最大值与跳出根的返回语义，再逐项验证，不把本次无权欧拉序版本标为这些功能的覆盖。
 
@@ -115,11 +115,13 @@ WIDA 打印稿的 intersection 对四个 LCA 顶点直接按编号排序，再�
 
 题面：[P3398](https://www.luogu.com.cn/problem/P3398)。WIDA“树上路径交”据此标为 local-tested，函数不依赖特定 LCA 模板或编号的深度顺序。
 
-## 后续欧拉路审计提示（仍待实现）
+## 欧拉路上游缺陷审计
+
+kuangbin 无向欧拉路径判定段的“仅有两个点的度数为偶数”应为“恰有两个奇度点”；本库按奇度点个数 0 或 2 判定。
 
 WIDA 打印稿的度数判定与输出片段不能直接照搬：有向图仅统计入度等于出度的点数，未排除差值绝对值大于 1；例如两点间两条 1→2 边会被其 cnt=n-2 条件接受，但不存在欧拉路。其 DSU.size(1)==n 还把孤立点算进连通要求；三点图只有边 1→2 时，本应忽略孤立点 3。无向片段在递归前输出边，没有逆后序拼接；图含三角形 1-3-4-1 和边 1-2 时，先走 1-2 再回溯输出 1-3，输出不构成连续走法。
 
-后续模板应保留逻辑边编号，正确处理重边和自环，验证实际消耗了全部边；有向字典序最小序列、无向序列、混合图定向是分别待补的范围。此审计提示不改变这些条目的 pending 状态。
+本库随后实现分别保留逻辑边编号、处理重边和自环，并核验全部边的实际消费。有向、无向、单词链及混合图的证据分别列于以下小节，当前均为本地覆盖；这些上游反例仍保留作为采用不同实现的依据。
 
 ## 有向欧拉路实现
 
@@ -127,7 +129,7 @@ WIDA 打印稿的度数判定与输出片段不能直接照搬：有向图仅统
 
 tests/directed_euler.cpp 穷举三点内全部有向简单图（包括自环），以及两点间每种有向边出现 0/1/2 次的重图；以枚举全部边走法作独立参照，检验所有固定起点、自动起点和字典序最优。证书逐原边号检查唯一消费、方向和连续性，包含加边后重算、反复切换排序模式与失败清空。大例在仅两个非孤立点间交替经过 20 万条边，专门验证递归深度依赖边数而非点数。P7771 完整程序以 n=100000、m=200000 边界测试；日志见 verification/directed-euler-driver-tests.txt。在线待补。
 
-WIDA 有向存在判定与字典序求解两子项更新为 local-tested，父项仍为 partial。kuangbin 4.21.1 包含 POJ2337 单词链应用：单词作为边的字典序与本接口的顶点序列字典序不同，尚未验证，因此继续保留 partial；无向和混合图也分别待补。
+WIDA 有向存在判定与字典序求解两子项为 local-tested。kuangbin 4.21.1 的 POJ2337 单词链应用按边标签排序，与这里的顶点字典序不同，已在下文单词链小节独立验证；不能由有向核心单独证明其完成。
 
 题面：[P7771](https://www.luogu.com.cn/problem/P7771)。提交题面保证底层无向图连通，但本库另外验证断开非孤立分量应失败、无关孤立点应被忽略。
 
@@ -137,7 +139,7 @@ WIDA 有向存在判定与字典序求解两子项更新为 local-tested，父�
 
 tests/undirected_euler.cpp 用所有可行边走法作参照，验证存在性、自动/固定起点、字典序、每条原边恰用一次及方向；覆盖小图、自环、重边、无边图、断开图、反复运行、追加边、20 万条边的递归链。P2731 驱动按每行一个点输出字典序最小方案，测试包含点号不含 1 和 1024 条重边。SGU101 驱动将 0..6 点数映射为 1..7，输出原骨牌编号与 +/− 方向；102 个案例各重复两次，逐块验证连续性、方向及完整消费，含双零自环和 100 块骨牌。格式依据 kuangbin 2018 第 188–189 页的 SGU101 原文，未声称取得 SGU 在线判定。
 
-WIDA 无向两子项及 Hierholzers 父项更新为 local-tested，kuangbin 4.21.2 同样为 local-tested；4.21 父项仍 partial，因为单词链应用和混合图未完成。P2731 题面见 [骑马修栅栏](https://www.luogu.com.cn/problem/P2731)。驱动证据见 verification/undirected-euler-driver-tests.txt，新增接口在线待补。
+WIDA 无向两子项及 Hierholzers 父项更新为 local-tested，kuangbin 4.21.2 同样为 local-tested；4.21 父项随下文单词链和混合图的独立验证而完成本地覆盖。P2731 题面见 [骑马修栅栏](https://www.luogu.com.cn/problem/P2731)。驱动证据见 verification/undirected-euler-driver-tests.txt，新增接口在线待补。
 
 ## 按单词边标签排序的欧拉链
 
@@ -145,4 +147,14 @@ WIDA 无向两子项及 Hierholzers 父项更新为 local-tested，kuangbin 4.21
 
 tests/word_chain.cpp 枚举含重复词、前缀词的全部小多重集，并对各实例枚举全排列独立选最小有效序列；逐原编号检查全排列证书。另有随机字符串、明确排序反例，以及 20 万相同词的递归测试。POJ2337 双驱动按 T 组输入并以点分隔单词，无解输出 ***；107 个案例的完整输出与 Python 排列枚举对照，含 1000 词实例。格式依据 kuangbin 2018 第 186–188 页原文，在线仍待补。
 
-本次未改变此前已验证的 DirectedEuler。新增封装单独执行普通与 ASan/UBSan 测试，追加至现有回归日志；其独立日志为 verification/word-chain-tests.txt 与 verification/word-chain-sanitizer-tests.txt，完整驱动日志为 verification/word-chain-driver-tests.txt。kuangbin 4.21.1 更新为 local-tested，4.21 父项仍因混合图待补而保持 partial。
+本次未改变此前已验证的 DirectedEuler。新增封装单独执行普通与 ASan/UBSan 测试，追加至现有回归日志；其独立日志为 verification/word-chain-tests.txt 与 verification/word-chain-sanitizer-tests.txt，完整驱动日志为 verification/word-chain-driver-tests.txt。kuangbin 4.21.1 更新为 local-tested，混合图和 4.21 父项的完成证据见下一节。
+
+## 混合图欧拉定向
+
+mixed_euler_orientation / Mixed_Euler_Orientation 返回原边顺序对应的方向，type=1 不变、type=0 可翻转。默认 start=finish=0 求回路；两个正端点定义目标出入度差（相等时仍为回路）。初始差减去目标差后必须全部为偶数，以差的一半建供需；反转 u→v 将 u 的差减 2、v 的差加 2，故容量 1 的 u→v 流恰好表示翻转这条边。整数满流给出合法方向，底层有边分量连通性保证存在相应欧拉走法。无关孤立点忽略，指定正端点在非空图中必须属于有边部分。
+
+mixed_euler_trail / Mixed_Euler_Trail 另行支持任意端点：总度数全偶时请求回路，恰有两个奇点时尝试两个方向，其余无解。固定有向边使两个端点顺序不等价，例如仅有固定 2→1 时第一次尝试 1→2 必须失败，反向请求成功。结果不追求所有可能定向中的字典序最小；把结果按原顺序加进 DirectedEuler，并保持指定起点（若有），可恢复逐原边号走法。
+
+tests/mixed_euler.cpp 枚举全部可反转边的方向，独立用出入度及 BFS 连通性判定存在性，覆盖小重图、随机图、全部固定端点、自由端点、自环、孤立点和外部最大流工作区复用；证书检查每个原边方向以及最终连续走法。10 万点长链需要所有柔性边反转，另外检验路径压缩查找、最大流及欧拉 DFS 的深递归。POJ1637 双驱动按 kuangbin 2018 第 189–191 页的 type=0/1 与 possible/impossible 格式验证，183 组案例含 200 点稠密实例。该题的布尔回路判定不能替代方向、固定/自由端点及断开图的证据。
+
+新增组合模块以普通及 ASan/UBSan 定向测试验证，保留先前未变模块的回归证据；独立日志为 verification/mixed-euler-tests.txt、verification/mixed-euler-sanitizer-tests.txt 和 verification/mixed-euler-driver-tests.txt。kuangbin 4.21.3 及 4.21 父项现标为 local-tested，在线记录仍另行登记，尚无本库新 AC。
