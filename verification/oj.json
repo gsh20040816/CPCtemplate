@@ -383,5 +383,87 @@
       "Choose"
     ],
     "note": "One binomial query, 1<=k<=n<=1e18 and 2<=mod<=1e6. Zero/out-of-range k, mod=1, repeated queries/reinitialization and uint64 endpoint verified independently locally."
+  },
+  {
+    "problem": "Luogu P4781",
+    "style": "compact",
+    "algorithm": "Lagrange",
+    "record": "https://www.luogu.com.cn/record/297520159",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 304,
+    "memory": "904.00KB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4781.compact.cpp",
+    "submitted_source": "verification/submitted/P4781.compact.cpp",
+    "submitted_sha256": "9805829bab632f28dbc2ad4ad8a381d006bee30c48ec2dab6bbcec8f153bc556",
+    "tested_api": [
+      "init",
+      "query"
+    ],
+    "note": "Arbitrary distinct nodes and modulus 998244353, n<=2000, positive input residues. Consecutive-node preparation, power sums, signed normalization and other prime moduli verified locally."
+  },
+  {
+    "problem": "Luogu P4781",
+    "style": "classic",
+    "algorithm": "Lagrange",
+    "record": "https://www.luogu.com.cn/record/297520164",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 100,
+    "memory": "816.00KB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4781.classic.cpp",
+    "submitted_source": "verification/submitted/P4781.classic.cpp",
+    "submitted_sha256": "52c61653caefaf57eb44ab1f53def72684491f20055c0f1b56dbd9bc63e9a563",
+    "tested_api": [
+      "Init",
+      "Query"
+    ],
+    "note": "Arbitrary distinct nodes and modulus 998244353, n<=2000, positive input residues. Consecutive-node preparation, power sums, signed normalization and other prime moduli verified locally."
+  },
+  {
+    "problem": "Luogu P3384",
+    "style": "compact",
+    "algorithm": "HLD + AffineSegTree",
+    "record": "https://www.luogu.com.cn/record/297520172",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 1330,
+    "memory": "24.93MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3384.compact.cpp",
+    "submitted_source": "verification/submitted/P3384.compact.cpp",
+    "submitted_sha256": "cf42508d550247e4b6778114be693200490b8a4f1e4a51ac896c4059f96f7f81",
+    "tested_api": [
+      "HLD::add/build/path",
+      "HLD::dfn/siz",
+      "AffineSegTree::update(1,add)/query"
+    ],
+    "note": "Recursive HLD with path/subtree addition and modular sum. Direct LCA, edge paths, multiplication/assignment, reset/reroot extensions separately tested locally."
+  },
+  {
+    "problem": "Luogu P3384",
+    "style": "classic",
+    "algorithm": "HLD + AffineSegTree",
+    "record": "https://www.luogu.com.cn/record/297520179",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 1440,
+    "memory": "24.18MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3384.classic.cpp",
+    "submitted_source": "verification/submitted/P3384.classic.cpp",
+    "submitted_sha256": "92e1d8a8bba516fbe31d4075cbb4004e18c364bdf739d56602adcc161c8d065e",
+    "tested_api": [
+      "Heavy_Light_Decomposition::Init/Insert/Build/Path",
+      "Heavy_Light_Decomposition::dfn/siz",
+      "Affine_Segment_Tree::Init/Update(1,add)/Query"
+    ],
+    "note": "Recursive HLD with path/subtree addition and modular sum. Direct LCA, edge paths, multiplication/assignment, reset/reroot extensions separately tested locally."
   }
 ]

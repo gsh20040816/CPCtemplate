@@ -10,8 +10,6 @@
 - `verify/luogu/P3369.splay.classic.cpp`
 - `verify/luogu/P3369.splay.compact.cpp`
 - `verify/luogu/P3373.classic.cpp`
-- `verify/luogu/P3384.classic.cpp`
-- `verify/luogu/P3384.compact.cpp`
 - `verify/luogu/P3386.classic.cpp`
 - `verify/luogu/P3386.compact.cpp`
 - `verify/luogu/P3391.classic.cpp`
@@ -22,6 +20,10 @@
 - `verify/luogu/P3834.compact.cpp`
 - `verify/luogu/P3919.classic.cpp`
 - `verify/luogu/P3919.compact.cpp`
+- `verify/luogu/P4779.classic.cpp`
+- `verify/luogu/P4779.compact.cpp`
+- `verify/luogu/P4782.classic.cpp`
+- `verify/luogu/P4782.compact.cpp`
 - `verify/luogu/P5496.classic.cpp`
 - `verify/luogu/P6113.classic.cpp`
 - `verify/luogu/P6113.compact.cpp`
@@ -39,7 +41,7 @@ OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在�
 
 - P3919 双风格已对打包程序验证随机版本分叉与查询编号；P3834 双风格打包程序已检查区间第 k 小。两类模板分别验证，不混用版本语义。
 
-- P3384 双风格驱动已完成路径/子树加法及求和的本地组合测试，尚未在线提交；传统 HLD 的接口现为 Heavy_Light_Decomposition<N> + Init(n)。
+- P3384 双风格已 AC：动态版 297520172，传统版 297520179，验证递归 HLD + 仿射线段树的路径/子树加法及求和；传统 HLD 的接口为 Heavy_Light_Decomposition<N> + Init(n)。
 
 - P3386 双风格驱动已完成本地检查。Hopcroft–Karp 匹配与最小点覆盖由独立穷举测试验证，尚未在线提交。
 
@@ -49,6 +51,6 @@ OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在�
 
 - P4720 双风格已在线 AC：动态版 297520142，传统版 297520151。题面范围为 1≤k≤n≤10^18、2≤mod≤10^6；模数 1、越界 k、uint64 最大值与重复初始化仍由 tests/exlucas.cpp 验证。
 
-- P4781 双风格驱动已完成实际打包测试，以随机多项式直接求值为参照，尚未在线提交。连续横坐标模式与整数幂和应用另外由 tests/interpolation.cpp 验证，不计入 P4781 的 OJ 覆盖范围。
+- P4781 双风格已 AC：动态版 297520159，传统版 297520164。连续横坐标模式与整数幂和应用另外由 tests/interpolation.cpp 验证，不计入 P4781 的 OJ 覆盖范围。
 
 - P4195 双风格已于 2026-09-12 在线 AC：动态版 297520101，传统版 297520104。此前 P6577 的路由错误本次未出现；未确认错误原因。算法支持有符号输入及模数至 10^12 的扩展边界，由 tests/discrete_log.cpp 独立验证，不能由题面 10^9 范围的 AC 外推。
