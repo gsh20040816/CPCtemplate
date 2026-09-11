@@ -228,6 +228,20 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 
 \lstinputlisting[firstline=45,lastline=95,firstnumber=38]{../src/compact/directed_euler.hpp}
 
+\chapter{无向欧拉路}
+
+\Needspace{559pt}
+
+\section{无向图欧拉路与边方向}\label{compact-UndirectedEuler}\index{UndirectedEuler}
+
+构造 UndirectedEuler(n)，n$\ge$1，点号 1..n；add(u,v) 返回从 0 开始的逻辑边号，自环和重边均保留。run() 返回是否存在欧拉路，参数 start 默认 0（自动），lexicographic 默认 true。自动选最小可行起点；指定起点须满足奇度条件且位于有边部分。成功得到 m+1 个 vertices 和 m 个 edge\_ids，失败清空两数组。第 i 条边方向是 vertices[i] 到 vertices[i+1]，与 edges[edge\_ids[i]] 比较可判断是否反向，自环任选方向。used 按逻辑边号标记，使两条半边共同只消费一次；自环贡献度数 2。孤立点不影响有边部分；无边图返回指定点或点 1 的单点序列。默认求顶点序列字典序最小方案；关闭排序只保证任意方案，可能保留上次排序。可重复 run，加边清空旧方案。排序开启时 O(n+m log(m+1))，否则 O(n+m)，空间 O(n+m)，DFS 递归深度可能达到 m+1。全小图走法、原边号与方向独立验证，P2731 和 SGU101 完整程序本地验证；在线待补。
+
+\lstinputlisting[firstline=8,lastline=46]{../src/compact/undirected_euler.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=47,lastline=92,firstnumber=40]{../src/compact/undirected_euler.hpp}
+
 \chapter{图上异或行走}
 
 \section{无向图最大异或行走}\label{compact-XorWalk}\index{XorWalk}
@@ -981,6 +995,26 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 \newpage
 
 \lstinputlisting[firstline=55,lastline=105,firstnumber=48]{../src/classic/directed_euler.hpp}
+
+\chapter{无向欧拉路}
+
+\Needspace{640pt}
+
+\section{无向图欧拉路与边方向}\label{classic-UndirectedEuler}\index{Undirected\_Euler}
+
+算法约束见动态版本第~\pageref{compact-UndirectedEuler}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Undirected\_Euler<N>，Init(n) 清空图，Insert 返回从 0 开始的逻辑边编号，Run 参数与动态版一致。vertices、edge\_ids 和原边 edges 可直接读取；N 为最大点数，大对象放全局或 static。
+
+\lstinputlisting[firstline=8,lastline=27,firstnumber=1]{../src/classic/undirected_euler.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=28,lastline=54,firstnumber=21]{../src/classic/undirected_euler.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=55,lastline=100,firstnumber=48]{../src/classic/undirected_euler.hpp}
 
 \chapter{图上异或行走}
 

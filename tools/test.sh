@@ -149,3 +149,6 @@ build/path_intersection
 
 "$CXX" "${flags[@]}" -pthread tests/directed_euler.cpp -o build/directed_euler
 build/directed_euler
+
+"$CXX" "${flags[@]}" -pthread tests/undirected_euler.cpp -o build/undirected_euler
+build/undirected_euler

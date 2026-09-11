@@ -101,11 +101,11 @@ WIDA,02 - 打印稿模板汇总/03A - 图论.md,,二分图最大独立点集（K
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,最长路（topsort+DP算法）,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,最短路径树（SPT问题）,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,无源汇点的最小割问题 Stoer–Wagner,pending,,,
-WIDA,02 - 打印稿模板汇总/03A - 图论.md,,欧拉路径/欧拉回路 Hierholzers,partial,src/compact/directed_euler.hpp,src/classic/directed_euler.hpp,Directed existence and lexicographically smallest vertex trail local-tested; undirected construction still pending
+WIDA,02 - 打印稿模板汇总/03A - 图论.md,,欧拉路径/欧拉回路 Hierholzers,local-tested,src/compact/directed_euler.hpp;src/compact/undirected_euler.hpp,src/classic/directed_euler.hpp;src/classic/undirected_euler.hpp,Directed and undirected existence/construction verified independently with exhaustive edge-trail oracles and edge-ID certificates; default vertex-lexical order tested; online pending
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,有向图欧拉路径存在判定,local-tested,src/compact/directed_euler.hpp#DirectedEuler,src/classic/directed_euler.hpp#Directed_Euler,"tests/directed_euler.cpp exhaustive all edge trails, lexical optimum and edge-ID certificates; loops/multiedges/isolates/fixed starts/reruns; m=200000 recursive edges; P7771 dual complete drivers local-tested, online pending"
-WIDA,02 - 打印稿模板汇总/03A - 图论.md,,无向图欧拉路径存在判定,pending,,,
+WIDA,02 - 打印稿模板汇总/03A - 图论.md,,无向图欧拉路径存在判定,local-tested,src/compact/undirected_euler.hpp#UndirectedEuler,src/classic/undirected_euler.hpp#Undirected_Euler,"tests/undirected_euler.cpp exhaustive trail oracle, lexical optimum, IDs and directions; loops/parallel edges/isolates/fixed starts/reruns; m=200000 recursion; P2731 and SGU101 dual complete drivers locally verified, online pending"
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,有向图欧拉路径求解（字典序最小）,local-tested,src/compact/directed_euler.hpp#DirectedEuler,src/classic/directed_euler.hpp#Directed_Euler,"tests/directed_euler.cpp exhaustive all edge trails, lexical optimum and edge-ID certificates; loops/multiedges/isolates/fixed starts/reruns; m=200000 recursive edges; P7771 dual complete drivers local-tested, online pending"
-WIDA,02 - 打印稿模板汇总/03A - 图论.md,,无向图欧拉路径求解,pending,,,
+WIDA,02 - 打印稿模板汇总/03A - 图论.md,,无向图欧拉路径求解,local-tested,src/compact/undirected_euler.hpp#UndirectedEuler,src/classic/undirected_euler.hpp#Undirected_Euler,"tests/undirected_euler.cpp exhaustive trail oracle, lexical optimum, IDs and directions; loops/parallel edges/isolates/fixed starts/reruns; m=200000 recursion; P2731 and SGU101 dual complete drivers locally verified, online pending"
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,差分约束,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,2-Sat,pending,,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,基础封装,pending,,,
@@ -678,9 +678,9 @@ kuangbin,ACM template (2018),179,4.20 LCA,local-tested,src/compact/offline_lca.h
 kuangbin,ACM template (2018),179,4.20.1 dfs+ST 在线算法,local-tested,src/compact/euler_lca.hpp#EulerLCA,src/classic/euler_lca.hpp#Euler_LCA,tests/euler_lca.cpp; tests/euler_lca_application.py; recursive Euler tour and sparse table; all labelled trees n<=6/all roots/pairs/distances; n=q=500000; P3379 and POJ1330 dual complete drivers local-tested; online pending
 kuangbin,ACM template (2018),181,4.20.2 离线 Tarjan 算法,local-tested,src/compact/offline_lca.hpp#OfflineLCA,src/classic/offline_lca.hpp#Offline_LCA,tests/offline_lca.cpp; tests/offline_lca_application.py; recursive DFS and ranked DSU; all labelled trees n<=6/all roots/all pairs; n=q=500000; P3379 and POJ1470 dual complete drivers locally tested; online pending
 kuangbin,ACM template (2018),184,4.20.3 LCA 倍增法,local-tested,src/compact/lifting_lca.hpp#LiftingLCA,src/classic/lifting_lca.hpp#Lifting_LCA,"tests/lifting_lca.cpp; tests/lifting_lca_application.py; recursive binary lifting, all roots/pairs, n=q=500000; P3379 and POJ1330 dual drivers locally tested; online pending"
-kuangbin,ACM template (2018),186,4.21 欧拉路,partial,src/compact/directed_euler.hpp,src/classic/directed_euler.hpp,"Directed kernel local-tested; word-chain application, undirected and mixed orientation remain pending"
+kuangbin,ACM template (2018),186,4.21 欧拉路,partial,src/compact/directed_euler.hpp;src/compact/undirected_euler.hpp,src/classic/directed_euler.hpp;src/classic/undirected_euler.hpp,Directed and undirected kernels plus SGU101 locally verified; POJ2337 word-chain ordering and mixed orientation still pending
 kuangbin,ACM template (2018),186,4.21.1 有向图,partial,src/compact/directed_euler.hpp,src/classic/directed_euler.hpp,Directed Euler kernel with vertex-lexical order and edge IDs local-tested; POJ2337 word ordering/parser/output application not yet verified; do not equate vertex order with word-edge order
-kuangbin,ACM template (2018),188,4.21.2 无向图,pending,,,
+kuangbin,ACM template (2018),188,4.21.2 无向图,local-tested,src/compact/undirected_euler.hpp,src/classic/undirected_euler.hpp,"Undirected logical edge-ID/direction kernel plus SGU101 domino parser/output; tests/undirected_euler.cpp and tests/undirected_euler_application.py independent existence and full oriented domino certificate, repeated cases, zero-labelled pips; online pending"
 kuangbin,ACM template (2018),189,4.21.3 混合图,pending,,,
 kuangbin,ACM template (2018),192,4.22 树分治,pending,,,
 kuangbin,ACM template (2018),192,4.22.1 点分治 -HDU5016,pending,,,
