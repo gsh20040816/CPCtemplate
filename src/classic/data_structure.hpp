@@ -1,4 +1,5 @@
 #pragma once
+#include <optional>
 #include <algorithm>
 #include <cassert>
 #include <numeric>
@@ -219,28 +220,99 @@ template <int N> struct Rollback_DSU
 
 struct Xor_Basis
 {
-    unsigned long long base[64]{};
+    using U = unsigned long long;
+    using Wide = __uint128_t;
+    U base[64]{};
+    vector<U> p;
+    int rank = 0;
+    bool dependent = false, dirty = false;
 
-    bool Insert(unsigned long long x)
+    void Init()
+    {
+        fill(base, base + 64, 0);
+        p.clear();
+        rank = 0;
+        dependent = false;
+        dirty = false;
+    }
+
+    bool Insert(U x)
     {
         for ( int i = 63; i >= 0; i-- )
-        {
-            if ( !(x >> i & 1) )
-                continue;
-            if ( !base[i] )
+            if ( x >> i & 1 )
             {
-                base[i] = x;
-                return true;
+                if ( !base[i] )
+                {
+                    base[i] = x;
+                    rank++;
+                    dirty = true;
+                    return true;
+                }
+                x ^= base[i];
             }
-            x ^= base[i];
-        }
+        dependent = true;
         return false;
     }
 
-    unsigned long long Query(unsigned long long x = 0) const
+    bool Contains(U x) const
+    {
+        for ( int i = 63; i >= 0; i-- )
+            if ( x >> i & 1 )
+                x ^= base[i];
+        return x == 0;
+    }
+
+    U Query(U x = 0) const
     {
         for ( int i = 63; i >= 0; i-- )
             x = max(x, x ^ base[i]);
         return x;
+    }
+
+    void Rebuild()
+    {
+        vector<U> b(base, base + 64);
+        for ( int i = 0; i < 64; i++ )
+            if ( b[i] )
+                for ( int j = i + 1; j < 64; j++ )
+                    if ( b[j] >> i & 1 )
+                        b[j] ^= b[i];
+        p.clear();
+        for ( U x : b )
+            if ( x )
+                p.push_back(x);
+        dirty = false;
+    }
+
+    // k is 1-based; nonempty excludes the empty input subset, not value zero.
+    optional<U> Kth(Wide k, bool nonempty = true)
+    {
+        if ( !k )
+            return nullopt;
+        Wide index = k;
+        if ( !nonempty || dependent )
+            index--;
+        if ( index >= (Wide(1) << rank) )
+            return nullopt;
+        if ( dirty )
+            Rebuild();
+        U answer = 0;
+        for ( int i = 0; i < rank; i++ )
+            if ( index >> i & 1 )
+                answer ^= p[i];
+        return answer;
+    }
+
+    optional<U> Minimum(bool nonempty = true)
+    {
+        return Kth(1, nonempty);
+    }
+
+    void Merge(const Xor_Basis &other)
+    {
+        dependent |= other.dependent;
+        for ( U x : other.base )
+            if ( x )
+                Insert(x);
     }
 };

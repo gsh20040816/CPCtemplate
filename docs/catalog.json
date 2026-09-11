@@ -27,7 +27,7 @@
     "data_structure",
     "XorBasis",
     "64 位异或线性基",
-    "insert(x) 返回是否增加秩；query(x) 返回 x 与所张成空间异或后的最大无符号值。单次 O(64)，不提供第 k 小。"
+    "值类型 U 为 unsigned long long，完整支持 64 位。默认空基；init/Init 清空。insert/Insert 返回是否增秩；contains/Contains 判断可表示性（允许空子集，所以 0 总可表示）。query/Query(x=0) 返回 x 与所张成空间异或后的最大无符号值。kth/Kth(k,nonempty=true) 返回第 k 小的不同异或值，1-based，参数 k 为 __uint128_t，非法序号返回 nullopt。默认只允许非空输入子集，0 仅在 dependent 为真时出现；传 false 则包括空子集所得的 0。minimum/Minimum 同此约定，空输入的非空最小值不存在。merge/Merge 将另一基所代表的输入多重集并入；重复元素和自合并可新增异或为 0 的非空方案。rank 是维数，dependent 表示存在非空零异或子集。插入、成员判断、最大值为 O(64)；合并 O(64²)。kth 会在需要时 rebuild/Rebuild 规范化缓存，首次有效查询 O(64²)，后续 O(64)；仅新增独立向量使缓存失效。所有成员仅供只读，不要直接改数组或标志。"
   ],
   [
     "flow",

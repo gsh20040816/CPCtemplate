@@ -48,13 +48,21 @@ add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有�
 
 \lstinputlisting[firstline=141,lastline=205]{../src/compact/data_structure.hpp}
 
-\Needspace{348pt}
+\newpage
 
 \section{64 位异或线性基}\label{compact-XorBasis}\index{XorBasis}
 
-insert(x) 返回是否增加秩；query(x) 返回 x 与所张成空间异或后的最大无符号值。单次 O(64)，不提供第 k 小。
+值类型 U 为 unsigned long long，完整支持 64 位。默认空基；init/Init 清空。insert/Insert 返回是否增秩；contains/Contains 判断可表示性（允许空子集，所以 0 总可表示）。query/Query(x=0) 返回 x 与所张成空间异或后的最大无符号值。kth/Kth(k,nonempty=true) 返回第 k 小的不同异或值，1-based，参数 k 为 \_\_uint128\_t，非法序号返回 nullopt。默认只允许非空输入子集，0 仅在 dependent 为真时出现；传 false 则包括空子集所得的 0。minimum/Minimum 同此约定，空输入的非空最小值不存在。merge/Merge 将另一基所代表的输入多重集并入；重复元素和自合并可新增异或为 0 的非空方案。rank 是维数，dependent 表示存在非空零异或子集。插入、成员判断、最大值为 O(64)；合并 O(64$^{2}$)。kth 会在需要时 rebuild/Rebuild 规范化缓存，首次有效查询 O(64$^{2}$)，后续 O(64)；仅新增独立向量使缓存失效。所有成员仅供只读，不要直接改数组或标志。
 
-\lstinputlisting[firstline=206,lastline=231]{../src/compact/data_structure.hpp}
+\lstinputlisting[firstline=206,lastline=241,firstnumber=1]{../src/compact/data_structure.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=242,lastline=271,firstnumber=37]{../src/compact/data_structure.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=272,lastline=303,firstnumber=67]{../src/compact/data_structure.hpp}
 
 \chapter{线段树常用修改}
 
@@ -246,7 +254,7 @@ extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts()
 
 \newpage
 
-\lstinputlisting[firstline=34,lastline=56,firstnumber=30]{../src/compact/suffix_lcp.hpp}
+\lstinputlisting[firstline=34,lastline=57,firstnumber=30]{../src/compact/suffix_lcp.hpp}
 
 \Needspace{189pt}
 
@@ -254,7 +262,7 @@ extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts()
 
 prefix\_lcs(reversed,x,y) 返回原序列 s[0..x) 与 s[0..y) 的最长公共后缀，端点满足 0$\le$x,y$\le$n。reversed 必须在原序列的反转序列上构造 SuffixLCP，不能传正向对象；转换为 reversed.query(n-x,n-y)，单次 O(1)。传统版 Prefix\_Lcs 接受 Suffix\_LCP。只需前向 LCP 时不必构造反向对象；该接口中的 LCS 是最长公共后缀，不是最长公共子序列。对于两个任意子串，以右端点查询后还需截断到两个子串长度的最小值。
 
-\lstinputlisting[firstline=60,lastline=66]{../src/compact/suffix_lcp.hpp}
+\lstinputlisting[firstline=61,lastline=67]{../src/compact/suffix_lcp.hpp}
 
 \Needspace{464pt}
 
@@ -262,7 +270,7 @@ prefix\_lcs(reversed,x,y) 返回原序列 s[0..x) 与 s[0..y) 的最长公共后
 
 square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long long 数组，start[i]/finish[i] 为开始/结束于位置 i 的非空 AA 型子串个数；结束位置是最后一个字符下标，均 0-based。两对象必须分别对应同一原序列及其反序列，长度相同，允许空序列。传统接口为 Square\_Counts。枚举半长 len，并以其整数倍 i 为锚点；向左匹配截断为 len-1，向右截断为 len，由 LCP/LCS 得出合法起点连续区间，差分累计。左侧不能放宽到 len，否则相邻锚点会重复计数。预处理查询器后，此函数 O(n log n) 时间、O(n) 额外空间。不同出现位置、不同半长分别计数；不要求 A 为最小周期。P1117 的 AABB 拆分数为所有分界点 finish[i]*start[i+1] 之和，累加类型需按题目范围选择，函数本身只返回起止计数。
 
-\lstinputlisting[firstline=70,lastline=100]{../src/compact/suffix_lcp.hpp}
+\lstinputlisting[firstline=71,lastline=101]{../src/compact/suffix_lcp.hpp}
 
 \chapter{回文树}
 
@@ -600,7 +608,7 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 先声明容量模板参数，再调用 Init(n) 初始化；大对象必须置于全局或 static 存储。
 
-\lstinputlisting[firstline=10,lastline=49]{../src/classic/data_structure.hpp}
+\lstinputlisting[firstline=11,lastline=50]{../src/classic/data_structure.hpp}
 
 \Needspace{615pt}
 
@@ -608,7 +616,7 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 算法约束见动态版本第~\pageref{compact-RollbackDSU}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=168,lastline=219]{../src/classic/data_structure.hpp}
+\lstinputlisting[firstline=169,lastline=220]{../src/classic/data_structure.hpp}
 
 \Needspace{575pt}
 
@@ -618,7 +626,7 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 先声明容量模板参数，再调用 Init(n) 初始化；大对象必须置于全局或 static 存储。
 
-\lstinputlisting[firstline=50,lastline=97]{../src/classic/data_structure.hpp}
+\lstinputlisting[firstline=51,lastline=98]{../src/classic/data_structure.hpp}
 
 \section{区间加与区间和}\label{classic-LazySeg}\index{Segment\_Tree}
 
@@ -626,15 +634,19 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 先声明容量模板参数，再调用 Init(n) 初始化；大对象必须置于全局或 static 存储。
 
-\lstinputlisting[firstline=98,lastline=167]{../src/classic/data_structure.hpp}
+\lstinputlisting[firstline=99,lastline=168]{../src/classic/data_structure.hpp}
 
-\Needspace{358pt}
+\newpage
 
 \section{64 位异或线性基}\label{classic-XorBasis}\index{Xor\_Basis}
 
 算法约束见动态版本第~\pageref{compact-XorBasis}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=220,lastline=246]{../src/classic/data_structure.hpp}
+\lstinputlisting[firstline=221,lastline=271,firstnumber=1]{../src/classic/data_structure.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=272,lastline=318,firstnumber=52]{../src/classic/data_structure.hpp}
 
 \chapter{线段树常用修改}
 
@@ -844,7 +856,7 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 
 \newpage
 
-\lstinputlisting[firstline=34,lastline=56,firstnumber=30]{../src/classic/suffix_lcp.hpp}
+\lstinputlisting[firstline=34,lastline=57,firstnumber=30]{../src/classic/suffix_lcp.hpp}
 
 \Needspace{189pt}
 
@@ -852,7 +864,7 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 
 算法约束见动态版本第~\pageref{compact-prefix_lcs}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=60,lastline=66]{../src/classic/suffix_lcp.hpp}
+\lstinputlisting[firstline=61,lastline=67]{../src/classic/suffix_lcp.hpp}
 
 \Needspace{464pt}
 
@@ -860,7 +872,7 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 
 算法约束见动态版本第~\pageref{compact-square_counts}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=70,lastline=100]{../src/classic/suffix_lcp.hpp}
+\lstinputlisting[firstline=71,lastline=101]{../src/classic/suffix_lcp.hpp}
 
 \chapter{回文树}
 

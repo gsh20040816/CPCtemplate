@@ -205,9 +205,23 @@ struct LazySeg
 
 struct XorBasis
 {
-    unsigned long long a[64]{};
+    using U = unsigned long long;
+    using Wide = __uint128_t;
+    U a[64]{};
+    vector<U> p;
+    int rank = 0;
+    bool dependent = false, dirty = false;
 
-    bool insert(unsigned long long x)
+    void init()
+    {
+        fill(a, a + 64, 0);
+        p.clear();
+        rank = 0;
+        dependent = false;
+        dirty = false;
+    }
+
+    bool insert(U x)
     {
         for (int i = 63; i >= 0; i--)
             if (x >> i & 1)
@@ -215,17 +229,75 @@ struct XorBasis
                 if (!a[i])
                 {
                     a[i] = x;
+                    rank++;
+                    dirty = true;
                     return true;
                 }
                 x ^= a[i];
             }
+        dependent = true;
         return false;
     }
 
-    unsigned long long query(unsigned long long x = 0) const
+    bool contains(U x) const
+    {
+        for (int i = 63; i >= 0; i--)
+            if (x >> i & 1)
+                x ^= a[i];
+        return x == 0;
+    }
+
+    U query(U x = 0) const
     {
         for (int i = 63; i >= 0; i--)
             x = max(x, x ^ a[i]);
         return x;
+    }
+
+    void rebuild()
+    {
+        vector<U> b(a, a + 64);
+        for (int i = 0; i < 64; i++)
+            if (b[i])
+                for (int j = i + 1; j < 64; j++)
+                    if (b[j] >> i & 1)
+                        b[j] ^= b[i];
+        p.clear();
+        for (U x : b)
+            if (x)
+                p.push_back(x);
+        dirty = false;
+    }
+
+    // k is 1-based; nonempty excludes the empty input subset, not value zero.
+    optional<U> kth(Wide k, bool nonempty = true)
+    {
+        if (!k)
+            return nullopt;
+        Wide index = k;
+        if (!nonempty || dependent)
+            index--;
+        if (index >= (Wide(1) << rank))
+            return nullopt;
+        if (dirty)
+            rebuild();
+        U answer = 0;
+        for (int i = 0; i < rank; i++)
+            if (index >> i & 1)
+                answer ^= p[i];
+        return answer;
+    }
+
+    optional<U> minimum(bool nonempty = true)
+    {
+        return kth(1, nonempty);
+    }
+
+    void merge(const XorBasis &other)
+    {
+        dependent |= other.dependent;
+        for (U x : other.a)
+            if (x)
+                insert(x);
     }
 };

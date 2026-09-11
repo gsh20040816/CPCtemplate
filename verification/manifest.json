@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T20:27:24.004143+00:00",
+  "recorded_at_utc": "2026-09-11T20:36:29.948824+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -49,7 +49,8 @@
       "Maximum closure dual exhaustive subsets, solution certificates, int64 negatives and recursive chain PASS",
       "Support hull dual exact cloud oracle, ties, int64 bounds and maximum closure composition PASS",
       "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
-      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS"
+      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS",
+      "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -97,7 +98,8 @@
       "Maximum closure dual exhaustive subsets, solution certificates, int64 negatives and recursive chain PASS",
       "Support hull dual exact cloud oracle, ties, int64 bounds and maximum closure composition PASS",
       "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
-      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS"
+      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS",
+      "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS"
     ]
   },
   "sha256": {
@@ -107,7 +109,7 @@
     "src/classic/biconnected.hpp": "e4a8f7cd76bb572039bf1f41c0d46d222a9dbb4a0a5aec616c51da01abf82024",
     "src/classic/blossom.hpp": "adfc09ded1ac63d2aedc274f12e61a72609328c48ca04af9deea782b32550790",
     "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
-    "src/classic/data_structure.hpp": "5a70990557e1aa09e52aed4d86b3266b6458e7fda9df45b783773816d279eb79",
+    "src/classic/data_structure.hpp": "c22a85ed4ea5c3a458f4febf18549d611045a255cabe429189debd92113f0a70",
     "src/classic/dsu_on_tree.hpp": "ec9482919c309309980c8ec06d98fbf3ad7aeb1308f1685552245bd3df040434",
     "src/classic/dynamic_kth.hpp": "1722bf7aece58ad677f0e515014b31dd72e05d320a883adc88d366d0f872d22b",
     "src/classic/dynamic_tree.hpp": "b11bde8c5b78f6fb927e79e854b5b940757226e46d8bbb68ec17c58db3773821",
@@ -131,7 +133,7 @@
     "src/classic/recurrence.hpp": "a71d91ecdcd7c7e2502c655ea5f9fcb2ac03104844ded46bd0afb46450422f67",
     "src/classic/splay.hpp": "ba412fda7cd927e9dcab62fa88ee66b59a8cac5b4550bf47699285e8c4522e6b",
     "src/classic/string.hpp": "d199d27567590cebe3b443b572d3b42eae1efeb6f5c80602870ce81695dafb69",
-    "src/classic/suffix_lcp.hpp": "987bb98cc02b8d026c07b7b0a617dc59d2cf075c546bddd465add40700df7aa1",
+    "src/classic/suffix_lcp.hpp": "75480acbb024dca152fe4908ef69cbb68b0d8856a5e031856034b4dd5c84b64a",
     "src/classic/support_hull.hpp": "4ca8f77ad085a9422b536e680b1d98faa31cf5c8216deafaa6f50e97e9401ea3",
     "src/classic/tarjan.hpp": "fbeaaacabbc45e6ad1e90b699c2e839c49c472c4aebf788ba6034f7bd32b8f12",
     "src/classic/treap.hpp": "fa4c871c0160cc84bf2ed9ac4c9bb9ddd894bfb58e4a7cb3772844216120522c",
@@ -145,7 +147,7 @@
     "src/compact/biconnected.hpp": "6ad20e935bbb4f3f41349dd54076910b2ccc91a05522325f65b53e064074313c",
     "src/compact/blossom.hpp": "1c0f9fe674d3228d8a2ee3aa2b081cbad202184c14011583774f22fff484d982",
     "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
-    "src/compact/data_structure.hpp": "c8d2b7df0a017a790b73428c146e0ab35193d01e9d81d5848eb2d95be7b4ff56",
+    "src/compact/data_structure.hpp": "ffbb46b60f707a3ed44838329a8f7eefbd6cba4c2b64d30ed8a62f207e73327e",
     "src/compact/dsu_on_tree.hpp": "b773f54e4304a7ef348c5e6079233726df17232f8da5843a5a9b284b2bcd94fa",
     "src/compact/dynamic_kth.hpp": "006b98255668548427c58149db6260dfa5372fa287fd771d6b66b56fe3c086c5",
     "src/compact/dynamic_tree.hpp": "1e9fdf1d3b04989459cfc7c2a9fe6f5256870e09ce37875994e44cb868714769",
@@ -168,7 +170,7 @@
     "src/compact/recurrence.hpp": "af9e2e7bdefe5586b6f68758c76e3b9402047c0725bf4d07028837446a1fe2d5",
     "src/compact/splay.hpp": "a9959a530dea7ddef50e67a700bf8c0c2c87cb9f39d34b8caed31d141ed8445d",
     "src/compact/string.hpp": "22008ad36d2d0c59ee5568882932a88e4dda9a58f52fc2d06560e4a84b0b010e",
-    "src/compact/suffix_lcp.hpp": "22148bfe88f06576f24d802dfbd9c651888cb45e132ec396da141d4c7d6623ec",
+    "src/compact/suffix_lcp.hpp": "7fdd63ece9b6c09daf8db63989f8a76ba1af7d0c197892a64abc6dcb910ce892",
     "src/compact/support_hull.hpp": "443ff3e2f1a8d3c9b7de874316d7ae7f169a1b4c3826626d801077f98fb6956c",
     "src/compact/tarjan.hpp": "15716184cdf5cec0cb5234ba357ea922840277454932e54e06067d7290f929d5",
     "src/compact/treap.hpp": "b282e9598f83bab528b6d7a8cd325ae8d57fd2fc03281da73897f83cdd41d35e",
@@ -227,6 +229,8 @@
     "tests/virtual_tree.cpp": "4ae46aff4b5c961ea3d3315fb7f7f9d870228d5cf11f29f3697ec034396dd0f3",
     "tests/virtual_tree_application.py": "1ce2b465d0cae162efd7f64406255166b193eed9f5d87a18381b99ae719d32a6",
     "tests/weighted_matching.cpp": "1f80caaf1d778999408f9c046bc990c115c67eb19a3655d62ff53064bdd2d2a6",
-    "tests/weighted_matching_application.py": "9601f78933cd4944fc1a722f0b79ba648a8b3fb279d2407ba38f9f0b3e506a32"
+    "tests/weighted_matching_application.py": "9601f78933cd4944fc1a722f0b79ba648a8b3fb279d2407ba38f9f0b3e506a32",
+    "tests/xor_basis.cpp": "e06141440ba3865a9605725d7633786ff4d747cb3c2a292de5c576f36bfa2251",
+    "tests/xor_basis_application.py": "d0f3384e0c8ae18353085f317861b099148558fcaba1ae624d8ec1a3bd06484c"
   }
 }

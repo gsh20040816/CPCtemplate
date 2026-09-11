@@ -42,7 +42,7 @@ for style in ['compact','classic']:
     split=next(i for i in range(start,end) if re.match(r'    int (query|Query)\(',lines[i]))
     estimate=(split-start)*10.2+70+(len(info)/65)*12
    if estimate<680: body.append(r'\Needspace{'+str(round(estimate))+'pt}')
-   if name=='SuffixArray': body.append(r'\newpage')
+   if name in ('SuffixArray','XorBasis'): body.append(r'\newpage')
    body.append(r'\section{'+cn+r'}\label{'+style+'-'+name+r'}\index{'+target.replace('_',r'\_')+'}')
    if style=='compact': body.append(esc(info))
    else:
@@ -71,7 +71,18 @@ for style in ['compact','classic']:
     if name=='WeightedMatching':body.append('声明 Weighted\\_Matching<N,M> 后 Init(n,m)，N、M 分别限制左右点数。Insert 加边，Solve 求解；l、r 保存方案，Init 清空原图。权值矩阵是静态数组，内部增广辅助数组按实际规模分配，大对象放在全局或 static。')
     if name=='BipartiteMatching':body.append('声明 Bipartite\\_Matching<N,M> 后 Init(n,m)，两侧容量分别为 N、M。Insert 加边，Solve 求匹配，Cover 返回最小点覆盖；l、r 保存方案。大对象放在全局或 static。')
     if name=='MinCostFlow':body.append('使用 Insert 加边、Flow 求流、Used 查看方案。')
-   if name=='SuffixArray':
+   if name=='XorBasis':
+    if style=='compact':
+     cuts=[start,
+           next(i for i in range(start,end) if re.match(r'    bool contains\(',lines[i])),
+           next(i for i in range(start,end) if re.match(r'    optional<U> kth\(',lines[i]))-1,
+           end]
+    else:
+     cuts=[start,next(i for i in range(start,end) if re.match(r'    void Rebuild\(',lines[i])),end]
+    for j in range(len(cuts)-1):
+     if j: body.append(r'\newpage')
+     body.append(r'\lstinputlisting[firstline='+str(cuts[j]+1)+',lastline='+str(cuts[j+1])+',firstnumber='+str(cuts[j]-start+1)+']{../src/'+style+'/'+filename+'.hpp}')
+   elif name=='SuffixArray':
     split=next(i for i in range(start,end) if re.search(r'for \(\s*int k = 1; k < n;',lines[i]))
     body.append(r'\lstinputlisting[firstline='+str(start+1)+',lastline='+str(split)+']{../src/'+style+'/'+filename+'.hpp}')
     body.append(r'\newpage')

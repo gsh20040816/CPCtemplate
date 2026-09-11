@@ -54,6 +54,7 @@ struct Suffix_LCP
         return rk[l1] < rk[l2] ? -1 : 1;
     }
 };
+
 // END Suffix_LCP
 
 // BEGIN Prefix_Lcs
