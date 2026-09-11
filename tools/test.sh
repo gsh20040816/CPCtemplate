@@ -48,3 +48,6 @@ build/biconnected
 
 "$CXX" "${flags[@]}" tests/palindromic_tree.cpp -o build/palindromic_tree
 build/palindromic_tree
+
+"$CXX" "${flags[@]}" -pthread tests/centroid.cpp -o build/centroid
+build/centroid

@@ -7,3 +7,4 @@
 - P8435 compact: AC record 297517446 archived in oj.json. P8435 classic: AC record 297517662 archived. P8436 both styles: bundled and locally checked, not submitted. All use recursive DFS.
 
 - PAM: P5496 compact AC 297518043 archived; P5496 classic and both P3649 drivers ready, not submitted. Decoding/count drivers independently checked locally.
+- P3806 compact: file-upload submission attempted twice on 2026-09-11, both rejected with `The route object cannot be resolved`. After the first failure, account-filtered records showed only historical records (newest 45239318), not this source. No new AC is claimed. Browser currently has the second failure dialog. Try text submission or another judge later. Both styles are bundled and locally checked; classic not submitted.

@@ -124,6 +124,14 @@ add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn�
 
 \lstinputlisting[firstline=6,lastline=107]{../src/compact/tree.hpp}
 
+\chapter{点分治}
+
+\section{点分治：树上距离点对计数}\label{compact-CentroidPairs}\index{CentroidPairs}
+
+CentroidPairs(n)，点号 1..n；add(u,v,w) 建树，允许森林但禁止环、重边、自环，边权非负；所有简单路径长度须能用 long long 表示。build() 预处理，可重复调用；改变边后须重建。count\_leq(k) 统计距离$\le$k 的无序不同顶点对，count\_exact(k) 统计距离恰为 k 的点对；负 k 返回 0，零距离只统计不同顶点，跨连通块不配对。parent[c] 是点分树父节点，根为 0。all[c] 为该层分治块到重心的距离，含重心距离 0；part[c] 为去掉重心后各子块的距离。预处理 O(n log$^{2}$ n)，空间 O(n log n)，每次计数 O(n log n)；固定树上多次查询可以复用排序结果。DFS 递归，距离和比较采用减法避免溢出。不是动态点分树更新模板。
+
+\lstinputlisting[firstline=9,lastline=149]{../src/compact/centroid.hpp}
+
 \chapter{字符串}
 
 \Needspace{226pt}
@@ -543,6 +551,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 算法约束见动态版本第~\pageref{compact-HLD}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=22,lastline=123]{../src/classic/tree.hpp}
+
+\chapter{点分治}
+
+\section{点分治：树上距离点对计数}\label{classic-CentroidPairs}\index{Centroid\_Pairs}
+
+算法约束见动态版本第~\pageref{compact-CentroidPairs}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Centroid\_Pairs<N>，Init(n) 初始化，Insert 加边，Build 预处理；Count\_Leq 和 Count\_Exact 返回计数，parent 保存点分树父节点。大对象放在全局或 static。
+
+\lstinputlisting[firstline=9,lastline=146]{../src/classic/centroid.hpp}
 
 \chapter{字符串}
 

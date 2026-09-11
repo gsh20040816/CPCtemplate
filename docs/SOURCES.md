@@ -47,3 +47,9 @@
 ## 回文树 PAM
 
 核对 WIDA 打印稿字符串章节及 jiangly PAM 条目：二者中的 cnt 表示回文后缀链长度，不能直接当作某个回文串的总出现次数。新模板分别使用 suffixes、hits 和 occurrences()，并提供首次出现端点。验证题：[P5496](https://www.luogu.com.cn/problem/P5496) 检查在线解码与回文后缀数量，[P3649](https://www.luogu.com.cn/problem/P3649) 检查出现次数乘长度。OJ 状态单独登记。
+
+## 静态点分治
+
+对照 WIDA 在线模板的树上距离存在性需求。当前采用重心距离集合排序、双指针统计并扣除同一子块的方法，预处理后支持多次距离计数。通过 count_exact(k)>0 回答 [P3806](https://www.luogu.com.cn/problem/P3806) 的询问。仅覆盖静态树距离查询，kuangbin HDU5016/HDU4918 特殊需求仍需单独核对，未据此标为完成。
+
+独立 Floyd 距离参考使用 int128，核对随机森林、零权和极值权；10 万点单位权链与零权星形树使用闭式计数核验。测试配置 256 MiB 线程栈，模板均为递归 DFS。

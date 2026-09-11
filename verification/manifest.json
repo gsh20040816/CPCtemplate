@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T15:43:09.817766+00:00",
+  "recorded_at_utc": "2026-09-11T15:52:00.565437+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -27,7 +27,8 @@
       "BM exhaustive minimality, recurrence holdout and uint64 matrix oracle PASS",
       "Tarjan SCC exhaustive digraphs, reachability and condensation oracle PASS",
       "Biconnected subset/removal oracles and block/bridge forests PASS",
-      "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS"
+      "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS",
+      "Centroid distance/Floyd oracle, zero weights, overflow boundary and recursive chain PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -53,7 +54,8 @@
       "BM exhaustive minimality, recurrence holdout and uint64 matrix oracle PASS",
       "Tarjan SCC exhaustive digraphs, reachability and condensation oracle PASS",
       "Biconnected subset/removal oracles and block/bridge forests PASS",
-      "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS"
+      "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS",
+      "Centroid distance/Floyd oracle, zero weights, overflow boundary and recursive chain PASS"
     ]
   },
   "sha256": {
@@ -61,6 +63,7 @@
     "src/classic/algebra.hpp": "303dde25d79b9a12daf956b71f9a6367e0391371e8c47a9736f057f0a5d8b3d2",
     "src/classic/biconnected.hpp": "e4a8f7cd76bb572039bf1f41c0d46d222a9dbb4a0a5aec616c51da01abf82024",
     "src/classic/blossom.hpp": "adfc09ded1ac63d2aedc274f12e61a72609328c48ca04af9deea782b32550790",
+    "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
     "src/classic/data_structure.hpp": "5a70990557e1aa09e52aed4d86b3266b6458e7fda9df45b783773816d279eb79",
     "src/classic/dynamic_tree.hpp": "b11bde8c5b78f6fb927e79e854b5b940757226e46d8bbb68ec17c58db3773821",
     "src/classic/flow.hpp": "bd799ac3debd9806f3b33ac9ac7acce02aa97a9fb7e19f9a0b2c1855e5fcf533",
@@ -84,6 +87,7 @@
     "src/compact/algebra.hpp": "1d2c1ed3abefbf09f267b6580e3b7f0f4c3153f0dbd87c294ee39997e1999ba5",
     "src/compact/biconnected.hpp": "6ad20e935bbb4f3f41349dd54076910b2ccc91a05522325f65b53e064074313c",
     "src/compact/blossom.hpp": "1c0f9fe674d3228d8a2ee3aa2b081cbad202184c14011583774f22fff484d982",
+    "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
     "src/compact/data_structure.hpp": "c8d2b7df0a017a790b73428c146e0ab35193d01e9d81d5848eb2d95be7b4ff56",
     "src/compact/dynamic_tree.hpp": "1e9fdf1d3b04989459cfc7c2a9fe6f5256870e09ce37875994e44cb868714769",
     "src/compact/flow.hpp": "a3dfad19ee2aaeacdde5ff4d52cb1a49e0788a2c350142ddb896d4bca3074d15",
@@ -106,6 +110,7 @@
     "tests/biconnected.cpp": "de4fa6a9a028408879922a15c0cbe19b80f87ed7be2e274f36766dfb0ed4739f",
     "tests/blossom.cpp": "93361601e543fe63e84deccd84e5148b39de9fa919eda4345c18e5f653cf1f96",
     "tests/boundaries.cpp": "a956e11355fbf66131d6cd3ff8eee37b19d2a2d7077d75d317eea53742797dba",
+    "tests/centroid.cpp": "b2658de09f312df33a90980a940d2e7e01fc078950ed91ed9ab38581e8e9d9c5",
     "tests/classic.cpp": "3bc4c9421e6c96b93dbd97dfc38f09fcbe7596b2cdf24eecf7bb2f2652ba462a",
     "tests/dual.cpp": "6a3e330198d0de2b47946a9c7868ef200d8a36f51fe40a71c25274d7d0f102ad",
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
