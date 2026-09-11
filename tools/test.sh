@@ -164,3 +164,6 @@ build/odd_cycle_vertices
 
 "$CXX" "${flags[@]}" -pthread tests/lex_two_sat.cpp -o build/lex_two_sat
 build/lex_two_sat
+
+"$CXX" "${flags[@]}" tests/crt.cpp -o build/crt
+build/crt

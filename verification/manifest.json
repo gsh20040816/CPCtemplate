@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T23:35:58.931399+00:00",
+  "recorded_at_utc": "2026-09-11T23:47:38.116903+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -70,7 +70,9 @@
       "Incremental odd_cycle_vertices-only check; unchanged-module evidence retained from 7aa4eb5:",
       "Odd-cycle vertices dual exhaustive simple-cycle oracle, multigraphs, reordered blocks and 100001-node chain/star/odd-cycle PASS",
       "Incremental lex_two_sat-only check; unchanged-module evidence retained from 7508260:",
-      "Lex 2-SAT dual exhaustive assignment oracle, incremental/forced clauses, rollback and 100000-variable recursive chain PASS"
+      "Lex 2-SAT dual exhaustive assignment oracle, incremental/forced clauses, rollback and 100000-variable recursive chain PASS",
+      "Incremental CRT audit; unchanged-module evidence retained from 161a02c (CRT core unchanged):",
+      "CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -139,7 +141,9 @@
       "Incremental odd_cycle_vertices-only check; unchanged-module evidence retained from 7aa4eb5:",
       "Odd-cycle vertices dual exhaustive simple-cycle oracle, multigraphs, reordered blocks and 100001-node chain/star/odd-cycle PASS",
       "Incremental lex_two_sat-only check; unchanged-module evidence retained from 7508260:",
-      "Lex 2-SAT dual exhaustive assignment oracle, incremental/forced clauses, rollback and 100000-variable recursive chain PASS"
+      "Lex 2-SAT dual exhaustive assignment oracle, incremental/forced clauses, rollback and 100000-variable recursive chain PASS",
+      "Incremental CRT audit; unchanged-module evidence retained from 161a02c (CRT core unchanged):",
+      "CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS"
     ]
   },
   "sha256": {
@@ -262,6 +266,8 @@
     "tests/centroid.cpp": "b2658de09f312df33a90980a940d2e7e01fc078950ed91ed9ab38581e8e9d9c5",
     "tests/circle_precision.cpp": "04170f5d59d33d3605f9d83bf2f5e284a2e44b09eeac7716e25f2482f45b87bd",
     "tests/classic.cpp": "3bc4c9421e6c96b93dbd97dfc38f09fcbe7596b2cdf24eecf7bb2f2652ba462a",
+    "tests/crt.cpp": "cf2ac8fd470bae001f8a543dc71d0b82ec059e44478ab5fb59f1c288ca64dd54",
+    "tests/crt_application.py": "359cc78278849ad30d5fade4e5495317d56ee1809bb9ad67216ccea008cd8817",
     "tests/directed_euler.cpp": "5438216866c8c013d9f7d0e20907ecb60108eb7329f4f9dc6389d7c2a2b7affa",
     "tests/directed_euler_application.py": "31458b7e2a5f9c71579c5f93c8b7afc8d6a59b1f19b3fcdef5232e59b4c832ab",
     "tests/discrete_log.cpp": "5745ad604c912e33816c25499d5e313fb10f07dd27d1ebd8630aa11c8596b65f",

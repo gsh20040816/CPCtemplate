@@ -34,7 +34,6 @@
 - `verify/luogu/P3379.lifting.classic.cpp`
 - `verify/luogu/P3379.lifting.compact.cpp`
 - `verify/luogu/P3379.offline.classic.cpp`
-- `verify/luogu/P3379.offline.compact.cpp`
 - `verify/luogu/P3386.classic.cpp`
 - `verify/luogu/P3386.compact.cpp`
 - `verify/luogu/P3398.classic.cpp`

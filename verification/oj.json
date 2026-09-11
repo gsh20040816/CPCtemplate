@@ -745,5 +745,45 @@
       "answer"
     ],
     "note": "All 14 displayed cases accepted. Summary shows 2.33s/107.55MB; largest displayed individual-case memory is 143.44MB. Recursive DFS retained."
+  },
+  {
+    "problem": "Luogu P4777",
+    "style": "classic",
+    "algorithm": "Number_Theory::Crt",
+    "record": "https://www.luogu.com.cn/record/297521173",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 141,
+    "memory": "1.04MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4777.classic.cpp",
+    "submitted_source": "verification/submitted/P4777.classic.cpp",
+    "submitted_sha256": "32aaaa6020c853773c8fbe5919e6b6db0c08ce1d2135eb8bc253ae78a5bf129d",
+    "tested_api": [
+      "Crt",
+      "Exgcd"
+    ],
+    "note": "All 15 judge cases accepted. Judge guarantees consistency and LCM <= 1e18. Negative residues, inconsistency and int64 period overflow tested locally. Other Number_Theory algorithms in the bundle are not covered by this AC."
+  },
+  {
+    "problem": "Luogu P4777",
+    "style": "compact",
+    "algorithm": "NumberTheory::crt",
+    "record": "https://www.luogu.com.cn/record/297521102",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 142,
+    "memory": "1.04MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4777.compact.cpp",
+    "submitted_source": "verification/submitted/P4777.compact.cpp",
+    "submitted_sha256": "49f40e0aa9dc83488cc0004722f305ee91118ccb632a873e70cc373b35a902a6",
+    "tested_api": [
+      "crt",
+      "exgcd"
+    ],
+    "note": "All 15 judge cases accepted. Judge guarantees consistency and LCM <= 1e18. Negative residues, inconsistency and int64 period overflow tested locally. Other Number_Theory algorithms in the bundle are not covered by this AC."
   }
 ]
