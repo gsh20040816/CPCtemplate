@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T22:27:16.592812+00:00",
+  "recorded_at_utc": "2026-09-11T22:36:13.404945+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -60,8 +60,7 @@
       "Offline LCA dual exhaustive labelled trees, all roots/pairs, reset and 500000 recursive chain PASS",
       "Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS",
       "Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 500000 recursive chain PASS",
-      "Targeted recheck after adding WIDA HLD LCA/distance mapping assertions:",
-      "Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 500000 recursive chain PASS"
+      "Path intersection dual exhaustive labelled trees/roots/four endpoints, set oracle and Euler/HLD callbacks PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -119,7 +118,8 @@
       "bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed",
       "Offline LCA dual exhaustive labelled trees, all roots/pairs, reset and 500000 recursive chain PASS",
       "Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS",
-      "Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 500000 recursive chain PASS"
+      "Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 500000 recursive chain PASS",
+      "Path intersection dual exhaustive labelled trees/roots/four endpoints, set oracle and Euler/HLD callbacks PASS"
     ]
   },
   "sha256": {
@@ -153,6 +153,7 @@
     "src/classic/offline_lca.hpp": "cd5f7452c2b1c5ff50b4dc8eb083b9e97239b822534e65d7e13afc64831525b1",
     "src/classic/optimization.hpp": "de968be0f1e4296d0e2e9b38984ab206067adfc4d030366a9dd0d986dc1f2dcc",
     "src/classic/palindromic_tree.hpp": "7b46c4c2162ba35e9f4da2b77d3e32210701a02983e2dea338417f3e4315b186",
+    "src/classic/path_intersection.hpp": "fba1958b2cb443036e29ee38ffabde5bfe45c3ef66c564d6e14b1d5345a4b44a",
     "src/classic/persistent_array.hpp": "4260e4ebca8affcd8618fc0532dbd16478c700e36f1688fd2c914cf2b30219c8",
     "src/classic/persistent_distinct.hpp": "1812c3079ed01a5fd917ed5af14848504d3b8c2dc38615cfb5e1269e6c02d52c",
     "src/classic/polynomial.hpp": "4af3df1da84d454b167f9cc1e2432c973be8a4a78d641ef4dc6bc67f7e50a303",
@@ -199,6 +200,7 @@
     "src/compact/offline_lca.hpp": "6bab44707d5c5fd363b990d93cc368f634e83d8de5090810dfe3cf525e6b5971",
     "src/compact/optimization.hpp": "e031dc5ddb1cc778e49d445e63c5e197cb79519eae97ed38a92a29be06e77f12",
     "src/compact/palindromic_tree.hpp": "50b14ace273ef7531e31ec7d79e9ebb4aa0d96bb3416b54897cd59db8c222daf",
+    "src/compact/path_intersection.hpp": "c427f9c032c26ba4fad5d89b73dc17f3cc4e2b84c79634049ce76d35407fc092",
     "src/compact/persistent_array.hpp": "6499fb7c51bd3c2aab9a752534f0ec4ab5d4987b3cfa6c74a0c24f971f2b067a",
     "src/compact/persistent_distinct.hpp": "376a0307fbae6e8c236e5c55c53dd2b8454830875acf5323a7eb0a745a2f3fce",
     "src/compact/polynomial.hpp": "4ae0ca3021f37b0d4dc9a40985e1c1a5a710edc2bcbbcb78a9331dd64ab75700",
@@ -262,6 +264,8 @@
     "tests/offline_lca_application.py": "854b8fd50ed85c89c8bce7ce2476d80f563f1988d1e45360989ecfa6ef42e329",
     "tests/optimization.cpp": "22a2eacb619a32e51d2dfde85462447acf00e1e5eb8b2c587edead8a788d6acc",
     "tests/palindromic_tree.cpp": "579f58e77440a9342e7ad1bc13ede6405a3f45e4a6e64636dcc0a67943645566",
+    "tests/path_intersection.cpp": "2ba35c6bab128d75d547e64762f0b28213181f3f9872ea24a05c0b92c4e663e8",
+    "tests/path_intersection_application.py": "4dd420436ac24df9d222ea1c2ffe918a01ad3b5afacf7a5b457f973cf9ee58f9",
     "tests/persistent_array.cpp": "0e3ec4fab4b3f22ffa6c8981fe51f79efc64105a46cae7f6384395b58454234d",
     "tests/persistent_distinct.cpp": "fbf4deee2334b8b4719d735e1791a827ef77ed4d2751b5686457a0faa761c0a6",
     "tests/persistent_distinct_application.py": "7aac5c316a92ef27f19085ab3b9a0d3be281ba1a5550002e4123b249e0ce2ba1",

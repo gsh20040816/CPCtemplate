@@ -280,6 +280,16 @@ add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn�
 
 \lstinputlisting[firstline=77,lastline=125,firstnumber=68]{../src/compact/lifting_lca.hpp}
 
+\chapter{树上路径交}
+
+\Needspace{450pt}
+
+\section{两条树路径的交集}\label{compact-path_intersection}\index{path\_intersection}
+
+path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径，字段 u、v 是交集端点，vertices 是公共顶点数；空交返回 \{0,0,0\}，单点交的 u=v。点号从 1 开始，depth 数组与 lca 回调必须来自同一棵非空树、同一个根，深度按边数计算，不能传带权根距离。支持数组或 vector 深度表，回调接收两个点并返回 LCA。将 c、d 分别投影到 a-b 得 p、q；投影是 lca(a,b)、lca(a,x)、lca(b,x) 中最深者。若 p$\ne$q，c-d 必经过 p-q；若 p=q，检验 p 是否在 c-d 上即可区分单点交与空交。不依赖顶点编号大小。常数次 LCA 调用、O(1) 额外空间；使用 EulerLCA 时为 O(1)，HLD/倍增时为 O(log n)。公共边数为 max(0,vertices-1)。全小树根与四端点、随机换号树用路径点集独立验证；P3398 完整程序只检查是否相交，端点及数量由本地验证覆盖。
+
+\lstinputlisting[firstline=7,lastline=35]{../src/compact/path_intersection.hpp}
+
 \chapter{点分治}
 
 \section{点分治：树上距离点对计数}\label{compact-CentroidPairs}\index{CentroidPairs}
@@ -1013,6 +1023,16 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 \newpage
 
 \lstinputlisting[firstline=81,lastline=129,firstnumber=72]{../src/classic/lifting_lca.hpp}
+
+\chapter{树上路径交}
+
+\Needspace{450pt}
+
+\section{两条树路径的交集}\label{classic-path_intersection}\index{Path\_Intersection}
+
+算法约束见动态版本第~\pageref{compact-path_intersection}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=7,lastline=35]{../src/classic/path_intersection.hpp}
 
 \chapter{点分治}
 

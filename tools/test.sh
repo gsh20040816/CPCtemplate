@@ -143,3 +143,6 @@ build/euler_lca
 
 "$CXX" "${flags[@]}" -pthread tests/lifting_lca.cpp -o build/lifting_lca
 build/lifting_lca
+
+"$CXX" "${flags[@]}" tests/path_intersection.cpp -o build/path_intersection
+build/path_intersection

@@ -33,6 +33,8 @@
 - `verify/luogu/P3379.offline.compact.cpp`
 - `verify/luogu/P3386.classic.cpp`
 - `verify/luogu/P3386.compact.cpp`
+- `verify/luogu/P3398.classic.cpp`
+- `verify/luogu/P3398.compact.cpp`
 - `verify/luogu/P3649.classic.cpp`
 - `verify/luogu/P3649.compact.cpp`
 - `verify/luogu/P3809.classic.cpp`
