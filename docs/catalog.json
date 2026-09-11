@@ -1,0 +1,224 @@
+[
+  [
+    "data_structure",
+    "DSU",
+    "并查集",
+    "init(n)、find(x)、merge(x,y)，点号 1..n；siz[find(x)] 为集合大小。路径压缩与按大小合并，均摊 O(α(n))。"
+  ],
+  [
+    "data_structure",
+    "RollbackDSU",
+    "可撤销并查集",
+    "构造后 snapshot() 保存历史长度，rollback(t) 回退。禁止路径压缩；find/merge 为 O(log n)，回退每次成功合并 O(1)。"
+  ],
+  [
+    "data_structure",
+    "Fenwick",
+    "树状数组与第 k 小",
+    "add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有频率非负且 k>0，超过总和返回 n+1。单次 O(log n)。"
+  ],
+  [
+    "data_structure",
+    "LazySeg",
+    "区间加与区间和",
+    "初值全零；add(l,r,v)、query(l,r)，1≤l≤r≤n。维护 sum 与加法 tag；所有中间和与长度乘积须在 long long 范围内。单次 O(log n)。"
+  ],
+  [
+    "data_structure",
+    "XorBasis",
+    "64 位异或线性基",
+    "insert(x) 返回是否增加秩；query(x) 返回 x 与所张成空间异或后的最大无符号值。单次 O(64)，不提供第 k 小。"
+  ],
+  [
+    "flow",
+    "Dinic",
+    "最大流与方案",
+    "Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新增流；used(id) 查询原边净流，cut(s) 返回残量可达点集。允许重边、自环，容量非负，s≠t；重复求流须使用相同源汇。只有求尽最大流后 cut 才是最小割。一般 O(V²E)，递归增广深度 O(V)。总流不得超过 long long 上限。"
+  ],
+  [
+    "flow",
+    "MinCostFlow",
+    "势能最小费用最大流",
+    "add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 位费用，used(id) 返回原边流量。允许负费用，初始残量网络必须没有负环；检测到负环抛异常。Bellman-Ford 初始化 O(VE)，每次增广 O(E log V)；增广次数不能简单假设为 O(V)。 另要求 Σ(cap×|cost|)<2^120，防止总费用超过 int128。"
+  ],
+  [
+    "graph",
+    "Dijkstra",
+    "非负权最短路",
+    "add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。不可达用 LLONG_MAX；所有可表示的最短距离必须严格小于该哨兵，w≥0。O((V+E)log V)。"
+  ],
+  [
+    "graph",
+    "SCC",
+    "强连通分量",
+    "add(u,v)、run()，bel[1..n] 为分量编号，cnt 为数量；分量编号按缩点图拓扑序递增。迭代 Kosaraju 避免递归爆栈；O(V+E)，同时存正反图。"
+  ],
+  [
+    "graph",
+    "TwoSAT",
+    "2-SAT 与任意可行方案",
+    "add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性，仅成功时读取 ans。依赖同文件 SCC；O(V+E)，不保证字典序最小。"
+  ],
+  [
+    "graph",
+    "BipartiteMatching",
+    "二分图最大匹配",
+    "左右两侧分别编号 1..n、1..m；add(u,v)，solve() 返回匹配数，l[u] 与 r[v] 为匹配端点，0 表示未匹配。分层增广；本版本保守按 O(VE) 估计，不宣称已经验证 Hopcroft-Karp 最紧复杂度。"
+  ],
+  [
+    "graph",
+    "Lowlink",
+    "割点与桥",
+    "add(u,v) 返回无向边编号；run() 后 cut[u] 标识割点、bridge[id] 标识桥。按边编号跳过父边，支持重边、自环、不连通图。O(V+E)，递归深度可能 O(V)。"
+  ],
+  [
+    "tree",
+    "HLD",
+    "重链剖分与 LCA",
+    "add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn、rk。子树对应 [dfn[u],dfn[u]+siz[u]-1]。lca(u,v) 为 O(log n)，path(u,v,work,edge) 分解路径；work(l,r) 仅适用于可交换聚合，边权模式排除 LCA 位置。输入必须是连通无环树，建树 O(n)，无递归。"
+  ],
+  [
+    "string",
+    "StringAlgo",
+    "KMP、Z、Manacher 与最小表示",
+    "字符串及返回位置均 0-based。prefix(s)、z(s)；match(s,t) 查非空模式串并返回重叠匹配起点。manacher 返回奇数半径（含中心）和偶数半径（中心在 i 前）；rotation 返回最小循环表示起点，空串返回 0。各 O(n+m)。"
+  ],
+  [
+    "string",
+    "AhoCorasick",
+    "AC 自动机出现次数",
+    "字母表 a..z，add(s) 返回终止状态，要求模式非空；全部插入后 build()，只允许一次构建。count(text) 返回每个状态对应模式的出现次数，可重复查询；重复模式共享状态。构建 O(26N)，查询 O(|text|+N)。"
+  ],
+  [
+    "string",
+    "SuffixArray",
+    "倍增后缀数组与 LCP",
+    "sa[k] 为第 k 个后缀起点，rk[i] 为排名，lcp[k] 为 sa[k-1] 与 sa[k] 的 LCP（lcp[0]=0）。空串合法；当前排序比较版 O(n log² n)，不能替代待补的线性 SA/DC3 条目。"
+  ],
+  [
+    "string",
+    "SuffixAutomaton",
+    "后缀自动机",
+    "extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts() 返回 endpos 次数且不修改结构，可重复调用。状态 a，初始状态 0，link 根为 -1；空间 O(26n)，构建 O(26n)。"
+  ],
+  [
+    "number_theory",
+    "NumberTheory",
+    "模运算、素性、CRT 与类欧几里德",
+    "mul/power 支持无符号 64 位正模数，乘积用 uint128。prime 使用确定性 64 位底数。inverse(a,m) 无逆元返回 -1。crt(r,m,b,n) 合并同余式，无解返回 false，模数溢出抛异常。floor_sum 为 i=0..n-1 的 floor((ai+b)/m) 之和，支持负 a、b，返回 int128；约定 n≤10⁹、m≤10⁹，a、b 为有符号 64 位。"
+  ],
+  [
+    "number_theory",
+    "PollardRho",
+    "Pollard–Rho 因数分解",
+    "factor(n) 返回升序质因子（含重数），n≥1；依赖 NumberTheory。返回因子经过整除和素性检查；Las Vegas 随机运行时间，固定默认种子方便复现，可由调用者更换。无确定性最坏时间保证。"
+  ],
+  [
+    "number_theory",
+    "LinearSieve",
+    "线性筛、欧拉函数与 Möbius 函数",
+    "构造参数 n≥0，prime 为质数表，lp/phi/mu 为 0..n 数组。phi[1]=mu[1]=1，O(n) 时间和空间。"
+  ],
+  [
+    "number_theory",
+    "ModInt",
+    "静态模整数",
+    "模板参数必须为不超过 INT_MAX 的素数且≥2。加减乘、pow、inv、除法；求逆要求非零，pow 指数非负。复杂度：加减乘 O(1)，幂和逆 O(log mod)。"
+  ],
+  [
+    "number_theory",
+    "Binomial",
+    "阶乘组合数",
+    "Binomial<prime>(n)，要求 0≤n<prime；choose(n,k) 越界 k 返回 0。预处理 O(n+log prime)，单次 O(1)。尚不能替代合数模数 exLucas。"
+  ],
+  [
+    "polynomial",
+    "Polynomial",
+    "NTT、形式幂级数、FWT 与递推",
+    "依赖 number_theory.hpp。模数固定 998244353，乘法结果长度≤2²³；inverse 要求 a[0]≠0，log 要求 a[0]=1，exp 要求 a[0]=0，截断长度 n>0。朴素逐层 NTT 实现的 FPS 为 O(n log n)。FWT 的 op 为 ^、|、&；BM 返回 s[n]=Σc[i-1]s[n-i] 的系数；recurrence 用 O(k² log n) 求第 n 项。BM 对有限样本给出的递推不自动保证未知后续项成立。"
+  ],
+  [
+    "algebra",
+    "LinearAlgebra",
+    "模高斯消元、行列式、矩阵树定理",
+    "素数模数。solve(a,n) 输入增广矩阵，返回 consistent、rank、特解 particular 和零空间基 kernel。determinant(empty)=1。spanning_trees(n,edges) 使用 0-based 无向图，允许重边，忽略自环；返回生成树数模 p。高斯与行列式 O(n³)，矩阵幂 O(n³ log e)。"
+  ],
+  [
+    "algebra",
+    "DuJiao",
+    "杜教筛",
+    "构造预筛上限 B≥1，mertens(n) 返回 μ 的前缀和，totient_sum(n) 返回 φ 的前缀和（int128）。约定 0≤n≤10¹¹，按整除分块递归并缓存；大输入需要合理 B，不能把常数 B 当作性能保证。"
+  ],
+  [
+    "algebra",
+    "DiscreteLog",
+    "扩展 BSGS",
+    "solve(a,b,m) 返回最小 x≥0 使 a^x≡b (mod m)，无解 -1；1≤m≤10¹²，0^0=1。时间与内存 O(√m)，unordered_map 复杂度为期望界。"
+  ],
+  [
+    "geometry",
+    "IntegerGeometry",
+    "整数精确二维几何",
+    "坐标绝对值≤10¹²，点数≤10⁶。叉积、点积、线段相交、凸包、点在多边形、点在凸包、旋转卡壳直径。凸包逆时针，不保留共线内点，不重复首点。contains 返回 0 外部、1 边界、2 内部。convex_contains/diameter2 输入必须为本模板 strict hull。PolarLess 要求排除零向量。"
+  ],
+  [
+    "geometry",
+    "RealGeometry",
+    "浮点点线圆构造",
+    "long double，显式 eps 默认 10⁻¹²。要求有限输入及适当尺度；接近退化时按容差分类，不能提供任意实数输入的精确拓扑保证。Result 区分 none/one/two/infinite/degenerate。零长度线返回 degenerate；投影与点到线段距离将零线段视为点。坐标缩放和误差预算应按具体题面复核。"
+  ],
+  [
+    "optimization",
+    "MaxPlusMatrix",
+    "Max-plus 矩阵幂",
+    "a[i][j] 为转移收益，不存在的边为 neg；power(k) 求恰好 k 步的最优转移，单位矩阵对角为 0。所有有限中间值绝对值小于 2^119。O(n³ log k)；2025 成都 B 的转移类型，具体题目的建模仍需调用者完成。"
+  ],
+  [
+    "optimization",
+    "LiChao",
+    "离散李超树与最优直线编号",
+    "构造传入所有可能查询的横坐标，add({k,b,id}) 插入直线，query(x) 返回最小值与最小编号，要求 x 在预登记坐标内且至少有一条线。整数求值用 int128，k、b、x 为有符号 64 位且中间值可表示。单次 O(log n)。"
+  ],
+  [
+    "optimization",
+    "PersistentKth",
+    "主席树：静态区间第 k 小",
+    "构造传入 0-based 数组，kth(l,r,k) 的区间使用 1-based 闭区间；要求 1≤k≤r-l+1。离散化后每个前缀一个版本，单次 O(log n)，总空间 O(n log n)。"
+  ],
+  [
+    "graph_advanced",
+    "Hungarian",
+    "矩形二分图最小权匹配",
+    "solve(cost) 输入 n×m 完整权值矩阵，0≤n≤m；每行匹配不同列，返回最小费用及列号（0-based）。允许负费用，使用 int128 势能；O(n²m)。禁止边不能用未经证明的有限大常数随意替代，当前接口仅表示完整二分图。"
+  ],
+  [
+    "graph_advanced",
+    "Arborescence",
+    "有向最小树形图",
+    "solve(n,root,edges)，点号 0..n-1，n≥1；返回以 root 为根向外可达的最小树形图费用，无解 nullopt。允许负权、重边、自环（自环不选）；O(VE)。当前仅返回费用，不恢复边方案。所有中间值须远小于 2^120。"
+  ],
+  [
+    "graph_advanced",
+    "StoerWagner",
+    "无向全局最小割",
+    "solve(w)，n≥2；w 是对称非负权矩阵，重边需先累加，主对角置零。返回割权与一侧顶点编号（0-based），允许不连通图。O(n³)，总权值小于 2^120。"
+  ],
+  [
+    "flow",
+    "BoundedCirculation",
+    "上下界可行循环流",
+    "add(u,v,lo,hi)，0≤lo≤hi；solve() 仅调用一次，返回可行性，仅成功后读取 used(id)。约束为每点流量守恒；不是带源汇最大流。所有上下界及其总和须在 long long 范围内。依赖 Dinic。"
+  ],
+  [
+    "geometry_extra",
+    "GeometryExtra",
+    "整数最近点对与 Minkowski 和",
+    "closest_pair(points) 返回最短距离平方，少于两个点为 nullopt，重复点返回 0，O(n log n)，全程精确整数。minkowski 输入 strict CCW 凸包，返回不重复首点的凸包；非退化 O(n+m)，退化时 O((n+m)log(n+m))。坐标及坐标和须满足整数几何范围。"
+  ],
+  [
+    "geometry_extra",
+    "IntegerGeometry3D",
+    "整数三维共线、共面与方向",
+    "坐标绝对值≤10⁹；orient(a,b,c,d) 为有向六倍四面体体积，0 表示共面；collinear 判三点共线，on_segment 支持退化线段。int128 精确判定，不包含三维凸包构造。"
+  ]
+]

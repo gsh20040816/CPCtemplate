@@ -1,0 +1,70 @@
+\documentclass[UTF8,a4paper,10pt,openany,fontset=fandol]{ctexbook}
+\usepackage[margin=18mm,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb,booktabs,longtable,array}
+\usepackage{xcolor,listings,fancyhdr,imakeidx,needspace}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\makeindex[title=算法索引,columns=1]
+\lstset{language=C++,basicstyle=\ttfamily\scriptsize,keywordstyle=\bfseries,
+commentstyle=\color{black!60},numbers=left,numberstyle=\tiny\color{black!50},
+numbersep=6pt,breaklines=true,breakatwhitespace=false,columns=fullflexible,
+keepspaces=true,showstringspaces=false,tabsize=4,frame=single,rulecolor=\color{black!20}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Morning Flower and Evening Oath}
+\fancyhead[R]{\small XCPC Template · Working Draft}
+\fancyfoot[C]{\thepage}
+\setcounter{tocdepth}{1}
+\let\cleardoublepage\clearpage
+\ctexset{chapter={beforeskip=8pt,afterskip=16pt}}
+\begin{document}
+\begin{titlepage}
+\centering\vspace*{28mm}
+{\Huge\bfseries XCPC Template Library\par}
+\vspace{14mm}
+{\LARGE Morning Flower\par and Evening Oath\par}
+\vspace{12mm}{\large Tongji University\par}
+\vspace{24mm}{\Large 双码风算法模板与数学速查\par}
+\vspace{10mm}{\large 建设稿 · 2026-09-11\par}
+\vfill
+\begin{minipage}{0.82\textwidth}
+\textbf{状态说明}\par
+本稿包含首批已进行本地验证的模块与完整来源覆盖表的入口。
+尚未完成 kuangbin、WIDA 全部条目的双码风迁移，尚未完成近三年中国赛站逐题覆盖审计，两套最大流已通过洛谷 P3376；其余模块尚无本项目 OJ AC 证据。
+本地对拍通过不代表对所有输入的绝对正确性证明；适用范围、数值上限与退化约定属于接口的一部分。
+\end{minipage}
+\end{titlepage}
+\frontmatter\tableofcontents
+\chapter{使用与验证}
+英文署名已于 QOJ 队伍账号 \texttt{ucup-team7502} 核对。
+两套风格依据训练提交 2932575、2930805、2931279 提取，不擅自将共享队号的提交归属到个人。
+
+代码采用 C++20。动态版默认需要 \texttt{bits/stdc++.h} 和 \texttt{cassert}；
+传统版各头文件列明依赖。抄写单个 struct 时需同时抄写其依赖结构。
+同名的不同风格实现通常用于不同提交，不建议混在同一编译单元中。
+点号除特别注明外为 1-based，字符串和多项式为 0-based；所有区间约定应以条目说明为准。
+
+测试源码位于 \texttt{tests/}，固定种子便于复现。
+验证包含独立暴力参考、边界案例、静态与动态实现、AddressSanitizer 和 UndefinedBehaviorSanitizer。
+\texttt{verification/} 保存实际运行记录与源码摘要；OJ 状态只在获得可查提交结果后登记。最大流记录为 \url{https://www.luogu.com.cn/record/297501480} 与 \url{https://www.luogu.com.cn/record/297502364}。
+
+原始来源目录共登记 713 项，见 \texttt{docs/coverage.csv}。
+它包含不同版本、例题及公式，不应将其数目视为独立算法数，也不能将“已登记”视为“已完成”。
+
+\mainmatter
+\input{generated.tex}
+\part{数学速查与维护}
+\input{mathematics.tex}
+\chapter{来源与覆盖维护}
+\section{参考基线}
+\begin{itemize}
+\item kuangbin，ACM 常用算法模板，2018 年版本：\url{https://kuangbin.github.io/2018/08/01/ACM-template/}。
+\item WIDA XCPC：\url{https://github.com/hh2048/XCPC}，参考快照 \texttt{484e9e0}。
+\item OI Wiki 数学：\url{https://oi-wiki.org/math/}。
+\end{itemize}
+本项目重新实现的代码与公式速查不能冒用原作者的验证记录。
+完整覆盖审计应为每个来源条目记录实现文件、替代关系与验证证据，保留遗漏项直至完成。
+\section{后续覆盖项}
+尚需完成的范围以覆盖表为准，包括动态树、平衡树、一般图匹配、最小树形图、上下界流、
+高阶几何构造、半平面交、三维凸包、数值积分、复杂数论及多项式、搜索与动态规划等。
+不能用通用模块的存在推断其覆盖了所有原书例题。
+\backmatter\printindex
+\end{document}

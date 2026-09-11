@@ -1,0 +1,115 @@
+\chapter{数学速查：条件先于公式}
+\section{整除、卷积与筛法}\index{Dirichlet convolution}\index{Mobius inversion}
+对正整数定义狄利克雷卷积
+\[
+(f*g)(n)=\sum_{d\mid n}f(d)g(n/d).
+\]
+单位元为 $\varepsilon(n)=[n=1]$，常函数 $1(n)=1$，恒等函数 $\operatorname{id}(n)=n$。
+关键恒等式是 $\mu*1=\varepsilon$、$\varphi*1=\operatorname{id}$。
+若 $F(n)=\sum_{d\mid n}f(d)$，则 $f(n)=\sum_{d\mid n}\mu(d)F(n/d)$。
+\[
+\sum_{i=1}^{a}\sum_{j=1}^{b}[\gcd(i,j)=1]
+=\sum_{d=1}^{\min(a,b)}\mu(d)\lfloor a/d\rfloor\lfloor b/d\rfloor.
+\]
+整除分块：当左端点为 $l$、商为 $q=\lfloor n/l\rfloor$，右端点为 $r=\lfloor n/q\rfloor$。
+同时包含多个商时，取各自右端点的最小值。
+杜教筛由卷积恒等式获得
+\[
+M(n)=1-\sum_{l=2}^{n}M(\lfloor n/l\rfloor),\qquad
+\Phi(n)=\frac{n(n+1)}2-\sum_{l=2}^{n}\Phi(\lfloor n/l\rfloor),
+\]
+求和按等商区间合并；第二式求和中没有额外乘以 $l$。
+
+\section{模运算的适用条件}\index{CRT}\index{Euler theorem}\index{Lucas theorem}
+模逆元存在当且仅当 $\gcd(a,m)=1$。费马逆元 $a^{p-2}$ 仅适用于素数模数及 $a\not\equiv0$。
+对正模数 $m,n$，同余式 $x\equiv a\pmod m$、$x\equiv b\pmod n$ 可合并当且仅当
+$\gcd(m,n)\mid(b-a)$；新模数为 $\operatorname{lcm}(m,n)$。
+\[
+\binom nk\equiv\prod_i\binom{n_i}{k_i}\pmod p\quad(p\text{ 为素数，}n_i,k_i\text{ 是 }p\text{ 进制位}).
+\]
+Lucas 不能直接套在合数模数。阶乘与逆阶乘预处理要求上限小于模数；超过模数会出现阶乘为零。
+扩展欧拉降幂中，非互质情况不能直接将指数对 $\varphi(m)$ 取模；需要判断原指数是否达到足够阈值。
+大整数指数可以在读入时同时维护余数与是否超过阈值。
+
+\section{组合计数}\index{inclusion-exclusion}\index{Catalan}\index{Stirling numbers}
+容斥：$|\bigcup A_i|=\sum_{\emptyset\ne S}(-1)^{|S|+1}|\bigcap_{i\in S}A_i|$。
+二项式反演：若 $b_n=\sum_{k=0}^{n}\binom nk a_k$，则
+$a_n=\sum_{k=0}^{n}(-1)^{n-k}\binom nk b_k$。
+\[
+\sum_k\binom ak\binom b{n-k}=\binom{a+b}n,\qquad
+C_n=\binom{2n}n-\binom{2n}{n+1}.
+\]
+差分形式的 Catalan 公式避免直接除以 $n+1$，在模数下尤其有用，但组合数本身仍须正确求模。
+第二类 Stirling 数满足
+\[
+\left\{\begin{matrix}n\\k\end{matrix}\right\}
+=\left\{\begin{matrix}n-1\\k-1\end{matrix}\right\}
++k\left\{\begin{matrix}n-1\\k\end{matrix}\right\},
+\quad S(0,0)=1.
+\]
+第一类无符号 Stirling 数把系数 $k$ 换为 $n-1$。
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+球与盒 & 空盒允许 & 空盒禁止\\\midrule
+不同球，不同盒 & $k^n$ & $k!S(n,k)$\\
+相同球，不同盒 & $\binom{n+k-1}{k-1}$ & $\binom{n-1}{k-1}$\\
+不同球，相同盒 & $\sum_{j=0}^{k}S(n,j)$ & $S(n,k)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+上表默认 $k\ge1$；$n=0$、$k=0$ 等边界应按原问题约定单独处理。
+
+\section{群作用计数}\index{Burnside}\index{Polya}
+有限群 $G$ 作用在有限集合 $X$ 上时，轨道数为
+\[
+|X/G|=\frac1{|G|}\sum_{g\in G}|\operatorname{Fix}(g)|.
+\]
+对位置置换的 $q$ 色染色，$|\operatorname{Fix}(g)|=q^{c(g)}$，其中 $c(g)$ 为循环数。
+环形项链只商去旋转；手链还商去反射，二者群不同，不能共用分母。
+模数整除 $|G|$ 时不能使用模逆元，须先在合适的整数模数下求和再做精确除法。
+
+\section{生成函数与递推}\index{generating functions}\index{Berlekamp-Massey}
+普通生成函数 $A(x)=\sum a_nx^n$ 的乘法对应普通卷积。
+指数生成函数 $A(x)=\sum a_nx^n/n!$ 的乘法对应
+$c_n=\sum_k\binom nk a_kb_{n-k}$。
+形式幂级数求逆要求常数项可逆；$\log A$ 取 $A(0)=1$，$\exp A$ 取 $A(0)=0$。
+有限域中积分涉及 $1/i$，必须避免 $i$ 被特征整除。
+\[
+B_{\rm new}=B(2-AB)\pmod{x^{2m}},\qquad
+(\log A)'=A'/A.
+\]
+BM 从样本得到最短线性递推。要对未来项使用，必须另外证明序列确实具有不超过相应阶数的线性递推；
+少量数值吻合不是证明。矩阵转移、有限状态计数常可提供阶数上界。
+
+\section{线性代数与生成树}\index{rank}\index{Matrix Tree theorem}
+域上的线性方程组一致时，解集为一个特解加零空间，零空间维数为未知数个数减秩。
+浮点消元中的秩依赖误差阈值；模素数消元是精确域运算；合数模数下不可随意除以非零元。
+无向图 Laplacian 的对角元为度数，非对角元为负的边重数。删去同一行列后的行列式为生成树数。
+自环不参与生成树；重边需要累加。只有一个顶点时空余子式行列式约定为 1。
+有向图需要重新明确入度/出度 Laplacian 与根向内/向外树的方向，不能直接复用无向封装。
+
+\section{概率、期望与博弈}\index{expectation}\index{Sprague-Grundy}
+期望线性性不要求独立：$\mathbb E[\sum X_i]=\sum\mathbb E[X_i]$。
+方差可加需要协方差为零；独立是充分条件。非负整数变量
+$\mathbb E[X]=\sum_{k\ge1}\Pr(X\ge k)$。
+吸收过程的期望方程 $E_i=1+\sum_jp_{ij}E_j$ 需要检查是否几乎必然吸收及期望是否有限；
+不能对闭合非吸收分量直接求唯一有限解。
+有限无环公平组合游戏在正常玩法下
+\[
+\operatorname{SG}(u)=\operatorname{mex}\{\operatorname{SG}(v):u\to v\}.
+\]
+独立子游戏的 SG 值异或为零当且仅当先手必败。
+反常玩法、含环游戏、双方可走步不同的游戏不能直接套这个结论。
+
+\section{数值算法与几何}\index{numerical stability}\index{Pick theorem}
+排序必须使用严格弱序；不能以“差小于 eps 则相等”定义通用排序比较器。
+叉积与行列式容易发生抵消；整数题优先精确整数判定，浮点构造单独处理误差。
+对于简单格点多边形（无孔），Pick 定理 $A=I+B/2-1$，边界格点数
+$B=\sum\gcd(|\Delta x|,|\Delta y|)$；不要重复计入边端点。
+自适应积分的局部误差估计需要函数足够规则；奇点、间断与强振荡必须先分段处理。
+三分搜索要求单峰性，整数域最后枚举剩余区间；二分答案要求判定单调性。
+
+\paragraph{来源索引}
+本章为重新组织的公式速查，扩展范围依据 \url{https://oi-wiki.org/math/}。
+还需补齐 exLucas、二次剩余、原根、Min25、插值、子集卷积、行列式进阶、数值积分等完整实现与验证；本章公式不能代替这些待完成代码。

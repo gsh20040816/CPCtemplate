@@ -1,0 +1,22 @@
+name: Verify
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y libboost-dev
+      - run: tools/test.sh
+      - run: SANITIZE=1 tools/test.sh
+  handbook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y latexmk texlive-xetex texlive-lang-chinese texlive-latex-extra
+      - run: tools/build_pdf.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xcpc-handbook
+          path: output/pdf/xcpc-template.pdf
