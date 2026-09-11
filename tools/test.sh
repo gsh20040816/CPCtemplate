@@ -95,3 +95,6 @@ build/tree_path_kth
 
 "$CXX" "${flags[@]}" tests/dynamic_kth.cpp -o build/dynamic_kth
 build/dynamic_kth
+
+"$CXX" "${flags[@]}" tests/persistent_distinct.cpp -o build/persistent_distinct
+build/persistent_distinct

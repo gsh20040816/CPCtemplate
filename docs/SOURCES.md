@@ -170,7 +170,7 @@ P3919 动态版 297520221、传统版 297520224 均 AC，覆盖从历史版本�
 
 kuangbin 3.6.2 虽题为“静态区间第 k 大”，实际 POJ2104 代码先按升序离散化、优先进入左儿子，因此返回第 k 小。原实现用后缀版本 T[l]-T[r+1]，本库用前缀版本 root[r]-root[l-1]，频数差等价。该功能映射到 PersistentKth / Persistent_Kth。
 
-3.6.1 查询区间不同数、3.6.3 树上路径点权第 k 小、3.6.4 树状数组套主席树支持动态修改均为不同功能；3.6.3 与 3.6.4 分别由下述 tree_path_kth.hpp、dynamic_kth.hpp 补齐，3.6.1 仍待补。新增 tests/persistent_kth_application.py 对两份实际 P3834 打包程序以排序切片作参照，包含重复值、单点区间与 int64 两端。
+3.6.1 查询区间不同数、3.6.3 树上路径点权第 k 小、3.6.4 树状数组套主席树支持动态修改均为不同功能；3.6.1、3.6.3 与 3.6.4 分别由下述 persistent_distinct.hpp、tree_path_kth.hpp、dynamic_kth.hpp 补齐。新增 tests/persistent_kth_application.py 对两份实际 P3834 打包程序以排序切片作参照，包含重复值、单点区间与 int64 两端。
 
 ## 树上路径点权第 k 小（2026-09-12）
 
@@ -191,3 +191,11 @@ tests/dynamic_kth.cpp 以朴素数组修改和排序切片为答案，覆盖重�
 [洛谷 P2617](https://www.luogu.com.cn/problem/P2617) 驱动先读完整操作序列收集 C 操作的值，再按输入顺序执行。该接口需要离线登记值，但查询与修改本身按原顺序在线处理，不能接受未登记的新值。
 
 另以 tests/dynamic_kth_scale.py 检查 n=100000、操作数=100000，其中 99900 次新值修改、100 次全区间排名查询；所有查询与当时数组排序一致。两份驱动的本地耗时记录在 verification/dynamic-kth-scale-tests.txt，不作为 OJ 时限保证。
+
+## 静态区间不同值（2026-09-12）
+
+补齐 kuangbin 3.6.1 的区间不同数功能。原代码维护后缀中每种值的首次出现标记，重复值需两次更新；本库 persistent_distinct.hpp 改为前一次出现位置的频数版本。对 i∈[l,r]，prev[i]<l 当且仅当它是该值在区间内的首次出现，因此对两个前缀版本作差、统计 prev≤l-1 即得不同值数量，每个元素只需一次持久化插入。
+
+动态版预先 reserve 节点上界，避免百万规模下 vector 扩容峰值；传统版要求 NODES≥n·(ceil(log2(n))+1)，另外保留编号 0 空节点。tests/persistent_distinct.cpp 穷举三值数组至长度 8，并以集合计数核对每个区间；另检查 int64 两端、重复初始化、全相同、全不同、周期值与 20 万规模数组。
+
+[洛谷 P1972](https://www.luogu.com.cn/problem/P1972) 驱动按 n、数组、m、各闭区间的顺序输入。kuangbin 3.6 的四个子功能现在均有分别实现和本地证据；它们尚未全部获得在线 AC，不以章节归并掩盖各自的验证状态。
