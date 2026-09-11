@@ -36,6 +36,12 @@
     "Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新增流；used(id) 查询原边净流，cut(s) 返回残量可达点集。允许重边、自环，容量非负，s≠t；重复求流须使用相同源汇。只有求尽最大流后 cut 才是最小割。一般 O(V²E)，递归增广深度 O(V)。总流不得超过 long long 上限。"
   ],
   [
+    "maximum_closure",
+    "maximum_closure",
+    "最大权闭合子图与选点方案",
+    "maximum_closure(weight,dependencies) 返回 (最大权值,选中点列表)，weight 为 0-based vector<long long>，图中点号 1..n。依赖边 (u,v) 表示选 u 必须选 v，允许环、自环与重边；允许空选集，因此答案不小于 0。依赖 flow.hpp 中的 Dinic。正权连源、负权连汇，依赖边容量取正权总和加 1；要求所有正权之和严格小于 LLONG_MAX。负权先提升到 int128 再取负，并截断到依赖边容量，因此 LLONG_MIN 也可处理。返回残量图源点可达的原顶点，权值为正权总和减最小割；超大负权边不会出现在最优割中，截断不改变原问题最优值。每次调用重建网络。复杂度沿用 Dinic：一般 O(V²E)，空间 O(V+E)，增广保持递归。返回一种最优闭合集，不承诺最大或最小选点个数。"
+  ],
+  [
     "flow",
     "MinCostFlow",
     "势能最小费用最大流",

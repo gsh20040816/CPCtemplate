@@ -19,6 +19,8 @@
 - `verify/luogu/P3649.compact.cpp`
 - `verify/luogu/P3834.classic.cpp`
 - `verify/luogu/P3834.compact.cpp`
+- `verify/luogu/P4174.classic.cpp`
+- `verify/luogu/P4174.compact.cpp`
 - `verify/luogu/P4779.classic.cpp`
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.classic.cpp`

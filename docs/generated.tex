@@ -86,6 +86,16 @@ add(u,v,lo,hi)，0$\le$lo$\le$hi；solve() 仅调用一次，返回可行性，�
 
 \lstinputlisting[firstline=218,lastline=263]{../src/compact/flow.hpp}
 
+\chapter{最大权闭合子图}
+
+\Needspace{488pt}
+
+\section{最大权闭合子图与选点方案}\label{compact-maximum_closure}\index{maximum\_closure}
+
+maximum\_closure(weight,dependencies) 返回 (最大权值,选中点列表)，weight 为 0-based vector<long long>，图中点号 1..n。依赖边 (u,v) 表示选 u 必须选 v，允许环、自环与重边；允许空选集，因此答案不小于 0。依赖 flow.hpp 中的 Dinic。正权连源、负权连汇，依赖边容量取正权总和加 1；要求所有正权之和严格小于 LLONG\_MAX。负权先提升到 int128 再取负，并截断到依赖边容量，因此 LLONG\_MIN 也可处理。返回残量图源点可达的原顶点，权值为正权总和减最小割；超大负权边不会出现在最优割中，截断不改变原问题最优值。每次调用重建网络。复杂度沿用 Dinic：一般 O(V$^{2}$E)，空间 O(V+E)，增广保持递归。返回一种最优闭合集，不承诺最大或最小选点个数。
+
+\lstinputlisting[firstline=5,lastline=38]{../src/compact/maximum_closure.hpp}
+
 \chapter{图论}
 
 \Needspace{639pt}
@@ -611,6 +621,18 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 算法约束见动态版本第~\pageref{compact-BoundedCirculation}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=116,lastline=167]{../src/classic/flow.hpp}
+
+\chapter{最大权闭合子图}
+
+\Needspace{498pt}
+
+\section{最大权闭合子图与选点方案}\label{classic-maximum_closure}\index{Maximum\_Closure}
+
+算法约束见动态版本第~\pageref{compact-maximum_closure}~页。本节代码独立可抄；采用下列实际接口名。
+
+Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引用，并在每次调用中 Init 重建该网络。N 至少为原点数加 2，M 至少为依赖边数加非零权点数；这是原有向边容量，不是残量边总数。将网络对象放在全局或 static，模板参数可由对象自动推导。
+
+\lstinputlisting[firstline=5,lastline=39]{../src/classic/maximum_closure.hpp}
 
 \chapter{图论}
 

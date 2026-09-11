@@ -101,3 +101,6 @@ build/persistent_distinct
 
 "$CXX" "${flags[@]}" tests/modular_sqrt.cpp -o build/modular_sqrt
 build/modular_sqrt
+
+"$CXX" "${flags[@]}" -pthread tests/maximum_closure.cpp -o build/maximum_closure
+build/maximum_closure
