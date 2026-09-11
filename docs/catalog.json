@@ -189,7 +189,7 @@
     "algebra",
     "DiscreteLog",
     "扩展 BSGS",
-    "solve(a,b,m) 返回最小 x≥0 使 a^x≡b (mod m)，无解 -1；1≤m≤10¹²，0^0=1。时间与内存 O(√m)，unordered_map 复杂度为期望界。"
+    "依赖 number_theory.hpp 的求逆与快速幂。solve(a,b,m) 返回最小 x≥0 使 a^x≡b (mod m)，无解返回 -1；1≤m≤10¹²，a、b 可为完整 long long 范围，入口归一化，约定 0^0=1。先剥离 gcd 并逐次检查较小指数，再在互质剩余问题上 BSGS。baby 表对同余幂保留最小指数 j，按递增大步 i 检查区间，因此首个命中即最小解。单次期望时间 O(√m+log m)，空间 O(√m)，哈希表先 reserve；基于 unordered_map 的界为期望界。每次调用独立建表；底数 1 及零指数解直接返回。"
   ],
   [
     "geometry",

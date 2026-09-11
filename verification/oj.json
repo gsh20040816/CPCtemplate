@@ -262,5 +262,43 @@
       "Count_Exact: nonzero existence"
     ],
     "note": "Full count magnitudes, zero weights and forest behavior independently tested locally"
+  },
+  {
+    "problem": "Luogu P4195",
+    "style": "compact",
+    "algorithm": "DiscreteLog",
+    "record": "https://www.luogu.com.cn/record/297520101",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 2080,
+    "memory": "2.01MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4195.compact.cpp",
+    "submitted_source": "verification/submitted/P4195.compact.cpp",
+    "submitted_sha256": "e79d06c10d7f3fea98d9cec82ae21e6ac1a3e55f66ff3b74eb425ff8347c1c41",
+    "tested_api": [
+      "DiscreteLog::solve"
+    ],
+    "note": "OJ inputs a,p,b in 1..1e9 and smallest exponent; signed inputs and 1e12 modulus extension checked locally. Unused algebra/number-theory APIs in bundle are not covered by this AC."
+  },
+  {
+    "problem": "Luogu P4195",
+    "style": "classic",
+    "algorithm": "DiscreteLog",
+    "record": "https://www.luogu.com.cn/record/297520104",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 2320,
+    "memory": "1.77MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4195.classic.cpp",
+    "submitted_source": "verification/submitted/P4195.classic.cpp",
+    "submitted_sha256": "098f7488a679a246a8fcd5016fc75e0f4bc91a24c68eb7e8b9b0ab86518a5d7e",
+    "tested_api": [
+      "Discrete_Log::Solve"
+    ],
+    "note": "OJ inputs a,p,b in 1..1e9 and smallest exponent; signed inputs and 1e12 modulus extension checked locally. Unused algebra/number-theory APIs in bundle are not covered by this AC."
   }
 ]

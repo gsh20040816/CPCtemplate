@@ -86,3 +86,6 @@ build/exlucas
 
 "$CXX" "${flags[@]}" tests/interpolation.cpp -o build/interpolation
 build/interpolation
+
+"$CXX" "${flags[@]}" tests/discrete_log.cpp -o build/discrete_log
+build/discrete_log

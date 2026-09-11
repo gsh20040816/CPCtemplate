@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T17:48:51.782376+00:00",
+  "recorded_at_utc": "2026-09-11T17:58:39.537116+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -40,7 +40,8 @@
       "Dual Dijkstra distances/routes and 2-SAT exhaustive assignment oracle PASS",
       "Weighted matching dual exhaustive missing-edge graphs, subset DP, int64 extremes and dense ties PASS",
       "exLucas dual Pascal, exact big integers, uint64 extremes and prime Lucas oracle PASS",
-      "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS"
+      "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
+      "exBSGS dual exhaustive first-occurrence oracle, signed inputs and 1e12 boundary PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -79,13 +80,14 @@
       "Dual Dijkstra distances/routes and 2-SAT exhaustive assignment oracle PASS",
       "Weighted matching dual exhaustive missing-edge graphs, subset DP, int64 extremes and dense ties PASS",
       "exLucas dual Pascal, exact big integers, uint64 extremes and prime Lucas oracle PASS",
-      "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS"
+      "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
+      "exBSGS dual exhaustive first-occurrence oracle, signed inputs and 1e12 boundary PASS"
     ]
   },
   "sha256": {
     "src/classic/.clang-format": "64eb90c541351e58cd1351a8d2d6aa73f1f2b20b40ba07ef412ad6d7cad47447",
     "src/classic/affine_segment_tree.hpp": "148df422ffd62f94b5a293b1c69a72fe6dc4f3af45fb5324fed692619d42c147",
-    "src/classic/algebra.hpp": "303dde25d79b9a12daf956b71f9a6367e0391371e8c47a9736f057f0a5d8b3d2",
+    "src/classic/algebra.hpp": "8a248ba0c28f556bc577895004ef7b80ed39498714a3cec486b2137bd2d529f8",
     "src/classic/biconnected.hpp": "e4a8f7cd76bb572039bf1f41c0d46d222a9dbb4a0a5aec616c51da01abf82024",
     "src/classic/blossom.hpp": "adfc09ded1ac63d2aedc274f12e61a72609328c48ca04af9deea782b32550790",
     "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
@@ -116,7 +118,7 @@
     "src/classic/weighted_matching.hpp": "4541e88025812e599438c9b600239b0963ea247b27b26051577c8d59ccba9099",
     "src/compact/.clang-format": "82ccdaa30f990717cdcdc30b58d7521142e24314daa27095a59d3f965d772b7b",
     "src/compact/affine_segment_tree.hpp": "98bb99f3478bf2176f4850868711af1271729439e346274791b1889cc2ba004b",
-    "src/compact/algebra.hpp": "1d2c1ed3abefbf09f267b6580e3b7f0f4c3153f0dbd87c294ee39997e1999ba5",
+    "src/compact/algebra.hpp": "d647e480c26348e40ed8ea2899f409c6168598ac7daea150a1ab00ca0e3d5d36",
     "src/compact/biconnected.hpp": "6ad20e935bbb4f3f41349dd54076910b2ccc91a05522325f65b53e064074313c",
     "src/compact/blossom.hpp": "1c0f9fe674d3228d8a2ee3aa2b081cbad202184c14011583774f22fff484d982",
     "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
@@ -152,6 +154,8 @@
     "tests/centroid.cpp": "b2658de09f312df33a90980a940d2e7e01fc078950ed91ed9ab38581e8e9d9c5",
     "tests/circle_precision.cpp": "04170f5d59d33d3605f9d83bf2f5e284a2e44b09eeac7716e25f2482f45b87bd",
     "tests/classic.cpp": "3bc4c9421e6c96b93dbd97dfc38f09fcbe7596b2cdf24eecf7bb2f2652ba462a",
+    "tests/discrete_log.cpp": "5745ad604c912e33816c25499d5e313fb10f07dd27d1ebd8630aa11c8596b65f",
+    "tests/discrete_log_application.py": "d73773a400174992ac02c39a290679de3bd76943e0d3769ebf1a52c99f416d4e",
     "tests/dsu_on_tree.cpp": "8af99c1002d77d57b85a8763efca24c52f03dd786c0f594f23df633a984ab68f",
     "tests/dual.cpp": "6a3e330198d0de2b47946a9c7868ef200d8a36f51fe40a71c25274d7d0f102ad",
     "tests/exlucas.cpp": "d14d58646c7679ea0a18bd0bac87b9cec4d084fef7d07170298b4f310c475331",

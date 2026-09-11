@@ -310,13 +310,13 @@ ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k �
 
 \lstinputlisting[firstline=139,lastline=189]{../src/compact/algebra.hpp}
 
-\Needspace{556pt}
+\Needspace{623pt}
 
 \section{扩展 BSGS}\label{compact-DiscreteLog}\index{DiscreteLog}
 
-solve(a,b,m) 返回最小 x$\ge$0 使 a\textasciicircum{}x$\equiv$b (mod m)，无解 -1；1$\le$m$\le$10$^{12}$，0\textasciicircum{}0=1。时间与内存 O($\sqrt{\vphantom x}$m)，unordered\_map 复杂度为期望界。
+依赖 number\_theory.hpp 的求逆与快速幂。solve(a,b,m) 返回最小 x$\ge$0 使 a\textasciicircum{}x$\equiv$b (mod m)，无解返回 -1；1$\le$m$\le$10$^{12}$，a、b 可为完整 long long 范围，入口归一化，约定 0\textasciicircum{}0=1。先剥离 gcd 并逐次检查较小指数，再在互质剩余问题上 BSGS。baby 表对同余幂保留最小指数 j，按递增大步 i 检查区间，因此首个命中即最小解。单次期望时间 O($\sqrt{\vphantom x}$m+log m)，空间 O($\sqrt{\vphantom x}$m)，哈希表先 reserve；基于 unordered\_map 的界为期望界。每次调用独立建表；底数 1 及零指数解直接返回。
 
-\lstinputlisting[firstline=190,lastline=235]{../src/compact/algebra.hpp}
+\lstinputlisting[firstline=190,lastline=238]{../src/compact/algebra.hpp}
 
 \chapter{计算几何}
 
@@ -816,13 +816,13 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 \lstinputlisting[firstline=139,lastline=189]{../src/classic/algebra.hpp}
 
-\Needspace{556pt}
+\Needspace{623pt}
 
 \section{扩展 BSGS}\label{classic-DiscreteLog}\index{Discrete\_Log}
 
 算法约束见动态版本第~\pageref{compact-DiscreteLog}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=190,lastline=235]{../src/classic/algebra.hpp}
+\lstinputlisting[firstline=190,lastline=238]{../src/classic/algebra.hpp}
 
 \chapter{计算几何}
 

@@ -191,14 +191,16 @@ struct DiscreteLog
 {
     using ll = long long;
 
-    // 1<=m<=1e12; O(sqrt(m)) time/storage. Smallest x>=0, or -1.
+    // 1<=m<=1e12; Expected O(sqrt(m)) time, O(sqrt(m)) storage. Smallest x>=0, or -1.
     static ll solve(ll a, ll b, ll m)
     {
         assert(m >= 1 && m <= 1000000000000LL);
         a = (a % m + m) % m;
         b = (b % m + m) % m;
-        if (m == 1)
+        if (m == 1 || b == 1)
             return 0;
+        if (a == 1)
+            return -1;
         ll offset = 0, k = 1;
         for (ll g; (g = gcd(a, m)) > 1;)
         {
@@ -214,6 +216,7 @@ struct DiscreteLog
         ll target = (__int128)b * NumberTheory::inverse(k, m) % m;
         ll step = sqrtl(m) + 1;
         unordered_map<ll, ll> baby;
+        baby.reserve(step);
         ll cur = 1 % m;
         for (ll j = 0; j < step; j++)
         {
