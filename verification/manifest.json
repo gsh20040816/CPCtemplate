@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T22:56:48.063371+00:00",
+  "recorded_at_utc": "2026-09-11T23:01:52.396574+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -62,7 +62,9 @@
       "Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 500000 recursive chain PASS",
       "Path intersection dual exhaustive labelled trees/roots/four endpoints, set oracle and Euler/HLD callbacks PASS",
       "Directed Euler dual exhaustive trails, lexicographic optimum, edge certificates, multigraphs and 200000 recursive edges PASS",
-      "Undirected Euler dual exhaustive trails, lexicographic optimum, edge certificates, loops and 200000 recursive edges PASS"
+      "Undirected Euler dual exhaustive trails, lexicographic optimum, edge certificates, loops and 200000 recursive edges PASS",
+      "Incremental word_chain-only check; unchanged-module evidence retained from a9a111a:",
+      "Word chain dual permutation oracle, word-vs-vertex order, duplicate IDs, prefixes and 200000 recursive words PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -123,7 +125,9 @@
       "Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 500000 recursive chain PASS",
       "Path intersection dual exhaustive labelled trees/roots/four endpoints, set oracle and Euler/HLD callbacks PASS",
       "Directed Euler dual exhaustive trails, lexicographic optimum, edge certificates, multigraphs and 200000 recursive edges PASS",
-      "Undirected Euler dual exhaustive trails, lexicographic optimum, edge certificates, loops and 200000 recursive edges PASS"
+      "Undirected Euler dual exhaustive trails, lexicographic optimum, edge certificates, loops and 200000 recursive edges PASS",
+      "Incremental word_chain-only check; unchanged-module evidence retained from a9a111a:",
+      "Word chain dual permutation oracle, word-vs-vertex order, duplicate IDs, prefixes and 200000 recursive words PASS"
     ]
   },
   "sha256": {
@@ -176,6 +180,7 @@
     "src/classic/vertex_removal.hpp": "c05f673c99fc0fa850939cb80585d3b5b5edbda7286ffd1adfe2a1456ac25926",
     "src/classic/virtual_tree.hpp": "f9f1561dc4b1bf7aa6477cf42401685a189059dfcb86ac2918c322a9cff58496",
     "src/classic/weighted_matching.hpp": "4541e88025812e599438c9b600239b0963ea247b27b26051577c8d59ccba9099",
+    "src/classic/word_chain.hpp": "d1297cd08f473ed650c07dd498535d7f2dfdea51c7359a55b6c068cb619a7010",
     "src/classic/xor_walk.hpp": "d9d50dc17a52612d093182d91db52e8361d201311f806e04b209a5a9f189ae99",
     "src/compact/.clang-format": "82ccdaa30f990717cdcdc30b58d7521142e24314daa27095a59d3f965d772b7b",
     "src/compact/affine_segment_tree.hpp": "98bb99f3478bf2176f4850868711af1271729439e346274791b1889cc2ba004b",
@@ -225,6 +230,7 @@
     "src/compact/vertex_removal.hpp": "65be1fe9ae9e23b3d4c1e0baf7f3a4e4d766087e12a1f531f19ed8f321e69e27",
     "src/compact/virtual_tree.hpp": "505bcdec60edd10f69bcbd35695e41d66c3c8e8c6d09bc0df0cf7e33de726304",
     "src/compact/weighted_matching.hpp": "7c1eb8956cdf41432419582767c1ff2034597b494c89d173bb5c8149c972d64b",
+    "src/compact/word_chain.hpp": "673066ac1a93a6f96bd64d50c8dba594a0951be39fc86bfdd5613e81007f8e82",
     "src/compact/xor_walk.hpp": "9313a8f7fadf89b237053ed6753417256950213dd752dd439643ac0f586095ed",
     "tests/affine_segment_tree.cpp": "739c2a5cc83e1940f14c9b39dc0acbb02898cc6805c261c0fd852390de7dd2be",
     "tests/algebra.cpp": "8a5e1fe4f5515d376e5b3d6c2b620e784c07333cbe754a3268d5c7e8c52295bc",
@@ -301,6 +307,8 @@
     "tests/virtual_tree_application.py": "1ce2b465d0cae162efd7f64406255166b193eed9f5d87a18381b99ae719d32a6",
     "tests/weighted_matching.cpp": "1f80caaf1d778999408f9c046bc990c115c67eb19a3655d62ff53064bdd2d2a6",
     "tests/weighted_matching_application.py": "9601f78933cd4944fc1a722f0b79ba648a8b3fb279d2407ba38f9f0b3e506a32",
+    "tests/word_chain.cpp": "cda712bcbd8a9d0a295f2de917bc208ae4e7496143ade2c4164052a8fb744671",
+    "tests/word_chain_application.py": "ffc7919a44ae457f6ee79ae68129dae59adf6643ba0af6897fef51a44c4fbf28",
     "tests/xor_basis.cpp": "e06141440ba3865a9605725d7633786ff4d747cb3c2a292de5c576f36bfa2251",
     "tests/xor_basis_application.py": "d0f3384e0c8ae18353085f317861b099148558fcaba1ae624d8ec1a3bd06484c",
     "tests/xor_walk.cpp": "387d3cd07e13a8a13e4de118ef9a80f0751950ff2c625edf37b4b8566699abde",

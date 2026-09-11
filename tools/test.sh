@@ -152,3 +152,6 @@ build/directed_euler
 
 "$CXX" "${flags[@]}" -pthread tests/undirected_euler.cpp -o build/undirected_euler
 build/undirected_euler
+
+"$CXX" "${flags[@]}" -pthread tests/word_chain.cpp -o build/word_chain
+build/word_chain

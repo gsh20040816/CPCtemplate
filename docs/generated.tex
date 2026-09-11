@@ -228,6 +228,16 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 
 \lstinputlisting[firstline=45,lastline=95,firstnumber=38]{../src/compact/directed_euler.hpp}
 
+\chapter{字典序单词链}
+
+\Needspace{470pt}
+
+\section{字典序最小单词链}\label{compact-word_chain}\index{word\_chain}
+
+word\_chain(words) 返回可空的编号序列（optional），有解时为原输入的 0-based 单词编号顺序，每个单词恰用一次；相邻单词首尾字母相接，单词序列字典序最小。无解返回 nullopt，空输入返回有值的空序列。单词必须非空且仅含小写 a-z，重复词视为不同编号。先对原编号按单词排序，按此顺序加边，再调用 DirectedEuler.run(0,false)；不可让底层重新按终点排序。欧拉回路从最小出现首字母开始，非回路起点由度数差确定。O(m log m) 次字符串比较及 O(L+m) 其他工作，L 为总字符数；空间 O(m)，递归栈 O(m)。依赖 directed\_euler.hpp；传统版调用 Word\_Chain，内部使用 Directed\_Euler<26>。全排列对拍、重复词/前缀词、20 万相同词及 POJ2337 完整输出本地验证，在线待补。
+
+\lstinputlisting[firstline=8,lastline=39]{../src/compact/word_chain.hpp}
+
 \chapter{无向欧拉路}
 
 \Needspace{559pt}
@@ -995,6 +1005,16 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 \newpage
 
 \lstinputlisting[firstline=55,lastline=105,firstnumber=48]{../src/classic/directed_euler.hpp}
+
+\chapter{字典序单词链}
+
+\Needspace{480pt}
+
+\section{字典序最小单词链}\label{classic-word_chain}\index{Word\_Chain}
+
+算法约束见动态版本第~\pageref{compact-word_chain}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=8,lastline=40]{../src/classic/word_chain.hpp}
 
 \chapter{无向欧拉路}
 

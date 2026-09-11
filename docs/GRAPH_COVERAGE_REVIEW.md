@@ -138,3 +138,11 @@ WIDA 有向存在判定与字典序求解两子项更新为 local-tested，父�
 tests/undirected_euler.cpp 用所有可行边走法作参照，验证存在性、自动/固定起点、字典序、每条原边恰用一次及方向；覆盖小图、自环、重边、无边图、断开图、反复运行、追加边、20 万条边的递归链。P2731 驱动按每行一个点输出字典序最小方案，测试包含点号不含 1 和 1024 条重边。SGU101 驱动将 0..6 点数映射为 1..7，输出原骨牌编号与 +/− 方向；102 个案例各重复两次，逐块验证连续性、方向及完整消费，含双零自环和 100 块骨牌。格式依据 kuangbin 2018 第 188–189 页的 SGU101 原文，未声称取得 SGU 在线判定。
 
 WIDA 无向两子项及 Hierholzers 父项更新为 local-tested，kuangbin 4.21.2 同样为 local-tested；4.21 父项仍 partial，因为单词链应用和混合图未完成。P2731 题面见 [骑马修栅栏](https://www.luogu.com.cn/problem/P2731)。驱动证据见 verification/undirected-euler-driver-tests.txt，新增接口在线待补。
+
+## 按单词边标签排序的欧拉链
+
+`word_chain` / `Word_Chain` 以小写字母为顶点，单词为有向边，返回原输入编号。排序原编号后按词序插入各邻接表，再调用 run(0,false) 保留这一顺序；使用默认顶点排序会破坏单词字典序。例如 aab、aza、ba 的最小单词链为 aab.ba.aza，而按终点 a/b 排序会先输出 aza。重复词仍按独立边编号全部消费；无解用 nullopt，空词集用有值空数组，单个词本身不能为空。
+
+tests/word_chain.cpp 枚举含重复词、前缀词的全部小多重集，并对各实例枚举全排列独立选最小有效序列；逐原编号检查全排列证书。另有随机字符串、明确排序反例，以及 20 万相同词的递归测试。POJ2337 双驱动按 T 组输入并以点分隔单词，无解输出 ***；107 个案例的完整输出与 Python 排列枚举对照，含 1000 词实例。格式依据 kuangbin 2018 第 186–188 页原文，在线仍待补。
+
+本次未改变此前已验证的 DirectedEuler。新增封装单独执行普通与 ASan/UBSan 测试，追加至现有回归日志；其独立日志为 verification/word-chain-tests.txt 与 verification/word-chain-sanitizer-tests.txt，完整驱动日志为 verification/word-chain-driver-tests.txt。kuangbin 4.21.1 更新为 local-tested，4.21 父项仍因混合图待补而保持 partial。
