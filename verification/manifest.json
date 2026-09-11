@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T17:24:48.862413+00:00",
+  "recorded_at_utc": "2026-09-11T17:34:13.391710+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -37,7 +37,8 @@
       "Circle degeneracy, scale invariance and 100-digit overlap reference PASS",
       "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS",
       "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS",
-      "Dual Dijkstra distances/routes and 2-SAT exhaustive assignment oracle PASS"
+      "Dual Dijkstra distances/routes and 2-SAT exhaustive assignment oracle PASS",
+      "Weighted matching dual exhaustive missing-edge graphs, subset DP, int64 extremes and dense ties PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -73,7 +74,8 @@
       "Circle degeneracy, scale invariance and 100-digit overlap reference PASS",
       "Recursive HLD paths, edge paths, subtree intervals, segment integration and reroot PASS",
       "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS",
-      "Dual Dijkstra distances/routes and 2-SAT exhaustive assignment oracle PASS"
+      "Dual Dijkstra distances/routes and 2-SAT exhaustive assignment oracle PASS",
+      "Weighted matching dual exhaustive missing-edge graphs, subset DP, int64 extremes and dense ties PASS"
     ]
   },
   "sha256": {
@@ -105,6 +107,7 @@
     "src/classic/treap.hpp": "fa4c871c0160cc84bf2ed9ac4c9bb9ddd894bfb58e4a7cb3772844216120522c",
     "src/classic/tree.hpp": "2a77bab713121961472fc847d82a91cf0008b6fb1c75f50fb6956414d5d13fb1",
     "src/classic/virtual_tree.hpp": "f9f1561dc4b1bf7aa6477cf42401685a189059dfcb86ac2918c322a9cff58496",
+    "src/classic/weighted_matching.hpp": "4541e88025812e599438c9b600239b0963ea247b27b26051577c8d59ccba9099",
     "src/compact/.clang-format": "82ccdaa30f990717cdcdc30b58d7521142e24314daa27095a59d3f965d772b7b",
     "src/compact/affine_segment_tree.hpp": "98bb99f3478bf2176f4850868711af1271729439e346274791b1889cc2ba004b",
     "src/compact/algebra.hpp": "1d2c1ed3abefbf09f267b6580e3b7f0f4c3153f0dbd87c294ee39997e1999ba5",
@@ -132,6 +135,7 @@
     "src/compact/treap.hpp": "b282e9598f83bab528b6d7a8cd325ae8d57fd2fc03281da73897f83cdd41d35e",
     "src/compact/tree.hpp": "c95a6cb3fc23372d15f80d565bfd1370bd9021aaa5d6d2d77fa8105ab4331860",
     "src/compact/virtual_tree.hpp": "505bcdec60edd10f69bcbd35695e41d66c3c8e8c6d09bc0df0cf7e33de726304",
+    "src/compact/weighted_matching.hpp": "7c1eb8956cdf41432419582767c1ff2034597b494c89d173bb5c8149c972d64b",
     "tests/affine_segment_tree.cpp": "739c2a5cc83e1940f14c9b39dc0acbb02898cc6805c261c0fd852390de7dd2be",
     "tests/algebra.cpp": "8a5e1fe4f5515d376e5b3d6c2b620e784c07333cbe754a3268d5c7e8c52295bc",
     "tests/biconnected.cpp": "de4fa6a9a028408879922a15c0cbe19b80f87ed7be2e274f36766dfb0ed4739f",
@@ -158,6 +162,8 @@
     "tests/tarjan.cpp": "35dd53d553e4435d79a7bc9a81900b4908fc97b35c1a4be99ccf93f09c1815b9",
     "tests/trees.cpp": "c3e3638787018828c717310634b3ffee5b9d5b9d40010680b03c6e527b2df555",
     "tests/virtual_tree.cpp": "4ae46aff4b5c961ea3d3315fb7f7f9d870228d5cf11f29f3697ec034396dd0f3",
-    "tests/virtual_tree_application.py": "1ce2b465d0cae162efd7f64406255166b193eed9f5d87a18381b99ae719d32a6"
+    "tests/virtual_tree_application.py": "1ce2b465d0cae162efd7f64406255166b193eed9f5d87a18381b99ae719d32a6",
+    "tests/weighted_matching.cpp": "1f80caaf1d778999408f9c046bc990c115c67eb19a3655d62ff53064bdd2d2a6",
+    "tests/weighted_matching_application.py": "9601f78933cd4944fc1a722f0b79ba648a8b3fb279d2407ba38f9f0b3e506a32"
   }
 }

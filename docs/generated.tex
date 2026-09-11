@@ -364,6 +364,14 @@ solve(w)，n$\ge$2；w 是对称非负权矩阵，重边需先累加，主对角
 
 \lstinputlisting[firstline=141,lastline=192]{../src/compact/graph_advanced.hpp}
 
+\chapter{带权二分图匹配}
+
+\section{二分图最大权匹配（缺边与可选匹配）}\label{compact-WeightedMatching}\index{WeightedMatching}
+
+WeightedMatching(n,m)，两侧编号 1..n、1..m。add(x,y,w) 加边，重边保留最大权；边权支持完整 long long 范围，内部势能与答案为 int128。solve() 要求全部左点匹配不同右点，无解返回 nullopt；n=m 时即最大权完美匹配。solve(true) 允许点不匹配，只最大化总权，不优先最大化边数。两种模式均从空匹配重算；l[x]、r[y] 为方案，0 表示未匹配，无解时全部清零。缺边用独立于合法边权的 -2\textasciicircum{}120 哨兵，仅用 add 修改；不把缺边当零权边。允许空侧。全匹配 O(n$^{2}$m)，可选模式增加 n 个虚拟零权右点，为 O(n$^{2}$(m+n))；空间 O(nm+n+m)。按最短松弛量扩展交错树：每次至少访问一个新右点，最多 n 次后增广；无有限松弛量即无解。
+
+\lstinputlisting[firstline=6,lastline=97]{../src/compact/weighted_matching.hpp}
+
 \chapter{精确几何进阶}
 
 \section{整数最近点对与 Minkowski 和}\label{compact-GeometryExtra}\index{GeometryExtra}
@@ -839,6 +847,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 算法约束见动态版本第~\pageref{compact-StoerWagner}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=157,lastline=208]{../src/classic/graph_advanced.hpp}
+
+\chapter{带权二分图匹配}
+
+\section{二分图最大权匹配（缺边与可选匹配）}\label{classic-WeightedMatching}\index{Weighted\_Matching}
+
+算法约束见动态版本第~\pageref{compact-WeightedMatching}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Weighted\_Matching<N,M> 后 Init(n,m)，N、M 分别限制左右点数。Insert 加边，Solve 求解；l、r 保存方案，Init 清空原图。权值矩阵是静态数组，内部增广辅助数组按实际规模分配，大对象放在全局或 static。
+
+\lstinputlisting[firstline=8,lastline=106]{../src/classic/weighted_matching.hpp}
 
 \chapter{精确几何进阶}
 

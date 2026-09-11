@@ -100,6 +100,14 @@
 
 核对 WIDA 在线 Dijkstra 与 2-SAT 条目后，加入 tests/graph_contracts.cpp：每个源点的最短距离与 int128 Floyd 对照，并检查返回路径的端点、无重复点和真实边权总和。二分图匹配之外的 2-SAT 单独枚举真值表，验证两套实现的可满足性及其返回赋值，涵盖逐步添加约束、强制变量、矛盾与重算。
 
-KM 条目仍只标 partial：现有 Hungarian 是完整矩阵最小费用分配，最大目标需要在数值范围内安全取负，缺边与可不匹配语义不能凭同名算法自动视为覆盖。
+原有 Hungarian 只覆盖完整矩阵最小费用分配；最大权、缺边与可不匹配语义由下述新增 weighted_matching.hpp 补齐，不能凭同名算法自动视为覆盖。
 
 P4779 与 P4782 提交驱动的输入输出分别核对 [洛谷 P4779](https://www.luogu.com.cn/problem/P4779) 与 [洛谷 P4782](https://www.luogu.com.cn/problem/P4782) 官方题面（2026-09-12）。驱动本地打包检查不计作在线 AC。
+
+## 带权二分图匹配补齐（2026-09-12）
+
+参考并核对 kuangbin 4.12、WIDA 在线 KM 与打印稿最大权匹配章节的功能。新增 weighted_matching.hpp 的双风格实现，使用逐左点最短增广的势能算法，提供必须匹配全部左点与允许不匹配两种模式；缺边明确跳过，零权边保持为真实边。完整 long long 边权先扩展到 int128 再取负。可选模式的虚拟点不写入真实匹配方案。
+
+[OI Wiki 带权二分图匹配](https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/) 用于算法术语及功能交叉核对；[洛谷 P6577](https://www.luogu.com.cn/problem/P6577) 用于驱动协议，特别是题目要求按右点输出左点。本地 tests/weighted_matching.cpp 枚举小规模缺边图，以子集 DP 独立计算最优值，并核验两侧配对、真实边、总权、无解清空、重算和极值算术；另测 500×500 全等负权矩阵。
+
+WIDA 打印稿“匈牙利算法（KM算法）解”实际是无权最大基数匹配，映射到已有 Hopcroft–Karp。jiangly MaxAssignment 额外暴露 labels() 和每种匹配基数的 weights()，当前尚未提供，因此该条仍为 partial；不能把逐个处理左点的中间值当成任意 k 条匹配的最优权值。

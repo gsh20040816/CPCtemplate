@@ -77,3 +77,6 @@ build/hopcroft_karp
 
 "$CXX" "${flags[@]}" tests/graph_contracts.cpp -o build/graph_contracts
 build/graph_contracts
+
+"$CXX" "${flags[@]}" tests/weighted_matching.cpp -o build/weighted_matching
+build/weighted_matching
