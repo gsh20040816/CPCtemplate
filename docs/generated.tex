@@ -258,13 +258,25 @@ factor(n) 返回升序质因子（含重数），n$\ge$1；依赖 NumberTheory�
 
 \lstinputlisting[firstline=240,lastline=284]{../src/compact/number_theory.hpp}
 
-\Needspace{333pt}
+\Needspace{336pt}
 
 \section{阶乘组合数}\label{compact-Binomial}\index{Binomial}
 
-Binomial<prime>(n)，要求 0$\le$n<prime；choose(n,k) 越界 k 返回 0。预处理 O(n+log prime)，单次 O(1)。尚不能替代合数模数 exLucas。
+Binomial<prime>(n)，要求 0$\le$n<prime；choose(n,k) 越界 k 返回 0。预处理 O(n+log prime)，单次 O(1)。小模数下，合数模数或 n 不小于模数时，可使用后面的 ExLucas。
 
 \lstinputlisting[firstline=285,lastline=308]{../src/compact/number_theory.hpp}
+
+\chapter{合数模数组合数}
+
+\section{合数模数组合数（扩展 Lucas）}\label{compact-ExLucas}\index{ExLucas}
+
+ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k 为 unsigned long long，k>n 返回 0，mod=1 返回 0。适合 mod$\le$10$^{6}$ 的合数或素数模数，不能用于 10$^{9}$ 级素数的整段预处理。分解 mod 为互素素数幂 q=p\textasciicircum{}e，预处理每段内不含 p 因子的前缀积；unit(n,f) 去除 n! 中全部 p 因子，valuation 统计指数。分子分母指数之差不少于 e 时该项为零，否则只对互素单位部分求逆，最后 CRT 合并。预处理 O($\sqrt{\vphantom x}$mod+$\sum$q)，空间 O($\sum$(q+1))；每次查询 O($\sum$(log\_p(n+1)·log(n+1)+log q))，求和遍历不同素因子。所有乘法用 long long；同一对象可重复查询，factors、fac 与辅助函数视为内部数据。
+
+\lstinputlisting[firstline=6,lastline=88]{../src/compact/exlucas.hpp}
+
+\Needspace{231pt}
+
+\lstinputlisting[firstline=89,lastline=107,firstnumber=84]{../src/compact/exlucas.hpp}
 
 \chapter{多项式}
 
@@ -740,13 +752,27 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 \lstinputlisting[firstline=256,lastline=300]{../src/classic/number_theory.hpp}
 
-\Needspace{333pt}
+\Needspace{336pt}
 
 \section{阶乘组合数}\label{classic-Binomial}\index{Combination}
 
 算法约束见动态版本第~\pageref{compact-Binomial}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=301,lastline=324]{../src/classic/number_theory.hpp}
+
+\chapter{合数模数组合数}
+
+\section{合数模数组合数（扩展 Lucas）}\label{classic-ExLucas}\index{Ex\_Lucas}
+
+算法约束见动态版本第~\pageref{compact-ExLucas}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Ex\_Lucas<N> 后 Init(mod)，要求 mod 不超过 N；Choose 为查询接口。fac 是共用静态前缀积数组，各素数幂通过 start 分段；各段总长度不超过 mod+1，所以 N 限制模数即可。Init 可切换模数并清空旧预处理，大对象放在全局或 static。
+
+\lstinputlisting[firstline=6,lastline=95]{../src/classic/exlucas.hpp}
+
+\Needspace{231pt}
+
+\lstinputlisting[firstline=96,lastline=114,firstnumber=91]{../src/classic/exlucas.hpp}
 
 \chapter{多项式}
 

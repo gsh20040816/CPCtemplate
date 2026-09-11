@@ -153,7 +153,13 @@
     "number_theory",
     "Binomial",
     "阶乘组合数",
-    "Binomial<prime>(n)，要求 0≤n<prime；choose(n,k) 越界 k 返回 0。预处理 O(n+log prime)，单次 O(1)。尚不能替代合数模数 exLucas。"
+    "Binomial<prime>(n)，要求 0≤n<prime；choose(n,k) 越界 k 返回 0。预处理 O(n+log prime)，单次 O(1)。小模数下，合数模数或 n 不小于模数时，可使用后面的 ExLucas。"
+  ],
+  [
+    "exlucas",
+    "ExLucas",
+    "合数模数组合数（扩展 Lucas）",
+    "ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k 为 unsigned long long，k>n 返回 0，mod=1 返回 0。适合 mod≤10⁶ 的合数或素数模数，不能用于 10⁹ 级素数的整段预处理。分解 mod 为互素素数幂 q=p^e，预处理每段内不含 p 因子的前缀积；unit(n,f) 去除 n! 中全部 p 因子，valuation 统计指数。分子分母指数之差不少于 e 时该项为零，否则只对互素单位部分求逆，最后 CRT 合并。预处理 O(√mod+Σq)，空间 O(Σ(q+1))；每次查询 O(Σ(log_p(n+1)·log(n+1)+log q))，求和遍历不同素因子。所有乘法用 long long；同一对象可重复查询，factors、fac 与辅助函数视为内部数据。"
   ],
   [
     "polynomial",

@@ -111,3 +111,11 @@ P4779 与 P4782 提交驱动的输入输出分别核对 [洛谷 P4779](https://w
 [OI Wiki 带权二分图匹配](https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/) 用于算法术语及功能交叉核对；[洛谷 P6577](https://www.luogu.com.cn/problem/P6577) 用于驱动协议，特别是题目要求按右点输出左点。本地 tests/weighted_matching.cpp 枚举小规模缺边图，以子集 DP 独立计算最优值，并核验两侧配对、真实边、总权、无解清空、重算和极值算术；另测 500×500 全等负权矩阵。
 
 WIDA 打印稿“匈牙利算法（KM算法）解”实际是无权最大基数匹配，映射到已有 Hopcroft–Karp。jiangly MaxAssignment 额外暴露 labels() 和每种匹配基数的 weights()，当前尚未提供，因此该条仍为 partial；不能把逐个处理左点的中间值当成任意 k 条匹配的最优权值。
+
+## 合数模数的组合数（2026-09-12）
+
+按 [OI Wiki 卢卡斯定理的 exLucas 部分](https://oi-wiki.org/math/number-theory/lucas/) 核对素数幂分解、去除阶乘内的素因子、指数判零与 CRT 合并。新增 exlucas.hpp 的两套独立可抄实现，动态版本连接各素数幂前缀积，传统版本使用同一静态数组分段；上界总长度不超过 mod+1。构造时预处理，适用于小模数、大下标的重复组合数查询。并未将该实现视作大素数模数的低空间替代算法。
+
+验证以杨辉三角模任意小整数、Boost 精确大整数组合数为主；大下标的小 k 用任意精度整数直接乘除，达到 unsigned long long 最大值；另以小素数杨辉表加 Lucas 分位公式检查 n、k 均为大数的情形。OI Wiki 页面中的独立 Lucas 分位模板及定理说明仍待补，不将整个页面标完成。
+
+[洛谷 P4720](https://www.luogu.com.cn/problem/P4720) 提交协议已核对：输入 n、m、p，输出 C(n,m) 模 p。WIDA 在线名为“组合数 (Lucas)”的源码实际是阶乘/逆阶乘预处理，且额外提供排列数和动态扩容；它不包含 Lucas 分位递推，不能只按标题替它关闭覆盖项。

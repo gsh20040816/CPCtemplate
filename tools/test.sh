@@ -80,3 +80,6 @@ build/graph_contracts
 
 "$CXX" "${flags[@]}" tests/weighted_matching.cpp -o build/weighted_matching
 build/weighted_matching
+
+"$CXX" "${flags[@]}" tests/exlucas.cpp -o build/exlucas
+build/exlucas
