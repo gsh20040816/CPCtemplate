@@ -280,5 +280,23 @@
     "Blossom",
     "一般图最大基数匹配：带花树",
     "Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边。solve() 从空匹配重新计算，返回匹配边数；mate[u] 为配对点，未匹配为 -1。结果支持直接输出方案。缩花维护交错树，单次增广 O(n²+m)，总计 O(n³+nm)，简单图为 O(n³)；空间 O(n+m)。重复调用 solve 或加边后重算均可。不处理边权，不能代替最大权匹配。"
+  ],
+  [
+    "recurrence",
+    "berlekamp_massey",
+    "Berlekamp–Massey：最短线性递推",
+    "berlekamp_massey(s,p) 要求 p 为素数，2≤p≤INT_MAX，输入均在 [0,p)；返回 c，使 s[i]=Σ c[j-1]s[i-j]（j=1..k，i≥k）。空序列或全零序列返回空系数。有限前缀可能对应多种未来，不能无条件外推；若已知原序列满足阶数至多 d 的齐次线性递推，提供至少 2d 项才能恢复可外推的递推。模运算次数 O(Nk+N log p)，后项来自逐次求逆；空间 O(N)。不适用于合数模数或浮点拟合。"
+  ],
+  [
+    "recurrence",
+    "recurrence_nth",
+    "特征多项式求线性递推第 k 项",
+    "recurrence_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。init 与 c 长度均为阶数 k；a[i]=Σ c[j-1]a[i-j]。2≤p≤INT_MAX，数值均在 [0,p)，本函数允许合数模数。空系数约定全零序列。计算 x^n 对特征多项式取余再与初值点乘，O(k² log(n+1)) 时间、O(k) 空间；不依赖 BM 或其他模板。较大阶数需快速多项式或 Bostan–Mori 版本，当前函数不覆盖该复杂度需求。"
+  ],
+  [
+    "tarjan",
+    "TarjanSCC",
+    "Tarjan 强连通分量与缩点",
+    "TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u] 为 1..cnt 的强连通分量编号，跨分量边总从大编号指向小编号，可按 cnt..1 做拓扑 DP。dag() 返回缩点邻接表，保留重边；若 DP 需要对不同邻点去重，调用者应排序去重。支持自环、重边、不连通图和重复 run。时间及图存储 O(n+m)，递归 DFS 另需 O(n) 调用栈；长链可能受系统栈限制，可改用已有迭代 Kosaraju。注意已有 SCC 模板的编号方向与本模板相反。"
   ]
 ]

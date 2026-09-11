@@ -36,3 +36,9 @@ build/gcd_sequence
 
 "$CXX" "${flags[@]}" tests/blossom.cpp -o build/blossom
 build/blossom
+
+"$CXX" "${flags[@]}" tests/recurrence.cpp -o build/recurrence
+build/recurrence
+
+"$CXX" "${flags[@]}" tests/tarjan.cpp -o build/tarjan
+build/tarjan

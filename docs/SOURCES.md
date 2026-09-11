@@ -29,3 +29,9 @@
 - 算法依据：[Edmonds, Paths, Trees, and Flowers](https://ftp.eecs.umich.edu/~pettie/matching/Edmonds-paths-trees-flowers.pdf)。实现采用逐个未匹配根进行交错树搜索、收缩奇环、沿父指针增广。
 - 对照 WIDA 一般图最大匹配新版及 kuangbin 4.13 的接口需求，重新编写双风格实现；带权条目另行实现。
 - 验证题：[Luogu P6113](https://www.luogu.com.cn/problem/P6113)，要求输出匹配数量与配对方案。当前先完成本地穷举和子集 DP 对拍，OJ 状态以记录表为准。
+
+## 线性递推核对
+
+- [OI Wiki：Berlekamp–Massey](https://oi-wiki.org/math/berlekamp-massey/)：有限前缀的最短递推及有界阶序列恢复条件。实现采用连接多项式与上次非零偏差更新，独立重写为两套函数。
+- [OI Wiki：常系数齐次线性递推](https://oi-wiki.org/math/poly/linear-recurrence/)：特征多项式降幂。当前提供 O(k² log n) 版；快速多项式版仍待实现，不能把整个页面记为完成。
+- tests/recurrence.cpp 穷举 GF(2)、GF(3) 上长度至多 8 的序列，与枚举系数的最小阶数比较；生成递推后用前 2k 项学习并核验后续项；使用独立矩阵幂核对 uint64 最大下标和合数模数。

@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T15:14:22.830801+00:00",
+  "recorded_at_utc": "2026-09-11T15:24:16.230724+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -23,7 +23,9 @@
       "Ordered treap and splay / sorted vector oracle PASS",
       "Sequence treap / vector oracle PASS",
       "Tagged GCD treap / vector oracle and recycled capacity PASS",
-      "Blossom exhaustive n<=6, subset DP, duplicate edges and dense graph PASS"
+      "Blossom exhaustive n<=6, subset DP, duplicate edges and dense graph PASS",
+      "BM exhaustive minimality, recurrence holdout and uint64 matrix oracle PASS",
+      "Tarjan SCC exhaustive digraphs, reachability and condensation oracle PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -45,7 +47,9 @@
       "Ordered treap and splay / sorted vector oracle PASS",
       "Sequence treap / vector oracle PASS",
       "Tagged GCD treap / vector oracle and recycled capacity PASS",
-      "Blossom exhaustive n<=6, subset DP, duplicate edges and dense graph PASS"
+      "Blossom exhaustive n<=6, subset DP, duplicate edges and dense graph PASS",
+      "BM exhaustive minimality, recurrence holdout and uint64 matrix oracle PASS",
+      "Tarjan SCC exhaustive digraphs, reachability and condensation oracle PASS"
     ]
   },
   "sha256": {
@@ -64,8 +68,10 @@
     "src/classic/number_theory.hpp": "8a20210a11a6f985d51776dd0a90e9aaa2c385f7805babfe05c63613c57a7352",
     "src/classic/optimization.hpp": "de968be0f1e4296d0e2e9b38984ab206067adfc4d030366a9dd0d986dc1f2dcc",
     "src/classic/polynomial.hpp": "4af3df1da84d454b167f9cc1e2432c973be8a4a78d641ef4dc6bc67f7e50a303",
+    "src/classic/recurrence.hpp": "a71d91ecdcd7c7e2502c655ea5f9fcb2ac03104844ded46bd0afb46450422f67",
     "src/classic/splay.hpp": "ba412fda7cd927e9dcab62fa88ee66b59a8cac5b4550bf47699285e8c4522e6b",
     "src/classic/string.hpp": "ff72541b84ccf9e67bf8fa5d70b0bbfd15462f9ba365ea2b7fc8288fdfe2da12",
+    "src/classic/tarjan.hpp": "fbeaaacabbc45e6ad1e90b699c2e839c49c472c4aebf788ba6034f7bd32b8f12",
     "src/classic/treap.hpp": "5fb685f85beaa8a22cd1ea6f59511c164d73fffc5d89e4402f3c10a61f5f35fd",
     "src/classic/tree.hpp": "9125d548aa7258a8734c4c5d0a8f5c3a39c46a5d11b84fbf2ad25416467c6dbb",
     "src/compact/.clang-format": "82ccdaa30f990717cdcdc30b58d7521142e24314daa27095a59d3f965d772b7b",
@@ -82,8 +88,10 @@
     "src/compact/number_theory.hpp": "442ed221567f0fa12f9ae38bcb7d873bed4cd0a253020814dae2599c64f3bf0f",
     "src/compact/optimization.hpp": "e031dc5ddb1cc778e49d445e63c5e197cb79519eae97ed38a92a29be06e77f12",
     "src/compact/polynomial.hpp": "4ae0ca3021f37b0d4dc9a40985e1c1a5a710edc2bcbbcb78a9331dd64ab75700",
+    "src/compact/recurrence.hpp": "af9e2e7bdefe5586b6f68758c76e3b9402047c0725bf4d07028837446a1fe2d5",
     "src/compact/splay.hpp": "a9959a530dea7ddef50e67a700bf8c0c2c87cb9f39d34b8caed31d141ed8445d",
     "src/compact/string.hpp": "d02a2c926aaacbea0ffac86d8a5765202165909c3c80b91c6e9cc517da3885fc",
+    "src/compact/tarjan.hpp": "15716184cdf5cec0cb5234ba357ea922840277454932e54e06067d7290f929d5",
     "src/compact/treap.hpp": "e7d1d5da733dce648b50e8e18e148c7ca06567136e56745a80302ea529f1e671",
     "src/compact/tree.hpp": "c0ffb45f3aa468a11b8c441f2b9f74982bdfd940f5a212f6c423394c6e1451c2",
     "tests/algebra.cpp": "8a5e1fe4f5515d376e5b3d6c2b620e784c07333cbe754a3268d5c7e8c52295bc",
@@ -97,6 +105,8 @@
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",
     "tests/optimization.cpp": "22a2eacb619a32e51d2dfde85462447acf00e1e5eb8b2c587edead8a788d6acc",
     "tests/property.cpp": "5e8b384ed682134dcf051b34c6fd278af21ad93e712e220968f8fbd037dcc85d",
+    "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
+    "tests/tarjan.cpp": "c0feeec022557a4ac967ae6695f70e8cc3745f079f6b3801c141959d84a25b48",
     "tests/trees.cpp": "c3e3638787018828c717310634b3ffee5b9d5b9d40010680b03c6e527b2df555"
   }
 }

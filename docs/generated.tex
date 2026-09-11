@@ -1,5 +1,13 @@
 \part{动态容器风格}
 
+\chapter{Tarjan 与缩点}
+
+\section{Tarjan 强连通分量与缩点}\label{compact-TarjanSCC}\index{TarjanSCC}
+
+TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u] 为 1..cnt 的强连通分量编号，跨分量边总从大编号指向小编号，可按 cnt..1 做拓扑 DP。dag() 返回缩点邻接表，保留重边；若 DP 需要对不同邻点去重，调用者应排序去重。支持自环、重边、不连通图和重复 run。时间及图存储 O(n+m)，递归 DFS 另需 O(n) 调用栈；长链可能受系统栈限制，可改用已有迭代 Kosaraju。注意已有 SCC 模板的编号方向与本模板相反。
+
+\lstinputlisting[firstline=7,lastline=81]{../src/compact/tarjan.hpp}
+
 \chapter{数据结构}
 
 \Needspace{492pt}
@@ -362,7 +370,35 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 
 \lstinputlisting[firstline=8,lastline=125]{../src/compact/blossom.hpp}
 
+\chapter{线性递推}
+
+\Needspace{590pt}
+
+\section{Berlekamp–Massey：最短线性递推}\label{compact-berlekamp_massey}\index{berlekamp\_massey}
+
+berlekamp\_massey(s,p) 要求 p 为素数，2$\le$p$\le$INT\_MAX，输入均在 [0,p)；返回 c，使 s[i]=$\sum$ c[j-1]s[i-j]（j=1..k，i$\ge$k）。空序列或全零序列返回空系数。有限前缀可能对应多种未来，不能无条件外推；若已知原序列满足阶数至多 d 的齐次线性递推，提供至少 2d 项才能恢复可外推的递推。模运算次数 O(Nk+N log p)，后项来自逐次求逆；空间 O(N)。不适用于合数模数或浮点拟合。
+
+\lstinputlisting[firstline=7,lastline=53]{../src/compact/recurrence.hpp}
+
+\Needspace{636pt}
+
+\section{特征多项式求线性递推第 k 项}\label{compact-recurrence_nth}\index{recurrence\_nth}
+
+recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。init 与 c 长度均为阶数 k；a[i]=$\sum$ c[j-1]a[i-j]。2$\le$p$\le$INT\_MAX，数值均在 [0,p)，本函数允许合数模数。空系数约定全零序列。计算 x\textasciicircum{}n 对特征多项式取余再与初值点乘，O(k$^{2}$ log(n+1)) 时间、O(k) 空间；不依赖 BM 或其他模板。较大阶数需快速多项式或 Bostan--Mori 版本，当前函数不覆盖该复杂度需求。
+
+\lstinputlisting[firstline=57,lastline=107]{../src/compact/recurrence.hpp}
+
 \part{传统接口风格}
+
+\chapter{Tarjan 与缩点}
+
+\section{Tarjan 强连通分量与缩点}\label{classic-TarjanSCC}\index{Tarjan\_SCC}
+
+算法约束见动态版本第~\pageref{compact-TarjanSCC}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Tarjan\_SCC<N>，先 Init(n)，Insert 加边，Run 求分量，Dag 输出缩点图。bel 与 cnt 可直接读取；大对象放在全局或 static。
+
+\lstinputlisting[firstline=7,lastline=85]{../src/classic/tarjan.hpp}
 
 \chapter{数据结构}
 
@@ -747,3 +783,21 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 声明 General\_Matching<N> 后调用 Init(n)，N 为点数上限。Insert 加边，Solve 返回匹配边数，mate 保存配对点，点号仍为 0-based。大对象放在全局或 static。
 
 \lstinputlisting[firstline=8,lastline=130]{../src/classic/blossom.hpp}
+
+\chapter{线性递推}
+
+\Needspace{590pt}
+
+\section{Berlekamp–Massey：最短线性递推}\label{classic-berlekamp_massey}\index{Berlekamp\_Massey}
+
+算法约束见动态版本第~\pageref{compact-berlekamp_massey}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=7,lastline=53]{../src/classic/recurrence.hpp}
+
+\Needspace{636pt}
+
+\section{特征多项式求线性递推第 k 项}\label{classic-recurrence_nth}\index{Recurrence\_Nth}
+
+算法约束见动态版本第~\pageref{compact-recurrence_nth}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=57,lastline=107]{../src/classic/recurrence.hpp}
