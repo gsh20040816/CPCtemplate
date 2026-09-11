@@ -361,7 +361,7 @@ WIDA,02 - 打印稿模板汇总/10 - 串.md,,马拉车,pending,,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,字典树 trie,pending,,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,基础封装,pending,,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,01 字典树,pending,,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,后缀数组 SA,pending,,,
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,后缀数组 SA,local-tested,src/compact/string.hpp#SuffixArray,src/classic/string.hpp#Suffix_Array,"Counting-sort doubling O(n log n+alphabet); byte and integer alphabets, no explicit sentinel; rk/lcp 0-based. tests/suffix_array.cpp exhaustive suffix/LCP oracle and million-character cases; P3809 prepared, OJ pending"
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,AC 自动机,pending,,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,回文自动机 PAM（回文树）,local-tested,src/compact/palindromic_tree.hpp,src/classic/palindromic_tree.hpp,"tests/palindromic_tree.cpp; suffix count, distinct count, occurrences and representative endpoints; OJ pending"
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,后缀自动机 SAM,pending,,,
@@ -541,8 +541,8 @@ WIDA,03 - jiangly模板收集/04 - 数据结构/09 - 分数四则运算（Frac�
 WIDA,03 - jiangly模板收集/04 - 数据结构/10 - 线性基（Basis）.cpp,,10 - 线性基（Basis）,pending,,,
 WIDA,03 - jiangly模板收集/05 - 字符串/01A - 马拉车（Manacher）.cpp,,01A - 马拉车（Manacher）,pending,,,
 WIDA,03 - jiangly模板收集/05 - 字符串/02 - Z函数.cpp,,02 - Z函数,pending,,,
-WIDA,03 - jiangly模板收集/05 - 字符串/03A - 后缀数组（SuffixArray）.cpp,,03A - 后缀数组（SuffixArray）,pending,,,
-WIDA,03 - jiangly模板收集/05 - 字符串/03B - 后缀数组（SA）.cpp,,03B - 后缀数组（SA）,pending,,,
+WIDA,03 - jiangly模板收集/05 - 字符串/03A - 后缀数组（SuffixArray）.cpp,,03A - 后缀数组（SuffixArray）,local-tested,src/compact/string.hpp#SuffixArray,src/classic/string.hpp#Suffix_Array,"Counting-sort doubling O(n log n+alphabet); byte and integer alphabets, no explicit sentinel; rk/lcp 0-based. tests/suffix_array.cpp exhaustive suffix/LCP oracle and million-character cases; P3809 prepared, OJ pending"
+WIDA,03 - jiangly模板收集/05 - 字符串/03B - 后缀数组（SA）.cpp,,03B - 后缀数组（SA）,partial,src/compact/string.hpp#SuffixArray,src/classic/string.hpp#Suffix_Array,Suffix sorting and adjacent LCP locally verified; upstream lc[i] maps to lcp[i+1]. Included RMQ/lcp/lcs application helpers still pending
 WIDA,03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp,,04A - 后缀自动机（SuffixAutomaton 旧版）,pending,,,
 WIDA,03 - jiangly模板收集/05 - 字符串/04B - 后缀自动机（SAM 新版）.cpp,,04B - 后缀自动机（SAM 新版）,pending,,,
 WIDA,03 - jiangly模板收集/05 - 字符串/05 - 回文自动机（PAM）.cpp,,05 - 回文自动机（PAM）,local-tested,src/compact/palindromic_tree.hpp,src/classic/palindromic_tree.hpp,"tests/palindromic_tree.cpp; suffix count, distinct count, occurrences and representative endpoints; OJ pending"
@@ -557,8 +557,8 @@ kuangbin,ACM template (2018),5,1.1 KMP,pending,,,
 kuangbin,ACM template (2018),8,1.2 e-KMP,pending,,,
 kuangbin,ACM template (2018),8,1.3 Manacher,pending,,,
 kuangbin,ACM template (2018),9,1.4 AC 自动机,pending,,,
-kuangbin,ACM template (2018),11,1.5 后缀数组,pending,,,
-kuangbin,ACM template (2018),11,1.5.1 DA,pending,,,
+kuangbin,ACM template (2018),11,1.5 后缀数组,partial,src/compact/string.hpp#SuffixArray,src/classic/string.hpp#Suffix_Array,DA counting-sort doubling locally tested for byte and integer alphabets; DC3 pending
+kuangbin,ACM template (2018),11,1.5.1 DA,local-tested,src/compact/string.hpp#SuffixArray,src/classic/string.hpp#Suffix_Array,"Counting-sort doubling O(n log n+alphabet); byte and integer alphabets, no explicit sentinel; rk/lcp 0-based. tests/suffix_array.cpp exhaustive suffix/LCP oracle and million-character cases; P3809 prepared, OJ pending"
 kuangbin,ACM template (2018),14,1.5.2 DC3,pending,,,
 kuangbin,ACM template (2018),15,1.6 后缀自动机,pending,,,
 kuangbin,ACM template (2018),15,1.6.1 基本函数,pending,,,

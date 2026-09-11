@@ -107,3 +107,6 @@ build/maximum_closure
 
 "$CXX" "${flags[@]}" tests/support_hull.cpp -o build/support_hull
 build/support_hull
+
+"$CXX" "${flags[@]}" tests/suffix_array.cpp -o build/suffix_array
+build/suffix_array

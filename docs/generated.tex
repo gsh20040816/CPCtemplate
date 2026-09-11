@@ -214,19 +214,25 @@ minimum\_rotation(s) 返回字典序最小循环表示的起点（0-based），�
 
 \lstinputlisting[firstline=137,lastline=210]{../src/compact/string.hpp}
 
-\Needspace{642pt}
+\newpage
 
 \section{倍增后缀数组与 LCP}\label{compact-SuffixArray}\index{SuffixArray}
 
-sa[k] 为第 k 个后缀起点，rk[i] 为排名，lcp[k] 为 sa[k-1] 与 sa[k] 的 LCP（lcp[0]=0）。空串合法；当前排序比较版 O(n log$^{2}$ n)，不能替代待补的线性 SA/DC3 条目。
+构造 SuffixArray(s) 支持任意字节串，按 unsigned char 的 0..255 数值比较，包含内嵌零字节；也可构造 SuffixArray(a,alphabet)，整数序列要求 0$\le$a[i]<alphabet、1$\le$alphabet<INT\_MAX。init(a,alphabet) 可重复重建，传统版为 Init。长度须小于 INT\_MAX。sa[k] 为第 k 个非空后缀起点，rk[i] 为排名，全部 0-based；lcp[k] 为 sa[k-1] 与 sa[k] 的最长公共前缀，lcp[0]=0。空序列合法，三数组均为空。无需手动追加哨兵，也不输出空后缀。每轮按第二关键字已有顺序、第一关键字稳定计数排序，倍增 O(n log n+alphabet)，空间 O(n+alphabet)；字节串 alphabet=256。大整数先自行保序离散化，避免按最大原值开桶。Kasai 求 lcp 为 O(n)。不同起点 x,y 的 LCP 为 lcp[min(rk[x],rk[y])+1..max(rk[x],rk[y])] 的最小值；本结构不内建 RMQ，需要频繁查询时另接静态 RMQ。同一起点的 LCP 为 n-x。覆盖倍增构造，不替代 DC3/SA-IS。
 
-\lstinputlisting[firstline=211,lastline=264]{../src/compact/string.hpp}
+\lstinputlisting[firstline=211,lastline=250]{../src/compact/string.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=251,lastline=301,firstnumber=41]{../src/compact/string.hpp}
+
+\newpage
 
 \section{后缀自动机}\label{compact-SuffixAutomaton}\index{SuffixAutomaton}
 
 extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts() 返回 endpos 次数且不修改结构，可重复调用。状态 a，初始状态 0，link 根为 -1；空间 O(26n)，构建 O(26n)。
 
-\lstinputlisting[firstline=265,lastline=339]{../src/compact/string.hpp}
+\lstinputlisting[firstline=302,lastline=376]{../src/compact/string.hpp}
 
 \chapter{回文树}
 
@@ -776,19 +782,25 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 
 \lstinputlisting[firstline=153,lastline=226]{../src/classic/string.hpp}
 
-\Needspace{642pt}
+\newpage
 
 \section{倍增后缀数组与 LCP}\label{classic-SuffixArray}\index{Suffix\_Array}
 
 算法约束见动态版本第~\pageref{compact-SuffixArray}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=227,lastline=280]{../src/classic/string.hpp}
+\lstinputlisting[firstline=227,lastline=266]{../src/classic/string.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=267,lastline=317,firstnumber=41]{../src/classic/string.hpp}
+
+\newpage
 
 \section{后缀自动机}\label{classic-SuffixAutomaton}\index{Suffix\_Automaton}
 
 算法约束见动态版本第~\pageref{compact-SuffixAutomaton}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=281,lastline=355]{../src/classic/string.hpp}
+\lstinputlisting[firstline=318,lastline=392]{../src/classic/string.hpp}
 
 \chapter{回文树}
 

@@ -230,33 +230,70 @@ struct Suffix_Array
 
     Suffix_Array(const string &s)
     {
+        vector<int> a;
+        a.reserve(s.size());
+        for ( unsigned char c : s )
+            a.push_back(c);
+        Init(a, 256);
+    }
+
+    Suffix_Array(const vector<int> &s, int alphabet)
+    {
+        Init(s, alphabet);
+    }
+
+    void Init(const vector<int> &s, int alphabet)
+    {
+        assert(s.size() < INT_MAX);
+        assert(1 <= alphabet && alphabet < INT_MAX);
         int n = (int)s.size();
         sa.resize(n);
         rk.resize(n);
         lcp.assign(n, 0);
+        if ( !n )
+            return;
+        vector<int> order(n), old(n), cnt(max(n + 1, alphabet + 1));
+        int m = alphabet;
         for ( int i = 0; i < n; i++ )
         {
-            sa[i] = i;
-            rk[i] = (unsigned char)s[i];
+            assert(0 <= s[i] && s[i] < alphabet);
+            rk[i] = s[i] + 1;
+            cnt[rk[i]]++;
         }
-        vector<int> tmp(n);
+        for ( int i = 1; i <= m; i++ )
+            cnt[i] += cnt[i - 1];
+        for ( int i = n - 1; i >= 0; i-- )
+            sa[--cnt[rk[i]]] = i;
         for ( int k = 1; k < n; k *= 2 )
         {
-            auto key = [&](int i)
+            int p = 0;
+            for ( int i = n - k; i < n; i++ )
+                order[p++] = i;
+            for ( int i : sa )
+                if ( i >= k )
+                    order[p++] = i - k;
+            fill(cnt.begin(), cnt.begin() + m + 1, 0);
+            for ( int x : rk )
+                cnt[x]++;
+            for ( int i = 1; i <= m; i++ )
+                cnt[i] += cnt[i - 1];
+            for ( int i = n - 1; i >= 0; i-- )
+                sa[--cnt[rk[order[i]]]] = order[i];
+            old.swap(rk);
+            auto second = [&](int i)
             {
-                return pair{rk[i], i + k < n ? rk[i + k] : -1};
+                return i < n - k ? old[i + k] : 0;
             };
-            sort(sa.begin(),
-                 sa.end(),
-                 [&](int i, int j)
-                 {
-                     return key(i) < key(j);
-                 });
-            tmp[sa[0]] = 0;
+            m = 1;
+            rk[sa[0]] = m;
             for ( int i = 1; i < n; i++ )
-                tmp[sa[i]] = tmp[sa[i - 1]] + (key(sa[i]) != key(sa[i - 1]));
-            rk = tmp;
-            if ( rk[sa.back()] == n - 1 )
+            {
+                int a = sa[i - 1], b = sa[i];
+                if ( old[a] != old[b] || second(a) != second(b) )
+                    m++;
+                rk[b] = m;
+            }
+            if ( m == n )
                 break;
         }
         for ( int i = 0; i < n; i++ )
@@ -269,7 +306,7 @@ struct Suffix_Array
                 continue;
             }
             int j = sa[rk[i] - 1];
-            while ( i + k < n && j + k < n && s[i + k] == s[j + k] )
+            while ( k < n - i && k < n - j && s[i + k] == s[j + k] )
                 ++k;
             lcp[rk[i]] = k;
             if ( k )
