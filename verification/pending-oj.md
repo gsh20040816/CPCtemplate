@@ -51,6 +51,8 @@
 - `verify/luogu/P5496.classic.cpp`
 - `verify/luogu/P6113.classic.cpp`
 - `verify/luogu/P6113.compact.cpp`
+- `verify/luogu/P7771.classic.cpp`
+- `verify/luogu/P7771.compact.cpp`
 - `verify/poj/1330.classic.cpp`
 - `verify/poj/1330.compact.cpp`
 - `verify/poj/1330.lifting.classic.cpp`

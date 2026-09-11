@@ -214,6 +214,20 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 
 \lstinputlisting[firstline=275,lastline=321,firstnumber=19]{../src/compact/graph.hpp}
 
+\chapter{有向欧拉路}
+
+\Needspace{533pt}
+
+\section{有向图字典序最小欧拉路}\label{compact-DirectedEuler}\index{DirectedEuler}
+
+构造 DirectedEuler(n)，n$\ge$1，点号 1..n；add(u,v) 返回从 0 开始的逻辑边编号，支持自环与重边。run() 返回是否存在欧拉路；参数 start 默认 0，lexicographic 默认 true。start=0 自动选择最小可行起点，否则固定起点；孤立点不影响有边部分的连通性。成功后 vertices 长度为 m+1，edge\_ids 长度为 m，第 i 条原边从 vertices[i] 指向 vertices[i+1]；失败清空两数组。无边时返回单点路径，自动起点为 1。可重复 run，add 会清空旧方案。默认求顶点序列字典序最小方案；关闭排序后只保证任意方案，邻接顺序可能保留上次排序。开启排序总时间 O(n+m log(m+1))，否则 O(n+m)，空间 O(n+m)。DFS 递归深度可能达到 m+1，不是 n。度数检查后，以消费边数判定是否遍历全部非孤立部分，逆后序形成连续走法。小图全部走法对拍同时验证存在性、字典序及边编号，P7771 双风格完整程序本地验证，在线待补。
+
+\lstinputlisting[firstline=8,lastline=44]{../src/compact/directed_euler.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=45,lastline=95,firstnumber=38]{../src/compact/directed_euler.hpp}
+
 \chapter{图上异或行走}
 
 \section{无向图最大异或行走}\label{compact-XorWalk}\index{XorWalk}
@@ -947,6 +961,26 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 \newpage
 
 \lstinputlisting[firstline=296,lastline=342,firstnumber=19]{../src/classic/graph.hpp}
+
+\chapter{有向欧拉路}
+
+\Needspace{635pt}
+
+\section{有向图字典序最小欧拉路}\label{classic-DirectedEuler}\index{Directed\_Euler}
+
+算法约束见动态版本第~\pageref{compact-DirectedEuler}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Directed\_Euler<N>，Init(n) 清空图，Insert 加边并返回从 0 开始的边编号，Run 求解（参数默认值同动态版）。vertices、edge\_ids、edges 可直接读取；N 为最大点数，大对象放全局或 static。
+
+\lstinputlisting[firstline=8,lastline=29,firstnumber=1]{../src/classic/directed_euler.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=30,lastline=54,firstnumber=23]{../src/classic/directed_euler.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=55,lastline=105,firstnumber=48]{../src/classic/directed_euler.hpp}
 
 \chapter{图上异或行走}
 
