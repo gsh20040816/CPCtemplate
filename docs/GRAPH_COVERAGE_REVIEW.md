@@ -84,3 +84,13 @@ kuangbin 4.20.2 的 POJ1470 调用也已提供双风格驱动：解析 `u:(k)` �
 参考：[OI Wiki LCA](https://oi-wiki.org/graph/lca/)、[P3379 题面](https://www.luogu.com.cn/problem/P3379)。kuangbin 原注释的 O(n+Q) 不直接沿用为本实现的复杂度；这里明确包含并查集的反阿克曼因子。父项 4.20 仍为 partial，其他 LCA 实现分别审计。
 
 离线 LCA 库的 50 万层 ASan 测试首次在 256MB 线程栈上触发栈溢出（verification/offline-lca-stack-limit.txt）；测试线程调整为 512MB 后复测。此调整只在 tests/offline_lca.cpp 中，模板 DFS 不变。P3379 普通优化驱动使用的测试线程仍为 256MB。
+
+## 欧拉序与 ST 表 LCA
+
+`EulerLCA` / `Euler_LCA<N,LOG>` 以递归 DFS 生成长度 2n-1 的完整欧拉序，保存各点首次出现位置，ST 表存区间最浅顶点。Lca/lca 和 Distance/distance 都是 O(1)；只接受非空树。Build/build 可换根重建，查询要求 ready，Init 清空图。传统版 LOG 必须满足 2^LOG > 2n-1，N 控制顶点容量；因此默认 LOG=20 可用于 n=500000。不能沿用仅覆盖 n 的倍增表层数约定。
+
+[tests/euler_lca.cpp](../tests/euler_lca.cpp) 穷举 n≤6 的全部标号树、根和点对，以 BFS 父链验证 LCA/无权距离；同时验证欧拉序长度、首次出现位置、重建和重置，另有 50 万点链的三种根测试。P3379 的完整程序测试 n=q=500000；POJ1330 程序从有向父子边推断根，支持多组输入，按 kuangbin 2018 第 179–181 页格式验证，含 n=10000 长链，均为本地证据。日志为 verification/euler-lca-driver-tests.txt；不声称 POJ 在线 AC。
+
+kuangbin 4.20.1 据此更新为 local-tested，4.20 父项仍保留 partial，倍增法单独审计。参考定义与欧拉序方法见 [OI Wiki LCA](https://oi-wiki.org/graph/lca/)，P3379 输入与最大规模见 [题面](https://www.luogu.com.cn/problem/P3379)。
+
+后续倍增范围已核对：kuangbin 4.20.3 是 POJ1330 的祖先倍增实现，不能仅用已有 HLD.lca 关闭；WIDA 打印稿“最近公共祖先 LCA”还包括基础倍增与路径最大边权扩展。其 clac 计算的是边数而非权值和，最大边权 query 以 0 初始化，负边权需要另行规定。后续实现应明确无边路径、负权最大值与跳出根的返回语义，再逐项验证，不把本次无权欧拉序版本标为这些功能的覆盖。

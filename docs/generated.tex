@@ -248,6 +248,20 @@ add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn�
 
 \lstinputlisting[firstline=44,lastline=87,firstnumber=36]{../src/compact/offline_lca.hpp}
 
+\chapter{在线最近公共祖先}
+
+\Needspace{386pt}
+
+\section{欧拉序与 ST 表 LCA}\label{compact-EulerLCA}\index{EulerLCA}
+
+构造 EulerLCA(n)，add(u,v) 加无向树边，build(root=1) 预处理；lca(u,v) 返回最近公共祖先，distance(u,v) 返回无权路径边数。输入必须为非空树，点号 1..n；允许同点查询和重复 build 换根。只可在 build 后查询，加边会清除 ready 标志。递归 DFS 在进入顶点及从每个儿子返回时记录顶点，euler 长度为 2n-1，first[u] 是从 0 开始的首次出现位置；depth[root]=0。两点首次出现位置间深度最小的顶点就是 LCA，用 ST 表保存该顶点。预处理 O(n log n) 时间和空间，每次查询 O(1)。ST 内部下标从 0 开始；first、depth、euler 可直接读取。50 万点链、全部小树根与点对以及 P3379、POJ1330 双风格完整程序本地验证；在线待补。
+
+\lstinputlisting[firstline=7,lastline=30]{../src/compact/euler_lca.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=31,lastline=81,firstnumber=25]{../src/compact/euler_lca.hpp}
+
 \chapter{点分治}
 
 \section{点分治：树上距离点对计数}\label{compact-CentroidPairs}\index{CentroidPairs}
@@ -945,6 +959,22 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 \newpage
 
 \lstinputlisting[firstline=45,lastline=88,firstnumber=37]{../src/classic/offline_lca.hpp}
+
+\chapter{在线最近公共祖先}
+
+\Needspace{478pt}
+
+\section{欧拉序与 ST 表 LCA}\label{classic-EulerLCA}\index{Euler\_LCA}
+
+算法约束见动态版本第~\pageref{compact-EulerLCA}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Euler\_LCA<N,LOG>，Init(n) 清空树；Insert 加边，Build(root) 预处理，Lca 与 Distance 在线查询。LOG 层必须满足 2 的 LOG 次方大于 2n-1，默认 20 支持 50 万点；st 固定容量为 LOG 乘以 2N。大对象放全局或 static。
+
+\lstinputlisting[firstline=7,lastline=39]{../src/classic/euler_lca.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=40,lastline=89,firstnumber=34]{../src/classic/euler_lca.hpp}
 
 \chapter{点分治}
 

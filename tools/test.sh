@@ -137,3 +137,6 @@ build/bridge_augmentation
 
 "$CXX" "${flags[@]}" -pthread tests/offline_lca.cpp -o build/offline_lca
 build/offline_lca
+
+"$CXX" "${flags[@]}" -pthread tests/euler_lca.cpp -o build/euler_lca
+build/euler_lca
