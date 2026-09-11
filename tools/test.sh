@@ -116,3 +116,6 @@ build/suffix_lcp
 
 "$CXX" "${flags[@]}" tests/xor_basis.cpp -o build/xor_basis
 build/xor_basis
+
+"$CXX" "${flags[@]}" tests/position_basis.cpp -o build/position_basis
+build/position_basis

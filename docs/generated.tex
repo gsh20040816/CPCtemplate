@@ -64,6 +64,18 @@ add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有�
 
 \lstinputlisting[firstline=272,lastline=303,firstnumber=67]{../src/compact/data_structure.hpp}
 
+\chapter{带位置线性基}
+
+\section{带位置限制的异或线性基}\label{compact-PositionBasis}\index{PositionBasis}
+
+默认构造为空，init/Init 可清空。insert/Insert(x,at) 插入 unsigned long long 值及非负 int 标签，支持完整 64 位，标签可重复、乱序。contains/Contains(x,lower=0) 判断 x 能否由标签至少为 lower 的输入异或得到；query/Query(lower=0,x=0) 返回 x 与这些输入子集异或后的最大值；rank/Rank(lower=0) 返回对应空间维数。lower 为非负 long long，可大于所有 int 标签，空集仍可产生 0。全部操作 O(64)，空间 O(64)。消元时同一主元优先保留标签较大的向量，较旧向量继续消元；按阈值筛选后仍是正确线性基。标签是组合可用范围的界，不是选点方案；数组仅供只读。区间 [l,r] 应按右端点排序询问，扫描并仅插入到 r，再查询 lower=l；接口本身没有上界，插入超过 r 后不能只用 lower 恢复旧区间。若需保留历史，可复制每个前缀的对象，但空间为 O(64n)。不提供非空零异或判定或第 k 小；普通线性基的 dependent 不能直接移植到所有阈值。
+
+\lstinputlisting[firstline=6,lastline=22]{../src/compact/position_basis.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=23,lastline=70,firstnumber=18]{../src/compact/position_basis.hpp}
+
 \chapter{线段树常用修改}
 
 \section{线段树：区间乘、加、赋值与模意义求和}\label{compact-AffineSegTree}\index{AffineSegTree}
@@ -647,6 +659,18 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 \newpage
 
 \lstinputlisting[firstline=272,lastline=318,firstnumber=52]{../src/classic/data_structure.hpp}
+
+\chapter{带位置线性基}
+
+\section{带位置限制的异或线性基}\label{classic-PositionBasis}\index{Position\_Basis}
+
+算法约束见动态版本第~\pageref{compact-PositionBasis}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=6,lastline=22]{../src/classic/position_basis.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=23,lastline=70,firstnumber=18]{../src/classic/position_basis.hpp}
 
 \chapter{线段树常用修改}
 

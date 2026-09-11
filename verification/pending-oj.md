@@ -2,6 +2,8 @@
 
 以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/luogu 与 oj.json 对照生成。
 
+- `verify/luogu/CF1100F.classic.cpp`
+- `verify/luogu/CF1100F.compact.cpp`
 - `verify/luogu/CF600E.classic.cpp`
 - `verify/luogu/CF600E.compact.cpp`
 - `verify/luogu/P1117.classic.cpp`
