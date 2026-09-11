@@ -228,6 +228,12 @@
     "TreePathKth(a) 传入非空 0-based 权值数组，节点编号 1..n；add(u,v) 加无向边，要求恰好构成一棵树。build(root=1) 递归 DFS 建立根到各节点的频数版本与倍增表，可换根重建，旧版本自动清空。kth(u,v,k) 返回简单路径上第 k 小的点权，包含两个端点，每个节点计一次；1≤k≤路径点数。lca(u,v) 返回当前预处理根下的最近公共祖先。使用 root[u]+root[v]-root[lca]-root[parent(lca)]，编号 0 为全零版本，避免少算或重复算 LCA。支持重复值与完整 long long 权值，内部只统计频数；权值和树结构在查询阶段保持不变。预处理 O(n log n)，每次查询 O(log n)，空间 O(n log n)。递归深度最坏 O(n)，保持递归写法。"
   ],
   [
+    "dynamic_kth",
+    "DynamicKth",
+    "动态区间第 k 小（树状数组套权值线段树）",
+    "DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可能赋入的新值；内部自动合并初值并离散化。set(pos,value) 单点赋值，kth(l,r,k) 查询闭区间第 k 小，下标均为 1-based；1≤k≤r-l+1。允许重复值与完整 long long 权值；新值必须已在离散化集合内，操作可按原顺序执行，不保留历史版本。每个树状数组节点对应一棵可变权值线段树；删除旧值后插入新值。空节点回收到 free_head 链，重复修改不会按操作次数累计泄漏节点。设 D 为不同值数，S=n+future.size()，预处理 O(S log S+n log n log(D+1))，单次修改及查询 O(log n log(D+1))。节点数上界 B=(ceil(log2(D))+1)·Σ lowbit(i)，求和 i=1..n；空间 O(S+n+B)。update、modify、id 和节点池均为内部接口；不能手动减去不存在的值。"
+  ],
+  [
     "graph_advanced",
     "Hungarian",
     "矩形二分图最小权匹配",

@@ -370,6 +370,18 @@ TreePathKth(a) 传入非空 0-based 权值数组，节点编号 1..n；add(u,v) 
 
 \lstinputlisting[firstline=7,lastline=136]{../src/compact/tree_path_kth.hpp}
 
+\chapter{动态区间顺序统计}
+
+\section{动态区间第 k 小（树状数组套权值线段树）}\label{compact-DynamicKth}\index{DynamicKth}
+
+DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可能赋入的新值；内部自动合并初值并离散化。set(pos,value) 单点赋值，kth(l,r,k) 查询闭区间第 k 小，下标均为 1-based；1$\le$k$\le$r-l+1。允许重复值与完整 long long 权值；新值必须已在离散化集合内，操作可按原顺序执行，不保留历史版本。每个树状数组节点对应一棵可变权值线段树；删除旧值后插入新值。空节点回收到 free\_head 链，重复修改不会按操作次数累计泄漏节点。设 D 为不同值数，S=n+future.size()，预处理 O(S log S+n log n log(D+1))，单次修改及查询 O(log n log(D+1))。节点数上界 B=(ceil(log2(D))+1)·$\sum$ lowbit(i)，求和 i=1..n；空间 O(S+n+B)。update、modify、id 和节点池均为内部接口；不能手动减去不存在的值。
+
+\lstinputlisting[firstline=7,lastline=89]{../src/compact/dynamic_kth.hpp}
+
+\Needspace{495pt}
+
+\lstinputlisting[firstline=90,lastline=132,firstnumber=84]{../src/compact/dynamic_kth.hpp}
+
 \chapter{图论进阶}
 
 \section{矩形二分图最小权匹配}\label{compact-Hungarian}\index{Hungarian}
@@ -887,6 +899,20 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 声明 Tree\_Path\_Kth<N,NODES,LOG>，Init(a) 清空图并保存权值；Insert、Build、Kth、Lca 对应动态接口。要求 2 的 LOG 次方大于实际点数，默认 LOG=20。若不同权值数为 D，NODES 至少取 n 乘以 (ceil(log2(D))+1)，另有编号 0 空节点。大对象放在全局或 static；Init 与 Build 分别清空图和重建版本。
 
 \lstinputlisting[firstline=7,lastline=143]{../src/classic/tree_path_kth.hpp}
+
+\chapter{动态区间顺序统计}
+
+\section{动态区间第 k 小（树状数组套权值线段树）}\label{classic-DynamicKth}\index{Dynamic\_Kth}
+
+算法约束见动态版本第~\pageref{compact-DynamicKth}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Dynamic\_Kth<N,NODES> 后 Init(a,future)，Set 与 Kth 为公开操作。N 限制数组长度，NODES 限制分配节点的最大编号，另有编号 0 空节点。按照上面的 B 分配一定足够；例如 n 不超过 100000 且 D 不超过 200000 时，B 不超过 16682000。节点回收使此界与修改次数无关。大对象放在全局或 static，Init 清空旧状态。
+
+\lstinputlisting[firstline=7,lastline=95]{../src/classic/dynamic_kth.hpp}
+
+\Needspace{495pt}
+
+\lstinputlisting[firstline=96,lastline=138,firstnumber=90]{../src/classic/dynamic_kth.hpp}
 
 \chapter{图论进阶}
 

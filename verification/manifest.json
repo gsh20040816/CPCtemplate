@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T18:56:05.394009+00:00",
+  "recorded_at_utc": "2026-09-11T19:07:06.496387+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -42,7 +42,8 @@
       "exLucas dual Pascal, exact big integers, uint64 extremes and prime Lucas oracle PASS",
       "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
       "exBSGS dual exhaustive first-occurrence oracle, signed inputs and 1e12 boundary PASS",
-      "Tree-path kth dual all-path sorted oracle, LCA, reroot and 200000-node recursion PASS"
+      "Tree-path kth dual all-path sorted oracle, LCA, reroot and 200000-node recursion PASS",
+      "Dynamic kth dual sorted-slice oracle, recycling ownership, reset and large updates PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -83,7 +84,8 @@
       "exLucas dual Pascal, exact big integers, uint64 extremes and prime Lucas oracle PASS",
       "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
       "exBSGS dual exhaustive first-occurrence oracle, signed inputs and 1e12 boundary PASS",
-      "Tree-path kth dual all-path sorted oracle, LCA, reroot and 200000-node recursion PASS"
+      "Tree-path kth dual all-path sorted oracle, LCA, reroot and 200000-node recursion PASS",
+      "Dynamic kth dual sorted-slice oracle, recycling ownership, reset and large updates PASS"
     ]
   },
   "sha256": {
@@ -95,6 +97,7 @@
     "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
     "src/classic/data_structure.hpp": "5a70990557e1aa09e52aed4d86b3266b6458e7fda9df45b783773816d279eb79",
     "src/classic/dsu_on_tree.hpp": "ec9482919c309309980c8ec06d98fbf3ad7aeb1308f1685552245bd3df040434",
+    "src/classic/dynamic_kth.hpp": "1722bf7aece58ad677f0e515014b31dd72e05d320a883adc88d366d0f872d22b",
     "src/classic/dynamic_tree.hpp": "b11bde8c5b78f6fb927e79e854b5b940757226e46d8bbb68ec17c58db3773821",
     "src/classic/exlucas.hpp": "9b54b6f0b06a634707c412f8fb0787c15f44ec7e48fb0f02bdecb7ebaf5fba1d",
     "src/classic/flow.hpp": "bd799ac3debd9806f3b33ac9ac7acce02aa97a9fb7e19f9a0b2c1855e5fcf533",
@@ -127,6 +130,7 @@
     "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
     "src/compact/data_structure.hpp": "c8d2b7df0a017a790b73428c146e0ab35193d01e9d81d5848eb2d95be7b4ff56",
     "src/compact/dsu_on_tree.hpp": "b773f54e4304a7ef348c5e6079233726df17232f8da5843a5a9b284b2bcd94fa",
+    "src/compact/dynamic_kth.hpp": "006b98255668548427c58149db6260dfa5372fa287fd771d6b66b56fe3c086c5",
     "src/compact/dynamic_tree.hpp": "1e9fdf1d3b04989459cfc7c2a9fe6f5256870e09ce37875994e44cb868714769",
     "src/compact/exlucas.hpp": "d035e36afe55605b21e33f74af10695699f8b156c624c0d477c1f5ffc1861b78",
     "src/compact/flow.hpp": "a3dfad19ee2aaeacdde5ff4d52cb1a49e0788a2c350142ddb896d4bca3074d15",
@@ -162,6 +166,9 @@
     "tests/discrete_log_application.py": "d73773a400174992ac02c39a290679de3bd76943e0d3769ebf1a52c99f416d4e",
     "tests/dsu_on_tree.cpp": "8af99c1002d77d57b85a8763efca24c52f03dd786c0f594f23df633a984ab68f",
     "tests/dual.cpp": "6a3e330198d0de2b47946a9c7868ef200d8a36f51fe40a71c25274d7d0f102ad",
+    "tests/dynamic_kth.cpp": "adef3100691e835610eb7346137273498f03126c7dbd6e062a4ef60313ac3671",
+    "tests/dynamic_kth_application.py": "f8219061b8dbb3bdbf1f37c7b0da9056937883768442415dad15de32ba90e8e4",
+    "tests/dynamic_kth_scale.py": "520ce96be1927367c283b6aae8877090cceea648afbdbc126f2d977acc92acee",
     "tests/exlucas.cpp": "d14d58646c7679ea0a18bd0bac87b9cec4d084fef7d07170298b4f310c475331",
     "tests/exlucas_application.py": "e7af780f3141c17568d4c17761e48d5d9f9a801971f539cc5337a6d5545c2eea",
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",

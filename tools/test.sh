@@ -92,3 +92,6 @@ build/discrete_log
 
 "$CXX" "${flags[@]}" -pthread tests/tree_path_kth.cpp -o build/tree_path_kth
 build/tree_path_kth
+
+"$CXX" "${flags[@]}" tests/dynamic_kth.cpp -o build/dynamic_kth
+build/dynamic_kth
