@@ -158,3 +158,6 @@ build/word_chain
 
 "$CXX" "${flags[@]}" -pthread tests/mixed_euler.cpp -o build/mixed_euler
 build/mixed_euler
+
+"$CXX" "${flags[@]}" -pthread tests/odd_cycle_vertices.cpp -o build/odd_cycle_vertices
+build/odd_cycle_vertices

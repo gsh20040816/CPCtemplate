@@ -42,7 +42,7 @@ Tarjan 的跨分量边从大编号到小编号，Kosaraju 的跨分量边从小�
 | kuangbin 4.6、4.6.1 | Lowlink 的割点、桥、components/delta；点双复用辅助函数 | 在线评测待补 | 本地覆盖 |
 | kuangbin 4.6.2 调用 | UVA796 格式与排序输出、POJ2117 删点最大值，两套打包程序均已对拍 | 在线评测待补 | 本地覆盖 |
 | kuangbin 4.7 | 边双、桥树最少加边与原图点号方案 | P2860 同题意双风格驱动已本地验证，在线待补 | 本地覆盖 |
-| kuangbin 4.8 | 点双顶点集合 | POJ2942 补图与非二分点双中的奇圈顶点标记 | 部分覆盖 |
+| kuangbin 4.8 | 点双、简单奇环顶点标记与 POJ2942 补图应用 | 完整驱动本地验证，在线待补 | 本地覆盖 |
 
 上游片段有几处必须明确的区别：
 
@@ -63,7 +63,7 @@ kuangbin 4.18.2 的强连通方法可映射到 `TwoSAT` / `Two_SAT` 的可满足
 
 ## 后续缺口
 
-删点连通块增量、边定向及缩点统计已补；桥树增广已完成，下一步验证奇圈点双应用。2-SAT 的字典序最小版本和 Wedding 适配分别验证。kuangbin 4.20.2 的离线 Tarjan LCA 已另行实现与验证，见下节；它与 SCC 是不同算法。
+删点连通块增量、边定向及缩点统计已补；桥树增广和奇圈点双应用均已完成本地验证。2-SAT 的字典序最小版本和 Wedding 适配分别验证。kuangbin 4.20.2 的离线 Tarjan LCA 已另行实现与验证，见下节；它与 SCC 是不同算法。
 
 ## 桥树最少加边补充
 
@@ -158,3 +158,13 @@ mixed_euler_trail / Mixed_Euler_Trail 另行支持任意端点：总度数全偶
 tests/mixed_euler.cpp 枚举全部可反转边的方向，独立用出入度及 BFS 连通性判定存在性，覆盖小重图、随机图、全部固定端点、自由端点、自环、孤立点和外部最大流工作区复用；证书检查每个原边方向以及最终连续走法。10 万点长链需要所有柔性边反转，另外检验路径压缩查找、最大流及欧拉 DFS 的深递归。POJ1637 双驱动按 kuangbin 2018 第 189–191 页的 type=0/1 与 possible/impossible 格式验证，183 组案例含 200 点稠密实例。该题的布尔回路判定不能替代方向、固定/自由端点及断开图的证据。
 
 新增组合模块以普通及 ASan/UBSan 定向测试验证，保留先前未变模块的回归证据；独立日志为 verification/mixed-euler-tests.txt、verification/mixed-euler-sanitizer-tests.txt 和 verification/mixed-euler-driver-tests.txt。kuangbin 4.21.3 及 4.21 父项现标为 local-tested，在线记录仍另行登记，尚无本库新 AC。
+
+## 奇环顶点与 POJ2942
+
+odd_cycle_vertices / Odd_Cycle_Vertices 标记属于长度至少为 3 的简单奇环的顶点，自环忽略；重边、断开图、孤立点和空图均可处理。简单奇环完全包含于一个点双。反过来，非二分点双含奇环，对块内任意点可取到该环的两条内部不交路径，结合环上奇偶不同的两段，得到经过该点的奇环。因此应标记非二分块内全部顶点，但不能把与块经割点相连的其他块一起标记。
+
+为保持 O(n+m)，先将圆方森林定根，原边两端在森林中相距 2，其共同方点为较深端点的父节点；用它一次性分配每条原边。再用局部邻接表逐块染色，割点的无关邻边不会被重复扫描。该映射不依赖 Tarjan 的块输出顺序，测试会反转 blocks 后重算；每次只读取分解结果而不修改它。
+
+tests/odd_cycle_vertices.cpp 穷举 n≤6 的全部简单图，以枚举不重复顶点的奇环作为独立参照；另有随机重图、自环、空图和块列表重排。100001 点长链接三角形检验标记不会传播到桥后，大星形检验避免平方扫描，大奇环检验递归染色；测试线程栈 512MB，模板仍为递归 DFS。POJ2942 两份完整驱动按不相邻的憎恨关系构补图，并输出未被标记的人数；104 组案例含 1000 点完全图、空图、完全二分图与三角形接长链。格式依据 kuangbin 2018 第 144–146 页，在线待补。
+
+该新增组合模块单独运行普通和 ASan/UBSan 测试，保留此前未变模块的证据。独立日志见 verification/odd-cycle-vertices-tests.txt、verification/odd-cycle-vertices-sanitizer-tests.txt、verification/odd-cycle-vertices-driver-tests.txt。kuangbin 4.8 更新为 local-tested；不把此简单奇环判定扩大到一般带权奇环优化问题。
