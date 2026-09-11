@@ -16,6 +16,16 @@ Biconnected(n)，点号 1..n；add(u,v) 返回原边的 0-based 编号，run() �
 
 \lstinputlisting[firstline=8,lastline=141]{../src/compact/biconnected.hpp}
 
+\chapter{删点连通性}
+
+\Needspace{271pt}
+
+\section{由点双分解计算删点连通块数}\label{compact-removal_components}\index{removal\_components}
+
+在 Biconnected.run() 后调用 removal\_components(graph)，返回 (原连通块数 before,删点结果 after)。after[u] 为独立删除原顶点 u 后剩余连通块数，点号 1..n；after[0]=0 不参与计算。传统版 Removal\_Components(graph) 自动推导 Biconnected\_Graph<N> 的 N。before 等于边双数量减去桥数量；after[u] 等于 before-1 加包含 u 的非单点点双数量。单点块必须跳过，因此孤立点删去后会少一个连通块。空图返回 (0,\{0\})。不修改原分解，O(n+m) 时间、O(n) 额外空间。若只需要割点、桥和删点增量，直接用更短的 Lowlink/Low\_Link；已经需要点双分解时可用本函数，避免再次 DFS。
+
+\lstinputlisting[firstline=5,lastline=17]{../src/compact/vertex_removal.hpp}
+
 \chapter{数据结构}
 
 \Needspace{492pt}
@@ -164,13 +174,17 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 
 \lstinputlisting[firstline=155,lastline=256]{../src/compact/graph.hpp}
 
-\Needspace{648pt}
+\Needspace{317pt}
 
 \section{割点与桥}\label{compact-Lowlink}\index{Lowlink}
 
-add(u,v) 返回无向边编号；run() 后 cut[u] 标识割点、bridge[id] 标识桥。按边编号跳过父边，支持重边、自环、不连通图。O(V+E)，递归深度可能 O(V)。
+无向多重图，点号 1..n；add/Insert(u,v) 返回逻辑无向边的 0-based 编号，自环和重边均可输入。run/Run 后 cut[u] 为割点标记，bridge[id] 为桥标记，components 为原图连通块数。delta[u] 是独立删除顶点 u 及其关联边后增加的连通块数，剩余块数为 components+delta[u]；孤立点 delta=-1，普通非割点为 0，割点为正。根的增量为 DFS 子树数减 1；非根统计满足 low[child]>=dfn[u] 的子树数。n=1 的点删除后剩余 0 块。DFS 按父边号跳过，支持重边、非连通图和重复运行。复杂度 O(n+m)，递归 DFS；新增边后需重新 run。每个删点结果都针对原图，不表示逐次删除。
 
-\lstinputlisting[firstline=257,lastline=311]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=257,lastline=274]{../src/compact/graph.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=275,lastline=321,firstnumber=19]{../src/compact/graph.hpp}
 
 \chapter{图上异或行走}
 
@@ -640,6 +654,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 \lstinputlisting[firstline=8,lastline=146]{../src/classic/biconnected.hpp}
 
+\chapter{删点连通性}
+
+\Needspace{282pt}
+
+\section{由点双分解计算删点连通块数}\label{classic-removal_components}\index{Removal\_Components}
+
+算法约束见动态版本第~\pageref{compact-removal_components}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=18]{../src/classic/vertex_removal.hpp}
+
 \chapter{数据结构}
 
 \Needspace{492pt}
@@ -800,13 +824,17 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 
 \lstinputlisting[firstline=171,lastline=277]{../src/classic/graph.hpp}
 
-\Needspace{648pt}
+\Needspace{317pt}
 
 \section{割点与桥}\label{classic-Lowlink}\index{Low\_Link}
 
 算法约束见动态版本第~\pageref{compact-Lowlink}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=278,lastline=332]{../src/classic/graph.hpp}
+\lstinputlisting[firstline=278,lastline=295]{../src/classic/graph.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=296,lastline=342,firstnumber=19]{../src/classic/graph.hpp}
 
 \chapter{图上异或行走}
 

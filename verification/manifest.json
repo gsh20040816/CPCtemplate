@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T21:07:15.504006+00:00",
+  "recorded_at_utc": "2026-09-11T21:31:06.681288+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -53,7 +53,8 @@
       "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS",
       "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS",
       "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS",
-      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS"
+      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
+      "Vertex removal dual explicit deletion oracle, isolated vertices, multigraphs and recursive chain PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -105,7 +106,8 @@
       "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS",
       "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS",
       "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS",
-      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS"
+      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
+      "Vertex removal dual explicit deletion oracle, isolated vertices, multigraphs and recursive chain PASS"
     ]
   },
   "sha256": {
@@ -125,7 +127,7 @@
     "src/classic/gcd_sequence.hpp": "8723618196787697658660b59665baaf1ba060311e57cc42fd8c23ec27234229",
     "src/classic/geometry.hpp": "4ddc03277a26dcec3472a42eb8277da2d972c1f9198f1b58610d5d51d6f77167",
     "src/classic/geometry_extra.hpp": "793fa6eec2f6dd0b57829585f91aec872c14c73817978225cb0f914fcea3474c",
-    "src/classic/graph.hpp": "39b65891c8d0ded3a966eb12dbfe43b580026160cab8c90e74d5dfb1a9ac484e",
+    "src/classic/graph.hpp": "02421d1ceb9e2772e3a6a035844bca46664a2488c7424e1d3b9910b9a0acdb02",
     "src/classic/graph_advanced.hpp": "ee0c31d0ebf0148c902c0af2bbb36adc1dc48124a3401f6136f9743c237706e8",
     "src/classic/interpolation.hpp": "43f5714b8fb6e16a13dc356f1e7ac01c492974bb53b73f558c9a6fdb5ec84020",
     "src/classic/maximum_closure.hpp": "47bfa97cd02f9c423e026d1b38af5909725a1c7e6f94e95b7541f29b858c5bad",
@@ -147,6 +149,7 @@
     "src/classic/treap.hpp": "fa4c871c0160cc84bf2ed9ac4c9bb9ddd894bfb58e4a7cb3772844216120522c",
     "src/classic/tree.hpp": "2a77bab713121961472fc847d82a91cf0008b6fb1c75f50fb6956414d5d13fb1",
     "src/classic/tree_path_kth.hpp": "21d7c91140873d9545af729971c09236f511b0899dc2581f13fdbf01c8962611",
+    "src/classic/vertex_removal.hpp": "c05f673c99fc0fa850939cb80585d3b5b5edbda7286ffd1adfe2a1456ac25926",
     "src/classic/virtual_tree.hpp": "f9f1561dc4b1bf7aa6477cf42401685a189059dfcb86ac2918c322a9cff58496",
     "src/classic/weighted_matching.hpp": "4541e88025812e599438c9b600239b0963ea247b27b26051577c8d59ccba9099",
     "src/classic/xor_walk.hpp": "d9d50dc17a52612d093182d91db52e8361d201311f806e04b209a5a9f189ae99",
@@ -166,7 +169,7 @@
     "src/compact/gcd_sequence.hpp": "3794e7a66553c2b7bd85d9e79a9556fc7dd9965e4eac1444ec7a84dc81eacb78",
     "src/compact/geometry.hpp": "156f9ba2fbd9dc36552f7a6668b2a224d957d55e27dae645510deed5f58b7b3b",
     "src/compact/geometry_extra.hpp": "13c597cd4dd46254216f0eb6f9ad402b0e96fdd424e864a8117f05c666ac5e89",
-    "src/compact/graph.hpp": "68c64bd031ad21c2308712e4bc3724d27e6345aff86d2d9b346025f2a8b4ff97",
+    "src/compact/graph.hpp": "7ea9c43d8616d08088c61eaef8a19c4939084dfe8da806213225c5d33015e8c0",
     "src/compact/graph_advanced.hpp": "e2a57a2354904fc55f2038fb4f694842cc60c3e8b76c0aa431ab3b8d9546d1eb",
     "src/compact/interpolation.hpp": "73f71b029ccab6be4573c4612a5c132accb9b208115503d7f47bde7fc878357a",
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
@@ -187,6 +190,7 @@
     "src/compact/treap.hpp": "b282e9598f83bab528b6d7a8cd325ae8d57fd2fc03281da73897f83cdd41d35e",
     "src/compact/tree.hpp": "c95a6cb3fc23372d15f80d565bfd1370bd9021aaa5d6d2d77fa8105ab4331860",
     "src/compact/tree_path_kth.hpp": "5f4d33a364e8ad344c38af8fa4799d498c8989b3b3e086a1256f5351ad4d4382",
+    "src/compact/vertex_removal.hpp": "65be1fe9ae9e23b3d4c1e0baf7f3a4e4d766087e12a1f531f19ed8f321e69e27",
     "src/compact/virtual_tree.hpp": "505bcdec60edd10f69bcbd35695e41d66c3c8e8c6d09bc0df0cf7e33de726304",
     "src/compact/weighted_matching.hpp": "7c1eb8956cdf41432419582767c1ff2034597b494c89d173bb5c8149c972d64b",
     "src/compact/xor_walk.hpp": "9313a8f7fadf89b237053ed6753417256950213dd752dd439643ac0f586095ed",
@@ -242,6 +246,8 @@
     "tests/tree_path_kth.cpp": "055496ce8bbe4c70a00e1f1a2bb3bfb281896ab3d5be320d7dfadf334ba87ac8",
     "tests/tree_path_kth_application.py": "560fa2e926df9fb693f03e996b93f1c200018ecc85912cc7672dbde1dc298fdb",
     "tests/trees.cpp": "c3e3638787018828c717310634b3ffee5b9d5b9d40010680b03c6e527b2df555",
+    "tests/vertex_removal.cpp": "b2f0a2b090c565e3398d38f3a7d89c49e7ff95e570f1a0d18c9305456c6c490f",
+    "tests/vertex_removal_application.py": "7a8c00392838ac15d6a72420c3cdd2965fa98270f376b3629b1896cce82cf6b1",
     "tests/virtual_tree.cpp": "4ae46aff4b5c961ea3d3315fb7f7f9d870228d5cf11f29f3697ec034396dd0f3",
     "tests/virtual_tree_application.py": "1ce2b465d0cae162efd7f64406255166b193eed9f5d87a18381b99ae719d32a6",
     "tests/weighted_matching.cpp": "1f80caaf1d778999408f9c046bc990c115c67eb19a3655d62ff53064bdd2d2a6",

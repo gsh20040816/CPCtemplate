@@ -125,3 +125,6 @@ build/basis_intersection
 
 "$CXX" "${flags[@]}" -pthread tests/xor_walk.cpp -o build/xor_walk
 build/xor_walk
+
+"$CXX" "${flags[@]}" -pthread tests/vertex_removal.cpp -o build/vertex_removal
+build/vertex_removal

@@ -2,7 +2,7 @@
 
 本次核对 21 个来源条目，针对的是功能、输入约束、编号约定与验证范围，不要求复制原文件的字段布局。没有修改算法代码，也没有新增在线 AC。7 个原先 pending 的条目现可明确映射到已验证实现；一项原有 local-tested 标记因额外字段尚未覆盖而改为 partial。
 
-[审计快照](../verification/graph-coverage-review.json)保存参考文件摘要、WIDA 提交号、被检查的本库源码与测试摘要。9 个本库文件的摘要与最近完成的普通回归及 ASan/UBSan 清单逐项一致，测试日志也与清单完全一致。这里复用的是对应源码的既有测试证据，没有把“未修改”当作未经核对的通过结论。
+[审计快照](../verification/graph-coverage-review.json)保存参考文件摘要、WIDA 提交号、被检查的本库源码与测试摘要。初次审计时，9 个本库文件的摘要与当时完成的普通回归及 ASan/UBSan 清单逐项一致，测试日志也与该清单完全一致。快照保留当时的基线；后续实现以当前 manifest 和 coverage.csv 为准。删点增量及下表中的两个调用适配现已补齐本地验证。
 
 ## 强连通分量
 
@@ -29,7 +29,7 @@ Tarjan 的跨分量边从大编号到小编号，Kosaraju 的跨分量边从小�
 
 ## 双连通分量
 
-统一使用 [Biconnected](../src/compact/biconnected.hpp) 与 [Biconnected_Graph](../src/classic/biconnected.hpp)。`edges[id]` 是逻辑无向边，`bridge[id]` 是桥标记，`bel[u]` 为边双归属，`blocks` 为点双顶点列表。
+双连通分解使用 [Biconnected](../src/compact/biconnected.hpp) 与 [Biconnected_Graph](../src/classic/biconnected.hpp)。`edges[id]` 是逻辑无向边，`bridge[id]` 是桥标记，`bel[u]` 为边双归属，`blocks` 为点双顶点列表。
 
 | 来源 | 已有能力 | 仍缺内容／约定 | 状态 |
 | --- | --- | --- | --- |
@@ -39,8 +39,8 @@ Tarjan 的跨分量边从大编号到小编号，Kosaraju 的跨分量边从小�
 | WIDA jiangly EBCC | 分量和桥森林 | 全局 `E` 定向及 `compress().cnte` 块内边计数 | 部分覆盖 |
 | WIDA 在线 VDCC、打印稿割点缩点 | 割点、点双顶点集合、正确圆方森林 | 使用明确的原点／方点编号，不复制原重建片段的冲突编号 | 本地覆盖 |
 | kuangbin 4.5 概念及构造 | 割点、桥、点双／边双基本算法 | 叶子配对增广的条件、构造与应用验证 | 部分覆盖 |
-| kuangbin 4.6、4.6.1 | 割点与桥标记 | `add_block` 删点后的连通块变化 | 部分覆盖 |
-| kuangbin 4.6.2 调用 | 桥检测基础接口 | UVA796 输入适配及排序输出；POJ2117 删点后最大连通块数 | 部分覆盖 |
+| kuangbin 4.6、4.6.1 | Lowlink 的割点、桥、components/delta；点双复用辅助函数 | 在线评测待补 | 本地覆盖 |
+| kuangbin 4.6.2 调用 | UVA796 格式与排序输出、POJ2117 删点最大值，两套打包程序均已对拍 | 在线评测待补 | 本地覆盖 |
 | kuangbin 4.7 | 边双与桥森林 | POJ3177 连通图加边问题，不能只因已有桥森林就关闭 | 部分覆盖 |
 | kuangbin 4.8 | 点双顶点集合 | POJ2942 补图与非二分点双中的奇圈顶点标记 | 部分覆盖 |
 
@@ -63,4 +63,4 @@ kuangbin 4.18.2 的强连通方法可映射到 `TwoSAT` / `Two_SAT` 的可满足
 
 ## 后续缺口
 
-优先补删点连通块增量、边定向及缩点统计，再验证桥森林增广和奇圈点双应用。2-SAT 的字典序最小版本和 Wedding 适配分别验证。kuangbin 4.20.2 的离线 Tarjan LCA 是不同算法，本次未将其映射为 SCC，也未改变它的 pending 状态。
+删点连通块增量及对应调用已补；下一步补边定向及缩点统计，再验证桥森林增广和奇圈点双应用。2-SAT 的字典序最小版本和 Wedding 适配分别验证。kuangbin 4.20.2 的离线 Tarjan LCA 是不同算法，本次未将其映射为 SCC，也未改变它的 pending 状态。

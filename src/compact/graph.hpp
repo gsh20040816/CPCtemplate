@@ -256,9 +256,9 @@ struct BipartiteMatching
 
 struct Lowlink
 {
-    int n, timer = 0;
+    int n, timer = 0, components = 0;
     vector<vector<pair<int, int>>> g;
-    vector<int> dfn, low, cut, bridge;
+    vector<int> dfn, low, cut, bridge, delta;
     int edges = 0;
 
     Lowlink(int n) : n(n), g(n + 1)
@@ -288,24 +288,34 @@ struct Lowlink
                 if (low[v] > dfn[u])
                     bridge[id] = 1;
                 if (pe != -1 && low[v] >= dfn[u])
+                {
                     cut[u] = 1;
+                    delta[u]++;
+                }
             }
             else
                 low[u] = min(low[u], dfn[v]);
         }
         if (pe == -1 && children > 1)
             cut[u] = 1;
+        if (pe == -1)
+            delta[u] = children - 1;
     }
 
     void run()
     {
         timer = 0;
+        components = 0;
         dfn.assign(n + 1, 0);
         low = dfn;
         cut = dfn;
+        delta = dfn;
         bridge.assign(edges, 0);
         for (int u = 1; u <= n; u++)
             if (!dfn[u])
+            {
+                components++;
                 dfs(u, -1);
+            }
     }
 };

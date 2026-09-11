@@ -40,6 +40,10 @@
 - `verify/luogu/P5496.classic.cpp`
 - `verify/luogu/P6113.classic.cpp`
 - `verify/luogu/P6113.compact.cpp`
+- `verify/poj/2117.classic.cpp`
+- `verify/poj/2117.compact.cpp`
+- `verify/uva/796.classic.cpp`
+- `verify/uva/796.compact.cpp`
 
 ## 已解决的提交异常
 
