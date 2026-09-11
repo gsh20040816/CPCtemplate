@@ -10,7 +10,13 @@
     "source_driver": "verify/luogu/P3376.compact.cpp",
     "submitted_sha256": "a4f6d85ed9d9a7e56c90040b422bb67bb27936554bcd7b0cf1cc9da5509ffa0c",
     "date": "2026-09-11",
-    "submitted_source": "verification/submitted/P3376.compact.cpp"
+    "submitted_source": "verification/submitted/P3376.compact.cpp",
+    "algorithm": "Dinic",
+    "tested_api": [
+      "add",
+      "flow"
+    ],
+    "note": "Other algorithms bundled in this header are not covered by this AC; source comparison in oj-source-audit.json"
   },
   {
     "problem": "Luogu P3376",
@@ -23,7 +29,14 @@
     "source_driver": "verify/luogu/P3376.classic.cpp",
     "submitted_sha256": "16067a01b5d2e04a9ae309c5a1b8c386036d698cb72ed45096aa42549a85d6ff",
     "date": "2026-09-11",
-    "submitted_source": "verification/submitted/P3376.classic.cpp"
+    "submitted_source": "verification/submitted/P3376.classic.cpp",
+    "algorithm": "Network_Flow",
+    "tested_api": [
+      "Init",
+      "Add_Edge",
+      "Max_Flow"
+    ],
+    "note": "Other algorithms bundled in this header are not covered by this AC; source comparison in oj-source-audit.json"
   },
   {
     "problem": "Luogu P3690",
@@ -163,5 +176,91 @@
       "query"
     ],
     "note": "Assignment, signed coefficients, composite moduli and modulus one tested locally"
+  },
+  {
+    "problem": "Luogu P8436",
+    "style": "compact",
+    "algorithm": "Biconnected",
+    "record": "https://www.luogu.com.cn/record/297519028",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 5040,
+    "memory": "152.21MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P8436.compact.cpp",
+    "submitted_source": "verification/submitted/P8436.compact.cpp",
+    "submitted_sha256": "96a016421a9675363fceba875ad30c05fd6dc318947ab2a7ad7ed3b30acd35ed",
+    "tested_api": [
+      "add",
+      "run",
+      "bel",
+      "cnt"
+    ],
+    "note": "Recursive DFS; block and bridge forest outputs additionally tested locally"
+  },
+  {
+    "problem": "Luogu P8436",
+    "style": "classic",
+    "algorithm": "Biconnected",
+    "record": "https://www.luogu.com.cn/record/297519083",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 5430,
+    "memory": "152.24MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P8436.classic.cpp",
+    "submitted_source": "verification/submitted/P8436.classic.cpp",
+    "submitted_sha256": "a7a5eaed27a03086018edabd23467b03e79c879ac8828bd768ded45f58e0a8a9",
+    "tested_api": [
+      "Insert",
+      "Run",
+      "bel",
+      "cnt"
+    ],
+    "note": "Recursive DFS; block and bridge forest outputs additionally tested locally"
+  },
+  {
+    "problem": "Luogu P3806",
+    "style": "compact",
+    "algorithm": "CentroidPairs",
+    "record": "https://www.luogu.com.cn/record/297519137",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 107,
+    "memory": "5.00MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3806.compact.cpp",
+    "submitted_source": "verification/submitted/P3806.compact.cpp",
+    "submitted_sha256": "4f19881994a572a68fea60b218d7cf479377fbf59741d3930bcffe4253678f01",
+    "tested_api": [
+      "add",
+      "build",
+      "count_exact: nonzero existence"
+    ],
+    "note": "Full count magnitudes, zero weights and forest behavior independently tested locally"
+  },
+  {
+    "problem": "Luogu P3806",
+    "style": "classic",
+    "algorithm": "CentroidPairs",
+    "record": "https://www.luogu.com.cn/record/297519170",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 109,
+    "memory": "5.03MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3806.classic.cpp",
+    "submitted_source": "verification/submitted/P3806.classic.cpp",
+    "submitted_sha256": "09bc65f4ba7233951f4ae86b365c492369d0face8c6cb44913824741cbc9adb8",
+    "tested_api": [
+      "Insert",
+      "Build",
+      "Count_Exact: nonzero existence"
+    ],
+    "note": "Full count magnitudes, zero weights and forest behavior independently tested locally"
   }
 ]

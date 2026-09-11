@@ -1,14 +1,25 @@
-# Pending online verification
+# 待在线评测
 
-- P6113 compact: uploaded `build/P6113.compact.cpp` on 2026-09-11; submit request failed with `timeout of 10000ms exceeded`. The filtered account record list `https://www.luogu.com.cn/record/list?pid=P6113&user=86208` then showed no results. No submission record exists from this attempt; retry is appropriate. Both bundled drivers compile and pass a matching-scheme check locally.
-- P6113 classic: driver ready, not submitted.
-- P3369 classic Treap, both Splay styles, P3391 both styles: drivers ready, online verification pending.
-- The previous P3369 compact CAPTCHA was completed with action-time authorization, and record 297515150 was accepted. P8435 classic CAPTCHA also completed with action-time authorization; no CAPTCHA currently pending.
-- P8435 compact: AC record 297517446 archived in oj.json. P8435 classic: AC record 297517662 archived. P8436 both styles: bundled and locally checked, not submitted. All use recursive DFS.
+以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/luogu 与 oj.json 对照生成。
 
-- PAM: P5496 compact AC 297518043 archived; P5496 classic and both P3649 drivers ready, not submitted. Decoding/count drivers independently checked locally.
-- P3806 compact: file-upload submission attempted twice on 2026-09-11, both rejected with `The route object cannot be resolved`. After the first failure, account-filtered records showed only historical records (newest 45239318), not this source. No new AC is claimed. Browser currently has the second failure dialog. Try text submission or another judge later. Both styles are bundled and locally checked; classic not submitted.
-- P8436 compact: both file-upload and code-editor submissions returned `The route object cannot be resolved` on 2026-09-11. The editor was confirmed to contain the correct edge-component output logic from the uploaded file. No AC is claimed; failure dialog dismissed, code remains prepared. The error is therefore not specific to file upload. P8436 classic remains unsubmitted.
-- CF600E both styles: DSU-on-tree drivers bundled, compiled and checked locally; not submitted.
+- `verify/luogu/CF600E.classic.cpp`
+- `verify/luogu/CF600E.compact.cpp`
+- `verify/luogu/P3369.classic.cpp`
+- `verify/luogu/P3369.splay.classic.cpp`
+- `verify/luogu/P3369.splay.compact.cpp`
+- `verify/luogu/P3373.classic.cpp`
+- `verify/luogu/P3391.classic.cpp`
+- `verify/luogu/P3391.compact.cpp`
+- `verify/luogu/P3649.classic.cpp`
+- `verify/luogu/P3649.compact.cpp`
+- `verify/luogu/P5496.classic.cpp`
+- `verify/luogu/P6113.classic.cpp`
+- `verify/luogu/P6113.compact.cpp`
 
-- P3373 compact AC 297518952, submitted successfully from a newly opened Firefox tab on 2026-09-12; classic driver ready but not submitted. Earlier route errors may be transient or page-state-related; cause not proven. Retry pending OJ tasks in fresh tabs before assuming the service remains unavailable.
+## 已解决的提交异常
+
+- P8436、P3806 曾在旧页面的文件及文本提交入口返回 `The route object cannot be resolved`。2026-09-12 在新标签页重新提交后，两套版本均 AC；具体记录在 oj.json。错误原因尚未确定。
+- P6113 动态版之前因 10 秒请求超时未生成记录，可在新标签页重试。
+- 当前无待确认的验证码。后续出现验证码仍按工具要求当次确认。
+
+OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在性，完整计数与零权等扩展仍由本地独立测试提供证据。

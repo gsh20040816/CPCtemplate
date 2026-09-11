@@ -29,9 +29,13 @@ tools/test.sh
 SANITIZE=1 tools/test.sh
 ```
 
-需要 GCC、C++20 和 Boost（只用于测试中的独立精确几何参考）。每份可提交代码必须与测试及打印代码同源。OJ 证据见 [oj.json](verification/oj.json)：两套最大流和动态树分别已在洛谷 P3376、P3690 获得 100 分 AC；动态版有序 Treap 已在 P3369 获得 100 分 AC，双风格递归点双已在 P8435 获得 100 分 AC；动态版 PAM 已在 P5496 获得 100 分 AC；动态版区间乘加线段树已在 P3373 获得 100 分 AC；其余模块不声称 OJ 已通过。
+需要 GCC、C++20 和 Boost（用于独立精确几何参考）。每份可提交代码与测试及打印代码同源。
 
-当前实现仅是首批核心模块；覆盖表的 `pending` 表示尚未完成对应项的完整迁移和验证。
+- [OJ 记录与实际受测接口](verification/oj.json)：保留原始提交源码和 SHA256，不把同文件未调用模块算作通过评测。
+- [当前源码与 AC 快照对照](verification/oj-source-audit.json)：完整文件相同或受测结构的排版归一化比对结果。
+- [待评测队列](verification/pending-oj.md)：尚未提交、网站错误与未完成验证的接口。
+
+覆盖表中的 `pending` 表示对应项尚未完成迁移和验证；当前仍未达到完整覆盖要求。
 
 ## LaTeX
 
