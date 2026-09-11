@@ -354,6 +354,14 @@ build(v) 用 (unsigned long long 值,0/1 状态) 序列替换当前内容；inse
 
 \lstinputlisting[firstline=10,lastline=209]{../src/compact/gcd_sequence.hpp}
 
+\chapter{一般图匹配}
+
+\section{一般图最大基数匹配：带花树}\label{compact-Blossom}\index{Blossom}
+
+Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边。solve() 从空匹配重新计算，返回匹配边数；mate[u] 为配对点，未匹配为 -1。结果支持直接输出方案。缩花维护交错树，单次增广 O(n$^{2}$+m)，总计 O(n$^{3}$+nm)，简单图为 O(n$^{3}$)；空间 O(n+m)。重复调用 solve 或加边后重算均可。不处理边权，不能代替最大权匹配。
+
+\lstinputlisting[firstline=8,lastline=125]{../src/compact/blossom.hpp}
+
 \part{传统接口风格}
 
 \chapter{数据结构}
@@ -729,3 +737,13 @@ build(v) 用 (unsigned long long 值,0/1 状态) 序列替换当前内容；inse
 声明 Gcd\_Sequence\_Treap<N> 后调用 Init(seed)；N 为峰值元素数。Build 重建序列，Insert、Erase、Set、Toggle、Query 对应动态版接口。大对象放在全局或 static。
 
 \lstinputlisting[firstline=10,lastline=218]{../src/classic/gcd_sequence.hpp}
+
+\chapter{一般图匹配}
+
+\section{一般图最大基数匹配：带花树}\label{classic-Blossom}\index{General\_Matching}
+
+算法约束见动态版本第~\pageref{compact-Blossom}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 General\_Matching<N> 后调用 Init(n)，N 为点数上限。Insert 加边，Solve 返回匹配边数，mate 保存配对点，点号仍为 0-based。大对象放在全局或 static。
+
+\lstinputlisting[firstline=8,lastline=130]{../src/classic/blossom.hpp}

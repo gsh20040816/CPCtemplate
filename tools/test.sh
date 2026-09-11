@@ -33,3 +33,6 @@ build/trees
 
 "$CXX" "${flags[@]}" tests/gcd_sequence.cpp -o build/gcd_sequence
 build/gcd_sequence
+
+"$CXX" "${flags[@]}" tests/blossom.cpp -o build/blossom
+build/blossom

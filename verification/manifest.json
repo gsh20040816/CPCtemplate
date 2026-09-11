@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T15:06:32.881135+00:00",
+  "recorded_at_utc": "2026-09-11T15:14:22.830801+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -22,7 +22,8 @@
       "Link-cut 200000-vertex chain PASS",
       "Ordered treap and splay / sorted vector oracle PASS",
       "Sequence treap / vector oracle PASS",
-      "Tagged GCD treap / vector oracle and recycled capacity PASS"
+      "Tagged GCD treap / vector oracle and recycled capacity PASS",
+      "Blossom exhaustive n<=6, subset DP, duplicate edges and dense graph PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -43,12 +44,14 @@
       "Link-cut 200000-vertex chain PASS",
       "Ordered treap and splay / sorted vector oracle PASS",
       "Sequence treap / vector oracle PASS",
-      "Tagged GCD treap / vector oracle and recycled capacity PASS"
+      "Tagged GCD treap / vector oracle and recycled capacity PASS",
+      "Blossom exhaustive n<=6, subset DP, duplicate edges and dense graph PASS"
     ]
   },
   "sha256": {
     "src/classic/.clang-format": "64eb90c541351e58cd1351a8d2d6aa73f1f2b20b40ba07ef412ad6d7cad47447",
     "src/classic/algebra.hpp": "303dde25d79b9a12daf956b71f9a6367e0391371e8c47a9736f057f0a5d8b3d2",
+    "src/classic/blossom.hpp": "adfc09ded1ac63d2aedc274f12e61a72609328c48ca04af9deea782b32550790",
     "src/classic/data_structure.hpp": "5a70990557e1aa09e52aed4d86b3266b6458e7fda9df45b783773816d279eb79",
     "src/classic/dynamic_tree.hpp": "b11bde8c5b78f6fb927e79e854b5b940757226e46d8bbb68ec17c58db3773821",
     "src/classic/flow.hpp": "bd799ac3debd9806f3b33ac9ac7acce02aa97a9fb7e19f9a0b2c1855e5fcf533",
@@ -67,6 +70,7 @@
     "src/classic/tree.hpp": "9125d548aa7258a8734c4c5d0a8f5c3a39c46a5d11b84fbf2ad25416467c6dbb",
     "src/compact/.clang-format": "82ccdaa30f990717cdcdc30b58d7521142e24314daa27095a59d3f965d772b7b",
     "src/compact/algebra.hpp": "1d2c1ed3abefbf09f267b6580e3b7f0f4c3153f0dbd87c294ee39997e1999ba5",
+    "src/compact/blossom.hpp": "1c0f9fe674d3228d8a2ee3aa2b081cbad202184c14011583774f22fff484d982",
     "src/compact/data_structure.hpp": "c8d2b7df0a017a790b73428c146e0ab35193d01e9d81d5848eb2d95be7b4ff56",
     "src/compact/dynamic_tree.hpp": "1e9fdf1d3b04989459cfc7c2a9fe6f5256870e09ce37875994e44cb868714769",
     "src/compact/flow.hpp": "a3dfad19ee2aaeacdde5ff4d52cb1a49e0788a2c350142ddb896d4bca3074d15",
@@ -83,6 +87,7 @@
     "src/compact/treap.hpp": "e7d1d5da733dce648b50e8e18e148c7ca06567136e56745a80302ea529f1e671",
     "src/compact/tree.hpp": "c0ffb45f3aa468a11b8c441f2b9f74982bdfd940f5a212f6c423394c6e1451c2",
     "tests/algebra.cpp": "8a5e1fe4f5515d376e5b3d6c2b620e784c07333cbe754a3268d5c7e8c52295bc",
+    "tests/blossom.cpp": "93361601e543fe63e84deccd84e5148b39de9fa919eda4345c18e5f653cf1f96",
     "tests/boundaries.cpp": "a956e11355fbf66131d6cd3ff8eee37b19d2a2d7077d75d317eea53742797dba",
     "tests/classic.cpp": "3bc4c9421e6c96b93dbd97dfc38f09fcbe7596b2cdf24eecf7bb2f2652ba462a",
     "tests/dual.cpp": "6a3e330198d0de2b47946a9c7868ef200d8a36f51fe40a71c25274d7d0f102ad",

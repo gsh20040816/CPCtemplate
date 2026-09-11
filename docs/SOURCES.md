@@ -23,3 +23,9 @@
 | 2025 ICPC 成都 | I Inside Polygon | 同上第 29–32 页 | 凸多边形切线、旋转双指针与计数；仅有凸包函数不足以覆盖 |
 
 以上是已定位的具体需求，不是三年全部赛站审计完成的声明。
+
+## 一般图匹配的实现核对
+
+- 算法依据：[Edmonds, Paths, Trees, and Flowers](https://ftp.eecs.umich.edu/~pettie/matching/Edmonds-paths-trees-flowers.pdf)。实现采用逐个未匹配根进行交错树搜索、收缩奇环、沿父指针增广。
+- 对照 WIDA 一般图最大匹配新版及 kuangbin 4.13 的接口需求，重新编写双风格实现；带权条目另行实现。
+- 验证题：[Luogu P6113](https://www.luogu.com.cn/problem/P6113)，要求输出匹配数量与配对方案。当前先完成本地穷举和子集 DP 对拍，OJ 状态以记录表为准。

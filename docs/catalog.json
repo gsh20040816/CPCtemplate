@@ -274,5 +274,11 @@
     "GcdSequenceTreap",
     "状态序列 Treap：分组区间 GCD",
     "build(v) 用 (unsigned long long 值,0/1 状态) 序列替换当前内容；insert(k,value,tag) 在前 k 项后插入。erase(l,r)、query(l,r,tag) 使用 1-based 非空闭区间；set(k,value) 修改值，toggle(k) 翻转状态。query 返回选中状态的 GCD，无对应元素为 nullopt，实际全零则返回 0。回收删除节点，空间按峰值长度计算。建树 O(n) 次 GCD，随机优先级下单次期望 O(log n) 次 GCD；删除另需 O(删除长度) 回收。一次 GCD 为 O(log U)。覆盖 kuangbin 3.7 的序列操作，尚无该原题 OJ 记录。"
+  ],
+  [
+    "blossom",
+    "Blossom",
+    "一般图最大基数匹配：带花树",
+    "Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边。solve() 从空匹配重新计算，返回匹配边数；mate[u] 为配对点，未匹配为 -1。结果支持直接输出方案。缩花维护交错树，单次增广 O(n²+m)，总计 O(n³+nm)，简单图为 O(n³)；空间 O(n+m)。重复调用 solve 或加边后重算均可。不处理边权，不能代替最大权匹配。"
   ]
 ]
