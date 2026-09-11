@@ -40,6 +40,6 @@
 
 核对 WIDA 的 VDCC、EDCC 新版及 jiangly 圆方树条目，统一输出点双顶点集合、割点、桥、边双编号和两种缩点森林。编号与孤立点约定见手册。
 
-[OI Wiki 圆方树](https://oi-wiki.org/graph/block-forest/)提供结构定义参考。点双验证题为 [P8435](https://www.luogu.com.cn/problem/P8435)，边双为 [P8436](https://www.luogu.com.cn/problem/P8436)。P8435 动态版已在记录 297517446 获得 100 分 AC，其余输出接口状态见 verification/oj.json 与本地测试。
+[OI Wiki 圆方树](https://oi-wiki.org/graph/block-forest/)提供结构定义参考。点双验证题为 [P8435](https://www.luogu.com.cn/problem/P8435)，边双为 [P8436](https://www.luogu.com.cn/problem/P8436)。P8435 双风格已在记录 297517446、297517662 获得 100 分 AC，其余输出接口状态见 verification/oj.json 与本地测试。
 
 测试通过枚举诱导子集并逐点删除，独立求极大无割点连通子图；逐边删除判桥、逐点删除判割点，并核对圆方森林和桥森林。包含 20 万点链及闭环后重算。测试线程配置 256 MiB 栈，模板保持递归 DFS，不包含手写调用栈。
