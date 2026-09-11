@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T22:18:48.084833+00:00",
+  "recorded_at_utc": "2026-09-11T22:27:16.592812+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -58,7 +58,10 @@
       "Edge compression/orientation dual removal and reachability oracles, multigraph IDs and recursive cycle PASS",
       "bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed",
       "Offline LCA dual exhaustive labelled trees, all roots/pairs, reset and 500000 recursive chain PASS",
-      "Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS"
+      "Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS",
+      "Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 500000 recursive chain PASS",
+      "Targeted recheck after adding WIDA HLD LCA/distance mapping assertions:",
+      "Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 500000 recursive chain PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -115,7 +118,8 @@
       "Edge compression/orientation dual removal and reachability oracles, multigraph IDs and recursive cycle PASS",
       "bridge augmentation: exhaustive graphs, random multigraphs, certificates, 200000 recursive chain passed",
       "Offline LCA dual exhaustive labelled trees, all roots/pairs, reset and 500000 recursive chain PASS",
-      "Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS"
+      "Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS",
+      "Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 500000 recursive chain PASS"
     ]
   },
   "sha256": {
@@ -141,6 +145,7 @@
     "src/classic/graph.hpp": "02421d1ceb9e2772e3a6a035844bca46664a2488c7424e1d3b9910b9a0acdb02",
     "src/classic/graph_advanced.hpp": "ee0c31d0ebf0148c902c0af2bbb36adc1dc48124a3401f6136f9743c237706e8",
     "src/classic/interpolation.hpp": "43f5714b8fb6e16a13dc356f1e7ac01c492974bb53b73f558c9a6fdb5ec84020",
+    "src/classic/lifting_lca.hpp": "0938fc06246035f4f59daf0c4012ef0c4c513e78fed2d70bf8fc50ed49104078",
     "src/classic/maximum_closure.hpp": "47bfa97cd02f9c423e026d1b38af5909725a1c7e6f94e95b7541f29b858c5bad",
     "src/classic/min_cost_flow.hpp": "49d8ee5466edc6396bbe7c8858e8b4bd765b4c0bc18c82a4ea7eae88884e36ca",
     "src/classic/modular_sqrt.hpp": "d66b537ac6c009d50519f1b91f7a9d7d3f7177f6523a2ceed2c6d3070d6fa38d",
@@ -187,6 +192,7 @@
     "src/compact/graph.hpp": "7ea9c43d8616d08088c61eaef8a19c4939084dfe8da806213225c5d33015e8c0",
     "src/compact/graph_advanced.hpp": "e2a57a2354904fc55f2038fb4f694842cc60c3e8b76c0aa431ab3b8d9546d1eb",
     "src/compact/interpolation.hpp": "73f71b029ccab6be4573c4612a5c132accb9b208115503d7f47bde7fc878357a",
+    "src/compact/lifting_lca.hpp": "19cda96f3d6d0f4807f7d554d09b0428f3b88516a40788cff6b6897ac90a64da",
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
     "src/compact/modular_sqrt.hpp": "feafcc6e8e95453ba63c6fa4047de98ba1402d6d8c373f41543b5162e730a537",
     "src/compact/number_theory.hpp": "442ed221567f0fa12f9ae38bcb7d873bed4cd0a253020814dae2599c64f3bf0f",
@@ -245,6 +251,8 @@
     "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
     "tests/interpolation.cpp": "9f7205163b894fdcc3107da60883c88468c0045d92351eee8f71cc8854cefc76",
     "tests/interpolation_application.py": "ffc121af21fdfe606e9079260d818f459e79b3e67e7f06d1e4b02270266f6f12",
+    "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",
+    "tests/lifting_lca_application.py": "068c4b2f662bde0f7f6e6ef9fb7c357be98717d4bfc423c77eea8ceb8f43543a",
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",
     "tests/maximum_closure.cpp": "f949edb7975ca2a6551f97de6b9349a29be7fd692f4266ce226ae76c2de37c1d",
     "tests/maximum_closure_application.py": "5ee193618c16170bc235b87c423405802862108b0aa6a3e5c2d4c76af87abca7",

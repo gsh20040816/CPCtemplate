@@ -140,3 +140,6 @@ build/offline_lca
 
 "$CXX" "${flags[@]}" -pthread tests/euler_lca.cpp -o build/euler_lca
 build/euler_lca
+
+"$CXX" "${flags[@]}" -pthread tests/lifting_lca.cpp -o build/lifting_lca
+build/lifting_lca

@@ -94,3 +94,13 @@ kuangbin 4.20.2 的 POJ1470 调用也已提供双风格驱动：解析 `u:(k)` �
 kuangbin 4.20.1 据此更新为 local-tested，4.20 父项仍保留 partial，倍增法单独审计。参考定义与欧拉序方法见 [OI Wiki LCA](https://oi-wiki.org/graph/lca/)，P3379 输入与最大规模见 [题面](https://www.luogu.com.cn/problem/P3379)。
 
 后续倍增范围已核对：kuangbin 4.20.3 是 POJ1330 的祖先倍增实现，不能仅用已有 HLD.lca 关闭；WIDA 打印稿“最近公共祖先 LCA”还包括基础倍增与路径最大边权扩展。其 clac 计算的是边数而非权值和，最大边权 query 以 0 初始化，负边权需要另行规定。后续实现应明确无边路径、负权最大值与跳出根的返回语义，再逐项验证，不把本次无权欧拉序版本标为这些功能的覆盖。
+
+## 倍增祖先与路径最大边权
+
+`LiftingLCA` / `Lifting_LCA<N,LOG>` 已实现基本倍增 LCA、无权距离、k 级祖先和带符号最大边权。root 的上级为 0，jump 超过根返回 0；max_edge(u,u) 返回 nullopt，非空路径即使最大值为 LLONG_MIN 也返回有值的 optional。LOW 仅用于最大值合并，不能作为空路径标记。depth 表示边数，不暗示带权距离和。全程递归 DFS，按 n 配置倍增层数，传统版要求 2^LOG > n。
+
+验证见 tests/lifting_lca.cpp：所有 n≤6 标号树、根、点对与父链暴力参照，权重包含 LLONG_MIN/MAX、负值、零、正值；查询祖先包含超过根和 LLONG_MAX 跳数。50 万点全负链验证换根后的 LCA、距离、祖先及最大边权。P3379 与 POJ1330 双风格完整程序本地测试见 verification/lifting-lca-driver-tests.txt，它们仅检查 LCA，未将其扩大为路径最大值的在线证据。
+
+kuangbin 4.20.3 与 WIDA 打印稿“树上倍增解法”据此更新为 local-tested。kuangbin 4.20 的三个实现及各自应用均已本地验证，父项可标 local-tested；所有在线记录仍单独登记。WIDA 的 HLD 子项经下述映射验证后，LCA 父项也更新为 local-tested。
+
+WIDA 树链剖分 LCA 的 work/add/lca 对应本库 build/add/lca 与传统版 Init/Insert/Build/Lca。原 clac 由公开 dep 数组计算 dep[u]+dep[v]-2*dep[lca(u,v)]；本库根深度为 0，根父亲为根自身，与原片段的约定不同但不改变距离。tests/lifting_lca.cpp 将两套 HLD 接入全部小标号树、全部根与点对的同一父链参照，分别验证 LCA 和该距离公式；普通重测日志为 verification/lifting-lca-mapping-tests.txt，全库 ASan 日志包含最终同一测试源码。树链剖分接口本身未改动。WIDA 该父项及两个子项现在均为本地覆盖，不包括相邻“树上路径交”条目。

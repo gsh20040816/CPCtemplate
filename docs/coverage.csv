@@ -70,9 +70,9 @@ WIDA,02 - 打印稿模板汇总/01 - 基础算法.md,,实数域三分,pending,,,
 WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树的直径,pending,,,
 WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树论大封装（直径+重心+中心）,pending,,,
 WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,点分治 / 树的重心,pending,,,
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,最近公共祖先 LCA,pending,,,
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树链剖分解法,pending,,,
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上倍增解法,pending,,,
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,最近公共祖先 LCA,local-tested,src/compact/lifting_lca.hpp;src/compact/tree.hpp,src/classic/lifting_lca.hpp;src/classic/tree.hpp,Both print subsections verified: HLD LCA/edge distance and binary lifting with signed path maximum; tests/hld.cpp and tests/lifting_lca.cpp independent parent-path oracles; zero-length weighted path represented by nullopt; OJ API scope remains separate
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树链剖分解法,local-tested,src/compact/tree.hpp#HLD,src/classic/tree.hpp#Heavy_Light_Decomposition,tests/hld.cpp; tests/lifting_lca.cpp all labelled trees n<=6/all roots/pairs verifies LCA and dep[u]+dep[v]-2*dep[lca] edge distance; build/Build replaces work; root depth=0 and root parent=self; no new OJ claim
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上倍增解法,local-tested,src/compact/lifting_lca.hpp#LiftingLCA,src/classic/lifting_lca.hpp#Lifting_LCA,"Unweighted LCA/distance plus signed path maximum covered; tests/lifting_lca.cpp independent parent-path oracle, LLONG_MIN/MAX, empty optional and root overflow; P3379 checks LCA only; weighted maximum online pending"
 WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上路径交,pending,,,
 WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上启发式合并 (DSU on tree),local-tested,src/compact/dsu_on_tree.hpp,src/classic/dsu_on_tree.hpp,tests/dsu_on_tree.cpp; subtree max-frequency color sum; OJ pending
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,常见概念,pending,,,
@@ -674,10 +674,10 @@ kuangbin,ACM template (2018),172,4.18 2-SAT,partial,src/compact/graph.hpp#TwoSAT
 kuangbin,ACM template (2018),172,4.18.1 染色法（可以得到字典序最小的解）,pending,,,
 kuangbin,ACM template (2018),173,4.18.2 强连通缩点法（拓扑排序只能得到任意解）,partial,src/compact/graph.hpp#TwoSAT,src/classic/graph.hpp#Two_SAT,SCC satisfiability and one assignment implemented using Kosaraju topological IDs; tests/graph_contracts.cpp exhaustive assignment oracle. POJ3648 Wedding literal parser and application adapter pending; not lexicographically minimal
 kuangbin,ACM template (2018),177,4.19 曼哈顿最小生成树,pending,,,
-kuangbin,ACM template (2018),179,4.20 LCA,partial,src/compact/offline_lca.hpp; src/compact/euler_lca.hpp,src/classic/offline_lca.hpp; src/classic/euler_lca.hpp,Offline Tarjan/POJ1470 and Euler-tour ST/POJ1330 locally verified; dedicated binary-lifting section still needs scope audit
+kuangbin,ACM template (2018),179,4.20 LCA,local-tested,src/compact/offline_lca.hpp;src/compact/euler_lca.hpp;src/compact/lifting_lca.hpp,src/classic/offline_lca.hpp;src/classic/euler_lca.hpp;src/classic/lifting_lca.hpp,"All three subsections separately local-tested: Tarjan/POJ1470, Euler ST/POJ1330, binary lifting/POJ1330; P3379 variants local-tested at n=q=500000; no online AC claimed"
 kuangbin,ACM template (2018),179,4.20.1 dfs+ST 在线算法,local-tested,src/compact/euler_lca.hpp#EulerLCA,src/classic/euler_lca.hpp#Euler_LCA,tests/euler_lca.cpp; tests/euler_lca_application.py; recursive Euler tour and sparse table; all labelled trees n<=6/all roots/pairs/distances; n=q=500000; P3379 and POJ1330 dual complete drivers local-tested; online pending
 kuangbin,ACM template (2018),181,4.20.2 离线 Tarjan 算法,local-tested,src/compact/offline_lca.hpp#OfflineLCA,src/classic/offline_lca.hpp#Offline_LCA,tests/offline_lca.cpp; tests/offline_lca_application.py; recursive DFS and ranked DSU; all labelled trees n<=6/all roots/all pairs; n=q=500000; P3379 and POJ1470 dual complete drivers locally tested; online pending
-kuangbin,ACM template (2018),184,4.20.3 LCA 倍增法,pending,,,
+kuangbin,ACM template (2018),184,4.20.3 LCA 倍增法,local-tested,src/compact/lifting_lca.hpp#LiftingLCA,src/classic/lifting_lca.hpp#Lifting_LCA,"tests/lifting_lca.cpp; tests/lifting_lca_application.py; recursive binary lifting, all roots/pairs, n=q=500000; P3379 and POJ1330 dual drivers locally tested; online pending"
 kuangbin,ACM template (2018),186,4.21 欧拉路,pending,,,
 kuangbin,ACM template (2018),186,4.21.1 有向图,pending,,,
 kuangbin,ACM template (2018),188,4.21.2 无向图,pending,,,
