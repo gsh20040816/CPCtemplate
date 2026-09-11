@@ -8,6 +8,8 @@
 - `verify/library_checker/intersection_zassenhaus.compact.cpp`
 - `verify/luogu/CF1100F.classic.cpp`
 - `verify/luogu/CF1100F.compact.cpp`
+- `verify/luogu/CF118E.classic.cpp`
+- `verify/luogu/CF118E.compact.cpp`
 - `verify/luogu/CF600E.classic.cpp`
 - `verify/luogu/CF600E.compact.cpp`
 - `verify/luogu/P1117.classic.cpp`

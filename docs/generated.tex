@@ -26,6 +26,24 @@ Biconnected(n)，点号 1..n；add(u,v) 返回原边的 0-based 编号，run() �
 
 \lstinputlisting[firstline=5,lastline=17]{../src/compact/vertex_removal.hpp}
 
+\chapter{边双缩点与边定向}
+
+\Needspace{366pt}
+
+\section{边双缩点的大小与内部边数}\label{compact-EdgeCompression}\index{EdgeCompression}
+
+在 Biconnected.run() 后构造 EdgeCompression(graph)，传统版 Edge\_Compression(graph) 自动推导 Biconnected\_Graph<N> 的 N。n 为边双数量；size[c] 为第 c 块的原顶点数，inside[c] 为块内逻辑无向边数，分量号 1..n，0 号槽忽略。edges 每项为 \{块 u,块 v,原边 id\}，只含跨块的桥，每条桥出现一次，按原边号递增；是无向森林，不承诺端点为父子方向。重边逐条计数，自环在所属块内部计一次，不能用邻接表度数直接计边而漏掉这些约定。空图返回 n=0、长度 1 的零计数数组和空边表。时间 O(N+M)，输出空间 O(N+M)，N/M 指原图规模。
+
+\lstinputlisting[firstline=7,lastline=29]{../src/compact/edge_components.hpp}
+
+\Needspace{369pt}
+
+\section{无向边定向与强连通定向}\label{compact-orient_edges}\index{orient\_edges}
+
+orient\_edges(graph) 接受 Lowlink 对象，传统版 Orient\_Edges 接受 Low\_Link。返回长度等于逻辑边数的方向数组，第 id 项为该边定向后的 \{起点,终点\}，顶点 1-based、边 id 为 0-based。每条无向边仅处理一次：DFS 树边向下，非树边指向祖先，自环保留 \{u,u\}，重边不合并。支持非连通图；每个边双块内定向后强连通，桥只给出某个方向，不保证跨桥互相可达。若要求整个非空图强连通，需另外 run/Run 检查 components==1 且无桥；不满足则不存在这样的方向。该函数只读取邻接表与边数，不依赖已有 DFS 状态，不修改原图，调用时无须先 run。复杂度 O(N+M) 时间、O(N+M) 额外空间，DFS 保持递归。
+
+\lstinputlisting[firstline=33,lastline=55]{../src/compact/edge_components.hpp}
+
 \chapter{数据结构}
 
 \Needspace{492pt}
@@ -663,6 +681,24 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 算法约束见动态版本第~\pageref{compact-removal_components}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=5,lastline=18]{../src/classic/vertex_removal.hpp}
+
+\chapter{边双缩点与边定向}
+
+\Needspace{386pt}
+
+\section{边双缩点的大小与内部边数}\label{classic-EdgeCompression}\index{Edge\_Compression}
+
+算法约束见动态版本第~\pageref{compact-EdgeCompression}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=7,lastline=31]{../src/classic/edge_components.hpp}
+
+\Needspace{369pt}
+
+\section{无向边定向与强连通定向}\label{classic-orient_edges}\index{Orient\_Edges}
+
+算法约束见动态版本第~\pageref{compact-orient_edges}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=35,lastline=57]{../src/classic/edge_components.hpp}
 
 \chapter{数据结构}
 

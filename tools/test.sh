@@ -128,3 +128,6 @@ build/xor_walk
 
 "$CXX" "${flags[@]}" -pthread tests/vertex_removal.cpp -o build/vertex_removal
 build/vertex_removal
+
+"$CXX" "${flags[@]}" -pthread tests/edge_components.cpp -o build/edge_components
+build/edge_components
