@@ -31,6 +31,28 @@ Lucas 不能直接套在合数模数。阶乘与逆阶乘预处理要求上限�
 扩展欧拉降幂中，非互质情况不能直接将指数对 $\varphi(m)$ 取模；需要判断原指数是否达到足够阈值。
 大整数指数可以在读入时同时维护余数与是否超过阈值。
 
+\section{合数模数组合数与插值}\index{exLucas}\index{Lagrange interpolation}
+对素数幂 $q=p^e$，记 $v_p(n!)=\sum_{j\ge1}\lfloor n/p^j\rfloor$，
+$U_p(n)=n!/p^{v_p(n!)}$。设
+$t=v_p(n!)-v_p(k!)-v_p((n-k)!)$。当 $t\ge e$ 时组合数模 $q$ 为零；否则
+\[
+\binom nk\equiv U_p(n)\,U_p(k)^{-1}\,U_p(n-k)^{-1}\,p^t\pmod q.
+\]
+这里仅对与 $p$ 互素的单位部分求逆。各素数幂上的结果通过 CRT 合并，
+对应第~\pageref{compact-ExLucas}~页的实现。
+
+在素数域中，$n$ 个模 $p$ 两两不同的横坐标确定唯一的次数小于 $n$ 的多项式。
+定义 $w_i=y_i/\prod_{j\ne i}(x_i-x_j)$，则
+\[
+f(k)=\sum_{i=0}^{n-1}w_i\prod_{j<i}(k-x_j)\prod_{j>i}(k-x_j).
+\]
+该式不除以 $k-x_i$，查询点命中样本点时仍然成立。
+当 $x_i=i$ 时，分母为 $i!\,(n-1-i)!\,(-1)^{n-1-i}$，要求 $n\le p$。
+实现见第~\pageref{compact-Lagrange}~页。
+对整数幂前缀和 $S_d(k)=\sum_{i=1}^k i^d$，当 $0\le d\le p-2$ 时，
+它在模 $p$ 意义下可用次数至多 $d+1$ 的多项式表示；取 $0,1,\ldots,d+1$
+的样本即可。不能只因某序列前几项能插值，就断言后续仍由该多项式给出。
+
 \section{组合计数}\index{inclusion-exclusion}\index{Catalan}\index{Stirling numbers}
 容斥：$|\bigcup A_i|=\sum_{\emptyset\ne S}(-1)^{|S|+1}|\bigcap_{i\in S}A_i|$。
 二项式反演：若 $b_n=\sum_{k=0}^{n}\binom nk a_k$，则
@@ -112,7 +134,7 @@ $B=\sum\gcd(|\Delta x|,|\Delta y|)$；不要重复计入边端点。
 
 \paragraph{来源索引}
 本章为重新组织的公式速查，扩展范围依据 \url{https://oi-wiki.org/math/}。
-还需补齐 exLucas、二次剩余、原根、Min25、插值、子集卷积、行列式进阶、数值积分等完整实现与验证；本章公式不能代替这些待完成代码。
+小模数 exLucas 与有限域拉格朗日插值已有双风格实现和本地验证；仍需补齐二次剩余、原根、Min25、Newton 插值、子集卷积、行列式进阶、数值积分等内容及验证。本章公式不能代替这些待完成代码。
 
 \section{线性递推：系数方向与外推条件}
 \index{线性递推}

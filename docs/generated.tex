@@ -278,6 +278,14 @@ ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k �
 
 \lstinputlisting[firstline=89,lastline=107,firstnumber=84]{../src/compact/exlucas.hpp}
 
+\chapter{多项式插值}
+
+\section{拉格朗日插值与连续点优化}\label{compact-Lagrange}\index{Lagrange}
+
+先声明 Lagrange。init(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long long>；consecutive(ys,p) 专用于横坐标 0..n-1。两者均覆盖旧数据。要求 p 为素数，2$\le$p$\le$INT\_MAX，点数 n$\le$p，任意横坐标取模后两两不同；不是仅要求原整数不同。query(k) 返回次数小于 n 的插值多项式在 k 处的值，允许 k、xs、ys 为完整 long long 范围，内部先归一化；空数据约定零多项式。通用预处理 O(n$^{2}$+n log p)，连续点预处理 O(n+log p)，每次查询 O(n)，空间 O(n)。查询利用前缀积与滚动后缀积，无需求逆，因此 k 与样本点模 p 相等时也正确。若求 1\textasciicircum{}d+…+k\textasciicircum{}d，要求 0$\le$d$\le$p-2，先计算 0..d+1 的前缀和作为 ys，再用 consecutive；用快速幂生成这些样本另花 O(d log(d+1))。仅处理素数域中的精确插值，不适用于浮点曲线拟合或重复节点的导数约束。
+
+\lstinputlisting[firstline=6,lastline=92]{../src/compact/interpolation.hpp}
+
 \chapter{多项式}
 
 \section{NTT、形式幂级数、FWT 与递推}\label{compact-Polynomial}\index{Polynomial}
@@ -773,6 +781,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 \Needspace{231pt}
 
 \lstinputlisting[firstline=96,lastline=114,firstnumber=91]{../src/classic/exlucas.hpp}
+
+\chapter{多项式插值}
+
+\section{拉格朗日插值与连续点优化}\label{classic-Lagrange}\index{Lagrange\_Interpolation}
+
+算法约束见动态版本第~\pageref{compact-Lagrange}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Lagrange\_Interpolation<N>；Init、Consecutive、Query 对应动态接口，N 为最大样本数。坐标、权值与工作数组均为静态数组，大对象放在全局或 static；Query 会改写工作数组。
+
+\lstinputlisting[firstline=6,lastline=90]{../src/classic/interpolation.hpp}
 
 \chapter{多项式}
 

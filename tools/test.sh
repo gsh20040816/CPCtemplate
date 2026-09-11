@@ -83,3 +83,6 @@ build/weighted_matching
 
 "$CXX" "${flags[@]}" tests/exlucas.cpp -o build/exlucas
 build/exlucas
+
+"$CXX" "${flags[@]}" tests/interpolation.cpp -o build/interpolation
+build/interpolation

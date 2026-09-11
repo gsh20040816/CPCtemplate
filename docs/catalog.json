@@ -162,6 +162,12 @@
     "ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k 为 unsigned long long，k>n 返回 0，mod=1 返回 0。适合 mod≤10⁶ 的合数或素数模数，不能用于 10⁹ 级素数的整段预处理。分解 mod 为互素素数幂 q=p^e，预处理每段内不含 p 因子的前缀积；unit(n,f) 去除 n! 中全部 p 因子，valuation 统计指数。分子分母指数之差不少于 e 时该项为零，否则只对互素单位部分求逆，最后 CRT 合并。预处理 O(√mod+Σq)，空间 O(Σ(q+1))；每次查询 O(Σ(log_p(n+1)·log(n+1)+log q))，求和遍历不同素因子。所有乘法用 long long；同一对象可重复查询，factors、fac 与辅助函数视为内部数据。"
   ],
   [
+    "interpolation",
+    "Lagrange",
+    "拉格朗日插值与连续点优化",
+    "先声明 Lagrange。init(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long long>；consecutive(ys,p) 专用于横坐标 0..n-1。两者均覆盖旧数据。要求 p 为素数，2≤p≤INT_MAX，点数 n≤p，任意横坐标取模后两两不同；不是仅要求原整数不同。query(k) 返回次数小于 n 的插值多项式在 k 处的值，允许 k、xs、ys 为完整 long long 范围，内部先归一化；空数据约定零多项式。通用预处理 O(n²+n log p)，连续点预处理 O(n+log p)，每次查询 O(n)，空间 O(n)。查询利用前缀积与滚动后缀积，无需求逆，因此 k 与样本点模 p 相等时也正确。若求 1^d+…+k^d，要求 0≤d≤p-2，先计算 0..d+1 的前缀和作为 ys，再用 consecutive；用快速幂生成这些样本另花 O(d log(d+1))。仅处理素数域中的精确插值，不适用于浮点曲线拟合或重复节点的导数约束。"
+  ],
+  [
     "polynomial",
     "Polynomial",
     "NTT、形式幂级数、FWT 与递推",
