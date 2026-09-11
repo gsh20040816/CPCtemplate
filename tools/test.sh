@@ -57,3 +57,8 @@ build/dsu_on_tree
 
 "$CXX" "${flags[@]}" tests/affine_segment_tree.cpp -o build/affine_segment_tree
 build/affine_segment_tree
+
+"$CXX" "${flags[@]}" -pthread tests/virtual_tree.cpp -o build/virtual_tree
+build/virtual_tree
+
+python3 tests/virtual_tree_application.py

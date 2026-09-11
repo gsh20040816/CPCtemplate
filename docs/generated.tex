@@ -148,6 +148,14 @@ SubtreeColors(n)，点号 1..n，add(u,v) 建无向树；要求图连通且无�
 
 \lstinputlisting[firstline=7,lastline=112]{../src/compact/dsu_on_tree.hpp}
 
+\chapter{虚树}
+
+\section{虚树：关键点压缩与路径信息}\label{compact-VirtualTree}\index{VirtualTree}
+
+VirtualTree(n)，n$\ge$1，点号 1..n；add(u,v,w=1) 建非负权连通树，无环和重边。prepare(root=1) 递归预处理，可换根重建；根到任一点距离须在 long long 范围内。build(keys) 自动去重并补齐必要 LCA，返回 vertices 和 edges；全部编号沿用原树，vertices 按 DFS 序排列，非空时首项即虚树根。edges 为 (from,to,distance,minimum)，分别是祖先到后代的虚边、压缩路径长度和路径最小边权。空关键点返回空结果，单点返回单节点；原树根不会强制加入，需要时由调用者加入 keys。边按后代 DFS 序排列，可逆序做自底向上的 DP。不分配或清空 n 个查询邻接表；每次仅返回 O(k) 结果。预处理 O(n log n) 时间空间，单次 O(k log k+k log n)。lca、ancestor 也可直接使用，要求有效点号且已经 prepare。构造用的祖先链栈属于虚树算法，原树 DFS 保持递归。
+
+\lstinputlisting[firstline=9,lastline=146]{../src/compact/virtual_tree.hpp}
+
 \chapter{字符串}
 
 \Needspace{226pt}
@@ -597,6 +605,16 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 声明 Subtree\_Colors<N>，Init(n) 初始化，Insert 加边，Run(colors,root) 计算；answer 与 max\_freq 为最终结果。Add\_Color 为内部统计函数。大对象放在全局或 static。
 
 \lstinputlisting[firstline=7,lastline=116]{../src/classic/dsu_on_tree.hpp}
+
+\chapter{虚树}
+
+\section{虚树：关键点压缩与路径信息}\label{classic-VirtualTree}\index{Virtual\_Tree}
+
+算法约束见动态版本第~\pageref{compact-VirtualTree}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Virtual\_Tree<N,LOG>，要求 2 的 LOG 次方大于实际点数，默认 LOG=20。Init(n)、Insert、Prepare、Build 对应初始化、加边、预处理和查询；Lca、Ancestor、Path 为对应辅助接口。大对象放在全局或 static。
+
+\lstinputlisting[firstline=9,lastline=152]{../src/classic/virtual_tree.hpp}
 
 \chapter{字符串}
 
