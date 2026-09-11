@@ -465,5 +465,79 @@
       "Affine_Segment_Tree::Init/Update(1,add)/Query"
     ],
     "note": "Recursive HLD with path/subtree addition and modular sum. Direct LCA, edge paths, multiplication/assignment, reset/reroot extensions separately tested locally."
+  },
+  {
+    "problem": "Luogu P3369",
+    "style": "compact",
+    "algorithm": "OrderedSplay",
+    "record": "https://www.luogu.com.cn/record/297520192",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 240,
+    "memory": "2.71MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3369.splay.compact.cpp",
+    "submitted_source": "verification/submitted/P3369.splay.compact.cpp",
+    "submitted_sha256": "7f43d37962ca301a92595bf20b964c6f5d33506130e31f85e2c48dd54883092a",
+    "tested_api": [
+      "insert",
+      "erase",
+      "rank",
+      "kth",
+      "prev",
+      "next"
+    ],
+    "note": "Ordinary multiset Splay. Valid kth/predecessor/successor inputs follow P3369. Does not cover sequence Splay or dynamic-tree extensions."
+  },
+  {
+    "problem": "Luogu P3369",
+    "style": "classic",
+    "algorithm": "OrderedSplay",
+    "record": "https://www.luogu.com.cn/record/297520197",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 246,
+    "memory": "2.00MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3369.splay.classic.cpp",
+    "submitted_source": "verification/submitted/P3369.splay.classic.cpp",
+    "submitted_sha256": "3841a4c809a17d35c9a07071b49e2ccddf485f6223352f3f70eb0da0d2fabcc3",
+    "tested_api": [
+      "Init",
+      "Insert",
+      "Erase",
+      "Rank",
+      "Kth",
+      "Predecessor",
+      "Successor"
+    ],
+    "note": "Ordinary multiset Splay. Valid kth/predecessor/successor inputs follow P3369. Does not cover sequence Splay or dynamic-tree extensions."
+  },
+  {
+    "problem": "Luogu P3369",
+    "style": "classic",
+    "algorithm": "OrderedTreap",
+    "record": "https://www.luogu.com.cn/record/297520203",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 275,
+    "memory": "3.77MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3369.classic.cpp",
+    "submitted_source": "verification/submitted/P3369.classic.cpp",
+    "submitted_sha256": "e549ea24cbf35f705a55859aae51797cbf5e98ab608860c35ad39eb52f09de42",
+    "tested_api": [
+      "Init",
+      "Insert",
+      "Erase",
+      "Rank",
+      "Kth",
+      "Predecessor",
+      "Successor"
+    ],
+    "note": "Ordinary multiset Treap; unused sequence Treap in the same bundle is not tested by P3369. Valid kth/predecessor/successor inputs follow the official task."
   }
 ]
