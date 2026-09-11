@@ -38,7 +38,6 @@
 - `verify/luogu/P4782.classic.cpp`
 - `verify/luogu/P4782.compact.cpp`
 - `verify/luogu/P5491.classic.cpp`
-- `verify/luogu/P5491.compact.cpp`
 - `verify/luogu/P5496.classic.cpp`
 - `verify/luogu/P6113.classic.cpp`
 - `verify/luogu/P6113.compact.cpp`
@@ -77,4 +76,4 @@ OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在�
 - P3834 动态版验证码已处理，记录 297520290 获得 100 分 AC；传统版记录 297520299 同样获得 100 分 AC。两份打包程序的排序切片对拍见 verification/persistent-kth-driver-tests.txt。
 
 - P4174 最大权闭合子图双风格已 AC：动态版 297520300，传统版 297520304。OJ 验证最优权值；返回选点集合、极端负权及一般依赖环仍由本地证书检查覆盖。
-- P5491 动态版本次提交出现验证码，已请求当次确认，尚未生成评测记录；传统版尚未提交。
+- P5491 动态版验证码经用户当次授权处理，记录 297520354 获得 100 分 AC；传统版尚未提交。

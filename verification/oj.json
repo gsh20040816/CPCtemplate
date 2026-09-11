@@ -704,5 +704,24 @@
       "maximum_closure: optimal value"
     ],
     "note": "Station/group maximum-profit reduction. The judge checks only the optimal weight, not the returned selected vertex list. Selection certificates, LLONG_MIN and arbitrary dependency cycles are tested locally; other flow algorithms are not covered."
+  },
+  {
+    "problem": "Luogu P5491",
+    "style": "compact",
+    "algorithm": "mod_sqrt",
+    "record": "https://www.luogu.com.cn/record/297520354",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 148,
+    "memory": "860.00KB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P5491.compact.cpp",
+    "submitted_source": "verification/submitted/P5491.compact.cpp",
+    "submitted_sha256": "1c5d5221b2879bb1104e174715da178a86b32eccadf71f92abbbd40071031e87",
+    "tested_api": [
+      "mod_sqrt"
+    ],
+    "note": "Prime modulus modular square roots; all 10 judge cases accepted. Time is the sum of displayed test-case times."
   }
 ]
