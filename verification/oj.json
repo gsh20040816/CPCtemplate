@@ -539,5 +539,48 @@
       "Successor"
     ],
     "note": "Ordinary multiset Treap; unused sequence Treap in the same bundle is not tested by P3369. Valid kth/predecessor/successor inputs follow the official task."
+  },
+  {
+    "problem": "Luogu P3391",
+    "style": "compact",
+    "algorithm": "SequenceTreap",
+    "record": "https://www.luogu.com.cn/record/297520211",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 613,
+    "memory": "9.38MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3391.compact.cpp",
+    "submitted_source": "verification/submitted/P3391.compact.cpp",
+    "submitted_sha256": "a1ba307a6662b8eecbcb13138064475ffe17ec975ef43df369309b8621d909f9",
+    "tested_api": [
+      "insert: initial sequence",
+      "reverse",
+      "values"
+    ],
+    "note": "Implicit sequence Treap with recursive output traversal. Does not cover uncalled sequence operations or the ordered Treap in the same bundle."
+  },
+  {
+    "problem": "Luogu P3391",
+    "style": "classic",
+    "algorithm": "SequenceTreap",
+    "record": "https://www.luogu.com.cn/record/297520217",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 592,
+    "memory": "7.03MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3391.classic.cpp",
+    "submitted_source": "verification/submitted/P3391.classic.cpp",
+    "submitted_sha256": "80e6208d0bab2d4e3c67ef4991ff16185872fb79ae6fbaa0e1ed1647df95c54b",
+    "tested_api": [
+      "Init",
+      "Insert: initial sequence",
+      "Reverse",
+      "Values"
+    ],
+    "note": "Implicit sequence Treap with recursive output traversal. Does not cover uncalled sequence operations or the ordered Treap in the same bundle."
   }
 ]
