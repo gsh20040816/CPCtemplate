@@ -28,3 +28,8 @@ build/dual
 build/lowlink
 "$CXX" "${flags[@]}" tests/boundaries.cpp -o build/boundaries
 build/boundaries
+"$CXX" "${flags[@]}" tests/trees.cpp -o build/trees
+build/trees
+
+"$CXX" "${flags[@]}" tests/gcd_sequence.cpp -o build/gcd_sequence
+build/gcd_sequence

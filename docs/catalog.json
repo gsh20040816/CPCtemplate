@@ -244,5 +244,35 @@
     "IntegerGeometry3D",
     "整数三维共线、共面与方向",
     "坐标绝对值≤10⁹；orient(a,b,c,d) 为有向六倍四面体体积，0 表示共面；collinear 判三点共线，on_segment 支持退化线段。int128 精确判定，不包含三维凸包构造。"
+  ],
+  [
+    "dynamic_tree",
+    "LinkCutTree",
+    "Link-cut tree：动态森林与路径异或",
+    "构造 LinkCutTree(n)，点号 1..n，初始权值为零。set(x,value) 修改点权；link(x,y) 仅在不同连通块之间连边并返回是否成功；cut(x,y) 只删除真实存在的边，否则返回 false。connected 查询连通性；query(x,y) 返回路径点权异或，要求两点连通，支持 x=y。make_root/find_root 维护与查询当前表示树根。每次操作均摊 O(log n)，O(n) 空间，splay 下传使用显式栈，支持长链。权值为 unsigned long long。仅维护路径异或，不包含虚子树聚合或动态直径。"
+  ],
+  [
+    "treap",
+    "OrderedTreap",
+    "FHQ Treap：可重集合与顺序统计",
+    "insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在；rank(x) 为严格小于 x 的元素数加一，x 不必存在；kth(k) 要求 1≤k≤size()。prev/next 为严格前驱/后继，不存在时返回 nullopt。支持重复值、LLONG_MIN 和 LLONG_MAX，分裂不使用 x-1。随机优先级下单次期望 O(log n)，并非确定性最坏界。节点池不回收已删除节点，空间按累计插入次数计算；可在构造时指定随机种子。"
+  ],
+  [
+    "treap",
+    "SequenceTreap",
+    "隐式 Treap：序列翻转、加值与区间和",
+    "insert(k,value) 在前 k 个元素后插入，0≤k≤size()；erase(l,r)、reverse(l,r)、add(l,r,value)、query(l,r) 均使用 1-based 非空闭区间。values() 返回当前完整序列，O(n)，使用显式中序栈。其余操作在随机优先级下期望 O(log n)；翻转与加法懒标记同时维护。所有值、和、标记及 value×长度中间结果必须落在 long long 范围内。删除不回收节点，内存按累计插入数计算。"
+  ],
+  [
+    "splay",
+    "OrderedSplay",
+    "Splay：可重集合与顺序统计",
+    "insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不存在返回 nullopt。重复键计数存储；失败查询也伸展最后访问节点，单次均摊 O(log n)。不回收节点，空间按累计新建节点数计算。支持 long long 全范围；不包含序列 Splay、虚子树信息或矩阵动态 DP。"
+  ],
+  [
+    "gcd_sequence",
+    "GcdSequenceTreap",
+    "状态序列 Treap：分组区间 GCD",
+    "build(v) 用 (unsigned long long 值,0/1 状态) 序列替换当前内容；insert(k,value,tag) 在前 k 项后插入。erase(l,r)、query(l,r,tag) 使用 1-based 非空闭区间；set(k,value) 修改值，toggle(k) 翻转状态。query 返回选中状态的 GCD，无对应元素为 nullopt，实际全零则返回 0。回收删除节点，空间按峰值长度计算。建树 O(n) 次 GCD，随机优先级下单次期望 O(log n) 次 GCD；删除另需 O(删除长度) 回收。一次 GCD 为 O(log U)。覆盖 kuangbin 3.7 的序列操作，尚无该原题 OJ 记录。"
   ]
 ]
