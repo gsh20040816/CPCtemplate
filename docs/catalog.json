@@ -79,9 +79,33 @@
   ],
   [
     "string",
-    "StringAlgo",
-    "KMP、Z、Manacher 与最小表示",
-    "字符串及返回位置均 0-based。prefix(s)、z(s)；match(s,t) 查非空模式串并返回重叠匹配起点。manacher 返回奇数半径（含中心）和偶数半径（中心在 i 前）；rotation 返回最小循环表示起点，空串返回 0。各 O(n+m)。"
+    "prefix_function",
+    "前缀函数",
+    "prefix_function(s) 返回每个前缀的最长真 border 长度，0-based；空串返回空数组。O(n)，无状态，直接抄写函数。"
+  ],
+  [
+    "string",
+    "kmp_match",
+    "KMP 匹配",
+    "kmp_match(s,t) 返回非空模式串 t 在 s 中的所有起点（0-based），允许重叠。需要同章前缀函数。O(|s|+|t|)。"
+  ],
+  [
+    "string",
+    "z_function",
+    "Z 函数",
+    "z_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返回空数组。O(n)。"
+  ],
+  [
+    "string",
+    "manacher",
+    "Manacher 回文半径",
+    "manacher(s) 返回 odd 与 even；odd[i] 的半径包含中心，even[i] 的中心在 i 前。字符串及下标为 0-based，空串合法，O(n)。"
+  ],
+  [
+    "string",
+    "minimum_rotation",
+    "最小循环表示",
+    "minimum_rotation(s) 返回字典序最小循环表示的起点（0-based），空串返回 0；按无符号字节比较，与 string 字典序一致。O(n)。"
   ],
   [
     "string",

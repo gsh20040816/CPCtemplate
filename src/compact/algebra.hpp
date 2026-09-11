@@ -1,134 +1,234 @@
 #pragma once
 #include "number_theory.hpp"
 
-template<int mod> struct LinearAlgebra
+template <int mod> struct LinearAlgebra
 {
-    using Z=ModInt<mod>; using Matrix=vector<vector<Z>>;
-    struct Solution { bool consistent; int rank; vector<Z> particular; Matrix kernel; };
-    // Augmented m x (n+1), prime modulus. Empty system needs explicit n.
-    static Solution solve(Matrix a,int n)
+    using Z = ModInt<mod>;
+    using Matrix = vector<vector<Z>>;
+
+    struct Solution
     {
-        int m=(int)a.size(),row=0; vector<int> where(n,-1);
-        for (const auto &v:a) assert((int)v.size()==n+1);
-        for (int col=0;col<n&&row<m;col++)
+        bool consistent;
+        int rank;
+        vector<Z> particular;
+        Matrix kernel;
+    };
+
+    // Augmented m x (n+1), prime modulus. Empty system needs explicit n.
+    static Solution solve(Matrix a, int n)
+    {
+        int m = (int)a.size(), row = 0;
+        vector<int> where(n, -1);
+        for (const auto &v : a)
+            assert((int)v.size() == n + 1);
+        for (int col = 0; col < n && row < m; col++)
         {
-            int p=row; while (p<m&&!a[p][col].v) ++p;
-            if (p==m) continue;
-            swap(a[p],a[row]); Z inv=a[row][col].inv();
-            for (int j=col;j<=n;j++) a[row][j]=a[row][j]*inv;
-            for (int i=0;i<m;i++) if (i!=row&&a[i][col].v)
+            int p = row;
+            while (p < m && !a[p][col].v)
+                ++p;
+            if (p == m)
+                continue;
+            swap(a[p], a[row]);
+            Z inv = a[row][col].inv();
+            for (int j = col; j <= n; j++)
+                a[row][j] = a[row][j] * inv;
+            for (int i = 0; i < m; i++)
+                if (i != row && a[i][col].v)
+                {
+                    Z f = a[i][col];
+                    for (int j = col; j <= n; j++)
+                        a[i][j] = a[i][j] - f * a[row][j];
+                }
+            where[col] = row++;
+        }
+        for (int i = row; i < m; i++)
+            if (a[i][n].v)
+                return {false, row, {}, {}};
+        Solution ans{true, row, vector<Z>(n), {}};
+        for (int j = 0; j < n; j++)
+            if (where[j] != -1)
+                ans.particular[j] = a[where[j]][n];
+        for (int j = 0; j < n; j++)
+            if (where[j] == -1)
             {
-                Z f=a[i][col];
-                for (int j=col;j<=n;j++) a[i][j]=a[i][j]-f*a[row][j];
+                vector<Z> v(n);
+                v[j] = 1;
+                for (int k = 0; k < n; k++)
+                    if (where[k] != -1)
+                        v[k] = Z(0) - a[where[k]][j];
+                ans.kernel.push_back(v);
             }
-            where[col]=row++;
-        }
-        for (int i=row;i<m;i++) if (a[i][n].v) return {false,row,{},{}};
-        Solution ans{true,row,vector<Z>(n),{}};
-        for (int j=0;j<n;j++) if (where[j]!=-1) ans.particular[j]=a[where[j]][n];
-        for (int j=0;j<n;j++) if (where[j]==-1)
-        {
-            vector<Z> v(n); v[j]=1;
-            for (int k=0;k<n;k++) if (where[k]!=-1) v[k]=Z(0)-a[where[k]][j];
-            ans.kernel.push_back(v);
-        }
         return ans;
     }
+
     static Z determinant(Matrix a)
     {
-        int n=(int)a.size(); Z ans=1;
-        for (int i=0;i<n;i++)
+        int n = (int)a.size();
+        Z ans = 1;
+        for (int i = 0; i < n; i++)
         {
-            assert((int)a[i].size()==n); int p=i;
-            while (p<n&&!a[p][i].v) ++p;
-            if (p==n) return 0;
-            if (p!=i) { swap(a[p],a[i]); ans=Z(0)-ans; }
-            ans=ans*a[i][i]; Z inv=a[i][i].inv();
-            for (int j=i+1;j<n;j++)
+            assert((int)a[i].size() == n);
+            int p = i;
+            while (p < n && !a[p][i].v)
+                ++p;
+            if (p == n)
+                return 0;
+            if (p != i)
             {
-                Z f=a[j][i]*inv;
-                for (int k=i;k<n;k++) a[j][k]=a[j][k]-f*a[i][k];
+                swap(a[p], a[i]);
+                ans = Z(0) - ans;
+            }
+            ans = ans * a[i][i];
+            Z inv = a[i][i].inv();
+            for (int j = i + 1; j < n; j++)
+            {
+                Z f = a[j][i] * inv;
+                for (int k = i; k < n; k++)
+                    a[j][k] = a[j][k] - f * a[i][k];
             }
         }
         return ans;
     }
-    static Matrix multiply(const Matrix &a,const Matrix &b)
+
+    static Matrix multiply(const Matrix &a, const Matrix &b)
     {
-        assert(!a.empty()&&!b.empty()); int n=a.size(),m=b[0].size(),k=b.size();
-        assert((int)a[0].size()==k); Matrix c(n,vector<Z>(m));
-        for (int i=0;i<n;i++) for (int t=0;t<k;t++)
-            for (int j=0;j<m;j++) c[i][j]=c[i][j]+a[i][t]*b[t][j];
+        assert(!a.empty() && !b.empty());
+        int n = a.size(), m = b[0].size(), k = b.size();
+        assert((int)a[0].size() == k);
+        Matrix c(n, vector<Z>(m));
+        for (int i = 0; i < n; i++)
+            for (int t = 0; t < k; t++)
+                for (int j = 0; j < m; j++)
+                    c[i][j] = c[i][j] + a[i][t] * b[t][j];
         return c;
     }
-    static Matrix power(Matrix a,unsigned long long e)
+
+    static Matrix power(Matrix a, unsigned long long e)
     {
-        int n=a.size(); assert(n>0&&(int)a[0].size()==n);
-        Matrix r(n,vector<Z>(n)); for (int i=0;i<n;i++) r[i][i]=1;
-        for (;e;e>>=1,a=multiply(a,a)) if (e&1) r=multiply(r,a);
+        int n = a.size();
+        assert(n > 0 && (int)a[0].size() == n);
+        Matrix r(n, vector<Z>(n));
+        for (int i = 0; i < n; i++)
+            r[i][i] = 1;
+        for (; e; e >>= 1, a = multiply(a, a))
+            if (e & 1)
+                r = multiply(r, a);
         return r;
     }
+
     // Undirected multigraph, vertices 0..n-1; loops ignored.
-    static Z spanning_trees(int n,const vector<pair<int,int>> &edges)
+    static Z spanning_trees(int n, const vector<pair<int, int>> &edges)
     {
-        assert(n>0); Matrix lap(n,vector<Z>(n));
-        for (auto [u,v]:edges) if (u!=v)
-        { lap[u][u]=lap[u][u]+1; lap[v][v]=lap[v][v]+1; lap[u][v]=lap[u][v]-1; lap[v][u]=lap[v][u]-1; }
-        lap.pop_back(); for (auto &row:lap) row.pop_back(); return determinant(lap);
+        assert(n > 0);
+        Matrix lap(n, vector<Z>(n));
+        for (auto [u, v] : edges)
+            if (u != v)
+            {
+                lap[u][u] = lap[u][u] + 1;
+                lap[v][v] = lap[v][v] + 1;
+                lap[u][v] = lap[u][v] - 1;
+                lap[v][u] = lap[v][u] - 1;
+            }
+        lap.pop_back();
+        for (auto &row : lap)
+            row.pop_back();
+        return determinant(lap);
     }
 };
 
 struct DuJiao
 {
-    using ll=long long; using I=__int128_t;
-    int limit; vector<ll> pmu,pphi;
-    unordered_map<ll,ll> mmu; unordered_map<ll,I> mphi;
-    DuJiao(int limit):limit(limit),pmu(limit+1),pphi(limit+1)
+    using ll = long long;
+    using I = __int128_t;
+    int limit;
+    vector<ll> pmu, pphi;
+    unordered_map<ll, ll> mmu;
+    unordered_map<ll, I> mphi;
+
+    DuJiao(int limit) : limit(limit), pmu(limit + 1), pphi(limit + 1)
     {
-        assert(limit>=1); LinearSieve s(limit);
-        for (int i=1;i<=limit;i++) { pmu[i]=pmu[i-1]+s.mu[i]; pphi[i]=pphi[i-1]+s.phi[i]; }
+        assert(limit >= 1);
+        LinearSieve s(limit);
+        for (int i = 1; i <= limit; i++)
+        {
+            pmu[i] = pmu[i - 1] + s.mu[i];
+            pphi[i] = pphi[i - 1] + s.phi[i];
+        }
     }
+
     ll mertens(ll n)
     {
-        if (n<=limit) return pmu[n];
-        if (mmu.count(n)) return mmu[n];
-        ll ans=1;
-        for (ll l=2,r;l<=n;l=r+1) { r=n/(n/l); ans-=(r-l+1)*mertens(n/l); }
-        return mmu[n]=ans;
+        if (n <= limit)
+            return pmu[n];
+        if (mmu.count(n))
+            return mmu[n];
+        ll ans = 1;
+        for (ll l = 2, r; l <= n; l = r + 1)
+        {
+            r = n / (n / l);
+            ans -= (r - l + 1) * mertens(n / l);
+        }
+        return mmu[n] = ans;
     }
+
     I totient_sum(ll n)
     {
-        if (n<=limit) return pphi[n];
-        if (mphi.count(n)) return mphi[n];
-        I ans=I(n)*(n+1)/2;
-        for (ll l=2,r;l<=n;l=r+1) { r=n/(n/l); ans-=I(r-l+1)*totient_sum(n/l); }
-        return mphi[n]=ans;
+        if (n <= limit)
+            return pphi[n];
+        if (mphi.count(n))
+            return mphi[n];
+        I ans = I(n) * (n + 1) / 2;
+        for (ll l = 2, r; l <= n; l = r + 1)
+        {
+            r = n / (n / l);
+            ans -= I(r - l + 1) * totient_sum(n / l);
+        }
+        return mphi[n] = ans;
     }
 };
 
 struct DiscreteLog
 {
-    using ll=long long;
+    using ll = long long;
+
     // 1<=m<=1e12; O(sqrt(m)) time/storage. Smallest x>=0, or -1.
-    static ll solve(ll a,ll b,ll m)
+    static ll solve(ll a, ll b, ll m)
     {
-        assert(m>=1&&m<=1000000000000LL); a=(a%m+m)%m; b=(b%m+m)%m;
-        if (m==1) return 0;
-        ll offset=0,k=1;
-        for (ll g;(g=gcd(a,m))>1;)
+        assert(m >= 1 && m <= 1000000000000LL);
+        a = (a % m + m) % m;
+        b = (b % m + m) % m;
+        if (m == 1)
+            return 0;
+        ll offset = 0, k = 1;
+        for (ll g; (g = gcd(a, m)) > 1;)
         {
-            if (b==k) return offset;
-            if (b%g) return -1;
-            b/=g; m/=g; k=(__int128)k*(a/g)%m; ++offset;
+            if (b == k)
+                return offset;
+            if (b % g)
+                return -1;
+            b /= g;
+            m /= g;
+            k = (__int128)k * (a / g) % m;
+            ++offset;
         }
-        ll target=(__int128)b*NumberTheory::inverse(k,m)%m;
-        ll step=sqrtl(m)+1; unordered_map<ll,ll> baby;
-        ll cur=1%m;
-        for (ll j=0;j<step;j++) { if (!baby.count(cur)) baby[cur]=j; cur=(__int128)cur*a%m; }
-        ll inv=NumberTheory::inverse(NumberTheory::power(a,step,m),m); cur=target;
-        for (ll i=0;i<=step;i++)
+        ll target = (__int128)b * NumberTheory::inverse(k, m) % m;
+        ll step = sqrtl(m) + 1;
+        unordered_map<ll, ll> baby;
+        ll cur = 1 % m;
+        for (ll j = 0; j < step; j++)
         {
-            auto it=baby.find(cur); if (it!=baby.end()) return offset+i*step+it->second;
-            cur=(__int128)cur*inv%m;
+            if (!baby.count(cur))
+                baby[cur] = j;
+            cur = (__int128)cur * a % m;
+        }
+        ll inv = NumberTheory::inverse(NumberTheory::power(a, step, m), m);
+        cur = target;
+        for (ll i = 0; i <= step; i++)
+        {
+            auto it = baby.find(cur);
+            if (it != baby.end())
+                return offset + i * step + it->second;
+            cur = (__int128)cur * inv % m;
         }
         return -1;
     }

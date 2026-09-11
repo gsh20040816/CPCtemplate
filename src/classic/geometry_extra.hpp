@@ -6,6 +6,7 @@ struct Geometry_Extra
     using G = Integer_Geometry;
     using P = G::Point;
     using I = G::I;
+
     // No pair exists for n<2. Exact squared distance, O(n log n).
     static optional<I> Closest_Pair(vector<P> p)
     {
@@ -17,7 +18,10 @@ struct Geometry_Extra
             if ( p[i] == p[i - 1] )
                 return I(0);
         vector<P> tmp(n);
-        auto by_y = [](P a, P b) { return tie(a.y, a.x) < tie(b.y, b.x); };
+        auto by_y = [](P a, P b)
+        {
+            return tie(a.y, a.x) < tie(b.y, b.x);
+        };
         function<I(int, int)> Solve = [&](int l, int r) -> I
         {
             if ( r - l <= 3 )
@@ -32,8 +36,12 @@ struct Geometry_Extra
             int m = (l + r) / 2;
             long long x = p[m].x;
             I best = min(Solve(l, m), Solve(m, r));
-            merge(p.begin() + l, p.begin() + m, p.begin() + m, p.begin() + r,
-                  tmp.begin() + l, by_y);
+            merge(p.begin() + l,
+                  p.begin() + m,
+                  p.begin() + m,
+                  p.begin() + r,
+                  tmp.begin() + l,
+                  by_y);
             copy(tmp.begin() + l, tmp.begin() + r, p.begin() + l);
             vector<P> strip;
             for ( int i = l; i < r; i++ )
@@ -52,12 +60,16 @@ struct Geometry_Extra
         };
         return Solve(0, n);
     }
+
     // Inputs strict CCW hulls. Coordinate sums must obey IntegerGeometry's bound.
     static vector<P> Minkowski(vector<P> a, vector<P> b)
     {
         if ( a.empty() || b.empty() )
             return {};
-        auto plus = [](P u, P v) { return P{u.x + v.x, u.y + v.y}; };
+        auto plus = [](P u, P v)
+        {
+            return P{u.x + v.x, u.y + v.y};
+        };
         if ( a.size() < 3 || b.size() < 3 )
         {
             vector<P> p;
@@ -68,8 +80,12 @@ struct Geometry_Extra
         }
         auto start = [](vector<P> &p)
         {
-            auto it = min_element(p.begin(), p.end(), [](P u, P v)
-                                  { return tie(u.y, u.x) < tie(v.y, v.x); });
+            auto it = min_element(p.begin(),
+                                  p.end(),
+                                  [](P u, P v)
+                                  {
+                                      return tie(u.y, u.x) < tie(v.y, v.x);
+                                  });
             rotate(p.begin(), it, p.end());
         };
         start(a);
@@ -104,37 +120,46 @@ struct Geometry_Extra
 struct Integer_Geometry_3D
 {
     using I = __int128_t;
+
     // |coordinates|<=1e9: triple products fit signed int128.
     struct Point
     {
         long long x, y, Z_Function;
     };
+
     struct Vector
     {
         I x, y, Z_Function;
     };
+
     static Vector diff(Point a, Point b)
     {
         return {I(a.x) - b.x, I(a.y) - b.y, I(a.Z_Function) - b.Z_Function};
     }
+
     static Vector Cross(Vector a, Vector b)
     {
         return {a.y * b.Z_Function - a.Z_Function * b.y,
-                a.Z_Function * b.x - a.x * b.Z_Function, a.x * b.y - a.y * b.x};
+                a.Z_Function * b.x - a.x * b.Z_Function,
+                a.x * b.y - a.y * b.x};
     }
+
     static I Dot(Vector a, Vector b)
     {
         return a.x * b.x + a.y * b.y + a.Z_Function * b.Z_Function;
     }
+
     static I orient(Point a, Point b, Point c, Point d)
     {
         return Dot(Cross(diff(b, a), diff(c, a)), diff(d, a));
     }
+
     static bool collinear(Point a, Point b, Point c)
     {
         auto v = Cross(diff(b, a), diff(c, a));
         return !v.x && !v.y && !v.Z_Function;
     }
+
     static bool On_Segment(Point p, Point a, Point b)
     {
         return collinear(p, a, b) && Dot(diff(a, p), diff(b, p)) <= 0;

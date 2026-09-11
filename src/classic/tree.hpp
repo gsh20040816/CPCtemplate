@@ -24,16 +24,26 @@ struct Heavy_Light_Decomposition
     int n, timer = 0;
     vector<vector<int>> g;
     vector<int> fa, dep, siz, son, top, dfn, rk;
+
     Heavy_Light_Decomposition(int n)
-        : n(n), g(n + 1), fa(n + 1), dep(n + 1), siz(n + 1), son(n + 1), top(n + 1),
-          dfn(n + 1), rk(n + 1)
+        : n(n),
+          g(n + 1),
+          fa(n + 1),
+          dep(n + 1),
+          siz(n + 1),
+          son(n + 1),
+          top(n + 1),
+          dfn(n + 1),
+          rk(n + 1)
     {
     }
+
     void Insert(int u, int v)
     {
         g[u].push_back(v);
         g[v].push_back(u);
     }
+
     // Connected tree only; iterative build avoids chain-shaped DFS stack overflow.
     void Build(int root = 1)
     {
@@ -83,6 +93,7 @@ struct Heavy_Light_Decomposition
             }
         }
     }
+
     int Lca(int u, int v) const
     {
         while ( top[u] != top[v] )
@@ -93,6 +104,7 @@ struct Heavy_Light_Decomposition
         }
         return dep[u] < dep[v] ? u : v;
     }
+
     // Commutative operations only; edge=true excludes the LCA's position.
     template <class F> void Path(int u, int v, F work, bool edge = false) const
     {

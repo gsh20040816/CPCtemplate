@@ -7,6 +7,7 @@ struct Polynomial
     static constexpr int mod = 998244353;
     using Z = Mod_Int<mod>;
     using Poly = vector<Z>;
+
     static void Ntt(Poly &a, bool invert = false)
     {
         int n = (int)a.size();
@@ -43,6 +44,7 @@ struct Polynomial
                 x = x * Inv;
         }
     }
+
     static Poly Multiply(Poly a, Poly b)
     {
         if ( a.empty() || b.empty() )
@@ -61,6 +63,7 @@ struct Polynomial
         a.resize(size);
         return a;
     }
+
     static Poly Inverse(const Poly &a, int n)
     {
         assert(n > 0 && !a.empty() && a[0].v);
@@ -79,6 +82,7 @@ struct Polynomial
         }
         return b;
     }
+
     static Poly Derivative(const Poly &a)
     {
         Poly b;
@@ -86,6 +90,7 @@ struct Polynomial
             b.push_back(a[i] * i);
         return b;
     }
+
     static Poly Integral(const Poly &a)
     {
         Poly b(a.size() + 1);
@@ -98,6 +103,7 @@ struct Polynomial
             b[i + 1] = a[i] * Inv[i + 1];
         return b;
     }
+
     static Poly Log(const Poly &a, int n)
     {
         assert(n > 0 && !a.empty() && a[0].v == 1);
@@ -105,6 +111,7 @@ struct Polynomial
         b.resize(n - 1);
         return Integral(b);
     }
+
     static Poly Exp(const Poly &a, int n)
     {
         assert(n > 0 && (a.empty() || a[0].v == 0));
@@ -121,6 +128,7 @@ struct Polynomial
         }
         return b;
     }
+
     static void Fwt(Poly &a, char op, bool invert = false)
     {
         int n = (int)a.size();
@@ -150,6 +158,7 @@ struct Polynomial
                     }
                 }
     }
+
     // c: s[n]=sum c[i-1]*s[n-i], i=1..L.
     static Poly Berlekamp_Massey(const Poly &s)
     {
@@ -187,6 +196,7 @@ struct Polynomial
             x = Z(0) - x;
         return c;
     }
+
     static Z Recurrence(Poly init, const Poly &c, unsigned long long n)
     {
         int k = (int)c.size();

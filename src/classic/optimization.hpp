@@ -25,12 +25,14 @@ struct Max_Plus_Matrix
     static constexpr I neg = -(I(1) << 120);
     int n;
     vector<vector<I>> a;
+
     Max_Plus_Matrix(int n, bool identity = false) : n(n), a(n, vector<I>(n, neg))
     {
         if ( identity )
             for ( int i = 0; i < n; i++ )
                 a[i][i] = 0;
     }
+
     Max_Plus_Matrix operator*(const Max_Plus_Matrix &b) const
     {
         assert(n == b.n);
@@ -43,6 +45,7 @@ struct Max_Plus_Matrix
                             c.a[i][j] = max(c.a[i][j], a[i][k] + b.a[k][j]);
         return c;
     }
+
     Max_Plus_Matrix Power(unsigned long long e) const
     {
         Max_Plus_Matrix b = *this, r(n, true);
@@ -57,38 +60,46 @@ struct Li_Chao_Tree
 {
     using ll = long long;
     using I = __int128_t;
+
     struct Line
     {
         ll k = 0, b = 0;
         int id = -1;
+
         I value(ll x) const
         {
             return I(k) * x + b;
         }
     };
+
     struct Node
     {
         Line line;
         int left = -1, right = -1;
     };
+
     vector<ll> xs;
     vector<Node> a{Node{}};
+
     Li_Chao_Tree(vector<ll> x) : xs(x)
     {
         sort(xs.begin(), xs.end());
         xs.erase(unique(xs.begin(), xs.end()), xs.end());
         assert(!xs.empty());
     }
+
     bool better(Line u, Line v, ll x) const
     {
         return v.id == -1 ||
                (u.id != -1 && pair{u.value(x), u.id} < pair{v.value(x), v.id});
     }
+
     void Insert(Line line)
     {
         assert(line.id >= 0);
         Insert(0, 0, (int)xs.size() - 1, line);
     }
+
     void Insert(int p, int l, int r, Line line)
     {
         int m = (l + r) / 2;
@@ -115,6 +126,7 @@ struct Li_Chao_Tree
         else
             Insert(next, m + 1, r, line);
     }
+
     pair<I, int> Query(ll x) const
     {
         int idx = lower_bound(xs.begin(), xs.end(), x) - xs.begin();
@@ -150,9 +162,11 @@ struct Persistent_Kth
     {
         int l = 0, r = 0, sum = 0;
     };
+
     vector<Node> t{Node{}};
     vector<int> root{0};
     vector<long long> vals;
+
     Persistent_Kth(const vector<long long> &a) : vals(a)
     {
         sort(vals.begin(), vals.end());
@@ -163,6 +177,7 @@ struct Persistent_Kth
             root.push_back(Insert(root.back(), 0, (int)vals.size() - 1, p));
         }
     }
+
     int Insert(int old, int l, int r, int x)
     {
         int p = t.size();
@@ -185,6 +200,7 @@ struct Persistent_Kth
         }
         return p;
     }
+
     long long Kth(int l, int r, int k) const
     {
         assert(1 <= l && l <= r && r < (int)root.size() && 1 <= k && k <= r - l + 1);

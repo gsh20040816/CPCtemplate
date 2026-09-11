@@ -25,10 +25,12 @@ struct Number_Theory
     using ull = unsigned long long;
     using i128 = __int128_t;
     using u128 = __uint128_t;
+
     static ull Mul(ull a, ull b, ull m)
     {
         return u128(a) * b % m;
     }
+
     static ull Power(ull a, ull b, ull m)
     {
         assert(m);
@@ -39,6 +41,7 @@ struct Number_Theory
                 r = Mul(r, a, m);
         return r;
     }
+
     static bool Prime(ull n)
     {
         if ( n < 2 )
@@ -76,6 +79,7 @@ struct Number_Theory
         }
         return true;
     }
+
     static i128 Exgcd(i128 a, i128 b, i128 &x, i128 &y)
     {
         if ( !b )
@@ -88,6 +92,7 @@ struct Number_Theory
         y -= a / b * x;
         return d;
     }
+
     static ll Inverse(ll a, ll m)
     {
         assert(m > 0);
@@ -99,6 +104,7 @@ struct Number_Theory
             return -1;
         return (x % m + m) % m;
     }
+
     // x = r (mod m); false means inconsistent. Throws if lcm exceeds int64.
     static bool Crt(ll &r, ll &m, ll b, ll n)
     {
@@ -121,6 +127,7 @@ struct Number_Theory
         m = (ll)mod;
         return true;
     }
+
     // sum_{i=0}^{n-1} floor((a*i+b)/m), signed a,b; 0<=n<=1e9, 1<=m<=1e9.
     static i128 Floor_Sum(ll n, ll m, ll a, ll b)
     {
@@ -158,7 +165,11 @@ struct Pollard_Rho
     using ull = unsigned long long;
     using u128 = __uint128_t;
     mt19937_64 rng;
-    Pollard_Rho(ull seed = 712367821) : rng(seed) {}
+
+    Pollard_Rho(ull seed = 712367821) : rng(seed)
+    {
+    }
+
     ull Rho(ull n)
     {
         if ( n % 2 == 0 )
@@ -166,7 +177,10 @@ struct Pollard_Rho
         for ( ;; )
         {
             ull c = rng() % (n - 1) + 1, x = rng() % n, y = x, d = 1;
-            auto f = [&](ull v) { return (Number_Theory::Mul(v, v, n) + u128(c)) % n; };
+            auto f = [&](ull v)
+            {
+                return (Number_Theory::Mul(v, v, n) + u128(c)) % n;
+            };
             // Retry bounded attempts; Las Vegas: only exact divisors returned.
             for ( int i = 0; i < 200000 && d == 1; i++ )
             {
@@ -178,6 +192,7 @@ struct Pollard_Rho
                 return d;
         }
     }
+
     void Split(ull n, vector<ull> &a)
     {
         if ( n == 1 )
@@ -191,6 +206,7 @@ struct Pollard_Rho
         Split(d, a);
         Split(n / d, a);
     }
+
     vector<ull> Factor(ull n)
     {
         assert(n >= 1);
@@ -204,6 +220,7 @@ struct Pollard_Rho
 struct Linear_Sieve
 {
     vector<int> Prime, lp, phi, mu;
+
     Linear_Sieve(int n) : lp(n + 1), phi(n + 1), mu(n + 1)
     {
         if ( n )
@@ -239,19 +256,26 @@ struct Linear_Sieve
 template <int mod> struct Mod_Int
 {
     int v;
-    Mod_Int(long long x = 0) : v((x % mod + mod) % mod) {}
+
+    Mod_Int(long long x = 0) : v((x % mod + mod) % mod)
+    {
+    }
+
     Mod_Int operator+(Mod_Int b) const
     {
         return Mod_Int((long long)v + b.v);
     }
+
     Mod_Int operator-(Mod_Int b) const
     {
         return Mod_Int((long long)v - b.v);
     }
+
     Mod_Int operator*(Mod_Int b) const
     {
         return Mod_Int(1LL * v * b.v);
     }
+
     Mod_Int Pow(long long e) const
     {
         assert(e >= 0);
@@ -261,11 +285,13 @@ template <int mod> struct Mod_Int
                 r = r * a;
         return r;
     }
+
     Mod_Int Inv() const
     {
         assert(v);
         return Pow(mod - 2);
     } // prime modulus
+
     Mod_Int operator/(Mod_Int b) const
     {
         return *this * b.Inv();
@@ -276,6 +302,7 @@ template <int mod> struct Combination
 {
     using Z = Mod_Int<mod>;
     vector<Z> fac, ifac;
+
     Combination(int n) : fac(n + 1), ifac(n + 1)
     {
         assert(0 <= n && n < mod);
@@ -286,6 +313,7 @@ template <int mod> struct Combination
         for ( int i = n; i; i-- )
             ifac[i - 1] = ifac[i] * i;
     }
+
     Z Choose(int n, int k) const
     {
         if ( k < 0 || k > n )

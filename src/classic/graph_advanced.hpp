@@ -22,6 +22,7 @@ using namespace std;
 struct Kuhn_Munkres
 {
     using I = __int128_t;
+
     // Minimum cost injection from n rows to m columns, n<=m. Zero-based matrix.
     static pair<I, vector<int>> Solve(const vector<vector<long long>> &cost)
     {
@@ -88,11 +89,13 @@ struct Kuhn_Munkres
 struct Directed_MST
 {
     using I = __int128_t;
+
     struct Edge
     {
         int u, v;
         I w;
     };
+
     // Directed minimum rooted OUT-arborescence cost, 0-based, or nullopt.
     static optional<I> Solve(int n, int root, vector<Edge> e)
     {
@@ -154,6 +157,7 @@ struct Directed_MST
 struct Global_Min_Cut
 {
     using I = __int128_t;
+
     // Symmetric nonnegative adjacency matrix; returns weight and one cut side.
     static pair<I, vector<int>> Solve(vector<vector<I>> w)
     {
@@ -187,8 +191,8 @@ struct Global_Min_Cut
                     for ( int v : active )
                         if ( v != prev && v != sel )
                             w[prev][v] = w[v][prev] = w[prev][v] + w[sel][v];
-                    group[prev].insert(group[prev].end(), group[sel].begin(),
-                                       group[sel].end());
+                    group[prev].insert(
+                        group[prev].end(), group[sel].begin(), group[sel].end());
                     active.erase(find(active.begin(), active.end(), sel));
                     break;
                 }

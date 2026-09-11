@@ -19,120 +19,136 @@
 #include <vector>
 using namespace std;
 
-struct String_Algorithm
+// BEGIN Prefix_Function
+inline vector<int> Prefix_Function(const string &s)
 {
-    static vector<int> Prefix(const string &s)
+    int n = (int)s.size();
+    vector<int> p(n);
+    for ( int i = 1; i < n; i++ )
     {
-        int n = (int)s.size();
-        vector<int> p(n);
-        for ( int i = 1; i < n; i++ )
-        {
-            int j = p[i - 1];
-            while ( j && s[i] != s[j] )
-                j = p[j - 1];
-            p[i] = j + (s[i] == s[j]);
-        }
-        return p;
+        int j = p[i - 1];
+        while ( j && s[i] != s[j] )
+            j = p[j - 1];
+        p[i] = j + (s[i] == s[j]);
     }
-    static vector<int> Match(const string &s, const string &t)
+    return p;
+}
+
+// END Prefix_Function
+
+// BEGIN Kmp_Match
+inline vector<int> Kmp_Match(const string &s, const string &t)
+{
+    assert(!t.empty());
+    auto p = Prefix_Function(t);
+    vector<int> ans;
+    for ( int i = 0, j = 0; i < (int)s.size(); i++ )
     {
-        assert(!t.empty());
-        auto p = Prefix(t);
-        vector<int> ans;
-        for ( int i = 0, j = 0; i < (int)s.size(); i++ )
+        while ( j && s[i] != t[j] )
+            j = p[j - 1];
+        j += (s[i] == t[j]);
+        if ( j == (int)t.size() )
         {
-            while ( j && s[i] != t[j] )
-                j = p[j - 1];
-            j += (s[i] == t[j]);
-            if ( j == (int)t.size() )
-            {
-                ans.push_back(i - j + 1);
-                j = p[j - 1];
-            }
+            ans.push_back(i - j + 1);
+            j = p[j - 1];
         }
-        return ans;
     }
-    static vector<int> Z_Function(const string &s)
+    return ans;
+}
+
+// END Kmp_Match
+
+// BEGIN Z_Function
+inline vector<int> Z_Function(const string &s)
+{
+    int n = (int)s.size();
+    vector<int> a(n);
+    if ( n )
+        a[0] = n;
+    for ( int i = 1, l = 0, r = 0; i < n; i++ )
     {
-        int n = (int)s.size();
-        vector<int> a(n);
-        if ( n )
-            a[0] = n;
-        for ( int i = 1, l = 0, r = 0; i < n; i++ )
+        if ( i < r )
+            a[i] = min(r - i, a[i - l]);
+        while ( i + a[i] < n && s[a[i]] == s[i + a[i]] )
+            ++a[i];
+        if ( i + a[i] > r )
         {
-            if ( i < r )
-                a[i] = min(r - i, a[i - l]);
-            while ( i + a[i] < n && s[a[i]] == s[i + a[i]] )
-                ++a[i];
-            if ( i + a[i] > r )
-            {
-                l = i;
-                r = i + a[i];
-            }
+            l = i;
+            r = i + a[i];
         }
-        return a;
     }
-    // odd[i]: radius including center; even[i]: pairs centered before i.
-    static pair<vector<int>, vector<int>> Manacher(const string &s)
+    return a;
+}
+
+// END Z_Function
+
+// BEGIN Manacher
+// odd[i] includes the center; even[i] is centered before i.
+inline pair<vector<int>, vector<int>> Manacher(const string &s)
+{
+    int n = (int)s.size();
+    vector<int> odd(n), even(n);
+    for ( int i = 0, l = 0, r = -1; i < n; i++ )
     {
-        int n = (int)s.size();
-        vector<int> odd(n), even(n);
-        for ( int i = 0, l = 0, r = -1; i < n; i++ )
+        int k = i > r ? 1 : min(odd[l + r - i], r - i + 1);
+        while ( i - k >= 0 && i + k < n && s[i - k] == s[i + k] )
+            ++k;
+        odd[i] = k--;
+        if ( i + k > r )
         {
-            int k = i > r ? 1 : min(odd[l + r - i], r - i + 1);
-            while ( i - k >= 0 && i + k < n && s[i - k] == s[i + k] )
-                ++k;
-            odd[i] = k--;
-            if ( i + k > r )
-            {
-                l = i - k;
-                r = i + k;
-            }
+            l = i - k;
+            r = i + k;
         }
-        for ( int i = 0, l = 0, r = -1; i < n; i++ )
-        {
-            int k = i > r ? 0 : min(even[l + r - i + 1], r - i + 1);
-            while ( i - k - 1 >= 0 && i + k < n && s[i - k - 1] == s[i + k] )
-                ++k;
-            even[i] = k--;
-            if ( i + k > r )
-            {
-                l = i - k - 1;
-                r = i + k;
-            }
-        }
-        return {odd, even};
     }
-    static int Rotation(const string &s)
+    for ( int i = 0, l = 0, r = -1; i < n; i++ )
     {
-        int n = (int)s.size(), i = 0, j = 1, k = 0;
-        if ( !n )
-            return 0;
-        while ( i < n && j < n && k < n )
+        int k = i > r ? 0 : min(even[l + r - i + 1], r - i + 1);
+        while ( i - k - 1 >= 0 && i + k < n && s[i - k - 1] == s[i + k] )
+            ++k;
+        even[i] = k--;
+        if ( i + k > r )
         {
-            unsigned char a = s[(i + k) % n], b = s[(j + k) % n];
-            if ( a == b )
-            {
-                ++k;
-                continue;
-            }
-            if ( a > b )
-            {
-                i += k + 1;
-                if ( i == j )
-                    ++i;
-            }
-            else
-            {
-                j += k + 1;
-                if ( i == j )
-                    ++j;
-            }
-            k = 0;
+            l = i - k - 1;
+            r = i + k;
         }
-        return min(i, j);
     }
-};
+    return {odd, even};
+}
+
+// END Manacher
+
+// BEGIN Minimum_Rotation
+inline int Minimum_Rotation(const string &s)
+{
+    int n = (int)s.size(), i = 0, j = 1, k = 0;
+    if ( !n )
+        return 0;
+    while ( i < n && j < n && k < n )
+    {
+        unsigned char a = s[(i + k) % n], b = s[(j + k) % n];
+        if ( a == b )
+        {
+            ++k;
+            continue;
+        }
+        if ( a > b )
+        {
+            i += k + 1;
+            if ( i == j )
+                ++i;
+        }
+        else
+        {
+            j += k + 1;
+            if ( i == j )
+                ++j;
+        }
+        k = 0;
+    }
+    return min(i, j);
+}
+
+// END Minimum_Rotation
 
 struct AC_Automaton
 {
@@ -141,9 +157,11 @@ struct AC_Automaton
         array<int, 26> go{};
         int fail = 0;
     };
+
     vector<Node> a{Node{}};
     vector<int> order;
     bool built = false;
+
     int Insert(const string &s)
     {
         assert(!built && !s.empty());
@@ -162,6 +180,7 @@ struct AC_Automaton
         }
         return u;
     }
+
     void Build()
     {
         assert(!built);
@@ -188,6 +207,7 @@ struct AC_Automaton
             }
         }
     }
+
     vector<long long> count(const string &s) const
     {
         assert(built);
@@ -207,6 +227,7 @@ struct AC_Automaton
 struct Suffix_Array
 {
     vector<int> sa, rk, lcp;
+
     Suffix_Array(const string &s)
     {
         int n = (int)s.size();
@@ -221,8 +242,16 @@ struct Suffix_Array
         vector<int> tmp(n);
         for ( int k = 1; k < n; k *= 2 )
         {
-            auto key = [&](int i) { return pair{rk[i], i + k < n ? rk[i + k] : -1}; };
-            sort(sa.begin(), sa.end(), [&](int i, int j) { return key(i) < key(j); });
+            auto key = [&](int i)
+            {
+                return pair{rk[i], i + k < n ? rk[i + k] : -1};
+            };
+            sort(sa.begin(),
+                 sa.end(),
+                 [&](int i, int j)
+                 {
+                     return key(i) < key(j);
+                 });
             tmp[sa[0]] = 0;
             for ( int i = 1; i < n; i++ )
                 tmp[sa[i]] = tmp[sa[i - 1]] + (key(sa[i]) != key(sa[i - 1]));
@@ -257,8 +286,10 @@ struct Suffix_Automaton
         int link = -1, len = 0;
         long long occ = 0;
     };
+
     vector<Node> a{Node{}};
     int last = 0;
+
     void Extend(int c)
     {
         assert(0 <= c && c < 26);
@@ -296,6 +327,7 @@ struct Suffix_Automaton
         }
         last = cur;
     }
+
     vector<long long> Counts() const
     {
         vector<int> bucket(a[last].len + 1), order(a.size());
@@ -312,6 +344,7 @@ struct Suffix_Automaton
             ans[a[order[i]].link] += ans[order[i]];
         return ans;
     }
+
     long long Distinct() const
     {
         long long ans = 0;

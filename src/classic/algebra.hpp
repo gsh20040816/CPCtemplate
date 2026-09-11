@@ -5,6 +5,7 @@ template <int mod> struct Linear_Algebra
 {
     using Z = Mod_Int<mod>;
     using Matrix = vector<vector<Z>>;
+
     struct Solution
     {
         bool consistent;
@@ -12,6 +13,7 @@ template <int mod> struct Linear_Algebra
         vector<Z> particular;
         Matrix kernel;
     };
+
     // Augmented m x (n+1), prime modulus. Empty system needs explicit n.
     static Solution Solve(Matrix a, int n)
     {
@@ -58,6 +60,7 @@ template <int mod> struct Linear_Algebra
             }
         return ans;
     }
+
     static Z Determinant(Matrix a)
     {
         int n = (int)a.size();
@@ -86,6 +89,7 @@ template <int mod> struct Linear_Algebra
         }
         return ans;
     }
+
     static Matrix Multiply(const Matrix &a, const Matrix &b)
     {
         assert(!a.empty() && !b.empty());
@@ -98,6 +102,7 @@ template <int mod> struct Linear_Algebra
                     c[i][j] = c[i][j] + a[i][t] * b[t][j];
         return c;
     }
+
     static Matrix Power(Matrix a, unsigned long long e)
     {
         int n = a.size();
@@ -110,6 +115,7 @@ template <int mod> struct Linear_Algebra
                 r = Multiply(r, a);
         return r;
     }
+
     // Undirected multigraph, vertices 0..n-1; loops ignored.
     static Z Spanning_Trees(int n, const vector<pair<int, int>> &edges)
     {
@@ -138,6 +144,7 @@ struct Du_Jiao
     vector<ll> pmu, pphi;
     unordered_map<ll, ll> mmu;
     unordered_map<ll, I> mphi;
+
     Du_Jiao(int limit) : limit(limit), pmu(limit + 1), pphi(limit + 1)
     {
         assert(limit >= 1);
@@ -148,6 +155,7 @@ struct Du_Jiao
             pphi[i] = pphi[i - 1] + s.phi[i];
         }
     }
+
     ll Mertens(ll n)
     {
         if ( n <= limit )
@@ -162,6 +170,7 @@ struct Du_Jiao
         }
         return mmu[n] = ans;
     }
+
     I Totient_Sum(ll n)
     {
         if ( n <= limit )
@@ -181,6 +190,7 @@ struct Du_Jiao
 struct Discrete_Log
 {
     using ll = long long;
+
     // 1<=m<=1e12; O(sqrt(m)) time/storage. Smallest x>=0, or -1.
     static ll Solve(ll a, ll b, ll m)
     {

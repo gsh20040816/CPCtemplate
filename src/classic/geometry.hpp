@@ -23,39 +23,48 @@ struct Integer_Geometry
 {
     using ll = long long;
     using I = __int128_t;
+
     // Contract: |coordinate|<=1e12. Differences/products widened before arithmetic.
     struct Point
     {
         ll x = 0, y = 0;
+
         bool operator<(Point b) const
         {
             return tie(x, y) < tie(b.x, b.y);
         }
+
         bool operator==(Point b) const
         {
             return x == b.x && y == b.y;
         }
     };
+
     static I Cross(Point a, Point b, Point c)
     {
         return (I(b.x) - a.x) * (I(c.y) - a.y) - (I(b.y) - a.y) * (I(c.x) - a.x);
     }
+
     static I Dot(Point a, Point b, Point c)
     {
         return (I(b.x) - a.x) * (I(c.x) - a.x) + (I(b.y) - a.y) * (I(c.y) - a.y);
     }
+
     static I Distance_Squared(Point a, Point b)
     {
         return Dot(a, b, b);
     }
+
     static int Sign(I x)
     {
         return (x > 0) - (x < 0);
     }
+
     static bool On_Segment(Point p, Point a, Point b)
     {
         return Cross(a, b, p) == 0 && Dot(p, a, b) <= 0;
     }
+
     static bool Intersect(Point a, Point b, Point c, Point d)
     {
         int x = Sign(Cross(a, b, c)), y = Sign(Cross(a, b, d));
@@ -70,6 +79,7 @@ struct Integer_Geometry
             return true;
         return x * y < 0 && Z_Function * w < 0;
     }
+
     static vector<Point> Convex_Hull(vector<Point> p)
     {
         sort(p.begin(), p.end());
@@ -94,6 +104,7 @@ struct Integer_Geometry
         h.pop_back();
         return h; // CCW, no repeated endpoint, no collinear interior points.
     }
+
     static I Area_Twice(const vector<Point> &p)
     {
         I ans = 0;
@@ -102,6 +113,7 @@ struct Integer_Geometry
             ans += I(p[i].x) * p[(i + 1) % n].y - I(p[i].y) * p[(i + 1) % n].x;
         return ans;
     }
+
     // 0 outside, 1 boundary, 2 inside. Simple polygon; either orientation.
     static int Contains(const vector<Point> &p, Point q)
     {
@@ -119,6 +131,7 @@ struct Integer_Geometry
         }
         return winding ? 2 : 0;
     }
+
     // Input must be the strict CCW hull above. O(log n).
     static int Convex_Contains(const vector<Point> &p, Point q)
     {
@@ -144,6 +157,7 @@ struct Integer_Geometry
         I c = Cross(p[l], p[r], q);
         return c < 0 ? 0 : c == 0 ? 1 : 2;
     }
+
     static I Diameter_Squared(const vector<Point> &p)
     {
         int n = (int)p.size();
@@ -163,12 +177,14 @@ struct Integer_Geometry
         }
         return ans;
     }
+
     struct PolarLess
     {
         static int half(Point p)
         {
             return p.y < 0 || (p.y == 0 && p.x < 0);
         }
+
         bool operator()(Point a, Point b) const
         {
             if ( half(a) != half(b) )
@@ -186,30 +202,37 @@ struct Real_Geometry
     using R = long double;
     // Tolerance is explicit, not used in sorting. Requires finite, well-scaled input.
     R eps;
+
     Real_Geometry(R eps = 1e-12L) : eps(eps)
     {
         assert(eps > 0);
     }
+
     struct Point
     {
         R x = 0, y = 0;
+
         Point operator+(Point b) const
         {
             return {x + b.x, y + b.y};
         }
+
         Point operator-(Point b) const
         {
             return {x - b.x, y - b.y};
         }
+
         Point operator*(R k) const
         {
             return {x * k, y * k};
         }
+
         Point operator/(R k) const
         {
             return {x / k, y / k};
         }
     };
+
     struct Circle
     {
         Point o;
@@ -223,27 +246,33 @@ struct Real_Geometry
         infinite,
         degenerate
     };
+
     struct Result
     {
         Kind kind;
         vector<Point> p;
     };
+
     static R Dot(Point a, Point b)
     {
         return a.x * b.x + a.y * b.y;
     }
+
     static R Cross(Point a, Point b)
     {
         return a.x * b.y - a.y * b.x;
     }
+
     static R norm(Point a)
     {
         return hypotl(a.x, a.y);
     }
+
     static Point perp(Point a)
     {
         return {-a.y, a.x};
     }
+
     Point Projection(Point p, Point a, Point b) const
     {
         Point v = b - a;
@@ -252,6 +281,7 @@ struct Real_Geometry
             return a;
         return a + v * (Dot(p - a, v) / d);
     }
+
     R Segment_Distance(Point p, Point a, Point b) const
     {
         Point v = b - a;
@@ -261,6 +291,7 @@ struct Real_Geometry
         R t = clamp(Dot(p - a, v) / d, R(0), R(1));
         return norm(p - (a + v * t));
     }
+
     Result Line_Intersection(Point a, Point b, Point c, Point d) const
     {
         Point u = b - a, v = d - c;
@@ -275,6 +306,7 @@ struct Real_Geometry
                     {}};
         return {Kind::one, {a + u * (Cross(c - a, v) / det)}};
     }
+
     Result Line_Circle(Point a, Point b, Circle c) const
     {
         assert(c.r >= 0);
@@ -292,6 +324,7 @@ struct Real_Geometry
         Point w = v * (t / len);
         return {Kind::two, {h - w, h + w}};
     }
+
     Result Circles(Circle a, Circle b) const
     {
         assert(a.r >= 0 && b.r >= 0);
@@ -316,6 +349,7 @@ struct Real_Geometry
         Point w = perp(v) * (y / d);
         return {Kind::two, {h - w, h + w}};
     }
+
     R Overlap(Circle a, Circle b) const
     {
         R d = norm(a.o - b.o), pi = acosl(-1.L);

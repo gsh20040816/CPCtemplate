@@ -27,12 +27,17 @@ struct Shortest_Path
     vector<vector<pair<int, ll>>> g;
     vector<ll> dis;
     vector<int> pre;
-    Shortest_Path(int n) : n(n), g(n + 1) {}
+
+    Shortest_Path(int n) : n(n), g(n + 1)
+    {
+    }
+
     void Insert(int u, int v, ll w)
     {
         assert(w >= 0);
         g[u].push_back({v, w});
     }
+
     void Run(int s)
     {
         dis.assign(n + 1, inf);
@@ -55,6 +60,7 @@ struct Shortest_Path
                 }
         }
     }
+
     vector<int> Path(int t) const
     {
         if ( dis[t] == inf )
@@ -72,12 +78,17 @@ struct Strong_Component
     int n, cnt = 0;
     vector<vector<int>> g, rg;
     vector<int> bel;
-    Strong_Component(int n) : n(n), g(n + 1), rg(n + 1) {}
+
+    Strong_Component(int n) : n(n), g(n + 1), rg(n + 1)
+    {
+    }
+
     void Insert(int u, int v)
     {
         g[u].push_back(v);
         rg[v].push_back(u);
     }
+
     // Iterative Kosaraju; component IDs are in topological order, 1..cnt.
     void Run()
     {
@@ -135,16 +146,22 @@ struct Two_SAT
     int n;
     Strong_Component g;
     vector<int> ans;
-    Two_SAT(int n) : n(n), g(2 * n) {}
+
+    Two_SAT(int n) : n(n), g(2 * n)
+    {
+    }
+
     int id(int x, bool value) const
     {
         return 2 * x - 1 + value;
     }
+
     void Insert(int x, bool a, int y, bool b)
     {
         g.Insert(id(x, !a), id(y, b));
         g.Insert(id(y, !b), id(x, a));
     }
+
     bool Solve()
     {
         g.Run();
@@ -164,14 +181,17 @@ struct Bipartite_Matching
     int n, m;
     vector<vector<int>> g;
     vector<int> l, r, dep;
+
     Bipartite_Matching(int n, int m)
         : n(n), m(m), g(n + 1), l(n + 1), r(m + 1), dep(n + 1)
     {
     }
+
     void Insert(int u, int v)
     {
         g[u].push_back(v);
     }
+
     bool Bfs()
     {
         queue<int> q;
@@ -198,6 +218,7 @@ struct Bipartite_Matching
         }
         return ok;
     }
+
     bool Dfs(int u)
     {
         for ( int v : g[u] )
@@ -210,6 +231,7 @@ struct Bipartite_Matching
         dep[u] = -1;
         return false;
     }
+
     int Solve()
     {
         int ans = 0;
@@ -229,13 +251,18 @@ struct Low_Link
     vector<vector<pair<int, int>>> g;
     vector<int> dfn, low, cut, bridge;
     int edges = 0;
-    Low_Link(int n) : n(n), g(n + 1) {}
+
+    Low_Link(int n) : n(n), g(n + 1)
+    {
+    }
+
     int Insert(int u, int v)
     {
         g[u].push_back({v, edges});
         g[v].push_back({u, edges});
         return edges++;
     }
+
     void Dfs(int u, int pe)
     {
         dfn[u] = low[u] = ++timer;
@@ -260,6 +287,7 @@ struct Low_Link
         if ( pe == -1 && children > 1 )
             cut[u] = 1;
     }
+
     void Run()
     {
         timer = 0;

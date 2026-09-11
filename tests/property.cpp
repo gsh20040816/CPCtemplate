@@ -1,5 +1,6 @@
 #include "../src/classic/data_structure.hpp"
 #include "../src/classic/flow.hpp"
+#include "../src/classic/string.hpp"
 #include "../src/compact/data_structure.hpp"
 #include "../src/compact/flow.hpp"
 #include "../src/compact/geometry.hpp"
@@ -264,9 +265,12 @@ void strings() {
     int n = rnd(35);
     for (int i = 0; i < n; i++)
       s += 'a' + rnd(3);
-    auto z = StringAlgo::z(s);
-    auto p = StringAlgo::prefix(s);
-    auto [odd, even] = StringAlgo::manacher(s);
+    auto z = z_function(s);
+    assert(z == Z_Function(s));
+    auto p = prefix_function(s);
+    assert(p == Prefix_Function(s));
+    auto [odd, even] = manacher(s);
+    assert(manacher(s) == Manacher(s));
     set<string> sub;
     SuffixAutomaton sam;
     for (char c : s)
@@ -310,7 +314,8 @@ void strings() {
       string best = s;
       for (int k = 1; k < n; k++)
         best = min(best, s.substr(k) + s.substr(0, k));
-      int k = StringAlgo::rotation(s);
+      int k = minimum_rotation(s);
+      assert(k == Minimum_Rotation(s));
       assert(s.substr(k) + s.substr(0, k) == best);
     }
     AhoCorasick ac;
@@ -330,7 +335,8 @@ void strings() {
       for (int i = 0; i + (int)ts[j].size() <= n; i++)
         if (s.substr(i, ts[j].size()) == ts[j])
           want.push_back(i);
-      assert(StringAlgo::match(s, ts[j]) == want);
+      assert(kmp_match(s, ts[j]) == want);
+      assert(Kmp_Match(s, ts[j]) == want);
       assert(cnt[ids[j]] == (long long)want.size());
     }
   }

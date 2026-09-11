@@ -54,7 +54,7 @@ int main() {
     std::string want = s;
     for (int i = 1; i < (int)s.size(); i++)
       want = std::min(want, s.substr(i) + s.substr(0, i));
-    int k = StringAlgo::rotation(s);
+    int k = minimum_rotation(s);
     assert(s.substr(k) + s.substr(0, k) == want);
   }
   Binomial<101> c(100);

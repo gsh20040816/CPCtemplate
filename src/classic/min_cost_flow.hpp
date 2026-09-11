@@ -18,19 +18,26 @@
 #include <utility>
 #include <vector>
 using namespace std;
+
 struct Min_Cost_Flow
 {
     using ll = long long;
     using i128 = __int128_t;
+
     struct Edge
     {
         int from, to;
         ll cap, cost, initial;
     };
+
     int n;
     vector<Edge> e;
     vector<vector<int>> g;
-    Min_Cost_Flow(int n) : n(n), g(n + 1) {}
+
+    Min_Cost_Flow(int n) : n(n), g(n + 1)
+    {
+    }
+
     int Insert(int u, int v, ll cap, ll cost)
     {
         assert(cap >= 0 && cost != LLONG_MIN);
@@ -41,10 +48,12 @@ struct Min_Cost_Flow
         g[v].push_back(id + 1);
         return id;
     }
+
     ll Used(int id) const
     {
         return e[id].initial - e[id].cap;
     }
+
     // Negative costs allowed; initial residual graph must have no negative cycle.
     pair<ll, i128> Flow(int s, int t, ll limit = LLONG_MAX)
     {
@@ -73,7 +82,8 @@ struct Min_Cost_Flow
         {
             fill(d.begin(), d.end(), inf);
             d[s] = 0;
-            priority_queue<pair<i128, int>, vector<pair<i128, int>>,
+            priority_queue<pair<i128, int>,
+                           vector<pair<i128, int>>,
                            greater<pair<i128, int>>>
                 q;
             q.push({0, s});

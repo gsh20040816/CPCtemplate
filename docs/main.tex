@@ -4,10 +4,23 @@
 \usepackage{xcolor,listings,fancyhdr,imakeidx,needspace}
 \usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
 \makeindex[title=算法索引,columns=1]
-\lstset{language=C++,basicstyle=\ttfamily\scriptsize,keywordstyle=\bfseries,
+\lstset{language=C++,basicstyle=\ttfamily\fontsize{8.5}{10.2}\selectfont,keywordstyle=\bfseries,
 commentstyle=\color{black!60},numbers=left,numberstyle=\tiny\color{black!50},
 numbersep=6pt,breaklines=true,breakatwhitespace=false,columns=fullflexible,
 keepspaces=true,showstringspaces=false,tabsize=4,frame=single,rulecolor=\color{black!20}}
+% Keep the last ten source lines together when a listing crosses a page.
+\makeatletter
+\newcount\CpcLastKeepLine
+\lst@AddToHook{Init}{%
+  \CpcLastKeepLine=\lst@lastline
+  \advance\CpcLastKeepLine by -10
+}
+\lst@AddToHook{EveryPar}{%
+  \ifnum\lst@lineno>\CpcLastKeepLine
+    \vadjust{\nobreak}%
+  \fi
+}
+\makeatother
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\small Morning Flower and Evening Oath}
 \fancyhead[R]{\small XCPC Template · Working Draft}
@@ -37,8 +50,8 @@ keepspaces=true,showstringspaces=false,tabsize=4,frame=single,rulecolor=\color{b
 英文署名已于 QOJ 队伍账号 \texttt{ucup-team7502} 核对。
 两套风格依据训练提交 2932575、2930805、2931279 提取，不擅自将共享队号的提交归属到个人。
 
-代码采用 C++20。动态版默认需要 \texttt{bits/stdc++.h} 和 \texttt{cassert}；
-传统版各头文件列明依赖。抄写单个 struct 时需同时抄写其依赖结构。
+代码采用 C++20。以赛时快速抄写为先，一行一条语句，函数体展开。无状态的简单算法使用独立函数，有状态算法使用轻量 struct。动态版默认需要 \texttt{bits/stdc++.h} 和 \texttt{cassert}；
+传统版各头文件列明依赖。抄写单个函数或结构体时需同时抄写其依赖结构。
 同名的不同风格实现通常用于不同提交，不建议混在同一编译单元中。
 点号除特别注明外为 1-based，字符串和多项式为 0-based；所有区间约定应以条目说明为准。
 
