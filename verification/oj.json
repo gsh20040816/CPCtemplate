@@ -646,5 +646,63 @@
       "kth"
     ],
     "note": "Static interval kth smallest only. Other algorithms bundled in optimization.hpp are not covered. Time is the sum of the 20 displayed test-case times (summary rounds to 2.90s)."
+  },
+  {
+    "problem": "Luogu P3834",
+    "style": "classic",
+    "algorithm": "Persistent_Kth",
+    "record": "https://www.luogu.com.cn/record/297520299",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 2905,
+    "memory": "54.24MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3834.classic.cpp",
+    "submitted_source": "verification/submitted/P3834.classic.cpp",
+    "submitted_sha256": "d7612348d34917621c1be51eac1be0eac48bb226ecad9cf1d1df10f1647ad058",
+    "tested_api": [
+      "constructor",
+      "Kth"
+    ],
+    "note": "Static interval kth smallest only; other algorithms in optimization.hpp are not covered. Time is the sum of the 20 displayed test-case times."
+  },
+  {
+    "problem": "Luogu P4174",
+    "style": "classic",
+    "algorithm": "Maximum_Closure",
+    "record": "https://www.luogu.com.cn/record/297520304",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 196,
+    "memory": "10.10MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4174.classic.cpp",
+    "submitted_source": "verification/submitted/P4174.classic.cpp",
+    "submitted_sha256": "fab5281319d29b7cda3c3f72be1520e528fd648a64c53795f30fa1eff5572f2d",
+    "tested_api": [
+      "Maximum_Closure: optimal value"
+    ],
+    "note": "Station/group maximum-profit reduction. The judge checks only the optimal weight, not the returned selected vertex list. Selection certificates, LLONG_MIN and arbitrary dependency cycles are tested locally; other flow algorithms are not covered."
+  },
+  {
+    "problem": "Luogu P4174",
+    "style": "compact",
+    "algorithm": "maximum_closure",
+    "record": "https://www.luogu.com.cn/record/297520300",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 212,
+    "memory": "18.77MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4174.compact.cpp",
+    "submitted_source": "verification/submitted/P4174.compact.cpp",
+    "submitted_sha256": "e1e14322f8e32b7e3f703af80f3440c5fd18964ead04dc72357547957db4ceda",
+    "tested_api": [
+      "maximum_closure: optimal value"
+    ],
+    "note": "Station/group maximum-profit reduction. The judge checks only the optimal weight, not the returned selected vertex list. Selection certificates, LLONG_MIN and arbitrary dependency cycles are tested locally; other flow algorithms are not covered."
   }
 ]

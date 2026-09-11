@@ -324,7 +324,7 @@ WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,小波矩阵树：高效�
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,普通莫队,pending,,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,带修改的莫队（带时间维度的莫队）,pending,,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,分数运算类,pending,,,
-WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,主席树（可持久化线段树）,local-tested,src/compact/optimization.hpp,src/classic/optimization.hpp,PersistentKth / Persistent_Kth: tests/optimization.cpp and tests/dual.cpp; prefix frequency roots and interval kth; OJ pending
+WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,主席树（可持久化线段树）,local-tested,src/compact/optimization.hpp,src/classic/optimization.hpp,PersistentKth / Persistent_Kth: tests/optimization.cpp and tests/dual.cpp; prefix frequency roots and interval kth; P3834 dual AC 297520290/297520299
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,KD Tree,pending,,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,ST 表,pending,,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,基于状压的线性 RMQ 算法,pending,,,
@@ -617,9 +617,9 @@ kuangbin,ACM template (2018),82,3.5.4 SPOJQTREE5,pending,,,
 kuangbin,ACM template (2018),84,3.5.5 SPOJQTREE6,pending,,,
 kuangbin,ACM template (2018),87,3.5.6 SPOJQTREE7,pending,,,
 kuangbin,ACM template (2018),91,3.5.7 HDU4010,pending,,,
-kuangbin,ACM template (2018),95,3.6 主席树,local-tested,src/compact/,src/classic/,All four child functions now locally tested; each uses its own interface and oracle. Online verification remains pending; see child rows and verification/pending-oj.md
+kuangbin,ACM template (2018),95,3.6 主席树,local-tested,src/compact/,src/classic/,All four child functions locally tested; static interval kth dual AC on P3834. Other child OJ checks pending; see child rows and verification/pending-oj.md
 kuangbin,ACM template (2018),95,3.6.1 查询区间多少个不同的数,local-tested,src/compact/persistent_distinct.hpp,src/classic/persistent_distinct.hpp,Previous-occurrence histogram with one persistent insertion per element; equivalent distinct-count queries to upstream suffix last-occurrence markers; tests/persistent_distinct.cpp set oracle; P1972 pending
-kuangbin,ACM template (2018),97,3.6.2 静态区间第 k 大,local-tested,src/compact/optimization.hpp#PersistentKth,src/classic/optimization.hpp#Persistent_Kth,"Upstream POJ2104 code actually selects kth smallest; suffix-root counts mapped to prefix-root differences. tests/optimization.cpp, tests/dual.cpp and tests/persistent_kth_application.py; P3834 pending CAPTCHA"
+kuangbin,ACM template (2018),97,3.6.2 静态区间第 k 大,local-tested,src/compact/optimization.hpp#PersistentKth,src/classic/optimization.hpp#Persistent_Kth,"Upstream POJ2104 code actually selects kth smallest; suffix-root counts mapped to prefix-root differences. tests/optimization.cpp, tests/dual.cpp and tests/persistent_kth_application.py; P3834 dual AC 297520290/297520299"
 kuangbin,ACM template (2018),98,3.6.3 树上路径点权第 k 大,local-tested,src/compact/tree_path_kth.hpp,src/classic/tree_path_kth.hpp,"SPOJ COT semantics: kth smallest point value on tree path; recursive DFS, four-root frequencies and binary-lifting LCA; tests/tree_path_kth.cpp sorted path oracle, reroot and 200000-node chain; P2633 pending"
 kuangbin,ACM template (2018),102,3.6.4 动态第 k 大,local-tested,src/compact/dynamic_kth.hpp,src/classic/dynamic_kth.hpp,"Fenwick of mutable frequency segment trees with offline value registration and recycling; dynamic kth smallest under point updates; tests/dynamic_kth.cpp sorted-slice oracle, ownership/free-list audit and reset; P2617 pending"
 kuangbin,ACM template (2018),105,3.7 Treap,local-tested,src/compact/gcd_sequence.hpp,src/classic/gcd_sequence.hpp,tests/gcd_sequence.cpp; tagged sequence operations implemented; original ZOJ3765 OJ pending
