@@ -69,6 +69,9 @@ for style in ['compact','classic']:
    if name=='Arborescence':
     split=next(i for i in range(start,end) if lines[i].strip()=='int cnt = 0;')
     estimate=(split-start)*10.2+100+(len(info)/55)*12
+   if name=='StoerWagner':
+    split=next(i for i in range(start,end) if 'step + 1 ==' in lines[i])
+    estimate=(split-start)*10.2+100+(len(info)/55)*12
    if estimate<680: body.append(r'\Needspace{'+str(round(estimate))+'pt}')
    if name in ('SuffixArray','XorBasis'): body.append(r'\newpage')
    body.append(r'\section{'+cn+r'}\label{'+style+'-'+name+r'}\index{'+target.replace('_',r'\_')+'}')
@@ -120,6 +123,12 @@ for style in ['compact','classic']:
     body.append(r'\lstinputlisting[firstline='+str(start+1)+',lastline='+str(split)+']{../src/'+style+'/'+filename+'.hpp}')
     body.append(r'\newpage')
     body.append(r'\noindent 判环与缩点（接上页同一函数）：')
+    body.append(r'\lstinputlisting[firstline='+str(split+1)+',lastline='+str(end)+',firstnumber='+str(split-start+1)+']{../src/'+style+'/'+filename+'.hpp}')
+   elif name=='StoerWagner':
+    split=next(i for i in range(start,end) if 'step + 1 ==' in lines[i])
+    body.append(r'\lstinputlisting[firstline='+str(start+1)+',lastline='+str(split)+']{../src/'+style+'/'+filename+'.hpp}')
+    body.append(r'\newpage')
+    body.append(r'\noindent 本轮割、合并与继续扩张（接上页同一函数）：')
     body.append(r'\lstinputlisting[firstline='+str(split+1)+',lastline='+str(end)+',firstnumber='+str(split-start+1)+']{../src/'+style+'/'+filename+'.hpp}')
    elif name=='garner' and style=='compact':
     split=next(i for i in range(start,end) if lines[i].startswith('// Return the least'))

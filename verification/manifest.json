@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T07:04:31.243026+00:00",
+  "recorded_at_utc": "2026-09-12T07:09:52.889442+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -156,7 +156,10 @@
       "Floor moments large dual reversal/complement/difference identities, scalar floor-sum cross-check and Fibonacci depth PASS",
       "",
       "Incremental arborescence audit; unchanged-module evidence retained from db7f4e4:",
-      "Arborescence dual exhaustive all-root incoming-edge oracle, loops/parallel edges and 800-vertex nested contractions PASS"
+      "Arborescence dual exhaustive all-root incoming-edge oracle, loops/parallel edges and 800-vertex nested contractions PASS",
+      "",
+      "Incremental global min-cut audit; unchanged-module evidence retained from 76064a8:",
+      "Global min-cut dual exhaustive partition oracle, returned-side certificates, parallel sums and 300-vertex int128 families PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -311,7 +314,10 @@
       "Floor moments large dual reversal/complement/difference identities, scalar floor-sum cross-check and Fibonacci depth PASS",
       "",
       "Incremental arborescence audit; unchanged-module evidence retained from db7f4e4:",
-      "Arborescence dual exhaustive all-root incoming-edge oracle, loops/parallel edges and 800-vertex nested contractions PASS"
+      "Arborescence dual exhaustive all-root incoming-edge oracle, loops/parallel edges and 800-vertex nested contractions PASS",
+      "",
+      "Incremental global min-cut audit; unchanged-module evidence retained from 76064a8:",
+      "Global min-cut dual exhaustive partition oracle, returned-side certificates, parallel sums and 300-vertex int128 families PASS"
     ]
   },
   "sha256": {
@@ -503,6 +509,7 @@
     "tests/garner_application.py": "b3b427e4789497966acb50c4653ffbbf05a451225d35bdef0d9c1f3ae8e559d7",
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
+    "tests/global_min_cut.cpp": "833783cda9e962873c8b7df3f8bc75276d573f16629820d81ebdc0f914ec7e31",
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",
     "tests/graph_contracts.cpp": "af13d8fae85417d2e2e8d69de1c073339587eaa7b5f2616a724b61a4ce0fe322",
     "tests/graph_drivers.py": "c970259c9ff1d93da80409125fc8c420b92d4e17399373340de69e053f0d781f",

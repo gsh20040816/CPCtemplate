@@ -870,13 +870,19 @@ solve(n,root,edges)，点号 0..n-1，n$\ge$1、0$\le$root<n；返回以 root �
 
 \lstinputlisting[firstline=105,lastline=140,firstnumber=33]{../src/compact/graph_advanced.hpp}
 
-\Needspace{616pt}
+\Needspace{421pt}
 
 \section{无向全局最小割}\label{compact-StoerWagner}\index{StoerWagner}
 
-solve(w)，n$\ge$2；w 是对称非负权矩阵，重边需先累加，主对角置零。返回割权与一侧顶点编号（0-based），允许不连通图。O(n$^{3}$)，总权值小于 2\textasciicircum{}120。
+solve(w)，n$\ge$2；w 为 n×n 对称非负权矩阵，重边先累加，主对角置零。返回 \{割权,一侧顶点列表\}，编号 0..n-1；两侧非空，不要求原图连通，不连通时割权为 0。并列最优割返回其中一种，不承诺点数或字典序。矩阵按值传入，原图不变。O(n$^{3}$) 时间、O(n$^{2}$) 空间；无向边总权（每条只计一次）严格小于 2\textasciicircum{}120，内部 int128。负权不适用。已逐条核验返回点集在原图上的跨割费用，暂无专门 OJ AC。
 
-\lstinputlisting[firstline=141,lastline=192]{../src/compact/graph_advanced.hpp}
+\lstinputlisting[firstline=141,lastline=167]{../src/compact/graph_advanced.hpp}
+
+\newpage
+
+\noindent 本轮割、合并与继续扩张（接上页同一函数）：
+
+\lstinputlisting[firstline=168,lastline=192,firstnumber=28]{../src/compact/graph_advanced.hpp}
 
 \chapter{带权二分图匹配}
 
@@ -1914,13 +1920,19 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 
 \lstinputlisting[firstline=121,lastline=156,firstnumber=33]{../src/classic/graph_advanced.hpp}
 
-\Needspace{616pt}
+\Needspace{421pt}
 
 \section{无向全局最小割}\label{classic-StoerWagner}\index{Global\_Min\_Cut}
 
 算法约束见动态版本第~\pageref{compact-StoerWagner}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=157,lastline=208]{../src/classic/graph_advanced.hpp}
+\lstinputlisting[firstline=157,lastline=183]{../src/classic/graph_advanced.hpp}
+
+\newpage
+
+\noindent 本轮割、合并与继续扩张（接上页同一函数）：
+
+\lstinputlisting[firstline=184,lastline=208,firstnumber=28]{../src/classic/graph_advanced.hpp}
 
 \chapter{带权二分图匹配}
 
