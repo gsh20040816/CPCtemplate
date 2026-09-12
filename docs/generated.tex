@@ -934,6 +934,22 @@ bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}
 
 \lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/compact/halfplanes.hpp}
 
+\chapter{圆与多边形面积}
+
+\Needspace{463pt}
+
+\section{圆与简单多边形相交面积}\label{compact-CirclePolygon}\index{CirclePolygon}
+
+area(points,circle) 返回非负相交面积；多边形须简单，允许凹多边形、顺时针/逆时针和相邻重复顶点。少于三点或半径零返回零。edge(a,b,r) 返回圆心在原点时有向边 a 到 b 的面积贡献，r 必须非负。按交点分段，内部用三角形，外部用有向扇形；补偿求和，O(n) 时间、O(1) 额外空间。依赖浮点几何的 Point/Circle 和向量运算。输入须有限、尺度适当，平移到圆心后作差、乘积和面积均须可表示；极小交叠及接近相切时仍有浮点误差。传统接口 Circle\_Polygon::Area、Edge。
+
+\lstinputlisting[firstline=4,lastline=33]{../src/compact/circle_polygon.hpp}
+
+\newpage
+
+\noindent 分段面积与逐边累加（接上页同一结构体与函数）：
+
+\lstinputlisting[firstline=34,lastline=64,firstnumber=31]{../src/compact/circle_polygon.hpp}
+
 \chapter{最小覆盖圆}
 
 \Needspace{544pt}
@@ -2077,6 +2093,22 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \noindent 接上页同一结构体与函数：
 
 \lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/classic/halfplanes.hpp}
+
+\chapter{圆与多边形面积}
+
+\Needspace{463pt}
+
+\section{圆与简单多边形相交面积}\label{classic-CirclePolygon}\index{Circle\_Polygon}
+
+算法约束见动态版本第~\pageref{compact-CirclePolygon}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=4,lastline=33]{../src/classic/circle_polygon.hpp}
+
+\newpage
+
+\noindent 分段面积与逐边累加（接上页同一结构体与函数）：
+
+\lstinputlisting[firstline=34,lastline=64,firstnumber=31]{../src/classic/circle_polygon.hpp}
 
 \chapter{最小覆盖圆}
 

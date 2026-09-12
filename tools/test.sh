@@ -277,3 +277,6 @@ build/circle_tangents
 "$CXX" "${flags[@]}" tests/enclosing_circle.cpp -o build/enclosing_circle
 build/enclosing_circle
 python3 tests/enclosing_circle_application.py
+
+"$CXX" "${flags[@]}" tests/circle_polygon.cpp -o build/circle_polygon
+build/circle_polygon

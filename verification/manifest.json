@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T08:33:56.695422+00:00",
+  "recorded_at_utc": "2026-09-12T08:49:54.371917+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -188,7 +188,10 @@
       "Circle tangents dual exact count oracle, 100-digit line/contact certificates, point circles, tangencies and scale extremes PASS",
       "",
       "Incremental minimum enclosing circle; unchanged-module evidence retained from ed4cf94:",
-      "Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS"
+      "Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS",
+      "",
+      "Incremental circle-polygon area; unchanged-module evidence retained from f8698f3:",
+      "Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -375,7 +378,10 @@
       "Circle tangents dual exact count oracle, 100-digit line/contact certificates, point circles, tangencies and scale extremes PASS",
       "",
       "Incremental minimum enclosing circle; unchanged-module evidence retained from ed4cf94:",
-      "Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS"
+      "Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS",
+      "",
+      "Incremental circle-polygon area; unchanged-module evidence retained from f8698f3:",
+      "Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS"
     ]
   },
   "sha256": {
@@ -389,6 +395,7 @@
     "src/classic/bridge_augmentation.hpp": "b7e30903a84e6c109d116a9764ac408ff0a13982d682ac12a26822c3115e10ae",
     "src/classic/carmichael.hpp": "3b932372bc1560bd43393b0cb5786a2aa70375782be440f50c73ad74a7989440",
     "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
+    "src/classic/circle_polygon.hpp": "f4f712776c912de2620cb0c9783614535e8682b1c7fb88c8e63f22526de0a4e4",
     "src/classic/circle_tangents.hpp": "db6aac873514b3c4fc8ccb2a281e740694dad95d7382c213fdc1ddf513d5ed03",
     "src/classic/closest_pair.hpp": "33c9428f1fb11022befed871c30621b43b5c85e34c80634557f0aa79e10ffbf8",
     "src/classic/coprime_pairs.hpp": "336da5fa9e0a13f323e5bc62da4cbe1c71ebc55c46495bd8dc91efc33431e8e1",
@@ -463,6 +470,7 @@
     "src/compact/bridge_augmentation.hpp": "94b53ae35023a8e157749c97a7406d9d805d823e103feea18046d9072b9b203a",
     "src/compact/carmichael.hpp": "c96eb5a60b9a7c3c7613259a990dc06d8cd755efdebea82b854d575615bcdf73",
     "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
+    "src/compact/circle_polygon.hpp": "7b24b26b0466dfa397da3138528af6f378523a38b09415230c46616cfbea988e",
     "src/compact/circle_tangents.hpp": "20521fda102a5dd85a530a0b666019e79ad3f46a5345619b2559da1a93123a2a",
     "src/compact/closest_pair.hpp": "aed3eca3436e8e6e63d6a52d545c06e3eef0d529ba3af823f88e84fa6598a96b",
     "src/compact/coprime_pairs.hpp": "c00ee31e1bfffb415c2cc411e049752d306deb5a6c4f9611b5490497cd6c4094",
@@ -542,6 +550,7 @@
     "tests/carmichael.cpp": "f5db60854507b1d36f53c5695ff0405f4a66be052b0c6074c1eb17c9bca1786c",
     "tests/carmichael_application.py": "a1005b6e3b7b11c5a100ea23b2ec8cadff85679bf6a34e0bba4938edf2a32863",
     "tests/centroid.cpp": "b2658de09f312df33a90980a940d2e7e01fc078950ed91ed9ab38581e8e9d9c5",
+    "tests/circle_polygon.cpp": "dde6bab0f510dd9b89c82e06eb231c626f4c2b6e8bbff6241ecc09690d7cc503",
     "tests/circle_precision.cpp": "04170f5d59d33d3605f9d83bf2f5e284a2e44b09eeac7716e25f2482f45b87bd",
     "tests/circle_tangents.cpp": "63ea000b8f86a2b910abbc6f9754275a095a15c6c7a4644ca1cc4e727cdbb17f",
     "tests/classic.cpp": "3bc4c9421e6c96b93dbd97dfc38f09fcbe7596b2cdf24eecf7bb2f2652ba462a",

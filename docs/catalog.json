@@ -390,6 +390,12 @@
     "bounded_polygon(lines) 求 a*x+b*y≤c 的交集闭包顶点，Line={a,b,c}，三个整数系数绝对值均≤10⁹。要求交集有界，空集也允许；只返回正面积多边形，点或线段交集返回空向量。无界输入不在接口范围内。Point={x,y,d} 表示 (x/d,y/d)，d>0，分数不必约分；按逆时针返回，不重复首点，相邻重复点已去除。排序与所有构造、判定使用整数和 int128，不使用 epsilon。O(n log n) 时间、O(n) 空间。传统接口 Integer_Halfplanes::Bounded_Polygon。浮点转换与面积计算需单独处理。"
   ],
   [
+    "circle_polygon",
+    "CirclePolygon",
+    "圆与简单多边形相交面积",
+    "area(points,circle) 返回非负相交面积；多边形须简单，允许凹多边形、顺时针/逆时针和相邻重复顶点。少于三点或半径零返回零。edge(a,b,r) 返回圆心在原点时有向边 a 到 b 的面积贡献，r 必须非负。按交点分段，内部用三角形，外部用有向扇形；补偿求和，O(n) 时间、O(1) 额外空间。依赖浮点几何的 Point/Circle 和向量运算。输入须有限、尺度适当，平移到圆心后作差、乘积和面积均须可表示；极小交叠及接近相切时仍有浮点误差。传统接口 Circle_Polygon::Area、Edge。"
+  ],
+  [
     "enclosing_circle",
     "EnclosingCircle",
     "随机增量最小覆盖圆",
