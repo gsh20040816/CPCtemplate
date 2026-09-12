@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T04:53:35.471116+00:00",
+  "recorded_at_utc": "2026-09-12T05:15:48.044344+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -88,7 +88,9 @@
       "Binomial dual Pascal/falling-factorial oracle, incremental growth, no-shrink reuse, boundaries and million-entry tables PASS",
       "rollback, basis, SAM counts, binomial, boundary regressions PASS",
       "Incremental batch inverse checks; unchanged-module evidence retained from acc7b80:",
-      "Batch inverse dual exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS"
+      "Batch inverse dual exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS",
+      "Incremental inverse table and existing single inverse audit; unchanged-module evidence retained from f9b30f5:",
+      "Inverse table dual prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -175,7 +177,9 @@
       "Binomial dual Pascal/falling-factorial oracle, incremental growth, no-shrink reuse, boundaries and million-entry tables PASS",
       "rollback, basis, SAM counts, binomial, boundary regressions PASS",
       "Incremental batch inverse checks; unchanged-module evidence retained from acc7b80:",
-      "Batch inverse dual exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS"
+      "Batch inverse dual exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS",
+      "Incremental inverse table and existing single inverse audit; unchanged-module evidence retained from f9b30f5:",
+      "Inverse table dual prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS"
     ]
   },
   "sha256": {
@@ -205,6 +209,7 @@
     "src/classic/graph.hpp": "02421d1ceb9e2772e3a6a035844bca46664a2488c7424e1d3b9910b9a0acdb02",
     "src/classic/graph_advanced.hpp": "ee0c31d0ebf0148c902c0af2bbb36adc1dc48124a3401f6136f9743c237706e8",
     "src/classic/interpolation.hpp": "43f5714b8fb6e16a13dc356f1e7ac01c492974bb53b73f558c9a6fdb5ec84020",
+    "src/classic/inverse_table.hpp": "3b78a27422b1c91251614bdaba608d377934bf4ef01a2fc54dc8daa6f5d3d28e",
     "src/classic/lex_two_sat.hpp": "531c4fca134bb016b6a7335e37aaae4f865faa9f309036fa6f112e3b22f6168b",
     "src/classic/lifting_lca.hpp": "0938fc06246035f4f59daf0c4012ef0c4c513e78fed2d70bf8fc50ed49104078",
     "src/classic/lucas.hpp": "4912ddcacf0e602f5155d805566b60e59165ad36d8075cd8e7d180e90e4d6b5e",
@@ -264,6 +269,7 @@
     "src/compact/graph.hpp": "7ea9c43d8616d08088c61eaef8a19c4939084dfe8da806213225c5d33015e8c0",
     "src/compact/graph_advanced.hpp": "e2a57a2354904fc55f2038fb4f694842cc60c3e8b76c0aa431ab3b8d9546d1eb",
     "src/compact/interpolation.hpp": "73f71b029ccab6be4573c4612a5c132accb9b208115503d7f47bde7fc878357a",
+    "src/compact/inverse_table.hpp": "24260b77dd557d177c47c28ebce4671b88e264485dce74c87862141d842cd573",
     "src/compact/lex_two_sat.hpp": "f5e50a5af0c5892b8be560ceb4eacf5e7cdcf484da2fec3ad6450cabcd02ec16",
     "src/compact/lifting_lca.hpp": "19cda96f3d6d0f4807f7d554d09b0428f3b88516a40788cff6b6897ac90a64da",
     "src/compact/lucas.hpp": "8443d5db1ae9012123c65b1839006086d24646f0443fef1e4489d51c6e354359",
@@ -342,6 +348,8 @@
     "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
     "tests/interpolation.cpp": "9f7205163b894fdcc3107da60883c88468c0045d92351eee8f71cc8854cefc76",
     "tests/interpolation_application.py": "ffc121af21fdfe606e9079260d818f459e79b3e67e7f06d1e4b02270266f6f12",
+    "tests/inverse_table.cpp": "e8d111f62575bf0b5fa3dccf36aac3cb8e0234cd549180662f757b5c4a0b9fd3",
+    "tests/inverse_table_application.py": "b3e4df94f92555959dfc0754f72a271eaa87f229be77fb02d4b8a814763e89a2",
     "tests/lex_two_sat.cpp": "1dff785aab551bde3bc84eb38c70d5e8d83400422c987c2dd60b65f287243d6e",
     "tests/lex_two_sat_application.py": "86436155e7c0ad492df7c89e5da568dd458887c4622071ebaff2e6eede38828a",
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",

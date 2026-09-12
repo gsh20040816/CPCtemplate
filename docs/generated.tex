@@ -562,6 +562,16 @@ batch\_inverse(a,mod) 返回与 a 同序的逆元向量，传统接口为 Batch\
 
 \lstinputlisting[firstline=5,lastline=28]{../src/compact/batch_inverse.hpp}
 
+\chapter{连续整数逆元表}
+
+\Needspace{227pt}
+
+\section{连续整数的线性逆元表}\label{compact-inverse_table}\index{inverse\_table}
+
+inverse\_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p 的逆元，1$\le$i$\le$n。位置 0 固定为 0，仅为占位，不表示零有逆元；n=0 返回单个占位项。要求 p 为素数、2$\le$p$\le$INT\_MAX 且 0$\le$n<p，不检测素性。传统接口为 Inverse\_Table。时间和空间均 O(n)，中间乘法用 long long；独立可抄，不依赖其他模板。不能将同一递推直接用于合数模数，即使当前 i 与模数互素；一般模数使用扩展欧几里得或任意数组批量逆元。
+
+\lstinputlisting[firstline=7,lastline=17]{../src/compact/inverse_table.hpp}
+
 \chapter{混合进制中国剩余定理}
 
 \Needspace{568pt}
@@ -1491,6 +1501,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-batch_inverse}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=5,lastline=28]{../src/classic/batch_inverse.hpp}
+
+\chapter{连续整数逆元表}
+
+\Needspace{227pt}
+
+\section{连续整数的线性逆元表}\label{classic-inverse_table}\index{Inverse\_Table}
+
+算法约束见动态版本第~\pageref{compact-inverse_table}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=7,lastline=17]{../src/classic/inverse_table.hpp}
 
 \chapter{混合进制中国剩余定理}
 

@@ -144,6 +144,12 @@
     "batch_inverse(a,mod) 返回与 a 同序的逆元向量，传统接口为 Batch_Inverse。要求 mod 为正 long long，每个输入可为完整 long long；只要某一项与 mod 不互素，整个结果返回 nullopt，不输出部分逆元。空输入返回有效的空向量；模数 1 约定返回全零，与单个逆元接口一致。模数可以是合数。函数按值接收数组并归一化；不再需要原数组时传 move(a) 可避免输入副本。依赖 NumberTheory 的 inverse 和 exgcd，传统版对应 Inverse、Exgcd。仅求一次逆元，时间 O(n+log mod)，空间 O(n)；128 位中间乘法防止溢出。"
   ],
   [
+    "inverse_table",
+    "inverse_table",
+    "连续整数的线性逆元表",
+    "inverse_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p 的逆元，1≤i≤n。位置 0 固定为 0，仅为占位，不表示零有逆元；n=0 返回单个占位项。要求 p 为素数、2≤p≤INT_MAX 且 0≤n<p，不检测素性。传统接口为 Inverse_Table。时间和空间均 O(n)，中间乘法用 long long；独立可抄，不依赖其他模板。不能将同一递推直接用于合数模数，即使当前 i 与模数互素；一般模数使用扩展欧几里得或任意数组批量逆元。"
+  ],
+  [
     "garner",
     "garner",
     "Garner：大周期 CRT 与混合进制",

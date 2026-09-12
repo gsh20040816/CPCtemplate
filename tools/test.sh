@@ -187,3 +187,6 @@ build/binomial
 
 "$CXX" "${flags[@]}" tests/batch_inverse.cpp -o build/batch-inverse
 build/batch-inverse
+
+"$CXX" "${flags[@]}" tests/inverse_table.cpp -o build/inverse-table
+build/inverse-table
