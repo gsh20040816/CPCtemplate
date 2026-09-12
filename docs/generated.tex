@@ -1,5 +1,15 @@
 \part{vector 模板}
 
+\chapter{GNU 扩展有序树}
+
+\Needspace{239pt}
+
+\section{PBDS 有序树与顺序统计}\label{compact-ost}\index{ost}
+
+GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp 和 ext/pb\_ds/tree\_policy.hpp。ost<T> 为去重有序集合；insert(x)、erase(x)、find(x)、lower\_bound(x)、upper\_bound(x) 沿用集合接口。order\_of\_key(x) 为严格小于 x 的元素数，find\_by\_order(k) 返回 0-based 第 k 个的迭代器，越界返回 end。默认 less<T>；改用其他严格弱序比较器时，排名和边界均按该比较器解释。单次 O(log n)，空间 O(n)，假设比较为 O(1)。重复值使用 ost<pair<T,int>>，插入 \{x,id\} 且 id 全局唯一、1$\le$id<INT\_MAX。order\_of\_key(\{x,0\}) 统计小于 x，order\_of\_key(\{x,INT\_MAX\}) 统计不大于 x；find\_by\_order(k)->first 取值，须先检查 end。删除一个 x：it=lower\_bound(\{x,0\})，检查 it!=end 且 it->first==x 后 erase(it)。不可用 less\_equal 模拟多重集合。前驱先检查迭代器是否为 begin，再递减；空集合和无解不得解引用 end。
+
+\lstinputlisting[firstline=8,lastline=13]{../src/compact/ordered_set.hpp}
+
 \chapter{GNU 扩展哈希表}
 
 \Needspace{337pt}

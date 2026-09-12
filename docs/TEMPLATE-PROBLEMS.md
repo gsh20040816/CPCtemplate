@@ -23,8 +23,8 @@
 | `OrderedTreap` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000 | [记录](https://www.luogu.com.cn/record/297515150) | 待核验 |
 | `OrderedSplay` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000 | [记录](https://www.luogu.com.cn/record/297520192) | 待核验 |
 | `SequenceTreap` | [Luogu P3391](https://www.luogu.com.cn/problem/P3391) | 1<=n,m<=100000; 1<=l<=r<=n | [记录](https://www.luogu.com.cn/record/297520211) | 待核验 |
-| `PBDSOrderedTree` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | operations<=100000; \|x\|<=10000000 | 待实现 | 待核验 |
-| `PBDSOrderedTree` | [Luogu P6136](https://www.luogu.com.cn/problem/P6136) | n<=100000; m<=1000000; values<2^30 | 待实现 | 待核验 |
+| `ost` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | operations<=100000; \|x\|<=10000000 | 待编写驱动/提交 | 待核验 |
+| `ost` | [Luogu P6136](https://www.luogu.com.cn/problem/P6136) | n<=100000; m<=1000000; values<2^30 | 待编写驱动/提交 | 待核验 |
 | `gp_map` | [Library Checker associative_array](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; 0<=key,value<=10^18; 5s | [记录](https://judge.yosupo.jp/submission/401867) | 956 out of 7334（All AC submissions, all users including anonymous, all languages, Dedup user unchecked. Not all verdicts and not per-user best.） |
 | `RopePersistentQueue` | [Library Checker persistent_queue](https://judge.yosupo.jp/problem/persistent_queue) | Q<=500000; -1<=t_i<i; 0<=x<=10^9; 5s | 待实现 | 待核验 |
 | `dsu` | [Luogu P3367](https://www.luogu.com.cn/problem/P3367) | N<=200000; M<=1000000; 1-based task vertices | [记录](https://www.luogu.com.cn/record/297668102) | 待核验 |
@@ -43,6 +43,7 @@
 | `HLD + AffineSegTree` | [Luogu P3384](https://www.luogu.com.cn/problem/P3384) | n,m<=100000; 1<=P<=2^30; int inputs | [记录](https://www.luogu.com.cn/record/297520172) | 待核验 |
 | `CentroidPairs::add/build/count_exact` | [Luogu P3806](https://www.luogu.com.cn/problem/P3806) | n<=10000; m<=100; 1<=k<=10^7; 1<=edge_weight<=10000 | [记录](https://www.luogu.com.cn/record/297519137) | 待核验 |
 | `PersistentKth::kth` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | n,m<=200000; 0<=a[i]<=10^9; valid l,r,k | [记录](https://www.luogu.com.cn/record/297520290) | 待核验 |
+| `ost` | [Library Checker ordered_set](https://judge.yosupo.jp/problem/ordered_set) | 0<=N<=500000; 1<=Q<=500000; sorted distinct initial keys; 0<=keys<=10^9; kth query x>=1 | [记录](https://judge.yosupo.jp/submission/401869) | 628 out of 1095（All AC submissions, all users and languages, Dedup user unchecked. Not non-AC verdicts or per-user best.） |
 
 ## 适配与证据范围
 
@@ -198,21 +199,21 @@ Initialize values 1..n using zero-based insertion positions; reverse uses the li
 
 Existing vector AC retained with its archived scope; leaderboard ranking remains unverified.
 
-### Luogu P3369 / PBDSOrderedTree
+### Luogu P3369 / ost
 
 Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.
 
 Planned extc++ order-statistics tree target. Preserve duplicate values through unique secondary IDs and a strict comparator; less_equal is not a valid workaround. Erase exactly one key, convert zero-based find_by_order to the problem kth convention. Existing Treap/Splay AC does not validate PBDS.
 
-Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.
+PBDS alias exists and distinct-key Library Checker task passed; this multiset problem still requires its own driver and online evidence.
 
-### Luogu P6136 / PBDSOrderedTree
+### Luogu P6136 / ost
 
 Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.
 
 Read an initial multiset, XOR each operand with the last query answer before executing it, and print XOR of all query answers. All operations are legal. Cannot simply reuse P3369 input/output or sort operations offline; require separate maximum-scale performance evidence.
 
-Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.
+PBDS alias exists and distinct-key Library Checker task passed; this multiset problem still requires its own driver and online evidence.
 
 ### Library Checker associative_array / gp_map
 
@@ -361,6 +362,14 @@ run 后扫描 cut[1..n]，先输出数量，再按顶点编号递增输出。必
 构造时传入不含占位元素的原数组；kth(l,r,k) 接收 1-based 闭区间和 1-based 名次。内部比较 root[r] 与 root[l-1] 的频次数，并还原离散值。该题不支持在线修改或任意版本拼接，不能给其它可持久化接口背书。
 
 保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。
+
+### Library Checker ordered_set / ost
+
+Official standalone ordered set template task.
+
+Convert 1-based kth to find_by_order(x-1). Inclusive count uses order_of_key(x)+presence, avoiding x+1 overflow. Predecessor is <=x via upper_bound, successor is >=x via lower_bound; missing outputs -1. Duplicates ignored.
+
+Duplicate-key adapters require separate online tests.
 
 ## 榜单口径
 

@@ -54,7 +54,7 @@
 | [Dynamic Point Rectangle Affine Rectangle Sum](https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Line Add Get Min](https://judge.yosupo.jp/problem/line_add_get_min) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Ordered Set](https://judge.yosupo.jp/problem/ordered_set) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Ordered Set](https://judge.yosupo.jp/problem/ordered_set) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [ordered_set.compact.cpp](../verify/library_checker/ordered_set.compact.cpp) |
 | [Persistent Queue](https://judge.yosupo.jp/problem/persistent_queue) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Persistent Range Affine Range Sum](https://judge.yosupo.jp/problem/persistent_range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Persistent Unionfind](https://judge.yosupo.jp/problem/persistent_unionfind) | Data Structure | 待逐题审题、适配与在线验证 | — |

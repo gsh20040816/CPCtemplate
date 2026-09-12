@@ -359,3 +359,6 @@ build/modint_composition
 
 "$CXX" "${flags[@]}" tests/hash_table.cpp -o build/hash_table
 build/hash_table
+
+"$CXX" "${flags[@]}" tests/ordered_set.cpp -o build/ordered_set
+build/ordered_set

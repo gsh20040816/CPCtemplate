@@ -425,7 +425,7 @@
     "remaining": "Existing vector AC retained with its archived scope; leaderboard ranking remains unverified."
   },
   {
-    "symbol": "PBDSOrderedTree",
+    "symbol": "ost",
     "problem": "Luogu P3369",
     "title": "普通平衡树",
     "url": "https://www.luogu.com.cn/problem/P3369",
@@ -434,8 +434,8 @@
     "checked_date": "2026-09-12",
     "limits": "operations<=100000; |x|<=10000000",
     "adapter": "Planned extc++ order-statistics tree target. Preserve duplicate values through unique secondary IDs and a strict comparator; less_equal is not a valid workaround. Erase exactly one key, convert zero-based find_by_order to the problem kth convention. Existing Treap/Splay AC does not validate PBDS.",
-    "implementation": "planned_extension",
-    "source": null,
+    "implementation": "implemented_adapter_pending",
+    "source": "src/compact/ordered_set.hpp",
     "api": null,
     "tested_api": [],
     "ac": null,
@@ -444,10 +444,10 @@
       "rank": null,
       "total": null
     },
-    "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified."
+    "remaining": "PBDS alias exists and distinct-key Library Checker task passed; this multiset problem still requires its own driver and online evidence."
   },
   {
-    "symbol": "PBDSOrderedTree",
+    "symbol": "ost",
     "problem": "Luogu P6136",
     "title": "普通平衡树（加强版）",
     "url": "https://www.luogu.com.cn/problem/P6136",
@@ -456,8 +456,8 @@
     "checked_date": "2026-09-12",
     "limits": "n<=100000; m<=1000000; values<2^30",
     "adapter": "Read an initial multiset, XOR each operand with the last query answer before executing it, and print XOR of all query answers. All operations are legal. Cannot simply reuse P3369 input/output or sort operations offline; require separate maximum-scale performance evidence.",
-    "implementation": "planned_extension",
-    "source": null,
+    "implementation": "implemented_adapter_pending",
+    "source": "src/compact/ordered_set.hpp",
     "api": null,
     "tested_api": [],
     "ac": null,
@@ -466,7 +466,7 @@
       "rank": null,
       "total": null
     },
-    "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified."
+    "remaining": "PBDS alias exists and distinct-key Library Checker task passed; this multiset problem still requires its own driver and online evidence."
   },
   {
     "symbol": "gp_map",
@@ -998,5 +998,42 @@
     },
     "remaining": "保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。",
     "driver": "verify/luogu/P3834.compact.cpp"
+  },
+  {
+    "symbol": "ost",
+    "problem": "Library Checker ordered_set",
+    "title": "Ordered Set",
+    "url": "https://judge.yosupo.jp/problem/ordered_set",
+    "classification": "Official standalone ordered set template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "0<=N<=500000; 1<=Q<=500000; sorted distinct initial keys; 0<=keys<=10^9; kth query x>=1",
+    "adapter": "Convert 1-based kth to find_by_order(x-1). Inclusive count uses order_of_key(x)+presence, avoiding x+1 overflow. Predecessor is <=x via upper_bound, successor is >=x via lower_bound; missing outputs -1. Duplicates ignored.",
+    "source": "src/compact/ordered_set.hpp",
+    "implementation": "implemented_online_scoped",
+    "tested_api": [
+      "insert",
+      "erase",
+      "find",
+      "find_by_order",
+      "order_of_key",
+      "lower_bound",
+      "upper_bound",
+      "begin",
+      "end"
+    ],
+    "ac": "https://judge.yosupo.jp/submission/401869",
+    "ranking": {
+      "status": "verified_all_ac_submissions",
+      "rank": 628,
+      "total": 1095,
+      "tied_positions": [
+        628,
+        629
+      ],
+      "scope": "All AC submissions, all users and languages, Dedup user unchecked. Not non-AC verdicts or per-user best.",
+      "url": "https://judge.yosupo.jp/submissions/?problem=ordered_set&user=&dedupUser=false&status=AC&lang=&order=%2Btime&page=6&pagesize=100"
+    },
+    "remaining": "Duplicate-key adapters require separate online tests."
   }
 ]

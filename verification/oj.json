@@ -1643,5 +1643,31 @@
       "end"
     ],
     "note": "20 tests passed including unordered_map_killer, sparse keys and language-specific killers. Submitted editor source copied back and byte-equal to bundle. erase/insert/copy/clear are locally tested only. At audit time, all-AC time rank 956 out of 7334, tied positions 956-960, dedup disabled; see docs/ranking-audits.json."
+  },
+  {
+    "problem": "Library Checker ordered_set",
+    "style": "compact",
+    "record": "https://judge.yosupo.jp/submission/401869",
+    "verdict": "Accepted",
+    "time_ms": 605,
+    "memory": "32.30 MiB",
+    "source_driver": "verify/library_checker/ordered_set.compact.cpp",
+    "submitted_source": "verification/submitted/LC-ordered_set.compact.cpp",
+    "submitted_sha256": "a18c03f12033c909419e45a76cce9995285cf3649330e0904e2490dc7c465b6e",
+    "date": "2026-09-12",
+    "account": "gsh",
+    "algorithm": "ost",
+    "tested_api": [
+      "insert",
+      "erase",
+      "find",
+      "find_by_order",
+      "order_of_key",
+      "lower_bound",
+      "upper_bound",
+      "begin",
+      "end"
+    ],
+    "note": "37 cases passed. Submitted source copied back from editor and byte-equal to bundle. Distinct integer keys only; pair-based duplicates and reverse comparator have local tests, not this AC. All-AC time rank 628/1095, tied positions 628-629, no user deduplication; see ranking-audits.json."
   }
 ]

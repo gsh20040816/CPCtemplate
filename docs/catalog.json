@@ -784,5 +784,11 @@
     "gp_map",
     "GNU 整数键哈希表",
     "GNU libstdc++ 扩展，包含 ext/pb_ds/assoc_container.hpp。gp_map<K,V> 中 K 采用不超过 64 位的整数类型，V 为值类型；默认空表。a[k] 读取或插入默认值，find(k) 查找且不插入，insert({k,v}) 不覆盖已有键，erase(k)、clear()、size()、empty() 沿用容器接口。哈希使用进程内固定随机种子的 64 位混合；算术为无符号回绕，支持有符号整数转为 uint64_t。不保证抵抗已知种子的恶意构造。通常查改摊还 O(1)，最坏单次 O(n)，空间 O(n)；不提供顺序统计。rehash 会使迭代器失效，修改表后重新 find。默认策略不直接调用 resize，不使用 unordered_map 的 reserve 接口。用于不存在时返回零的映射，建议 find 后判断 end，避免纯查询扩大表。"
+  ],
+  [
+    "ordered_set",
+    "ost",
+    "PBDS 有序树与顺序统计",
+    "GNU libstdc++ 扩展，包含 ext/pb_ds/assoc_container.hpp 和 ext/pb_ds/tree_policy.hpp。ost<T> 为去重有序集合；insert(x)、erase(x)、find(x)、lower_bound(x)、upper_bound(x) 沿用集合接口。order_of_key(x) 为严格小于 x 的元素数，find_by_order(k) 返回 0-based 第 k 个的迭代器，越界返回 end。默认 less<T>；改用其他严格弱序比较器时，排名和边界均按该比较器解释。单次 O(log n)，空间 O(n)，假设比较为 O(1)。重复值使用 ost<pair<T,int>>，插入 {x,id} 且 id 全局唯一、1≤id<INT_MAX。order_of_key({x,0}) 统计小于 x，order_of_key({x,INT_MAX}) 统计不大于 x；find_by_order(k)->first 取值，须先检查 end。删除一个 x：it=lower_bound({x,0})，检查 it!=end 且 it->first==x 后 erase(it)。不可用 less_equal 模拟多重集合。前驱先检查迭代器是否为 begin，再递减；空集合和无解不得解引用 end。"
   ]
 ]

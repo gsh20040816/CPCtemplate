@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-12T15:31:51.984372+00:00",
+  "recorded_at_utc": "2026-09-12T15:36:50.179078+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -287,7 +287,8 @@
       "",
       "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS",
       "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS",
-      "gp_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes and million sparse keys PASS"
+      "gp_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes and million sparse keys PASS",
+      "PBDS ost sorted-vector oracle, duplicates by pair, bounds, reverse comparator and 500000 ordered keys PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -550,7 +551,8 @@
       "",
       "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS",
       "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS",
-      "gp_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes and million sparse keys PASS"
+      "gp_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes and million sparse keys PASS",
+      "PBDS ost sorted-vector oracle, duplicates by pair, bounds, reverse comparator and 500000 ordered keys PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -780,6 +782,7 @@
     "src/compact/odd_cycle_vertices.hpp": "99a8be05b576fdca1f5d57620a140283d70f5f398d702c4e846a215f7e1ddb5d",
     "src/compact/offline_lca.hpp": "99c53fc625a5d595a1c09b188849bb09c2c7ba43f863af40f124e64775e010e0",
     "src/compact/optimization.hpp": "3cbefa26ecb0cddfd836587e9350ad214d6630f40b29697ce8a3d4e7a198c439",
+    "src/compact/ordered_set.hpp": "7eb4f80fd21417854d844687e9dcbaa5f9e48b953525247f1157223a79410849",
     "src/compact/palindromic_tree.hpp": "95bc6a1aeb2a3c943bafbdb6e96dbc37f19c694a3408158798b909c69b8792de",
     "src/compact/partitions.hpp": "7dc494705598e23c1a5771810fc7b5df100d952f7021a4115f0b423887a43edc",
     "src/compact/path_intersection.hpp": "f2cfec7e2dd2ddc51ff0871df746744ae03e0594f9074ddbf70580853722623f",
@@ -927,6 +930,7 @@
     "tests/offline_lca.cpp": "c982b4979d64e617b7aa69b2934ec59d8ed0abc1ce6fd71338a172444b64fe7d",
     "tests/offline_lca_application.py": "0f0bf0062f277b0b6dab32fea189ff8c45fc6b8d4099786d13899891d56b9410",
     "tests/optimization.cpp": "22a2eacb619a32e51d2dfde85462447acf00e1e5eb8b2c587edead8a788d6acc",
+    "tests/ordered_set.cpp": "017fc5c665e9ea038d8bdd9945f3d42ba2160bbc28b5ef65ba4b6fd4e7651aa6",
     "tests/palindromic_tree.cpp": "579f58e77440a9342e7ad1bc13ede6405a3f45e4a6e64636dcc0a67943645566",
     "tests/partitions.cpp": "5c02337cddf5a7b8fbc681106a01eaa79d5918aeb5602208e228f0132a84159c",
     "tests/path_intersection.cpp": "2ba35c6bab128d75d547e64762f0b28213181f3f9872ea24a05c0b92c4e663e8",
