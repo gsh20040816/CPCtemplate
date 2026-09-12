@@ -1,0 +1,30 @@
+\documentclass[UTF8,a4paper,10pt,openany,fontset=fandol]{ctexbook}
+\usepackage[margin=18mm,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb,booktabs,longtable,array}
+\usepackage{xcolor,listings,fancyhdr,imakeidx,needspace}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\makeindex[title=算法索引,columns=1]
+\lstset{language=C++,basicstyle=\ttfamily\fontsize{8.5}{10.2}\selectfont,keywordstyle=\bfseries,
+commentstyle=\color{black!60},numbers=left,numberstyle=\tiny\color{black!50},
+numbersep=6pt,breaklines=true,breakatwhitespace=false,columns=fullflexible,
+keepspaces=true,showstringspaces=false,tabsize=4,frame=single,rulecolor=\color{black!20}}
+% Keep the last ten source lines together when a listing crosses a page.
+\makeatletter
+\newcount\CpcLastKeepLine
+\lst@AddToHook{Init}{%
+  \CpcLastKeepLine=\lst@lastline
+  \advance\CpcLastKeepLine by -10
+}
+\lst@AddToHook{EveryPar}{%
+  \ifnum\lst@lineno>\CpcLastKeepLine
+    \vadjust{\nobreak}%
+  \fi
+}
+\makeatother
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Morning Flower and Evening Oath}
+\fancyhead[R]{\small XCPC Template · Working Draft}
+\fancyfoot[C]{\thepage}
+\setcounter{tocdepth}{1}
+\let\cleardoublepage\clearpage
+\ctexset{chapter={beforeskip=8pt,afterskip=16pt}}

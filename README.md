@@ -45,3 +45,7 @@ SANITIZE=1 tools/test.sh
 运行 `tools/build_pdf.sh`（需要 XeLaTeX、latexmk）。[当前 PDF](output/pdf/xcpc-template.pdf) 含 vector 版源码、目录、接口索引与数学速查；为建设稿。
 
 所有模板以赛时快速抄写为先：允许适度合并短语句，复杂控制流保持清晰，按算法需要选择函数或轻量 struct。见 [码风规范](docs/STYLE.md)。
+
+## 分册
+
+总册与数据结构、图论、树上算法、字符串、数学、计算几何六本独立 PDF 一并生成，见 [分册说明](docs/VOLUMES.md) 与 [输出目录](output/pdf/)。各册有独立目录、页码引用和算法索引；几何知识随几何代码收录。
