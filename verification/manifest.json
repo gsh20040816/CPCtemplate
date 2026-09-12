@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T06:20:19.672051+00:00",
+  "recorded_at_utc": "2026-09-12T06:24:20.803574+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -128,7 +128,10 @@
       "Incremental coprime rectangles; unchanged-module evidence retained from 61e718c:",
       "Coprime pairs dual gcd rectangle oracle, zero prefixes, million square and INT_MAX thin intervals PASS",
       "P2522 compact: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS",
-      "P2522 classic: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS"
+      "P2522 classic: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS",
+      "",
+      "Incremental phi inversion audit; unchanged-module evidence retained from e0ec8cf:",
+      "Phi inversion dual million-entry Mobius convolution and proper-divisor subtraction certificates PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -255,7 +258,10 @@
       "Incremental coprime rectangles; unchanged-module evidence retained from 61e718c:",
       "Coprime pairs dual gcd rectangle oracle, zero prefixes, million square and INT_MAX thin intervals PASS",
       "P2522 compact: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS",
-      "P2522 classic: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS"
+      "P2522 classic: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS",
+      "",
+      "Incremental phi inversion audit; unchanged-module evidence retained from e0ec8cf:",
+      "Phi inversion dual million-entry Mobius convolution and proper-divisor subtraction certificates PASS"
     ]
   },
   "sha256": {
@@ -471,6 +477,7 @@
     "tests/persistent_distinct.cpp": "fbf4deee2334b8b4719d735e1791a827ef77ed4d2751b5686457a0faa761c0a6",
     "tests/persistent_distinct_application.py": "7aac5c316a92ef27f19085ab3b9a0d3be281ba1a5550002e4123b249e0ce2ba1",
     "tests/persistent_kth_application.py": "522954e0693203f36597da0d328273a6fb8562d7b5aae552bb6964fe5d13ee49",
+    "tests/phi_inversion.cpp": "047a63f9f86a3537411e0f129d9d06e797107a352b683dfb6b5131119dd2c306",
     "tests/position_basis.cpp": "07dc30fc48916b61ed5f681219752ed51cd030ef0e071ccaa990a26430cc7a4f",
     "tests/position_basis_application.py": "6b7c36bcbb4fbdf98b5e3ffa26feba715f489ee3ef8962de11a855203e0d6916",
     "tests/primality_factorization.cpp": "6251b0621134caef63be1955ceab0b0b04364129688cb8feed0df7c06dbf46a0",

@@ -220,3 +220,6 @@ build/euler_phi
 "$CXX" "${flags[@]}" tests/coprime_pairs.cpp -o build/coprime_pairs
 build/coprime_pairs
 python3 tests/coprime_pairs_application.py
+
+"$CXX" "${flags[@]}" tests/phi_inversion.cpp -o build/phi_inversion
+build/phi_inversion

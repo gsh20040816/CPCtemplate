@@ -152,8 +152,8 @@ WIDA,02 - 打印稿模板汇总/05A - 数论.md,,扩展欧几里得 exgcd,local-
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,离散对数 bsgs 与 exbsgs,local-tested,src/compact/algebra.hpp#DiscreteLog,src/classic/algebra.hpp#Discrete_Log,"tests/discrete_log.cpp; exhaustive residue first-occurrence oracle in both styles, noncoprime moduli, signed extremes and 1e12 bound; smallest exponent verified; P4195 dual AC 297520101/297520104 for official positive inputs <=1e9"
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,欧拉函数,pending,,,
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,直接求解单个数的欧拉函数,local-tested,src/compact/euler_phi.hpp,src/classic/euler_phi.hpp,tests/euler_phi.cpp; trial and reusable Pollard-Rho paths; gcd/sieve oracles; prime powers and uint64 boundaries; factor primes checked by trial; ASan/UBSan; no dedicated phi OJ AC
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,求解 1 到 N 所有数的欧拉函数,pending,,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,使用莫比乌斯反演求解欧拉函数,pending,,,
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,求解 1 到 N 所有数的欧拉函数,local-tested,src/compact/number_theory.hpp: LinearSieve,src/classic/number_theory.hpp: Linear_Sieve,tests/linear_sieve.cpp and tests/phi_inversion.cpp; million-entry direct mu*id convolution and proper-divisor subtraction; O(n) sieve supplies same phi table without divisor lists; ASan/UBSan; no dedicated OJ AC
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,使用莫比乌斯反演求解欧拉函数,local-tested,src/compact/number_theory.hpp: LinearSieve,src/classic/number_theory.hpp: Linear_Sieve,tests/linear_sieve.cpp and tests/phi_inversion.cpp; million-entry direct mu*id convolution and proper-divisor subtraction; O(n) sieve supplies same phi table without divisor lists; ASan/UBSan; no dedicated OJ AC
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,组合数,pending,,,
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,debug,pending,,,
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,逆元+卢卡斯定理（质数取模）,pending,,,
@@ -490,7 +490,7 @@ WIDA,03 - jiangly模板收集/02 - 图与网络/09 - 圆方树.cpp,,09 - 圆方�
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/01 - 快速幂.cpp,,01 - 快速幂,pending,,,
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/02 - 基姆拉尔森公式.cpp,,02 - 基姆拉尔森公式,pending,,,
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/03 - 欧拉筛.cpp,,03 - 欧拉筛,pending,,,
-WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/04 - 莫比乌斯函数筛（莫比乌斯反演）.cpp,,04 - 莫比乌斯函数筛（莫比乌斯反演）,pending,,,
+WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/04 - 莫比乌斯函数筛（莫比乌斯反演）.cpp,,04 - 莫比乌斯函数筛（莫比乌斯反演）,pending,,,Sieve part supported by tests/linear_sieve.cpp; sumMu recursion still pending: source checks fMu but never stores the computed answer. Do not mark whole file covered from sieve alone.
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/05 - 扩展欧几里得（exgcd）.cpp,,05 - 扩展欧几里得（exgcd）,local-tested,src/compact/number_theory.hpp; src/compact/linear_congruence.hpp,src/classic/number_theory.hpp; src/classic/linear_congruence.hpp,tests/linear_equation.cpp: nonnegative exgcd; tests/linear_congruence.cpp: signed coefficients and complete residue sets; tests/frog_meeting_application.py: 242 full cases; minimal root and period; int64 negation correction; ASan/UBSan; no OJ AC
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/06A - 欧拉函数（求解单个数的欧拉函数）.cpp,,06A - 欧拉函数（求解单个数的欧拉函数）,local-tested,src/compact/euler_phi.hpp,src/classic/euler_phi.hpp,tests/euler_phi.cpp; trial and reusable Pollard-Rho paths; gcd/sieve oracles; prime powers and uint64 boundaries; factor primes checked by trial; ASan/UBSan; no dedicated phi OJ AC
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/06B - 欧拉函数（求解全部数的欧拉函数）.cpp,,06B - 欧拉函数（求解全部数的欧拉函数）,local-tested,src/compact/number_theory.hpp: LinearSieve,src/classic/number_theory.hpp: Linear_Sieve,tests/linear_sieve.cpp; dual prefix and ten-million table certificates; trial least prime; factor reconstruction; divisor sums uniquely certify phi and mu; O(n) replacement for Eratosthenes phi; no dedicated OJ AC

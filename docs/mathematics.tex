@@ -98,6 +98,16 @@ $p=\operatorname{lp}(j)$ 与 $i=j/p$ 生成一次，时间为 $O(n)$。
 
 来源：kuangbin 2.1.1、2.1.2、2.7.2、2.7.4、2.13.1；WIDA 的全部欧拉函数表。
 
+WIDA 的“使用莫比乌斯反演求解欧拉函数”先存储全部约数，再使用
+\[
+\varphi(n)=n-\sum_{d\mid n,\ d<n}\varphi(d).
+\]
+这与 $\varphi*1=\operatorname{id}$ 等价；再卷积 $\mu$ 可得
+$\varphi(n)=\sum_{d\mid n}\mu(d)(n/d)$。
+本库用线性筛提供同一张表，无需额外保存约数列表。
+百万范围另分别运行直接卷积和真约数扣减，逐项核对两套筛表；两种方法都不复用线性筛的递推分支。
+
+
 \section{区间筛：只保存目标区间}\index{segmented sieve}\index{区间筛素数}
 实现见第~\pageref{compact-segmented_primes}~页。
 设 $0\le L\le R\le\texttt{INT\_MAX}$，先筛出不超过 $\lfloor\sqrt R\rfloor$ 的素数，
