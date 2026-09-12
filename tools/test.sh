@@ -175,3 +175,6 @@ build/garner
 
 "$CXX" "${flags[@]}" tests/lucas.cpp -o build/lucas
 build/lucas
+
+"$CXX" "${flags[@]}" tests/primitive_root.cpp -o build/primitive-root
+build/primitive-root

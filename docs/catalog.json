@@ -168,6 +168,12 @@
     "Binomial<prime>(n)，要求 0≤n<prime；choose(n,k) 越界 k 返回 0。预处理 O(n+log prime)，单次 O(1)。小模数下，合数模数或 n 不小于模数时，可使用后面的 ExLucas。"
   ],
   [
+    "primitive_root",
+    "PrimitiveRoot",
+    "乘法阶与原根",
+    "构造 PrimitiveRoot(n)，要求 2≤n≤INT_MAX；init(n) 可重建。order(a) 返回 a 模 n 的乘法阶，a 不可逆时返回 0；is_root(a) 判断该剩余类是否为原根，a 可为完整 long long。minimum() 返回 1..n-1 内最小原根，无原根返回 -1；all() 返回升序的全部原根，无原根返回空向量。mod、phi、exists 只读；factors 为 phi 的不同素因子，辅助 factor 为试除分解。依赖 NumberTheory 的 power。初始化 O(√n)，求阶 O(log²n)，原根判定 O((1+ω(phi))log n)。若最小原根为 G，顺序枚举最坏检查 G 个候选，不能假定 G 总是常数。枚举全部另需 O(phi log phi+c log c) 时间、O(c) 空间，c 为原根数；大模数只求最小原根或阶时，不应调用 all。"
+  ],
+  [
     "lucas",
     "Lucas",
     "Lucas：小素数模的大下标组合数",

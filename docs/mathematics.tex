@@ -102,6 +102,26 @@ $\beta^{p-1}=n^{(p-1)/2}=1$，所以 $\beta$ 落在原素数域中。
 实现见第~\pageref{compact-mod_sqrt}~页；零和模数 2 单独处理。
 模数为合数时不能照搬此判别和扩域构造。
 
+\section{乘法阶与原根}\index{原根}\index{multiplicative order}
+对 $\gcd(a,n)=1$，阶是最小的正整数 $d$ 使 $a^d\equiv1\pmod n$，且 $d\mid\varphi(n)$。
+从 $d=\varphi(n)$ 开始，对每个素因子 $q$，只要 $a^{d/q}\equiv1$ 就继续除去 $q$，
+所得即为实际阶。对于不可逆的 $a$，接口返回 0，表示此处没有定义乘法阶。
+
+原根要求阶达到 $\varphi(n)$。只需对其每个不同素因子 $q$ 检查
+$a^{\varphi(n)/q}\not\equiv1$：若实际阶是真因子，商中必含某个这样的 $q$。
+必须先检查 $\gcd(a,n)=1$；例如模 9 的候选 3 虽通过上述非 1 判定，却不是原根。
+$n\ge2$ 时，原根恰存在于 $2,4,p^k,2p^k$，其中 $p$ 是奇素数。
+原根存在且取一个原根 $g$ 后，$g^t$ 的阶是
+$\varphi(n)/\gcd(t,\varphi(n))$，所以枚举与 $\varphi(n)$ 互素的指数即可得到全部原根，
+共 $\varphi(\varphi(n))$ 个；这些数按大小输出时还需排序。
+
+实现见第~\pageref{compact-PrimitiveRoot}~页。
+本地验证穷举小模数的幂循环，与双版本的阶、最小值和完整集合逐项比较；
+另验证大素数、奇素数幂、无原根合数和有符号输入边界。
+P6091 的完整程序输出排序后第 $d,2d,\ldots$ 个原根，零个输出时仍保留空行；在线 AC 待补。
+这里覆盖阶与原根算法，Carmichael 函数及其相关定理仍待补充。
+来源：\url{https://oi-wiki.org/math/number-theory/primitive-root/}；kuangbin 2.17。
+
 \section{Lucas：按素数进制逐位计算}\index{Lucas}
 在特征为素数 $p$ 的域中，$(1+x)^p=1+x^p$。
 若 $n=\sum_i n_ip^i$，则
@@ -251,7 +271,7 @@ $B=\sum\gcd(|\Delta x|,|\Delta y|)$；不要重复计入边端点。
 
 \paragraph{来源索引}
 本章为重新组织的公式速查，扩展范围依据 \url{https://oi-wiki.org/math/}。
-小模数 exLucas 与有限域拉格朗日插值已有双风格实现和本地验证；素数模平方根已有 Cipolla 实现；仍需补齐二次剩余的其他方法与定理、原根、Min25、Newton 插值、子集卷积、行列式进阶、数值积分等内容及验证。本章公式不能代替这些待完成代码。
+小模数 exLucas 与有限域拉格朗日插值已有双风格实现和本地验证；素数模平方根已有 Cipolla 实现；仍需补齐二次剩余的其他方法与定理、Min25、Newton 插值、子集卷积、行列式进阶、数值积分等内容及验证。本章公式不能代替这些待完成代码。
 
 \section{线性递推：系数方向与外推条件}
 \index{线性递推}
