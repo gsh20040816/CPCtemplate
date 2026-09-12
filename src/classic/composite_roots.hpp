@@ -1,5 +1,6 @@
 #pragma once
 #include "prime_power_roots.hpp"
+#include "root_factors.hpp"
 
 struct Composite_Roots
 {
@@ -52,5 +53,11 @@ struct Composite_Roots
             answer.weight.push_back((__int128)rest * inverse % answer.mod);
         }
         return answer;
+    }
+
+    static optional<Composite_Roots>
+    Solve(ll a, unsigned long long k, ll mod, Pollard_Rho &rho)
+    {
+        return Solve(a, k, Root_Factors(mod, rho));
     }
 };

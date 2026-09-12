@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T09:07:56.513640+00:00",
+  "recorded_at_utc": "2026-09-12T09:12:55.506441+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -200,7 +200,10 @@
       "Prime-power roots dual exhaustive nonunit/unit root sets, 2-adic sign group, uint64 exponents and compressed large lifts PASS",
       "",
       "Incremental composite root CRT families; unchanged-module evidence retained from c75ec8a:",
-      "Composite roots dual exhaustive CRT root sets, reordered factors, modulus one, signed/uint64 extremes and large mixed factors PASS"
+      "Composite roots dual exhaustive CRT root sets, reordered factors, modulus one, signed/uint64 extremes and large mixed factors PASS",
+      "",
+      "Incremental automatic root preparation; unchanged-module evidence retained from a081fb0:",
+      "Root preparation dual trial factorization, primitive-order certificates, trillion bounds and end-to-end composite root sets PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -399,7 +402,10 @@
       "Prime-power roots dual exhaustive nonunit/unit root sets, 2-adic sign group, uint64 exponents and compressed large lifts PASS",
       "",
       "Incremental composite root CRT families; unchanged-module evidence retained from c75ec8a:",
-      "Composite roots dual exhaustive CRT root sets, reordered factors, modulus one, signed/uint64 extremes and large mixed factors PASS"
+      "Composite roots dual exhaustive CRT root sets, reordered factors, modulus one, signed/uint64 extremes and large mixed factors PASS",
+      "",
+      "Incremental automatic root preparation; unchanged-module evidence retained from a081fb0:",
+      "Root preparation dual trial factorization, primitive-order certificates, trillion bounds and end-to-end composite root sets PASS"
     ]
   },
   "sha256": {
@@ -416,7 +422,7 @@
     "src/classic/circle_polygon.hpp": "f4f712776c912de2620cb0c9783614535e8682b1c7fb88c8e63f22526de0a4e4",
     "src/classic/circle_tangents.hpp": "db6aac873514b3c4fc8ccb2a281e740694dad95d7382c213fdc1ddf513d5ed03",
     "src/classic/closest_pair.hpp": "33c9428f1fb11022befed871c30621b43b5c85e34c80634557f0aa79e10ffbf8",
-    "src/classic/composite_roots.hpp": "2780dbd2612bbec14c44d16f2ac4360b0d313b9cfd065dd6db7e4a42db561ae5",
+    "src/classic/composite_roots.hpp": "590b5045bae756b9e0aada58b5963a0d51e5d8f0d184b58225d9877474aa7bd8",
     "src/classic/coprime_pairs.hpp": "336da5fa9e0a13f323e5bc62da4cbe1c71ebc55c46495bd8dc91efc33431e8e1",
     "src/classic/cut_tree_queries.hpp": "ca7ddbef43ccc83040eed16c0e5fcc4521d08993857a35900b5aa06c8daa85bf",
     "src/classic/data_structure.hpp": "c22a85ed4ea5c3a458f4febf18549d611045a255cabe429189debd92113f0a70",
@@ -466,6 +472,7 @@
     "src/classic/prime_power_roots.hpp": "6cb8f79e176d0cd75469b5c1770b04689e20afc560023c445437b11fdf7581f3",
     "src/classic/primitive_root.hpp": "4b16a755d167947138b64ca91622be71ac9af0b8f5921af62ab93e8ed36a1690",
     "src/classic/recurrence.hpp": "a71d91ecdcd7c7e2502c655ea5f9fcb2ac03104844ded46bd0afb46450422f67",
+    "src/classic/root_factors.hpp": "17c93962890de175118327be36a71e5549b4963c6317600929d73dc09cd64e66",
     "src/classic/segmented_sieve.hpp": "7fddb4cdb731eee9be842aeafa8923fe971a0e67e8c6f2fe9a78d7288741038c",
     "src/classic/splay.hpp": "ba412fda7cd927e9dcab62fa88ee66b59a8cac5b4550bf47699285e8c4522e6b",
     "src/classic/string.hpp": "d199d27567590cebe3b443b572d3b42eae1efeb6f5c80602870ce81695dafb69",
@@ -494,7 +501,7 @@
     "src/compact/circle_polygon.hpp": "7b24b26b0466dfa397da3138528af6f378523a38b09415230c46616cfbea988e",
     "src/compact/circle_tangents.hpp": "20521fda102a5dd85a530a0b666019e79ad3f46a5345619b2559da1a93123a2a",
     "src/compact/closest_pair.hpp": "aed3eca3436e8e6e63d6a52d545c06e3eef0d529ba3af823f88e84fa6598a96b",
-    "src/compact/composite_roots.hpp": "65bdfda967bd1599ec186b5e299c49bd088c00a08e4eaa6e2430cebaa0c63b14",
+    "src/compact/composite_roots.hpp": "ce6fddd6c29fad62aeb7f13c8061601eea4c80575c575b27ebaa96c60a499602",
     "src/compact/coprime_pairs.hpp": "c00ee31e1bfffb415c2cc411e049752d306deb5a6c4f9611b5490497cd6c4094",
     "src/compact/cut_tree_queries.hpp": "0aef44e11004d4d2d9eac16a4ae9354f820a38e0b53b3b7ccbbe3a9146dab27f",
     "src/compact/data_structure.hpp": "ffbb46b60f707a3ed44838329a8f7eefbd6cba4c2b64d30ed8a62f207e73327e",
@@ -543,6 +550,7 @@
     "src/compact/prime_power_roots.hpp": "6b7dbe7bb48f408e14d8d92b6a9c43f48de0510c25db9c002f63501be01fb842",
     "src/compact/primitive_root.hpp": "cd0be61c985c4aaef5dc34118327ef7bbbc6f005d88276c5e604d4f8411938de",
     "src/compact/recurrence.hpp": "af9e2e7bdefe5586b6f68758c76e3b9402047c0725bf4d07028837446a1fe2d5",
+    "src/compact/root_factors.hpp": "2cbdb4d70ea15f2ee480efce8e371dc4dbc61a4bb339c7f1fc41ea34aadc0cbb",
     "src/compact/segmented_sieve.hpp": "7de3f5a42d0115a933d1934b653d13428b668d8ac6dff0b7f554ef01931269ae",
     "src/compact/splay.hpp": "a9959a530dea7ddef50e67a700bf8c0c2c87cb9f39d34b8caed31d141ed8445d",
     "src/compact/string.hpp": "22008ad36d2d0c59ee5568882932a88e4dda9a58f52fc2d06560e4a84b0b010e",
@@ -675,6 +683,7 @@
     "tests/primitive_root_application.py": "db5d4c36138ec64a11421b4c85240b1d1f86ab887da41c3a53dccc06429554e2",
     "tests/property.cpp": "5e8b384ed682134dcf051b34c6fd278af21ad93e712e220968f8fbd037dcc85d",
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
+    "tests/root_factors.cpp": "8d238960b70db06f4e9f48d2c8f1a37c36392b9f1f7b887b7fc80aa0cead3b46",
     "tests/segmented_sieve.cpp": "8ce844d676a6abf0b02dc4c8da038ef27da9336582b4e469e0b25305c4c4b3ed",
     "tests/suffix_array.cpp": "bc3ce98f7cce3a68acd4b1e2d98b20ee912b2a2e0676cb1141ab869226dec3d6",
     "tests/suffix_array_application.py": "c8248e4a29056da4455a84d7c2c1d1228131251d1ecbafe84b95aecc1e2769cd",

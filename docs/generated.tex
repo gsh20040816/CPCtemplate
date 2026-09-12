@@ -768,21 +768,31 @@ solve(a,k,p,e,g) 求 x\textasciicircum{}k$\equiv$a (mod p\textasciicircum{}e)。
 
 \lstinputlisting[firstline=56,lastline=94,firstnumber=52]{../src/compact/prime_power_roots.hpp}
 
+\chapter{合数求根的准备}
+
+\Needspace{523pt}
+
+\section{合数求根准备：分解模数与素数幂原根}\label{compact-root_factors}\index{root\_factors}
+
+root\_factors(M,rho) 为 1$\le$M$\le$1e12 生成完整的 (p,e,g) 列表，可直接传入 CompositeRoots。rho 是可复用的 PollardRho 对象。按素数递增返回；p=2 时 g=0，其余 g 为模 p\textasciicircum{}e 的最小正原根。先分解 M，再分解各个欧拉函数值，逐个检查原根候选的阶。M=1 返回空列表。分解使用随机重试；原根搜索耗时取决于候选数，不包含 BSGS。传统接口 Root\_Factors(M,rho)，rho 为 Pollard\_Rho。
+
+\lstinputlisting[firstline=5,lastline=44]{../src/compact/root_factors.hpp}
+
 \chapter{合数模高次剩余}
 
-\Needspace{464pt}
+\Needspace{477pt}
 
 \section{一般合数模高次剩余：CRT 组合与按索引取根}\label{compact-CompositeRoots}\index{CompositeRoots}
 
-solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整且素数互异的 (p,e,g) 列表，M 为所有 p\textasciicircum{}e 的乘积，M$\le$1e12，k 为正 unsigned long long，a 为 signed long long。奇素数的 g 是模 p\textasciicircum{}e 原根；p=2 时填 0。无解返回 nullopt，否则 mod=M、total 为解数，get(index) 在 0$\le$index<total 上取出每个根恰好一次，不按数值排序。空因子列表表示模 1，唯一标准代表为 0。依赖 PrimePowerRoots 和模逆元；不负责分解模数或寻找原根。预处理的主要成本是各素数幂的 BSGS；get 为 O(F log M)，F 为不同素因子数。无需展开全部根，parts 和 weight 保存局部根族及 CRT 系数。传统接口 Composite\_Roots::Solve、Get。
+solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整且素数互异的 (p,e,g) 列表，M 为所有 p\textasciicircum{}e 的乘积，M$\le$1e12，k 为正 unsigned long long，a 为 signed long long。奇素数的 g 是模 p\textasciicircum{}e 原根；p=2 时填 0。无解返回 nullopt，否则 mod=M、total 为解数，get(index) 在 0$\le$index<total 上取出每个根恰好一次，不按数值排序。空因子列表表示模 1，唯一标准代表为 0。依赖 PrimePowerRoots 和模逆元；列表接口不做分解；重载 solve(a,k,M,rho) 自动分解并寻找原根，rho 为 PollardRho。重复同模数宜复用因子列表。预处理的主要成本是各素数幂的 BSGS；get 为 O(F log M)，F 为不同素因子数。无需展开全部根，parts 和 weight 保存局部根族及 CRT 系数。传统接口 Composite\_Roots::Solve、Get。
 
-\lstinputlisting[firstline=4,lastline=30]{../src/compact/composite_roots.hpp}
+\lstinputlisting[firstline=5,lastline=31]{../src/compact/composite_roots.hpp}
 
 \newpage
 
 \noindent 局部求根与 CRT 系数（接上页同一结构体）：
 
-\lstinputlisting[firstline=31,lastline=56,firstnumber=28]{../src/compact/composite_roots.hpp}
+\lstinputlisting[firstline=32,lastline=63,firstnumber=28]{../src/compact/composite_roots.hpp}
 
 \chapter{多项式插值}
 
@@ -1964,21 +1974,31 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 
 \lstinputlisting[firstline=56,lastline=95,firstnumber=52]{../src/classic/prime_power_roots.hpp}
 
+\chapter{合数求根的准备}
+
+\Needspace{523pt}
+
+\section{合数求根准备：分解模数与素数幂原根}\label{classic-root_factors}\index{Root\_Factors}
+
+算法约束见动态版本第~\pageref{compact-root_factors}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=44]{../src/classic/root_factors.hpp}
+
 \chapter{合数模高次剩余}
 
-\Needspace{464pt}
+\Needspace{477pt}
 
 \section{一般合数模高次剩余：CRT 组合与按索引取根}\label{classic-CompositeRoots}\index{Composite\_Roots}
 
 算法约束见动态版本第~\pageref{compact-CompositeRoots}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=4,lastline=30]{../src/classic/composite_roots.hpp}
+\lstinputlisting[firstline=5,lastline=31]{../src/classic/composite_roots.hpp}
 
 \newpage
 
 \noindent 局部求根与 CRT 系数（接上页同一结构体）：
 
-\lstinputlisting[firstline=31,lastline=56,firstnumber=28]{../src/classic/composite_roots.hpp}
+\lstinputlisting[firstline=32,lastline=63,firstnumber=28]{../src/classic/composite_roots.hpp}
 
 \chapter{多项式插值}
 

@@ -289,3 +289,6 @@ build/prime_power_roots
 
 "$CXX" "${flags[@]}" tests/composite_roots.cpp -o build/composite_roots
 build/composite_roots
+
+"$CXX" "${flags[@]}" tests/root_factors.cpp -o build/root_factors
+build/root_factors
