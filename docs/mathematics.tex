@@ -798,5 +798,50 @@ $a$ 支持完整 signed long long，先正规化。
 
 这是 \href{https://oi-wiki.org/math/number-theory/residue/}{OI Wiki 高次剩余} 中
 离散对数转线性同余方法的素数模实现。
-素数幂、一般合数模数、非互素被开方数及改良 Tonelli--Shanks 尚需另补，
+素数幂及非互素被开方数见下一节；一般合数模数与改良 Tonelli--Shanks 尚需另补，
 不能把本节状态解读为该页面全部覆盖。
+
+\clearpage
+\section{素数幂模高次剩余与根的提升}
+实现见第~\pageref{compact-PrimePowerRoots}~页。
+令 $M=p^e$。当 $a=0$ 时，全部根是 $p^{\lceil e/k\rceil}$ 的倍数。
+否则令 $t=v_p(a)<e$，必须有 $k\mid t$，否则无解。
+取 $s=t/k$，$q=p^{e-t}$，写 $x=p^s y$，只需求单位方程
+\[
+y^k\equiv a/p^t\pmod q.
+\]
+每个单位根 $y$ 对应原模数下的根
+\[
+x=p^s y+\ell p^s q,\qquad 0\le\ell<p^{t-s}.
+\]
+这些提升保持互不相同，也解释了非互素被开方数可能产生大量根。
+
+奇素数时，提供模 $p^e$ 的原根，约化后仍是模 $q$ 的原根，
+沿用离散对数转线性同余的方法。
+$q=2$ 时单位根只有 1；$q\ge4$ 且为二的幂时，单位表示为
+$(-1)^z5^y$。符号指数模 2，5 的指数模 $q/4$；
+$q=4$ 时只有符号分支。分别解两个指数同余即可，不可假设二的高次幂存在原根。
+
+返回结构体保存 first、两个 ratio、两个 count，以及 step、lifts。
+全部根由下式给出：
+\[
+\bigl(\texttt{first}\cdot\texttt{ratio}[0]^i\cdot\texttt{ratio}[1]^j\bmod\texttt{step}\bigr)
++\ell\cdot\texttt{step}.
+\]
+其中 $0\le i<\texttt{count}[0]$、$0\le j<\texttt{count}[1]$、
+$0\le\ell<\texttt{lifts}$。
+\texttt{get} 已处理模乘溢出，\texttt{size} 返回三者乘积；
+不保证根按数值排序。零根情形复用同一表示。
+
+模数上限 $10^{12}$，$k$ 支持完整无符号 64 位。
+只检查范围，不检查 $p$ 的素性和奇素数原根的阶，调用者须保证。
+默认参数 $g=0$ 仅用于 $p=2$；奇素数不能漏传原根。
+时间和空间由 BSGS 决定，期望 $O(\sqrt q)$；
+单次按索引取根使用快速幂，需 $O(\log M)$。
+
+已穷举多个素数的全部不超过 256 的素数幂、所有被开方数与小指数，
+用任意精度模幂直接枚举所有根，比较整个集合。
+另测有符号与无符号 64 位边界、$2^{39}$ 的非平凡离散对数、
+$3^{20}$ 的非互素方程，以及数千亿根的紧凑表示。
+普通与 ASan/UBSan 均通过；尚无专门在线 AC。
+一般合数的 CRT 组合与改良 Tonelli--Shanks 仍未完成，OI Wiki 页面继续标记部分覆盖。

@@ -283,3 +283,6 @@ build/circle_polygon
 
 "$CXX" "${flags[@]}" tests/kth_residue.cpp -o build/kth_residue
 build/kth_residue
+
+"$CXX" "${flags[@]}" tests/prime_power_roots.cpp -o build/prime_power_roots
+build/prime_power_roots

@@ -270,6 +270,12 @@
     "solve(a,k,p,g) 求 x^k≡a (mod p)；p 必须是 2 到 1e12 的素数，g 是模 p 原根，k 为正 unsigned long long，a 支持完整 signed long long。无解返回 nullopt；否则得到 first、ratio、count，全部解为 first*ratio^i mod p，0≤i<count，无重复；first 不保证最小。a≡0 时仅有根 0，返回 {0,1,1}。枚举时每次乘 ratio，乘法先转 int128；无需展开全部根即可读取解数。给定原根后，期望 O(√p) 时间与空间，依赖 DiscreteLog、linear_congruence 及模快速幂。不验证 p 的素性或 g 的阶；合数模数不在此接口范围内。传统接口 Kth_Residue::Solve。"
   ],
   [
+    "prime_power_roots",
+    "PrimePowerRoots",
+    "素数幂模高次剩余：含非互素被开方数",
+    "solve(a,k,p,e,g) 求 x^k≡a (mod p^e)。p 是素数，e≥1，p^e≤1e12，k 为正 unsigned long long；a 为 signed long long。奇素数须提供模 p^e 的原根 g；p=2 时不使用 g。无解返回 nullopt，否则 size() 返回解数，get(i,j,lift) 返回指定根，范围是 count[0]、count[1]、lifts，全部组合无重复且无遗漏。字段 first、ratio[2]、step 描述乘法根族与加法提升；step*lifts=p^e。原根与素性由调用者保证。期望 O(√(p^e)) 时间和空间；单次 get 为 O(log(p^e))，不强制展开全部根。依赖离散对数、线性同余及模幂。传统接口 Prime_Power_Roots::Solve、Size、Get。"
+  ],
+  [
     "interpolation",
     "Lagrange",
     "拉格朗日插值与连续点优化",

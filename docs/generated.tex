@@ -746,6 +746,28 @@ solve(a,k,p,g) 求 x\textasciicircum{}k$\equiv$a (mod p)；p 必须是 2 到 1e1
 
 \lstinputlisting[firstline=5,lastline=30]{../src/compact/kth_residue.hpp}
 
+\chapter{素数幂模高次剩余}
+
+\Needspace{408pt}
+
+\section{素数幂模高次剩余：含非互素被开方数}\label{compact-PrimePowerRoots}\index{PrimePowerRoots}
+
+solve(a,k,p,e,g) 求 x\textasciicircum{}k$\equiv$a (mod p\textasciicircum{}e)。p 是素数，e$\ge$1，p\textasciicircum{}e$\le$1e12，k 为正 unsigned long long；a 为 signed long long。奇素数须提供模 p\textasciicircum{}e 的原根 g；p=2 时不使用 g。无解返回 nullopt，否则 size() 返回解数，get(i,j,lift) 返回指定根，范围是 count[0]、count[1]、lifts，全部组合无重复且无遗漏。字段 first、ratio[2]、step 描述乘法根族与加法提升；step*lifts=p\textasciicircum{}e。原根与素性由调用者保证。期望 O($\sqrt{\vphantom x}$(p\textasciicircum{}e)) 时间和空间；单次 get 为 O(log(p\textasciicircum{}e))，不强制展开全部根。依赖离散对数、线性同余及模幂。传统接口 Prime\_Power\_Roots::Solve、Size、Get。
+
+\lstinputlisting[firstline=5,lastline=26,firstnumber=1]{../src/compact/prime_power_roots.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体（第三页继续同一函数）：
+
+\lstinputlisting[firstline=27,lastline=55,firstnumber=23]{../src/compact/prime_power_roots.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体（第三页继续同一函数）：
+
+\lstinputlisting[firstline=56,lastline=94,firstnumber=52]{../src/compact/prime_power_roots.hpp}
+
 \chapter{多项式插值}
 
 \section{拉格朗日插值与连续点优化}\label{compact-Lagrange}\index{Lagrange}
@@ -1903,6 +1925,28 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-KthResidue}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=5,lastline=30]{../src/classic/kth_residue.hpp}
+
+\chapter{素数幂模高次剩余}
+
+\Needspace{408pt}
+
+\section{素数幂模高次剩余：含非互素被开方数}\label{classic-PrimePowerRoots}\index{Prime\_Power\_Roots}
+
+算法约束见动态版本第~\pageref{compact-PrimePowerRoots}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=26,firstnumber=1]{../src/classic/prime_power_roots.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体（第三页继续同一函数）：
+
+\lstinputlisting[firstline=27,lastline=55,firstnumber=23]{../src/classic/prime_power_roots.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体（第三页继续同一函数）：
+
+\lstinputlisting[firstline=56,lastline=95,firstnumber=52]{../src/classic/prime_power_roots.hpp}
 
 \chapter{多项式插值}
 

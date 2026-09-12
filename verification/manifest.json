@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T08:55:50.880792+00:00",
+  "recorded_at_utc": "2026-09-12T09:02:51.015204+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -194,7 +194,10 @@
       "Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS",
       "",
       "Incremental prime kth residues; unchanged-module evidence retained from 57b597d:",
-      "Kth residue dual exhaustive root sets and primitive roots, signed/uint64 extremes, planted large roots and compressed 998244352 roots PASS"
+      "Kth residue dual exhaustive root sets and primitive roots, signed/uint64 extremes, planted large roots and compressed 998244352 roots PASS",
+      "",
+      "Incremental prime-power root families; unchanged-module evidence retained from 6784fc7:",
+      "Prime-power roots dual exhaustive nonunit/unit root sets, 2-adic sign group, uint64 exponents and compressed large lifts PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -387,7 +390,10 @@
       "Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS",
       "",
       "Incremental prime kth residues; unchanged-module evidence retained from 57b597d:",
-      "Kth residue dual exhaustive root sets and primitive roots, signed/uint64 extremes, planted large roots and compressed 998244352 roots PASS"
+      "Kth residue dual exhaustive root sets and primitive roots, signed/uint64 extremes, planted large roots and compressed 998244352 roots PASS",
+      "",
+      "Incremental prime-power root families; unchanged-module evidence retained from 6784fc7:",
+      "Prime-power roots dual exhaustive nonunit/unit root sets, 2-adic sign group, uint64 exponents and compressed large lifts PASS"
     ]
   },
   "sha256": {
@@ -450,6 +456,7 @@
     "src/classic/persistent_distinct.hpp": "1812c3079ed01a5fd917ed5af14848504d3b8c2dc38615cfb5e1269e6c02d52c",
     "src/classic/polynomial.hpp": "4af3df1da84d454b167f9cc1e2432c973be8a4a78d641ef4dc6bc67f7e50a303",
     "src/classic/position_basis.hpp": "7a74fc4e8595fb447334cfdf1a2070bab7735a15fbaac1532113cba88e729ea1",
+    "src/classic/prime_power_roots.hpp": "6cb8f79e176d0cd75469b5c1770b04689e20afc560023c445437b11fdf7581f3",
     "src/classic/primitive_root.hpp": "4b16a755d167947138b64ca91622be71ac9af0b8f5921af62ab93e8ed36a1690",
     "src/classic/recurrence.hpp": "a71d91ecdcd7c7e2502c655ea5f9fcb2ac03104844ded46bd0afb46450422f67",
     "src/classic/segmented_sieve.hpp": "7fddb4cdb731eee9be842aeafa8923fe971a0e67e8c6f2fe9a78d7288741038c",
@@ -525,6 +532,7 @@
     "src/compact/persistent_distinct.hpp": "376a0307fbae6e8c236e5c55c53dd2b8454830875acf5323a7eb0a745a2f3fce",
     "src/compact/polynomial.hpp": "4ae0ca3021f37b0d4dc9a40985e1c1a5a710edc2bcbbcb78a9331dd64ab75700",
     "src/compact/position_basis.hpp": "f0b09b25ab5844a90aab64257401c32e5bee7dd1eb5a4d83c841d8177391f59d",
+    "src/compact/prime_power_roots.hpp": "6b7dbe7bb48f408e14d8d92b6a9c43f48de0510c25db9c002f63501be01fb842",
     "src/compact/primitive_root.hpp": "cd0be61c985c4aaef5dc34118327ef7bbbc6f005d88276c5e604d4f8411938de",
     "src/compact/recurrence.hpp": "af9e2e7bdefe5586b6f68758c76e3b9402047c0725bf4d07028837446a1fe2d5",
     "src/compact/segmented_sieve.hpp": "7de3f5a42d0115a933d1934b653d13428b668d8ac6dff0b7f554ef01931269ae",
@@ -653,6 +661,7 @@
     "tests/position_basis_application.py": "6b7c36bcbb4fbdf98b5e3ffa26feba715f489ee3ef8962de11a855203e0d6916",
     "tests/primality_factorization.cpp": "6251b0621134caef63be1955ceab0b0b04364129688cb8feed0df7c06dbf46a0",
     "tests/prime_distance_application.py": "134e7cb2970fe7fb78c62331371043172be24500264f019aee282a3746ee3d33",
+    "tests/prime_power_roots.cpp": "e786e9691be6214568f04d42c2b29a7db489aa770661f76f205344a9ca74268b",
     "tests/primitive_root.cpp": "e67c9633e9965ea381ad0e65adbf29461c303d28bf356a4dfe0cb8970eec09c2",
     "tests/primitive_root_application.py": "db5d4c36138ec64a11421b4c85240b1d1f86ab887da41c3a53dccc06429554e2",
     "tests/property.cpp": "5e8b384ed682134dcf051b34c6fd278af21ad93e712e220968f8fbd037dcc85d",
