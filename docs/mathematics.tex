@@ -118,7 +118,9 @@ $\varphi(n)/\gcd(t,\varphi(n))$，所以枚举与 $\varphi(n)$ 互素的指数�
 实现见第~\pageref{compact-PrimitiveRoot}~页。
 本地验证穷举小模数的幂循环，与双版本的阶、最小值和完整集合逐项比较；
 另验证大素数、奇素数幂、无原根合数和有符号输入边界。
-P6091 的完整程序输出排序后第 $d,2d,\ldots$ 个原根，零个输出时仍保留空行；在线 AC 待补。
+P6091 的完整程序输出排序后第 $d,2d,\ldots$ 个原根，零个输出时仍保留空行。
+双版本均通过全部 11 个测试点；动态版记录 297558740，传统版记录 297559082。
+求阶、最小原根的最小性及更大输入范围仍以上述本地证据验证。
 若 $d=\operatorname{ord}_n(a)$，则 $\operatorname{ord}_n(a^k)=d/\gcd(d,k)$。
 两个可逆元素乘积的阶整除各自阶的最小公倍数；两阶互素时，乘积的阶等于两阶之积。
 来源：\url{https://oi-wiki.org/math/number-theory/primitive-root/}；kuangbin 2.17。

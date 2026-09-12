@@ -865,5 +865,43 @@
       "Choose"
     ],
     "note": "All 25 judge cases accepted. Driver computes C(n+m,n) with n,m,p <= 100000 and prime p. Full unsigned 64-bit arguments, k>n, zero arguments and repeated init are independently tested locally."
+  },
+  {
+    "problem": "Luogu P6091",
+    "style": "compact",
+    "algorithm": "PrimitiveRoot",
+    "record": "https://www.luogu.com.cn/record/297558740",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 2793,
+    "memory": "4.59MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P6091.compact.cpp",
+    "submitted_source": "verification/submitted/P6091.compact.cpp",
+    "submitted_sha256": "34523a2454cf4de4fc5cf1ae7282a35ed765cc22998338f430c3e3cabcc24908",
+    "tested_api": [
+      "all: count and sorted sampled roots"
+    ],
+    "note": "All 11 judge cases accepted, 2<=n<=1e6. Time sums displayed case times. Minimum-root minimality, order, signed inputs and int32 limits have separate local tests; other bundled number theory code is not covered."
+  },
+  {
+    "problem": "Luogu P6091",
+    "style": "classic",
+    "algorithm": "Primitive_Root",
+    "record": "https://www.luogu.com.cn/record/297559082",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 2796,
+    "memory": "4.52MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P6091.classic.cpp",
+    "submitted_source": "verification/submitted/P6091.classic.cpp",
+    "submitted_sha256": "8186e9b82bc98f1afc6c199907477325f792996b5158c84c11175cee7602e221",
+    "tested_api": [
+      "All: count and sorted sampled roots"
+    ],
+    "note": "All 11 judge cases accepted, 2<=n<=1e6. Time sums displayed case times. Minimum-root minimality, order, signed inputs and int32 limits have separate local tests; other bundled number theory code is not covered."
   }
 ]
