@@ -326,7 +326,7 @@
       "source": "src/compact/string.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [],
-      "qoj_tag_candidate": "https://qoj.ac/problem/464",
+      "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
         "rank": null,
@@ -1796,7 +1796,16 @@
       "title": "Tarjan 强连通分量与缩点",
       "source": "src/compact/tarjan.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/qoj/906.compact.cpp",
+          "url": "https://qoj.ac/problem/906",
+          "existing_ac": [
+            "https://qoj.ac/submission/2940638"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": "https://qoj.ac/problem/906",
       "ranking": {
         "status": "not_checked",

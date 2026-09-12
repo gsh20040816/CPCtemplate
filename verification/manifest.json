@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-12T13:02:34.257462+00:00",
+  "recorded_at_utc": "2026-09-12T13:30:27.739711+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -281,7 +281,9 @@
       "Release BFS dual heap oracle, exhaustive tiny snake states and 3000-square implicit grid PASS",
       "Snake configurations: 744",
       "",
-      "Modified Mo snapshot/set oracle, all ranges/times, empty queries, custom blocks and bidirectional state invariants PASS"
+      "Modified Mo snapshot/set oracle, all ranges/times, empty queries, custom blocks and bidirectional state invariants PASS",
+      "",
+      "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -538,7 +540,9 @@
       "Release BFS dual heap oracle, exhaustive tiny snake states and 3000-square implicit grid PASS",
       "Snake configurations: 744",
       "",
-      "Modified Mo snapshot/set oracle, all ranges/times, empty queries, custom blocks and bidirectional state invariants PASS"
+      "Modified Mo snapshot/set oracle, all ranges/times, empty queries, custom blocks and bidirectional state invariants PASS",
+      "",
+      "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -838,7 +842,7 @@
     "tests/discrete_log_application.py": "71bfa185be308387abfed46c40077c22328d550c145404b582e1db87b87e0700",
     "tests/divisor_sum.cpp": "115fb2011020fa8085e916b0381791e57739fac2e32b7839414ac5f66cb461e3",
     "tests/divisor_sum_application.py": "e693a8717c4f85b259f3000946acc68e6b552889932fd5466a64e4afafac0a33",
-    "tests/driver_stack.cpp": "70679960f4f415f829c72eef6fbedf7890d17d9cc1aa20594747ce2ed04aa624",
+    "tests/driver_stack.cpp": "0cd4195d8b05dab82c3603a70f681ac014a50c1c104aa29cd47e4feca885f1b4",
     "tests/dsu_on_tree.cpp": "8af99c1002d77d57b85a8763efca24c52f03dd786c0f594f23df633a984ab68f",
     "tests/dual.cpp": "6a3e330198d0de2b47946a9c7868ef200d8a36f51fe40a71c25274d7d0f102ad",
     "tests/dujiao.cpp": "699f7ed0303c64d31ce39093184419b1b3c2512c6d587aa1d8ec8731c9447202",
@@ -933,6 +937,7 @@
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
     "tests/release_bfs.cpp": "b669e744ab1a9148fcd01e1289ec140db6023bbc61d784ad7676cb30e051bb2e",
     "tests/root_factors.cpp": "8d238960b70db06f4e9f48d2c8f1a37c36392b9f1f7b887b7fc80aa0cead3b46",
+    "tests/scc_template_application.py": "cd879e450e53d35eece9a7f27f844067219a9e9ab91f3abf6bb62d68f0537192",
     "tests/segmented_sieve.cpp": "8ce844d676a6abf0b02dc4c8da038ef27da9336582b4e469e0b25305c4c4b3ed",
     "tests/set_convolution.cpp": "006ac5effb1f307de465a4d9bb16b491febdcca96677bfb82f767f3752e73a3c",
     "tests/set_convolution_application.py": "13c7e5470fa10a6009465e6ec4aedb337878a334b464e5fa9dfa9a9317539c90",

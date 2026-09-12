@@ -347,3 +347,5 @@ python3 tests/snake_application.py
 "$CXX" "${flags[@]}" tests/modified_mo.cpp -o build/modified_mo
 build/modified_mo
 python3 tests/modified_mo_application.py
+
+python3 tests/scc_template_application.py

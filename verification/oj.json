@@ -1582,5 +1582,26 @@
       "run"
     ],
     "note": "13 tests. time_ms is slowest individual test, UI total 2.57s. Distinct-color queries with point assignments, default block size; custom blocks, empty intervals and arbitrary query-time registration covered locally. Fastest-submission ranking not yet audited."
+  },
+  {
+    "problem": "QOJ 906",
+    "style": "compact",
+    "record": "https://qoj.ac/submission/2940638",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 203,
+    "memory": "58636kb",
+    "source_driver": "verify/qoj/906.compact.cpp",
+    "submitted_source": "verification/submitted/QOJ906.compact.cpp",
+    "submitted_sha256": "b797585c486cea65114873ede9f8df8fbff59fa94b2b9c5103781840b64bec59",
+    "date": "2026-09-12",
+    "account": "CCF_NOI",
+    "algorithm": "TarjanSCC",
+    "tested_api": [
+      "add",
+      "run",
+      "bel"
+    ],
+    "note": "11 tests; SCC partition emitted in topological order. dag is not called. Visible full-score time competition rank 94/143, ties 94-96; global denominator mismatch remains unresolved. See docs/ranking-audits.json."
   }
 ]

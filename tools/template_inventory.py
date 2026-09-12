@@ -5,7 +5,7 @@ import csv,json,re
 root=Path(__file__).resolve().parents[1]
 cat=json.loads((root/'docs/catalog.json').read_text())
 records=json.loads((root/'verification/oj.json').read_text())
-qoj={'SuffixAutomaton':217,'IntegerGeometry':218,'NumberTheory':249,'prefix_function':464,'kmp_match':464,'berlekamp_massey':547,'MinCostFlow':602,'NttConvolution':618,'z_function':786,'manacher':787,'PalindromicTree':801,'Arborescence':904,'TarjanSCC':906,'SuffixArray':956,'Lowlink':995,'TwoSAT':997,'LinkCutTree':21529,'CentroidPairs':21959,'BostanMori':146}
+qoj={'SuffixAutomaton':217,'IntegerGeometry':218,'NumberTheory':249,'prefix_function':464,'berlekamp_massey':547,'MinCostFlow':602,'NttConvolution':618,'z_function':786,'manacher':787,'PalindromicTree':801,'Arborescence':904,'TarjanSCC':906,'SuffixArray':956,'Lowlink':995,'TwoSAT':997,'LinkCutTree':21529,'CentroidPairs':21959,'BostanMori':146}
 drivers=list((root/'verify').rglob('*.compact.cpp'))
 rows=[]
 for file,name,title,contract in cat:
