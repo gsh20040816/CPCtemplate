@@ -1441,5 +1441,5 @@ O\left(QB+\frac{n^2}{B}+U\min\left(Q,(\lfloor n/B\rfloor+1)^2\right)\right).
 固定参考 AtCoder Library 提交 \texttt{864245a00b00}，公开模块分为数据结构、图论、数学与字符串。
 学习短小的运算接口及明确的组合契约，不直接复制全部工程支持层。
 尤其注意：懒标记 composition(f,g) 表示先作用 g、再作用 f；SCC 分量方向与 2-SAT 的真假编码不能分别替换。
-本库当前 Fenwick<ModInt> 缺少复合赋值而不能编译，尚待补齐；这是类型组合缺口，不算算法测试通过。
+本库已补齐 ModInt 的四种复合赋值，Fenwick 的模数区间和组合通过独立整数余数参考及 ASan/UBSan。新增运算只有本地验证，不能套用历史 OJ AC；取模和仍不适用于 kth。
 完整 12 模块、6 内部头文件的对照及缺项清单见 \texttt{docs/ACL-REVIEW.md}。

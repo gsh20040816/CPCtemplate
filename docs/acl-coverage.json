@@ -40,10 +40,8 @@
         "src/compact/data_structure.hpp",
         "src/compact/number_theory.hpp"
       ],
-      "notes": "ACL 为 0-based 点更新、半开区间和；本库为 1-based，另有仅适用于有序频数的 kth。Fenwick<ModInt> 的 add/sum 当前因缺少 operator+= 无法编译，已留可复现实例。",
-      "gaps": [
-        "ModInt 复合赋值运算符与 Fenwick 的组合"
-      ]
+      "notes": "ACL 为 0-based 点更新、半开区间和；本库为 1-based，另有仅适用于有序频数的 kth。Fenwick<ModInt> 的 add/sum/query 已补齐复合赋值并通过独立整数余数参考测试；kth 不适用于模数和。",
+      "gaps": []
     },
     {
       "module": "segtree",
@@ -101,8 +99,7 @@
       "notes": "当前 ModInt 支持固定模数算术，inv 按素数模数约定。ACL 静态合数模逆采用 inv_gcd，另有按 id 区分的动态模数类型；小类型及 unsigned 内部存储与溢出界不能只抄一半。",
       "gaps": [
         "运行时模数类型",
-        "静态合数模数的单位元求逆契约",
-        "复合赋值等算术互操作"
+        "静态合数模数的单位元求逆契约"
       ]
     },
     {

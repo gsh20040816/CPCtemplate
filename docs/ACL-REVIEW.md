@@ -59,9 +59,9 @@ ACL 返回合并后的根并采用按大小合并；本库按用户 #2 回复保
 
 ### fenwicktree
 
-ACL 为 0-based 点更新、半开区间和；本库为 1-based，另有仅适用于有序频数的 kth。Fenwick<ModInt> 的 add/sum 当前因缺少 operator+= 无法编译，已留可复现实例。
+ACL 为 0-based 点更新、半开区间和；本库为 1-based，另有仅适用于有序频数的 kth。Fenwick<ModInt> 的 add/sum/query 已补齐复合赋值，并通过独立整数余数参考测试；kth 不适用于模数和。
 
-后续项：ModInt 复合赋值运算符与 Fenwick 的组合。
+组合验证见下文；其他自定义类型仍需满足加法及减法契约。
 
 ### segtree
 
@@ -85,7 +85,7 @@ power、inverse、crt、floor_sum 已存在。ACL crt 批量返回 pair，本库
 
 当前 ModInt 支持固定模数算术，inv 按素数模数约定。ACL 静态合数模逆采用 inv_gcd，另有按 id 区分的动态模数类型；小类型及 unsigned 内部存储与溢出界不能只抄一半。
 
-后续项：运行时模数类型；静态合数模数的单位元求逆契约；复合赋值等算术互操作。
+后续项：运行时模数类型；静态合数模数的单位元求逆契约。
 
 ### convolution
 
@@ -119,11 +119,13 @@ ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆�
 
 后续项：SA-IS 线性后缀数组实现尚无。
 
-## 已复现的组合缺口
+## 已修复的组合缺口
 
-当前 `Fenwick<ModInt<998244353>>` 的 add/sum 无法编译，原因是 ModInt 没有复合赋值 `operator+=`。这说明两份模板各自通过测试，不能自动证明它们能直接组合。
+初次审查在 cc3b1c8 复现 `Fenwick<ModInt<998244353>>` 因缺少 `operator+=` 无法编译；[原编译诊断](../verification/acl-fenwick-modint-probe.txt) 保留为历史证据。
 
-复现实例：[fenwick_modint.cpp](../verification/probes/fenwick_modint.cpp)；[编译诊断](../verification/acl-fenwick-modint-probe.txt)。这是预期失败的兼容性审查，未放入“算法测试通过”记录。后续应补充算术互操作并用模数下的区间和参考验证；模数和仍不适合 Fenwick 的 kth 顺序统计。
+当前已添加 `+=`、`-=`、`*=`、`/=`，沿用二元运算，返回自身引用。[复现程序](../verification/probes/fenwick_modint.cpp) 已改为成功回归检查。[组合测试](../tests/modint_composition.cpp) 使用整数余数数组验证 Fenwick 的 add/sum/query，以扩展欧几里得验证除法，覆盖模数 2、998244353、2147483647、自赋值、链式运算、负输入和 signed64 边界。普通与 ASan/UBSan 日志在 verification/modint-composition-*.txt。
+
+这些新增运算符只有本地验证，未借用历史 OJ AC。静态素数求逆契约未变，动态模数及合数单位元求逆仍是缺项；模数和不适合 Fenwick 的 kth 顺序统计。
 
 ## 后续实施顺序
 

@@ -241,6 +241,14 @@ template <int mod> struct ModInt
     } // prime modulus
 
     ModInt operator/(ModInt b) const { return *this * b.inv(); }
+
+    ModInt &operator+=(ModInt b) { return *this = *this + b; }
+
+    ModInt &operator-=(ModInt b) { return *this = *this - b; }
+
+    ModInt &operator*=(ModInt b) { return *this = *this * b; }
+
+    ModInt &operator/=(ModInt b) { return *this = *this / b; }
 };
 
 template <int mod> struct Binomial

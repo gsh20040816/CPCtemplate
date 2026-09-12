@@ -106,11 +106,11 @@ dsu(n)，点号 0..n-1，n$\ge$0。find(x) 路径减半；same(x,y) 判断同集
 
 \lstinputlisting[firstline=41,lastline=80]{../src/compact/data_structure.hpp}
 
-\Needspace{488pt}
+\Needspace{486pt}
 
 \section{树状数组与第 k 小}\label{compact-Fenwick}\index{Fenwick}
 
-add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有频率非负且 k>0，超过总和返回 n+1。单次 O(log n)。 T 须能从 0 构造并支持 += 与减法；当前 ModInt 缺少 +=，不能直接作为该模板的值类型。kth 只适用于有序累计频数，不适用于取模后的区间和。
+add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有频率非负且 k>0，超过总和返回 n+1。单次 O(log n)。 T 须能从 0 构造并支持 += 与减法；可直接使用 ModInt 维护模数下的区间和。kth 只适用于有序累计频数，不适用于取模后的区间和。
 
 \lstinputlisting[firstline=81,lastline=118]{../src/compact/data_structure.hpp}
 
@@ -604,13 +604,13 @@ factor(n) 返回升序质因子（含重数），1$\le$n$\le$ULLONG\_MAX。n=1 �
 
 \lstinputlisting[firstline=182,lastline=215]{../src/compact/number_theory.hpp}
 
-\Needspace{392pt}
+\Needspace{487pt}
 
 \section{静态模整数}\label{compact-ModInt}\index{ModInt}
 
-模板参数必须为不超过 INT\_MAX 的素数且$\ge$2。加减乘、pow、inv、除法；求逆要求非零，pow 指数非负。复杂度：加减乘 O(1)，幂和逆 O(log mod)。
+模板参数必须为不超过 INT\_MAX 的素数且$\ge$2。加减乘、pow、inv、除法；求逆要求非零，pow 指数非负。复杂度：加减乘 O(1)，幂和逆 O(log mod)。 支持 +=、-=、*=、/=，返回自身引用，允许自赋值和链式运算；可作为 Fenwick 区间和的值类型。复合除法沿用非零元素、素数模数前提。
 
-\lstinputlisting[firstline=216,lastline=245]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=216,lastline=253]{../src/compact/number_theory.hpp}
 
 \Needspace{471pt}
 
@@ -618,11 +618,11 @@ factor(n) 返回升序质因子（含重数），1$\le$n$\le$ULLONG\_MAX。n=1 �
 
 Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。init(n) 只扩大当前上限，较小或相同的 n 不改变表；choose(n,k) 返回 C(n,k)，permute(n,k) 返回 n!/(n-k)!。查询前显式预处理到 n，查询本身不扩表。n<0、k<0 或 k>n 返回 0，C(0,0)=P(0,0)=1。fac、ifac 为可直接读取的阶乘与逆阶乘表，增长可能使旧引用失效。单次查询 O(1)；从 old 扩到 n 新增 O(n-old+log prime) 次域运算，重分配还可能复制旧表。首次预处理 O(n+log prime)，空间 O(n)。超过模数不能使用阶乘除法：小素数用 Lucas，小合数用 exLucas。
 
-\lstinputlisting[firstline=246,lastline=264]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=254,lastline=272]{../src/compact/number_theory.hpp}
 
 \Needspace{220pt}
 
-\lstinputlisting[firstline=265,lastline=278,firstnumber=20]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=273,lastline=286,firstnumber=20]{../src/compact/number_theory.hpp}
 
 \chapter{二元一次不定方程}
 

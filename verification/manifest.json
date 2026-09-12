@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-12T14:53:59.313264+00:00",
+  "recorded_at_utc": "2026-09-12T15:18:58.254385+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -285,7 +285,8 @@
       "",
       "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS",
       "",
-      "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS"
+      "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS",
+      "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -546,7 +547,8 @@
       "",
       "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS",
       "",
-      "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS"
+      "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS",
+      "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -771,7 +773,7 @@
     "src/compact/modified_mo.hpp": "aefda6284d59cc2d57e046f3cca0f94b548abd968eabe6e35e8e8b1d6434040d",
     "src/compact/modular_sqrt.hpp": "49ccff6f0effb2d27d6d383b3ae7377cc8eb90d1337a3d98483cd3ef9514e3c0",
     "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
-    "src/compact/number_theory.hpp": "4707a0cab8d6e71cb2b22fb1b7000d58b734b065b43415d6dc010c5a7e905705",
+    "src/compact/number_theory.hpp": "0a89ecea428a91db4d69112da75f39da598120766d19e5628e1bd8bd50ddf02a",
     "src/compact/odd_cycle_vertices.hpp": "99a8be05b576fdca1f5d57620a140283d70f5f398d702c4e846a215f7e1ddb5d",
     "src/compact/offline_lca.hpp": "99c53fc625a5d595a1c09b188849bb09c2c7ba43f863af40f124e64775e010e0",
     "src/compact/optimization.hpp": "3cbefa26ecb0cddfd836587e9350ad214d6630f40b29697ce8a3d4e7a198c439",
@@ -912,6 +914,7 @@
     "tests/mixed_euler_application.py": "75a732d5499a8226810d25a1f135a5717e65b39dce34428ca60e8799928463a6",
     "tests/modified_mo.cpp": "e697f7af59378fc8db2bccb6633118b4ee4eabd0d024fa6a978de277c610a40c",
     "tests/modified_mo_application.py": "797fb2420eb4ee36e7ca10cbdd29ca61592344d36c44d5d803d331af5589da6e",
+    "tests/modint_composition.cpp": "685f6eb3ce4a183216ae1fb6a6f63e2fa294ad6acb717cf6f730629e8612d0ce",
     "tests/modular_sqrt.cpp": "db36b638f77a9e71f669e7c5c7833572e2044bc5666bab2b4ae90674809ea473",
     "tests/modular_sqrt_application.py": "9ba4e0e82bab8d47e88e7a227de08991ec60f35ce0cd1f1b3cc4149bb3ad0d3e",
     "tests/ntt_convolution.cpp": "a61158717fc678d925a151e490ffdb1fd8ea00e9970638036eaccd97d22f3a09",
