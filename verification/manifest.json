@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T11:54:00.749576+00:00",
+  "recorded_at_utc": "2026-09-12T12:12:19.286746+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -264,7 +264,17 @@
       "Local driver runner uses a 256 MiB pthread stack with main renamed only at compilation; submitted sources retain ordinary main and recursive DFS.",
       "",
       "Incremental functional graph checks; unchanged-module evidence retained from 2447532:",
-      "Functional graph dual exhaustive successor maps, first-visit path oracles, uint64 jumps, rebuild and 500000 tail/cycle/self-loop cases PASS"
+      "Functional graph dual exhaustive successor maps, first-visit path oracles, uint64 jumps, rebuild and 500000 tail/cycle/self-loop cases PASS",
+      "",
+      "Sugar Sweet II complete-driver checks; unchanged-core evidence retained from 33adc6e:",
+      "QOJ8237 compact: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS",
+      "QOJ8237 compact: n=500000 chain closed-form checks PASS (0.105s)",
+      "QOJ8237 compact: n=500000 cycle closed-form checks PASS (0.134s)",
+      "QOJ8237 compact: 500000 singleton test cases and factorial-cache reuse PASS (0.305s)",
+      "QOJ8237 classic: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS",
+      "QOJ8237 classic: n=500000 chain closed-form checks PASS (0.106s)",
+      "QOJ8237 classic: n=500000 cycle closed-form checks PASS (0.125s)",
+      "QOJ8237 classic: 500000 singleton test cases and factorial-cache reuse PASS (0.266s)"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -506,7 +516,17 @@
       "Tree diameter dual exhaustive subsets, unions, farthest witnesses and weighted Euler LCA BFS/all-root oracles with zero and int64 distances PASS",
       "",
       "Incremental functional graph checks; unchanged-module evidence retained from 2447532:",
-      "Functional graph dual exhaustive successor maps, first-visit path oracles, uint64 jumps, rebuild and 500000 tail/cycle/self-loop cases PASS"
+      "Functional graph dual exhaustive successor maps, first-visit path oracles, uint64 jumps, rebuild and 500000 tail/cycle/self-loop cases PASS",
+      "",
+      "Sugar Sweet II complete-driver checks; unchanged-core evidence retained from 33adc6e:",
+      "QOJ8237 compact: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS",
+      "QOJ8237 compact: n=500000 chain closed-form checks PASS (0.251s)",
+      "QOJ8237 compact: n=500000 cycle closed-form checks PASS (0.269s)",
+      "QOJ8237 compact: 500000 singleton test cases and factorial-cache reuse PASS (0.566s)",
+      "QOJ8237 classic: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS",
+      "QOJ8237 classic: n=500000 chain closed-form checks PASS (0.259s)",
+      "QOJ8237 classic: n=500000 cycle closed-form checks PASS (0.270s)",
+      "QOJ8237 classic: 500000 singleton test cases and factorial-cache reuse PASS (0.540s)"
     ]
   },
   "sha256": {
@@ -834,6 +854,7 @@
     "tests/suffix_array_application.py": "c8248e4a29056da4455a84d7c2c1d1228131251d1ecbafe84b95aecc1e2769cd",
     "tests/suffix_lcp.cpp": "b9fa257d4170ce2e20061fb716f0d94344ad77639321b3c03b3b6ff29f31b5e6",
     "tests/suffix_lcp_application.py": "62ee33e849bcbb5eecaea0c5161dc66ded4bf698dcacb5c0c6c045849cc0fc45",
+    "tests/sugar_sweet_application.py": "6df32948ed713f0b931bc571ea8d3998ac32bfa947dd600e1bb32e4aac1edf96",
     "tests/support_hull.cpp": "9b6f1ce2cb81abf6a9393a2673da8db7b0e1f6c050f8337d6a4a0ac66ed3237c",
     "tests/tarjan.cpp": "35dd53d553e4435d79a7bc9a81900b4908fc97b35c1a4be99ccf93f09c1815b9",
     "tests/top_cluster_application.py": "621b52d8d4065b34d1baafaec51fb70b8cfd1b33c1eacb8449861d10def056c9",

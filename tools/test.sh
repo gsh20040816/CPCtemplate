@@ -336,3 +336,5 @@ python3 tests/top_cluster_application.py
 "$CXX" "${flags[@]}" tests/functional_graph.cpp -o build/functional_graph
 build/functional_graph
 python3 tests/functional_graph_application.py
+
+python3 tests/sugar_sweet_application.py

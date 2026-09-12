@@ -259,3 +259,13 @@ Local driver runner uses a 256 MiB pthread stack with main renamed only at compi
 
 Incremental functional graph checks; unchanged-module evidence retained from 2447532:
 Functional graph dual exhaustive successor maps, first-visit path oracles, uint64 jumps, rebuild and 500000 tail/cycle/self-loop cases PASS
+
+Sugar Sweet II complete-driver checks; unchanged-core evidence retained from 33adc6e:
+QOJ8237 compact: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS
+QOJ8237 compact: n=500000 chain closed-form checks PASS (0.105s)
+QOJ8237 compact: n=500000 cycle closed-form checks PASS (0.134s)
+QOJ8237 compact: 500000 singleton test cases and factorial-cache reuse PASS (0.305s)
+QOJ8237 classic: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS
+QOJ8237 classic: n=500000 chain closed-form checks PASS (0.106s)
+QOJ8237 classic: n=500000 cycle closed-form checks PASS (0.125s)
+QOJ8237 classic: 500000 singleton test cases and factorial-cache reuse PASS (0.266s)
