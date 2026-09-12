@@ -662,6 +662,16 @@ carmichael(n) 返回 $\lambda$(n)，即使所有与 n 互素的 a 都满足 a �
 
 \lstinputlisting[firstline=7,lastline=29]{../src/compact/carmichael.hpp}
 
+\chapter{整数分拆}
+
+\Needspace{559pt}
+
+\section{整数分拆与重数上限}\label{compact-Partitions}\index{Partitions}
+
+Partitions(N,mod) 求无序正整数分拆，0$\le$N<INT\_MAX、1$\le$mod$\le$INT\_MAX，p[n] 为不限制重数的分拆数；p[0]=1\%mod。预处理 O(N$\sqrt{\vphantom x}$N) 时间、O(N) 空间；模数不要求素数。limited(n,k) 限制每个正整数最多出现 k 次，0$\le$n$\le$N、0$\le$k$\le$INT\_MAX；k=0 时仅空分拆存在，k=1 为互异分拆。单次 O(1+$\sqrt{\vphantom x}$(n/(k+1)))，额外空间 O(1)。传统接口 Integer\_Partitions、Limited。p/mod 只读；中间五边形数与累加采用 long long。
+
+\lstinputlisting[firstline=7,lastline=49]{../src/compact/partitions.hpp}
+
 \chapter{素数模数组合数}
 
 \Needspace{634pt}
@@ -1645,6 +1655,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-carmichael}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=7,lastline=29]{../src/classic/carmichael.hpp}
+
+\chapter{整数分拆}
+
+\Needspace{559pt}
+
+\section{整数分拆与重数上限}\label{classic-Partitions}\index{Integer\_Partitions}
+
+算法约束见动态版本第~\pageref{compact-Partitions}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=7,lastline=49]{../src/classic/partitions.hpp}
 
 \chapter{素数模数组合数}
 

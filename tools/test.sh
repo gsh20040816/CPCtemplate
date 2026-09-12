@@ -226,3 +226,6 @@ build/phi_inversion
 
 "$CXX" "${flags[@]}" tests/dujiao.cpp -o build/dujiao
 build/dujiao
+
+"$CXX" "${flags[@]}" tests/partitions.cpp -o build/partitions
+build/partitions

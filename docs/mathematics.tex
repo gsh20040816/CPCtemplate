@@ -189,6 +189,35 @@ P2522 双版本完整程序验证五万次查询，包括缩放、窄边和无�
 
 来源：kuangbin 2.13.2（BZOJ 2301）；\url{https://www.luogu.com.cn/problem/P2522}。
 
+\section{整数分拆：重数限制的差一问题}\index{integer partitions}\index{pentagonal number theorem}
+实现见第~\pageref{compact-Partitions}~页。分拆不区分加数顺序，部分均为正整数。
+无约束生成函数 $P(z)=\prod_{i\ge1}(1-z^i)^{-1}$，空分拆给出 $p(0)=1$。
+五边形数定理为
+\[
+\prod_{i\ge1}(1-z^i)=1+\sum_{j\ge1}(-1)^j
+\left(z^{j(3j-1)/2}+z^{j(3j+1)/2}\right).
+\]
+与 $P(z)$ 相乘后比较系数，得到 $p(n)$ 的递推，符号按 $+,+,-,-,+,+,\ldots$ 成对出现。
+每项只依赖更小的下标，每个 $n$ 有 $O(\sqrt n)$ 个非零偏移。
+实现先用 64 位累加，再归一化到模数范围；无需逆元，合数模数与模数 1 均可使用。
+
+每个正整数最多出现 $k$ 次的生成函数是
+\[
+\prod_{i\ge1}(1+z^i+\cdots+z^{ki})
+=P(z)\prod_{i\ge1}(1-z^{(k+1)i}).
+\]
+因此用已有 $p$ 表与放大 $k+1$ 倍的五边形偏移相乘，符号为 $-,-,+,+,\ldots$。
+本库 \texttt{limited(n,k)} 的上限包含 $k$；$k=0$ 时非零 $n$ 无解，$k=1$ 为互异分拆。
+kuangbin 的注释写“不超过 k 个”，但其 \texttt{solve(n,k)} 使用放大 $k$ 倍的公式，
+实际表示每种数少于 $k$ 次，对应本库 \texttt{limited(n,k-1)}（$k\ge1$）。
+HDU 原题页面本次无法读取，不能由这条注释推断原题措辞。
+
+两套实现以任意精度完全背包验证到 1000，以逐种部分、逐个重数枚举验证有界情况到 100，
+覆盖素数与合数模数、0/1 重数限制和大于总和的限制；另检查 $N=100000$ 的边界。
+普通与 ASan/UBSan 均通过，暂无在线 AC。
+
+来源：kuangbin 2.11；\url{https://oi-wiki.org/math/combinatorics/partition/}。
+
 \section{模运算的适用条件}\index{CRT}\index{Euler theorem}\index{Lucas theorem}
 模逆元存在当且仅当 $\gcd(a,m)=1$。费马逆元 $a^{p-2}$ 仅适用于素数模数及 $a\not\equiv0$。
 对正模数 $m,n$，同余式 $x\equiv a\pmod m$、$x\equiv b\pmod n$ 可合并当且仅当

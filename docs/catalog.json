@@ -222,6 +222,12 @@
     "carmichael(n) 返回 λ(n)，即使所有与 n 互素的 a 都满足 a 的 λ(n) 次幂模 n 为 1 的最小正指数；约定 λ(1)=1。要求 1≤n≤INT_MAX。传统接口为 Carmichael。试除分解后将各素数幂的指数取 lcm，特别处理 2 的三次及以上幂。时间 O(√n)，额外空间 O(1)；所有中间值不超过有符号 64 位范围，结果不超过 n。该指数只适用于可逆底数，不能据此直接对非互素底数的幂降指数。函数不依赖原根模块。"
   ],
   [
+    "partitions",
+    "Partitions",
+    "整数分拆与重数上限",
+    "Partitions(N,mod) 求无序正整数分拆，0≤N<INT_MAX、1≤mod≤INT_MAX，p[n] 为不限制重数的分拆数；p[0]=1%mod。预处理 O(N√N) 时间、O(N) 空间；模数不要求素数。limited(n,k) 限制每个正整数最多出现 k 次，0≤n≤N、0≤k≤INT_MAX；k=0 时仅空分拆存在，k=1 为互异分拆。单次 O(1+√(n/(k+1)))，额外空间 O(1)。传统接口 Integer_Partitions、Limited。p/mod 只读；中间五边形数与累加采用 long long。"
+  ],
+  [
     "lucas",
     "Lucas",
     "Lucas：小素数模的大下标组合数",
