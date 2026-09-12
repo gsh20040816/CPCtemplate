@@ -40,7 +40,7 @@
 | `EulerLCA::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 待编写驱动/提交 | 待核验 |
 | `LiftingLCA::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 待编写驱动/提交 | 待核验 |
 | `HLD::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 待编写驱动/提交 | 待核验 |
-| `HLD + AffineSegTree::HLD::path/AffineSegTree::update/AffineSegTree::query` | [Luogu P3384](https://www.luogu.com.cn/problem/P3384) | n,m<=100000; 1<=P<=2^30; int inputs | [记录](https://www.luogu.com.cn/record/297520172) | 待核验 |
+| `HLD + AffineSegTree` | [Luogu P3384](https://www.luogu.com.cn/problem/P3384) | n,m<=100000; 1<=P<=2^30; int inputs | [记录](https://www.luogu.com.cn/record/297520172) | 待核验 |
 | `CentroidPairs::add/build/count_exact` | [Luogu P3806](https://www.luogu.com.cn/problem/P3806) | n<=10000; m<=100; 1<=k<=10^7; 1<=edge_weight<=10000 | [记录](https://www.luogu.com.cn/record/297519137) | 待核验 |
 | `PersistentKth::kth` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | n,m<=200000; 0<=a[i]<=10^9; valid l,r,k | [记录](https://www.luogu.com.cn/record/297520290) | 待核验 |
 

@@ -12,7 +12,8 @@ for r in rows:
     if rank.get('rank') is not None:txt=f"{rank['rank']} out of {rank['total']}（{rank.get('scope','')}）"
     ac=f"[记录]({r['ac']})" if r.get('ac') else ('待实现' if r.get('implementation') in ['missing','planned_extension'] else '待编写驱动/提交')
     bound=r['limits'].replace('|','\\|')
-    name=r['symbol']+('::'+r['api'] if r.get('api') else '')
+    name=r['symbol']
+    if r.get('api') and '::' not in r['api']:name+='::'+r['api']
     lines.append(f"| `{name}` | [{r['problem']}]({r['url']}) | {bound} | {ac} | {txt} |")
 lines+=['','## 适配与证据范围','']
 for r in rows:
