@@ -1025,5 +1025,45 @@
       "Pollard_Rho::Factor: prime label and maximum factor"
     ],
     "note": "All 20 cases accepted, T<=350 and 2<=n<=1e18. Current page shows 4s per-case limit. Complete factor multiplicities, minimum factor, n=1, and uint64 values above 1e18 have separate local evidence. Other bundled number theory components are not covered."
+  },
+  {
+    "problem": "Luogu P4897",
+    "style": "compact",
+    "algorithm": "gomory_hu + cut_tree_values",
+    "record": "https://www.luogu.com.cn/record/297591576",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "2.46s",
+    "max_case_time_ms": 252,
+    "memory": "2.59MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4897.compact.cpp",
+    "submitted_source": "verification/submitted/P4897.compact.cpp",
+    "submitted_sha256": "2ae6cb8931041c08cab75a7581e9964a8b706da49de2484ad70bf0ffb7680f89",
+    "tested_api": [
+      "Gomory-Hu construction composed with all-pairs bottleneck queries"
+    ],
+    "note": "All 10 cases accepted; up to 501 vertices, 1500 undirected edges, 100000 distinct-vertex queries and weights <=10000. Total displayed time is rounded. Per-case limit 500ms. Fundamental tree-edge cut certificates, singleton/diagonal conventions and larger capacities have separate local tests. Other bundled flow components are not covered."
+  },
+  {
+    "problem": "Luogu P4897",
+    "style": "classic",
+    "algorithm": "Gomory_Hu + Cut_Tree_Values",
+    "record": "https://www.luogu.com.cn/record/297592933",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "1.80s",
+    "max_case_time_ms": 185,
+    "memory": "2.53MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4897.classic.cpp",
+    "submitted_source": "verification/submitted/P4897.classic.cpp",
+    "submitted_sha256": "702e23cf7877fd8c009e163780f6b0eb10f0c51fa3bd03a6501f4afb504b1f0c",
+    "tested_api": [
+      "Gomory-Hu construction composed with all-pairs bottleneck queries"
+    ],
+    "note": "All 10 cases accepted; up to 501 vertices, 1500 undirected edges, 100000 distinct-vertex queries and weights <=10000. Total displayed time is rounded. Per-case limit 500ms. Fundamental tree-edge cut certificates, singleton/diagonal conventions and larger capacities have separate local tests. Other bundled flow components are not covered."
   }
 ]

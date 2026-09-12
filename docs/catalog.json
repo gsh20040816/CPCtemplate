@@ -369,7 +369,7 @@
     "gomory_hu",
     "gomory_hu",
     "Gomory–Hu 最小割树",
-    "gomory_hu(n,edges) 返回 n-1 条 (u,v,容量) 树边；n≥1，原图点号 0..n-1，输入为无向边 tuple 列表，重边保留、自环忽略、容量非负。非自环边总容量须严格小于 LLONG_MAX。两点最小割是树路径最小边权；删去树边得到的两侧也是原图该边端点的最小割。允许非连通图和零权树边，n=1 返回空树。运行 n-1 次 Dinic，一般上界 O(n³m+n²)，额外空间 O(n+m)，DFS 增广保持递归。传统接口 Gomory_Hu(n,edges,flow)，传入 Network_Flow<N,M> 工作区，N≥n、M≥2m，建议工作区全局或 static；每轮 Init。 P4897 输入 n 表示 n+1 个点，驱动传 n+1；传统工作区取 N=501、M=3000。"
+    "gomory_hu(n,edges) 返回 n-1 条 (u,v,容量) 树边；n≥1，原图点号 0..n-1，输入为无向边 tuple 列表，重边保留、自环忽略、容量非负。非自环边总容量须严格小于 LLONG_MAX。两点最小割是树路径最小边权；删去树边得到的两侧也是原图该边端点的最小割。允许非连通图和零权树边，n=1 返回空树。运行 n-1 次 Dinic，一般上界 O(n³m+n²)，额外空间 O(n+m)，DFS 增广保持递归。传统接口 Gomory_Hu(n,edges,flow)，传入 Network_Flow<N,M> 工作区，N≥n、M≥2m，建议工作区全局或 static；每轮 Init。 P4897 输入 n 表示 n+1 个点，驱动传 n+1；传统工作区取 N=501、M=3000。 双版本 P4897 已 AC，最长单点分别 252、185 ms。"
   ],
   [
     "cut_tree_queries",
