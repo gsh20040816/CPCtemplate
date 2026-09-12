@@ -68,6 +68,8 @@
 - `verify/poj/2117.compact.cpp`
 - `verify/poj/2337.classic.cpp`
 - `verify/poj/2337.compact.cpp`
+- `verify/poj/2689.classic.cpp`
+- `verify/poj/2689.compact.cpp`
 - `verify/poj/2942.classic.cpp`
 - `verify/poj/2942.compact.cpp`
 - `verify/poj/2947.classic.cpp`

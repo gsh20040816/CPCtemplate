@@ -190,3 +190,7 @@ build/batch-inverse
 
 "$CXX" "${flags[@]}" tests/inverse_table.cpp -o build/inverse-table
 build/inverse-table
+
+"$CXX" "${flags[@]}" tests/segmented_sieve.cpp -o build/segmented_sieve
+build/segmented_sieve
+python3 tests/prime_distance_application.py

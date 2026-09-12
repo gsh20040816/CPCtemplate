@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T05:15:48.044344+00:00",
+  "recorded_at_utc": "2026-09-12T05:29:31.562898+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -90,7 +90,12 @@
       "Incremental batch inverse checks; unchanged-module evidence retained from acc7b80:",
       "Batch inverse dual exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS",
       "Incremental inverse table and existing single inverse audit; unchanged-module evidence retained from f9b30f5:",
-      "Inverse table dual prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS"
+      "Inverse table dual prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS",
+      "",
+      "Incremental segmented sieve; unchanged-module evidence retained from beb195c:",
+      "Segmented sieve dual trial/Miller-Rabin oracles, prime squares, singleton and million-wide int32 boundary PASS",
+      "Prime Distance compact: 208 EOF datasets, tied pairs, empty pairs and million-wide INT_MAX interval PASS",
+      "Prime Distance classic: 208 EOF datasets, tied pairs, empty pairs and million-wide INT_MAX interval PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -179,7 +184,12 @@
       "Incremental batch inverse checks; unchanged-module evidence retained from acc7b80:",
       "Batch inverse dual exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS",
       "Incremental inverse table and existing single inverse audit; unchanged-module evidence retained from f9b30f5:",
-      "Inverse table dual prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS"
+      "Inverse table dual prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS",
+      "",
+      "Incremental segmented sieve; unchanged-module evidence retained from beb195c:",
+      "Segmented sieve dual trial/Miller-Rabin oracles, prime squares, singleton and million-wide int32 boundary PASS",
+      "Prime Distance compact: 208 EOF datasets, tied pairs, empty pairs and million-wide INT_MAX interval PASS",
+      "Prime Distance classic: 208 EOF datasets, tied pairs, empty pairs and million-wide INT_MAX interval PASS"
     ]
   },
   "sha256": {
@@ -229,6 +239,7 @@
     "src/classic/position_basis.hpp": "7a74fc4e8595fb447334cfdf1a2070bab7735a15fbaac1532113cba88e729ea1",
     "src/classic/primitive_root.hpp": "4b16a755d167947138b64ca91622be71ac9af0b8f5921af62ab93e8ed36a1690",
     "src/classic/recurrence.hpp": "a71d91ecdcd7c7e2502c655ea5f9fcb2ac03104844ded46bd0afb46450422f67",
+    "src/classic/segmented_sieve.hpp": "7fddb4cdb731eee9be842aeafa8923fe971a0e67e8c6f2fe9a78d7288741038c",
     "src/classic/splay.hpp": "ba412fda7cd927e9dcab62fa88ee66b59a8cac5b4550bf47699285e8c4522e6b",
     "src/classic/string.hpp": "d199d27567590cebe3b443b572d3b42eae1efeb6f5c80602870ce81695dafb69",
     "src/classic/suffix_lcp.hpp": "75480acbb024dca152fe4908ef69cbb68b0d8856a5e031856034b4dd5c84b64a",
@@ -288,6 +299,7 @@
     "src/compact/position_basis.hpp": "f0b09b25ab5844a90aab64257401c32e5bee7dd1eb5a4d83c841d8177391f59d",
     "src/compact/primitive_root.hpp": "cd0be61c985c4aaef5dc34118327ef7bbbc6f005d88276c5e604d4f8411938de",
     "src/compact/recurrence.hpp": "af9e2e7bdefe5586b6f68758c76e3b9402047c0725bf4d07028837446a1fe2d5",
+    "src/compact/segmented_sieve.hpp": "7de3f5a42d0115a933d1934b653d13428b668d8ac6dff0b7f554ef01931269ae",
     "src/compact/splay.hpp": "a9959a530dea7ddef50e67a700bf8c0c2c87cb9f39d34b8caed31d141ed8445d",
     "src/compact/string.hpp": "22008ad36d2d0c59ee5568882932a88e4dda9a58f52fc2d06560e4a84b0b010e",
     "src/compact/suffix_lcp.hpp": "7fdd63ece9b6c09daf8db63989f8a76ba1af7d0c197892a64abc6dcb910ce892",
@@ -377,10 +389,12 @@
     "tests/persistent_kth_application.py": "522954e0693203f36597da0d328273a6fb8562d7b5aae552bb6964fe5d13ee49",
     "tests/position_basis.cpp": "07dc30fc48916b61ed5f681219752ed51cd030ef0e071ccaa990a26430cc7a4f",
     "tests/position_basis_application.py": "6b7c36bcbb4fbdf98b5e3ffa26feba715f489ee3ef8962de11a855203e0d6916",
+    "tests/prime_distance_application.py": "134e7cb2970fe7fb78c62331371043172be24500264f019aee282a3746ee3d33",
     "tests/primitive_root.cpp": "e67c9633e9965ea381ad0e65adbf29461c303d28bf356a4dfe0cb8970eec09c2",
     "tests/primitive_root_application.py": "db5d4c36138ec64a11421b4c85240b1d1f86ab887da41c3a53dccc06429554e2",
     "tests/property.cpp": "5e8b384ed682134dcf051b34c6fd278af21ad93e712e220968f8fbd037dcc85d",
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
+    "tests/segmented_sieve.cpp": "8ce844d676a6abf0b02dc4c8da038ef27da9336582b4e469e0b25305c4c4b3ed",
     "tests/suffix_array.cpp": "bc3ce98f7cce3a68acd4b1e2d98b20ee912b2a2e0676cb1141ab869226dec3d6",
     "tests/suffix_array_application.py": "c8248e4a29056da4455a84d7c2c1d1228131251d1ecbafe84b95aecc1e2769cd",
     "tests/suffix_lcp.cpp": "b9fa257d4170ce2e20061fb716f0d94344ad77639321b3c03b3b6ff29f31b5e6",

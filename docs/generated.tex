@@ -552,6 +552,16 @@ Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。
 
 \lstinputlisting[firstline=310,lastline=325,firstnumber=26]{../src/compact/number_theory.hpp}
 
+\chapter{区间筛素数}
+
+\Needspace{348pt}
+
+\section{区间筛素数}\label{compact-segmented_primes}\index{segmented\_primes}
+
+segmented\_primes(l,r) 返回闭区间内递增的全部素数，0$\le$l$\le$r$\le$INT\_MAX；区间长度须能分配内存。独立函数，每次重建底筛；不依赖预存素数表。令 W=r-l+1，时间 O(($\sqrt{\vphantom x}$r+W)log log(r+3))，空间 O($\sqrt{\vphantom x}$r+W)。倍数起点、递增变量均用 long long，避免 INT\_MAX 端点溢出；0 和 1 不进入结果。
+
+\lstinputlisting[firstline=8,lastline=31]{../src/compact/segmented_sieve.hpp}
+
 \chapter{批量模逆元}
 
 \Needspace{372pt}
@@ -1491,6 +1501,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \Needspace{220pt}
 
 \lstinputlisting[firstline=326,lastline=341,firstnumber=26]{../src/classic/number_theory.hpp}
+
+\chapter{区间筛素数}
+
+\Needspace{348pt}
+
+\section{区间筛素数}\label{classic-segmented_primes}\index{Segmented\_Primes}
+
+算法约束见动态版本第~\pageref{compact-segmented_primes}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=8,lastline=31]{../src/classic/segmented_sieve.hpp}
 
 \chapter{批量模逆元}
 

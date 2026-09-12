@@ -138,6 +138,12 @@
     "mul/power 支持无符号 64 位正模数，乘积用 uint128。prime 使用确定性 64 位底数。inverse(a,m) 无逆元返回 -1。crt(r,m,b,n) 合并 x≡r (mod m) 与 x≡b (mod n)，要求 m,n>0。从 r=0、m=1 开始逐项合并；成功后 r 为最小非负解、m 为最小正周期。余数允许完整 long long 范围。无解返回 false；有解但新周期超过 LLONG_MAX 抛 overflow_error。两种失败都会先将 r 归一化，m 不变；失败后不能继续当作完整解使用。递归 exgcd 和乘法中间量用 int128，单次 O(log min(m,n))，抄写 CRT 时只需类型别名、exgcd 和 crt。floor_sum 为 i=0..n-1 的 floor((ai+b)/m) 之和，支持负 a、b，返回 int128；约定 n≤10⁹、m≤10⁹，a、b 为有符号 64 位。"
   ],
   [
+    "segmented_sieve",
+    "segmented_primes",
+    "区间筛素数",
+    "segmented_primes(l,r) 返回闭区间内递增的全部素数，0≤l≤r≤INT_MAX；区间长度须能分配内存。独立函数，每次重建底筛；不依赖预存素数表。令 W=r-l+1，时间 O((√r+W)log log(r+3))，空间 O(√r+W)。倍数起点、递增变量均用 long long，避免 INT_MAX 端点溢出；0 和 1 不进入结果。"
+  ],
+  [
     "batch_inverse",
     "batch_inverse",
     "任意数组的批量逆元",

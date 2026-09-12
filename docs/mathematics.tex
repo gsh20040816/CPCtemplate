@@ -20,6 +20,31 @@ M(n)=1-\sum_{l=2}^{n}M(\lfloor n/l\rfloor),\qquad
 \]
 求和按等商区间合并；第二式求和中没有额外乘以 $l$。
 
+\section{区间筛：只保存目标区间}\index{segmented sieve}\index{区间筛素数}
+实现见第~\pageref{compact-segmented_primes}~页。
+设 $0\le L\le R\le\texttt{INT\_MAX}$，先筛出不超过 $\lfloor\sqrt R\rfloor$ 的素数，
+再对每个素数 $p$ 从
+\[
+\max\bigl(p^2,\lceil L/p\rceil p\bigr)
+\]
+开始标记区间内的倍数。任何合数都有不超过自身平方根的素因子，所以不会遗漏；
+从 $p^2$ 开始也不会误删 $p$ 自身。输出跳过 0 和 1，其余未标记数恰为素数。
+底筛与区间标记共用同一个外层素数循环，但使用两张独立的表。
+
+令 $W=R-L+1$，空间为 $O(\sqrt R+W)$，包含返回的素数数组；
+时间为 $O((\sqrt R+W)\log\log(R+3))$。函数每次调用都重建底筛，适合题目中的少量区间查询。
+端点虽然是 \texttt{int}，向上取整的加法、$p^2$、标记变量和输出遍历变量均用
+\texttt{long long}；否则 $R=\texttt{INT\_MAX}$ 时最后一次递增也会溢出。
+区间长度仍受可用内存约束，不适合一次保存整个 32 位值域。
+
+POJ 2689 与 UVa 10140 的驱动读到 EOF，扫描相邻素数差。
+最近、最远都只在严格更优时更新，距离并列保留最先出现的一对；少于两个素数时输出题目指定句子。
+两套实现以试除和 Miller--Rabin 判素进行独立对拍，并检查平方边界、单点区间及
+右端点为 \texttt{INT\_MAX} 的百万长度区间；完整驱动验证 208 组输入，含官方样例。
+普通测试与 ASan/UBSan 均通过；尚无本库在线 AC。
+
+来源：kuangbin 2.1.3；\url{https://onlinejudge.org/external/101/10140.pdf}。
+
 \section{模运算的适用条件}\index{CRT}\index{Euler theorem}\index{Lucas theorem}
 模逆元存在当且仅当 $\gcd(a,m)=1$。费马逆元 $a^{p-2}$ 仅适用于素数模数及 $a\not\equiv0$。
 对正模数 $m,n$，同余式 $x\equiv a\pmod m$、$x\equiv b\pmod n$ 可合并当且仅当
