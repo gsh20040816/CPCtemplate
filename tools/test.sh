@@ -332,3 +332,7 @@ python3 tests/card_game_application.py
 "$CXX" "${flags[@]}" tests/tree_diameter.cpp -o build/tree_diameter
 build/tree_diameter
 python3 tests/top_cluster_application.py
+
+"$CXX" "${flags[@]}" tests/functional_graph.cpp -o build/functional_graph
+build/functional_graph
+python3 tests/functional_graph_application.py

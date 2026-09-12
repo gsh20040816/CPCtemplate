@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T11:42:46.033844+00:00",
+  "recorded_at_utc": "2026-09-12T11:54:00.749576+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -261,7 +261,10 @@
       "QOJ8235 classic: independent weighted paths, radius boundaries, missing values and mex set oracle PASS",
       "QOJ8235 classic: n=q=500000 recursive weighted chain closed form PASS (0.325s)",
       "QOJ8235 classic: n=q=500000 weighted star closed form PASS (0.223s)",
-      "Local driver runner uses a 256 MiB pthread stack with main renamed only at compilation; submitted sources retain ordinary main and recursive DFS."
+      "Local driver runner uses a 256 MiB pthread stack with main renamed only at compilation; submitted sources retain ordinary main and recursive DFS.",
+      "",
+      "Incremental functional graph checks; unchanged-module evidence retained from 2447532:",
+      "Functional graph dual exhaustive successor maps, first-visit path oracles, uint64 jumps, rebuild and 500000 tail/cycle/self-loop cases PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -500,7 +503,10 @@
       "",
       "Incremental weighted Euler LCA and point-set diameter; unchanged-module evidence retained from 79f5449:",
       "Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS",
-      "Tree diameter dual exhaustive subsets, unions, farthest witnesses and weighted Euler LCA BFS/all-root oracles with zero and int64 distances PASS"
+      "Tree diameter dual exhaustive subsets, unions, farthest witnesses and weighted Euler LCA BFS/all-root oracles with zero and int64 distances PASS",
+      "",
+      "Incremental functional graph checks; unchanged-module evidence retained from 2447532:",
+      "Functional graph dual exhaustive successor maps, first-visit path oracles, uint64 jumps, rebuild and 500000 tail/cycle/self-loop cases PASS"
     ]
   },
   "sha256": {
@@ -536,6 +542,7 @@
     "src/classic/exlucas.hpp": "9b54b6f0b06a634707c412f8fb0787c15f44ec7e48fb0f02bdecb7ebaf5fba1d",
     "src/classic/floor_moments.hpp": "503e16963d2f122bb2f75bb7cfe75b45d68b7e965db339b0495495ea2fc372af",
     "src/classic/flow.hpp": "bd799ac3debd9806f3b33ac9ac7acce02aa97a9fb7e19f9a0b2c1855e5fcf533",
+    "src/classic/functional_graph.hpp": "c5d431949d3691072041d724c8a920a11d6275d71c96a021661f48595d4c46ed",
     "src/classic/garner.hpp": "a564d9677d0753e7286bb41bd3b99dc392f953ffb7eb77209e9b22f8cdfb9d5c",
     "src/classic/gcd_sequence.hpp": "8723618196787697658660b59665baaf1ba060311e57cc42fd8c23ec27234229",
     "src/classic/geometry.hpp": "1cb186d1b1d1432973e4760b9603bb12abdfaf7f31e3afbd039377ef90533cbe",
@@ -627,6 +634,7 @@
     "src/compact/exlucas.hpp": "d035e36afe55605b21e33f74af10695699f8b156c624c0d477c1f5ffc1861b78",
     "src/compact/floor_moments.hpp": "cec694dd10c33fe55166067ad85ece443b5b3b1e1bd92292c8fe81fc117b16da",
     "src/compact/flow.hpp": "a3dfad19ee2aaeacdde5ff4d52cb1a49e0788a2c350142ddb896d4bca3074d15",
+    "src/compact/functional_graph.hpp": "56e822ad69c4acca8bf0598d123255868eb5b97ef53fe9e46db969ad3f059e42",
     "src/compact/garner.hpp": "912240bf389532f74f7f1f2d0c384dd09f0a2caff33c978c0dc722acde60d245",
     "src/compact/gcd_sequence.hpp": "3794e7a66553c2b7bd85d9e79a9556fc7dd9965e4eac1444ec7a84dc81eacb78",
     "src/compact/geometry.hpp": "156f9ba2fbd9dc36552f7a6668b2a224d957d55e27dae645510deed5f58b7b3b",
@@ -746,6 +754,8 @@
     "tests/floor_moments_large.cpp": "8d2ca5f078ae46f70fdb39f6921c78dbf3a419b17e57ea5b6714957d0a2531ee",
     "tests/floor_sum.cpp": "28dc11fc9728de8c709007ba0b58153ddea0f24ce739504ef2cea46e2dbcb606",
     "tests/frog_meeting_application.py": "6e2e5fd3154e9d3b35fe835a56da0a8dd351d161a35f1f2ea0f672796fec4412",
+    "tests/functional_graph.cpp": "3f58e6ad3b55f34e551e2c93a7cc8eda500c43f15467f0a2ce4182a8137929bc",
+    "tests/functional_graph_application.py": "578c67c5ec4b24a791a0066d62e0eb7c2f0c2ae47666439ca5c33da5b38a0777",
     "tests/garner.cpp": "0e78c3ae32b2ad51e2f6696800e145ec5c55c97b0495dcc4fcd99a818a4fd5f6",
     "tests/garner_application.py": "b3b427e4789497966acb50c4653ffbbf05a451225d35bdef0d9c1f3ae8e559d7",
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",

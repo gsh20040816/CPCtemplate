@@ -8,6 +8,26 @@ TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u]
 
 \lstinputlisting[firstline=7,lastline=81]{../src/compact/tarjan.hpp}
 
+\chapter{函数图}
+
+\section{函数图分解、跳转与到达}\label{compact-FunctionalGraph}\index{FunctionalGraph}
+
+FunctionalGraph(to) 或 build(to) 重建，每个点恰有一条出边，to[u] 为后继，点号 0..n-1；空图允许，但不能查询。advance(u,k) 返回第 k 步到达的点，k 为完整 unsigned long long；steps(u,v) 返回首次到达 v 的最少步数，无法到达返回 -1，自身为 0。component[u] 为所在环的编号；cycles[id] 按后继方向保存环；entry[u] 为首次入环点；depth[u] 为入环步数；position 仅在环点上有效，非环点为 -1。order 为入度剥离顺序，逆序可用于从后继向入环树传播状态；up 是倍增表。所有字段只读。O(n log n) 预处理及空间，入环前查询 O(log n)，入环后取模 O(1)，不为 64 位步数分配 64 层表。默认构造为空图，支持自环、多个分量及重建。n$\le$INT\_MAX，实际规模须满足内存。传统接口 Functional\_Graph::Build / Advance / Steps。
+
+\lstinputlisting[firstline=8,lastline=39]{../src/compact/functional_graph.hpp}
+
+\newpage
+
+\noindent 环、入环树与倍增表（接上页同一结构体与函数）：
+
+\lstinputlisting[firstline=40,lastline=76,firstnumber=33]{../src/compact/functional_graph.hpp}
+
+\newpage
+
+\noindent 跳转与最少步数接口（接上页同一结构体）：
+
+\lstinputlisting[firstline=77,lastline=108,firstnumber=70]{../src/compact/functional_graph.hpp}
+
 \chapter{双连通分量与圆方树}
 
 \section{Tarjan 点双、边双与圆方树}\label{compact-Biconnected}\index{Biconnected}
@@ -1337,6 +1357,26 @@ BostanMori<mod=998244353,primitive=3>，依赖参数化 NTT；素数模数与原
 声明 Tarjan\_SCC<N>，先 Init(n)，Insert 加边，Run 求分量，Dag 输出缩点图。bel 与 cnt 可直接读取；大对象放在全局或 static。
 
 \lstinputlisting[firstline=7,lastline=85]{../src/classic/tarjan.hpp}
+
+\chapter{函数图}
+
+\section{函数图分解、跳转与到达}\label{classic-FunctionalGraph}\index{Functional\_Graph}
+
+算法约束见动态版本第~\pageref{compact-FunctionalGraph}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=8,lastline=39]{../src/classic/functional_graph.hpp}
+
+\newpage
+
+\noindent 环、入环树与倍增表（接上页同一结构体与函数）：
+
+\lstinputlisting[firstline=40,lastline=76,firstnumber=33]{../src/classic/functional_graph.hpp}
+
+\newpage
+
+\noindent 跳转与最少步数接口（接上页同一结构体）：
+
+\lstinputlisting[firstline=77,lastline=108,firstnumber=70]{../src/classic/functional_graph.hpp}
 
 \chapter{双连通分量与圆方树}
 

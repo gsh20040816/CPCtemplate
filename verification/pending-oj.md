@@ -2,6 +2,10 @@
 
 以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/ 与 oj.json 对照生成。
 
+- `verify/cses/1160.classic.cpp`
+- `verify/cses/1160.compact.cpp`
+- `verify/cses/1750.classic.cpp`
+- `verify/cses/1750.compact.cpp`
 - `verify/hdu/1814.classic.cpp`
 - `verify/hdu/1814.compact.cpp`
 - `verify/library_checker/intersection_intersection.classic.cpp`
@@ -38,6 +42,8 @@
 - `verify/luogu/P2731.compact.cpp`
 - `verify/luogu/P2860.classic.cpp`
 - `verify/luogu/P2860.compact.cpp`
+- `verify/luogu/P2921.classic.cpp`
+- `verify/luogu/P2921.compact.cpp`
 - `verify/luogu/P3373.classic.cpp`
 - `verify/luogu/P3379.euler.classic.cpp`
 - `verify/luogu/P3379.euler.compact.cpp`
