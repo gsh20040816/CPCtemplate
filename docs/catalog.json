@@ -210,6 +210,12 @@
     "构造 CoprimePairs(n) 预处理 mu 前缀和，0≤n<INT_MAX，O(n) 时间与空间；依赖 LinearSieve。count(a,b) 求 [1,a]×[1,b] 的互质数对，a,b 为非负 int，要求 min(a,b)≤n，任一为 0 返回 0。rectangle(a,b,c,d,k) 求 [a,b]×[c,d] 中 gcd(x,y)=k 的数对，要求 1≤a≤b、1≤c≤d、k≥1，min(b/k,d/k)≤n；闭区间容斥。返回 long long，中间分块累加用 int128。单次前缀查询 O(√a+√b)，额外空间 O(1)。传统接口 Coprime_Pairs、Count、Rectangle。sum 为 mu 前缀和，只读。"
   ],
   [
+    "floor_moments",
+    "floor_moments",
+    "整除和、带权和与平方和",
+    "floor_moments(n,m,a,b) 对 i=0..n-1，令 y_i=floor((a*i+b)/m)，返回 {Σy_i, Σi*y_i, Σy_i²}，元素为 ModInt<998244353>，取整数用 .v。0≤n≤1000000001，1≤m≤10⁹；a、b 支持完整 long long。n=0 返回全零。时间与递归空间 O(log(m+1))；模数固定，499122177 与 166374059 分别是 2、6 的逆元。传统接口 Floor_Moments，元素为 Mod_Int。P5170 输入上限为闭区间，驱动传 n+1，输出索引顺序 0、2、1。"
+  ],
+  [
     "divisor_sum",
     "power_sum",
     "模幂与几何级数同时求值",

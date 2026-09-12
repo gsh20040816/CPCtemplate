@@ -236,3 +236,7 @@ python3 tests/divisor_sum_application.py
 
 "$CXX" "${flags[@]}" tests/floor_sum.cpp -o build/floor_sum
 build/floor_sum
+
+"$CXX" "${flags[@]}" tests/floor_moments.cpp -o build/floor_moments
+build/floor_moments
+python3 tests/floor_moments_application.py

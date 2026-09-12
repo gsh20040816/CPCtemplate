@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T06:47:36.194149+00:00",
+  "recorded_at_utc": "2026-09-12T06:53:48.660117+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -145,7 +145,12 @@
       "P1593 classic: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS",
       "",
       "Incremental signed floor sum; unchanged-module evidence retained from bab13c6:",
-      "Floor sum dual cpp_int signed oracle, zero terms, quotient boundaries and billion-term closed forms PASS"
+      "Floor sum dual cpp_int signed oracle, zero terms, quotient boundaries and billion-term closed forms PASS",
+      "",
+      "Incremental floor moments; unchanged-module evidence retained from a2dabfe:",
+      "Floor moments dual cpp_int weighted/squared oracle, signed extremes, zero terms and billion-term polynomial certificates PASS",
+      "P5170 compact: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS",
+      "P5170 classic: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -289,7 +294,12 @@
       "P1593 classic: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS",
       "",
       "Incremental signed floor sum; unchanged-module evidence retained from bab13c6:",
-      "Floor sum dual cpp_int signed oracle, zero terms, quotient boundaries and billion-term closed forms PASS"
+      "Floor sum dual cpp_int signed oracle, zero terms, quotient boundaries and billion-term closed forms PASS",
+      "",
+      "Incremental floor moments; unchanged-module evidence retained from a2dabfe:",
+      "Floor moments dual cpp_int weighted/squared oracle, signed extremes, zero terms and billion-term polynomial certificates PASS",
+      "P5170 compact: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS",
+      "P5170 classic: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS"
     ]
   },
   "sha256": {
@@ -314,6 +324,7 @@
     "src/classic/euler_lca.hpp": "902b6d56e42c240f3ec646f6df33603292bd18d4625c75ebf7a153c94e2e79fe",
     "src/classic/euler_phi.hpp": "bf7868fc9bd234ec81fac6b6ef9ec8be7d401ae0be8b7029c7ca5dbe9ea7cd71",
     "src/classic/exlucas.hpp": "9b54b6f0b06a634707c412f8fb0787c15f44ec7e48fb0f02bdecb7ebaf5fba1d",
+    "src/classic/floor_moments.hpp": "503e16963d2f122bb2f75bb7cfe75b45d68b7e965db339b0495495ea2fc372af",
     "src/classic/flow.hpp": "bd799ac3debd9806f3b33ac9ac7acce02aa97a9fb7e19f9a0b2c1855e5fcf533",
     "src/classic/garner.hpp": "a564d9677d0753e7286bb41bd3b99dc392f953ffb7eb77209e9b22f8cdfb9d5c",
     "src/classic/gcd_sequence.hpp": "8723618196787697658660b59665baaf1ba060311e57cc42fd8c23ec27234229",
@@ -381,6 +392,7 @@
     "src/compact/euler_lca.hpp": "ad57af27c5b91f5e965b0d659d63b5b0992e41f8a692f45fab39e523e2f083ce",
     "src/compact/euler_phi.hpp": "17816d7c0cb159c510b9146c6a2bff728ecddbf2e5395a9c1b2430e674d81278",
     "src/compact/exlucas.hpp": "d035e36afe55605b21e33f74af10695699f8b156c624c0d477c1f5ffc1861b78",
+    "src/compact/floor_moments.hpp": "cec694dd10c33fe55166067ad85ece443b5b3b1e1bd92292c8fe81fc117b16da",
     "src/compact/flow.hpp": "a3dfad19ee2aaeacdde5ff4d52cb1a49e0788a2c350142ddb896d4bca3074d15",
     "src/compact/garner.hpp": "912240bf389532f74f7f1f2d0c384dd09f0a2caff33c978c0dc722acde60d245",
     "src/compact/gcd_sequence.hpp": "3794e7a66553c2b7bd85d9e79a9556fc7dd9965e4eac1444ec7a84dc81eacb78",
@@ -469,6 +481,8 @@
     "tests/exlucas.cpp": "d14d58646c7679ea0a18bd0bac87b9cec4d084fef7d07170298b4f310c475331",
     "tests/exlucas_application.py": "e7af780f3141c17568d4c17761e48d5d9f9a801971f539cc5337a6d5545c2eea",
     "tests/factorization_application.py": "2a532dd4a5d19be78af0168317ad403cc1faea3a8e87c0ce0bc880d3ece0b47d",
+    "tests/floor_moments.cpp": "32fc3a2473cbb47360c9a8f016da1f48c46261f6ce31912f2e40d4b61c8f3c48",
+    "tests/floor_moments_application.py": "0c13290f0e7e18818ba6ececcf7085970e9a6d1abcf5d6c96e85f4513860df85",
     "tests/floor_sum.cpp": "28dc11fc9728de8c709007ba0b58153ddea0f24ce739504ef2cea46e2dbcb606",
     "tests/frog_meeting_application.py": "6e2e5fd3154e9d3b35fe835a56da0a8dd351d161a35f1f2ea0f672796fec4412",
     "tests/garner.cpp": "0e78c3ae32b2ad51e2f6696800e145ec5c55c97b0495dcc4fcd99a818a4fd5f6",

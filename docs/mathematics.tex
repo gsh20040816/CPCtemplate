@@ -268,7 +268,41 @@ F(n,m,a,b)=F(\lfloor y/m\rfloor,a,m,y\bmod m).
 双版本以任意精度向下取整逐项求和对拍，覆盖负系数、零项数和整除边界；
 十亿项的常数、连续整数、反向连续整数及整倍数斜率使用闭式公式独立核验。
 同时检查模数 1 下两个系数的 64 位极值。普通与 ASan/UBSan 均通过，暂无在线 AC。
-该验证只覆盖基本整除和，不代表带权高次矩的类欧几里德接口已完成。
+本节只验证基本整除和；下节单独给出带下标权与平方和的接口及证据。
+
+\section{类欧几里德的三个求和量}\index{floor moments}
+实现见第~\pageref{compact-floor_moments}~页。令 $y_i=\lfloor(ai+b)/m\rfloor$，
+维护 $f=\sum y_i$、$g=\sum i y_i$、$h=\sum y_i^2$，下标均为 $0\le i<n$。
+结果固定模 $998244353$，不要更换模数却保留 2、6 的逆元常数。
+
+先把 $a=xm+a'$、$b=ym+b'$ 归一化；设规范化问题返回 $(f_0,g_0,h_0)$，
+并记 $S_1=\sum i$、$S_2=\sum i^2$，则
+\[
+\begin{aligned}
+f&=f_0+xS_1+yn,\\
+g&=g_0+xS_2+yS_1,\\
+h&=h_0+x^2S_2+y^2n+2xyS_1+2xg_0+2yf_0.
+\end{aligned}
+\]
+负系数的商仍须向下取整。规范化后的 $a'=0$ 时三个剩余量均为 0。
+
+对 $0<a'<m$，令 $t=\lfloor(a'(n-1)+b')/m\rfloor$。
+高度 $j=1\ldots t$ 首次出现的下标为 $r_j=\lceil(mj-b')/a'\rceil$。
+以 $q=j-1$ 编号，递归参数为 $(t,a',m,m+a'-b'-1)$；设返回 $(u,v,w)$，即
+$u=\sum r_j$、$v=\sum(j-1)r_j$、$w=\sum r_j^2$，则
+\[
+f_0=nt-u,\qquad g_0=tS_1-(w-u)/2,\qquad h_0=nt^2-2v-u.
+\]
+这来自按高度计算每一层的贡献，其中 $y_i^2=\sum_{j=1}^{y_i}(2j-1)$。
+分母每次严格减小，所以只有 $O(\log(m+1))$ 层递归。
+
+P5170 的上界包含 $n$，驱动传入 $n+1$；题目输出顺序为 $f,h,g$，与本接口不同。
+核心函数支持十亿加一项，并对完整有符号 64 位系数做任意精度逐项对拍；
+大项数用一次多项式的和与平方和闭式检查。
+两套完整程序各验证十万组输入，检查最大闭区间端点与全部三个输出。
+普通与 ASan/UBSan 均通过，在线 AC 待补；任意更高次矩尚不在这个接口内。
+
+来源与题目：\url{https://www.luogu.com.cn/problem/P5170}。
 
 \section{模运算的适用条件}\index{CRT}\index{Euler theorem}\index{Lucas theorem}
 模逆元存在当且仅当 $\gcd(a,m)=1$。费马逆元 $a^{p-2}$ 仅适用于素数模数及 $a\not\equiv0$。
