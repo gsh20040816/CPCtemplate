@@ -23,6 +23,7 @@
 - `verify/luogu/P2731.compact.cpp`
 - `verify/luogu/P2860.compact.cpp`
 - `verify/luogu/P2921.compact.cpp`
+- `verify/luogu/P3367.compact.cpp`
 - `verify/luogu/P3379.euler.compact.cpp`
 - `verify/luogu/P3379.lifting.compact.cpp`
 - `verify/luogu/P3386.compact.cpp`

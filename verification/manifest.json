@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-12T13:54:44.559280+00:00",
+  "recorded_at_utc": "2026-09-12T14:06:05.606396+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -283,7 +283,9 @@
       "",
       "Modified Mo snapshot/set oracle, all ranges/times, empty queries, custom blocks and bidirectional state invariants PASS",
       "",
-      "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS"
+      "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS",
+      "",
+      "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -542,7 +544,9 @@
       "",
       "Modified Mo snapshot/set oracle, all ranges/times, empty queries, custom blocks and bidirectional state invariants PASS",
       "",
-      "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS"
+      "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS",
+      "",
+      "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -729,7 +733,7 @@
     "src/compact/composite_roots.hpp": "d33a423550c5ed9719085f8b334d7a20f816f40f995d408981d2f343d06a9329",
     "src/compact/coprime_pairs.hpp": "ea7f40732c06a85ce70bb3d63f5a220855a8e8d7462b18e3ef5cfb64e425482e",
     "src/compact/cut_tree_queries.hpp": "09ca5aec9e8308eaa0577e561858618656cb18f37b9c61130fa85d3ce41c8b4b",
-    "src/compact/data_structure.hpp": "e7a8e1016eb20c38d41a27ca9db31abbc37e32b4fc5060e7041f4e34559ab6c4",
+    "src/compact/data_structure.hpp": "41a302fd87914867adb75d95a20430f2c7195ddfbc5d54646626187c5d262dac",
     "src/compact/determinant_mod.hpp": "a0939bceed6db0bcbe174e426e52979c9ad49ef0547d717bbd7917bac39795a9",
     "src/compact/directed_euler.hpp": "32af4fef5ab3fb473b7424433b777d7b92825236f4b05cf8aa49db15b16db5b2",
     "src/compact/divisor_sum.hpp": "ced5f23db4f04b81a09146765a1022fcc5a0bc2ab4c84015ff12d63aa3ede9b8",
@@ -843,6 +847,8 @@
     "tests/divisor_sum.cpp": "115fb2011020fa8085e916b0381791e57739fac2e32b7839414ac5f66cb461e3",
     "tests/divisor_sum_application.py": "e693a8717c4f85b259f3000946acc68e6b552889932fd5466a64e4afafac0a33",
     "tests/driver_stack.cpp": "0cd4195d8b05dab82c3603a70f681ac014a50c1c104aa29cd47e4feca885f1b4",
+    "tests/dsu.cpp": "a471410fb6bc90456ed945989c6fcaf0c48d541315e270b386e2b5e2d32a34e5",
+    "tests/dsu_application.py": "3c4d3abadac54587f585c071954d0f6fe26cb7b3cbb43e7444446ffad88170ce",
     "tests/dsu_on_tree.cpp": "8af99c1002d77d57b85a8763efca24c52f03dd786c0f594f23df633a984ab68f",
     "tests/dual.cpp": "6a3e330198d0de2b47946a9c7868ef200d8a36f51fe40a71c25274d7d0f102ad",
     "tests/dujiao.cpp": "699f7ed0303c64d31ce39093184419b1b3c2512c6d587aa1d8ec8731c9447202",
@@ -933,7 +939,7 @@
     "tests/prime_power_roots.cpp": "e786e9691be6214568f04d42c2b29a7db489aa770661f76f205344a9ca74268b",
     "tests/primitive_root.cpp": "e67c9633e9965ea381ad0e65adbf29461c303d28bf356a4dfe0cb8970eec09c2",
     "tests/primitive_root_application.py": "49e3f89a07e4386f02d4d92b41d806f4d52a3f3c8998d44e81a2ffb4dd32c470",
-    "tests/property.cpp": "5e8b384ed682134dcf051b34c6fd278af21ad93e712e220968f8fbd037dcc85d",
+    "tests/property.cpp": "3b72bbc1e3875b5c0e332147f4a946a4d032c4f6d99f83860dbc1aaf77d1f014",
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
     "tests/release_bfs.cpp": "b669e744ab1a9148fcd01e1289ec140db6023bbc61d784ad7676cb30e051bb2e",
     "tests/root_factors.cpp": "8d238960b70db06f4e9f48d2c8f1a37c36392b9f1f7b887b7fc80aa0cead3b46",

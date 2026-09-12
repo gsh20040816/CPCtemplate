@@ -27,6 +27,7 @@
 | `PBDSOrderedTree` | [Luogu P6136](https://www.luogu.com.cn/problem/P6136) | n<=100000; m<=1000000; values<2^30 | 待实现 | 待核验 |
 | `GPHashTable` | [Library Checker associative_array](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; 0<=key,value<=10^18; 5s | 待实现 | 待核验 |
 | `RopePersistentQueue` | [Library Checker persistent_queue](https://judge.yosupo.jp/problem/persistent_queue) | Q<=500000; -1<=t_i<i; 0<=x<=10^9; 5s | 待实现 | 待核验 |
+| `dsu` | [Luogu P3367](https://www.luogu.com.cn/problem/P3367) | N<=200000; M<=1000000; 1-based task vertices | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -217,6 +218,14 @@ Candidate rope composition: version -1 is empty; copy version t, append or remov
 Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.
 
 原始题面与参数：[来源 1](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/task.md)，[来源 2](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/info.toml)
+
+### Luogu P3367 / dsu
+
+Explicit standard DSU template. Retained by user exception in issue #2 comment 5646284816.
+
+Construct dsu(n); subtract one from task vertices; merge/same provide the required operations. size/groups are covered by independent local tests, not by this task output. Linking direction follows the supplied user version without union-by-size.
+
+P3367 complete driver and maximum constraints passed locally with ASan/UBSan; online submission/ranking pending. Local dsu tests additionally cover empty groups, root direction, sizes and 500000-node unbalanced path.
 
 ## 榜单口径
 

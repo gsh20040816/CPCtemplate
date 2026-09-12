@@ -4,11 +4,18 @@
   "qoj_tag_source": "https://qoj.ac/problems?tag=%E6%A8%A1%E6%9D%BF%E9%A2%98",
   "algorithms": [
     {
-      "symbol": "DSU",
-      "title": "并查集",
+      "symbol": "dsu",
+      "title": "并查集（用户指定版）",
       "source": "src/compact/data_structure.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3367.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3367",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

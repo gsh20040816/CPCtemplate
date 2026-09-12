@@ -3,38 +3,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct DSU
+struct dsu
 {
-    vector<int> fa, siz;
+    vector<int> fa, sz;
 
-    DSU(int n = 0) { init(n); }
-
-    void init(int n)
-    {
-        fa.resize(n + 1);
-        iota(fa.begin(), fa.end(), 0);
-        siz.assign(n + 1, 1);
-    }
+    dsu(int n) : fa(n), sz(n, 1) { iota(fa.begin(), fa.end(), 0); }
 
     int find(int x)
     {
-        while (x != fa[x])
-        {
-            fa[x] = fa[fa[x]];
-            x = fa[x];
-        }
+        while (x != fa[x]) x = fa[x] = fa[fa[x]];
         return x;
     }
 
+    bool same(int x, int y) { return find(x) == find(y); }
+
     bool merge(int x, int y)
     {
-        x = find(x);
-        y = find(y);
+        x = find(x), y = find(y);
         if (x == y) return false;
-        if (siz[x] < siz[y]) swap(x, y);
-        fa[y] = x;
-        siz[x] += siz[y];
+        sz[x] += sz[y], fa[y] = x;
         return true;
+    }
+
+    int size(int x) { return sz[find(x)]; }
+
+    vector<vector<int>> groups()
+    {
+        vector<vector<int>> res(fa.size());
+        for (int i = 0; i < int(fa.size()); i++) res[find(i)].push_back(i);
+        res.erase(
+            remove_if(res.begin(), res.end(), [&](const auto &v) { return v.empty(); }),
+            res.end());
+        return res;
     }
 };
 

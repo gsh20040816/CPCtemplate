@@ -1,9 +1,9 @@
 [
   [
     "data_structure",
-    "DSU",
+    "dsu",
     "并查集",
-    "init(n)、find(x)、merge(x,y)，点号 1..n；siz[find(x)] 为集合大小。路径压缩与按大小合并，均摊 O(α(n))。"
+    "dsu(n)，点号 0..n-1，n≥0。find(x) 路径减半；same(x,y) 判断同集合；merge(x,y) 把 y 的根接到 x 的根，已同集合返回 false。size(x) 返回所在集合大小。groups() 返回所有非空分组，组内点号递增、组间按当前根编号排列；可能压缩路径，但不改变分组。fa、sz 可读，sz 仅根处有效；不要外部改写。本版只做路径减半，不按大小或秩合并；单次 find 最坏 O(n)。空间 O(n)，groups 另需 O(n) 输出与工作空间，并执行 n 次 find。空结构可调用 groups，不能查询顶点。"
   ],
   [
     "data_structure",

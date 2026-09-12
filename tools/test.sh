@@ -349,3 +349,7 @@ build/modified_mo
 python3 tests/modified_mo_application.py
 
 python3 tests/scc_template_application.py
+
+"$CXX" "${flags[@]}" tests/dsu.cpp -o build/dsu
+build/dsu
+python3 tests/dsu_application.py

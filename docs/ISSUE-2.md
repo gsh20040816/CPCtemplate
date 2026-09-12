@@ -10,7 +10,7 @@
 |---|---|---|---|
 | [P1226 快速幂](https://www.luogu.com.cn/problem/P1226) | 二进制模幂 | 不再独立成节或安排独立模板提交 | ModInt、NTT、原根等需要的幂函数仍作为依赖保留 |
 | [P1177 排序](https://www.luogu.com.cn/problem/P1177) | 普通升序排序 | 不另收录手写排序教学模板或独立提交 | 保留正常的 std::sort 调用 |
-| [P3367 并查集](https://www.luogu.com.cn/problem/P3367) | 普通合并与同集合查询 | 按用户新回复保留，并替换为指定的 0-based dsu | 可撤销并查集、离线组合与高级依赖不在本次删除范围 |
+| [P3367 并查集](https://www.luogu.com.cn/problem/P3367) | 普通合并与同集合查询 | 已按用户新回复保留并替换为指定的 0-based dsu | 可撤销并查集、离线组合与高级依赖不在本次删除范围 |
 | [P3374 树状数组 1](https://www.luogu.com.cn/problem/P3374) | 单点加、区间和 | 移除这类基础题的独立收录/提交计划 | Fenwick 第 k 小及高级组合能力需单独判断，本次不随基础题删除 |
 
 候选依据是实现内容基础、容易现场写出；不是对网站难度标签或正式竞赛分级的断言。快速幂和排序当前没有独立目录条目，因此相关操作主要是停止单独扩展；不会删除整个 NumberTheory 或 ModInt。
@@ -25,4 +25,6 @@
 
 第一轮已允许短 if/循环同排，183 个头文件与驱动的 token 保持一致，总行数 11897 → 10987。函数体和复杂控制流仍展开，公开类型名未在此次排版操作中更改。除已明确保留的 dsu 外，基础题移除继续等待名单确认。
 
-DSU 最新依据：[用户指定实现](https://github.com/gsh20040816/CPCtemplate/issues/2#issuecomment-5646284816)。将采用 find/same/merge/size/groups、fa/sz 与路径减半；不再沿用原有按大小合并的复杂度描述。
+DSU 最新依据：[用户指定实现](https://github.com/gsh20040816/CPCtemplate/issues/2#issuecomment-5646284816)。已采用 find/same/merge/size/groups、fa/sz 与路径减半；不再沿用原有按大小合并的复杂度描述。
+
+指定 dsu 已通过独立标签参考、groups/size/根方向验证、50 万点无秩合并长链及 P3367 最大输入驱动，普通和 ASan/UBSan 均通过。源码只有有符号长度比较的显式转换及排版与示意不同；没有补入按大小合并。在线验证仍待完成。

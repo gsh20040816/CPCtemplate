@@ -519,5 +519,26 @@
       "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/task.md",
       "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/info.toml"
     ]
+  },
+  {
+    "symbol": "dsu",
+    "problem": "Luogu P3367",
+    "title": "并查集（按用户回复保留）",
+    "url": "https://www.luogu.com.cn/problem/P3367",
+    "classification": "Explicit standard DSU template. Retained by user exception in issue #2 comment 5646284816.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "N<=200000; M<=1000000; 1-based task vertices",
+    "adapter": "Construct dsu(n); subtract one from task vertices; merge/same provide the required operations. size/groups are covered by independent local tests, not by this task output. Linking direction follows the supplied user version without union-by-size.",
+    "implementation": "existing",
+    "source": "src/compact/data_structure.hpp",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "P3367 complete driver and maximum constraints passed locally with ASan/UBSan; online submission/ranking pending. Local dsu tests additionally cover empty groups, root direction, sizes and 500000-node unbalanced path."
   }
 ]

@@ -18,7 +18,7 @@ void structures() {
     int n = 1 + rnd(50);
     Fenwick<> f(n);
     LazySeg s(n);
-    DSU d(n);
+    dsu d(n + 1);
     Binary_Indexed_Tree<50> F;
     F.Init(n);
     Segment_Tree<50> S;
