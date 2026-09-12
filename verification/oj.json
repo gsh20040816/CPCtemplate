@@ -1441,5 +1441,49 @@
       "XOR-decoded online card-game queries"
     ],
     "note": "All 41 main tests and 3 extra tests accepted. n,q<=300000 and 1<=a_i<=n. General signed increments, arbitrary interval sums and arbitrary branching splices retain separate local evidence; this application uses the precise listed subset of interfaces."
+  },
+  {
+    "problem": "QOJ 8235",
+    "style": "compact",
+    "algorithm": "Weighted Euler LCA and prefix point-set diameter",
+    "record": "https://qoj.ac/submission/2939493",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "666ms",
+    "max_case_time_ms": 666,
+    "memory": "198076kb",
+    "language": "C++20",
+    "date": "2026-09-12",
+    "source_driver": "verify/qoj/8235.compact.cpp",
+    "submitted_source": "verification/submitted/QOJ8235.compact.cpp",
+    "submitted_sha256": "b4d4b64069829d57285ab64d5b17cfad0bffc9818617e3b7c62ad5befe14fe85",
+    "tested_api": [
+      "EulerLCA::weighted_distance",
+      "TreeDiameter::insert",
+      "TreeDiameter::farthest"
+    ],
+    "note": "All 50 main and 1 extra tests accepted. n,q<=500000, positive edge weights<=1e9, distinct vertex values<=1e9 and radius<=1e15. Zero-weight trees, full int64 distances, arbitrary summary merge and farthest-witness identity retain separate local evidence."
+  },
+  {
+    "problem": "QOJ 8235",
+    "style": "classic",
+    "algorithm": "Weighted Euler LCA and prefix point-set diameter",
+    "record": "https://qoj.ac/submission/2939551",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "588ms",
+    "max_case_time_ms": 588,
+    "memory": "198196kb",
+    "language": "C++20",
+    "date": "2026-09-12",
+    "source_driver": "verify/qoj/8235.classic.cpp",
+    "submitted_source": "verification/submitted/QOJ8235.classic.cpp",
+    "submitted_sha256": "1a66d4ec8e039d27f700865c7098a796982524be4b54ab279a6ce2c1225b9555",
+    "tested_api": [
+      "Euler_LCA::Weighted_Distance",
+      "Tree_Diameter::Insert",
+      "Tree_Diameter::Farthest"
+    ],
+    "note": "All 50 main and 1 extra tests accepted. n,q<=500000, positive edge weights<=1e9, distinct vertex values<=1e9 and radius<=1e15. Zero-weight trees, full int64 distances, arbitrary summary merge and farthest-witness identity retain separate local evidence."
   }
 ]

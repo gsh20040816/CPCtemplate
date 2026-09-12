@@ -69,8 +69,8 @@ void *large(void *)
     b.Init(n);
     for (int u = 2; u <= n; u++)
     {
-        a.add(u - 1, u);
-        b.Insert(u - 1, u);
+        a.add(u - 1, u, 1000000000LL);
+        b.Insert(u - 1, u, 1000000000LL);
     }
     for (int root : {1, n, n / 2})
     {
@@ -83,6 +83,8 @@ void *large(void *)
             assert(a.lca(u, v) == expected && b.Lca(u, v) == expected);
             assert(a.distance(u, v) == abs(u - v));
             assert(b.Distance(u, v) == abs(u - v));
+            assert(a.weighted_distance(u,v) == 1000000000LL * abs(u-v));
+            assert(b.Weighted_Distance(u,v) == 1000000000LL * abs(u-v));
         }
     }
     return nullptr;

@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T11:22:23.431978+00:00",
+  "recorded_at_utc": "2026-09-12T11:42:46.033844+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -248,7 +248,20 @@
       "QOJ8240 classic: n=q=300000 distinct closed-form case PASS (0.232s)",
       "QOJ8240 classic: n=q=300000 equal closed-form case PASS (0.281s)",
       "QOJ8240 classic: n=q=300000 periodic closed-form case PASS (0.432s)",
-      "QOJ8240 classic: n=q=300000 sparse-repeat array with literal short-query oracle PASS (0.388s)"
+      "QOJ8240 classic: n=q=300000 sparse-repeat array with literal short-query oracle PASS (0.388s)",
+      "",
+      "Incremental weighted Euler LCA and point-set diameter; unchanged-module evidence retained from 79f5449:",
+      "Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS",
+      "Tree diameter dual exhaustive subsets, unions, farthest witnesses and weighted Euler LCA BFS/all-root oracles with zero and int64 distances PASS",
+      "",
+      "Top Cluster complete-driver checks:",
+      "QOJ8235 compact: independent weighted paths, radius boundaries, missing values and mex set oracle PASS",
+      "QOJ8235 compact: n=q=500000 recursive weighted chain closed form PASS (0.350s)",
+      "QOJ8235 compact: n=q=500000 weighted star closed form PASS (0.209s)",
+      "QOJ8235 classic: independent weighted paths, radius boundaries, missing values and mex set oracle PASS",
+      "QOJ8235 classic: n=q=500000 recursive weighted chain closed form PASS (0.325s)",
+      "QOJ8235 classic: n=q=500000 weighted star closed form PASS (0.223s)",
+      "Local driver runner uses a 256 MiB pthread stack with main renamed only at compilation; submitted sources retain ordinary main and recursive DFS."
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -483,7 +496,11 @@
       "Polynomial shift and Chirp-Z dual Pascal/Horner oracles, zero/one ratios, small-field capacity boundaries and large binomial/geometric identities PASS",
       "",
       "Incremental persistent range operations; unchanged-module evidence retained from 29a1d0f:",
-      "Persistent range dual branching vector oracle, lazy cross-version splice, immutable queries, sparse INT_MAX domain and logarithmic allocation PASS"
+      "Persistent range dual branching vector oracle, lazy cross-version splice, immutable queries, sparse INT_MAX domain and logarithmic allocation PASS",
+      "",
+      "Incremental weighted Euler LCA and point-set diameter; unchanged-module evidence retained from 79f5449:",
+      "Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS",
+      "Tree diameter dual exhaustive subsets, unions, farthest witnesses and weighted Euler LCA BFS/all-root oracles with zero and int64 distances PASS"
     ]
   },
   "sha256": {
@@ -514,7 +531,7 @@
     "src/classic/dynamic_tree.hpp": "b11bde8c5b78f6fb927e79e854b5b940757226e46d8bbb68ec17c58db3773821",
     "src/classic/edge_components.hpp": "464f9de0d1423e95be3030fbd0742efa705f86edccdc3ba0effc00798e6ffeae",
     "src/classic/enclosing_circle.hpp": "dfabecbaa759b207fbaee1a0b54a835178f21dbb909709f3f5dcc74a0dea6182",
-    "src/classic/euler_lca.hpp": "902b6d56e42c240f3ec646f6df33603292bd18d4625c75ebf7a153c94e2e79fe",
+    "src/classic/euler_lca.hpp": "950ef7676595504d2addf50513976f159947cd2d42d29f47de056c5b80101626",
     "src/classic/euler_phi.hpp": "bf7868fc9bd234ec81fac6b6ef9ec8be7d401ae0be8b7029c7ca5dbe9ea7cd71",
     "src/classic/exlucas.hpp": "9b54b6f0b06a634707c412f8fb0787c15f44ec7e48fb0f02bdecb7ebaf5fba1d",
     "src/classic/floor_moments.hpp": "503e16963d2f122bb2f75bb7cfe75b45d68b7e965db339b0495495ea2fc372af",
@@ -570,6 +587,7 @@
     "src/classic/tarjan.hpp": "fbeaaacabbc45e6ad1e90b699c2e839c49c472c4aebf788ba6034f7bd32b8f12",
     "src/classic/treap.hpp": "fa4c871c0160cc84bf2ed9ac4c9bb9ddd894bfb58e4a7cb3772844216120522c",
     "src/classic/tree.hpp": "2a77bab713121961472fc847d82a91cf0008b6fb1c75f50fb6956414d5d13fb1",
+    "src/classic/tree_diameter.hpp": "d85a1cc6a9bfa5ade7eb87241695e6f288c5231b84f35db29ffcc3dbd7d29db3",
     "src/classic/tree_path_kth.hpp": "21d7c91140873d9545af729971c09236f511b0899dc2581f13fdbf01c8962611",
     "src/classic/undirected_euler.hpp": "5847175cd9d4dc65634492d56e86164141d6f979eb8182edde8effa456d50ab8",
     "src/classic/vertex_removal.hpp": "c05f673c99fc0fa850939cb80585d3b5b5edbda7286ffd1adfe2a1456ac25926",
@@ -604,7 +622,7 @@
     "src/compact/dynamic_tree.hpp": "1e9fdf1d3b04989459cfc7c2a9fe6f5256870e09ce37875994e44cb868714769",
     "src/compact/edge_components.hpp": "211a0697663522fa6a422c2c9f3a05cc72802b01d70e40783c5a9cd66bdbb084",
     "src/compact/enclosing_circle.hpp": "1f89f26ed7c8f5623b69f2afe1a718cf57d48a767cae1040ab77af4d41411f94",
-    "src/compact/euler_lca.hpp": "ad57af27c5b91f5e965b0d659d63b5b0992e41f8a692f45fab39e523e2f083ce",
+    "src/compact/euler_lca.hpp": "29d1f2872378387d519cded73894a1320e2ba46caba6ffd4d169b7ae41336af2",
     "src/compact/euler_phi.hpp": "17816d7c0cb159c510b9146c6a2bff728ecddbf2e5395a9c1b2430e674d81278",
     "src/compact/exlucas.hpp": "d035e36afe55605b21e33f74af10695699f8b156c624c0d477c1f5ffc1861b78",
     "src/compact/floor_moments.hpp": "cec694dd10c33fe55166067ad85ece443b5b3b1e1bd92292c8fe81fc117b16da",
@@ -659,6 +677,7 @@
     "src/compact/tarjan.hpp": "15716184cdf5cec0cb5234ba357ea922840277454932e54e06067d7290f929d5",
     "src/compact/treap.hpp": "b282e9598f83bab528b6d7a8cd325ae8d57fd2fc03281da73897f83cdd41d35e",
     "src/compact/tree.hpp": "c95a6cb3fc23372d15f80d565bfd1370bd9021aaa5d6d2d77fa8105ab4331860",
+    "src/compact/tree_diameter.hpp": "8e9a3abad95830710818767db85ae23030edcfd9c3d12f2659bcdc1e0106435e",
     "src/compact/tree_path_kth.hpp": "5f4d33a364e8ad344c38af8fa4799d498c8989b3b3e086a1256f5351ad4d4382",
     "src/compact/undirected_euler.hpp": "4195d4a64d572dcf949ad211a3f6bac2f58a055265ad8f639149a4a116915fc9",
     "src/compact/vertex_removal.hpp": "65be1fe9ae9e23b3d4c1e0baf7f3a4e4d766087e12a1f531f19ed8f321e69e27",
@@ -716,7 +735,7 @@
     "tests/edge_components_application.py": "eeee7ef0bea795c064e2c5827825ebcf18cd3bb1de6aa8ab7c4cdbcfc50e747f",
     "tests/enclosing_circle.cpp": "accf8cf2cd3b49a843a5934cdd45246a8d1c243beef1a17f12b36d4a856d693c",
     "tests/enclosing_circle_application.py": "c3b8ff5187700340dc3b2bb7ecb5a5959f010d1279ca5498cad57bd0ddcf41c9",
-    "tests/euler_lca.cpp": "1c25c665b0eb1eed13ccc83f3c0cc2dc06672ebb56117baa918257257596c8c9",
+    "tests/euler_lca.cpp": "7a2c8aafff59e8ca432a8086fbef26b482ca95eff4e4ba6b9a03e82b85f4a40d",
     "tests/euler_lca_application.py": "17294374da01fab79424653360caa042f7e295b6e7056f260ed0b13f77178109",
     "tests/euler_phi.cpp": "df2b4929bfab71f3db1c6344aecc6a35f807ba45698b2e88013e26de94c7dcdc",
     "tests/exlucas.cpp": "d14d58646c7679ea0a18bd0bac87b9cec4d084fef7d07170298b4f310c475331",
@@ -807,6 +826,8 @@
     "tests/suffix_lcp_application.py": "62ee33e849bcbb5eecaea0c5161dc66ded4bf698dcacb5c0c6c045849cc0fc45",
     "tests/support_hull.cpp": "9b6f1ce2cb81abf6a9393a2673da8db7b0e1f6c050f8337d6a4a0ac66ed3237c",
     "tests/tarjan.cpp": "35dd53d553e4435d79a7bc9a81900b4908fc97b35c1a4be99ccf93f09c1815b9",
+    "tests/top_cluster_application.py": "621b52d8d4065b34d1baafaec51fb70b8cfd1b33c1eacb8449861d10def056c9",
+    "tests/tree_diameter.cpp": "8b442388cc19e5591d9233e7621b634877e3407e852791409b5b94c66293e5c9",
     "tests/tree_path_kth.cpp": "055496ce8bbe4c70a00e1f1a2bb3bfb281896ab3d5be320d7dfadf334ba87ac8",
     "tests/tree_path_kth_application.py": "560fa2e926df9fb693f03e996b93f1c200018ecc85912cc7672dbde1dc298fdb",
     "tests/trees.cpp": "c3e3638787018828c717310634b3ffee5b9d5b9d40010680b03c6e527b2df555",

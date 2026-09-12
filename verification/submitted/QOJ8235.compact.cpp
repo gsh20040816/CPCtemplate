@@ -1,4 +1,4 @@
-#pragma once
+#include <cstdio>
 #include <algorithm>
 #include <cassert>
 #include <vector>
@@ -97,3 +97,109 @@ struct EulerLCA
         return (root_dist[u] - root_dist[z]) + (root_dist[v] - root_dist[z]);
     }
 };
+
+#include <optional>
+#include <utility>
+#include <cassert>
+using namespace std;
+
+struct TreeDiameter
+{
+    using ll = long long;
+    int a = -1, b = -1;
+    ll length = 0;
+
+    // distance is the metric of one fixed tree with nonnegative edge weights.
+    template <class Distance> void insert(int v, const Distance &distance)
+    {
+        assert(v >= 0);
+        if (a == -1)
+        {
+            a = v;
+            b = v;
+            return;
+        }
+        ll x = distance(a, v), y = distance(b, v);
+        if (x >= y && x > length)
+        {
+            b = v;
+            length = x;
+        }
+        else if (y > length)
+        {
+            a = v;
+            length = y;
+        }
+    }
+
+    template <class Distance> void merge(TreeDiameter other, const Distance &distance)
+    {
+        if (other.a == -1)
+            return;
+        insert(other.a, distance);
+        insert(other.b, distance);
+    }
+
+    template <class Distance>
+    optional<pair<int, ll>> farthest(int v, const Distance &distance) const
+    {
+        if (a == -1)
+            return nullopt;
+        ll x = distance(a, v), y = distance(b, v);
+        return x >= y ? make_pair(a, x) : make_pair(b, y);
+    }
+};
+
+
+int main()
+{
+    int n, q;
+    scanf("%d%d", &n, &q);
+    vector<int> position(n + 1, -1);
+    for (int u = 1; u <= n; u++)
+    {
+        int w;
+        scanf("%d", &w);
+        if (w <= n)
+            position[w] = u;
+    }
+    EulerLCA lca(n);
+    for (int i = 1; i < n; i++)
+    {
+        int u, v;
+        long long w;
+        scanf("%d%d%lld", &u, &v, &w);
+        lca.add(u, v, w);
+    }
+    lca.build();
+    auto distance = [&](int u, int v)
+    {
+        return lca.weighted_distance(u, v);
+    };
+    int mex = 0;
+    while (position[mex] != -1)
+        mex++;
+    vector<TreeDiameter> prefix(mex + 1);
+    for (int i = 0; i < mex; i++)
+    {
+        prefix[i + 1] = prefix[i];
+        prefix[i + 1].insert(position[i], distance);
+    }
+    while (q--)
+    {
+        int x;
+        long long k;
+        scanf("%d%lld", &x, &k);
+        int l = 0, r = mex;
+        while (l < r)
+        {
+            int m = (l + r + 1) / 2;
+            if (prefix[m].farthest(x, distance)->second <= k)
+                l = m;
+            else
+                r = m - 1;
+        }
+        printf("%d\n", l);
+    }
+    return 0;
+}

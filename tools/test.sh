@@ -328,3 +328,7 @@ python3 tests/polynomial_evaluation_application.py
 build/persistent_range
 
 python3 tests/card_game_application.py
+
+"$CXX" "${flags[@]}" tests/tree_diameter.cpp -o build/tree_diameter
+build/tree_diameter
+python3 tests/top_cluster_application.py
