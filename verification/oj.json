@@ -903,5 +903,45 @@
       "All: count and sorted sampled roots"
     ],
     "note": "All 11 judge cases accepted, 2<=n<=1e6. Time sums displayed case times. Minimum-root minimality, order, signed inputs and int32 limits have separate local tests; other bundled number theory code is not covered."
+  },
+  {
+    "problem": "Luogu P5431",
+    "style": "compact",
+    "algorithm": "batch_inverse",
+    "record": "https://www.luogu.com.cn/record/297561197",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 806,
+    "max_case_time_ms": 386,
+    "memory": "76.80MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P5431.compact.cpp",
+    "submitted_source": "verification/submitted/P5431.compact.cpp",
+    "submitted_sha256": "fce09d4e8edadbc960f7aa175e17d2eea4b08e24ea6f38ae1a60fcde504808d4",
+    "tested_api": [
+      "batch_inverse: weighted sum of returned inverses"
+    ],
+    "note": "All 5 judge cases accepted, n<=5e6 and prime p<=1e9. Per-element inverse certificates, composite moduli, nonunits, modulus one, empty inputs and signed int64 extremes are tested locally. Other bundled number theory code is not covered."
+  },
+  {
+    "problem": "Luogu P5431",
+    "style": "classic",
+    "algorithm": "Batch_Inverse",
+    "record": "https://www.luogu.com.cn/record/297561804",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 803,
+    "max_case_time_ms": 384,
+    "memory": "76.80MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P5431.classic.cpp",
+    "submitted_source": "verification/submitted/P5431.classic.cpp",
+    "submitted_sha256": "9a9ae8bb3a3fdf8d7bb7b187c824b2b749d50bba280dbe5fab2b5f9c9db905a5",
+    "tested_api": [
+      "Batch_Inverse: weighted sum of returned inverses"
+    ],
+    "note": "All 5 judge cases accepted, n<=5e6 and prime p<=1e9. Per-element inverse certificates, composite moduli, nonunits, modulus one, empty inputs and signed int64 extremes are tested locally. Other bundled number theory code is not covered."
   }
 ]
