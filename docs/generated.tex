@@ -856,11 +856,19 @@ solve(cost) 输入 n×m 完整权值矩阵，0$\le$n$\le$m；每行匹配不同�
 
 \lstinputlisting[firstline=6,lastline=72]{../src/compact/graph_advanced.hpp}
 
+\Needspace{486pt}
+
 \section{有向最小树形图}\label{compact-Arborescence}\index{Arborescence}
 
-solve(n,root,edges)，点号 0..n-1，n$\ge$1；返回以 root 为根向外可达的最小树形图费用，无解 nullopt。允许负权、重边、自环（自环不选）；O(VE)。当前仅返回费用，不恢复边方案。所有中间值须远小于 2\textasciicircum{}120。
+solve(n,root,edges)，点号 0..n-1，n$\ge$1、0$\le$root<n；返回以 root 为根向外可达的最小树形图费用，无解 nullopt。允许负权、重边和自环（自环不选），n=1 的费用为 0；费用 -1 与无解可区分。输入、缩环后边权及累计费用绝对值须小于 2\textasciicircum{}120，类型为 int128。每个非根点选最小入边；若成环则缩点，跨环入边减去原终点已选入边费用，以计算替换代价。O(VE)，edges 按值传入，原图保持不变。仅返回费用，不恢复边方案。双版本已做所有根的入边枚举与 800 点连续缩环核验，暂无专门 OJ AC。
 
-\lstinputlisting[firstline=73,lastline=140]{../src/compact/graph_advanced.hpp}
+\lstinputlisting[firstline=73,lastline=104]{../src/compact/graph_advanced.hpp}
+
+\newpage
+
+\noindent 判环与缩点（接上页同一函数）：
+
+\lstinputlisting[firstline=105,lastline=140,firstnumber=33]{../src/compact/graph_advanced.hpp}
 
 \Needspace{616pt}
 
@@ -1892,11 +1900,19 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 
 \lstinputlisting[firstline=22,lastline=88]{../src/classic/graph_advanced.hpp}
 
+\Needspace{486pt}
+
 \section{有向最小树形图}\label{classic-Arborescence}\index{Directed\_MST}
 
 算法约束见动态版本第~\pageref{compact-Arborescence}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=89,lastline=156]{../src/classic/graph_advanced.hpp}
+\lstinputlisting[firstline=89,lastline=120]{../src/classic/graph_advanced.hpp}
+
+\newpage
+
+\noindent 判环与缩点（接上页同一函数）：
+
+\lstinputlisting[firstline=121,lastline=156,firstnumber=33]{../src/classic/graph_advanced.hpp}
 
 \Needspace{616pt}
 

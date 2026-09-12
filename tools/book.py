@@ -66,6 +66,9 @@ for style in ['compact','classic']:
     split=next(i for i in range(start,end) if re.match(r'    int (query|Query)\(',lines[i]))
     estimate=(split-start)*10.2+70+(len(info)/65)*12
    if name=='divisor_sum_power' and style=='compact': body.append(r'\newpage')
+   if name=='Arborescence':
+    split=next(i for i in range(start,end) if lines[i].strip()=='int cnt = 0;')
+    estimate=(split-start)*10.2+100+(len(info)/55)*12
    if estimate<680: body.append(r'\Needspace{'+str(round(estimate))+'pt}')
    if name in ('SuffixArray','XorBasis'): body.append(r'\newpage')
    body.append(r'\section{'+cn+r'}\label{'+style+'-'+name+r'}\index{'+target.replace('_',r'\_')+'}')
@@ -112,6 +115,12 @@ for style in ['compact','classic']:
     for j in range(len(cuts)-1):
      if j: body.append(r'\newpage')
      body.append(r'\lstinputlisting[firstline='+str(cuts[j]+1)+',lastline='+str(cuts[j+1])+',firstnumber='+str(cuts[j]-start+1)+']{../src/'+style+'/'+filename+'.hpp}')
+   elif name=='Arborescence':
+    split=next(i for i in range(start,end) if lines[i].strip()=='int cnt = 0;')
+    body.append(r'\lstinputlisting[firstline='+str(start+1)+',lastline='+str(split)+']{../src/'+style+'/'+filename+'.hpp}')
+    body.append(r'\newpage')
+    body.append(r'\noindent 判环与缩点（接上页同一函数）：')
+    body.append(r'\lstinputlisting[firstline='+str(split+1)+',lastline='+str(end)+',firstnumber='+str(split-start+1)+']{../src/'+style+'/'+filename+'.hpp}')
    elif name=='garner' and style=='compact':
     split=next(i for i in range(start,end) if lines[i].startswith('// Return the least'))
     body.append(r'\lstinputlisting[firstline='+str(start+1)+',lastline='+str(split)+']{../src/'+style+'/'+filename+'.hpp}')

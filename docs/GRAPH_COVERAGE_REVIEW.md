@@ -180,3 +180,11 @@ tests/lex_two_sat.cpp 穷举两变量所有子句集合与全部赋值，另随�
 POJ3648 用原来的 SCC TwoSAT/Two_SAT：变量 i+1 为第 i 对夫妻，true 表示妻子在新娘一侧，false 表示丈夫；强制 0w，每个关系对子加入至少一人在该侧的 OR 子句，输出除新娘夫妇外每对的一人。tests/wedding_application.py 枚举可满足性并逐条检查返回赋值，覆盖 183 组、0w/0h、多位编号、空输出及 bad luck。格式与语义依据 kuangbin 2018 第 172–176 页，未声称在线 AC。
 
 新染色模块单独执行普通及 ASan/UBSan 检查，保留未修改模块的回归证据；日志见 verification/lex-two-sat-tests.txt、verification/lex-two-sat-sanitizer-tests.txt、verification/lex-two-sat-driver-tests.txt、verification/wedding-driver-tests.txt。kuangbin 4.18 的两条独立路线及应用都更新为本地覆盖。
+
+## 有向最小树形图费用核验
+
+Arborescence / Directed_MST 实现向外可达的根树形图，点号从 0 开始。对每个非根点选择最小入边，若无环就是合法最优树；若有环，将其缩为一点。跨环入边必须替换原终点已选入边，因此缩边费用减去该入边费用，累计的基准费用与剩余优化费用之和保持原问题最优值。根的入边不计入费用，也不参与需要收缩的父指针环。
+
+每个顶点都有入边仍不保证根可达：与根分离的环会在缩点后暴露无入边的分量，返回 nullopt。负费用 -1 是合法答案，不沿用原书用 -1 表示失败的冲突约定。平行边可直接保留，自环不会选中。当前只返回费用，未实现边集恢复，也无在线 AC。
+
+tests/arborescence.cpp 对三点图每条非自环边的缺失/-3/0/5 四种状态穷举全部图和所有根，以枚举每个非根点入边并检查父指针通根作为独立参考；另测随机多重图、自环、边顺序变化。800 点双向链触发连续缩环，加入不同代价根入边和高幅度负入边，验证普通权与 2^100 缩放权；这不把 int128 的所有输入均视为安全，仍需遵守 2^120 中间界。

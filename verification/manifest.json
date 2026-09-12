@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T06:58:08.515945+00:00",
+  "recorded_at_utc": "2026-09-12T07:04:31.243026+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -153,7 +153,10 @@
       "P5170 classic: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS",
       "",
       "Incremental large floor-moment identities; unchanged-module evidence retained from 06aeccb:",
-      "Floor moments large dual reversal/complement/difference identities, scalar floor-sum cross-check and Fibonacci depth PASS"
+      "Floor moments large dual reversal/complement/difference identities, scalar floor-sum cross-check and Fibonacci depth PASS",
+      "",
+      "Incremental arborescence audit; unchanged-module evidence retained from db7f4e4:",
+      "Arborescence dual exhaustive all-root incoming-edge oracle, loops/parallel edges and 800-vertex nested contractions PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -305,7 +308,10 @@
       "P5170 classic: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS",
       "",
       "Incremental large floor-moment identities; unchanged-module evidence retained from 06aeccb:",
-      "Floor moments large dual reversal/complement/difference identities, scalar floor-sum cross-check and Fibonacci depth PASS"
+      "Floor moments large dual reversal/complement/difference identities, scalar floor-sum cross-check and Fibonacci depth PASS",
+      "",
+      "Incremental arborescence audit; unchanged-module evidence retained from db7f4e4:",
+      "Arborescence dual exhaustive all-root incoming-edge oracle, loops/parallel edges and 800-vertex nested contractions PASS"
     ]
   },
   "sha256": {
@@ -446,6 +452,7 @@
     "src/compact/xor_walk.hpp": "9313a8f7fadf89b237053ed6753417256950213dd752dd439643ac0f586095ed",
     "tests/affine_segment_tree.cpp": "739c2a5cc83e1940f14c9b39dc0acbb02898cc6805c261c0fd852390de7dd2be",
     "tests/algebra.cpp": "8a5e1fe4f5515d376e5b3d6c2b620e784c07333cbe754a3268d5c7e8c52295bc",
+    "tests/arborescence.cpp": "7879d560e0279e5f4ea3c8fc29105a5d78e587194f43fa78a9fda21cb0bebe33",
     "tests/basis_intersection.cpp": "fa79b34708d1115e88d37dfd3b7c8f71b151d47dab5935613013aa4ab4d1b956",
     "tests/basis_intersection_application.py": "42f1415fd890b96165f7a12ed3a8808ef4b5f165355fc4b9c2c3643554919680",
     "tests/batch_inverse.cpp": "074f04a57c2074c4ca86fc67c4f0e9d5445636ed26f95c2029e9a45cc4c0f89f",

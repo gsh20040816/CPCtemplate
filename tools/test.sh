@@ -243,3 +243,6 @@ python3 tests/floor_moments_application.py
 
 "$CXX" "${flags[@]}" tests/floor_moments_large.cpp -o build/floor_moments_large
 build/floor_moments_large
+
+"$CXX" "${flags[@]}" tests/arborescence.cpp -o build/arborescence
+build/arborescence
