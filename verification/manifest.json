@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T07:26:24.194887+00:00",
+  "recorded_at_utc": "2026-09-12T07:31:51.187065+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -166,7 +166,11 @@
       "",
       "Incremental cut-tree queries and composition; unchanged-module evidence retained from 32e3410:",
       "Cut-tree queries dual Floyd bottleneck oracle, zero weights, diagonal sentinel and 1200-vertex recursive chain PASS",
-      "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS"
+      "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS",
+      "",
+      "Incremental P4897 drivers; unchanged-module evidence retained from 6210add:",
+      "P4897 compact: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS",
+      "P4897 classic: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -331,7 +335,11 @@
       "",
       "Incremental cut-tree queries and composition; unchanged-module evidence retained from 32e3410:",
       "Cut-tree queries dual Floyd bottleneck oracle, zero weights, diagonal sentinel and 1200-vertex recursive chain PASS",
-      "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS"
+      "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS",
+      "",
+      "Incremental P4897 drivers; unchanged-module evidence retained from 6210add:",
+      "P4897 compact: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS",
+      "P4897 classic: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS"
     ]
   },
   "sha256": {
@@ -530,6 +538,7 @@
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
     "tests/global_min_cut.cpp": "833783cda9e962873c8b7df3f8bc75276d573f16629820d81ebdc0f914ec7e31",
     "tests/gomory_hu.cpp": "888601101b60a6196478f7b6b321227b087514cf1a45391c84e8cb7ac39371fa",
+    "tests/gomory_hu_application.py": "5b24548df413f4556cb5686fb4dca518d2822cee2ad9cf76e9e2abd97bdbb23e",
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",
     "tests/graph_contracts.cpp": "af13d8fae85417d2e2e8d69de1c073339587eaa7b5f2616a724b61a4ce0fe322",
     "tests/graph_drivers.py": "c970259c9ff1d93da80409125fc8c420b92d4e17399373340de69e053f0d781f",

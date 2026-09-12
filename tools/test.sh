@@ -255,3 +255,5 @@ build/gomory_hu
 
 "$CXX" "${flags[@]}" tests/cut_tree_queries.cpp -o build/cut_tree_queries
 build/cut_tree_queries
+
+python3 tests/gomory_hu_application.py
