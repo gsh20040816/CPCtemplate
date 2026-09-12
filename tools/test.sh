@@ -286,3 +286,6 @@ build/kth_residue
 
 "$CXX" "${flags[@]}" tests/prime_power_roots.cpp -o build/prime_power_roots
 build/prime_power_roots
+
+"$CXX" "${flags[@]}" tests/composite_roots.cpp -o build/composite_roots
+build/composite_roots

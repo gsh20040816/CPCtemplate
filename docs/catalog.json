@@ -276,6 +276,12 @@
     "solve(a,k,p,e,g) 求 x^k≡a (mod p^e)。p 是素数，e≥1，p^e≤1e12，k 为正 unsigned long long；a 为 signed long long。奇素数须提供模 p^e 的原根 g；p=2 时不使用 g。无解返回 nullopt，否则 size() 返回解数，get(i,j,lift) 返回指定根，范围是 count[0]、count[1]、lifts，全部组合无重复且无遗漏。字段 first、ratio[2]、step 描述乘法根族与加法提升；step*lifts=p^e。原根与素性由调用者保证。期望 O(√(p^e)) 时间和空间；单次 get 为 O(log(p^e))，不强制展开全部根。依赖离散对数、线性同余及模幂。传统接口 Prime_Power_Roots::Solve、Size、Get。"
   ],
   [
+    "composite_roots",
+    "CompositeRoots",
+    "一般合数模高次剩余：CRT 组合与按索引取根",
+    "solve(a,k,factors) 求 x^k≡a (mod M)，factors 是完整且素数互异的 (p,e,g) 列表，M 为所有 p^e 的乘积，M≤1e12，k 为正 unsigned long long，a 为 signed long long。奇素数的 g 是模 p^e 原根；p=2 时填 0。无解返回 nullopt，否则 mod=M、total 为解数，get(index) 在 0≤index<total 上取出每个根恰好一次，不按数值排序。空因子列表表示模 1，唯一标准代表为 0。依赖 PrimePowerRoots 和模逆元；不负责分解模数或寻找原根。预处理的主要成本是各素数幂的 BSGS；get 为 O(F log M)，F 为不同素因子数。无需展开全部根，parts 和 weight 保存局部根族及 CRT 系数。传统接口 Composite_Roots::Solve、Get。"
+  ],
+  [
     "interpolation",
     "Lagrange",
     "拉格朗日插值与连续点优化",

@@ -798,7 +798,7 @@ $a$ 支持完整 signed long long，先正规化。
 
 这是 \href{https://oi-wiki.org/math/number-theory/residue/}{OI Wiki 高次剩余} 中
 离散对数转线性同余方法的素数模实现。
-素数幂及非互素被开方数见下一节；一般合数模数与改良 Tonelli--Shanks 尚需另补，
+素数幂及非互素被开方数见下一节；一般合数模数见后文；改良 Tonelli--Shanks 尚需另补，
 不能把本节状态解读为该页面全部覆盖。
 
 \clearpage
@@ -844,4 +844,40 @@ $0\le\ell<\texttt{lifts}$。
 另测有符号与无符号 64 位边界、$2^{39}$ 的非平凡离散对数、
 $3^{20}$ 的非互素方程，以及数千亿根的紧凑表示。
 普通与 ASan/UBSan 均通过；尚无专门在线 AC。
-一般合数的 CRT 组合与改良 Tonelli--Shanks 仍未完成，OI Wiki 页面继续标记部分覆盖。
+一般合数的 CRT 组合见下一节；改良 Tonelli--Shanks 仍未完成，OI Wiki 页面继续标记部分覆盖。
+
+\clearpage
+\section{一般合数模高次剩余：CRT 组合}
+实现见第~\pageref{compact-CompositeRoots}~页。
+调用者提供完整分解 $M=\prod_{t=0}^{F-1}m_t$，其中 $m_t=p_t^{e_t}$ 两两互素，
+并提供每个奇素数幂的原根。先分别求局部根族；任一局部无解，整体即无解。
+若局部根数为 $c_t$，则整体根数为 $\prod_t c_t$。
+只保存局部根族，不创建这个大小的数组。
+
+对每个因子预处理
+\[
+E_t=\frac M{m_t}\left(\left(\frac M{m_t}\right)^{-1}\bmod m_t\right)\bmod M.
+\]
+对一组局部根 $r_t$，唯一对应的标准代表是
+\[
+x=\sum_t r_tE_t\bmod M.
+\]
+逆元存在是因为因子两两互素。
+\texttt{get(index)} 将索引按各个 $c_t$ 转成混合进制数字，
+再把局部索引拆成两个乘法根族索引和加法提升索引，最后用上述公式组合。
+CRT 双射保证不重复、不遗漏，输出顺序不保证递增。
+
+$M\le10^{12}$，$k>0$；空因子列表表示 $M=1$，返回唯一代表 0。
+\texttt{mod} 保存模数，\texttt{total} 保存总解数，
+\texttt{parts} 和 \texttt{weight} 保存局部根族与 $E_t$。
+模数乘积检查上界，CRT 的乘积先扩展至 128 位。
+单次按索引查询为 $O(F\log M)$；求解的主要时间和空间为局部 BSGS，
+本接口不包含整数分解与原根搜索的成本。
+
+已对 $1\le M\le180$、所有被开方数与小指数直接枚举所有根，
+与两套代码的完整输出集合比较，并反转因子顺序重新检查。
+另覆盖有符号与无符号 64 位边界、混合素数幂上的非互素方程和大量零根，
+以及十一种不同素因子组成模数时的全部 1024 个平方根。
+普通与 ASan/UBSan 均通过；尚无专门在线 AC。
+至此已有已知分解及原根时的 BSGS 求根路线，
+更快的改良 Tonelli--Shanks 等内容仍未覆盖，OI Wiki 条目保留部分完成状态。

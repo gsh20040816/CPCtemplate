@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T09:02:51.015204+00:00",
+  "recorded_at_utc": "2026-09-12T09:07:56.513640+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -197,7 +197,10 @@
       "Kth residue dual exhaustive root sets and primitive roots, signed/uint64 extremes, planted large roots and compressed 998244352 roots PASS",
       "",
       "Incremental prime-power root families; unchanged-module evidence retained from 6784fc7:",
-      "Prime-power roots dual exhaustive nonunit/unit root sets, 2-adic sign group, uint64 exponents and compressed large lifts PASS"
+      "Prime-power roots dual exhaustive nonunit/unit root sets, 2-adic sign group, uint64 exponents and compressed large lifts PASS",
+      "",
+      "Incremental composite root CRT families; unchanged-module evidence retained from c75ec8a:",
+      "Composite roots dual exhaustive CRT root sets, reordered factors, modulus one, signed/uint64 extremes and large mixed factors PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -393,7 +396,10 @@
       "Kth residue dual exhaustive root sets and primitive roots, signed/uint64 extremes, planted large roots and compressed 998244352 roots PASS",
       "",
       "Incremental prime-power root families; unchanged-module evidence retained from 6784fc7:",
-      "Prime-power roots dual exhaustive nonunit/unit root sets, 2-adic sign group, uint64 exponents and compressed large lifts PASS"
+      "Prime-power roots dual exhaustive nonunit/unit root sets, 2-adic sign group, uint64 exponents and compressed large lifts PASS",
+      "",
+      "Incremental composite root CRT families; unchanged-module evidence retained from c75ec8a:",
+      "Composite roots dual exhaustive CRT root sets, reordered factors, modulus one, signed/uint64 extremes and large mixed factors PASS"
     ]
   },
   "sha256": {
@@ -410,6 +416,7 @@
     "src/classic/circle_polygon.hpp": "f4f712776c912de2620cb0c9783614535e8682b1c7fb88c8e63f22526de0a4e4",
     "src/classic/circle_tangents.hpp": "db6aac873514b3c4fc8ccb2a281e740694dad95d7382c213fdc1ddf513d5ed03",
     "src/classic/closest_pair.hpp": "33c9428f1fb11022befed871c30621b43b5c85e34c80634557f0aa79e10ffbf8",
+    "src/classic/composite_roots.hpp": "2780dbd2612bbec14c44d16f2ac4360b0d313b9cfd065dd6db7e4a42db561ae5",
     "src/classic/coprime_pairs.hpp": "336da5fa9e0a13f323e5bc62da4cbe1c71ebc55c46495bd8dc91efc33431e8e1",
     "src/classic/cut_tree_queries.hpp": "ca7ddbef43ccc83040eed16c0e5fcc4521d08993857a35900b5aa06c8daa85bf",
     "src/classic/data_structure.hpp": "c22a85ed4ea5c3a458f4febf18549d611045a255cabe429189debd92113f0a70",
@@ -487,6 +494,7 @@
     "src/compact/circle_polygon.hpp": "7b24b26b0466dfa397da3138528af6f378523a38b09415230c46616cfbea988e",
     "src/compact/circle_tangents.hpp": "20521fda102a5dd85a530a0b666019e79ad3f46a5345619b2559da1a93123a2a",
     "src/compact/closest_pair.hpp": "aed3eca3436e8e6e63d6a52d545c06e3eef0d529ba3af823f88e84fa6598a96b",
+    "src/compact/composite_roots.hpp": "65bdfda967bd1599ec186b5e299c49bd088c00a08e4eaa6e2430cebaa0c63b14",
     "src/compact/coprime_pairs.hpp": "c00ee31e1bfffb415c2cc411e049752d306deb5a6c4f9611b5490497cd6c4094",
     "src/compact/cut_tree_queries.hpp": "0aef44e11004d4d2d9eac16a4ae9354f820a38e0b53b3b7ccbbe3a9146dab27f",
     "src/compact/data_structure.hpp": "ffbb46b60f707a3ed44838329a8f7eefbd6cba4c2b64d30ed8a62f207e73327e",
@@ -572,6 +580,7 @@
     "tests/classic.cpp": "3bc4c9421e6c96b93dbd97dfc38f09fcbe7596b2cdf24eecf7bb2f2652ba462a",
     "tests/closest_pair.cpp": "aabad79b7f3d6d4f5e4eae42a1469502d63b6c8b991d4fe3fcbd95dbf30a0ddd",
     "tests/closest_pair_application.py": "8e04f73a0956e19226c59c27515e28639618c8935e373f3ce2cf85f3cb0a9603",
+    "tests/composite_roots.cpp": "29513ecf8a689c4eb75c4999d3be1b7f9fda79205864095022204dc10be6db64",
     "tests/coprime_pairs.cpp": "3c858085c98ec3eb567da8a7fb3d2f960aef49bb1f18a6341d3ac2d91dd23b1a",
     "tests/coprime_pairs_application.py": "00e09639f89899f7efe22a47d3b8955c9fc3004682b1faf947ea2307fbe63473",
     "tests/crt.cpp": "cf2ac8fd470bae001f8a543dc71d0b82ec059e44478ab5fb59f1c288ca64dd54",
