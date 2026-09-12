@@ -311,3 +311,7 @@ build/ntt_convolution
 "$CXX" "${flags[@]}" tests/stirling167.cpp -o build/stirling167
 build/stirling167
 python3 tests/stirling_application.py
+
+"$CXX" "${flags[@]}" tests/bostan_mori.cpp -o build/bostan_mori
+build/bostan_mori
+python3 tests/bostan_mori_application.py

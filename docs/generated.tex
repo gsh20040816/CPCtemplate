@@ -1208,13 +1208,29 @@ berlekamp\_massey(s,p) 要求 p 为素数，2$\le$p$\le$INT\_MAX，输入均在 
 
 \lstinputlisting[firstline=7,lastline=53]{../src/compact/recurrence.hpp}
 
-\Needspace{636pt}
+\Needspace{640pt}
 
 \section{特征多项式求线性递推第 k 项}\label{compact-recurrence_nth}\index{recurrence\_nth}
 
-recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。init 与 c 长度均为阶数 k；a[i]=$\sum$ c[j-1]a[i-j]。2$\le$p$\le$INT\_MAX，数值均在 [0,p)，本函数允许合数模数。空系数约定全零序列。计算 x\textasciicircum{}n 对特征多项式取余再与初值点乘，O(k$^{2}$ log(n+1)) 时间、O(k) 空间；不依赖 BM 或其他模板。较大阶数需快速多项式或 Bostan--Mori 版本，当前函数不覆盖该复杂度需求。
+recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。init 与 c 长度均为阶数 k；a[i]=$\sum$ c[j-1]a[i-j]。2$\le$p$\le$INT\_MAX，数值均在 [0,p)，本函数允许合数模数。空系数约定全零序列。计算 x\textasciicircum{}n 对特征多项式取余再与初值点乘，O(k$^{2}$ log(n+1)) 时间、O(k) 空间；不依赖 BM 或其他模板。较大阶数可使用本库 BostanMori::recurrence，须满足其 NTT 素数模数与容量条件；本函数允许合数模数。
 
 \lstinputlisting[firstline=57,lastline=107]{../src/compact/recurrence.hpp}
+
+\chapter{快速线性递推}
+
+\Needspace{653pt}
+
+\section{快速递推与有理生成函数单项}\label{compact-BostanMori}\index{BostanMori}
+
+BostanMori<mod=998244353,primitive=3>，依赖参数化 NTT；素数模数与原根条件同 NttConvolution。Poly 为升幂系数 vector<Z>。coefficient(p,q,n) 返回 [x\textasciicircum{}n]p(x)/q(x)，q 非空且 q[0]$\ne$0，p 可空或次数不小于 q；令 d=max(p.size(),q.size())，要求 2d-1$\le$NTT::max\_size。recurrence(init,c,n) 返回 a[n]，从下标 k 起 a[i]=c[0]a[i-1]+…+c[k-1]a[i-k]，init、c 长度均为 k；k=0 约定全零。非初值查询要求 2k+1$\le$NTT::max\_size。n 支持完整 unsigned long long。每轮两次卷积后抽取奇偶项，O(d log d log(n+1)) 时间、O(d) 空间；递推接口 d=k+1。传统接口 Bostan\_Mori::Coefficient / Recurrence。
+
+\lstinputlisting[firstline=4,lastline=33]{../src/compact/bostan_mori.hpp}
+
+\newpage
+
+\noindent 从初值构造递推生成函数（接上页同一结构体）：
+
+\lstinputlisting[firstline=34,lastline=52,firstnumber=31]{../src/compact/bostan_mori.hpp}
 
 \part{传统接口风格}
 
@@ -2502,10 +2518,26 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 
 \lstinputlisting[firstline=7,lastline=53]{../src/classic/recurrence.hpp}
 
-\Needspace{636pt}
+\Needspace{640pt}
 
 \section{特征多项式求线性递推第 k 项}\label{classic-recurrence_nth}\index{Recurrence\_Nth}
 
 算法约束见动态版本第~\pageref{compact-recurrence_nth}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=57,lastline=107]{../src/classic/recurrence.hpp}
+
+\chapter{快速线性递推}
+
+\Needspace{653pt}
+
+\section{快速递推与有理生成函数单项}\label{classic-BostanMori}\index{Bostan\_Mori}
+
+算法约束见动态版本第~\pageref{compact-BostanMori}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=4,lastline=33]{../src/classic/bostan_mori.hpp}
+
+\newpage
+
+\noindent 从初值构造递推生成函数（接上页同一结构体）：
+
+\lstinputlisting[firstline=34,lastline=52,firstnumber=31]{../src/classic/bostan_mori.hpp}

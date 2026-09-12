@@ -1269,5 +1269,47 @@
       "Ntt_Convolution<167772161,3>::Multiply"
     ],
     "note": "All 10 cases accepted; unsigned first-kind full row for 1<=n<262144 modulo 167772161. Uses recursive doubling and polynomial Taylor shift. Other moduli, n=0 and second-kind rows are not covered by this acceptance."
+  },
+  {
+    "problem": "Luogu P4723",
+    "style": "compact",
+    "algorithm": "BostanMori<>::recurrence",
+    "record": "https://www.luogu.com.cn/record/297628790",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "4.53s",
+    "max_case_time_ms": 907,
+    "memory": "2.52MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4723.compact.cpp",
+    "submitted_source": "verification/submitted/P4723.compact.cpp",
+    "submitted_sha256": "2e0e9b62c95625bbf668885975b4e7e7c67655d6ec7ab63e54c7d44e1d999a97",
+    "tested_api": [
+      "BostanMori<998244353,3>::recurrence",
+      "BostanMori<998244353,3>::coefficient with recurrence-generated P/Q"
+    ],
+    "note": "All 5 cases accepted; n<=1e9, k<=32000, signed inputs within [-1e9,1e9], modulus 998244353. General rational numerators/denominators, other moduli, empty recurrence and full uint64 indices have separate local evidence; unrelated bundled number-theory APIs are not covered."
+  },
+  {
+    "problem": "Luogu P4723",
+    "style": "classic",
+    "algorithm": "Bostan_Mori<>::Recurrence",
+    "record": "https://www.luogu.com.cn/record/297629192",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "4.52s",
+    "max_case_time_ms": 905,
+    "memory": "2.62MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4723.classic.cpp",
+    "submitted_source": "verification/submitted/P4723.classic.cpp",
+    "submitted_sha256": "8ce86dd40e98bc0d2ea2e9bf32a862e06ccb5bdad67ec84bfb7226904f1dabbe",
+    "tested_api": [
+      "Bostan_Mori<998244353,3>::Recurrence",
+      "Bostan_Mori<998244353,3>::Coefficient with recurrence-generated P/Q"
+    ],
+    "note": "All 5 cases accepted; n<=1e9, k<=32000, signed inputs within [-1e9,1e9], modulus 998244353. General rational numerators/denominators, other moduli, empty recurrence and full uint64 indices have separate local evidence; unrelated bundled number-theory APIs are not covered."
   }
 ]

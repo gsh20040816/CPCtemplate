@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T10:14:43.074759+00:00",
+  "recorded_at_utc": "2026-09-12T10:27:37.324427+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -224,7 +224,10 @@
       "",
       "Incremental Stirling first-kind recursive doubling and Taylor shift; unchanged-module evidence retained from bf38599:",
       "Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS",
-      "Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS"
+      "Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS",
+      "",
+      "Incremental Bostan-Mori checks; unchanged-module evidence retained from 45c8b41:",
+      "Bostan-Mori dual rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -447,7 +450,10 @@
       "",
       "Incremental Stirling first-kind recursive doubling and Taylor shift; unchanged-module evidence retained from bf38599:",
       "Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS",
-      "Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS"
+      "Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS",
+      "",
+      "Incremental Bostan-Mori checks; unchanged-module evidence retained from 45c8b41:",
+      "Bostan-Mori dual rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS"
     ]
   },
   "sha256": {
@@ -458,6 +464,7 @@
     "src/classic/batch_inverse.hpp": "9924703ca6b143ddf82010c16a124ee2150efa8eb2ccfaa8521a8fd3cb38958e",
     "src/classic/biconnected.hpp": "e4a8f7cd76bb572039bf1f41c0d46d222a9dbb4a0a5aec616c51da01abf82024",
     "src/classic/blossom.hpp": "adfc09ded1ac63d2aedc274f12e61a72609328c48ca04af9deea782b32550790",
+    "src/classic/bostan_mori.hpp": "5ad9f7c5737cc974a4ced45abe96a3e7c66235cdc4e6a44edfb5f39b6751b1e8",
     "src/classic/bridge_augmentation.hpp": "b7e30903a84e6c109d116a9764ac408ff0a13982d682ac12a26822c3115e10ae",
     "src/classic/carmichael.hpp": "3b932372bc1560bd43393b0cb5786a2aa70375782be440f50c73ad74a7989440",
     "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
@@ -542,6 +549,7 @@
     "src/compact/batch_inverse.hpp": "2399bd79024153bc4a77e0c8fad2bdc7c287e46a0efbb582b9bd967192401ea9",
     "src/compact/biconnected.hpp": "6ad20e935bbb4f3f41349dd54076910b2ccc91a05522325f65b53e064074313c",
     "src/compact/blossom.hpp": "1c0f9fe674d3228d8a2ee3aa2b081cbad202184c14011583774f22fff484d982",
+    "src/compact/bostan_mori.hpp": "5ae1dcac67ac40d7dee51369069b4de9e7150c4f3df9a9b7e9e02d07c6d6ac3e",
     "src/compact/bridge_augmentation.hpp": "94b53ae35023a8e157749c97a7406d9d805d823e103feea18046d9072b9b203a",
     "src/compact/carmichael.hpp": "c96eb5a60b9a7c3c7613259a990dc06d8cd755efdebea82b854d575615bcdf73",
     "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
@@ -628,6 +636,8 @@
     "tests/biconnected.cpp": "de4fa6a9a028408879922a15c0cbe19b80f87ed7be2e274f36766dfb0ed4739f",
     "tests/binomial.cpp": "31b2ce11f9cf240e8767b0f5fc0a70edd5fee340b4ab41099a304ce3ab7cdd6e",
     "tests/blossom.cpp": "93361601e543fe63e84deccd84e5148b39de9fa919eda4345c18e5f653cf1f96",
+    "tests/bostan_mori.cpp": "80bde201391024aded4e8340250514f96924421f4997efa6f14df6984f65ffc6",
+    "tests/bostan_mori_application.py": "526b5998011c20057941f621e0ee4cd08c62be8fd29599987a4fb4d8b2694dc9",
     "tests/boundaries.cpp": "a956e11355fbf66131d6cd3ff8eee37b19d2a2d7077d75d317eea53742797dba",
     "tests/bridge_augmentation.cpp": "b6d567a637fa3a80bd0526cc8b932ff80ae8d6679d014b09ba35f5f6e78b8125",
     "tests/bridge_augmentation_application.py": "f43cffa6f6bbf9ffa6f88009416637aec3c24b0c4eb6828417dcf717d7589af4",
