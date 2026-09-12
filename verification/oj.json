@@ -1145,5 +1145,45 @@
       "Enclosing_Circle::Solve radius and center"
     ],
     "note": "All 10 cases accepted; n<=100000, |coordinates|<=10000 with at most two decimal places, SPJ checks radius and center. Empty input, multiple shuffle seeds and additional degeneracies have separate local evidence. Unused bundled geometry APIs are not covered by this acceptance."
+  },
+  {
+    "problem": "Luogu P6178",
+    "style": "compact",
+    "algorithm": "MatrixTree<1000000007>::count",
+    "record": "https://www.luogu.com.cn/record/297619886",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "517ms",
+    "max_case_time_ms": 64,
+    "memory": "2.85MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P6178.compact.cpp",
+    "submitted_source": "verification/submitted/P6178.compact.cpp",
+    "submitted_sha256": "7e4560f3e4e5ec1b5b83f8beff409a5832a268bfc95f9ecf5313ca4bd0108d3f",
+    "tested_api": [
+      "MatrixTree<1000000007>::count undirected / away_from_root"
+    ],
+    "note": "All 11 cases accepted: 6 undirected and 5 directed outward-root-1 cases; n<=300, m<=100000, positive weights<=1e9, parallel edges and loops allowed. Other roots, inward trees, signed/zero weights and small prime moduli have separate local evidence. Other bundled algebra/number-theory APIs are not covered."
+  },
+  {
+    "problem": "Luogu P6178",
+    "style": "classic",
+    "algorithm": "Matrix_Tree<1000000007>::Count",
+    "record": "https://www.luogu.com.cn/record/297620263",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "512ms",
+    "max_case_time_ms": 62,
+    "memory": "2.40MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P6178.classic.cpp",
+    "submitted_source": "verification/submitted/P6178.classic.cpp",
+    "submitted_sha256": "d368a37ff198c9ab86af761cff133462c6bc2b75effd6732949c1bb540f14c39",
+    "tested_api": [
+      "Matrix_Tree<1000000007>::Count undirected / away_from_root"
+    ],
+    "note": "All 11 cases accepted: 6 undirected and 5 directed outward-root-1 cases; n<=300, m<=100000, positive weights<=1e9, parallel edges and loops allowed. Other roots, inward trees, signed/zero weights and small prime moduli have separate local evidence. Other bundled algebra/number-theory APIs are not covered."
   }
 ]
