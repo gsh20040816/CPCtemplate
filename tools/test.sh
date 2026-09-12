@@ -270,3 +270,6 @@ build/geometry_3d
 "$CXX" "${flags[@]}" tests/closest_pair.cpp -o build/closest_pair
 build/closest_pair
 python3 tests/closest_pair_application.py
+
+"$CXX" "${flags[@]}" tests/circle_tangents.cpp -o build/circle_tangents
+build/circle_tangents

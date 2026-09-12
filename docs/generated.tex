@@ -934,6 +934,22 @@ bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}
 
 \lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/compact/halfplanes.hpp}
 
+\chapter{圆的切线}
+
+\Needspace{499pt}
+
+\section{两圆公切线与过点切线}\label{compact-CircleTangents}\index{CircleTangents}
+
+solve(a,b,eps) 返回 Result，包含 infinite 和 lines；infinite 为真表示无穷多条，否则 lines 给出全部切线。每条 Tangent 保存切点 a、b，单位法向量 normal，以及 side。a、b 对应输入两圆，直线方程 dot(normal,x-a)=0；切点相同时仍有效。side=1 外公切线、-1 内公切线、0 两个不同点。半径零表示点，from\_point(p,c,eps) 等价于第一圆取点，圆上切点读 b。输入有限，坐标及半径绝对值$\le$1e100，半径非负。eps 默认 1e-12，用于相对圆心距的近相切判断；近相切可能合并为一条，浮点坐标仍有舍入误差。严格同心等半径时 infinite=true，包括同一点；同心不等半径返回空。O(1)；依赖浮点几何的 Point/Circle、点运算及 norm/perp。传统接口 Circle\_Tangents::Solve、From\_Point。
+
+\lstinputlisting[firstline=4,lastline=33]{../src/compact/circle_tangents.hpp}
+
+\newpage
+
+\noindent 内外公切线枚举（接上页同一函数）：
+
+\lstinputlisting[firstline=34,lastline=62,firstnumber=31]{../src/compact/circle_tangents.hpp}
+
 \chapter{浮点最近点对}
 
 \Needspace{595pt}
@@ -2045,6 +2061,22 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \noindent 接上页同一结构体与函数：
 
 \lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/classic/halfplanes.hpp}
+
+\chapter{圆的切线}
+
+\Needspace{499pt}
+
+\section{两圆公切线与过点切线}\label{classic-CircleTangents}\index{Circle\_Tangents}
+
+算法约束见动态版本第~\pageref{compact-CircleTangents}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=4,lastline=33]{../src/classic/circle_tangents.hpp}
+
+\newpage
+
+\noindent 内外公切线枚举（接上页同一函数）：
+
+\lstinputlisting[firstline=34,lastline=62,firstnumber=31]{../src/classic/circle_tangents.hpp}
 
 \chapter{浮点最近点对}
 
