@@ -178,3 +178,6 @@ build/lucas
 
 "$CXX" "${flags[@]}" tests/primitive_root.cpp -o build/primitive-root
 build/primitive-root
+
+"$CXX" "${flags[@]}" tests/carmichael.cpp -o build/carmichael
+build/carmichael

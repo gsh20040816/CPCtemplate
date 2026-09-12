@@ -119,8 +119,47 @@ $\varphi(n)/\gcd(t,\varphi(n))$，所以枚举与 $\varphi(n)$ 互素的指数�
 本地验证穷举小模数的幂循环，与双版本的阶、最小值和完整集合逐项比较；
 另验证大素数、奇素数幂、无原根合数和有符号输入边界。
 P6091 的完整程序输出排序后第 $d,2d,\ldots$ 个原根，零个输出时仍保留空行；在线 AC 待补。
-这里覆盖阶与原根算法，Carmichael 函数及其相关定理仍待补充。
+若 $d=\operatorname{ord}_n(a)$，则 $\operatorname{ord}_n(a^k)=d/\gcd(d,k)$。
+两个可逆元素乘积的阶整除各自阶的最小公倍数；两阶互素时，乘积的阶等于两阶之积。
 来源：\url{https://oi-wiki.org/math/number-theory/primitive-root/}；kuangbin 2.17。
+
+\section{Carmichael：最小公共指数}\index{Carmichael}\index{Korselt criterion}
+$\lambda(n)$ 是模 $n$ 的所有可逆元素之阶的最小公倍数，约定 $\lambda(1)=1$。
+它整除 $\varphi(n)$，但可以严格更小，例如 $\lambda(8)=2$ 而 $\varphi(8)=4$。
+按互素的素数幂分解 $n=\prod_i p_i^{e_i}$ 后，由 CRT，
+对每个分量同时成立的幂等式也对 $n$ 成立，因此
+\[
+\lambda(n)=\operatorname{lcm}_i\lambda(p_i^{e_i}),\qquad
+\lambda(p^e)=
+\begin{cases}
+2^{e-2},&p=2,\ e\ge3,\\
+p^{e-1}(p-1),&\text{其他情形}.
+\end{cases}
+\]
+奇素数幂的单位群有原根，公共指数即其大小。
+模 $2^e$ 的奇数可表示为 $\pm5^k$，当 $e\ge3$ 时 5 的阶为 $2^{e-2}$，
+这给出二幂情形的上界和达到上界的元素。
+实现见第~\pageref{compact-carmichael}~页，试除版本适用于有符号 32 位正模数。
+
+对可逆底数可把指数对 $\lambda(n)$ 取模；非互素底数仍须另行处理。
+例如模 8 下 $2^2=4$，但 $2^{2\bmod\lambda(8)}=1$，直接降幂会错误。
+另有 $\lambda(\operatorname{lcm}(a,b))=\operatorname{lcm}(\lambda(a),\lambda(b))$，
+这也提供了独立的组合检查条件。
+
+合数 $n$ 是 Carmichael 数当且仅当 $\lambda(n)\mid(n-1)$。
+等价的 Korselt 判别是：$n$ 无平方因子，且每个素因子 $p$ 都满足 $(p-1)\mid(n-1)$。
+素数也满足前一整除式，判定时必须排除素数。
+这些合数对所有互素底数都通过 Fermat 判定，不能用单纯的 Fermat 检验代替素性判定。
+无平方因子再配合 CRT，也使所有整数 $a$ 满足 $a^n\equiv a\pmod n$。
+
+双版本以小模数的全部实际阶之最小公倍数对拍，另检验大二幂、奇素数幂、
+32 位边界及公共指数证书。
+
+UVa10006 完整程序对全部合法输入进行本地 Korselt 对拍；在线 AC 待补。
+
+来源：\url{https://oi-wiki.org/math/number-theory/primitive-root/}；
+
+应用题：\url{https://onlinejudge.org/external/100/10006.pdf}。
 
 \section{Lucas：按素数进制逐位计算}\index{Lucas}
 在特征为素数 $p$ 的域中，$(1+x)^p=1+x^p$。

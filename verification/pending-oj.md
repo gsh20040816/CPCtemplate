@@ -78,6 +78,8 @@
 - `verify/poj/3648.compact.cpp`
 - `verify/sgu/101.classic.cpp`
 - `verify/sgu/101.compact.cpp`
+- `verify/uva/10006.classic.cpp`
+- `verify/uva/10006.compact.cpp`
 - `verify/uva/796.classic.cpp`
 - `verify/uva/796.compact.cpp`
 
