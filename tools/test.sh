@@ -263,3 +263,6 @@ build/halfplanes
 
 "$CXX" "${flags[@]}" tests/geometry_extra_audit.cpp -o build/geometry_extra_audit
 build/geometry_extra_audit
+
+"$CXX" "${flags[@]}" tests/geometry_3d.cpp -o build/geometry_3d
+build/geometry_3d

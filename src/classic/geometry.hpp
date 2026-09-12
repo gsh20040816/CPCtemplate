@@ -68,16 +68,16 @@ struct Integer_Geometry
     static bool Intersect(Point a, Point b, Point c, Point d)
     {
         int x = Sign(Cross(a, b, c)), y = Sign(Cross(a, b, d));
-        int Z_Function = Sign(Cross(c, d, a)), w = Sign(Cross(c, d, b));
+        int z = Sign(Cross(c, d, a)), w = Sign(Cross(c, d, b));
         if ( !x && On_Segment(c, a, b) )
             return true;
         if ( !y && On_Segment(d, a, b) )
             return true;
-        if ( !Z_Function && On_Segment(a, c, d) )
+        if ( !z && On_Segment(a, c, d) )
             return true;
         if ( !w && On_Segment(b, c, d) )
             return true;
-        return x * y < 0 && Z_Function * w < 0;
+        return x * y < 0 && z * w < 0;
     }
 
     static vector<Point> Convex_Hull(vector<Point> p)

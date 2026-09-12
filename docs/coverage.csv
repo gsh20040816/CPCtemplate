@@ -255,15 +255,15 @@ WIDA,02 - 打印稿模板汇总/06A - 几何.md,,二维凸包,pending,,,
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,获取二维静态凸包（Andrew算法）,pending,,,
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,二维动态凸包,pending,,,
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,点与凸包的位置关系,pending,,,
-WIDA,02 - 打印稿模板汇总/06A - 几何.md,,闵可夫斯基和,pending,,,
+WIDA,02 - 打印稿模板汇总/06A - 几何.md,,闵可夫斯基和,partial,src/compact/geometry_extra.hpp,src/classic/geometry_extra.hpp,Exact integer strict-CCW hull sum with empty/point/segment handling; dual cpp_int gift-wrap oracle and 40001-vertex self sum; floating inputs pending; no dedicated OJ AC
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,半平面交,partial,src/compact/halfplanes.hpp,src/classic/halfplanes.hpp,"Exact integer bounded positive-area variant: tests/halfplanes.cpp cpp_int pair-intersection oracle; 5000 random bounded systems, parallel/zero-area/billion coefficients, 100000 redundant constraints; floating variant and general unbounded classification remain pending; no OJ AC"
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,三维几何必要初始化,pending,,,
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,点线面封装,pending,,,
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,其他函数,pending,,,
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,三维点线面相关,pending,,,
-WIDA,02 - 打印稿模板汇总/06A - 几何.md,,空间三点是否共线,pending,,,
-WIDA,02 - 打印稿模板汇总/06A - 几何.md,,四点是否共面,pending,,,
-WIDA,02 - 打印稿模板汇总/06A - 几何.md,,空间点是否在线段上,pending,,,
+WIDA,02 - 打印稿模板汇总/06A - 几何.md,,空间三点是否共线,partial,src/compact/geometry_extra.hpp,src/classic/geometry_extra.hpp,Integer collinear for |coordinate|<=1e9; dual cpp_int minor oracle; floating variant pending; no dedicated OJ AC
+WIDA,02 - 打印稿模板汇总/06A - 几何.md,,四点是否共面,partial,src/compact/geometry_extra.hpp,src/classic/geometry_extra.hpp,Integer orient==0 for |coordinate|<=1e9; dual independent cpp_int 4x4 determinant oracle; floating variant pending; no dedicated OJ AC
+WIDA,02 - 打印稿模板汇总/06A - 几何.md,,空间点是否在线段上,partial,src/compact/geometry_extra.hpp,src/classic/geometry_extra.hpp,"Integer inclusive on_segment, including zero-length segments; dual minor/coordinate-interval oracle; floating and dedicated strict-interior interface pending; no dedicated OJ AC"
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,空间两点是否在线段同侧,pending,,,
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,两点是否在平面同侧,pending,,,
 WIDA,02 - 打印稿模板汇总/06A - 几何.md,,空间两直线是否平行/垂直,pending,,,
@@ -697,7 +697,7 @@ kuangbin,ACM template (2018),213,6.3 插头 DP,pending,,,
 kuangbin,ACM template (2018),213,6.3.1 HDU 4285,pending,,,
 kuangbin,ACM template (2018),218,7.1 二维几何,pending,,,
 kuangbin,ACM template (2018),238,7.2 三维几何,pending,,,
-kuangbin,ACM template (2018),242,7.3 平面最近点对,pending,,,
+kuangbin,ACM template (2018),242,7.3 平面最近点对,partial,src/compact/geometry_extra.hpp,src/classic/geometry_extra.hpp,Exact integer recursive closest pair; dual cpp_int oracle and 200000 points; kuangbin floating-coordinate variant still pending; no dedicated OJ AC
 kuangbin,ACM template (2018),243,7.4 三维凸包,pending,,,
 kuangbin,ACM template (2018),243,7.4.1 HDU4273,pending,,,
 kuangbin,ACM template (2018),249,8.1 高精度,pending,,,

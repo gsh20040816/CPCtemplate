@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T08:05:49.608099+00:00",
+  "recorded_at_utc": "2026-09-12T08:08:28.866750+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -176,7 +176,10 @@
       "Integer halfplanes dual cpp_int pair-intersection oracle, parallel/degenerate cases and near-parallel billion coefficients and 100000 redundant constraints PASS",
       "",
       "Incremental dual geometry-extra audit; unchanged-module evidence retained from 9a81caf:",
-      "Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS"
+      "Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS",
+      "",
+      "Incremental dual integer 3D audit and classic coordinate rename; unchanged-module evidence retained from 8e907ae:",
+      "Integer 3D dual cpp_int determinant/minor oracle, exhaustive cube, degenerate segments and billion coordinates PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -351,7 +354,10 @@
       "Integer halfplanes dual cpp_int pair-intersection oracle, parallel/degenerate cases and near-parallel billion coefficients and 100000 redundant constraints PASS",
       "",
       "Incremental dual geometry-extra audit; unchanged-module evidence retained from 9a81caf:",
-      "Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS"
+      "Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS",
+      "",
+      "Incremental dual integer 3D audit and classic coordinate rename; unchanged-module evidence retained from 8e907ae:",
+      "Integer 3D dual cpp_int determinant/minor oracle, exhaustive cube, degenerate segments and billion coordinates PASS"
     ]
   },
   "sha256": {
@@ -381,8 +387,8 @@
     "src/classic/flow.hpp": "bd799ac3debd9806f3b33ac9ac7acce02aa97a9fb7e19f9a0b2c1855e5fcf533",
     "src/classic/garner.hpp": "a564d9677d0753e7286bb41bd3b99dc392f953ffb7eb77209e9b22f8cdfb9d5c",
     "src/classic/gcd_sequence.hpp": "8723618196787697658660b59665baaf1ba060311e57cc42fd8c23ec27234229",
-    "src/classic/geometry.hpp": "4ddc03277a26dcec3472a42eb8277da2d972c1f9198f1b58610d5d51d6f77167",
-    "src/classic/geometry_extra.hpp": "793fa6eec2f6dd0b57829585f91aec872c14c73817978225cb0f914fcea3474c",
+    "src/classic/geometry.hpp": "1cb186d1b1d1432973e4760b9603bb12abdfaf7f31e3afbd039377ef90533cbe",
+    "src/classic/geometry_extra.hpp": "9403f283d34476e50c9e2ae6b1f0308717434b9ea82c8e4c2e999125592076bc",
     "src/classic/gomory_hu.hpp": "05cbc9afd0fac2fc43f3fe894aacece878410f011894420ee5ee4fcfdb6abfc1",
     "src/classic/graph.hpp": "02421d1ceb9e2772e3a6a035844bca46664a2488c7424e1d3b9910b9a0acdb02",
     "src/classic/graph_advanced.hpp": "ee0c31d0ebf0148c902c0af2bbb36adc1dc48124a3401f6136f9743c237706e8",
@@ -549,6 +555,7 @@
     "tests/garner.cpp": "0e78c3ae32b2ad51e2f6696800e145ec5c55c97b0495dcc4fcd99a818a4fd5f6",
     "tests/garner_application.py": "b3b427e4789497966acb50c4653ffbbf05a451225d35bdef0d9c1f3ae8e559d7",
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
+    "tests/geometry_3d.cpp": "ad223ae3259bf3222aeacb3a18c5bc34d1627aad0ce857cbfabbd2452a4616ec",
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
     "tests/geometry_extra_audit.cpp": "76ed386f01ec8744c051a358922e4d3db7e376d7e5bc9c738991e913ed12829d",
     "tests/global_min_cut.cpp": "833783cda9e962873c8b7df3f8bc75276d573f16629820d81ebdc0f914ec7e31",

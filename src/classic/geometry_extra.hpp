@@ -124,29 +124,27 @@ struct Integer_Geometry_3D
     // |coordinates|<=1e9: triple products fit signed int128.
     struct Point
     {
-        long long x, y, Z_Function;
+        long long x, y, z;
     };
 
     struct Vector
     {
-        I x, y, Z_Function;
+        I x, y, z;
     };
 
     static Vector diff(Point a, Point b)
     {
-        return {I(a.x) - b.x, I(a.y) - b.y, I(a.Z_Function) - b.Z_Function};
+        return {I(a.x) - b.x, I(a.y) - b.y, I(a.z) - b.z};
     }
 
     static Vector Cross(Vector a, Vector b)
     {
-        return {a.y * b.Z_Function - a.Z_Function * b.y,
-                a.Z_Function * b.x - a.x * b.Z_Function,
-                a.x * b.y - a.y * b.x};
+        return {a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x};
     }
 
     static I Dot(Vector a, Vector b)
     {
-        return a.x * b.x + a.y * b.y + a.Z_Function * b.Z_Function;
+        return a.x * b.x + a.y * b.y + a.z * b.z;
     }
 
     static I orient(Point a, Point b, Point c, Point d)
@@ -157,7 +155,7 @@ struct Integer_Geometry_3D
     static bool collinear(Point a, Point b, Point c)
     {
         auto v = Cross(diff(b, a), diff(c, a));
-        return !v.x && !v.y && !v.Z_Function;
+        return !v.x && !v.y && !v.z;
     }
 
     static bool On_Segment(Point p, Point a, Point b)

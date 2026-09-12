@@ -76,7 +76,7 @@ for style in ['compact','classic']:
     split=next(i for i in range(start,end) if re.match(r'    static I (value|Value)\(',lines[i]))
     estimate=(split-start)*10.2+100+(len(info)/55)*12
    if estimate<680: body.append(r'\Needspace{'+str(round(estimate))+'pt}')
-   if name in ('SuffixArray','XorBasis'): body.append(r'\newpage')
+   if name in ('SuffixArray','XorBasis','IntegerGeometry3D'): body.append(r'\newpage')
    body.append(r'\section{'+cn+r'}\label{'+style+'-'+name+r'}\index{'+target.replace('_',r'\_')+'}')
    if style=='compact': body.append(esc(info))
    else:
