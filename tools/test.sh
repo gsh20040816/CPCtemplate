@@ -202,3 +202,6 @@ python3 tests/linear_equation_application.py
 "$CXX" "${flags[@]}" tests/linear_congruence.cpp -o build/linear_congruence
 build/linear_congruence
 python3 tests/frog_meeting_application.py
+
+"$CXX" "${flags[@]}" tests/crt_system.cpp -o build/crt_system
+build/crt_system
