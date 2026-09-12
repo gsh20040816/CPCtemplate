@@ -356,3 +356,6 @@ python3 tests/dsu_application.py
 
 "$CXX" "${flags[@]}" tests/modint_composition.cpp -o build/modint_composition
 build/modint_composition
+
+"$CXX" "${flags[@]}" tests/hash_table.cpp -o build/hash_table
+build/hash_table

@@ -25,7 +25,7 @@
 | `SequenceTreap` | [Luogu P3391](https://www.luogu.com.cn/problem/P3391) | 1<=n,m<=100000; 1<=l<=r<=n | [记录](https://www.luogu.com.cn/record/297520211) | 待核验 |
 | `PBDSOrderedTree` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | operations<=100000; \|x\|<=10000000 | 待实现 | 待核验 |
 | `PBDSOrderedTree` | [Luogu P6136](https://www.luogu.com.cn/problem/P6136) | n<=100000; m<=1000000; values<2^30 | 待实现 | 待核验 |
-| `GPHashTable` | [Library Checker associative_array](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; 0<=key,value<=10^18; 5s | 待实现 | 待核验 |
+| `gp_map` | [Library Checker associative_array](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; 0<=key,value<=10^18; 5s | [记录](https://judge.yosupo.jp/submission/401867) | 956 out of 7334（All AC submissions, all users including anonymous, all languages, Dedup user unchecked. Not all verdicts and not per-user best.） |
 | `RopePersistentQueue` | [Library Checker persistent_queue](https://judge.yosupo.jp/problem/persistent_queue) | Q<=500000; -1<=t_i<i; 0<=x<=10^9; 5s | 待实现 | 待核验 |
 | `dsu` | [Luogu P3367](https://www.luogu.com.cn/problem/P3367) | N<=200000; M<=1000000; 1-based task vertices | [记录](https://www.luogu.com.cn/record/297668102) | 待核验 |
 | `Lowlink::add/run/bridge` | [QOJ 995](https://qoj.ac/problem/995) | n<=100000; m<=500000; 1s; 1-based | 待编写驱动/提交 | 待核验 |
@@ -214,13 +214,13 @@ Read an initial multiset, XOR each operand with the last query answer before exe
 
 Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.
 
-### Library Checker associative_array / GPHashTable
+### Library Checker associative_array / gp_map
 
 Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.
 
-Planned gp_hash_table target: assignment 0 k v, lookup 1 k, absent keys return zero. Use 64-bit keys/values; lookup should use find if unintended insertion is undesirable. Official tests include unordered_map killers and sparse-key families. Hash collision performance requires explicit testing, not average-case assumptions alone.
+uint64_t keys and values; assignment uses operator[], lookup uses find and returns zero without insertion. Official online tests include hash-killer and sparse-key families.
 
-Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.
+PBDS ordered trees and rope remain separate work. This AC validates assignment/find only; erase/insert/copy/clear have local evidence.
 
 原始题面与参数：[来源 1](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/associative_array/task.md)，[来源 2](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/associative_array/info.toml)
 

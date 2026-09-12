@@ -1,5 +1,15 @@
 \part{vector 模板}
 
+\chapter{GNU 扩展哈希表}
+
+\Needspace{337pt}
+
+\section{GNU 整数键哈希表}\label{compact-gp_map}\index{gp\_map}
+
+GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp。gp\_map<K,V> 中 K 采用不超过 64 位的整数类型，V 为值类型；默认空表。a[k] 读取或插入默认值，find(k) 查找且不插入，insert(\{k,v\}) 不覆盖已有键，erase(k)、clear()、size()、empty() 沿用容器接口。哈希使用进程内固定随机种子的 64 位混合；算术为无符号回绕，支持有符号整数转为 uint64\_t。不保证抵抗已知种子的恶意构造。通常查改摊还 O(1)，最坏单次 O(n)，空间 O(n)；不提供顺序统计。rehash 会使迭代器失效，修改表后重新 find。默认策略不直接调用 resize，不使用 unordered\_map 的 reserve 接口。用于不存在时返回零的映射，建议 find 后判断 end，避免纯查询扩大表。
+
+\lstinputlisting[firstline=7,lastline=25]{../src/compact/hash_table.hpp}
+
 \chapter{Tarjan 与缩点}
 
 \section{Tarjan 强连通分量与缩点}\label{compact-TarjanSCC}\index{TarjanSCC}

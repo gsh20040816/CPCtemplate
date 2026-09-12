@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-12T15:18:58.254385+00:00",
+  "recorded_at_utc": "2026-09-12T15:31:51.984372+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -286,7 +286,8 @@
       "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS",
       "",
       "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS",
-      "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS"
+      "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS",
+      "gp_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes and million sparse keys PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -548,7 +549,8 @@
       "QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS",
       "",
       "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS",
-      "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS"
+      "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS",
+      "gp_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes and million sparse keys PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -758,6 +760,7 @@
     "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
     "src/compact/graph_advanced.hpp": "3b892063307b0f50f1f373085d40f4e2b7160fb16a23ea8c13ae726fe37c1059",
     "src/compact/halfplanes.hpp": "2b7908c0ad44e6ce91ec1699a0ced13b040e9be6d810e4b342b96d6931106d68",
+    "src/compact/hash_table.hpp": "53d506a2ee27c5a681dc43e7261a969b769f313b6c2d99a354eae259a7d2bfb1",
     "src/compact/interpolation.hpp": "e8fb4f56f4cc5c76a2e1807c9c0d8dfa26b1c1e072b311ac9019613119308e93",
     "src/compact/inverse_table.hpp": "5b0fcc140698c59093a7b5ce9b9356632f11a0fb98d4f47c5ab69d000b69c363",
     "src/compact/kth_residue.hpp": "e9a3ca541f98ef1a3d678dcef2d76de898f41c3423dd5ce514760e424d4546d6",
@@ -887,6 +890,7 @@
     "tests/graph_contracts.cpp": "af13d8fae85417d2e2e8d69de1c073339587eaa7b5f2616a724b61a4ce0fe322",
     "tests/graph_drivers.py": "fc9f74d9b720a30d482026d718dea05054168d81c7e317d7ad82d1078c58ccb6",
     "tests/halfplanes.cpp": "15672ba3f54a0811d47a6f04ccf21806fe7398ff08f644ec70eddd63d63c14d0",
+    "tests/hash_table.cpp": "99124b1a52c99e6a4bc0db30816fa9a377176299305e003421cbfe71617210dd",
     "tests/hld.cpp": "2cb59f85875e3c9c0002b3e0e9ac029c32ae862fc44230a2272e47203af28d6a",
     "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
     "tests/interpolation.cpp": "9f7205163b894fdcc3107da60883c88468c0045d92351eee8f71cc8854cefc76",

@@ -1623,5 +1623,25 @@
       "find"
     ],
     "note": "20 tests; slowest individual test 196ms, UI total 2.02s. find is invoked through merge/same. size/groups and empty construction are covered locally, not by this output. Ranking not audited."
+  },
+  {
+    "problem": "Library Checker associative_array",
+    "style": "compact",
+    "record": "https://judge.yosupo.jp/submission/401867",
+    "verdict": "Accepted",
+    "time_ms": 309,
+    "memory": "73.07 MiB",
+    "source_driver": "verify/library_checker/associative_array.compact.cpp",
+    "submitted_source": "verification/submitted/LC-associative_array.compact.cpp",
+    "submitted_sha256": "341afaf8509717c6fee1d907a24adeff4e27c3b18e7696b11075ba062dafccb5",
+    "date": "2026-09-12",
+    "account": "gsh",
+    "algorithm": "gp_map",
+    "tested_api": [
+      "operator[]",
+      "find",
+      "end"
+    ],
+    "note": "20 tests passed including unordered_map_killer, sparse keys and language-specific killers. Submitted editor source copied back and byte-equal to bundle. erase/insert/copy/clear are locally tested only. At audit time, all-AC time rank 956 out of 7334, tied positions 956-960, dedup disabled; see docs/ranking-audits.json."
   }
 ]

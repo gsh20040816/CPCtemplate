@@ -469,7 +469,7 @@
     "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified."
   },
   {
-    "symbol": "GPHashTable",
+    "symbol": "gp_map",
     "problem": "Library Checker associative_array",
     "title": "Associative Array",
     "url": "https://judge.yosupo.jp/problem/associative_array",
@@ -477,18 +477,28 @@
     "statement_checked": true,
     "checked_date": "2026-09-12",
     "limits": "Q<=1000000; 0<=key,value<=10^18; 5s",
-    "adapter": "Planned gp_hash_table target: assignment 0 k v, lookup 1 k, absent keys return zero. Use 64-bit keys/values; lookup should use find if unintended insertion is undesirable. Official tests include unordered_map killers and sparse-key families. Hash collision performance requires explicit testing, not average-case assumptions alone.",
-    "implementation": "planned_extension",
-    "source": null,
+    "adapter": "uint64_t keys and values; assignment uses operator[], lookup uses find and returns zero without insertion. Official online tests include hash-killer and sparse-key families.",
+    "implementation": "implemented_online_scoped",
+    "source": "src/compact/hash_table.hpp",
     "api": null,
-    "tested_api": [],
-    "ac": null,
+    "tested_api": [
+      "operator[]",
+      "find",
+      "end"
+    ],
+    "ac": "https://judge.yosupo.jp/submission/401867",
     "ranking": {
-      "status": "not_checked",
-      "rank": null,
-      "total": null
+      "status": "verified_all_ac_submissions",
+      "rank": 956,
+      "total": 7334,
+      "tied_positions": [
+        956,
+        960
+      ],
+      "scope": "All AC submissions, all users including anonymous, all languages, Dedup user unchecked. Not all verdicts and not per-user best.",
+      "url": "https://judge.yosupo.jp/submissions/?problem=associative_array&user=&dedupUser=false&status=AC&lang=&order=%2Btime&page=9&pagesize=100"
     },
-    "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.",
+    "remaining": "PBDS ordered trees and rope remain separate work. This AC validates assignment/find only; erase/insert/copy/clear have local evidence.",
     "statement_sources": [
       "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/associative_array/task.md",
       "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/associative_array/info.toml"
