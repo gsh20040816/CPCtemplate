@@ -1097,3 +1097,45 @@ $(1-x)^{-32000}$ 的二项式系数闭式；覆盖完整无符号 64 位下标�
 其他模数、完整 64 位下标与通用有理函数接口的扩展范围由本地测试支持。
 \href{https://oi-wiki.org/math/poly/linear-recurrence/}{OI Wiki 线性递推}
 中的连续区间取项与其他快速算法仍待补，不将单项算法视为整页覆盖。
+
+\clearpage
+\section{集合变换与不相交子集卷积}
+代码见第~\pageref{compact-SetConvolution}~页与
+第~\pageref{compact-subset_convolution}~页。
+长度 $N=2^m$ 确定全集的位数，数组第 $s$ 项对应集合 $s$。
+OR 变换计算 $\widehat a_s=\sum_{t\subseteq s}a_t$，
+AND 变换计算所有超集的和；逆变换将逐位加法改成减法。
+XOR 变换的系数是 $(-1)^{\operatorname{popcount}(s\mathbin{\&}t)}$，
+蝶形将 $(u,v)$ 变为 $(u+v,u-v)$，逆变换每层再除以 2。
+因此 OR、AND 可用于任意模数，XOR 需要 2 可逆；本实现限制为奇数模数，
+使用 $(\mathrm{mod}+1)/2$，不对合数模数使用费马小定理。
+三类卷积均是变换后逐项相乘，再逆变换。
+
+\[
+ c_s=\sum_{t\subseteq s}a_t b_{s\setminus t}
+ \qquad\text{要求两个集合不相交。}
+\]
+普通 OR 卷积允许重叠，不能直接用于上式。
+将输入按集合大小分层，$A_{i,s}=[|s|=i]a_s$，$B$ 同理。
+每层 OR 变换后，对层数做卷积：
+$H_{k,s}=\sum_{i=0}^k\widehat A_{i,s}\widehat B_{k-i,s}$。
+对每个 $k$ 逆 OR 变换，得到并集恰为 $s$、两集合大小之和为 $k$ 的贡献。
+取 $k=|s|$，由 $|u|+|v|=|u\cup v|+|u\cap v|$ 得到交集为空。
+时间 $O(m^22^m)$，空间 $O(m2^m)$；本实现逐层复用结果缓冲区，
+不用第三组二维数组。$m=20$ 时两组分层数组本身占 168 MiB，另计输入和线性缓冲。
+
+验证独立枚举变换系数、所有下标对与子掩码，并检查复合模数与
+\texttt{INT\_MAX} 模数。
+大规模使用 $a_s=x^{|s|}$、$b_s=y^{|s|}$ 的逐位乘积恒等式：
+OR 为 $(x+y+xy)^{|s|}$，AND 为 $(xy)^{|s|}(1+x+y)^{m-|s|}$，
+XOR 为 $(x+y)^{|s|}(1+xy)^{m-|s|}$，不相交子集卷积为 $(x+y)^{|s|}$。
+\href{https://www.luogu.com.cn/problem/P4717}{P4717} 两套版本各 10 点在线 AC：
+\href{https://www.luogu.com.cn/record/297630491}{动态版}和
+\href{https://www.luogu.com.cn/record/297630911}{传统版}，最慢单点 84 ms、81 ms。
+
+\href{https://www.luogu.com.cn/problem/P6097}{P6097} 两套版本各 5 点在线 AC：
+\href{https://www.luogu.com.cn/record/297631186}{动态版}和
+\href{https://www.luogu.com.cn/record/297631585}{传统版}，最大测试点显示 2.70 s、2.69 s，
+内存 188.83 MB、189.00 MB。两题 OJ 仅验证各自题面模数和长度范围，
+其他模数及长度 1 仍由本地独立测试覆盖。
+\href{https://oi-wiki.org/math/poly/fwt/}{OI Wiki FWT} 的其他运算及更广泛应用仍待覆盖。

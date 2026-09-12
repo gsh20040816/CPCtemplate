@@ -315,3 +315,7 @@ python3 tests/stirling_application.py
 "$CXX" "${flags[@]}" tests/bostan_mori.cpp -o build/bostan_mori
 build/bostan_mori
 python3 tests/bostan_mori_application.py
+
+"$CXX" "${flags[@]}" tests/set_convolution.cpp -o build/set_convolution
+build/set_convolution
+python3 tests/set_convolution_application.py

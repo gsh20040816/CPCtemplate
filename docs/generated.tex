@@ -836,11 +836,37 @@ stirling\_first\_row<mod,primitive>(n) 返回无符号 c(n,0..n)，默认模 998
 
 \lstinputlisting[firstline=33,lastline=76]{../src/compact/stirling.hpp}
 
+\chapter{集合变换与卷积}
+
+\Needspace{630pt}
+
+\section{按位 OR、AND、XOR 卷积}\label{compact-SetConvolution}\index{SetConvolution}
+
+SetConvolution<mod=998244353>；Z 为 ModInt<mod>，Poly 为 vector<Z>。数组长度 N 必须是正的 2 次幂且$\le$INT\_MAX，表示固定二进制位数的全集，长度 1 合法。transform(a,op,invert=false) 原地变换，op 只能为 |、\&、\textasciicircum{}；| 为子集和，\& 为超集和，\textasciicircum{} 为 Walsh 变换。multiply(a,b,op) 返回 $\sum$ a[i]b[j]（满足 i op j=s），a、b 长度必须相同。mod 可为$\ge$2 的 int 范围合数；XOR 要求 mod 为奇数，逆 2 用 (mod+1)/2，不使用费马逆元。O(N log N) 时间，原地变换 O(1) 额外空间，卷积 O(N) 空间。传统接口 Set\_Convolution::Transform / Multiply。
+
+\lstinputlisting[firstline=4,lastline=40]{../src/compact/set_convolution.hpp}
+
+\newpage
+
+\noindent 点乘并逆变换（接上页同一结构体）：
+
+\lstinputlisting[firstline=41,lastline=51,firstnumber=38]{../src/compact/set_convolution.hpp}
+
+\chapter{不相交子集卷积}
+
+\Needspace{541pt}
+
+\section{不相交子集卷积}\label{compact-subset_convolution}\index{subset\_convolution}
+
+subset\_convolution<mod=998244353>(a,b) 返回 c[s]=$\sum$ a[t]b[s xor t]，求和枚举 t$\subseteq$s，等价于 i|j=s 且 i\&j=0。依赖 SetConvolution，只使用 OR 变换；mod 为$\ge$2 的 int 范围整数，允许偶数与合数。两个数组长度相同、非空，N=2\textasciicircum{}m$\le$INT\_MAX；长度 1 的结果为 a[0]b[0]。按 popcount 分层，层间普通卷积再逆 OR 变换，保留总层数等于目标集合大小的项。O(m$^{2}$2\textasciicircum{}m) 时间、O(m2\textasciicircum{}m) 空间；两组分层数组约占 8(m+1)2\textasciicircum{}m 字节，另有线性辅助数组。m=20 时仅分层数组约 168 MiB，使用前核对内存。传统函数 Subset\_Convolution。
+
+\lstinputlisting[firstline=5,lastline=44]{../src/compact/subset_convolution.hpp}
+
 \chapter{多项式}
 
 \section{NTT、形式幂级数、FWT 与递推}\label{compact-Polynomial}\index{Polynomial}
 
-依赖 number\_theory.hpp。模数固定 998244353，乘法结果长度$\le$2$^{23}$；inverse 要求 a[0]$\ne$0，log 要求 a[0]=1，exp 要求 a[0]=0，截断长度 n>0。朴素逐层 NTT 实现的 FPS 为 O(n log n)。FWT 的 op 为 \textasciicircum{}、|、\&；BM 返回 s[n]=$\sum$c[i-1]s[n-i] 的系数；recurrence 用 O(k$^{2}$ log n) 求第 n 项。BM 对有限样本给出的递推不自动保证未知后续项成立。
+依赖 number\_theory.hpp。模数固定 998244353，乘法结果长度$\le$2$^{23}$；inverse 要求 a[0]$\ne$0，log 要求 a[0]=1，exp 要求 a[0]=0，截断长度 n>0。朴素逐层 NTT 实现的 FPS 为 O(n log n)。FWT 的 op 为 \textasciicircum{}、|、\&；独立且支持其他模数的接口见 SetConvolution。BM 返回 s[n]=$\sum$c[i-1]s[n-i] 的系数；recurrence 用 O(k$^{2}$ log n) 求第 n 项。BM 对有限样本给出的递推不自动保证未知后续项成立。
 
 \lstinputlisting[firstline=5,lastline=234]{../src/compact/polynomial.hpp}
 
@@ -2123,6 +2149,32 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-stirling_first_row}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=33,lastline=76]{../src/classic/stirling.hpp}
+
+\chapter{集合变换与卷积}
+
+\Needspace{630pt}
+
+\section{按位 OR、AND、XOR 卷积}\label{classic-SetConvolution}\index{Set\_Convolution}
+
+算法约束见动态版本第~\pageref{compact-SetConvolution}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=4,lastline=40]{../src/classic/set_convolution.hpp}
+
+\newpage
+
+\noindent 点乘并逆变换（接上页同一结构体）：
+
+\lstinputlisting[firstline=41,lastline=51,firstnumber=38]{../src/classic/set_convolution.hpp}
+
+\chapter{不相交子集卷积}
+
+\Needspace{541pt}
+
+\section{不相交子集卷积}\label{classic-subset_convolution}\index{Subset\_Convolution}
+
+算法约束见动态版本第~\pageref{compact-subset_convolution}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=44]{../src/classic/subset_convolution.hpp}
 
 \chapter{多项式}
 

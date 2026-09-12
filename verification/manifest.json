@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T10:27:37.324427+00:00",
+  "recorded_at_utc": "2026-09-12T10:46:47.016074+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -227,7 +227,10 @@
       "Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS",
       "",
       "Incremental Bostan-Mori checks; unchanged-module evidence retained from 45c8b41:",
-      "Bostan-Mori dual rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS"
+      "Bostan-Mori dual rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS",
+      "",
+      "Incremental set and subset convolutions; unchanged-module evidence retained from 475ada9:",
+      "Set convolutions dual direct-character and submask oracles, composite moduli, INT_MAX and 18-bit tensor identities PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -453,7 +456,10 @@
       "Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS",
       "",
       "Incremental Bostan-Mori checks; unchanged-module evidence retained from 45c8b41:",
-      "Bostan-Mori dual rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS"
+      "Bostan-Mori dual rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS",
+      "",
+      "Incremental set and subset convolutions; unchanged-module evidence retained from 475ada9:",
+      "Set convolutions dual direct-character and submask oracles, composite moduli, INT_MAX and 18-bit tensor identities PASS"
     ]
   },
   "sha256": {
@@ -527,9 +533,11 @@
     "src/classic/recurrence.hpp": "a71d91ecdcd7c7e2502c655ea5f9fcb2ac03104844ded46bd0afb46450422f67",
     "src/classic/root_factors.hpp": "17c93962890de175118327be36a71e5549b4963c6317600929d73dc09cd64e66",
     "src/classic/segmented_sieve.hpp": "7fddb4cdb731eee9be842aeafa8923fe971a0e67e8c6f2fe9a78d7288741038c",
+    "src/classic/set_convolution.hpp": "75c2f93eda8c15fa1cfcb0ac01b599c08c2a2ac0ee9c6bc4f52ab38e3bb6f8a7",
     "src/classic/splay.hpp": "ba412fda7cd927e9dcab62fa88ee66b59a8cac5b4550bf47699285e8c4522e6b",
     "src/classic/stirling.hpp": "dd7a85c6249165f977698aaa94cc47aeabaad664eb2e1670f7f1d04e46e09066",
     "src/classic/string.hpp": "d199d27567590cebe3b443b572d3b42eae1efeb6f5c80602870ce81695dafb69",
+    "src/classic/subset_convolution.hpp": "d425b8ec170870eabfb52271953e422d17f25581d815ef8659d598f868005540",
     "src/classic/suffix_lcp.hpp": "75480acbb024dca152fe4908ef69cbb68b0d8856a5e031856034b4dd5c84b64a",
     "src/classic/support_hull.hpp": "4ca8f77ad085a9422b536e680b1d98faa31cf5c8216deafaa6f50e97e9401ea3",
     "src/classic/tarjan.hpp": "fbeaaacabbc45e6ad1e90b699c2e839c49c472c4aebf788ba6034f7bd32b8f12",
@@ -611,9 +619,11 @@
     "src/compact/recurrence.hpp": "af9e2e7bdefe5586b6f68758c76e3b9402047c0725bf4d07028837446a1fe2d5",
     "src/compact/root_factors.hpp": "2cbdb4d70ea15f2ee480efce8e371dc4dbc61a4bb339c7f1fc41ea34aadc0cbb",
     "src/compact/segmented_sieve.hpp": "7de3f5a42d0115a933d1934b653d13428b668d8ac6dff0b7f554ef01931269ae",
+    "src/compact/set_convolution.hpp": "069bedf13eb34b5540ee88cd4b2ab04b89d9bf1ad006c995fbf3bd80ad07690f",
     "src/compact/splay.hpp": "a9959a530dea7ddef50e67a700bf8c0c2c87cb9f39d34b8caed31d141ed8445d",
     "src/compact/stirling.hpp": "65d434e63fcd46bdf506769dcaea53bdd24ac440c4a2a95dd7bc8936f7661813",
     "src/compact/string.hpp": "22008ad36d2d0c59ee5568882932a88e4dda9a58f52fc2d06560e4a84b0b010e",
+    "src/compact/subset_convolution.hpp": "41fdfeeed20a827b3f127dd5da84f049de2e742edb363ffa02d43b523d16374f",
     "src/compact/suffix_lcp.hpp": "7fdd63ece9b6c09daf8db63989f8a76ba1af7d0c197892a64abc6dcb910ce892",
     "src/compact/support_hull.hpp": "443ff3e2f1a8d3c9b7de874316d7ae7f169a1b4c3826626d801077f98fb6956c",
     "src/compact/tarjan.hpp": "15716184cdf5cec0cb5234ba357ea922840277454932e54e06067d7290f929d5",
@@ -752,6 +762,8 @@
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
     "tests/root_factors.cpp": "8d238960b70db06f4e9f48d2c8f1a37c36392b9f1f7b887b7fc80aa0cead3b46",
     "tests/segmented_sieve.cpp": "8ce844d676a6abf0b02dc4c8da038ef27da9336582b4e469e0b25305c4c4b3ed",
+    "tests/set_convolution.cpp": "006ac5effb1f307de465a4d9bb16b491febdcca96677bfb82f767f3752e73a3c",
+    "tests/set_convolution_application.py": "a8952eab0767520a14ad1b36b9391655ebb4c6509d16ee37f421145ec42ef6b1",
     "tests/stirling.cpp": "717aed2c859a2c288a454e0354d58e00bf26ff3f60f5d23451e009377f04f37b",
     "tests/stirling167.cpp": "cd72746fcf091934778ab665d67262f23009c78aa512064c6a72675d361ad08c",
     "tests/stirling_application.py": "45322ba0df27408e71a5d212df7da2c0b3345eaf960508369c4f5ddd448d3979",

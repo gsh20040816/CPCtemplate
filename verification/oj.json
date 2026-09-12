@@ -1311,5 +1311,89 @@
       "Bostan_Mori<998244353,3>::Coefficient with recurrence-generated P/Q"
     ],
     "note": "All 5 cases accepted; n<=1e9, k<=32000, signed inputs within [-1e9,1e9], modulus 998244353. General rational numerators/denominators, other moduli, empty recurrence and full uint64 indices have separate local evidence; unrelated bundled number-theory APIs are not covered."
+  },
+  {
+    "problem": "Luogu P4717",
+    "style": "compact",
+    "algorithm": "SetConvolution<998244353>::multiply",
+    "record": "https://www.luogu.com.cn/record/297630491",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "425ms",
+    "max_case_time_ms": 84,
+    "memory": "3.59MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4717.compact.cpp",
+    "submitted_source": "verification/submitted/P4717.compact.cpp",
+    "submitted_sha256": "d916225e7289216a63d35915d37c6567a90e6ccc21dc71e19ac17e3e10a24d7c",
+    "tested_api": [
+      "SetConvolution<998244353>::multiply OR / AND / XOR"
+    ],
+    "note": "All 10 cases accepted; three bitwise convolutions, 1<=bits<=17, modulus 998244353. Other moduli, singleton arrays and standalone transform semantics have separate local evidence. Unused bundled subset convolution and number-theory functions are not covered."
+  },
+  {
+    "problem": "Luogu P4717",
+    "style": "classic",
+    "algorithm": "Set_Convolution<998244353>::Multiply",
+    "record": "https://www.luogu.com.cn/record/297630911",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "420ms",
+    "max_case_time_ms": 81,
+    "memory": "2.50MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4717.classic.cpp",
+    "submitted_source": "verification/submitted/P4717.classic.cpp",
+    "submitted_sha256": "20a9dd71bdf6f248fb21375f61446a71973bb97c6eaefc274aaeaeb84315d696",
+    "tested_api": [
+      "Set_Convolution<998244353>::Multiply OR / AND / XOR"
+    ],
+    "note": "All 10 cases accepted; three bitwise convolutions, 1<=bits<=17, modulus 998244353. Other moduli, singleton arrays and standalone transform semantics have separate local evidence. Unused bundled subset convolution and number-theory functions are not covered."
+  },
+  {
+    "problem": "Luogu P6097",
+    "style": "compact",
+    "algorithm": "subset_convolution<1000000009>",
+    "record": "https://www.luogu.com.cn/record/297631186",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "4.93s",
+    "max_case_time_ms": 2700,
+    "memory": "188.83MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P6097.compact.cpp",
+    "submitted_source": "verification/submitted/P6097.compact.cpp",
+    "submitted_sha256": "7a0cc097dea4c815a5bbb7c011d7efd503cdcfab203d8615a18fc3a60767083d",
+    "tested_api": [
+      "subset_convolution<1000000009>",
+      "ranked OR transforms and inverses"
+    ],
+    "note": "All 5 cases accepted; disjoint subset convolution, 1<=bits<=20, modulus 1000000009. Other moduli and singleton arrays have separate local evidence. Unused bundled XOR/AND transforms and number-theory functions are not covered. Maximum case milliseconds are converted from the rounded UI display 2.70s.",
+    "max_case_time_display": "2.70s"
+  },
+  {
+    "problem": "Luogu P6097",
+    "style": "classic",
+    "algorithm": "Subset_Convolution<1000000009>",
+    "record": "https://www.luogu.com.cn/record/297631585",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "4.93s",
+    "max_case_time_ms": 2690,
+    "memory": "189.00MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P6097.classic.cpp",
+    "submitted_source": "verification/submitted/P6097.classic.cpp",
+    "submitted_sha256": "319ba0efd5fe287ff2daa5b3bb6ea0480be310beb3a84b6612677338255fea91",
+    "tested_api": [
+      "Subset_Convolution<1000000009>",
+      "ranked OR transforms and inverses"
+    ],
+    "note": "All 5 cases accepted; disjoint subset convolution, 1<=bits<=20, modulus 1000000009. Other moduli and singleton arrays have separate local evidence. Unused bundled XOR/AND transforms and number-theory functions are not covered. Maximum case milliseconds are converted from the rounded UI display 2.69s.",
+    "max_case_time_display": "2.69s"
   }
 ]

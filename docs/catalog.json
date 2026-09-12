@@ -315,7 +315,7 @@
     "polynomial",
     "Polynomial",
     "NTT、形式幂级数、FWT 与递推",
-    "依赖 number_theory.hpp。模数固定 998244353，乘法结果长度≤2²³；inverse 要求 a[0]≠0，log 要求 a[0]=1，exp 要求 a[0]=0，截断长度 n>0。朴素逐层 NTT 实现的 FPS 为 O(n log n)。FWT 的 op 为 ^、|、&；BM 返回 s[n]=Σc[i-1]s[n-i] 的系数；recurrence 用 O(k² log n) 求第 n 项。BM 对有限样本给出的递推不自动保证未知后续项成立。"
+    "依赖 number_theory.hpp。模数固定 998244353，乘法结果长度≤2²³；inverse 要求 a[0]≠0，log 要求 a[0]=1，exp 要求 a[0]=0，截断长度 n>0。朴素逐层 NTT 实现的 FPS 为 O(n log n)。FWT 的 op 为 ^、|、&；独立且支持其他模数的接口见 SetConvolution。BM 返回 s[n]=Σc[i-1]s[n-i] 的系数；recurrence 用 O(k² log n) 求第 n 项。BM 对有限样本给出的递推不自动保证未知后续项成立。"
   ],
   [
     "algebra",
@@ -724,5 +724,17 @@
     "BostanMori",
     "快速递推与有理生成函数单项",
     "BostanMori<mod=998244353,primitive=3>，依赖参数化 NTT；素数模数与原根条件同 NttConvolution。Poly 为升幂系数 vector<Z>。coefficient(p,q,n) 返回 [x^n]p(x)/q(x)，q 非空且 q[0]≠0，p 可空或次数不小于 q；令 d=max(p.size(),q.size())，要求 2d-1≤NTT::max_size。recurrence(init,c,n) 返回 a[n]，从下标 k 起 a[i]=c[0]a[i-1]+…+c[k-1]a[i-k]，init、c 长度均为 k；k=0 约定全零。非初值查询要求 2k+1≤NTT::max_size。n 支持完整 unsigned long long。每轮两次卷积后抽取奇偶项，O(d log d log(n+1)) 时间、O(d) 空间；递推接口 d=k+1。传统接口 Bostan_Mori::Coefficient / Recurrence。"
+  ],
+  [
+    "set_convolution",
+    "SetConvolution",
+    "按位 OR、AND、XOR 卷积",
+    "SetConvolution<mod=998244353>；Z 为 ModInt<mod>，Poly 为 vector<Z>。数组长度 N 必须是正的 2 次幂且≤INT_MAX，表示固定二进制位数的全集，长度 1 合法。transform(a,op,invert=false) 原地变换，op 只能为 |、&、^；| 为子集和，& 为超集和，^ 为 Walsh 变换。multiply(a,b,op) 返回 Σ a[i]b[j]（满足 i op j=s），a、b 长度必须相同。mod 可为≥2 的 int 范围合数；XOR 要求 mod 为奇数，逆 2 用 (mod+1)/2，不使用费马逆元。O(N log N) 时间，原地变换 O(1) 额外空间，卷积 O(N) 空间。传统接口 Set_Convolution::Transform / Multiply。"
+  ],
+  [
+    "subset_convolution",
+    "subset_convolution",
+    "不相交子集卷积",
+    "subset_convolution<mod=998244353>(a,b) 返回 c[s]=Σ a[t]b[s xor t]，求和枚举 t⊆s，等价于 i|j=s 且 i&j=0。依赖 SetConvolution，只使用 OR 变换；mod 为≥2 的 int 范围整数，允许偶数与合数。两个数组长度相同、非空，N=2^m≤INT_MAX；长度 1 的结果为 a[0]b[0]。按 popcount 分层，层间普通卷积再逆 OR 变换，保留总层数等于目标集合大小的项。O(m²2^m) 时间、O(m2^m) 空间；两组分层数组约占 8(m+1)2^m 字节，另有线性辅助数组。m=20 时仅分层数组约 168 MiB，使用前核对内存。传统函数 Subset_Convolution。"
   ]
 ]
