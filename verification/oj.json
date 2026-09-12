@@ -1105,5 +1105,45 @@
       "Closest_Pair::Solve"
     ],
     "note": "All 11 cases accepted; n<=200000, integer coordinates in [0,1e9], distance printed to four decimals. Decimal coordinates, extreme scales, fewer than two points and subnormal values have separate local evidence. This does not verify the separate exact integer geometry implementation."
+  },
+  {
+    "problem": "Luogu P1742",
+    "style": "compact",
+    "algorithm": "EnclosingCircle::solve",
+    "record": "https://www.luogu.com.cn/record/297608403",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "177ms",
+    "max_case_time_ms": 52,
+    "memory": "6.50MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P1742.compact.cpp",
+    "submitted_source": "verification/submitted/P1742.compact.cpp",
+    "submitted_sha256": "bb5b470b88dea856958e22aab6878764441ec7cd6f9c62b9af82120721978129",
+    "tested_api": [
+      "EnclosingCircle::solve radius and center"
+    ],
+    "note": "All 10 cases accepted; n<=100000, |coordinates|<=10000 with at most two decimal places, SPJ checks radius and center. Empty input, multiple shuffle seeds and additional degeneracies have separate local evidence. Unused bundled geometry APIs are not covered by this acceptance."
+  },
+  {
+    "problem": "Luogu P1742",
+    "style": "classic",
+    "algorithm": "Enclosing_Circle::Solve",
+    "record": "https://www.luogu.com.cn/record/297608801",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "192ms",
+    "max_case_time_ms": 49,
+    "memory": "6.49MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P1742.classic.cpp",
+    "submitted_source": "verification/submitted/P1742.classic.cpp",
+    "submitted_sha256": "a79a1fc65127721d9d1e3e61be8d3a764fba406e4b073bb39b2de6a71d6662d8",
+    "tested_api": [
+      "Enclosing_Circle::Solve radius and center"
+    ],
+    "note": "All 10 cases accepted; n<=100000, |coordinates|<=10000 with at most two decimal places, SPJ checks radius and center. Empty input, multiple shuffle seeds and additional degeneracies have separate local evidence. Unused bundled geometry APIs are not covered by this acceptance."
   }
 ]
