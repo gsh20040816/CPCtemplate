@@ -143,6 +143,32 @@ N=\left\lfloor\frac{y_{\max}-1}{d_y}\right\rfloor+1,
 
 \url{https://oi-wiki.org/math/number-theory/bezouts/}。
 
+\section{线性同余：最小解与最小周期}\index{linear congruence}\index{线性同余方程}
+实现见第~\pageref{compact-linear_congruence}~页，接口约定为 $ax+b\equiv0\pmod m$。
+先把 $a$ 归一化到 $[0,m)$，令 $g=\gcd(a,m)$。
+有解当且仅当 $g\mid b$；若 $au+mv=g$，则一个特解为 $u(-b/g)$，
+所有解为 $x=x_0+(m/g)t$。归一化到 $[0,m/g)$ 后得到最小非负解。
+除以 $g$ 后 $a/g$ 与 $m/g$ 互素，因而 $m/g$ 是最小正周期。
+当 $a=0$ 且 $m\mid b$ 时所有整数均为解，返回 $(0,1)$；否则无解。
+模数 $m=1$ 始终返回 $(0,1)$。
+
+输入常数项支持 \texttt{LLONG\_MIN}，内部用 \texttt{-i128(b)}，
+不能先执行 64 位的 \texttt{-b} 再转换。
+若题目给出 $ax\equiv c\pmod m$，可先将 $c$ 归一化到 $[0,m)$ 再取负传入，
+避免 $c=\texttt{LLONG\_MIN}$ 时在调用点溢出。
+本接口依赖的 exgcd 与前节相同，不必重复抄写。
+
+P1516 中相遇条件为 $(m-n)t+(x-y)\equiv0\pmod L$。
+传入速度差与起点差，第一返回值就是最早非负相遇时间；失败时输出 \texttt{Impossible}。
+不能擅自把负的速度差取绝对值，也不能把两者同余的初始位置强制判为需要跳跃。
+
+小模数测试逐个枚举全部剩余类，检查解集、最小解和最小周期；大数用任意精度等式证书验证。
+完整驱动以直接模拟、交换青蛙和构造大周期最早相遇时间验证 242 组输入，
+包括等速和初始位置同余。两套代码均通过普通与 ASan/UBSan 测试，在线 AC 待补。
+
+来源：WIDA 收集的 jiangly exgcd 文件内 \texttt{sol}；
+\url{https://www.luogu.com.cn/problem/P1516}。
+
 \section{扩展 CRT：逐式合并}\index{exCRT}\index{扩展中国剩余定理}
 实现见第~\pageref{compact-NumberTheory}~页的 \texttt{crt}，
 传统版对应 \texttt{Crt}。初始取 $r=0,m=1$，依次合并 $x\equiv b\pmod n$。

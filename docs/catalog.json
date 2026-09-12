@@ -144,6 +144,12 @@
     "linear_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解；传统接口 Linear_Equation。a、b、c 支持完整 long long，x、y 必须为 int128。无解返回 false 且 x=y=0；a=b=c=0 返回 true、x=y=0，此时所有整数对都是解。其他有解情况，令 g=gcd(|a|,|b|)，通解为 (x+(b/g)t,y-(a/g)t)。依赖 NumberTheory::exgcd；只需抄递归 exgcd 与本函数。时间、递归空间 O(log(max(|a|,|b|)+2))；不承诺特解最小或为正。"
   ],
   [
+    "linear_congruence",
+    "linear_congruence",
+    "线性同余方程",
+    "linear_congruence(a,b,m) 求 a*x+b≡0 (mod m)，返回 {最小非负解,最小正周期}，无解返回 {-1,-1}；传统接口 Linear_Congruence。m 为正 long long，a、b 支持完整 long long。若 g=gcd(a,m) 整除 b，周期为 m/g；包括 a=0 和 m=1，所有整数均满足时返回 {0,1}。先归一化 a，并在 int128 中对 b 取相反数和乘法。依赖 NumberTheory::exgcd；递归时间、空间 O(log(m+1))。注意本接口的常数项是 +b，若题目写 a*x≡c，应传 -c；c 为 LLONG_MIN 时须避免在 64 位中取负。"
+  ],
+  [
     "segmented_sieve",
     "segmented_primes",
     "区间筛素数",

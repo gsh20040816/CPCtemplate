@@ -562,6 +562,16 @@ linear\_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解；传统接口 Lin
 
 \lstinputlisting[firstline=5,lastline=27]{../src/compact/linear_equation.hpp}
 
+\chapter{线性同余方程}
+
+\Needspace{323pt}
+
+\section{线性同余方程}\label{compact-linear_congruence}\index{linear\_congruence}
+
+linear\_congruence(a,b,m) 求 a*x+b$\equiv$0 (mod m)，返回 \{最小非负解,最小正周期\}，无解返回 \{-1,-1\}；传统接口 Linear\_Congruence。m 为正 long long，a、b 支持完整 long long。若 g=gcd(a,m) 整除 b，周期为 m/g；包括 a=0 和 m=1，所有整数均满足时返回 \{0,1\}。先归一化 a，并在 int128 中对 b 取相反数和乘法。依赖 NumberTheory::exgcd；递归时间、空间 O(log(m+1))。注意本接口的常数项是 +b，若题目写 a*x$\equiv$c，应传 -c；c 为 LLONG\_MIN 时须避免在 64 位中取负。
+
+\lstinputlisting[firstline=5,lastline=23]{../src/compact/linear_congruence.hpp}
+
 \chapter{区间筛素数}
 
 \Needspace{348pt}
@@ -1521,6 +1531,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-linear_equation}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=5,lastline=27]{../src/classic/linear_equation.hpp}
+
+\chapter{线性同余方程}
+
+\Needspace{323pt}
+
+\section{线性同余方程}\label{classic-linear_congruence}\index{Linear\_Congruence}
+
+算法约束见动态版本第~\pageref{compact-linear_congruence}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=23]{../src/classic/linear_congruence.hpp}
 
 \chapter{区间筛素数}
 

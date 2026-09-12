@@ -198,3 +198,7 @@ python3 tests/prime_distance_application.py
 "$CXX" "${flags[@]}" tests/linear_equation.cpp -o build/linear_equation
 build/linear_equation
 python3 tests/linear_equation_application.py
+
+"$CXX" "${flags[@]}" tests/linear_congruence.cpp -o build/linear_congruence
+build/linear_congruence
+python3 tests/frog_meeting_application.py

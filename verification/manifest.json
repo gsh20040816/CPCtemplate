@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T05:35:38.595288+00:00",
+  "recorded_at_utc": "2026-09-12T05:41:57.224285+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -100,7 +100,12 @@
       "Incremental linear equation and nonnegative exgcd audit; unchanged-module evidence retained from 7da08f2:",
       "Linear equation dual signed exhaustive cases, cpp_int Bezout certificates, int64 extremes and Fibonacci recursion PASS",
       "P5656 compact: 200000 cases, exhaustive positive-solution counts/extrema and independent minimum-positive coordinates PASS",
-      "P5656 classic: 200000 cases, exhaustive positive-solution counts/extrema and independent minimum-positive coordinates PASS"
+      "P5656 classic: 200000 cases, exhaustive positive-solution counts/extrema and independent minimum-positive coordinates PASS",
+      "",
+      "Incremental linear congruence; unchanged-module evidence retained from 9d41998:",
+      "Linear congruence dual exhaustive residue sets, minimal solution/period, modulus one and signed int64 cpp_int certificates PASS",
+      "P1516 compact: 242 simulated/planted cases, swapped speeds, equal speeds, initial coincidence and large minimal time PASS",
+      "P1516 classic: 242 simulated/planted cases, swapped speeds, equal speeds, initial coincidence and large minimal time PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -199,7 +204,12 @@
       "Incremental linear equation and nonnegative exgcd audit; unchanged-module evidence retained from 7da08f2:",
       "Linear equation dual signed exhaustive cases, cpp_int Bezout certificates, int64 extremes and Fibonacci recursion PASS",
       "P5656 compact: 200000 cases, exhaustive positive-solution counts/extrema and independent minimum-positive coordinates PASS",
-      "P5656 classic: 200000 cases, exhaustive positive-solution counts/extrema and independent minimum-positive coordinates PASS"
+      "P5656 classic: 200000 cases, exhaustive positive-solution counts/extrema and independent minimum-positive coordinates PASS",
+      "",
+      "Incremental linear congruence; unchanged-module evidence retained from 9d41998:",
+      "Linear congruence dual exhaustive residue sets, minimal solution/period, modulus one and signed int64 cpp_int certificates PASS",
+      "P1516 compact: 242 simulated/planted cases, swapped speeds, equal speeds, initial coincidence and large minimal time PASS",
+      "P1516 classic: 242 simulated/planted cases, swapped speeds, equal speeds, initial coincidence and large minimal time PASS"
     ]
   },
   "sha256": {
@@ -232,6 +242,7 @@
     "src/classic/inverse_table.hpp": "3b78a27422b1c91251614bdaba608d377934bf4ef01a2fc54dc8daa6f5d3d28e",
     "src/classic/lex_two_sat.hpp": "531c4fca134bb016b6a7335e37aaae4f865faa9f309036fa6f112e3b22f6168b",
     "src/classic/lifting_lca.hpp": "0938fc06246035f4f59daf0c4012ef0c4c513e78fed2d70bf8fc50ed49104078",
+    "src/classic/linear_congruence.hpp": "d925dc76c2986aa75f61c6d649b64b47760ff4131a190323e2e270ee7b6082f0",
     "src/classic/linear_equation.hpp": "bc1565e0984b64c384854dc3fcacde18ed0094716c8cf08a374ed0fd3a6e6132",
     "src/classic/lucas.hpp": "4912ddcacf0e602f5155d805566b60e59165ad36d8075cd8e7d180e90e4d6b5e",
     "src/classic/maximum_closure.hpp": "47bfa97cd02f9c423e026d1b38af5909725a1c7e6f94e95b7541f29b858c5bad",
@@ -294,6 +305,7 @@
     "src/compact/inverse_table.hpp": "24260b77dd557d177c47c28ebce4671b88e264485dce74c87862141d842cd573",
     "src/compact/lex_two_sat.hpp": "f5e50a5af0c5892b8be560ceb4eacf5e7cdcf484da2fec3ad6450cabcd02ec16",
     "src/compact/lifting_lca.hpp": "19cda96f3d6d0f4807f7d554d09b0428f3b88516a40788cff6b6897ac90a64da",
+    "src/compact/linear_congruence.hpp": "02417e6a6fec64f13102dfe5d7ce8823ade21d491e822414a699eb9876b79ea0",
     "src/compact/linear_equation.hpp": "d7e72ee625c872be7a8c2af5e5fc49bdb2b29f84aa944ac7e7ff9dc3d18b7276",
     "src/compact/lucas.hpp": "8443d5db1ae9012123c65b1839006086d24646f0443fef1e4489d51c6e354359",
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
@@ -361,6 +373,7 @@
     "tests/euler_lca_application.py": "17294374da01fab79424653360caa042f7e295b6e7056f260ed0b13f77178109",
     "tests/exlucas.cpp": "d14d58646c7679ea0a18bd0bac87b9cec4d084fef7d07170298b4f310c475331",
     "tests/exlucas_application.py": "e7af780f3141c17568d4c17761e48d5d9f9a801971f539cc5337a6d5545c2eea",
+    "tests/frog_meeting_application.py": "6e2e5fd3154e9d3b35fe835a56da0a8dd351d161a35f1f2ea0f672796fec4412",
     "tests/garner.cpp": "0e78c3ae32b2ad51e2f6696800e145ec5c55c97b0495dcc4fcd99a818a4fd5f6",
     "tests/garner_application.py": "b3b427e4789497966acb50c4653ffbbf05a451225d35bdef0d9c1f3ae8e559d7",
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
@@ -378,6 +391,7 @@
     "tests/lex_two_sat_application.py": "86436155e7c0ad492df7c89e5da568dd458887c4622071ebaff2e6eede38828a",
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",
     "tests/lifting_lca_application.py": "068c4b2f662bde0f7f6e6ef9fb7c357be98717d4bfc423c77eea8ceb8f43543a",
+    "tests/linear_congruence.cpp": "6be04228bffbe7049980388f508bae6855bdde9e896889098f73586ca09ba3b5",
     "tests/linear_equation.cpp": "0a20a2f277b4b39c06c0ada5c744258758f0d91e30ce671a725bd6202a8c638e",
     "tests/linear_equation_application.py": "0bbcb94ed8ec551dad3fd990c891540fedf40722bc3b7e90c17492ad0aad59bc",
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",
