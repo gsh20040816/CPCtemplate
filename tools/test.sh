@@ -233,3 +233,6 @@ build/partitions
 "$CXX" "${flags[@]}" tests/divisor_sum.cpp -o build/divisor_sum
 build/divisor_sum
 python3 tests/divisor_sum_application.py
+
+"$CXX" "${flags[@]}" tests/floor_sum.cpp -o build/floor_sum
+build/floor_sum

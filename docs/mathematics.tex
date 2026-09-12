@@ -243,6 +243,33 @@ P1593 完整程序各验证 126 组输入，包含 $p\equiv0,1\pmod{9901}$ 和�
 
 来源：kuangbin 2.12；\url{https://www.luogu.com.cn/problem/P1593}。
 
+\section{类欧几里德：有符号整除求和}\index{floor sum}\index{类欧几里德}
+\texttt{NumberTheory::floor\_sum(n,m,a,b)} 返回
+\[
+F(n,m,a,b)=\sum_{i=0}^{n-1}\left\lfloor\frac{ai+b}{m}\right\rfloor.
+\]
+传统接口为 \texttt{Number\_Theory::Floor\_Sum}。
+范围约定 $0\le n\le10^9$、$1\le m\le10^9$，$a,b$ 支持完整有符号 64 位，返回 128 位。
+$n$ 是项数；若题目下标为 $0\ldots N$，需传 $N+1$ 并检查仍在约定范围内。
+
+先令 $a=q_a m+r_a$、$b=q_bm+r_b$，其中余数属于 $[0,m)$，
+答案先加上 $q_a n(n-1)/2+q_b n$。
+C++ 的负整数除法向零截断，因此余数为负时需要把商减 1，再用 128 位乘法计算规范余数。
+这一步不能简单用两次取模替代后丢弃商的贡献。
+
+对规范化后的 $0\le a,b<m$，设 $y=an+b$。
+若 $y<m$，余下贡献为 0；否则交换格点计数的求和方向可得
+\[
+F(n,m,a,b)=F(\lfloor y/m\rfloor,a,m,y\bmod m).
+\]
+下一轮先提取新的整商，再继续交换。进入交换分支时 $a>0$，不会产生零分母。
+模数按欧几里得过程减小，时间 $O(\log(m+1))$，额外空间 $O(1)$。
+
+双版本以任意精度向下取整逐项求和对拍，覆盖负系数、零项数和整除边界；
+十亿项的常数、连续整数、反向连续整数及整倍数斜率使用闭式公式独立核验。
+同时检查模数 1 下两个系数的 64 位极值。普通与 ASan/UBSan 均通过，暂无在线 AC。
+该验证只覆盖基本整除和，不代表带权高次矩的类欧几里德接口已完成。
+
 \section{模运算的适用条件}\index{CRT}\index{Euler theorem}\index{Lucas theorem}
 模逆元存在当且仅当 $\gcd(a,m)=1$。费马逆元 $a^{p-2}$ 仅适用于素数模数及 $a\not\equiv0$。
 对正模数 $m,n$，同余式 $x\equiv a\pmod m$、$x\equiv b\pmod n$ 可合并当且仅当

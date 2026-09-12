@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T06:41:31.289574+00:00",
+  "recorded_at_utc": "2026-09-12T06:47:36.194149+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -142,7 +142,10 @@
       "Incremental divisor sums; unchanged-module evidence retained from e8017fb:",
       "Divisor sum dual direct divisors, geometric iteration, cpp_int matrix oracle, composite moduli and uint128 lengths PASS",
       "P1593 compact: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS",
-      "P1593 classic: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS"
+      "P1593 classic: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS",
+      "",
+      "Incremental signed floor sum; unchanged-module evidence retained from bab13c6:",
+      "Floor sum dual cpp_int signed oracle, zero terms, quotient boundaries and billion-term closed forms PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -283,7 +286,10 @@
       "Incremental divisor sums; unchanged-module evidence retained from e8017fb:",
       "Divisor sum dual direct divisors, geometric iteration, cpp_int matrix oracle, composite moduli and uint128 lengths PASS",
       "P1593 compact: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS",
-      "P1593 classic: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS"
+      "P1593 classic: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS",
+      "",
+      "Incremental signed floor sum; unchanged-module evidence retained from bab13c6:",
+      "Floor sum dual cpp_int signed oracle, zero terms, quotient boundaries and billion-term closed forms PASS"
     ]
   },
   "sha256": {
@@ -463,6 +469,7 @@
     "tests/exlucas.cpp": "d14d58646c7679ea0a18bd0bac87b9cec4d084fef7d07170298b4f310c475331",
     "tests/exlucas_application.py": "e7af780f3141c17568d4c17761e48d5d9f9a801971f539cc5337a6d5545c2eea",
     "tests/factorization_application.py": "2a532dd4a5d19be78af0168317ad403cc1faea3a8e87c0ce0bc880d3ece0b47d",
+    "tests/floor_sum.cpp": "28dc11fc9728de8c709007ba0b58153ddea0f24ce739504ef2cea46e2dbcb606",
     "tests/frog_meeting_application.py": "6e2e5fd3154e9d3b35fe835a56da0a8dd351d161a35f1f2ea0f672796fec4412",
     "tests/garner.cpp": "0e78c3ae32b2ad51e2f6696800e145ec5c55c97b0495dcc4fcd99a818a4fd5f6",
     "tests/garner_application.py": "b3b427e4789497966acb50c4653ffbbf05a451225d35bdef0d9c1f3ae8e559d7",
