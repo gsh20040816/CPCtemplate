@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T05:51:09.787202+00:00",
+  "recorded_at_utc": "2026-09-12T05:56:19.308234+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -111,7 +111,10 @@
       "CRT systems dual exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS",
       "",
       "Incremental linear sieve audit; unchanged-module evidence retained from 3b775fc:",
-      "Linear sieve dual prefixes, least-prime trial oracle, factor reconstruction and ten-million-entry divisor certificates PASS"
+      "Linear sieve dual prefixes, least-prime trial oracle, factor reconstruction and ten-million-entry divisor certificates PASS",
+      "",
+      "Incremental primality/factorization audit; unchanged-module evidence retained from 8af6011:",
+      "Primality/factorization dual sieve, cpp_int arithmetic, trial-certified factors, pseudoprimes, uint64 bounds and Lucas certificate PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -221,7 +224,10 @@
       "CRT systems dual exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS",
       "",
       "Incremental linear sieve audit; unchanged-module evidence retained from 3b775fc:",
-      "Linear sieve dual prefixes, least-prime trial oracle, factor reconstruction and ten-million-entry divisor certificates PASS"
+      "Linear sieve dual prefixes, least-prime trial oracle, factor reconstruction and ten-million-entry divisor certificates PASS",
+      "",
+      "Incremental primality/factorization audit; unchanged-module evidence retained from 8af6011:",
+      "Primality/factorization dual sieve, cpp_int arithmetic, trial-certified factors, pseudoprimes, uint64 bounds and Lucas certificate PASS"
     ]
   },
   "sha256": {
@@ -431,6 +437,7 @@
     "tests/persistent_kth_application.py": "522954e0693203f36597da0d328273a6fb8562d7b5aae552bb6964fe5d13ee49",
     "tests/position_basis.cpp": "07dc30fc48916b61ed5f681219752ed51cd030ef0e071ccaa990a26430cc7a4f",
     "tests/position_basis_application.py": "6b7c36bcbb4fbdf98b5e3ffa26feba715f489ee3ef8962de11a855203e0d6916",
+    "tests/primality_factorization.cpp": "6251b0621134caef63be1955ceab0b0b04364129688cb8feed0df7c06dbf46a0",
     "tests/prime_distance_application.py": "134e7cb2970fe7fb78c62331371043172be24500264f019aee282a3746ee3d33",
     "tests/primitive_root.cpp": "e67c9633e9965ea381ad0e65adbf29461c303d28bf356a4dfe0cb8970eec09c2",
     "tests/primitive_root_application.py": "db5d4c36138ec64a11421b4c85240b1d1f86ab887da41c3a53dccc06429554e2",

@@ -177,7 +177,7 @@
     "number_theory",
     "PollardRho",
     "Pollard–Rho 因数分解",
-    "factor(n) 返回升序质因子（含重数），n≥1；依赖 NumberTheory。返回因子经过整除和素性检查；Las Vegas 随机运行时间，固定默认种子方便复现，可由调用者更换。无确定性最坏时间保证。"
+    "factor(n) 返回升序质因子（含重数），1≤n≤ULLONG_MAX；传统接口 Factor。n=1 返回空数组；n≥2 时 size()==1 等价于 n 为素数，否则 front()/back() 分别取最小/最大质因子。依赖 NumberTheory。公开使用 factor；rho/split 为内部辅助，rho 只接受大于 1 的合数，不能直接传素数。Las Vegas 随机运行时间，固定默认种子方便复现，可由构造参数更换；无确定性最坏时间保证。每次 rho 尝试最多 200000 轮，失败后换随机参数重试，不将失败当作素数。递归仅沿真因子拆分，深度 O(log n)。"
   ],
   [
     "number_theory",

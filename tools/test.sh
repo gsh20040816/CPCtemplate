@@ -208,3 +208,6 @@ build/crt_system
 
 "$CXX" "${flags[@]}" tests/linear_sieve.cpp -o build/linear_sieve
 build/linear_sieve
+
+"$CXX" "${flags[@]}" tests/primality_factorization.cpp -o build/primality_factorization
+build/primality_factorization
