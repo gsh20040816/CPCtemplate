@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T09:47:42.130491+00:00",
+  "recorded_at_utc": "2026-09-12T09:57:20.127119+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -215,7 +215,12 @@
       "Composite-mod Matrix tree dual weighted edge-set oracle, all roots/directions, signed64 accumulation and large Cayley matrices PASS",
       "",
       "Incremental fast Stirling rows; unchanged-module evidence retained from ab785ff:",
-      "Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS"
+      "Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS",
+      "",
+      "Incremental parameterized NTT and both Stirling moduli; unchanged-module evidence retained from f31a275:",
+      "Parameterized NTT dual cpp_int DFT/convolution oracles, certified primitive roots, capacity boundaries and large triangular convolutions PASS",
+      "Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS",
+      "Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -429,7 +434,12 @@
       "Composite-mod Matrix tree dual weighted edge-set oracle, all roots/directions, signed64 accumulation and large Cayley matrices PASS",
       "",
       "Incremental fast Stirling rows; unchanged-module evidence retained from ab785ff:",
-      "Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS"
+      "Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS",
+      "",
+      "Incremental parameterized NTT and both Stirling moduli; unchanged-module evidence retained from f31a275:",
+      "Parameterized NTT dual cpp_int DFT/convolution oracles, certified primitive roots, capacity boundaries and large triangular convolutions PASS",
+      "Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS",
+      "Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS"
     ]
   },
   "sha256": {
@@ -485,6 +495,7 @@
     "src/classic/min_cost_flow.hpp": "49d8ee5466edc6396bbe7c8858e8b4bd765b4c0bc18c82a4ea7eae88884e36ca",
     "src/classic/mixed_euler.hpp": "f288cc25617677f70adcfae0e39a5818a3597b9ce2ae27f78816c0edeede6a6c",
     "src/classic/modular_sqrt.hpp": "d66b537ac6c009d50519f1b91f7a9d7d3f7177f6523a2ceed2c6d3070d6fa38d",
+    "src/classic/ntt_convolution.hpp": "fca79d66dc3b21cbc163a163dc4601ce59616a62018fe7176b51a3dde248bbc8",
     "src/classic/number_theory.hpp": "1a9ac27a70bc5cf3e28c52d7a1f02d2770e310a921fdfd7326eb33574f84c135",
     "src/classic/odd_cycle_vertices.hpp": "955b252e78ab65ffe1c555a0f15528f7b25239781cd29488cff3e93872d20011",
     "src/classic/offline_lca.hpp": "cd5f7452c2b1c5ff50b4dc8eb083b9e97239b822534e65d7e13afc64831525b1",
@@ -502,7 +513,7 @@
     "src/classic/root_factors.hpp": "17c93962890de175118327be36a71e5549b4963c6317600929d73dc09cd64e66",
     "src/classic/segmented_sieve.hpp": "7fddb4cdb731eee9be842aeafa8923fe971a0e67e8c6f2fe9a78d7288741038c",
     "src/classic/splay.hpp": "ba412fda7cd927e9dcab62fa88ee66b59a8cac5b4550bf47699285e8c4522e6b",
-    "src/classic/stirling.hpp": "b3144f1455c9745eaf6ac87355553d35875fc21914bb8b8bc5d142c3f64af772",
+    "src/classic/stirling.hpp": "771974912065d11bb57cde8111ac4a20db4c2d7b961b2ff44e8d0db57fb75587",
     "src/classic/string.hpp": "d199d27567590cebe3b443b572d3b42eae1efeb6f5c80602870ce81695dafb69",
     "src/classic/suffix_lcp.hpp": "75480acbb024dca152fe4908ef69cbb68b0d8856a5e031856034b4dd5c84b64a",
     "src/classic/support_hull.hpp": "4ca8f77ad085a9422b536e680b1d98faa31cf5c8216deafaa6f50e97e9401ea3",
@@ -567,6 +578,7 @@
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
     "src/compact/mixed_euler.hpp": "7e84285a001bc52700e00f0da220c28402b866c4c84c742962886b69c7c03ff8",
     "src/compact/modular_sqrt.hpp": "feafcc6e8e95453ba63c6fa4047de98ba1402d6d8c373f41543b5162e730a537",
+    "src/compact/ntt_convolution.hpp": "8e92df0efb943c63c261ababbc5bc6450ab0ab4ae30ae4b8c83d5f1b040855f7",
     "src/compact/number_theory.hpp": "d6769f23172c9d0c613183deeff4f229cd5c6d09cfd9364163d4c3fe6ff6aaf5",
     "src/compact/odd_cycle_vertices.hpp": "156451700da42e43c181e7c841009ba59a50fe944edbb9559615e456eb04c46e",
     "src/compact/offline_lca.hpp": "6bab44707d5c5fd363b990d93cc368f634e83d8de5090810dfe3cf525e6b5971",
@@ -584,7 +596,7 @@
     "src/compact/root_factors.hpp": "2cbdb4d70ea15f2ee480efce8e371dc4dbc61a4bb339c7f1fc41ea34aadc0cbb",
     "src/compact/segmented_sieve.hpp": "7de3f5a42d0115a933d1934b653d13428b668d8ac6dff0b7f554ef01931269ae",
     "src/compact/splay.hpp": "a9959a530dea7ddef50e67a700bf8c0c2c87cb9f39d34b8caed31d141ed8445d",
-    "src/compact/stirling.hpp": "7d47c5d94b4c9da72c3fb8caf299155af95f18c9b5e189967b24fb26826ee6a8",
+    "src/compact/stirling.hpp": "4f204808df18d2568abce47dc1ca9b23159a00d84bea359ba414b25b1602a0a7",
     "src/compact/string.hpp": "22008ad36d2d0c59ee5568882932a88e4dda9a58f52fc2d06560e4a84b0b010e",
     "src/compact/suffix_lcp.hpp": "7fdd63ece9b6c09daf8db63989f8a76ba1af7d0c197892a64abc6dcb910ce892",
     "src/compact/support_hull.hpp": "443ff3e2f1a8d3c9b7de874316d7ae7f169a1b4c3826626d801077f98fb6956c",
@@ -696,6 +708,7 @@
     "tests/mixed_euler_application.py": "a2023a900ddbb56599457dcb6f81b36610981c576c5a5e8081aad58dab5cfcc9",
     "tests/modular_sqrt.cpp": "db36b638f77a9e71f669e7c5c7833572e2044bc5666bab2b4ae90674809ea473",
     "tests/modular_sqrt_application.py": "957ea0c1707cdb4271fa70b5371ad922e78f17accf6a81e50c537e38d3878f25",
+    "tests/ntt_convolution.cpp": "a61158717fc678d925a151e490ffdb1fd8ea00e9970638036eaccd97d22f3a09",
     "tests/odd_cycle_vertices.cpp": "543d8b175b1a23f5682e8dbe25cf233721e1ab6f839b6700285ce827099d20ac",
     "tests/odd_cycle_vertices_application.py": "291e9703dafe4cb2f260202b56ac6196e13b7e9b73ebae92dd1ad936bae41492",
     "tests/offline_lca.cpp": "c982b4979d64e617b7aa69b2934ec59d8ed0abc1ce6fd71338a172444b64fe7d",
@@ -721,7 +734,9 @@
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
     "tests/root_factors.cpp": "8d238960b70db06f4e9f48d2c8f1a37c36392b9f1f7b887b7fc80aa0cead3b46",
     "tests/segmented_sieve.cpp": "8ce844d676a6abf0b02dc4c8da038ef27da9336582b4e469e0b25305c4c4b3ed",
-    "tests/stirling.cpp": "86cf7a4a585034d55b958c3b5df550ba246cf4c06d9eb8b2cbcbf88bf989f1f7",
+    "tests/stirling.cpp": "717aed2c859a2c288a454e0354d58e00bf26ff3f60f5d23451e009377f04f37b",
+    "tests/stirling167.cpp": "3204b60af2aa065298b76b2bf0dbfa9fe28c8f9a879594f26a80738169a38c61",
+    "tests/stirling_application.py": "45322ba0df27408e71a5d212df7da2c0b3345eaf960508369c4f5ddd448d3979",
     "tests/suffix_array.cpp": "bc3ce98f7cce3a68acd4b1e2d98b20ee912b2a2e0676cb1141ab869226dec3d6",
     "tests/suffix_array_application.py": "c8248e4a29056da4455a84d7c2c1d1228131251d1ecbafe84b95aecc1e2769cd",
     "tests/suffix_lcp.cpp": "b9fa257d4170ce2e20061fb716f0d94344ad77639321b3c03b3b6ff29f31b5e6",

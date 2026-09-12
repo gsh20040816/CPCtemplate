@@ -305,3 +305,9 @@ build/matrix_tree_mod
 
 "$CXX" "${flags[@]}" tests/stirling.cpp -o build/stirling
 build/stirling
+
+"$CXX" "${flags[@]}" tests/ntt_convolution.cpp -o build/ntt_convolution
+build/ntt_convolution
+"$CXX" "${flags[@]}" tests/stirling167.cpp -o build/stirling167
+build/stirling167
+python3 tests/stirling_application.py

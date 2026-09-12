@@ -7,19 +7,19 @@ namespace compact {
 #include "../src/compact/stirling.hpp"
 }
 using namespace std;
-using Z=compact::ModInt<998244353>;
-const int P=998244353;
+using Z=compact::ModInt<167772161>;
+const int P=167772161;
 void second(unsigned long long n,int m,const vector<int>&want)
 {
-    auto a=compact::stirling_second_row(n,m);
-    auto b=classic::Stirling_Second_Row(n,m);
+    auto a=compact::stirling_second_row<167772161>(n,m);
+    auto b=classic::Stirling_Second_Row<167772161>(n,m);
     assert(a.size()==want.size() && b.size()==want.size());
     for(int i=0;i<=m;i++) assert(a[i].v==want[i] && a[i].v==b[i].v);
 }
 void first(int n,const vector<int>&want)
 {
-    auto a=compact::stirling_first_row(n);
-    auto b=classic::Stirling_First_Row(n);
+    auto a=compact::stirling_first_row<167772161>(n);
+    auto b=classic::Stirling_First_Row<167772161>(n);
     assert(a.size()==want.size() && b.size()==want.size());
     for(int i=0;i<=n;i++) assert(a[i].v==want[i] && a[i].v==b[i].v);
 }
@@ -96,10 +96,10 @@ int main()
         a=x;
         b=y;
     }
-    for(auto n:{0ULL,1ULL,998244353ULL,1ULL<<63,ULLONG_MAX}) second(n,7,matrix_row(n,7));
+    for(auto n:{0ULL,1ULL,167772161ULL,1ULL<<63,ULLONG_MAX}) second(n,7,matrix_row(n,7));
     int n=200000;
-    auto row=compact::stirling_second_row(n,n);
-    auto old=classic::Stirling_Second_Row(n,n);
+    auto row=compact::stirling_second_row<167772161>(n,n);
+    auto old=classic::Stirling_Second_Row<167772161>(n,n);
     for(int i=0;i<=n;i++) assert(row[i].v==old[i].v);
     assert(row[0].v==0 && row[n].v==1 && row[1].v==1);
     assert(row[n-1].v==int(1LL*n*(n-1)/2%P));
@@ -113,9 +113,9 @@ int main()
         }
         assert(sum.v==x.pow(n).v);
     }
-    n=20000;
-    auto c=compact::stirling_first_row(n);
-    auto d=classic::Stirling_First_Row(n);
+    n=262143;
+    auto c=compact::stirling_first_row<167772161>(n);
+    auto d=classic::Stirling_First_Row<167772161>(n);
     for(int i=0;i<=n;i++) assert(c[i].v==d[i].v);
     for(Z x:{Z(0),Z(1),Z(7),Z(987654321)})
     {
@@ -124,5 +124,5 @@ int main()
         for(int i=0;i<n;i++) want=want*(x+i);
         assert(value.v==want.v);
     }
-    cout<<"Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS\n";
+    cout<<"Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS\n";
 }
