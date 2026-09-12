@@ -249,3 +249,6 @@ build/arborescence
 
 "$CXX" "${flags[@]}" tests/global_min_cut.cpp -o build/global_min_cut
 build/global_min_cut
+
+"$CXX" "${flags[@]}" tests/gomory_hu.cpp -o build/gomory_hu
+build/gomory_hu

@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T07:09:52.889442+00:00",
+  "recorded_at_utc": "2026-09-12T07:21:58.001339+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -159,7 +159,10 @@
       "Arborescence dual exhaustive all-root incoming-edge oracle, loops/parallel edges and 800-vertex nested contractions PASS",
       "",
       "Incremental global min-cut audit; unchanged-module evidence retained from 76064a8:",
-      "Global min-cut dual exhaustive partition oracle, returned-side certificates, parallel sums and 300-vertex int128 families PASS"
+      "Global min-cut dual exhaustive partition oracle, returned-side certificates, parallel sums and 300-vertex int128 families PASS",
+      "",
+      "Incremental Gomory-Hu construction; unchanged-module evidence retained from 9f57a34:",
+      "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -317,7 +320,10 @@
       "Arborescence dual exhaustive all-root incoming-edge oracle, loops/parallel edges and 800-vertex nested contractions PASS",
       "",
       "Incremental global min-cut audit; unchanged-module evidence retained from 76064a8:",
-      "Global min-cut dual exhaustive partition oracle, returned-side certificates, parallel sums and 300-vertex int128 families PASS"
+      "Global min-cut dual exhaustive partition oracle, returned-side certificates, parallel sums and 300-vertex int128 families PASS",
+      "",
+      "Incremental Gomory-Hu construction; unchanged-module evidence retained from 9f57a34:",
+      "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS"
     ]
   },
   "sha256": {
@@ -348,6 +354,7 @@
     "src/classic/gcd_sequence.hpp": "8723618196787697658660b59665baaf1ba060311e57cc42fd8c23ec27234229",
     "src/classic/geometry.hpp": "4ddc03277a26dcec3472a42eb8277da2d972c1f9198f1b58610d5d51d6f77167",
     "src/classic/geometry_extra.hpp": "793fa6eec2f6dd0b57829585f91aec872c14c73817978225cb0f914fcea3474c",
+    "src/classic/gomory_hu.hpp": "05cbc9afd0fac2fc43f3fe894aacece878410f011894420ee5ee4fcfdb6abfc1",
     "src/classic/graph.hpp": "02421d1ceb9e2772e3a6a035844bca46664a2488c7424e1d3b9910b9a0acdb02",
     "src/classic/graph_advanced.hpp": "ee0c31d0ebf0148c902c0af2bbb36adc1dc48124a3401f6136f9743c237706e8",
     "src/classic/interpolation.hpp": "43f5714b8fb6e16a13dc356f1e7ac01c492974bb53b73f558c9a6fdb5ec84020",
@@ -416,6 +423,7 @@
     "src/compact/gcd_sequence.hpp": "3794e7a66553c2b7bd85d9e79a9556fc7dd9965e4eac1444ec7a84dc81eacb78",
     "src/compact/geometry.hpp": "156f9ba2fbd9dc36552f7a6668b2a224d957d55e27dae645510deed5f58b7b3b",
     "src/compact/geometry_extra.hpp": "13c597cd4dd46254216f0eb6f9ad402b0e96fdd424e864a8117f05c666ac5e89",
+    "src/compact/gomory_hu.hpp": "28fe86c3b05cbdb65337f29c16683f1c07e14977ef39959dad1517faad1aad33",
     "src/compact/graph.hpp": "7ea9c43d8616d08088c61eaef8a19c4939084dfe8da806213225c5d33015e8c0",
     "src/compact/graph_advanced.hpp": "e2a57a2354904fc55f2038fb4f694842cc60c3e8b76c0aa431ab3b8d9546d1eb",
     "src/compact/interpolation.hpp": "73f71b029ccab6be4573c4612a5c132accb9b208115503d7f47bde7fc878357a",
@@ -510,6 +518,7 @@
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
     "tests/global_min_cut.cpp": "833783cda9e962873c8b7df3f8bc75276d573f16629820d81ebdc0f914ec7e31",
+    "tests/gomory_hu.cpp": "fde09e3086169f90488894f5addf22c5425598d96998c2fe20d7bb86e6a3b247",
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",
     "tests/graph_contracts.cpp": "af13d8fae85417d2e2e8d69de1c073339587eaa7b5f2616a724b61a4ce0fe322",
     "tests/graph_drivers.py": "c970259c9ff1d93da80409125fc8c420b92d4e17399373340de69e053f0d781f",
