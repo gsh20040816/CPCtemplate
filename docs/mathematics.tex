@@ -104,6 +104,45 @@ P3811 双版本均通过全部 6 个测试点，单点最长分别为 221 ms 与
 
 来源：\url{https://oi-wiki.org/math/number-theory/inverse/}；WIDA 数论逆元节与 kuangbin 2.4。
 
+\section{一次不定方程：特解与正整数解范围}\index{Bezout identity}\index{二元一次不定方程}
+实现见第~\pageref{compact-linear_equation}~页。
+对不全为零的 $a,b$，令 $g=\gcd(|a|,|b|)>0$。
+递归扩展欧几里得先求 $|a|u+|b|v=g$；当且仅当 $g\mid c$ 时有整数解。
+把系数乘以 $c/g$，再恢复 $a,b$ 的符号，就得到 $ax_0+by_0=c$。
+两个特解相减，再利用 $a/g,b/g$ 互素，可知所有解恰为
+\[
+x=x_0+\frac bg t,\qquad y=y_0-\frac ag t,\qquad t\in\mathbb Z.
+\]
+若 $a=b=0$，则 $c=0$ 时所有整数对都是解，否则无解；此时不能使用除以 $g$ 的通解式。
+
+底层 \texttt{exgcd} 的本库调用约定为非负系数，上限 $2^{63}$；
+返回非负的 $g$，$(0,0)$ 约定返回 0。
+包装函数先转为 128 位再取相反数，因而可以处理 \texttt{LLONG\_MIN}。
+缩放后的特解也用 128 位保存；不要提前转回 \texttt{long long}。
+即使特解可表示，直接验证 $ax+by$ 的两个乘积仍可能超过 128 位，本地验证使用任意精度整数。
+
+对 P5656 的正系数 $a,b,c$，设 $d_x=b/g,d_y=a/g$，
+先将 $x_0$ 调整到 $x_{\min}\in[1,d_x]$，并计算与它配对的
+$y_{\max}=(c-ax_{\min})/b$。
+若 $y_{\max}>0$，正整数解个数为
+\[
+N=\left\lfloor\frac{y_{\max}-1}{d_y}\right\rfloor+1,
+\quad x_{\max}=x_{\min}+(N-1)d_x,
+\quad y_{\min}=y_{\max}-(N-1)d_y.
+\]
+否则不存在同时为正的解，但 $x$ 和 $y$ 仍各自有最小正值；
+分别按周期归一化即可，它们通常不是同一组解。正值归一化使用
+\texttt{(v \% d + d - 1) \% d + 1}，不要把余数 0 当作正整数。
+驱动中 $a,b,c\le10^9$，归一化后的乘积不超过 $10^{18}$，故该部分可用 64 位。
+
+双版本以小范围有符号输入穷举、任意精度等式证书、64 位端点和斐波那契递归链验证。
+完整 P5656 驱动另验证 200000 组输入，包含正解数量与四个极值、无解和无正解分支；
+普通与 ASan/UBSan 测试均通过，在线 AC 待补。
+
+来源：kuangbin 2.3；WIDA 数论打印稿的 exgcd 与不定方程例题。
+
+\url{https://oi-wiki.org/math/number-theory/bezouts/}。
+
 \section{扩展 CRT：逐式合并}\index{exCRT}\index{扩展中国剩余定理}
 实现见第~\pageref{compact-NumberTheory}~页的 \texttt{crt}，
 传统版对应 \texttt{Crt}。初始取 $r=0,m=1$，依次合并 $x\equiv b\pmod n$。

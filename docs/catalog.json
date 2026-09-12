@@ -135,7 +135,13 @@
     "number_theory",
     "NumberTheory",
     "模运算、素性、CRT 与类欧几里德",
-    "mul/power 支持无符号 64 位正模数，乘积用 uint128。prime 使用确定性 64 位底数。inverse(a,m) 无逆元返回 -1。crt(r,m,b,n) 合并 x≡r (mod m) 与 x≡b (mod n)，要求 m,n>0。从 r=0、m=1 开始逐项合并；成功后 r 为最小非负解、m 为最小正周期。余数允许完整 long long 范围。无解返回 false；有解但新周期超过 LLONG_MAX 抛 overflow_error。两种失败都会先将 r 归一化，m 不变；失败后不能继续当作完整解使用。递归 exgcd 和乘法中间量用 int128，单次 O(log min(m,n))，抄写 CRT 时只需类型别名、exgcd 和 crt。floor_sum 为 i=0..n-1 的 floor((ai+b)/m) 之和，支持负 a、b，返回 int128；约定 n≤10⁹、m≤10⁹，a、b 为有符号 64 位。"
+    "mul/power 支持无符号 64 位正模数，乘积用 uint128。prime 使用确定性 64 位底数。inverse(a,m) 无逆元返回 -1。crt(r,m,b,n) 合并 x≡r (mod m) 与 x≡b (mod n)，要求 m,n>0。从 r=0、m=1 开始逐项合并；成功后 r 为最小非负解、m 为最小正周期。余数允许完整 long long 范围。无解返回 false；有解但新周期超过 LLONG_MAX 抛 overflow_error。两种失败都会先将 r 归一化，m 不变；失败后不能继续当作完整解使用。递归 exgcd 和乘法中间量用 int128，单次 O(log min(m,n))，抄写 CRT 时只需类型别名、exgcd 和 crt。floor_sum 为 i=0..n-1 的 floor((ai+b)/m) 之和，支持负 a、b，返回 int128；约定 n≤10⁹、m≤10⁹，a、b 为有符号 64 位。 exgcd 单独调用约定 0≤a,b≤2^63，输出 int128 系数满足 ax+by=gcd(a,b)，(0,0) 返回 0；有符号方程用 linear_equation。"
+  ],
+  [
+    "linear_equation",
+    "linear_equation",
+    "二元一次不定方程",
+    "linear_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解；传统接口 Linear_Equation。a、b、c 支持完整 long long，x、y 必须为 int128。无解返回 false 且 x=y=0；a=b=c=0 返回 true、x=y=0，此时所有整数对都是解。其他有解情况，令 g=gcd(|a|,|b|)，通解为 (x+(b/g)t,y-(a/g)t)。依赖 NumberTheory::exgcd；只需抄递归 exgcd 与本函数。时间、递归空间 O(log(max(|a|,|b|)+2))；不承诺特解最小或为正。"
   ],
   [
     "segmented_sieve",

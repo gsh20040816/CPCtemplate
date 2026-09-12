@@ -512,7 +512,7 @@ add(ch) 追加小写英文字母，返回最长回文后缀节点，亦保存于
 
 \section{模运算、素性、CRT 与类欧几里德}\label{compact-NumberTheory}\index{NumberTheory}
 
-mul/power 支持无符号 64 位正模数，乘积用 uint128。prime 使用确定性 64 位底数。inverse(a,m) 无逆元返回 -1。crt(r,m,b,n) 合并 x$\equiv$r (mod m) 与 x$\equiv$b (mod n)，要求 m,n>0。从 r=0、m=1 开始逐项合并；成功后 r 为最小非负解、m 为最小正周期。余数允许完整 long long 范围。无解返回 false；有解但新周期超过 LLONG\_MAX 抛 overflow\_error。两种失败都会先将 r 归一化，m 不变；失败后不能继续当作完整解使用。递归 exgcd 和乘法中间量用 int128，单次 O(log min(m,n))，抄写 CRT 时只需类型别名、exgcd 和 crt。floor\_sum 为 i=0..n-1 的 floor((ai+b)/m) 之和，支持负 a、b，返回 int128；约定 n$\le$10$^{9}$、m$\le$10$^{9}$，a、b 为有符号 64 位。
+mul/power 支持无符号 64 位正模数，乘积用 uint128。prime 使用确定性 64 位底数。inverse(a,m) 无逆元返回 -1。crt(r,m,b,n) 合并 x$\equiv$r (mod m) 与 x$\equiv$b (mod n)，要求 m,n>0。从 r=0、m=1 开始逐项合并；成功后 r 为最小非负解、m 为最小正周期。余数允许完整 long long 范围。无解返回 false；有解但新周期超过 LLONG\_MAX 抛 overflow\_error。两种失败都会先将 r 归一化，m 不变；失败后不能继续当作完整解使用。递归 exgcd 和乘法中间量用 int128，单次 O(log min(m,n))，抄写 CRT 时只需类型别名、exgcd 和 crt。floor\_sum 为 i=0..n-1 的 floor((ai+b)/m) 之和，支持负 a、b，返回 int128；约定 n$\le$10$^{9}$、m$\le$10$^{9}$，a、b 为有符号 64 位。 exgcd 单独调用约定 0$\le$a,b$\le$2\textasciicircum{}63，输出 int128 系数满足 ax+by=gcd(a,b)，(0,0) 返回 0；有符号方程用 linear\_equation。
 
 \lstinputlisting[firstline=6,lastline=146]{../src/compact/number_theory.hpp}
 
@@ -551,6 +551,16 @@ Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。
 \Needspace{220pt}
 
 \lstinputlisting[firstline=310,lastline=325,firstnumber=26]{../src/compact/number_theory.hpp}
+
+\chapter{二元一次不定方程}
+
+\Needspace{357pt}
+
+\section{二元一次不定方程}\label{compact-linear_equation}\index{linear\_equation}
+
+linear\_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解；传统接口 Linear\_Equation。a、b、c 支持完整 long long，x、y 必须为 int128。无解返回 false 且 x=y=0；a=b=c=0 返回 true、x=y=0，此时所有整数对都是解。其他有解情况，令 g=gcd(|a|,|b|)，通解为 (x+(b/g)t,y-(a/g)t)。依赖 NumberTheory::exgcd；只需抄递归 exgcd 与本函数。时间、递归空间 O(log(max(|a|,|b|)+2))；不承诺特解最小或为正。
+
+\lstinputlisting[firstline=5,lastline=27]{../src/compact/linear_equation.hpp}
 
 \chapter{区间筛素数}
 
@@ -1501,6 +1511,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \Needspace{220pt}
 
 \lstinputlisting[firstline=326,lastline=341,firstnumber=26]{../src/classic/number_theory.hpp}
+
+\chapter{二元一次不定方程}
+
+\Needspace{357pt}
+
+\section{二元一次不定方程}\label{classic-linear_equation}\index{Linear\_Equation}
+
+算法约束见动态版本第~\pageref{compact-linear_equation}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=27]{../src/classic/linear_equation.hpp}
 
 \chapter{区间筛素数}
 
