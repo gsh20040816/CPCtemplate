@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T00:03:00.633857+00:00",
+  "recorded_at_utc": "2026-09-12T00:16:11.310622+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -77,7 +77,9 @@
       "Widget Factory compact: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
       "Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
       "Incremental Garner checks; unchanged-module evidence retained from eb36f6d:",
-      "Garner dual direct cpp_int CRT oracle, mixed-radix reconstruction, signed extremes, noncoprime rejection and 1000 moduli PASS"
+      "Garner dual direct cpp_int CRT oracle, mixed-radix reconstruction, signed extremes, noncoprime rejection and 1000 moduli PASS",
+      "Incremental Lucas checks; unchanged-module evidence retained from d2a43c2:",
+      "Lucas dual Pascal oracle, exact big integers, uint64 extremes, prime-power identities and modulus reset PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -153,7 +155,9 @@
       "Widget Factory compact: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
       "Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
       "Incremental Garner checks; unchanged-module evidence retained from eb36f6d:",
-      "Garner dual direct cpp_int CRT oracle, mixed-radix reconstruction, signed extremes, noncoprime rejection and 1000 moduli PASS"
+      "Garner dual direct cpp_int CRT oracle, mixed-radix reconstruction, signed extremes, noncoprime rejection and 1000 moduli PASS",
+      "Incremental Lucas checks; unchanged-module evidence retained from d2a43c2:",
+      "Lucas dual Pascal oracle, exact big integers, uint64 extremes, prime-power identities and modulus reset PASS"
     ]
   },
   "sha256": {
@@ -183,6 +187,7 @@
     "src/classic/interpolation.hpp": "43f5714b8fb6e16a13dc356f1e7ac01c492974bb53b73f558c9a6fdb5ec84020",
     "src/classic/lex_two_sat.hpp": "531c4fca134bb016b6a7335e37aaae4f865faa9f309036fa6f112e3b22f6168b",
     "src/classic/lifting_lca.hpp": "0938fc06246035f4f59daf0c4012ef0c4c513e78fed2d70bf8fc50ed49104078",
+    "src/classic/lucas.hpp": "4912ddcacf0e602f5155d805566b60e59165ad36d8075cd8e7d180e90e4d6b5e",
     "src/classic/maximum_closure.hpp": "47bfa97cd02f9c423e026d1b38af5909725a1c7e6f94e95b7541f29b858c5bad",
     "src/classic/min_cost_flow.hpp": "49d8ee5466edc6396bbe7c8858e8b4bd765b4c0bc18c82a4ea7eae88884e36ca",
     "src/classic/mixed_euler.hpp": "f288cc25617677f70adcfae0e39a5818a3597b9ce2ae27f78816c0edeede6a6c",
@@ -238,6 +243,7 @@
     "src/compact/interpolation.hpp": "73f71b029ccab6be4573c4612a5c132accb9b208115503d7f47bde7fc878357a",
     "src/compact/lex_two_sat.hpp": "f5e50a5af0c5892b8be560ceb4eacf5e7cdcf484da2fec3ad6450cabcd02ec16",
     "src/compact/lifting_lca.hpp": "19cda96f3d6d0f4807f7d554d09b0428f3b88516a40788cff6b6897ac90a64da",
+    "src/compact/lucas.hpp": "8443d5db1ae9012123c65b1839006086d24646f0443fef1e4489d51c6e354359",
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
     "src/compact/mixed_euler.hpp": "7e84285a001bc52700e00f0da220c28402b866c4c84c742962886b69c7c03ff8",
     "src/compact/modular_sqrt.hpp": "feafcc6e8e95453ba63c6fa4047de98ba1402d6d8c373f41543b5162e730a537",
@@ -312,6 +318,8 @@
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",
     "tests/lifting_lca_application.py": "068c4b2f662bde0f7f6e6ef9fb7c357be98717d4bfc423c77eea8ceb8f43543a",
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",
+    "tests/lucas.cpp": "6265fc77a26c4cb2a6a9078e4c24a6b72531e57059c17574f337dc6914973061",
+    "tests/lucas_application.py": "ef6adc76dec21b62acc6e0aaec585f6a75758523fbfc152e410aec09d40d461a",
     "tests/maximum_closure.cpp": "f949edb7975ca2a6551f97de6b9349a29be7fd692f4266ce226ae76c2de37c1d",
     "tests/maximum_closure_application.py": "5ee193618c16170bc235b87c423405802862108b0aa6a3e5c2d4c76af87abca7",
     "tests/mixed_euler.cpp": "575fb28b131f391169fa287282e8bcb9a2baba7e3fa04456f3ca02f8fde1bf06",

@@ -172,3 +172,6 @@ python3 tests/widget_factory_application.py
 
 "$CXX" "${flags[@]}" tests/garner.cpp -o build/garner
 build/garner
+
+"$CXX" "${flags[@]}" tests/lucas.cpp -o build/lucas
+build/lucas

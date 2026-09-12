@@ -102,6 +102,27 @@ $\beta^{p-1}=n^{(p-1)/2}=1$，所以 $\beta$ 落在原素数域中。
 实现见第~\pageref{compact-mod_sqrt}~页；零和模数 2 单独处理。
 模数为合数时不能照搬此判别和扩域构造。
 
+\section{Lucas：按素数进制逐位计算}\index{Lucas}
+在特征为素数 $p$ 的域中，$(1+x)^p=1+x^p$。
+若 $n=\sum_i n_ip^i$，则
+\[
+(1+x)^n=\prod_i(1+x^{p^i})^{n_i}.
+\]
+每个因子选择的次数在 $0,\ldots,n_i$ 之间，严格小于 $p$，因此位数表示唯一。
+比较 $x^k$ 的系数即得 $\binom nk=\prod_i\binom{n_i}{k_i}\pmod p$；
+若某位 $k_i>n_i$，答案立即为零。
+仅预处理 $0!,\ldots,(p-1)!$ 及其逆元，这些数均非零。
+$p!$ 为零，不能把阶乘表延长后继续用除法公式。
+实现见第~\pageref{compact-Lucas}~页。
+
+预处理后每位只做常数次乘法，适合固定小素数模数下的多次查询。
+接口接收 $n,k$，不接收“$n,m$ 表示选 $n$ 个”的隐含约定；
+P3807 的驱动程序显式调用 $\operatorname{choose}(n+m,n)$。
+题目范围内求和安全，完整 64 位输入自行求和时仍要检查溢出。
+本地验证包含 Pascal 三角、精确大整数、小模数重建和最大无符号 64 位下标；
+P3807 双版本完整程序已通过本地对拍，在线 AC 待补。
+来源：\url{https://oi-wiki.org/math/number-theory/lucas/}。
+
 \section{合数模数组合数与插值}\index{exLucas}\index{Lagrange interpolation}
 对素数幂 $q=p^e$，记 $v_p(n!)=\sum_{j\ge1}\lfloor n/p^j\rfloor$，
 $U_p(n)=n!/p^{v_p(n!)}$。设

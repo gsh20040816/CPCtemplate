@@ -168,6 +168,12 @@
     "Binomial<prime>(n)，要求 0≤n<prime；choose(n,k) 越界 k 返回 0。预处理 O(n+log prime)，单次 O(1)。小模数下，合数模数或 n 不小于模数时，可使用后面的 ExLucas。"
   ],
   [
+    "lucas",
+    "Lucas",
+    "Lucas：小素数模的大下标组合数",
+    "Lucas(p) 预处理素数模数 p，choose(n,k) 返回 C(n,k) 模 p；n、k 为完整 unsigned long long 范围，k>n 返回 0，C(0,0)=1。init(p) 可更换模数并重新预处理；不检测素性，要求调用者保证 p 为素数且 p≥2。预处理时间 O(p+log p)，动态版空间 O(p)；单次查询 O(1+log_p(n+1))。适合小素数模数，通常 p≤10⁶；大素数不能因查询下标小就忽略这里整段 O(p) 的预处理。fac、ifac 下标为 0..p-1，模数和表只读；中间乘法用 long long。合数模数请使用 exLucas。"
+  ],
+  [
     "exlucas",
     "ExLucas",
     "合数模数组合数（扩展 Lucas）",

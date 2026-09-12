@@ -564,6 +564,20 @@ garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garn
 
 \lstinputlisting[firstline=35,lastline=46,firstnumber=31]{../src/compact/garner.hpp}
 
+\chapter{素数模数组合数}
+
+\Needspace{634pt}
+
+\section{Lucas：小素数模的大下标组合数}\label{compact-Lucas}\index{Lucas}
+
+Lucas(p) 预处理素数模数 p，choose(n,k) 返回 C(n,k) 模 p；n、k 为完整 unsigned long long 范围，k>n 返回 0，C(0,0)=1。init(p) 可更换模数并重新预处理；不检测素性，要求调用者保证 p 为素数且 p$\ge$2。预处理时间 O(p+log p)，动态版空间 O(p)；单次查询 O(1+log\_p(n+1))。适合小素数模数，通常 p$\le$10$^{6}$；大素数不能因查询下标小就忽略这里整段 O(p) 的预处理。fac、ifac 下标为 0..p-1，模数和表只读；中间乘法用 long long。合数模数请使用 exLucas。
+
+\lstinputlisting[firstline=6,lastline=36]{../src/compact/lucas.hpp}
+
+\Needspace{270pt}
+
+\lstinputlisting[firstline=37,lastline=55,firstnumber=32]{../src/compact/lucas.hpp}
+
 \chapter{合数模数组合数}
 
 \section{合数模数组合数（扩展 Lucas）}\label{compact-ExLucas}\index{ExLucas}
@@ -1431,6 +1445,22 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 算法约束见动态版本第~\pageref{compact-garner}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=5,lastline=46]{../src/classic/garner.hpp}
+
+\chapter{素数模数组合数}
+
+\Needspace{563pt}
+
+\section{Lucas：小素数模的大下标组合数}\label{classic-Lucas}\index{Lucas\_Theorem}
+
+算法约束见动态版本第~\pageref{compact-Lucas}~页。本节代码独立可抄；采用下列实际接口名。
+
+声明 Lucas\_Theorem<N>，Init(p) 重建素数模数下的表，Choose(n,k) 查询。要求 p 不超过 N；大对象放全局或 static。传统版空间 O(N)。
+
+\lstinputlisting[firstline=6,lastline=29]{../src/classic/lucas.hpp}
+
+\Needspace{270pt}
+
+\lstinputlisting[firstline=30,lastline=48,firstnumber=25]{../src/classic/lucas.hpp}
 
 \chapter{合数模数组合数}
 
