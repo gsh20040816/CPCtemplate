@@ -983,5 +983,47 @@
       "Inverse_Table: every consecutive inverse"
     ],
     "note": "All 6 judge cases accepted; 1<=n<=3000000, n<p<20000528, prime p. Empty prefix and int32 modulus limits are tested locally. General exgcd and Fermat inverse APIs are not covered by this submission."
+  },
+  {
+    "problem": "Luogu P4718",
+    "style": "compact",
+    "algorithm": "PollardRho::factor",
+    "record": "https://www.luogu.com.cn/record/297569299",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "5.19s",
+    "max_case_time_display": "2.11s",
+    "timing_precision": "Rounded seconds as displayed by judge UI; total is across cases.",
+    "memory": "1.04MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4718.compact.cpp",
+    "submitted_source": "verification/submitted/P4718.compact.cpp",
+    "submitted_sha256": "c0d3315ca8c17440f7df6374028560ad5ced194d323b12313eb37b5680c4e530",
+    "tested_api": [
+      "PollardRho::factor: prime label and maximum factor"
+    ],
+    "note": "All 20 cases accepted, T<=350 and 2<=n<=1e18. Current page shows 4s per-case limit. Complete factor multiplicities, minimum factor, n=1, and uint64 values above 1e18 have separate local evidence. Other bundled number theory components are not covered."
+  },
+  {
+    "problem": "Luogu P4718",
+    "style": "classic",
+    "algorithm": "Pollard_Rho::Factor",
+    "record": "https://www.luogu.com.cn/record/297569935",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "5.21s",
+    "max_case_time_display": "2.12s",
+    "timing_precision": "Rounded seconds as displayed by judge UI; total is across cases.",
+    "memory": "2.53MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P4718.classic.cpp",
+    "submitted_source": "verification/submitted/P4718.classic.cpp",
+    "submitted_sha256": "ef3f3369a78e16ced7b950e86bf940ada05fa6d1ee01e3b974138d7d7875bc7e",
+    "tested_api": [
+      "Pollard_Rho::Factor: prime label and maximum factor"
+    ],
+    "note": "All 20 cases accepted, T<=350 and 2<=n<=1e18. Current page shows 4s per-case limit. Complete factor multiplicities, minimum factor, n=1, and uint64 values above 1e18 have separate local evidence. Other bundled number theory components are not covered."
   }
 ]

@@ -48,8 +48,6 @@
 - `verify/luogu/P3812.compact.cpp`
 - `verify/luogu/P4151.classic.cpp`
 - `verify/luogu/P4151.compact.cpp`
-- `verify/luogu/P4718.classic.cpp`
-- `verify/luogu/P4718.compact.cpp`
 - `verify/luogu/P4779.classic.cpp`
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.classic.cpp`
