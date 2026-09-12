@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T06:53:48.660117+00:00",
+  "recorded_at_utc": "2026-09-12T06:58:08.515945+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -150,7 +150,10 @@
       "Incremental floor moments; unchanged-module evidence retained from a2dabfe:",
       "Floor moments dual cpp_int weighted/squared oracle, signed extremes, zero terms and billion-term polynomial certificates PASS",
       "P5170 compact: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS",
-      "P5170 classic: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS"
+      "P5170 classic: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS",
+      "",
+      "Incremental large floor-moment identities; unchanged-module evidence retained from 06aeccb:",
+      "Floor moments large dual reversal/complement/difference identities, scalar floor-sum cross-check and Fibonacci depth PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -299,7 +302,10 @@
       "Incremental floor moments; unchanged-module evidence retained from a2dabfe:",
       "Floor moments dual cpp_int weighted/squared oracle, signed extremes, zero terms and billion-term polynomial certificates PASS",
       "P5170 compact: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS",
-      "P5170 classic: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS"
+      "P5170 classic: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS",
+      "",
+      "Incremental large floor-moment identities; unchanged-module evidence retained from 06aeccb:",
+      "Floor moments large dual reversal/complement/difference identities, scalar floor-sum cross-check and Fibonacci depth PASS"
     ]
   },
   "sha256": {
@@ -483,6 +489,7 @@
     "tests/factorization_application.py": "2a532dd4a5d19be78af0168317ad403cc1faea3a8e87c0ce0bc880d3ece0b47d",
     "tests/floor_moments.cpp": "32fc3a2473cbb47360c9a8f016da1f48c46261f6ce31912f2e40d4b61c8f3c48",
     "tests/floor_moments_application.py": "0c13290f0e7e18818ba6ececcf7085970e9a6d1abcf5d6c96e85f4513860df85",
+    "tests/floor_moments_large.cpp": "8d2ca5f078ae46f70fdb39f6921c78dbf3a419b17e57ea5b6714957d0a2531ee",
     "tests/floor_sum.cpp": "28dc11fc9728de8c709007ba0b58153ddea0f24ce739504ef2cea46e2dbcb606",
     "tests/frog_meeting_application.py": "6e2e5fd3154e9d3b35fe835a56da0a8dd351d161a35f1f2ea0f672796fec4412",
     "tests/garner.cpp": "0e78c3ae32b2ad51e2f6696800e145ec5c55c97b0495dcc4fcd99a818a4fd5f6",

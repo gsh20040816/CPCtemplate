@@ -240,3 +240,6 @@ build/floor_sum
 "$CXX" "${flags[@]}" tests/floor_moments.cpp -o build/floor_moments
 build/floor_moments
 python3 tests/floor_moments_application.py
+
+"$CXX" "${flags[@]}" tests/floor_moments_large.cpp -o build/floor_moments_large
+build/floor_moments_large
