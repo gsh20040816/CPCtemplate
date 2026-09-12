@@ -934,6 +934,22 @@ bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}
 
 \lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/compact/halfplanes.hpp}
 
+\chapter{最小覆盖圆}
+
+\Needspace{544pt}
+
+\section{随机增量最小覆盖圆}\label{compact-EnclosingCircle}\index{EnclosingCircle}
+
+solve(points,rng,eps) 返回 optional<Circle>，Circle=\{o,r\}；空集返回 nullopt，单点或重复同一点返回半径零。rng 是调用者提供的 mt19937\_64 随机数引擎。期望 O(n) 时间，最坏 O(n$^{3}$)，O(n) 空间；随机化不可省略。eps 默认 32 倍 long double 机器精度，用于相对半径的包含判断。diameter(a,b) 求直径圆；through(a,b,c) 求外接圆，共线时返回最远点对的直径圆。依赖浮点几何的 Point/Circle 与向量运算。输入及中间运算须有限且尺度适当；接近共线时圆心可能不稳定，无法恢复读入前的精度。传统接口 Enclosing\_Circle::Solve、Diameter、Through。
+
+\lstinputlisting[firstline=4,lastline=39]{../src/compact/enclosing_circle.hpp}
+
+\newpage
+
+\noindent 随机增量主过程（接上页同一结构体）：
+
+\lstinputlisting[firstline=40,lastline=67,firstnumber=37]{../src/compact/enclosing_circle.hpp}
+
 \chapter{圆的切线}
 
 \Needspace{499pt}
@@ -2061,6 +2077,22 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \noindent 接上页同一结构体与函数：
 
 \lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/classic/halfplanes.hpp}
+
+\chapter{最小覆盖圆}
+
+\Needspace{544pt}
+
+\section{随机增量最小覆盖圆}\label{classic-EnclosingCircle}\index{Enclosing\_Circle}
+
+算法约束见动态版本第~\pageref{compact-EnclosingCircle}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=4,lastline=39]{../src/classic/enclosing_circle.hpp}
+
+\newpage
+
+\noindent 随机增量主过程（接上页同一结构体）：
+
+\lstinputlisting[firstline=40,lastline=67,firstnumber=37]{../src/classic/enclosing_circle.hpp}
 
 \chapter{圆的切线}
 

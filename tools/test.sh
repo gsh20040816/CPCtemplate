@@ -273,3 +273,7 @@ python3 tests/closest_pair_application.py
 
 "$CXX" "${flags[@]}" tests/circle_tangents.cpp -o build/circle_tangents
 build/circle_tangents
+
+"$CXX" "${flags[@]}" tests/enclosing_circle.cpp -o build/enclosing_circle
+build/enclosing_circle
+python3 tests/enclosing_circle_application.py

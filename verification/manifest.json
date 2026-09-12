@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T08:28:11.191739+00:00",
+  "recorded_at_utc": "2026-09-12T08:33:56.695422+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -185,7 +185,10 @@
       "Floating closest pair dual 100-digit distance oracle, decimal/adjacent/subnormal scales and 200000 points PASS",
       "",
       "Incremental circle tangents; unchanged-module evidence retained from 0a9c9d7:",
-      "Circle tangents dual exact count oracle, 100-digit line/contact certificates, point circles, tangencies and scale extremes PASS"
+      "Circle tangents dual exact count oracle, 100-digit line/contact certificates, point circles, tangencies and scale extremes PASS",
+      "",
+      "Incremental minimum enclosing circle; unchanged-module evidence retained from ed4cf94:",
+      "Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -369,7 +372,10 @@
       "Floating closest pair dual 100-digit distance oracle, decimal/adjacent/subnormal scales and 200000 points PASS",
       "",
       "Incremental circle tangents; unchanged-module evidence retained from 0a9c9d7:",
-      "Circle tangents dual exact count oracle, 100-digit line/contact certificates, point circles, tangencies and scale extremes PASS"
+      "Circle tangents dual exact count oracle, 100-digit line/contact certificates, point circles, tangencies and scale extremes PASS",
+      "",
+      "Incremental minimum enclosing circle; unchanged-module evidence retained from ed4cf94:",
+      "Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS"
     ]
   },
   "sha256": {
@@ -394,6 +400,7 @@
     "src/classic/dynamic_kth.hpp": "1722bf7aece58ad677f0e515014b31dd72e05d320a883adc88d366d0f872d22b",
     "src/classic/dynamic_tree.hpp": "b11bde8c5b78f6fb927e79e854b5b940757226e46d8bbb68ec17c58db3773821",
     "src/classic/edge_components.hpp": "464f9de0d1423e95be3030fbd0742efa705f86edccdc3ba0effc00798e6ffeae",
+    "src/classic/enclosing_circle.hpp": "dfabecbaa759b207fbaee1a0b54a835178f21dbb909709f3f5dcc74a0dea6182",
     "src/classic/euler_lca.hpp": "902b6d56e42c240f3ec646f6df33603292bd18d4625c75ebf7a153c94e2e79fe",
     "src/classic/euler_phi.hpp": "bf7868fc9bd234ec81fac6b6ef9ec8be7d401ae0be8b7029c7ca5dbe9ea7cd71",
     "src/classic/exlucas.hpp": "9b54b6f0b06a634707c412f8fb0787c15f44ec7e48fb0f02bdecb7ebaf5fba1d",
@@ -467,6 +474,7 @@
     "src/compact/dynamic_kth.hpp": "006b98255668548427c58149db6260dfa5372fa287fd771d6b66b56fe3c086c5",
     "src/compact/dynamic_tree.hpp": "1e9fdf1d3b04989459cfc7c2a9fe6f5256870e09ce37875994e44cb868714769",
     "src/compact/edge_components.hpp": "211a0697663522fa6a422c2c9f3a05cc72802b01d70e40783c5a9cd66bdbb084",
+    "src/compact/enclosing_circle.hpp": "1f89f26ed7c8f5623b69f2afe1a718cf57d48a767cae1040ab77af4d41411f94",
     "src/compact/euler_lca.hpp": "ad57af27c5b91f5e965b0d659d63b5b0992e41f8a692f45fab39e523e2f083ce",
     "src/compact/euler_phi.hpp": "17816d7c0cb159c510b9146c6a2bff728ecddbf2e5395a9c1b2430e674d81278",
     "src/compact/exlucas.hpp": "d035e36afe55605b21e33f74af10695699f8b156c624c0d477c1f5ffc1861b78",
@@ -560,6 +568,8 @@
     "tests/dynamic_kth_scale.py": "520ce96be1927367c283b6aae8877090cceea648afbdbc126f2d977acc92acee",
     "tests/edge_components.cpp": "ce1be8fda4a19c27797e3764198826a9e891f859f4b87c5fc41a392261d4b50b",
     "tests/edge_components_application.py": "eeee7ef0bea795c064e2c5827825ebcf18cd3bb1de6aa8ab7c4cdbcfc50e747f",
+    "tests/enclosing_circle.cpp": "accf8cf2cd3b49a843a5934cdd45246a8d1c243beef1a17f12b36d4a856d693c",
+    "tests/enclosing_circle_application.py": "c3b8ff5187700340dc3b2bb7ecb5a5959f010d1279ca5498cad57bd0ddcf41c9",
     "tests/euler_lca.cpp": "1c25c665b0eb1eed13ccc83f3c0cc2dc06672ebb56117baa918257257596c8c9",
     "tests/euler_lca_application.py": "17294374da01fab79424653360caa042f7e295b6e7056f260ed0b13f77178109",
     "tests/euler_phi.cpp": "df2b4929bfab71f3db1c6344aecc6a35f807ba45698b2e88013e26de94c7dcdc",
