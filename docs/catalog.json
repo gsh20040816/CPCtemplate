@@ -294,6 +294,18 @@
     "先声明 Lagrange。init(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long long>；consecutive(ys,p) 专用于横坐标 0..n-1。两者均覆盖旧数据。要求 p 为素数，2≤p≤INT_MAX，点数 n≤p，任意横坐标取模后两两不同；不是仅要求原整数不同。query(k) 返回次数小于 n 的插值多项式在 k 处的值，允许 k、xs、ys 为完整 long long 范围，内部先归一化；空数据约定零多项式。通用预处理 O(n²+n log p)，连续点预处理 O(n+log p)，每次查询 O(n)，空间 O(n)。查询利用前缀积与滚动后缀积，无需求逆，因此 k 与样本点模 p 相等时也正确。若求 1^d+…+k^d，要求 0≤d≤p-2，先计算 0..d+1 的前缀和作为 ys，再用 consecutive；用快速幂生成这些样本另花 O(d log(d+1))。仅处理素数域中的精确插值，不适用于浮点曲线拟合或重复节点的导数约束。"
   ],
   [
+    "stirling",
+    "stirling_second_row",
+    "第二类斯特林数：同一行前缀",
+    "stirling_second_row(n,m) 返回 S(n,0..m)，模 998244353。S(n,k) 表示将 n 个不同元素划分成 k 个无标号非空集合。n 支持完整 unsigned long long；0≤m<2²²。n=0 时仅 S(0,0)=1，k>n 为零。一次卷积配合逆阶乘，时间 O(m log m + m log mod)，空间 O(m)。对非零底数的指数按费马小定理降幂，0^0 在此取 1。依赖 Polynomial 的 NTT 和 ModInt。传统接口 Stirling_Second_Row。"
+  ],
+  [
+    "stirling",
+    "stirling_first_row",
+    "无符号第一类斯特林数：同一行",
+    "stirling_first_row(n) 返回 c(n,0..n)，模 998244353；c(n,k) 为 n 元排列恰有 k 个循环的个数。0≤n<2²³，n=0 返回 {1}。用递归乘积树计算 x(x+1)…(x+n-1)，时间 O(n log² n)，空间 O(n)。带符号第一类数须再乘 (-1)^(n-k)。依赖 Polynomial；小区间直接乘线性因子，减少小 NTT 开销。传统接口 Stirling_First_Row。"
+  ],
+  [
     "polynomial",
     "Polynomial",
     "NTT、形式幂级数、FWT 与递推",

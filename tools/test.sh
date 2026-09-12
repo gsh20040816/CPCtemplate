@@ -302,3 +302,6 @@ build/determinant_mod
 
 "$CXX" "${flags[@]}" tests/matrix_tree_mod.cpp -o build/matrix_tree_mod
 build/matrix_tree_mod
+
+"$CXX" "${flags[@]}" tests/stirling.cpp -o build/stirling
+build/stirling

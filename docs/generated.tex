@@ -802,6 +802,24 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=6,lastline=92]{../src/compact/interpolation.hpp}
 
+\chapter{斯特林数整行计算}
+
+\Needspace{354pt}
+
+\section{第二类斯特林数：同一行前缀}\label{compact-stirling_second_row}\index{stirling\_second\_row}
+
+stirling\_second\_row(n,m) 返回 S(n,0..m)，模 998244353。S(n,k) 表示将 n 个不同元素划分成 k 个无标号非空集合。n 支持完整 unsigned long long；0$\le$m<2$^{22}$。n=0 时仅 S(0,0)=1，k>n 为零。一次卷积配合逆阶乘，时间 O(m log m + m log mod)，空间 O(m)。对非零底数的指数按费马小定理降幂，0\textasciicircum{}0 在此取 1。依赖 Polynomial 的 NTT 和 ModInt。传统接口 Stirling\_Second\_Row。
+
+\lstinputlisting[firstline=5,lastline=27]{../src/compact/stirling.hpp}
+
+\Needspace{386pt}
+
+\section{无符号第一类斯特林数：同一行}\label{compact-stirling_first_row}\index{stirling\_first\_row}
+
+stirling\_first\_row(n) 返回 c(n,0..n)，模 998244353；c(n,k) 为 n 元排列恰有 k 个循环的个数。0$\le$n<2$^{23}$，n=0 返回 \{1\}。用递归乘积树计算 x(x+1)…(x+n-1)，时间 O(n log$^{2}$ n)，空间 O(n)。带符号第一类数须再乘 (-1)\textasciicircum{}(n-k)。依赖 Polynomial；小区间直接乘线性因子，减少小 NTT 开销。传统接口 Stirling\_First\_Row。
+
+\lstinputlisting[firstline=31,lastline=57]{../src/compact/stirling.hpp}
+
 \chapter{多项式}
 
 \section{NTT、形式幂级数、FWT 与递推}\label{compact-Polynomial}\index{Polynomial}
@@ -2039,6 +2057,24 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 声明 Lagrange\_Interpolation<N>；Init、Consecutive、Query 对应动态接口，N 为最大样本数。坐标、权值与工作数组均为静态数组，大对象放在全局或 static；Query 会改写工作数组。
 
 \lstinputlisting[firstline=6,lastline=90]{../src/classic/interpolation.hpp}
+
+\chapter{斯特林数整行计算}
+
+\Needspace{354pt}
+
+\section{第二类斯特林数：同一行前缀}\label{classic-stirling_second_row}\index{Stirling\_Second\_Row}
+
+算法约束见动态版本第~\pageref{compact-stirling_second_row}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=27]{../src/classic/stirling.hpp}
+
+\Needspace{386pt}
+
+\section{无符号第一类斯特林数：同一行}\label{classic-stirling_first_row}\index{Stirling\_First\_Row}
+
+算法约束见动态版本第~\pageref{compact-stirling_first_row}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=31,lastline=57]{../src/classic/stirling.hpp}
 
 \chapter{多项式}
 
