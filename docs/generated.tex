@@ -632,6 +632,16 @@ garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garn
 
 \lstinputlisting[firstline=58,lastline=99,firstnumber=55]{../src/compact/primitive_root.hpp}
 
+\chapter{单个数的欧拉函数}
+
+\Needspace{435pt}
+
+\section{单个数的欧拉函数}\label{compact-euler_phi}\index{euler\_phi}
+
+euler\_phi(n) 使用试除，O($\sqrt{\vphantom x}$n) 时间、O(1) 额外空间；euler\_phi(n,solver) 复用 PollardRho，时间由随机分解主导，分解结果与递归占 O(log n) 空间。传统接口 Euler\_Phi、Pollard\_Rho。1$\le$n$\le$ULLONG\_MAX，phi(1)=1。大素数或平衡大半素数应选分解器入口，不要用试除穷扫平方根；批量求 1..N 用 LinearSieve。先除质因子再乘 p-1，结果及中间乘积均不超过原 n。只抄试除函数时不需要 NumberTheory/PollardRho。
+
+\lstinputlisting[firstline=5,lastline=35]{../src/compact/euler_phi.hpp}
+
 \chapter{Carmichael 函数}
 
 \Needspace{347pt}
@@ -1595,6 +1605,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \newpage
 
 \lstinputlisting[firstline=58,lastline=99,firstnumber=55]{../src/classic/primitive_root.hpp}
+
+\chapter{单个数的欧拉函数}
+
+\Needspace{435pt}
+
+\section{单个数的欧拉函数}\label{classic-euler_phi}\index{Euler\_Phi}
+
+算法约束见动态版本第~\pageref{compact-euler_phi}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=35]{../src/classic/euler_phi.hpp}
 
 \chapter{Carmichael 函数}
 

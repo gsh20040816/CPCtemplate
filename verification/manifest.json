@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T05:59:48.533994+00:00",
+  "recorded_at_utc": "2026-09-12T06:14:49.746844+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -120,7 +120,10 @@
       "P4718 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 1.991s",
       "1811 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.433s",
       "P4718 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 1.833s",
-      "1811 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.441s"
+      "1811 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.441s",
+      "",
+      "Incremental Euler phi; unchanged-module evidence retained from d7bd045:",
+      "Euler phi dual trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -239,7 +242,10 @@
       "P4718 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 2.028s",
       "1811 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.486s",
       "P4718 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 1.862s",
-      "1811 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.473s"
+      "1811 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.473s",
+      "",
+      "Incremental Euler phi; unchanged-module evidence retained from d7bd045:",
+      "Euler phi dual trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS"
     ]
   },
   "sha256": {
@@ -260,6 +266,7 @@
     "src/classic/dynamic_tree.hpp": "b11bde8c5b78f6fb927e79e854b5b940757226e46d8bbb68ec17c58db3773821",
     "src/classic/edge_components.hpp": "464f9de0d1423e95be3030fbd0742efa705f86edccdc3ba0effc00798e6ffeae",
     "src/classic/euler_lca.hpp": "902b6d56e42c240f3ec646f6df33603292bd18d4625c75ebf7a153c94e2e79fe",
+    "src/classic/euler_phi.hpp": "bf7868fc9bd234ec81fac6b6ef9ec8be7d401ae0be8b7029c7ca5dbe9ea7cd71",
     "src/classic/exlucas.hpp": "9b54b6f0b06a634707c412f8fb0787c15f44ec7e48fb0f02bdecb7ebaf5fba1d",
     "src/classic/flow.hpp": "bd799ac3debd9806f3b33ac9ac7acce02aa97a9fb7e19f9a0b2c1855e5fcf533",
     "src/classic/garner.hpp": "a564d9677d0753e7286bb41bd3b99dc392f953ffb7eb77209e9b22f8cdfb9d5c",
@@ -323,6 +330,7 @@
     "src/compact/dynamic_tree.hpp": "1e9fdf1d3b04989459cfc7c2a9fe6f5256870e09ce37875994e44cb868714769",
     "src/compact/edge_components.hpp": "211a0697663522fa6a422c2c9f3a05cc72802b01d70e40783c5a9cd66bdbb084",
     "src/compact/euler_lca.hpp": "ad57af27c5b91f5e965b0d659d63b5b0992e41f8a692f45fab39e523e2f083ce",
+    "src/compact/euler_phi.hpp": "17816d7c0cb159c510b9146c6a2bff728ecddbf2e5395a9c1b2430e674d81278",
     "src/compact/exlucas.hpp": "d035e36afe55605b21e33f74af10695699f8b156c624c0d477c1f5ffc1861b78",
     "src/compact/flow.hpp": "a3dfad19ee2aaeacdde5ff4d52cb1a49e0788a2c350142ddb896d4bca3074d15",
     "src/compact/garner.hpp": "912240bf389532f74f7f1f2d0c384dd09f0a2caff33c978c0dc722acde60d245",
@@ -402,6 +410,7 @@
     "tests/edge_components_application.py": "eeee7ef0bea795c064e2c5827825ebcf18cd3bb1de6aa8ab7c4cdbcfc50e747f",
     "tests/euler_lca.cpp": "1c25c665b0eb1eed13ccc83f3c0cc2dc06672ebb56117baa918257257596c8c9",
     "tests/euler_lca_application.py": "17294374da01fab79424653360caa042f7e295b6e7056f260ed0b13f77178109",
+    "tests/euler_phi.cpp": "df2b4929bfab71f3db1c6344aecc6a35f807ba45698b2e88013e26de94c7dcdc",
     "tests/exlucas.cpp": "d14d58646c7679ea0a18bd0bac87b9cec4d084fef7d07170298b4f310c475331",
     "tests/exlucas_application.py": "e7af780f3141c17568d4c17761e48d5d9f9a801971f539cc5337a6d5545c2eea",
     "tests/factorization_application.py": "2a532dd4a5d19be78af0168317ad403cc1faea3a8e87c0ce0bc880d3ece0b47d",

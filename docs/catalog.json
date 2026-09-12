@@ -204,6 +204,12 @@
     "构造 PrimitiveRoot(n)，要求 2≤n≤INT_MAX；init(n) 可重建。order(a) 返回 a 模 n 的乘法阶，a 不可逆时返回 0；is_root(a) 判断该剩余类是否为原根，a 可为完整 long long。minimum() 返回 1..n-1 内最小原根，无原根返回 -1；all() 返回升序的全部原根，无原根返回空向量。mod、phi、exists 只读；factors 为 phi 的不同素因子，辅助 factor 为试除分解。依赖 NumberTheory 的 power。初始化 O(√n)，求阶 O(log²n)，原根判定 O((1+ω(phi))log n)。若最小原根为 G，顺序枚举最坏检查 G 个候选，不能假定 G 总是常数。枚举全部另需 O(phi log phi+c log c) 时间、O(c) 空间，c 为原根数；大模数只求最小原根或阶时，不应调用 all。"
   ],
   [
+    "euler_phi",
+    "euler_phi",
+    "单个数的欧拉函数",
+    "euler_phi(n) 使用试除，O(√n) 时间、O(1) 额外空间；euler_phi(n,solver) 复用 PollardRho，时间由随机分解主导，分解结果与递归占 O(log n) 空间。传统接口 Euler_Phi、Pollard_Rho。1≤n≤ULLONG_MAX，phi(1)=1。大素数或平衡大半素数应选分解器入口，不要用试除穷扫平方根；批量求 1..N 用 LinearSieve。先除质因子再乘 p-1，结果及中间乘积均不超过原 n。只抄试除函数时不需要 NumberTheory/PollardRho。"
+  ],
+  [
     "carmichael",
     "carmichael",
     "Carmichael：模乘法群的公共指数",

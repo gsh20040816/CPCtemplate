@@ -213,3 +213,6 @@ build/linear_sieve
 build/primality_factorization
 
 python3 tests/factorization_application.py
+
+"$CXX" "${flags[@]}" tests/euler_phi.cpp -o build/euler_phi
+build/euler_phi
