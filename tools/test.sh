@@ -184,3 +184,6 @@ build/carmichael
 
 "$CXX" "${flags[@]}" tests/binomial.cpp -o build/binomial
 build/binomial
+
+"$CXX" "${flags[@]}" tests/batch_inverse.cpp -o build/batch-inverse
+build/batch-inverse

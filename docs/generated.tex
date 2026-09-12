@@ -552,6 +552,16 @@ Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。
 
 \lstinputlisting[firstline=310,lastline=325,firstnumber=26]{../src/compact/number_theory.hpp}
 
+\chapter{批量模逆元}
+
+\Needspace{372pt}
+
+\section{任意数组的批量逆元}\label{compact-batch_inverse}\index{batch\_inverse}
+
+batch\_inverse(a,mod) 返回与 a 同序的逆元向量，传统接口为 Batch\_Inverse。要求 mod 为正 long long，每个输入可为完整 long long；只要某一项与 mod 不互素，整个结果返回 nullopt，不输出部分逆元。空输入返回有效的空向量；模数 1 约定返回全零，与单个逆元接口一致。模数可以是合数。函数按值接收数组并归一化；不再需要原数组时传 move(a) 可避免输入副本。依赖 NumberTheory 的 inverse 和 exgcd，传统版对应 Inverse、Exgcd。仅求一次逆元，时间 O(n+log mod)，空间 O(n)；128 位中间乘法防止溢出。
+
+\lstinputlisting[firstline=5,lastline=28]{../src/compact/batch_inverse.hpp}
+
 \chapter{混合进制中国剩余定理}
 
 \Needspace{568pt}
@@ -1471,6 +1481,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \Needspace{220pt}
 
 \lstinputlisting[firstline=326,lastline=341,firstnumber=26]{../src/classic/number_theory.hpp}
+
+\chapter{批量模逆元}
+
+\Needspace{372pt}
+
+\section{任意数组的批量逆元}\label{classic-batch_inverse}\index{Batch\_Inverse}
+
+算法约束见动态版本第~\pageref{compact-batch_inverse}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=28]{../src/classic/batch_inverse.hpp}
 
 \chapter{混合进制中国剩余定理}
 
