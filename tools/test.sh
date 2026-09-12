@@ -338,3 +338,7 @@ build/functional_graph
 python3 tests/functional_graph_application.py
 
 python3 tests/sugar_sweet_application.py
+
+"$CXX" "${flags[@]}" tests/release_bfs.cpp -o build/release_bfs
+build/release_bfs
+python3 tests/snake_application.py

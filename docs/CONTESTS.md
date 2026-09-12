@@ -19,3 +19,5 @@
 本轮只迁入已经重新检查的条目。此前 SOURCES.md 中其余赛站笔记保留，等资料可读并核验后再迁入。资料目录中的 `inventory_complete: false` 表示该赛站仍未完成从全部题面到实现验证的审计。
 
 2026-09-12 已完成 2023 杭州站 A–M 共 13 题的题解主题核对，资料目录记录本地下载 SHA256。`editorial_review_complete` 仅表示题解主题清单完整；`inventory_complete` 仍为 false，完整题面、数值约束和应用验证尚未完成。K 题对应的可持久化区间加与版本拼接已新增独立模板，初次映射状态为 `kernel_partial`；后续完整驱动在 QOJ8240 双 AC，现为 `application_verified`。
+
+杭州 G 已补充开放时间单位边最短路及两套完整驱动，QOJ8236 双 AC（2940150/2940191），并以真实蛇身状态穷举核对归约。目前 F/G/H/K 达到 `application_verified`，其余条目继续保留未完成状态。
