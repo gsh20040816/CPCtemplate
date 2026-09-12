@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T10:55:20.636476+00:00",
+  "recorded_at_utc": "2026-09-12T11:04:54.612091+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -233,7 +233,10 @@
       "Set convolutions dual direct-character and submask oracles, composite moduli, INT_MAX and 18-bit tensor identities PASS",
       "",
       "Incremental polynomial shift and geometric evaluation; unchanged-module evidence retained from 7d12e70:",
-      "Polynomial shift and Chirp-Z dual Pascal/Horner oracles, zero/one ratios, small-field capacity boundaries and large binomial/geometric identities PASS"
+      "Polynomial shift and Chirp-Z dual Pascal/Horner oracles, zero/one ratios, small-field capacity boundaries and large binomial/geometric identities PASS",
+      "",
+      "Incremental persistent range operations; unchanged-module evidence retained from 29a1d0f:",
+      "Persistent range dual branching vector oracle, lazy cross-version splice, immutable queries, sparse INT_MAX domain and logarithmic allocation PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -465,7 +468,10 @@
       "Set convolutions dual direct-character and submask oracles, composite moduli, INT_MAX and 18-bit tensor identities PASS",
       "",
       "Incremental polynomial shift and geometric evaluation; unchanged-module evidence retained from 7d12e70:",
-      "Polynomial shift and Chirp-Z dual Pascal/Horner oracles, zero/one ratios, small-field capacity boundaries and large binomial/geometric identities PASS"
+      "Polynomial shift and Chirp-Z dual Pascal/Horner oracles, zero/one ratios, small-field capacity boundaries and large binomial/geometric identities PASS",
+      "",
+      "Incremental persistent range operations; unchanged-module evidence retained from 29a1d0f:",
+      "Persistent range dual branching vector oracle, lazy cross-version splice, immutable queries, sparse INT_MAX domain and logarithmic allocation PASS"
     ]
   },
   "sha256": {
@@ -533,6 +539,7 @@
     "src/classic/path_intersection.hpp": "fba1958b2cb443036e29ee38ffabde5bfe45c3ef66c564d6e14b1d5345a4b44a",
     "src/classic/persistent_array.hpp": "4260e4ebca8affcd8618fc0532dbd16478c700e36f1688fd2c914cf2b30219c8",
     "src/classic/persistent_distinct.hpp": "1812c3079ed01a5fd917ed5af14848504d3b8c2dc38615cfb5e1269e6c02d52c",
+    "src/classic/persistent_range.hpp": "85790e289a03654f88544e9c97bda00159c9b6d5ab8299a711652e721e5d6fbb",
     "src/classic/polynomial.hpp": "4af3df1da84d454b167f9cc1e2432c973be8a4a78d641ef4dc6bc67f7e50a303",
     "src/classic/polynomial_shift.hpp": "e570f8dacab10c43b665746ce0b7123987d7db86efd383528767c151cbab9a18",
     "src/classic/position_basis.hpp": "7a74fc4e8595fb447334cfdf1a2070bab7735a15fbaac1532113cba88e729ea1",
@@ -621,6 +628,7 @@
     "src/compact/path_intersection.hpp": "c427f9c032c26ba4fad5d89b73dc17f3cc4e2b84c79634049ce76d35407fc092",
     "src/compact/persistent_array.hpp": "6499fb7c51bd3c2aab9a752534f0ec4ab5d4987b3cfa6c74a0c24f971f2b067a",
     "src/compact/persistent_distinct.hpp": "376a0307fbae6e8c236e5c55c53dd2b8454830875acf5323a7eb0a745a2f3fce",
+    "src/compact/persistent_range.hpp": "f5dc4f6c396e8057d368b66dd5cee072c8c7a6d30aeeb0802e75abd2809be4d4",
     "src/compact/polynomial.hpp": "4ae0ca3021f37b0d4dc9a40985e1c1a5a710edc2bcbbcb78a9331dd64ab75700",
     "src/compact/polynomial_shift.hpp": "16e1ae83defaf7061927d9c3101bdb5a204406257095a0a07fa58427deb1807b",
     "src/compact/position_basis.hpp": "f0b09b25ab5844a90aab64257401c32e5bee7dd1eb5a4d83c841d8177391f59d",
@@ -760,6 +768,7 @@
     "tests/persistent_distinct.cpp": "fbf4deee2334b8b4719d735e1791a827ef77ed4d2751b5686457a0faa761c0a6",
     "tests/persistent_distinct_application.py": "7aac5c316a92ef27f19085ab3b9a0d3be281ba1a5550002e4123b249e0ce2ba1",
     "tests/persistent_kth_application.py": "522954e0693203f36597da0d328273a6fb8562d7b5aae552bb6964fe5d13ee49",
+    "tests/persistent_range.cpp": "bea4137851959951ec4cbc853fc941b0df90d71d2186dc8701749909e7d8a191",
     "tests/phi_inversion.cpp": "047a63f9f86a3537411e0f129d9d06e797107a352b683dfb6b5131119dd2c306",
     "tests/polynomial_evaluation.cpp": "21e28b5678254a73cda8cab90cef6751bfe52cae25bae6de62008fc8ff40ce04",
     "tests/polynomial_evaluation_application.py": "614523c189a58808e1b33657b31a2637cb44aa521afc379319c1fadbef7df492",

@@ -1183,3 +1183,35 @@ Library Checker 的
 已准备两套完整驱动；本地检查各题 $524288$ 的最大规模，尚无在线 AC。
 参考\href{https://oi-wiki.org/math/poly/shift/}{OI Wiki 平移}及
 \href{https://oi-wiki.org/math/poly/czt/}{Chirp Z}，更广泛的点值平移和应用另行覆盖。
+
+\clearpage
+\section{可持久化区间拼接的懒标记}
+代码见第~\pageref{compact-PersistentRange}~页。
+对象从全零版本开始，同一对象内版本共享坐标域。
+区间加仅复制被访问节点，不向旧子节点下传标记。
+节点的和满足
+$\mathrm{sum}=\mathrm{left.sum}+\mathrm{right.sum}+\mathrm{lazy}\cdot\mathrm{len}$。
+读取时把祖先累积增量作为参数传下去，因此查询完全只读。
+
+拼接含义为将目标版本某个半开区间替换成源版本同一坐标区间。
+由于两棵树祖先的 lazy 可能不同，不能直接将源子树挂到目标祖先下面。
+递归参数 offset 保持“源祖先增量减目标祖先增量”；下降时更新为
+$\mathrm{offset}+\mathrm{source.lazy}-\mathrm{destination.lazy}$。
+当区间完整覆盖，复制源节点并将这个 offset 加到其 lazy 和 sum，
+此后挂到目标祖先下面时，逻辑值才与源版本相同。
+offset 为零时直接共享源节点；没有覆盖时保留目标节点。
+空区间、零增量与全区间拼接都可仅增加版本别名。
+
+每一层至多有两个边界节点，其他分支直接返回或复制一个整段节点，
+所以单次修改、拼接均为 $O(\log n)$ 新节点，查询为 $O(\log n)$ 时间、零新节点。
+不支持不同坐标偏移的平移粘贴，也不回收仍被旧版本引用的节点。
+所有 long long 的和、差、懒标记与长度乘积都应在范围内；
+节点数与版本数须小于 \texttt{INT\_MAX}。
+
+验证用独立向量保存各分支版本，逐区间检查更新、拼接和历史版本；
+包含正负增量、不同祖先标记、空区间、全段共享，以及查询前后的节点数量检查。
+规模验证包含长度 200000 的 10000 次区间版本组合，
+并在长度 \texttt{INT\_MAX} 的隐式坐标域验证端点操作与共享根。
+普通与 ASan/UBSan 均通过；尚无该新接口的在线 AC。
+来源需求是\href{https://icpcarchive.github.io/Asia\%20East\%20Continent\%20Contests/Hangzhou/2023\%20Asia\%20Hangzhou\%20Regional\%20Contest/solution.pdf}{2023 杭州站题解}
+第 24--26 页的 K 题，完整题目驱动尚待核验。

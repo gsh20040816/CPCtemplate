@@ -323,3 +323,6 @@ python3 tests/set_convolution_application.py
 "$CXX" "${flags[@]}" tests/polynomial_evaluation.cpp -o build/polynomial_evaluation
 build/polynomial_evaluation
 python3 tests/polynomial_evaluation_application.py
+
+"$CXX" "${flags[@]}" tests/persistent_range.cpp -o build/persistent_range
+build/persistent_range

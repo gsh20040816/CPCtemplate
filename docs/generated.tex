@@ -992,6 +992,26 @@ PersistentArray(a,changes=0)，a 是非空 0-based 初值数组；第 0 版为�
 
 \lstinputlisting[firstline=6,lastline=109]{../src/compact/persistent_array.hpp}
 
+\chapter{可持久化区间操作}
+
+\section{可持久化区间加与版本拼接}\label{compact-PersistentRange}\index{PersistentRange}
+
+PersistentRange(n) 建立长度 n 的全零版本 0，n$\ge$1；使用隐式节点，不预建整棵树。add(v,l,r,x) 在版本 v 的 [l,r) 加 x；splice(dst,src,l,r) 将 dst 的 [l,r) 替换为 src 同一位置的值，其他位置保留 dst；二者均返回新版本编号。query(v,l,r) 返回区间和，const 且不分配节点。下标 0-based、区间半开，允许空区间；空修改及零增量仍创建版本但复用根，整段拼接直接共享源根。全体版本属于同一对象、同一坐标域。懒标记保留在祖先，用 offset 修正跨版本拼接；每次修改/拼接/查询 O(log n)，版本别名 O(1)，总节点 O(q log n)。sum、lazy、delta、carry、offset 及其中间和差和长度乘积均须在 long long 内；节点总数和版本数须小于 INT\_MAX。t、root 可读以统计空间或查看根，不要外部改写。传统接口 Persistent\_Range::Add / Splice / Query。
+
+\lstinputlisting[firstline=6,lastline=36]{../src/compact/persistent_range.hpp}
+
+\newpage
+
+\noindent 区间加与版本拼接（接上页同一结构体）：
+
+\lstinputlisting[firstline=37,lastline=79,firstnumber=32]{../src/compact/persistent_range.hpp}
+
+\newpage
+
+\noindent 只读查询与对外接口（接上页同一结构体）：
+
+\lstinputlisting[firstline=80,lastline=122,firstnumber=75]{../src/compact/persistent_range.hpp}
+
 \chapter{树上路径第 k 小}
 
 \section{树上路径点权第 k 小}\label{compact-TreePathKth}\index{TreePathKth}
@@ -2331,6 +2351,26 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 声明 Persistent\_Array<NODES>，Init(a) 初始化；NODES 限制节点总数，不是数组长度。建议按 2n-1 加上修改数乘以 (ceil(log2(n))+1) 分配；Copy 不分配节点。Set、Copy、Query 对应动态接口。大对象放在全局或 static，Init 会丢弃全部旧版本。
 
 \lstinputlisting[firstline=6,lastline=110]{../src/classic/persistent_array.hpp}
+
+\chapter{可持久化区间操作}
+
+\section{可持久化区间加与版本拼接}\label{classic-PersistentRange}\index{Persistent\_Range}
+
+算法约束见动态版本第~\pageref{compact-PersistentRange}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=6,lastline=36]{../src/classic/persistent_range.hpp}
+
+\newpage
+
+\noindent 区间加与版本拼接（接上页同一结构体）：
+
+\lstinputlisting[firstline=37,lastline=79,firstnumber=32]{../src/classic/persistent_range.hpp}
+
+\newpage
+
+\noindent 只读查询与对外接口（接上页同一结构体）：
+
+\lstinputlisting[firstline=80,lastline=122,firstnumber=75]{../src/classic/persistent_range.hpp}
 
 \chapter{树上路径第 k 小}
 
