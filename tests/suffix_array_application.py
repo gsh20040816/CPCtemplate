@@ -9,7 +9,7 @@ cases = ['a', 'banana', 'a' * 100, 'zZ0zZ0', '9876543210']
 for _ in range(100):
     cases.append(''.join(rng.choice('abcxyzABCXYZ0123456789')
                          for _ in range(rng.randrange(1, 250))))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P3809.{style}.cpp'
     exe = root / f'build/P3809.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

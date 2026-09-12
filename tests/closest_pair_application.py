@@ -10,7 +10,7 @@ for _ in range(100):
 cases += [([(i*4000,0) for i in range(200000)], 4000),
           ([(0,0)]*200000, 0),
           ([(0,0),(10**9,10**9)], math.sqrt(2)*10**9)]
-for style in ['compact','classic']:
+for style in ['compact']:
     bundle = root/f'build/submit/P1429.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P1429.{style}.cpp',str(bundle)],cwd=root,check=True)
     exe = root/f'build/P1429.{style}'

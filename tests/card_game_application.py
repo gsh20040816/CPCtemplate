@@ -20,7 +20,7 @@ def run(exe,a,queries,want=None):
     output=subprocess.check_output([str(exe)],input='\n'.join(lines)+'\n',text=True)
     assert list(map(int,output.split()))==answers
     return time.monotonic()-start
-for style in ['compact','classic']:
+for style in ['compact']:
     source=root/f'build/submit/QOJ8240.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/qoj/8240.{style}.cpp',str(source)],cwd=root,check=True)
     exe=root/f'build/QOJ8240.{style}'

@@ -17,7 +17,7 @@ for trial in range(25):
         k = rng.randrange(1, r - l + 2)
         queries.append((l, r, k))
     cases.append((a, queries))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P3834.{style}.cpp'
     exe = root / f'build/P3834.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

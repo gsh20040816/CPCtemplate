@@ -1,3 +1,5 @@
+> 2026-09-12 起仅维护 vector 版。下文“两套/传统版”描述为历史开发与验证记录，当前源码及手册以 catalog.json 为准。
+
 # 来源与范围
 
 - kuangbin 2018 模板：[作者入口](https://kuangbin.github.io/2018/08/01/ACM-template/)，[PDF](https://github.com/kuangbin/ACM-ICPC/blob/master/kuangbin%E7%9A%84ACM%E6%A8%A1%E6%9D%BF%EF%BC%88%E6%96%B0%EF%BC%89.pdf)。目录逐项登记，不把参考原稿视为已经改写验证。

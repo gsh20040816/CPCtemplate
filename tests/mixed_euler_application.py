@@ -49,7 +49,7 @@ expected = []
 for n, edges, answer in cases:
     data += f'{n} {len(edges)}\n' + ''.join(f'{u} {v} {kind}\n' for u, v, kind in edges)
     expected.append('possible' if answer else 'impossible')
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/poj1637.{style}.cpp'
     exe = root / f'build/poj1637.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/1637.{style}.cpp', str(bundle)], cwd=root, check=True)

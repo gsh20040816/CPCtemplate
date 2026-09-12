@@ -25,7 +25,7 @@ prime_one=next(p for p in range(9902,50000001,9901) if all(p%d for d in range(2,
 cases=[(1,0),(1,50000000),(50000000,0),(50000000,50000000),(9901,50000000),(prime_one,50000000)]
 rng=random.Random(1593)
 cases += [(rng.randint(1,50000000),rng.randint(0,50000000)) for _ in range(120)]
-for style in ['compact','classic']:
+for style in ['compact']:
     bundle=root/f'build/P1593.{style}.cpp'; exe=root/f'build/P1593.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P1593.{style}.cpp',str(bundle)],cwd=root,check=True)
     flags=['-O2'] if os.environ.get('SANITIZE')!='1' else ['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']

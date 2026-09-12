@@ -1,7 +1,7 @@
 from pathlib import Path
 import subprocess, random,itertools
 r=random.Random(4782)
-for style in ['compact','classic']:
+for style in ['compact']:
  for problem in ['P4779','P4782']:
   source=f'build/{problem}.{style}.cpp'
   exe=f'build/{problem}.{style}'

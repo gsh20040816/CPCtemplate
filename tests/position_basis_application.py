@@ -34,7 +34,7 @@ for l,r in queries:
 text = f'{n}\n'+' '.join(map(str,values))+f'\n{n}\n'
 text += ''.join(f'{l} {r}\n' for l,r in queries)
 cases.append((text,expected))
-for style in ['compact','classic']:
+for style in ['compact']:
     source = root/f'build/CF1100F.{style}.cpp'
     exe = root/f'build/CF1100F.{style}'
     subprocess.run(['python3',str(root/'tools/bundle.py'),str(root/f'verify/luogu/CF1100F.{style}.cpp'),str(source)],check=True)

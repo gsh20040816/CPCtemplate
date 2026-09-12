@@ -2,7 +2,7 @@ from pathlib import Path
 import subprocess,random
 root=Path(__file__).resolve().parents[1]
 rng=random.Random(11075)
-for style in ['compact','classic']:
+for style in ['compact']:
     for problem in ['P2921','1750','1160']:
         folder='luogu' if problem=='P2921' else 'cses'
         source=root/f'build/submit/{problem}.{style}.cpp'

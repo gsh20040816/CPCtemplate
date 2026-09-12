@@ -44,7 +44,7 @@ for _ in range(120):
 cases += [(5000, [(u - 1, u) for u in range(1, 5000)], 1),
           (5000, [(0, u) for u in range(1, 5000)], 2500),
           (5000, [(u, (u + 1) % 5000) for u in range(5000)] * 2, 0)]
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/P2860.{style}.cpp'
     exe = root / f'build/P2860.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P2860.{style}.cpp', str(bundle)], cwd=root, check=True)

@@ -32,7 +32,7 @@ for kind in [0,1]:
     want=pow(n,n-2,P)*pow(7,n-1,P)%P
     cases.append((n,kind,edges,want))
 cases.append((1,1,[(0,0,10**9)],1))
-for style in ['compact','classic']:
+for style in ['compact']:
     path=root/f'build/submit/P6178.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P6178.{style}.cpp',str(path)],cwd=root,check=True)
     exe=root/f'build/P6178.{style}'

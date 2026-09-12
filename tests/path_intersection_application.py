@@ -32,7 +32,7 @@ n = 100000
 queries = [tuple(rng.randrange(1, n + 1) for _ in range(4)) for _ in range(n)]
 expected = ['Y' if max(min(a, b), min(c, d)) <= min(max(a, b), max(c, d)) else 'N' for a, b, c, d in queries]
 cases.append((n, [(u - 1, u) for u in range(2, n + 1)], queries, expected))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     name = f'P3398.{style}'
     bundle = root / f'build/{name}.cpp'
     obj = root / f'build/{name}.o'

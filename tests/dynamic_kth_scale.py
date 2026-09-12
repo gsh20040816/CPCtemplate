@@ -20,7 +20,7 @@ for i in range(100000):
         a[p] = n + i
         lines.append(f'C {p + 1} {n + i}')
 text = ('\n'.join(lines) + '\n').encode()
-for style in ['compact', 'classic']:
+for style in ['compact']:
     start = time.monotonic()
     got = list(map(int, subprocess.check_output([str(root / f'build/P2617.{style}')], input=text).split()))
     assert got == want

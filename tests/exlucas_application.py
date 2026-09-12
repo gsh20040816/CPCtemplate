@@ -11,7 +11,7 @@ for _ in range(75):
     n = rng.randrange(1, 10000)
     k = rng.randrange(1, n + 1)
     cases.append((n, k, rng.randrange(2, 10001)))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P4720.{style}.cpp'
     exe = root / f'build/P4720.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

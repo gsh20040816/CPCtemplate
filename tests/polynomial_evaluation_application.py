@@ -15,7 +15,7 @@ x=123
 for i in range(limit):
     points.append(limit if x==1 else (pow(x,limit,p)-1)*pow((x-1)%p,p-2,p)%p)
     x=x*3%p
-for style in ['compact','classic']:
+for style in ['compact']:
     for problem in ['polynomial_taylor_shift','multipoint_evaluation_on_geometric_sequence']:
         path=root/f'build/submit/{problem}.{style}.cpp'
         subprocess.run(['python3','tools/bundle.py',f'verify/library_checker/{problem}.{style}.cpp',str(path)],cwd=root,check=True)

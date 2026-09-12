@@ -48,7 +48,7 @@ for n in [0,1,8,0]+[rng.randrange(1,20) for _ in range(100)]:
         rng.shuffle(g[u])
         uva_input+=f'{u} ({len(g[u])}) '+' '.join(map(str,g[u]))+'\n'
     uva_expected+=f'{len(bridges)} critical links\n'+''.join(f'{u} - {v}\n' for u,v in sorted(bridges))+'\n'
-for style in ['compact','classic']:
+for style in ['compact']:
     for folder,problem,text,want in [('poj','2117',poj_input,poj_expected),('uva','796',uva_input,uva_expected)]:
         name=f'{folder}{problem}.{style}'
         source=root/f'build/{name}.cpp'

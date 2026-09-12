@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - run: sudo apt-get update && sudo apt-get install -y libboost-dev
       - run: python3 -m pip install clang-format==23.1.1
       - run: tools/format.sh --check
@@ -16,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - run: sudo apt-get update && sudo apt-get install -y latexmk texlive-xetex texlive-lang-chinese texlive-latex-extra
       - run: tools/build_pdf.sh
       - uses: actions/upload-artifact@v4

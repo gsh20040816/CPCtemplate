@@ -12,7 +12,7 @@ for p in [3, 5, 7, 17, 97, 257]:
         cases.append((a, p))
         expected.append(' '.join(map(str, roots[a])) if roots[a] else 'Hola!')
 text = str(len(cases)) + '\n' + ''.join(f'{a} {p}\n' for a, p in cases)
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P5491.{style}.cpp'
     exe = root / f'build/P5491.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

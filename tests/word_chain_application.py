@@ -19,7 +19,7 @@ expected += ['.'.join(['aa'] * 1000), '***']
 data = str(len(cases)) + '\n'
 for words in cases:
     data += str(len(words)) + '\n' + '\n'.join(words) + '\n'
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/poj2337.{style}.cpp'
     exe = root / f'build/poj2337.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/2337.{style}.cpp', str(bundle)], cwd=root, check=True)

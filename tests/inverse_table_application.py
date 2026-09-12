@@ -4,7 +4,7 @@ import subprocess
 root = Path(__file__).resolve().parents[1]
 cases = [(1,2), (2,3), (100,101), (1,1009), (1008,1009), (3000000,10000019)]
 assert all(10000019 % d for d in range(2,3163))
-for style in ['compact','classic']:
+for style in ['compact']:
     bundle = root / f'build/P3811.{style}.cpp'
     exe = root / f'build/P3811.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P3811.{style}.cpp',str(bundle)],cwd=root,check=True)

@@ -42,7 +42,7 @@ for equations in cases:
     assert all(1 <= m <= 10**12 and 0 <= b <= 10**12 for m, b in equations)
     assert math.lcm(*(m for m, _ in equations)) <= 10**18
 
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/P4777.{style}.cpp'
     exe = root / f'build/P4777.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P4777.{style}.cpp', str(bundle)], cwd=root, check=True)

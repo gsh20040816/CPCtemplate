@@ -41,7 +41,7 @@ for trial in range(25):
         last = values[k - 1]
         expected.append(last)
     cases.append(('\n'.join(lines) + '\n', expected))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P2633.{style}.cpp'
     exe = root / f'build/P2633.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

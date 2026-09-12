@@ -10,7 +10,7 @@ def squares(n,m):
     return (m*n*(n-1)*(2*n-1)//6+n*m*(m-1)*(2*m-1)//6+2*(n*(n-1)//2)*(m*(m-1)//2))%(1<<64)
 cases.append((f'{n} {m} 1\n1 1\n'+('.'*m+'\n')*n,squares(n,m)))
 cases.append((f'{n} {m} 1\n1 1\n'+('.'*1499+'#'+'.'*1500+'\n')*n,squares(n,1499)))
-for style in ['compact','classic']:
+for style in ['compact']:
     source=root/f'build/submit/QOJ8236.{style}.cpp'
     exe=root/f'build/QOJ8236.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/qoj/8236.{style}.cpp',str(source)],check=True)

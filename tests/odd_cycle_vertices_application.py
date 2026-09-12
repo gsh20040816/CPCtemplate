@@ -39,7 +39,7 @@ for n, hate, answer in cases:
     data += f'{n} {len(hate)}\n' + ''.join(f'{u} {v}\n' for u, v in hate)
     expected.append(answer)
 data += '0 0\n'
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/poj2942.{style}.cpp'
     exe = root / f'build/poj2942.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/2942.{style}.cpp', str(bundle)], cwd=root, check=True)

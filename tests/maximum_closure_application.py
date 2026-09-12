@@ -18,7 +18,7 @@ for _ in range(40):
     text = f'{n} {m}\n' + ' '.join(map(str, cost)) + '\n'
     text += ''.join(f'{u + 1} {v + 1} {w}\n' for u, v, w in users)
     cases.append((text, best))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P4174.{style}.cpp'
     exe = root / f'build/P4174.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

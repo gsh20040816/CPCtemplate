@@ -33,7 +33,7 @@ queries=[]
 for i in range(100000):
     queries.append((i%500,i%500+1) if i%5==0 else tuple(rng.sample(range(501),2)))
 cases.append((500,edges,queries,[values[u][v] for u,v in queries]))
-for style in ['compact','classic']:
+for style in ['compact']:
     bundle=root/f'build/P4897.{style}.cpp'; exe=root/f'build/P4897.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P4897.{style}.cpp',str(bundle)],cwd=root,check=True)
     flags=['-O2'] if os.environ.get('SANITIZE')!='1' else ['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']

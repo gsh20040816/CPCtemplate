@@ -24,7 +24,7 @@ for n, clauses in cases:
     for x, a, y, b in clauses:
         data += f"{x}{'w' if a else 'h'} {y}{'w' if b else 'h'}\n"
 data += '0 0\n'
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/poj3648.{style}.cpp'
     exe = root / f'build/poj3648.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/3648.{style}.cpp', str(bundle)], cwd=root, check=True)

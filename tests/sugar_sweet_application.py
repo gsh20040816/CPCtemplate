@@ -42,7 +42,7 @@ inverse[-1]=pow(inverse[-1],p-2,p)
 for i in range(n-1,0,-1): inverse[i-1]=inverse[i]*i%p
 chain=([1]*(n-1)+[2],list(range(1,n))+[n-1],[1]*n,[(1+inverse[n-1-i])%p for i in range(n-1)]+[2])
 cycle=([10**9]*n,list(range(1,n))+[0],[10**9]*n,[10**9]*n)
-for style in ['compact','classic']:
+for style in ['compact']:
     source=root/f'build/submit/QOJ8237.{style}.cpp'
     sanitized=os.environ.get('CPC_SANITIZE')=='1'
     exe=root/f'build/QOJ8237.{style}{"-san" if sanitized else ""}'

@@ -17,7 +17,7 @@ for a, p, b in cases:
         value = value * a % p
     expected.append(str(first[b % p]) if b % p in first else 'No Solution')
 text = ''.join(f'{a} {p} {b}\n' for a, p, b in cases) + '0 0 0\n'
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P4195.{style}.cpp'
     exe = root / f'build/P4195.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

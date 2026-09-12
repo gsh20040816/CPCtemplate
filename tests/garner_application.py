@@ -13,7 +13,7 @@ for _ in range(150):
         if math.gcd(x, math.prod(m)) == 1 and math.prod(m) * x <= 10**18:
             m.append(x)
     cases.append([(x, rng.randrange(x)) for x in m])
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/P1495.{style}.cpp'
     exe = root / f'build/P1495.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P1495.{style}.cpp', str(bundle)], cwd=root, check=True)

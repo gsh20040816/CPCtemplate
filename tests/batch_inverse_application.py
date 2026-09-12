@@ -11,7 +11,7 @@ for _ in range(80):
     a = [rng.randrange(1, p) for _ in range(rng.randrange(1, 250))]
     want = sum(pow(k, i, p) * pow(x, -1, p) for i, x in enumerate(a, 1)) % p
     cases.append((f'{len(a)} {p} {k}\n' + ' '.join(map(str,a)) + '\n', want))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/P5431.{style}.cpp'
     exe = root / f'build/P5431.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P5431.{style}.cpp', str(bundle)], cwd=root, check=True)

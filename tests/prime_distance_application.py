@@ -50,7 +50,7 @@ expected = [answer(l, r) for l, r in cases]
 assert expected[:2] == ['2,3 are closest, 7,11 are most distant.',
                        'There are no adjacent primes.']
 data = ''.join(f'{l} {r}\n' for l, r in cases)
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/2689.{style}.cpp'
     exe = root / f'build/2689.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/2689.{style}.cpp', str(bundle)], cwd=root, check=True)

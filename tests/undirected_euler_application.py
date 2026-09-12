@@ -27,7 +27,7 @@ for _ in range(100):
     small.append((edges, brute(edges)))
 valid = [( [(u + 20, v + 20) for u, v in edges], [u + 20 for u in expected]) for edges, expected in small if expected]
 valid += [([(499, 500)] * 1024, [499 if i % 2 == 0 else 500 for i in range(1025)])]
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/P2731.{style}.cpp'
     exe = root / f'build/P2731.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P2731.{style}.cpp', str(bundle)], cwd=root, check=True)

@@ -34,7 +34,7 @@ for _ in range(140):
 n=100000
 edges=[(i,(i+k)%n) for k in [1,2,3] for i in range(n)]
 cases.append((n,edges,True))
-for style in ['compact','classic']:
+for style in ['compact']:
     source=root/f'build/CF118E.{style}.cpp'
     exe=root/f'build/CF118E.{style}'
     subprocess.run(['python3',str(root/'tools/bundle.py'),str(root/f'verify/luogu/CF118E.{style}.cpp'),str(source)],check=True)

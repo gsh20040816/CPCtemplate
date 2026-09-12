@@ -15,12 +15,13 @@
 
 完整来源条目见 [coverage.csv](docs/coverage.csv)，来源见 [SOURCES.md](docs/SOURCES.md)。中国赛站的逐题需求与缺口另见 [赛题审计](docs/CONTESTS.md)。原始目录中的重复实现与旧版本须逐项注明替代关系，不能静默遗漏。
 
-## 两套码风
+## 码风
 
 - `src/compact/`：基于队伍实际提交，`vector`、小写短名、清晰分行；目录名不表示压缩代码。
-- `src/classic/`：静态容量、分列头文件、`Init`/`Insert`/`Query`、疏空格。两套分别实现和验证。
 
 [码风证据](docs/STYLE.md)。共享队号不能直接推断每份代码的个人作者。
+
+只保留 `src/compact/` 的 vector 实现。历史静态版已从当前源码与驱动中移除；历史 AC 快照仍保留原样。
 
 ## 验证
 
@@ -39,6 +40,6 @@ SANITIZE=1 tools/test.sh
 
 ## LaTeX
 
-运行 `tools/build_pdf.sh`（需要 XeLaTeX、latexmk）。[当前 PDF](output/pdf/xcpc-template.pdf) 含双风格源码、目录、接口索引与数学速查；为建设稿。
+运行 `tools/build_pdf.sh`（需要 XeLaTeX、latexmk）。[当前 PDF](output/pdf/xcpc-template.pdf) 含 vector 版源码、目录、接口索引与数学速查；为建设稿。
 
 所有模板以赛时快速抄写为先：一行一条语句，展开函数体，按算法需要选择函数或轻量 struct。见 [码风规范](docs/STYLE.md)。

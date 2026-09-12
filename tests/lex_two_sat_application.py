@@ -29,7 +29,7 @@ expected = []
 for n, conflicts, answer in cases:
     data += f'{n} {len(conflicts)}\n' + ''.join(f'{u} {v}\n' for u, v in conflicts)
     expected += answer
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/hdu1814.{style}.cpp'
     exe = root / f'build/hdu1814.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/hdu/1814.{style}.cpp', str(bundle)], cwd=root, check=True)

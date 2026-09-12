@@ -7,7 +7,7 @@ rng = random.Random(3812)
 cases = [[0], [1,2,3], [(1<<64)-1], [1<<63,1]]
 for _ in range(100):
     cases.append([rng.randrange(1<<64) for _ in range(rng.randrange(1,12))])
-for style in ['compact','classic']:
+for style in ['compact']:
     source = root/f'build/P3812.{style}.cpp'
     exe = root/f'build/P3812.{style}'
     subprocess.run(['python3',str(root/'tools/bundle.py'),

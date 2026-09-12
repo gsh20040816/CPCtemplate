@@ -40,7 +40,7 @@ edges = [(u - 1, u) for u in range(2, n + 1)]
 queries = [(u, n + 1 - u) for u in range(1, n + 1)]
 expected = [max(min(u, v), min(r, max(u, v))) for u, v in queries]
 cases.append((n, r, edges, queries, expected))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     name = f'P3379.lifting.{style}'
     bundle = root / f'build/{name}.cpp'
     obj = root / f'build/{name}.o'
@@ -77,7 +77,7 @@ for n, r, edges, queries, answers in small:
     u, v = queries[0]
     data += f'{u} {v}\n'
     expected.append(answers[0])
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/poj1330.lifting.{style}.cpp'
     exe = root / f'build/poj1330.lifting.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/1330.lifting.{style}.cpp', str(bundle)], cwd=root, check=True)

@@ -32,7 +32,7 @@ edges = [(i,i+1,0) for i in range(1,n)]
 edges += [(1,1,1<<i) for i in range(59)]
 edges += [(1,1,0)]*(100000-len(edges))
 cases.append((n,edges,(1<<59)-1))
-for style in ['compact','classic']:
+for style in ['compact']:
     source = root/f'build/P4151.{style}.cpp'
     exe = root/f'build/P4151.{style}'
     subprocess.run(['python3',str(root/'tools/bundle.py'),str(root/f'verify/luogu/P4151.{style}.cpp'),str(source)],check=True)

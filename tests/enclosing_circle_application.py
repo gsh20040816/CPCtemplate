@@ -6,7 +6,7 @@ cases=[([(0,0)],(0,0,0)), ([(2,3)]*5,(0,2,3)),
        ([(0,0),(2,0),(1,0.01)],(1,1,0)),
        ([(-10000,0),(10000,0)],(10000,0,0)),
        ([(5,0),(-5,0),(0,5),(0,-5),(0,0)]*20000,(5,0,0))]
-for style in ['compact','classic']:
+for style in ['compact']:
     out=root/f'build/submit/P1742.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P1742.{style}.cpp',str(out)],cwd=root,check=True)
     exe=root/f'build/P1742.{style}'

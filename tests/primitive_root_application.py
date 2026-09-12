@@ -26,7 +26,7 @@ expected = []
 for n, d in cases:
     roots = oracle(n)
     expected.append([str(len(roots)), ' '.join(map(str, roots[d-1::d]))])
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/P6091.{style}.cpp'
     exe = root / f'build/P6091.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P6091.{style}.cpp', str(bundle)], cwd=root, check=True)

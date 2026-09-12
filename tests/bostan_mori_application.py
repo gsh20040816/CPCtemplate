@@ -3,7 +3,7 @@ import subprocess, random
 root=Path(__file__).resolve().parents[1]
 P=998244353
 rng=random.Random(1024)
-for style in ['compact','classic']:
+for style in ['compact']:
     source=root/f'build/submit/P4723.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P4723.{style}.cpp',str(source)],cwd=root,check=True)
     exe=root/f'build/P4723.{style}'

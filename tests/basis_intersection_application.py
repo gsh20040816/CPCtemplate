@@ -21,7 +21,7 @@ for a,b in cases:
 expected = [span(a)&span(b) for a,b in cases]
 unit_line = '30 '+' '.join(str(1<<i) for i in range(30))+'\n'
 scale = '100000\n'+(unit_line*2)*100000
-for style in ['compact','classic']:
+for style in ['compact']:
     for method in ['intersection','zassenhaus']:
         name = f'intersection_{method}.{style}'
         source = root/f'build/{name}.cpp'

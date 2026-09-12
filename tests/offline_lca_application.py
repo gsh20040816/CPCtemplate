@@ -40,7 +40,7 @@ edges = [(u - 1, u) for u in range(2, n + 1)]
 queries = [(u, n + 1 - u) for u in range(1, n + 1)]
 expected = [max(min(u, v), min(r, max(u, v))) for u, v in queries]
 cases.append((n, r, edges, queries, expected))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     name = f'P3379.offline.{style}'
     bundle = root / f'build/{name}.cpp'
     obj = root / f'build/{name}.o'
@@ -81,7 +81,7 @@ for n, r, edges, queries, answers in cases[:-1]:
         count[u] += 1
     expected += [f'{u}:{count[u]}' for u in range(1, n + 1) if count[u]]
 text += '1\n1:(0)\n0\n'
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/poj1470.{style}.cpp'
     exe = root / f'build/poj1470.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/1470.{style}.cpp', str(bundle)], cwd=root, check=True)

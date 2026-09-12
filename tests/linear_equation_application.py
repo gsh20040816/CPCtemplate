@@ -48,7 +48,7 @@ while len(cases) < 200000:
     cases.append(case)
     expected.append(large(*case))
 data = str(len(cases)) + '\n' + ''.join(f'{a} {b} {c}\n' for a,b,c in cases)
-for style in ['compact','classic']:
+for style in ['compact']:
     bundle = root / f'build/P5656.{style}.cpp'
     exe = root / f'build/P5656.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P5656.{style}.cpp',str(bundle)],cwd=root,check=True)

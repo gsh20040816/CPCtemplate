@@ -21,7 +21,7 @@ for n in range(3, 65000):
             x //= p
     expected.append(f'The number {n} is a Carmichael number.' if good else f'{n} is normal.')
 data = ''.join(f'{n}\n' for n in range(3, 65000)) + '0\n'
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/uva10006.{style}.cpp'
     exe = root / f'build/uva10006.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/uva/10006.{style}.cpp', str(bundle)], cwd=root, check=True)

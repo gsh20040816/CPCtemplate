@@ -1,28 +1,28 @@
 contest_id,problem,title,pdf_page_start,pdf_page_end,requirement,candidate_kernels,status,remaining_work
-icpc_hk_2025,A,Bipartite Graph Matching Problem,22,24,Interval matching; basis exchange,src/compact/graph.hpp#BipartiteMatching;src/classic/graph.hpp#Bipartite_Matching,missing,Interval basis replacement
+icpc_hk_2025,A,Bipartite Graph Matching Problem,22,24,Interval matching; basis exchange,src/compact/graph.hpp#BipartiteMatching,missing,Interval basis replacement
 icpc_hk_2025,B,Travelling,13,15,Tree knapsack,,application_pending,State design
-icpc_hk_2025,C,Stonebag,27,31,Generating functions; inclusion-exclusion,src/compact/polynomial.hpp;src/classic/polynomial.hpp,candidate,Coefficient model and bounds
-icpc_hk_2025,D,Dumb Problem,25,26,Li Chao DP,src/compact/optimization.hpp#LiChao;src/classic/optimization.hpp#Li_Chao_Tree,candidate,Maximum objective and bounds
-icpc_hk_2025,E,Bipartite Graph Weighting Problem,37,39,Maximum closure; support-oracle hull,src/compact/maximum_closure.hpp#maximum_closure;src/classic/maximum_closure.hpp#Maximum_Closure;src/compact/support_hull.hpp#SupportHull;src/classic/support_hull.hpp#Support_Hull,kernel_partial,Exact hull and closure composition locally verified; full query reduction and problem validation pending
-icpc_hk_2025,F,Find the Circuit,19,21,SCC; cycle pruning,src/compact/tarjan.hpp#TarjanSCC;src/classic/tarjan.hpp#Tarjan_SCC,kernel_partial,Communication protocol and pruning
+icpc_hk_2025,C,Stonebag,27,31,Generating functions; inclusion-exclusion,src/compact/polynomial.hpp,candidate,Coefficient model and bounds
+icpc_hk_2025,D,Dumb Problem,25,26,Li Chao DP,src/compact/optimization.hpp#LiChao,candidate,Maximum objective and bounds
+icpc_hk_2025,E,Bipartite Graph Weighting Problem,37,39,Maximum closure; support-oracle hull,src/compact/maximum_closure.hpp#maximum_closure;src/compact/support_hull.hpp#SupportHull,kernel_partial,Exact hull and closure composition locally verified; full query reduction and problem validation pending
+icpc_hk_2025,F,Find the Circuit,19,21,SCC; cycle pruning,src/compact/tarjan.hpp#TarjanSCC,kernel_partial,Communication protocol and pruning
 icpc_hk_2025,G,Watering System,16,18,Affine-envelope extrema,,missing,Specialized range-search aggregate
 icpc_hk_2025,H,Longest Common Prefix,3,4,Adjacent equality,,application_pending,Observation note only
 icpc_hk_2025,I,Dfs Order - Extra Stage,10,12,Interval counting DP,,application_pending,State design
 icpc_hk_2025,J,Re: Becoming the Programming Champion,5,6,Reverse scheduling; heap,,application_pending,Scheduling proof
 icpc_hk_2025,K,Cyclic Shift,7,9,Next-greater tree; lifting; comparison,,missing,Exact path comparison
-icpc_hk_2025,L,Cyclic Shift II,32,36,Orientability; Euler characteristic,src/compact/data_structure.hpp#DSU;src/classic/data_structure.hpp#Disjoint_Set,kernel_partial,Surface classification model
-icpc_chengdu_2025,B,Blood Memories,10,11,Subset-state max-plus matrix DP,src/compact/optimization.hpp#MaxPlusMatrix;src/classic/optimization.hpp#Max_Plus_Matrix,kernel_partial,Transition construction and driver
-icpc_chengdu_2025,I,Inside Polygon,29,32,Convex-polygon tangents; rotating pair counts,src/compact/geometry.hpp#IntegerGeometry;src/classic/geometry.hpp#Integer_Geometry,missing,Tangent and counting interfaces
+icpc_hk_2025,L,Cyclic Shift II,32,36,Orientability; Euler characteristic,src/compact/data_structure.hpp#DSU,kernel_partial,Surface classification model
+icpc_chengdu_2025,B,Blood Memories,10,11,Subset-state max-plus matrix DP,src/compact/optimization.hpp#MaxPlusMatrix,kernel_partial,Transition construction and driver
+icpc_chengdu_2025,I,Inside Polygon,29,32,Convex-polygon tangents; rotating pair counts,src/compact/geometry.hpp#IntegerGeometry,missing,Tangent and counting interfaces
 icpc_hangzhou_2023,A,Submissions,17,18,Scoreboard simulation,,application_pending,Rules and tie handling
-icpc_hangzhou_2023,B,Festival Decorating,19,21,Correlation or bitset filtering,src/compact/ntt_convolution.hpp;src/classic/ntt_convolution.hpp,candidate,Exact nonzero certificates; modulus cancellation and full input bounds
+icpc_hangzhou_2023,B,Festival Decorating,19,21,Correlation or bitset filtering,src/compact/ntt_convolution.hpp,candidate,Exact nonzero certificates; modulus cancellation and full input bounds
 icpc_hangzhou_2023,C,Yet Another Shortest Path Query,27,31,Degeneracy ordering; bounded-hop queries,,missing,Reusable peeling and offline query composition
 icpc_hangzhou_2023,D,Operator Precedence,7,8,Algebraic construction,,application_pending,Constructive proof and bounds
 icpc_hangzhou_2023,E,Period of String,14,16,Frequency-prefix constraints,,application_pending,Constraint propagation and statement audit
-icpc_hangzhou_2023,F,Top Cluster,22,23,Prefix subset diameters; weighted LCA,src/compact/euler_lca.hpp;src/classic/euler_lca.hpp;src/compact/tree_diameter.hpp;src/classic/tree_diameter.hpp,application_verified,Dual QOJ8235 AC 2939493/2939551; zero-weight and arbitrary merge extensions retain local evidence
-icpc_hangzhou_2023,G,Snake,9,11,Unit-edge shortest paths with vertex opening times,src/compact/release_bfs.hpp;src/classic/release_bfs.hpp,application_verified,Dual QOJ8236 AC 2940150/2940191; initial-snake timing checked against literal state BFS; arbitrary directed graph and nonzero source time retain local evidence
-icpc_hangzhou_2023,H,Sweet Sugar II,12,13,Functional-graph dependency probabilities,src/compact/functional_graph.hpp;src/classic/functional_graph.hpp;src/compact/number_theory.hpp;src/classic/number_theory.hpp,application_verified,Dual QOJ8237 AC 2939916/2939975; function-graph advance/steps not called by this application
-icpc_hangzhou_2023,I,Dreamy Putata,32,34,Affine transfer; elimination,src/compact/algebra.hpp;src/classic/algebra.hpp,candidate,Coefficient domain; segment aggregation and boundary equations
+icpc_hangzhou_2023,F,Top Cluster,22,23,Prefix subset diameters; weighted LCA,src/compact/euler_lca.hpp;src/compact/tree_diameter.hpp,application_verified,Dual QOJ8235 AC 2939493/2939551; zero-weight and arbitrary merge extensions retain local evidence
+icpc_hangzhou_2023,G,Snake,9,11,Unit-edge shortest paths with vertex opening times,src/compact/release_bfs.hpp,application_verified,Dual QOJ8236 AC 2940150/2940191; initial-snake timing checked against literal state BFS; arbitrary directed graph and nonzero source time retain local evidence
+icpc_hangzhou_2023,H,Sweet Sugar II,12,13,Functional-graph dependency probabilities,src/compact/functional_graph.hpp;src/compact/number_theory.hpp,application_verified,Dual QOJ8237 AC 2939916/2939975; function-graph advance/steps not called by this application
+icpc_hangzhou_2023,I,Dreamy Putata,32,34,Affine transfer; elimination,src/compact/algebra.hpp,candidate,Coefficient domain; segment aggregation and boundary equations
 icpc_hangzhou_2023,J,Mysterious Tree,4,6,Interactive identification,,application_pending,Query protocol and budget
-icpc_hangzhou_2023,K,Card Game,24,26,Persistent range-add and version splice,src/compact/persistent_range.hpp;src/classic/persistent_range.hpp,application_verified,Dual QOJ8240 AC 2939235/2939291; general signed/range-sum API extensions retain local evidence
-icpc_hangzhou_2023,L,Master of Both V,35,37,Dynamic angular ordering,src/compact/geometry.hpp;src/classic/geometry.hpp,missing,Orientation rebuilding and adjacent-segment validity
+icpc_hangzhou_2023,K,Card Game,24,26,Persistent range-add and version splice,src/compact/persistent_range.hpp,application_verified,Dual QOJ8240 AC 2939235/2939291; general signed/range-sum API extensions retain local evidence
+icpc_hangzhou_2023,L,Master of Both V,35,37,Dynamic angular ordering,src/compact/geometry.hpp,missing,Orientation rebuilding and adjacent-segment validity
 icpc_hangzhou_2023,M,V-Diagram,2,3,Extremal interval observation,,application_pending,Full statement and boundary cases

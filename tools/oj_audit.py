@@ -34,6 +34,11 @@ for row in rows:
     archived = (root / row['submitted_source']).read_bytes()
     if digest(archived) != row['submitted_sha256']:
         raise ValueError('Archive hash mismatch: ' + row['submitted_source'])
+    if row['style'] == 'classic':
+        report.append(dict(problem=row['problem'], style=row['style'], record=row['record'],
+                           submitted_sha256=digest(archived), retired=True,
+                           scope_note='Historical AC archive only; static style retired from the current library.'))
+        continue
     with tempfile.NamedTemporaryFile(suffix='.cpp') as tmp:
         subprocess.run(['python3', str(root / 'tools/bundle.py'),
                         str(root / row['source_driver']), tmp.name], check=True)

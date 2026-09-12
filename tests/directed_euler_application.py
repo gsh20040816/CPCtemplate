@@ -31,7 +31,7 @@ edges = [(u, u + 1) for u in range(1, n)] + [(u + 1, u) for u in range(1, n)]
 rng.shuffle(edges)
 cases.append((n, edges, list(range(1, n + 1)) + list(range(n - 1, 0, -1))))
 cases.append((2, [(1, 2)] * 200000, None))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     name = f'P7771.{style}'
     bundle = root / f'build/{name}.cpp'
     obj = root / f'build/{name}.o'

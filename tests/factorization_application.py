@@ -13,7 +13,7 @@ fixtures = [(2,), (3,), (999999937,), (999999929,), (999999937,999999929),
             (999999937,999999937), (999999929,999999929),
             (151,751,28351), (2,)*59, (3,)*37]
 assert all(prime(p) for fs in fixtures for p in set(fs))
-for style in ['compact','classic']:
+for style in ['compact']:
     for judge,pid,end,limit in [('luogu','P4718',max,10**18),('poj','1811',min,2**54-1)]:
         options = [fs for fs in fixtures if math.prod(fs) <= limit]
         if pid == '1811':

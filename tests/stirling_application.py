@@ -2,7 +2,7 @@ from pathlib import Path
 import subprocess
 root=Path(__file__).resolve().parents[1]
 P=167772161
-for style in ['compact','classic']:
+for style in ['compact']:
     for problem,first,limit in [('P5395',False,200000),('P5408',True,262143)]:
         path=root/f'build/submit/{problem}.{style}.cpp'
         subprocess.run(['python3','tools/bundle.py',f'verify/luogu/{problem}.{style}.cpp',str(path)],cwd=root,check=True)

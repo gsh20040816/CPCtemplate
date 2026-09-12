@@ -1,4 +1,6 @@
 \chapter{数学速查：条件先于公式}
+\noindent 本附录保留历史评测证据；其中传统版 AC 为归档记录，当前只提供 vector 模板。
+
 \section{整除、卷积与筛法}\index{Dirichlet convolution}\index{Mobius inversion}
 对正整数定义狄利克雷卷积
 \[
@@ -248,7 +250,7 @@ P1593 完整程序各验证 126 组输入，包含 $p\equiv0,1\pmod{9901}$ 和�
 \[
 F(n,m,a,b)=\sum_{i=0}^{n-1}\left\lfloor\frac{ai+b}{m}\right\rfloor.
 \]
-传统接口为 \texttt{Number\_Theory::Floor\_Sum}。
+
 范围约定 $0\le n\le10^9$、$1\le m\le10^9$，$a,b$ 支持完整有符号 64 位，返回 128 位。
 $n$ 是项数；若题目下标为 $0\ldots N$，需传 $N+1$ 并检查仍在约定范围内。
 
@@ -438,7 +440,7 @@ P1516 中相遇条件为 $(m-n)t+(x-y)\equiv0\pmod L$。
 \section{扩展 CRT：逐式合并}\index{exCRT}\index{扩展中国剩余定理}
 kuangbin 2.5 的 \texttt{solve} 对应单次合并，\texttt{MLES} 对应下面的逐式循环。
 实现见第~\pageref{compact-NumberTheory}~页的 \texttt{crt}，
-传统版对应 \texttt{Crt}。初始取 $r=0,m=1$，依次合并 $x\equiv b\pmod n$。
+初始取 $r=0,m=1$，依次合并 $x\equiv b\pmod n$。
 空方程组保持 $(0,1)$，表示任意整数；一旦无解即停止，不能忽略失败继续合并。
 先把余数归一化。设 $g=\gcd(m,n)$，由扩展欧几里得得到 $mu+nv=g$。
 写 $x=r+mt$，原问题化为 $mt\equiv b-r\pmod n$。
@@ -898,8 +900,8 @@ p\nmid g,\qquad g^{\varphi/q}\not\equiv1\pmod m
 这里检查的是模 $p^e$ 的阶，不能仅取一个模 $p$ 的原根而不验证提升。
 
 重载 \texttt{CompositeRoots::solve(a,k,M,rho)} 自动调用此准备过程。
-传统版为 \texttt{Composite\_Roots::Solve} 和 \texttt{Root\_Factors}，
-随机分解工作区类型为 \texttt{Pollard\_Rho}。
+
+随机分解工作区类型为 \texttt{PollardRho}。
 如果需要在同一个模数下处理多个方程，先保存因子列表，调用原有列表接口，
 避免重复分解和原根搜索。
 准备成本包括 $M$ 与各 $\varphi$ 的因数分解，以及逐个候选的模幂检验；
@@ -985,7 +987,7 @@ $R_i\leftarrow R_i-qR_j$，再交换 $R_i,R_j$。
 需要换掉的是依赖模逆元的行列式算法。
 本节沿用无向、内向与外向三种构造，但使用欧几里得行列式消元。
 输入边权和正模数均支持 signed 64 位，接口名为
-\texttt{MatrixTreeMod::count}，传统版为 \texttt{Matrix\_Tree\_Mod::Count}。
+\texttt{MatrixTreeMod::count}。
 
 先把边权正规化到 $[0,m)$，每次矩阵元素加减仍先扩展至 128 位，
 再取模存回 64 位。重边的权值和可能超过 64 位范围，不能先累加到普通整数中。
@@ -1180,7 +1182,7 @@ $m=0$ 返回空数组，空输入返回 $m$ 个零。
 Library Checker 的
 \href{https://judge.yosupo.jp/problem/polynomial_taylor_shift}{Polynomial Taylor Shift} 和
 \href{https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence}{等比点求值}
-已准备两套完整驱动；本地检查各题 $524288$ 的最大规模，尚无在线 AC。
+已准备 vector 完整驱动；本地检查各题 $524288$ 的最大规模，尚无在线 AC。
 参考\href{https://oi-wiki.org/math/poly/shift/}{OI Wiki 平移}及
 \href{https://oi-wiki.org/math/poly/czt/}{Chirp Z}，更广泛的点值平移和应用另行覆盖。
 

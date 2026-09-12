@@ -22,7 +22,7 @@ for s in cases:
 n = 30000
 cases.append('a'*n)
 expected.append(sum((t-1)*(n-2*t+1) for t in range(2,n//2+1)))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P1117.{style}.cpp'
     exe = root / f'build/P1117.{style}'
     subprocess.run(['python3', str(root/'tools/bundle.py'),

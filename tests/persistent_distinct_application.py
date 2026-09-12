@@ -28,7 +28,7 @@ if '--scale' in sys.argv:
     text = f'{n}\n' + ' '.join(str(i % period + 1) for i in range(n)) + f'\n{len(queries)}\n'
     text += ''.join(f'{l} {r}\n' for l, r in queries)
     cases.append((text, [min(period, r - l + 1) for l, r in queries]))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P1972.{style}.cpp'
     exe = root / f'build/P1972.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

@@ -24,7 +24,7 @@ for q in [(49999,50000,1,50000,1),(1,1,1,50000,1),(40000,50000,40000,50000,50000
 while len(cases)<50000: cases.append(fixtures[len(cases)%len(fixtures)])
 data=str(len(cases))+'\n'+''.join(' '.join(map(str,q))+'\n' for q,ans in cases)
 expected=[str(ans) for q,ans in cases]
-for style in ['compact','classic']:
+for style in ['compact']:
     bundle=root/f'build/P2522.{style}.cpp'; exe=root/f'build/P2522.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P2522.{style}.cpp',str(bundle)],cwd=root,check=True)
     flags=['-O2'] if os.environ.get('SANITIZE')!='1' else ['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']

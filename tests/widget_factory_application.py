@@ -72,7 +72,7 @@ for n, records, _ in cases:
         data += ' '.join(str(v + 1) for v in ids) + '\n'
 data += '0 0\n'
 expected = [answer for _, _, answer in cases]
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/poj2947.{style}.cpp'
     exe = root / f'build/poj2947.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/2947.{style}.cpp', str(bundle)], cwd=root, check=True)

@@ -6,7 +6,7 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
 rng = random.Random(6577)
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P6577.{style}.cpp'
     exe = root / f'build/P6577.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

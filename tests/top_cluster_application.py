@@ -10,7 +10,7 @@ def run(exe,w,edges,queries,want):
     output=subprocess.check_output([str(exe)],input='\n'.join(lines)+'\n',text=True)
     assert list(map(int,output.split()))==want
     return time.monotonic()-start
-for style in ['compact','classic']:
+for style in ['compact']:
     source=root/f'build/submit/QOJ8235.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/qoj/8235.{style}.cpp',str(source)],cwd=root,check=True)
     obj=root/f'build/QOJ8235.{style}.o'

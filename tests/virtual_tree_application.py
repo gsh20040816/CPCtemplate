@@ -12,7 +12,7 @@ flags = ['-std=c++20', '-O2']
 if os.environ.get('SANITIZE') == '1':
     flags += ['-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
 programs = []
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P2495.{style}.cpp'
     binary = root / f'build/P2495.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
+if [[ "${CPC_BASELINE_STAGED:-0}" != 1 ]]; then
+    exec python3 tools/test_baseline.py
+fi
 mkdir -p build
 if [[ -z "${CXX:-}" ]]; then
     if command -v g++-16 >/dev/null 2>&1; then CXX=g++-16; else CXX=g++; fi
@@ -11,8 +14,6 @@ if [[ "${SANITIZE:-0}" == 1 ]]; then flags+=(-O1 -g -fsanitize=address,undefined
 "$CXX" "${flags[@]}" tests/property.cpp -o build/property
 build/property
 
-"$CXX" "${flags[@]}" tests/classic.cpp -o build/classic
-build/classic
 
 "$CXX" "${flags[@]}" tests/algebra.cpp -o build/algebra
 build/algebra

@@ -22,7 +22,7 @@ for _ in range(30):
     cases.append(((1,y,speed+1,1,length),str(t)))
     # Swap frogs: the speed difference changes sign, the meeting time does not.
     cases.append(((y,1,1,speed+1,length),str(t)))
-for style in ['compact','classic']:
+for style in ['compact']:
     bundle = root / f'build/P1516.{style}.cpp'
     exe = root / f'build/P1516.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P1516.{style}.cpp',str(bundle)],cwd=root,check=True)

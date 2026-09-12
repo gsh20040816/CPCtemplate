@@ -24,7 +24,7 @@ for _ in range(12):
             lines.append(f'Q {l + 1} {r + 1} {k}')
             expected.append(sorted(a[l:r + 1])[k - 1])
     cases.append(('\n'.join(lines) + '\n', expected))
-for style in ['compact', 'classic']:
+for style in ['compact']:
     source = root / f'build/P2617.{style}.cpp'
     exe = root / f'build/P2617.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),

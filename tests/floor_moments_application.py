@@ -18,7 +18,7 @@ fixtures.append(((10**9,1,0,10**9),(1,1,10**9%mod)))
 while len(cases)<100000: cases.append(fixtures[len(cases)%len(fixtures)])
 data=str(len(cases))+'\n'+''.join(' '.join(map(str,q))+'\n' for q,ans in cases)
 expected=[' '.join(map(str,ans)) for q,ans in cases]
-for style in ['compact','classic']:
+for style in ['compact']:
     bundle=root/f'build/P5170.{style}.cpp'; exe=root/f'build/P5170.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P5170.{style}.cpp',str(bundle)],cwd=root,check=True)
     flags=['-O2'] if os.environ.get('SANITIZE')!='1' else ['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']

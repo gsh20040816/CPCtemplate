@@ -2,7 +2,7 @@ from pathlib import Path
 import subprocess, random, time
 root=Path(__file__).resolve().parents[1]
 rng=random.Random(61577)
-for style in ['compact','classic']:
+for style in ['compact']:
     for problem,p,limit in [('P4717',998244353,17),('P6097',1000000009,20)]:
         source=root/f'build/submit/{problem}.{style}.cpp'
         subprocess.run(['python3','tools/bundle.py',f'verify/luogu/{problem}.{style}.cpp',str(source)],cwd=root,check=True)

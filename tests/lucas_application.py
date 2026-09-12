@@ -9,7 +9,7 @@ cases = [(rng.randrange(1, 1001), rng.randrange(1, 1001), rng.choice([2, 3, 5, 7
 cases += [(100000, 100000, p) for p in [2, 3, 5, 7, 97, 997, 99991]]
 cases += [(1, 100000, 99991), (99990, 1, 99991), (99991, 99991, 99991)]
 expected = [str(math.comb(n + m, n) % p) for n, m, p in cases]
-for style in ['compact', 'classic']:
+for style in ['compact']:
     bundle = root / f'build/P3807.{style}.cpp'
     exe = root / f'build/P3807.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P3807.{style}.cpp', str(bundle)], cwd=root, check=True)
