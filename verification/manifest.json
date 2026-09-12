@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-11T23:58:18.119550+00:00",
+  "recorded_at_utc": "2026-09-12T00:03:00.633857+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -75,7 +75,9 @@
       "CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS",
       "Incremental Widget Factory application audit; unchanged library evidence retained from 5e02aec:",
       "Widget Factory compact: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
-      "Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS"
+      "Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
+      "Incremental Garner checks; unchanged-module evidence retained from eb36f6d:",
+      "Garner dual direct cpp_int CRT oracle, mixed-radix reconstruction, signed extremes, noncoprime rejection and 1000 moduli PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -149,7 +151,9 @@
       "CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS",
       "Incremental Widget Factory application audit; unchanged library evidence retained from 5e02aec:",
       "Widget Factory compact: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
-      "Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS"
+      "Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
+      "Incremental Garner checks; unchanged-module evidence retained from eb36f6d:",
+      "Garner dual direct cpp_int CRT oracle, mixed-radix reconstruction, signed extremes, noncoprime rejection and 1000 moduli PASS"
     ]
   },
   "sha256": {
@@ -170,6 +174,7 @@
     "src/classic/euler_lca.hpp": "902b6d56e42c240f3ec646f6df33603292bd18d4625c75ebf7a153c94e2e79fe",
     "src/classic/exlucas.hpp": "9b54b6f0b06a634707c412f8fb0787c15f44ec7e48fb0f02bdecb7ebaf5fba1d",
     "src/classic/flow.hpp": "bd799ac3debd9806f3b33ac9ac7acce02aa97a9fb7e19f9a0b2c1855e5fcf533",
+    "src/classic/garner.hpp": "a564d9677d0753e7286bb41bd3b99dc392f953ffb7eb77209e9b22f8cdfb9d5c",
     "src/classic/gcd_sequence.hpp": "8723618196787697658660b59665baaf1ba060311e57cc42fd8c23ec27234229",
     "src/classic/geometry.hpp": "4ddc03277a26dcec3472a42eb8277da2d972c1f9198f1b58610d5d51d6f77167",
     "src/classic/geometry_extra.hpp": "793fa6eec2f6dd0b57829585f91aec872c14c73817978225cb0f914fcea3474c",
@@ -224,6 +229,7 @@
     "src/compact/euler_lca.hpp": "ad57af27c5b91f5e965b0d659d63b5b0992e41f8a692f45fab39e523e2f083ce",
     "src/compact/exlucas.hpp": "d035e36afe55605b21e33f74af10695699f8b156c624c0d477c1f5ffc1861b78",
     "src/compact/flow.hpp": "a3dfad19ee2aaeacdde5ff4d52cb1a49e0788a2c350142ddb896d4bca3074d15",
+    "src/compact/garner.hpp": "912240bf389532f74f7f1f2d0c384dd09f0a2caff33c978c0dc722acde60d245",
     "src/compact/gcd_sequence.hpp": "3794e7a66553c2b7bd85d9e79a9556fc7dd9965e4eac1444ec7a84dc81eacb78",
     "src/compact/geometry.hpp": "156f9ba2fbd9dc36552f7a6668b2a224d957d55e27dae645510deed5f58b7b3b",
     "src/compact/geometry_extra.hpp": "13c597cd4dd46254216f0eb6f9ad402b0e96fdd424e864a8117f05c666ac5e89",
@@ -290,6 +296,8 @@
     "tests/euler_lca_application.py": "17294374da01fab79424653360caa042f7e295b6e7056f260ed0b13f77178109",
     "tests/exlucas.cpp": "d14d58646c7679ea0a18bd0bac87b9cec4d084fef7d07170298b4f310c475331",
     "tests/exlucas_application.py": "e7af780f3141c17568d4c17761e48d5d9f9a801971f539cc5337a6d5545c2eea",
+    "tests/garner.cpp": "0e78c3ae32b2ad51e2f6696800e145ec5c55c97b0495dcc4fcd99a818a4fd5f6",
+    "tests/garner_application.py": "b3b427e4789497966acb50c4653ffbbf05a451225d35bdef0d9c1f3ae8e559d7",
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",

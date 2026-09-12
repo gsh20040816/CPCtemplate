@@ -138,6 +138,12 @@
     "mul/power 支持无符号 64 位正模数，乘积用 uint128。prime 使用确定性 64 位底数。inverse(a,m) 无逆元返回 -1。crt(r,m,b,n) 合并 x≡r (mod m) 与 x≡b (mod n)，要求 m,n>0。从 r=0、m=1 开始逐项合并；成功后 r 为最小非负解、m 为最小正周期。余数允许完整 long long 范围。无解返回 false；有解但新周期超过 LLONG_MAX 抛 overflow_error。两种失败都会先将 r 归一化，m 不变；失败后不能继续当作完整解使用。递归 exgcd 和乘法中间量用 int128，单次 O(log min(m,n))，抄写 CRT 时只需类型别名、exgcd 和 crt。floor_sum 为 i=0..n-1 的 floor((ai+b)/m) 之和，支持负 a、b，返回 int128；约定 n≤10⁹、m≤10⁹，a、b 为有符号 64 位。"
   ],
   [
+    "garner",
+    "garner",
+    "Garner：大周期 CRT 与混合进制",
+    "garner_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garner(b,moduli,target) 返回最小非负 CRT 解对 target 的余数。传统接口为 Garner_Digits、Garner。两个输入向量等长，长度可为 0；模数为正且两两互素，允许模数 1，余数支持完整 long long 范围。target 为正 long long，与输入模数无需互素。输入不互素时抛 invalid_argument，即使方程有解也不适用；此时用扩展 CRT。空输入的规范解取 0。算法从不构造模数乘积，中间运算使用 int128。k 个模数耗时 O(k²+k log M)，空间 O(k)；M 为最大输入模数。依赖 NumberTheory 的 inverse 和 exgcd，传统版对应 Inverse、Exgcd。"
+  ],
+  [
     "number_theory",
     "PollardRho",
     "Pollard–Rho 因数分解",

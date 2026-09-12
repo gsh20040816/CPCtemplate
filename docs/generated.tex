@@ -548,6 +548,22 @@ Binomial<prime>(n)，要求 0$\le$n<prime；choose(n,k) 越界 k 返回 0。预�
 
 \lstinputlisting[firstline=285,lastline=308]{../src/compact/number_theory.hpp}
 
+\chapter{混合进制中国剩余定理}
+
+\Needspace{568pt}
+
+\section{Garner：大周期 CRT 与混合进制}\label{compact-garner}\index{garner}
+
+garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garner(b,moduli,target) 返回最小非负 CRT 解对 target 的余数。传统接口为 Garner\_Digits、Garner。两个输入向量等长，长度可为 0；模数为正且两两互素，允许模数 1，余数支持完整 long long 范围。target 为正 long long，与输入模数无需互素。输入不互素时抛 invalid\_argument，即使方程有解也不适用；此时用扩展 CRT。空输入的规范解取 0。算法从不构造模数乘积，中间运算使用 int128。k 个模数耗时 O(k$^{2}$+k log M)，空间 O(k)；M 为最大输入模数。依赖 NumberTheory 的 inverse 和 exgcd，传统版对应 Inverse、Exgcd。
+
+\lstinputlisting[firstline=5,lastline=34]{../src/compact/garner.hpp}
+
+\Needspace{180pt}
+
+\subsection*{规范解对目标数取模}
+
+\lstinputlisting[firstline=35,lastline=46,firstnumber=31]{../src/compact/garner.hpp}
+
 \chapter{合数模数组合数}
 
 \section{合数模数组合数（扩展 Lucas）}\label{compact-ExLucas}\index{ExLucas}
@@ -1405,6 +1421,16 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 算法约束见动态版本第~\pageref{compact-Binomial}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=301,lastline=324]{../src/classic/number_theory.hpp}
+
+\chapter{混合进制中国剩余定理}
+
+\Needspace{568pt}
+
+\section{Garner：大周期 CRT 与混合进制}\label{classic-garner}\index{Garner}
+
+算法约束见动态版本第~\pageref{compact-garner}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=46]{../src/classic/garner.hpp}
 
 \chapter{合数模数组合数}
 

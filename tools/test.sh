@@ -169,3 +169,6 @@ build/lex_two_sat
 build/crt
 
 python3 tests/widget_factory_application.py
+
+"$CXX" "${flags[@]}" tests/garner.cpp -o build/garner
+build/garner
