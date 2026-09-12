@@ -390,6 +390,12 @@
     "bounded_polygon(lines) 求 a*x+b*y≤c 的交集闭包顶点，Line={a,b,c}，三个整数系数绝对值均≤10⁹。要求交集有界，空集也允许；只返回正面积多边形，点或线段交集返回空向量。无界输入不在接口范围内。Point={x,y,d} 表示 (x/d,y/d)，d>0，分数不必约分；按逆时针返回，不重复首点，相邻重复点已去除。排序与所有构造、判定使用整数和 int128，不使用 epsilon。O(n log n) 时间、O(n) 空间。传统接口 Integer_Halfplanes::Bounded_Polygon。浮点转换与面积计算需单独处理。"
   ],
   [
+    "closest_pair",
+    "ClosestPair",
+    "浮点平面最近点对",
+    "solve(points) 返回 long double 最短距离（不是平方），少于两个点返回 nullopt，重复点返回零。Point={x,y}；输入须有限，坐标绝对值≤1e100。递归分治，按纵坐标归并，O(n log n) 时间、O(n) 额外空间。用 hypotl 求距离，不先平方；排序不使用 epsilon。浮点运算仍有舍入误差，输入前已丢失的精度无法恢复。传统接口 Closest_Pair::Solve。"
+  ],
+  [
     "geometry_extra",
     "GeometryExtra",
     "整数最近点对与 Minkowski 和",

@@ -1065,5 +1065,45 @@
       "Gomory-Hu construction composed with all-pairs bottleneck queries"
     ],
     "note": "All 10 cases accepted; up to 501 vertices, 1500 undirected edges, 100000 distinct-vertex queries and weights <=10000. Total displayed time is rounded. Per-case limit 500ms. Fundamental tree-edge cut certificates, singleton/diagonal conventions and larger capacities have separate local tests. Other bundled flow components are not covered."
+  },
+  {
+    "problem": "Luogu P1429",
+    "style": "compact",
+    "algorithm": "ClosestPair::solve",
+    "record": "https://www.luogu.com.cn/record/297602650",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "350ms",
+    "max_case_time_ms": 75,
+    "memory": "12.32MB",
+    "language": "C++17 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P1429.compact.cpp",
+    "submitted_source": "verification/submitted/P1429.compact.cpp",
+    "submitted_sha256": "be6d8b67e0de66def1647c8c21efed04dd7ef46f4c5b9ae5ed5108e3f95e7342",
+    "tested_api": [
+      "ClosestPair::solve"
+    ],
+    "note": "All 11 cases accepted; n<=200000, integer coordinates in [0,1e9], distance printed to four decimals. Decimal coordinates, extreme scales, fewer than two points and subnormal values have separate local evidence. This does not verify the separate exact integer geometry implementation."
+  },
+  {
+    "problem": "Luogu P1429",
+    "style": "classic",
+    "algorithm": "Closest_Pair::Solve",
+    "record": "https://www.luogu.com.cn/record/297603238",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "346ms",
+    "max_case_time_ms": 75,
+    "memory": "12.32MB",
+    "language": "C++17 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P1429.classic.cpp",
+    "submitted_source": "verification/submitted/P1429.classic.cpp",
+    "submitted_sha256": "9de617608f998490e3de4fc2762fa9b92598149cc76268dbb729263ff26e237f",
+    "tested_api": [
+      "Closest_Pair::Solve"
+    ],
+    "note": "All 11 cases accepted; n<=200000, integer coordinates in [0,1e9], distance printed to four decimals. Decimal coordinates, extreme scales, fewer than two points and subnormal values have separate local evidence. This does not verify the separate exact integer geometry implementation."
   }
 ]

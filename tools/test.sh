@@ -266,3 +266,7 @@ build/geometry_extra_audit
 
 "$CXX" "${flags[@]}" tests/geometry_3d.cpp -o build/geometry_3d
 build/geometry_3d
+
+"$CXX" "${flags[@]}" tests/closest_pair.cpp -o build/closest_pair
+build/closest_pair
+python3 tests/closest_pair_application.py

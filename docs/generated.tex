@@ -934,6 +934,22 @@ bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}
 
 \lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/compact/halfplanes.hpp}
 
+\chapter{浮点最近点对}
+
+\Needspace{595pt}
+
+\section{浮点平面最近点对}\label{compact-ClosestPair}\index{ClosestPair}
+
+solve(points) 返回 long double 最短距离（不是平方），少于两个点返回 nullopt，重复点返回零。Point=\{x,y\}；输入须有限，坐标绝对值$\le$1e100。递归分治，按纵坐标归并，O(n log n) 时间、O(n) 额外空间。用 hypotl 求距离，不先平方；排序不使用 epsilon。浮点运算仍有舍入误差，输入前已丢失的精度无法恢复。传统接口 Closest\_Pair::Solve。
+
+\lstinputlisting[firstline=5,lastline=48]{../src/compact/closest_pair.hpp}
+
+\newpage
+
+\noindent 分治、归并与跨分界线点对（接上页同一函数）：
+
+\lstinputlisting[firstline=49,lastline=75,firstnumber=45]{../src/compact/closest_pair.hpp}
+
 \chapter{精确几何进阶}
 
 \section{整数最近点对与 Minkowski 和}\label{compact-GeometryExtra}\index{GeometryExtra}
@@ -2029,6 +2045,22 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \noindent 接上页同一结构体与函数：
 
 \lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/classic/halfplanes.hpp}
+
+\chapter{浮点最近点对}
+
+\Needspace{595pt}
+
+\section{浮点平面最近点对}\label{classic-ClosestPair}\index{Closest\_Pair}
+
+算法约束见动态版本第~\pageref{compact-ClosestPair}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=48]{../src/classic/closest_pair.hpp}
+
+\newpage
+
+\noindent 分治、归并与跨分界线点对（接上页同一函数）：
+
+\lstinputlisting[firstline=49,lastline=75,firstnumber=45]{../src/classic/closest_pair.hpp}
 
 \chapter{精确几何进阶}
 
