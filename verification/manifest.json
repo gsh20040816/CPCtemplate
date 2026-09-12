@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T08:49:54.371917+00:00",
+  "recorded_at_utc": "2026-09-12T08:55:50.880792+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -191,7 +191,10 @@
       "Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS",
       "",
       "Incremental circle-polygon area; unchanged-module evidence retained from f8698f3:",
-      "Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS"
+      "Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS",
+      "",
+      "Incremental prime kth residues; unchanged-module evidence retained from 57b597d:",
+      "Kth residue dual exhaustive root sets and primitive roots, signed/uint64 extremes, planted large roots and compressed 998244352 roots PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -381,7 +384,10 @@
       "Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS",
       "",
       "Incremental circle-polygon area; unchanged-module evidence retained from f8698f3:",
-      "Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS"
+      "Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS",
+      "",
+      "Incremental prime kth residues; unchanged-module evidence retained from 57b597d:",
+      "Kth residue dual exhaustive root sets and primitive roots, signed/uint64 extremes, planted large roots and compressed 998244352 roots PASS"
     ]
   },
   "sha256": {
@@ -423,6 +429,7 @@
     "src/classic/halfplanes.hpp": "fd55cc1c1ef2b1bccd59cd6c49a5519def7424679d5ccc96b96f521d1ee547d2",
     "src/classic/interpolation.hpp": "43f5714b8fb6e16a13dc356f1e7ac01c492974bb53b73f558c9a6fdb5ec84020",
     "src/classic/inverse_table.hpp": "3b78a27422b1c91251614bdaba608d377934bf4ef01a2fc54dc8daa6f5d3d28e",
+    "src/classic/kth_residue.hpp": "17b3a6cfd1b2084ea18034f2157e306857e0bbdc52c6e9edc9a65e505e6c2ef1",
     "src/classic/lex_two_sat.hpp": "531c4fca134bb016b6a7335e37aaae4f865faa9f309036fa6f112e3b22f6168b",
     "src/classic/lifting_lca.hpp": "0938fc06246035f4f59daf0c4012ef0c4c513e78fed2d70bf8fc50ed49104078",
     "src/classic/linear_congruence.hpp": "d925dc76c2986aa75f61c6d649b64b47760ff4131a190323e2e270ee7b6082f0",
@@ -498,6 +505,7 @@
     "src/compact/halfplanes.hpp": "2a8858f213575e825922faf97314d4448097c54311c137aba1e97b1207c9910c",
     "src/compact/interpolation.hpp": "73f71b029ccab6be4573c4612a5c132accb9b208115503d7f47bde7fc878357a",
     "src/compact/inverse_table.hpp": "24260b77dd557d177c47c28ebce4671b88e264485dce74c87862141d842cd573",
+    "src/compact/kth_residue.hpp": "130b4f194cc56987da152948873e5a389fb6d73caf5afe52375245d135cf5f3a",
     "src/compact/lex_two_sat.hpp": "f5e50a5af0c5892b8be560ceb4eacf5e7cdcf484da2fec3ad6450cabcd02ec16",
     "src/compact/lifting_lca.hpp": "19cda96f3d6d0f4807f7d554d09b0428f3b88516a40788cff6b6897ac90a64da",
     "src/compact/linear_congruence.hpp": "02417e6a6fec64f13102dfe5d7ce8823ade21d491e822414a699eb9876b79ea0",
@@ -609,6 +617,7 @@
     "tests/interpolation_application.py": "ffc121af21fdfe606e9079260d818f459e79b3e67e7f06d1e4b02270266f6f12",
     "tests/inverse_table.cpp": "e8d111f62575bf0b5fa3dccf36aac3cb8e0234cd549180662f757b5c4a0b9fd3",
     "tests/inverse_table_application.py": "b3e4df94f92555959dfc0754f72a271eaa87f229be77fb02d4b8a814763e89a2",
+    "tests/kth_residue.cpp": "d30f1e7f325b334cf4fe3e4967d2752066ae313eab56919029fd2ac7c09cda9a",
     "tests/lex_two_sat.cpp": "1dff785aab551bde3bc84eb38c70d5e8d83400422c987c2dd60b65f287243d6e",
     "tests/lex_two_sat_application.py": "86436155e7c0ad492df7c89e5da568dd458887c4622071ebaff2e6eede38828a",
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",

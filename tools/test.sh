@@ -280,3 +280,6 @@ python3 tests/enclosing_circle_application.py
 
 "$CXX" "${flags[@]}" tests/circle_polygon.cpp -o build/circle_polygon
 build/circle_polygon
+
+"$CXX" "${flags[@]}" tests/kth_residue.cpp -o build/kth_residue
+build/kth_residue

@@ -736,6 +736,16 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 \lstinputlisting[firstline=10,lastline=66]{../src/compact/modular_sqrt.hpp}
 
+\chapter{素数模高次剩余}
+
+\Needspace{403pt}
+
+\section{素数模高次剩余：全部根的紧凑表示}\label{compact-KthResidue}\index{KthResidue}
+
+solve(a,k,p,g) 求 x\textasciicircum{}k$\equiv$a (mod p)；p 必须是 2 到 1e12 的素数，g 是模 p 原根，k 为正 unsigned long long，a 支持完整 signed long long。无解返回 nullopt；否则得到 first、ratio、count，全部解为 first*ratio\textasciicircum{}i mod p，0$\le$i<count，无重复；first 不保证最小。a$\equiv$0 时仅有根 0，返回 \{0,1,1\}。枚举时每次乘 ratio，乘法先转 int128；无需展开全部根即可读取解数。给定原根后，期望 O($\sqrt{\vphantom x}$p) 时间与空间，依赖 DiscreteLog、linear\_congruence 及模快速幂。不验证 p 的素性或 g 的阶；合数模数不在此接口范围内。传统接口 Kth\_Residue::Solve。
+
+\lstinputlisting[firstline=5,lastline=30]{../src/compact/kth_residue.hpp}
+
 \chapter{多项式插值}
 
 \section{拉格朗日插值与连续点优化}\label{compact-Lagrange}\index{Lagrange}
@@ -1883,6 +1893,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-mod_sqrt}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=10,lastline=66]{../src/classic/modular_sqrt.hpp}
+
+\chapter{素数模高次剩余}
+
+\Needspace{403pt}
+
+\section{素数模高次剩余：全部根的紧凑表示}\label{classic-KthResidue}\index{Kth\_Residue}
+
+算法约束见动态版本第~\pageref{compact-KthResidue}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=30]{../src/classic/kth_residue.hpp}
 
 \chapter{多项式插值}
 
