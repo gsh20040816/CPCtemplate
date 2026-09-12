@@ -306,6 +306,12 @@
     "素数模数。solve(a,n) 输入增广矩阵，返回 consistent、rank、特解 particular 和零空间基 kernel。determinant(empty)=1。spanning_trees(n,edges) 使用 0-based 无向图，允许重边，忽略自环；返回生成树数模 p。高斯与行列式 O(n³)，矩阵幂 O(n³ log e)。"
   ],
   [
+    "matrix_tree",
+    "MatrixTree",
+    "带权矩阵树：无向树与内外向树形图",
+    "声明 MatrixTree<mod>，调用 count(n, edges, root, kind) 返回所有合法树的边权乘积之和，mod 必须是素数。Edge=(u,v,Z)，点号 0..n-1，n≥1；Kind::undirected 为无向生成树，toward_root 为每点沿边能到根，away_from_root 为根沿边能到每点。后两种使用输入边方向，不能混淆。重边按不同边计数，自环忽略；单点答案 1。支持模意义下的零权和负权，结果 0 不一定表示不存在树。无向图删除哪个根行列均可；有向图 root 决定答案。依赖 LinearAlgebra 的素数模行列式，O(n³+m) 时间、O(n²) 额外空间。传统接口 Matrix_Tree<mod>::Count，Kind 成员名不变。"
+  ],
+  [
     "algebra",
     "DuJiao",
     "杜教筛",

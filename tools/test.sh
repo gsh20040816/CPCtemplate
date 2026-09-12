@@ -292,3 +292,7 @@ build/composite_roots
 
 "$CXX" "${flags[@]}" tests/root_factors.cpp -o build/root_factors
 build/root_factors
+
+"$CXX" "${flags[@]}" tests/matrix_tree.cpp -o build/matrix_tree
+build/matrix_tree
+python3 tests/matrix_tree_application.py
