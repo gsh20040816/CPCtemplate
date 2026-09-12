@@ -326,3 +326,5 @@ python3 tests/polynomial_evaluation_application.py
 
 "$CXX" "${flags[@]}" tests/persistent_range.cpp -o build/persistent_range
 build/persistent_range
+
+python3 tests/card_game_application.py

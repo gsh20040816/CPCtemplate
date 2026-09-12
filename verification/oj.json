@@ -1395,5 +1395,51 @@
     ],
     "note": "All 5 cases accepted; disjoint subset convolution, 1<=bits<=20, modulus 1000000009. Other moduli and singleton arrays have separate local evidence. Unused bundled XOR/AND transforms and number-theory functions are not covered. Maximum case milliseconds are converted from the rounded UI display 2.69s.",
     "max_case_time_display": "2.69s"
+  },
+  {
+    "problem": "QOJ 8240",
+    "style": "compact",
+    "algorithm": "PersistentRange card-game application",
+    "record": "https://qoj.ac/submission/2939235",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "789ms",
+    "max_case_time_ms": 789,
+    "memory": "452688kb",
+    "language": "C++20",
+    "date": "2026-09-12",
+    "source_driver": "verify/qoj/8240.compact.cpp",
+    "submitted_source": "verification/submitted/QOJ8240.compact.cpp",
+    "submitted_sha256": "2bcbd23b4316eef4ead41919ff4b9b17be7fac69b88ac70e45efd2650d604fed",
+    "tested_api": [
+      "PersistentRange::add with +1",
+      "PersistentRange::splice suffix from a later-start version",
+      "PersistentRange::query singleton",
+      "XOR-decoded online card-game queries"
+    ],
+    "note": "All 41 main tests and 3 extra tests accepted. n,q<=300000 and 1<=a_i<=n. General signed increments, arbitrary interval sums and arbitrary branching splices retain separate local evidence; this application uses the precise listed subset of interfaces."
+  },
+  {
+    "problem": "QOJ 8240",
+    "style": "classic",
+    "algorithm": "Persistent_Range card-game application",
+    "record": "https://qoj.ac/submission/2939291",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "752ms",
+    "max_case_time_ms": 752,
+    "memory": "452492kb",
+    "language": "C++20",
+    "date": "2026-09-12",
+    "source_driver": "verify/qoj/8240.classic.cpp",
+    "submitted_source": "verification/submitted/QOJ8240.classic.cpp",
+    "submitted_sha256": "35a5af6d169e166c3963d7c2e135049c34e1cfcc7f98babbecd7fdc08b61abb2",
+    "tested_api": [
+      "Persistent_Range::Add with +1",
+      "Persistent_Range::Splice suffix from a later-start version",
+      "Persistent_Range::Query singleton",
+      "XOR-decoded online card-game queries"
+    ],
+    "note": "All 41 main tests and 3 extra tests accepted. n,q<=300000 and 1<=a_i<=n. General signed increments, arbitrary interval sums and arbitrary branching splices retain separate local evidence; this application uses the precise listed subset of interfaces."
   }
 ]
