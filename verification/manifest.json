@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T07:21:58.001339+00:00",
+  "recorded_at_utc": "2026-09-12T07:26:24.194887+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -162,6 +162,10 @@
       "Global min-cut dual exhaustive partition oracle, returned-side certificates, parallel sums and 300-vertex int128 families PASS",
       "",
       "Incremental Gomory-Hu construction; unchanged-module evidence retained from 9f57a34:",
+      "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS",
+      "",
+      "Incremental cut-tree queries and composition; unchanged-module evidence retained from 32e3410:",
+      "Cut-tree queries dual Floyd bottleneck oracle, zero weights, diagonal sentinel and 1200-vertex recursive chain PASS",
       "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS"
     ],
     "sanitizer-tests.txt": [
@@ -323,6 +327,10 @@
       "Global min-cut dual exhaustive partition oracle, returned-side certificates, parallel sums and 300-vertex int128 families PASS",
       "",
       "Incremental Gomory-Hu construction; unchanged-module evidence retained from 9f57a34:",
+      "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS",
+      "",
+      "Incremental cut-tree queries and composition; unchanged-module evidence retained from 32e3410:",
+      "Cut-tree queries dual Floyd bottleneck oracle, zero weights, diagonal sentinel and 1200-vertex recursive chain PASS",
       "Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS"
     ]
   },
@@ -338,6 +346,7 @@
     "src/classic/carmichael.hpp": "3b932372bc1560bd43393b0cb5786a2aa70375782be440f50c73ad74a7989440",
     "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
     "src/classic/coprime_pairs.hpp": "336da5fa9e0a13f323e5bc62da4cbe1c71ebc55c46495bd8dc91efc33431e8e1",
+    "src/classic/cut_tree_queries.hpp": "ca7ddbef43ccc83040eed16c0e5fcc4521d08993857a35900b5aa06c8daa85bf",
     "src/classic/data_structure.hpp": "c22a85ed4ea5c3a458f4febf18549d611045a255cabe429189debd92113f0a70",
     "src/classic/directed_euler.hpp": "f8b4a9b1c752bb53d9a5cded2eb547c56f0e299ce584085960110225639f91af",
     "src/classic/divisor_sum.hpp": "c9ede0a278dde0e014a1465e173cf6739d88968cd94bb076754ac4fce945e3ae",
@@ -407,6 +416,7 @@
     "src/compact/carmichael.hpp": "c96eb5a60b9a7c3c7613259a990dc06d8cd755efdebea82b854d575615bcdf73",
     "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
     "src/compact/coprime_pairs.hpp": "c00ee31e1bfffb415c2cc411e049752d306deb5a6c4f9611b5490497cd6c4094",
+    "src/compact/cut_tree_queries.hpp": "0aef44e11004d4d2d9eac16a4ae9354f820a38e0b53b3b7ccbbe3a9146dab27f",
     "src/compact/data_structure.hpp": "ffbb46b60f707a3ed44838329a8f7eefbd6cba4c2b64d30ed8a62f207e73327e",
     "src/compact/directed_euler.hpp": "241e6cacb38e57e1b95f2e089cbceebb9120afc83671930e4023dc57245f09bc",
     "src/compact/divisor_sum.hpp": "10e7cbc583f9e4f2e4e7dcfa4dd081e794a770dc7ca04db9d620df81e9677937",
@@ -487,6 +497,7 @@
     "tests/crt.cpp": "cf2ac8fd470bae001f8a543dc71d0b82ec059e44478ab5fb59f1c288ca64dd54",
     "tests/crt_application.py": "359cc78278849ad30d5fade4e5495317d56ee1809bb9ad67216ccea008cd8817",
     "tests/crt_system.cpp": "15991fe685750d0c49eeaedf00768907c81e7b8d3a35ad80fedff64e0c4098e4",
+    "tests/cut_tree_queries.cpp": "ec52916f3aac9033e15a0e80926f05b7a2063211fb5ac3aff902a3e12f5498fa",
     "tests/directed_euler.cpp": "5438216866c8c013d9f7d0e20907ecb60108eb7329f4f9dc6389d7c2a2b7affa",
     "tests/directed_euler_application.py": "31458b7e2a5f9c71579c5f93c8b7afc8d6a59b1f19b3fcdef5232e59b4c832ab",
     "tests/discrete_log.cpp": "5745ad604c912e33816c25499d5e313fb10f07dd27d1ebd8630aa11c8596b65f",
@@ -518,7 +529,7 @@
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
     "tests/global_min_cut.cpp": "833783cda9e962873c8b7df3f8bc75276d573f16629820d81ebdc0f914ec7e31",
-    "tests/gomory_hu.cpp": "fde09e3086169f90488894f5addf22c5425598d96998c2fe20d7bb86e6a3b247",
+    "tests/gomory_hu.cpp": "888601101b60a6196478f7b6b321227b087514cf1a45391c84e8cb7ac39371fa",
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",
     "tests/graph_contracts.cpp": "af13d8fae85417d2e2e8d69de1c073339587eaa7b5f2616a724b61a4ce0fe322",
     "tests/graph_drivers.py": "c970259c9ff1d93da80409125fc8c420b92d4e17399373340de69e053f0d781f",

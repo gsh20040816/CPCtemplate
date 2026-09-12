@@ -1,5 +1,7 @@
 #include "../src/classic/gomory_hu.hpp"
 #include "../src/compact/gomory_hu.hpp"
+#include "../src/compact/cut_tree_queries.hpp"
+#include "../src/classic/cut_tree_queries.hpp"
 #include <cassert>
 #include <iostream>
 using Edge=tuple<int,int,long long>;
@@ -32,6 +34,8 @@ void verify(int n,const vector<Edge> &edges,const vector<Edge> &tree,bool brute)
         dfs(dfs,s,-1,LLONG_MAX);
         assert(count(seen.begin(),seen.end(),true)==n);
     }
+    assert(cut_tree_values(n,tree)==paths);
+    assert(Cut_Tree_Values(n,tree)==paths);
     // Every tree edge must describe an actual minimum cut of the original graph.
     for(int banned=0;banned<n-1;banned++)
     {

@@ -894,6 +894,16 @@ gomory\_hu(n,edges) 返回 n-1 条 (u,v,容量) 树边；n$\ge$1，原图点号 
 
 \lstinputlisting[firstline=6,lastline=44]{../src/compact/gomory_hu.hpp}
 
+\chapter{最小割树查询}
+
+\Needspace{383pt}
+
+\section{最小割树全点对查询}\label{compact-cut_tree_values}\index{cut\_tree\_values}
+
+cut\_tree\_values(n,tree) 对合法的连通无环加权树计算全点对路径最小边权；点号 0..n-1、n$\ge$1、恰有 n-1 条边，边权为非负 long long。输入可直接使用 gomory\_hu 的返回值。结果 ans[u][v] 在 u$\ne$v 时为两点最小割；对角线为 LLONG\_MAX 哨兵，不能解释成同点最小割。n=1 返回单个哨兵。O(n$^{2}$) 时间与空间，递归 DFS 深度 O(n)，查询 O(1)。传统接口 Cut\_Tree\_Values。只需要标准库，不依赖流模板；不是任意图的查询函数。
+
+\lstinputlisting[firstline=10,lastline=35]{../src/compact/cut_tree_queries.hpp}
+
 \chapter{带权二分图匹配}
 
 \section{二分图最大权匹配（缺边与可选匹配）}\label{compact-WeightedMatching}\index{WeightedMatching}
@@ -1953,6 +1963,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-gomory_hu}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=6,lastline=45]{../src/classic/gomory_hu.hpp}
+
+\chapter{最小割树查询}
+
+\Needspace{383pt}
+
+\section{最小割树全点对查询}\label{classic-cut_tree_values}\index{Cut\_Tree\_Values}
+
+算法约束见动态版本第~\pageref{compact-cut_tree_values}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=10,lastline=35]{../src/classic/cut_tree_queries.hpp}
 
 \chapter{带权二分图匹配}
 

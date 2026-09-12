@@ -252,3 +252,6 @@ build/global_min_cut
 
 "$CXX" "${flags[@]}" tests/gomory_hu.cpp -o build/gomory_hu
 build/gomory_hu
+
+"$CXX" "${flags[@]}" tests/cut_tree_queries.cpp -o build/cut_tree_queries
+build/cut_tree_queries
