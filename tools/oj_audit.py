@@ -60,6 +60,16 @@ for row in rows:
             normalize(old[old.rfind('\n};') + 3:]) ==
             normalize(new[new.rfind('\n};') + 3:]))
         entry['note'] = note
+    if current != archived and row['problem'] in {'Luogu P1495', 'Luogu P4777', 'Luogu P6091', 'Luogu P4195'}:
+        # These reviewed drivers do not instantiate the factorial-table class.
+        unused = 'Binomial' if row['style'] == 'compact' else 'Combination'
+        old = archived.decode()
+        new = current.decode()
+        old_rest = old.replace(component(old, unused), '', 1)
+        new_rest = new.replace(component(new, unused), '', 1)
+        entry['excluded_unused_component'] = unused
+        entry['remaining_bundle_matches_after_formatting'] = normalize(old_rest) == normalize(new_rest)
+        entry['scope_note'] = 'Only the uninstantiated factorial table is excluded; this does not validate its new APIs or confer a new AC.'
     report.append(entry)
 (root / 'verification/oj-source-audit.json').write_text(
     json.dumps(report, ensure_ascii=False, indent=2) + '\n')

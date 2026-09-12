@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T04:26:11.981040+00:00",
+  "recorded_at_utc": "2026-09-12T04:46:27.513598+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -83,7 +83,10 @@
       "Incremental primitive root checks; unchanged-module evidence retained from 1c8722a:",
       "Primitive root dual exhaustive power-cycle oracle, orders, signed inputs, existence, reset, int32 bounds and 999983 full cycle PASS",
       "Incremental Carmichael checks; unchanged-module evidence retained from 5283775:",
-      "Carmichael dual exhaustive unit-order LCM, prime powers, int32 bounds, exponent certificates and composition PASS"
+      "Carmichael dual exhaustive unit-order LCM, prime powers, int32 bounds, exponent certificates and composition PASS",
+      "Incremental Binomial/Combination extension and boundary regression; other number_theory classes unchanged from 6cae21d:",
+      "Binomial dual Pascal/falling-factorial oracle, incremental growth, no-shrink reuse, boundaries and million-entry tables PASS",
+      "rollback, basis, SAM counts, binomial, boundary regressions PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -165,7 +168,10 @@
       "Incremental primitive root checks; unchanged-module evidence retained from 1c8722a:",
       "Primitive root dual exhaustive power-cycle oracle, orders, signed inputs, existence, reset, int32 bounds and 999983 full cycle PASS",
       "Incremental Carmichael checks; unchanged-module evidence retained from 5283775:",
-      "Carmichael dual exhaustive unit-order LCM, prime powers, int32 bounds, exponent certificates and composition PASS"
+      "Carmichael dual exhaustive unit-order LCM, prime powers, int32 bounds, exponent certificates and composition PASS",
+      "Incremental Binomial/Combination extension and boundary regression; other number_theory classes unchanged from 6cae21d:",
+      "Binomial dual Pascal/falling-factorial oracle, incremental growth, no-shrink reuse, boundaries and million-entry tables PASS",
+      "rollback, basis, SAM counts, binomial, boundary regressions PASS"
     ]
   },
   "sha256": {
@@ -201,7 +207,7 @@
     "src/classic/min_cost_flow.hpp": "49d8ee5466edc6396bbe7c8858e8b4bd765b4c0bc18c82a4ea7eae88884e36ca",
     "src/classic/mixed_euler.hpp": "f288cc25617677f70adcfae0e39a5818a3597b9ce2ae27f78816c0edeede6a6c",
     "src/classic/modular_sqrt.hpp": "d66b537ac6c009d50519f1b91f7a9d7d3f7177f6523a2ceed2c6d3070d6fa38d",
-    "src/classic/number_theory.hpp": "8a20210a11a6f985d51776dd0a90e9aaa2c385f7805babfe05c63613c57a7352",
+    "src/classic/number_theory.hpp": "1a9ac27a70bc5cf3e28c52d7a1f02d2770e310a921fdfd7326eb33574f84c135",
     "src/classic/odd_cycle_vertices.hpp": "955b252e78ab65ffe1c555a0f15528f7b25239781cd29488cff3e93872d20011",
     "src/classic/offline_lca.hpp": "cd5f7452c2b1c5ff50b4dc8eb083b9e97239b822534e65d7e13afc64831525b1",
     "src/classic/optimization.hpp": "de968be0f1e4296d0e2e9b38984ab206067adfc4d030366a9dd0d986dc1f2dcc",
@@ -258,7 +264,7 @@
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
     "src/compact/mixed_euler.hpp": "7e84285a001bc52700e00f0da220c28402b866c4c84c742962886b69c7c03ff8",
     "src/compact/modular_sqrt.hpp": "feafcc6e8e95453ba63c6fa4047de98ba1402d6d8c373f41543b5162e730a537",
-    "src/compact/number_theory.hpp": "442ed221567f0fa12f9ae38bcb7d873bed4cd0a253020814dae2599c64f3bf0f",
+    "src/compact/number_theory.hpp": "d6769f23172c9d0c613183deeff4f229cd5c6d09cfd9364163d4c3fe6ff6aaf5",
     "src/compact/odd_cycle_vertices.hpp": "156451700da42e43c181e7c841009ba59a50fe944edbb9559615e456eb04c46e",
     "src/compact/offline_lca.hpp": "6bab44707d5c5fd363b990d93cc368f634e83d8de5090810dfe3cf525e6b5971",
     "src/compact/optimization.hpp": "e031dc5ddb1cc778e49d445e63c5e197cb79519eae97ed38a92a29be06e77f12",
@@ -289,6 +295,7 @@
     "tests/basis_intersection.cpp": "fa79b34708d1115e88d37dfd3b7c8f71b151d47dab5935613013aa4ab4d1b956",
     "tests/basis_intersection_application.py": "42f1415fd890b96165f7a12ed3a8808ef4b5f165355fc4b9c2c3643554919680",
     "tests/biconnected.cpp": "de4fa6a9a028408879922a15c0cbe19b80f87ed7be2e274f36766dfb0ed4739f",
+    "tests/binomial.cpp": "31b2ce11f9cf240e8767b0f5fc0a70edd5fee340b4ab41099a304ce3ab7cdd6e",
     "tests/blossom.cpp": "93361601e543fe63e84deccd84e5148b39de9fa919eda4345c18e5f653cf1f96",
     "tests/boundaries.cpp": "a956e11355fbf66131d6cd3ff8eee37b19d2a2d7077d75d317eea53742797dba",
     "tests/bridge_augmentation.cpp": "b6d567a637fa3a80bd0526cc8b932ff80ae8d6679d014b09ba35f5f6e78b8125",

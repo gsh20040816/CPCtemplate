@@ -100,6 +100,7 @@ for style in ['compact','classic']:
     if name=='TreePathKth':body.append('声明 Tree\\_Path\\_Kth<N,NODES,LOG>，Init(a) 清空图并保存权值；Insert、Build、Kth、Lca 对应动态接口。要求 2 的 LOG 次方大于实际点数，默认 LOG=20。若不同权值数为 D，NODES 至少取 n 乘以 (ceil(log2(D))+1)，另有编号 0 空节点。大对象放在全局或 static；Init 与 Build 分别清空图和重建版本。')
     if name=='Lagrange':body.append('声明 Lagrange\\_Interpolation<N>；Init、Consecutive、Query 对应动态接口，N 为最大样本数。坐标、权值与工作数组均为静态数组，大对象放在全局或 static；Query 会改写工作数组。')
     if name=='PrimitiveRoot':body.append('构造 Primitive\\_Root(n)，Init、Order、Is\\_Root、Minimum、All 对应动态接口；Factors 为 phi 的不同素因子，依赖 Number\\_Theory::Power。')
+    if name=='Binomial':body.append('Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应组合数和排列数，fac、ifac 可只读访问。')
     if name=='Lucas':body.append('声明 Lucas\\_Theorem<N>，Init(p) 重建素数模数下的表，Choose(n,k) 查询。要求 p 不超过 N；大对象放全局或 static。传统版空间 O(N)。')
     if name=='ExLucas':body.append('声明 Ex\\_Lucas<N> 后 Init(mod)，要求 mod 不超过 N；Choose 为查询接口。fac 是共用静态前缀积数组，各素数幂通过 start 分段；各段总长度不超过 mod+1，所以 N 限制模数即可。Init 可切换模数并清空旧预处理，大对象放在全局或 static。')
     if name=='WeightedMatching':body.append('声明 Weighted\\_Matching<N,M> 后 Init(n,m)，N、M 分别限制左右点数。Insert 加边，Solve 求解；l、r 保存方案，Init 清空原图。权值矩阵是静态数组，内部增广辅助数组按实际规模分配，大对象放在全局或 static。')
@@ -126,6 +127,11 @@ for style in ['compact','classic']:
     for j in range(len(cuts)-1):
      if j: body.append(r'\newpage')
      body.append(r'\lstinputlisting[firstline='+str(cuts[j]+1)+',lastline='+str(cuts[j+1])+',firstnumber='+str(cuts[j]-start+1)+']{../src/'+style+'/'+filename+'.hpp}')
+   elif name=='Binomial':
+    split=next(i for i in range(start,end) if re.match(r'    Z (choose|Choose)\(',lines[i]))
+    body.append(r'\lstinputlisting[firstline='+str(start+1)+',lastline='+str(split)+']{../src/'+style+'/'+filename+'.hpp}')
+    body.append(r'\Needspace{220pt}')
+    body.append(r'\lstinputlisting[firstline='+str(split+1)+',lastline='+str(end)+',firstnumber='+str(split-start+1)+']{../src/'+style+'/'+filename+'.hpp}')
    elif name=='LiftingLCA':
     cuts=[start,next(i for i in range(start,end) if re.match(r'    void (dfs|Dfs)\(',lines[i])),next(i for i in range(start,end) if re.match(r'    int (lca|Lca)\(',lines[i])),end]
     for j in range(len(cuts)-1):

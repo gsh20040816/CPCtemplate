@@ -181,3 +181,6 @@ build/primitive-root
 
 "$CXX" "${flags[@]}" tests/carmichael.cpp -o build/carmichael
 build/carmichael
+
+"$CXX" "${flags[@]}" tests/binomial.cpp -o build/binomial
+build/binomial

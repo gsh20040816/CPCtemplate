@@ -165,7 +165,7 @@
     "number_theory",
     "Binomial",
     "阶乘组合数",
-    "Binomial<prime>(n)，要求 0≤n<prime；choose(n,k) 越界 k 返回 0。预处理 O(n+log prime)，单次 O(1)。小模数下，合数模数或 n 不小于模数时，可使用后面的 ExLucas。"
+    "Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0≤n<prime。init(n) 只扩大当前上限，较小或相同的 n 不改变表；choose(n,k) 返回 C(n,k)，permute(n,k) 返回 n!/(n-k)!。查询前显式预处理到 n，查询本身不扩表。n<0、k<0 或 k>n 返回 0，C(0,0)=P(0,0)=1。fac、ifac 为可直接读取的阶乘与逆阶乘表，增长可能使旧引用失效。单次查询 O(1)；从 old 扩到 n 新增 O(n-old+log prime) 次域运算，重分配还可能复制旧表。首次预处理 O(n+log prime)，空间 O(n)。超过模数不能使用阶乘除法：小素数用 Lucas，小合数用 exLucas。"
   ],
   [
     "primitive_root",

@@ -540,13 +540,17 @@ factor(n) 返回升序质因子（含重数），n$\ge$1；依赖 NumberTheory�
 
 \lstinputlisting[firstline=240,lastline=284]{../src/compact/number_theory.hpp}
 
-\Needspace{336pt}
+\Needspace{552pt}
 
 \section{阶乘组合数}\label{compact-Binomial}\index{Binomial}
 
-Binomial<prime>(n)，要求 0$\le$n<prime；choose(n,k) 越界 k 返回 0。预处理 O(n+log prime)，单次 O(1)。小模数下，合数模数或 n 不小于模数时，可使用后面的 ExLucas。
+Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。init(n) 只扩大当前上限，较小或相同的 n 不改变表；choose(n,k) 返回 C(n,k)，permute(n,k) 返回 n!/(n-k)!。查询前显式预处理到 n，查询本身不扩表。n<0、k<0 或 k>n 返回 0，C(0,0)=P(0,0)=1。fac、ifac 为可直接读取的阶乘与逆阶乘表，增长可能使旧引用失效。单次查询 O(1)；从 old 扩到 n 新增 O(n-old+log prime) 次域运算，重分配还可能复制旧表。首次预处理 O(n+log prime)，空间 O(n)。超过模数不能使用阶乘除法：小素数用 Lucas，小合数用 exLucas。
 
-\lstinputlisting[firstline=285,lastline=308]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=285,lastline=309]{../src/compact/number_theory.hpp}
+
+\Needspace{220pt}
+
+\lstinputlisting[firstline=310,lastline=325,firstnumber=26]{../src/compact/number_theory.hpp}
 
 \chapter{混合进制中国剩余定理}
 
@@ -1454,13 +1458,19 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 
 \lstinputlisting[firstline=256,lastline=300]{../src/classic/number_theory.hpp}
 
-\Needspace{336pt}
+\Needspace{552pt}
 
 \section{阶乘组合数}\label{classic-Binomial}\index{Combination}
 
 算法约束见动态版本第~\pageref{compact-Binomial}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=301,lastline=324]{../src/classic/number_theory.hpp}
+Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应组合数和排列数，fac、ifac 可只读访问。
+
+\lstinputlisting[firstline=301,lastline=325]{../src/classic/number_theory.hpp}
+
+\Needspace{220pt}
+
+\lstinputlisting[firstline=326,lastline=341,firstnumber=26]{../src/classic/number_theory.hpp}
 
 \chapter{混合进制中国剩余定理}
 

@@ -285,16 +285,25 @@ template <int mod> struct ModInt
 template <int mod> struct Binomial
 {
     using Z = ModInt<mod>;
-    vector<Z> fac, ifac;
+    vector<Z> fac{Z(1)}, ifac{Z(1)};
 
-    Binomial(int n) : fac(n + 1), ifac(n + 1)
+    Binomial(int n = 0)
+    {
+        init(n);
+    }
+
+    void init(int n)
     {
         assert(0 <= n && n < mod);
-        fac[0] = 1;
-        for (int i = 1; i <= n; i++)
+        int old = (int)fac.size() - 1;
+        if (n <= old)
+            return;
+        fac.resize(n + 1);
+        ifac.resize(n + 1);
+        for (int i = old + 1; i <= n; i++)
             fac[i] = fac[i - 1] * i;
         ifac[n] = fac[n].inv();
-        for (int i = n; i; i--)
+        for (int i = n; i > old; i--)
             ifac[i - 1] = ifac[i] * i;
     }
 
@@ -304,5 +313,13 @@ template <int mod> struct Binomial
             return 0;
         assert(n < (int)fac.size());
         return fac[n] * ifac[k] * ifac[n - k];
+    }
+
+    Z permute(int n, int k) const
+    {
+        if (k < 0 || k > n)
+            return 0;
+        assert(n < (int)fac.size());
+        return fac[n] * ifac[n - k];
     }
 };
