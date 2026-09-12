@@ -720,11 +720,11 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 \lstinputlisting[firstline=4,lastline=138]{../src/compact/algebra.hpp}
 
-\Needspace{611pt}
+\Needspace{646pt}
 
 \section{杜教筛}\label{compact-DuJiao}\index{DuJiao}
 
-构造预筛上限 B$\ge$1，mertens(n) 返回 $\mu$ 的前缀和，totient\_sum(n) 返回 $\varphi$ 的前缀和（int128）。约定 0$\le$n$\le$10$^{11}$，按整除分块递归并缓存；大输入需要合理 B，不能把常数 B 当作性能保证。
+构造预筛上限 1$\le$B<INT\_MAX，内存须可用；mertens(n) 返回 $\mu$ 的前缀和，totient\_sum(n) 返回 $\varphi$ 的前缀和（int128）。约定 0$\le$n$\le$10$^{11}$，n=0 返回 0。按整除分块递归并写入 mmu/mphi 缓存；重复查询复用结果，清空缓存可重算，不可修改 pmu/pphi/limit。传统接口 Mertens、Totient\_Sum。单次最大参数 N 的常用均摊分析为 O(B+N/$\sqrt{\vphantom x}$B)（哈希按期望常数计算），B 约 N\textasciicircum{}(2/3) 时为 O(N\textasciicircum{}(2/3))；小 B 不构成大输入性能保证。多次不同 N 可能新增缓存，空间随实际缓存增长；递归深度 O(log N)。
 
 \lstinputlisting[firstline=139,lastline=189]{../src/compact/algebra.hpp}
 
@@ -1710,7 +1710,7 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 
 \lstinputlisting[firstline=4,lastline=138]{../src/classic/algebra.hpp}
 
-\Needspace{611pt}
+\Needspace{646pt}
 
 \section{杜教筛}\label{classic-DuJiao}\index{Du\_Jiao}
 

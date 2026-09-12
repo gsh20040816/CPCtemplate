@@ -223,3 +223,6 @@ python3 tests/coprime_pairs_application.py
 
 "$CXX" "${flags[@]}" tests/phi_inversion.cpp -o build/phi_inversion
 build/phi_inversion
+
+"$CXX" "${flags[@]}" tests/dujiao.cpp -o build/dujiao
+build/dujiao

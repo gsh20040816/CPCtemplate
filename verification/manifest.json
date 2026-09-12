@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T06:24:20.803574+00:00",
+  "recorded_at_utc": "2026-09-12T06:28:52.970820+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -131,7 +131,10 @@
       "P2522 classic: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS",
       "",
       "Incremental phi inversion audit; unchanged-module evidence retained from e0ec8cf:",
-      "Phi inversion dual million-entry Mobius convolution and proper-divisor subtraction certificates PASS"
+      "Phi inversion dual million-entry Mobius convolution and proper-divisor subtraction certificates PASS",
+      "",
+      "Incremental DuJiao audit; unchanged-module evidence retained from e335b1f:",
+      "DuJiao dual trial-prefix oracle, zero/cutoff boundaries, shuffled/repeated queries, cache rebuild and 1e11 cutoff consistency PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -261,7 +264,10 @@
       "P2522 classic: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS",
       "",
       "Incremental phi inversion audit; unchanged-module evidence retained from e0ec8cf:",
-      "Phi inversion dual million-entry Mobius convolution and proper-divisor subtraction certificates PASS"
+      "Phi inversion dual million-entry Mobius convolution and proper-divisor subtraction certificates PASS",
+      "",
+      "Incremental DuJiao audit; unchanged-module evidence retained from e335b1f:",
+      "DuJiao dual trial-prefix oracle, zero/cutoff boundaries, shuffled/repeated queries, cache rebuild and 1e11 cutoff consistency PASS"
     ]
   },
   "sha256": {
@@ -423,6 +429,7 @@
     "tests/driver_stack.cpp": "70679960f4f415f829c72eef6fbedf7890d17d9cc1aa20594747ce2ed04aa624",
     "tests/dsu_on_tree.cpp": "8af99c1002d77d57b85a8763efca24c52f03dd786c0f594f23df633a984ab68f",
     "tests/dual.cpp": "6a3e330198d0de2b47946a9c7868ef200d8a36f51fe40a71c25274d7d0f102ad",
+    "tests/dujiao.cpp": "699f7ed0303c64d31ce39093184419b1b3c2512c6d587aa1d8ec8731c9447202",
     "tests/dynamic_kth.cpp": "adef3100691e835610eb7346137273498f03126c7dbd6e062a4ef60313ac3671",
     "tests/dynamic_kth_application.py": "f8219061b8dbb3bdbf1f37c7b0da9056937883768442415dad15de32ba90e8e4",
     "tests/dynamic_kth_scale.py": "520ce96be1927367c283b6aae8877090cceea648afbdbc126f2d977acc92acee",
