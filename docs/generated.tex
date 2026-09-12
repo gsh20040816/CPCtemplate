@@ -818,6 +818,30 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=25,lastline=69,firstnumber=22]{../src/compact/ntt_convolution.hpp}
 
+\chapter{多项式平移}
+
+\Needspace{428pt}
+
+\section{多项式系数平移}\label{compact-polynomial_shift}\index{polynomial\_shift}
+
+polynomial\_shift<mod=998244353,primitive=3>(f,c) 返回 f(x+c) 的升幂系数，结果长度始终与 f 相同，保留末尾零；空输入返回空。参数 c 使用 ModInt<mod>。依赖参数化 NTT，mod 为素数且 primitive 为原根；非空长度 n 要求 2n-1$\le$NTT::max\_size，因此阶乘均可逆。逆序的 f[i]i! 与 c\textasciicircum{}i/i! 卷积后提取对应项，O(n log n) 时间、O(n) 空间。c=0 合法。传统函数 Polynomial\_Shift，c 类型为 Mod\_Int<mod>。
+
+\lstinputlisting[firstline=5,lastline=34]{../src/compact/polynomial_shift.hpp}
+
+\chapter{等比点求值}
+
+\section{Chirp Z：等比点求值}\label{compact-chirp_z}\index{chirp\_z}
+
+chirp\_z(f,a,r,m) 返回 f(a*r\textasciicircum{}i)，i=0..m-1；f 为升幂系数数组，a、r 为 ModInt<mod>。m$\ge$0、f.size()$\le$INT\_MAX；空 f 表示零多项式，m=0 返回空。约定 r\textasciicircum{}0=1，因此 r=0 时首项为 f(a)、其余为 f(0)；a=0 或 r=1 也单独处理。普通分支依赖 NTT 素数及原根，非空长度 n 要求 n+m-1$\le$NTT::max\_size。利用三角数指数与循环卷积，避免平方指数的整数溢出；O((n+m) log(n+m)) 时间、O(n+m) 空间，特殊分支 O(n+m)。默认模板参数 mod=998244353、primitive=3。输出顺序允许重复点。传统函数 Chirp\_Z，参数类型 Mod\_Int<mod>。
+
+\lstinputlisting[firstline=5,lastline=37]{../src/compact/chirp_z.hpp}
+
+\newpage
+
+\noindent 构造循环卷积并取点值（接上页同一函数）：
+
+\lstinputlisting[firstline=38,lastline=62,firstnumber=34]{../src/compact/chirp_z.hpp}
+
 \chapter{斯特林数整行计算}
 
 \Needspace{383pt}
@@ -2131,6 +2155,30 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \noindent 蝶形变换与卷积（接上页同一结构体与函数）：
 
 \lstinputlisting[firstline=25,lastline=69,firstnumber=22]{../src/classic/ntt_convolution.hpp}
+
+\chapter{多项式平移}
+
+\Needspace{428pt}
+
+\section{多项式系数平移}\label{classic-polynomial_shift}\index{Polynomial\_Shift}
+
+算法约束见动态版本第~\pageref{compact-polynomial_shift}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=34]{../src/classic/polynomial_shift.hpp}
+
+\chapter{等比点求值}
+
+\section{Chirp Z：等比点求值}\label{classic-chirp_z}\index{Chirp\_Z}
+
+算法约束见动态版本第~\pageref{compact-chirp_z}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=37]{../src/classic/chirp_z.hpp}
+
+\newpage
+
+\noindent 构造循环卷积并取点值（接上页同一函数）：
+
+\lstinputlisting[firstline=38,lastline=62,firstnumber=34]{../src/classic/chirp_z.hpp}
 
 \chapter{斯特林数整行计算}
 

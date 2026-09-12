@@ -319,3 +319,7 @@ python3 tests/bostan_mori_application.py
 "$CXX" "${flags[@]}" tests/set_convolution.cpp -o build/set_convolution
 build/set_convolution
 python3 tests/set_convolution_application.py
+
+"$CXX" "${flags[@]}" tests/polynomial_evaluation.cpp -o build/polynomial_evaluation
+build/polynomial_evaluation
+python3 tests/polynomial_evaluation_application.py

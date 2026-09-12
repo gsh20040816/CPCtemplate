@@ -1139,3 +1139,47 @@ XOR 为 $(x+y)^{|s|}(1+xy)^{m-|s|}$，不相交子集卷积为 $(x+y)^{|s|}$。
 内存 188.83 MB、189.00 MB。两题 OJ 仅验证各自题面模数和长度范围，
 其他模数及长度 1 仍由本地独立测试覆盖。
 \href{https://oi-wiki.org/math/poly/fwt/}{OI Wiki FWT} 的其他运算及更广泛应用仍待覆盖。
+
+\clearpage
+\section{Taylor 平移与等比点求值}
+代码见第~\pageref{compact-polynomial_shift}~页和
+第~\pageref{compact-chirp_z}~页。
+多项式使用升幂系数，输入长度 $n$ 表示次数小于 $n$，允许末尾零。
+平移输出的第 $i$ 项满足
+\[
+ [x^i]f(x+c)=\frac1{i!}\sum_{j=i}^{n-1} f_jj!\frac{c^{j-i}}{(j-i)!}.
+\]
+倒序 $f_jj!$，与 $c^j/j!$ 卷积，再取第 $n-1-i$ 项并乘 $1/i!$。
+保留原数组长度；零多项式可以用空数组表示，返回空数组。
+使用 NTT 素数及原根，要求 $2n-1$ 不超过变换容量；此时所需阶乘非零。
+时间 $O(n\log n)$、空间 $O(n)$。
+这与给出 $f(0),f(1),\ldots$ 后平移点值的任务不同，后者尚待补充。
+
+Chirp Z 返回 $f(ar^i)$，$0\le i<m$。
+设 $T_j=j(j-1)/2$，由 $ij=T_{i+j}-T_i-T_j$ 得
+\[
+ f(ar^i)=r^{-T_i}\sum_{j=0}^{n-1}
+        f_ja^jr^{-T_j}r^{T_{i+j}}.
+\]
+将第一项数组倒序，与 $r^{T_j}$ 卷积，抽取第 $n-1+i$ 项。
+三角数幂通过累乘生成，不计算可能溢出的 $j(j-1)$。
+令 $L$ 为不小于 $n+m-1$ 的最小二次幂，直接做模 $x^L-1$ 的循环卷积。
+普通乘积最高次数为 $2n+m-3$，而所需区间任意下标 $t\ge n-1$
+满足 $t+L\ge2n+m-2$，因此不会收到高次项回卷，所取系数仍然精确。
+要求 $n+m-1$ 不超过 NTT 容量，总时间 $O((n+m)\log(n+m))$、空间 $O(n+m)$。
+
+约定 $r^0=1$，故 $r=0$ 时第一项为 $f(a)$，余项均为 $f(0)$；
+$a=0$ 时所有点为零，$r=1$ 时所有点相同。这些情况单独计算，避免对零求逆。
+$m=0$ 返回空数组，空输入返回 $m$ 个零。
+同一份算法支持小阶公比、重复点与有限域中多次绕回，输出保持原顺序。
+
+独立验证采用 Pascal 二项式展开和 Horner 求值，涵盖 7 种 NTT 素数、
+零公比与单位公比、小素数完整容量边界。
+大规模平移用 $(x+b)^d$ 检查每个系数；等比点求值用几何级数闭式逐点检查。
+普通与 ASan/UBSan 均通过。
+Library Checker 的
+\href{https://judge.yosupo.jp/problem/polynomial_taylor_shift}{Polynomial Taylor Shift} 和
+\href{https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence}{等比点求值}
+已准备两套完整驱动；本地检查各题 $524288$ 的最大规模，尚无在线 AC。
+参考\href{https://oi-wiki.org/math/poly/shift/}{OI Wiki 平移}及
+\href{https://oi-wiki.org/math/poly/czt/}{Chirp Z}，更广泛的点值平移和应用另行覆盖。
