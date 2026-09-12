@@ -13,9 +13,7 @@ struct Biconnected
     vector<vector<int>> blocks;
     vector<int> dfn, low, cut, bridge, bel, st;
 
-    Biconnected(int n) : n(n), g(n + 1)
-    {
-    }
+    Biconnected(int n) : n(n), g(n + 1) {}
 
     int add(int u, int v)
     {
@@ -37,35 +35,30 @@ struct Biconnected
         int children = 0;
         for (auto [v, id] : g[u])
         {
-            if (id == parent_edge)
-                continue;
+            if (id == parent_edge) continue;
             if (!dfn[v])
             {
                 children++;
                 dfs(v, id);
                 low[u] = min(low[u], low[v]);
-                if (low[v] > dfn[u])
-                    bridge[id] = 1;
+                if (low[v] > dfn[u]) bridge[id] = 1;
                 if (low[v] >= dfn[u])
                 {
-                    if (parent_edge != -1 || children > 1)
-                        cut[u] = 1;
+                    if (parent_edge != -1 || children > 1) cut[u] = 1;
                     blocks.push_back({u});
                     while (true)
                     {
                         int x = st.back();
                         st.pop_back();
                         blocks.back().push_back(x);
-                        if (x == v)
-                            break;
+                        if (x == v) break;
                     }
                 }
             }
             else
                 low[u] = min(low[u], dfn[v]);
         }
-        if (parent_edge == -1 && children == 0)
-            blocks.push_back({u});
+        if (parent_edge == -1 && children == 0) blocks.push_back({u});
     }
 
     void paint(int u)
@@ -73,8 +66,7 @@ struct Biconnected
         bel[u] = cnt;
         for (auto [v, id] : g[u])
         {
-            if (!bridge[id] && !bel[v])
-                paint(v);
+            if (!bridge[id] && !bel[v]) paint(v);
         }
     }
 
@@ -99,8 +91,7 @@ struct Biconnected
         }
         for (int u = 1; u <= n; u++)
         {
-            if (bel[u])
-                continue;
+            if (bel[u]) continue;
             ++cnt;
             paint(u);
         }
@@ -128,8 +119,7 @@ struct Biconnected
         vector<vector<pair<int, int>>> tree(cnt + 1);
         for (int id = 0; id < (int)edges.size(); id++)
         {
-            if (!bridge[id])
-                continue;
+            if (!bridge[id]) continue;
             auto [u, v] = edges[id];
             u = bel[u];
             v = bel[v];

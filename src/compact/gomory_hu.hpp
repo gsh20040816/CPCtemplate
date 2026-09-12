@@ -21,11 +21,9 @@ gomory_hu(int n, const vector<tuple<int, int, long long>> &edges)
             }
         long long cut = flow.flow(s + 1, t + 1);
         vector<bool> side(n);
-        for (int u : flow.cut(s + 1))
-            side[u - 1] = true;
+        for (int u : flow.cut(s + 1)) side[u - 1] = true;
         for (int v = 1; v < n; v++)
-            if (v != s && parent[v] == t && side[v])
-                parent[v] = s;
+            if (v != s && parent[v] == t && side[v]) parent[v] = s;
         if (side[parent[t]])
         {
             parent[s] = parent[t];
@@ -37,8 +35,7 @@ gomory_hu(int n, const vector<tuple<int, int, long long>> &edges)
             value[s] = cut;
     }
     vector<tuple<int, int, long long>> tree;
-    for (int v = 1; v < n; v++)
-        tree.push_back({v, parent[v], value[v]});
+    for (int v = 1; v < n; v++) tree.push_back({v, parent[v], value[v]});
     return tree;
 }
 

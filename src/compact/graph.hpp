@@ -12,9 +12,7 @@ struct Dijkstra
     vector<ll> dis;
     vector<int> pre;
 
-    Dijkstra(int n) : n(n), g(n + 1)
-    {
-    }
+    Dijkstra(int n) : n(n), g(n + 1) {}
 
     void add(int u, int v, ll w)
     {
@@ -33,8 +31,7 @@ struct Dijkstra
         {
             auto [d, u] = q.top();
             q.pop();
-            if (d != dis[u])
-                continue;
+            if (d != dis[u]) continue;
             for (auto [v, w] : g[u])
                 if (w < inf - d && d + w < dis[v])
                 {
@@ -47,11 +44,9 @@ struct Dijkstra
 
     vector<int> path(int t) const
     {
-        if (dis[t] == inf)
-            return {};
+        if (dis[t] == inf) return {};
         vector<int> ans;
-        for (; t != -1; t = pre[t])
-            ans.push_back(t);
+        for (; t != -1; t = pre[t]) ans.push_back(t);
         reverse(ans.begin(), ans.end());
         return ans;
     }
@@ -63,9 +58,7 @@ struct SCC
     vector<vector<int>> g, rg;
     vector<int> bel;
 
-    SCC(int n) : n(n), g(n + 1), rg(n + 1)
-    {
-    }
+    SCC(int n) : n(n), g(n + 1), rg(n + 1) {}
 
     void add(int u, int v)
     {
@@ -78,8 +71,7 @@ struct SCC
         vis[u] = 1;
         for (int v : g[u])
         {
-            if (!vis[v])
-                dfs1(v, vis, order);
+            if (!vis[v]) dfs1(v, vis, order);
         }
         order.push_back(u);
     }
@@ -89,8 +81,7 @@ struct SCC
         bel[u] = cnt;
         for (int v : rg[u])
         {
-            if (!bel[v])
-                dfs2(v);
+            if (!bel[v]) dfs2(v);
         }
     }
 
@@ -102,8 +93,7 @@ struct SCC
         bel.assign(n + 1, 0);
         for (int s = 1; s <= n; s++)
         {
-            if (!vis[s])
-                dfs1(s, vis, order);
+            if (!vis[s]) dfs1(s, vis, order);
         }
         reverse(order.begin(), order.end());
         for (int s : order)
@@ -123,14 +113,9 @@ struct TwoSAT
     SCC g;
     vector<int> ans;
 
-    TwoSAT(int n) : n(n), g(2 * n)
-    {
-    }
+    TwoSAT(int n) : n(n), g(2 * n) {}
 
-    int id(int x, bool value) const
-    {
-        return 2 * x - 1 + value;
-    }
+    int id(int x, bool value) const { return 2 * x - 1 + value; }
 
     void add(int x, bool a, int y, bool b)
     {
@@ -144,8 +129,7 @@ struct TwoSAT
         ans.assign(n + 1, 0);
         for (int x = 1; x <= n; x++)
         {
-            if (g.bel[id(x, 0)] == g.bel[id(x, 1)])
-                return false;
+            if (g.bel[id(x, 0)] == g.bel[id(x, 1)]) return false;
             ans[x] = g.bel[id(x, 1)] > g.bel[id(x, 0)];
         }
         return true;
@@ -186,16 +170,13 @@ struct BipartiteMatching
         {
             int u = q.front();
             q.pop();
-            if (dep[u] >= dep[0])
-                continue;
+            if (dep[u] >= dep[0]) continue;
             for (int v : g[u])
             {
                 int next = r[v];
-                if (dep[next] != n + 1)
-                    continue;
+                if (dep[next] != n + 1) continue;
                 dep[next] = dep[u] + 1;
-                if (next)
-                    q.push(next);
+                if (next) q.push(next);
             }
         }
         return dep[0] != n + 1;
@@ -203,8 +184,7 @@ struct BipartiteMatching
 
     bool dfs(int u)
     {
-        if (!u)
-            return true;
+        if (!u) return true;
         for (int &i = cur[u]; i < (int)g[u].size(); i++)
         {
             int v = g[u][i];
@@ -223,14 +203,12 @@ struct BipartiteMatching
     int solve()
     {
         int answer = 0;
-        for (int u = 1; u <= n; u++)
-            answer += (l[u] != 0);
+        for (int u = 1; u <= n; u++) answer += (l[u] != 0);
         while (bfs())
         {
             for (int u = 1; u <= n; u++)
             {
-                if (!l[u] && dfs(u))
-                    answer++;
+                if (!l[u] && dfs(u)) answer++;
             }
         }
         return answer;
@@ -242,13 +220,11 @@ struct BipartiteMatching
         vector<int> left, right;
         for (int u = 1; u <= n; u++)
         {
-            if (dep[u] == n + 1)
-                left.push_back(u);
+            if (dep[u] == n + 1) left.push_back(u);
         }
         for (int v = 1; v <= m; v++)
         {
-            if (r[v] && dep[r[v]] != n + 1)
-                right.push_back(v);
+            if (r[v] && dep[r[v]] != n + 1) right.push_back(v);
         }
         return {left, right};
     }
@@ -261,9 +237,7 @@ struct Lowlink
     vector<int> dfn, low, cut, bridge, delta;
     int edges = 0;
 
-    Lowlink(int n) : n(n), g(n + 1)
-    {
-    }
+    Lowlink(int n) : n(n), g(n + 1) {}
 
     int add(int u, int v)
     {
@@ -278,15 +252,13 @@ struct Lowlink
         int children = 0;
         for (auto [v, id] : g[u])
         {
-            if (id == pe)
-                continue;
+            if (id == pe) continue;
             if (!dfn[v])
             {
                 ++children;
                 dfs(v, id);
                 low[u] = min(low[u], low[v]);
-                if (low[v] > dfn[u])
-                    bridge[id] = 1;
+                if (low[v] > dfn[u]) bridge[id] = 1;
                 if (pe != -1 && low[v] >= dfn[u])
                 {
                     cut[u] = 1;
@@ -296,10 +268,8 @@ struct Lowlink
             else
                 low[u] = min(low[u], dfn[v]);
         }
-        if (pe == -1 && children > 1)
-            cut[u] = 1;
-        if (pe == -1)
-            delta[u] = children - 1;
+        if (pe == -1 && children > 1) cut[u] = 1;
+        if (pe == -1) delta[u] = children - 1;
     }
 
     void run()

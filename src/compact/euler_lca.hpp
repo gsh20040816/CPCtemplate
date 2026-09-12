@@ -30,10 +30,7 @@ struct EulerLCA
         ready = false;
     }
 
-    int shallower(int u, int v) const
-    {
-        return depth[u] <= depth[v] ? u : v;
-    }
+    int shallower(int u, int v) const { return depth[u] <= depth[v] ? u : v; }
 
     void dfs(int u, int parent)
     {
@@ -62,8 +59,7 @@ struct EulerLCA
         dfs(root, 0);
         int m = euler.size();
         lg.assign(m + 1, 0);
-        for (int i = 2; i <= m; i++)
-            lg[i] = lg[i / 2] + 1;
+        for (int i = 2; i <= m; i++) lg[i] = lg[i / 2] + 1;
         st.assign(lg[m] + 1, {});
         st[0] = euler;
         for (int k = 1; k <= lg[m]; k++)
@@ -79,8 +75,7 @@ struct EulerLCA
     {
         assert(ready && 1 <= u && u <= n && 1 <= v && v <= n);
         int l = first[u], r = first[v];
-        if (l > r)
-            swap(l, r);
+        if (l > r) swap(l, r);
         int k = lg[r - l + 1];
         return shallower(st[k][l], st[k][r - (1 << k) + 1]);
     }

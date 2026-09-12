@@ -16,14 +16,12 @@ int main()
     }
     graph.run();
     std::vector<std::vector<int>> blocks(graph.cnt);
-    for (int u = 1; u <= n; u++)
-        blocks[graph.bel[u] - 1].push_back(u);
+    for (int u = 1; u <= n; u++) blocks[graph.bel[u] - 1].push_back(u);
     std::cout << blocks.size() << '\n';
     for (const auto &block : blocks)
     {
         std::cout << block.size();
-        for (int u : block)
-            std::cout << ' ' << u;
+        for (int u : block) std::cout << ' ' << u;
         std::cout << '\n';
     }
 }

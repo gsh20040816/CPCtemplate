@@ -18,9 +18,7 @@ struct Dinic
     vector<vector<int>> g;
     vector<int> dep, cur;
 
-    Dinic(int n) : n(n), g(n + 1), dep(n + 1), cur(n + 1)
-    {
-    }
+    Dinic(int n) : n(n), g(n + 1), dep(n + 1), cur(n + 1) {}
 
     int add(int u, int v, ll c)
     {
@@ -55,13 +53,11 @@ struct Dinic
 
     ll dfs(int u, int t, ll f)
     {
-        if (u == t)
-            return f;
+        if (u == t) return f;
         for (int &i = cur[u]; i < (int)g[u].size(); i++)
         {
             int id = g[u][i], v = e[id].to;
-            if (!e[id].cap || dep[v] != dep[u] + 1)
-                continue;
+            if (!e[id].cap || dep[v] != dep[u] + 1) continue;
             ll d = dfs(v, t, min(f, e[id].cap));
             if (d)
             {
@@ -84,26 +80,21 @@ struct Dinic
             while (ans < limit)
             {
                 ll d = dfs(s, t, limit - ans);
-                if (!d)
-                    break;
+                if (!d) break;
                 ans += d;
             }
         }
         return ans;
     }
 
-    ll used(int id) const
-    {
-        return e[id].initial - e[id].cap;
-    }
+    ll used(int id) const { return e[id].initial - e[id].cap; }
 
     vector<int> cut(int s)
     {
         bfs(s, s);
         vector<int> ans;
         for (int u = 1; u <= n; u++)
-            if (dep[u] >= 0)
-                ans.push_back(u);
+            if (dep[u] >= 0) ans.push_back(u);
         return ans;
     }
 };
@@ -123,9 +114,7 @@ struct MinCostFlow
     vector<Edge> e;
     vector<vector<int>> g;
 
-    MinCostFlow(int n) : n(n), g(n + 1)
-    {
-    }
+    MinCostFlow(int n) : n(n), g(n + 1) {}
 
     int add(int u, int v, ll cap, ll cost)
     {
@@ -138,10 +127,7 @@ struct MinCostFlow
         return id;
     }
 
-    ll used(int id) const
-    {
-        return e[id].initial - e[id].cap;
-    }
+    ll used(int id) const { return e[id].initial - e[id].cap; }
 
     // Negative costs allowed; initial residual graph must have no negative cycle.
     pair<ll, i128> flow(int s, int t, ll limit = LLONG_MAX)
@@ -160,10 +146,8 @@ struct MinCostFlow
                     h[a.to] = h[a.from] + a.cost;
                     changed = true;
                 }
-            if (!changed)
-                break;
-            if (it == n - 1)
-                throw invalid_argument("negative cycle");
+            if (!changed) break;
+            if (it == n - 1) throw invalid_argument("negative cycle");
         }
         ll f = 0;
         i128 cost = 0;
@@ -180,8 +164,7 @@ struct MinCostFlow
             {
                 auto [du, u] = q.top();
                 q.pop();
-                if (du != d[u])
-                    continue;
+                if (du != d[u]) continue;
                 for (int id : g[u])
                 {
                     auto &a = e[id];
@@ -194,14 +177,11 @@ struct MinCostFlow
                     }
                 }
             }
-            if (d[t] == inf)
-                break;
+            if (d[t] == inf) break;
             for (int u = 1; u <= n; u++)
-                if (d[u] != inf)
-                    h[u] += d[u];
+                if (d[u] != inf) h[u] += d[u];
             ll take = limit - f;
-            for (int u = t; u != s; u = e[pre[u]].from)
-                take = min(take, e[pre[u]].cap);
+            for (int u = t; u != s; u = e[pre[u]].from) take = min(take, e[pre[u]].cap);
             for (int u = t; u != s; u = e[pre[u]].from)
             {
                 int id = pre[u];
@@ -224,9 +204,7 @@ struct BoundedCirculation
     vector<int> ids;
     bool solved = false, feasible = false;
 
-    BoundedCirculation(int n) : n(n), g(n + 2), balance(n + 1)
-    {
-    }
+    BoundedCirculation(int n) : n(n), g(n + 2), balance(n + 1) {}
 
     int add(int u, int v, ll lo, ll hi)
     {

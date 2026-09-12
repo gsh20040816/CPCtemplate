@@ -16,8 +16,7 @@ int main()
         bool first = true;
         for (int i = d - 1; i < (int)roots.size(); i += d)
         {
-            if (!first)
-                cout << ' ';
+            if (!first) cout << ' ';
             cout << roots[i];
             first = false;
         }

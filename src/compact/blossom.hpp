@@ -20,8 +20,7 @@ struct Blossom
     void add(int u, int v)
     {
         assert(0 <= u && u < n && 0 <= v && v < n);
-        if (u == v)
-            return;
+        if (u == v) return;
         g[u].push_back(v);
         g[v].push_back(u);
     }
@@ -33,12 +32,10 @@ struct Blossom
         {
             u = base[u];
             seen[u] = true;
-            if (mate[u] == -1)
-                break;
+            if (mate[u] == -1) break;
             u = pre[mate[u]];
         }
-        while (!seen[base[v]])
-            v = pre[mate[base[v]]];
+        while (!seen[base[v]]) v = pre[mate[base[v]]];
         return base[v];
     }
 
@@ -66,8 +63,7 @@ struct Blossom
             int u = q[head];
             for (int v : g[u])
             {
-                if (base[u] == base[v] || mate[u] == v)
-                    continue;
+                if (base[u] == base[v] || mate[u] == v) continue;
                 if (v == root || (mate[v] != -1 && pre[mate[v]] != -1))
                 {
                     int b = lca(u, v);
@@ -76,8 +72,7 @@ struct Blossom
                     mark(v, b, u);
                     for (int x = 0; x < n; x++)
                     {
-                        if (!flower[base[x]])
-                            continue;
+                        if (!flower[base[x]]) continue;
                         base[x] = b;
                         if (!outer[x])
                         {
@@ -117,8 +112,7 @@ struct Blossom
         int answer = 0;
         for (int u = 0; u < n; u++)
         {
-            if (mate[u] == -1 && augment(u))
-                answer++;
+            if (mate[u] == -1 && augment(u)) answer++;
         }
         return answer;
     }

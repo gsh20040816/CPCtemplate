@@ -35,8 +35,7 @@ struct TreeDiameter
 
     template <class Distance> void merge(TreeDiameter other, const Distance &distance)
     {
-        if (other.a == -1)
-            return;
+        if (other.a == -1) return;
         insert(other.a, distance);
         insert(other.b, distance);
     }
@@ -44,8 +43,7 @@ struct TreeDiameter
     template <class Distance>
     optional<pair<int, ll>> farthest(int v, const Distance &distance) const
     {
-        if (a == -1)
-            return nullopt;
+        if (a == -1) return nullopt;
         ll x = distance(a, v), y = distance(b, v);
         return x >= y ? make_pair(a, x) : make_pair(b, y);
     }

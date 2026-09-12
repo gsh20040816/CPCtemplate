@@ -16,6 +16,5 @@ int main()
         graph.add(u, v, w);
     }
     graph.run(s);
-    for (int i = 1; i <= n; i++)
-        std::cout << graph.dis[i] << (i == n ? '\n' : ' ');
+    for (int i = 1; i <= n; i++) std::cout << graph.dis[i] << (i == n ? '\n' : ' ');
 }

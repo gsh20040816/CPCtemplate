@@ -18,12 +18,10 @@ inline int carmichael(int n)
                 power *= p;
             }
             int value = power / p * (p - 1);
-            if (p == 2 && power >= 8)
-                value /= 2;
+            if (p == 2 && power >= 8) value /= 2;
             answer = answer / gcd(answer, (long long)value) * value;
         }
-    if (n > 1)
-        answer = answer / gcd(answer, (long long)(n - 1)) * (n - 1);
+    if (n > 1) answer = answer / gcd(answer, (long long)(n - 1)) * (n - 1);
     return answer;
 }
 

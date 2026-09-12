@@ -24,8 +24,7 @@ struct TreePathKth
     {
         assert(n > 0);
         lg = 1;
-        while ((1LL << lg) <= n)
-            lg++;
+        while ((1LL << lg) <= n) lg++;
         up.assign(lg, vector<int>(n + 1));
     }
 
@@ -41,8 +40,7 @@ struct TreePathKth
         Node copy = t[old];
         t.push_back(copy);
         t[p].sum++;
-        if (l == r)
-            return p;
+        if (l == r) return p;
         int m = (l + r) / 2;
         if (x <= m)
         {
@@ -60,14 +58,12 @@ struct TreePathKth
     void dfs(int u, int p)
     {
         up[0][u] = p;
-        for (int j = 1; j < lg; j++)
-            up[j][u] = up[j - 1][up[j - 1][u]];
+        for (int j = 1; j < lg; j++) up[j][u] = up[j - 1][up[j - 1][u]];
         int x = lower_bound(vals.begin(), vals.end(), value[u - 1]) - vals.begin();
         root[u] = insert(root[p], 0, (int)vals.size() - 1, x);
         for (int v : g[u])
         {
-            if (v == p)
-                continue;
+            if (v == p) continue;
             dep[v] = dep[u] + 1;
             dfs(v, u);
         }
@@ -86,14 +82,11 @@ struct TreePathKth
 
     int lca(int u, int v) const
     {
-        if (dep[u] < dep[v])
-            swap(u, v);
+        if (dep[u] < dep[v]) swap(u, v);
         int diff = dep[u] - dep[v];
         for (int j = 0; j < lg; j++)
-            if (diff >> j & 1)
-                u = up[j][u];
-        if (u == v)
-            return u;
+            if (diff >> j & 1) u = up[j][u];
+        if (u == v) return u;
         for (int j = lg - 1; j >= 0; j--)
             if (up[j][u] != up[j][v])
             {

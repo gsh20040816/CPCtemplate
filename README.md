@@ -6,7 +6,7 @@
 
 后续按[编写优先级](docs/PRIORITIES.md)补齐高频且易错的模板，以平衡树、Tarjan 等为难度参照；已完成高级模板保留。
 
-执行顺序见 [issue #1 计划](docs/ISSUE-1.md)，已审题入口见 [模板题表](docs/TEMPLATE-PROBLEMS.md)，完整候选见 [映射清单](docs/template-problems.json)。
+执行顺序见 [issue #1 计划](docs/ISSUE-1.md)，码风与待确认移除名单见 [issue #2](docs/ISSUE-2.md)，已审题入口见 [模板题表](docs/TEMPLATE-PROBLEMS.md)，完整候选见 [映射清单](docs/template-problems.json)。
 
 ## 范围
 
@@ -44,4 +44,4 @@ SANITIZE=1 tools/test.sh
 
 运行 `tools/build_pdf.sh`（需要 XeLaTeX、latexmk）。[当前 PDF](output/pdf/xcpc-template.pdf) 含 vector 版源码、目录、接口索引与数学速查；为建设稿。
 
-所有模板以赛时快速抄写为先：一行一条语句，展开函数体，按算法需要选择函数或轻量 struct。见 [码风规范](docs/STYLE.md)。
+所有模板以赛时快速抄写为先：允许适度合并短语句，复杂控制流保持清晰，按算法需要选择函数或轻量 struct。见 [码风规范](docs/STYLE.md)。

@@ -43,8 +43,7 @@ template <int mod = 998244353> struct SetConvolution
         assert(a.size() == b.size());
         transform(a, op);
         transform(b, op);
-        for (int i = 0; i < int(a.size()); i++)
-            a[i] = a[i] * b[i];
+        for (int i = 0; i < int(a.size()); i++) a[i] = a[i] * b[i];
         transform(a, op, true);
         return a;
     }

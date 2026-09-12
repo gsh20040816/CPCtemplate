@@ -10,8 +10,7 @@ int main()
     std::string s;
     std::cin >> s;
     PalindromicTree pam;
-    for (char ch : s)
-        pam.add(ch);
+    for (char ch : s) pam.add(ch);
     auto count = pam.occurrences();
     long long answer = 0;
     for (int u = 2; u < (int)count.size(); u++)

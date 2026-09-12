@@ -11,10 +11,7 @@ struct XorWalk
     vector<U> dist;
     XorBasis cycles;
 
-    XorWalk(int n)
-    {
-        init(n);
-    }
+    XorWalk(int n) { init(n); }
 
     void init(int size)
     {
@@ -64,8 +61,7 @@ struct XorWalk
     optional<U> query(int u, int v) const
     {
         assert(built && 1 <= u && u <= n && 1 <= v && v <= n);
-        if (!vis[u] || !vis[v])
-            return nullopt;
+        if (!vis[u] || !vis[v]) return nullopt;
         return cycles.query(dist[u] ^ dist[v]);
     }
 };

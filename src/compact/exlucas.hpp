@@ -22,8 +22,7 @@ struct ExLucas
         ll result = 1;
         while (b)
         {
-            if (b & 1)
-                result = result * a % m;
+            if (b & 1) result = result * a % m;
             a = a * a % m;
             b >>= 1;
         }
@@ -36,8 +35,7 @@ struct ExLucas
         int x = m;
         for (int p = 2; p <= x / p; p++)
         {
-            if (x % p)
-                continue;
+            if (x % p) continue;
             int q = 1, e = 0;
             do
             {
@@ -47,16 +45,14 @@ struct ExLucas
             } while (x % p == 0);
             add_factor(p, q, e);
         }
-        if (x > 1)
-            add_factor(x, x, 1);
+        if (x > 1) add_factor(x, x, 1);
     }
 
     void add_factor(int p, int q, int e)
     {
         int start = fac.size();
         fac.push_back(1);
-        for (int i = 1; i < q; i++)
-            fac.push_back(ll(fac.back()) * (i % p ? i : 1) % q);
+        for (int i = 1; i < q; i++) fac.push_back(ll(fac.back()) * (i % p ? i : 1) % q);
         fac.push_back(fac.back());
         int phi = q - q / p;
         int crt = ll(mod / q) * power(mod / q % q, phi - 1, q) % mod;
@@ -88,14 +84,12 @@ struct ExLucas
 
     int choose(ull n, ull k) const
     {
-        if (k > n || mod == 1)
-            return 0;
+        if (k > n || mod == 1) return 0;
         ll answer = 0;
         for (const auto &f : factors)
         {
             ull e = valuation(n, f.p) - valuation(k, f.p) - valuation(n - k, f.p);
-            if (e >= ull(f.exponent))
-                continue;
+            if (e >= ull(f.exponent)) continue;
             ll denominator = unit(k, f) * unit(n - k, f) % f.q;
             ll residue =
                 unit(n, f) * power(denominator, f.q - f.q / f.p - 1, f.q) % f.q;

@@ -8,8 +8,7 @@ int main()
     int n, m;
     while (std::cin >> n >> m)
     {
-        if (n == 0 && m == 0)
-            break;
+        if (n == 0 && m == 0) break;
         Lowlink graph(n);
         for (int i = 0; i < m; i++)
         {

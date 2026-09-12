@@ -10,12 +10,15 @@ lines=['# 已核对的模板题入口','',
 for r in rows:
     rank=r['ranking'];txt='待核验'
     if rank.get('rank') is not None:txt=f"{rank['rank']} out of {rank['total']}（{rank.get('scope','')}）"
-    ac=f"[记录]({r['ac']})" if r.get('ac') else '待提交'
+    ac=f"[记录]({r['ac']})" if r.get('ac') else ('待实现' if r.get('implementation') in ['missing','planned_extension'] else '待编写驱动/提交')
     bound=r['limits'].replace('|','\\|')
-    lines.append(f"| `{r['symbol']}` | [{r['problem']}]({r['url']}) | {bound} | {ac} | {txt} |")
+    name=r['symbol']+('::'+r['api'] if r.get('api') else '')
+    lines.append(f"| `{name}` | [{r['problem']}]({r['url']}) | {bound} | {ac} | {txt} |")
 lines+=['','## 适配与证据范围','']
 for r in rows:
     lines += [f"### {r['problem']} / {r['symbol']}",'',r['classification'],'',r.get('adapter',''),'',r['remaining'],'']
+    if r.get('statement_sources'):
+        lines += ['原始题面与参数：'+ '，'.join(f'[来源 {i+1}]({u})' for i,u in enumerate(r['statement_sources'])),'']
 lines+=['## 榜单口径','',
 'QOJ statistics 的“最快”表会合并同一用户的提交，不能把榜单行号配上全体满分提交数。已核对同一用户三条 AC 的反例，详见 ranking-audits.json。用户要求的所有提交速度排名需另行枚举或找到可靠筛选接口；没有核验前保持待查。读取时间、相邻排名与并列用时范围必须随排名一起保存。','']
 (root/'docs/TEMPLATE-PROBLEMS.md').write_text('\n'.join(lines))

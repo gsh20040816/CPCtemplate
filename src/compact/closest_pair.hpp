@@ -15,17 +15,12 @@ struct ClosestPair
     static optional<R> solve(vector<Point> p)
     {
         int n = p.size();
-        if (n < 2)
-            return nullopt;
+        if (n < 2) return nullopt;
         sort(p.begin(),
              p.end(),
-             [](Point a, Point b)
-             {
-                 return tie(a.x, a.y) < tie(b.x, b.y);
-             });
+             [](Point a, Point b) { return tie(a.x, a.y) < tie(b.x, b.y); });
         for (int i = 1; i < n; i++)
-            if (p[i].x == p[i - 1].x && p[i].y == p[i - 1].y)
-                return R(0);
+            if (p[i].x == p[i - 1].x && p[i].y == p[i - 1].y) return R(0);
         auto by_y = [](Point a, Point b)
         {
             return tie(a.y, a.x) < tie(b.y, b.x);
@@ -41,8 +36,7 @@ struct ClosestPair
             {
                 R best = numeric_limits<R>::infinity();
                 for (int i = l; i < r; i++)
-                    for (int j = l; j < i; j++)
-                        best = min(best, distance(p[i], p[j]));
+                    for (int j = l; j < i; j++) best = min(best, distance(p[i], p[j]));
                 sort(p.begin() + l, p.begin() + r, by_y);
                 return best;
             }
@@ -62,8 +56,7 @@ struct ClosestPair
                 {
                     for (int j = (int)strip.size() - 1; j >= 0; j--)
                     {
-                        if (p[i].y - strip[j].y > best)
-                            break;
+                        if (p[i].y - strip[j].y > best) break;
                         best = min(best, distance(p[i], strip[j]));
                     }
                     strip.push_back(p[i]);

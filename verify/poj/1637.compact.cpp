@@ -12,8 +12,7 @@ int main()
         int n, m;
         cin >> n >> m;
         vector<array<int, 3>> edges(m);
-        for (auto &edge : edges)
-            cin >> edge[0] >> edge[1] >> edge[2];
+        for (auto &edge : edges) cin >> edge[0] >> edge[1] >> edge[2];
 
         auto result = mixed_euler_orientation(n, edges);
         cout << (result ? "possible" : "impossible") << '\n';

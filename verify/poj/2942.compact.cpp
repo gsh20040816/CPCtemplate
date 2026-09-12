@@ -19,13 +19,11 @@ int main()
         Biconnected graph(n);
         for (int u = 1; u <= n; u++)
             for (int v = u + 1; v <= n; v++)
-                if (!hate[u][v])
-                    graph.add(u, v);
+                if (!hate[u][v]) graph.add(u, v);
         graph.run();
         auto odd = odd_cycle_vertices(graph);
         int answer = 0;
-        for (int u = 1; u <= n; u++)
-            answer += !odd[u];
+        for (int u = 1; u <= n; u++) answer += !odd[u];
         cout << answer << '\n';
     }
     return 0;

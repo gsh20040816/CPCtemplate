@@ -43,8 +43,7 @@ struct OfflineLCA
 
     int find(int u)
     {
-        if (parent[u] != u)
-            parent[u] = find(parent[u]);
+        if (parent[u] != u) parent[u] = find(parent[u]);
         return parent[u];
     }
 
@@ -52,8 +51,7 @@ struct OfflineLCA
     {
         u = find(u);
         v = find(v);
-        if (size[u] < size[v])
-            swap(u, v);
+        if (size[u] < size[v]) swap(u, v);
         parent[v] = u;
         size[u] += size[v];
     }
@@ -69,8 +67,7 @@ struct OfflineLCA
             }
         done[u] = 1;
         for (auto [v, id] : queries[u])
-            if (done[v])
-                answer[id] = ancestor[find(v)];
+            if (done[v]) answer[id] = ancestor[find(v)];
     }
 
     // Input must be a nonempty tree. Query IDs are 0-based.

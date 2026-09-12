@@ -26,8 +26,7 @@ int main()
         }
         for (int i = 1; i < n; i++)
         {
-            if (i > 1)
-                cout << ' ';
+            if (i > 1) cout << ' ';
             cout << i << (graph.ans[i + 1] ? 'w' : 'h');
         }
         cout << '\n';

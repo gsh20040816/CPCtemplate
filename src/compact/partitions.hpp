@@ -22,8 +22,7 @@ struct Partitions
                 long long b = j * (3 * j + 1) / 2;
                 int sign = j % 2 ? 1 : -1;
                 value += 1LL * sign * p[i - a];
-                if (b <= i)
-                    value += 1LL * sign * p[i - b];
+                if (b <= i) value += 1LL * sign * p[i - b];
             }
             p[i] = (value % mod + mod) % mod;
         }
@@ -40,8 +39,7 @@ struct Partitions
             long long b = step * (j * (3 * j + 1) / 2);
             int sign = j % 2 ? -1 : 1;
             value += 1LL * sign * p[n - a];
-            if (b <= n)
-                value += 1LL * sign * p[n - b];
+            if (b <= n) value += 1LL * sign * p[n - b];
         }
         return (value % mod + mod) % mod;
     }

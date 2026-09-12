@@ -22,8 +22,7 @@ struct LiftingLCA
     {
         assert(n > 0);
         levels = 1;
-        while ((1LL << levels) <= n)
-            levels++;
+        while ((1LL << levels) <= n) levels++;
         up.assign(levels, vector<int>(n + 1));
         mx.assign(levels, vector<ll>(n + 1, LOW));
     }
@@ -66,22 +65,18 @@ struct LiftingLCA
     int jump(int u, long long steps) const
     {
         assert(ready && 1 <= u && u <= n && steps >= 0);
-        if (steps > depth[u])
-            return 0;
+        if (steps > depth[u]) return 0;
         for (int k = 0; k < levels; k++)
-            if (steps >> k & 1)
-                u = up[k][u];
+            if (steps >> k & 1) u = up[k][u];
         return u;
     }
 
     int lca(int u, int v) const
     {
         assert(ready && 1 <= u && u <= n && 1 <= v && v <= n);
-        if (depth[u] < depth[v])
-            swap(u, v);
+        if (depth[u] < depth[v]) swap(u, v);
         u = jump(u, depth[u] - depth[v]);
-        if (u == v)
-            return u;
+        if (u == v) return u;
         for (int k = levels - 1; k >= 0; k--)
             if (up[k][u] != up[k][v])
             {
@@ -99,10 +94,8 @@ struct LiftingLCA
     optional<ll> max_edge(int u, int v) const
     {
         assert(ready && 1 <= u && u <= n && 1 <= v && v <= n);
-        if (u == v)
-            return nullopt;
-        if (depth[u] < depth[v])
-            swap(u, v);
+        if (u == v) return nullopt;
+        if (depth[u] < depth[v]) swap(u, v);
         ll answer = LOW;
         int delta = depth[u] - depth[v];
         for (int k = 0; k < levels; k++)
@@ -111,8 +104,7 @@ struct LiftingLCA
                 answer = max(answer, mx[k][u]);
                 u = up[k][u];
             }
-        if (u == v)
-            return answer;
+        if (u == v) return answer;
         for (int k = levels - 1; k >= 0; k--)
             if (up[k][u] != up[k][v])
             {

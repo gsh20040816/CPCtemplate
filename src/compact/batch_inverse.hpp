@@ -10,13 +10,11 @@ inline optional<vector<long long>> batch_inverse(vector<long long> a, long long 
     for (int i = 0; i < n; i++)
     {
         a[i] %= mod;
-        if (a[i] < 0)
-            a[i] += mod;
+        if (a[i] < 0) a[i] += mod;
         prefix[i + 1] = __int128_t(prefix[i]) * a[i] % mod;
     }
     long long inverse = NumberTheory::inverse(prefix[n], mod);
-    if (inverse == -1)
-        return nullopt;
+    if (inverse == -1) return nullopt;
     for (int i = n - 1; i >= 0; i--)
     {
         long long value = a[i];

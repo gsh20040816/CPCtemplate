@@ -35,13 +35,11 @@ struct HLD
         son[u] = 0;
         for (int v : g[u])
         {
-            if (v == p)
-                continue;
+            if (v == p) continue;
             dep[v] = dep[u] + 1;
             dfs1(v, u);
             siz[u] += siz[v];
-            if (!son[u] || siz[v] > siz[son[u]])
-                son[u] = v;
+            if (!son[u] || siz[v] > siz[son[u]]) son[u] = v;
         }
     }
 
@@ -50,12 +48,10 @@ struct HLD
         top[u] = t;
         dfn[u] = ++timer;
         rk[timer] = u;
-        if (son[u])
-            dfs2(son[u], t);
+        if (son[u]) dfs2(son[u], t);
         for (int v : g[u])
         {
-            if (v != fa[u] && v != son[u])
-                dfs2(v, v);
+            if (v != fa[u] && v != son[u]) dfs2(v, v);
         }
     }
 
@@ -74,8 +70,7 @@ struct HLD
     {
         while (top[u] != top[v])
         {
-            if (dep[top[u]] < dep[top[v]])
-                swap(u, v);
+            if (dep[top[u]] < dep[top[v]]) swap(u, v);
             u = fa[top[u]];
         }
         return dep[u] < dep[v] ? u : v;
@@ -86,14 +81,11 @@ struct HLD
     {
         while (top[u] != top[v])
         {
-            if (dep[top[u]] < dep[top[v]])
-                swap(u, v);
+            if (dep[top[u]] < dep[top[v]]) swap(u, v);
             work(dfn[top[u]], dfn[u]);
             u = fa[top[u]];
         }
-        if (dep[u] > dep[v])
-            swap(u, v);
-        if (dfn[u] + edge <= dfn[v])
-            work(dfn[u] + edge, dfn[v]);
+        if (dep[u] > dep[v]) swap(u, v);
+        if (dfn[u] + edge <= dfn[v]) work(dfn[u] + edge, dfn[v]);
     }
 };

@@ -24,15 +24,11 @@ struct AffineSegTree
     ll norm(ll x) const
     {
         x %= mod;
-        if (x < 0)
-            x += mod;
+        if (x < 0) x += mod;
         return x;
     }
 
-    void pull(int p)
-    {
-        t[p].sum = (t[p * 2].sum + t[p * 2 + 1].sum) % mod;
-    }
+    void pull(int p) { t[p].sum = (t[p * 2].sum + t[p * 2 + 1].sum) % mod; }
 
     void build(int p, int l, int r, const vector<ll> &a)
     {
@@ -58,8 +54,7 @@ struct AffineSegTree
 
     void push(int p, int l, int r)
     {
-        if (t[p].mul == 1 && t[p].add == 0)
-            return;
+        if (t[p].mul == 1 && t[p].add == 0) return;
         int m = (l + r) / 2;
         apply(p * 2, m - l + 1, t[p].mul, t[p].add);
         apply(p * 2 + 1, r - m, t[p].mul, t[p].add);
@@ -82,10 +77,8 @@ struct AffineSegTree
         }
         push(p, l, r);
         int m = (l + r) / 2;
-        if (ql <= m)
-            update(p * 2, l, m, ql, qr, a, b);
-        if (qr > m)
-            update(p * 2 + 1, m + 1, r, ql, qr, a, b);
+        if (ql <= m) update(p * 2, l, m, ql, qr, a, b);
+        if (qr > m) update(p * 2 + 1, m + 1, r, ql, qr, a, b);
         pull(p);
     }
 
@@ -97,15 +90,12 @@ struct AffineSegTree
 
     ll query(int p, int l, int r, int ql, int qr)
     {
-        if (ql <= l && r <= qr)
-            return t[p].sum;
+        if (ql <= l && r <= qr) return t[p].sum;
         push(p, l, r);
         int m = (l + r) / 2;
         ll answer = 0;
-        if (ql <= m)
-            answer += query(p * 2, l, m, ql, qr);
-        if (qr > m)
-            answer += query(p * 2 + 1, m + 1, r, ql, qr);
+        if (ql <= m) answer += query(p * 2, l, m, ql, qr);
+        if (qr > m) answer += query(p * 2 + 1, m + 1, r, ql, qr);
         return answer % mod;
     }
 };

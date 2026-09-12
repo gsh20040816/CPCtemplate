@@ -17,10 +17,7 @@ struct PalindromicTree
     int last = 0;
     long long total = 0;
 
-    PalindromicTree()
-    {
-        init();
-    }
+    PalindromicTree() { init(); }
 
     void init()
     {
@@ -35,8 +32,7 @@ struct PalindromicTree
     int get_fail(int u) const
     {
         int pos = s.size() - 1;
-        while (s[pos - t[u].len - 1] != s[pos])
-            u = t[u].fail;
+        while (s[pos - t[u].len - 1] != s[pos]) u = t[u].fail;
         return u;
     }
 
@@ -63,19 +59,14 @@ struct PalindromicTree
         return last;
     }
 
-    int distinct() const
-    {
-        return (int)t.size() - 2;
-    }
+    int distinct() const { return (int)t.size() - 2; }
 
     // Copy-and-propagate: repeated calls and later appends remain valid.
     vector<long long> occurrences() const
     {
         vector<long long> count(t.size());
-        for (int u = 2; u < (int)t.size(); u++)
-            count[u] = t[u].hits;
-        for (int u = (int)t.size() - 1; u >= 2; u--)
-            count[t[u].fail] += count[u];
+        for (int u = 2; u < (int)t.size(); u++) count[u] = t[u].hits;
+        for (int u = (int)t.size() - 1; u >= 2; u--) count[t[u].fail] += count[u];
         count[0] = 0;
         count[1] = 0;
         return count;

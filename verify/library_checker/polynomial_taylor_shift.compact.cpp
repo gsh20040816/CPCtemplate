@@ -13,6 +13,5 @@ int main()
         x = v;
     }
     auto answer = polynomial_shift(f, Z(c));
-    for (int i = 0; i < n; i++)
-        printf("%d%c", answer[i].v, i + 1 == n ? '\n' : ' ');
+    for (int i = 0; i < n; i++) printf("%d%c", answer[i].v, i + 1 == n ? '\n' : ' ');
 }

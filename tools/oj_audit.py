@@ -46,6 +46,7 @@ for row in rows:
     entry = dict(problem=row['problem'], style=row['style'], record=row['record'],
                  current_sha256=digest(current), submitted_sha256=digest(archived),
                  exact_bundle_match=current == archived)
+    entry['format_only_bundle_match'] = current != archived and normalize(current.decode()) == normalize(archived.decode())
     name = None
     note = None
     if row['problem'] == 'Luogu P3376':

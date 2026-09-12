@@ -13,8 +13,7 @@ struct MaxPlusMatrix
     MaxPlusMatrix(int n, bool identity = false) : n(n), a(n, vector<I>(n, neg))
     {
         if (identity)
-            for (int i = 0; i < n; i++)
-                a[i][i] = 0;
+            for (int i = 0; i < n; i++) a[i][i] = 0;
     }
 
     MaxPlusMatrix operator*(const MaxPlusMatrix &b) const
@@ -34,8 +33,7 @@ struct MaxPlusMatrix
     {
         MaxPlusMatrix b = *this, r(n, true);
         for (; e; e >>= 1, b = b * b)
-            if (e & 1)
-                r = r * b;
+            if (e & 1) r = r * b;
         return r;
     }
 };
@@ -50,10 +48,7 @@ struct LiChao
         ll k = 0, b = 0;
         int id = -1;
 
-        I value(ll x) const
-        {
-            return I(k) * x + b;
-        }
+        I value(ll x) const { return I(k) * x + b; }
     };
 
     struct Node
@@ -87,14 +82,11 @@ struct LiChao
     void add(int p, int l, int r, Line line)
     {
         int m = (l + r) / 2;
-        if (better(line, a[p].line, xs[m]))
-            swap(line, a[p].line);
-        if (l == r || line.id == -1)
-            return;
+        if (better(line, a[p].line, xs[m])) swap(line, a[p].line);
+        if (l == r || line.id == -1) return;
         bool left = better(line, a[p].line, xs[l]);
         bool right = better(line, a[p].line, xs[r]);
-        if (!left && !right)
-            return;
+        if (!left && !right) return;
         int next = left ? a[p].left : a[p].right;
         if (next == -1)
         {
@@ -119,10 +111,8 @@ struct LiChao
         Line best;
         while (p != -1)
         {
-            if (better(a[p].line, best, x))
-                best = a[p].line;
-            if (l == r)
-                break;
+            if (better(a[p].line, best, x)) best = a[p].line;
+            if (l == r) break;
             int m = (l + r) / 2;
             if (idx <= m)
             {

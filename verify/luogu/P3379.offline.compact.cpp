@@ -21,7 +21,6 @@ int main()
         graph.add_query(u, v);
     }
     graph.run(root);
-    for (int u : graph.answer)
-        cout << u << '\n';
+    for (int u : graph.answer) cout << u << '\n';
     return 0;
 }

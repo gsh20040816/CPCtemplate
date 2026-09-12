@@ -12,10 +12,7 @@ struct UndirectedEuler
     vector<pair<int, int>> edges;
     vector<int> next, used, vertices, edge_ids;
 
-    UndirectedEuler(int n) : n(n), g(n + 1), next(n + 1)
-    {
-        assert(n > 0);
-    }
+    UndirectedEuler(int n) : n(n), g(n + 1), next(n + 1) { assert(n > 0); }
 
     int add(int u, int v)
     {
@@ -34,14 +31,12 @@ struct UndirectedEuler
         while (next[u] < (int)g[u].size())
         {
             auto [v, id] = g[u][next[u]++];
-            if (used[id])
-                continue;
+            if (used[id]) continue;
             used[id] = 1;
             dfs(v, id);
         }
         vertices.push_back(u);
-        if (incoming != -1)
-            edge_ids.push_back(incoming);
+        if (incoming != -1) edge_ids.push_back(incoming);
     }
 
     // start=0 chooses the smallest feasible start. Isolated vertices are ignored.
@@ -52,16 +47,12 @@ struct UndirectedEuler
         edge_ids.clear();
         vector<int> odd;
         for (int u = 1; u <= n; u++)
-            if (g[u].size() % 2)
-                odd.push_back(u);
-        if (!odd.empty() && odd.size() != 2)
-            return false;
+            if (g[u].size() % 2) odd.push_back(u);
+        if (!odd.empty() && odd.size() != 2) return false;
         if (!odd.empty())
         {
-            if (start && start != odd[0] && start != odd[1])
-                return false;
-            if (!start)
-                start = odd[0];
+            if (start && start != odd[0] && start != odd[1]) return false;
+            if (!start) start = odd[0];
         }
         if (!start)
         {
@@ -74,8 +65,7 @@ struct UndirectedEuler
                 }
         }
         if (lexicographic)
-            for (int u = 1; u <= n; u++)
-                sort(g[u].begin(), g[u].end());
+            for (int u = 1; u <= n; u++) sort(g[u].begin(), g[u].end());
         fill(next.begin(), next.end(), 0);
         used.assign(edges.size(), 0);
         dfs(start, -1);

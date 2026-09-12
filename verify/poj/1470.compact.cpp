@@ -29,14 +29,11 @@ int main()
             graph.add_query(u, v);
         }
         int root = 1;
-        while (has_parent[root])
-            root++;
+        while (has_parent[root]) root++;
         graph.run(root);
-        for (int u : graph.answer)
-            count[u]++;
+        for (int u : graph.answer) count[u]++;
         for (int u = 1; u <= n; u++)
-            if (count[u])
-                printf("%d:%d\n", u, count[u]);
+            if (count[u]) printf("%d:%d\n", u, count[u]);
     }
     return 0;
 }

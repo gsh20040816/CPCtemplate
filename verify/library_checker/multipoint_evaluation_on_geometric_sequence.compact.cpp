@@ -13,6 +13,5 @@ int main()
         x = v;
     }
     auto answer = chirp_z(f, Z(a), Z(r), m);
-    for (int i = 0; i < m; i++)
-        printf("%d%c", answer[i].v, i + 1 == m ? '\n' : ' ');
+    for (int i = 0; i < m; i++) printf("%d%c", answer[i].v, i + 1 == m ? '\n' : ' ');
 }

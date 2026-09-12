@@ -15,17 +15,14 @@ struct Polynomial
         for (int i = 1, j = 0; i < n; i++)
         {
             int bit = n >> 1;
-            for (; j & bit; bit >>= 1)
-                j ^= bit;
+            for (; j & bit; bit >>= 1) j ^= bit;
             j ^= bit;
-            if (i < j)
-                swap(a[i], a[j]);
+            if (i < j) swap(a[i], a[j]);
         }
         for (int len = 2; len <= n; len *= 2)
         {
             Z step = Z(3).pow((mod - 1) / len);
-            if (invert)
-                step = step.inv();
+            if (invert) step = step.inv();
             for (int i = 0; i < n; i += len)
             {
                 Z w = 1;
@@ -40,25 +37,21 @@ struct Polynomial
         if (invert)
         {
             Z inv = Z(n).inv();
-            for (auto &x : a)
-                x = x * inv;
+            for (auto &x : a) x = x * inv;
         }
     }
 
     static Poly multiply(Poly a, Poly b)
     {
-        if (a.empty() || b.empty())
-            return {};
+        if (a.empty() || b.empty()) return {};
         int size = (int)a.size() + (int)b.size() - 1, n = 1;
         assert(size <= (1 << 23));
-        while (n < size)
-            n *= 2;
+        while (n < size) n *= 2;
         a.resize(n);
         b.resize(n);
         ntt(a);
         ntt(b);
-        for (int i = 0; i < n; i++)
-            a[i] = a[i] * b[i];
+        for (int i = 0; i < n; i++) a[i] = a[i] * b[i];
         ntt(a, true);
         a.resize(size);
         return a;
@@ -74,8 +67,7 @@ struct Polynomial
             Poly f(a.begin(), a.begin() + min(m, (int)a.size()));
             auto t = multiply(f, b);
             t.resize(m);
-            for (auto &x : t)
-                x = Z(0) - x;
+            for (auto &x : t) x = Z(0) - x;
             t[0] = t[0] + 2;
             b = multiply(b, t);
             b.resize(m);
@@ -86,8 +78,7 @@ struct Polynomial
     static Poly derivative(const Poly &a)
     {
         Poly b;
-        for (int i = 1; i < (int)a.size(); i++)
-            b.push_back(a[i] * i);
+        for (int i = 1; i < (int)a.size(); i++) b.push_back(a[i] * i);
         return b;
     }
 
@@ -95,12 +86,10 @@ struct Polynomial
     {
         Poly b(a.size() + 1);
         vector<Z> inv(a.size() + 1);
-        if (!a.empty())
-            inv[1] = 1;
+        if (!a.empty()) inv[1] = 1;
         for (int i = 2; i <= (int)a.size(); i++)
             inv[i] = Z(mod - mod / i) * inv[mod % i];
-        for (int i = 0; i < (int)a.size(); i++)
-            b[i + 1] = a[i] * inv[i + 1];
+        for (int i = 0; i < (int)a.size(); i++) b[i + 1] = a[i] * inv[i + 1];
         return b;
     }
 
@@ -120,8 +109,7 @@ struct Polynomial
         {
             int m = min(n, 2 * (int)b.size());
             auto t = log(b, m);
-            for (int i = 0; i < m; i++)
-                t[i] = (i < (int)a.size() ? a[i] : Z(0)) - t[i];
+            for (int i = 0; i < m; i++) t[i] = (i < (int)a.size() ? a[i] : Z(0)) - t[i];
             t[0] = t[0] + 1;
             b = multiply(b, t);
             b.resize(m);
@@ -168,8 +156,7 @@ struct Polynomial
         for (int n = 0; n < (int)s.size(); n++)
         {
             Z d = s[n];
-            for (int i = 1; i <= l; i++)
-                d = d + c[i] * s[n - i];
+            for (int i = 1; i <= l; i++) d = d + c[i] * s[n - i];
             if (!d.v)
             {
                 ++m;
@@ -177,10 +164,8 @@ struct Polynomial
             }
             auto old = c;
             Z coef = d / last;
-            if (c.size() < b.size() + m)
-                c.resize(b.size() + m);
-            for (int j = 0; j < (int)b.size(); j++)
-                c[j + m] = c[j + m] - coef * b[j];
+            if (c.size() < b.size() + m) c.resize(b.size() + m);
+            for (int j = 0; j < (int)b.size(); j++) c[j + m] = c[j + m] - coef * b[j];
             if (2 * l <= n)
             {
                 l = n + 1 - l;
@@ -192,28 +177,23 @@ struct Polynomial
                 ++m;
         }
         c.erase(c.begin());
-        for (auto &x : c)
-            x = Z(0) - x;
+        for (auto &x : c) x = Z(0) - x;
         return c;
     }
 
     static Z recurrence(Poly init, const Poly &c, unsigned long long n)
     {
         int k = (int)c.size();
-        if (n < init.size())
-            return init[n];
-        if (!k)
-            return 0;
+        if (n < init.size()) return init[n];
+        if (!k) return 0;
         assert((int)init.size() >= k);
         auto combine = [&](const Poly &a, const Poly &b)
         {
             Poly t(2 * k - 1);
             for (int i = 0; i < k; i++)
-                for (int j = 0; j < k; j++)
-                    t[i + j] = t[i + j] + a[i] * b[j];
+                for (int j = 0; j < k; j++) t[i + j] = t[i + j] + a[i] * b[j];
             for (int i = 2 * k - 2; i >= k; i--)
-                for (int j = 1; j <= k; j++)
-                    t[i - j] = t[i - j] + t[i] * c[j - 1];
+                for (int j = 1; j <= k; j++) t[i - j] = t[i - j] + t[i] * c[j - 1];
             t.resize(k);
             return t;
         };
@@ -224,11 +204,9 @@ struct Polynomial
         else
             a[1] = 1;
         for (; n; n >>= 1, a = combine(a, a))
-            if (n & 1)
-                r = combine(r, a);
+            if (n & 1) r = combine(r, a);
         Z ans = 0;
-        for (int i = 0; i < k; i++)
-            ans = ans + r[i] * init[i];
+        for (int i = 0; i < k; i++) ans = ans + r[i] * init[i];
         return ans;
     }
 };

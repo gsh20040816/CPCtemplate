@@ -10,8 +10,7 @@ inline pair<int, vector<int>> removal_components(const Biconnected &graph)
     after[0] = 0;
     for (const auto &block : graph.blocks)
         if (block.size() > 1)
-            for (int u : block)
-                after[u]++;
+            for (int u : block) after[u]++;
     return {before, after};
 }
 

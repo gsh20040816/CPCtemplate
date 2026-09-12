@@ -8,8 +8,7 @@ struct CoprimePairs
 
     CoprimePairs(int n) : sum(LinearSieve(n).mu)
     {
-        for (int i = 1; i <= n; i++)
-            sum[i] += sum[i - 1];
+        for (int i = 1; i <= n; i++) sum[i] += sum[i - 1];
     }
 
     long long count(int a, int b) const

@@ -25,8 +25,7 @@ cut_tree_values(int n, const vector<tuple<int, int, long long>> &tree)
         {
             answer[s][u] = value;
             for (auto [v, w] : g[u])
-                if (v != parent)
-                    self(self, v, u, min(value, w));
+                if (v != parent) self(self, v, u, min(value, w));
         };
         dfs(dfs, s, -1, LLONG_MAX);
     }

@@ -9,8 +9,7 @@ int main()
     int n, m, root, mod;
     std::cin >> n >> m >> root >> mod;
     std::vector<long long> values(n + 1);
-    for (int u = 1; u <= n; u++)
-        std::cin >> values[u];
+    for (int u = 1; u <= n; u++) std::cin >> values[u];
     HLD h(n);
     for (int i = 1; i < n; i++)
     {
@@ -20,8 +19,7 @@ int main()
     }
     h.build(root);
     std::vector<long long> ordered(n);
-    for (int u = 1; u <= n; u++)
-        ordered[h.dfn[u] - 1] = values[u];
+    for (int u = 1; u <= n; u++) ordered[h.dfn[u] - 1] = values[u];
     AffineSegTree seg(ordered, mod);
     while (m--)
     {
@@ -32,24 +30,15 @@ int main()
             int v;
             long long x;
             std::cin >> v >> x;
-            h.path(u,
-                   v,
-                   [&](int l, int r)
-                   {
-                       seg.update(l, r, 1, x);
-                   });
+            h.path(u, v, [&](int l, int r) { seg.update(l, r, 1, x); });
         }
         else if (op == 2)
         {
             int v;
             std::cin >> v;
             long long answer = 0;
-            h.path(u,
-                   v,
-                   [&](int l, int r)
-                   {
-                       answer = (answer + seg.query(l, r)) % mod;
-                   });
+            h.path(
+                u, v, [&](int l, int r) { answer = (answer + seg.query(l, r)) % mod; });
             std::cout << answer << '\n';
         }
         else if (op == 3)

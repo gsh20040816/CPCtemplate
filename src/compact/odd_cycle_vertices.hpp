@@ -62,8 +62,7 @@ inline vector<int> odd_cycle_vertices(const Biconnected &graph)
         color[root] = 1;
         paint(paint, root);
         if (!bipartite)
-            for (int u : graph.blocks[block])
-                answer[u] = 1;
+            for (int u : graph.blocks[block]) answer[u] = 1;
     }
     return answer;
 }

@@ -32,8 +32,7 @@ int main()
         }
         keys.push_back(1);
         auto result = tree.build(keys);
-        for (int u : result.vertices)
-            dp[u] = 0;
+        for (int u : result.vertices) dp[u] = 0;
         for (int i = (int)result.edges.size() - 1; i >= 0; i--)
         {
             auto e = result.edges[i];
@@ -41,7 +40,6 @@ int main()
             dp[e.from] += cost;
         }
         std::cout << dp[1] << '\n';
-        for (int u : keys)
-            marked[u] = 0;
+        for (int u : keys) marked[u] = 0;
     }
 }

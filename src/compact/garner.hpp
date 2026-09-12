@@ -11,17 +11,14 @@ inline vector<long long> garner_digits(const vector<long long> &b,
     int n = b.size();
     assert(moduli.size() == b.size());
     vector<ll> value(n), coefficient(n, 1), digit(n);
-    for (ll m : moduli)
-        assert(m > 0);
+    for (ll m : moduli) assert(m > 0);
     for (int i = 0; i < n; i++)
     {
         ll m = moduli[i];
         ll inverse = NumberTheory::inverse(coefficient[i], m);
-        if (inverse == -1)
-            throw invalid_argument("Garner moduli are not coprime");
+        if (inverse == -1) throw invalid_argument("Garner moduli are not coprime");
         i128 delta = (i128(b[i]) - value[i]) % m;
-        if (delta < 0)
-            delta += m;
+        if (delta < 0) delta += m;
         digit[i] = delta * inverse % m;
         for (int j = i + 1; j < n; j++)
         {

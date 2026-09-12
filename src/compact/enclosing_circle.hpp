@@ -18,8 +18,7 @@ struct EnclosingCircle
     {
         Point u = b - a, v = c - a;
         R scale = max({fabsl(u.x), fabsl(u.y), fabsl(v.x), fabsl(v.y)});
-        if (scale == 0)
-            return {a, 0};
+        if (scale == 0) return {a, 0};
         u = u / scale;
         v = v / scale;
         R det = 2 * G::cross(u, v);
@@ -27,8 +26,7 @@ struct EnclosingCircle
         {
             Circle best = diameter(a, b);
             for (Circle q : {diameter(a, c), diameter(b, c)})
-                if (q.r > best.r)
-                    best = q;
+                if (q.r > best.r) best = q;
             return best;
         }
         R x = G::dot(u, u), y = G::dot(v, v);
@@ -41,8 +39,7 @@ struct EnclosingCircle
     solve(vector<Point> p, mt19937_64 &rng, R eps = 32 * numeric_limits<R>::epsilon())
     {
         assert(eps >= 0 && eps < 1);
-        if (p.empty())
-            return nullopt;
+        if (p.empty()) return nullopt;
         shuffle(p.begin(), p.end(), rng);
         Circle c{p[0], 0};
         auto outside = [&](Point q)
@@ -58,8 +55,7 @@ struct EnclosingCircle
                     {
                         c = diameter(p[i], p[j]);
                         for (int k = 0; k < j; k++)
-                            if (outside(p[k]))
-                                c = through(p[i], p[j], p[k]);
+                            if (outside(p[k])) c = through(p[i], p[j], p[k]);
                     }
             }
         return c;

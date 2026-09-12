@@ -14,8 +14,7 @@ inline long long determinant_mod(vector<vector<long long>> a, long long mod)
         for (auto &x : row)
         {
             x %= mod;
-            if (x < 0)
-                x += mod;
+            if (x < 0) x += mod;
         }
     }
     long long answer = 1 % mod;
@@ -29,15 +28,13 @@ inline long long determinant_mod(vector<vector<long long>> a, long long mod)
                 {
                     __int128 value = (__int128)a[i][k] - (__int128)quotient * a[j][k];
                     value %= mod;
-                    if (value < 0)
-                        value += mod;
+                    if (value < 0) value += mod;
                     a[i][k] = (long long)value;
                 }
                 swap(a[i], a[j]);
                 answer = answer ? mod - answer : 0;
             }
-        if (a[i][i] == 0)
-            return 0;
+        if (a[i][i] == 0) return 0;
         answer = (__int128)answer * a[i][i] % mod;
     }
     return answer;

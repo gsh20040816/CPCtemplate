@@ -21,8 +21,7 @@ struct PersistentArray
     {
         assert(n > 0 && changes >= 0);
         int levels = 1;
-        for (int x = n - 1; x; x >>= 1)
-            levels++;
+        for (int x = n - 1; x; x >>= 1) levels++;
         t.reserve(2ULL * n + 1ULL * changes * levels + 1);
         root.push_back(build(1, n, a));
     }

@@ -22,7 +22,6 @@ int main()
     for (char op : string("|&^"))
     {
         auto c = F::multiply(a, b, op);
-        for (int s = 0; s < n; s++)
-            printf("%d%c", c[s].v, s + 1 == n ? '\n' : ' ');
+        for (int s = 0; s < n; s++) printf("%d%c", c[s].v, s + 1 == n ? '\n' : ' ');
     }
 }

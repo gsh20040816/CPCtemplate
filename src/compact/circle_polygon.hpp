@@ -11,12 +11,10 @@ struct CirclePolygon
     // Signed contribution of edge a -> b; circle centered at the origin.
     static R edge(Point a, Point b, R r)
     {
-        if (r == 0)
-            return 0;
+        if (r == 0) return 0;
         Point v = b - a;
         R length = G::norm(v);
-        if (length == 0)
-            return 0;
+        if (length == 0) return 0;
         Point u = v / length;
         R h = G::cross(u, a);
         Point cuts[4] = {a};
@@ -27,8 +25,7 @@ struct CirclePolygon
             R t = -G::dot(a, u);
             Point foot = G::perp(u) * h;
             for (R s : {-delta, delta})
-                if (t + s > 0 && t + s < length)
-                    cuts[count++] = foot + u * s;
+                if (t + s > 0 && t + s < length) cuts[count++] = foot + u * s;
         }
         cuts[count++] = b;
         R answer = 0;
@@ -48,8 +45,7 @@ struct CirclePolygon
     static R area(const vector<Point> &p, Circle c)
     {
         assert(c.r >= 0);
-        if (p.size() < 3 || c.r == 0)
-            return 0;
+        if (p.size() < 3 || c.r == 0) return 0;
         R answer = 0, error = 0;
         for (int i = 0; i < (int)p.size(); i++)
         {

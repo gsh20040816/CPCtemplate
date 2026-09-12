@@ -18,8 +18,7 @@ inline optional<vector<pair<int, int>>> mixed_euler_orientation(
     iota(parent.begin(), parent.end(), 0);
     auto find = [&](auto &&self, int u) -> int
     {
-        if (parent[u] != u)
-            parent[u] = self(self, parent[u]);
+        if (parent[u] != u) parent[u] = self(self, parent[u]);
         return parent[u];
     };
     Dinic flow(n + 2);
@@ -40,10 +39,8 @@ inline optional<vector<pair<int, int>>> mixed_euler_orientation(
     {
         int root = find(find, edges[0][0]);
         for (int u = 1; u <= n; u++)
-            if (degree[u] && find(find, u) != root)
-                return nullopt;
-        if (start && (!degree[start] || !degree[finish]))
-            return nullopt;
+            if (degree[u] && find(find, u) != root) return nullopt;
+        if (start && (!degree[start] || !degree[finish])) return nullopt;
     }
     if (start)
     {
@@ -54,8 +51,7 @@ inline optional<vector<pair<int, int>>> mixed_euler_orientation(
     long long need = 0;
     for (int u = 1; u <= n; u++)
     {
-        if (balance[u] % 2)
-            return nullopt;
+        if (balance[u] % 2) return nullopt;
         if (balance[u] > 0)
         {
             flow.add(source, u, balance[u] / 2);
@@ -64,8 +60,7 @@ inline optional<vector<pair<int, int>>> mixed_euler_orientation(
         else if (balance[u] < 0)
             flow.add(u, sink, -balance[u] / 2);
     }
-    if (flow.flow(source, sink) != need)
-        return nullopt;
+    if (flow.flow(source, sink) != need) return nullopt;
     for (int i = 0; i < (int)edges.size(); i++)
         if (id[i] != -1 && flow.used(id[i]))
             swap(direction[i].first, direction[i].second);
@@ -90,15 +85,11 @@ mixed_euler_trail(int n, const vector<array<int, 3>> &edges)
         degree[v]++;
     }
     for (int u = 1; u <= n; u++)
-        if (degree[u] % 2)
-            odd.push_back(u);
-    if (odd.empty())
-        return mixed_euler_orientation(n, edges);
-    if (odd.size() != 2)
-        return nullopt;
+        if (degree[u] % 2) odd.push_back(u);
+    if (odd.empty()) return mixed_euler_orientation(n, edges);
+    if (odd.size() != 2) return nullopt;
     auto answer = mixed_euler_orientation(n, edges, odd[0], odd[1]);
-    if (answer)
-        return answer;
+    if (answer) return answer;
     return mixed_euler_orientation(n, edges, odd[1], odd[0]);
 }
 

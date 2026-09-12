@@ -17,8 +17,7 @@ int main()
         SuffixLCP backward{SuffixArray(s)};
         auto [start, finish] = square_counts(forward, backward);
         long long answer = 0;
-        for (int i = 0; i + 1 < n; i++)
-            answer += finish[i] * start[i + 1];
+        for (int i = 0; i + 1 < n; i++) answer += finish[i] * start[i + 1];
         std::cout << answer << '\n';
     }
 }

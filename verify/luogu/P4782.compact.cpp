@@ -20,6 +20,5 @@ int main()
         return 0;
     }
     std::cout << "POSSIBLE\n";
-    for (int i = 1; i <= n; i++)
-        std::cout << sat.ans[i] << (i == n ? '\n' : ' ');
+    for (int i = 1; i <= n; i++) std::cout << sat.ans[i] << (i == n ? '\n' : ' ');
 }

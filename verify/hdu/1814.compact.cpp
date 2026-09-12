@@ -22,8 +22,7 @@ int main()
         if (!graph.solve())
             cout << "NIE\n";
         else
-            for (int x = 1; x <= n; x++)
-                cout << 2 * x - 1 + graph.answer[x] << '\n';
+            for (int x = 1; x <= n; x++) cout << 2 * x - 1 + graph.answer[x] << '\n';
     }
     return 0;
 }

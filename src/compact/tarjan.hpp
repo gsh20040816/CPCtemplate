@@ -10,9 +10,7 @@ struct TarjanSCC
     vector<vector<int>> g;
     vector<int> dfn, low, bel, st;
 
-    TarjanSCC(int n) : n(n), g(n + 1)
-    {
-    }
+    TarjanSCC(int n) : n(n), g(n + 1) {}
 
     void add(int u, int v)
     {
@@ -42,8 +40,7 @@ struct TarjanSCC
                 int v = st.back();
                 st.pop_back();
                 bel[v] = cnt;
-                if (v == u)
-                    break;
+                if (v == u) break;
             }
         }
     }
@@ -59,8 +56,7 @@ struct TarjanSCC
         st.clear();
         for (int u = 1; u <= n; u++)
         {
-            if (!dfn[u])
-                dfs(u);
+            if (!dfn[u]) dfs(u);
         }
     }
 
@@ -72,8 +68,7 @@ struct TarjanSCC
         {
             for (int v : g[u])
             {
-                if (bel[u] != bel[v])
-                    result[bel[u]].push_back(bel[v]);
+                if (bel[u] != bel[v]) result[bel[u]].push_back(bel[v]);
             }
         }
         return result;

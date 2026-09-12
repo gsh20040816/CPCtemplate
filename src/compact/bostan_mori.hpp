@@ -16,16 +16,13 @@ template <int mod = 998244353, int primitive = 3> struct BostanMori
         while (n && !p.empty())
         {
             Poly r = q;
-            for (int i = 1; i < int(r.size()); i += 2)
-                r[i] = Z(0) - r[i];
+            for (int i = 1; i < int(r.size()); i += 2) r[i] = Z(0) - r[i];
             Poly a = N::multiply(p, r);
             Poly b = N::multiply(q, r);
             p.clear();
             q.clear();
-            for (int i = n & 1; i < int(a.size()); i += 2)
-                p.push_back(a[i]);
-            for (int i = 0; i < int(b.size()); i += 2)
-                q.push_back(b[i]);
+            for (int i = n & 1; i < int(a.size()); i += 2) p.push_back(a[i]);
+            for (int i = 0; i < int(b.size()); i += 2) q.push_back(b[i]);
             n >>= 1;
         }
         return p.empty() ? Z(0) : p[0] / q[0];
@@ -36,15 +33,12 @@ template <int mod = 998244353, int primitive = 3> struct BostanMori
     {
         assert(init.size() == c.size());
         int k = c.size();
-        if (k == 0)
-            return 0;
-        if (n < init.size())
-            return init[n];
+        if (k == 0) return 0;
+        if (n < init.size()) return init[n];
         assert(k + 1ULL <= (N::max_size + 1ULL) / 2);
         Poly q(k + 1);
         q[0] = 1;
-        for (int i = 0; i < k; i++)
-            q[i + 1] = Z(0) - c[i];
+        for (int i = 0; i < k; i++) q[i + 1] = Z(0) - c[i];
         Poly p = N::multiply(init, q);
         p.resize(k);
         return coefficient(p, q, n);

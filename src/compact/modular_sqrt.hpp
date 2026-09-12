@@ -12,22 +12,19 @@ inline vector<long long> mod_sqrt(long long n, int p)
     using ll = long long;
     assert(p >= 2);
     n = (n % p + p) % p;
-    if (n == 0 || p == 2)
-        return {n};
+    if (n == 0 || p == 2) return {n};
     auto power = [p](ll a, ll b)
     {
         ll result = 1;
         while (b)
         {
-            if (b & 1)
-                result = result * a % p;
+            if (b & 1) result = result * a % p;
             a = a * a % p;
             b >>= 1;
         }
         return result;
     };
-    if (power(n, (p - 1) / 2) != 1)
-        return {};
+    if (power(n, (p - 1) / 2) != 1) return {};
     ll answer;
     if (p % 4 == 3)
         answer = power(n, (ll(p) + 1) / 4);
@@ -51,16 +48,14 @@ inline vector<long long> mod_sqrt(long long n, int p)
         ll exponent = (ll(p) + 1) / 2;
         while (exponent)
         {
-            if (exponent & 1)
-                result = mul(result, base);
+            if (exponent & 1) result = mul(result, base);
             base = mul(base, base);
             exponent >>= 1;
         }
         answer = result.first;
     }
     ll other = p - answer;
-    if (answer > other)
-        swap(answer, other);
+    if (answer > other) swap(answer, other);
     return {answer, other};
 }
 

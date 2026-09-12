@@ -10,8 +10,7 @@ maximum_closure(const vector<long long> &weight,
     int n = weight.size(), s = n + 1, t = n + 2;
     I positive = 0;
     for (long long w : weight)
-        if (w > 0)
-            positive += w;
+        if (w > 0) positive += w;
     assert(positive < LLONG_MAX);
     long long inf = (long long)positive + 1;
     Dinic graph(n + 2);
@@ -31,8 +30,7 @@ maximum_closure(const vector<long long> &weight,
     long long answer = (long long)positive - graph.flow(s, t);
     vector<int> selected;
     for (int u : graph.cut(s))
-        if (u <= n)
-            selected.push_back(u);
+        if (u <= n) selected.push_back(u);
     return {answer, selected};
 }
 

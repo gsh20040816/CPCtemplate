@@ -14,9 +14,7 @@ int main()
         cin >> u >> v;
         graph.add(u, v);
     }
-    if (!graph.run())
-        return 0;
-    for (int u : graph.vertices)
-        cout << u << '\n';
+    if (!graph.run()) return 0;
+    for (int u : graph.vertices) cout << u << '\n';
     return 0;
 }

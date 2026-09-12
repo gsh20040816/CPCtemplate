@@ -20,14 +20,9 @@ struct OrderedTreap
     mt19937_64 rng;
     int root = 0;
 
-    OrderedTreap(unsigned long long seed = 712367821) : rng(seed)
-    {
-    }
+    OrderedTreap(unsigned long long seed = 712367821) : rng(seed) {}
 
-    void pull(int p)
-    {
-        a[p].siz = a[a[p].l].siz + a[a[p].r].siz + 1;
-    }
+    void pull(int p) { a[p].siz = a[a[p].l].siz + a[a[p].r].siz + 1; }
 
     int node(ll x)
     {
@@ -60,8 +55,7 @@ struct OrderedTreap
 
     int merge(int l, int r)
     {
-        if (!l || !r)
-            return l ? l : r;
+        if (!l || !r) return l ? l : r;
         if (a[l].pri > a[r].pri)
         {
             a[l].r = merge(a[l].r, r);
@@ -86,16 +80,12 @@ struct OrderedTreap
         split(root, x, l, mid);
         split(mid, x, mid, r, true);
         bool found = mid != 0;
-        if (mid)
-            mid = merge(a[mid].l, a[mid].r);
+        if (mid) mid = merge(a[mid].l, a[mid].r);
         root = merge(l, merge(mid, r));
         return found;
     }
 
-    int size() const
-    {
-        return a[root].siz;
-    }
+    int size() const { return a[root].siz; }
 
     int less(ll x, bool equal = false) const
     {
@@ -113,10 +103,7 @@ struct OrderedTreap
         return ans;
     }
 
-    int rank(ll x) const
-    {
-        return less(x) + 1;
-    }
+    int rank(ll x) const { return less(x) + 1; }
 
     ll kth(int k) const
     {
@@ -125,8 +112,7 @@ struct OrderedTreap
         while (true)
         {
             int left = a[a[p].l].siz;
-            if (k == left + 1)
-                return a[p].val;
+            if (k == left + 1) return a[p].val;
             if (k <= left)
                 p = a[p].l;
             else
@@ -140,16 +126,14 @@ struct OrderedTreap
     optional<ll> prev(ll x) const
     {
         int k = less(x);
-        if (!k)
-            return nullopt;
+        if (!k) return nullopt;
         return kth(k);
     }
 
     optional<ll> next(ll x) const
     {
         int k = less(x, true);
-        if (k == size())
-            return nullopt;
+        if (k == size()) return nullopt;
         return kth(k + 1);
     }
 };
@@ -170,14 +154,9 @@ struct SequenceTreap
     mt19937_64 rng;
     int root = 0;
 
-    SequenceTreap(unsigned long long seed = 712367821) : rng(seed)
-    {
-    }
+    SequenceTreap(unsigned long long seed = 712367821) : rng(seed) {}
 
-    int size() const
-    {
-        return a[root].siz;
-    }
+    int size() const { return a[root].siz; }
 
     void pull(int p)
     {
@@ -187,8 +166,7 @@ struct SequenceTreap
 
     void apply_add(int p, ll x)
     {
-        if (!p)
-            return;
+        if (!p) return;
         a[p].val += x;
         a[p].sum += x * a[p].siz;
         a[p].tag += x;
@@ -196,8 +174,7 @@ struct SequenceTreap
 
     void apply_reverse(int p)
     {
-        if (!p)
-            return;
+        if (!p) return;
         swap(a[p].l, a[p].r);
         a[p].rev = !a[p].rev;
     }
@@ -244,8 +221,7 @@ struct SequenceTreap
 
     int merge(int l, int r)
     {
-        if (!l || !r)
-            return l ? l : r;
+        if (!l || !r) return l ? l : r;
         if (a[l].pri > a[r].pri)
         {
             push(l);
@@ -312,8 +288,7 @@ struct SequenceTreap
 
     void collect(int p, vector<ll> &out)
     {
-        if (!p)
-            return;
+        if (!p) return;
         push(p);
         collect(a[p].l, out);
         out.push_back(a[p].val);

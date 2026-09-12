@@ -8,8 +8,7 @@ int main()
     int n;
     std::cin >> n;
     std::vector<int> colors(n + 1);
-    for (int u = 1; u <= n; u++)
-        std::cin >> colors[u];
+    for (int u = 1; u <= n; u++) std::cin >> colors[u];
     SubtreeColors tree(n);
     for (int i = 1; i < n; i++)
     {
@@ -18,6 +17,5 @@ int main()
         tree.add(u, v);
     }
     tree.run(colors);
-    for (int u = 1; u <= n; u++)
-        std::cout << tree.answer[u] << (u == n ? '\n' : ' ');
+    for (int u = 1; u <= n; u++) std::cout << tree.answer[u] << (u == n ? '\n' : ' ');
 }

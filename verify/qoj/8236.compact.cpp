@@ -42,7 +42,6 @@ int main()
                     });
     unsigned long long answer = 0;
     for (int d : dist)
-        if (d >= 0)
-            answer += 1ULL * d * d;
+        if (d >= 0) answer += 1ULL * d * d;
     printf("%llu\n", answer);
 }

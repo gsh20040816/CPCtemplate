@@ -21,15 +21,9 @@ struct IntegerHalfplanes
         ll x, y, d;
     };
 
-    static I cross(Line u, Line v)
-    {
-        return I(u.a) * v.b - I(u.b) * v.a;
-    }
+    static I cross(Line u, Line v) { return I(u.a) * v.b - I(u.b) * v.a; }
 
-    static int half(Line u)
-    {
-        return u.b < 0 || (u.b == 0 && u.a < 0);
-    }
+    static int half(Line u) { return u.b < 0 || (u.b == 0 && u.a < 0); }
 
     static Point meet(Line u, Line v)
     {
@@ -66,8 +60,7 @@ struct IntegerHalfplanes
             assert(-1000000000 <= u.c && u.c <= 1000000000);
             if (!u.a && !u.b)
             {
-                if (u.c < 0)
-                    return {};
+                if (u.c < 0) return {};
             }
             else
                 h.push_back(u);
@@ -76,11 +69,9 @@ struct IntegerHalfplanes
              h.end(),
              [](Line u, Line v)
              {
-                 if (half(u) != half(v))
-                     return half(u) < half(v);
+                 if (half(u) != half(v)) return half(u) < half(v);
                  I d = cross(u, v);
-                 if (d)
-                     return d > 0;
+                 if (d) return d > 0;
                  ll x = u.a ? (u.a > 0 ? u.a : -u.a) : (u.b > 0 ? u.b : -u.b);
                  ll y = v.a ? (v.a > 0 ? v.a : -v.a) : (v.b > 0 ? v.b : -v.b);
                  return I(u.c) * y < I(v.c) * x;
@@ -89,33 +80,25 @@ struct IntegerHalfplanes
         for (int i = 0; i < (int)h.size(); i++)
         {
             Line u = h[i];
-            if (i && half(u) == half(h[i - 1]) && cross(u, h[i - 1]) == 0)
-                continue;
+            if (i && half(u) == half(h[i - 1]) && cross(u, h[i - 1]) == 0) continue;
             while (q.size() >= 2 && value(u, meet(q[q.size() - 2], q.back())) > 0)
                 q.pop_back();
-            while (q.size() >= 2 && value(u, meet(q[0], q[1])) > 0)
-                q.pop_front();
-            if (!q.empty() && cross(q.back(), u) == 0)
-                return {};
+            while (q.size() >= 2 && value(u, meet(q[0], q[1])) > 0) q.pop_front();
+            if (!q.empty() && cross(q.back(), u) == 0) return {};
             q.push_back(u);
         }
         while (q.size() >= 3 && value(q.front(), meet(q[q.size() - 2], q.back())) > 0)
             q.pop_back();
-        while (q.size() >= 3 && value(q.back(), meet(q[0], q[1])) > 0)
-            q.pop_front();
-        if (q.size() < 3 || cross(q.front(), q.back()) == 0)
-            return {};
+        while (q.size() >= 3 && value(q.back(), meet(q[0], q[1])) > 0) q.pop_front();
+        if (q.size() < 3 || cross(q.front(), q.back()) == 0) return {};
         vector<Point> answer;
         for (int i = 0; i < (int)q.size(); i++)
         {
             Point p = meet(q[i], q[(i + 1) % q.size()]);
-            if (answer.empty() || !same(answer.back(), p))
-                answer.push_back(p);
+            if (answer.empty() || !same(answer.back(), p)) answer.push_back(p);
         }
-        if (answer.size() > 1 && same(answer.front(), answer.back()))
-            answer.pop_back();
-        if (answer.size() < 3)
-            return {};
+        if (answer.size() > 1 && same(answer.front(), answer.back())) answer.pop_back();
+        if (answer.size() < 3) return {};
         return answer;
     }
 };

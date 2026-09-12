@@ -11,8 +11,7 @@ struct Hungarian
     static pair<I, vector<int>> solve(const vector<vector<long long>> &cost)
     {
         int n = cost.size();
-        if (!n)
-            return {0, {}};
+        if (!n) return {0, {}};
         int m = cost[0].size();
         assert(n <= m);
         vector<I> u(n + 1), v(m + 1);
@@ -64,8 +63,7 @@ struct Hungarian
         }
         vector<int> ans(n);
         for (int j = 1; j <= m; j++)
-            if (p[j])
-                ans[p[j] - 1] = j - 1;
+            if (p[j]) ans[p[j] - 1] = j - 1;
         return {-v[0], ans};
     }
 };
@@ -98,8 +96,7 @@ struct Arborescence
             in[root] = 0;
             for (I x : in)
             {
-                if (x == inf)
-                    return nullopt;
+                if (x == inf) return nullopt;
                 ans += x;
             }
             int cnt = 0;
@@ -114,23 +111,19 @@ struct Arborescence
                 if (u != root && id[u] == -1)
                 {
                     id[u] = cnt;
-                    for (int v = pre[u]; v != u; v = pre[v])
-                        id[v] = cnt;
+                    for (int v = pre[u]; v != u; v = pre[v]) id[v] = cnt;
                     ++cnt;
                 }
             }
-            if (!cnt)
-                return ans;
+            if (!cnt) return ans;
             for (int i = 0; i < n; i++)
-                if (id[i] == -1)
-                    id[i] = cnt++;
+                if (id[i] == -1) id[i] = cnt++;
             for (auto &a : e)
             {
                 int v = a.v;
                 a.u = id[a.u];
                 a.v = id[a.v];
-                if (a.u != a.v)
-                    a.w -= in[v];
+                if (a.u != a.v) a.w -= in[v];
             }
             root = id[root];
             n = cnt;
@@ -150,8 +143,7 @@ struct StoerWagner
         vector<int> active(n);
         iota(active.begin(), active.end(), 0);
         vector<vector<int>> group(n);
-        for (int i = 0; i < n; i++)
-            group[i] = {i};
+        for (int i = 0; i < n; i++) group[i] = {i};
         I best = I(1) << 120;
         vector<int> side;
         while (active.size() > 1)
@@ -163,8 +155,7 @@ struct StoerWagner
             {
                 int sel = -1;
                 for (int v : active)
-                    if (!used[v] && (sel == -1 || dis[v] > dis[sel]))
-                        sel = v;
+                    if (!used[v] && (sel == -1 || dis[v] > dis[sel])) sel = v;
                 if (step + 1 == (int)active.size())
                 {
                     if (dis[sel] < best)
@@ -183,8 +174,7 @@ struct StoerWagner
                 used[sel] = true;
                 prev = sel;
                 for (int v : active)
-                    if (!used[v])
-                        dis[v] += w[sel][v];
+                    if (!used[v]) dis[v] += w[sel][v];
             }
         }
         return {best, side};

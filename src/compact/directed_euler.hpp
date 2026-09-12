@@ -38,8 +38,7 @@ struct DirectedEuler
             dfs(v, id);
         }
         vertices.push_back(u);
-        if (incoming != -1)
-            edge_ids.push_back(incoming);
+        if (incoming != -1) edge_ids.push_back(incoming);
     }
 
     // start=0 chooses the smallest feasible start. Isolated vertices are ignored.
@@ -59,12 +58,10 @@ struct DirectedEuler
             else if (delta != 0)
                 return false;
         }
-        if (bool(source) != bool(sink))
-            return false;
+        if (bool(source) != bool(sink)) return false;
         if (source)
         {
-            if (start && start != source)
-                return false;
+            if (start && start != source) return false;
             start = source;
         }
         if (!start)
@@ -78,8 +75,7 @@ struct DirectedEuler
                 }
         }
         if (lexicographic)
-            for (int u = 1; u <= n; u++)
-                sort(g[u].begin(), g[u].end());
+            for (int u = 1; u <= n; u++) sort(g[u].begin(), g[u].end());
         fill(next.begin(), next.end(), 0);
         dfs(start, -1);
         if (edge_ids.size() != edges.size())

@@ -11,12 +11,10 @@ struct GeometryExtra
     static optional<I> closest_pair(vector<P> p)
     {
         int n = p.size();
-        if (n < 2)
-            return nullopt;
+        if (n < 2) return nullopt;
         sort(p.begin(), p.end());
         for (int i = 1; i < n; i++)
-            if (p[i] == p[i - 1])
-                return I(0);
+            if (p[i] == p[i - 1]) return I(0);
         vector<P> tmp(n);
         auto by_y = [](P a, P b)
         {
@@ -50,8 +48,7 @@ struct GeometryExtra
                     for (int j = (int)strip.size() - 1; j >= 0; j--)
                     {
                         I dy = I(p[i].y) - strip[j].y;
-                        if (dy * dy >= best)
-                            break;
+                        if (dy * dy >= best) break;
                         best = min(best, G::dist2(p[i], strip[j]));
                     }
                     strip.push_back(p[i]);
@@ -64,8 +61,7 @@ struct GeometryExtra
     // Inputs strict CCW hulls. Coordinate sums must obey IntegerGeometry's bound.
     static vector<P> minkowski(vector<P> a, vector<P> b)
     {
-        if (a.empty() || b.empty())
-            return {};
+        if (a.empty() || b.empty()) return {};
         auto plus = [](P u, P v)
         {
             return P{u.x + v.x, u.y + v.y};
@@ -74,18 +70,15 @@ struct GeometryExtra
         {
             vector<P> p;
             for (P u : a)
-                for (P v : b)
-                    p.push_back(plus(u, v));
+                for (P v : b) p.push_back(plus(u, v));
             return G::hull(p);
         }
         auto start = [](vector<P> &p)
         {
-            auto it = min_element(p.begin(),
-                                  p.end(),
-                                  [](P u, P v)
-                                  {
-                                      return tie(u.y, u.x) < tie(v.y, v.x);
-                                  });
+            auto it =
+                min_element(p.begin(),
+                            p.end(),
+                            [](P u, P v) { return tie(u.y, u.x) < tie(v.y, v.x); });
             rotate(p.begin(), it, p.end());
         };
         start(a);
@@ -108,10 +101,8 @@ struct GeometryExtra
             P u{a[(i + 1) % n].x - a[i].x, a[(i + 1) % n].y - a[i].y};
             P v{b[(j + 1) % m].x - b[j].x, b[(j + 1) % m].y - b[j].y};
             I c = G::cross({0, 0}, u, v);
-            if (c >= 0)
-                ++i;
-            if (c <= 0)
-                ++j;
+            if (c >= 0) ++i;
+            if (c <= 0) ++j;
         }
         return result;
     }
@@ -142,10 +133,7 @@ struct IntegerGeometry3D
         return {a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x};
     }
 
-    static I dot(Vector a, Vector b)
-    {
-        return a.x * b.x + a.y * b.y + a.z * b.z;
-    }
+    static I dot(Vector a, Vector b) { return a.x * b.x + a.y * b.y + a.z * b.z; }
 
     static I orient(Point a, Point b, Point c, Point d)
     {

@@ -11,8 +11,7 @@ int main()
     {
         int w;
         scanf("%d", &w);
-        if (w <= n)
-            position[w] = u;
+        if (w <= n) position[w] = u;
     }
     EulerLCA lca(n);
     for (int i = 1; i < n; i++)
@@ -28,8 +27,7 @@ int main()
         return lca.weighted_distance(u, v);
     };
     int mex = 0;
-    while (position[mex] != -1)
-        mex++;
+    while (position[mex] != -1) mex++;
     vector<TreeDiameter> prefix(mex + 1);
     for (int i = 0; i < mex; i++)
     {

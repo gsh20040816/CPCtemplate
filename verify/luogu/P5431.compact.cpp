@@ -6,8 +6,7 @@ int read()
     int c = getchar_unlocked();
     while (c < '0' || c > '9')
     {
-        if (c == EOF)
-            return 0;
+        if (c == EOF) return 0;
         c = getchar_unlocked();
     }
     int value = 0;
@@ -23,11 +22,9 @@ int main()
 {
     int n = read(), p = read(), k = read();
     vector<long long> a(n);
-    for (auto &x : a)
-        x = read();
+    for (auto &x : a) x = read();
     auto inverse = batch_inverse(move(a), p);
-    if (!inverse)
-        return 1;
+    if (!inverse) return 1;
     long long answer = 0, weight = 1;
     for (auto x : *inverse)
     {

@@ -10,8 +10,7 @@ int main()
     int n, q;
     std::cin >> n;
     std::vector<unsigned long long> a(n + 1);
-    for (int i = 1; i <= n; i++)
-        std::cin >> a[i];
+    for (int i = 1; i <= n; i++) std::cin >> a[i];
     std::cin >> q;
     std::vector<std::array<int, 3>> queries(q);
     for (int i = 0; i < q; i++)
@@ -33,6 +32,5 @@ int main()
         }
         answer[id] = basis.query(l);
     }
-    for (auto x : answer)
-        std::cout << x << '\n';
+    for (auto x : answer) std::cout << x << '\n';
 }

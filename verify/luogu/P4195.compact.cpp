@@ -8,8 +8,7 @@ int main()
     long long a, p, b;
     while (std::cin >> a >> p >> b)
     {
-        if (a == 0 && p == 0 && b == 0)
-            break;
+        if (a == 0 && p == 0 && b == 0) break;
         long long answer = DiscreteLog::solve(a, b, p);
         if (answer == -1)
             std::cout << "No Solution\n";

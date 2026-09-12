@@ -23,8 +23,7 @@ inline XorBasis basis_intersection(const XorBasis &a, const XorBasis &b)
                 x ^= pivot[i];
                 part ^= from_b[i];
             }
-        if (!x && part)
-            result.insert(part);
+        if (!x && part) result.insert(part);
     }
     return result;
 }
@@ -51,10 +50,8 @@ inline pair<XorBasis, XorBasis> basis_sum_intersection(const XorBasis &a,
                 x ^= pivot[i];
             }
     };
-    for (auto x : a.a)
-        insert((W(x) << 64) | x);
-    for (auto x : b.a)
-        insert(W(x) << 64);
+    for (auto x : a.a) insert((W(x) << 64) | x);
+    for (auto x : b.a) insert(W(x) << 64);
     XorBasis sum, intersection;
     for (int i = 0; i < 128; i++)
         if (pivot[i])

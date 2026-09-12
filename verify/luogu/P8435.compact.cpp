@@ -20,8 +20,7 @@ int main()
     for (const auto &block : blocks)
     {
         std::cout << block.size();
-        for (int u : block)
-            std::cout << ' ' << u;
+        for (int u : block) std::cout << ' ' << u;
         std::cout << '\n';
     }
 }

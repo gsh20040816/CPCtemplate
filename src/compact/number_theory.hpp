@@ -10,10 +10,7 @@ struct NumberTheory
     using i128 = __int128_t;
     using u128 = __uint128_t;
 
-    static ull mul(ull a, ull b, ull m)
-    {
-        return u128(a) * b % m;
-    }
+    static ull mul(ull a, ull b, ull m) { return u128(a) * b % m; }
 
     static ull power(ull a, ull b, ull m)
     {
@@ -21,18 +18,15 @@ struct NumberTheory
         ull r = 1 % m;
         a %= m;
         for (; b; b >>= 1, a = mul(a, a, m))
-            if (b & 1)
-                r = mul(r, a, m);
+            if (b & 1) r = mul(r, a, m);
         return r;
     }
 
     static bool prime(ull n)
     {
-        if (n < 2)
-            return false;
+        if (n < 2) return false;
         for (ull p : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37})
-            if (n % p == 0)
-                return n == p;
+            if (n % p == 0) return n == p;
         ull d = n - 1;
         int s = 0;
         while (!(d & 1))
@@ -43,11 +37,9 @@ struct NumberTheory
         for (ull a :
              {2ULL, 325ULL, 9375ULL, 28178ULL, 450775ULL, 9780504ULL, 1795265022ULL})
         {
-            if (a % n == 0)
-                continue;
+            if (a % n == 0) continue;
             ull x = power(a, d, n);
-            if (x == 1 || x == n - 1)
-                continue;
+            if (x == 1 || x == n - 1) continue;
             bool ok = false;
             for (int j = 1; j < s; j++)
             {
@@ -58,8 +50,7 @@ struct NumberTheory
                     break;
                 }
             }
-            if (!ok)
-                return false;
+            if (!ok) return false;
         }
         return true;
     }
@@ -81,11 +72,9 @@ struct NumberTheory
     {
         assert(m > 0);
         a %= m;
-        if (a < 0)
-            a += m;
+        if (a < 0) a += m;
         i128 x, y;
-        if (exgcd(a, m, x, y) != 1)
-            return -1;
+        if (exgcd(a, m, x, y) != 1) return -1;
         return (x % m + m) % m;
     }
 
@@ -94,19 +83,15 @@ struct NumberTheory
     {
         assert(m > 0 && n > 0);
         r %= m;
-        if (r < 0)
-            r += m;
+        if (r < 0) r += m;
         b %= n;
-        if (b < 0)
-            b += n;
+        if (b < 0) b += n;
         i128 x, y;
         ll g = (ll)exgcd(m, n, x, y);
         i128 diff = i128(b) - r;
-        if (diff % g)
-            return false;
+        if (diff % g) return false;
         i128 q = n / g, k = (diff / g * x % q + q) % q, mod = i128(m) * q;
-        if (mod > LLONG_MAX)
-            throw overflow_error("CRT modulus");
+        if (mod > LLONG_MAX) throw overflow_error("CRT modulus");
         r = (r + i128(m) * k) % mod;
         m = (ll)mod;
         return true;
@@ -120,8 +105,7 @@ struct NumberTheory
         auto norm = [&](ll &v)
         {
             ll q = v / m;
-            if (v % m < 0)
-                --q;
+            if (v % m < 0) --q;
             v = (ll)(i128(v) - i128(q) * m);
             return q;
         };
@@ -134,8 +118,7 @@ struct NumberTheory
             ans += i128(n) * (b / m);
             b %= m;
             i128 y = i128(a) * n + b;
-            if (y < m)
-                break;
+            if (y < m) break;
             n = (ll)(y / m);
             b = (ll)(y % m);
             swap(a, m);
@@ -150,14 +133,11 @@ struct PollardRho
     using u128 = __uint128_t;
     mt19937_64 rng;
 
-    PollardRho(ull seed = 712367821) : rng(seed)
-    {
-    }
+    PollardRho(ull seed = 712367821) : rng(seed) {}
 
     ull rho(ull n)
     {
-        if (n % 2 == 0)
-            return 2;
+        if (n % 2 == 0) return 2;
         for (;;)
         {
             ull c = rng() % (n - 1) + 1, x = rng() % n, y = x, d = 1;
@@ -172,15 +152,13 @@ struct PollardRho
                 y = f(f(y));
                 d = gcd(x > y ? x - y : y - x, n);
             }
-            if (1 < d && d < n)
-                return d;
+            if (1 < d && d < n) return d;
         }
     }
 
     void split(ull n, vector<ull> &a)
     {
-        if (n == 1)
-            return;
+        if (n == 1) return;
         if (NumberTheory::prime(n))
         {
             a.push_back(n);
@@ -207,8 +185,7 @@ struct LinearSieve
 
     LinearSieve(int n) : lp(n + 1), phi(n + 1), mu(n + 1)
     {
-        if (n)
-            phi[1] = mu[1] = 1;
+        if (n) phi[1] = mu[1] = 1;
         for (int i = 2; i <= n; i++)
         {
             if (!lp[i])
@@ -220,8 +197,7 @@ struct LinearSieve
             }
             for (int p : prime)
             {
-                if (p > n / i)
-                    break;
+                if (p > n / i) break;
                 int j = i * p;
                 lp[j] = p;
                 if (i % p == 0)
@@ -241,32 +217,20 @@ template <int mod> struct ModInt
 {
     int v;
 
-    ModInt(long long x = 0) : v((x % mod + mod) % mod)
-    {
-    }
+    ModInt(long long x = 0) : v((x % mod + mod) % mod) {}
 
-    ModInt operator+(ModInt b) const
-    {
-        return ModInt((long long)v + b.v);
-    }
+    ModInt operator+(ModInt b) const { return ModInt((long long)v + b.v); }
 
-    ModInt operator-(ModInt b) const
-    {
-        return ModInt((long long)v - b.v);
-    }
+    ModInt operator-(ModInt b) const { return ModInt((long long)v - b.v); }
 
-    ModInt operator*(ModInt b) const
-    {
-        return ModInt(1LL * v * b.v);
-    }
+    ModInt operator*(ModInt b) const { return ModInt(1LL * v * b.v); }
 
     ModInt pow(long long e) const
     {
         assert(e >= 0);
         ModInt a = *this, r = 1;
         for (; e; e >>= 1, a = a * a)
-            if (e & 1)
-                r = r * a;
+            if (e & 1) r = r * a;
         return r;
     }
 
@@ -276,10 +240,7 @@ template <int mod> struct ModInt
         return pow(mod - 2);
     } // prime modulus
 
-    ModInt operator/(ModInt b) const
-    {
-        return *this * b.inv();
-    }
+    ModInt operator/(ModInt b) const { return *this * b.inv(); }
 };
 
 template <int mod> struct Binomial
@@ -287,38 +248,30 @@ template <int mod> struct Binomial
     using Z = ModInt<mod>;
     vector<Z> fac{Z(1)}, ifac{Z(1)};
 
-    Binomial(int n = 0)
-    {
-        init(n);
-    }
+    Binomial(int n = 0) { init(n); }
 
     void init(int n)
     {
         assert(0 <= n && n < mod);
         int old = (int)fac.size() - 1;
-        if (n <= old)
-            return;
+        if (n <= old) return;
         fac.resize(n + 1);
         ifac.resize(n + 1);
-        for (int i = old + 1; i <= n; i++)
-            fac[i] = fac[i - 1] * i;
+        for (int i = old + 1; i <= n; i++) fac[i] = fac[i - 1] * i;
         ifac[n] = fac[n].inv();
-        for (int i = n; i > old; i--)
-            ifac[i - 1] = ifac[i] * i;
+        for (int i = n; i > old; i--) ifac[i - 1] = ifac[i] * i;
     }
 
     Z choose(int n, int k) const
     {
-        if (k < 0 || k > n)
-            return 0;
+        if (k < 0 || k > n) return 0;
         assert(n < (int)fac.size());
         return fac[n] * ifac[k] * ifac[n - k];
     }
 
     Z permute(int n, int k) const
     {
-        if (k < 0 || k > n)
-            return 0;
+        if (k < 0 || k > n) return 0;
         assert(n < (int)fac.size());
         return fac[n] * ifac[n - k];
     }

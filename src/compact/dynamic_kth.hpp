@@ -55,8 +55,7 @@ struct DynamicKth
 
     int update(int p, int l, int r, int x, int delta)
     {
-        if (!p)
-            p = new_node();
+        if (!p) p = new_node();
         t[p].sum += delta;
         if (l < r)
         {
@@ -91,8 +90,7 @@ struct DynamicKth
     {
         assert(1 <= pos && pos <= n);
         int x = id(value);
-        if (rank[pos] == x)
-            return;
+        if (rank[pos] == x) return;
         modify(pos, rank[pos], -1);
         modify(pos, x, 1);
         rank[pos] = x;
@@ -102,25 +100,18 @@ struct DynamicKth
     {
         assert(1 <= l && l <= r && r <= n && 1 <= k && k <= r - l + 1);
         vector<int> a, b;
-        for (int i = r; i; i -= i & -i)
-            a.push_back(bit[i]);
-        for (int i = l - 1; i; i -= i & -i)
-            b.push_back(bit[i]);
+        for (int i = r; i; i -= i & -i) a.push_back(bit[i]);
+        for (int i = l - 1; i; i -= i & -i) b.push_back(bit[i]);
         int L = 0, R = (int)vals.size() - 1;
         while (L < R)
         {
             int count = 0;
-            for (int p : a)
-                count += t[t[p].l].sum;
-            for (int p : b)
-                count -= t[t[p].l].sum;
+            for (int p : a) count += t[t[p].l].sum;
+            for (int p : b) count -= t[t[p].l].sum;
             bool left = k <= count;
-            if (!left)
-                k -= count;
-            for (int &p : a)
-                p = left ? t[p].l : t[p].r;
-            for (int &p : b)
-                p = left ? t[p].l : t[p].r;
+            if (!left) k -= count;
+            for (int &p : a) p = left ? t[p].l : t[p].r;
+            for (int &p : b) p = left ? t[p].l : t[p].r;
             int m = (L + R) / 2;
             if (left)
                 R = m;

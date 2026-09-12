@@ -12,8 +12,7 @@ vector<ModInt<mod>> subset_convolution(const vector<ModInt<mod>> &a,
     assert(!a.empty() && a.size() == b.size() && a.size() <= INT_MAX);
     int n = a.size(), m = 0;
     assert((n & (n - 1)) == 0);
-    while ((1 << m) < n)
-        m++;
+    while ((1 << m) < n) m++;
     vector<Poly> f(m + 1, Poly(n)), g(m + 1, Poly(n));
     vector<int> rank(n);
     for (int s = 0; s < n; s++)
@@ -32,12 +31,10 @@ vector<ModInt<mod>> subset_convolution(const vector<ModInt<mod>> &a,
     {
         fill(h.begin(), h.end(), 0);
         for (int i = 0; i <= k; i++)
-            for (int s = 0; s < n; s++)
-                h[s] = h[s] + f[i][s] * g[k - i][s];
+            for (int s = 0; s < n; s++) h[s] = h[s] + f[i][s] * g[k - i][s];
         F::transform(h, '|', true);
         for (int s = 0; s < n; s++)
-            if (rank[s] == k)
-                answer[s] = h[s];
+            if (rank[s] == k) answer[s] = h[s];
     }
     return answer;
 }

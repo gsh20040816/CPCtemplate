@@ -26,8 +26,7 @@ struct WeightedMatching
     {
         fill(l.begin(), l.end(), 0);
         fill(r.begin(), r.end(), 0);
-        if (!allow_unmatched && n > m)
-            return nullopt;
+        if (!allow_unmatched && n > m) return nullopt;
         int cols = m + (allow_unmatched ? n : 0);
         vector<I> u(n + 1), v(cols + 1);
         vector<int> p(cols + 1), way(cols + 1);
@@ -44,8 +43,7 @@ struct WeightedMatching
                 I delta = inf;
                 for (int j = 1; j <= cols; j++)
                 {
-                    if (used[j])
-                        continue;
+                    if (used[j]) continue;
                     I weight = j <= m ? w[x][j] : 0;
                     if (weight != -inf)
                     {
@@ -62,8 +60,7 @@ struct WeightedMatching
                         j1 = j;
                     }
                 }
-                if (delta == inf)
-                    return nullopt;
+                if (delta == inf) return nullopt;
                 for (int j = 0; j <= cols; j++)
                 {
                     if (used[j])
@@ -86,8 +83,7 @@ struct WeightedMatching
         I answer = 0;
         for (int j = 1; j <= m; j++)
         {
-            if (!p[j])
-                continue;
+            if (!p[j]) continue;
             l[p[j]] = j;
             r[j] = p[j];
             answer += w[p[j]][j];

@@ -8,10 +8,7 @@ struct PrimePowerRoots
     ll first = 0, step = 1, lifts = 1;
     array<ll, 2> ratio{1, 1}, count{1, 1};
 
-    ll size() const
-    {
-        return count[0] * count[1] * lifts;
-    }
+    ll size() const { return count[0] * count[1] * lifts; }
 
     ll get(ll i, ll j, ll lift) const
     {
@@ -36,8 +33,7 @@ struct PrimePowerRoots
         }
         ll mod = power[e];
         a %= mod;
-        if (a < 0)
-            a += mod;
+        if (a < 0) a += mod;
         PrimePowerRoots answer;
         if (a == 0)
         {
@@ -51,8 +47,7 @@ struct PrimePowerRoots
             a /= p;
             ++t;
         }
-        if (t % k)
-            return nullopt;
+        if (t % k) return nullopt;
         ll scale = power[t / k], q = power[e - t];
         answer.first = 1;
         answer.step = scale * q;
@@ -60,11 +55,9 @@ struct PrimePowerRoots
         auto cyclic = [&](ll base, ll target, ll order, int slot)
         {
             ll logarithm = DiscreteLog::solve(base, target, q);
-            if (logarithm < 0)
-                return false;
+            if (logarithm < 0) return false;
             auto [x, period] = linear_congruence(k % order, -logarithm, order);
-            if (x < 0)
-                return false;
+            if (x < 0) return false;
             answer.first = (__int128)answer.first * NumberTheory::power(base, x, q) % q;
             answer.ratio[slot] = NumberTheory::power(base, period, q);
             answer.count[slot] = order / period;
@@ -73,20 +66,17 @@ struct PrimePowerRoots
         if (p != 2)
         {
             assert(g >= 1 && g < mod);
-            if (!cyclic(g % q, a, q / p * (p - 1), 0))
-                return nullopt;
+            if (!cyclic(g % q, a, q / p * (p - 1), 0)) return nullopt;
         }
         else if (q >= 4)
         {
             int sign = a % 4 == 3;
             auto [x, period] = linear_congruence(k % 2, -sign, 2);
-            if (x < 0)
-                return nullopt;
+            if (x < 0) return nullopt;
             answer.first = x ? q - 1 : 1;
             answer.ratio[0] = period == 1 ? q - 1 : 1;
             answer.count[0] = 2 / period;
-            if (q >= 8 && !cyclic(5, sign ? q - a : a, q / 4, 1))
-                return nullopt;
+            if (q >= 8 && !cyclic(5, sign ? q - a : a, q / 4, 1)) return nullopt;
         }
         answer.first *= scale;
         return answer;

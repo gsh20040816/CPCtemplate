@@ -13,9 +13,7 @@ struct SubtreeColors
     vector<int> max_freq;
     vector<long long> answer;
 
-    SubtreeColors(int n) : n(n), g(n + 1)
-    {
-    }
+    SubtreeColors(int n) : n(n), g(n + 1) {}
 
     void add(int u, int v)
     {
@@ -31,12 +29,10 @@ struct SubtreeColors
         order.push_back(u);
         for (int v : g[u])
         {
-            if (v == p)
-                continue;
+            if (v == p) continue;
             prepare(v, u);
             siz[u] += siz[v];
-            if (siz[v] > siz[heavy[u]])
-                heavy[u] = v;
+            if (siz[v] > siz[heavy[u]]) heavy[u] = v;
         }
         tout[u] = (int)order.size() - 1;
     }
@@ -58,25 +54,20 @@ struct SubtreeColors
     {
         for (int v : g[u])
         {
-            if (v != p && v != heavy[u])
-                solve(v, u, false);
+            if (v != p && v != heavy[u]) solve(v, u, false);
         }
-        if (heavy[u])
-            solve(heavy[u], u, true);
+        if (heavy[u]) solve(heavy[u], u, true);
         for (int v : g[u])
         {
-            if (v == p || v == heavy[u])
-                continue;
-            for (int i = tin[v]; i <= tout[v]; i++)
-                insert(order[i]);
+            if (v == p || v == heavy[u]) continue;
+            for (int i = tin[v]; i <= tout[v]; i++) insert(order[i]);
         }
         insert(u);
         max_freq[u] = best;
         answer[u] = sum;
         if (!keep)
         {
-            for (int i = tin[u]; i <= tout[u]; i++)
-                freq[color[order[i]]]--;
+            for (int i = tin[u]; i <= tout[u]; i++) freq[color[order[i]]]--;
             best = 0;
             sum = 0;
         }
@@ -100,8 +91,7 @@ struct SubtreeColors
         freq.assign(value.size(), 0);
         best = 0;
         sum = 0;
-        if (!n)
-            return;
+        if (!n) return;
         assert(1 <= root && root <= n);
         for (int u = 1; u <= n; u++)
             color[u] =

@@ -26,11 +26,10 @@ int main()
             std::cin >> x;
             b.insert(x);
         }
-        auto result = basis_intersection(a,b);
+        auto result = basis_intersection(a, b);
         std::cout << result.rank;
         for (auto x : result.a)
-            if (x)
-                std::cout << ' ' << x;
+            if (x) std::cout << ' ' << x;
         std::cout << '\n';
     }
 }

@@ -17,15 +17,9 @@ struct OrderedSplay
     vector<Node> a{Node{}};
     int root = 0;
 
-    int size() const
-    {
-        return a[root].siz;
-    }
+    int size() const { return a[root].siz; }
 
-    void pull(int x)
-    {
-        a[x].siz = a[a[x].ch[0]].siz + a[x].cnt + a[a[x].ch[1]].siz;
-    }
+    void pull(int x) { a[x].siz = a[a[x].ch[0]].siz + a[x].cnt + a[a[x].ch[1]].siz; }
 
     int node(ll value, int parent)
     {
@@ -45,8 +39,7 @@ struct OrderedSplay
             root = x;
         a[x].fa = z;
         a[y].ch[k] = w;
-        if (w)
-            a[w].fa = y;
+        if (w) a[w].fa = y;
         a[x].ch[k ^ 1] = y;
         a[y].fa = x;
         pull(y);
@@ -110,8 +103,7 @@ struct OrderedSplay
     bool erase(ll value)
     {
         int x = find(value);
-        if (!x)
-            return false;
+        if (!x) return false;
         if (a[x].cnt > 1)
         {
             --a[x].cnt;
@@ -119,10 +111,8 @@ struct OrderedSplay
             return true;
         }
         int l = a[x].ch[0], r = a[x].ch[1];
-        if (l)
-            a[l].fa = 0;
-        if (r)
-            a[r].fa = 0;
+        if (l) a[l].fa = 0;
+        if (r) a[r].fa = 0;
         if (!l)
         {
             root = r;
@@ -130,12 +120,10 @@ struct OrderedSplay
         }
         root = l;
         x = l;
-        while (a[x].ch[1])
-            x = a[x].ch[1];
+        while (a[x].ch[1]) x = a[x].ch[1];
         splay(x);
         a[x].ch[1] = r;
-        if (r)
-            a[r].fa = x;
+        if (r) a[r].fa = x;
         pull(x);
         return true;
     }
@@ -154,8 +142,7 @@ struct OrderedSplay
                 x = a[x].ch[1];
             }
         }
-        if (last)
-            splay(last);
+        if (last) splay(last);
         return ans;
     }
 
@@ -195,10 +182,8 @@ struct OrderedSplay
             else
                 x = a[x].ch[0];
         }
-        if (last)
-            splay(last);
-        if (!answer)
-            return nullopt;
+        if (last) splay(last);
+        if (!answer) return nullopt;
         splay(answer);
         return a[answer].val;
     }
@@ -217,10 +202,8 @@ struct OrderedSplay
             else
                 x = a[x].ch[1];
         }
-        if (last)
-            splay(last);
-        if (!answer)
-            return nullopt;
+        if (last) splay(last);
+        if (!answer) return nullopt;
         splay(answer);
         return a[answer].val;
     }

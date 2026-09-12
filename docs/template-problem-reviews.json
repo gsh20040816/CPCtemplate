@@ -141,5 +141,383 @@
       "total": null
     },
     "remaining": "Driver/AC and full-score submission speed-rank audit pending. This is a reviewed task mapping, not a completed verification."
+  },
+  {
+    "symbol": "NttConvolution",
+    "problem": "QOJ 618",
+    "title": "多项式乘法",
+    "url": "https://qoj.ac/problem/618",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "degrees n,m in [1,1000000]; modulus 998244353; 1s",
+    "adapter": "Read n+1 and m+1 coefficients, not n and m. multiply returns n+m+1 coefficients. Transform size is at most 2^21, within the 998244353 capacity. This fixed-modulus task cannot certify all template moduli or primitive roots.",
+    "implementation": "existing",
+    "source": "src/compact/ntt_convolution.hpp",
+    "api": "multiply",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Driver, online evidence and fastest-ranking scope still require verification."
+  },
+  {
+    "symbol": "Polynomial",
+    "problem": "QOJ 618",
+    "title": "多项式乘法",
+    "url": "https://qoj.ac/problem/618",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "degrees n,m<=1000000; modulus 998244353; 1s",
+    "adapter": "Same degree-based input adapter, using Polynomial::multiply. Record this implementation separately from NttConvolution and do not transfer AC or speed evidence between the two.",
+    "implementation": "existing",
+    "source": "src/compact/polynomial.hpp",
+    "api": "multiply",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Driver, online evidence and fastest-ranking scope still require verification."
+  },
+  {
+    "symbol": "Polynomial",
+    "problem": "QOJ 619",
+    "title": "多项式求逆",
+    "url": "https://qoj.ac/problem/619",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=n<=1000000; modulus 998244353; a[0]!=0; 1.5s",
+    "adapter": "Here n is coefficient count and truncation order. Call inverse(a,n), print exactly n coefficients. Verify the complete driver and largest non-power-of-two truncation; multiplication AC alone does not prove inverse.",
+    "implementation": "existing",
+    "source": "src/compact/polynomial.hpp",
+    "api": "inverse",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Driver, online evidence and fastest-ranking scope still require verification."
+  },
+  {
+    "symbol": "Polynomial",
+    "problem": "QOJ 620",
+    "title": "多项式对数函数",
+    "url": "https://qoj.ac/problem/620",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=n<=1000000; modulus 998244353; a[0]=1; 1.5s",
+    "adapter": "Call log(a,n), preserving n coefficients including constant zero. Constant-one restriction is essential. Derivative/integral/inverse are dependencies, but only the composed logarithm behavior is directly observed.",
+    "implementation": "existing",
+    "source": "src/compact/polynomial.hpp",
+    "api": "log",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Driver, online evidence and fastest-ranking scope still require verification."
+  },
+  {
+    "symbol": "Polynomial",
+    "problem": "QOJ 621",
+    "title": "多项式指数函数",
+    "url": "https://qoj.ac/problem/621",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=n<=1000000; modulus 998244353; a[0]=0; 2.5s",
+    "adapter": "Call exp(a,n), preserving n coefficients with constant one. Do not confuse coefficient count with polynomial degree or ordinary floating-point exponential.",
+    "implementation": "existing",
+    "source": "src/compact/polynomial.hpp",
+    "api": "exp",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Driver, online evidence and fastest-ranking scope still require verification."
+  },
+  {
+    "symbol": "GeneralMultipointEvaluation",
+    "problem": "QOJ 622",
+    "title": "多项式多点求值",
+    "url": "https://qoj.ac/problem/622",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=n,m<=1000000; output mod 998244353; 10s",
+    "adapter": "Input has n coefficients followed by m arbitrary nonnegative evaluation points. Distinctness is not promised. General product/remainder-tree evaluation is absent; Chirp Z only handles geometric points and cannot replace this task. Coefficient and point upper bounds are not explicitly stated on the fetched page, so parser bounds need further audit.",
+    "implementation": "missing",
+    "source": null,
+    "api": null,
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified."
+  },
+  {
+    "symbol": "SuffixArray",
+    "problem": "QOJ 956",
+    "title": "后缀排序",
+    "url": "https://qoj.ac/problem/956",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=n<=1000000; ASCII letters/digits; 3s; 128MB",
+    "adapter": "Print each sa index plus one. Library sa is zero-based and orders unsigned bytes. This task outputs suffix order only, not the lcp array or range-LCP queries.",
+    "implementation": "existing",
+    "source": "src/compact/string.hpp",
+    "api": "sa",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Driver, online evidence and fastest-ranking scope still require verification."
+  },
+  {
+    "symbol": "PalindromicTree",
+    "problem": "QOJ 801",
+    "title": "回文自动机",
+    "url": "https://qoj.ac/problem/801",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "lowercase string length<=1000000; 1s; 2048MB",
+    "adapter": "Call add(ch) with each lowercase character, obtain occurrences(), then maximize occ[u]*len[u]*len[u] over real nodes u>=2. Promote before multiplication: n^3<=10^18 fits signed 64-bit. This is length squared, unlike common length-times-occurrence tasks. distinct and incremental total are not directly validated.",
+    "implementation": "existing",
+    "source": "src/compact/palindromic_tree.hpp",
+    "api": "add/occurrences",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Driver, online evidence and fastest-ranking scope still require verification."
+  },
+  {
+    "symbol": "SuffixAutomaton",
+    "problem": "Luogu P3804",
+    "title": "后缀自动机（SAM）",
+    "url": "https://www.luogu.com.cn/problem/P3804",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=|S|<=1000000; lowercase",
+    "adapter": "Use extend and counts; maximize cnt[u]*a[u].len only where cnt[u]>1, otherwise output zero. Use 64-bit multiplication. distinct is not tested. The QOJ217 candidate was not reviewed because the fetch returned HTTP 429; no equivalence to it is claimed.",
+    "implementation": "existing",
+    "source": "src/compact/string.hpp",
+    "api": "extend/counts",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Driver, online evidence and fastest-ranking scope still require verification."
+  },
+  {
+    "symbol": "OrderedTreap",
+    "problem": "Luogu P3369",
+    "title": "普通平衡树",
+    "url": "https://www.luogu.com.cn/problem/P3369",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=operations<=100000; |x|<=10000000",
+    "adapter": "Multiset semantics: erase one copy, rank is number of values <x plus one, kth is one-based, predecessor/successor are strict. x need not already exist for rank/neighbor queries. kth and neighbors have guaranteed answers.",
+    "implementation": "existing",
+    "source": "src/compact/treap.hpp",
+    "api": null,
+    "tested_api": [
+      "insert",
+      "erase",
+      "rank",
+      "kth",
+      "prev",
+      "next"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297515150",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Existing vector AC retained with its archived scope; leaderboard ranking remains unverified."
+  },
+  {
+    "symbol": "OrderedSplay",
+    "problem": "Luogu P3369",
+    "title": "普通平衡树",
+    "url": "https://www.luogu.com.cn/problem/P3369",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=operations<=100000; |x|<=10000000",
+    "adapter": "Multiset semantics: erase one copy, rank is number of values <x plus one, kth is one-based, predecessor/successor are strict. x need not already exist for rank/neighbor queries. kth and neighbors have guaranteed answers.",
+    "implementation": "existing",
+    "source": "src/compact/splay.hpp",
+    "api": null,
+    "tested_api": [
+      "insert",
+      "erase",
+      "rank",
+      "kth",
+      "prev",
+      "next"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297520192",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Existing vector AC retained with its archived scope; leaderboard ranking remains unverified."
+  },
+  {
+    "symbol": "SequenceTreap",
+    "problem": "Luogu P3391",
+    "title": "文艺平衡树",
+    "url": "https://www.luogu.com.cn/problem/P3391",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=n,m<=100000; 1<=l<=r<=n",
+    "adapter": "Initialize values 1..n using zero-based insertion positions; reverse uses the library one-based closed [l,r] interval; output values(). This does not validate range addition or general erase. A plain rope has no lazy reversal API, so it must not inherit this efficiency claim.",
+    "implementation": "existing",
+    "source": "src/compact/treap.hpp",
+    "api": null,
+    "tested_api": [
+      "insert",
+      "reverse",
+      "values"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297520211",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Existing vector AC retained with its archived scope; leaderboard ranking remains unverified."
+  },
+  {
+    "symbol": "PBDSOrderedTree",
+    "problem": "Luogu P3369",
+    "title": "普通平衡树",
+    "url": "https://www.luogu.com.cn/problem/P3369",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "operations<=100000; |x|<=10000000",
+    "adapter": "Planned extc++ order-statistics tree target. Preserve duplicate values through unique secondary IDs and a strict comparator; less_equal is not a valid workaround. Erase exactly one key, convert zero-based find_by_order to the problem kth convention. Existing Treap/Splay AC does not validate PBDS.",
+    "implementation": "planned_extension",
+    "source": null,
+    "api": null,
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified."
+  },
+  {
+    "symbol": "PBDSOrderedTree",
+    "problem": "Luogu P6136",
+    "title": "普通平衡树（加强版）",
+    "url": "https://www.luogu.com.cn/problem/P6136",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n<=100000; m<=1000000; values<2^30",
+    "adapter": "Read an initial multiset, XOR each operand with the last query answer before executing it, and print XOR of all query answers. All operations are legal. Cannot simply reuse P3369 input/output or sort operations offline; require separate maximum-scale performance evidence.",
+    "implementation": "planned_extension",
+    "source": null,
+    "api": null,
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified."
+  },
+  {
+    "symbol": "GPHashTable",
+    "problem": "Library Checker associative_array",
+    "title": "Associative Array",
+    "url": "https://judge.yosupo.jp/problem/associative_array",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "Q<=1000000; 0<=key,value<=10^18; 5s",
+    "adapter": "Planned gp_hash_table target: assignment 0 k v, lookup 1 k, absent keys return zero. Use 64-bit keys/values; lookup should use find if unintended insertion is undesirable. Official tests include unordered_map killers and sparse-key families. Hash collision performance requires explicit testing, not average-case assumptions alone.",
+    "implementation": "planned_extension",
+    "source": null,
+    "api": null,
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.",
+    "statement_sources": [
+      "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/associative_array/task.md",
+      "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/associative_array/info.toml"
+    ]
+  },
+  {
+    "symbol": "RopePersistentQueue",
+    "problem": "Library Checker persistent_queue",
+    "title": "Persistent Queue",
+    "url": "https://judge.yosupo.jp/problem/persistent_queue",
+    "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "Q<=500000; -1<=t_i<i; 0<=x<=10^9; 5s",
+    "adapter": "Candidate rope composition: version -1 is empty; copy version t, append or remove/print its first element, creating version i. Pop is guaranteed nonempty. Installed GCC rope exposes copy construction, push_back, indexing and erase, but worst-case time/memory and version isolation are not yet tested. This target does not verify arbitrary rope editing or reversal.",
+    "implementation": "planned_extension",
+    "source": null,
+    "api": null,
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.",
+    "statement_sources": [
+      "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/task.md",
+      "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/info.toml"
+    ]
   }
 ]

@@ -10,11 +10,9 @@ inline unsigned long long euler_phi(unsigned long long n)
         if (n % p == 0)
         {
             answer = answer / p * (p - 1);
-            while (n % p == 0)
-                n /= p;
+            while (n % p == 0) n /= p;
         }
-    if (n > 1)
-        answer = answer / n * (n - 1);
+    if (n > 1) answer = answer / n * (n - 1);
     return answer;
 }
 

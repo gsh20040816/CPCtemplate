@@ -36,10 +36,8 @@ int main()
             for (int i = 0; i < n; i++)
             {
                 int value = answer.particular[i].v;
-                if (value < 3)
-                    value += 7;
-                if (i)
-                    cout << ' ';
+                if (value < 3) value += 7;
+                if (i) cout << ' ';
                 cout << value;
             }
             cout << '\n';

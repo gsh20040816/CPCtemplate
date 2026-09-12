@@ -26,16 +26,14 @@ inline vector<tuple<long long, int, long long>> root_factors(long long mod,
             factors.erase(unique(factors.begin(), factors.end()), factors.end());
             auto primitive = [&](long long candidate)
             {
-                if (candidate % p == 0)
-                    return false;
+                if (candidate % p == 0) return false;
                 for (auto q : factors)
                     if (NumberTheory::power(candidate, phi / q, power) == 1)
                         return false;
                 return true;
             };
             g = 2;
-            while (!primitive(g))
-                ++g;
+            while (!primitive(g)) ++g;
         }
         answer.push_back({p, e, g});
     }

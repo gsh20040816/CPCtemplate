@@ -12,8 +12,7 @@ int main()
         int n;
         cin >> n;
         vector<string> words(n);
-        for (auto &word : words)
-            cin >> word;
+        for (auto &word : words) cin >> word;
         auto order = word_chain(words);
         if (!order)
         {
@@ -22,8 +21,7 @@ int main()
         }
         for (int i = 0; i < n; i++)
         {
-            if (i)
-                cout << '.';
+            if (i) cout << '.';
             cout << words[(*order)[i]];
         }
         cout << '\n';

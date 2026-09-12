@@ -8,8 +8,7 @@ int main()
     int n;
     std::cin >> n;
     std::vector<long long> a(n);
-    for (auto &x : a)
-        std::cin >> x;
+    for (auto &x : a) std::cin >> x;
     PersistentDistinct tree(a);
     int m;
     std::cin >> m;

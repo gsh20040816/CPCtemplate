@@ -8,8 +8,7 @@ int main()
     int n, m;
     std::cin >> n >> m;
     std::vector<long long> a(n);
-    for (auto &x : a)
-        std::cin >> x;
+    for (auto &x : a) std::cin >> x;
     PersistentKth tree(a);
     while (m--)
     {

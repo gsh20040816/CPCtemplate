@@ -21,8 +21,7 @@ int main()
             has_parent[v] = 1;
         }
         int root = 1;
-        while (has_parent[root])
-            root++;
+        while (has_parent[root]) root++;
         graph.build(root);
         int u, v;
         cin >> u >> v;

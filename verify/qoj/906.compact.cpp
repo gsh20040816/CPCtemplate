@@ -14,14 +14,12 @@ int main()
     }
     g.run();
     vector<vector<int>> s(g.cnt + 1);
-    for (int u = 1; u <= n; u++)
-        s[g.bel[u]].push_back(u - 1);
+    for (int u = 1; u <= n; u++) s[g.bel[u]].push_back(u - 1);
     printf("%d\n", g.cnt);
     for (int i = g.cnt; i > 0; i--)
     {
         printf("%d", int(s[i].size()));
-        for (int u : s[i])
-            printf(" %d", u);
+        for (int u : s[i]) printf(" %d", u);
         printf("\n");
     }
     return 0;

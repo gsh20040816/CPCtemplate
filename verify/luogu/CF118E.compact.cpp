@@ -21,7 +21,6 @@ int main()
         std::cout << 0 << '\n';
         return 0;
     }
-    for (auto [u, v] : orient_edges(graph))
-        std::cout << u << ' ' << v << '\n';
+    for (auto [u, v] : orient_edges(graph)) std::cout << u << ' ' << v << '\n';
     return 0;
 }

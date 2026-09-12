@@ -18,6 +18,5 @@ int main()
     auto answer = graph.solve();
     assert(answer);
     std::cout << (long long)*answer << '\n';
-    for (int j = 1; j <= n; j++)
-        std::cout << graph.r[j] << (j == n ? '\n' : ' ');
+    for (int j = 1; j <= n; j++) std::cout << graph.r[j] << (j == n ? '\n' : ' ');
 }

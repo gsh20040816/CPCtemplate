@@ -38,8 +38,7 @@ struct CentroidPairs
         siz[u] = 1;
         for (auto [v, w] : g[u])
         {
-            if (v == p || removed[v])
-                continue;
+            if (v == p || removed[v]) continue;
             size_dfs(v, u);
             siz[u] += siz[v];
         }
@@ -60,8 +59,7 @@ struct CentroidPairs
         out.push_back(d);
         for (auto [v, w] : g[u])
         {
-            if (v == p || removed[v])
-                continue;
+            if (v == p || removed[v]) continue;
             assert(d <= numeric_limits<ll>::max() - w);
             collect(v, u, d + w, out);
         }
@@ -76,8 +74,7 @@ struct CentroidPairs
         all[c] = {0};
         for (auto [v, w] : g[c])
         {
-            if (removed[v])
-                continue;
+            if (removed[v]) continue;
             part[c].push_back({});
             auto &d = part[c].back();
             collect(v, c, w, d);
@@ -87,8 +84,7 @@ struct CentroidPairs
         sort(all[c].begin(), all[c].end());
         for (auto [v, w] : g[c])
         {
-            if (!removed[v])
-                decompose(v, c);
+            if (!removed[v]) decompose(v, c);
         }
     }
 
@@ -103,8 +99,7 @@ struct CentroidPairs
         }
         for (int u = 1; u <= n; u++)
         {
-            if (!removed[u])
-                decompose(u, 0);
+            if (!removed[u]) decompose(u, 0);
         }
     }
 
@@ -128,22 +123,19 @@ struct CentroidPairs
     // Unordered pairs of distinct connected vertices. Nonnegative edge weights.
     ll count_leq(ll k) const
     {
-        if (k < 0)
-            return 0;
+        if (k < 0) return 0;
         ll answer = 0;
         for (int c = 1; c <= n; c++)
         {
             answer += pairs(all[c], k);
-            for (const auto &d : part[c])
-                answer -= pairs(d, k);
+            for (const auto &d : part[c]) answer -= pairs(d, k);
         }
         return answer;
     }
 
     ll count_exact(ll k) const
     {
-        if (k < 0)
-            return 0;
+        if (k < 0) return 0;
         return count_leq(k) - (k ? count_leq(k - 1) : 0);
     }
 };

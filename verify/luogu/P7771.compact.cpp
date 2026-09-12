@@ -18,8 +18,7 @@ int main()
         cout << "No\n";
     else
     {
-        for (int u : graph.vertices)
-            cout << u << ' ';
+        for (int u : graph.vertices) cout << u << ' ';
         cout << '\n';
     }
     return 0;

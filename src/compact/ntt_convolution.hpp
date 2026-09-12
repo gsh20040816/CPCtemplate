@@ -16,18 +16,15 @@ template <int mod, int primitive = 3> struct NttConvolution
         for (int i = 1, j = 0; i < n; i++)
         {
             int bit = n >> 1;
-            for (; j & bit; bit >>= 1)
-                j ^= bit;
+            for (; j & bit; bit >>= 1) j ^= bit;
             j ^= bit;
-            if (i < j)
-                swap(a[i], a[j]);
+            if (i < j) swap(a[i], a[j]);
         }
         for (int half = 1; half < n; half *= 2)
         {
             int len = half * 2;
             Z step = Z(primitive).pow((mod - 1) / len);
-            if (invert)
-                step = step.inv();
+            if (invert) step = step.inv();
             for (int i = 0; i < n; i += len)
             {
                 Z w = 1;
@@ -43,25 +40,21 @@ template <int mod, int primitive = 3> struct NttConvolution
         if (invert)
         {
             Z inverse = Z(n).inv();
-            for (auto &x : a)
-                x = x * inverse;
+            for (auto &x : a) x = x * inverse;
         }
     }
 
     static Poly multiply(Poly a, Poly b)
     {
-        if (a.empty() || b.empty())
-            return {};
+        if (a.empty() || b.empty()) return {};
         assert(a.size() + b.size() - 1 <= max_size);
         int size = a.size() + b.size() - 1, n = 1;
-        while (n < size)
-            n *= 2;
+        while (n < size) n *= 2;
         a.resize(n);
         b.resize(n);
         ntt(a);
         ntt(b);
-        for (int i = 0; i < n; i++)
-            a[i] = a[i] * b[i];
+        for (int i = 0; i < n; i++) a[i] = a[i] * b[i];
         ntt(a, true);
         a.resize(size);
         return a;

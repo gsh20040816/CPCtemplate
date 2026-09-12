@@ -14,15 +14,13 @@ int main()
         int n;
         scanf("%d", &n);
         vector<int> a(n), b(n), w(n);
-        for (auto &x : a)
-            scanf("%d", &x);
+        for (auto &x : a) scanf("%d", &x);
         for (auto &x : b)
         {
             scanf("%d", &x);
             x--;
         }
-        for (auto &x : w)
-            scanf("%d", &x);
+        for (auto &x : w) scanf("%d", &x);
         vector<char> certain(n);
         for (int u = 0; u < n; u++)
         {

@@ -7,13 +7,11 @@ floor_moments(long long n, long long m, long long a, long long b)
 {
     using Z = ModInt<998244353>;
     assert(n >= 0 && n <= 1000000001 && m >= 1 && m <= 1000000000);
-    if (!n)
-        return {0, 0, 0};
+    if (!n) return {0, 0, 0};
     auto normalize = [&](long long &v)
     {
         long long q = v / m;
-        if (v % m < 0)
-            q--;
+        if (v % m < 0) q--;
         v = (__int128_t(v) - __int128_t(q) * m);
         return Z(q);
     };

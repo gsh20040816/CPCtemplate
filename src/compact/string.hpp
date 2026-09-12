@@ -11,8 +11,7 @@ inline vector<int> prefix_function(const string &s)
     for (int i = 1; i < n; i++)
     {
         int j = p[i - 1];
-        while (j && s[i] != s[j])
-            j = p[j - 1];
+        while (j && s[i] != s[j]) j = p[j - 1];
         p[i] = j + (s[i] == s[j]);
     }
     return p;
@@ -28,8 +27,7 @@ inline vector<int> kmp_match(const string &s, const string &t)
     vector<int> ans;
     for (int i = 0, j = 0; i < (int)s.size(); i++)
     {
-        while (j && s[i] != t[j])
-            j = p[j - 1];
+        while (j && s[i] != t[j]) j = p[j - 1];
         j += (s[i] == t[j]);
         if (j == (int)t.size())
         {
@@ -47,14 +45,11 @@ inline vector<int> z_function(const string &s)
 {
     int n = (int)s.size();
     vector<int> a(n);
-    if (n)
-        a[0] = n;
+    if (n) a[0] = n;
     for (int i = 1, l = 0, r = 0; i < n; i++)
     {
-        if (i < r)
-            a[i] = min(r - i, a[i - l]);
-        while (i + a[i] < n && s[a[i]] == s[i + a[i]])
-            ++a[i];
+        if (i < r) a[i] = min(r - i, a[i - l]);
+        while (i + a[i] < n && s[a[i]] == s[i + a[i]]) ++a[i];
         if (i + a[i] > r)
         {
             l = i;
@@ -75,8 +70,7 @@ inline pair<vector<int>, vector<int>> manacher(const string &s)
     for (int i = 0, l = 0, r = -1; i < n; i++)
     {
         int k = i > r ? 1 : min(odd[l + r - i], r - i + 1);
-        while (i - k >= 0 && i + k < n && s[i - k] == s[i + k])
-            ++k;
+        while (i - k >= 0 && i + k < n && s[i - k] == s[i + k]) ++k;
         odd[i] = k--;
         if (i + k > r)
         {
@@ -87,8 +81,7 @@ inline pair<vector<int>, vector<int>> manacher(const string &s)
     for (int i = 0, l = 0, r = -1; i < n; i++)
     {
         int k = i > r ? 0 : min(even[l + r - i + 1], r - i + 1);
-        while (i - k - 1 >= 0 && i + k < n && s[i - k - 1] == s[i + k])
-            ++k;
+        while (i - k - 1 >= 0 && i + k < n && s[i - k - 1] == s[i + k]) ++k;
         even[i] = k--;
         if (i + k > r)
         {
@@ -105,8 +98,7 @@ inline pair<vector<int>, vector<int>> manacher(const string &s)
 inline int minimum_rotation(const string &s)
 {
     int n = (int)s.size(), i = 0, j = 1, k = 0;
-    if (!n)
-        return 0;
+    if (!n) return 0;
     while (i < n && j < n && k < n)
     {
         unsigned char a = s[(i + k) % n], b = s[(j + k) % n];
@@ -118,14 +110,12 @@ inline int minimum_rotation(const string &s)
         if (a > b)
         {
             i += k + 1;
-            if (i == j)
-                ++i;
+            if (i == j) ++i;
         }
         else
         {
             j += k + 1;
-            if (i == j)
-                ++j;
+            if (i == j) ++j;
         }
         k = 0;
     }
@@ -171,8 +161,7 @@ struct AhoCorasick
         built = true;
         queue<int> q;
         for (int v : a[0].go)
-            if (v)
-                q.push(v);
+            if (v) q.push(v);
         while (!q.empty())
         {
             int u = q.front();
@@ -216,15 +205,11 @@ struct SuffixArray
     {
         vector<int> a;
         a.reserve(s.size());
-        for (unsigned char c : s)
-            a.push_back(c);
+        for (unsigned char c : s) a.push_back(c);
         init(a, 256);
     }
 
-    SuffixArray(const vector<int> &s, int alphabet)
-    {
-        init(s, alphabet);
-    }
+    SuffixArray(const vector<int> &s, int alphabet) { init(s, alphabet); }
 
     void init(const vector<int> &s, int alphabet)
     {
@@ -234,8 +219,7 @@ struct SuffixArray
         sa.resize(n);
         rk.resize(n);
         lcp.assign(n, 0);
-        if (!n)
-            return;
+        if (!n) return;
         vector<int> order(n), old(n), cnt(max(n + 1, alphabet + 1));
         int m = alphabet;
         for (int i = 0; i < n; i++)
@@ -244,25 +228,18 @@ struct SuffixArray
             rk[i] = s[i] + 1;
             cnt[rk[i]]++;
         }
-        for (int i = 1; i <= m; i++)
-            cnt[i] += cnt[i - 1];
-        for (int i = n - 1; i >= 0; i--)
-            sa[--cnt[rk[i]]] = i;
+        for (int i = 1; i <= m; i++) cnt[i] += cnt[i - 1];
+        for (int i = n - 1; i >= 0; i--) sa[--cnt[rk[i]]] = i;
         for (int k = 1; k < n; k *= 2)
         {
             int p = 0;
-            for (int i = n - k; i < n; i++)
-                order[p++] = i;
+            for (int i = n - k; i < n; i++) order[p++] = i;
             for (int i : sa)
-                if (i >= k)
-                    order[p++] = i - k;
+                if (i >= k) order[p++] = i - k;
             fill(cnt.begin(), cnt.begin() + m + 1, 0);
-            for (int x : rk)
-                cnt[x]++;
-            for (int i = 1; i <= m; i++)
-                cnt[i] += cnt[i - 1];
-            for (int i = n - 1; i >= 0; i--)
-                sa[--cnt[rk[order[i]]]] = order[i];
+            for (int x : rk) cnt[x]++;
+            for (int i = 1; i <= m; i++) cnt[i] += cnt[i - 1];
+            for (int i = n - 1; i >= 0; i--) sa[--cnt[rk[order[i]]]] = order[i];
             old.swap(rk);
             auto second = [&](int i)
             {
@@ -273,15 +250,12 @@ struct SuffixArray
             for (int i = 1; i < n; i++)
             {
                 int a = sa[i - 1], b = sa[i];
-                if (old[a] != old[b] || second(a) != second(b))
-                    m++;
+                if (old[a] != old[b] || second(a) != second(b)) m++;
                 rk[b] = m;
             }
-            if (m == n)
-                break;
+            if (m == n) break;
         }
-        for (int i = 0; i < n; i++)
-            rk[sa[i]] = i;
+        for (int i = 0; i < n; i++) rk[sa[i]] = i;
         for (int i = 0, k = 0; i < n; i++)
         {
             if (!rk[i])
@@ -290,11 +264,9 @@ struct SuffixArray
                 continue;
             }
             int j = sa[rk[i] - 1];
-            while (k < n - i && k < n - j && s[i + k] == s[j + k])
-                ++k;
+            while (k < n - i && k < n - j && s[i + k] == s[j + k]) ++k;
             lcp[rk[i]] = k;
-            if (k)
-                --k;
+            if (k) --k;
         }
     }
 };
@@ -353,8 +325,7 @@ struct SuffixAutomaton
     {
         vector<int> bucket(a[last].len + 1), order(a.size());
         vector<long long> ans(a.size());
-        for (auto &v : a)
-            ++bucket[v.len];
+        for (auto &v : a) ++bucket[v.len];
         partial_sum(bucket.begin(), bucket.end(), bucket.begin());
         for (int i = 0; i < (int)a.size(); i++)
         {
@@ -369,8 +340,7 @@ struct SuffixAutomaton
     long long distinct() const
     {
         long long ans = 0;
-        for (int i = 1; i < (int)a.size(); i++)
-            ans += a[i].len - a[a[i].link].len;
+        for (int i = 1; i < (int)a.size(); i++) ans += a[i].len - a[a[i].link].len;
         return ans;
     }
 };

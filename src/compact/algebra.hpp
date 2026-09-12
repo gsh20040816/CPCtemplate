@@ -19,43 +19,35 @@ template <int mod> struct LinearAlgebra
     {
         int m = (int)a.size(), row = 0;
         vector<int> where(n, -1);
-        for (const auto &v : a)
-            assert((int)v.size() == n + 1);
+        for (const auto &v : a) assert((int)v.size() == n + 1);
         for (int col = 0; col < n && row < m; col++)
         {
             int p = row;
-            while (p < m && !a[p][col].v)
-                ++p;
-            if (p == m)
-                continue;
+            while (p < m && !a[p][col].v) ++p;
+            if (p == m) continue;
             swap(a[p], a[row]);
             Z inv = a[row][col].inv();
-            for (int j = col; j <= n; j++)
-                a[row][j] = a[row][j] * inv;
+            for (int j = col; j <= n; j++) a[row][j] = a[row][j] * inv;
             for (int i = 0; i < m; i++)
                 if (i != row && a[i][col].v)
                 {
                     Z f = a[i][col];
-                    for (int j = col; j <= n; j++)
-                        a[i][j] = a[i][j] - f * a[row][j];
+                    for (int j = col; j <= n; j++) a[i][j] = a[i][j] - f * a[row][j];
                 }
             where[col] = row++;
         }
         for (int i = row; i < m; i++)
-            if (a[i][n].v)
-                return {false, row, {}, {}};
+            if (a[i][n].v) return {false, row, {}, {}};
         Solution ans{true, row, vector<Z>(n), {}};
         for (int j = 0; j < n; j++)
-            if (where[j] != -1)
-                ans.particular[j] = a[where[j]][n];
+            if (where[j] != -1) ans.particular[j] = a[where[j]][n];
         for (int j = 0; j < n; j++)
             if (where[j] == -1)
             {
                 vector<Z> v(n);
                 v[j] = 1;
                 for (int k = 0; k < n; k++)
-                    if (where[k] != -1)
-                        v[k] = Z(0) - a[where[k]][j];
+                    if (where[k] != -1) v[k] = Z(0) - a[where[k]][j];
                 ans.kernel.push_back(v);
             }
         return ans;
@@ -69,10 +61,8 @@ template <int mod> struct LinearAlgebra
         {
             assert((int)a[i].size() == n);
             int p = i;
-            while (p < n && !a[p][i].v)
-                ++p;
-            if (p == n)
-                return 0;
+            while (p < n && !a[p][i].v) ++p;
+            if (p == n) return 0;
             if (p != i)
             {
                 swap(a[p], a[i]);
@@ -83,8 +73,7 @@ template <int mod> struct LinearAlgebra
             for (int j = i + 1; j < n; j++)
             {
                 Z f = a[j][i] * inv;
-                for (int k = i; k < n; k++)
-                    a[j][k] = a[j][k] - f * a[i][k];
+                for (int k = i; k < n; k++) a[j][k] = a[j][k] - f * a[i][k];
             }
         }
         return ans;
@@ -98,8 +87,7 @@ template <int mod> struct LinearAlgebra
         Matrix c(n, vector<Z>(m));
         for (int i = 0; i < n; i++)
             for (int t = 0; t < k; t++)
-                for (int j = 0; j < m; j++)
-                    c[i][j] = c[i][j] + a[i][t] * b[t][j];
+                for (int j = 0; j < m; j++) c[i][j] = c[i][j] + a[i][t] * b[t][j];
         return c;
     }
 
@@ -108,11 +96,9 @@ template <int mod> struct LinearAlgebra
         int n = a.size();
         assert(n > 0 && (int)a[0].size() == n);
         Matrix r(n, vector<Z>(n));
-        for (int i = 0; i < n; i++)
-            r[i][i] = 1;
+        for (int i = 0; i < n; i++) r[i][i] = 1;
         for (; e; e >>= 1, a = multiply(a, a))
-            if (e & 1)
-                r = multiply(r, a);
+            if (e & 1) r = multiply(r, a);
         return r;
     }
 
@@ -130,8 +116,7 @@ template <int mod> struct LinearAlgebra
                 lap[v][u] = lap[v][u] - 1;
             }
         lap.pop_back();
-        for (auto &row : lap)
-            row.pop_back();
+        for (auto &row : lap) row.pop_back();
         return determinant(lap);
     }
 };
@@ -158,10 +143,8 @@ struct DuJiao
 
     ll mertens(ll n)
     {
-        if (n <= limit)
-            return pmu[n];
-        if (mmu.count(n))
-            return mmu[n];
+        if (n <= limit) return pmu[n];
+        if (mmu.count(n)) return mmu[n];
         ll ans = 1;
         for (ll l = 2, r; l <= n; l = r + 1)
         {
@@ -173,10 +156,8 @@ struct DuJiao
 
     I totient_sum(ll n)
     {
-        if (n <= limit)
-            return pphi[n];
-        if (mphi.count(n))
-            return mphi[n];
+        if (n <= limit) return pphi[n];
+        if (mphi.count(n)) return mphi[n];
         I ans = I(n) * (n + 1) / 2;
         for (ll l = 2, r; l <= n; l = r + 1)
         {
@@ -197,17 +178,13 @@ struct DiscreteLog
         assert(m >= 1 && m <= 1000000000000LL);
         a = (a % m + m) % m;
         b = (b % m + m) % m;
-        if (m == 1 || b == 1)
-            return 0;
-        if (a == 1)
-            return -1;
+        if (m == 1 || b == 1) return 0;
+        if (a == 1) return -1;
         ll offset = 0, k = 1;
         for (ll g; (g = gcd(a, m)) > 1;)
         {
-            if (b == k)
-                return offset;
-            if (b % g)
-                return -1;
+            if (b == k) return offset;
+            if (b % g) return -1;
             b /= g;
             m /= g;
             k = (__int128)k * (a / g) % m;
@@ -220,8 +197,7 @@ struct DiscreteLog
         ll cur = 1 % m;
         for (ll j = 0; j < step; j++)
         {
-            if (!baby.count(cur))
-                baby[cur] = j;
+            if (!baby.count(cur)) baby[cur] = j;
             cur = (__int128)cur * a % m;
         }
         ll inv = NumberTheory::inverse(NumberTheory::power(a, step, m), m);
@@ -229,8 +205,7 @@ struct DiscreteLog
         for (ll i = 0; i <= step; i++)
         {
             auto it = baby.find(cur);
-            if (it != baby.end())
-                return offset + i * step + it->second;
+            if (it != baby.end()) return offset + i * step + it->second;
             cur = (__int128)cur * inv % m;
         }
         return -1;

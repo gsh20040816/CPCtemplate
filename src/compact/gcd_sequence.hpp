@@ -23,14 +23,9 @@ struct GcdSequenceTreap
     mt19937_64 rng;
     int root = 0;
 
-    GcdSequenceTreap(U seed = 712367821) : rng(seed)
-    {
-    }
+    GcdSequenceTreap(U seed = 712367821) : rng(seed) {}
 
-    int size() const
-    {
-        return a[root].siz;
-    }
+    int size() const { return a[root].siz; }
 
     int node(U value, int tag)
     {
@@ -64,8 +59,7 @@ struct GcdSequenceTreap
         {
             a[p].cnt[t] = a[l].cnt[t] + a[r].cnt[t] + (a[p].tag == t);
             a[p].g[t] = gcd(a[l].g[t], a[r].g[t]);
-            if (a[p].tag == t)
-                a[p].g[t] = gcd(a[p].g[t], a[p].val);
+            if (a[p].tag == t) a[p].g[t] = gcd(a[p].g[t], a[p].val);
         }
     }
 
@@ -93,8 +87,7 @@ struct GcdSequenceTreap
 
     int merge(int l, int r)
     {
-        if (!l || !r)
-            return l ? l : r;
+        if (!l || !r) return l ? l : r;
         if (a[l].pri > a[r].pri)
         {
             a[l].r = merge(a[l].r, r);
@@ -108,8 +101,7 @@ struct GcdSequenceTreap
 
     void rebuild(int p)
     {
-        if (!p)
-            return;
+        if (!p) return;
         rebuild(a[p].l);
         rebuild(a[p].r);
         pull(p);
@@ -117,8 +109,7 @@ struct GcdSequenceTreap
 
     void release(int p)
     {
-        if (!p)
-            return;
+        if (!p) return;
         release(a[p].l);
         release(a[p].r);
         recycled.push_back(p);
@@ -140,12 +131,10 @@ struct GcdSequenceTreap
                 st.pop_back();
             }
             a[p].l = last;
-            if (!st.empty())
-                a[st.back()].r = p;
+            if (!st.empty()) a[st.back()].r = p;
             st.push_back(p);
         }
-        if (st.empty())
-            return;
+        if (st.empty()) return;
         root = st.front();
         rebuild(root);
     }
@@ -199,8 +188,7 @@ struct GcdSequenceTreap
         split(root, r, y, z);
         split(y, l - 1, x, y);
         optional<U> answer;
-        if (a[y].cnt[tag])
-            answer = a[y].g[tag];
+        if (a[y].cnt[tag]) answer = a[y].g[tag];
         root = merge(merge(x, y), z);
         return answer;
     }

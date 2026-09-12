@@ -9,10 +9,7 @@ struct PositionBasis
     U a[64];
     int pos[64];
 
-    PositionBasis()
-    {
-        init();
-    }
+    PositionBasis() { init(); }
 
     void init()
     {
@@ -45,8 +42,7 @@ struct PositionBasis
     {
         assert(lower >= 0);
         for (int i = 63; i >= 0; i--)
-            if ((x >> i & 1) && pos[i] >= lower)
-                x ^= a[i];
+            if ((x >> i & 1) && pos[i] >= lower) x ^= a[i];
         return x == 0;
     }
 
@@ -54,8 +50,7 @@ struct PositionBasis
     {
         assert(lower >= 0);
         for (int i = 63; i >= 0; i--)
-            if (pos[i] >= lower)
-                x = max(x, x ^ a[i]);
+            if (pos[i] >= lower) x = max(x, x ^ a[i]);
         return x;
     }
 
@@ -63,8 +58,7 @@ struct PositionBasis
     {
         assert(lower >= 0);
         int answer = 0;
-        for (int i = 0; i < 64; i++)
-            answer += pos[i] >= lower;
+        for (int i = 0; i < 64; i++) answer += pos[i] >= lower;
         return answer;
     }
 };

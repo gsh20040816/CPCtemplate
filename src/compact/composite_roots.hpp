@@ -37,8 +37,7 @@ struct CompositeRoots
         for (auto [p, e, g] : factors)
         {
             auto roots = PrimePowerRoots::solve(a, k, p, e, g);
-            if (!roots)
-                return nullopt;
+            if (!roots) return nullopt;
             ll m = roots->step * roots->lifts;
             assert(gcd(answer.mod, m) == 1);
             assert(answer.mod <= 1000000000000LL / m);

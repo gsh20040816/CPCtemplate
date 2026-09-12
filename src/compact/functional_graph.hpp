@@ -12,10 +12,7 @@ struct FunctionalGraph
     vector<int> component, position, entry, depth, order;
     vector<vector<int>> cycles, up;
 
-    explicit FunctionalGraph(vector<int> to = {})
-    {
-        build(move(to));
-    }
+    explicit FunctionalGraph(vector<int> to = {}) { build(move(to)); }
 
     void build(vector<int> to)
     {
@@ -29,13 +26,11 @@ struct FunctionalGraph
         }
         order.clear();
         for (int u = 0; u < n; u++)
-            if (degree[u] == 0)
-                order.push_back(u);
+            if (degree[u] == 0) order.push_back(u);
         for (int i = 0; i < int(order.size()); i++)
         {
             int v = to[order[i]];
-            if (--degree[v] == 0)
-                order.push_back(v);
+            if (--degree[v] == 0) order.push_back(v);
         }
         component.assign(n, -1);
         position.assign(n, -1);
@@ -68,8 +63,7 @@ struct FunctionalGraph
         for (int k = 1; (1ULL << k) <= U(n); k++)
         {
             vector<int> row(n);
-            for (int u = 0; u < n; u++)
-                row[u] = up[k - 1][up[k - 1][u]];
+            for (int u = 0; u < n; u++) row[u] = up[k - 1][up[k - 1][u]];
             up.push_back(move(row));
         }
     }
@@ -85,24 +79,21 @@ struct FunctionalGraph
             return cycle[(U(position[u]) + k % cycle.size()) % cycle.size()];
         }
         for (int bit = 0; k; bit++, k >>= 1)
-            if (k & 1)
-                u = up[bit][u];
+            if (k & 1) u = up[bit][u];
         return u;
     }
 
     int steps(int u, int v) const
     {
         assert(0 <= u && u < n && 0 <= v && v < n);
-        if (component[u] != component[v] || depth[u] < depth[v])
-            return -1;
+        if (component[u] != component[v] || depth[u] < depth[v]) return -1;
         if (depth[v] > 0)
         {
             int d = depth[u] - depth[v];
             return advance(u, d) == v ? d : -1;
         }
         int offset = position[v] - position[entry[u]];
-        if (offset < 0)
-            offset += int(cycles[component[u]].size());
+        if (offset < 0) offset += int(cycles[component[u]].size());
         return depth[u] + offset;
     }
 };

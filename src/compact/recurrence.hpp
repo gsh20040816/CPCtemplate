@@ -14,8 +14,7 @@ vector<int> berlekamp_massey(const vector<int> &s, int p = 998244353)
     {
         assert(0 <= s[i] && s[i] < p);
         long long d = s[i];
-        for (int j = 1; j <= len; j++)
-            d = (d + 1LL * c[j] * s[i - j]) % p;
+        for (int j = 1; j <= len; j++) d = (d + 1LL * c[j] * s[i - j]) % p;
         if (d == 0)
         {
             shift++;
@@ -24,14 +23,12 @@ vector<int> berlekamp_massey(const vector<int> &s, int p = 998244353)
         long long inv = 1, x = last;
         for (int e = p - 2; e; e >>= 1)
         {
-            if (e & 1)
-                inv = inv * x % p;
+            if (e & 1) inv = inv * x % p;
             x = x * x % p;
         }
         long long factor = d * inv % p;
         auto old = c;
-        if (c.size() < b.size() + shift)
-            c.resize(b.size() + shift);
+        if (c.size() < b.size() + shift) c.resize(b.size() + shift);
         for (int j = 0; j < (int)b.size(); j++)
             c[j + shift] = (c[j + shift] - factor * b[j] % p + p) % p;
         if (2 * len <= i)
@@ -46,8 +43,7 @@ vector<int> berlekamp_massey(const vector<int> &s, int p = 998244353)
     }
     c.resize(len + 1);
     c.erase(c.begin());
-    for (int &x : c)
-        x = x == 0 ? 0 : p - x;
+    for (int &x : c) x = x == 0 ? 0 : p - x;
     return c;
 }
 
@@ -62,21 +58,16 @@ int recurrence_nth(const vector<int> &init,
 {
     assert(p >= 2 && init.size() == c.size());
     int k = c.size();
-    if (!k)
-        return 0;
-    for (int x : init)
-        assert(0 <= x && x < p);
-    for (int x : c)
-        assert(0 <= x && x < p);
-    if (n < (unsigned)k)
-        return init[n];
+    if (!k) return 0;
+    for (int x : init) assert(0 <= x && x < p);
+    for (int x : c) assert(0 <= x && x < p);
+    if (n < (unsigned)k) return init[n];
     auto multiply = [&](const vector<int> &a, const vector<int> &b)
     {
         vector<int> t(2 * k - 1);
         for (int i = 0; i < k; i++)
         {
-            for (int j = 0; j < k; j++)
-                t[i + j] = (t[i + j] + 1LL * a[i] * b[j]) % p;
+            for (int j = 0; j < k; j++) t[i + j] = (t[i + j] + 1LL * a[i] * b[j]) % p;
         }
         for (int i = 2 * k - 2; i >= k; i--)
         {
@@ -94,14 +85,12 @@ int recurrence_nth(const vector<int> &init,
         x[1] = 1;
     while (n)
     {
-        if (n & 1)
-            answer = multiply(answer, x);
+        if (n & 1) answer = multiply(answer, x);
         x = multiply(x, x);
         n >>= 1;
     }
     long long value = 0;
-    for (int i = 0; i < k; i++)
-        value = (value + 1LL * answer[i] * init[i]) % p;
+    for (int i = 0; i < k; i++) value = (value + 1LL * answer[i] * init[i]) % p;
     return value;
 }
 

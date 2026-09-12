@@ -5,8 +5,7 @@ int main()
     int n, q;
     scanf("%d%d", &n, &q);
     vector<int> a(n), next(n), last(n + 1, n), version(n + 1);
-    for (auto &x : a)
-        scanf("%d", &x);
+    for (auto &x : a) scanf("%d", &x);
     for (int i = n - 1; i >= 0; i--)
     {
         next[i] = last[a[i]];
@@ -16,10 +15,8 @@ int main()
     function<size_t(int, int, int, int)> nodes =
         [&](int l, int r, int ql, int qr) -> size_t
     {
-        if (qr <= l || r <= ql)
-            return 0;
-        if (ql <= l && r <= qr)
-            return 1;
+        if (qr <= l || r <= ql) return 0;
+        if (ql <= l && r <= qr) return 1;
         int m = l + (r - l) / 2;
         return 1 + nodes(l, m, ql, qr) + nodes(m, r, ql, qr);
     };

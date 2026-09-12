@@ -12,8 +12,7 @@ struct EdgeCompression
 
     EdgeCompression(const Biconnected &graph) : n(graph.cnt), size(n + 1), inside(n + 1)
     {
-        for (int u = 1; u <= graph.n; u++)
-            size[graph.bel[u]]++;
+        for (int u = 1; u <= graph.n; u++) size[graph.bel[u]]++;
         for (int id = 0; id < (int)graph.edges.size(); id++)
         {
             auto [u, v] = graph.edges[id];
@@ -40,16 +39,13 @@ inline vector<pair<int, int>> orient_edges(const Lowlink &graph)
         seen[u] = 1;
         for (auto [v, id] : graph.g[u])
         {
-            if (direction[id].first)
-                continue;
+            if (direction[id].first) continue;
             direction[id] = {u, v};
-            if (!seen[v])
-                self(self, v);
+            if (!seen[v]) self(self, v);
         }
     };
     for (int u = 1; u <= graph.n; u++)
-        if (!seen[u])
-            dfs(dfs, u);
+        if (!seen[u]) dfs(dfs, u);
     return direction;
 }
 

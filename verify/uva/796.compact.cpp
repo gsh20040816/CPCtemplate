@@ -29,12 +29,10 @@ int main()
         graph.run();
         std::vector<std::pair<int, int>> answer;
         for (int i = 0; i < (int)edges.size(); i++)
-            if (graph.bridge[i])
-                answer.push_back(edges[i]);
+            if (graph.bridge[i]) answer.push_back(edges[i]);
         std::sort(answer.begin(), answer.end());
         std::cout << answer.size() << " critical links\n";
-        for (auto [u, v] : answer)
-            std::cout << u << " - " << v << '\n';
+        for (auto [u, v] : answer) std::cout << u << " - " << v << '\n';
         std::cout << '\n';
     }
 }

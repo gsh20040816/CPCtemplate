@@ -17,10 +17,7 @@ struct PersistentRange
     vector<Node> t{Node{}};
     vector<int> root{0};
 
-    explicit PersistentRange(int size) : n(size)
-    {
-        assert(n > 0);
-    }
+    explicit PersistentRange(int size) : n(size) { assert(n > 0); }
 
     int clone(int p)
     {
@@ -36,8 +33,7 @@ struct PersistentRange
 
     int change(int p, int l, int r, int ql, int qr, ll value)
     {
-        if (qr <= l || r <= ql)
-            return p;
+        if (qr <= l || r <= ql) return p;
         int u = clone(p);
         if (ql <= l && r <= qr)
         {
@@ -56,12 +52,10 @@ struct PersistentRange
 
     int replace(int p, int q, int l, int r, int ql, int qr, ll offset)
     {
-        if (qr <= l || r <= ql)
-            return p;
+        if (qr <= l || r <= ql) return p;
         if (ql <= l && r <= qr)
         {
-            if (offset == 0)
-                return q;
+            if (offset == 0) return q;
             int u = clone(q);
             t[u].lazy += offset;
             t[u].sum += offset * (r - l);
@@ -79,10 +73,8 @@ struct PersistentRange
 
     ll get(int p, int l, int r, int ql, int qr, ll carry) const
     {
-        if (qr <= l || r <= ql)
-            return 0;
-        if (ql <= l && r <= qr)
-            return t[p].sum + carry * (r - l);
+        if (qr <= l || r <= ql) return 0;
+        if (ql <= l && r <= qr) return t[p].sum + carry * (r - l);
         carry += t[p].lazy;
         int m = l + (r - l) / 2;
         return get(t[p].left, l, m, ql, qr, carry) +

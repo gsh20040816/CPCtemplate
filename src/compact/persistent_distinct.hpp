@@ -19,8 +19,7 @@ struct PersistentDistinct
     {
         assert(n > 0);
         int height = 1;
-        while ((1LL << (height - 1)) < n)
-            height++;
+        while ((1LL << (height - 1)) < n) height++;
         t.reserve(size_t(n) * height + 1);
         vector<long long> vals = a;
         sort(vals.begin(), vals.end());

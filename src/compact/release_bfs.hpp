@@ -22,8 +22,7 @@ vector<int> release_bfs(const vector<int> &open, int source, Neighbors neighbors
     while (head < int(queue.size()) || waiting)
     {
         int limit = head < int(queue.size()) ? dist[queue[head]] : INT_MAX;
-        while (time <= last && time <= limit && pending[time].empty())
-            time++;
+        while (time <= last && time <= limit && pending[time].empty()) time++;
         int u;
         if (time <= last && time <= limit)
         {
@@ -36,8 +35,7 @@ vector<int> release_bfs(const vector<int> &open, int source, Neighbors neighbors
         neighbors(u,
                   [&](int v)
                   {
-                      if (dist[v] != -1)
-                          return;
+                      if (dist[v] != -1) return;
                       dist[v] = max(dist[u] + 1, open[v]);
                       if (dist[v] == dist[u] + 1)
                           queue.push_back(v);

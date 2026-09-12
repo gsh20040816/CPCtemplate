@@ -15,8 +15,7 @@ int main()
     int n, m;
     std::cin >> n >> m;
     std::vector<long long> a(n), future;
-    for (auto &x : a)
-        std::cin >> x;
+    for (auto &x : a) std::cin >> x;
     std::vector<Query> queries(m);
     for (auto &q : queries)
     {

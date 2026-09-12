@@ -8,8 +8,7 @@ int main()
     int n, q, mod;
     std::cin >> n >> q >> mod;
     std::vector<long long> a(n);
-    for (auto &x : a)
-        std::cin >> x;
+    for (auto &x : a) std::cin >> x;
     AffineSegTree tree(a, mod);
     while (q--)
     {
