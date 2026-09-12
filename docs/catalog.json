@@ -318,6 +318,12 @@
     "声明 MatrixTree<mod>，调用 count(n, edges, root, kind) 返回所有合法树的边权乘积之和，mod 必须是素数。Edge=(u,v,Z)，点号 0..n-1，n≥1；Kind::undirected 为无向生成树，toward_root 为每点沿边能到根，away_from_root 为根沿边能到每点。后两种使用输入边方向，不能混淆。重边按不同边计数，自环忽略；单点答案 1。支持模意义下的零权和负权，结果 0 不一定表示不存在树。无向图删除哪个根行列均可；有向图 root 决定答案。依赖 LinearAlgebra 的素数模行列式，O(n³+m) 时间、O(n²) 额外空间。传统接口 Matrix_Tree<mod>::Count，Kind 成员名不变。"
   ],
   [
+    "matrix_tree_mod",
+    "MatrixTreeMod",
+    "任意正模数带权矩阵树",
+    "count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小非负余数。mod 为任意正 signed 64 位数，边权支持完整 signed 64 位。Kind 的 undirected、toward_root、away_from_root 分别表示无向、内向和外向树；点号 0..n-1。自环忽略，重边按不同边计数，单点返回 1%mod，mod=1 返回零。先在 128 位中构造模拉普拉斯余子式，再调用 determinant_mod；O(n³ log mod + m) 时间、O(n²) 额外空间。不使用模逆元。已知模数是素数时一般优先使用 MatrixTree<mod>。传统接口 Matrix_Tree_Mod::Count，Kind 名称不变。"
+  ],
+  [
     "algebra",
     "DuJiao",
     "杜教筛",

@@ -854,6 +854,16 @@ determinant\_mod(a,mod) 返回 det(a) 的最小非负余数。a 为 long long �
 
 \lstinputlisting[firstline=4,lastline=43]{../src/compact/matrix_tree.hpp}
 
+\chapter{合数模生成树计数}
+
+\Needspace{553pt}
+
+\section{任意正模数带权矩阵树}\label{compact-MatrixTreeMod}\index{MatrixTreeMod}
+
+count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小非负余数。mod 为任意正 signed 64 位数，边权支持完整 signed 64 位。Kind 的 undirected、toward\_root、away\_from\_root 分别表示无向、内向和外向树；点号 0..n-1。自环忽略，重边按不同边计数，单点返回 1\%mod，mod=1 返回零。先在 128 位中构造模拉普拉斯余子式，再调用 determinant\_mod；O(n$^{3}$ log mod + m) 时间、O(n$^{2}$) 额外空间。不使用模逆元。已知模数是素数时一般优先使用 MatrixTree<mod>。传统接口 Matrix\_Tree\_Mod::Count，Kind 名称不变。
+
+\lstinputlisting[firstline=4,lastline=44]{../src/compact/matrix_tree_mod.hpp}
+
 \chapter{计算几何}
 
 \section{整数精确二维几何}\label{compact-IntegerGeometry}\index{IntegerGeometry}
@@ -2081,6 +2091,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-MatrixTree}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=4,lastline=43]{../src/classic/matrix_tree.hpp}
+
+\chapter{合数模生成树计数}
+
+\Needspace{553pt}
+
+\section{任意正模数带权矩阵树}\label{classic-MatrixTreeMod}\index{Matrix\_Tree\_Mod}
+
+算法约束见动态版本第~\pageref{compact-MatrixTreeMod}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=4,lastline=44]{../src/classic/matrix_tree_mod.hpp}
 
 \chapter{计算几何}
 

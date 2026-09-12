@@ -299,3 +299,6 @@ python3 tests/matrix_tree_application.py
 
 "$CXX" "${flags[@]}" tests/determinant_mod.cpp -o build/determinant_mod
 build/determinant_mod
+
+"$CXX" "${flags[@]}" tests/matrix_tree_mod.cpp -o build/matrix_tree_mod
+build/matrix_tree_mod

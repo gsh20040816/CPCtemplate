@@ -659,7 +659,7 @@ kuangbin,ACM template (2018),152,4.11 二分图多重匹配,pending,,,
 kuangbin,ACM template (2018),153,4.12 二分图最大权匹配（KM 算法）,local-tested,src/compact/weighted_matching.hpp,src/classic/weighted_matching.hpp,tests/weighted_matching.cpp; full-left and optional max-weight matching with explicit missing edges; int64 weights/int128 arithmetic; independent subset-DP optimum and scheme checks; P6577 dual AC 297520123/297520132 (perfect-matching API only)
 kuangbin,ACM template (2018),154,4.13 一般图匹配带花树,local-tested,src/compact/blossom.hpp,src/classic/blossom.hpp,tests/blossom.cpp; maximum cardinality and matching reconstruction; OJ pending
 kuangbin,ACM template (2018),157,4.14 一般图最大加权匹配,pending,,,
-kuangbin,ACM template (2018),159,4.15 生成树计数,partial,src/compact/matrix_tree.hpp,src/classic/matrix_tree.hpp,"P6178 dual AC 297619886/297620263, all 11 undirected/outward cases; other roots/directions and signed weights have local exhaustive evidence; composite moduli/exact integer determinant remain outside this implementation"
+kuangbin,ACM template (2018),159,4.15 生成树计数,partial,src/compact/matrix_tree.hpp; src/compact/matrix_tree_mod.hpp,src/classic/matrix_tree.hpp; src/classic/matrix_tree_mod.hpp,Prime-mod P6178 dual AC 297619886/297620263; arbitrary positive signed64 moduli have separate exhaustive weighted-edge and Cayley tests. Exact unbounded integer counts are not provided.
 kuangbin,ACM template (2018),161,4.16 最大流,pending,,,
 kuangbin,ACM template (2018),161,4.16.1 SAP 邻接矩阵形式,pending,,,
 kuangbin,ACM template (2018),162,4.16.2 SAP 邻接矩阵形式 2,pending,,,
