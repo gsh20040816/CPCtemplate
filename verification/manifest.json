@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T05:45:09.729883+00:00",
+  "recorded_at_utc": "2026-09-12T05:51:09.787202+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -108,7 +108,10 @@
       "P1516 classic: 242 simulated/planted cases, swapped speeds, equal speeds, initial coincidence and large minimal time PASS",
       "",
       "Incremental CRT system audit; unchanged-module evidence retained from c2086c8:",
-      "CRT systems dual exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS"
+      "CRT systems dual exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS",
+      "",
+      "Incremental linear sieve audit; unchanged-module evidence retained from 3b775fc:",
+      "Linear sieve dual prefixes, least-prime trial oracle, factor reconstruction and ten-million-entry divisor certificates PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -215,7 +218,10 @@
       "P1516 classic: 242 simulated/planted cases, swapped speeds, equal speeds, initial coincidence and large minimal time PASS",
       "",
       "Incremental CRT system audit; unchanged-module evidence retained from c2086c8:",
-      "CRT systems dual exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS"
+      "CRT systems dual exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS",
+      "",
+      "Incremental linear sieve audit; unchanged-module evidence retained from 3b775fc:",
+      "Linear sieve dual prefixes, least-prime trial oracle, factor reconstruction and ten-million-entry divisor certificates PASS"
     ]
   },
   "sha256": {
@@ -401,6 +407,7 @@
     "tests/linear_congruence.cpp": "6be04228bffbe7049980388f508bae6855bdde9e896889098f73586ca09ba3b5",
     "tests/linear_equation.cpp": "0a20a2f277b4b39c06c0ada5c744258758f0d91e30ce671a725bd6202a8c638e",
     "tests/linear_equation_application.py": "0bbcb94ed8ec551dad3fd990c891540fedf40722bc3b7e90c17492ad0aad59bc",
+    "tests/linear_sieve.cpp": "efa47254736ac9f8f0315af8efec7608d6a04407e02f6560a4a1267c94941022",
     "tests/lowlink.cpp": "9109643885f3ee585cf7f16e994adcd1a61b227aa588a281dadf4c31f7ee6d13",
     "tests/lucas.cpp": "6265fc77a26c4cb2a6a9078e4c24a6b72531e57059c17574f337dc6914973061",
     "tests/lucas_application.py": "ef6adc76dec21b62acc6e0aaec585f6a75758523fbfc152e410aec09d40d461a",

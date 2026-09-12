@@ -524,11 +524,11 @@ factor(n) 返回升序质因子（含重数），n$\ge$1；依赖 NumberTheory�
 
 \lstinputlisting[firstline=147,lastline=203]{../src/compact/number_theory.hpp}
 
-\Needspace{449pt}
+\Needspace{481pt}
 
 \section{线性筛、欧拉函数与 Möbius 函数}\label{compact-LinearSieve}\index{LinearSieve}
 
-构造参数 n$\ge$0，prime 为质数表，lp/phi/mu 为 0..n 数组。phi[1]=mu[1]=1，O(n) 时间和空间。
+构造参数 0$\le$n<INT\_MAX，且数组须能分配内存。prime（传统版 Prime）为递增质数表；lp/phi/mu 为 0..n 数组。x$\ge$2 时 lp[x] 是最小质因子，lp[x]==x 等价于 x 为素数；反复除以 lp[x] 可分解质因数。lp[0]=lp[1]=0，不能直接用 lp[x]==x 判断 0。n$\ge$1 时 phi[1]=mu[1]=1；第 0 项均为占位 0。O(n) 时间和空间，分解单个表内正整数耗时 O(log x)。n=0 不可访问下标 1。
 
 \lstinputlisting[firstline=204,lastline=239]{../src/compact/number_theory.hpp}
 
@@ -1492,7 +1492,7 @@ Maximum\_Closure(weight,dependencies,graph) 额外接收 Network\_Flow<N,M> 引�
 
 \lstinputlisting[firstline=163,lastline=219]{../src/classic/number_theory.hpp}
 
-\Needspace{449pt}
+\Needspace{481pt}
 
 \section{线性筛、欧拉函数与 Möbius 函数}\label{classic-LinearSieve}\index{Linear\_Sieve}
 

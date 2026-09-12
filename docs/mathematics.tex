@@ -20,6 +20,28 @@ M(n)=1-\sum_{l=2}^{n}M(\lfloor n/l\rfloor),\qquad
 \]
 求和按等商区间合并；第二式求和中没有额外乘以 $l$。
 
+\section{线性筛：三张表的约定}\index{linear sieve}
+\texttt{LinearSieve} 同时构造最小质因子、欧拉函数和莫比乌斯函数。
+内层遇到第一个整除 $i$ 的素数后停止，因此每个合数 $j$ 只由
+$p=\operatorname{lp}(j)$ 与 $i=j/p$ 生成一次，时间为 $O(n)$。
+若 $p\mid i$，则 $\varphi(ip)=p\varphi(i)$、$\mu(ip)=0$；
+否则二者分别为 $(p-1)\varphi(i)$ 和 $-\mu(i)$。
+
+判素使用 $x\ge2$ 且 $\operatorname{lp}(x)=x$，不能漏掉前半条件。
+分解表内正整数时，反复取 $p=\operatorname{lp}(x)$、令 $x\gets x/p$，直到 $x=1$；
+重复因子会重复输出。0 不可分解，1 的质因子列表为空。
+上限要求 $0\le n<\texttt{INT\_MAX}$，避免构造时 $n+1$ 溢出，并保证内存可用。
+筛乘积前先检查 $p\le n/i$，不直接计算可能溢出的 $ip$。
+
+双版本验证至 $n=10^7$，包括小前缀、试除最小质因子、因子还原和逐项约数和证书：
+\[
+\sum_{d\mid x}\varphi(d)=x,\qquad\sum_{d\mid x}\mu(d)=[x=1].
+\]
+这些恒等式在 $d=x$ 项系数为 1，可按 $x$ 递增唯一确定两张表。
+普通与 ASan/UBSan 均通过；不据此宣称莫比乌斯反演的所有应用已验证。
+
+来源：kuangbin 2.1.1、2.1.2、2.7.2、2.7.4、2.13.1；WIDA 的全部欧拉函数表。
+
 \section{区间筛：只保存目标区间}\index{segmented sieve}\index{区间筛素数}
 实现见第~\pageref{compact-segmented_primes}~页。
 设 $0\le L\le R\le\texttt{INT\_MAX}$，先筛出不超过 $\lfloor\sqrt R\rfloor$ 的素数，

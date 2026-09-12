@@ -183,7 +183,7 @@
     "number_theory",
     "LinearSieve",
     "线性筛、欧拉函数与 Möbius 函数",
-    "构造参数 n≥0，prime 为质数表，lp/phi/mu 为 0..n 数组。phi[1]=mu[1]=1，O(n) 时间和空间。"
+    "构造参数 0≤n<INT_MAX，且数组须能分配内存。prime（传统版 Prime）为递增质数表；lp/phi/mu 为 0..n 数组。x≥2 时 lp[x] 是最小质因子，lp[x]==x 等价于 x 为素数；反复除以 lp[x] 可分解质因数。lp[0]=lp[1]=0，不能直接用 lp[x]==x 判断 0。n≥1 时 phi[1]=mu[1]=1；第 0 项均为占位 0。O(n) 时间和空间，分解单个表内正整数耗时 O(log x)。n=0 不可访问下标 1。"
   ],
   [
     "number_theory",

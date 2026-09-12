@@ -205,3 +205,6 @@ python3 tests/frog_meeting_application.py
 
 "$CXX" "${flags[@]}" tests/crt_system.cpp -o build/crt_system
 build/crt_system
+
+"$CXX" "${flags[@]}" tests/linear_sieve.cpp -o build/linear_sieve
+build/linear_sieve
