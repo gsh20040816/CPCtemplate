@@ -828,13 +828,13 @@ stirling\_second\_row<mod,primitive>(n,m) 返回 S(n,0..m)，默认 mod=99824435
 
 \lstinputlisting[firstline=5,lastline=29]{../src/compact/stirling.hpp}
 
-\Needspace{415pt}
+\Needspace{568pt}
 
 \section{无符号第一类斯特林数：同一行}\label{compact-stirling_first_row}\index{stirling\_first\_row}
 
-stirling\_first\_row<mod,primitive>(n) 返回无符号 c(n,0..n)，默认模 998244353、原根 3。c(n,k) 为 n 元排列恰有 k 个循环的个数。n$\ge$0，n+1$\le$NTT 的 max\_size；n=0 返回 \{1\}。递归乘积树计算 x(x+1)…(x+n-1)，O(n log$^{2}$ n) 时间、O(n) 空间。带符号版本再乘 (-1)\textasciicircum{}(n-k)。依赖 NttConvolution；模 167772161 可用 <167772161>。传统接口 Stirling\_First\_Row。
+stirling\_first\_row<mod,primitive>(n) 返回无符号 c(n,0..n)，默认模 998244353、原根 3。c(n,k) 为 n 元排列恰有 k 个循环的个数。n$\ge$0，n+1$\le$NTT 的 max\_size；n=0 返回 \{1\}。倍增配合多项式平移计算 x(x+1)…(x+n-1)，O(n log n) 时间、O(n) 空间。带符号版本再乘 (-1)\textasciicircum{}(n-k)。依赖 NttConvolution；模 167772161 可用 <167772161>。传统接口 Stirling\_First\_Row。
 
-\lstinputlisting[firstline=33,lastline=61]{../src/compact/stirling.hpp}
+\lstinputlisting[firstline=33,lastline=76]{../src/compact/stirling.hpp}
 
 \chapter{多项式}
 
@@ -2100,13 +2100,13 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 
 \lstinputlisting[firstline=5,lastline=29]{../src/classic/stirling.hpp}
 
-\Needspace{415pt}
+\Needspace{568pt}
 
 \section{无符号第一类斯特林数：同一行}\label{classic-stirling_first_row}\index{Stirling\_First\_Row}
 
 算法约束见动态版本第~\pageref{compact-stirling_first_row}~页。本节代码独立可抄；采用下列实际接口名。
 
-\lstinputlisting[firstline=33,lastline=61]{../src/classic/stirling.hpp}
+\lstinputlisting[firstline=33,lastline=76]{../src/classic/stirling.hpp}
 
 \chapter{多项式}
 

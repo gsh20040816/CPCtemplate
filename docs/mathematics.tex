@@ -1021,8 +1021,11 @@ $S(0,0)=1$，正 $n$ 的 $S(n,0)=0$，$k>n$ 时为零。
 \[
 x(x+1)\cdots(x+n-1)=\sum_{k=0}^{n}c(n,k)x^k.
 \]
-递归划分线性因子区间并用 NTT 合并，时间 $O(n\log^2 n)$。
-小区间直接乘线性因子，避免大量极短变换。
+令 $F_m(x)=x(x+1)\cdots(x+m-1)$，倍增式为
+$F_{2m}(x)=F_m(x)F_m(x+m)$；奇数长度再乘 $x+2m$。
+平移系数满足 $[x^i]F_m(x+m)=\sum_{j=i}^m f_j j!m^{j-i}/(i!(j-i)!)$，
+将 $f_jj!$ 倒序后与 $m^j/j!$ 卷积即可。
+每层只递归计算一次半长多项式，总时间 $O(n\log n)$，空间 $O(n)$。
 要求 $n+1\le L$，默认模数下即 $n<2^{23}$；$n=0$ 返回常数多项式 1。
 如果需要下降阶乘对应的带符号数，将第 $k$ 项乘 $(-1)^{n-k}$。
 
@@ -1033,7 +1036,12 @@ x(x+1)\cdots(x+n-1)=\sum_{k=0}^{n}c(n,k)x^k.
 普通与 ASan/UBSan 均通过。
 \href{https://www.luogu.com.cn/problem/P5395}{P5395} 和
 \href{https://www.luogu.com.cn/problem/P5408}{P5408} 使用模 167772161，
-现已支持指定模板参数 167772161，并准备了两套完整驱动；尚无专门在线 AC。
+现已支持指定模板参数 167772161。两题均获两套码风在线 AC、各 10 个测试点全过：
+第二类\href{https://www.luogu.com.cn/record/297626422}{动态版}与
+\href{https://www.luogu.com.cn/record/297626660}{传统版}，
+第一类\href{https://www.luogu.com.cn/record/297627360}{动态版}与
+\href{https://www.luogu.com.cn/record/297627676}{传统版}。
+OJ 覆盖题面模数与行长，其他模数和第二类完整无符号指数仍由本地证据支持。
 该模数已测试二十万项第二类行与 262143 阶第一类行，普通与消毒器均通过。
 按列计算及 OI Wiki 的其他斯特林数应用仍待补，
 \href{https://oi-wiki.org/math/combinatorics/stirling/}{对应条目}保留部分覆盖状态。

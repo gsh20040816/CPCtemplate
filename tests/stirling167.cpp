@@ -50,8 +50,33 @@ vector<int> matrix_row(unsigned long long n,int m)
     for(int i=0;i<=m;i++) result[i]=r[i][0];
     return result;
 }
+template<int mod,int primitive>
+void small_modulus()
+{
+    vector<int> want{1};
+    const int limit=compact::NttConvolution<mod,primitive>::max_size;
+    for(int n=0;n<limit;n++)
+    {
+        auto a=compact::stirling_first_row<mod,primitive>(n);
+        auto b=classic::Stirling_First_Row<mod,primitive>(n);
+        assert(a.size()==want.size() && b.size()==want.size());
+        for(int i=0;i<=n;i++)
+            assert(a[i].v==want[i] && b[i].v==want[i]);
+        vector<int> next(n+2);
+        for(int i=0;i<=n;i++)
+        {
+            next[i]=(next[i]+want[i]*n)%mod;
+            next[i+1]=(next[i+1]+want[i])%mod;
+        }
+        want=next;
+    }
+}
 int main()
 {
+    small_modulus<2,1>();
+    small_modulus<3,2>();
+    small_modulus<17,3>();
+    small_modulus<97,5>();
     for(int n=0;n<=9;n++)
     {
         vector<int> blocks(n+1),cycles(n+1),p(n);

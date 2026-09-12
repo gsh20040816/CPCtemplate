@@ -37,26 +37,41 @@ inline vector<ModInt<mod>> stirling_first_row(int n)
     assert(n >= 0 && n < N::max_size);
     using Z = typename N::Z;
     using Poly = typename N::Poly;
-    if (n == 0)
-        return {1};
-    function<Poly(int, int)> solve = [&](int l, int r) -> Poly
+    Poly fact(n + 1), inv(n + 1);
+    fact[0] = 1;
+    for (int i = 1; i <= n; i++)
+        fact[i] = fact[i - 1] * i;
+    inv[n] = fact[n].inv();
+    for (int i = n; i > 0; i--)
+        inv[i - 1] = inv[i] * i;
+    function<Poly(int)> solve = [&](int len) -> Poly
     {
-        if (r - l <= 16)
+        if (len == 0)
+            return {1};
+        int m = len / 2;
+        Poly f = solve(m);
+        Poly a(m + 1), b(m + 1);
+        Z power = 1;
+        for (int i = 0; i <= m; i++)
         {
-            Poly f(r - l + 1);
-            f[0] = 1;
-            for (int j = l; j < r; j++)
-            {
-                for (int k = j - l + 1; k > 0; k--)
-                    f[k] = f[k - 1] + f[k] * j;
-                f[0] = f[0] * j;
-            }
-            return f;
+            a[m - i] = f[i] * fact[i];
+            b[i] = power * inv[i];
+            power = power * m;
         }
-        int m = (l + r) / 2;
-        return N::multiply(solve(l, m), solve(m, r));
+        auto c = N::multiply(a, b);
+        for (int i = 0; i <= m; i++)
+            a[i] = c[m - i] * inv[i];
+        f = N::multiply(f, a);
+        if (len % 2)
+        {
+            f.push_back(0);
+            for (int i = len; i > 0; i--)
+                f[i] = f[i - 1] + f[i] * (len - 1);
+            f[0] = f[0] * (len - 1);
+        }
+        return f;
     };
-    return solve(0, n);
+    return solve(n);
 }
 
 // END stirling_first_row

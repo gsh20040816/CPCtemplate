@@ -70,6 +70,14 @@ for row in rows:
         entry['excluded_unused_component'] = unused
         entry['remaining_bundle_matches_after_formatting'] = normalize(old_rest) == normalize(new_rest)
         entry['scope_note'] = 'Only the uninstantiated factorial table is excluded; this does not validate its new APIs or confer a new AC.'
+    if current != archived and row['problem'] == 'Luogu P5395':
+        name = 'stirling_first_row' if row['style'] == 'compact' else 'Stirling_First_Row'
+        pattern = r'// BEGIN ' + name + r'.*?// END ' + name
+        old = re.sub(pattern, '', archived.decode(), flags=re.S)
+        new = re.sub(pattern, '', current.decode(), flags=re.S)
+        entry['excluded_unused_component'] = name
+        entry['remaining_bundle_matches_after_formatting'] = normalize(old) == normalize(new)
+        entry['scope_note'] = 'P5395 calls second-kind rows only; changing the unused first-kind function does not invalidate the unchanged tested API or validate the new first-kind implementation.'
     report.append(entry)
 (root / 'verification/oj-source-audit.json').write_text(
     json.dumps(report, ensure_ascii=False, indent=2) + '\n')

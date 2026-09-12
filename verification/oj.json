@@ -1185,5 +1185,89 @@
       "Matrix_Tree<1000000007>::Count undirected / away_from_root"
     ],
     "note": "All 11 cases accepted: 6 undirected and 5 directed outward-root-1 cases; n<=300, m<=100000, positive weights<=1e9, parallel edges and loops allowed. Other roots, inward trees, signed/zero weights and small prime moduli have separate local evidence. Other bundled algebra/number-theory APIs are not covered."
+  },
+  {
+    "problem": "Luogu P5395",
+    "style": "compact",
+    "algorithm": "stirling_second_row<167772161>",
+    "record": "https://www.luogu.com.cn/record/297626422",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "1.04s",
+    "max_case_time_ms": 202,
+    "memory": "6.84MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P5395.compact.cpp",
+    "submitted_source": "verification/submitted/P5395.compact.cpp",
+    "submitted_sha256": "9aaa0eb23c327138804d23e5b492bb69f03c0595d6e76237dfa96a8fbfbc18e6",
+    "tested_api": [
+      "stirling_second_row<167772161>(n,n)",
+      "NttConvolution<167772161,3>::multiply"
+    ],
+    "note": "All 10 cases accepted; second-kind full row for n<=200000 modulo 167772161. Other moduli, uint64 exponents and first-kind rows are not covered by this acceptance."
+  },
+  {
+    "problem": "Luogu P5395",
+    "style": "classic",
+    "algorithm": "Stirling_Second_Row<167772161>",
+    "record": "https://www.luogu.com.cn/record/297626660",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "1.03s",
+    "max_case_time_ms": 203,
+    "memory": "6.78MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P5395.classic.cpp",
+    "submitted_source": "verification/submitted/P5395.classic.cpp",
+    "submitted_sha256": "e614115544c8b33792cfcfc1b6342fda07f0c658879993d579ac09b5ef41f586",
+    "tested_api": [
+      "Stirling_Second_Row<167772161>(n,n)",
+      "Ntt_Convolution<167772161,3>::Multiply"
+    ],
+    "note": "All 10 cases accepted; second-kind full row for n<=200000 modulo 167772161. Other moduli, uint64 exponents and first-kind rows are not covered by this acceptance."
+  },
+  {
+    "problem": "Luogu P5408",
+    "style": "compact",
+    "algorithm": "stirling_first_row<167772161>",
+    "record": "https://www.luogu.com.cn/record/297627360",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "1.53s",
+    "max_case_time_ms": 310,
+    "memory": "7.96MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P5408.compact.cpp",
+    "submitted_source": "verification/submitted/P5408.compact.cpp",
+    "submitted_sha256": "beaae21038cab0f673f3579175a274f8aafb3a121e87a18457747e333ab7bdcd",
+    "tested_api": [
+      "stirling_first_row<167772161>(n)",
+      "NttConvolution<167772161,3>::multiply"
+    ],
+    "note": "All 10 cases accepted; unsigned first-kind full row for 1<=n<262144 modulo 167772161. Uses recursive doubling and polynomial Taylor shift. Other moduli, n=0 and second-kind rows are not covered by this acceptance."
+  },
+  {
+    "problem": "Luogu P5408",
+    "style": "classic",
+    "algorithm": "Stirling_First_Row<167772161>",
+    "record": "https://www.luogu.com.cn/record/297627676",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_display": "1.54s",
+    "max_case_time_ms": 311,
+    "memory": "9.51MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P5408.classic.cpp",
+    "submitted_source": "verification/submitted/P5408.classic.cpp",
+    "submitted_sha256": "c65840e27167af8a273bbbccc8433aaa5e95f38b055e11086d2fbaf261e431b2",
+    "tested_api": [
+      "Stirling_First_Row<167772161>(n)",
+      "Ntt_Convolution<167772161,3>::Multiply"
+    ],
+    "note": "All 10 cases accepted; unsigned first-kind full row for 1<=n<262144 modulo 167772161. Uses recursive doubling and polynomial Taylor shift. Other moduli, n=0 and second-kind rows are not covered by this acceptance."
   }
 ]
