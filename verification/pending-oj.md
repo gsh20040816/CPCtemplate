@@ -22,6 +22,8 @@
 - `verify/luogu/P1972.compact.cpp`
 - `verify/luogu/P2495.classic.cpp`
 - `verify/luogu/P2495.compact.cpp`
+- `verify/luogu/P2522.classic.cpp`
+- `verify/luogu/P2522.compact.cpp`
 - `verify/luogu/P2617.classic.cpp`
 - `verify/luogu/P2617.compact.cpp`
 - `verify/luogu/P2633.classic.cpp`

@@ -216,3 +216,7 @@ python3 tests/factorization_application.py
 
 "$CXX" "${flags[@]}" tests/euler_phi.cpp -o build/euler_phi
 build/euler_phi
+
+"$CXX" "${flags[@]}" tests/coprime_pairs.cpp -o build/coprime_pairs
+build/coprime_pairs
+python3 tests/coprime_pairs_application.py

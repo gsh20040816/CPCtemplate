@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T06:14:49.746844+00:00",
+  "recorded_at_utc": "2026-09-12T06:20:19.672051+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -123,7 +123,12 @@
       "1811 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.441s",
       "",
       "Incremental Euler phi; unchanged-module evidence retained from d7bd045:",
-      "Euler phi dual trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS"
+      "Euler phi dual trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS",
+      "",
+      "Incremental coprime rectangles; unchanged-module evidence retained from 61e718c:",
+      "Coprime pairs dual gcd rectangle oracle, zero prefixes, million square and INT_MAX thin intervals PASS",
+      "P2522 compact: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS",
+      "P2522 classic: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -245,7 +250,12 @@
       "1811 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.473s",
       "",
       "Incremental Euler phi; unchanged-module evidence retained from d7bd045:",
-      "Euler phi dual trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS"
+      "Euler phi dual trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS",
+      "",
+      "Incremental coprime rectangles; unchanged-module evidence retained from 61e718c:",
+      "Coprime pairs dual gcd rectangle oracle, zero prefixes, million square and INT_MAX thin intervals PASS",
+      "P2522 compact: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS",
+      "P2522 classic: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS"
     ]
   },
   "sha256": {
@@ -259,6 +269,7 @@
     "src/classic/bridge_augmentation.hpp": "b7e30903a84e6c109d116a9764ac408ff0a13982d682ac12a26822c3115e10ae",
     "src/classic/carmichael.hpp": "3b932372bc1560bd43393b0cb5786a2aa70375782be440f50c73ad74a7989440",
     "src/classic/centroid.hpp": "968bba47f4eba1baa5e9778362cae68e1713eaf45a58cd53b680cf5ed7f4931a",
+    "src/classic/coprime_pairs.hpp": "336da5fa9e0a13f323e5bc62da4cbe1c71ebc55c46495bd8dc91efc33431e8e1",
     "src/classic/data_structure.hpp": "c22a85ed4ea5c3a458f4febf18549d611045a255cabe429189debd92113f0a70",
     "src/classic/directed_euler.hpp": "f8b4a9b1c752bb53d9a5cded2eb547c56f0e299ce584085960110225639f91af",
     "src/classic/dsu_on_tree.hpp": "ec9482919c309309980c8ec06d98fbf3ad7aeb1308f1685552245bd3df040434",
@@ -323,6 +334,7 @@
     "src/compact/bridge_augmentation.hpp": "94b53ae35023a8e157749c97a7406d9d805d823e103feea18046d9072b9b203a",
     "src/compact/carmichael.hpp": "c96eb5a60b9a7c3c7613259a990dc06d8cd755efdebea82b854d575615bcdf73",
     "src/compact/centroid.hpp": "80d092c4874c944dc6f58b802d51c04c06f34a5166edcacb68edbab3f1ca9a90",
+    "src/compact/coprime_pairs.hpp": "c00ee31e1bfffb415c2cc411e049752d306deb5a6c4f9611b5490497cd6c4094",
     "src/compact/data_structure.hpp": "ffbb46b60f707a3ed44838329a8f7eefbd6cba4c2b64d30ed8a62f207e73327e",
     "src/compact/directed_euler.hpp": "241e6cacb38e57e1b95f2e089cbceebb9120afc83671930e4023dc57245f09bc",
     "src/compact/dsu_on_tree.hpp": "b773f54e4304a7ef348c5e6079233726df17232f8da5843a5a9b284b2bcd94fa",
@@ -393,6 +405,8 @@
     "tests/centroid.cpp": "b2658de09f312df33a90980a940d2e7e01fc078950ed91ed9ab38581e8e9d9c5",
     "tests/circle_precision.cpp": "04170f5d59d33d3605f9d83bf2f5e284a2e44b09eeac7716e25f2482f45b87bd",
     "tests/classic.cpp": "3bc4c9421e6c96b93dbd97dfc38f09fcbe7596b2cdf24eecf7bb2f2652ba462a",
+    "tests/coprime_pairs.cpp": "3c858085c98ec3eb567da8a7fb3d2f960aef49bb1f18a6341d3ac2d91dd23b1a",
+    "tests/coprime_pairs_application.py": "00e09639f89899f7efe22a47d3b8955c9fc3004682b1faf947ea2307fbe63473",
     "tests/crt.cpp": "cf2ac8fd470bae001f8a543dc71d0b82ec059e44478ab5fb59f1c288ca64dd54",
     "tests/crt_application.py": "359cc78278849ad30d5fade4e5495317d56ee1809bb9ad67216ccea008cd8817",
     "tests/crt_system.cpp": "15991fe685750d0c49eeaedf00768907c81e7b8d3a35ad80fedff64e0c4098e4",

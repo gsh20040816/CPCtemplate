@@ -204,6 +204,12 @@
     "构造 PrimitiveRoot(n)，要求 2≤n≤INT_MAX；init(n) 可重建。order(a) 返回 a 模 n 的乘法阶，a 不可逆时返回 0；is_root(a) 判断该剩余类是否为原根，a 可为完整 long long。minimum() 返回 1..n-1 内最小原根，无原根返回 -1；all() 返回升序的全部原根，无原根返回空向量。mod、phi、exists 只读；factors 为 phi 的不同素因子，辅助 factor 为试除分解。依赖 NumberTheory 的 power。初始化 O(√n)，求阶 O(log²n)，原根判定 O((1+ω(phi))log n)。若最小原根为 G，顺序枚举最坏检查 G 个候选，不能假定 G 总是常数。枚举全部另需 O(phi log phi+c log c) 时间、O(c) 空间，c 为原根数；大模数只求最小原根或阶时，不应调用 all。"
   ],
   [
+    "coprime_pairs",
+    "CoprimePairs",
+    "矩形 GCD 计数",
+    "构造 CoprimePairs(n) 预处理 mu 前缀和，0≤n<INT_MAX，O(n) 时间与空间；依赖 LinearSieve。count(a,b) 求 [1,a]×[1,b] 的互质数对，a,b 为非负 int，要求 min(a,b)≤n，任一为 0 返回 0。rectangle(a,b,c,d,k) 求 [a,b]×[c,d] 中 gcd(x,y)=k 的数对，要求 1≤a≤b、1≤c≤d、k≥1，min(b/k,d/k)≤n；闭区间容斥。返回 long long，中间分块累加用 int128。单次前缀查询 O(√a+√b)，额外空间 O(1)。传统接口 Coprime_Pairs、Count、Rectangle。sum 为 mu 前缀和，只读。"
+  ],
+  [
     "euler_phi",
     "euler_phi",
     "单个数的欧拉函数",

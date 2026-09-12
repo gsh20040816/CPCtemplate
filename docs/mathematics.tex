@@ -123,6 +123,39 @@ POJ 2689 与 UVa 10140 的驱动读到 EOF，扫描相邻素数差。
 
 来源：kuangbin 2.1.3；\url{https://onlinejudge.org/external/101/10140.pdf}。
 
+\section{矩形 GCD 计数：缩放后容斥}\index{coprime pairs}\index{矩形 GCD 计数}
+实现见第~\pageref{compact-CoprimePairs}~页。
+由 $[g=1]=\sum_{d\mid g}\mu(d)$，前缀矩形互质数对数为
+\[
+F(A,B)=\sum_{i=1}^{\min(A,B)}\mu(i)\left\lfloor\frac Ai\right\rfloor
+\left\lfloor\frac Bi\right\rfloor.
+\]
+两个商同时不变的右端点取 $r=\min(A/\lfloor A/l\rfloor,B/\lfloor B/l\rfloor)$，
+用莫比乌斯前缀和合并 $[l,r]$。不能只按一个商分块。
+只需筛到 $\min(A,B)$，不要求较长的一边也在预处理范围内。
+$A=0$ 或 $B=0$ 时循环为空，返回 0；正整数条件不包含坐标轴。
+
+矩形内 $\gcd(x,y)=k$ 等价于 $x,y$ 均为 $k$ 的倍数，且缩放后互质。
+因此答案为四个前缀矩形的容斥：
+\[
+\begin{aligned}
+&F(\lfloor b/k\rfloor,\lfloor d/k\rfloor)
+-F(\lfloor(a-1)/k\rfloor,\lfloor d/k\rfloor)\\
+&-F(\lfloor b/k\rfloor,\lfloor(c-1)/k\rfloor)
++F(\lfloor(a-1)/k\rfloor,\lfloor(c-1)/k\rfloor).
+\end{aligned}
+\]
+这里必须先减 1 再除以 $k$；零商无需特殊补偿。
+输入端点为正 \texttt{int}，最终答案不超过矩形面积，能用有符号 64 位保存。
+分块累加使用 128 位，避免依赖正负中间项的额外界。
+
+双版本以小矩形逐对求 gcd 为独立参考，另验证百万正方形的
+$F(N,N)=2\sum_{i=1}^N\varphi(i)-1$，以及按短边剩余类直接计数的 \texttt{INT\_MAX} 长条。
+P2522 双版本完整程序验证五万次查询，包括缩放、窄边和无解；普通与 ASan/UBSan 均通过。
+尚无本库在线 AC。
+
+来源：kuangbin 2.13.2（BZOJ 2301）；\url{https://www.luogu.com.cn/problem/P2522}。
+
 \section{模运算的适用条件}\index{CRT}\index{Euler theorem}\index{Lucas theorem}
 模逆元存在当且仅当 $\gcd(a,m)=1$。费马逆元 $a^{p-2}$ 仅适用于素数模数及 $a\not\equiv0$。
 对正模数 $m,n$，同余式 $x\equiv a\pmod m$、$x\equiv b\pmod n$ 可合并当且仅当

@@ -632,6 +632,16 @@ garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garn
 
 \lstinputlisting[firstline=58,lastline=99,firstnumber=55]{../src/compact/primitive_root.hpp}
 
+\chapter{矩形 GCD 计数}
+
+\Needspace{458pt}
+
+\section{矩形 GCD 计数}\label{compact-CoprimePairs}\index{CoprimePairs}
+
+构造 CoprimePairs(n) 预处理 mu 前缀和，0$\le$n<INT\_MAX，O(n) 时间与空间；依赖 LinearSieve。count(a,b) 求 [1,a]×[1,b] 的互质数对，a,b 为非负 int，要求 min(a,b)$\le$n，任一为 0 返回 0。rectangle(a,b,c,d,k) 求 [a,b]×[c,d] 中 gcd(x,y)=k 的数对，要求 1$\le$a$\le$b、1$\le$c$\le$d、k$\ge$1，min(b/k,d/k)$\le$n；闭区间容斥。返回 long long，中间分块累加用 int128。单次前缀查询 O($\sqrt{\vphantom x}$a+$\sqrt{\vphantom x}$b)，额外空间 O(1)。传统接口 Coprime\_Pairs、Count、Rectangle。sum 为 mu 前缀和，只读。
+
+\lstinputlisting[firstline=5,lastline=36]{../src/compact/coprime_pairs.hpp}
+
 \chapter{单个数的欧拉函数}
 
 \Needspace{435pt}
@@ -1605,6 +1615,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 \newpage
 
 \lstinputlisting[firstline=58,lastline=99,firstnumber=55]{../src/classic/primitive_root.hpp}
+
+\chapter{矩形 GCD 计数}
+
+\Needspace{458pt}
+
+\section{矩形 GCD 计数}\label{classic-CoprimePairs}\index{Coprime\_Pairs}
+
+算法约束见动态版本第~\pageref{compact-CoprimePairs}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=36]{../src/classic/coprime_pairs.hpp}
 
 \chapter{单个数的欧拉函数}
 
