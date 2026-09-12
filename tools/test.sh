@@ -260,3 +260,6 @@ python3 tests/gomory_hu_application.py
 
 "$CXX" "${flags[@]}" tests/halfplanes.cpp -o build/halfplanes
 build/halfplanes
+
+"$CXX" "${flags[@]}" tests/geometry_extra_audit.cpp -o build/geometry_extra_audit
+build/geometry_extra_audit
