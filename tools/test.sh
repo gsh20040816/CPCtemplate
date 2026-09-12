@@ -296,3 +296,6 @@ build/root_factors
 "$CXX" "${flags[@]}" tests/matrix_tree.cpp -o build/matrix_tree
 build/matrix_tree
 python3 tests/matrix_tree_application.py
+
+"$CXX" "${flags[@]}" tests/determinant_mod.cpp -o build/determinant_mod
+build/determinant_mod

@@ -834,6 +834,16 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=190,lastline=238]{../src/compact/algebra.hpp}
 
+\chapter{任意模数行列式}
+
+\Needspace{514pt}
+
+\section{任意正模数行列式：欧几里得消元}\label{compact-determinant_mod}\index{determinant\_mod}
+
+determinant\_mod(a,mod) 返回 det(a) 的最小非负余数。a 为 long long 方阵，元素支持完整 signed 64 位；1$\le$mod$\le$LLONG\_MAX，可以是合数。不使用模逆元，允许不可逆主元。矩阵按值传入，调用后原矩阵不变；空矩阵返回 1\%mod，mod=1 时返回 0。换行改变符号，最终乘上三角矩阵的对角元素。所有乘法先转 int128。O(n$^{3}$ log mod) 时间、O(n$^{2}$) 空间；素数模通常优先用已有高斯行列式。传统接口 Determinant\_Mod。
+
+\lstinputlisting[firstline=7,lastline=45]{../src/compact/determinant_mod.hpp}
+
 \chapter{带权生成树计数}
 
 \Needspace{543pt}
@@ -2051,6 +2061,16 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-DiscreteLog}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=190,lastline=238]{../src/classic/algebra.hpp}
+
+\chapter{任意模数行列式}
+
+\Needspace{514pt}
+
+\section{任意正模数行列式：欧几里得消元}\label{classic-determinant_mod}\index{Determinant\_Mod}
+
+算法约束见动态版本第~\pageref{compact-determinant_mod}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=7,lastline=45]{../src/classic/determinant_mod.hpp}
 
 \chapter{带权生成树计数}
 

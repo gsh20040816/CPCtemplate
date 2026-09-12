@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T09:19:26.168304+00:00",
+  "recorded_at_utc": "2026-09-12T09:34:23.814604+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -206,7 +206,10 @@
       "Root preparation dual trial factorization, primitive-order certificates, trillion bounds and end-to-end composite root sets PASS",
       "",
       "Incremental weighted directed Matrix-Tree; unchanged-module evidence retained from b718ad8:",
-      "Matrix tree dual exhaustive weighted edge sets, all roots/directions, parallel loops, signed weights and 220-vertex Cayley families PASS"
+      "Matrix tree dual exhaustive weighted edge sets, all roots/directions, parallel loops, signed weights and 220-vertex Cayley families PASS",
+      "",
+      "Incremental arbitrary-modulus determinant; unchanged-module evidence retained from 20258df:",
+      "Arbitrary-mod determinant dual permutation/Bareiss oracles, composite nonunits, signed64 extremes and large diagonal/Cayley matrices PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -411,7 +414,10 @@
       "Root preparation dual trial factorization, primitive-order certificates, trillion bounds and end-to-end composite root sets PASS",
       "",
       "Incremental weighted directed Matrix-Tree; unchanged-module evidence retained from b718ad8:",
-      "Matrix tree dual exhaustive weighted edge sets, all roots/directions, parallel loops, signed weights and 220-vertex Cayley families PASS"
+      "Matrix tree dual exhaustive weighted edge sets, all roots/directions, parallel loops, signed weights and 220-vertex Cayley families PASS",
+      "",
+      "Incremental arbitrary-modulus determinant; unchanged-module evidence retained from 20258df:",
+      "Arbitrary-mod determinant dual permutation/Bareiss oracles, composite nonunits, signed64 extremes and large diagonal/Cayley matrices PASS"
     ]
   },
   "sha256": {
@@ -432,6 +438,7 @@
     "src/classic/coprime_pairs.hpp": "336da5fa9e0a13f323e5bc62da4cbe1c71ebc55c46495bd8dc91efc33431e8e1",
     "src/classic/cut_tree_queries.hpp": "ca7ddbef43ccc83040eed16c0e5fcc4521d08993857a35900b5aa06c8daa85bf",
     "src/classic/data_structure.hpp": "c22a85ed4ea5c3a458f4febf18549d611045a255cabe429189debd92113f0a70",
+    "src/classic/determinant_mod.hpp": "896398c5884e44c62478c16a2ef5be594226a0c6b8700a10ad4e9d75dc90d13d",
     "src/classic/directed_euler.hpp": "f8b4a9b1c752bb53d9a5cded2eb547c56f0e299ce584085960110225639f91af",
     "src/classic/divisor_sum.hpp": "c9ede0a278dde0e014a1465e173cf6739d88968cd94bb076754ac4fce945e3ae",
     "src/classic/dsu_on_tree.hpp": "ec9482919c309309980c8ec06d98fbf3ad7aeb1308f1685552245bd3df040434",
@@ -512,6 +519,7 @@
     "src/compact/coprime_pairs.hpp": "c00ee31e1bfffb415c2cc411e049752d306deb5a6c4f9611b5490497cd6c4094",
     "src/compact/cut_tree_queries.hpp": "0aef44e11004d4d2d9eac16a4ae9354f820a38e0b53b3b7ccbbe3a9146dab27f",
     "src/compact/data_structure.hpp": "ffbb46b60f707a3ed44838329a8f7eefbd6cba4c2b64d30ed8a62f207e73327e",
+    "src/compact/determinant_mod.hpp": "b2d01d62908eb232a29bfa7de538f41349f78c0d64d55326240b23e63b40bcde",
     "src/compact/directed_euler.hpp": "241e6cacb38e57e1b95f2e089cbceebb9120afc83671930e4023dc57245f09bc",
     "src/compact/divisor_sum.hpp": "10e7cbc583f9e4f2e4e7dcfa4dd081e794a770dc7ca04db9d620df81e9677937",
     "src/compact/dsu_on_tree.hpp": "b773f54e4304a7ef348c5e6079233726df17232f8da5843a5a9b284b2bcd94fa",
@@ -603,6 +611,7 @@
     "tests/crt_application.py": "359cc78278849ad30d5fade4e5495317d56ee1809bb9ad67216ccea008cd8817",
     "tests/crt_system.cpp": "15991fe685750d0c49eeaedf00768907c81e7b8d3a35ad80fedff64e0c4098e4",
     "tests/cut_tree_queries.cpp": "ec52916f3aac9033e15a0e80926f05b7a2063211fb5ac3aff902a3e12f5498fa",
+    "tests/determinant_mod.cpp": "b7db91a53f84f78ed54bae0769b575f00fa0f427059385194e1ff0bd1f1f92b4",
     "tests/directed_euler.cpp": "5438216866c8c013d9f7d0e20907ecb60108eb7329f4f9dc6389d7c2a2b7affa",
     "tests/directed_euler_application.py": "31458b7e2a5f9c71579c5f93c8b7afc8d6a59b1f19b3fcdef5232e59b4c832ab",
     "tests/discrete_log.cpp": "5745ad604c912e33816c25499d5e313fb10f07dd27d1ebd8630aa11c8596b65f",

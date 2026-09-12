@@ -306,6 +306,12 @@
     "素数模数。solve(a,n) 输入增广矩阵，返回 consistent、rank、特解 particular 和零空间基 kernel。determinant(empty)=1。spanning_trees(n,edges) 使用 0-based 无向图，允许重边，忽略自环；返回生成树数模 p。高斯与行列式 O(n³)，矩阵幂 O(n³ log e)。"
   ],
   [
+    "determinant_mod",
+    "determinant_mod",
+    "任意正模数行列式：欧几里得消元",
+    "determinant_mod(a,mod) 返回 det(a) 的最小非负余数。a 为 long long 方阵，元素支持完整 signed 64 位；1≤mod≤LLONG_MAX，可以是合数。不使用模逆元，允许不可逆主元。矩阵按值传入，调用后原矩阵不变；空矩阵返回 1%mod，mod=1 时返回 0。换行改变符号，最终乘上三角矩阵的对角元素。所有乘法先转 int128。O(n³ log mod) 时间、O(n²) 空间；素数模通常优先用已有高斯行列式。传统接口 Determinant_Mod。"
+  ],
+  [
     "matrix_tree",
     "MatrixTree",
     "带权矩阵树：无向树与内外向树形图",
