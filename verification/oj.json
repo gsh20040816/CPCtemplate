@@ -785,5 +785,45 @@
       "exgcd"
     ],
     "note": "All 15 judge cases accepted. Judge guarantees consistency and LCM <= 1e18. Negative residues, inconsistency and int64 period overflow tested locally. Other Number_Theory algorithms in the bundle are not covered by this AC."
+  },
+  {
+    "problem": "Luogu P1495",
+    "style": "compact",
+    "algorithm": "garner",
+    "record": "https://www.luogu.com.cn/record/297521594",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 44,
+    "memory": "856.00KB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P1495.compact.cpp",
+    "submitted_source": "verification/submitted/P1495.compact.cpp",
+    "submitted_sha256": "4ed8b60dfa2f2b9a76a74476413fcf60b29a022451159d77ad144baca2b55deb",
+    "tested_api": [
+      "garner",
+      "garner_digits"
+    ],
+    "note": "All 11 judge cases accepted. Pairwise coprime moduli and product <= 1e18; target equals product. Larger periods, arbitrary target, full mixed-radix reconstruction and invalid-input rejection are local tests only. Other bundled number theory functions are not covered."
+  },
+  {
+    "problem": "Luogu P1495",
+    "style": "classic",
+    "algorithm": "Garner",
+    "record": "https://www.luogu.com.cn/record/297521658",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 44,
+    "memory": "1.04MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P1495.classic.cpp",
+    "submitted_source": "verification/submitted/P1495.classic.cpp",
+    "submitted_sha256": "3cf90f7c869cd59ae470b793ed1bf5997aa97a66460a9a5261b85f051bc5a7e4",
+    "tested_api": [
+      "Garner",
+      "Garner_Digits"
+    ],
+    "note": "All 11 judge cases accepted. Pairwise coprime moduli and product <= 1e18; target equals product. Larger periods, arbitrary target, full mixed-radix reconstruction and invalid-input rejection are local tests only. Other bundled number theory functions are not covered."
   }
 ]
