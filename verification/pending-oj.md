@@ -48,6 +48,8 @@
 - `verify/luogu/P3812.compact.cpp`
 - `verify/luogu/P4151.classic.cpp`
 - `verify/luogu/P4151.compact.cpp`
+- `verify/luogu/P4718.classic.cpp`
+- `verify/luogu/P4718.compact.cpp`
 - `verify/luogu/P4779.classic.cpp`
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.classic.cpp`
@@ -68,6 +70,8 @@
 - `verify/poj/1470.compact.cpp`
 - `verify/poj/1637.classic.cpp`
 - `verify/poj/1637.compact.cpp`
+- `verify/poj/1811.classic.cpp`
+- `verify/poj/1811.compact.cpp`
 - `verify/poj/2117.classic.cpp`
 - `verify/poj/2117.compact.cpp`
 - `verify/poj/2337.classic.cpp`

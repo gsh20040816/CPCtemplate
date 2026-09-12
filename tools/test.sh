@@ -211,3 +211,5 @@ build/linear_sieve
 
 "$CXX" "${flags[@]}" tests/primality_factorization.cpp -o build/primality_factorization
 build/primality_factorization
+
+python3 tests/factorization_application.py
