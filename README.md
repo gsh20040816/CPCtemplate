@@ -6,7 +6,7 @@
 
 后续按[编写优先级](docs/PRIORITIES.md)补齐高频且易错的模板，以平衡树、Tarjan 等为难度参照；已完成高级模板保留。
 
-执行顺序见 [issue #1 计划](docs/ISSUE-1.md)，码风与待确认移除名单见 [issue #2](docs/ISSUE-2.md)，已审题入口见 [模板题表](docs/TEMPLATE-PROBLEMS.md)，完整候选见 [映射清单](docs/template-problems.json)。
+执行顺序见 [issue #1 计划](docs/ISSUE-1.md)，码风与待确认移除名单见 [issue #2](docs/ISSUE-2.md)，ACL 结构与缺项见 [issue #3 对照](docs/ACL-REVIEW.md)；已审题入口见 [模板题表](docs/TEMPLATE-PROBLEMS.md)，完整候选见 [映射清单](docs/template-problems.json)。
 
 ## 范围
 

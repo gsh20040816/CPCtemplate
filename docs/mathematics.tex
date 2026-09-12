@@ -1431,3 +1431,15 @@ O\left(QB+\frac{n^2}{B}+U\min\left(Q,(\lfloor n/B\rfloor+1)^2\right)\right).
 可见范围内按耗时并列排名为 94 out of 143，位置区间为 94--96。
 统计页显示所有提交 1053、满分提交 578；与可见列表的计数差异原因尚未核实，因此全站排名仍为待查。
 记录清单与证据见 \texttt{docs/ranking-audits.json}，不得将该局部排名改写为全站排名。
+
+\section{并查集模板题的接口范围}
+\href{https://www.luogu.com.cn/problem/P3367}{P3367} 输入点号为 1-based，驱动统一减一后调用 dsu。
+\href{https://www.luogu.com.cn/record/297668102}{记录 297668102} 通过全部 20 个测试，最慢单点 196 ms、峰值内存 2.27 MB。
+该输出验证 merge、same 及其调用的 find，不验证 size、groups；后两者已由独立标签参考和 50 万点长链测试核对。
+
+\section{ACL 的组合约定}
+固定参考 AtCoder Library 提交 \texttt{864245a00b00}，公开模块分为数据结构、图论、数学与字符串。
+学习短小的运算接口及明确的组合契约，不直接复制全部工程支持层。
+尤其注意：懒标记 composition(f,g) 表示先作用 g、再作用 f；SCC 分量方向与 2-SAT 的真假编码不能分别替换。
+本库当前 Fenwick<ModInt> 缺少复合赋值而不能编译，尚待补齐；这是类型组合缺口，不算算法测试通过。
+完整 12 模块、6 内部头文件的对照及缺项清单见 \texttt{docs/ACL-REVIEW.md}。

@@ -27,7 +27,22 @@
 | `PBDSOrderedTree` | [Luogu P6136](https://www.luogu.com.cn/problem/P6136) | n<=100000; m<=1000000; values<2^30 | 待实现 | 待核验 |
 | `GPHashTable` | [Library Checker associative_array](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; 0<=key,value<=10^18; 5s | 待实现 | 待核验 |
 | `RopePersistentQueue` | [Library Checker persistent_queue](https://judge.yosupo.jp/problem/persistent_queue) | Q<=500000; -1<=t_i<i; 0<=x<=10^9; 5s | 待实现 | 待核验 |
-| `dsu` | [Luogu P3367](https://www.luogu.com.cn/problem/P3367) | N<=200000; M<=1000000; 1-based task vertices | 待编写驱动/提交 | 待核验 |
+| `dsu` | [Luogu P3367](https://www.luogu.com.cn/problem/P3367) | N<=200000; M<=1000000; 1-based task vertices | [记录](https://www.luogu.com.cn/record/297668102) | 待核验 |
+| `Lowlink::add/run/bridge` | [QOJ 995](https://qoj.ac/problem/995) | n<=100000; m<=500000; 1s; 1-based | 待编写驱动/提交 | 待核验 |
+| `Lowlink::add/run/cut` | [QOJ 996](https://qoj.ac/problem/996) | n<=20000; m<=100000; 0.5s; 1-based | 待编写驱动/提交 | 待核验 |
+| `Dinic::add/flow` | [Luogu P3376](https://www.luogu.com.cn/problem/P3376) | n<=200; m<=5000; 0<=capacity<2^31 | [记录](https://www.luogu.com.cn/record/297501480) | 待核验 |
+| `MinCostFlow::add/flow` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000; m<=50000; capacity,cost<=1000; result<=2^31-1 | 待编写驱动/提交 | 待核验 |
+| `Biconnected::add/run/blocks` | [Luogu P8435](https://www.luogu.com.cn/problem/P8435) | n<=500000; m<=2000000 | [记录](https://www.luogu.com.cn/record/297517446) | 待核验 |
+| `Biconnected::add/run/bel` | [Luogu P8436](https://www.luogu.com.cn/problem/P8436) | n<=500000; m<=2000000; multigraph | [记录](https://www.luogu.com.cn/record/297519028) | 待核验 |
+| `BipartiteMatching::add/solve` | [Luogu P3386](https://www.luogu.com.cn/problem/P3386) | 1<=n,m<=500; edges<=50000; parallel edges allowed | 待编写驱动/提交 | 待核验 |
+| `WeightedMatching::add/solve/r` | [Luogu P6577](https://www.luogu.com.cn/problem/P6577) | n<=500; m<=n^2; -19980731<=weight<=19980731 | [记录](https://www.luogu.com.cn/record/297520123) | 待核验 |
+| `OfflineLCA::add/add_query/run/answer` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S; queries may have equal endpoints | [记录](https://www.luogu.com.cn/record/297521009) | 待核验 |
+| `EulerLCA::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 待编写驱动/提交 | 待核验 |
+| `LiftingLCA::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 待编写驱动/提交 | 待核验 |
+| `HLD::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 待编写驱动/提交 | 待核验 |
+| `HLD + AffineSegTree::HLD::path/AffineSegTree::update/AffineSegTree::query` | [Luogu P3384](https://www.luogu.com.cn/problem/P3384) | n,m<=100000; 1<=P<=2^30; int inputs | [记录](https://www.luogu.com.cn/record/297520172) | 待核验 |
+| `CentroidPairs::add/build/count_exact` | [Luogu P3806](https://www.luogu.com.cn/problem/P3806) | n<=10000; m<=100; 1<=k<=10^7; 1<=edge_weight<=10000 | [记录](https://www.luogu.com.cn/record/297519137) | 待核验 |
+| `PersistentKth::kth` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | n,m<=200000; 0<=a[i]<=10^9; valid l,r,k | [记录](https://www.luogu.com.cn/record/297520290) | 待核验 |
 
 ## 适配与证据范围
 
@@ -225,7 +240,127 @@ Explicit standard DSU template. Retained by user exception in issue #2 comment 5
 
 Construct dsu(n); subtract one from task vertices; merge/same provide the required operations. size/groups are covered by independent local tests, not by this task output. Linking direction follows the supplied user version without union-by-size.
 
-P3367 complete driver and maximum constraints passed locally with ASan/UBSan; online submission/ranking pending. Local dsu tests additionally cover empty groups, root direction, sizes and 500000-node unbalanced path.
+P3367 final source AC: 20 tests, slowest 196ms. size/groups remain independently local-tested; leaderboard ranking pending.
+
+### QOJ 995 / Lowlink
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+保存每条边原始有序端点；add 返回输入顺序边号，run 后按边号扫描 bridge。只输出标记为桥的原端点，不排序端点或按 DFS 发现顺序输出。题目允许重边与自环；该输出不验证 cut 和 delta。
+
+完整驱动、在线验证及速度榜口径仍待核验。
+
+### QOJ 996 / Lowlink
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+run 后扫描 cut[1..n]，先输出数量，再按顶点编号递增输出。必须遍历全部连通分量；根节点割点条件不同。该题不输出桥或删点后的分量增量。
+
+完整驱动、在线验证及速度榜口径仍待核验。
+
+### Luogu P3376 / Dinic
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+读入 n,m,s,t 与有向边，按容量加入后调用 flow(s,t)，使用库约定的不同源汇。总流量可能超过 32 位，需要 long long；不可达或零容量网络输出 0。默认最大流结果不单独验证 limit、used 或 cut。
+
+保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。
+
+### Luogu P3381 / MinCostFlow
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+输出 flow(s,t) 返回的流量、费用，顺序不可反。原始费用非负，且题目不允许自环；不能用此题证明负费用边、负环处理或超大费用范围。库费用累加为 int128，驱动打印须与题目数值界兼容。
+
+完整驱动、在线验证及速度榜口径仍待核验。
+
+### Luogu P8435 / Biconnected
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+输出 run 后的 blocks。题目采用“无割点”定义，要包括孤立点及自环场景；库将自环保留在边表但不加入 DFS 邻接表，孤立顶点输出单点块。不同块可能共享割点，不能当作互不相交的顶点分区。此输出不验证圆方树接口。
+
+保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。
+
+### Luogu P8436 / Biconnected
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+按 run 后的 bel[1..n] 分组并输出 cnt 组，点号和分量号均为 1-based；支持重边、自环、孤立点和多个连通分量。不能误用点双 blocks；本题不单独输出桥森林。
+
+保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。
+
+### Luogu P3386 / BipartiteMatching
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+左右点集分别按 1..n 和 1..m 编号，add 后 solve 返回匹配边数，不要把两侧编号混在一个区间。题目只要求数量，不检查 cover 或完整匹配方案；存在重边。
+
+完整驱动、在线验证及速度榜口径仍待核验。
+
+### Luogu P6577 / WeightedMatching
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+构造两侧均为 n 的实例，调用 solve(false)；题目保证完美匹配。权值允许负数，缺边不能当成零权边。第二行要求右点到左点的配对，输出 r[1..n]。此题不验证允许不匹配的分支或矩形点集。
+
+保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。
+
+### Luogu P3379 / OfflineLCA
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+先登记全部 add_query，再 run(S)，按登记顺序输出 answer。点号 1-based；不能把固定根 1 当作题目给定根 S。原离线驱动已有对应记录。
+
+保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。
+
+### Luogu P3379 / EulerLCA
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+按无权树加入边，以 S 建立 Euler 序，再逐条输出 lca(a,b)。该题不验证加权距离、边距离或其它 RMQ 包装接口；不能挪用 OfflineLCA 的 AC。
+
+完整驱动、在线验证及速度榜口径仍待核验。
+
+### Luogu P3379 / LiftingLCA
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+默认单位边权即可，以 S build 后调用 lca。相同端点应返回自身。题目不验证祖先跳转、路径最大边或换根查询；须使用本实现自己的驱动与记录。
+
+完整驱动、在线验证及速度榜口径仍待核验。
+
+### Luogu P3379 / HLD
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+以 S 剖分，输出 lca(a,b)。无需接线段树；该题不检查 path 回调、边权路径的 LCA 排除或子树区间。
+
+完整驱动、在线验证及速度榜口径仍待核验。
+
+### Luogu P3384 / HLD + AffineSegTree
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+以给定根 R 构建 HLD，把初始点权放到 dfn 位置，线段树使用同一模数 P。path 的闭区间直接调用 update(l,r,1,z)；子树区间为 [dfn[u],dfn[u]+siz[u]-1]。这是点权而非边权，包含路径两端。该组合不证明通用乘法更新或在线换根。
+
+保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。
+
+### Luogu P3806 / CentroidPairs
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+静态树 build 后以 count_exact(k)>0 输出 AYE/NAY。题目只观察存在性，不能据此验证所有点对计数值；零权、负查询值等扩展需保留本地证据。多个查询复用同一分解。
+
+保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。
+
+### Luogu P3834 / PersistentKth
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+构造时传入不含占位元素的原数组；kth(l,r,k) 接收 1-based 闭区间和 1-based 名次。内部比较 root[r] 与 root[l-1] 的频次数，并还原离散值。该题不支持在线修改或任意版本拼接，不能给其它可持久化接口背书。
+
+保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。
 
 ## 榜单口径
 

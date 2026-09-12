@@ -1,0 +1,18 @@
+Expected-failure compatibility audit, not a passing algorithm test.
+Command: /opt/homebrew/bin/g++-16 -std=c++20 -fsyntax-only verification/probes/fenwick_modint.cpp
+Exit code: 1
+In file included from verification/probes/fenwick_modint.cpp:2:
+verification/probes/../../src/compact/data_structure.hpp: In instantiation of 'void Fenwick<T>::add(int, T) [with T = ModInt<998244353>]':
+verification/probes/fenwick_modint.cpp:7:10:   required from here
+    7 |     f.add(1, 2);
+      |     ~~~~~^~~~~~
+verification/probes/../../src/compact/data_structure.hpp:91:42: error: no match for 'operator+=' (operand types are '__gnu_cxx::__alloc_traits<std::allocator<ModInt<998244353> >, ModInt<998244353> >::value_type' {aka 'ModInt<998244353>'} and 'ModInt<998244353>')
+   91 |         for (; x <= n; x += x & -x) a[x] += v;
+      |                                     ~~~~~^~~~
+verification/probes/../../src/compact/data_structure.hpp: In instantiation of 'T Fenwick<T>::sum(int) const [with T = ModInt<998244353>]':
+verification/probes/fenwick_modint.cpp:8:17:   required from here
+    8 |     return f.sum(3).v;
+      |            ~~~~~^~~
+verification/probes/../../src/compact/data_structure.hpp:97:36: error: no match for 'operator+=' (operand types are 'ModInt<998244353>' and 'const __gnu_cxx::__alloc_traits<std::allocator<ModInt<998244353> >, ModInt<998244353> >::value_type' {aka 'const ModInt<998244353>'})
+   97 |         for (; x; x -= x & -x) ans += a[x];
+      |                                ~~~~^~~~~

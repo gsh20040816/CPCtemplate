@@ -532,6 +532,37 @@
     "adapter": "Construct dsu(n); subtract one from task vertices; merge/same provide the required operations. size/groups are covered by independent local tests, not by this task output. Linking direction follows the supplied user version without union-by-size.",
     "implementation": "existing",
     "source": "src/compact/data_structure.hpp",
+    "tested_api": [
+      "merge",
+      "same",
+      "find"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297668102",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "P3367 final source AC: 20 tests, slowest 196ms. size/groups remain independently local-tested; leaderboard ranking pending."
+  },
+  {
+    "symbol": "Lowlink",
+    "problem": "QOJ 995",
+    "title": "桥",
+    "url": "https://qoj.ac/problem/995",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n<=100000; m<=500000; 1s; 1-based",
+    "adapter": "保存每条边原始有序端点；add 返回输入顺序边号，run 后按边号扫描 bridge。只输出标记为桥的原端点，不排序端点或按 DFS 发现顺序输出。题目允许重边与自环；该输出不验证 cut 和 delta。",
+    "implementation": "existing",
+    "source": "src/compact/graph.hpp",
+    "api": "add/run/bridge",
+    "candidate_api": [
+      "add",
+      "run",
+      "bridge"
+    ],
     "tested_api": [],
     "ac": null,
     "ranking": {
@@ -539,6 +570,423 @@
       "rank": null,
       "total": null
     },
-    "remaining": "P3367 complete driver and maximum constraints passed locally with ASan/UBSan; online submission/ranking pending. Local dsu tests additionally cover empty groups, root direction, sizes and 500000-node unbalanced path."
+    "remaining": "完整驱动、在线验证及速度榜口径仍待核验。"
+  },
+  {
+    "symbol": "Lowlink",
+    "problem": "QOJ 996",
+    "title": "割点",
+    "url": "https://qoj.ac/problem/996",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n<=20000; m<=100000; 0.5s; 1-based",
+    "adapter": "run 后扫描 cut[1..n]，先输出数量，再按顶点编号递增输出。必须遍历全部连通分量；根节点割点条件不同。该题不输出桥或删点后的分量增量。",
+    "implementation": "existing",
+    "source": "src/compact/graph.hpp",
+    "api": "add/run/cut",
+    "candidate_api": [
+      "add",
+      "run",
+      "cut"
+    ],
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整驱动、在线验证及速度榜口径仍待核验。"
+  },
+  {
+    "symbol": "Dinic",
+    "problem": "Luogu P3376",
+    "title": "网络最大流",
+    "url": "https://www.luogu.com.cn/problem/P3376",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n<=200; m<=5000; 0<=capacity<2^31",
+    "adapter": "读入 n,m,s,t 与有向边，按容量加入后调用 flow(s,t)，使用库约定的不同源汇。总流量可能超过 32 位，需要 long long；不可达或零容量网络输出 0。默认最大流结果不单独验证 limit、used 或 cut。",
+    "implementation": "existing",
+    "source": "src/compact/flow.hpp",
+    "api": "add/flow",
+    "candidate_api": [
+      "add",
+      "flow"
+    ],
+    "tested_api": [
+      "add",
+      "flow"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297501480",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。",
+    "driver": "verify/luogu/P3376.compact.cpp"
+  },
+  {
+    "symbol": "MinCostFlow",
+    "problem": "Luogu P3381",
+    "title": "最小费用最大流",
+    "url": "https://www.luogu.com.cn/problem/P3381",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n<=5000; m<=50000; capacity,cost<=1000; result<=2^31-1",
+    "adapter": "输出 flow(s,t) 返回的流量、费用，顺序不可反。原始费用非负，且题目不允许自环；不能用此题证明负费用边、负环处理或超大费用范围。库费用累加为 int128，驱动打印须与题目数值界兼容。",
+    "implementation": "existing",
+    "source": "src/compact/flow.hpp",
+    "api": "add/flow",
+    "candidate_api": [
+      "add",
+      "flow"
+    ],
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整驱动、在线验证及速度榜口径仍待核验。"
+  },
+  {
+    "symbol": "Biconnected",
+    "problem": "Luogu P8435",
+    "title": "点双连通分量",
+    "url": "https://www.luogu.com.cn/problem/P8435",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n<=500000; m<=2000000",
+    "adapter": "输出 run 后的 blocks。题目采用“无割点”定义，要包括孤立点及自环场景；库将自环保留在边表但不加入 DFS 邻接表，孤立顶点输出单点块。不同块可能共享割点，不能当作互不相交的顶点分区。此输出不验证圆方树接口。",
+    "implementation": "existing",
+    "source": "src/compact/biconnected.hpp",
+    "api": "add/run/blocks",
+    "candidate_api": [
+      "add",
+      "run",
+      "blocks"
+    ],
+    "tested_api": [
+      "add",
+      "run",
+      "blocks"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297517446",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。",
+    "driver": "verify/luogu/P8435.compact.cpp"
+  },
+  {
+    "symbol": "Biconnected",
+    "problem": "Luogu P8436",
+    "title": "边双连通分量",
+    "url": "https://www.luogu.com.cn/problem/P8436",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n<=500000; m<=2000000; multigraph",
+    "adapter": "按 run 后的 bel[1..n] 分组并输出 cnt 组，点号和分量号均为 1-based；支持重边、自环、孤立点和多个连通分量。不能误用点双 blocks；本题不单独输出桥森林。",
+    "implementation": "existing",
+    "source": "src/compact/biconnected.hpp",
+    "api": "add/run/bel",
+    "candidate_api": [
+      "add",
+      "run",
+      "bel"
+    ],
+    "tested_api": [
+      "add",
+      "run",
+      "bel",
+      "cnt"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297519028",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。",
+    "driver": "verify/luogu/P8436.compact.cpp"
+  },
+  {
+    "symbol": "BipartiteMatching",
+    "problem": "Luogu P3386",
+    "title": "二分图最大匹配",
+    "url": "https://www.luogu.com.cn/problem/P3386",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "1<=n,m<=500; edges<=50000; parallel edges allowed",
+    "adapter": "左右点集分别按 1..n 和 1..m 编号，add 后 solve 返回匹配边数，不要把两侧编号混在一个区间。题目只要求数量，不检查 cover 或完整匹配方案；存在重边。",
+    "implementation": "existing",
+    "source": "src/compact/graph.hpp",
+    "api": "add/solve",
+    "candidate_api": [
+      "add",
+      "solve"
+    ],
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整驱动、在线验证及速度榜口径仍待核验。"
+  },
+  {
+    "symbol": "WeightedMatching",
+    "problem": "Luogu P6577",
+    "title": "二分图最大权完美匹配",
+    "url": "https://www.luogu.com.cn/problem/P6577",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n<=500; m<=n^2; -19980731<=weight<=19980731",
+    "adapter": "构造两侧均为 n 的实例，调用 solve(false)；题目保证完美匹配。权值允许负数，缺边不能当成零权边。第二行要求右点到左点的配对，输出 r[1..n]。此题不验证允许不匹配的分支或矩形点集。",
+    "implementation": "existing",
+    "source": "src/compact/weighted_matching.hpp",
+    "api": "add/solve/r",
+    "candidate_api": [
+      "add",
+      "solve",
+      "r"
+    ],
+    "tested_api": [
+      "add",
+      "solve(false)",
+      "r: right-to-left assignment"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297520123",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。",
+    "driver": "verify/luogu/P6577.compact.cpp"
+  },
+  {
+    "symbol": "OfflineLCA",
+    "problem": "Luogu P3379",
+    "title": "最近公共祖先",
+    "url": "https://www.luogu.com.cn/problem/P3379",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "N,M<=500000; root S; queries may have equal endpoints",
+    "adapter": "先登记全部 add_query，再 run(S)，按登记顺序输出 answer。点号 1-based；不能把固定根 1 当作题目给定根 S。原离线驱动已有对应记录。",
+    "implementation": "existing",
+    "source": "src/compact/offline_lca.hpp",
+    "api": "add/add_query/run/answer",
+    "candidate_api": [
+      "add",
+      "add_query",
+      "run",
+      "answer"
+    ],
+    "tested_api": [
+      "add",
+      "add_query",
+      "run",
+      "answer"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297521009",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。",
+    "driver": "verify/luogu/P3379.offline.compact.cpp"
+  },
+  {
+    "symbol": "EulerLCA",
+    "problem": "Luogu P3379",
+    "title": "最近公共祖先",
+    "url": "https://www.luogu.com.cn/problem/P3379",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "N,M<=500000; root S",
+    "adapter": "按无权树加入边，以 S 建立 Euler 序，再逐条输出 lca(a,b)。该题不验证加权距离、边距离或其它 RMQ 包装接口；不能挪用 OfflineLCA 的 AC。",
+    "implementation": "existing",
+    "source": "src/compact/euler_lca.hpp",
+    "api": "add/build/lca",
+    "candidate_api": [
+      "add",
+      "build",
+      "lca"
+    ],
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整驱动、在线验证及速度榜口径仍待核验。"
+  },
+  {
+    "symbol": "LiftingLCA",
+    "problem": "Luogu P3379",
+    "title": "最近公共祖先",
+    "url": "https://www.luogu.com.cn/problem/P3379",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "N,M<=500000; root S",
+    "adapter": "默认单位边权即可，以 S build 后调用 lca。相同端点应返回自身。题目不验证祖先跳转、路径最大边或换根查询；须使用本实现自己的驱动与记录。",
+    "implementation": "existing",
+    "source": "src/compact/lifting_lca.hpp",
+    "api": "add/build/lca",
+    "candidate_api": [
+      "add",
+      "build",
+      "lca"
+    ],
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整驱动、在线验证及速度榜口径仍待核验。"
+  },
+  {
+    "symbol": "HLD",
+    "problem": "Luogu P3379",
+    "title": "最近公共祖先",
+    "url": "https://www.luogu.com.cn/problem/P3379",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "N,M<=500000; root S",
+    "adapter": "以 S 剖分，输出 lca(a,b)。无需接线段树；该题不检查 path 回调、边权路径的 LCA 排除或子树区间。",
+    "implementation": "existing",
+    "source": "src/compact/tree.hpp",
+    "api": "add/build/lca",
+    "candidate_api": [
+      "add",
+      "build",
+      "lca"
+    ],
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整驱动、在线验证及速度榜口径仍待核验。"
+  },
+  {
+    "symbol": "HLD + AffineSegTree",
+    "problem": "Luogu P3384",
+    "title": "重链剖分 / 树链剖分",
+    "url": "https://www.luogu.com.cn/problem/P3384",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n,m<=100000; 1<=P<=2^30; int inputs",
+    "adapter": "以给定根 R 构建 HLD，把初始点权放到 dfn 位置，线段树使用同一模数 P。path 的闭区间直接调用 update(l,r,1,z)；子树区间为 [dfn[u],dfn[u]+siz[u]-1]。这是点权而非边权，包含路径两端。该组合不证明通用乘法更新或在线换根。",
+    "implementation": "existing",
+    "source": "src/compact/tree.hpp",
+    "api": "HLD::path/AffineSegTree::update/AffineSegTree::query",
+    "candidate_api": [
+      "HLD::path",
+      "AffineSegTree::update",
+      "AffineSegTree::query"
+    ],
+    "tested_api": [
+      "HLD::add/build/path",
+      "HLD::dfn/siz",
+      "AffineSegTree::update(1,add)/query"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297520172",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。",
+    "dependencies": [
+      "src/compact/affine_segment_tree.hpp"
+    ],
+    "driver": "verify/luogu/P3384.compact.cpp"
+  },
+  {
+    "symbol": "CentroidPairs",
+    "problem": "Luogu P3806",
+    "title": "点分治",
+    "url": "https://www.luogu.com.cn/problem/P3806",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n<=10000; m<=100; 1<=k<=10^7; 1<=edge_weight<=10000",
+    "adapter": "静态树 build 后以 count_exact(k)>0 输出 AYE/NAY。题目只观察存在性，不能据此验证所有点对计数值；零权、负查询值等扩展需保留本地证据。多个查询复用同一分解。",
+    "implementation": "existing",
+    "source": "src/compact/centroid.hpp",
+    "api": "add/build/count_exact",
+    "candidate_api": [
+      "add",
+      "build",
+      "count_exact"
+    ],
+    "tested_api": [
+      "add",
+      "build",
+      "count_exact: nonzero existence"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297519137",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。",
+    "driver": "verify/luogu/P3806.compact.cpp"
+  },
+  {
+    "symbol": "PersistentKth",
+    "problem": "Luogu P3834",
+    "title": "静态区间第 k 小",
+    "url": "https://www.luogu.com.cn/problem/P3834",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-09-12",
+    "limits": "n,m<=200000; 0<=a[i]<=10^9; valid l,r,k",
+    "adapter": "构造时传入不含占位元素的原数组；kth(l,r,k) 接收 1-based 闭区间和 1-based 名次。内部比较 root[r] 与 root[l-1] 的频次数，并还原离散值。该题不支持在线修改或任意版本拼接，不能给其它可持久化接口背书。",
+    "implementation": "existing",
+    "source": "src/compact/optimization.hpp",
+    "api": "kth",
+    "candidate_api": [
+      "kth"
+    ],
+    "tested_api": [
+      "constructor",
+      "kth"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297520290",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "保留已有 vector 提交的归档验证范围；该模板题的速度榜仍待核验。",
+    "driver": "verify/luogu/P3834.compact.cpp"
   }
 ]

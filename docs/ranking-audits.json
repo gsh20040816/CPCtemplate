@@ -68,6 +68,26 @@
       "omitted_165_id": 2775209,
       "upstream_reference": "https://github.com/UniversalOJ/UOJ-System/blob/master/web/app/controllers/problem_statistics.php",
       "note": "Upstream best_ac_submissions query supports the interpretation; current QOJ evidence is the repeated-user record omitted from the complete 165ms range. Upstream code alone is not treated as proof of QOJ internals."
+    },
+    "filter_cross_check": {
+      "checked_at": "2026-09-12T22:18:24+08:00",
+      "url": "https://qoj.ac/submissions?problem_id=906&min_score=100&max_score=100",
+      "pages_shown": 15,
+      "last_page_records": [
+        [
+          1779383,
+          225
+        ],
+        [
+          1626429,
+          152
+        ],
+        [
+          1625533,
+          111
+        ]
+      ],
+      "observation": "First ten and last three records match accepted=1. This does not explain the statistics count mismatch; intermediate pages were not re-enumerated with this filter."
     }
   }
 ]

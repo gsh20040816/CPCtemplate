@@ -1603,5 +1603,25 @@
       "bel"
     ],
     "note": "11 tests; SCC partition emitted in topological order. dag is not called. Visible full-score time competition rank 94/143, ties 94-96; global denominator mismatch remains unresolved. See docs/ranking-audits.json."
+  },
+  {
+    "problem": "Luogu P3367",
+    "style": "compact",
+    "record": "https://www.luogu.com.cn/record/297668102",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 196,
+    "memory": "2.27MB",
+    "source_driver": "verify/luogu/P3367.compact.cpp",
+    "submitted_source": "verification/submitted/P3367.compact.cpp",
+    "submitted_sha256": "82b96e29d22e9636fb17bf519b9f21fc6c1cb52d22448a8b259077426bddcfe4",
+    "date": "2026-09-12",
+    "algorithm": "dsu",
+    "tested_api": [
+      "merge",
+      "same",
+      "find"
+    ],
+    "note": "20 tests; slowest individual test 196ms, UI total 2.02s. find is invoked through merge/same. size/groups and empty construction are covered locally, not by this output. Ranking not audited."
   }
 ]

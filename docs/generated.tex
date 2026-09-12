@@ -106,11 +106,11 @@ dsu(n)，点号 0..n-1，n$\ge$0。find(x) 路径减半；same(x,y) 判断同集
 
 \lstinputlisting[firstline=41,lastline=80]{../src/compact/data_structure.hpp}
 
-\Needspace{473pt}
+\Needspace{488pt}
 
 \section{树状数组与第 k 小}\label{compact-Fenwick}\index{Fenwick}
 
-add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有频率非负且 k>0，超过总和返回 n+1。单次 O(log n)。
+add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有频率非负且 k>0，超过总和返回 n+1。单次 O(log n)。 T 须能从 0 构造并支持 += 与减法；当前 ModInt 缺少 +=，不能直接作为该模板的值类型。kth 只适用于有序累计频数，不适用于取模后的区间和。
 
 \lstinputlisting[firstline=81,lastline=118]{../src/compact/data_structure.hpp}
 

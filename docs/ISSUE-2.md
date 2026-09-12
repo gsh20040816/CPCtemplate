@@ -27,4 +27,4 @@
 
 DSU 最新依据：[用户指定实现](https://github.com/gsh20040816/CPCtemplate/issues/2#issuecomment-5646284816)。已采用 find/same/merge/size/groups、fa/sz 与路径减半；不再沿用原有按大小合并的复杂度描述。
 
-指定 dsu 已通过独立标签参考、groups/size/根方向验证、50 万点无秩合并长链及 P3367 最大输入驱动，普通和 ASan/UBSan 均通过。源码只有有符号长度比较的显式转换及排版与示意不同；没有补入按大小合并。在线验证仍待完成。
+指定 dsu 已通过独立标签参考、groups/size/根方向验证、50 万点无秩合并长链及 P3367 最大输入驱动，普通和 ASan/UBSan 均通过。源码只有有符号长度比较的显式转换及排版与示意不同；没有补入按大小合并。P3367 已取得 [AC 297668102](https://www.luogu.com.cn/record/297668102)，20 个测试全过，最慢单点 196 ms；size/groups 仍属于本地验证范围。

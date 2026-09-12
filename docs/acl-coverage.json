@@ -1,0 +1,217 @@
+{
+  "issue": "https://github.com/gsh20040816/CPCtemplate/issues/3",
+  "reference_repository": "https://github.com/atcoder/ac-library",
+  "reference_commit": "864245a00b00dd008d1abfdc239618fdb7d139da",
+  "reference_license": "CC0-1.0",
+  "public_modules": [
+    "convolution",
+    "dsu",
+    "fenwicktree",
+    "lazysegtree",
+    "math",
+    "maxflow",
+    "mincostflow",
+    "modint",
+    "scc",
+    "segtree",
+    "string",
+    "twosat"
+  ],
+  "modules": [
+    {
+      "module": "dsu",
+      "category": "数据结构",
+      "status": "功能已有，按用户约定保留",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/dsu.hpp",
+      "reference_sha256": "c2e8a08e5b016360c73b2e0ddeb6e1ce914a3b4bed2ebdc1bf287c846b5e97ab",
+      "local": [
+        "src/compact/data_structure.hpp"
+      ],
+      "notes": "ACL 返回合并后的根并采用按大小合并；本库按用户 #2 回复保留 bool merge、指定根连接方向和 fa/sz。双方均能给出 groups，不能用 ACL 版本覆盖用户指定实现。",
+      "gaps": []
+    },
+    {
+      "module": "fenwicktree",
+      "category": "数据结构",
+      "status": "基础功能已有，组合约束不同",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/fenwicktree.hpp",
+      "reference_sha256": "b31862994a547ef34f1f7c68136ed6bcab66bd402371390acc8a21cb24a01bb9",
+      "local": [
+        "src/compact/data_structure.hpp",
+        "src/compact/number_theory.hpp"
+      ],
+      "notes": "ACL 为 0-based 点更新、半开区间和；本库为 1-based，另有仅适用于有序频数的 kth。Fenwick<ModInt> 的 add/sum 当前因缺少 operator+= 无法编译，已留可复现实例。",
+      "gaps": [
+        "ModInt 复合赋值运算符与 Fenwick 的组合"
+      ]
+    },
+    {
+      "module": "segtree",
+      "category": "数据结构",
+      "status": "部分覆盖",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp",
+      "reference_sha256": "6b959283e1faeaa3de5b473eee5e774220eee60a89fe4b483ce26e652532dabb",
+      "local": [
+        "src/compact/data_structure.hpp"
+      ],
+      "notes": "当前有专门的区间加/区间和实现，不是任意幺半群线段树。ACL 双向累积保持 op 顺序，可支持非交换运算。",
+      "gaps": [
+        "通用 op/e 点修改区间聚合",
+        "max_right/min_left 单调谓词边界搜索"
+      ]
+    },
+    {
+      "module": "lazysegtree",
+      "category": "数据结构",
+      "status": "部分覆盖",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/lazysegtree.hpp",
+      "reference_sha256": "3685280a17ef0d8cd3c3510b1a6b494fa674debfc3c8651c87cf50c77cfe09da",
+      "local": [
+        "src/compact/affine_segment_tree.hpp"
+      ],
+      "notes": "当前仿射线段树是具体实例。ACL 将 S/op/e 与 F/mapping/composition/id 分离，composition(f,g) 表示先 g 后 f；当前库尚无这套通用映射接口。",
+      "gaps": [
+        "通用作用幺半群懒标记",
+        "带懒标记的 max_right/min_left"
+      ]
+    },
+    {
+      "module": "math",
+      "category": "数学",
+      "status": "核心功能已有，范围需适配",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp",
+      "reference_sha256": "ddb92d513c1e0b1eb5bdb5479e6c697aa3b37da8a753cd9ec6102af27d389f68",
+      "local": [
+        "src/compact/number_theory.hpp"
+      ],
+      "notes": "power、inverse、crt、floor_sum 已存在。ACL crt 批量返回 pair，本库原位逐条合并；ACL floor_sum 的 n,m 范围到 2^32 且溢出取模2^64，本库说明范围较小并返回精确 int128，不能直接宣称契约完全相同。",
+      "gaps": [
+        "逐项核对 floor_sum 的边界范围及溢出语义"
+      ]
+    },
+    {
+      "module": "modint",
+      "category": "数学",
+      "status": "部分覆盖",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp",
+      "reference_sha256": "aef131053e67300be6def657f1ef1eb1c80ef2c92ffc8220d7be0cccab583318",
+      "local": [
+        "src/compact/number_theory.hpp"
+      ],
+      "notes": "当前 ModInt 支持固定模数算术，inv 按素数模数约定。ACL 静态合数模逆采用 inv_gcd，另有按 id 区分的动态模数类型；小类型及 unsigned 内部存储与溢出界不能只抄一半。",
+      "gaps": [
+        "运行时模数类型",
+        "静态合数模数的单位元求逆契约",
+        "复合赋值等算术互操作"
+      ]
+    },
+    {
+      "module": "convolution",
+      "category": "数学",
+      "status": "模卷积已有，精确整数卷积缺失",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp",
+      "reference_sha256": "456e3d737ec2a73ca00ed3c1f12f26731b8cbefc1e81dec5a950ebf458a509d5",
+      "local": [
+        "src/compact/ntt_convolution.hpp",
+        "src/compact/polynomial.hpp"
+      ],
+      "notes": "已有参数化素数模 NTT 卷积。ACL convolution_ll 返回有符号64位精确系数，采用三模重构并限制结果范围；单模卷积或把结果随意取模不能替代。",
+      "gaps": [
+        "convolution_ll 等精确有符号整数卷积封装"
+      ]
+    },
+    {
+      "module": "maxflow",
+      "category": "图论",
+      "status": "主算法已有，部分编辑接口缺失",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/maxflow.hpp",
+      "reference_sha256": "8a633f093cfb1956d7d71f4d1e53628cdaebd4f0fe6bd7bdbaf373ecd6e48bcd",
+      "local": [
+        "src/compact/flow.hpp"
+      ],
+      "notes": "Dinic 已有加边、最大流、used 和 cut；ACL 以稳定逻辑边号公开 get_edge/edges/change_edge。当前没有按容量与流量成对修改正反残量的受约束接口。",
+      "gaps": [
+        "change_edge 及对应残量不变量验证"
+      ]
+    },
+    {
+      "module": "mincostflow",
+      "category": "图论",
+      "status": "主算法已有，费用曲线缺失",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/mincostflow.hpp",
+      "reference_sha256": "88396cd7cae7274db2a1f9a0ffdfe8673ac508f7b3e6972a96d5b75e4b6bfe88",
+      "local": [
+        "src/compact/flow.hpp"
+      ],
+      "notes": "当前 flow 返回最终流量和 int128 费用，初始负费用边也有单独契约。ACL 要求初始 cost 非负并提供 slope；两者不能混写成本域和重入条件。",
+      "gaps": [
+        "最小费用随流量变化的 slope 折点输出"
+      ]
+    },
+    {
+      "module": "scc",
+      "category": "图论",
+      "status": "核心功能已有",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/scc.hpp",
+      "reference_sha256": "2b534e50f7fb5117e86fbde22c5a3284ecf6b6089df864b835dacd55ab5694e2",
+      "local": [
+        "src/compact/tarjan.hpp",
+        "src/compact/graph.hpp"
+      ],
+      "notes": "ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆拓扑编号的 Tarjan 与正向编号的 Kosaraju，已对 QOJ906 适配；编号方向必须保留在组合说明中。",
+      "gaps": []
+    },
+    {
+      "module": "twosat",
+      "category": "图论",
+      "status": "核心功能已有",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/twosat.hpp",
+      "reference_sha256": "9445a0eb9726375b74a6baaeafa5210b8e6f188ea89e4ec4f0e32a231ef3145e",
+      "local": [
+        "src/compact/graph.hpp"
+      ],
+      "notes": "本库 TwoSAT 已复用 SCC。ACL 的变量编号、真假节点编码与比较方向应整体核对；不能仅替换 SCC 类型或照抄答案不等式。",
+      "gaps": []
+    },
+    {
+      "module": "string",
+      "category": "字符串",
+      "status": "功能已有，复杂度与表示有差异",
+      "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/string.hpp",
+      "reference_sha256": "e7ffe101a268208d63c17374e970f781a1a828feb6cc6010ead78c2a709cda86",
+      "local": [
+        "src/compact/string.hpp",
+        "src/compact/suffix_lcp.hpp"
+      ],
+      "notes": "后缀数组、LCP 和 Z 已有。ACL 用 SA-IS，本库用倍增；ACL LCP 长 n-1，本库长度 n 且首项0；两者 Z[0] 均取 n。SA-IS 是性能/复杂度上的未实现替代，不是后缀数组功能全缺。",
+      "gaps": [
+        "SA-IS 线性后缀数组实现尚无"
+      ]
+    }
+  ],
+  "internal_modules": [
+    "internal_bit",
+    "internal_csr",
+    "internal_math",
+    "internal_queue",
+    "internal_scc",
+    "internal_type_traits"
+  ],
+  "composition_probe": "verification/probes/fenwick_modint.cpp",
+  "composition_probe_result": "compile_failure_observed",
+  "composition_probe_log": "verification/acl-fenwick-modint-probe.txt",
+  "note": "This audit does not confer new AC or claim identical API/complexity contracts. Missing implementations remain work items.",
+  "local_snapshot_commit": "af6432011d9cd3cb28357b56270ab4b232bbe2dc",
+  "local_source_sha256": {
+    "src/compact/affine_segment_tree.hpp": "b5ab4a1c217952e1fb976ca3e3f9937d8bd4ea80b5bf901c477f4291f30b620f",
+    "src/compact/data_structure.hpp": "41a302fd87914867adb75d95a20430f2c7195ddfbc5d54646626187c5d262dac",
+    "src/compact/flow.hpp": "a157c17da38f69d4d7e5a278226d5cfd31811ee93b1c56a7027f26f2ecdbdde0",
+    "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "4707a0cab8d6e71cb2b22fb1b7000d58b734b065b43415d6dc010c5a7e905705",
+    "src/compact/polynomial.hpp": "3e50d658c5f69637985bc01fe3ea669f0337aa4f69b9075891902b136a7cc8d0",
+    "src/compact/string.hpp": "6c3f647540c561b02e93bdd9a03e097cd2ad5518cdddc716fc9455585ff5fd02",
+    "src/compact/suffix_lcp.hpp": "bd87d197c6ce07a1372909b60135fc7837250b2161edd06480de44480a48d504",
+    "src/compact/tarjan.hpp": "89ae133d40c112b5f4aa016dac035a401dd872984bca7b390ad3d7accba45079"
+  }
+}
