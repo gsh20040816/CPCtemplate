@@ -42,8 +42,6 @@
 - `verify/luogu/P3649.compact.cpp`
 - `verify/luogu/P3809.classic.cpp`
 - `verify/luogu/P3809.compact.cpp`
-- `verify/luogu/P3811.classic.cpp`
-- `verify/luogu/P3811.compact.cpp`
 - `verify/luogu/P3812.classic.cpp`
 - `verify/luogu/P3812.compact.cpp`
 - `verify/luogu/P4151.classic.cpp`

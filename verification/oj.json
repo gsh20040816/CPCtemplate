@@ -943,5 +943,45 @@
       "Batch_Inverse: weighted sum of returned inverses"
     ],
     "note": "All 5 judge cases accepted, n<=5e6 and prime p<=1e9. Per-element inverse certificates, composite moduli, nonunits, modulus one, empty inputs and signed int64 extremes are tested locally. Other bundled number theory code is not covered."
+  },
+  {
+    "problem": "Luogu P3811",
+    "style": "compact",
+    "algorithm": "inverse_table",
+    "record": "https://www.luogu.com.cn/record/297563298",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 387,
+    "max_case_time_ms": 221,
+    "memory": "13.02MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3811.compact.cpp",
+    "submitted_source": "verification/submitted/P3811.compact.cpp",
+    "submitted_sha256": "73c0709ae69cad8752224e45b70ee06c8b7defd434b41ec568b8b172792836fc",
+    "tested_api": [
+      "inverse_table: every consecutive inverse"
+    ],
+    "note": "All 6 judge cases accepted; 1<=n<=3000000, n<p<20000528, prime p. Empty prefix and int32 modulus limits are tested locally. General exgcd and Fermat inverse APIs are not covered by this submission."
+  },
+  {
+    "problem": "Luogu P3811",
+    "style": "classic",
+    "algorithm": "Inverse_Table",
+    "record": "https://www.luogu.com.cn/record/297563503",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 385,
+    "max_case_time_ms": 219,
+    "memory": "11.99MB",
+    "language": "C++20 O2",
+    "date": "2026-09-12",
+    "source_driver": "verify/luogu/P3811.classic.cpp",
+    "submitted_source": "verification/submitted/P3811.classic.cpp",
+    "submitted_sha256": "35df8371e95e4274e527f7592dae188da94dd54e23887a00006bbd537f3f7da5",
+    "tested_api": [
+      "Inverse_Table: every consecutive inverse"
+    ],
+    "note": "All 6 judge cases accepted; 1<=n<=3000000, n<p<20000528, prime p. Empty prefix and int32 modulus limits are tested locally. General exgcd and Fermat inverse APIs are not covered by this submission."
   }
 ]
