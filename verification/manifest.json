@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T07:31:51.187065+00:00",
+  "recorded_at_utc": "2026-09-12T07:58:05.322184+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -170,7 +170,10 @@
       "",
       "Incremental P4897 drivers; unchanged-module evidence retained from 6210add:",
       "P4897 compact: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS",
-      "P4897 classic: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS"
+      "P4897 classic: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS",
+      "",
+      "Incremental exact bounded halfplanes; unchanged-module evidence retained from e03a1d4:",
+      "Integer halfplanes dual cpp_int pair-intersection oracle, parallel/degenerate cases and near-parallel billion coefficients and 100000 redundant constraints PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -339,7 +342,10 @@
       "",
       "Incremental P4897 drivers; unchanged-module evidence retained from 6210add:",
       "P4897 compact: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS",
-      "P4897 classic: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS"
+      "P4897 classic: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS",
+      "",
+      "Incremental exact bounded halfplanes; unchanged-module evidence retained from e03a1d4:",
+      "Integer halfplanes dual cpp_int pair-intersection oracle, parallel/degenerate cases and near-parallel billion coefficients and 100000 redundant constraints PASS"
     ]
   },
   "sha256": {
@@ -374,6 +380,7 @@
     "src/classic/gomory_hu.hpp": "05cbc9afd0fac2fc43f3fe894aacece878410f011894420ee5ee4fcfdb6abfc1",
     "src/classic/graph.hpp": "02421d1ceb9e2772e3a6a035844bca46664a2488c7424e1d3b9910b9a0acdb02",
     "src/classic/graph_advanced.hpp": "ee0c31d0ebf0148c902c0af2bbb36adc1dc48124a3401f6136f9743c237706e8",
+    "src/classic/halfplanes.hpp": "fd55cc1c1ef2b1bccd59cd6c49a5519def7424679d5ccc96b96f521d1ee547d2",
     "src/classic/interpolation.hpp": "43f5714b8fb6e16a13dc356f1e7ac01c492974bb53b73f558c9a6fdb5ec84020",
     "src/classic/inverse_table.hpp": "3b78a27422b1c91251614bdaba608d377934bf4ef01a2fc54dc8daa6f5d3d28e",
     "src/classic/lex_two_sat.hpp": "531c4fca134bb016b6a7335e37aaae4f865faa9f309036fa6f112e3b22f6168b",
@@ -444,6 +451,7 @@
     "src/compact/gomory_hu.hpp": "28fe86c3b05cbdb65337f29c16683f1c07e14977ef39959dad1517faad1aad33",
     "src/compact/graph.hpp": "7ea9c43d8616d08088c61eaef8a19c4939084dfe8da806213225c5d33015e8c0",
     "src/compact/graph_advanced.hpp": "e2a57a2354904fc55f2038fb4f694842cc60c3e8b76c0aa431ab3b8d9546d1eb",
+    "src/compact/halfplanes.hpp": "2a8858f213575e825922faf97314d4448097c54311c137aba1e97b1207c9910c",
     "src/compact/interpolation.hpp": "73f71b029ccab6be4573c4612a5c132accb9b208115503d7f47bde7fc878357a",
     "src/compact/inverse_table.hpp": "24260b77dd557d177c47c28ebce4671b88e264485dce74c87862141d842cd573",
     "src/compact/lex_two_sat.hpp": "f5e50a5af0c5892b8be560ceb4eacf5e7cdcf484da2fec3ad6450cabcd02ec16",
@@ -542,6 +550,7 @@
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",
     "tests/graph_contracts.cpp": "af13d8fae85417d2e2e8d69de1c073339587eaa7b5f2616a724b61a4ce0fe322",
     "tests/graph_drivers.py": "c970259c9ff1d93da80409125fc8c420b92d4e17399373340de69e053f0d781f",
+    "tests/halfplanes.cpp": "15672ba3f54a0811d47a6f04ccf21806fe7398ff08f644ec70eddd63d63c14d0",
     "tests/hld.cpp": "2cb59f85875e3c9c0002b3e0e9ac029c32ae862fc44230a2272e47203af28d6a",
     "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
     "tests/interpolation.cpp": "9f7205163b894fdcc3107da60883c88468c0045d92351eee8f71cc8854cefc76",

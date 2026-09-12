@@ -912,6 +912,28 @@ WeightedMatching(n,m)，两侧编号 1..n、1..m。add(x,y,w) 加边，重边保
 
 \lstinputlisting[firstline=6,lastline=97]{../src/compact/weighted_matching.hpp}
 
+\chapter{精确有界半平面交}
+
+\Needspace{571pt}
+
+\section{整数半平面的有界多边形交}\label{compact-IntegerHalfplanes}\index{IntegerHalfplanes}
+
+bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}，三个整数系数绝对值均$\le$10$^{9}$。要求交集有界，空集也允许；只返回正面积多边形，点或线段交集返回空向量。无界输入不在接口范围内。Point=\{x,y,d\} 表示 (x/d,y/d)，d>0，分数不必约分；按逆时针返回，不重复首点，相邻重复点已去除。排序与所有构造、判定使用整数和 int128，不使用 epsilon。O(n log n) 时间、O(n) 空间。传统接口 Integer\_Halfplanes::Bounded\_Polygon。浮点转换与面积计算需单独处理。
+
+\lstinputlisting[firstline=9,lastline=48,firstnumber=1]{../src/compact/halfplanes.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体与函数：
+
+\lstinputlisting[firstline=49,lastline=87,firstnumber=41]{../src/compact/halfplanes.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体与函数：
+
+\lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/compact/halfplanes.hpp}
+
 \chapter{精确几何进阶}
 
 \section{整数最近点对与 Minkowski 和}\label{compact-GeometryExtra}\index{GeometryExtra}
@@ -1983,6 +2005,28 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 声明 Weighted\_Matching<N,M> 后 Init(n,m)，N、M 分别限制左右点数。Insert 加边，Solve 求解；l、r 保存方案，Init 清空原图。权值矩阵是静态数组，内部增广辅助数组按实际规模分配，大对象放在全局或 static。
 
 \lstinputlisting[firstline=8,lastline=106]{../src/classic/weighted_matching.hpp}
+
+\chapter{精确有界半平面交}
+
+\Needspace{571pt}
+
+\section{整数半平面的有界多边形交}\label{classic-IntegerHalfplanes}\index{Integer\_Halfplanes}
+
+算法约束见动态版本第~\pageref{compact-IntegerHalfplanes}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=9,lastline=48,firstnumber=1]{../src/classic/halfplanes.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体与函数：
+
+\lstinputlisting[firstline=49,lastline=87,firstnumber=41]{../src/classic/halfplanes.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体与函数：
+
+\lstinputlisting[firstline=88,lastline=122,firstnumber=80]{../src/classic/halfplanes.hpp}
 
 \chapter{精确几何进阶}
 

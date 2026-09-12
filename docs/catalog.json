@@ -384,6 +384,12 @@
     "add(u,v,lo,hi)，0≤lo≤hi；solve() 仅调用一次，返回可行性，仅成功后读取 used(id)。约束为每点流量守恒；不是带源汇最大流。所有上下界及其总和须在 long long 范围内。依赖 Dinic。"
   ],
   [
+    "halfplanes",
+    "IntegerHalfplanes",
+    "整数半平面的有界多边形交",
+    "bounded_polygon(lines) 求 a*x+b*y≤c 的交集闭包顶点，Line={a,b,c}，三个整数系数绝对值均≤10⁹。要求交集有界，空集也允许；只返回正面积多边形，点或线段交集返回空向量。无界输入不在接口范围内。Point={x,y,d} 表示 (x/d,y/d)，d>0，分数不必约分；按逆时针返回，不重复首点，相邻重复点已去除。排序与所有构造、判定使用整数和 int128，不使用 epsilon。O(n log n) 时间、O(n) 空间。传统接口 Integer_Halfplanes::Bounded_Polygon。浮点转换与面积计算需单独处理。"
+  ],
+  [
     "geometry_extra",
     "GeometryExtra",
     "整数最近点对与 Minkowski 和",

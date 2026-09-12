@@ -257,3 +257,6 @@ build/gomory_hu
 build/cut_tree_queries
 
 python3 tests/gomory_hu_application.py
+
+"$CXX" "${flags[@]}" tests/halfplanes.cpp -o build/halfplanes
+build/halfplanes
