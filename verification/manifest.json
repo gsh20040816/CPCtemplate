@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-12T12:44:06.159785+00:00",
+  "recorded_at_utc": "2026-09-12T13:02:34.257462+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -279,7 +279,9 @@
       "QOJ8237 classic: 500000 singleton test cases and factorial-cache reuse PASS (0.266s)",
       "",
       "Release BFS dual heap oracle, exhaustive tiny snake states and 3000-square implicit grid PASS",
-      "Snake configurations: 744"
+      "Snake configurations: 744",
+      "",
+      "Modified Mo snapshot/set oracle, all ranges/times, empty queries, custom blocks and bidirectional state invariants PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -534,7 +536,9 @@
       "QOJ8237 classic: 500000 singleton test cases and factorial-cache reuse PASS (0.540s)",
       "",
       "Release BFS dual heap oracle, exhaustive tiny snake states and 3000-square implicit grid PASS",
-      "Snake configurations: 744"
+      "Snake configurations: 744",
+      "",
+      "Modified Mo snapshot/set oracle, all ranges/times, empty queries, custom blocks and bidirectional state invariants PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -756,6 +760,7 @@
     "src/compact/matrix_tree_mod.hpp": "6bf1061b0b4f4a6819ed63e7a0eef2dd0d570ce5d19168af36641d952df0cc01",
     "src/compact/maximum_closure.hpp": "8ebd0e61ff290dea82ba6a298831716bbdf9cf3017e8c195ce6f662b0e750526",
     "src/compact/mixed_euler.hpp": "7e84285a001bc52700e00f0da220c28402b866c4c84c742962886b69c7c03ff8",
+    "src/compact/modified_mo.hpp": "4d22bf64e76cc3f4f10deabc4d5dc862793ea0679a7f9e520ac09918dde06aca",
     "src/compact/modular_sqrt.hpp": "feafcc6e8e95453ba63c6fa4047de98ba1402d6d8c373f41543b5162e730a537",
     "src/compact/ntt_convolution.hpp": "8e92df0efb943c63c261ababbc5bc6450ab0ab4ae30ae4b8c83d5f1b040855f7",
     "src/compact/number_theory.hpp": "d6769f23172c9d0c613183deeff4f229cd5c6d09cfd9364163d4c3fe6ff6aaf5",
@@ -895,6 +900,8 @@
     "tests/maximum_closure_application.py": "83e849f6ed82375c1bd00a1a08e909388b8867f3e1742f8c3bd6e220358c3b78",
     "tests/mixed_euler.cpp": "575fb28b131f391169fa287282e8bcb9a2baba7e3fa04456f3ca02f8fde1bf06",
     "tests/mixed_euler_application.py": "75a732d5499a8226810d25a1f135a5717e65b39dce34428ca60e8799928463a6",
+    "tests/modified_mo.cpp": "e697f7af59378fc8db2bccb6633118b4ee4eabd0d024fa6a978de277c610a40c",
+    "tests/modified_mo_application.py": "797fb2420eb4ee36e7ca10cbdd29ca61592344d36c44d5d803d331af5589da6e",
     "tests/modular_sqrt.cpp": "db36b638f77a9e71f669e7c5c7833572e2044bc5666bab2b4ae90674809ea473",
     "tests/modular_sqrt_application.py": "9ba4e0e82bab8d47e88e7a227de08991ec60f35ce0cd1f1b3cc4149bb3ad0d3e",
     "tests/ntt_convolution.cpp": "a61158717fc678d925a151e490ffdb1fd8ea00e9970638036eaccd97d22f3a09",

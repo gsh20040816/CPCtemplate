@@ -6,6 +6,8 @@
 
 后续按[编写优先级](docs/PRIORITIES.md)补齐高频且易错的模板，以平衡树、Tarjan 等为难度参照；已完成高级模板保留。
 
+执行顺序见 [issue #1 计划](docs/ISSUE-1.md)，模板题候选见 [映射清单](docs/template-problems.json)。
+
 ## 范围
 
 1. kuangbin 2018 ACM 模板的完整目录。

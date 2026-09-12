@@ -136,6 +136,18 @@ add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有�
 
 \lstinputlisting[firstline=272,lastline=303,firstnumber=67]{../src/compact/data_structure.hpp}
 
+\chapter{带修改的莫队}
+
+\section{带修改的莫队}\label{compact-ModifiedMo}\index{ModifiedMo}
+
+ModifiedMo(n,m) 保存离线询问，n>0，m 为修改总数。add(l,r,t) 登记第 t 次修改完成后的 [l,r)，返回从 0 开始的询问编号；0$\le$l$\le$r$\le$n，0$\le$t$\le$m，询问数小于 INT\_MAX。run(add,del,chg,ans,block=0) 排序并移动三个指针。add(p)/del(p) 按下标更新当前区间统计；chg(i,forward,l,r) 将编号 i 的修改前进或回退，并同步修正当前 [l,r) 内的贡献；ans(id) 记录结果。修改编号从 0 开始，前进第 i 次修改时原时间为 i，回退时原时间为 i+1。回调初始状态必须为原数组、空区间、时间 0；重复 run 前由调用方重置状态。状态不会自动恢复，原询问顺序不变。仅适用于可增删维护的区间统计，需区分左右端操作时另行拆分回调。默认块长约 n\textasciicircum{}(2/3)，也可显式指定正块长。n、询问数、修改数同阶且回调 O(1) 时总时间 O(n\textasciicircum{}(5/3))，调度器空间 O(q)。
+
+\lstinputlisting[firstline=8,lastline=31]{../src/compact/modified_mo.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=32,lastline=76,firstnumber=25]{../src/compact/modified_mo.hpp}
+
 \chapter{带位置线性基}
 
 \section{带位置限制的异或线性基}\label{compact-PositionBasis}\index{PositionBasis}

@@ -325,3 +325,5 @@ orient_edges/Orient_Edges 接受 Lowlink/Low_Link，使用局部访问标记执�
 tests/edge_components.cpp 通过逐条删边的全对可达性判断桥，删除全部桥后得到独立的边双参照；再检查定向图的双向可达关系、逐边端点与编号、块顶点数、内部边数及计数总和。包括全部四点简单图、自环、随机多重图、断开图、空图、已有/未有 DFS 状态以及 20 万点递归环。
 
 [CF118E 官方题面](https://codeforces.com/problemset/problem/118/E)要求将连通简单图强连通定向，不可行则输出 0。两份驱动在新 run 后检查连通块数和桥，再输出方向。实际输出按边集合和正反向可达性检验，并检查 N=100000、M=300000 的合法输入。宿主的 Python 进程栈调整未成功，本地规模验证通过 tests/driver_stack.cpp 在 256MB 测试线程中调用打包程序入口；编译时只把 main 重命名为 cpc_entry，提交文件自身仍为常规 main 和递归 DFS，且显式返回 0。记录见 verification/edge-components-driver-tests.txt。在线 AC 待补，既有 P8435/P8436 记录不扩张为新接口的在线验证。
+
+2026-09-12 按 WIDA 打印稿「带修改的莫队」与洛谷 P1903 核对时间轴约定，新增 vector 调度器 ModifiedMo。时间排序使用实际修改次数；旧值按顺序更新的工作数组记录。独立快照/set 对拍覆盖重复赋值、区间外修改、回退、空区间和自定义块长。完整驱动最大规模本地普通及 ASan/UBSan 通过；在线证据另记。

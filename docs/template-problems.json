@@ -1,0 +1,6313 @@
+{
+  "issue": "https://github.com/gsh20040816/CPCtemplate/issues/1",
+  "note": "Candidates only. A template tag or an existing application AC does not prove a noncompetition template, complete API coverage, or a fastest-submission rank.",
+  "qoj_tag_source": "https://qoj.ac/problems?tag=%E6%A8%A1%E6%9D%BF%E9%A2%98",
+  "algorithms": [
+    {
+      "symbol": "DSU",
+      "title": "并查集",
+      "source": "src/compact/data_structure.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "RollbackDSU",
+      "title": "可撤销并查集",
+      "source": "src/compact/data_structure.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Fenwick",
+      "title": "树状数组与第 k 小",
+      "source": "src/compact/data_structure.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "LazySeg",
+      "title": "区间加与区间和",
+      "source": "src/compact/data_structure.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "XorBasis",
+      "title": "64 位异或线性基",
+      "source": "src/compact/data_structure.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/intersection_zassenhaus.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/intersection_zassenhaus",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/intersection_intersection.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/intersection_intersection",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3812.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3812",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Dinic",
+      "title": "最大流与方案",
+      "source": "src/compact/flow.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3376.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3376",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297501480"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "maximum_closure",
+      "title": "最大权闭合子图与选点方案",
+      "source": "src/compact/maximum_closure.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4174.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4174",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520300"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "MinCostFlow",
+      "title": "势能最小费用最大流",
+      "source": "src/compact/flow.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/602",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Dijkstra",
+      "title": "非负权最短路",
+      "source": "src/compact/graph.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4779.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4779",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SCC",
+      "title": "强连通分量",
+      "source": "src/compact/graph.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "TwoSAT",
+      "title": "2-SAT 与任意可行方案",
+      "source": "src/compact/graph.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/3648.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4782.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4782",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": "https://qoj.ac/problem/997",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "BipartiteMatching",
+      "title": "Hopcroft–Karp 最大匹配与最小点覆盖",
+      "source": "src/compact/graph.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3386.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3386",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Lowlink",
+      "title": "割点与桥",
+      "source": "src/compact/graph.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/2117.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/uva/796.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/CF118E.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/CF118E",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": "https://qoj.ac/problem/995",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "HLD",
+      "title": "重链剖分与 LCA",
+      "source": "src/compact/tree.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3384.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3384",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520172"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "prefix_function",
+      "title": "前缀函数",
+      "source": "src/compact/string.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/464",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "kmp_match",
+      "title": "KMP 匹配",
+      "source": "src/compact/string.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/464",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "z_function",
+      "title": "Z 函数",
+      "source": "src/compact/string.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/786",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "manacher",
+      "title": "Manacher 回文半径",
+      "source": "src/compact/string.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/787",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "minimum_rotation",
+      "title": "最小循环表示",
+      "source": "src/compact/string.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "AhoCorasick",
+      "title": "AC 自动机出现次数",
+      "source": "src/compact/string.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SuffixArray",
+      "title": "倍增后缀数组与 LCP",
+      "source": "src/compact/string.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1117.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1117",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3809.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3809",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": "https://qoj.ac/problem/956",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SuffixAutomaton",
+      "title": "后缀自动机",
+      "source": "src/compact/string.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/217",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "NumberTheory",
+      "title": "模运算、素性、CRT 与类欧几里德",
+      "source": "src/compact/number_theory.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/uva/10006.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4777.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4777",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297521102"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": "https://qoj.ac/problem/249",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "linear_equation",
+      "title": "二元一次不定方程",
+      "source": "src/compact/linear_equation.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5656.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5656",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "linear_congruence",
+      "title": "线性同余方程",
+      "source": "src/compact/linear_congruence.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1516.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1516",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "segmented_primes",
+      "title": "区间筛素数",
+      "source": "src/compact/segmented_sieve.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/2689.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "batch_inverse",
+      "title": "任意数组的批量逆元",
+      "source": "src/compact/batch_inverse.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5431.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5431",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297561197"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "inverse_table",
+      "title": "连续整数的线性逆元表",
+      "source": "src/compact/inverse_table.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3811.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3811",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297563298"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "garner",
+      "title": "Garner：大周期 CRT 与混合进制",
+      "source": "src/compact/garner.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1495.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1495",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297521594"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PollardRho",
+      "title": "Pollard–Rho 因数分解",
+      "source": "src/compact/number_theory.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/1811.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P1593.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1593",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4718.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4718",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297569299"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "LinearSieve",
+      "title": "线性筛、欧拉函数与 Möbius 函数",
+      "source": "src/compact/number_theory.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "ModInt",
+      "title": "静态模整数",
+      "source": "src/compact/number_theory.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/polynomial_taylor_shift.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/polynomial_taylor_shift",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/qoj/8237.compact.cpp",
+          "url": "https://qoj.ac/problem/8237",
+          "existing_ac": [
+            "https://qoj.ac/submission/2939916"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Binomial",
+      "title": "阶乘组合数",
+      "source": "src/compact/number_theory.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/qoj/8237.compact.cpp",
+          "url": "https://qoj.ac/problem/8237",
+          "existing_ac": [
+            "https://qoj.ac/submission/2939916"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PrimitiveRoot",
+      "title": "乘法阶与原根",
+      "source": "src/compact/primitive_root.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P6091.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6091",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297558740"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "CoprimePairs",
+      "title": "矩形 GCD 计数",
+      "source": "src/compact/coprime_pairs.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P2522.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2522",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "floor_moments",
+      "title": "整除和、带权和与平方和",
+      "source": "src/compact/floor_moments.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5170.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5170",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "power_sum",
+      "title": "模幂与几何级数同时求值",
+      "source": "src/compact/divisor_sum.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "divisor_sum_power",
+      "title": "幂的约数和",
+      "source": "src/compact/divisor_sum.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1593.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1593",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "euler_phi",
+      "title": "单个数的欧拉函数",
+      "source": "src/compact/euler_phi.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "carmichael",
+      "title": "Carmichael：模乘法群的公共指数",
+      "source": "src/compact/carmichael.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/uva/10006.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Partitions",
+      "title": "整数分拆与重数上限",
+      "source": "src/compact/partitions.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Lucas",
+      "title": "Lucas：小素数模的大下标组合数",
+      "source": "src/compact/lucas.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3807.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3807",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297556209"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "ExLucas",
+      "title": "合数模数组合数（扩展 Lucas）",
+      "source": "src/compact/exlucas.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4720.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4720",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520142"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "mod_sqrt",
+      "title": "素数模平方根（Cipolla）",
+      "source": "src/compact/modular_sqrt.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5491.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5491",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520354"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "KthResidue",
+      "title": "素数模高次剩余：全部根的紧凑表示",
+      "source": "src/compact/kth_residue.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PrimePowerRoots",
+      "title": "素数幂模高次剩余：含非互素被开方数",
+      "source": "src/compact/prime_power_roots.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "root_factors",
+      "title": "合数求根准备：分解模数与素数幂原根",
+      "source": "src/compact/root_factors.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "CompositeRoots",
+      "title": "一般合数模高次剩余：CRT 组合与按索引取根",
+      "source": "src/compact/composite_roots.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Lagrange",
+      "title": "拉格朗日插值与连续点优化",
+      "source": "src/compact/interpolation.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4781.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4781",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520159"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "NttConvolution",
+      "title": "可指定素数与原根的 NTT 卷积",
+      "source": "src/compact/ntt_convolution.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/618",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "stirling_second_row",
+      "title": "第二类斯特林数：同一行前缀",
+      "source": "src/compact/stirling.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5395.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5395",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297626422"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "stirling_first_row",
+      "title": "无符号第一类斯特林数：同一行",
+      "source": "src/compact/stirling.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5408.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5408",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297627360"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Polynomial",
+      "title": "NTT、形式幂级数、FWT 与递推",
+      "source": "src/compact/polynomial.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "LinearAlgebra",
+      "title": "模高斯消元、行列式、矩阵树定理",
+      "source": "src/compact/algebra.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/2947.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "determinant_mod",
+      "title": "任意正模数行列式：欧几里得消元",
+      "source": "src/compact/determinant_mod.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "MatrixTree",
+      "title": "带权矩阵树：无向树与内外向树形图",
+      "source": "src/compact/matrix_tree.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P6178.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6178",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297619886"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "MatrixTreeMod",
+      "title": "任意正模数带权矩阵树",
+      "source": "src/compact/matrix_tree_mod.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "DuJiao",
+      "title": "杜教筛",
+      "source": "src/compact/algebra.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "DiscreteLog",
+      "title": "扩展 BSGS",
+      "source": "src/compact/algebra.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4195.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4195",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520101"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "IntegerGeometry",
+      "title": "整数精确二维几何",
+      "source": "src/compact/geometry.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/218",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "RealGeometry",
+      "title": "浮点点线圆构造",
+      "source": "src/compact/geometry.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "MaxPlusMatrix",
+      "title": "Max-plus 矩阵幂",
+      "source": "src/compact/optimization.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "LiChao",
+      "title": "离散李超树与最优直线编号",
+      "source": "src/compact/optimization.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PersistentKth",
+      "title": "主席树：静态区间第 k 小",
+      "source": "src/compact/optimization.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3834.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3834",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520290"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "TreePathKth",
+      "title": "树上路径点权第 k 小",
+      "source": "src/compact/tree_path_kth.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P2633.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2633",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "DynamicKth",
+      "title": "动态区间第 k 小（树状数组套权值线段树）",
+      "source": "src/compact/dynamic_kth.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P2617.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2617",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PersistentDistinct",
+      "title": "静态区间不同数计数（前驱位置主席树）",
+      "source": "src/compact/persistent_distinct.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1972.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1972",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Hungarian",
+      "title": "矩形二分图最小权匹配",
+      "source": "src/compact/graph_advanced.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "WeightedMatching",
+      "title": "二分图最大权匹配（缺边与可选匹配）",
+      "source": "src/compact/weighted_matching.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P6577.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6577",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520123"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Arborescence",
+      "title": "有向最小树形图",
+      "source": "src/compact/graph_advanced.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/904",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "StoerWagner",
+      "title": "无向全局最小割",
+      "source": "src/compact/graph_advanced.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "gomory_hu",
+      "title": "Gomory–Hu 最小割树",
+      "source": "src/compact/gomory_hu.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4897.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4897",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297591576"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "cut_tree_values",
+      "title": "最小割树全点对查询",
+      "source": "src/compact/cut_tree_queries.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4897.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4897",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297591576"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "BoundedCirculation",
+      "title": "上下界可行循环流",
+      "source": "src/compact/flow.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "IntegerHalfplanes",
+      "title": "整数半平面的有界多边形交",
+      "source": "src/compact/halfplanes.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "CirclePolygon",
+      "title": "圆与简单多边形相交面积",
+      "source": "src/compact/circle_polygon.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "EnclosingCircle",
+      "title": "随机增量最小覆盖圆",
+      "source": "src/compact/enclosing_circle.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1742.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1742",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297608403"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "CircleTangents",
+      "title": "两圆公切线与过点切线",
+      "source": "src/compact/circle_tangents.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "ClosestPair",
+      "title": "浮点平面最近点对",
+      "source": "src/compact/closest_pair.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1429.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1429",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297602650"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "GeometryExtra",
+      "title": "整数最近点对与 Minkowski 和",
+      "source": "src/compact/geometry_extra.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "IntegerGeometry3D",
+      "title": "整数三维共线、共面与方向",
+      "source": "src/compact/geometry_extra.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "LinkCutTree",
+      "title": "Link-cut tree：动态森林与路径异或",
+      "source": "src/compact/dynamic_tree.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3690.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3690",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297512741"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": "https://qoj.ac/problem/21529",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "OrderedTreap",
+      "title": "FHQ Treap：可重集合与顺序统计",
+      "source": "src/compact/treap.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3369.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3369",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297515150"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SequenceTreap",
+      "title": "隐式 Treap：序列翻转、加值与区间和",
+      "source": "src/compact/treap.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3391.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3391",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520211"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "OrderedSplay",
+      "title": "Splay：可重集合与顺序统计",
+      "source": "src/compact/splay.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3369.splay.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3369",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520192"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "GcdSequenceTreap",
+      "title": "状态序列 Treap：分组区间 GCD",
+      "source": "src/compact/gcd_sequence.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Blossom",
+      "title": "一般图最大基数匹配：带花树",
+      "source": "src/compact/blossom.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P6113.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6113",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "berlekamp_massey",
+      "title": "Berlekamp–Massey：最短线性递推",
+      "source": "src/compact/recurrence.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/547",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "recurrence_nth",
+      "title": "特征多项式求线性递推第 k 项",
+      "source": "src/compact/recurrence.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "TarjanSCC",
+      "title": "Tarjan 强连通分量与缩点",
+      "source": "src/compact/tarjan.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": "https://qoj.ac/problem/906",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Biconnected",
+      "title": "Tarjan 点双、边双与圆方树",
+      "source": "src/compact/biconnected.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/2942.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P8436.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P8436",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297519028"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P2860.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2860",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P8435.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P8435",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297517446"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PalindromicTree",
+      "title": "回文树 PAM：回文后缀与出现次数",
+      "source": "src/compact/palindromic_tree.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3649.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3649",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P5496.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5496",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297518043"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": "https://qoj.ac/problem/801",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "CentroidPairs",
+      "title": "点分治：树上距离点对计数",
+      "source": "src/compact/centroid.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3806.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3806",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297519137"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": "https://qoj.ac/problem/21959",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SubtreeColors",
+      "title": "树上启发式合并：子树众数颜色和",
+      "source": "src/compact/dsu_on_tree.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/CF600E.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/CF600E",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "AffineSegTree",
+      "title": "线段树：区间乘、加、赋值与模意义求和",
+      "source": "src/compact/affine_segment_tree.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3373.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3373",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297518952"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3384.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3384",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520172"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "VirtualTree",
+      "title": "虚树：关键点压缩与路径信息",
+      "source": "src/compact/virtual_tree.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P2495.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2495",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PersistentArray",
+      "title": "可持久化数组：历史版本分叉与单点修改",
+      "source": "src/compact/persistent_array.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3919.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3919",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520221"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SupportHull",
+      "title": "支撑点查询恢复下凸包",
+      "source": "src/compact/support_hull.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SuffixLCP",
+      "title": "后缀 LCP 与子串比较",
+      "source": "src/compact/suffix_lcp.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1117.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1117",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "prefix_lcs",
+      "title": "两个前缀的最长公共后缀",
+      "source": "src/compact/suffix_lcp.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "square_counts",
+      "title": "重复子串 AA 的起止位置计数",
+      "source": "src/compact/suffix_lcp.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1117.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1117",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PositionBasis",
+      "title": "带位置限制的异或线性基",
+      "source": "src/compact/position_basis.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/CF1100F.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/CF1100F",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "basis_intersection",
+      "title": "异或线性空间求交",
+      "source": "src/compact/basis_intersection.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/intersection_zassenhaus.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/intersection_zassenhaus",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/intersection_intersection.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/intersection_intersection",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "basis_sum_intersection",
+      "title": "Zassenhaus：同时求和空间与交空间",
+      "source": "src/compact/basis_intersection.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/intersection_zassenhaus.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/intersection_zassenhaus",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "XorWalk",
+      "title": "无向图最大异或行走",
+      "source": "src/compact/xor_walk.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4151.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4151",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "removal_components",
+      "title": "由点双分解计算删点连通块数",
+      "source": "src/compact/vertex_removal.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "EdgeCompression",
+      "title": "边双缩点的大小与内部边数",
+      "source": "src/compact/edge_components.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "orient_edges",
+      "title": "无向边定向与强连通定向",
+      "source": "src/compact/edge_components.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/CF118E.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/CF118E",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "bridge_augmentation",
+      "title": "连通无向图最少加边方案",
+      "source": "src/compact/bridge_augmentation.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P2860.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2860",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "OfflineLCA",
+      "title": "离线 Tarjan LCA",
+      "source": "src/compact/offline_lca.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/1470.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3379.offline.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3379",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297521009"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "EulerLCA",
+      "title": "欧拉序与 ST 表 LCA",
+      "source": "src/compact/euler_lca.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/1330.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/qoj/8235.compact.cpp",
+          "url": "https://qoj.ac/problem/8235",
+          "existing_ac": [
+            "https://qoj.ac/submission/2939493"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3398.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3398",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3379.euler.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3379",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "LiftingLCA",
+      "title": "倍增 LCA、祖先与最大边权",
+      "source": "src/compact/lifting_lca.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/1330.lifting.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3379.lifting.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3379",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "path_intersection",
+      "title": "两条树路径的交集",
+      "source": "src/compact/path_intersection.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3398.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3398",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "DirectedEuler",
+      "title": "有向图字典序最小欧拉路",
+      "source": "src/compact/directed_euler.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P7771.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P7771",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "UndirectedEuler",
+      "title": "无向图欧拉路与边方向",
+      "source": "src/compact/undirected_euler.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/sgu/101.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P2731.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2731",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "word_chain",
+      "title": "字典序最小单词链",
+      "source": "src/compact/word_chain.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/2337.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "mixed_euler_orientation",
+      "title": "欧拉回路与指定端点定向",
+      "source": "src/compact/mixed_euler.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/1637.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "mixed_euler_trail",
+      "title": "任意起终点的混合欧拉路径",
+      "source": "src/compact/mixed_euler.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "odd_cycle_vertices",
+      "title": "属于简单奇环的全部顶点",
+      "source": "src/compact/odd_cycle_vertices.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/poj/2942.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "LexTwoSAT",
+      "title": "递归染色与回滚求最小赋值",
+      "source": "src/compact/lex_two_sat.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/hdu/1814.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "BostanMori",
+      "title": "快速递推与有理生成函数单项",
+      "source": "src/compact/bostan_mori.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4723.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4723",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297628790"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": "https://qoj.ac/problem/146",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SetConvolution",
+      "title": "按位 OR、AND、XOR 卷积",
+      "source": "src/compact/set_convolution.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P6097.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6097",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297631186"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4717.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4717",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297630491"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "subset_convolution",
+      "title": "不相交子集卷积",
+      "source": "src/compact/subset_convolution.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P6097.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6097",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297631186"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4717.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4717",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297630491"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "polynomial_shift",
+      "title": "多项式系数平移",
+      "source": "src/compact/polynomial_shift.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/polynomial_taylor_shift.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/polynomial_taylor_shift",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "chirp_z",
+      "title": "Chirp Z：等比点求值",
+      "source": "src/compact/chirp_z.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PersistentRange",
+      "title": "可持久化区间加与版本拼接",
+      "source": "src/compact/persistent_range.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/qoj/8240.compact.cpp",
+          "url": "https://qoj.ac/problem/8240",
+          "existing_ac": [
+            "https://qoj.ac/submission/2939235"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "TreeDiameter",
+      "title": "树上点集直径摘要",
+      "source": "src/compact/tree_diameter.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/qoj/8235.compact.cpp",
+          "url": "https://qoj.ac/problem/8235",
+          "existing_ac": [
+            "https://qoj.ac/submission/2939493"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "FunctionalGraph",
+      "title": "函数图分解、跳转与到达",
+      "source": "src/compact/functional_graph.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/cses/1160.compact.cpp",
+          "url": "https://cses.fi/problemset/task/1160",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/cses/1750.compact.cpp",
+          "url": "https://cses.fi/problemset/task/1750",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/qoj/8237.compact.cpp",
+          "url": "https://qoj.ac/problem/8237",
+          "existing_ac": [
+            "https://qoj.ac/submission/2939916"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P2921.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2921",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "release_bfs",
+      "title": "顶点开放时间的单位边最短路",
+      "source": "src/compact/release_bfs.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/qoj/8236.compact.cpp",
+          "url": "https://qoj.ac/problem/8236",
+          "existing_ac": [
+            "https://qoj.ac/submission/2940150"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "ModifiedMo",
+      "title": "带修改的莫队",
+      "source": "src/compact/modified_mo.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1903.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1903",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297653743"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    }
+  ],
+  "unresolved_upstream_topics": [
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/00 - wida.h",
+      "page": "",
+      "topic": "00 - wida"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/01 - 在线头文件.cpp",
+      "page": "",
+      "topic": "01 - 在线头文件"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/01 - 在线头文件（简洁版）.cpp",
+      "page": "",
+      "topic": "01 - 在线头文件（简洁版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/02 - 基础函数重载.cpp",
+      "page": "",
+      "topic": "02 - 基础函数重载"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/03 - 对拍相关.md",
+      "page": "",
+      "topic": "C++ 对拍"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/03 - 对拍相关.md",
+      "page": "",
+      "topic": "bat 对拍"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/03 - 对拍相关.md",
+      "page": "",
+      "topic": "样例编造"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/03 - 对拍相关.md",
+      "page": "",
+      "topic": "文件读写函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/04 - 手工随机哈希.cpp",
+      "page": "",
+      "topic": "04 - 手工随机哈希"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/05 - 全排列生成.cpp",
+      "page": "",
+      "topic": "05 - 全排列生成"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/06 - 快读（fread）.cpp",
+      "page": "",
+      "topic": "06 - 快读（fread）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/07 - int128输入输出流控制.cpp",
+      "page": "",
+      "topic": "07 - int128输入输出流控制"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/01 - 初始与杂类/08 - 样例构造（随机数、树、图生成）.cpp",
+      "page": "",
+      "topic": "08 - 样例构造（随机数、树、图生成）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/02 - 图、树、网络流/01 - 树的直径.cpp",
+      "page": "",
+      "topic": "01 - 树的直径"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（无权图树上倍增解）.cpp",
+      "page": "",
+      "topic": "04 - LCA（无权图树上倍增解）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（有权图树上倍增解）.cpp",
+      "page": "",
+      "topic": "04 - LCA（有权图树上倍增解）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（树链剖分解）.cpp",
+      "page": "",
+      "topic": "04 - LCA（树链剖分解）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/02 - 图、树、网络流/06 - Floyd.cpp",
+      "page": "",
+      "topic": "06 - Floyd"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/02 - 图、树、网络流/07 - MST (Kruskal).cpp",
+      "page": "",
+      "topic": "07 - MST (Kruskal)"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/02 - 图、树、网络流/12 - 一般图最大权匹配（带权带花树算法）.cpp",
+      "page": "",
+      "topic": "12 - 一般图最大权匹配（带权带花树算法）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/02 - 图、树、网络流/17 - 最大流 (HLPP).cpp",
+      "page": "",
+      "topic": "17 - 最大流 (HLPP)"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/02 - 图、树、网络流/18 - 费用流 (Djikstra).cpp",
+      "page": "",
+      "topic": "18 - 费用流 (Djikstra)"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/03 - 数论、几何/18 - 欧拉筛.cpp",
+      "page": "",
+      "topic": "18 - 欧拉筛"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/03 - 数论、几何/19 - Exgcd.cpp",
+      "page": "",
+      "topic": "19 - Exgcd"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/03 - 数论、几何/21 - Miller-Rabin + Pollard-Rho.cpp",
+      "page": "",
+      "topic": "21 - Miller-Rabin + Pollard-Rho"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/03 - 数论、几何/22 - 平面几何.cpp",
+      "page": "",
+      "topic": "22 - 平面几何"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/03 - 数论、几何/23 - 立体几何.cpp",
+      "page": "",
+      "topic": "23 - 立体几何"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/24 - DSU++.cpp",
+      "page": "",
+      "topic": "24 - DSU++"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/24 - DSU.cpp",
+      "page": "",
+      "topic": "24 - DSU"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 1D++.cpp",
+      "page": "",
+      "topic": "25 - Fenwick 1D++"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 1D.cpp",
+      "page": "",
+      "topic": "25 - Fenwick 1D"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 2D++.cpp",
+      "page": "",
+      "topic": "25 - Fenwick 2D++"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 2D.cpp",
+      "page": "",
+      "topic": "25 - Fenwick 2D"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/26 - Segt++.cpp",
+      "page": "",
+      "topic": "26 - Segt++"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/26 - Segt.cpp",
+      "page": "",
+      "topic": "26 - Segt"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/27 - 坐标压缩.cpp",
+      "page": "",
+      "topic": "27 - 坐标压缩"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/29 - 分数四则运算.cpp",
+      "page": "",
+      "topic": "29 - 分数四则运算"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/30 - ST 表.cpp",
+      "page": "",
+      "topic": "30 - ST 表"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/32 - 取模类.cpp",
+      "page": "",
+      "topic": "32 - 取模类"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/33 - 高精度大整数类.cpp",
+      "page": "",
+      "topic": "33 - 高精度大整数类"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/34 - KMP.cpp",
+      "page": "",
+      "topic": "34 - KMP"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串双哈希++.cpp",
+      "page": "",
+      "topic": "35 - 字符串双哈希++"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串双哈希.cpp",
+      "page": "",
+      "topic": "35 - 字符串双哈希"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串哈希.cpp",
+      "page": "",
+      "topic": "35 - 字符串哈希"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/01 - 基础算法.md",
+      "page": "",
+      "topic": "头文件"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/01 - 基础算法.md",
+      "page": "",
+      "topic": "常用函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/01 - 基础算法.md",
+      "page": "",
+      "topic": "最大公约数 `gcd`"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/01 - 基础算法.md",
+      "page": "",
+      "topic": "整数域二分"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/01 - 基础算法.md",
+      "page": "",
+      "topic": "旧版（无法处理负数情况）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/01 - 基础算法.md",
+      "page": "",
+      "topic": "新版"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/01 - 基础算法.md",
+      "page": "",
+      "topic": "实数域二分"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/01 - 基础算法.md",
+      "page": "",
+      "topic": "整数域三分"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/01 - 基础算法.md",
+      "page": "",
+      "topic": "实数域三分"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/02 - 树上问题.md",
+      "page": "",
+      "topic": "树的直径"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/02 - 树上问题.md",
+      "page": "",
+      "topic": "树论大封装（直径+重心+中心）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/02 - 树上问题.md",
+      "page": "",
+      "topic": "点分治 / 树的重心"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "常见概念"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "单源最短路径（SSSP问题）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "（正权稀疏图）动态数组存图+Djikstra算法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "（负权图、判负环）Bellman-ford 算法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "（负权图）SPFA 算法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "多源汇最短路（APSP问题）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "平面图最短路（对偶图）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "最小生成树（MST问题）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "（稀疏图）Prim算法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "（稠密图）Kruskal算法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "染色法判定二分图 (dfs算法)"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "链式前向星建图与搜索"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "一般图最大匹配（带花树算法）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "一般图最大权匹配（带权带花树算法）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "二分图最大匹配"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "HopcroftKarp算法（基于最大流）解"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "二分图最大独立点集（Konig 定理）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "最长路（topsort+DP算法）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "最短路径树（SPT问题）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "差分约束"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "2-Sat"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "基础封装"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03A - 图论.md",
+      "page": "",
+      "topic": "答案不唯一时不输出"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "常见结论"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "常见例题"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "杂"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "Prüfer 序列：凯莱公式"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "Prüfer 序列"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "单源最短/次短路计数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "输出任意一个三元环"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "带权最小环大小与计数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "最小环大小"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "本质不同简单环计数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "输出任意一个非二元简单环"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "有向图环计数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "有向图简单环检查、输出"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "无向图简单环检查、输出"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/03B - 图论常见结论及例题.md",
+      "page": "",
+      "topic": "判定带环图是否是平面图"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/04 - 网络流.md",
+      "page": "",
+      "topic": "最大流"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/04 - 网络流.md",
+      "page": "",
+      "topic": "最小割"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/04 - 网络流.md",
+      "page": "",
+      "topic": "费用流"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "常见数列"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "调和级数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "素数密度与分布"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "因数最多数字与其因数数量"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "快速幂"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "常规"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "长整型 with 防爆乘法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "质数判定"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "试除法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "筛法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "Miller-Rabin"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "质因子分解"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "筛法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "Pollard-Rho"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "裴蜀定理"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "欧拉函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "组合数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "debug"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "逆元+卢卡斯定理（质数取模）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "质因数分解"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "杨辉三角（精确计算）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "求解连续数字的正约数集合——倍数法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "容斥原理"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "二进制枚举解"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "dfs 解"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "求解连续按位异或"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "高斯消元求解线性方程组"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "康拓展开"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "正向展开普通解法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "正向展开树状数组解"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "逆向还原"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "Min25 筛"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "矩阵四则运算"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "矩阵快速幂"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "矩阵加速"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "莫比乌斯函数/反演"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05A - 数论.md",
+      "page": "",
+      "topic": "整除（数论）分块"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "常见结论"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "球盒模型"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "麦乐鸡定理"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "抽屉原理（鸽巢原理）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "哥德巴赫猜想"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "除法、取模运算的本质"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "与、或、异或"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "调和级数近似公式"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "欧拉函数常见性质"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "组合数学常见性质"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "范德蒙德卷积公式"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "卡特兰数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "狄利克雷卷积"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "斐波那契数列"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "杂"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/05B - 数论常见结论及例题.md",
+      "page": "",
+      "topic": "常见例题"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "库实数类实现（双精度）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "平面几何必要初始化"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "字符串读入浮点数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "预置函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点线封装"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "叉乘"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点乘"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "欧几里得距离公式"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "曼哈顿距离公式"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "将向量转换为单位向量"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "向量旋转"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "平面角度与弧度"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "弧度角度相互转换"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "正弦定理"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "余弦定理（已知三角形三边，求角）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "求两向量的夹角"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "向量旋转任意角度"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点绕点旋转任意角度"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "平面点线相关"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点是否在直线上（三点是否共线）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点是否在向量（直线）左侧"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两点是否在直线同侧/异侧"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两直线相交交点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两直线是否平行/垂直/相同"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点到直线的最近距离与最近点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点是否在线段上"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点到线段的最近距离与最近点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点在直线上的投影点（垂足）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "线段的中垂线"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两线段是否相交及交点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "平面圆相关（浮点数处理）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点到圆的最近点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "根据圆心角获取圆上某点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "直线是否与圆相交及交点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "线段是否与圆相交及交点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两圆是否相交及交点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两圆相交面积"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "三点确定一圆"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "平面三角形相关（浮点数处理）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "三角形面积"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "三角形外心"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "三角形内心"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "三角形垂心"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "平面直线方程转换"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "浮点数计算直线的斜率"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "分数精确计算直线的斜率"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两点式转一般式"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "一般式转两点式"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "抛物线与 x 轴是否相交及交点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "平面多边形"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两向量构成的平面四边形有向面积"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "判断四个点能否组成矩形/正方形"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点是否在任意多边形内"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "线段是否在任意多边形内部"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "任意多边形的面积"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "皮克定理"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "任意多边形上/内的网格点个数（仅能处理整数）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "二维凸包"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "获取二维静态凸包（Andrew算法）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "二维动态凸包"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点与凸包的位置关系"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "三维几何必要初始化"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点线面封装"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "其他函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "三维点线面相关"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间两点是否在线段同侧"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两点是否在平面同侧"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间两直线是否平行/垂直"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两平面是否平行/垂直"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间两直线是否是同一条"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两平面是否是同一个"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "直线是否与平面平行"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间两线段是否相交"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间两直线是否相交及交点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "直线与平面是否相交及交点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "两平面是否相交及交线"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点到直线的最近点与最近距离"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点到平面的最近点与最近距离"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间两直线的最近距离与最近点对"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "三维角度与弧度"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间两直线夹角的 cos 值"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间两平面夹角的 cos 值"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "直线与平面夹角的 sin 值"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间多边形"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "正N棱锥体积公式"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "四面体体积"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "点是否在空间三角形上"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "线段是否与空间三角形相交及交点"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/06A - 几何.md",
+      "page": "",
+      "topic": "空间三角形是否相交"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/07 - 多项式.md",
+      "page": "",
+      "topic": "多项式封装"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/07 - 多项式.md",
+      "page": "",
+      "topic": "离散傅里叶变换 dft 与其逆变换 idft"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/07 - 多项式.md",
+      "page": "",
+      "topic": "Linear-Recurrence 算法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/07 - 多项式.md",
+      "page": "",
+      "topic": "快速傅里叶变换 FFT"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/07 - 多项式.md",
+      "page": "",
+      "topic": "快速数论变换 NTT"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/07 - 多项式.md",
+      "page": "",
+      "topic": "常用结论"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/07 - 多项式.md",
+      "page": "",
+      "topic": "杂"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/07 - 多项式.md",
+      "page": "",
+      "topic": "普通生成函数 / OGF"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/07 - 多项式.md",
+      "page": "",
+      "topic": "指数生成函数 / EGF"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "并查集（全功能）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "树状数组"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "半动态区间和（单点修改）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "动态区间和（区间修改）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "静态区间最值（单点修改）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "逆序对扩展"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "排名扩展"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "二维树状数组"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "半动态矩阵和（单点修改）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "动态矩阵和（区间修改）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "线段树"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "区间加法修改、区间最小值查询"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "同时需要处理区间加法与乘法修改"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "区间赋值/推平"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "区间取模"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "区间异或修改"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "拆位运算"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "坐标压缩与离散化"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "简单版本"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "封装"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "轻重链剖分/树链剖分"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "小波矩阵树：高效静态区间第 K 大查询"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "普通莫队"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "分数运算类"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "KD Tree"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "ST 表"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "基于状压的线性 RMQ 算法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "pbds 扩展库实现平衡二叉树"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "vector 模拟实现平衡二叉树"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "珂朵莉树 (OD Tree)"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "取模运算类"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "大整数类（高精度计算）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "常见结论"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+      "page": "",
+      "topic": "常见例题"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "01背包"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "完全背包"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "多重背包"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "混合背包"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "二维费用的背包"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "分组背包"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "有依赖的背包"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "背包问题求方案数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "背包问题求具体方案"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "数位 DP"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "状压 DP"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/09 - 动态规划.md",
+      "page": "",
+      "topic": "常用例题"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "子串与子序列"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "字符串模式匹配算法 KMP"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "Z函数（扩展 KMP）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "最长公共子序列 LCS"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "小数据解"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "大数据解"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "字符串哈希"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "双哈希封装"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "前后缀去重"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "马拉车"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "字典树 trie"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "基础封装"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "01 字典树"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "AC 自动机"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "后缀自动机 SAM"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "子序列自动机"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "自动离散化、自动类型匹配封装"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "朴素封装"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "巴什博奕"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "扩展巴什博弈"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "Nim 博弈"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "Nim 游戏具体取法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "Moore’s Nim 游戏（Nim-K 游戏）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "Anti-Nim 游戏（反 Nim 游戏）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "阶梯 - Nim 博弈"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "SG 游戏（有向图游戏）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "Anti-SG 游戏（反 SG 游戏）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "Lasker’s-Nim 游戏（ Multi-SG 游戏）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "Every-SG 游戏"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "威佐夫博弈"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "斐波那契博弈"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "树上删边游戏"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/11 - 博弈论.md",
+      "page": "",
+      "topic": "无向图删边游戏（Fusion Principle 定理）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "库函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "pb_ds 库"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "查找后继 lower\\_bound、upper\\_bound"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "数组打乱 shuffle"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "二分搜索 binary\\_search"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "批量递增赋值函数 iota"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "数组去重函数 unique"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "bit 库与位运算函数 \\__builtin\\_"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "数字转字符串函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "字符串转数字"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "全排列算法 next\\_permutation、prev\\_permutation"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "字符串转换为数值函数 sto"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "数值转换为字符串函数 to\\_string"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "判断非递减 is\\_sorted"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "累加 accumulate"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "迭代器 iterator"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "其他函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "容器与成员函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "元组 tuple"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "数组 array"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "变长数组 vector"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "栈  stack"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "队列 queue"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "双向队列 deque"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "优先队列 priority\\_queue"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "字符串 string"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "有序、多重有序集合 set、multiset"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "map、multimap"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "bitset"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "哈希系列 unordered"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "对 pair、tuple 定义哈希"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "对结构体定义哈希"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "对 vector 定义哈希"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "程序标准化"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "使用 Lambda 函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/12 - STL与库函数.md",
+      "page": "",
+      "topic": "使用构造函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/13 - 卡常.md",
+      "page": "",
+      "topic": "基础算法 | 最大公约数 `gcd` | 位运算加速"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/13 - 卡常.md",
+      "page": "",
+      "topic": "数论 | 质数判定 | 预分类讨论加速"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/13 - 卡常.md",
+      "page": "",
+      "topic": "数论 | 质数判定 | Miller-Rabin"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/13 - 卡常.md",
+      "page": "",
+      "topic": "数论 | 质因数分解 | Pollard-Rho"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/13 - 卡常.md",
+      "page": "",
+      "topic": "数论 | 取模运算类 | 蒙哥马利模乘"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/13 - 卡常.md",
+      "page": "",
+      "topic": "网络流 | 最大流 | 预流推进 HLPP"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/13 - 卡常.md",
+      "page": "",
+      "topic": "快读"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "统计区间不同数字的数量（离线查询）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "选数（DFS 解）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "选数（位运算状压）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "网格路径计数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "德州扑克"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "N*M 数独字典序最小方案"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "高精度进制转换"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "物品装箱"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "从前往后装（线段树解）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "选择最优的箱子装（multiset 解）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "浮点数比较"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "阿达马矩阵 (Hadamard matrix)"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "幻方"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "最长严格/非严格递增子序列 (LIS)"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "一维"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "二维+输出方案"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "cout 输出流控制"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "读取一行数字，个数未知"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "约瑟夫问题"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "日期换算（基姆拉尔森公式）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "单调队列"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "高精度快速幂"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "魔改十进制快速幂（暴力计算）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "扩展欧拉定理（欧拉降幂公式）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "int128 输入输出流控制"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "对拍版子"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "随机数生成与样例构造"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "手工哈希"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "Python常用语法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "读入与定义"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "格式化输出"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "排序"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "文件IO"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "增加输出流长度、递归深度"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "自定义结构体"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "数据结构"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "其他"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "OJ测试"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "GNU C++ 版本测试"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "编译器位数测试"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "评测器环境测试"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "运算速度测试"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/14 - 杂类.md",
+      "page": "",
+      "topic": "编译器设置"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/01 - 杂类/01 - int128 库函数自定义.cpp",
+      "page": "",
+      "topic": "01 - int128 库函数自定义"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/01 - 杂类/02 - 常用库函数重载.cpp",
+      "page": "",
+      "topic": "02 - 常用库函数重载"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/01 - 杂类/03 - 字符调整.cpp",
+      "page": "",
+      "topic": "03 - 字符调整"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/01 - 杂类/04A - 二分算法（整数域）.cpp",
+      "page": "",
+      "topic": "04A - 二分算法（整数域）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/01 - 杂类/04B - 二分算法（实数域）.cpp",
+      "page": "",
+      "topic": "04B - 二分算法（实数域）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/01 - 杂类/05 - 快读.cpp",
+      "page": "",
+      "topic": "05 - 快读"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/02 - 图与网络/04 - 一般图最大匹配（Graph 带花树算法）【久远】.cpp",
+      "page": "",
+      "topic": "04 - 一般图最大匹配（Graph 带花树算法）【久远】"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/02 - 图与网络/05 - TwoSat（2-Sat）.cpp",
+      "page": "",
+      "topic": "05 - TwoSat（2-Sat）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/02 - 图与网络/06A - 最大流（Flow 旧版其一，整数应用）.cpp",
+      "page": "",
+      "topic": "06A - 最大流（Flow 旧版其一，整数应用）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/02 - 图与网络/06B - 最大流（Flow 旧版其二，浮点数应用）.cpp",
+      "page": "",
+      "topic": "06B - 最大流（Flow 旧版其二，浮点数应用）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/02 - 图与网络/06C - 最大流（MaxFlow 新版）.cpp",
+      "page": "",
+      "topic": "06C - 最大流（MaxFlow 新版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/02 - 图与网络/07A - 费用流（MCFGraph 旧版）.cpp",
+      "page": "",
+      "topic": "07A - 费用流（MCFGraph 旧版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/02 - 图与网络/07B - 费用流（MinCostFlow 新版）.cpp",
+      "page": "",
+      "topic": "07B - 费用流（MinCostFlow 新版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/02 - 图与网络/08 - 树链剖分（HLD）.cpp",
+      "page": "",
+      "topic": "08 - 树链剖分（HLD）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/01 - 快速幂.cpp",
+      "page": "",
+      "topic": "01 - 快速幂"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/02 - 基姆拉尔森公式.cpp",
+      "page": "",
+      "topic": "02 - 基姆拉尔森公式"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/03 - 欧拉筛.cpp",
+      "page": "",
+      "topic": "03 - 欧拉筛"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/07A - 取模运算类（Z）.cpp",
+      "page": "",
+      "topic": "07A - 取模运算类（Z）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/07B - 取模运算类（MLong & MInt）.cpp",
+      "page": "",
+      "topic": "07B - 取模运算类（MLong & MInt）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/07C - 取模运算类（ModIntBase）.cpp",
+      "page": "",
+      "topic": "07C - 取模运算类（ModIntBase）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/07D - 快速取模运算类（MontgomeryModInt32 蒙哥马利模乘）.cpp",
+      "page": "",
+      "topic": "07D - 快速取模运算类（MontgomeryModInt32 蒙哥马利模乘）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/07E - 大数快速取模运算类（Barrett & DynModInt, with ModIntBase 巴雷特约减模乘）.cpp",
+      "page": "",
+      "topic": "07E - 大数快速取模运算类（Barrett & DynModInt, with ModIntBase 巴雷特约减模乘）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/08A - 组合数（小范围预处理，逆元+杨辉三角）.cpp",
+      "page": "",
+      "topic": "08A - 组合数（小范围预处理，逆元+杨辉三角）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/08B - 组合数（Comb, with. ModIntBase）.cpp",
+      "page": "",
+      "topic": "08B - 组合数（Comb, with. ModIntBase）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/09A - 平面几何（Point）.cpp",
+      "page": "",
+      "topic": "09A - 平面几何（Point）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/09B - 平面几何（with. complex）.cpp",
+      "page": "",
+      "topic": "09B - 平面几何（with. complex）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/10 - 立体几何（Point）.cpp",
+      "page": "",
+      "topic": "10 - 立体几何（Point）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/11A - 静态凸包（with. Point，旧版）.cpp",
+      "page": "",
+      "topic": "11A - 静态凸包（with. Point，旧版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/11B - 静态凸包（with. Point，新版）.cpp",
+      "page": "",
+      "topic": "11B - 静态凸包（with. Point，新版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/11C - 静态凸包（with. complex）.cpp",
+      "page": "",
+      "topic": "11C - 静态凸包（with. complex）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/12A - 多项式（Poly 手写取模）.cpp",
+      "page": "",
+      "topic": "12A - 多项式（Poly 手写取模）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/12B - 多项式（Poly, with Z）.cpp",
+      "page": "",
+      "topic": "12B - 多项式（Poly, with Z）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/12C - 多项式（Poly, with MontgomeryModInt32）.cpp",
+      "page": "",
+      "topic": "12C - 多项式（Poly, with MontgomeryModInt32）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/12D - 多项式乘法.cpp",
+      "page": "",
+      "topic": "12D - 多项式乘法"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/12D - 多项式（Poly, with MInt）.cpp",
+      "page": "",
+      "topic": "12D - 多项式（Poly, with MInt）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/13A - 生成函数（q-int）.cpp",
+      "page": "",
+      "topic": "13A - 生成函数（q-int）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/13B - 生成函数（q-Binomial）.cpp",
+      "page": "",
+      "topic": "13B - 生成函数（q-Binomial）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/13C - 生成函数（Binomial 任意模数二项式）.cpp",
+      "page": "",
+      "topic": "13C - 生成函数（Binomial 任意模数二项式）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/14 - 自适应辛普森法（Simpson）.cpp",
+      "page": "",
+      "topic": "14 - 自适应辛普森法（Simpson）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/15 - 矩阵（Matrix）.cpp",
+      "page": "",
+      "topic": "15 - 矩阵（Matrix）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/16 - 高斯消元法 gaussian elimination（gauss）【久远】.cpp",
+      "page": "",
+      "topic": "16 - 高斯消元法 gaussian elimination（gauss）【久远】"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/03 - 数论、几何与多项式/17 - 素数测试与因式分解（Miller-Rabin & Pollard-Rho）.cpp",
+      "page": "",
+      "topic": "17 - 素数测试与因式分解（Miller-Rabin & Pollard-Rho）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/01A - 树状数组（Fenwick 旧版）.cpp",
+      "page": "",
+      "topic": "01A - 树状数组（Fenwick 旧版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/01B - 树状数组（Fenwick 新版）.cpp",
+      "page": "",
+      "topic": "01B - 树状数组（Fenwick 新版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/02A - 并查集（DSU）.cpp",
+      "page": "",
+      "topic": "02A - 并查集（DSU）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/02B - 可撤销并查集（DSU With Rollback）.cpp",
+      "page": "",
+      "topic": "02B - 可撤销并查集（DSU With Rollback）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/03A - 线段树（SegmentTree+Info 区间加+单点修改）.cpp",
+      "page": "",
+      "topic": "03A - 线段树（SegmentTree+Info 区间加+单点修改）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/03C - 线段树（SegmentTree+Info 初始赋值+单点修改+查找前驱后继）.cpp",
+      "page": "",
+      "topic": "03C - 线段树（SegmentTree+Info 初始赋值+单点修改+查找前驱后继）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/03D - 线段树（SegmentTree+Info+Merge 初始赋值+单点修改+区间合并）.cpp",
+      "page": "",
+      "topic": "03D - 线段树（SegmentTree+Info+Merge 初始赋值+单点修改+区间合并）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/04 - 懒标记线段树（LazySegmentTree）.cpp",
+      "page": "",
+      "topic": "04 - 懒标记线段树（LazySegmentTree）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/05 - 高精度（BigInt）.cpp",
+      "page": "",
+      "topic": "05 - 高精度（BigInt）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/06 - 状压RMQ（RMQ）.cpp",
+      "page": "",
+      "topic": "06 - 状压RMQ（RMQ）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/07A - Splay.cpp",
+      "page": "",
+      "topic": "07A - Splay"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/07B - Splay.cpp",
+      "page": "",
+      "topic": "07B - Splay"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/07C - Splay.cpp",
+      "page": "",
+      "topic": "07C - Splay"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/08A - 其他平衡树.cpp",
+      "page": "",
+      "topic": "08A - 其他平衡树"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/08B - 其他平衡树.cpp",
+      "page": "",
+      "topic": "08B - 其他平衡树"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/08C - 其他平衡树.cpp",
+      "page": "",
+      "topic": "08C - 其他平衡树"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/08D - 其他平衡树.cpp",
+      "page": "",
+      "topic": "08D - 其他平衡树"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/04 - 数据结构/09 - 分数四则运算（Frac）.cpp",
+      "page": "",
+      "topic": "09 - 分数四则运算（Frac）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/01A - 马拉车（Manacher）.cpp",
+      "page": "",
+      "topic": "01A - 马拉车（Manacher）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/02 - Z函数.cpp",
+      "page": "",
+      "topic": "02 - Z函数"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp",
+      "page": "",
+      "topic": "04A - 后缀自动机（SuffixAutomaton 旧版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/04B - 后缀自动机（SAM 新版）.cpp",
+      "page": "",
+      "topic": "04B - 后缀自动机（SAM 新版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/06A - AC自动机（AC 旧版）.cpp",
+      "page": "",
+      "topic": "06A - AC自动机（AC 旧版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/06B - AC自动机（AhoCorasick, with vector 新版）.cpp",
+      "page": "",
+      "topic": "06B - AC自动机（AhoCorasick, with vector 新版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/06C - AC自动机（AhoCorasick, with string 新版）.cpp",
+      "page": "",
+      "topic": "06C - AC自动机（AhoCorasick, with string 新版）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/07 - 字符串哈希（随机底模例题）.cpp",
+      "page": "",
+      "topic": "07 - 字符串哈希（随机底模例题）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/08 - 最长公共前缀 LCP（例题）.cpp",
+      "page": "",
+      "topic": "08 - 最长公共前缀 LCP（例题）"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/09B - 字典树 Trie.cpp",
+      "page": "",
+      "topic": "09B - 字典树 Trie"
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/10 - 前缀函数（KMP）.cpp",
+      "page": "",
+      "topic": "10 - 前缀函数（KMP）"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "5",
+      "topic": "1.1 KMP"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "8",
+      "topic": "1.2 e-KMP"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "8",
+      "topic": "1.3 Manacher"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "9",
+      "topic": "1.4 AC 自动机"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "14",
+      "topic": "1.5.2 DC3"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "15",
+      "topic": "1.6 后缀自动机"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "15",
+      "topic": "1.6.1 基本函数"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "16",
+      "topic": "1.6.2 例题"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "23",
+      "topic": "1.7 字符串 hash"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "25",
+      "topic": "2.1 素数"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "27",
+      "topic": "2.2 素数筛选和合数分解"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "32",
+      "topic": "2.7 欧拉函数"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "33",
+      "topic": "2.8 高斯消元（浮点数）"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "34",
+      "topic": "2.9 FFT"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "37",
+      "topic": "2.10 高斯消元法求方程组的解"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "37",
+      "topic": "2.10.1 一类开关问题，对 2 取模的 01 方程组"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "44",
+      "topic": "2.13 莫比乌斯反演"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "46",
+      "topic": "2.15 自适应 simpson 积分"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "46",
+      "topic": "2.16 斐波那契数列取模循环节"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "51",
+      "topic": "2.18 快速数论变换"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "51",
+      "topic": "2.18.1 HDU4656 卷积取模"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "54",
+      "topic": "2.19 其它公式"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "54",
+      "topic": "2.19.1 Polya"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "56",
+      "topic": "3.1 划分树"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "57",
+      "topic": "3.2 RMQ"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "57",
+      "topic": "3.2.1 一维"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "57",
+      "topic": "3.2.2 二维"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "59",
+      "topic": "3.3 树链剖分"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "59",
+      "topic": "3.3.1 点权"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "61",
+      "topic": "3.3.2 边权"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "64",
+      "topic": "3.4 伸展树（splay tree）"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "64",
+      "topic": "3.4.1 例题：HDU1890"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "67",
+      "topic": "3.4.2 例题：HDU3726"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "72",
+      "topic": "3.5.1 SPOJQTREE"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "75",
+      "topic": "3.5.2 SPOJQTREE2"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "78",
+      "topic": "3.5.3 SPOJQTREE4"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "82",
+      "topic": "3.5.4 SPOJQTREE5"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "84",
+      "topic": "3.5.5 SPOJQTREE6"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "87",
+      "topic": "3.5.6 SPOJQTREE7"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "91",
+      "topic": "3.5.7 HDU4010"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "108",
+      "topic": "3.8 KD 树"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "108",
+      "topic": "3.8.1 HDU4347 K 近邻"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "111",
+      "topic": "3.8.2 CF44G"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "114",
+      "topic": "3.8.3 HDU4742"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "116",
+      "topic": "3.9 替罪羊树 (ScapeGoat Tree)"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "116",
+      "topic": "3.9.1 CF455D"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "120",
+      "topic": "3.10 动态 KD 树"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "123",
+      "topic": "3.11 树套树"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "123",
+      "topic": "3.11.1 替罪羊树套 splay"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "130",
+      "topic": "4.1 最短路"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "130",
+      "topic": "4.1.1 Dijkstra 单源最短路"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "130",
+      "topic": "4.1.2 Dijkstra 算法 + 堆优化"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "131",
+      "topic": "4.1.3 单源最短路 bellman_ford 算法"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "132",
+      "topic": "4.1.4 单源最短路 SPF A"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "133",
+      "topic": "4.2 最小生成树"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "133",
+      "topic": "4.2.1 Prim 算法"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "134",
+      "topic": "4.2.2 Kruskal 算法"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "135",
+      "topic": "4.3 次小生成树"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "149",
+      "topic": "4.10 二分图匹配"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "149",
+      "topic": "4.10.1 邻接矩阵（匈牙利算法）"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "150",
+      "topic": "4.10.2 邻接表（匈牙利算法）"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "151",
+      "topic": "4.10.3 Hopcroft-Karp 算法"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "152",
+      "topic": "4.11 二分图多重匹配"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "157",
+      "topic": "4.14 一般图最大加权匹配"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "161",
+      "topic": "4.16 最大流"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "161",
+      "topic": "4.16.1 SAP 邻接矩阵形式"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "162",
+      "topic": "4.16.2 SAP 邻接矩阵形式 2"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "163",
+      "topic": "4.16.3 ISAP 邻接表形式"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "165",
+      "topic": "4.16.4 ISAP+bfs 初始化 + 栈优化"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "168",
+      "topic": "4.16.6 最大流判断多解"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "169",
+      "topic": "4.17 最小费用最大流"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "169",
+      "topic": "4.17.1 SPF A 版费用流"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "170",
+      "topic": "4.17.2 zkw 费用流"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "177",
+      "topic": "4.19 曼哈顿最小生成树"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "192",
+      "topic": "4.22 树分治"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "192",
+      "topic": "4.22.1 点分治 -HDU5016"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "195",
+      "topic": "4.22.2 * 点分治 -HDU4918"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "199",
+      "topic": "4.22.3 链分治 -HDU5039"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "205",
+      "topic": "5.1 Dancing Links"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "205",
+      "topic": "5.1.1 精确覆盖"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "207",
+      "topic": "5.1.2 可重复覆盖"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "209",
+      "topic": "5.2 八数码"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "209",
+      "topic": "5.2.1 HDU1043 反向搜索"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "212",
+      "topic": "6.1 最长上升子序列 O(nlogn)"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "212",
+      "topic": "6.2 背包"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "213",
+      "topic": "6.3 插头 DP"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "213",
+      "topic": "6.3.1 HDU 4285"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "238",
+      "topic": "7.2 三维几何"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "243",
+      "topic": "7.4 三维凸包"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "243",
+      "topic": "7.4.1 HDU4273"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "249",
+      "topic": "8.1 高精度"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "250",
+      "topic": "8.2 完全高精度"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "256",
+      "topic": "8.3 strtok 和 sscanf 结合输入"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "256",
+      "topic": "8.4 解决爆栈，手动加栈"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "256",
+      "topic": "8.5 STL"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "256",
+      "topic": "8.5.1 优先队列 priority_queue"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "257",
+      "topic": "8.5.2 set 和 multiset"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "258",
+      "topic": "8.6 输入输出外挂"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "258",
+      "topic": "8.7 莫队算法"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "259",
+      "topic": "8.7.1 分块"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "260",
+      "topic": "8.7.2 Manhattan MST 的 dfs 顺序求解"
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "264",
+      "topic": "8.8 VIM 配置"
+    }
+  ]
+}
