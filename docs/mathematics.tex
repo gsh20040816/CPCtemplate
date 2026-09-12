@@ -218,6 +218,31 @@ HDU 原题页面本次无法读取，不能由这条注释推断原题措辞。
 
 来源：kuangbin 2.11；\url{https://oi-wiki.org/math/combinatorics/partition/}。
 
+\section{幂的约数和：不除以 $p-1$}\index{divisor sum}\index{geometric series}
+实现见第~\pageref{compact-divisor_sum_power}~页。
+若 $a=\prod p_i^{e_i}$，则 $a^b$ 的约数和是
+$\prod_i(1+p_i+\cdots+p_i^{e_i b})$。
+几何级数的除法公式在模意义下要求分母可逆；合数模数或 $p\equiv1$ 时不能直接套用。
+
+令 $G(a,n)$ 同时返回 $P=a^n$ 与 $S=\sum_{i=0}^{n-1}a^i$。
+先递归求一半项数 $h=\lfloor n/2\rfloor$ 的 $(P,S)$；
+偶数项的结果为 $(P^2,S(1+P))$，奇数项再补最后的 $a^{2h}=P^2$，
+得到 $(P^2a,S(1+P)+P^2)$，全过程取模。
+$n=0$ 的结果为 $(1,0)$，因此底数为 0 时，非空级数的和仍为 1。
+本接口参数是项数，不是最高指数；约数和必须传 $e_i b+1$。
+
+把幂与和一起返回，可使每层只做常数次运算，总时间 $O(\log(n+1))$。
+长度允许无符号 128 位，避免 $e_i b$ 在 64 位中溢出；模数及底数允许完整无符号 64 位。
+所有模乘与必要的加法在 128 位中执行，任意正模数均可用。
+底数 $a\ge1$，$b=0$ 或 $a=1$ 都返回 $1\bmod m$；0 的约数和不在接口定义域内。
+
+双版本以直接枚举约数、逐项几何求和和任意精度矩阵幂独立核验，
+包括模数 1、合数模数、完整 128 位项数，以及指数乘重数超过 64 位的案例。
+P1593 完整程序各验证 126 组输入，包含 $p\equiv0,1\pmod{9901}$ 和最大输入；
+普通与 ASan/UBSan 均通过，在线 AC 待补。
+
+来源：kuangbin 2.12；\url{https://www.luogu.com.cn/problem/P1593}。
+
 \section{模运算的适用条件}\index{CRT}\index{Euler theorem}\index{Lucas theorem}
 模逆元存在当且仅当 $\gcd(a,m)=1$。费马逆元 $a^{p-2}$ 仅适用于素数模数及 $a\not\equiv0$。
 对正模数 $m,n$，同余式 $x\equiv a\pmod m$、$x\equiv b\pmod n$ 可合并当且仅当

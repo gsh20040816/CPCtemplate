@@ -229,3 +229,7 @@ build/dujiao
 
 "$CXX" "${flags[@]}" tests/partitions.cpp -o build/partitions
 build/partitions
+
+"$CXX" "${flags[@]}" tests/divisor_sum.cpp -o build/divisor_sum
+build/divisor_sum
+python3 tests/divisor_sum_application.py

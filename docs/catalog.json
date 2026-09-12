@@ -210,6 +210,18 @@
     "构造 CoprimePairs(n) 预处理 mu 前缀和，0≤n<INT_MAX，O(n) 时间与空间；依赖 LinearSieve。count(a,b) 求 [1,a]×[1,b] 的互质数对，a,b 为非负 int，要求 min(a,b)≤n，任一为 0 返回 0。rectangle(a,b,c,d,k) 求 [a,b]×[c,d] 中 gcd(x,y)=k 的数对，要求 1≤a≤b、1≤c≤d、k≥1，min(b/k,d/k)≤n；闭区间容斥。返回 long long，中间分块累加用 int128。单次前缀查询 O(√a+√b)，额外空间 O(1)。传统接口 Coprime_Pairs、Count、Rectangle。sum 为 mu 前缀和，只读。"
   ],
   [
+    "divisor_sum",
+    "power_sum",
+    "模幂与几何级数同时求值",
+    "power_sum(a,n,mod) 返回 {a^n mod mod, Σ(i=0..n-1) a^i mod mod}。a 为完整 unsigned long long，n 为 uint128 项数，mod 为正 unsigned long long。n=0 返回 {1%mod,0}；a=0 且 n>0 时和为 1%mod。无需逆元，合数模数也可用。时间与递归空间 O(log(n+1))，至多 128 次折半。传统接口 Power_Sum。只抄此函数需 utility、cassert。"
+  ],
+  [
+    "divisor_sum",
+    "divisor_sum_power",
+    "幂的约数和",
+    "传入 a、b、mod 和可复用的 PollardRho 分解器 solver，返回 a^b 的正约数和取模。a、b、mod 均为 unsigned long long，a≥1、mod≥1。a=1 或 b=0 时结果为 1%mod。依赖 power_sum 与分解器；重数 e 对应 e*b+1 项，长度用 uint128。时间由分解及每个不同质因子的 O(log(e*b+2)) 求和组成。传统接口为 Divisor_Sum_Power，分解器为 Pollard_Rho。"
+  ],
+  [
     "euler_phi",
     "euler_phi",
     "单个数的欧拉函数",

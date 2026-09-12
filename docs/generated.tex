@@ -642,6 +642,26 @@ garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garn
 
 \lstinputlisting[firstline=5,lastline=36]{../src/compact/coprime_pairs.hpp}
 
+\chapter{模几何级数与约数和}
+
+\Needspace{258pt}
+
+\section{模幂与几何级数同时求值}\label{compact-power_sum}\index{power\_sum}
+
+power\_sum(a,n,mod) 返回 \{a\textasciicircum{}n mod mod, $\sum$(i=0..n-1) a\textasciicircum{}i mod mod\}。a 为完整 unsigned long long，n 为 uint128 项数，mod 为正 unsigned long long。n=0 返回 \{1\%mod,0\}；a=0 且 n>0 时和为 1\%mod。无需逆元，合数模数也可用。时间与递归空间 O(log(n+1))，至多 128 次折半。传统接口 Power\_Sum。只抄此函数需 utility、cassert。
+
+\lstinputlisting[firstline=5,lastline=18]{../src/compact/divisor_sum.hpp}
+
+\newpage
+
+\Needspace{338pt}
+
+\section{幂的约数和}\label{compact-divisor_sum_power}\index{divisor\_sum\_power}
+
+传入 a、b、mod 和可复用的 PollardRho 分解器 solver，返回 a\textasciicircum{}b 的正约数和取模。a、b、mod 均为 unsigned long long，a$\ge$1、mod$\ge$1。a=1 或 b=0 时结果为 1\%mod。依赖 power\_sum 与分解器；重数 e 对应 e*b+1 项，长度用 uint128。时间由分解及每个不同质因子的 O(log(e*b+2)) 求和组成。传统接口为 Divisor\_Sum\_Power，分解器为 Pollard\_Rho。
+
+\lstinputlisting[firstline=22,lastline=43]{../src/compact/divisor_sum.hpp}
+
 \chapter{单个数的欧拉函数}
 
 \Needspace{435pt}
@@ -1635,6 +1655,24 @@ Combination<prime>(n=0) 构造，Init(n) 扩大上限；Choose、Permute 对应�
 算法约束见动态版本第~\pageref{compact-CoprimePairs}~页。本节代码独立可抄；采用下列实际接口名。
 
 \lstinputlisting[firstline=5,lastline=36]{../src/classic/coprime_pairs.hpp}
+
+\chapter{模几何级数与约数和}
+
+\Needspace{258pt}
+
+\section{模幂与几何级数同时求值}\label{classic-power_sum}\index{Power\_Sum}
+
+算法约束见动态版本第~\pageref{compact-power_sum}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=5,lastline=18]{../src/classic/divisor_sum.hpp}
+
+\Needspace{338pt}
+
+\section{幂的约数和}\label{classic-divisor_sum_power}\index{Divisor\_Sum\_Power}
+
+算法约束见动态版本第~\pageref{compact-divisor_sum_power}~页。本节代码独立可抄；采用下列实际接口名。
+
+\lstinputlisting[firstline=22,lastline=43]{../src/classic/divisor_sum.hpp}
 
 \chapter{单个数的欧拉函数}
 

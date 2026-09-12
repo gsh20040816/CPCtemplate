@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-12T06:35:10.711026+00:00",
+  "recorded_at_utc": "2026-09-12T06:41:31.289574+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -137,7 +137,12 @@
       "DuJiao dual trial-prefix oracle, zero/cutoff boundaries, shuffled/repeated queries, cache rebuild and 1e11 cutoff consistency PASS",
       "",
       "Incremental partitions; unchanged-module evidence retained from f7e752c:",
-      "Partitions dual exact coin DP, bounded-multiplicity enumeration, composite moduli and n=100000 boundaries PASS"
+      "Partitions dual exact coin DP, bounded-multiplicity enumeration, composite moduli and n=100000 boundaries PASS",
+      "",
+      "Incremental divisor sums; unchanged-module evidence retained from e8017fb:",
+      "Divisor sum dual direct divisors, geometric iteration, cpp_int matrix oracle, composite moduli and uint128 lengths PASS",
+      "P1593 compact: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS",
+      "P1593 classic: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -273,7 +278,12 @@
       "DuJiao dual trial-prefix oracle, zero/cutoff boundaries, shuffled/repeated queries, cache rebuild and 1e11 cutoff consistency PASS",
       "",
       "Incremental partitions; unchanged-module evidence retained from f7e752c:",
-      "Partitions dual exact coin DP, bounded-multiplicity enumeration, composite moduli and n=100000 boundaries PASS"
+      "Partitions dual exact coin DP, bounded-multiplicity enumeration, composite moduli and n=100000 boundaries PASS",
+      "",
+      "Incremental divisor sums; unchanged-module evidence retained from e8017fb:",
+      "Divisor sum dual direct divisors, geometric iteration, cpp_int matrix oracle, composite moduli and uint128 lengths PASS",
+      "P1593 compact: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS",
+      "P1593 classic: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS"
     ]
   },
   "sha256": {
@@ -290,6 +300,7 @@
     "src/classic/coprime_pairs.hpp": "336da5fa9e0a13f323e5bc62da4cbe1c71ebc55c46495bd8dc91efc33431e8e1",
     "src/classic/data_structure.hpp": "c22a85ed4ea5c3a458f4febf18549d611045a255cabe429189debd92113f0a70",
     "src/classic/directed_euler.hpp": "f8b4a9b1c752bb53d9a5cded2eb547c56f0e299ce584085960110225639f91af",
+    "src/classic/divisor_sum.hpp": "c9ede0a278dde0e014a1465e173cf6739d88968cd94bb076754ac4fce945e3ae",
     "src/classic/dsu_on_tree.hpp": "ec9482919c309309980c8ec06d98fbf3ad7aeb1308f1685552245bd3df040434",
     "src/classic/dynamic_kth.hpp": "1722bf7aece58ad677f0e515014b31dd72e05d320a883adc88d366d0f872d22b",
     "src/classic/dynamic_tree.hpp": "b11bde8c5b78f6fb927e79e854b5b940757226e46d8bbb68ec17c58db3773821",
@@ -356,6 +367,7 @@
     "src/compact/coprime_pairs.hpp": "c00ee31e1bfffb415c2cc411e049752d306deb5a6c4f9611b5490497cd6c4094",
     "src/compact/data_structure.hpp": "ffbb46b60f707a3ed44838329a8f7eefbd6cba4c2b64d30ed8a62f207e73327e",
     "src/compact/directed_euler.hpp": "241e6cacb38e57e1b95f2e089cbceebb9120afc83671930e4023dc57245f09bc",
+    "src/compact/divisor_sum.hpp": "10e7cbc583f9e4f2e4e7dcfa4dd081e794a770dc7ca04db9d620df81e9677937",
     "src/compact/dsu_on_tree.hpp": "b773f54e4304a7ef348c5e6079233726df17232f8da5843a5a9b284b2bcd94fa",
     "src/compact/dynamic_kth.hpp": "006b98255668548427c58149db6260dfa5372fa287fd771d6b66b56fe3c086c5",
     "src/compact/dynamic_tree.hpp": "1e9fdf1d3b04989459cfc7c2a9fe6f5256870e09ce37875994e44cb868714769",
@@ -434,6 +446,8 @@
     "tests/directed_euler_application.py": "31458b7e2a5f9c71579c5f93c8b7afc8d6a59b1f19b3fcdef5232e59b4c832ab",
     "tests/discrete_log.cpp": "5745ad604c912e33816c25499d5e313fb10f07dd27d1ebd8630aa11c8596b65f",
     "tests/discrete_log_application.py": "d73773a400174992ac02c39a290679de3bd76943e0d3769ebf1a52c99f416d4e",
+    "tests/divisor_sum.cpp": "115fb2011020fa8085e916b0381791e57739fac2e32b7839414ac5f66cb461e3",
+    "tests/divisor_sum_application.py": "9289b840579057037202485cc69d233b716d2ac222abfc7f7aa75ed1e9c4df43",
     "tests/driver_stack.cpp": "70679960f4f415f829c72eef6fbedf7890d17d9cc1aa20594747ce2ed04aa624",
     "tests/dsu_on_tree.cpp": "8af99c1002d77d57b85a8763efca24c52f03dd786c0f594f23df633a984ab68f",
     "tests/dual.cpp": "6a3e330198d0de2b47946a9c7868ef200d8a36f51fe40a71c25274d7d0f102ad",
