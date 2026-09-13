@@ -44,6 +44,7 @@
 | `CentroidPairs::add/build/count_exact` | [Luogu P3806](https://www.luogu.com.cn/problem/P3806) | n<=10000; m<=100; 1<=k<=10^7; 1<=edge_weight<=10000 | [记录](https://www.luogu.com.cn/record/297519137) | 待核验 |
 | `PersistentKth::kth` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | n,m<=200000; 0<=a[i]<=10^9; valid l,r,k | [记录](https://www.luogu.com.cn/record/297520290) | 待核验 |
 | `ost` | [Library Checker ordered_set](https://judge.yosupo.jp/problem/ordered_set) | 0<=N<=500000; 1<=Q<=500000; sorted distinct initial keys; 0<=keys<=10^9; kth query x>=1 | [记录](https://judge.yosupo.jp/submission/401869) | 628 out of 1095（All AC submissions, all users and languages, Dedup user unchecked. Not non-AC verdicts or per-user best.） |
+| `segtree` | [Library Checker point_set_range_composite](https://judge.yosupo.jp/problem/point_set_range_composite) | N,Q<=500000; 0<=l<r<=N; coefficients mod998244353 with nonzero slopes | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -370,6 +371,14 @@ Official standalone ordered set template task.
 Convert 1-based kth to find_by_order(x-1). Inclusive count uses order_of_key(x)+presence, avoiding x+1 overflow. Predecessor is <=x via upper_bound, successor is >=x via lower_bound; missing outputs -1. Duplicates ignored.
 
 Duplicate-key adapters require separate online tests.
+
+### Library Checker point_set_range_composite / segtree
+
+Official standalone generic segment-tree composition template.
+
+0-based point set and half-open prod. op(f,g)=g after f. Evaluate returned affine function at x. This driver does not invoke either boundary-search API.
+
+Online submission and rank pending. Boundary search has separate local string/scan evidence only.
 
 ## 榜单口径
 

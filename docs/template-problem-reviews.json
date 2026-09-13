@@ -1049,5 +1049,26 @@
       "url": "https://judge.yosupo.jp/submissions/?problem=ordered_set&user=&dedupUser=false&status=AC&lang=&order=%2Btime&page=6&pagesize=100"
     },
     "remaining": "Duplicate-key adapters require separate online tests."
+  },
+  {
+    "symbol": "segtree",
+    "problem": "Library Checker point_set_range_composite",
+    "url": "https://judge.yosupo.jp/problem/point_set_range_composite",
+    "classification": "Official standalone generic segment-tree composition template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "N,Q<=500000; 0<=l<r<=N; coefficients mod998244353 with nonzero slopes",
+    "adapter": "0-based point set and half-open prod. op(f,g)=g after f. Evaluate returned affine function at x. This driver does not invoke either boundary-search API.",
+    "source": "src/compact/segtree.hpp",
+    "source_driver": "verify/library_checker/point_set_range_composite.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and rank pending. Boundary search has separate local string/scan evidence only."
   }
 ]

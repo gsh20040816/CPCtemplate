@@ -10,7 +10,7 @@
 |---|---|---|---|
 | [dsu](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/dsu.hpp) | 数据结构 | 功能已有，按用户约定保留 | [data_structure.hpp](../src/compact/data_structure.hpp) |
 | [fenwicktree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/fenwicktree.hpp) | 数据结构 | 基础功能已有，组合约束不同 | [data_structure.hpp](../src/compact/data_structure.hpp)、[number_theory.hpp](../src/compact/number_theory.hpp) |
-| [segtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp) | 数据结构 | 部分覆盖 | [data_structure.hpp](../src/compact/data_structure.hpp) |
+| [segtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp) | 数据结构 | 已实现，本地验证 | [segtree.hpp](../src/compact/segtree.hpp) |
 | [lazysegtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/lazysegtree.hpp) | 数据结构 | 部分覆盖 | [affine_segment_tree.hpp](../src/compact/affine_segment_tree.hpp) |
 | [math](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp) | 数学 | 核心功能已有，范围需适配 | [number_theory.hpp](../src/compact/number_theory.hpp) |
 | [modint](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp) | 数学 | 部分覆盖 | [number_theory.hpp](../src/compact/number_theory.hpp) |
@@ -65,9 +65,9 @@ ACL 为 0-based 点更新、半开区间和；本库为 1-based，另有仅适�
 
 ### segtree
 
-当前有专门的区间加/区间和实现，不是任意幺半群线段树。ACL 双向累积保持 op 顺序，可支持非交换运算。
+已实现 [segtree.hpp](../src/compact/segtree.hpp)：任意结合运算与双侧单位元、点修改、半开区间查询和双向边界搜索。左右累积保留非交换顺序。独立字符串拼接与单调子串判定扫描、空树、非二次幂大小、50 万叶子均通过普通和 ASan/UBSan；函数复合完整驱动使用逐函数代入参考。
 
-后续项：通用 op/e 点修改区间聚合；max_right/min_left 单调谓词边界搜索。
+后续项：函数复合题在线提交；max_right/min_left 的独立线上题。已有本地通过不代表在线验证完成，懒标记树仍为单独缺项。
 
 ### lazysegtree
 

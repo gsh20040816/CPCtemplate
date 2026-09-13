@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T11:27:59.015538+00:00",
+  "recorded_at_utc": "2026-09-13T11:34:50.574403+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -291,7 +291,9 @@
       "PBDS ost sorted-vector oracle, duplicates by pair, bounds, reverse comparator and 500000 ordered keys PASS",
       "GNU rope branching vector oracle, insert/replace/erase/substr, large shared copies and version isolation PASS",
       "Fixed rope persistent-queue driver: independent branching list oracle PASS",
-      "PBDS multiset drivers: duplicate sorted-list oracle, legal strict neighbors, online XOR and million operations PASS"
+      "PBDS multiset drivers: duplicate sorted-list oracle, legal strict neighbors, online XOR and million operations PASS",
+      "Generic segtree: noncommutative substring oracle, both monotone boundary scans, empty trees and 500000 leaves PASS",
+      "Point-set range-composite driver: direct sequential function evaluation oracle PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -558,7 +560,9 @@
       "PBDS ost sorted-vector oracle, duplicates by pair, bounds, reverse comparator and 500000 ordered keys PASS",
       "GNU rope branching vector oracle, insert/replace/erase/substr, large shared copies and version isolation PASS",
       "Fixed rope persistent-queue driver: independent branching list oracle PASS",
-      "PBDS multiset drivers: duplicate sorted-list oracle, legal strict neighbors, online XOR and million operations PASS"
+      "PBDS multiset drivers: duplicate sorted-list oracle, legal strict neighbors, online XOR and million operations PASS",
+      "Generic segtree: noncommutative substring oracle, both monotone boundary scans, empty trees and 500000 leaves PASS",
+      "Point-set range-composite driver: direct sequential function evaluation oracle PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -805,6 +809,7 @@
     "src/compact/root_factors.hpp": "e2cbaefa6d412932f77fc67998c25ab50b8096e4b869a93b17adc7b9dfb2744e",
     "src/compact/rope.hpp": "4b62b0f54121309530d06339e55e8c69c15f4f8952ce63e33bbba7e9d4b89f43",
     "src/compact/segmented_sieve.hpp": "9d383937c5e063a142afaa9372edbf37cdaf41731675f6429617f66e5cf47cf6",
+    "src/compact/segtree.hpp": "1075367a87d5a3886b3de8aae9f0826e6e31d855c94d372d06400d2b9f263ed5",
     "src/compact/set_convolution.hpp": "c3ed7630c8bd8c457ca2bb1c3fe46881ab5c7da3ffc9f05e56028d7d810a0158",
     "src/compact/splay.hpp": "d81babceed51c498b6e89a5de9413730d6a01b6e7a010841a0b387e9dc05a9f7",
     "src/compact/stirling.hpp": "679196e62de8fd0b9777b8ced30795fd6b78db27dc450021c159c42af760c4a0",
@@ -966,6 +971,8 @@
     "tests/rope_queue_application.py": "143f9b83f0ab81aa8ca78f3fef1f70fdbea0d19970b00753be77421680ac7657",
     "tests/scc_template_application.py": "cd879e450e53d35eece9a7f27f844067219a9e9ab91f3abf6bb62d68f0537192",
     "tests/segmented_sieve.cpp": "8ce844d676a6abf0b02dc4c8da038ef27da9336582b4e469e0b25305c4c4b3ed",
+    "tests/segtree.cpp": "59ae2627e4d4b0f50d265c67caaf24e5d584d6cf9a15873b54dfe7165020e354",
+    "tests/segtree_application.py": "0fb4d4baa1b12b618d79c0a9213c7924e41560c2f943a9bedcfb65a339416e7d",
     "tests/set_convolution.cpp": "006ac5effb1f307de465a4d9bb16b491febdcca96677bfb82f767f3752e73a3c",
     "tests/set_convolution_application.py": "13c7e5470fa10a6009465e6ec4aedb337878a334b464e5fa9dfa9a9317539c90",
     "tests/snake_application.py": "af2b17ff2cf342fd9027473e0e97f0697566a7e65e51473337c60be9eec3c639",

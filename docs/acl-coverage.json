@@ -46,16 +46,15 @@
     {
       "module": "segtree",
       "category": "数据结构",
-      "status": "部分覆盖",
+      "status": "已实现并本地验证，在线待验证",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp",
       "reference_sha256": "6b959283e1faeaa3de5b473eee5e774220eee60a89fe4b483ce26e652532dabb",
       "local": [
-        "src/compact/data_structure.hpp"
+        "src/compact/segtree.hpp"
       ],
-      "notes": "当前有专门的区间加/区间和实现，不是任意幺半群线段树。ACL 双向累积保持 op 顺序，可支持非交换运算。",
+      "notes": "通用 op/e、set/get/prod/all、max_right/min_left 已实现；非交换字符串与独立扫描、50万叶及 ASan/UBSan 通过。函数复合驱动在线待提交。",
       "gaps": [
-        "通用 op/e 点修改区间聚合",
-        "max_right/min_left 单调谓词边界搜索"
+        "线上模板题与边界搜索接口在线验证"
       ]
     },
     {

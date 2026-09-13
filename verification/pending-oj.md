@@ -8,6 +8,7 @@
 - `verify/library_checker/intersection_intersection.compact.cpp`
 - `verify/library_checker/intersection_zassenhaus.compact.cpp`
 - `verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp`
+- `verify/library_checker/point_set_range_composite.compact.cpp`
 - `verify/library_checker/polynomial_taylor_shift.compact.cpp`
 - `verify/luogu/CF1100F.compact.cpp`
 - `verify/luogu/CF118E.compact.cpp`

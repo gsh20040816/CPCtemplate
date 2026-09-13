@@ -1,5 +1,21 @@
 \part{vector 模板}
 
+\chapter{通用线段树}
+
+\section{通用线段树与左右边界搜索}\label{compact-segtree}\index{segtree}
+
+segtree<S,op,e>(a) 从 0-based vector 构建，或 segtree(n) 初始化为单位元。0$\le$n$\le$2\textasciicircum{}29，实际受内存限制。op(S,S) 须满足结合律，e() 是双侧单位元；无需交换律。set(p,x)、get(p) 操作单点，prod(l,r) 返回半开区间 [l,r) 从左到右的合并，空区间返回 e；all() 返回全区间结果。max\_right(l,ok) 返回最大的 r 使 ok(prod(l,r)) 为真；min\_left(r,ok) 返回最小的 l。要求 ok(e()) 为真，ok 无副作用，并随对应方向扩展从真变假后不再变真；例如非负和不超过阈值，不能对任意负数和这样搜索。l=n、r=0 支持空端点。构建 O(n)，单点/区间/边界搜索 O(log n)，all O(1)，空间 O(n)，假设 op、e、ok 及 S 复制为 O(1)。d、sz、pull 为内部实现，不直接修改。函数复合时 op(f,g) 表示 g(f(x))，对应先执行左区间再执行右区间；min\_left 不能照抄 max\_right 的合并顺序。
+
+\lstinputlisting[firstline=7,lastline=38,firstnumber=1]{../src/compact/segtree.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=39,lastline=73,firstnumber=33]{../src/compact/segtree.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=74,lastline=98,firstnumber=68]{../src/compact/segtree.hpp}
+
 \chapter{GNU 扩展可持久化序列}
 
 \Needspace{204pt}

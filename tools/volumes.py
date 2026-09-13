@@ -7,7 +7,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 rows = json.loads((root / 'build/book-sections.json').read_text())
 groups = {
-    'data-structures': ('数据结构', 'rope ordered_set hash_table data_structure modified_mo position_basis basis_intersection affine_segment_tree persistent_array persistent_range dynamic_kth persistent_distinct treap splay gcd_sequence'),
+    'data-structures': ('数据结构', 'segtree rope ordered_set hash_table data_structure modified_mo position_basis basis_intersection affine_segment_tree persistent_array persistent_range dynamic_kth persistent_distinct treap splay gcd_sequence'),
     'graphs': ('图论', 'tarjan functional_graph biconnected odd_cycle_vertices vertex_removal edge_components bridge_augmentation flow maximum_closure graph release_bfs lex_two_sat directed_euler word_chain undirected_euler mixed_euler xor_walk graph_advanced gomory_hu cut_tree_queries weighted_matching blossom'),
     'trees': ('树上算法', 'tree offline_lca euler_lca tree_diameter lifting_lca path_intersection centroid dsu_on_tree virtual_tree tree_path_kth dynamic_tree'),
     'strings': ('字符串', 'string suffix_lcp palindromic_tree'),
