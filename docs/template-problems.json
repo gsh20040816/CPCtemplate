@@ -3238,7 +3238,14 @@
       "title": "PBDS 可修改、可合并优先队列",
       "source": "src/compact/pbds_heap.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/shortest_path.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/shortest_path",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T15:31:00.399076+00:00",
+  "recorded_at_utc": "2026-09-13T15:39:21.777979+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -320,7 +320,8 @@
       "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS",
       "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
       "PBDS pairing heap: ordered-set oracle, handle ownership after join/swap/split, copy isolation and 200000 modifications PASS",
-      "Infra C++ examples: move/copy dispatch, valid moved-from reuse, STL ranges and PBDS ownership PASS"
+      "Infra C++ examples: move/copy dispatch, valid moved-from reuse, STL ranges and PBDS ownership PASS",
+      "PBDS shortest-path driver: 160 Floyd-Warshall graph oracles, zero weights, unreachable targets and simple-path certificates PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -616,7 +617,8 @@
       "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS",
       "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
       "PBDS pairing heap: ordered-set oracle, handle ownership after join/swap/split, copy isolation and 200000 modifications PASS",
-      "Infra C++ examples: move/copy dispatch, valid moved-from reuse, STL ranges and PBDS ownership PASS"
+      "Infra C++ examples: move/copy dispatch, valid moved-from reuse, STL ranges and PBDS ownership PASS",
+      "PBDS shortest-path driver: 160 Floyd-Warshall graph oracles, zero weights, unreachable targets and simple-path certificates PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -1077,6 +1079,7 @@
     "tests/lc_convolution_application.py": "1e748e4551a05cbfeaacdf489b1f40d3a9f7941f352043d3ff35ddb03dd63b36",
     "tests/lc_fps_application.py": "68a132d73d60de458650f494b6f261e40e271b6577b384ffa2d28922d991e979",
     "tests/lc_number_application.py": "bd8687a626bbb79f13c52d941b70eb9939a36c8c97b9192eaa6d4bd362c0a471",
+    "tests/lc_pheap_application.py": "2265de312f3dd989e97e019631374d096e1f7375e7513af4f0d0f3f9e7f5868e",
     "tests/lex_two_sat.cpp": "1dff785aab551bde3bc84eb38c70d5e8d83400422c987c2dd60b65f287243d6e",
     "tests/lex_two_sat_application.py": "6a6d099010a17cecb9c6802572b7e653cd31c37c28f930491539d57fe2c7d0c8",
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",

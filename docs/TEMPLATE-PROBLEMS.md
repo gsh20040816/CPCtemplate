@@ -63,6 +63,7 @@
 | `gp_map` | [Library Checker associative_array (cc_hash_table variant)](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; key/value in [0,10^18]. | 待编写驱动/提交 | 待核验 |
 | `Prime64` | [Library Checker primality_test](https://judge.yosupo.jp/problem/primality_test) | 1<=Q<=100000;1<=N<=10^18. | 待编写驱动/提交 | 待核验 |
 | `floor_sum` | [Library Checker sum_of_floor_of_linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | 1<=T<=100000;1<=N,M<=10^9;0<=A,B<M. | 待编写驱动/提交 | 待核验 |
+| `pheap` | [Library Checker shortest_path](https://judge.yosupo.jp/problem/shortest_path) | 2<=N<=500000; 1<=M<=500000; simple directed graph; 0<=weight<=1e9; s!=t | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -541,6 +542,16 @@ Official standalone number theory template task.
 Call floor_sum and cast result to long long for output. Every summand is at most i, hence sum<=N(N-1)/2 fits signed64. Negative coefficients and N=0 are outside this driver task.
 
 Online AC and all-AC ranking pending; official local checker does not confer an OJ performance verdict.
+
+### Library Checker shortest_path / pheap
+
+PBDS pairing-heap application: decrease-key shortest paths; does not cover join/split.
+
+0-based Dijkstra; one live point_iterator per queued vertex, modify on strict improvement, pop invalidates that handle. long long distances; predecessor path output is checked by upstream checker.
+
+Online submission and all-submission ranking pending. Local evidence: 29 pinned official cases in normal/ASan+UBSan modes, plus 160 independent Floyd-Warshall graphs and simple-path certificates. join/swap/split are covered separately by container-level tests.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/shortest_path/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/shortest_path/info.toml)
 
 ## 榜单口径
 

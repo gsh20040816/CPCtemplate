@@ -146,7 +146,7 @@
 | [Minimum Diameter Spanning Tree](https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Minimum Spanning Tree](https://judge.yosupo.jp/problem/minimum_spanning_tree) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Strongly Connected Components](https://judge.yosupo.jp/problem/scc) | Graph | 待逐题审题、适配与在线验证 | [scc.compact.cpp](../verify/library_checker/scc.compact.cpp) |
-| [Shortest Path](https://judge.yosupo.jp/problem/shortest_path) | Graph | 待逐题审题、适配与在线验证 | — |
+| [Shortest Path](https://judge.yosupo.jp/problem/shortest_path) | Graph | 待逐题审题、适配与在线验证 | [shortest_path.compact.cpp](../verify/library_checker/shortest_path.compact.cpp) |
 | [st-Numbering](https://judge.yosupo.jp/problem/st_numbering) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Three-Edge-Connected Components](https://judge.yosupo.jp/problem/three_edge_connected_components) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Tree Decomposition (Width 2)](https://judge.yosupo.jp/problem/tree_decomposition_width_2) | Graph | 待逐题审题、适配与在线验证 | — |

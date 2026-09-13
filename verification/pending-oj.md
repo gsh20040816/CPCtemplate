@@ -21,6 +21,7 @@
 - `verify/library_checker/primality_test.compact.cpp`
 - `verify/library_checker/range_affine_range_sum.compact.cpp`
 - `verify/library_checker/scc.compact.cpp`
+- `verify/library_checker/shortest_path.compact.cpp`
 - `verify/library_checker/sum_of_floor_of_linear.compact.cpp`
 - `verify/library_checker/system_of_linear_equations.compact.cpp`
 - `verify/library_checker/two_sat.compact.cpp`

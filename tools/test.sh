@@ -436,3 +436,5 @@ build/pbds-heap
 "$CXX" "${flags[@]}" tests/infra_examples.cpp -o build/infra-examples
 build/infra-examples
 python3 tests/infra_examples.py
+
+python3 tests/lc_pheap_application.py
