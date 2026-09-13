@@ -433,8 +433,8 @@
     "statement_checked": true,
     "checked_date": "2026-09-12",
     "limits": "operations<=100000; |x|<=10000000",
-    "adapter": "Planned extc++ order-statistics tree target. Preserve duplicate values through unique secondary IDs and a strict comparator; less_equal is not a valid workaround. Erase exactly one key, convert zero-based find_by_order to the problem kth convention. Existing Treap/Splay AC does not validate PBDS.",
-    "implementation": "implemented_adapter_pending",
+    "adapter": "Use pair<int,int> with unique positive ID; deletion erases only one equal key, absent deletion ignored. Strict ranks use {x,0}; predecessor lower_bound then prev; successor upper_bound({x,INT_MAX}); kth converted from 1-based.",
+    "implementation": "implemented_driver_local_verified_online_pending",
     "source": "src/compact/ordered_set.hpp",
     "api": null,
     "tested_api": [],
@@ -444,7 +444,8 @@
       "rank": null,
       "total": null
     },
-    "remaining": "PBDS alias exists and distinct-key Library Checker task passed; this multiset problem still requires its own driver and online evidence."
+    "remaining": "Separate PBDS multiset driver now passes independent sorted-list oracle and ASan/UBSan. P6136 also checks 100000 initial duplicates and 1000000 online operations. Online AC and ranking still pending.",
+    "source_driver": "verify/luogu/P3369.pbds.compact.cpp"
   },
   {
     "symbol": "ost",
@@ -456,7 +457,7 @@
     "checked_date": "2026-09-12",
     "limits": "n<=100000; m<=1000000; values<2^30",
     "adapter": "Read an initial multiset, XOR each operand with the last query answer before executing it, and print XOR of all query answers. All operations are legal. Cannot simply reuse P3369 input/output or sort operations offline; require separate maximum-scale performance evidence.",
-    "implementation": "implemented_adapter_pending",
+    "implementation": "implemented_driver_local_verified_online_pending",
     "source": "src/compact/ordered_set.hpp",
     "api": null,
     "tested_api": [],
@@ -466,7 +467,8 @@
       "rank": null,
       "total": null
     },
-    "remaining": "PBDS alias exists and distinct-key Library Checker task passed; this multiset problem still requires its own driver and online evidence."
+    "remaining": "Separate PBDS multiset driver now passes independent sorted-list oracle and ASan/UBSan. P6136 also checks 100000 initial duplicates and 1000000 online operations. Online AC and ranking still pending.",
+    "source_driver": "verify/luogu/P6136.pbds.compact.cpp"
   },
   {
     "symbol": "gp_map",

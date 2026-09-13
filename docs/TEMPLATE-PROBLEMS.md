@@ -203,9 +203,9 @@ Existing vector AC retained with its archived scope; leaderboard ranking remains
 
 Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.
 
-Planned extc++ order-statistics tree target. Preserve duplicate values through unique secondary IDs and a strict comparator; less_equal is not a valid workaround. Erase exactly one key, convert zero-based find_by_order to the problem kth convention. Existing Treap/Splay AC does not validate PBDS.
+Use pair<int,int> with unique positive ID; deletion erases only one equal key, absent deletion ignored. Strict ranks use {x,0}; predecessor lower_bound then prev; successor upper_bound({x,INT_MAX}); kth converted from 1-based.
 
-PBDS alias exists and distinct-key Library Checker task passed; this multiset problem still requires its own driver and online evidence.
+Separate PBDS multiset driver now passes independent sorted-list oracle and ASan/UBSan. P6136 also checks 100000 initial duplicates and 1000000 online operations. Online AC and ranking still pending.
 
 ### Luogu P6136 / ost
 
@@ -213,7 +213,7 @@ Standalone, explicitly designated standard template; reuse in template-practice 
 
 Read an initial multiset, XOR each operand with the last query answer before executing it, and print XOR of all query answers. All operations are legal. Cannot simply reuse P3369 input/output or sort operations offline; require separate maximum-scale performance evidence.
 
-PBDS alias exists and distinct-key Library Checker task passed; this multiset problem still requires its own driver and online evidence.
+Separate PBDS multiset driver now passes independent sorted-list oracle and ASan/UBSan. P6136 also checks 100000 initial duplicates and 1000000 online operations. Online AC and ranking still pending.
 
 ### Library Checker associative_array / gp_map
 

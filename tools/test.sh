@@ -367,3 +367,5 @@ build/ordered_set
 build/rope
 
 python3 tests/rope_queue_application.py
+
+python3 tests/pbds_multiset_application.py
