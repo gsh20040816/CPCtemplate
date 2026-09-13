@@ -1,12 +1,12 @@
 \part{语言基础}
 
+\Needspace{344pt}
+
 \chapter{C++ 进阶}
 
 \section{pb\_ds}
 
 \subsection{平衡树}
-
-\Needspace{239pt}
 
 \subsubsection{PBDS 有序树与顺序统计}\label{compact-ost}\index{ost}
 
@@ -16,9 +16,9 @@ GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp 和 ext/pb\_ds/tre
 
 \part{字符串}
 
-\chapter{前缀函数与 KMP 算法}
+\Needspace{251pt}
 
-\Needspace{216pt}
+\chapter{前缀函数与 KMP 算法}
 
 \section{前缀函数}\label{compact-prefix_function}\index{prefix\_function}
 
@@ -34,15 +34,17 @@ kmp\_match(s,t) 返回非空模式串 t 在 s 中的所有起点（0-based），
 
 \lstinputlisting[firstline=23,lastline=40]{../src/compact/string.hpp}
 
-\chapter{Z 函数（扩展 KMP）}
+\Needspace{299pt}
 
-\Needspace{264pt}
+\chapter{Z 函数（扩展 KMP）}
 
 \section{Z 函数}\label{compact-z_function}\index{z\_function}
 
 z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返回空数组。O(n)。
 
 \lstinputlisting[firstline=44,lastline=61]{../src/compact/string.hpp}
+
+\Needspace{180pt}
 
 \chapter{AC 自动机}
 
@@ -52,11 +54,11 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 \lstinputlisting[firstline=127,lastline=199]{../src/compact/string.hpp}
 
+\newpage
+
 \chapter{后缀数组 (SA)}
 
 \section{后缀数组简介}
-
-\newpage
 
 \subsection{倍增后缀数组与 LCP}\label{compact-SuffixArray}\index{SuffixArray}
 
@@ -98,6 +100,8 @@ square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long l
 
 \lstinputlisting[firstline=64,lastline=93]{../src/compact/suffix_lcp.hpp}
 
+\Needspace{180pt}
+
 \chapter{后缀自动机 (SAM)}
 
 \section{后缀自动机}\label{compact-SuffixAutomaton}\index{SuffixAutomaton}
@@ -106,15 +110,17 @@ extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts()
 
 \lstinputlisting[firstline=274,lastline=346]{../src/compact/string.hpp}
 
-\chapter{Manacher}
+\Needspace{427pt}
 
-\Needspace{392pt}
+\chapter{Manacher}
 
 \section{Manacher 回文半径}\label{compact-manacher}\index{manacher}
 
 manacher(s) 返回 odd 与 even；odd[i] 的半径包含中心，even[i] 的中心在 i 前。字符串及下标为 0-based，空串合法，O(n)。
 
 \lstinputlisting[firstline=65,lastline=94]{../src/compact/string.hpp}
+
+\Needspace{180pt}
 
 \chapter{回文树}
 
@@ -124,9 +130,9 @@ add(ch) 追加小写英文字母，返回最长回文后缀节点，亦保存于
 
 \lstinputlisting[firstline=6,lastline=74]{../src/compact/palindromic_tree.hpp}
 
-\chapter{最小表示法}
+\Needspace{395pt}
 
-\Needspace{360pt}
+\chapter{最小表示法}
 
 \section{最小循环表示}\label{compact-minimum_rotation}\index{minimum\_rotation}
 
@@ -136,9 +142,9 @@ minimum\_rotation(s) 返回字典序最小循环表示的起点（0-based），�
 
 \part{数学}
 
-\chapter{快速幂}
+\Needspace{280pt}
 
-\Needspace{245pt}
+\chapter{快速幂}
 
 \section{模幂与几何级数同时求值}\label{compact-power_sum}\index{power\_sum}
 
@@ -146,21 +152,23 @@ power\_sum(a,n,mod) 返回 \{a\textasciicircum{}n mod mod, $\sum$(i=0..n-1) a\te
 
 \lstinputlisting[firstline=5,lastline=17]{../src/compact/divisor_sum.hpp}
 
+\newpage
+
+\Needspace{380pt}
+
 \chapter{数论}
 
 \section{数论基础}
 
 \noindent 相关应用：约数和公式应用；需核对正文定位，导航无独立幂约数和页。
 
-\newpage
-
-\Needspace{310pt}
-
 \subsection{幂的约数和}\label{compact-divisor_sum_power}\index{divisor\_sum\_power}
 
 传入 a、b、mod 和可复用的 PollardRho 分解器 solver，返回 a\textasciicircum{}b 的正约数和取模。a、b、mod 均为 unsigned long long，a$\ge$1、mod$\ge$1。a=1 或 b=0 时结果为 1\%mod。依赖 power\_sum 与分解器；重数 e 对应 e*b+1 项，长度用 uint128。时间由分解及每个不同质因子的 O(log(e*b+2)) 求和组成。
 
 \lstinputlisting[firstline=21,lastline=40]{../src/compact/divisor_sum.hpp}
+
+\Needspace{180pt}
 
 \section{模算术简介}
 
@@ -188,9 +196,9 @@ mul/power 支持无符号 64 位正模数，乘积用 uint128。prime 使用确�
 
 \lstinputlisting[firstline=216,lastline=253]{../src/compact/number_theory.hpp}
 
-\section{欧拉函数}
+\Needspace{445pt}
 
-\Needspace{410pt}
+\section{欧拉函数}
 
 \subsection{单个数的欧拉函数}\label{compact-euler_phi}\index{euler\_phi}
 
@@ -198,9 +206,9 @@ euler\_phi(n) 使用试除，O($\sqrt{\vphantom x}$n) 时间、O(1) 额外空间
 
 \lstinputlisting[firstline=5,lastline=33]{../src/compact/euler_phi.hpp}
 
-\section{筛法}
+\Needspace{494pt}
 
-\Needspace{459pt}
+\section{筛法}
 
 \subsection{线性筛、欧拉函数与 Möbius 函数}\label{compact-LinearSieve}\index{LinearSieve}
 
@@ -216,9 +224,9 @@ segmented\_primes(l,r) 返回闭区间内递增的全部素数，0$\le$l$\le$r$\
 
 \lstinputlisting[firstline=8,lastline=27]{../src/compact/segmented_sieve.hpp}
 
-\section{分解质因数}
+\Needspace{680pt}
 
-\Needspace{653pt}
+\section{分解质因数}
 
 \subsection{Pollard–Rho 因数分解}\label{compact-PollardRho}\index{PollardRho}
 
@@ -226,9 +234,9 @@ factor(n) 返回升序质因子（含重数），1$\le$n$\le$ULLONG\_MAX。n=1 �
 
 \lstinputlisting[firstline=130,lastline=181]{../src/compact/number_theory.hpp}
 
-\section{裴蜀定理 \& 一次不定方程}
+\Needspace{348pt}
 
-\Needspace{313pt}
+\section{裴蜀定理 \& 一次不定方程}
 
 \subsection{二元一次不定方程}\label{compact-linear_equation}\index{linear\_equation}
 
@@ -236,11 +244,11 @@ linear\_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解。a、b、c 支持
 
 \lstinputlisting[firstline=5,lastline=23]{../src/compact/linear_equation.hpp}
 
+\Needspace{358pt}
+
 \section{费马小定理 \& 欧拉定理}
 
 \noindent 相关应用：公共指数与欧拉定理相关；导航无独立 Carmichael 页，不伪造叶节点。
-
-\Needspace{323pt}
 
 \subsection{Carmichael：模乘法群的公共指数}\label{compact-carmichael}\index{carmichael}
 
@@ -248,9 +256,9 @@ carmichael(n) 返回 $\lambda$(n)，即使所有与 n 互素的 a 都满足 a �
 
 \lstinputlisting[firstline=7,lastline=27]{../src/compact/carmichael.hpp}
 
-\section{模逆元}
+\Needspace{335pt}
 
-\Needspace{300pt}
+\section{模逆元}
 
 \subsection{模整数类型的批量逆元}\label{compact-batch_units}\index{batch\_units}
 
@@ -274,9 +282,9 @@ inverse\_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p �
 
 \lstinputlisting[firstline=7,lastline=15]{../src/compact/inverse_table.hpp}
 
-\section{线性同余方程}
+\Needspace{323pt}
 
-\Needspace{288pt}
+\section{线性同余方程}
 
 \subsection{线性同余方程}\label{compact-linear_congruence}\index{linear\_congruence}
 
@@ -284,9 +292,9 @@ linear\_congruence(a,b,m) 求 a*x+b$\equiv$0 (mod m)，返回 \{最小非负解,
 
 \lstinputlisting[firstline=5,lastline=20]{../src/compact/linear_congruence.hpp}
 
-\section{中国剩余定理}
+\Needspace{564pt}
 
-\Needspace{529pt}
+\section{中国剩余定理}
 
 \subsection{Garner：大周期 CRT 与混合进制}\label{compact-garner}\index{garner}
 
@@ -300,9 +308,9 @@ garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garn
 
 \lstinputlisting[firstline=32,lastline=43,firstnumber=28]{../src/compact/garner.hpp}
 
-\section{卢卡斯定理}
+\Needspace{587pt}
 
-\Needspace{552pt}
+\section{卢卡斯定理}
 
 \subsection{Lucas：小素数模的大下标组合数}\label{compact-Lucas}\index{Lucas}
 
@@ -324,15 +332,17 @@ ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k �
 
 \lstinputlisting[firstline=85,lastline=101,firstnumber=80]{../src/compact/exlucas.hpp}
 
-\section{二次剩余}
+\Needspace{680pt}
 
-\Needspace{660pt}
+\section{二次剩余}
 
 \subsection{素数模平方根（Cipolla）}\label{compact-mod_sqrt}\index{mod\_sqrt}
 
 mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无解返回空向量，零或模数 2 返回单根。要求 p 为素数，2$\le$p$\le$INT\_MAX，n 支持完整 long long 范围并在入口归一化。先用 Euler 判别；p$\equiv$3 (mod 4) 时直接快速幂，其余使用 Cipolla 二次扩域。函数内保存固定种子的伪随机生成器；随机性影响寻找非剩余的尝试次数，不影响结果，通常期望 O(log p) 时间、O(1) 辅助空间。乘法用 long long，扩域实部的三因子乘积中间先取模；指数中的 p+1 先转 long long，避免 INT\_MAX 溢出。此版本不处理合数模数及 64 位大素数，也不用于浮点开方。
 
 \lstinputlisting[firstline=10,lastline=61]{../src/compact/modular_sqrt.hpp}
+
+\Needspace{180pt}
 
 \section{阶 \& 原根}
 
@@ -350,9 +360,9 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 \lstinputlisting[firstline=49,lastline=82,firstnumber=46]{../src/compact/primitive_root.hpp}
 
-\section{离散对数}
+\Needspace{596pt}
 
-\Needspace{561pt}
+\section{离散对数}
 
 \subsection{扩展 BSGS}\label{compact-DiscreteLog}\index{DiscreteLog}
 
@@ -360,9 +370,9 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 \lstinputlisting[firstline=80,lastline=122]{../src/compact/algebra.hpp}
 
-\section{高次剩余 \& 单位根}
+\Needspace{393pt}
 
-\Needspace{358pt}
+\section{高次剩余 \& 单位根}
 
 \subsection{素数模高次剩余：全部根的紧凑表示}\label{compact-KthResidue}\index{KthResidue}
 
@@ -412,9 +422,9 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=32,lastline=62,firstnumber=28]{../src/compact/composite_roots.hpp}
 
-\section{莫比乌斯反演}
+\Needspace{476pt}
 
-\Needspace{441pt}
+\section{莫比乌斯反演}
 
 \subsection{矩形 GCD 计数}\label{compact-CoprimePairs}\index{CoprimePairs}
 
@@ -422,9 +432,9 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=5,lastline=35]{../src/compact/coprime_pairs.hpp}
 
-\section{狄利克雷双曲线法 \& 杜教筛}
+\Needspace{636pt}
 
-\Needspace{601pt}
+\section{狄利克雷双曲线法 \& 杜教筛}
 
 \subsection{杜教筛}\label{compact-DuJiao}\index{DuJiao}
 
@@ -432,9 +442,9 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=33,lastline=79]{../src/compact/algebra.hpp}
 
-\section{类欧几里德算法}
+\Needspace{499pt}
 
-\Needspace{464pt}
+\section{类欧几里德算法}
 
 \subsection{整除和、带权和与平方和}\label{compact-floor_moments}\index{floor\_moments}
 
@@ -442,11 +452,11 @@ floor\_moments(n,m,a,b) 对 i=0..n-1，令 y\_i=floor((a*i+b)/m)，返回 \{$\su
 
 \lstinputlisting[firstline=5,lastline=38]{../src/compact/floor_moments.hpp}
 
+\Needspace{430pt}
+
 \chapter{多项式与生成函数}
 
 \section{快速数论变换}
-
-\Needspace{360pt}
 
 \subsection{可指定素数与原根的 NTT 卷积}\label{compact-NttConvolution}\index{NttConvolution}
 
@@ -468,15 +478,9 @@ convolution\_i64(a,b) 返回 signed64 整数卷积，空输入返回空。非空
 
 \lstinputlisting[firstline=5,lastline=43]{../src/compact/convolution_i64.hpp}
 
-\subsection{NTT、形式幂级数、FWT 与递推}\label{compact-Polynomial}\index{Polynomial}
-
-依赖 number\_theory.hpp。模数固定 998244353，乘法结果长度$\le$2$^{23}$；inverse 要求 a[0]$\ne$0，log 要求 a[0]=1，exp 要求 a[0]=0，截断长度 n>0。朴素逐层 NTT 实现的 FPS 为 O(n log n)。FWT 的 op 为 \textasciicircum{}、|、\&；独立且支持其他模数的接口见 SetConvolution。BM 返回 s[n]=$\sum$c[i-1]s[n-i] 的系数；recurrence 用 O(k$^{2}$ log n) 求第 n 项。BM 对有限样本给出的递推不自动保证未知后续项成立。
-
-\lstinputlisting[firstline=5,lastline=212]{../src/compact/polynomial.hpp}
+\Needspace{647pt}
 
 \section{快速沃尔什变换}
-
-\Needspace{612pt}
 
 \subsection{按位 OR、AND、XOR 卷积}\label{compact-SetConvolution}\index{SetConvolution}
 
@@ -498,9 +502,9 @@ subset\_convolution<mod=998244353>(a,b) 返回 c[s]=$\sum$ a[t]b[s xor t]，求�
 
 \lstinputlisting[firstline=5,lastline=41]{../src/compact/subset_convolution.hpp}
 
-\section{Chirp Z 变换}
+\Needspace{680pt}
 
-\Needspace{659pt}
+\section{Chirp Z 变换}
 
 \subsection{Chirp Z：等比点求值}\label{compact-chirp_z}\index{chirp\_z}
 
@@ -514,9 +518,33 @@ chirp\_z(f,a,r,m) 返回 f(a*r\textasciicircum{}i)，i=0..m-1；f 为升幂系�
 
 \lstinputlisting[firstline=34,lastline=56,firstnumber=30]{../src/compact/chirp_z.hpp}
 
-\section{常系数齐次线性递推}
+\Needspace{370pt}
 
-\Needspace{568pt}
+\section{多项式牛顿迭代}
+
+\subsection{形式幂级数求逆}\label{compact-FpsInverse}\index{FpsInverse}
+
+FpsInverse::inverse(a,n) 返回 a 的逆级数前 n 项，模数固定 998244353。要求 n>0、a 非空且 a[0]$\ne$0；不足项视为零，多余项只取需要的前缀。继承 NttConvolution<998244353> 的 Poly、Z、multiply，按 Newton 公式 b←b(2-ab) 倍增。所有内部卷积结果长度须$\le$2$^{23}$，n$\le$2$^{22}$ 是统一充分界。O(n log n) 时间、O(n) 辅助空间。
+
+\lstinputlisting[firstline=4,lastline=25]{../src/compact/fps_inverse.hpp}
+
+\Needspace{612pt}
+
+\section{多项式初等函数}
+
+\subsection{形式幂级数微积分、对数与指数}\label{compact-FpsFunctions}\index{FpsFunctions}
+
+FpsFunctions 继承 FpsInverse，复用同一 NTT 和求逆。derivative(a) 形式求导；integral(a) 返回常数项为零的积分，要求 a.size()<998244353。log(a,n) 要求 n>0、a 非空、a[0]=1；exp(a,n) 要求 n>0、a 为空或 a[0]=0。返回前 n 项，不足输入项视为零。内部每次卷积结果长度须$\le$2$^{23}$；n$\le$2$^{22}$ 且 a.size()$\le$n 是对数/指数的统一充分界。log 会对完整 a 求导，长输入仍须检查容量。微积分 O(a.size())；在 a.size()$\le$n 时 log/exp 为 O(n log n) 时间和 O(n) 辅助空间。
+
+\lstinputlisting[firstline=4,lastline=31]{../src/compact/fps_functions.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=32,lastline=47,firstnumber=29]{../src/compact/fps_functions.hpp}
+
+\Needspace{603pt}
+
+\section{常系数齐次线性递推}
 
 \subsection{特征多项式求线性递推第 k 项}\label{compact-recurrence_nth}\index{recurrence\_nth}
 
@@ -538,9 +566,9 @@ BostanMori<mod=998244353,primitive=3>，依赖参数化 NTT；素数模数与原
 
 \lstinputlisting[firstline=31,lastline=46,firstnumber=28]{../src/compact/bostan_mori.hpp}
 
-\section{多项式平移|连续点值平移}
+\Needspace{414pt}
 
-\Needspace{379pt}
+\section{多项式平移|连续点值平移}
 
 \subsection{多项式系数平移}\label{compact-polynomial_shift}\index{polynomial\_shift}
 
@@ -548,11 +576,11 @@ polynomial\_shift<mod=998244353,primitive=3>(f,c) 返回 f(x+c) 的升幂系数�
 
 \lstinputlisting[firstline=5,lastline=30]{../src/compact/polynomial_shift.hpp}
 
+\Needspace{541pt}
+
 \chapter{组合数学}
 
 \section{排列组合}
-
-\Needspace{471pt}
 
 \subsection{阶乘组合数}\label{compact-Binomial}\index{Binomial}
 
@@ -564,9 +592,9 @@ Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。
 
 \lstinputlisting[firstline=273,lastline=286,firstnumber=20]{../src/compact/number_theory.hpp}
 
-\section{斯特林数}
+\Needspace{383pt}
 
-\Needspace{348pt}
+\section{斯特林数}
 
 \subsection{第二类斯特林数：同一行前缀}\label{compact-stirling_second_row}\index{stirling\_second\_row}
 
@@ -582,9 +610,9 @@ stirling\_first\_row<mod,primitive>(n) 返回无符号 c(n,0..n)，默认模 998
 
 \lstinputlisting[firstline=30,lastline=68]{../src/compact/stirling.hpp}
 
-\section{分拆数}
+\Needspace{567pt}
 
-\Needspace{532pt}
+\section{分拆数}
 
 \subsection{整数分拆与重数上限}\label{compact-Partitions}\index{Partitions}
 
@@ -592,11 +620,11 @@ Partitions(N,mod) 求无序正整数分拆，0$\le$N<INT\_MAX、1$\le$mod$\le$IN
 
 \lstinputlisting[firstline=7,lastline=47]{../src/compact/partitions.hpp}
 
+\Needspace{461pt}
+
 \chapter{线性代数}
 
 \section{矩阵}
-
-\Needspace{391pt}
 
 \subsection{模矩阵乘法与幂}\label{compact-ModMatrix}\index{ModMatrix}
 
@@ -612,9 +640,9 @@ a[i][j] 为转移收益，不存在的边为 neg；power(k) 求恰好 k 步的�
 
 \lstinputlisting[firstline=6,lastline=40]{../src/compact/optimization.hpp}
 
-\section{行列式}
+\Needspace{406pt}
 
-\Needspace{371pt}
+\section{行列式}
 
 \subsection{素数模行列式}\label{compact-det_prime}\index{det\_prime}
 
@@ -630,9 +658,9 @@ determinant\_mod(a,mod) 返回 det(a) 的最小非负余数。a 为 long long �
 
 \lstinputlisting[firstline=7,lastline=42]{../src/compact/determinant_mod.hpp}
 
-\section{线性基}
-
 \newpage
+
+\section{线性基}
 
 \subsection{64 位异或线性基}\label{compact-XorBasis}\index{XorBasis}
 
@@ -684,6 +712,8 @@ XorWalk(n) 建图，点号 1..n，边权为 unsigned long long，支持完整 64
 
 \lstinputlisting[firstline=28,lastline=67,firstnumber=25]{../src/compact/xor_walk.hpp}
 
+\Needspace{180pt}
+
 \chapter{数值算法}
 
 \section{插值}
@@ -694,9 +724,9 @@ XorWalk(n) 建图，点号 1..n，边权为 unsigned long long，支持完整 64
 
 \lstinputlisting[firstline=6,lastline=83]{../src/compact/interpolation.hpp}
 
-\section{高斯消元}
+\Needspace{674pt}
 
-\Needspace{639pt}
+\section{高斯消元}
 
 \subsection{素数模高斯消元与全部解}\label{compact-GaussMod}\index{GaussMod}
 
@@ -708,9 +738,9 @@ GaussMod<p>::solve(a,n) 接收 m 行 n+1 列增广矩阵，p 必须是素数，n
 
 \lstinputlisting[firstline=41,lastline=55,firstnumber=38]{../src/compact/gauss_mod.hpp}
 
-\chapter{Berlekamp–Massey 算法}
+\Needspace{585pt}
 
-\Needspace{550pt}
+\chapter{Berlekamp–Massey 算法}
 
 \section{Berlekamp–Massey：最短线性递推}\label{compact-berlekamp_massey}\index{berlekamp\_massey}
 
@@ -720,9 +750,9 @@ berlekamp\_massey(s,p) 要求 p 为素数，2$\le$p$\le$INT\_MAX，输入均在 
 
 \part{数据结构}
 
-\chapter{哈希表}
+\Needspace{372pt}
 
-\Needspace{337pt}
+\chapter{哈希表}
 
 \section{GNU 整数键哈希表}\label{compact-gp_map}\index{gp\_map}
 
@@ -730,11 +760,11 @@ GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp。gp\_map<K,V> 中
 
 \lstinputlisting[firstline=7,lastline=25]{../src/compact/hash_table.hpp}
 
+\Needspace{549pt}
+
 \chapter{并查集}
 
 \section{并查集}
-
-\Needspace{479pt}
 
 \subsection{并查集}\label{compact-dsu}\index{dsu}
 
@@ -750,15 +780,17 @@ dsu(n)，点号 0..n-1，n$\ge$0。find(x) 路径减半；same(x,y) 判断同集
 
 \lstinputlisting[firstline=41,lastline=80]{../src/compact/data_structure.hpp}
 
-\chapter{树状数组}
+\Needspace{521pt}
 
-\Needspace{486pt}
+\chapter{树状数组}
 
 \section{树状数组与第 k 小}\label{compact-Fenwick}\index{Fenwick}
 
 add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有频率非负且 k>0，超过总和返回 n+1。单次 O(log n)。 T 须能从 0 构造并支持 += 与减法；可直接使用 ModInt 维护模数下的区间和。kth 只适用于有序累计频数，不适用于取模后的区间和。
 
 \lstinputlisting[firstline=81,lastline=118]{../src/compact/data_structure.hpp}
+
+\Needspace{180pt}
 
 \chapter{线段树}
 
@@ -810,6 +842,8 @@ AffineSegTree(a,mod) 传入非空 0-based 初值数组；查询与修改采用 1
 
 \lstinputlisting[firstline=6,lastline=101]{../src/compact/affine_segment_tree.hpp}
 
+\Needspace{180pt}
+
 \section{李超线段树}
 
 \subsection{离散李超树与最优直线编号}\label{compact-LiChao}\index{LiChao}
@@ -817,6 +851,8 @@ AffineSegTree(a,mod) 传入非空 0-based 初值数组；查询与修改采用 1
 构造传入所有可能查询的横坐标，add(\{k,b,id\}) 插入直线，query(x) 返回最小值与最小编号，要求 x 在预登记坐标内且至少有一条线。整数求值用 int128，k、b、x 为有符号 64 位且中间值可表示。单次 O(log n)。
 
 \lstinputlisting[firstline=41,lastline=132]{../src/compact/optimization.hpp}
+
+\Needspace{180pt}
 
 \chapter{二叉搜索树 \& 平衡树}
 
@@ -840,6 +876,8 @@ build(v) 用数值与状态组成的序列替换当前内容。数值为无符�
 
 \lstinputlisting[firstline=10,lastline=195]{../src/compact/gcd_sequence.hpp}
 
+\Needspace{180pt}
+
 \section{Splay 树}
 
 \subsection{Splay：可重集合与顺序统计}\label{compact-OrderedSplay}\index{OrderedSplay}
@@ -848,19 +886,21 @@ insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不�
 
 \lstinputlisting[firstline=7,lastline=210]{../src/compact/splay.hpp}
 
+\Needspace{274pt}
+
 \chapter{可持久化数据结构}
 
 \section{可持久化数据结构简介}
 
 \noindent 相关应用：GNU rope 为共享序列容器；导航无独立 rope 页，需正文定位，不能当作手写可持久化树。
 
-\Needspace{204pt}
-
 \subsection{GNU rope 与版本共享}\label{compact-rp}\index{rp}
 
 GNU libstdc++ 扩展，包含 ext/rope；本工具链中随后重新包含 cassert，保留断言接口。rp<int>、rp<char> 表示序列，默认空。size()、empty()、push\_back(x)、insert(p,x)、erase(p,len)、replace(p,x)、substr(p,len) 直接沿用 rope；位置为 0-based，len 是长度而非右端点。约定 0$\le$p$\le$size，删除/截取要求 len$\le$size-p，读写单点要求 p<size。r[i] 读取第 i 项；substr 返回新序列。rp<T> b=a 共享底层树，随后通过容器接口修改 b 不影响 a，可用 vector<rp<int>> 保存分支版本。复制构造共享根为 O(1)；随机访问沿树路径，正常平衡时 O(log n)。插入/删除/截取涉及路径、叶块复制和可能的再平衡，不能把每次操作都写成严格最坏 O(log n)；释放最后引用可能递归回收整棵子树。长期保留所有版本的内存不能按单个序列 O(n) 估计。不可缓存修改前的迭代器或使用可变代理跨版本写入。仅使用默认内存分配器及普通整数/字符值；函数生成型 rope 不在本模板范围。 可持久化队列已通过定长构造加头尾下标版本：Q 个零单元，复制根与 l/r，入队 replace(r++,x)，出队读取 [l++]；直接 push\_back/erase 版本在针对数据上耗尽内存。线上 942 ms、591.26 MiB，具体失败与通过范围见 docs/ROPE-NOTES.md。
 
 \lstinputlisting[firstline=8,lastline=8]{../src/compact/rope.hpp}
+
+\Needspace{180pt}
 
 \section{可持久化线段树}
 
@@ -906,6 +946,8 @@ PersistentDistinct(a) 传入非空 0-based 数组，query(l,r) 返回闭区间�
 
 \lstinputlisting[firstline=7,lastline=83]{../src/compact/persistent_distinct.hpp}
 
+\Needspace{180pt}
+
 \chapter{树套树}
 
 \section{树状数组套权值线段树}
@@ -919,6 +961,8 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 \Needspace{407pt}
 
 \lstinputlisting[firstline=89,lastline=123,firstnumber=83]{../src/compact/dynamic_kth.hpp}
+
+\Needspace{180pt}
 
 \chapter{动态树}
 
@@ -944,11 +988,11 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 
 \part{图论}
 
+\Needspace{653pt}
+
 \chapter{树上问题}
 
 \section{树的直径}
-
-\Needspace{583pt}
 
 \subsection{树上点集直径摘要}\label{compact-TreeDiameter}\index{TreeDiameter}
 
@@ -962,9 +1006,9 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 
 \lstinputlisting[firstline=36,lastline=50,firstnumber=30]{../src/compact/tree_diameter.hpp}
 
-\section{最近公共祖先}
+\Needspace{530pt}
 
-\Needspace{495pt}
+\section{最近公共祖先}
 
 \subsection{离线 Tarjan LCA}\label{compact-OfflineLCA}\index{OfflineLCA}
 
@@ -1020,6 +1064,8 @@ path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径�
 
 \lstinputlisting[firstline=7,lastline=33]{../src/compact/path_intersection.hpp}
 
+\Needspace{180pt}
+
 \section{树链剖分}
 
 \subsection{重链剖分与 LCA}\label{compact-HLD}\index{HLD}
@@ -1027,6 +1073,8 @@ path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径�
 add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn、rk。子树对应 [dfn[u],dfn[u]+siz[u]-1]。lca(u,v) 为 O(log n)，path(u,v,work,edge) 分解路径；work(l,r) 仅适用于可交换聚合，边权模式排除 LCA 位置。输入必须是连通无环树，建树 O(n)，两遍递归 DFS；支持改变根后重复 build，dfn 会重新编号。
 
 \lstinputlisting[firstline=6,lastline=91]{../src/compact/tree.hpp}
+
+\Needspace{180pt}
 
 \section{树上启发式合并}
 
@@ -1036,6 +1084,8 @@ SubtreeColors(n)，点号 1..n，add(u,v) 建无向树；要求图连通且无�
 
 \lstinputlisting[firstline=7,lastline=102]{../src/compact/dsu_on_tree.hpp}
 
+\Needspace{180pt}
+
 \section{虚树}
 
 \subsection{虚树：关键点压缩与路径信息}\label{compact-VirtualTree}\index{VirtualTree}
@@ -1043,6 +1093,8 @@ SubtreeColors(n)，点号 1..n，add(u,v) 建无向树；要求图连通且无�
 VirtualTree(n)，n$\ge$1，点号 1..n；add(u,v,w=1) 建非负权连通树，无环和重边。prepare(root=1) 递归预处理，可换根重建；根到任一点距离须在 long long 范围内。build(keys) 自动去重并补齐必要 LCA，返回 vertices 和 edges；全部编号沿用原树，vertices 按 DFS 序排列，非空时首项即虚树根。edges 为 (from,to,distance,minimum)，分别是祖先到后代的虚边、压缩路径长度和路径最小边权。空关键点返回空结果，单点返回单节点；原树根不会强制加入，需要时由调用者加入 keys。边按后代 DFS 序排列，可逆序做自底向上的 DP。不分配或清空 n 个查询邻接表；每次仅返回 O(k) 结果。预处理 O(n log n) 时间空间，单次 O(k log k+k log n)。lca、ancestor 也可直接使用，要求有效点号且已经 prepare。构造用的祖先链栈属于虚树算法，原树 DFS 保持递归。
 
 \lstinputlisting[firstline=9,lastline=131]{../src/compact/virtual_tree.hpp}
+
+\Needspace{180pt}
 
 \section{树分治}
 
@@ -1052,11 +1104,11 @@ CentroidPairs(n)，点号 1..n；add(u,v,w) 建树，允许森林但禁止环、
 
 \lstinputlisting[firstline=9,lastline=141]{../src/compact/centroid.hpp}
 
+\Needspace{658pt}
+
 \chapter{最短路问题}
 
 \section{最短路}
-
-\Needspace{588pt}
 
 \subsection{非负权最短路}\label{compact-Dijkstra}\index{Dijkstra}
 
@@ -1074,11 +1126,11 @@ release\_bfs(open,source,neighbors) 返回各点最早到达时间，不可达�
 
 \lstinputlisting[firstline=9,lastline=51]{../src/compact/release_bfs.hpp}
 
+\Needspace{546pt}
+
 \chapter{生成树问题}
 
 \section{最小树形图}
-
-\Needspace{476pt}
 
 \subsection{有向最小树形图}\label{compact-Arborescence}\index{Arborescence}
 
@@ -1091,6 +1143,8 @@ solve(n,root,edges)，点号 0..n-1，n$\ge$1、0$\le$root<n；返回以 root �
 \noindent 判环与缩点（接上页同一函数）：
 
 \lstinputlisting[firstline=102,lastline=133,firstnumber=32]{../src/compact/graph_advanced.hpp}
+
+\Needspace{180pt}
 
 \chapter{连通性相关}
 
@@ -1130,6 +1184,8 @@ add(u,v)、run()，bel[1..n] 为分量编号，cnt 为数量；分量编号按�
 
 \lstinputlisting[firstline=55,lastline=109]{../src/compact/graph.hpp}
 
+\Needspace{180pt}
+
 \section{双连通分量}
 
 \subsection{Tarjan 点双、边双与圆方树}\label{compact-Biconnected}\index{Biconnected}
@@ -1166,9 +1222,9 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 \lstinputlisting[firstline=32,lastline=51]{../src/compact/edge_components.hpp}
 
-\section{割点和桥}
+\Needspace{285pt}
 
-\Needspace{250pt}
+\section{割点和桥}
 
 \subsection{由点双分解计算删点连通块数}\label{compact-removal_components}\index{removal\_components}
 
@@ -1196,9 +1252,9 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 \lstinputlisting[firstline=249,lastline=291,firstnumber=17]{../src/compact/graph.hpp}
 
-\chapter{2-SAT}
+\Needspace{417pt}
 
-\Needspace{382pt}
+\chapter{2-SAT}
 
 \section{2-SAT 与任意可行方案}\label{compact-TwoSAT}\index{TwoSAT}
 
@@ -1218,9 +1274,9 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 
 \lstinputlisting[firstline=32,lastline=67,firstnumber=26]{../src/compact/lex_two_sat.hpp}
 
-\chapter{欧拉图}
+\Needspace{558pt}
 
-\Needspace{523pt}
+\chapter{欧拉图}
 
 \section{有向图字典序最小欧拉路}\label{compact-DirectedEuler}\index{DirectedEuler}
 
@@ -1272,6 +1328,8 @@ mixed\_euler\_trail(n,edges) 返回任意可行欧拉路径的定向边序列，
 
 \lstinputlisting[firstline=73,lastline=95]{../src/compact/mixed_euler.hpp}
 
+\Needspace{180pt}
+
 \chapter{网络流}
 
 \section{最大流}
@@ -1290,9 +1348,9 @@ Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新
 
 \lstinputlisting[firstline=72,lastline=118,firstnumber=67]{../src/compact/flow.hpp}
 
-\section{最小割}
+\Needspace{502pt}
 
-\Needspace{467pt}
+\section{最小割}
 
 \subsection{最大权闭合子图与选点方案}\label{compact-maximum_closure}\index{maximum\_closure}
 
@@ -1316,9 +1374,9 @@ cut\_tree\_values(n,tree) 对合法的连通无环加权树计算全点对路径
 
 \lstinputlisting[firstline=10,lastline=34]{../src/compact/cut_tree_queries.hpp}
 
-\section{费用流}
-
 \newpage
+
+\section{费用流}
 
 \subsection{势能最小费用最大流}\label{compact-MinCostFlow}\index{MinCostFlow}
 
@@ -1334,9 +1392,9 @@ add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 �
 
 \lstinputlisting[firstline=198,lastline=234,firstnumber=80]{../src/compact/flow.hpp}
 
-\section{上下界网络流}
+\Needspace{575pt}
 
-\Needspace{540pt}
+\section{上下界网络流}
 
 \subsection{上下界可行循环流}\label{compact-BoundedCirculation}\index{BoundedCirculation}
 
@@ -1344,9 +1402,9 @@ add(u,v,lo,hi)，0$\le$lo$\le$hi；solve() 仅调用一次，返回可行性，�
 
 \lstinputlisting[firstline=235,lastline=278]{../src/compact/flow.hpp}
 
-\section{Stoer–Wagner 算法}
+\Needspace{436pt}
 
-\Needspace{401pt}
+\section{Stoer–Wagner 算法}
 
 \subsection{无向全局最小割}\label{compact-StoerWagner}\index{StoerWagner}
 
@@ -1360,6 +1418,8 @@ solve(w)，n$\ge$2；w 为 n×n 对称非负权矩阵，重边先累加，主对
 
 \lstinputlisting[firstline=159,lastline=182,firstnumber=26]{../src/compact/graph_advanced.hpp}
 
+\Needspace{180pt}
+
 \chapter{图的匹配}
 
 \section{二分图最大匹配}
@@ -1369,6 +1429,8 @@ solve(w)，n$\ge$2；w 为 n×n 对称非负权矩阵，重边先累加，主对
 左右两侧分别编号 1..n、1..m，可有空侧及重边；add(u,v) 加边，solve() 返回最大匹配总数，l[u] 与 r[v] 为匹配端点，0 表示未匹配。保留已有合法匹配，可加边后再次 solve；不支持删边或手动更改匹配数组。BFS 用 dep[0] 记录最短终点层，递归 DFS 只沿最短层增广，并使用当前弧。V=n+m，单次 solve 最坏 O((V+E)$\sqrt{\vphantom x}$V)，空间 O(V+E)。cover() 在 solve 后、下一次改图前调用，返回 (左侧点列表,右侧点列表)，为最小点覆盖；其补集是最大独立集。覆盖与匹配方案均可直接输出。
 
 \lstinputlisting[firstline=139,lastline=232]{../src/compact/graph.hpp}
+
+\Needspace{180pt}
 
 \section{二分图最大权匹配}
 
@@ -1384,6 +1446,8 @@ WeightedMatching(n,m)，两侧编号 1..n、1..m。add(x,y,w) 加边，重边保
 
 \lstinputlisting[firstline=6,lastline=93]{../src/compact/weighted_matching.hpp}
 
+\Needspace{180pt}
+
 \section{一般图最大匹配}
 
 \subsection{一般图最大基数匹配：带花树}\label{compact-Blossom}\index{Blossom}
@@ -1392,9 +1456,9 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 
 \lstinputlisting[firstline=8,lastline=119]{../src/compact/blossom.hpp}
 
-\chapter{矩阵树定理}
+\Needspace{508pt}
 
-\Needspace{473pt}
+\chapter{矩阵树定理}
 
 \section{带权矩阵树：无向树与内外向树形图}\label{compact-MatrixTree}\index{MatrixTree}
 
@@ -1411,6 +1475,8 @@ count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小
 \lstinputlisting[firstline=4,lastline=38]{../src/compact/matrix_tree_mod.hpp}
 
 \part{计算几何}
+
+\Needspace{180pt}
 
 \chapter{二维计算几何基础}
 
@@ -1454,11 +1520,11 @@ solve(a,b,eps) 返回 Result，包含 infinite 和 lines；infinite 为真表示
 
 \lstinputlisting[firstline=32,lastline=57,firstnumber=29]{../src/compact/circle_tangents.hpp}
 
-\chapter{三维计算几何基础}
-
-\Needspace{527pt}
-
 \newpage
+
+\Needspace{562pt}
+
+\chapter{三维计算几何基础}
 
 \section{整数三维共线、共面与方向}\label{compact-IntegerGeometry3D}\index{IntegerGeometry3D}
 
@@ -1466,9 +1532,9 @@ solve(a,b,eps) 返回 Result，包含 infinite 和 lines；infinite 为真表示
 
 \lstinputlisting[firstline=111,lastline=153]{../src/compact/geometry_extra.hpp}
 
-\chapter{凸包}
+\Needspace{680pt}
 
-\Needspace{658pt}
+\chapter{凸包}
 
 \section{支撑点查询恢复下凸包}\label{compact-SupportHull}\index{SupportHull}
 
@@ -1480,9 +1546,9 @@ solve(a,b,eps) 返回 Result，包含 infinite 和 lines；infinite 为真表示
 
 \lstinputlisting[firstline=21,lastline=53,firstnumber=16]{../src/compact/support_hull.hpp}
 
-\chapter{半平面交}
+\Needspace{536pt}
 
-\Needspace{501pt}
+\chapter{半平面交}
 
 \section{整数半平面的有界多边形交}\label{compact-IntegerHalfplanes}\index{IntegerHalfplanes}
 
@@ -1502,9 +1568,9 @@ bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}
 
 \lstinputlisting[firstline=79,lastline=105,firstnumber=71]{../src/compact/halfplanes.hpp}
 
-\chapter{平面最近点对}
+\Needspace{563pt}
 
-\Needspace{528pt}
+\chapter{平面最近点对}
 
 \section{浮点平面最近点对}\label{compact-ClosestPair}\index{ClosestPair}
 
@@ -1524,9 +1590,9 @@ closest\_pair(points) 返回最短距离平方，少于两个点为 nullopt，�
 
 \lstinputlisting[firstline=4,lastline=110]{../src/compact/geometry_extra.hpp}
 
-\chapter{随机增量法}
+\Needspace{549pt}
 
-\Needspace{514pt}
+\chapter{随机增量法}
 
 \section{随机增量最小覆盖圆}\label{compact-EnclosingCircle}\index{EnclosingCircle}
 
@@ -1543,6 +1609,8 @@ solve(points,rng,eps) 返回 optional<Circle>，Circle=\{o,r\}；空集返回 nu
 \input{geometry-notes.tex}
 
 \part{杂项}
+
+\Needspace{180pt}
 
 \chapter{离线算法}
 

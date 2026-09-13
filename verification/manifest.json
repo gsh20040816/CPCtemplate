@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T13:45:47.049531+00:00",
+  "recorded_at_utc": "2026-09-13T13:52:22.704269+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -310,7 +310,8 @@
       "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS",
       "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS",
       "Separated algebra: exhaustive affine solution sets, permutation determinants, repeated-product matrices and uint64 composite-mod powers PASS",
-      "LC algebra drivers: permutation-minor ranks, affine basis certificates, rectangular product oracle and maximal structured matrices PASS"
+      "LC algebra drivers: permutation-minor ranks, affine basis certificates, rectangular product oracle and maximal structured matrices PASS",
+      "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -596,7 +597,8 @@
       "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS",
       "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS",
       "Separated algebra: exhaustive affine solution sets, permutation determinants, repeated-product matrices and uint64 composite-mod powers PASS",
-      "LC algebra drivers: permutation-minor ranks, affine basis certificates, rectangular product oracle and maximal structured matrices PASS"
+      "LC algebra drivers: permutation-minor ranks, affine basis certificates, rectangular product oracle and maximal structured matrices PASS",
+      "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -801,6 +803,8 @@
     "src/compact/exlucas.hpp": "7a4c53f56d500d0c66df38d4788d50c54df607d539ef918ab24cd271cbfbee0d",
     "src/compact/floor_moments.hpp": "bcf05dd6f5dee32f0bef79e1e670f5534ca78a9574766b5d65cc1f2af8685069",
     "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "src/compact/fps_functions.hpp": "197bda0e04605e2224ac2becaa0db966b4ee77dc83ef719c83067b791f60bb96",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
     "src/compact/functional_graph.hpp": "0a83e68dc49592adef845d9abe401f19bfa80ea72c4cacb23c12ca49114f2e7e",
     "src/compact/garner.hpp": "4c0daec9d92ccf740e2397ef5db6229795d9937a98d5c433ae56aebc313f3ec8",
     "src/compact/gauss_mod.hpp": "852e697bfd7ef868caf6d20c06694813fb0df5b2fc11cfc2b0d7f684a78f2f05",
@@ -840,7 +844,7 @@
     "src/compact/persistent_array.hpp": "9187d32b4aa443cf57347a17e7943a4d07cf086c142257763e925d80f9021982",
     "src/compact/persistent_distinct.hpp": "b72f294559b01aff1a06d7e0aa64bd57d7772e9337025eb2995a7359fe199deb",
     "src/compact/persistent_range.hpp": "108995c6654309946f3aae19e67c3d70ff8db468fc1311c5b274801507ed4cf8",
-    "src/compact/polynomial.hpp": "3e50d658c5f69637985bc01fe3ea669f0337aa4f69b9075891902b136a7cc8d0",
+    "src/compact/polynomial.hpp": "04a531d36d4c8864a666333fc6557c2aaf99fa09180d2b9527200a54d7feb32c",
     "src/compact/polynomial_shift.hpp": "d42e99cba55b21a3e4dd14a2d02979c05bcf06aeff6ecb70650dec2528a9ceae",
     "src/compact/position_basis.hpp": "ca1efe2f60afdd4786a9832d187a09720b97a8eece21d7af895e172075d4a439",
     "src/compact/prime_power_roots.hpp": "49e295d24b3f6f0bc389081aa67054b79ea3c0511163ef3663b7a5f27b9166cd",
@@ -1011,6 +1015,7 @@
     "tests/flow_edges.cpp": "61b54575fe16490b66810d04b5c89c745f92a8a9d61bd80eb9eb8c28159cfc1b",
     "tests/flow_slope.cpp": "15201a266da9170048bea4db491ca35f2b06348ef6564e93e864d03923f8546d",
     "tests/flow_slope_application.py": "4d07b322866f79648178a674a9df43f60b6e4af3b2b5d3514ba95a6d1f15ecb6",
+    "tests/fps_components.cpp": "8e6c41fe852ff903a032a15687f9f212e7fc982c00f89a9a0a3b2bfcb456073f",
     "tests/frog_meeting_application.py": "309d5b8d4dbda9a7b261cfd8dec1ddbf01a0a94b222fbc0b4d5a22d1b65f66df",
     "tests/functional_graph.cpp": "3f58e6ad3b55f34e551e2c93a7cc8eda500c43f15467f0a2ce4182a8137929bc",
     "tests/functional_graph_application.py": "21454c121efeb6e9812a167761dbb7c5025073ce6470594cd41e62cb5b7ed503",

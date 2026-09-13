@@ -50,11 +50,12 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | DuJiao | 数学 → 数论 → 狄利克雷双曲线法 & 杜教筛 | direct |  |
 | floor_moments | 数学 → 数论 → 类欧几里德算法 | direct |  |
 | NttConvolution | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
-| Polynomial | 数学 → 多项式与生成函数 → 快速数论变换 | composite | NTT、形式幂级数、FWT、递推必须拆分目录位置；暂不声称该映射完成排版。 |
 | convolution_i64 | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | SetConvolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |
 | subset_convolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |
 | chirp_z | 数学 → 多项式与生成函数 → Chirp Z 变换 | direct |  |
+| FpsInverse | 数学 → 多项式与生成函数 → 多项式牛顿迭代 | direct |  |
+| FpsFunctions | 数学 → 多项式与生成函数 → 多项式初等函数 | direct |  |
 | BostanMori | 数学 → 多项式与生成函数 → 常系数齐次线性递推 | direct |  |
 | recurrence_nth | 数学 → 多项式与生成函数 → 常系数齐次线性递推 | direct |  |
 | polynomial_shift | 数学 → 多项式与生成函数 → 多项式平移\|连续点值平移 | direct |  |

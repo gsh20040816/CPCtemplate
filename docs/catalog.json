@@ -312,10 +312,16 @@
     "stirling_first_row<mod,primitive>(n) 返回无符号 c(n,0..n)，默认模 998244353、原根 3。c(n,k) 为 n 元排列恰有 k 个循环的个数。n≥0，n+1≤NTT 的 max_size；n=0 返回 {1}。倍增配合多项式平移计算 x(x+1)…(x+n-1)，O(n log n) 时间、O(n) 空间。带符号版本再乘 (-1)^(n-k)。依赖 NttConvolution；模 167772161 可用 <167772161>。"
   ],
   [
-    "polynomial",
-    "Polynomial",
-    "NTT、形式幂级数、FWT 与递推",
-    "依赖 number_theory.hpp。模数固定 998244353，乘法结果长度≤2²³；inverse 要求 a[0]≠0，log 要求 a[0]=1，exp 要求 a[0]=0，截断长度 n>0。朴素逐层 NTT 实现的 FPS 为 O(n log n)。FWT 的 op 为 ^、|、&；独立且支持其他模数的接口见 SetConvolution。BM 返回 s[n]=Σc[i-1]s[n-i] 的系数；recurrence 用 O(k² log n) 求第 n 项。BM 对有限样本给出的递推不自动保证未知后续项成立。"
+    "fps_inverse",
+    "FpsInverse",
+    "形式幂级数求逆",
+    "FpsInverse::inverse(a,n) 返回 a 的逆级数前 n 项，模数固定 998244353。要求 n>0、a 非空且 a[0]≠0；不足项视为零，多余项只取需要的前缀。继承 NttConvolution<998244353> 的 Poly、Z、multiply，按 Newton 公式 b←b(2-ab) 倍增。所有内部卷积结果长度须≤2²³，n≤2²² 是统一充分界。O(n log n) 时间、O(n) 辅助空间。"
+  ],
+  [
+    "fps_functions",
+    "FpsFunctions",
+    "形式幂级数微积分、对数与指数",
+    "FpsFunctions 继承 FpsInverse，复用同一 NTT 和求逆。derivative(a) 形式求导；integral(a) 返回常数项为零的积分，要求 a.size()<998244353。log(a,n) 要求 n>0、a 非空、a[0]=1；exp(a,n) 要求 n>0、a 为空或 a[0]=0。返回前 n 项，不足输入项视为零。内部每次卷积结果长度须≤2²³；n≤2²² 且 a.size()≤n 是对数/指数的统一充分界。log 会对完整 a 求导，长输入仍须检查容量。微积分 O(a.size())；在 a.size()≤n 时 log/exp 为 O(n log n) 时间和 O(n) 辅助空间。"
   ],
   [
     "gauss_mod",
