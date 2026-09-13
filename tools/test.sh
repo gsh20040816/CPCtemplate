@@ -409,3 +409,5 @@ python3 tests/lc_convolution_application.py
 
 "$CXX" "${flags[@]}" tests/algebra_components.cpp -o build/algebra-components
 build/algebra-components
+
+python3 tests/lc_algebra_application.py

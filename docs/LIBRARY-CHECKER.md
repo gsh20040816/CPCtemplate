@@ -157,16 +157,16 @@
 | [Intersection of $\mathbb{F}_{2}$ vector spaces](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces) | Linear Algebra | 待逐题审题、适配与在线验证 | [intersection_intersection.compact.cpp](../verify/library_checker/intersection_intersection.compact.cpp)<br>[intersection_zassenhaus.compact.cpp](../verify/library_checker/intersection_zassenhaus.compact.cpp) |
 | [Inverse Matrix](https://judge.yosupo.jp/problem/inverse_matrix) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Inverse Matrix (Mod 2)](https://judge.yosupo.jp/problem/inverse_matrix_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
-| [Determinant of Matrix](https://judge.yosupo.jp/problem/matrix_det) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
+| [Determinant of Matrix](https://judge.yosupo.jp/problem/matrix_det) | Linear Algebra | 待逐题审题、适配与在线验证 | [matrix_det.compact.cpp](../verify/library_checker/matrix_det.compact.cpp) |
 | [Determinant of Matrix (Arbitrary Mod)](https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Determinant of Matrix (Mod 2)](https://judge.yosupo.jp/problem/matrix_det_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
-| [Matrix Product](https://judge.yosupo.jp/problem/matrix_product) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
+| [Matrix Product](https://judge.yosupo.jp/problem/matrix_product) | Linear Algebra | 待逐题审题、适配与在线验证 | [matrix_product.compact.cpp](../verify/library_checker/matrix_product.compact.cpp) |
 | [Matrix Product (Mod 2)](https://judge.yosupo.jp/problem/matrix_product_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Rank of Matrix](https://judge.yosupo.jp/problem/matrix_rank) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Rank of Matrix (Mod 2)](https://judge.yosupo.jp/problem/matrix_rank_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Pow of Matrix](https://judge.yosupo.jp/problem/pow_of_matrix) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Determinant of Sparse Matrix](https://judge.yosupo.jp/problem/sparse_matrix_det) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
-| [System of Linear Equations](https://judge.yosupo.jp/problem/system_of_linear_equations) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
+| [System of Linear Equations](https://judge.yosupo.jp/problem/system_of_linear_equations) | Linear Algebra | 待逐题审题、适配与在线验证 | [system_of_linear_equations.compact.cpp](../verify/library_checker/system_of_linear_equations.compact.cpp) |
 | [System of Linear Equations (Mod 2)](https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Bernoulli Number](https://judge.yosupo.jp/problem/bernoulli_number) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Counting Primes](https://judge.yosupo.jp/problem/counting_primes) | Number Theory | 待逐题审题、适配与在线验证 | — |

@@ -1302,5 +1302,80 @@
       "verification/bitwise_xor_convolution-official-local.json",
       "verification/bitwise_xor_convolution-official-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "GaussMod",
+    "problem": "Library Checker system_of_linear_equations",
+    "url": "https://judge.yosupo.jp/problem/system_of_linear_equations",
+    "classification": "Official standalone linear algebra template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N,M<=500; all arithmetic in F_998244353.",
+    "adapter": "Read A then RHS b into augmented rows; solve(a,M). Print -1 if inconsistent, else kernel.size() (nullity, not matrix rank), particular vector and every kernel basis vector.",
+    "source": "src/compact/gauss_mod.hpp",
+    "source_driver": "verify/library_checker/system_of_linear_equations.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending; official local checker uses a 120-second execution timeout, not an OJ time-limit verdict.",
+    "local_official_tests": [
+      "verification/system_of_linear_equations-official-local.json",
+      "verification/system_of_linear_equations-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "det_prime",
+    "problem": "Library Checker matrix_det",
+    "url": "https://judge.yosupo.jp/problem/matrix_det",
+    "classification": "Official standalone linear algebra template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N<=500; square matrix with residues modulo998244353.",
+    "adapter": "Call det_prime<998244353>(move(a)); print the residue. Zero-dimensional and other prime contracts are not covered by this task.",
+    "source": "src/compact/det_prime.hpp",
+    "source_driver": "verify/library_checker/matrix_det.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending; official local checker uses a 120-second execution timeout, not an OJ time-limit verdict.",
+    "local_official_tests": [
+      "verification/matrix_det-official-local.json",
+      "verification/matrix_det-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "ModMatrix",
+    "problem": "Library Checker matrix_product",
+    "url": "https://judge.yosupo.jp/problem/matrix_product",
+    "classification": "Official standalone linear algebra template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N,M,K<=1024; N*M times M*K matrices over modulo998244353.",
+    "adapter": "Call ModMatrix<998244353>::multiply; print N rows with K coefficients. Does not invoke power or test composite moduli; those retain separate local evidence.",
+    "source": "src/compact/mod_matrix.hpp",
+    "source_driver": "verify/library_checker/matrix_product.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending; official local checker uses a 120-second execution timeout, not an OJ time-limit verdict.",
+    "local_official_tests": [
+      "verification/matrix_product-official-local.json",
+      "verification/matrix_product-official-sanitizer.json"
+    ]
   }
 ]

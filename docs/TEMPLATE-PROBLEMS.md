@@ -54,6 +54,9 @@
 | `NttConvolution` | [Library Checker convolution_mod](https://judge.yosupo.jp/problem/convolution_mod) | 1<=N,M<=524288; coefficients in [0,998244353). | 待编写驱动/提交 | 待核验 |
 | `SetConvolution` | [Library Checker bitwise_and_convolution](https://judge.yosupo.jp/problem/bitwise_and_convolution) | Exponent 0<=N<=20; each array has 2^N residues modulo998244353. | 待编写驱动/提交 | 待核验 |
 | `SetConvolution` | [Library Checker bitwise_xor_convolution](https://judge.yosupo.jp/problem/bitwise_xor_convolution) | Exponent 0<=N<=20; each array has 2^N residues modulo998244353. | 待编写驱动/提交 | 待核验 |
+| `GaussMod` | [Library Checker system_of_linear_equations](https://judge.yosupo.jp/problem/system_of_linear_equations) | 1<=N,M<=500; all arithmetic in F_998244353. | 待编写驱动/提交 | 待核验 |
+| `det_prime` | [Library Checker matrix_det](https://judge.yosupo.jp/problem/matrix_det) | 1<=N<=500; square matrix with residues modulo998244353. | 待编写驱动/提交 | 待核验 |
+| `ModMatrix` | [Library Checker matrix_product](https://judge.yosupo.jp/problem/matrix_product) | 1<=N,M,K<=1024; N*M times M*K matrices over modulo998244353. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -460,6 +463,30 @@ Official standalone bitwise XOR convolution template.
 Read exponent then allocate 1<<N; invoke multiply with '^'. Output k accumulates pairs i^j=k. This driver does not cover OR or arbitrary odd composite moduli.
 
 Online AC and all-AC ranking pending. Independent whole-driver coefficient oracles and official local checker results are not online evidence.
+
+### Library Checker system_of_linear_equations / GaussMod
+
+Official standalone linear algebra template task.
+
+Read A then RHS b into augmented rows; solve(a,M). Print -1 if inconsistent, else kernel.size() (nullity, not matrix rank), particular vector and every kernel basis vector.
+
+Online AC and all-AC ranking pending; official local checker uses a 120-second execution timeout, not an OJ time-limit verdict.
+
+### Library Checker matrix_det / det_prime
+
+Official standalone linear algebra template task.
+
+Call det_prime<998244353>(move(a)); print the residue. Zero-dimensional and other prime contracts are not covered by this task.
+
+Online AC and all-AC ranking pending; official local checker uses a 120-second execution timeout, not an OJ time-limit verdict.
+
+### Library Checker matrix_product / ModMatrix
+
+Official standalone linear algebra template task.
+
+Call ModMatrix<998244353>::multiply; print N rows with K coefficients. Does not invoke power or test composite moduli; those retain separate local evidence.
+
+Online AC and all-AC ranking pending; official local checker uses a 120-second execution timeout, not an OJ time-limit verdict.
 
 ## 榜单口径
 
