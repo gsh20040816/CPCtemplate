@@ -1,4 +1,5 @@
 """Complete P3379 drivers, checked against parent climbing and chain formulas."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -46,8 +47,8 @@ for style in ['compact']:
     obj = root / f'build/{name}.o'
     exe = root / f'build/{name}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/{name}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', '-Dmain=cpc_entry', '-c', str(bundle), '-o', str(obj)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', '-pthread', str(obj), 'tests/driver_stack.cpp', '-o', str(exe)], cwd=root, check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', '-Dmain=cpc_entry', '-c', str(bundle), '-o', str(obj)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', '-pthread', str(obj), 'tests/driver_stack.cpp', '-o', str(exe)], cwd=root, check=True)
     for n, r, edges, queries, expected in cases:
         data = f'{n} {len(queries)} {r}\n' + ''.join(f'{u} {v}\n' for u, v in edges + queries)
         result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=30)
@@ -85,7 +86,7 @@ for style in ['compact']:
     bundle = root / f'build/poj1470.{style}.cpp'
     exe = root / f'build/poj1470.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/1470.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     result = subprocess.run([str(exe)], input=text, text=True, capture_output=True, check=True, timeout=10)
     assert result.stdout.splitlines() == expected
     print(f'POJ1470 {style}: directed child rows, inferred roots, query histogram, shuffled rows, 71 datasets and empty query set passed')

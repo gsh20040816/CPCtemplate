@@ -20,9 +20,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: sudo apt-get update && sudo apt-get install -y latexmk texlive-xetex texlive-lang-chinese texlive-latex-extra
+      - run: sudo apt-get update && sudo apt-get install -y poppler-utils latexmk texlive-xetex texlive-lang-chinese texlive-latex-extra
       - run: tools/build_pdf.sh
       - uses: actions/upload-artifact@v4
         with:
           name: xcpc-handbook
-          path: output/pdf/xcpc-template.pdf
+          path: output/pdf/xcpc-*.pdf

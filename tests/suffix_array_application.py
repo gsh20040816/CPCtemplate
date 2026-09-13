@@ -1,4 +1,5 @@
 """Validate the two actual P3809 bundles against Python suffix sorting."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -14,7 +15,7 @@ for style in ['compact']:
     exe = root / f'build/P3809.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),
                     str(root / f'verify/luogu/P3809.{style}.cpp'), str(source)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(source),
+    subprocess.run([CXX, '-std=c++20', '-O2', str(source),
                     '-o', str(exe)], check=True)
     for s in cases:
         got = list(map(int, subprocess.check_output([str(exe)],

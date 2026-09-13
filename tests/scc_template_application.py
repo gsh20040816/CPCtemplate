@@ -1,8 +1,9 @@
+from compiler_config import CXX
 from pathlib import Path
 import os,random,subprocess
 root=Path(__file__).resolve().parents[1]
 rng=random.Random(906)
-cxx='/opt/homebrew/bin/g++-16'
+cxx=CXX
 source=root/'build/submit/QOJ906.compact.cpp'
 obj=root/'build/QOJ906.o';exe=root/'build/QOJ906'
 subprocess.run(['python3','tools/bundle.py','verify/qoj/906.compact.cpp',str(source)],check=True)

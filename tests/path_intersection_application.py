@@ -1,4 +1,5 @@
 """P3398 complete-program tests; boolean intersection is the judge's only output."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -38,8 +39,8 @@ for style in ['compact']:
     obj = root / f'build/{name}.o'
     exe = root / f'build/{name}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/{name}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', '-Dmain=cpc_entry', '-c', str(bundle), '-o', str(obj)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', '-pthread', str(obj), 'tests/driver_stack.cpp', '-o', str(exe)], cwd=root, check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', '-Dmain=cpc_entry', '-c', str(bundle), '-o', str(obj)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', '-pthread', str(obj), 'tests/driver_stack.cpp', '-o', str(exe)], cwd=root, check=True)
     for n, edges, queries, expected in cases:
         data = f'{n} {len(queries)}\n' + ''.join(f'{u} {v}\n' for u, v in edges)
         data += ''.join(' '.join(map(str, q)) + '\n' for q in queries)

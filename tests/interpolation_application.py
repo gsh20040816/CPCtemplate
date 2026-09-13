@@ -1,4 +1,5 @@
 """Check P4781 bundles against direct evaluation of generated polynomials."""
+from compiler_config import CXX
 import random
 import subprocess
 from pathlib import Path
@@ -11,7 +12,7 @@ for style in ['compact']:
     exe = root / f'build/P4781.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),
                     str(root / f'verify/luogu/P4781.{style}.cpp'), str(source)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
     for trial in range(100):
         n = rng.randrange(1, 40)
         c = [rng.randrange(p) for _ in range(n)]

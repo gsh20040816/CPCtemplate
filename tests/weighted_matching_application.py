@@ -1,4 +1,5 @@
 """Verify actual P6577 bundles, including the right-to-left output convention."""
+from compiler_config import CXX
 import itertools
 import random
 import subprocess
@@ -11,7 +12,7 @@ for style in ['compact']:
     exe = root / f'build/P6577.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),
                     str(root / f'verify/luogu/P6577.{style}.cpp'), str(source)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
     for trial in range(100):
         n = rng.randrange(1, 8)
         a = [[None] * n for _ in range(n)]

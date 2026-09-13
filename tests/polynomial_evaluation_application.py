@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import subprocess, random
 root=Path(__file__).resolve().parents[1]
@@ -20,7 +21,7 @@ for style in ['compact']:
         path=root/f'build/submit/{problem}.{style}.cpp'
         subprocess.run(['python3','tools/bundle.py',f'verify/library_checker/{problem}.{style}.cpp',str(path)],cwd=root,check=True)
         exe=root/f'build/{problem}.{style}'
-        subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(path),'-o',str(exe)],check=True)
+        subprocess.run([CXX,'-std=c++20','-O2',str(path),'-o',str(exe)],check=True)
         for case in range(60):
             n=rng.randrange(1,40)
             f=[rng.randrange(p) for _ in range(n)]

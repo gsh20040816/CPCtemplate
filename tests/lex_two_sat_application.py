@@ -1,4 +1,5 @@
 """HDU1814 representative selection, checked by enumerating all assignments."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -33,7 +34,7 @@ for style in ['compact']:
     bundle = root / f'build/hdu1814.{style}.cpp'
     exe = root / f'build/hdu1814.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/hdu/1814.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=15)
     assert result.stdout.splitlines() == expected
     print(f'HDU1814 {style}: 161 datasets, exhaustive minimum representative oracle, NIE output, reset and n=10000 implication chain passed')

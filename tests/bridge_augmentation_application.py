@@ -1,4 +1,5 @@
 """P2860 bundled-program output versus independent edge-deletion oracle."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -48,7 +49,7 @@ for style in ['compact']:
     bundle = root / f'build/P2860.{style}.cpp'
     exe = root / f'build/P2860.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P2860.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     for n, edges, expected in cases:
         data = f'{n} {len(edges)}\n' + ''.join(f'{u+1} {v+1}\n' for u, v in edges)
         actual = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=10).stdout

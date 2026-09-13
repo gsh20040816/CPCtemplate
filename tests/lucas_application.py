@@ -1,4 +1,5 @@
 """P3807 dual programs checked against Python exact binomial coefficients."""
+from compiler_config import CXX
 from pathlib import Path
 import math
 import random
@@ -13,7 +14,7 @@ for style in ['compact']:
     bundle = root / f'build/P3807.{style}.cpp'
     exe = root / f'build/P3807.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P3807.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     for begin in range(0, len(cases), 10):
         group = cases[begin:begin+10]
         data = str(len(group)) + '\n' + ''.join(f'{n} {m} {p}\n' for n, m, p in group)

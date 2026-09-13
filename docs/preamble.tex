@@ -1,9 +1,16 @@
-\documentclass[UTF8,a4paper,10pt,openany,fontset=fandol]{ctexbook}
+\documentclass[UTF8,a4paper,10pt,openany,fontset=none]{ctexbook}
+% Use explicit default OpenType script: older Fandol builds lack a CJK script tag.
+\setCJKmainfont{FandolSong-Regular}[Extension=.otf,Script=Default,BoldFont=FandolSong-Bold,ItalicFont=FandolKai-Regular]
+\setCJKsansfont{FandolHei-Regular}[Extension=.otf,Script=Default,BoldFont=FandolHei-Bold]
+\setCJKmonofont{FandolFang-Regular}[Extension=.otf,Script=Default]
+
 \usepackage[margin=18mm,headheight=14pt]{geometry}
 \usepackage{amsmath,amssymb,booktabs,longtable,array}
-\usepackage{xcolor,listings,fancyhdr,imakeidx,needspace}
+\usepackage{xcolor,listings,fancyhdr,needspace}
 \usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
-\makeindex[title=算法索引,columns=1]
+% latexmk owns index execution; quiet removes only the manual rerun reminder.
+\usepackage[quiet]{imakeidx}
+\makeindex[noautomatic,title=算法索引,columns=1]
 \lstset{language=C++,basicstyle=\ttfamily\fontsize{8.5}{10.2}\selectfont,keywordstyle=\bfseries,
 commentstyle=\color{black!60},numbers=left,numberstyle=\tiny\color{black!50},
 numbersep=6pt,breaklines=true,breakatwhitespace=false,columns=fullflexible,

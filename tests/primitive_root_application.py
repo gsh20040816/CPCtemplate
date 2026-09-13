@@ -1,4 +1,5 @@
 """P6091 full output checked independently with modular exponent tests."""
+from compiler_config import CXX
 from pathlib import Path
 import math
 import subprocess
@@ -30,7 +31,7 @@ for style in ['compact']:
     bundle = root / f'build/P6091.{style}.cpp'
     exe = root / f'build/P6091.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P6091.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     for begin in range(0, len(cases), 10):
         group = cases[begin:begin+10]
         data = str(len(group)) + '\n' + ''.join(f'{n} {d}\n' for n, d in group)

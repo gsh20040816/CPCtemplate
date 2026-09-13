@@ -1,4 +1,5 @@
 """POJ2942 complement-graph driver versus enumeration of simple odd cycles."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -43,7 +44,7 @@ for style in ['compact']:
     bundle = root / f'build/poj2942.{style}.cpp'
     exe = root / f'build/poj2942.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/2942.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=20)
     assert list(map(int, result.stdout.split())) == expected
     print(f'POJ2942 {style}: {len(cases)} datasets, complement construction/simple-cycle oracle, n=1000 complete/bipartite/sparse graphs passed')

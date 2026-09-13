@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import subprocess
 root=Path(__file__).resolve().parents[1]
@@ -10,7 +11,7 @@ for style in ['compact']:
     out=root/f'build/submit/P1742.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P1742.{style}.cpp',str(out)],cwd=root,check=True)
     exe=root/f'build/P1742.{style}'
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(out),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2',str(out),'-o',str(exe)],check=True)
     for p,want in cases:
         text=str(len(p))+'\n'+''.join(f'{x} {y}\n' for x,y in p)
         got=list(map(float,subprocess.check_output([str(exe)],input=text,text=True).split()))

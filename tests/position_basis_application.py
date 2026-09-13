@@ -1,4 +1,5 @@
 """CF1100F actual bundles: subset enumeration and full-size periodic independent bits."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -38,7 +39,7 @@ for style in ['compact']:
     source = root/f'build/CF1100F.{style}.cpp'
     exe = root/f'build/CF1100F.{style}'
     subprocess.run(['python3',str(root/'tools/bundle.py'),str(root/f'verify/luogu/CF1100F.{style}.cpp'),str(source)],check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
     for text,expected in cases:
         got = list(map(int,subprocess.check_output([str(exe)],input=text.encode(),timeout=60).split()))
         assert got == expected

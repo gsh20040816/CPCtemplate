@@ -1,4 +1,5 @@
 """P5431: independent individual inverse oracle and full-size geometric sums."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -15,7 +16,7 @@ for style in ['compact']:
     bundle = root / f'build/P5431.{style}.cpp'
     exe = root / f'build/P5431.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P5431.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     for data, want in cases:
         result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=5)
         assert result.stdout.strip() == str(want)

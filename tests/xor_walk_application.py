@@ -1,4 +1,5 @@
 """P4151 bundles against finite product-graph reachability and maximum-size multigraph."""
+from compiler_config import CXX
 from pathlib import Path
 from collections import deque
 import random
@@ -36,7 +37,7 @@ for style in ['compact']:
     source = root/f'build/P4151.{style}.cpp'
     exe = root/f'build/P4151.{style}'
     subprocess.run(['python3',str(root/'tools/bundle.py'),str(root/f'verify/luogu/P4151.{style}.cpp'),str(source)],check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
     for n,edges,expected in cases:
         text = f'{n} {len(edges)}\n'+''.join(f'{u} {v} {w}\n' for u,v,w in edges)
         got = int(subprocess.check_output([str(exe)],input=text.encode(),timeout=60))

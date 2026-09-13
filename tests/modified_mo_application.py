@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import os,random,subprocess
 root=Path(__file__).resolve().parents[1]
@@ -6,7 +7,7 @@ source=root/'build/submit/P1903.compact.cpp'
 exe=root/'build/P1903.compact'
 subprocess.run(['python3','tools/bundle.py','verify/luogu/P1903.compact.cpp',str(source)],check=True)
 flags=['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer'] if os.getenv('CPC_SANITIZE')=='1' else ['-O2']
-subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20',*flags,str(source),'-o',str(exe)],check=True)
+subprocess.run([CXX,'-std=c++20',*flags,str(source),'-o',str(exe)],check=True)
 def run(a,ops,want):
     data=f'{len(a)} {len(ops)}\n'+' '.join(map(str,a))+'\n'+'\n'.join(ops)+'\n'
     got=list(map(int,subprocess.check_output([str(exe)],input=data,text=True).split()))

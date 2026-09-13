@@ -1,4 +1,5 @@
 """POJ1637 circuit-only adapter, checked by enumerating edge orientations."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -53,7 +54,7 @@ for style in ['compact']:
     bundle = root / f'build/poj1637.{style}.cpp'
     exe = root / f'build/poj1637.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/1637.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=15)
     assert result.stdout.splitlines() == expected
     print(f'POJ1637 {style}: 183 cases, orientation enumeration, parsing/reset and dense 200-node cases passed; circuit verdict only')

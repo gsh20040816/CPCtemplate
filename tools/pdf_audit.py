@@ -14,6 +14,8 @@ for key in ['template', 'data-structures', 'graphs', 'trees', 'strings', 'mathem
     log = (root / f'build/pdf/{name}.log').read_text()
     warnings = [s for s in log.splitlines() if any(w in s for w in ['Warning', 'Overfull', 'Underfull', 'Missing character'])]
     assert not warnings, (name, warnings)
+    index = (root / f'build/pdf/{name}.ind').read_text()
+    assert r'\item' in index, (name, 'Missing or empty algorithm index')
     dest = subprocess.check_output(['pdfinfo', '-dests', str(path)], text=True)
     rows = [(int(a), int(b)) for a, b in re.findall(r'^\s*(\d+) .*"page\.(\d+)"$', dest, re.M)]
     assert rows, name

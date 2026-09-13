@@ -1,4 +1,5 @@
 """POJ3648 parsing and full assignment certificate, not a lexical requirement."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -28,7 +29,7 @@ for style in ['compact']:
     bundle = root / f'build/poj3648.{style}.cpp'
     exe = root / f'build/poj3648.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/poj/3648.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     lines = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=10).stdout.splitlines()
     assert len(lines) == len(cases)
     for (n, clauses), line in zip(cases, lines):

@@ -1,4 +1,5 @@
 """P3811 output verification: individual inverse certificates."""
+from compiler_config import CXX
 from pathlib import Path
 import subprocess
 root = Path(__file__).resolve().parents[1]
@@ -8,7 +9,7 @@ for style in ['compact']:
     bundle = root / f'build/P3811.{style}.cpp'
     exe = root / f'build/P3811.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P3811.{style}.cpp',str(bundle)],cwd=root,check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(bundle),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2',str(bundle),'-o',str(exe)],check=True)
     for n,p in cases:
         result = subprocess.run([str(exe)],input=f'{n} {p}\n',text=True,capture_output=True,check=True,timeout=15)
         lines = result.stdout.splitlines()

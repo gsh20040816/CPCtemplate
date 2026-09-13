@@ -1,4 +1,5 @@
 """Actual P1117 programs against independent A/B length enumeration."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -27,7 +28,7 @@ for style in ['compact']:
     exe = root / f'build/P1117.{style}'
     subprocess.run(['python3', str(root/'tools/bundle.py'),
                     str(root/f'verify/luogu/P1117.{style}.cpp'), str(source)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(source),
+    subprocess.run([CXX, '-std=c++20', '-O2', str(source),
                     '-o', str(exe)], check=True)
     for begin in range(0, len(cases), 10):
         batch = cases[begin:begin+10]

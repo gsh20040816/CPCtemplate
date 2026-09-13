@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import random, subprocess, math
 root = Path(__file__).resolve().parents[1]
@@ -14,7 +15,7 @@ for style in ['compact']:
     bundle = root/f'build/submit/P1429.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P1429.{style}.cpp',str(bundle)],cwd=root,check=True)
     exe = root/f'build/P1429.{style}'
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(bundle),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2',str(bundle),'-o',str(exe)],check=True)
     for p,want in cases:
         text = str(len(p))+'\n'+''.join(f'{x} {y}\n' for x,y in p)
         result = subprocess.run([str(exe)],input=text,text=True,capture_output=True,check=True)

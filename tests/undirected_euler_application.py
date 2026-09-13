@@ -1,4 +1,5 @@
 """P2731 vertex lexical output and SGU101 domino IDs/directions."""
+from compiler_config import CXX
 from pathlib import Path
 import subprocess
 import random
@@ -31,7 +32,7 @@ for style in ['compact']:
     bundle = root / f'build/P2731.{style}.cpp'
     exe = root / f'build/P2731.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P2731.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     for edges, expected in valid:
         data = str(len(edges)) + '\n' + ''.join(f'{u} {v}\n' for u, v in edges)
         output = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True).stdout
@@ -40,7 +41,7 @@ for style in ['compact']:
     bundle = root / f'build/sgu101.{style}.cpp'
     exe = root / f'build/sgu101.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/sgu/101.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     for edges, expected in small + [([(0, 6)] * 100, True), ([(0, 0)] * 100, True)]:
         data = str(len(edges)) + '\n' + ''.join(f'{u} {v}\n' for u, v in edges)
         # Two consecutive datasets also test resetting IDs and used[] state.

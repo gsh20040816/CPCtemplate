@@ -1,4 +1,5 @@
 """Check actual P3834 bundles against sorted slices, including signed endpoints."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -22,7 +23,7 @@ for style in ['compact']:
     exe = root / f'build/P3834.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),
                     str(root / f'verify/luogu/P3834.{style}.cpp'), str(source)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
     for a, queries in cases:
         text = f'{len(a)} {len(queries)}\n' + ' '.join(map(str, a)) + '\n'
         text += ''.join(f'{l} {r} {k}\n' for l, r, k in queries)

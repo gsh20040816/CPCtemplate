@@ -1,4 +1,5 @@
 """UVa10006: all allowed inputs, independent Korselt criterion."""
+from compiler_config import CXX
 from pathlib import Path
 import subprocess
 root = Path(__file__).resolve().parents[1]
@@ -25,7 +26,7 @@ for style in ['compact']:
     bundle = root / f'build/uva10006.{style}.cpp'
     exe = root / f'build/uva10006.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/uva/10006.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=15)
     assert result.stdout.splitlines() == expected
     print(f'UVa10006 {style}: all 64997 legal inputs, Korselt oracle, composite filtering and exact output PASS')

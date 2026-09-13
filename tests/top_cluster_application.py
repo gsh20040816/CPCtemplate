@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import subprocess,random,time
 root=Path(__file__).resolve().parents[1]
@@ -15,8 +16,8 @@ for style in ['compact']:
     subprocess.run(['python3','tools/bundle.py',f'verify/qoj/8235.{style}.cpp',str(source)],cwd=root,check=True)
     obj=root/f'build/QOJ8235.{style}.o'
     exe=root/f'build/QOJ8235.{style}'
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2','-Dmain=cpc_entry','-c',str(source),'-o',str(obj)],check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2','tests/driver_stack.cpp',str(obj),'-pthread','-o',str(exe)],cwd=root,check=True)
+    subprocess.run([CXX,'-std=c++20','-O2','-Dmain=cpc_entry','-c',str(source),'-o',str(obj)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2','tests/driver_stack.cpp',str(obj),'-pthread','-o',str(exe)],cwd=root,check=True)
     for case in range(100):
         n=rng.randrange(1,40)
         w=rng.sample(range(0,n+10),n)

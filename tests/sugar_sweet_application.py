@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import itertools,math,random,subprocess,time,os
 root=Path(__file__).resolve().parents[1]
@@ -48,7 +49,7 @@ for style in ['compact']:
     exe=root/f'build/QOJ8237.{style}{"-san" if sanitized else ""}'
     subprocess.run(['python3','tools/bundle.py',f'verify/qoj/8237.{style}.cpp',str(source)],cwd=root,check=True)
     flags=['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer'] if sanitized else ['-O2']
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20',*flags,str(source),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20',*flags,str(source),'-o',str(exe)],check=True)
     run(exe,cases)
     print(f'QOJ8237 {style}: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS',flush=True)
     for name,case in [('chain',chain),('cycle',cycle)]:

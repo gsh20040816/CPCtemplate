@@ -1,4 +1,5 @@
 """Check P5491's root list ordering, single zero root and Hola! protocol."""
+from compiler_config import CXX
 from pathlib import Path
 import subprocess
 
@@ -17,7 +18,7 @@ for style in ['compact']:
     exe = root / f'build/P5491.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),
                     str(root / f'verify/luogu/P5491.{style}.cpp'), str(source)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
     got = subprocess.check_output([str(exe)], input=text.encode()).decode().splitlines()
     assert got == expected
     print(f'P5491 {style} bundled driver / exhaustive roots and output protocol PASS')

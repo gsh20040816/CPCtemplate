@@ -1,4 +1,5 @@
 """Factorization drivers: trial-certified factors, maximum-sized hard batch."""
+from compiler_config import CXX
 from pathlib import Path
 import math
 import os
@@ -31,7 +32,7 @@ for style in ['compact']:
         flags = ['-O2']
         if os.environ.get('SANITIZE') == '1':
             flags = ['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']
-        subprocess.run([os.environ.get('CXX','/opt/homebrew/bin/g++-16'),'-std=c++20',*flags,str(bundle),'-o',str(exe)],check=True)
+        subprocess.run([os.environ.get('CXX',CXX),'-std=c++20',*flags,str(bundle),'-o',str(exe)],check=True)
         start = time.perf_counter()
         result = subprocess.run([str(exe)],input=data,text=True,capture_output=True,check=True,timeout=120)
         elapsed = time.perf_counter()-start

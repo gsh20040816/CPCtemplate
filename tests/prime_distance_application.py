@@ -1,4 +1,5 @@
 """POJ 2689 / UVa 10140 complete-program oracle, including first tied pair."""
+from compiler_config import CXX
 from pathlib import Path
 import os
 import random
@@ -57,7 +58,7 @@ for style in ['compact']:
     flags = ['-O2']
     if os.environ.get('SANITIZE') == '1':
         flags = ['-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
-    subprocess.run([os.environ.get('CXX', '/opt/homebrew/bin/g++-16'), '-std=c++20', *flags, str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([os.environ.get('CXX', CXX), '-std=c++20', *flags, str(bundle), '-o', str(exe)], check=True)
     result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=30)
     assert result.stdout.splitlines() == expected
     assert not result.stderr, result.stderr

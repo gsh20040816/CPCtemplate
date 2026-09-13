@@ -1,4 +1,5 @@
 """P1593: trial factorization and invertible geometric quotient oracle."""
+from compiler_config import CXX
 from pathlib import Path
 import math,os,random,subprocess
 root=Path(__file__).resolve().parents[1]
@@ -29,7 +30,7 @@ for style in ['compact']:
     bundle=root/f'build/P1593.{style}.cpp'; exe=root/f'build/P1593.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P1593.{style}.cpp',str(bundle)],cwd=root,check=True)
     flags=['-O2'] if os.environ.get('SANITIZE')!='1' else ['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']
-    subprocess.run([os.environ.get('CXX','/opt/homebrew/bin/g++-16'),'-std=c++20',*flags,str(bundle),'-o',str(exe)],check=True)
+    subprocess.run([os.environ.get('CXX',CXX),'-std=c++20',*flags,str(bundle),'-o',str(exe)],check=True)
     for a,b in cases:
         result=subprocess.run([str(exe)],input=f'{a} {b}\n',text=True,capture_output=True,check=True,timeout=10)
         assert result.stdout.strip()==oracle(a,b)

@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import subprocess, random, itertools, time
 root=Path(__file__).resolve().parents[1]
@@ -24,7 +25,7 @@ for style in ['compact']:
     source=root/f'build/submit/QOJ8240.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/qoj/8240.{style}.cpp',str(source)],cwd=root,check=True)
     exe=root/f'build/QOJ8240.{style}'
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
     for n in range(1,8):
         for a in itertools.product(range(1,min(2,n)+1),repeat=n):
             queries=[(l,r) for l in range(1,n+1) for r in range(l,n+1)]

@@ -1,4 +1,5 @@
 """Verify P1972 bundles against sets and an optional million-item periodic case."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -33,7 +34,7 @@ for style in ['compact']:
     exe = root / f'build/P1972.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),
                     str(root / f'verify/luogu/P1972.{style}.cpp'), str(source)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
     for text, expected in cases:
         got = list(map(int, subprocess.check_output([str(exe)], input=text.encode()).split()))
         assert got == expected

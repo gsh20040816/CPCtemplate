@@ -1,4 +1,5 @@
 """P4777 full programs: independent Python exact arithmetic and planted systems."""
+from compiler_config import CXX
 from pathlib import Path
 import math
 import random
@@ -46,7 +47,7 @@ for style in ['compact']:
     bundle = root / f'build/P4777.{style}.cpp'
     exe = root / f'build/P4777.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P4777.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     for equations in cases:
         data = str(len(equations)) + '\n' + ''.join(f'{m} {b}\n' for m, b in equations)
         result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=10)

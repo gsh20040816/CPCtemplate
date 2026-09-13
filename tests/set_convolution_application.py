@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import subprocess, random, time
 root=Path(__file__).resolve().parents[1]
@@ -7,7 +8,7 @@ for style in ['compact']:
         source=root/f'build/submit/{problem}.{style}.cpp'
         subprocess.run(['python3','tools/bundle.py',f'verify/luogu/{problem}.{style}.cpp',str(source)],cwd=root,check=True)
         exe=root/f'build/{problem}.{style}'
-        subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
+        subprocess.run([CXX,'-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
         def run(m,a,b):
             data=f'{m}\n'+' '.join(map(str,a))+'\n'+' '.join(map(str,b))+'\n'
             return [list(map(int,line.split())) for line in subprocess.check_output([str(exe)],input=data,text=True).splitlines()]

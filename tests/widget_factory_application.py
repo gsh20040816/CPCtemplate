@@ -1,4 +1,5 @@
 """Widget Factory (POJ2947 / UVa1564), independent assignment enumeration."""
+from compiler_config import CXX
 from pathlib import Path
 import itertools
 import os
@@ -79,7 +80,7 @@ for style in ['compact']:
     flags = ['-O2']
     if os.environ.get('SANITIZE') == '1':
         flags = ['-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', *flags, str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', *flags, str(bundle), '-o', str(exe)], check=True)
     result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=60)
     assert result.stdout.splitlines() == expected
     assert not result.stderr, result.stderr

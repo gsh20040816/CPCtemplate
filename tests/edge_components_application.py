@@ -1,4 +1,5 @@
 """CF118E bundles: validate every edge and strong connectivity, not one orientation order."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -39,8 +40,8 @@ for style in ['compact']:
     exe=root/f'build/CF118E.{style}'
     subprocess.run(['python3',str(root/'tools/bundle.py'),str(root/f'verify/luogu/CF118E.{style}.cpp'),str(source)],check=True)
     obj=root/f'build/CF118E.{style}.o'
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2','-Dmain=cpc_entry','-c',str(source),'-o',str(obj)],check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2','-pthread',str(obj),str(root/'tests/driver_stack.cpp'),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2','-Dmain=cpc_entry','-c',str(source),'-o',str(obj)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2','-pthread',str(obj),str(root/'tests/driver_stack.cpp'),'-o',str(exe)],check=True)
     for n,edges,possible in cases:
         text=f'{n} {len(edges)}\n'+''.join(f'{u+1} {v+1}\n' for u,v in edges)
         result=subprocess.check_output([str(exe)],input=text.encode(),timeout=60).decode().split()

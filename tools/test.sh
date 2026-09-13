@@ -8,6 +8,8 @@ mkdir -p build
 if [[ -z "${CXX:-}" ]]; then
     if command -v g++-16 >/dev/null 2>&1; then CXX=g++-16; else CXX=g++; fi
 fi
+export CXX
+export CPC_SANITIZE="${SANITIZE:-0}"
 flags=(-std=c++20 -O2 -Wall -Wextra)
 if [[ -d /opt/homebrew/include/boost ]]; then flags+=(-I/opt/homebrew/include); fi
 if [[ "${SANITIZE:-0}" == 1 ]]; then flags+=(-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer); fi

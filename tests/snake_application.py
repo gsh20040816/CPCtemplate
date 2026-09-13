@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import os,subprocess
 root=Path(__file__).resolve().parents[1]
@@ -15,7 +16,7 @@ for style in ['compact']:
     exe=root/f'build/QOJ8236.{style}'
     subprocess.run(['python3','tools/bundle.py',f'verify/qoj/8236.{style}.cpp',str(source)],check=True)
     flags=['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer'] if os.getenv('CPC_SANITIZE')=='1' else ['-O2']
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20',*flags,str(source),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20',*flags,str(source),'-o',str(exe)],check=True)
     for data,want in cases:
         got=int(subprocess.check_output([str(exe)],input=data,text=True))
         assert got==want,(style,got,want)

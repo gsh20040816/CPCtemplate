@@ -1,4 +1,5 @@
 """POJ2117 and UVA796 adapters against explicit vertex/edge deletion."""
+from compiler_config import CXX
 from pathlib import Path
 import random
 import subprocess
@@ -54,7 +55,7 @@ for style in ['compact']:
         source=root/f'build/{name}.cpp'
         exe=root/f'build/{name}'
         subprocess.run(['python3',str(root/'tools/bundle.py'),str(root/f'verify/{folder}/{problem}.{style}.cpp'),str(source)],check=True)
-        subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
+        subprocess.run([CXX,'-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
         got=subprocess.check_output([str(exe)],input=text.encode(),timeout=60).decode()
         assert got==want,(folder,style)
         print(f'{folder.upper()}{problem} {style} bundled driver / explicit deletion and exact output PASS')

@@ -1,4 +1,5 @@
 """Check P4720's actual submission bundles against Python exact combinations."""
+from compiler_config import CXX
 from pathlib import Path
 import math
 import random
@@ -16,7 +17,7 @@ for style in ['compact']:
     exe = root / f'build/P4720.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),
                     str(root / f'verify/luogu/P4720.{style}.cpp'), str(source)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
     for n, k, p in cases:
         got = int(subprocess.check_output([str(exe)], input=f'{n} {k} {p}\n'.encode()))
         assert got == math.comb(n, k) % p

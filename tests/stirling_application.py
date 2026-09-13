@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import subprocess
 root=Path(__file__).resolve().parents[1]
@@ -7,7 +8,7 @@ for style in ['compact']:
         path=root/f'build/submit/{problem}.{style}.cpp'
         subprocess.run(['python3','tools/bundle.py',f'verify/luogu/{problem}.{style}.cpp',str(path)],cwd=root,check=True)
         exe=root/f'build/{problem}.{style}'
-        subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(path),'-o',str(exe)],check=True)
+        subprocess.run([CXX,'-std=c++20','-O2',str(path),'-o',str(exe)],check=True)
         for n in [1,2,3,7,16,17,31,32,33,100,limit]:
             values=list(map(int,subprocess.check_output([str(exe)],input=f'{n}\n',text=True).split()))
             assert len(values)==n+1 and all(0<=v<P for v in values)

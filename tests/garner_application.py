@@ -1,4 +1,5 @@
 """P1495 full-program tests, direct exact CRT formula as oracle."""
+from compiler_config import CXX
 from pathlib import Path
 import math
 import random
@@ -17,7 +18,7 @@ for style in ['compact']:
     bundle = root / f'build/P1495.{style}.cpp'
     exe = root / f'build/P1495.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P1495.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
     for equations in cases:
         period = math.prod(m for m, _ in equations)
         expected = sum(b * (period // m) * pow(period // m, -1, m) for m, b in equations) % period

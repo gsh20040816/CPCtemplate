@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import subprocess, random,itertools
 r=random.Random(4782)
@@ -6,7 +7,7 @@ for style in ['compact']:
   source=f'build/{problem}.{style}.cpp'
   exe=f'build/{problem}.{style}'
   subprocess.run(['python3','tools/bundle.py',f'verify/luogu/{problem}.{style}.cpp',source],check=True)
-  subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',source,'-o',exe],check=True)
+  subprocess.run([CXX,'-std=c++20','-O2',source,'-o',exe],check=True)
   for trial in range(100):
    n=r.randrange(1,9)
    if problem=='P4779':

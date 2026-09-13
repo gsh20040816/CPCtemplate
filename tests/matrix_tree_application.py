@@ -1,3 +1,4 @@
+from compiler_config import CXX
 from pathlib import Path
 import subprocess, random
 root=Path(__file__).resolve().parents[1]
@@ -36,7 +37,7 @@ for style in ['compact']:
     path=root/f'build/submit/P6178.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P6178.{style}.cpp',str(path)],cwd=root,check=True)
     exe=root/f'build/P6178.{style}'
-    subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(path),'-o',str(exe)],check=True)
+    subprocess.run([CXX,'-std=c++20','-O2',str(path),'-o',str(exe)],check=True)
     for n,kind,edges,want in cases:
         data=f'{n} {len(edges)} {kind}\n'+''.join(f'{u+1} {v+1} {w}\n' for u,v,w in edges)
         got=int(subprocess.check_output([str(exe)],input=data,text=True))

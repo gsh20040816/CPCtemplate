@@ -1,4 +1,5 @@
 """P7771 complete programs compared with exhaustive lexicographic trail search."""
+from compiler_config import CXX
 from pathlib import Path
 import subprocess
 import random
@@ -37,8 +38,8 @@ for style in ['compact']:
     obj = root / f'build/{name}.o'
     exe = root / f'build/{name}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/{name}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', '-Dmain=cpc_entry', '-c', str(bundle), '-o', str(obj)], check=True)
-    subprocess.run(['/opt/homebrew/bin/g++-16', '-std=c++20', '-O2', '-pthread', str(obj), 'tests/driver_stack.cpp', '-o', str(exe)], cwd=root, check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', '-Dmain=cpc_entry', '-c', str(bundle), '-o', str(obj)], check=True)
+    subprocess.run([CXX, '-std=c++20', '-O2', '-pthread', str(obj), 'tests/driver_stack.cpp', '-o', str(exe)], cwd=root, check=True)
     for n, edges, expected in cases:
         data = f'{n} {len(edges)}\n' + ''.join(f'{u} {v}\n' for u, v in edges)
         result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=15).stdout
