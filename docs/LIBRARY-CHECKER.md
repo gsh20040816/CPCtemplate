@@ -180,12 +180,12 @@
 | [Kth Root (Mod)](https://judge.yosupo.jp/problem/kth_root_mod) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Min of Mod of Linear](https://judge.yosupo.jp/problem/min_of_mod_of_linear) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Nim Product ($\mathbb{F}_{2^{64}}$)](https://judge.yosupo.jp/problem/nim_product_64) | Number Theory | 待逐题审题、适配与在线验证 | — |
-| [Primality Test](https://judge.yosupo.jp/problem/primality_test) | Number Theory | 待逐题审题、适配与在线验证 | — |
+| [Primality Test](https://judge.yosupo.jp/problem/primality_test) | Number Theory | 待逐题审题、适配与在线验证 | [primality_test.compact.cpp](../verify/library_checker/primality_test.compact.cpp) |
 | [Primitive Root](https://judge.yosupo.jp/problem/primitive_root) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Rational Approximation](https://judge.yosupo.jp/problem/rational_approximation) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Sqrt Mod](https://judge.yosupo.jp/problem/sqrt_mod) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Stern–Brocot Tree](https://judge.yosupo.jp/problem/stern_brocot_tree) | Number Theory | 待逐题审题、适配与在线验证 | — |
-| [Sum of Floor of Linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | Number Theory | 待逐题审题、适配与在线验证 | — |
+| [Sum of Floor of Linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | Number Theory | 待逐题审题、适配与在线验证 | [sum_of_floor_of_linear.compact.cpp](../verify/library_checker/sum_of_floor_of_linear.compact.cpp) |
 | [Sum of Multiplicative Function(Large)](https://judge.yosupo.jp/problem/sum_of_multiplicative_function_large) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Sum of Totient Function](https://judge.yosupo.jp/problem/sum_of_totient_function) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Tetration Mod](https://judge.yosupo.jp/problem/tetration_mod) | Number Theory | 待逐题审题、适配与在线验证 | — |

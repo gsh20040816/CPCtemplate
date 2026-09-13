@@ -1,0 +1,133 @@
+{
+  "problem": "sum_of_floor_of_linear",
+  "scope": "Local official generated tests only; not online AC or controlled OJ speed ranking",
+  "reference_commit": "e64660561a995c357cdc61ddee1bde68b80528db",
+  "reference_problem_path": "number_theory/sum_of_floor_of_linear",
+  "metadata_sha256": "d210d9d58d295652eadcc5c35805beede169ebbbf5a15f06760e6533a98f1020",
+  "checker_source_sha256": "6e9b1ffacf111a87c040efbccb5de2862f897c97d0618ba2dc106cc996c584ba",
+  "checker_binary_sha256": "09a97bcd3a3ebe03b2978abba947ffe29e1134c7277d01073daf33494debcf2b",
+  "driver": "verify/library_checker/sum_of_floor_of_linear.compact.cpp",
+  "bundle_sha256": "fbfc218f6a03136f07506a1ba0d237bd7c8f3a7ba24635a3d1e27253b194b50b",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "flags": [
+    "-std=c++20",
+    "-O2",
+    "-Wl,-stack_size,0x20000000"
+  ],
+  "recorded_at_utc": "2026-09-13T14:50:02.194753+00:00",
+  "negative_control": "deliberately wrong output rejected",
+  "negative_control_exit_code": 1,
+  "negative_control_message": "wrong answer 1st words differ - expected: '3', found: 'not-a-valid-answer'",
+  "cases": [
+    {
+      "case": "example_00",
+      "input_sha256": "904f0bcecc9eb3d18386c5026258433ba31fd41fd6c748267a883b191aed89eb",
+      "answer_sha256": "aaaddfee730b349328c5860ff50d21918ef8079c9e7e2e6bcd23e5cdccda15a9",
+      "output_sha256": "aaaddfee730b349328c5860ff50d21918ef8079c9e7e2e6bcd23e5cdccda15a9",
+      "elapsed_seconds": 1.3012,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 5 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_00",
+      "input_sha256": "b22a2dbca4a97d9888a2e6683710f740c5c92730f2273a717b1add7901479d08",
+      "answer_sha256": "48ed6a138c3f0c84da6185e1e5d3be6e43b7e920d8fd110a282bb475645bde40",
+      "output_sha256": "48ed6a138c3f0c84da6185e1e5d3be6e43b7e920d8fd110a282bb475645bde40",
+      "elapsed_seconds": 0.0373,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 17707 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_01",
+      "input_sha256": "e418fd58552096045b8a69ce1f1737be22b83bfb4b2e91e2a7457bedbeded6c7",
+      "answer_sha256": "aa09e1d18b50463a793c41077bb0722ca87d150e8a022d131f9dee58a10793a3",
+      "output_sha256": "aa09e1d18b50463a793c41077bb0722ca87d150e8a022d131f9dee58a10793a3",
+      "elapsed_seconds": 0.075,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 69830 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_02",
+      "input_sha256": "74da43559687f65ba8fbaeddd86a61d265e8ab91d27c790129a55dd7457eb473",
+      "answer_sha256": "7619db2e0ff922da8c7e6b3543e8f8c9a40d7aa80dd4bc68b14fa46e62d1d480",
+      "output_sha256": "7619db2e0ff922da8c7e6b3543e8f8c9a40d7aa80dd4bc68b14fa46e62d1d480",
+      "elapsed_seconds": 0.0746,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 53336 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_03",
+      "input_sha256": "9b66be1ae0d48fd06653df6388b3f667ed7cdbde6df177e4dd4b1abae701fdcd",
+      "answer_sha256": "eb73a6db7aed3568b4ff7dd210950ba2b421dfe4e87759ccdbcd6d68f00de71c",
+      "output_sha256": "eb73a6db7aed3568b4ff7dd210950ba2b421dfe4e87759ccdbcd6d68f00de71c",
+      "elapsed_seconds": 0.0354,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 36033 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_04",
+      "input_sha256": "2669c6cbb3442154447f2ddd55e729ca2c98a9a65580773124f1da54845ca065",
+      "answer_sha256": "db47b7c01ce74d2ecb15606a31c24a1b0f9a327460755ef9ebf2c889d20c409c",
+      "output_sha256": "db47b7c01ce74d2ecb15606a31c24a1b0f9a327460755ef9ebf2c889d20c409c",
+      "elapsed_seconds": 0.0373,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 14868 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "small_00",
+      "input_sha256": "e3c9ba625807b49dbb6ff7ebf1dac9b3b0e7e749465af0069ad5e4ff1b4f3f6c",
+      "answer_sha256": "c08d113482b292dc3f928dbd749ae0ff304bb46a9a0fea955f59c11f215578a8",
+      "output_sha256": "c08d113482b292dc3f928dbd749ae0ff304bb46a9a0fea955f59c11f215578a8",
+      "elapsed_seconds": 0.0196,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 17707 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "small_01",
+      "input_sha256": "d964e102c02c14cc81e9953b43fc886f476f277d12426054e4594cf2b6c1efe2",
+      "answer_sha256": "fb6134527b2b2a27f63d83cd11021a3373009646a8fd310d4d420b69c4b0dc25",
+      "output_sha256": "fb6134527b2b2a27f63d83cd11021a3373009646a8fd310d4d420b69c4b0dc25",
+      "elapsed_seconds": 0.0391,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 69830 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "small_02",
+      "input_sha256": "9354fe1a77c8c8e4b0f6f1c9050f249640845ffd18fae08ad1400712f6bfd071",
+      "answer_sha256": "69493f20c86edd5b322cdb95c0634191ce31e18ea58874f9b348a35f8887340f",
+      "output_sha256": "69493f20c86edd5b322cdb95c0634191ce31e18ea58874f9b348a35f8887340f",
+      "elapsed_seconds": 0.0406,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 53336 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "small_03",
+      "input_sha256": "1b6baf52aea052099bc68adb72b286e0b01869cf787f1f7ab60961a0ff6a4521",
+      "answer_sha256": "68d0707557a25694633e8415914a02a4b452130a23a785262504b97a1015a28b",
+      "output_sha256": "68d0707557a25694633e8415914a02a4b452130a23a785262504b97a1015a28b",
+      "elapsed_seconds": 0.0407,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 36033 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "small_04",
+      "input_sha256": "5dd32de4be8edee4445dce81af545332099946185a47813d163c9cd9af2c15ec",
+      "answer_sha256": "207d49d31079c5cd1e9f29e041a320cadd2ed362bc0cbec5ffa523812875d54e",
+      "output_sha256": "207d49d31079c5cd1e9f29e041a320cadd2ed362bc0cbec5ffa523812875d54e",
+      "elapsed_seconds": 0.0205,
+      "resident_bytes": 8863744,
+      "checker_message": "ok 14868 tokens",
+      "verdict": "local_checker_accepted"
+    }
+  ]
+}

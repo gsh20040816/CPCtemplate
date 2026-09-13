@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T14:44:56.088158+00:00",
+  "recorded_at_utc": "2026-09-13T14:53:25.786783+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -316,7 +316,8 @@
       "cc_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes, million sparse keys and point stability PASS",
       "GNU handbook examples: rope version isolation, PBDS duplicate ranks and gp/cc composition PASS",
       "CC associative driver: Python dictionary oracle, absent/stored zeros and 1e18 endpoints PASS",
-      "Separated number theory: cpp_int modular oracle, trial primes, Bezout certificates, exhaustive residues and signed floor sums PASS"
+      "Separated number theory: cpp_int modular oracle, trial primes, Bezout certificates, exhaustive residues and signed floor sums PASS",
+      "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -608,7 +609,8 @@
       "cc_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes, million sparse keys and point stability PASS",
       "GNU handbook examples: rope version isolation, PBDS duplicate ranks and gp/cc composition PASS",
       "CC associative driver: Python dictionary oracle, absent/stored zeros and 1e18 endpoints PASS",
-      "Separated number theory: cpp_int modular oracle, trial primes, Bezout certificates, exhaustive residues and signed floor sums PASS"
+      "Separated number theory: cpp_int modular oracle, trial primes, Bezout certificates, exhaustive residues and signed floor sums PASS",
+      "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -1065,6 +1067,7 @@
     "tests/lc_algebra_application.py": "8e133e93b864e4385b73d91806c632fc73e07174be7ae5916b9887bb122f7f09",
     "tests/lc_convolution_application.py": "1e748e4551a05cbfeaacdf489b1f40d3a9f7941f352043d3ff35ddb03dd63b36",
     "tests/lc_fps_application.py": "68a132d73d60de458650f494b6f261e40e271b6577b384ffa2d28922d991e979",
+    "tests/lc_number_application.py": "bd8687a626bbb79f13c52d941b70eb9939a36c8c97b9192eaa6d4bd362c0a471",
     "tests/lex_two_sat.cpp": "1dff785aab551bde3bc84eb38c70d5e8d83400422c987c2dd60b65f287243d6e",
     "tests/lex_two_sat_application.py": "6a6d099010a17cecb9c6802572b7e653cd31c37c28f930491539d57fe2c7d0c8",
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",

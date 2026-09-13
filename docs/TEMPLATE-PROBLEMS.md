@@ -61,6 +61,8 @@
 | `FpsFunctions` | [Library Checker log_of_formal_power_series](https://judge.yosupo.jp/problem/log_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=1. | 待编写驱动/提交 | 待核验 |
 | `FpsFunctions` | [Library Checker exp_of_formal_power_series](https://judge.yosupo.jp/problem/exp_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=0. | 待编写驱动/提交 | 待核验 |
 | `gp_map` | [Library Checker associative_array (cc_hash_table variant)](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; key/value in [0,10^18]. | 待编写驱动/提交 | 待核验 |
+| `Prime64` | [Library Checker primality_test](https://judge.yosupo.jp/problem/primality_test) | 1<=Q<=100000;1<=N<=10^18. | 待编写驱动/提交 | 待核验 |
+| `floor_sum` | [Library Checker sum_of_floor_of_linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | 1<=T<=100000;1<=N,M<=10^9;0<=A,B<M. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -523,6 +525,22 @@ Official standalone associative-array template.
 The combined GNU hash-table entry now includes cc_map; this driver uses cc_map exclusively. Find returns zero for absent keys without inserting; operator[] performs assignments.
 
 CC online AC/ranking pending. Existing GP AC does not cover CC. erase/copy/point stability are tested separately, not by this driver.
+
+### Library Checker primality_test / Prime64
+
+Official standalone number theory template task.
+
+Call Prime64::prime and print exact Yes/No tokens. This task excludes zero and numbers above10^18, so full uint64 behavior retains separate local evidence.
+
+Online AC and all-AC ranking pending; official local checker does not confer an OJ performance verdict.
+
+### Library Checker sum_of_floor_of_linear / floor_sum
+
+Official standalone number theory template task.
+
+Call floor_sum and cast result to long long for output. Every summand is at most i, hence sum<=N(N-1)/2 fits signed64. Negative coefficients and N=0 are outside this driver task.
+
+Online AC and all-AC ranking pending; official local checker does not confer an OJ performance verdict.
 
 ## 榜单口径
 

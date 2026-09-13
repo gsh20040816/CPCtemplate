@@ -1477,5 +1477,55 @@
       "verification/cc-associative-official-local.json",
       "verification/cc-associative-official-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "Prime64",
+    "problem": "Library Checker primality_test",
+    "url": "https://judge.yosupo.jp/problem/primality_test",
+    "classification": "Official standalone number theory template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=Q<=100000;1<=N<=10^18.",
+    "adapter": "Call Prime64::prime and print exact Yes/No tokens. This task excludes zero and numbers above10^18, so full uint64 behavior retains separate local evidence.",
+    "source": "src/compact/prime64.hpp",
+    "source_driver": "verify/library_checker/primality_test.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending; official local checker does not confer an OJ performance verdict.",
+    "local_official_tests": [
+      "verification/primality_test-official-local.json",
+      "verification/primality_test-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "floor_sum",
+    "problem": "Library Checker sum_of_floor_of_linear",
+    "url": "https://judge.yosupo.jp/problem/sum_of_floor_of_linear",
+    "classification": "Official standalone number theory template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=T<=100000;1<=N,M<=10^9;0<=A,B<M.",
+    "adapter": "Call floor_sum and cast result to long long for output. Every summand is at most i, hence sum<=N(N-1)/2 fits signed64. Negative coefficients and N=0 are outside this driver task.",
+    "source": "src/compact/floor_sum.hpp",
+    "source_driver": "verify/library_checker/sum_of_floor_of_linear.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending; official local checker does not confer an OJ performance verdict.",
+    "local_official_tests": [
+      "verification/sum_of_floor_of_linear-official-local.json",
+      "verification/sum_of_floor_of_linear-official-sanitizer.json"
+    ]
   }
 ]

@@ -63,3 +63,11 @@ macOS 官方数据 runner 使用 512 MiB 主线程栈链接选项，记录在报
 ## cc_hash_table 关联数组
 
 `associative_array.cc.compact.cpp` 使用cc_map，20组固定版本官方数据在普通与ASan/UBSan下均通过checker。报告为 `verification/cc-associative-official-{local,sanitizer}.json`。独立Python字典驱动核对不存在的键、写入零和1e18端点；容器本身另有std::map随机操作、百万稀疏键、复制/清空和点引用稳定性检查。官方驱动只调用operator[]与find，不验证其他接口；原gp_map线上AC不转移为cc_map的线上AC。
+
+## 判素与整除和
+
+`primality_test` 的12组和 `sum_of_floor_of_linear` 的11组固定版本官方数据，均通过普通与ASan/UBSan官方checker。报告位于 `verification/<题目ID>-official-{local,sanitizer}.json`，已核对最终驱动打包哈希。
+
+独立驱动测试 `tests/lc_number_application.py` 每项包含十万查询。判素参考为筛表、试除确认因子的乘积和Proth证书：N=3·2^k+1，若a^((N-1)/2)=-1 mod N，则每个素因子的减一都含因子2^k；测试中2^k>sqrt(N)，故不存在不超过sqrt(N)的素因子。此判据没有调用Miller–Rabin。整除和采用小参数逐项枚举，以及A=B=M-1时按完整模数块计数的闭式参考。
+
+判素官方题只到10^18，不验证0或更大uint64输入。整除和官方题只有0≤A,B<M和N≥1，因此每项≤i，结果≤N(N-1)/2，驱动的long long输出转换有明确上界；负系数、N=0仍保留组件独立证据。线上AC、限时表现和全AC提交排名仍待完成。

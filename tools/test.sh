@@ -425,3 +425,5 @@ python3 tests/cc_associative_application.py
 
 "$CXX" "${flags[@]}" tests/number_components.cpp -o build/number-components
 build/number-components
+
+python3 tests/lc_number_application.py
