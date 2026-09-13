@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T14:03:37.291666+00:00",
+  "recorded_at_utc": "2026-09-13T14:19:42.405725+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -312,7 +312,10 @@
       "Separated algebra: exhaustive affine solution sets, permutation determinants, repeated-product matrices and uint64 composite-mod powers PASS",
       "LC algebra drivers: permutation-minor ranks, affine basis certificates, rectangular product oracle and maximal structured matrices PASS",
       "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS",
-      "LC FPS drivers: triangular coefficient oracles, constant terms, 262145 truncation and 500000-term analytic series PASS"
+      "LC FPS drivers: triangular coefficient oracles, constant terms, 262145 truncation and 500000-term analytic series PASS",
+      "cc_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes, million sparse keys and point stability PASS",
+      "GNU handbook examples: rope version isolation, PBDS duplicate ranks and gp/cc composition PASS",
+      "CC associative driver: Python dictionary oracle, absent/stored zeros and 1e18 endpoints PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -600,7 +603,10 @@
       "Separated algebra: exhaustive affine solution sets, permutation determinants, repeated-product matrices and uint64 composite-mod powers PASS",
       "LC algebra drivers: permutation-minor ranks, affine basis certificates, rectangular product oracle and maximal structured matrices PASS",
       "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS",
-      "LC FPS drivers: triangular coefficient oracles, constant terms, 262145 truncation and 500000-term analytic series PASS"
+      "LC FPS drivers: triangular coefficient oracles, constant terms, 262145 truncation and 500000-term analytic series PASS",
+      "cc_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes, million sparse keys and point stability PASS",
+      "GNU handbook examples: rope version isolation, PBDS duplicate ranks and gp/cc composition PASS",
+      "CC associative driver: Python dictionary oracle, absent/stored zeros and 1e18 endpoints PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -817,7 +823,7 @@
     "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
     "src/compact/graph_advanced.hpp": "3b892063307b0f50f1f373085d40f4e2b7160fb16a23ea8c13ae726fe37c1059",
     "src/compact/halfplanes.hpp": "2b7908c0ad44e6ce91ec1699a0ced13b040e9be6d810e4b342b96d6931106d68",
-    "src/compact/hash_table.hpp": "53d506a2ee27c5a681dc43e7261a969b769f313b6c2d99a354eae259a7d2bfb1",
+    "src/compact/hash_table.hpp": "91da212884e12050a05e7c048dee0e72fc37167576b82fdac42197d66d1f7372",
     "src/compact/interpolation.hpp": "e8fb4f56f4cc5c76a2e1807c9c0d8dfa26b1c1e072b311ac9019613119308e93",
     "src/compact/inverse_table.hpp": "5b0fcc140698c59093a7b5ce9b9356632f11a0fb98d4f47c5ab69d000b69c363",
     "src/compact/kth_residue.hpp": "e9a3ca541f98ef1a3d678dcef2d76de898f41c3423dd5ce514760e424d4546d6",
@@ -966,6 +972,8 @@
     "tests/card_game_application.py": "40f8c304b71fcf8275a983ed8f5f63fc89b3a2ef08ed6dd13c70312bd168b5bb",
     "tests/carmichael.cpp": "f5db60854507b1d36f53c5695ff0405f4a66be052b0c6074c1eb17c9bca1786c",
     "tests/carmichael_application.py": "fa62074e4e681a7cdd68d1efc72261d927cd41fa4a6cfb9df4b02dc4a845fbd3",
+    "tests/cc_associative_application.py": "86ee28cac764c66ee7112b5b6770109647597ea41e19fb73db45aaff962981e3",
+    "tests/cc_hash_table.cpp": "c85d8c08f7176b28ffd308cecf9ccd0c82499d1205dfaf6677b73ae8fa419d80",
     "tests/centroid.cpp": "b2658de09f312df33a90980a940d2e7e01fc078950ed91ed9ab38581e8e9d9c5",
     "tests/circle_polygon.cpp": "dde6bab0f510dd9b89c82e06eb231c626f4c2b6e8bbff6241ecc09690d7cc503",
     "tests/circle_precision.cpp": "04170f5d59d33d3605f9d83bf2f5e284a2e44b09eeac7716e25f2482f45b87bd",
@@ -1028,6 +1036,7 @@
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
     "tests/geometry_extra_audit.cpp": "76ed386f01ec8744c051a358922e4d3db7e376d7e5bc9c738991e913ed12829d",
     "tests/global_min_cut.cpp": "833783cda9e962873c8b7df3f8bc75276d573f16629820d81ebdc0f914ec7e31",
+    "tests/gnu_examples.cpp": "5ea3599cf48e81b199edcf04fccce651983f2be5ee7d183244cd846f07fd1fb1",
     "tests/gomory_hu.cpp": "888601101b60a6196478f7b6b321227b087514cf1a45391c84e8cb7ac39371fa",
     "tests/gomory_hu_application.py": "5258cad84e2fcecc2f131cb3a012203d8a83978a334181e93bf5425d81a8093d",
     "tests/graph_advanced.cpp": "165902c1850c63b7f15c2a84f0748fc6b90c1fab999afd49cb68f2dc40d49222",

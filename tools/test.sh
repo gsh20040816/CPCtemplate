@@ -416,3 +416,9 @@ python3 tests/lc_algebra_application.py
 build/fps-components
 
 python3 tests/lc_fps_application.py
+
+"$CXX" "${flags[@]}" tests/cc_hash_table.cpp -o build/cc-hash-table
+build/cc-hash-table
+"$CXX" "${flags[@]}" tests/gnu_examples.cpp -o build/gnu-examples
+build/gnu-examples
+python3 tests/cc_associative_application.py

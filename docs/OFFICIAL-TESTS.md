@@ -59,3 +59,7 @@ macOS 官方数据 runner 使用 512 MiB 主线程栈链接选项，记录在报
 独立完整驱动验证在 `tests/lc_fps_application.py`，使用Python整数逐系数递推，最大规模采用1/(2-x)、log(1-x)、exp(x)的解析系数，另验证262145项常数输入。没有通过inverse的乘法恒等式或log/exp互相抵消作为唯一参考。普通与ASan/UBSan日志分别保存。
 
 本地执行超时阈值120秒，不能视为官方10秒限制下已AC。官方生成器涵盖近262144长度、低次数输入、最大随机以及零系数等情况。独立接口仍有更广的输入/输出长度约定，不能从这三题推断全部契约均已线上验证；线上AC与全AC提交排名待补。
+
+## cc_hash_table 关联数组
+
+`associative_array.cc.compact.cpp` 使用cc_map，20组固定版本官方数据在普通与ASan/UBSan下均通过checker。报告为 `verification/cc-associative-official-{local,sanitizer}.json`。独立Python字典驱动核对不存在的键、写入零和1e18端点；容器本身另有std::map随机操作、百万稀疏键、复制/清空和点引用稳定性检查。官方驱动只调用operator[]与find，不验证其他接口；原gp_map线上AC不转移为cc_map的线上AC。

@@ -8,7 +8,7 @@ root = Path(__file__).resolve().parents[1]
 rows = json.loads((root / 'build/book-sections.json').read_text())
 from taxonomy_layout import TAX, render
 # The top-level categories come from the pinned navigation, not source modules.
-groups = {'languages': ('语言基础', ''), 'strings': ('字符串', ''),
+groups = {'strings': ('字符串', ''),
           'mathematics': ('数学', ''), 'data-structures': ('数据结构', ''),
           'graphs': ('图论', ''), 'geometry': ('计算几何', ''), 'misc': ('杂项', '')}
 owner = {title: key for key, (title, _) in groups.items()}
@@ -62,7 +62,7 @@ for key, (title, _) in groups.items():
             r'\end{titlepage}\hypersetup{pageanchor=true}', r'\frontmatter\tableofcontents',
             r'\chapter{使用约定}',
             r'C++20，默认包含 bits/stdc++.h 并使用 std 命名空间。下标、区间及数值范围以各条目说明为准。DFS 保持递归，需满足题目栈空间条件。',
-            r'本册主目录沿用 OI Wiki 官方导航的大、中、小层级，各页下列本库实现。组合条目与相关挂靠仍见仓库分类审计。跨类引用的已收录组件附在依赖部分；源头文件中的依赖仍须一并检查。',
+            r'本册主目录沿用 OI Wiki 官方导航的大、中、小层级，各页下列本库实现。PBDS 与 GNU rope 按队内约定纳入平衡树。组合条目与相关挂靠仍见仓库分类审计。跨类引用的已收录组件附在依赖部分；源头文件中的依赖仍须一并检查。',
             r'本册尚非全量完成稿；传统版评测仅为历史档案，当前只维护 vector 代码。', r'\mainmatter']
     def emit(entries):
         body.append(render(entries))
@@ -82,4 +82,4 @@ for key, (title, _) in groups.items():
     manifest.append(dict(id=key, title=title, entries=[r['symbol'] for r in primary], dependencies=[r['symbol'] for r in dependencies]))
 assert sum(len(v['entries']) for v in manifest) == len(rows)
 (root / 'docs/volumes.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
-print('Generated seven OI Wiki category volumes; each template has one primary category')
+print('Generated six category volumes with user-requested PBDS placement; each template has one primary category')

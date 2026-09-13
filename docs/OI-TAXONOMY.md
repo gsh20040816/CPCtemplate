@@ -8,7 +8,6 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 
 | 模板 | 上游完整层级 | 关系 | 处理说明 |
 | --- | --- | --- | --- |
-| ost | 语言基础 → C++ 进阶 → pb_ds → 平衡树 | direct |  |
 | kmp_match | 字符串 → 前缀函数与 KMP 算法 | direct |  |
 | prefix_function | 字符串 → 前缀函数与 KMP 算法 | direct |  |
 | z_function | 字符串 → Z 函数（扩展 KMP） | direct |  |
@@ -84,11 +83,12 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | lazy_segtree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | segtree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | LiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
+| ost | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
+| rp | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
 | GcdSequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | OrderedTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | SequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | OrderedSplay | 数据结构 → 二叉搜索树 & 平衡树 → Splay 树 | direct |  |
-| rp | 数据结构 → 可持久化数据结构 → 可持久化数据结构简介 | related | GNU rope 为共享序列容器；导航无独立 rope 页，需正文定位，不能当作手写可持久化树。 |
 | PersistentArray | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | PersistentDistinct | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | PersistentKth | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |

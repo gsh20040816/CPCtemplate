@@ -60,6 +60,7 @@
 | `FpsInverse` | [Library Checker inv_of_formal_power_series](https://judge.yosupo.jp/problem/inv_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0 nonzero. | 待编写驱动/提交 | 待核验 |
 | `FpsFunctions` | [Library Checker log_of_formal_power_series](https://judge.yosupo.jp/problem/log_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=1. | 待编写驱动/提交 | 待核验 |
 | `FpsFunctions` | [Library Checker exp_of_formal_power_series](https://judge.yosupo.jp/problem/exp_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=0. | 待编写驱动/提交 | 待核验 |
+| `gp_map` | [Library Checker associative_array (cc_hash_table variant)](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; key/value in [0,10^18]. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -514,6 +515,14 @@ Official standalone formal power series template.
 Read N coefficients and return exactly N terms with FpsFunctions::exp(a,N). No empty driver input or arbitrary input/output-length mismatch.
 
 Online AC and all-AC ranking pending. Official local runner uses a 120-second execution timeout, not the official 10-second verdict.
+
+### Library Checker associative_array (cc_hash_table variant) / gp_map
+
+Official standalone associative-array template.
+
+The combined GNU hash-table entry now includes cc_map; this driver uses cc_map exclusively. Find returns zero for absent keys without inserting; operator[] performs assignments.
+
+CC online AC/ranking pending. Existing GP AC does not cover CC. erase/copy/point stability are tested separately, not by this driver.
 
 ## 榜单口径
 

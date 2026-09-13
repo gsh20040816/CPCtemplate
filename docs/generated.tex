@@ -1,19 +1,3 @@
-\part{语言基础}
-
-\Needspace{344pt}
-
-\chapter{C++ 进阶}
-
-\section{pb\_ds}
-
-\subsection{平衡树}
-
-\subsubsection{PBDS 有序树与顺序统计}\label{compact-ost}\index{ost}
-
-GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp 和 ext/pb\_ds/tree\_policy.hpp。ost<T> 为去重有序集合；insert(x)、erase(x)、find(x)、lower\_bound(x)、upper\_bound(x) 沿用集合接口。order\_of\_key(x) 为严格小于 x 的元素数，find\_by\_order(k) 返回 0-based 第 k 个的迭代器，越界返回 end。默认 less<T>；改用其他严格弱序比较器时，排名和边界均按该比较器解释。单次 O(log n)，空间 O(n)，假设比较为 O(1)。重复值使用 ost<pair<T,int>>，插入 \{x,id\} 且 id 全局唯一、1$\le$id<INT\_MAX。order\_of\_key(\{x,0\}) 统计小于 x，order\_of\_key(\{x,INT\_MAX\}) 统计不大于 x；find\_by\_order(k)->first 取值，须先检查 end。删除一个 x：it=lower\_bound(\{x,0\})，检查 it!=end 且 it->first==x 后 erase(it)。不可用 less\_equal 模拟多重集合。前驱先检查迭代器是否为 begin，再递减；空集合和无解不得解引用 end。
-
-\lstinputlisting[firstline=8,lastline=13]{../src/compact/ordered_set.hpp}
-
 \part{字符串}
 
 \Needspace{251pt}
@@ -228,7 +212,7 @@ segmented\_primes(l,r) 返回闭区间内递增的全部素数，0$\le$l$\le$r$\
 
 \section{分解质因数}
 
-\subsection{Pollard–Rho 因数分解}\label{compact-PollardRho}\index{PollardRho}
+\subsection{Pollard--Rho 因数分解}\label{compact-PollardRho}\index{PollardRho}
 
 factor(n) 返回升序质因子（含重数），1$\le$n$\le$ULLONG\_MAX。n=1 返回空数组；n$\ge$2 时 size()==1 等价于 n 为素数，否则 front()/back() 分别取最小/最大质因子。依赖 NumberTheory。公开使用 factor；rho/split 为内部辅助，rho 只接受大于 1 的合数，不能直接传素数。Las Vegas 随机运行时间，固定默认种子方便复现，可由构造参数更换；无确定性最坏时间保证。每次 rho 尝试最多 200000 轮，失败后换随机参数重试，不将失败当作素数。递归仅沿真因子拆分，深度 O(log n)。
 
@@ -742,7 +726,7 @@ GaussMod<p>::solve(a,n) 接收 m 行 n+1 列增广矩阵，p 必须是素数，n
 
 \chapter{Berlekamp–Massey 算法}
 
-\section{Berlekamp–Massey：最短线性递推}\label{compact-berlekamp_massey}\index{berlekamp\_massey}
+\section{Berlekamp--Massey：最短线性递推}\label{compact-berlekamp_massey}\index{berlekamp\_massey}
 
 berlekamp\_massey(s,p) 要求 p 为素数，2$\le$p$\le$INT\_MAX，输入均在 [0,p)；返回 c，使 s[i]=$\sum$ c[j-1]s[i-j]（j=1..k，i$\ge$k）。空序列或全零序列返回空系数。有限前缀可能对应多种未来，不能无条件外推；若已知原序列满足阶数至多 d 的齐次线性递推，提供至少 2d 项才能恢复可外推的递推。模运算次数 O(Nk+N log p)，后项来自逐次求逆；空间 O(N)。不适用于合数模数或浮点拟合。
 
@@ -750,15 +734,17 @@ berlekamp\_massey(s,p) 要求 p 为素数，2$\le$p$\le$INT\_MAX，输入均在 
 
 \part{数据结构}
 
-\Needspace{372pt}
+\Needspace{409pt}
 
 \chapter{哈希表}
 
-\section{GNU 整数键哈希表}\label{compact-gp_map}\index{gp\_map}
+\section{GNU gp\_hash\_table 与 cc\_hash\_table}\label{compact-gp_map}\index{gp\_map}
 
-GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp。gp\_map<K,V> 中 K 采用不超过 64 位的整数类型，V 为值类型；默认空表。a[k] 读取或插入默认值，find(k) 查找且不插入，insert(\{k,v\}) 不覆盖已有键，erase(k)、clear()、size()、empty() 沿用容器接口。哈希使用进程内固定随机种子的 64 位混合；算术为无符号回绕，支持有符号整数转为 uint64\_t。不保证抵抗已知种子的恶意构造。通常查改摊还 O(1)，最坏单次 O(n)，空间 O(n)；不提供顺序统计。rehash 会使迭代器失效，修改表后重新 find。默认策略不直接调用 resize，不使用 unordered\_map 的 reserve 接口。用于不存在时返回零的映射，建议 find 后判断 end，避免纯查询扩大表。
+GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp。gp\_map<K,V> 为探测哈希表，cc\_map<K,V> 为碰撞链接哈希表；K 为不超过64位的整数，复用下方 hash64。两者支持 operator[]、find、insert、erase(key)、clear、size、empty；insert 不覆盖已有键，operator[] 对不存在的键插入默认值。只查询时用 find 判断 end。通常查改摊还 O(1)，最坏 O(n)，空间 O(n)，不支持排名或有序前驱。纯键值查改可先试 gp\_map；需要在插入/删除其他键后保留找到的元素引用时可考虑 cc\_map，其节点分配和链接有成本，速度仍须按题实测。gp\_map 修改后重新 find；cc\_map 的点迭代器不等于可递增的遍历迭代器，删除该元素、clear 或销毁后不能保留引用。默认策略不直接调用 resize，也不照搬 unordered\_map::reserve。hash64 使用进程内固定随机种子，无符号回绕；只针对整数键，不保证已知种子下的最坏碰撞。历史 associative\_array AC 仅覆盖 gp\_map，cc\_map 另行验证。
 
-\lstinputlisting[firstline=7,lastline=25]{../src/compact/hash_table.hpp}
+\index{gp\_hash\_table}\index{cc\_hash\_table}需要排名与有序前驱时，PBDS 平衡树见第~\pageref{compact-ost}~页。
+
+\lstinputlisting[firstline=7,lastline=26]{../src/compact/hash_table.hpp}
 
 \Needspace{549pt}
 
@@ -852,9 +838,46 @@ AffineSegTree(a,mod) 传入非空 0-based 初值数组；查询与修改采用 1
 
 \lstinputlisting[firstline=41,lastline=132]{../src/compact/optimization.hpp}
 
-\Needspace{180pt}
+\Needspace{301pt}
 
 \chapter{二叉搜索树 \& 平衡树}
+
+\section{二叉搜索树 \& 平衡树}
+
+\subsection{GNU rope 与版本共享}\label{compact-rp}\index{rp}
+
+实际类型为 \_\_gnu\_cxx::rope<T>，不是 std::rope；它是 GNU 扩展序列，包含 ext/rope。本工具链随后重新包含 cassert，保留断言接口。rp<int>、rp<char> 表示序列，默认空。size()、empty()、push\_back(x)、insert(p,x)、erase(p,len)、replace(p,x)、substr(p,len) 直接沿用 rope；位置为 0-based，len 是长度而非右端点。约定 0$\le$p$\le$size，删除/截取要求 len$\le$size-p，读写单点要求 p<size。r[i] 读取第 i 项；substr 返回新序列。rp<T> b=a 共享底层树，随后通过容器接口修改 b 不影响 a，可用 vector<rp<int>> 保存分支版本。复制构造共享根为 O(1)；随机访问沿树路径，正常平衡时 O(log n)。插入/删除/截取涉及路径、叶块复制和可能的再平衡，不能把每次操作都写成严格最坏 O(log n)；释放最后引用可能递归回收整棵子树。长期保留所有版本的内存不能按单个序列 O(n) 估计。不可缓存修改前的迭代器或使用可变代理跨版本写入。仅使用默认内存分配器及普通整数/字符值；函数生成型 rope 不在本模板范围。 可持久化队列已通过定长构造加头尾下标版本：Q 个零单元，复制根与 l/r，入队 replace(r++,x)，出队读取 [l++]；直接 push\_back/erase 版本在针对数据上耗尽内存。线上 942 ms、591.26 MiB，具体失败与通过范围见 docs/ROPE-NOTES.md。 适合需要序列中间插删、截取和少量分支快照的场景；只按下标读写通常使用 vector 更直接。需要区间和、翻转等懒标记聚合时使用隐式 Treap，rope 本身不提供这些接口。下方示例通过修改 b 演示 a 保持原版本。
+
+只需键值查改而不需要有序排名时，gp\_hash\_table / cc\_hash\_table 及选型建议见第~\pageref{compact-gp_map}~页。
+
+\lstinputlisting[firstline=8,lastline=8]{../src/compact/rope.hpp}
+
+\begin{lstlisting}
+rp<int> a;
+a.push_back(3);
+a.insert(0, 7);
+rp<int> b = a;
+b.replace(1, 9);
+b.erase(0, 1);
+auto c = a.substr(0, 1);
+int x = a[1];
+\end{lstlisting}
+
+\newpage
+
+\Needspace{239pt}
+
+\subsection{PBDS 有序树与顺序统计}\label{compact-ost}\index{ost}
+
+GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp 和 ext/pb\_ds/tree\_policy.hpp。ost<T> 为去重有序集合；insert(x)、erase(x)、find(x)、lower\_bound(x)、upper\_bound(x) 沿用集合接口。order\_of\_key(x) 为严格小于 x 的元素数，find\_by\_order(k) 返回 0-based 第 k 个的迭代器，越界返回 end。默认 less<T>；改用其他严格弱序比较器时，排名和边界均按该比较器解释。单次 O(log n)，空间 O(n)，假设比较为 O(1)。重复值使用 ost<pair<T,int>>，插入 \{x,id\} 且 id 全局唯一、1$\le$id<INT\_MAX。order\_of\_key(\{x,0\}) 统计小于 x，order\_of\_key(\{x,INT\_MAX\}) 统计不大于 x；find\_by\_order(k)->first 取值，须先检查 end。删除一个 x：it=lower\_bound(\{x,0\})，检查 it!=end 且 it->first==x 后 erase(it)。不可用 less\_equal 模拟多重集合。前驱先检查迭代器是否为 begin，再递减；空集合和无解不得解引用 end。
+
+只需键值查改而不需要有序排名时，gp\_hash\_table / cc\_hash\_table 及选型建议见第~\pageref{compact-gp_map}~页。
+
+序列中间插删、截取与版本共享的 GNU rope 见第~\pageref{compact-rp}~页。
+
+\lstinputlisting[firstline=8,lastline=13]{../src/compact/ordered_set.hpp}
+
+\Needspace{180pt}
 
 \section{Treap}
 
@@ -886,21 +909,9 @@ insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不�
 
 \lstinputlisting[firstline=7,lastline=210]{../src/compact/splay.hpp}
 
-\Needspace{274pt}
+\Needspace{180pt}
 
 \chapter{可持久化数据结构}
-
-\section{可持久化数据结构简介}
-
-\noindent 相关应用：GNU rope 为共享序列容器；导航无独立 rope 页，需正文定位，不能当作手写可持久化树。
-
-\subsection{GNU rope 与版本共享}\label{compact-rp}\index{rp}
-
-GNU libstdc++ 扩展，包含 ext/rope；本工具链中随后重新包含 cassert，保留断言接口。rp<int>、rp<char> 表示序列，默认空。size()、empty()、push\_back(x)、insert(p,x)、erase(p,len)、replace(p,x)、substr(p,len) 直接沿用 rope；位置为 0-based，len 是长度而非右端点。约定 0$\le$p$\le$size，删除/截取要求 len$\le$size-p，读写单点要求 p<size。r[i] 读取第 i 项；substr 返回新序列。rp<T> b=a 共享底层树，随后通过容器接口修改 b 不影响 a，可用 vector<rp<int>> 保存分支版本。复制构造共享根为 O(1)；随机访问沿树路径，正常平衡时 O(log n)。插入/删除/截取涉及路径、叶块复制和可能的再平衡，不能把每次操作都写成严格最坏 O(log n)；释放最后引用可能递归回收整棵子树。长期保留所有版本的内存不能按单个序列 O(n) 估计。不可缓存修改前的迭代器或使用可变代理跨版本写入。仅使用默认内存分配器及普通整数/字符值；函数生成型 rope 不在本模板范围。 可持久化队列已通过定长构造加头尾下标版本：Q 个零单元，复制根与 l/r，入队 replace(r++,x)，出队读取 [l++]；直接 push\_back/erase 版本在针对数据上耗尽内存。线上 942 ms、591.26 MiB，具体失败与通过范围见 docs/ROPE-NOTES.md。
-
-\lstinputlisting[firstline=8,lastline=8]{../src/compact/rope.hpp}
-
-\Needspace{180pt}
 
 \section{可持久化线段树}
 
@@ -1360,7 +1371,7 @@ maximum\_closure(weight,dependencies) 返回 (最大权值,选中点列表)，we
 
 \Needspace{490pt}
 
-\subsection{Gomory–Hu 最小割树}\label{compact-gomory_hu}\index{gomory\_hu}
+\subsection{Gomory--Hu 最小割树}\label{compact-gomory_hu}\index{gomory\_hu}
 
 gomory\_hu(n,edges) 返回 n-1 条 (u,v,容量) 树边；n$\ge$1，原图点号 0..n-1，输入为无向边 tuple 列表，重边保留、自环忽略、容量非负。非自环边总容量须严格小于 LLONG\_MAX。两点最小割是树路径最小边权；删去树边得到的两侧也是原图该边端点的最小割。允许非连通图和零权树边，n=1 返回空树。运行 n-1 次 Dinic，一般上界 O(n$^{3}$m+n$^{2}$)，额外空间 O(n+m)，DFS 增广保持递归。 P4897 输入 n 表示 n+1 个点，驱动传 n+1。 双版本 P4897 已 AC，最长单点分别 252、185 ms。
 
@@ -1424,7 +1435,7 @@ solve(w)，n$\ge$2；w 为 n×n 对称非负权矩阵，重边先累加，主对
 
 \section{二分图最大匹配}
 
-\subsection{Hopcroft–Karp 最大匹配与最小点覆盖}\label{compact-BipartiteMatching}\index{BipartiteMatching}
+\subsection{Hopcroft--Karp 最大匹配与最小点覆盖}\label{compact-BipartiteMatching}\index{BipartiteMatching}
 
 左右两侧分别编号 1..n、1..m，可有空侧及重边；add(u,v) 加边，solve() 返回最大匹配总数，l[u] 与 r[v] 为匹配端点，0 表示未匹配。保留已有合法匹配，可加边后再次 solve；不支持删边或手动更改匹配数组。BFS 用 dep[0] 记录最短终点层，递归 DFS 只沿最短层增广，并使用当前弧。V=n+m，单次 solve 最坏 O((V+E)$\sqrt{\vphantom x}$V)，空间 O(V+E)。cover() 在 solve 后、下一次改图前调用，返回 (左侧点列表,右侧点列表)，为最小点覆盖；其补集是最大独立集。覆盖与匹配方案均可直接输出。
 

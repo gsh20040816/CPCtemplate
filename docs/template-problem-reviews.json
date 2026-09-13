@@ -1452,5 +1452,30 @@
       "verification/exp_of_formal_power_series-official-local.json",
       "verification/exp_of_formal_power_series-official-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "gp_map",
+    "problem": "Library Checker associative_array (cc_hash_table variant)",
+    "url": "https://judge.yosupo.jp/problem/associative_array",
+    "classification": "Official standalone associative-array template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "Q<=1000000; key/value in [0,10^18].",
+    "adapter": "The combined GNU hash-table entry now includes cc_map; this driver uses cc_map exclusively. Find returns zero for absent keys without inserting; operator[] performs assignments.",
+    "source": "src/compact/hash_table.hpp",
+    "source_driver": "verify/library_checker/associative_array.cc.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "CC online AC/ranking pending. Existing GP AC does not cover CC. erase/copy/point stability are tested separately, not by this driver.",
+    "local_official_tests": [
+      "verification/cc-associative-official-local.json",
+      "verification/cc-associative-official-sanitizer.json"
+    ]
   }
 ]

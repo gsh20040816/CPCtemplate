@@ -23,4 +23,5 @@ struct hash64
 };
 
 template <class K, class V> using gp_map = __gnu_pbds::gp_hash_table<K, V, hash64>;
+template <class K, class V> using cc_map = __gnu_pbds::cc_hash_table<K, V, hash64>;
 // END gp_map

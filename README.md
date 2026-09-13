@@ -48,7 +48,7 @@ SANITIZE=1 tools/test.sh
 
 ## 分册
 
-总册与语言基础、字符串、数学、数据结构、图论、计算几何、杂项七本独立 PDF 一并生成，见 [分册说明](docs/VOLUMES.md) 与 [输出目录](output/pdf/)。各册有独立目录、页码引用和算法索引；几何知识随几何代码收录。
+总册与字符串、数学、数据结构、图论、计算几何、杂项六本独立 PDF 一并生成，见 [分册说明](docs/VOLUMES.md) 与 [输出目录](output/pdf/)。各册有独立目录、页码引用和算法索引；几何知识随几何代码收录。
 
 Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECKER.md)，包含官方分类之外的待核对题目；清单登记不代表已实现或 AC。
 
