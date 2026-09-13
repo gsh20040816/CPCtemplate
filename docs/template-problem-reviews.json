@@ -457,17 +457,24 @@
     "checked_date": "2026-09-12",
     "limits": "n<=100000; m<=1000000; values<2^30",
     "adapter": "Read an initial multiset, XOR each operand with the last query answer before executing it, and print XOR of all query answers. All operations are legal. Cannot simply reuse P3369 input/output or sort operations offline; require separate maximum-scale performance evidence.",
-    "implementation": "implemented_driver_local_verified_online_pending",
+    "implementation": "implemented_online_scoped",
     "source": "src/compact/ordered_set.hpp",
     "api": null,
-    "tested_api": [],
-    "ac": null,
+    "tested_api": [
+      "insert",
+      "erase(iterator)",
+      "lower_bound",
+      "upper_bound",
+      "order_of_key",
+      "find_by_order"
+    ],
+    "ac": "https://www.luogu.com.cn/record/297800993",
     "ranking": {
       "status": "not_checked",
       "rank": null,
       "total": null
     },
-    "remaining": "Separate PBDS multiset driver now passes independent sorted-list oracle and ASan/UBSan. P6136 also checks 100000 initial duplicates and 1000000 online operations. Online AC and ranking still pending.",
+    "remaining": "Fastest-submission ranking availability and scope remain to audit. P3369 driver has separate pending online evidence.",
     "source_driver": "verify/luogu/P6136.pbds.compact.cpp"
   },
   {

@@ -1690,5 +1690,28 @@
       "operator[]"
     ],
     "note": "14 cases; preallocate Q cells and maintain per-version head/tail, avoiding concat/substr rebalancing. Does not online-verify push_back/erase/substr. Initial direct queue submission 401870 RE at 1024MiB on half_rot_killer. Source copied back and byte-equal."
+  },
+  {
+    "problem": "Luogu P6136",
+    "style": "compact",
+    "record": "https://www.luogu.com.cn/record/297800993",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 1130,
+    "memory": "67.83MB",
+    "source_driver": "verify/luogu/P6136.pbds.compact.cpp",
+    "submitted_source": "verification/submitted/P6136.pbds.compact.cpp",
+    "submitted_sha256": "be68e648fada82130e59026f2051ba877ee5ca7460f8ebd8b98c077d5596d354",
+    "date": "2026-09-13",
+    "algorithm": "ost",
+    "tested_api": [
+      "insert",
+      "erase(iterator)",
+      "lower_bound",
+      "upper_bound",
+      "order_of_key",
+      "find_by_order"
+    ],
+    "note": "24 test cells displayed; slowest 1.13s. Multiset pairs, one-occurrence erase, online XOR and checksum validated by complete driver. Uploaded bundled file. Ranking not checked."
   }
 ]

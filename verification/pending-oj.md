@@ -37,7 +37,6 @@
 - `verify/luogu/P5170.compact.cpp`
 - `verify/luogu/P5656.compact.cpp`
 - `verify/luogu/P6113.compact.cpp`
-- `verify/luogu/P6136.pbds.compact.cpp`
 - `verify/luogu/P7771.compact.cpp`
 - `verify/poj/1330.compact.cpp`
 - `verify/poj/1330.lifting.compact.cpp`

@@ -69,4 +69,17 @@ for pid in ['P3369', 'P6136']:
             last = 1
             checksum ^= last
         run([f'{n} {m}', ' '.join(['7']*n), *ops], [checksum])
+        # Grow almost to the maximum live node count, then query both extremes.
+        n, m = 100000, 1000000
+        grow = m - 4
+        ops = [f'1 {n+i}' for i in range(grow)]
+        count = n + grow
+        last = 0
+        checksum = 0
+        for op, x, answer in [(4, count, count-1), (3, count, count+1),
+                              (5, count, count-1), (6, 0, 1)]:
+            ops.append(f'{op} {x ^ last}')
+            last = answer
+            checksum ^= answer
+        run([f'{n} {m}', ' '.join(map(str, range(n))), *ops], [checksum])
 print('PBDS multiset drivers: duplicate sorted-list oracle, legal strict neighbors, online XOR and million operations PASS')
