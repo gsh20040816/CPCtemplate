@@ -38,6 +38,8 @@ subprocess.run(['python3',str(root/'tools/bundle.py'),str(args.driver),str(bundl
 cxx = os.environ.get('CXX') or shutil.which('g++-16') or 'g++'
 flags = ['-std=c++20','-O2']
 if args.sanitize: flags=['-std=c++20','-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']
+# Match contest recursion stack on macOS; DFS remains recursive.
+if os.uname().sysname=='Darwin': flags += ['-Wl,-stack_size,0x20000000']
 exe = work/'main'
 subprocess.run([cxx,*flags,str(bundle),'-o',str(exe)],check=True)
 checker = folder/'checker'
@@ -69,8 +71,8 @@ for inp in inputs:
 wrong=work/'negative-control.out';wrong.write_text('not-a-valid-answer\n')
 first=inputs[0];ans=folder/'out'/(first.stem+'.out')
 negative=subprocess.run([str(checker),str(first),str(wrong),str(ans)],capture_output=True,text=True,timeout=10)
-assert negative.returncode==1, (negative.returncode,negative.stderr)
-report=dict(problem=args.problem,scope='Local official generated tests only; not online AC or controlled OJ speed ranking',reference_commit=commit,reference_problem_path=str(folder.relative_to(up)),metadata_sha256=sha(matches[0]),checker_source_sha256=sha(folder/'checker.cpp'),checker_binary_sha256=sha(checker),driver=str(args.driver),bundle_sha256=sha(bundle),compiler=subprocess.check_output([cxx,'--version'],text=True).splitlines()[0],flags=flags,recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),negative_control='deliberately wrong output rejected',cases=rows)
+assert negative.returncode in (1, 2), (negative.returncode,negative.stderr)
+report=dict(problem=args.problem,scope='Local official generated tests only; not online AC or controlled OJ speed ranking',reference_commit=commit,reference_problem_path=str(folder.relative_to(up)),metadata_sha256=sha(matches[0]),checker_source_sha256=sha(folder/'checker.cpp'),checker_binary_sha256=sha(checker),driver=str(args.driver),bundle_sha256=sha(bundle),compiler=subprocess.check_output([cxx,'--version'],text=True).splitlines()[0],flags=flags,recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),negative_control='deliberately wrong output rejected',negative_control_exit_code=negative.returncode,negative_control_message=negative.stderr.strip(),cases=rows)
 args.report.parent.mkdir(parents=True,exist_ok=True)
 args.report.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(f'{args.problem}: {len(rows)} official local cases PASS; sanitizer={args.sanitize}; not online AC')

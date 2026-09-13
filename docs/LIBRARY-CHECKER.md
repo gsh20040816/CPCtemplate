@@ -145,7 +145,7 @@
 | [Minimum Cost b-flow](https://judge.yosupo.jp/problem/min_cost_b_flow) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Minimum Diameter Spanning Tree](https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Minimum Spanning Tree](https://judge.yosupo.jp/problem/minimum_spanning_tree) | Graph | 待逐题审题、适配与在线验证 | — |
-| [Strongly Connected Components](https://judge.yosupo.jp/problem/scc) | Graph | 待逐题审题、适配与在线验证 | — |
+| [Strongly Connected Components](https://judge.yosupo.jp/problem/scc) | Graph | 待逐题审题、适配与在线验证 | [scc.compact.cpp](../verify/library_checker/scc.compact.cpp) |
 | [Shortest Path](https://judge.yosupo.jp/problem/shortest_path) | Graph | 待逐题审题、适配与在线验证 | — |
 | [st-Numbering](https://judge.yosupo.jp/problem/st_numbering) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Three-Edge-Connected Components](https://judge.yosupo.jp/problem/three_edge_connected_components) | Graph | 待逐题审题、适配与在线验证 | — |
@@ -196,7 +196,7 @@
 | [Longest Increasing Subsequence](https://judge.yosupo.jp/problem/longest_increasing_subsequence) | Other | 待逐题审题、适配与在线验证 | — |
 | [$\sum_{i=0}^{n-1} r^i i^d$](https://judge.yosupo.jp/problem/sum_of_exponential_times_polynomial) | Other | 待逐题审题、适配与在线验证 | — |
 | [$\sum_{i=0}^{\infty} r^i i^d$](https://judge.yosupo.jp/problem/sum_of_exponential_times_polynomial_limit) | Other | 待逐题审题、适配与在线验证 | — |
-| [2 Sat](https://judge.yosupo.jp/problem/two_sat) | Other | 待逐题审题、适配与在线验证 | — |
+| [2 Sat](https://judge.yosupo.jp/problem/two_sat) | Other | 待逐题审题、适配与在线验证 | [two_sat.compact.cpp](../verify/library_checker/two_sat.compact.cpp) |
 | [Composition of Formal Power Series](https://judge.yosupo.jp/problem/composition_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Composition of Formal Power Series (Large)](https://judge.yosupo.jp/problem/composition_of_formal_power_series_large) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Compositional Inverse of Formal Power Series](https://judge.yosupo.jp/problem/compositional_inverse_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | — |

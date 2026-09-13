@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T13:03:50.917202+00:00",
+  "recorded_at_utc": "2026-09-13T13:13:57.890619+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -306,7 +306,8 @@
       "P3381 slope endpoint driver: exhaustive feasible edge-flow assignment oracle PASS",
       "",
       "Signed integer convolution: cpp_int oracle, certified primes/roots, int64 cancellation and large alternating triangles PASS",
-      "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS"
+      "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS",
+      "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -588,7 +589,8 @@
       "P3381 slope endpoint driver: exhaustive feasible edge-flow assignment oracle PASS",
       "",
       "Signed integer convolution: cpp_int oracle, certified primes/roots, int64 cancellation and large alternating triangles PASS",
-      "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS"
+      "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS",
+      "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -1082,6 +1084,7 @@
     "tests/root_factors.cpp": "8d238960b70db06f4e9f48d2c8f1a37c36392b9f1f7b887b7fc80aa0cead3b46",
     "tests/rope.cpp": "e3e983b3abdf4b46fd2b7964f6588b4540b077b922bedd5d3c4f20478b7f7827",
     "tests/rope_queue_application.py": "143f9b83f0ab81aa8ca78f3fef1f70fdbea0d19970b00753be77421680ac7657",
+    "tests/scc_sat_application.py": "9dc1debdcee7e88cb4c475d3499ed07f4622b1fae4c75479296e91888fb034c8",
     "tests/scc_template_application.py": "aef792b70652ed5d3ed867d4e95469116bf74a480436c0d53ba3fcad874499a6",
     "tests/segmented_sieve.cpp": "8ce844d676a6abf0b02dc4c8da038ef27da9336582b4e469e0b25305c4c4b3ed",
     "tests/segtree.cpp": "59ae2627e4d4b0f50d265c67caaf24e5d584d6cf9a15873b54dfe7165020e354",

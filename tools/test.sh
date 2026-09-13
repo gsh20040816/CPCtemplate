@@ -402,3 +402,5 @@ python3 tests/flow_slope_application.py
 "$CXX" "${flags[@]}" tests/convolution_i64.cpp -o build/convolution_i64
 build/convolution_i64
 python3 tests/convolution_i64_application.py
+
+python3 tests/scc_sat_application.py

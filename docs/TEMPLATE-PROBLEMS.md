@@ -49,6 +49,8 @@
 | `lazy_segtree` | [Library Checker range_affine_range_sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | N,Q<=500000; coefficients modulo998244353; nonzero multipliers;0<=l<r<=N | 待编写驱动/提交 | 待核验 |
 | `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | n<=5000000;2<=k<p<=10^9;prime p;1<=a_i<p | 待编写驱动/提交 | 待核验 |
 | `convolution_i64` | [Luogu P3803](https://www.luogu.com.cn/problem/P3803) | Degrees n,m<=1000000; coefficients 0..9; exact integer output. | 待编写驱动/提交 | 待核验 |
+| `TarjanSCC` | [Library Checker Strongly Connected Components](https://judge.yosupo.jp/problem/scc) | 1<=N,M<=500000; vertices 0..N-1; loops and parallel edges allowed. | 待编写驱动/提交 | 待核验 |
+| `TwoSAT` | [Library Checker 2 Sat](https://judge.yosupo.jp/problem/two_sat) | 1<=N,M<=500000; signed DIMACS literals in +/-1..N. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -415,6 +417,22 @@ Standalone polynomial multiplication template.
 Read n+1 and m+1 signed64 coefficients; output exact convolution. Maximum coefficient 81*(1000001).
 
 Online result and performance pending; negative and signed64 extremes covered by local cpp_int oracle only.
+
+### Library Checker Strongly Connected Components / TarjanSCC
+
+Official standalone template task.
+
+Shift vertices +1 on input and -1 on output. Tarjan IDs are reverse topological; print component groups from cnt down to1. Output partition and order checked independently by reachability.
+
+Online submission and all-AC ranking pending; local independent driver oracle and official checker evidence are separate from prior OJ AC.
+
+### Library Checker 2 Sat / TwoSAT
+
+Official standalone template task.
+
+Read p cnf N M; each a b 0 maps to add(abs(a),a>0,abs(b),b>0). Output SAT/UNSAT and signed assignment in variable order. Current TwoSAT uses its existing Kosaraju SCC numbering convention.
+
+Online submission and all-AC ranking pending; local independent driver oracle and official checker evidence are separate from prior OJ AC.
 
 ## 榜单口径
 

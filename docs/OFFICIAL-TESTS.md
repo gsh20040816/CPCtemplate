@@ -22,3 +22,14 @@ macOS 记录每组进程的 resident bytes 和墙钟时间，包含启动开销�
 - [ASan/UBSan 报告](../verification/lazy-official-sanitizer.json)
 
 范围仅为构造、apply、prod 和此处的模仿射作用。不覆盖没有调用的 set/get、all、左右边界搜索，也不替代非交换字符串与独立扫描测试。线上 AC 与排名仍待补齐。
+
+## SCC 与 2-SAT 驱动
+
+固定参考版本同上。SCC 题要求按拓扑序输出点集，因此驱动将 Tarjan 的逆拓扑分量编号倒序输出；2-SAT 驱动按 DIMACS 正负文字适配现有 TwoSAT，保留其 Kosaraju 编号与取值约定。
+
+- SCC：12 组官方数据，报告 `verification/scc-official-{local,sanitizer}.json`。
+- 2-SAT：18 组官方数据，报告 `verification/two-sat-official-{local,sanitizer}.json`。
+
+两项均以官方 checker 检验全部输出。另有独立完整驱动测试：Floyd 可达关系验证分量划分与拓扑边，枚举布尔赋值验证可满足性及输出证书，50 万点链/变量链验证递归规模。测试脚本为 `tests/scc_sat_application.py`。这些证据不代替在线 AC、OJ 性能或所有接口验证。
+
+macOS 官方数据 runner 使用 512 MiB 主线程栈链接选项，记录在报告 flags 中；DFS 没有改成显式开栈。负对照允许 testlib 的 WA=1 或 PE=2，其他退出码仍失败；新版报告记录实际拒绝码和消息。

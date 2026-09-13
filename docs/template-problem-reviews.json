@@ -1177,5 +1177,55 @@
       "total": null
     },
     "remaining": "Online result and performance pending; negative and signed64 extremes covered by local cpp_int oracle only."
+  },
+  {
+    "symbol": "TarjanSCC",
+    "problem": "Library Checker Strongly Connected Components",
+    "url": "https://judge.yosupo.jp/problem/scc",
+    "classification": "Official standalone template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N,M<=500000; vertices 0..N-1; loops and parallel edges allowed.",
+    "adapter": "Shift vertices +1 on input and -1 on output. Tarjan IDs are reverse topological; print component groups from cnt down to1. Output partition and order checked independently by reachability.",
+    "source": "src/compact/tarjan.hpp",
+    "source_driver": "verify/library_checker/scc.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-AC ranking pending; local independent driver oracle and official checker evidence are separate from prior OJ AC.",
+    "local_official_tests": [
+      "verification/scc-official-local.json",
+      "verification/scc-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "TwoSAT",
+    "problem": "Library Checker 2 Sat",
+    "url": "https://judge.yosupo.jp/problem/two_sat",
+    "classification": "Official standalone template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N,M<=500000; signed DIMACS literals in +/-1..N.",
+    "adapter": "Read p cnf N M; each a b 0 maps to add(abs(a),a>0,abs(b),b>0). Output SAT/UNSAT and signed assignment in variable order. Current TwoSAT uses its existing Kosaraju SCC numbering convention.",
+    "source": "src/compact/graph.hpp",
+    "source_driver": "verify/library_checker/two_sat.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-AC ranking pending; local independent driver oracle and official checker evidence are separate from prior OJ AC.",
+    "local_official_tests": [
+      "verification/two-sat-official-local.json",
+      "verification/two-sat-official-sanitizer.json"
+    ]
   }
 ]
