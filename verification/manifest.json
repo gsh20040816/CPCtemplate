@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T12:04:47.962696+00:00",
+  "recorded_at_utc": "2026-09-13T12:09:27.853598+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -297,7 +297,8 @@
       "Segtree predecessor driver: sorted-key oracle, empty/full sets, inclusive boundaries and N=10000000 Q=1000000 PASS",
       "Generic lazy segtree: affine vector oracle, assignment string order, both boundary scans and 500000 pending tags PASS",
       "Generic lazy affine driver: independent modular vector updates and sums PASS",
-      "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS"
+      "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS",
+      "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -570,7 +571,8 @@
       "Segtree predecessor driver: sorted-key oracle, empty/full sets, inclusive boundaries and N=10000000 Q=1000000 PASS",
       "Generic lazy segtree: affine vector oracle, assignment string order, both boundary scans and 500000 pending tags PASS",
       "Generic lazy affine driver: independent modular vector updates and sums PASS",
-      "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS"
+      "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS",
+      "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -763,6 +765,7 @@
     "src/compact/divisor_sum.hpp": "ced5f23db4f04b81a09146765a1022fcc5a0bc2ab4c84015ff12d63aa3ede9b8",
     "src/compact/dsu_on_tree.hpp": "d99eb2bc4bcc40bcce9c863db26aeab56a442e316205dbbe59c5f1ad5ba75eca",
     "src/compact/dynamic_kth.hpp": "a4ae441821bf8723a3b6877e282a4fd57382578fe7f691b8e3a86718a843f134",
+    "src/compact/dynamic_modint.hpp": "ce1b732e59ca87b804107fdc228e28ab618e405f4a6cbc59e4ed5a60e29f7159",
     "src/compact/dynamic_tree.hpp": "8843df5902e063642a6ae73eda750164ce7d890090cd46b8963002b0d908b707",
     "src/compact/edge_components.hpp": "f0e3ff7aee0289c164439090d3307dd3bfdb271954239c43d400331f3c2a527c",
     "src/compact/enclosing_circle.hpp": "b54ff5b847bd52fd5a24f28a8de732c6f6b43a9db1c5791b3c741b24ea352eca",
@@ -884,6 +887,7 @@
     "tests/dynamic_kth.cpp": "adef3100691e835610eb7346137273498f03126c7dbd6e062a4ef60313ac3671",
     "tests/dynamic_kth_application.py": "f148d3229752903db4d19a07291ef1c9a04081af86aa311b8a81d412e9476522",
     "tests/dynamic_kth_scale.py": "dc854dedf7f8cff74a2a69631c7b47cf35c366e52849bf8e2b8cfbe9dac331eb",
+    "tests/dynamic_modint.cpp": "3560e93c58683e59f3d6c3e78000abcaf541cfcd9e5375d3ede93c322b4cf611",
     "tests/edge_components.cpp": "ce1be8fda4a19c27797e3764198826a9e891f859f4b87c5fc41a392261d4b50b",
     "tests/edge_components_application.py": "9fd87c22c388fa5aa214568ddd7b96c2e5c6c7010c6074200ceeb764a97240fc",
     "tests/enclosing_circle.cpp": "accf8cf2cd3b49a843a5934cdd45246a8d1c243beef1a17f12b36d4a856d693c",

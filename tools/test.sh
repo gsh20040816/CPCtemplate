@@ -382,3 +382,6 @@ python3 tests/lazy_segtree_application.py
 
 "$CXX" "${flags[@]}" tests/lazy_binary_search.cpp -o build/lazy_binary_search
 build/lazy_binary_search
+
+"$CXX" "${flags[@]}" tests/dynamic_modint.cpp -o build/dynamic_modint
+build/dynamic_modint

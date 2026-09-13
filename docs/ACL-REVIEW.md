@@ -85,7 +85,7 @@ power、inverse、crt、floor_sum 已存在。ACL crt 批量返回 pair，本库
 
 当前 ModInt 支持固定模数算术，inv 按素数模数约定。ACL 静态合数模逆采用 inv_gcd，另有按 id 区分的动态模数类型；小类型及 unsigned 内部存储与溢出界不能只抄一半。
 
-后续项：运行时模数类型；静态合数模数的单位元求逆契约。
+动态 mint<tag> 已实现并本地验证，包含合数模数下的 try_inv 和 tag 隔离；线上模板题证据待补。静态 ModInt 仍为素数求逆约定。
 
 ### convolution
 
@@ -125,7 +125,7 @@ ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆�
 
 当前已添加 `+=`、`-=`、`*=`、`/=`，沿用二元运算，返回自身引用。[复现程序](../verification/probes/fenwick_modint.cpp) 已改为成功回归检查。[组合测试](../tests/modint_composition.cpp) 使用整数余数数组验证 Fenwick 的 add/sum/query，以扩展欧几里得验证除法，覆盖模数 2、998244353、2147483647、自赋值、链式运算、负输入和 signed64 边界。普通与 ASan/UBSan 日志在 verification/modint-composition-*.txt。
 
-这些新增运算符只有本地验证，未借用历史 OJ AC。静态素数求逆契约未变，动态模数及合数单位元求逆仍是缺项；模数和不适合 Fenwick 的 kth 顺序统计。
+这些新增运算符只有本地验证，未借用历史 OJ AC。静态素数求逆契约未变，动态 mint 已另行本地验证，但静态 ModInt 的合数求逆仍未扩展；模数和不适合 Fenwick 的 kth 顺序统计。
 
 ## 后续实施顺序
 

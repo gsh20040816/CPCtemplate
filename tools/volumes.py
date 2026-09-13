@@ -11,7 +11,7 @@ groups = {
     'graphs': ('图论', 'tarjan functional_graph biconnected odd_cycle_vertices vertex_removal edge_components bridge_augmentation flow maximum_closure graph release_bfs lex_two_sat directed_euler word_chain undirected_euler mixed_euler xor_walk graph_advanced gomory_hu cut_tree_queries weighted_matching blossom'),
     'trees': ('树上算法', 'tree offline_lca euler_lca tree_diameter lifting_lca path_intersection centroid dsu_on_tree virtual_tree tree_path_kth dynamic_tree'),
     'strings': ('字符串', 'string suffix_lcp palindromic_tree'),
-    'mathematics': ('数学', 'number_theory linear_equation linear_congruence segmented_sieve batch_inverse inverse_table garner primitive_root coprime_pairs floor_moments divisor_sum euler_phi carmichael partitions lucas exlucas modular_sqrt kth_residue prime_power_roots root_factors composite_roots interpolation ntt_convolution polynomial_shift chirp_z stirling set_convolution subset_convolution polynomial algebra determinant_mod matrix_tree matrix_tree_mod recurrence bostan_mori'),
+    'mathematics': ('数学', 'dynamic_modint number_theory linear_equation linear_congruence segmented_sieve batch_inverse inverse_table garner primitive_root coprime_pairs floor_moments divisor_sum euler_phi carmichael partitions lucas exlucas modular_sqrt kth_residue prime_power_roots root_factors composite_roots interpolation ntt_convolution polynomial_shift chirp_z stirling set_convolution subset_convolution polynomial algebra determinant_mod matrix_tree matrix_tree_mod recurrence bostan_mori'),
     'geometry': ('计算几何', 'geometry halfplanes circle_polygon enclosing_circle circle_tangents closest_pair geometry_extra support_hull'),
 }
 owner = {m: k for k, (_, modules) in groups.items() for m in modules.split()}

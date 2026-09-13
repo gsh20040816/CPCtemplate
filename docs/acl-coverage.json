@@ -90,12 +90,13 @@
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp",
       "reference_sha256": "aef131053e67300be6def657f1ef1eb1c80ef2c92ffc8220d7be0cccab583318",
       "local": [
-        "src/compact/number_theory.hpp"
+        "src/compact/number_theory.hpp",
+        "src/compact/dynamic_modint.hpp"
       ],
-      "notes": "当前 ModInt 支持固定模数算术，inv 按素数模数约定。ACL 静态合数模逆采用 inv_gcd，另有按 id 区分的动态模数类型；小类型及 unsigned 内部存储与溢出界不能只抄一半。",
+      "notes": "当前 ModInt 支持固定模数算术，inv 按素数模数约定。ACL 静态合数模逆采用 inv_gcd，另有按 id 区分的动态模数类型；小类型及 unsigned 内部存储与溢出界不能只抄一半。 动态 mint<tag> 已实现，含合数可逆元素的 try_inv；普通及 ASan/UBSan 本地验证通过。",
       "gaps": [
-        "运行时模数类型",
-        "静态合数模数的单位元求逆契约"
+        "动态模整数的独立模板题在线验证",
+        "现有静态 ModInt 的合数求逆契约仍未扩展"
       ]
     },
     {

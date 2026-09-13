@@ -1,5 +1,17 @@
 \part{vector 模板}
 
+\chapter{运行时模数运算}
+
+\section{动态模整数与合数模逆元}\label{compact-mint}\index{mint}
+
+mint<tag> 按 tag 独立保存运行时模数，默认 998244353。先 set\_mod(p)，1$\le$p$\le$INT\_MAX，再构造该模数下的所有对象；更换同 tag 的模数后，旧对象、容器元素和缓存全部失效，必须重建，不能跨模混算。构造支持 long long 全范围，v 为规范余数；加减乘及复合赋值、相等比较为 O(1)，乘法提升到 long long，不依赖素数。pow(k) 的 k 为 uint64\_t 非负指数，0 次幂为 1 mod p。try\_inv() 以扩展欧几里得求逆，gcd(v,p)$\ne$1 返回 nullopt；inv() 与除法要求可逆，否则违反断言前提。p=1 时唯一余数为 0，乘法单位元也为 0，try\_inv 返回 0。幂和求逆为 O(log p) 或 O(log k)，除法包含求逆。可与 Fenwick 区间和组合，不能用于模数和的 kth。所有中间乘法受 int 模数上界保护；不支持超过 INT\_MAX 的模数，也不提供线程间安全切换模数。
+
+\lstinputlisting[firstline=7,lastline=39]{../src/compact/dynamic_modint.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=40,lastline=66,firstnumber=34]{../src/compact/dynamic_modint.hpp}
+
 \chapter{通用懒标记线段树}
 
 \section{通用懒标记线段树与边界搜索}\label{compact-lazy_segtree}\index{lazy\_segtree}
