@@ -1133,7 +1133,14 @@
       "title": "形式幂级数求逆",
       "source": "src/compact/fps_inverse.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/inv_of_formal_power_series.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/inv_of_formal_power_series",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -1148,7 +1155,20 @@
       "title": "形式幂级数微积分、对数与指数",
       "source": "src/compact/fps_functions.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/log_of_formal_power_series.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/log_of_formal_power_series",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/exp_of_formal_power_series.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/exp_of_formal_power_series",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

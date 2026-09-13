@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T13:52:22.704269+00:00",
+  "recorded_at_utc": "2026-09-13T14:03:37.291666+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -311,7 +311,8 @@
       "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS",
       "Separated algebra: exhaustive affine solution sets, permutation determinants, repeated-product matrices and uint64 composite-mod powers PASS",
       "LC algebra drivers: permutation-minor ranks, affine basis certificates, rectangular product oracle and maximal structured matrices PASS",
-      "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS"
+      "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS",
+      "LC FPS drivers: triangular coefficient oracles, constant terms, 262145 truncation and 500000-term analytic series PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -598,7 +599,8 @@
       "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS",
       "Separated algebra: exhaustive affine solution sets, permutation determinants, repeated-product matrices and uint64 composite-mod powers PASS",
       "LC algebra drivers: permutation-minor ranks, affine basis certificates, rectangular product oracle and maximal structured matrices PASS",
-      "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS"
+      "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS",
+      "LC FPS drivers: triangular coefficient oracles, constant terms, 262145 truncation and 500000-term analytic series PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -1045,6 +1047,7 @@
     "tests/lazy_segtree_application.py": "9d129af367818da71b013d1139245cfd9b22010a8e8dcc89fcec0e0acd493b20",
     "tests/lc_algebra_application.py": "8e133e93b864e4385b73d91806c632fc73e07174be7ae5916b9887bb122f7f09",
     "tests/lc_convolution_application.py": "1e748e4551a05cbfeaacdf489b1f40d3a9f7941f352043d3ff35ddb03dd63b36",
+    "tests/lc_fps_application.py": "68a132d73d60de458650f494b6f261e40e271b6577b384ffa2d28922d991e979",
     "tests/lex_two_sat.cpp": "1dff785aab551bde3bc84eb38c70d5e8d83400422c987c2dd60b65f287243d6e",
     "tests/lex_two_sat_application.py": "6a6d099010a17cecb9c6802572b7e653cd31c37c28f930491539d57fe2c7d0c8",
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",

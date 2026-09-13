@@ -203,13 +203,13 @@
 | [Compositional Inverse of Formal Power Series (Large)](https://judge.yosupo.jp/problem/compositional_inverse_of_formal_power_series_large) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Conversion from Monomial Basis to Newton Basis](https://judge.yosupo.jp/problem/conversion_from_monomial_basis_to_newton_basis) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Division of Polynomials](https://judge.yosupo.jp/problem/division_of_polynomials) | Polynomial | 待逐题审题、适配与在线验证 | — |
-| [Exp of Formal Power Series](https://judge.yosupo.jp/problem/exp_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | — |
+| [Exp of Formal Power Series](https://judge.yosupo.jp/problem/exp_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | [exp_of_formal_power_series.compact.cpp](../verify/library_checker/exp_of_formal_power_series.compact.cpp) |
 | [Exp of Formal Power Series (Sparse)](https://judge.yosupo.jp/problem/exp_of_formal_power_series_sparse) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Factorization of Polynomial (Mod)](https://judge.yosupo.jp/problem/factorization_of_polynomials) | Polynomial | 待逐题审题、适配与在线验证 | — |
-| [Inv of Formal Power Series](https://judge.yosupo.jp/problem/inv_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | — |
+| [Inv of Formal Power Series](https://judge.yosupo.jp/problem/inv_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | [inv_of_formal_power_series.compact.cpp](../verify/library_checker/inv_of_formal_power_series.compact.cpp) |
 | [Inv of Formal Power Series (Sparse)](https://judge.yosupo.jp/problem/inv_of_formal_power_series_sparse) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Inv of Polynomials](https://judge.yosupo.jp/problem/inv_of_polynomials) | Polynomial | 待逐题审题、适配与在线验证 | — |
-| [Log of Formal Power Series](https://judge.yosupo.jp/problem/log_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | — |
+| [Log of Formal Power Series](https://judge.yosupo.jp/problem/log_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | [log_of_formal_power_series.compact.cpp](../verify/library_checker/log_of_formal_power_series.compact.cpp) |
 | [Log of Formal Power Series (Sparse)](https://judge.yosupo.jp/problem/log_of_formal_power_series_sparse) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Multipoint Evaluation](https://judge.yosupo.jp/problem/multipoint_evaluation) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Multipoint Evaluation (Geometric Sequence)](https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence) | Polynomial | 待逐题审题、适配与在线验证 | [multipoint_evaluation_on_geometric_sequence.compact.cpp](../verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp) |

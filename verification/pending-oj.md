@@ -8,8 +8,11 @@
 - `verify/library_checker/bitwise_and_convolution.compact.cpp`
 - `verify/library_checker/bitwise_xor_convolution.compact.cpp`
 - `verify/library_checker/convolution_mod.compact.cpp`
+- `verify/library_checker/exp_of_formal_power_series.compact.cpp`
 - `verify/library_checker/intersection_intersection.compact.cpp`
 - `verify/library_checker/intersection_zassenhaus.compact.cpp`
+- `verify/library_checker/inv_of_formal_power_series.compact.cpp`
+- `verify/library_checker/log_of_formal_power_series.compact.cpp`
 - `verify/library_checker/matrix_det.compact.cpp`
 - `verify/library_checker/matrix_product.compact.cpp`
 - `verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp`

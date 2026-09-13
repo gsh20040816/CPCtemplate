@@ -414,3 +414,5 @@ python3 tests/lc_algebra_application.py
 
 "$CXX" "${flags[@]}" tests/fps_components.cpp -o build/fps-components
 build/fps-components
+
+python3 tests/lc_fps_application.py

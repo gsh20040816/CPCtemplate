@@ -1377,5 +1377,80 @@
       "verification/matrix_product-official-local.json",
       "verification/matrix_product-official-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "FpsInverse",
+    "problem": "Library Checker inv_of_formal_power_series",
+    "url": "https://judge.yosupo.jp/problem/inv_of_formal_power_series",
+    "classification": "Official standalone formal power series template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N<=500000; coefficients modulo998244353; a0 nonzero.",
+    "adapter": "Read N coefficients and return exactly N terms with FpsInverse::inverse(a,N). No empty driver input or arbitrary input/output-length mismatch.",
+    "source": "src/compact/fps_inverse.hpp",
+    "source_driver": "verify/library_checker/inv_of_formal_power_series.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending. Official local runner uses a 120-second execution timeout, not the official 10-second verdict.",
+    "local_official_tests": [
+      "verification/inv_of_formal_power_series-official-local.json",
+      "verification/inv_of_formal_power_series-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "FpsFunctions",
+    "problem": "Library Checker log_of_formal_power_series",
+    "url": "https://judge.yosupo.jp/problem/log_of_formal_power_series",
+    "classification": "Official standalone formal power series template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N<=500000; coefficients modulo998244353; a0=1.",
+    "adapter": "Read N coefficients and return exactly N terms with FpsFunctions::log(a,N). No empty driver input or arbitrary input/output-length mismatch.",
+    "source": "src/compact/fps_functions.hpp",
+    "source_driver": "verify/library_checker/log_of_formal_power_series.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending. Official local runner uses a 120-second execution timeout, not the official 10-second verdict.",
+    "local_official_tests": [
+      "verification/log_of_formal_power_series-official-local.json",
+      "verification/log_of_formal_power_series-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "FpsFunctions",
+    "problem": "Library Checker exp_of_formal_power_series",
+    "url": "https://judge.yosupo.jp/problem/exp_of_formal_power_series",
+    "classification": "Official standalone formal power series template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N<=500000; coefficients modulo998244353; a0=0.",
+    "adapter": "Read N coefficients and return exactly N terms with FpsFunctions::exp(a,N). No empty driver input or arbitrary input/output-length mismatch.",
+    "source": "src/compact/fps_functions.hpp",
+    "source_driver": "verify/library_checker/exp_of_formal_power_series.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending. Official local runner uses a 120-second execution timeout, not the official 10-second verdict.",
+    "local_official_tests": [
+      "verification/exp_of_formal_power_series-official-local.json",
+      "verification/exp_of_formal_power_series-official-sanitizer.json"
+    ]
   }
 ]

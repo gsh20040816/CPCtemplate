@@ -57,6 +57,9 @@
 | `GaussMod` | [Library Checker system_of_linear_equations](https://judge.yosupo.jp/problem/system_of_linear_equations) | 1<=N,M<=500; all arithmetic in F_998244353. | 待编写驱动/提交 | 待核验 |
 | `det_prime` | [Library Checker matrix_det](https://judge.yosupo.jp/problem/matrix_det) | 1<=N<=500; square matrix with residues modulo998244353. | 待编写驱动/提交 | 待核验 |
 | `ModMatrix` | [Library Checker matrix_product](https://judge.yosupo.jp/problem/matrix_product) | 1<=N,M,K<=1024; N*M times M*K matrices over modulo998244353. | 待编写驱动/提交 | 待核验 |
+| `FpsInverse` | [Library Checker inv_of_formal_power_series](https://judge.yosupo.jp/problem/inv_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0 nonzero. | 待编写驱动/提交 | 待核验 |
+| `FpsFunctions` | [Library Checker log_of_formal_power_series](https://judge.yosupo.jp/problem/log_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=1. | 待编写驱动/提交 | 待核验 |
+| `FpsFunctions` | [Library Checker exp_of_formal_power_series](https://judge.yosupo.jp/problem/exp_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=0. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -487,6 +490,30 @@ Official standalone linear algebra template task.
 Call ModMatrix<998244353>::multiply; print N rows with K coefficients. Does not invoke power or test composite moduli; those retain separate local evidence.
 
 Online AC and all-AC ranking pending; official local checker uses a 120-second execution timeout, not an OJ time-limit verdict.
+
+### Library Checker inv_of_formal_power_series / FpsInverse
+
+Official standalone formal power series template.
+
+Read N coefficients and return exactly N terms with FpsInverse::inverse(a,N). No empty driver input or arbitrary input/output-length mismatch.
+
+Online AC and all-AC ranking pending. Official local runner uses a 120-second execution timeout, not the official 10-second verdict.
+
+### Library Checker log_of_formal_power_series / FpsFunctions
+
+Official standalone formal power series template.
+
+Read N coefficients and return exactly N terms with FpsFunctions::log(a,N). No empty driver input or arbitrary input/output-length mismatch.
+
+Online AC and all-AC ranking pending. Official local runner uses a 120-second execution timeout, not the official 10-second verdict.
+
+### Library Checker exp_of_formal_power_series / FpsFunctions
+
+Official standalone formal power series template.
+
+Read N coefficients and return exactly N terms with FpsFunctions::exp(a,N). No empty driver input or arbitrary input/output-length mismatch.
+
+Online AC and all-AC ranking pending. Official local runner uses a 120-second execution timeout, not the official 10-second verdict.
 
 ## 榜单口径
 
