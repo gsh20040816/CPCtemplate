@@ -1057,7 +1057,14 @@
       "title": "可指定素数与原根的 NTT 卷积",
       "source": "src/compact/ntt_convolution.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/convolution_mod.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/convolution_mod",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": "https://qoj.ac/problem/618",
       "ranking": {
         "status": "not_checked",
@@ -2588,6 +2595,18 @@
       "source": "src/compact/set_convolution.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/bitwise_and_convolution.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/bitwise_and_convolution",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/bitwise_xor_convolution.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/bitwise_xor_convolution",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
         {
           "driver": "verify/luogu/P6097.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P6097",

@@ -404,3 +404,5 @@ build/convolution_i64
 python3 tests/convolution_i64_application.py
 
 python3 tests/scc_sat_application.py
+
+python3 tests/lc_convolution_application.py

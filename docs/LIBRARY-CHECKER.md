@@ -32,9 +32,9 @@
 | [Division of Hex Big Integers](https://judge.yosupo.jp/problem/division_of_hex_big_integers) | Big Integer | 待逐题审题、适配与在线验证 | — |
 | [Multiplication of Big Integers](https://judge.yosupo.jp/problem/multiplication_of_big_integers) | Big Integer | 待逐题审题、适配与在线验证 | — |
 | [Multiplication of Hex Big Integers](https://judge.yosupo.jp/problem/multiplication_of_hex_big_integers) | Big Integer | 待逐题审题、适配与在线验证 | — |
-| [Bitwise And Convolution](https://judge.yosupo.jp/problem/bitwise_and_convolution) | Convolution | 待逐题审题、适配与在线验证 | — |
-| [Bitwise Xor Convolution](https://judge.yosupo.jp/problem/bitwise_xor_convolution) | Convolution | 待逐题审题、适配与在线验证 | — |
-| [Convolution](https://judge.yosupo.jp/problem/convolution_mod) | Convolution | 待逐题审题、适配与在线验证 | — |
+| [Bitwise And Convolution](https://judge.yosupo.jp/problem/bitwise_and_convolution) | Convolution | 待逐题审题、适配与在线验证 | [bitwise_and_convolution.compact.cpp](../verify/library_checker/bitwise_and_convolution.compact.cpp) |
+| [Bitwise Xor Convolution](https://judge.yosupo.jp/problem/bitwise_xor_convolution) | Convolution | 待逐题审题、适配与在线验证 | [bitwise_xor_convolution.compact.cpp](../verify/library_checker/bitwise_xor_convolution.compact.cpp) |
+| [Convolution](https://judge.yosupo.jp/problem/convolution_mod) | Convolution | 待逐题审题、适配与在线验证 | [convolution_mod.compact.cpp](../verify/library_checker/convolution_mod.compact.cpp) |
 | [Convolution (Mod 1,000,000,007)](https://judge.yosupo.jp/problem/convolution_mod_1000000007) | Convolution | 待逐题审题、适配与在线验证 | — |
 | [Convolution (Mod 2^64)](https://judge.yosupo.jp/problem/convolution_mod_2_64) | Convolution | 待逐题审题、适配与在线验证 | — |
 | [Convolution (Large)](https://judge.yosupo.jp/problem/convolution_mod_large) | Convolution | 待逐题审题、适配与在线验证 | — |

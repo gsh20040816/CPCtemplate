@@ -33,3 +33,11 @@ macOS 记录每组进程的 resident bytes 和墙钟时间，包含启动开销�
 两项均以官方 checker 检验全部输出。另有独立完整驱动测试：Floyd 可达关系验证分量划分与拓扑边，枚举布尔赋值验证可满足性及输出证书，50 万点链/变量链验证递归规模。测试脚本为 `tests/scc_sat_application.py`。这些证据不代替在线 AC、OJ 性能或所有接口验证。
 
 macOS 官方数据 runner 使用 512 MiB 主线程栈链接选项，记录在报告 flags 中；DFS 没有改成显式开栈。负对照允许 testlib 的 WA=1 或 PE=2，其他退出码仍失败；新版报告记录实际拒绝码和消息。
+
+## 普通模卷积、AND 与 XOR 卷积
+
+`convolution_mod` 的 53 组、`bitwise_and_convolution` 的 13 组和 `bitwise_xor_convolution` 的 13 组固定版本官方数据，均以当前驱动通过普通与 ASan/UBSan 的官方 checker 检查。逐组报告位于 `verification/<题目ID>-official-{local,sanitizer}.json`。NTT 数据包含 FFT killer、符号溢出边界、全零和长短悬殊输入；按位卷积包含长度2^20的最大随机数组。
+
+`tests/lc_convolution_application.py` 另以逐系数学校式乘法和直接枚举 i&j/i^j 提供独立参考；最大长度的全 -1 模数代表使用解析计数（三角形、3 的幂、固定配对数），单点非零数组核对 AND 单位下标和 XOR 置换。驱动读取 NTT 的实际长度，按位卷积读取指数，输出全部系数。
+
+三项仅覆盖模998244353。不能据此声称其他模数、OR 分支、空输入或整数精确卷积获得官方验证。线上 AC 与排名仍待完成。

@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T13:13:57.890619+00:00",
+  "recorded_at_utc": "2026-09-13T13:17:34.683003+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -307,7 +307,8 @@
       "",
       "Signed integer convolution: cpp_int oracle, certified primes/roots, int64 cancellation and large alternating triangles PASS",
       "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS",
-      "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS"
+      "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS",
+      "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -590,7 +591,8 @@
       "",
       "Signed integer convolution: cpp_int oracle, certified primes/roots, int64 cancellation and large alternating triangles PASS",
       "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS",
-      "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS"
+      "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS",
+      "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -1028,6 +1030,7 @@
     "tests/lazy_binary_search.cpp": "b66a45bf98102237eb28687c027f4f6fcaaadd53614c462c77b0e8a0aa94ca09",
     "tests/lazy_segtree.cpp": "435ef3f7f40d87a6fdad5e7d005eac0f4c47fed5d55540b212ff8f17c26b53c3",
     "tests/lazy_segtree_application.py": "9d129af367818da71b013d1139245cfd9b22010a8e8dcc89fcec0e0acd493b20",
+    "tests/lc_convolution_application.py": "1e748e4551a05cbfeaacdf489b1f40d3a9f7941f352043d3ff35ddb03dd63b36",
     "tests/lex_two_sat.cpp": "1dff785aab551bde3bc84eb38c70d5e8d83400422c987c2dd60b65f287243d6e",
     "tests/lex_two_sat_application.py": "6a6d099010a17cecb9c6802572b7e653cd31c37c28f930491539d57fe2c7d0c8",
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",

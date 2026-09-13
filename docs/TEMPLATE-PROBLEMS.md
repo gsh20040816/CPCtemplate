@@ -51,6 +51,9 @@
 | `convolution_i64` | [Luogu P3803](https://www.luogu.com.cn/problem/P3803) | Degrees n,m<=1000000; coefficients 0..9; exact integer output. | 待编写驱动/提交 | 待核验 |
 | `TarjanSCC` | [Library Checker Strongly Connected Components](https://judge.yosupo.jp/problem/scc) | 1<=N,M<=500000; vertices 0..N-1; loops and parallel edges allowed. | 待编写驱动/提交 | 待核验 |
 | `TwoSAT` | [Library Checker 2 Sat](https://judge.yosupo.jp/problem/two_sat) | 1<=N,M<=500000; signed DIMACS literals in +/-1..N. | 待编写驱动/提交 | 待核验 |
+| `NttConvolution` | [Library Checker convolution_mod](https://judge.yosupo.jp/problem/convolution_mod) | 1<=N,M<=524288; coefficients in [0,998244353). | 待编写驱动/提交 | 待核验 |
+| `SetConvolution` | [Library Checker bitwise_and_convolution](https://judge.yosupo.jp/problem/bitwise_and_convolution) | Exponent 0<=N<=20; each array has 2^N residues modulo998244353. | 待编写驱动/提交 | 待核验 |
+| `SetConvolution` | [Library Checker bitwise_xor_convolution](https://judge.yosupo.jp/problem/bitwise_xor_convolution) | Exponent 0<=N<=20; each array has 2^N residues modulo998244353. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -433,6 +436,30 @@ Official standalone template task.
 Read p cnf N M; each a b 0 maps to add(abs(a),a>0,abs(b),b>0). Output SAT/UNSAT and signed assignment in variable order. Current TwoSAT uses its existing Kosaraju SCC numbering convention.
 
 Online submission and all-AC ranking pending; local independent driver oracle and official checker evidence are separate from prior OJ AC.
+
+### Library Checker convolution_mod / NttConvolution
+
+Official standalone ordinary modular polynomial convolution template.
+
+Read actual lengths N,M; use NttConvolution<998244353>::multiply and output N+M-1 residues. This tests one prime/root only, no empty input or other moduli.
+
+Online AC and all-AC ranking pending. Independent whole-driver coefficient oracles and official local checker results are not online evidence.
+
+### Library Checker bitwise_and_convolution / SetConvolution
+
+Official standalone bitwise AND convolution template.
+
+Read exponent then allocate 1<<N; invoke multiply with '&'. Output k accumulates pairs i&j=k. This driver does not cover OR or composite moduli.
+
+Online AC and all-AC ranking pending. Independent whole-driver coefficient oracles and official local checker results are not online evidence.
+
+### Library Checker bitwise_xor_convolution / SetConvolution
+
+Official standalone bitwise XOR convolution template.
+
+Read exponent then allocate 1<<N; invoke multiply with '^'. Output k accumulates pairs i^j=k. This driver does not cover OR or arbitrary odd composite moduli.
+
+Online AC and all-AC ranking pending. Independent whole-driver coefficient oracles and official local checker results are not online evidence.
 
 ## 榜单口径
 

@@ -1227,5 +1227,80 @@
       "verification/two-sat-official-local.json",
       "verification/two-sat-official-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "NttConvolution",
+    "problem": "Library Checker convolution_mod",
+    "url": "https://judge.yosupo.jp/problem/convolution_mod",
+    "classification": "Official standalone ordinary modular polynomial convolution template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N,M<=524288; coefficients in [0,998244353).",
+    "adapter": "Read actual lengths N,M; use NttConvolution<998244353>::multiply and output N+M-1 residues. This tests one prime/root only, no empty input or other moduli.",
+    "source": "src/compact/ntt_convolution.hpp",
+    "source_driver": "verify/library_checker/convolution_mod.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending. Independent whole-driver coefficient oracles and official local checker results are not online evidence.",
+    "local_official_tests": [
+      "verification/convolution_mod-official-local.json",
+      "verification/convolution_mod-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "SetConvolution",
+    "problem": "Library Checker bitwise_and_convolution",
+    "url": "https://judge.yosupo.jp/problem/bitwise_and_convolution",
+    "classification": "Official standalone bitwise AND convolution template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "Exponent 0<=N<=20; each array has 2^N residues modulo998244353.",
+    "adapter": "Read exponent then allocate 1<<N; invoke multiply with '&'. Output k accumulates pairs i&j=k. This driver does not cover OR or composite moduli.",
+    "source": "src/compact/set_convolution.hpp",
+    "source_driver": "verify/library_checker/bitwise_and_convolution.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending. Independent whole-driver coefficient oracles and official local checker results are not online evidence.",
+    "local_official_tests": [
+      "verification/bitwise_and_convolution-official-local.json",
+      "verification/bitwise_and_convolution-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "SetConvolution",
+    "problem": "Library Checker bitwise_xor_convolution",
+    "url": "https://judge.yosupo.jp/problem/bitwise_xor_convolution",
+    "classification": "Official standalone bitwise XOR convolution template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "Exponent 0<=N<=20; each array has 2^N residues modulo998244353.",
+    "adapter": "Read exponent then allocate 1<<N; invoke multiply with '^'. Output k accumulates pairs i^j=k. This driver does not cover OR or arbitrary odd composite moduli.",
+    "source": "src/compact/set_convolution.hpp",
+    "source_driver": "verify/library_checker/bitwise_xor_convolution.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-AC ranking pending. Independent whole-driver coefficient oracles and official local checker results are not online evidence.",
+    "local_official_tests": [
+      "verification/bitwise_xor_convolution-official-local.json",
+      "verification/bitwise_xor_convolution-official-sanitizer.json"
+    ]
   }
 ]
