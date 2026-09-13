@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T12:12:53.257353+00:00",
+  "recorded_at_utc": "2026-09-13T12:17:42.978541+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -300,7 +300,8 @@
       "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS",
       "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS",
       "Generic batch units: exhaustive composite units/nonunits, empty input and independent product certificates PASS",
-      "Dynamic mint P5431 driver: Python inverse/power oracle and five-million geometric-sum case PASS"
+      "Dynamic mint P5431 driver: Python inverse/power oracle and five-million geometric-sum case PASS",
+      "Dinic edge API: exhaustive-cut oracle after capacity edits, residual/conservation certificates and int64 limits PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -576,7 +577,8 @@
       "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS",
       "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS",
       "Generic batch units: exhaustive composite units/nonunits, empty input and independent product certificates PASS",
-      "Dynamic mint P5431 driver: Python inverse/power oracle and five-million geometric-sum case PASS"
+      "Dynamic mint P5431 driver: Python inverse/power oracle and five-million geometric-sum case PASS",
+      "Dinic edge API: exhaustive-cut oracle after capacity edits, residual/conservation certificates and int64 limits PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -778,7 +780,7 @@
     "src/compact/euler_phi.hpp": "ac09f4d8c46d1acf1e0f39146987478af9be100087f67fb33011c72c5bf637e5",
     "src/compact/exlucas.hpp": "7a4c53f56d500d0c66df38d4788d50c54df607d539ef918ab24cd271cbfbee0d",
     "src/compact/floor_moments.hpp": "bcf05dd6f5dee32f0bef79e1e670f5534ca78a9574766b5d65cc1f2af8685069",
-    "src/compact/flow.hpp": "a157c17da38f69d4d7e5a278226d5cfd31811ee93b1c56a7027f26f2ecdbdde0",
+    "src/compact/flow.hpp": "db53583eccad999ebede947e4e7210501c6af2f09675beb653473d4aea052476",
     "src/compact/functional_graph.hpp": "0a83e68dc49592adef845d9abe401f19bfa80ea72c4cacb23c12ca49114f2e7e",
     "src/compact/garner.hpp": "4c0daec9d92ccf740e2397ef5db6229795d9937a98d5c433ae56aebc313f3ec8",
     "src/compact/gcd_sequence.hpp": "937662facef4ff9bddb14b9dbb2c20984a79920b8367f395fd362e2d77bf11c9",
@@ -909,6 +911,7 @@
     "tests/floor_moments_application.py": "91fa17fab30ce60e6aaf7200cf2346006410ec7034e127f26b96c0c2ee62506f",
     "tests/floor_moments_large.cpp": "8d2ca5f078ae46f70fdb39f6921c78dbf3a419b17e57ea5b6714957d0a2531ee",
     "tests/floor_sum.cpp": "28dc11fc9728de8c709007ba0b58153ddea0f24ce739504ef2cea46e2dbcb606",
+    "tests/flow_edges.cpp": "61b54575fe16490b66810d04b5c89c745f92a8a9d61bd80eb9eb8c28159cfc1b",
     "tests/frog_meeting_application.py": "e107851ed8752003306c66a0fbc42999de9eb18aefb1d9960a382b32a3df927f",
     "tests/functional_graph.cpp": "3f58e6ad3b55f34e551e2c93a7cc8eda500c43f15467f0a2ce4182a8137929bc",
     "tests/functional_graph_application.py": "e081963aff62fcf5c532aefb8cad82642d1c7d7ccc931cf7f3abaebf0244c41d",

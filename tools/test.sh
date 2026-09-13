@@ -389,3 +389,6 @@ build/dynamic_modint
 "$CXX" "${flags[@]}" tests/batch_units.cpp -o build/batch_units
 build/batch_units
 python3 tests/dynamic_batch_application.py
+
+"$CXX" "${flags[@]}" tests/flow_edges.cpp -o build/flow_edges
+build/flow_edges

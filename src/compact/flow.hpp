@@ -89,6 +89,23 @@ struct Dinic
 
     ll used(int id) const { return e[id].initial - e[id].cap; }
 
+    tuple<int, int, ll, ll> get_edge(int id) const
+    {
+        assert(0 <= id && id < (int)e.size() && !(id & 1));
+        return {e[id].from, e[id].to, e[id].initial, used(id)};
+    }
+
+    // Changes one residual pair; caller must preserve global flow conservation.
+    void change_edge(int id, ll cap, ll f)
+    {
+        assert(0 <= id && id < (int)e.size() && !(id & 1));
+        assert(0 <= f && f <= cap);
+        e[id].initial = cap;
+        e[id].cap = cap - f;
+        e[id ^ 1].initial = 0;
+        e[id ^ 1].cap = f;
+    }
+
     vector<int> cut(int s)
     {
         bfs(s, s);

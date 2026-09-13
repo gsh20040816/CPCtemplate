@@ -95,9 +95,9 @@ power、inverse、crt、floor_sum 已存在。ACL crt 批量返回 pair，本库
 
 ### maxflow
 
-Dinic 已有加边、最大流、used 和 cut；ACL 以稳定逻辑边号公开 get_edge/edges/change_edge。当前没有按容量与流量成对修改正反残量的受约束接口。
+Dinic 已有加边、最大流、used 和 cut；ACL 以稳定逻辑边号公开 get_edge/edges/change_edge。现已补 get_edge/change_edge，修改正反残量对并维护 initial，明确全局守恒由调用方负责。
 
-后续项：change_edge 及对应残量不变量验证。
+割枚举与流证书、增容续算、整图清流缩容、自环/环流和 int64 上界通过本地普通及 ASan/UBSan。新方法尚未在线验证；既有最大流 AC 不验证它们。
 
 ### mincostflow
 

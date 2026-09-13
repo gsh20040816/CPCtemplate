@@ -123,9 +123,9 @@
       "local": [
         "src/compact/flow.hpp"
       ],
-      "notes": "Dinic 已有加边、最大流、used 和 cut；ACL 以稳定逻辑边号公开 get_edge/edges/change_edge。当前没有按容量与流量成对修改正反残量的受约束接口。",
+      "notes": "Dinic 已有加边、最大流、used 和 cut；ACL 以稳定逻辑边号公开 get_edge/edges/change_edge。当前没有按容量与流量成对修改正反残量的受约束接口。 Dinic 已补 get_edge/change_edge，局部残量对正确维护；全局流量守恒仍为调用前提，本地割枚举和流证书验证通过。",
       "gaps": [
-        "change_edge 及对应残量不变量验证"
+        "新边状态接口的在线验证"
       ]
     },
     {
