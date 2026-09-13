@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-此表是分类准备与差异审计；PDF 尚未切换到此树。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠，需进一步处理。分类不代表上游整页内容已实现或验证。
+此表驱动 PDF 的导航层级；复合条目的内部拆分与相关挂靠仍待处理。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠，需进一步处理。分类不代表上游整页内容已实现或验证。
 
 | 模板 | 上游完整层级 | 关系 | 处理说明 |
 | --- | --- | --- | --- |
@@ -16,11 +16,11 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | SuffixArray | 字符串 → 后缀数组 (SA) → 后缀数组简介 | application | 后缀数组及 LCP 查询应用；保持依赖。 |
 | SuffixLCP | 字符串 → 后缀数组 (SA) → 后缀数组简介 | application | 后缀数组及 LCP 查询应用；保持依赖。 |
 | prefix_lcs | 字符串 → 后缀数组 (SA) → 后缀数组简介 | application | 后缀数组及 LCP 查询应用；保持依赖。 |
+| square_counts | 字符串 → 后缀数组 (SA) → 后缀数组简介 | application | 用后缀 LCP 枚举重复子串；不归为 Main–Lorentz 算法实现。 |
 | SuffixAutomaton | 字符串 → 后缀自动机 (SAM) | direct |  |
 | manacher | 字符串 → Manacher | direct |  |
 | PalindromicTree | 字符串 → 回文树 | direct |  |
 | minimum_rotation | 字符串 → 最小表示法 | direct |  |
-| square_counts | 字符串 → Main–Lorentz 算法 | related | 重复子串问题相关，但当前为 LCP 枚举实现，不得标成 Main–Lorentz 算法。 |
 | power_sum | 数学 → 快速幂 | application | 模幂与几何级数的联合倍增。 |
 | divisor_sum_power | 数学 → 数论 → 数论基础 | related | 约数和公式应用；需核对正文定位，导航无独立幂约数和页。 |
 | ModInt | 数学 → 数论 → 模算术简介 | application | 静态/动态模整数实现，属于模算术的可复用组件。 |

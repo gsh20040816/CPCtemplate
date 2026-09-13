@@ -1,94 +1,9 @@
 [
   {
-    "id": "data-structures",
-    "title": "数据结构",
+    "id": "languages",
+    "title": "语言基础",
     "entries": [
-      "lazy_segtree",
-      "segtree",
-      "rp",
-      "ost",
-      "gp_map",
-      "dsu",
-      "RollbackDSU",
-      "Fenwick",
-      "LazySeg",
-      "XorBasis",
-      "ModifiedMo",
-      "PositionBasis",
-      "basis_intersection",
-      "basis_sum_intersection",
-      "AffineSegTree",
-      "LiChao",
-      "PersistentKth",
-      "PersistentArray",
-      "PersistentRange",
-      "DynamicKth",
-      "PersistentDistinct",
-      "OrderedTreap",
-      "SequenceTreap",
-      "OrderedSplay",
-      "GcdSequenceTreap"
-    ],
-    "dependencies": [
-      "ModInt"
-    ]
-  },
-  {
-    "id": "graphs",
-    "title": "图论",
-    "entries": [
-      "TarjanSCC",
-      "FunctionalGraph",
-      "Biconnected",
-      "odd_cycle_vertices",
-      "removal_components",
-      "EdgeCompression",
-      "orient_edges",
-      "bridge_augmentation",
-      "Dinic",
-      "MinCostFlow",
-      "BoundedCirculation",
-      "maximum_closure",
-      "Dijkstra",
-      "SCC",
-      "TwoSAT",
-      "BipartiteMatching",
-      "Lowlink",
-      "release_bfs",
-      "LexTwoSAT",
-      "DirectedEuler",
-      "word_chain",
-      "UndirectedEuler",
-      "mixed_euler_orientation",
-      "mixed_euler_trail",
-      "XorWalk",
-      "Hungarian",
-      "Arborescence",
-      "StoerWagner",
-      "gomory_hu",
-      "cut_tree_values",
-      "WeightedMatching",
-      "Blossom"
-    ],
-    "dependencies": [
-      "XorBasis"
-    ]
-  },
-  {
-    "id": "trees",
-    "title": "树上算法",
-    "entries": [
-      "HLD",
-      "OfflineLCA",
-      "EulerLCA",
-      "TreeDiameter",
-      "LiftingLCA",
-      "path_intersection",
-      "CentroidPairs",
-      "SubtreeColors",
-      "VirtualTree",
-      "TreePathKth",
-      "LinkCutTree"
+      "ost"
     ],
     "dependencies": []
   },
@@ -117,6 +32,11 @@
     "entries": [
       "batch_units",
       "mint",
+      "XorBasis",
+      "PositionBasis",
+      "basis_intersection",
+      "basis_sum_intersection",
+      "XorWalk",
       "NumberTheory",
       "PollardRho",
       "LinearSieve",
@@ -157,15 +77,99 @@
       "DuJiao",
       "DiscreteLog",
       "determinant_mod",
-      "MatrixTree",
-      "MatrixTreeMod",
       "MaxPlusMatrix",
       "berlekamp_massey",
       "recurrence_nth",
       "BostanMori"
     ],
     "dependencies": [
-      "Fenwick"
+      "Fenwick",
+      "MatrixTree",
+      "MatrixTreeMod"
+    ]
+  },
+  {
+    "id": "data-structures",
+    "title": "数据结构",
+    "entries": [
+      "lazy_segtree",
+      "segtree",
+      "rp",
+      "gp_map",
+      "dsu",
+      "RollbackDSU",
+      "Fenwick",
+      "LazySeg",
+      "AffineSegTree",
+      "LiChao",
+      "PersistentKth",
+      "PersistentArray",
+      "PersistentRange",
+      "TreePathKth",
+      "DynamicKth",
+      "PersistentDistinct",
+      "LinkCutTree",
+      "OrderedTreap",
+      "SequenceTreap",
+      "OrderedSplay",
+      "GcdSequenceTreap"
+    ],
+    "dependencies": [
+      "ModInt"
+    ]
+  },
+  {
+    "id": "graphs",
+    "title": "图论",
+    "entries": [
+      "TarjanSCC",
+      "FunctionalGraph",
+      "Biconnected",
+      "odd_cycle_vertices",
+      "removal_components",
+      "EdgeCompression",
+      "orient_edges",
+      "bridge_augmentation",
+      "Dinic",
+      "MinCostFlow",
+      "BoundedCirculation",
+      "maximum_closure",
+      "Dijkstra",
+      "SCC",
+      "TwoSAT",
+      "BipartiteMatching",
+      "Lowlink",
+      "release_bfs",
+      "LexTwoSAT",
+      "DirectedEuler",
+      "word_chain",
+      "UndirectedEuler",
+      "mixed_euler_orientation",
+      "mixed_euler_trail",
+      "HLD",
+      "OfflineLCA",
+      "EulerLCA",
+      "TreeDiameter",
+      "LiftingLCA",
+      "path_intersection",
+      "CentroidPairs",
+      "SubtreeColors",
+      "VirtualTree",
+      "MatrixTree",
+      "MatrixTreeMod",
+      "Hungarian",
+      "Arborescence",
+      "StoerWagner",
+      "gomory_hu",
+      "cut_tree_values",
+      "WeightedMatching",
+      "Blossom"
+    ],
+    "dependencies": [
+      "Fenwick",
+      "ModInt",
+      "LinearAlgebra",
+      "determinant_mod"
     ]
   },
   {
@@ -182,6 +186,14 @@
       "GeometryExtra",
       "IntegerGeometry3D",
       "SupportHull"
+    ],
+    "dependencies": []
+  },
+  {
+    "id": "misc",
+    "title": "杂项",
+    "entries": [
+      "ModifiedMo"
     ],
     "dependencies": []
   }

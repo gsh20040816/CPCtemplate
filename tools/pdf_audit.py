@@ -8,7 +8,7 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
 reports = []
-for key in ['template', 'data-structures', 'graphs', 'trees', 'strings', 'mathematics', 'geometry']:
+for key in ['template', 'languages', 'strings', 'mathematics', 'data-structures', 'graphs', 'geometry', 'misc']:
     path = root / f'output/pdf/xcpc-{key}.pdf'
     name = 'main' if key == 'template' else f'volume-{key}'
     log = (root / f'build/pdf/{name}.log').read_text()
@@ -27,4 +27,4 @@ for key in ['template', 'data-structures', 'graphs', 'trees', 'strings', 'mathem
 r = reports[0]
 (root / 'verification/pdf-page-anchors.txt').write_text(
     f"PDF SHA256: {r['sha256']}\n{r['main_pages']} Arabic page anchors form a contiguous sequence and map to physical page n+{r['offset']}.\npage.1 points to physical page {r['offset'] + 1}, not the title page.\n")
-print('PASS: seven PDFs, final logs without warnings; Arabic page destinations contiguous')
+print('PASS: eight PDFs, final logs without warnings; Arabic page destinations contiguous')

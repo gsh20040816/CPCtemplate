@@ -328,6 +328,12 @@ for style in ['compact']:
                     if j:
                         body.append('\\newpage')
                     body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'LinkCutTree':
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['void rotate(', 'void access(', 'bool connected(']] + [end]
+                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
+                    if j:
+                        body.append('\\newpage')
+                    body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'Dinic':
                 cuts = [start, next(i for i in range(start, end) if 'bool bfs(' in lines[i]), next(i for i in range(start, end) if '// Returns additional flow' in lines[i]), end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
@@ -345,5 +351,6 @@ for style in ['compact']:
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 (root / 'build').mkdir(exist_ok=True)
 (root / 'build/book-sections.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')
-(root / 'docs/generated.tex').write_text('\n\n'.join(body) + '\n')
+from taxonomy_layout import render
+(root / 'docs/generated.tex').write_text(render(records, omnibus=True) + '\n')
 print('Generated source-linked book sections')

@@ -6,17 +6,14 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
 rows = json.loads((root / 'build/book-sections.json').read_text())
-groups = {
-    'data-structures': ('数据结构', 'lazy_segtree segtree rope ordered_set hash_table data_structure modified_mo position_basis basis_intersection affine_segment_tree persistent_array persistent_range dynamic_kth persistent_distinct treap splay gcd_sequence'),
-    'graphs': ('图论', 'tarjan functional_graph biconnected odd_cycle_vertices vertex_removal edge_components bridge_augmentation flow maximum_closure graph release_bfs lex_two_sat directed_euler word_chain undirected_euler mixed_euler xor_walk graph_advanced gomory_hu cut_tree_queries weighted_matching blossom'),
-    'trees': ('树上算法', 'tree offline_lca euler_lca tree_diameter lifting_lca path_intersection centroid dsu_on_tree virtual_tree tree_path_kth dynamic_tree'),
-    'strings': ('字符串', 'string suffix_lcp palindromic_tree'),
-    'mathematics': ('数学', 'batch_units dynamic_modint number_theory linear_equation linear_congruence segmented_sieve batch_inverse inverse_table garner primitive_root coprime_pairs floor_moments divisor_sum euler_phi carmichael partitions lucas exlucas modular_sqrt kth_residue prime_power_roots root_factors composite_roots interpolation ntt_convolution convolution_i64 polynomial_shift chirp_z stirling set_convolution subset_convolution polynomial algebra determinant_mod matrix_tree matrix_tree_mod recurrence bostan_mori'),
-    'geometry': ('计算几何', 'geometry halfplanes circle_polygon enclosing_circle circle_tangents closest_pair geometry_extra support_hull'),
-}
-owner = {m: k for k, (_, modules) in groups.items() for m in modules.split()}
+from taxonomy_layout import TAX, render
+# The top-level categories come from the pinned navigation, not source modules.
+groups = {'languages': ('语言基础', ''), 'strings': ('字符串', ''),
+          'mathematics': ('数学', ''), 'data-structures': ('数据结构', ''),
+          'graphs': ('图论', ''), 'geometry': ('计算几何', ''), 'misc': ('杂项', '')}
+owner = {title: key for key, (title, _) in groups.items()}
 for r in rows:
-    r['volume'] = ('mathematics' if r['symbol'] == 'MaxPlusMatrix' else 'data-structures') if r['module'] == 'optimization' else owner[r['module']]
+    r['volume'] = owner[TAX[r['symbol']]['hierarchy'][0]]
 by_name = {r['symbol']: r for r in rows}
 assert len(by_name) == len(rows)
 notes = {k: [] for k in groups}
@@ -32,9 +29,11 @@ for part in parts:
     elif any(x in title for x in ['可持久化区间', '杭州 2023 K', '带修莫队', '并查集模板题']):
         key = 'data-structures'
     elif '非负权树' in title:
-        key = 'trees'
+        key = 'graphs'
     elif any(x in title for x in ['函数图', '杭州 2023 H', '杭州 2023 G', 'SCC 模板题']):
         key = 'graphs'
+    if '带修莫队' in title:
+        key = 'misc'
     notes[key].append(part)
 notes['geometry'].append((root / 'docs/geometry-notes.tex').read_text())
 
@@ -63,15 +62,10 @@ for key, (title, _) in groups.items():
             r'\end{titlepage}\hypersetup{pageanchor=true}', r'\frontmatter\tableofcontents',
             r'\chapter{使用约定}',
             r'C++20，默认包含 bits/stdc++.h 并使用 std 命名空间。下标、区间及数值范围以各条目说明为准。DFS 保持递归，需满足题目栈空间条件。',
-            r'本册按“大类（分册）—种类（章）—项目（节）”组织。跨类引用的已收录组件附在依赖部分；源头文件中的依赖仍须一并检查。',
+            r'本册主目录沿用 OI Wiki 官方导航的大、中、小层级，各页下列本库实现。组合条目与相关挂靠仍见仓库分类审计。跨类引用的已收录组件附在依赖部分；源头文件中的依赖仍须一并检查。',
             r'本册尚非全量完成稿；传统版评测仅为历史档案，当前只维护 vector 代码。', r'\mainmatter']
     def emit(entries):
-        last = None
-        for r in entries:
-            if r['module'] != last:
-                body.append('\\chapter{' + r['chapter'] + '}')
-                last = r['module']
-            body.append(r['latex'])
+        body.append(render(entries))
     emit(primary)
     if knowledge.strip():
         body += [r'\chapter{配套知识与验证范围}', knowledge]
@@ -88,4 +82,4 @@ for key, (title, _) in groups.items():
     manifest.append(dict(id=key, title=title, entries=[r['symbol'] for r in primary], dependencies=[r['symbol'] for r in dependencies]))
 assert sum(len(v['entries']) for v in manifest) == len(rows)
 (root / 'docs/volumes.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
-print('Generated six volumes; every catalog entry has exactly one primary category')
+print('Generated seven OI Wiki category volumes; each template has one primary category')
