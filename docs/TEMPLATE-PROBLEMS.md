@@ -48,6 +48,7 @@
 | `segtree` | [Library Checker predecessor_problem](https://judge.yosupo.jp/problem/predecessor_problem) | 1<=N<=10000000;1<=Q<=1000000;0<=k<N;initial binary membership string | [记录](https://judge.yosupo.jp/submission/402089) | 687 out of 2582（All users and languages, AC only, user dedup disabled; not all verdicts.） |
 | `lazy_segtree` | [Library Checker range_affine_range_sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | N,Q<=500000; coefficients modulo998244353; nonzero multipliers;0<=l<r<=N | 待编写驱动/提交 | 待核验 |
 | `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | n<=5000000;2<=k<p<=10^9;prime p;1<=a_i<p | 待编写驱动/提交 | 待核验 |
+| `convolution_i64` | [Luogu P3803](https://www.luogu.com.cn/problem/P3803) | Degrees n,m<=1000000; coefficients 0..9; exact integer output. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -406,6 +407,14 @@ Official batch inverse template with runtime prime modulus.
 mint sets runtime modulus then combines batch_units. Return sum k^i/a_i for i starting at1; fast unsigned reader. Input guarantees units, so nonunit branch is only locally tested.
 
 Online submission pending; existing long-long P5431 AC does not cover this new driver.
+
+### Luogu P3803 / convolution_i64
+
+Standalone polynomial multiplication template.
+
+Read n+1 and m+1 signed64 coefficients; output exact convolution. Maximum coefficient 81*(1000001).
+
+Online result and performance pending; negative and signed64 extremes covered by local cpp_int oracle only.
 
 ## 榜单口径
 

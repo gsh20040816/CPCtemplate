@@ -14,9 +14,9 @@
 | [lazysegtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/lazysegtree.hpp) | 数据结构 | 部分覆盖 | [affine_segment_tree.hpp](../src/compact/affine_segment_tree.hpp) |
 | [math](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp) | 数学 | 核心功能已有，范围需适配 | [number_theory.hpp](../src/compact/number_theory.hpp) |
 | [modint](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp) | 数学 | 部分覆盖 | [number_theory.hpp](../src/compact/number_theory.hpp) |
-| [convolution](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp) | 数学 | 模卷积已有，精确整数卷积缺失 | [ntt_convolution.hpp](../src/compact/ntt_convolution.hpp)、[polynomial.hpp](../src/compact/polynomial.hpp) |
-| [maxflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/maxflow.hpp) | 图论 | 主算法已有，部分编辑接口缺失 | [flow.hpp](../src/compact/flow.hpp) |
-| [mincostflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/mincostflow.hpp) | 图论 | 主算法已有，费用曲线缺失 | [flow.hpp](../src/compact/flow.hpp) |
+| [convolution](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp) | 数学 | 模卷积与精确整数卷积已有，本地验证 | [convolution_i64.hpp](../src/compact/convolution_i64.hpp)、 [ntt_convolution.hpp](../src/compact/ntt_convolution.hpp)、[polynomial.hpp](../src/compact/polynomial.hpp) |
+| [maxflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/maxflow.hpp) | 图论 | 边状态接口已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
+| [mincostflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/mincostflow.hpp) | 图论 | 费用曲线已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
 | [scc](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/scc.hpp) | 图论 | 核心功能已有 | [tarjan.hpp](../src/compact/tarjan.hpp)、[graph.hpp](../src/compact/graph.hpp) |
 | [twosat](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/twosat.hpp) | 图论 | 核心功能已有 | [graph.hpp](../src/compact/graph.hpp) |
 | [string](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/string.hpp) | 字符串 | 功能已有，复杂度与表示有差异 | [string.hpp](../src/compact/string.hpp)、[suffix_lcp.hpp](../src/compact/suffix_lcp.hpp) |
@@ -67,7 +67,7 @@ ACL 为 0-based 点更新、半开区间和；本库为 1-based，另有仅适�
 
 已实现 [segtree.hpp](../src/compact/segtree.hpp)：任意结合运算与双侧单位元、点修改、半开区间查询和双向边界搜索。左右累积保留非交换顺序。独立字符串拼接与单调子串判定扫描、空树、非二次幂大小、50 万叶子均通过普通和 ASan/UBSan；函数复合完整驱动使用逐函数代入参考。
 
-Predecessor Problem 402089 已通过构造、set/get 和双向边界搜索（22 点，383 ms、184.02 MiB）。函数复合 402090 也已 AC（16 点，247 ms、26.82 MiB），覆盖构造/set/prod；all 与空区间仍只作本地验证。已有本地通过不代表在线验证完成，懒标记树仍为单独缺项。
+Predecessor Problem 402089 已通过构造、set/get 和双向边界搜索（22 点，383 ms、184.02 MiB）。函数复合 402090 也已 AC（16 点，247 ms、26.82 MiB），覆盖构造/set/prod；all 与空区间仍只作本地验证。已有本地通过不代表在线验证完成，懒标记树的线上证据仍需单独补齐。
 
 ### lazysegtree
 
@@ -91,7 +91,7 @@ power、inverse、crt、floor_sum 已存在。ACL crt 批量返回 pair，本库
 
 已有参数化素数模 NTT 卷积。ACL convolution_ll 返回有符号64位精确系数，采用三模重构并限制结果范围；单模卷积或把结果随意取模不能替代。
 
-后续项：convolution_ll 等精确有符号整数卷积封装。
+已补齐 convolution_i64 三模精确重构，契约与证明见 [INTEGER-CONVOLUTION.md](INTEGER-CONVOLUTION.md)。cpp_int 参考、signed64 极值及百万次数驱动的普通与 ASan/UBSan 测试通过，线上 AC 和性能排名待验证。
 
 ### maxflow
 
@@ -129,4 +129,6 @@ ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆�
 
 ## 后续实施顺序
 
-与 #1 的模板题清单对齐后，优先处理可复现的组合缺口和通用线段树边界搜索，再补 slope、精确整数卷积与动态模数。SA-IS 属于性能/复杂度替代，不把已验证的倍增后缀数组标为缺失。每项仍须独立题目、边界和性能验证。
+与 #1 的模板题清单对齐后，继续补齐通用懒标记树、slope、精确整数卷积与动态模数的独立线上证据。SA-IS 属于性能/复杂度替代，不把已验证的倍增后缀数组标为缺失。每项仍须独立题目、边界和性能验证。
+
+精确 signed64 卷积已补齐，契约、CRT 证明和验证边界见 [INTEGER-CONVOLUTION.md](INTEGER-CONVOLUTION.md)。线上 AC 与性能排名待验证。

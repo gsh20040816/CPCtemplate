@@ -102,22 +102,23 @@
     {
       "module": "convolution",
       "category": "数学",
-      "status": "模卷积已有，精确整数卷积缺失",
+      "status": "模卷积与精确整数卷积已有，本地验证",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp",
       "reference_sha256": "456e3d737ec2a73ca00ed3c1f12f26731b8cbefc1e81dec5a950ebf458a509d5",
       "local": [
         "src/compact/ntt_convolution.hpp",
-        "src/compact/polynomial.hpp"
+        "src/compact/polynomial.hpp",
+        "src/compact/convolution_i64.hpp"
       ],
-      "notes": "已有参数化素数模 NTT 卷积。ACL convolution_ll 返回有符号64位精确系数，采用三模重构并限制结果范围；单模卷积或把结果随意取模不能替代。",
+      "notes": "已有参数化素数模 NTT 卷积。ACL convolution_ll 返回有符号64位精确系数，采用三模重构并限制结果范围；单模卷积或把结果随意取模不能替代。 convolution_i64 已实现三模中心重构，支持 signed64 系数；结果长度不超过 2^24，真实结果须在 signed64 内。cpp_int 参考及 P3803 最大次数驱动普通/消毒器通过。",
       "gaps": [
-        "convolution_ll 等精确有符号整数卷积封装"
+        "精确整数卷积线上 AC 与性能排名待验证"
       ]
     },
     {
       "module": "maxflow",
       "category": "图论",
-      "status": "主算法已有，部分编辑接口缺失",
+      "status": "边状态接口已补，本地验证",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/maxflow.hpp",
       "reference_sha256": "8a633f093cfb1956d7d71f4d1e53628cdaebd4f0fe6bd7bdbaf373ecd6e48bcd",
       "local": [
@@ -131,7 +132,7 @@
     {
       "module": "mincostflow",
       "category": "图论",
-      "status": "主算法已有，费用曲线缺失",
+      "status": "费用曲线已补，本地验证",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/mincostflow.hpp",
       "reference_sha256": "88396cd7cae7274db2a1f9a0ffdfe8673ac508f7b3e6972a96d5b75e4b6bfe88",
       "local": [

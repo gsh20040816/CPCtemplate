@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T12:51:20.308809+00:00",
+  "recorded_at_utc": "2026-09-13T13:03:50.917202+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -303,7 +303,10 @@
       "Dynamic mint P5431 driver: Python inverse/power oracle and five-million geometric-sum case PASS",
       "Dinic edge API: exhaustive-cut oracle after capacity edits, residual/conservation certificates and int64 limits PASS",
       "Min-cost slope: exhaustive feasible-flow costs, negative edges without negative cycles, ties, limits, continuation and int128 totals PASS",
-      "P3381 slope endpoint driver: exhaustive feasible edge-flow assignment oracle PASS"
+      "P3381 slope endpoint driver: exhaustive feasible edge-flow assignment oracle PASS",
+      "",
+      "Signed integer convolution: cpp_int oracle, certified primes/roots, int64 cancellation and large alternating triangles PASS",
+      "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -582,7 +585,10 @@
       "Dynamic mint P5431 driver: Python inverse/power oracle and five-million geometric-sum case PASS",
       "Dinic edge API: exhaustive-cut oracle after capacity edits, residual/conservation certificates and int64 limits PASS",
       "Min-cost slope: exhaustive feasible-flow costs, negative edges without negative cycles, ties, limits, continuation and int128 totals PASS",
-      "P3381 slope endpoint driver: exhaustive feasible edge-flow assignment oracle PASS"
+      "P3381 slope endpoint driver: exhaustive feasible edge-flow assignment oracle PASS",
+      "",
+      "Signed integer convolution: cpp_int oracle, certified primes/roots, int64 cancellation and large alternating triangles PASS",
+      "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -768,6 +774,7 @@
     "src/compact/circle_tangents.hpp": "aff668f25731379379e6b5b05f7766adb6a95e848b32171fd99eb41c14c462b6",
     "src/compact/closest_pair.hpp": "803c0de693ccddce95f4400c351fa2a724bb85cc586b72afa72bb68549af1ec9",
     "src/compact/composite_roots.hpp": "d33a423550c5ed9719085f8b334d7a20f816f40f995d408981d2f343d06a9329",
+    "src/compact/convolution_i64.hpp": "aa02a7c9cf3fd2a750675e6fffa938a40a883718d99c9e55dda4f425f765d036",
     "src/compact/coprime_pairs.hpp": "ea7f40732c06a85ce70bb3d63f5a220855a8e8d7462b18e3ef5cfb64e425482e",
     "src/compact/cut_tree_queries.hpp": "09ca5aec9e8308eaa0577e561858618656cb18f37b9c61130fa85d3ce41c8b4b",
     "src/compact/data_structure.hpp": "41a302fd87914867adb75d95a20430f2c7195ddfbc5d54646626187c5d262dac",
@@ -949,6 +956,8 @@
     "tests/closest_pair_application.py": "7eed51bf2f0cb26598fdee23e27070a5eeae984306347de2cb4454dfa4ee919d",
     "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
     "tests/composite_roots.cpp": "29513ecf8a689c4eb75c4999d3be1b7f9fda79205864095022204dc10be6db64",
+    "tests/convolution_i64.cpp": "cb0f2a8dd9f65222ed43002a266b37c026901f1320c960bc9f9e90022a2f93f0",
+    "tests/convolution_i64_application.py": "748051f12e1add185520b6df5518df8cded1f9c7c763be6449b8ed6f38036cfd",
     "tests/coprime_pairs.cpp": "3c858085c98ec3eb567da8a7fb3d2f960aef49bb1f18a6341d3ac2d91dd23b1a",
     "tests/coprime_pairs_application.py": "8b29be93aec373ae9e668a288136949121567261de51447f0f6d9dd2e74d4fb6",
     "tests/crt.cpp": "cf2ac8fd470bae001f8a543dc71d0b82ec059e44478ab5fb59f1c288ca64dd54",

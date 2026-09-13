@@ -31,6 +31,7 @@
 - `verify/luogu/P3386.compact.cpp`
 - `verify/luogu/P3398.compact.cpp`
 - `verify/luogu/P3649.compact.cpp`
+- `verify/luogu/P3803.i64.compact.cpp`
 - `verify/luogu/P3809.compact.cpp`
 - `verify/luogu/P3812.compact.cpp`
 - `verify/luogu/P4151.compact.cpp`

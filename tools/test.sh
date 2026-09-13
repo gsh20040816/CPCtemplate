@@ -398,3 +398,7 @@ build/flow_edges
 "$CXX" "${flags[@]}" tests/flow_slope.cpp -o build/flow_slope
 build/flow_slope
 python3 tests/flow_slope_application.py
+
+"$CXX" "${flags[@]}" tests/convolution_i64.cpp -o build/convolution_i64
+build/convolution_i64
+python3 tests/convolution_i64_application.py

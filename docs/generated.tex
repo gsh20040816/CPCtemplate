@@ -1000,6 +1000,16 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=23,lastline=62,firstnumber=20]{../src/compact/ntt_convolution.hpp}
 
+\chapter{精确整数卷积}
+
+\Needspace{509pt}
+
+\section{精确有符号整数卷积}\label{compact-convolution_i64}\index{convolution\_i64}
+
+convolution\_i64(a,b) 返回 signed64 整数卷积，空输入返回空。非空结果长度$\le$2\textasciicircum{}24，所有真实系数必须在 signed64 范围内。依赖 NttConvolution，三个素数模卷积后用 int128 CRT 重构中心代表。断言不能检测任意越界结果的模数别名。O(L log L) 时间、O(L) 空间，L 为补齐的二次幂长度。负数与极值已通过 cpp\_int 参考验证；P3803 最大次数驱动本地通过，线上性能待验证。
+
+\lstinputlisting[firstline=5,lastline=43]{../src/compact/convolution_i64.hpp}
+
 \chapter{多项式平移}
 
 \Needspace{379pt}

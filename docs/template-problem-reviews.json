@@ -1156,5 +1156,26 @@
       "total": null
     },
     "remaining": "Online submission pending; existing long-long P5431 AC does not cover this new driver."
+  },
+  {
+    "symbol": "convolution_i64",
+    "problem": "Luogu P3803",
+    "url": "https://www.luogu.com.cn/problem/P3803",
+    "classification": "Standalone polynomial multiplication template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "Degrees n,m<=1000000; coefficients 0..9; exact integer output.",
+    "adapter": "Read n+1 and m+1 signed64 coefficients; output exact convolution. Maximum coefficient 81*(1000001).",
+    "source": "src/compact/convolution_i64.hpp",
+    "source_driver": "verify/luogu/P3803.i64.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online result and performance pending; negative and signed64 extremes covered by local cpp_int oracle only."
   }
 ]
