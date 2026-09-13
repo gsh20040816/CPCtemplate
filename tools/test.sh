@@ -379,3 +379,6 @@ python3 tests/segtree_predecessor.py
 "$CXX" "${flags[@]}" tests/lazy_segtree.cpp -o build/lazy_segtree
 build/lazy_segtree
 python3 tests/lazy_segtree_application.py
+
+"$CXX" "${flags[@]}" tests/lazy_binary_search.cpp -o build/lazy_binary_search
+build/lazy_binary_search

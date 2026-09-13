@@ -91,3 +91,7 @@ OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在�
 - Library Checker 401866: CE，网页逐字输入后出现额外右括号；改用完整文件粘贴得到 401867 AC，并从提交页复制回源码，逐字节与本地 bundle 一致。
 
 - Library Checker 401870: direct rope push_back/erase queue returned RE with 1024.00 MiB on half_rot_killer_00. Failed source archived as LC-persistent_queue-401870-failed.cpp. Fixed-capacity rope with version head/tail passed as 401871; not a claim that general rope erase is memory-efficient.
+
+## 未核实的提交动作
+
+2026-09-13，Library Checker range_affine_range_sum 在粘贴 build/lazy-submit.txt 后点击 Submit，随后电脑操作工具因当前 URL 不允许访问而结束会话。尚未读取到提交 ID、结果或服务端源码。不能记作 AC，也不能在核对该账号提交列表前盲目重复提交。该打包源码与 verification/lazy-official-local.json 所记录摘要一致。

@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T11:54:23.101118+00:00",
+  "recorded_at_utc": "2026-09-13T12:04:47.962696+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -296,7 +296,8 @@
       "Point-set range-composite driver: direct sequential function evaluation oracle PASS",
       "Segtree predecessor driver: sorted-key oracle, empty/full sets, inclusive boundaries and N=10000000 Q=1000000 PASS",
       "Generic lazy segtree: affine vector oracle, assignment string order, both boundary scans and 500000 pending tags PASS",
-      "Generic lazy affine driver: independent modular vector updates and sums PASS"
+      "Generic lazy affine driver: independent modular vector updates and sums PASS",
+      "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -568,7 +569,8 @@
       "Point-set range-composite driver: direct sequential function evaluation oracle PASS",
       "Segtree predecessor driver: sorted-key oracle, empty/full sets, inclusive boundaries and N=10000000 Q=1000000 PASS",
       "Generic lazy segtree: affine vector oracle, assignment string order, both boundary scans and 500000 pending tags PASS",
-      "Generic lazy affine driver: independent modular vector updates and sums PASS"
+      "Generic lazy affine driver: independent modular vector updates and sums PASS",
+      "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -920,6 +922,7 @@
     "tests/inverse_table.cpp": "e8d111f62575bf0b5fa3dccf36aac3cb8e0234cd549180662f757b5c4a0b9fd3",
     "tests/inverse_table_application.py": "ebc580aed000409310382450bf2fb9a6c096f1221e0817ec6ae6674e66c0db10",
     "tests/kth_residue.cpp": "d30f1e7f325b334cf4fe3e4967d2752066ae313eab56919029fd2ac7c09cda9a",
+    "tests/lazy_binary_search.cpp": "b66a45bf98102237eb28687c027f4f6fcaaadd53614c462c77b0e8a0aa94ca09",
     "tests/lazy_segtree.cpp": "435ef3f7f40d87a6fdad5e7d005eac0f4c47fed5d55540b212ff8f17c26b53c3",
     "tests/lazy_segtree_application.py": "9d129af367818da71b013d1139245cfd9b22010a8e8dcc89fcec0e0acd493b20",
     "tests/lex_two_sat.cpp": "1dff785aab551bde3bc84eb38c70d5e8d83400422c987c2dd60b65f287243d6e",
