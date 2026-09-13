@@ -396,7 +396,7 @@ Official standalone range-affine/range-sum template.
 
 Node {sum,len}; tag {mul,add}. composition(f,g)=f after g, mapping multiplies sum and adds add*len. Driver calls construction/apply/prod only.
 
-Online submit and ranking pending; point set/get, all, both boundary searches locally tested separately.
+19 official generated cases pass local checker in normal and sanitizer builds; online submit/ranking still pending. Other interfaces retain separate local evidence.
 
 ## 榜单口径
 
