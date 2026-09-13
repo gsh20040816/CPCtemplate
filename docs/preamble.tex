@@ -1,8 +1,9 @@
 \documentclass[UTF8,a4paper,10pt,openany,fontset=none]{ctexbook}
-% Use explicit default OpenType script: older Fandol builds lack a CJK script tag.
-\setCJKmainfont{FandolSong-Regular}[Extension=.otf,Script=Default,BoldFont=FandolSong-Bold,ItalicFont=FandolKai-Regular]
-\setCJKsansfont{FandolHei-Regular}[Extension=.otf,Script=Default,BoldFont=FandolHei-Bold]
-\setCJKmonofont{FandolFang-Regular}[Extension=.otf,Script=Default]
+% Older Fandol builds have no script table; do not request a script feature.
+\defaultCJKfontfeatures{}
+\setCJKmainfont{FandolSong-Regular}[Extension=.otf,BoldFont=FandolSong-Bold,ItalicFont=FandolKai-Regular]
+\setCJKsansfont{FandolHei-Regular}[Extension=.otf,BoldFont=FandolHei-Bold]
+\setCJKmonofont{FandolFang-Regular}[Extension=.otf]
 
 \usepackage[margin=18mm,headheight=14pt]{geometry}
 \usepackage{amsmath,amssymb,booktabs,longtable,array}
