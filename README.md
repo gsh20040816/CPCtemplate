@@ -53,3 +53,5 @@ SANITIZE=1 tools/test.sh
 Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECKER.md)，包含官方分类之外的待核对题目；清单登记不代表已实现或 AC。
 
 固定版本官方数据的本地复验与报告口径见 [OFFICIAL-TESTS.md](docs/OFFICIAL-TESTS.md)。它与线上 AC 档案分开记录。
+
+环境和标准库速查见 [Infra说明](docs/INFRA.md)，构建时另生成 `output/pdf/infra.pdf`，集中提供到算法分册的页码跳转。

@@ -23,8 +23,9 @@ jobs:
         with:
           fetch-depth: 0
       - run: sudo apt-get update && sudo apt-get install -y poppler-utils latexmk texlive-xetex texlive-lang-chinese texlive-latex-extra
+      - run: python3 -m pip install pypdf==6.0.0
       - run: tools/build_pdf.sh
       - uses: actions/upload-artifact@v4
         with:
           name: xcpc-handbook
-          path: output/pdf/xcpc-*.pdf
+          path: output/pdf/*.pdf

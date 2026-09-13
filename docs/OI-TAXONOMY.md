@@ -82,6 +82,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | gp_map | 数据结构 → 哈希表 | application | GNU 哈希表组件，保留 GNU 扩展依赖。 |
 | RollbackDSU | 数据结构 → 并查集 → 并查集 | direct |  |
 | dsu | 数据结构 → 并查集 → 并查集 | direct |  |
+| pheap | 数据结构 → 堆 → 配对堆 | application | GNU pairing_heap_tag 实现，按实际数据结构归堆；另在infra语言基础索引中登记。 |
 | Fenwick | 数据结构 → 树状数组 | direct |  |
 | AffineSegTree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | LazySeg | 数据结构 → 线段树 → 线段树基础 | direct |  |

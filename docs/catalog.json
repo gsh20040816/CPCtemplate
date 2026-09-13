@@ -874,5 +874,11 @@
     "convolution_i64",
     "精确有符号整数卷积",
     "convolution_i64(a,b) 返回 signed64 整数卷积，空输入返回空。非空结果长度≤2^24，所有真实系数必须在 signed64 范围内。依赖 NttConvolution，三个素数模卷积后用 int128 CRT 重构中心代表。断言不能检测任意越界结果的模数别名。O(L log L) 时间、O(L) 空间，L 为补齐的二次幂长度。负数与极值已通过 cpp_int 参考验证；P3803 最大次数驱动本地通过，线上性能待验证。"
+  ],
+  [
+    "pbds_heap",
+    "pheap",
+    "PBDS 可修改、可合并优先队列",
+    "pheap<T,C> 默认比较器为 less<T>，固定 pairing_heap_tag，形成大根堆；小根堆用 greater<T>。\n\n包含 ext/pb_ds/priority_queue.hpp。push(x) 返回 point_iterator 句柄；modify(h,x) 改值，erase(h) 删除指定元素。top/pop 要求非空，size/empty/clear 沿用容器接口。a.join(b) 把 b 全部移入 a，b 变空；原 b 元素句柄仍指向同一元素，此后应交给 a。a.swap(b) 后句柄随元素交换归属。split(pred,b) 将满足谓词的元素移入 b，本模板约定 b 原先为空。join/split 两个堆须不同，比较规则一致。删除元素、pop 对应堆顶、clear 或销毁后，相应句柄失效；不要把原堆句柄用于深复制的副本。top、push、join 为 O(1)；pop 摊还 O(log n)，modify/erase 的单次最坏可达 O(n)，不当作最坏常数。split/复制/clear 可能扫描整个堆。适合需要修改已入堆元素或合并的任务；只要普通入队出队时可用 std::priority_queue。 复杂度按比较、复制标量或编号对为常数计，T 须满足容器的复制要求。"
   ]
 ]

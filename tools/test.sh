@@ -430,3 +430,9 @@ python3 tests/cc_associative_application.py
 build/number-components
 
 python3 tests/lc_number_application.py
+
+"$CXX" "${flags[@]}" tests/pbds_heap.cpp -o build/pbds-heap
+build/pbds-heap
+"$CXX" "${flags[@]}" tests/infra_examples.cpp -o build/infra-examples
+build/infra-examples
+python3 tests/infra_examples.py

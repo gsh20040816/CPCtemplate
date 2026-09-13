@@ -810,6 +810,28 @@ dsu(n)，点号 0..n-1，n$\ge$0。find(x) 路径减半；same(x,y) 判断同集
 
 \lstinputlisting[firstline=41,lastline=80]{../src/compact/data_structure.hpp}
 
+\Needspace{264pt}
+
+\chapter{堆}
+
+\section{配对堆}
+
+\subsection{PBDS 可修改、可合并优先队列}\label{compact-pheap}\index{pheap}
+
+pheap<T,C> 默认比较器为 less<T>，固定 pairing\_heap\_tag，形成大根堆；小根堆用 greater<T>。
+
+包含 ext/pb\_ds/priority\_queue.hpp。push(x) 返回 point\_iterator 句柄；modify(h,x) 改值，erase(h) 删除指定元素。top/pop 要求非空，size/empty/clear 沿用容器接口。a.join(b) 把 b 全部移入 a，b 变空；原 b 元素句柄仍指向同一元素，此后应交给 a。a.swap(b) 后句柄随元素交换归属。split(pred,b) 将满足谓词的元素移入 b，本模板约定 b 原先为空。join/split 两个堆须不同，比较规则一致。删除元素、pop 对应堆顶、clear 或销毁后，相应句柄失效；不要把原堆句柄用于深复制的副本。top、push、join 为 O(1)；pop 摊还 O(log n)，modify/erase 的单次最坏可达 O(n)，不当作最坏常数。split/复制/clear 可能扫描整个堆。适合需要修改已入堆元素或合并的任务；只要普通入队出队时可用 std::priority\_queue。 复杂度按比较、复制标量或编号对为常数计，T 须满足容器的复制要求。
+
+\lstinputlisting[firstline=8,lastline=9]{../src/compact/pbds_heap.hpp}
+
+\begin{lstlisting}
+pheap<int> a, b;
+auto h = a.push(7);
+a.modify(h, 2);
+b.join(a);
+b.erase(h);
+\end{lstlisting}
+
 \Needspace{521pt}
 
 \chapter{树状数组}

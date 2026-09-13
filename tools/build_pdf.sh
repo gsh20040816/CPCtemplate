@@ -15,4 +15,14 @@ for volume in strings mathematics data-structures graphs geometry misc; do
 done
 
 cd ..
+python3 tools/infra.py
+cd docs
+latexmk -xelatex -interaction=nonstopmode -halt-on-error -outdir=../build/pdf infra.tex
+cp ../build/pdf/infra.pdf ../output/pdf/infra.pdf
+cd ..
 python3 tools/pdf_audit.py
+if [[ -x build/tools-env/bin/python ]]; then
+    build/tools-env/bin/python tools/infra_audit.py
+else
+    python3 tools/infra_audit.py
+fi

@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T15:02:13.874004+00:00",
+  "recorded_at_utc": "2026-09-13T15:31:00.399076+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -318,7 +318,9 @@
       "CC associative driver: Python dictionary oracle, absent/stored zeros and 1e18 endpoints PASS",
       "Separated number theory: cpp_int modular oracle, trial primes, Bezout certificates, exhaustive residues and signed floor sums PASS",
       "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS",
-      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS"
+      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
+      "PBDS pairing heap: ordered-set oracle, handle ownership after join/swap/split, copy isolation and 200000 modifications PASS",
+      "Infra C++ examples: move/copy dispatch, valid moved-from reuse, STL ranges and PBDS ownership PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -612,7 +614,9 @@
       "CC associative driver: Python dictionary oracle, absent/stored zeros and 1e18 endpoints PASS",
       "Separated number theory: cpp_int modular oracle, trial primes, Bezout certificates, exhaustive residues and signed floor sums PASS",
       "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS",
-      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS"
+      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
+      "PBDS pairing heap: ordered-set oracle, handle ownership after join/swap/split, copy isolation and 200000 modifications PASS",
+      "Infra C++ examples: move/copy dispatch, valid moved-from reuse, STL ranges and PBDS ownership PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -860,6 +864,7 @@
     "src/compact/palindromic_tree.hpp": "95bc6a1aeb2a3c943bafbdb6e96dbc37f19c694a3408158798b909c69b8792de",
     "src/compact/partitions.hpp": "7dc494705598e23c1a5771810fc7b5df100d952f7021a4115f0b423887a43edc",
     "src/compact/path_intersection.hpp": "f2cfec7e2dd2ddc51ff0871df746744ae03e0594f9074ddbf70580853722623f",
+    "src/compact/pbds_heap.hpp": "8236bb8f93e485c20d26c05be5bc25fa809659a282ba9a77fdbef97f46c366ee",
     "src/compact/persistent_array.hpp": "9187d32b4aa443cf57347a17e7943a4d07cf086c142257763e925d80f9021982",
     "src/compact/persistent_distinct.hpp": "b72f294559b01aff1a06d7e0aa64bd57d7772e9337025eb2995a7359fe199deb",
     "src/compact/persistent_range.hpp": "108995c6654309946f3aae19e67c3d70ff8db468fc1311c5b274801507ed4cf8",
@@ -1058,6 +1063,8 @@
     "tests/hash_table.cpp": "99124b1a52c99e6a4bc0db30816fa9a377176299305e003421cbfe71617210dd",
     "tests/hld.cpp": "2cb59f85875e3c9c0002b3e0e9ac029c32ae862fc44230a2272e47203af28d6a",
     "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
+    "tests/infra_examples.cpp": "2b0e91b3ca78c32361a1bf22c300a3ead5420a9bab65e333fe69be56b4e03d37",
+    "tests/infra_examples.py": "2c384d71a5527ef7449125646b18435d088449f06c61681476107030cde9eb26",
     "tests/interpolation.cpp": "9f7205163b894fdcc3107da60883c88468c0045d92351eee8f71cc8854cefc76",
     "tests/interpolation_application.py": "e4dd053f8c3b7368ae3bf0c6e4b09f58cc237a8ffc228e991e5f623e5eb19052",
     "tests/inverse_table.cpp": "e8d111f62575bf0b5fa3dccf36aac3cb8e0234cd549180662f757b5c4a0b9fd3",
@@ -1106,6 +1113,7 @@
     "tests/partitions.cpp": "5c02337cddf5a7b8fbc681106a01eaa79d5918aeb5602208e228f0132a84159c",
     "tests/path_intersection.cpp": "2ba35c6bab128d75d547e64762f0b28213181f3f9872ea24a05c0b92c4e663e8",
     "tests/path_intersection_application.py": "f296d194e352ae99db97b7bf770d5755a40865613a53cde63beec7feb77bb5cd",
+    "tests/pbds_heap.cpp": "96e56d246ca2b0a96b731c6ef150f1cf09c56f352f4daa6b80e0f1ba625e9a43",
     "tests/pbds_multiset_application.py": "fb099942c3af28393697165cb5ba22e1fb9de54349f52120c6c6a2e0c86d4883",
     "tests/persistent_array.cpp": "0e3ec4fab4b3f22ffa6c8981fe51f79efc64105a46cae7f6384395b58454234d",
     "tests/persistent_distinct.cpp": "fbf4deee2334b8b4719d735e1791a827ef77ed4d2751b5686457a0faa761c0a6",
