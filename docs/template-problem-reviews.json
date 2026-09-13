@@ -1109,5 +1109,26 @@
       "url": "https://judge.yosupo.jp/submissions/?problem=predecessor_problem&user=&dedupUser=false&status=AC&lang=&order=%2Btime&page=6&pagesize=100"
     },
     "remaining": "prod/all not invoked. Noncommutative boundary order locally verified separately."
+  },
+  {
+    "symbol": "lazy_segtree",
+    "problem": "Library Checker range_affine_range_sum",
+    "url": "https://judge.yosupo.jp/problem/range_affine_range_sum",
+    "classification": "Official standalone range-affine/range-sum template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "N,Q<=500000; coefficients modulo998244353; nonzero multipliers;0<=l<r<=N",
+    "adapter": "Node {sum,len}; tag {mul,add}. composition(f,g)=f after g, mapping multiplies sum and adds add*len. Driver calls construction/apply/prod only.",
+    "source": "src/compact/lazy_segtree.hpp",
+    "source_driver": "verify/library_checker/range_affine_range_sum.compact.cpp",
+    "implementation": "implemented_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submit and ranking pending; point set/get, all, both boundary searches locally tested separately."
   }
 ]

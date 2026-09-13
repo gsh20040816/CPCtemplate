@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T11:44:26.225956+00:00",
+  "recorded_at_utc": "2026-09-13T11:54:23.101118+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -294,7 +294,9 @@
       "PBDS multiset drivers: duplicate sorted-list oracle, legal strict neighbors, online XOR and million operations PASS",
       "Generic segtree: noncommutative substring oracle, both monotone boundary scans, empty trees and 500000 leaves PASS",
       "Point-set range-composite driver: direct sequential function evaluation oracle PASS",
-      "Segtree predecessor driver: sorted-key oracle, empty/full sets, inclusive boundaries and N=10000000 Q=1000000 PASS"
+      "Segtree predecessor driver: sorted-key oracle, empty/full sets, inclusive boundaries and N=10000000 Q=1000000 PASS",
+      "Generic lazy segtree: affine vector oracle, assignment string order, both boundary scans and 500000 pending tags PASS",
+      "Generic lazy affine driver: independent modular vector updates and sums PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -564,7 +566,9 @@
       "PBDS multiset drivers: duplicate sorted-list oracle, legal strict neighbors, online XOR and million operations PASS",
       "Generic segtree: noncommutative substring oracle, both monotone boundary scans, empty trees and 500000 leaves PASS",
       "Point-set range-composite driver: direct sequential function evaluation oracle PASS",
-      "Segtree predecessor driver: sorted-key oracle, empty/full sets, inclusive boundaries and N=10000000 Q=1000000 PASS"
+      "Segtree predecessor driver: sorted-key oracle, empty/full sets, inclusive boundaries and N=10000000 Q=1000000 PASS",
+      "Generic lazy segtree: affine vector oracle, assignment string order, both boundary scans and 500000 pending tags PASS",
+      "Generic lazy affine driver: independent modular vector updates and sums PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -778,6 +782,7 @@
     "src/compact/interpolation.hpp": "e8fb4f56f4cc5c76a2e1807c9c0d8dfa26b1c1e072b311ac9019613119308e93",
     "src/compact/inverse_table.hpp": "5b0fcc140698c59093a7b5ce9b9356632f11a0fb98d4f47c5ab69d000b69c363",
     "src/compact/kth_residue.hpp": "e9a3ca541f98ef1a3d678dcef2d76de898f41c3423dd5ce514760e424d4546d6",
+    "src/compact/lazy_segtree.hpp": "b4ba9f60235c0eac1b4e7a405b67b46a1b8d57ee83a5415b2f54b3c4e4554251",
     "src/compact/lex_two_sat.hpp": "b6ea717957659fc302dc7e52d77576b362bbc790d742280b96233dbf3928e30e",
     "src/compact/lifting_lca.hpp": "25e32ce8a93d21170425da84b7d756a5b836725e6d96d2f6da9efc96c8388d84",
     "src/compact/linear_congruence.hpp": "19d11adefa899995795686020ca85e7081b7a95060877e0bc95e8b2053b41333",
@@ -915,6 +920,8 @@
     "tests/inverse_table.cpp": "e8d111f62575bf0b5fa3dccf36aac3cb8e0234cd549180662f757b5c4a0b9fd3",
     "tests/inverse_table_application.py": "ebc580aed000409310382450bf2fb9a6c096f1221e0817ec6ae6674e66c0db10",
     "tests/kth_residue.cpp": "d30f1e7f325b334cf4fe3e4967d2752066ae313eab56919029fd2ac7c09cda9a",
+    "tests/lazy_segtree.cpp": "435ef3f7f40d87a6fdad5e7d005eac0f4c47fed5d55540b212ff8f17c26b53c3",
+    "tests/lazy_segtree_application.py": "9d129af367818da71b013d1139245cfd9b22010a8e8dcc89fcec0e0acd493b20",
     "tests/lex_two_sat.cpp": "1dff785aab551bde3bc84eb38c70d5e8d83400422c987c2dd60b65f287243d6e",
     "tests/lex_two_sat_application.py": "47dad3999062dc4deb46a9c6f0ceb1d3c9a6fcd9b2b5047392fdec878ee6c524",
     "tests/lifting_lca.cpp": "f65394bd3835578a45489b8674adea2bcc8907ec02a8d382ffcdcdf459020b75",

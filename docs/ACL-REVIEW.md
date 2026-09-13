@@ -71,9 +71,9 @@ Predecessor Problem 402089 已通过构造、set/get 和双向边界搜索（22 
 
 ### lazysegtree
 
-当前仿射线段树是具体实例。ACL 将 S/op/e 与 F/mapping/composition/id 分离，composition(f,g) 表示先 g 后 f；当前库尚无这套通用映射接口。
+已补充 [lazy_segtree.hpp](../src/compact/lazy_segtree.hpp)，采用递归下传与搜索，运算、单位元和作用由模板参数传入。composition(f,g) 为先 g 后 f。点设置会清除叶子旧标记，查询会下传但不改变逻辑序列；不要求标记类型提供相等比较。
 
-后续项：通用作用幺半群懒标记；带懒标记的 max_right/min_left。
+仿射向量参考、字符串赋值的非交换顺序、独立左右边界扫描及 50 万叶子全区间待下传标记通过普通与 ASan/UBSan。区间仿射完整驱动也通过独立模数向量参考；在线提交及边界搜索线上题仍待完成。
 
 ### math
 

@@ -375,3 +375,7 @@ build/segtree
 python3 tests/segtree_application.py
 
 python3 tests/segtree_predecessor.py
+
+"$CXX" "${flags[@]}" tests/lazy_segtree.cpp -o build/lazy_segtree
+build/lazy_segtree
+python3 tests/lazy_segtree_application.py

@@ -46,6 +46,7 @@
 | `ost` | [Library Checker ordered_set](https://judge.yosupo.jp/problem/ordered_set) | 0<=N<=500000; 1<=Q<=500000; sorted distinct initial keys; 0<=keys<=10^9; kth query x>=1 | [记录](https://judge.yosupo.jp/submission/401869) | 628 out of 1095（All AC submissions, all users and languages, Dedup user unchecked. Not non-AC verdicts or per-user best.） |
 | `segtree` | [Library Checker point_set_range_composite](https://judge.yosupo.jp/problem/point_set_range_composite) | N,Q<=500000; 0<=l<r<=N; coefficients mod998244353 with nonzero slopes | [记录](https://judge.yosupo.jp/submission/402090) | 454 out of 2914（All AC submissions, all users/languages, dedup disabled; excludes non-AC verdicts.） |
 | `segtree` | [Library Checker predecessor_problem](https://judge.yosupo.jp/problem/predecessor_problem) | 1<=N<=10000000;1<=Q<=1000000;0<=k<N;initial binary membership string | [记录](https://judge.yosupo.jp/submission/402089) | 687 out of 2582（All users and languages, AC only, user dedup disabled; not all verdicts.） |
+| `lazy_segtree` | [Library Checker range_affine_range_sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | N,Q<=500000; coefficients modulo998244353; nonzero multipliers;0<=l<r<=N | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -388,6 +389,14 @@ Official standalone dynamic predecessor template task.
 Store 0/1 counts; set for insert/erase, get for membership. max_right(k,sum==0) finds inclusive successor, N becomes -1. min_left(k+1,sum==0)-1 finds inclusive predecessor, zero result becomes -1. No overflow of sum at N limit.
 
 prod/all not invoked. Noncommutative boundary order locally verified separately.
+
+### Library Checker range_affine_range_sum / lazy_segtree
+
+Official standalone range-affine/range-sum template.
+
+Node {sum,len}; tag {mul,add}. composition(f,g)=f after g, mapping multiplies sum and adds add*len. Driver calls construction/apply/prod only.
+
+Online submit and ranking pending; point set/get, all, both boundary searches locally tested separately.
 
 ## 榜单口径
 

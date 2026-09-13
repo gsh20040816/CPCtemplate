@@ -67,7 +67,7 @@
 | [Predecessor Problem](https://judge.yosupo.jp/problem/predecessor_problem) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [predecessor_problem.compact.cpp](../verify/library_checker/predecessor_problem.compact.cpp) |
 | [Queue Operate All Composite](https://judge.yosupo.jp/problem/queue_operate_all_composite) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Affine Point Get](https://judge.yosupo.jp/problem/range_affine_point_get) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Range Affine Range Sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Range Affine Range Sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | [range_affine_range_sum.compact.cpp](../verify/library_checker/range_affine_range_sum.compact.cpp) |
 | [Range Affine Range Sum (Large Array)](https://judge.yosupo.jp/problem/range_affine_range_sum_large_array) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Chmin Chmax Add Range Sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Kth Smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | Data Structure | 待逐题审题、适配与在线验证 | — |

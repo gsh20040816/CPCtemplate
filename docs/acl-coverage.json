@@ -58,16 +58,15 @@
     {
       "module": "lazysegtree",
       "category": "数据结构",
-      "status": "部分覆盖",
+      "status": "通用递归实现已完成，本地验证通过",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/lazysegtree.hpp",
       "reference_sha256": "3685280a17ef0d8cd3c3510b1a6b494fa674debfc3c8651c87cf50c77cfe09da",
       "local": [
-        "src/compact/affine_segment_tree.hpp"
+        "src/compact/lazy_segtree.hpp"
       ],
-      "notes": "当前仿射线段树是具体实例。ACL 将 S/op/e 与 F/mapping/composition/id 分离，composition(f,g) 表示先 g 后 f；当前库尚无这套通用映射接口。",
+      "notes": "op/e 与 mapping/composition/id 可组合，composition(f,g)=f after g；set/get/apply/prod/all 及双向边界搜索。仿射向量、赋值字符串与扫描 oracle、50万叶未下传标记通过普通及 ASan/UBSan。",
       "gaps": [
-        "通用作用幺半群懒标记",
-        "带懒标记的 max_right/min_left"
+        "区间仿射驱动及边界搜索的线上验证"
       ]
     },
     {

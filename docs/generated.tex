@@ -1,5 +1,25 @@
 \part{vector 模板}
 
+\chapter{通用懒标记线段树}
+
+\section{通用懒标记线段树与边界搜索}\label{compact-lazy_segtree}\index{lazy\_segtree}
+
+模板参数依次为 S、F、op、e、mapping、composition、id；以数组 a 构造，0-based 半开区间；n 构造将 n 个元素置为 e。0$\le$n$\le$2\textasciicircum{}28-1，受内存限制。op 满足结合律、e 为双侧单位元；单位标记不改变节点，mapping 必须保持 op 的合并结果；composition(f,g) 表示先 g 后 f，须满足作用复合一致性，id 为标记单位元。无需比较标记是否等于 id，每次下传都应用标记。set/get 单点，apply(l,r,f) 区间作用，prod(l,r) 保序合并，all() 读取根；空区间不更新且查询返回 e。区间长度若参与修改，必须存入 S，不能从 e 推断长度：区间和节点为 \{sum,len\}，真实叶 len=1，e=\{0,0\}。max\_right/min\_left 的谓词须满足 ok(e())、无副作用、扩展时真变假后不再变真；两者查询会下传标记，非 const。递归深度 O(log n)，构造 O(n)、操作/搜索 O(log n)、all O(1)，空间 O(n)，假设运算和类型复制 O(1)。d/tag 及其他递归辅助方法仅供内部使用。
+
+\lstinputlisting[firstline=7,lastline=36,firstnumber=1]{../src/compact/lazy_segtree.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=37,lastline=92,firstnumber=31]{../src/compact/lazy_segtree.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=93,lastline=138,firstnumber=87]{../src/compact/lazy_segtree.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=139,lastline=161,firstnumber=133]{../src/compact/lazy_segtree.hpp}
+
 \chapter{通用线段树}
 
 \section{通用线段树与左右边界搜索}\label{compact-segtree}\index{segtree}
