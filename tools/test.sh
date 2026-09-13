@@ -373,3 +373,5 @@ python3 tests/pbds_multiset_application.py
 "$CXX" "${flags[@]}" tests/segtree.cpp -o build/segtree
 build/segtree
 python3 tests/segtree_application.py
+
+python3 tests/segtree_predecessor.py

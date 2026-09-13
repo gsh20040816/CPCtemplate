@@ -64,7 +64,7 @@
 | [Point Set Range Composite (Large Array)](https://judge.yosupo.jp/problem/point_set_range_composite_large_array) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Point Set Range Frequency](https://judge.yosupo.jp/problem/point_set_range_frequency) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Point Set Range Sort Range Composite](https://judge.yosupo.jp/problem/point_set_range_sort_range_composite) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Predecessor Problem](https://judge.yosupo.jp/problem/predecessor_problem) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Predecessor Problem](https://judge.yosupo.jp/problem/predecessor_problem) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [predecessor_problem.compact.cpp](../verify/library_checker/predecessor_problem.compact.cpp) |
 | [Queue Operate All Composite](https://judge.yosupo.jp/problem/queue_operate_all_composite) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Affine Point Get](https://judge.yosupo.jp/problem/range_affine_point_get) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Affine Range Sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |

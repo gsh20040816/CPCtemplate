@@ -1070,5 +1070,34 @@
       "total": null
     },
     "remaining": "Online submission and rank pending. Boundary search has separate local string/scan evidence only."
+  },
+  {
+    "symbol": "segtree",
+    "problem": "Library Checker predecessor_problem",
+    "url": "https://judge.yosupo.jp/problem/predecessor_problem",
+    "classification": "Official standalone dynamic predecessor template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "1<=N<=10000000;1<=Q<=1000000;0<=k<N;initial binary membership string",
+    "adapter": "Store 0/1 counts; set for insert/erase, get for membership. max_right(k,sum==0) finds inclusive successor, N becomes -1. min_left(k+1,sum==0)-1 finds inclusive predecessor, zero result becomes -1. No overflow of sum at N limit.",
+    "source": "src/compact/segtree.hpp",
+    "source_driver": "verify/library_checker/predecessor_problem.compact.cpp",
+    "implementation": "implemented_online_scoped",
+    "tested_api": [
+      "construction",
+      "set",
+      "get",
+      "max_right",
+      "min_left"
+    ],
+    "ac": "https://judge.yosupo.jp/submission/402089",
+    "ranking": {
+      "status": "verified_all_ac_submissions",
+      "rank": 687,
+      "total": 2582,
+      "scope": "All users and languages, AC only, user dedup disabled; not all verdicts.",
+      "url": "https://judge.yosupo.jp/submissions/?problem=predecessor_problem&user=&dedupUser=false&status=AC&lang=&order=%2Btime&page=6&pagesize=100"
+    },
+    "remaining": "prod/all not invoked. Noncommutative boundary order locally verified separately."
   }
 ]
