@@ -3,6 +3,12 @@
 #include "set_convolution.hpp"
 #include "recurrence.hpp"
 
+namespace polynomial_detail
+{
+inline constexpr auto bm = berlekamp_massey;
+inline constexpr auto nth = recurrence_nth;
+} // namespace polynomial_detail
+
 // Compatibility entry; the handbook prints the independently classified modules.
 struct Polynomial : FpsFunctions
 {
@@ -15,7 +21,7 @@ struct Polynomial : FpsFunctions
     {
         vector<int> a;
         for (auto x : s) a.push_back(x.v);
-        auto c = ::berlekamp_massey(a, mod);
+        auto c = polynomial_detail::bm(a, mod);
         return Poly(c.begin(), c.end());
     }
 
@@ -30,6 +36,6 @@ struct Polynomial : FpsFunctions
             a.push_back(init[i].v);
             b.push_back(c[i].v);
         }
-        return ::recurrence_nth(a, b, n, mod);
+        return polynomial_detail::nth(a, b, n, mod);
     }
 };

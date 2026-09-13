@@ -10,6 +10,11 @@ using namespace std;
 #include "floor_sum.hpp"
 
 // Compatibility entry; handbook components are classified independently.
+namespace number_theory_detail
+{
+inline constexpr auto floor_sum_fn = floor_sum;
+}
+
 struct NumberTheory : Prime64
 {
     using ll = long long;
@@ -24,7 +29,10 @@ struct NumberTheory : Prime64
 
     static bool crt(ll &r, ll &m, ll b, ll n) { return crt_merge(r, m, b, n); }
 
-    static i128 floor_sum(ll n, ll m, ll a, ll b) { return ::floor_sum(n, m, a, b); }
+    static i128 floor_sum(ll n, ll m, ll a, ll b)
+    {
+        return number_theory_detail::floor_sum_fn(n, m, a, b);
+    }
 };
 
 struct PollardRho

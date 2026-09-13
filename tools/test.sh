@@ -13,6 +13,9 @@ export CPC_SANITIZE="${SANITIZE:-0}"
 flags=(-std=c++20 -O2 -Wall -Wextra)
 if [[ -d /opt/homebrew/include/boost ]]; then flags+=(-I/opt/homebrew/include); fi
 if [[ "${SANITIZE:-0}" == 1 ]]; then flags+=(-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer); fi
+"$CXX" "${flags[@]}" tests/namespace_number_theory.cpp -o build/namespace-number
+build/namespace-number
+
 "$CXX" "${flags[@]}" tests/property.cpp -o build/property
 build/property
 

@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T14:53:25.786783+00:00",
+  "recorded_at_utc": "2026-09-13T15:02:13.874004+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -317,7 +317,8 @@
       "GNU handbook examples: rope version isolation, PBDS duplicate ranks and gp/cc composition PASS",
       "CC associative driver: Python dictionary oracle, absent/stored zeros and 1e18 endpoints PASS",
       "Separated number theory: cpp_int modular oracle, trial primes, Bezout certificates, exhaustive residues and signed floor sums PASS",
-      "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS"
+      "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS",
+      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -610,7 +611,8 @@
       "GNU handbook examples: rope version isolation, PBDS duplicate ranks and gp/cc composition PASS",
       "CC associative driver: Python dictionary oracle, absent/stored zeros and 1e18 endpoints PASS",
       "Separated number theory: cpp_int modular oracle, trial primes, Bezout certificates, exhaustive residues and signed floor sums PASS",
-      "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS"
+      "LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS",
+      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -850,7 +852,7 @@
     "src/compact/modified_mo.hpp": "aefda6284d59cc2d57e046f3cca0f94b548abd968eabe6e35e8e8b1d6434040d",
     "src/compact/modular_sqrt.hpp": "49ccff6f0effb2d27d6d383b3ae7377cc8eb90d1337a3d98483cd3ef9514e3c0",
     "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
-    "src/compact/number_theory.hpp": "89eabb7d1cea4ae471430abfccf82f1c4633734b546fc0f259e001beae453801",
+    "src/compact/number_theory.hpp": "e71c866b118ab653d816e267b384691bbbfd2946d7ef21f3afec87002eb20b94",
     "src/compact/odd_cycle_vertices.hpp": "99a8be05b576fdca1f5d57620a140283d70f5f398d702c4e846a215f7e1ddb5d",
     "src/compact/offline_lca.hpp": "99c53fc625a5d595a1c09b188849bb09c2c7ba43f863af40f124e64775e010e0",
     "src/compact/optimization.hpp": "3cbefa26ecb0cddfd836587e9350ad214d6630f40b29697ce8a3d4e7a198c439",
@@ -861,7 +863,7 @@
     "src/compact/persistent_array.hpp": "9187d32b4aa443cf57347a17e7943a4d07cf086c142257763e925d80f9021982",
     "src/compact/persistent_distinct.hpp": "b72f294559b01aff1a06d7e0aa64bd57d7772e9337025eb2995a7359fe199deb",
     "src/compact/persistent_range.hpp": "108995c6654309946f3aae19e67c3d70ff8db468fc1311c5b274801507ed4cf8",
-    "src/compact/polynomial.hpp": "04a531d36d4c8864a666333fc6557c2aaf99fa09180d2b9527200a54d7feb32c",
+    "src/compact/polynomial.hpp": "7eadbd0a6a9c4ad4904e135b88330643271ae1f306a378dc84eefd0186c99b11",
     "src/compact/polynomial_shift.hpp": "d42e99cba55b21a3e4dd14a2d02979c05bcf06aeff6ecb70650dec2528a9ceae",
     "src/compact/position_basis.hpp": "ca1efe2f60afdd4786a9832d187a09720b97a8eece21d7af895e172075d4a439",
     "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
@@ -1091,6 +1093,7 @@
     "tests/modint_composition.cpp": "685f6eb3ce4a183216ae1fb6a6f63e2fa294ad6acb717cf6f730629e8612d0ce",
     "tests/modular_sqrt.cpp": "db36b638f77a9e71f669e7c5c7833572e2044bc5666bab2b4ae90674809ea473",
     "tests/modular_sqrt_application.py": "12f6189b438cdb2636ca7d5a99a0ea01ada1d7ea30e51dc5966255542b1ddda4",
+    "tests/namespace_number_theory.cpp": "7e120dcb28df8af6eb65255bb50825b260e7335ade472e1d7c48d84fef78d1e4",
     "tests/ntt_convolution.cpp": "a61158717fc678d925a151e490ffdb1fd8ea00e9970638036eaccd97d22f3a09",
     "tests/number_components.cpp": "6c9321749d2cfea05c77280e22aff5c1a60bdd609563ab0dca691cc35ee57fa4",
     "tests/odd_cycle_vertices.cpp": "543d8b175b1a23f5682e8dbe25cf233721e1ab6f839b6700285ce827099d20ac",
