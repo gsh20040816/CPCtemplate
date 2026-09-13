@@ -27,4 +27,17 @@ for n in [1,2,17,100]:
  result=subprocess.run([str(exe)],input='\n'.join(lines)+'\n',text=True,capture_output=True,check=True)
  assert result.stdout.split()==expected
  assert not result.stderr
+# Maximum-size alternating translations: independent closed-form prefix sums.
+n=q=500000
+lines=[f'{n} {q}', *['1 1']*n]
+expected=[]
+# All functions remain translations; one changed position has a known delta.
+for i in range(q//2):
+ pos=i%n
+ lines.append(f'0 {pos} 1 2')
+ lines.append(f'1 0 {n} {i}')
+ expected.append(str((i+n+i+1)%p))
+result=subprocess.run([str(exe)],input='\n'.join(lines)+'\n',text=True,capture_output=True,check=True)
+assert result.stdout.split()==expected
+assert not result.stderr
 print('Point-set range-composite driver: direct sequential function evaluation oracle PASS')

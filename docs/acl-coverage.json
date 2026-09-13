@@ -46,16 +46,14 @@
     {
       "module": "segtree",
       "category": "数据结构",
-      "status": "已实现，边界搜索在线通过，函数复合待提交",
+      "status": "已实现，函数复合与边界搜索分别在线通过",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp",
       "reference_sha256": "6b959283e1faeaa3de5b473eee5e774220eee60a89fe4b483ce26e652532dabb",
       "local": [
         "src/compact/segtree.hpp"
       ],
-      "notes": "通用 op/e、set/get/prod/all、max_right/min_left 已实现；非交换字符串与独立扫描、50万叶及 ASan/UBSan 通过。函数复合驱动在线待提交。 Predecessor Problem 402089 AC：构造/set/get/max_right/min_left，22 点；prod/all 不在该题范围。",
-      "gaps": [
-        "函数复合驱动在线验证"
-      ]
+      "notes": "通用 op/e、set/get/prod/all、max_right/min_left 已实现；非交换字符串与独立扫描、50万叶及 ASan/UBSan 通过。函数复合驱动在线待提交。 Predecessor Problem 402089 AC：构造/set/get/max_right/min_left，22 点；prod/all 不在该题范围。 函数复合 402090 AC：构造/set/prod；all 和空区间本地验证。",
+      "gaps": []
     },
     {
       "module": "lazysegtree",

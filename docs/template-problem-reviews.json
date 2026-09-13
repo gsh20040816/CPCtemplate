@@ -1061,15 +1061,25 @@
     "adapter": "0-based point set and half-open prod. op(f,g)=g after f. Evaluate returned affine function at x. This driver does not invoke either boundary-search API.",
     "source": "src/compact/segtree.hpp",
     "source_driver": "verify/library_checker/point_set_range_composite.compact.cpp",
-    "implementation": "implemented_driver_local_verified_online_pending",
-    "tested_api": [],
-    "ac": null,
+    "implementation": "implemented_online_scoped",
+    "tested_api": [
+      "construction",
+      "set",
+      "prod"
+    ],
+    "ac": "https://judge.yosupo.jp/submission/402090",
     "ranking": {
-      "status": "not_checked",
-      "rank": null,
-      "total": null
+      "status": "verified_all_ac_submissions",
+      "rank": 454,
+      "total": 2914,
+      "tied_positions": [
+        454,
+        455
+      ],
+      "scope": "All AC submissions, all users/languages, dedup disabled; excludes non-AC verdicts.",
+      "url": "https://judge.yosupo.jp/submissions/?problem=point_set_range_composite&user=&dedupUser=false&status=AC&lang=&order=%2Btime&page=4&pagesize=100"
     },
-    "remaining": "Online submission and rank pending. Boundary search has separate local string/scan evidence only."
+    "remaining": "all() and empty-range output remain local evidence. Boundary searches verified separately by predecessor_problem."
   },
   {
     "symbol": "segtree",
