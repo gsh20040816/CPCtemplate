@@ -147,7 +147,7 @@ struct MinCostFlow
     ll used(int id) const { return e[id].initial - e[id].cap; }
 
     // Negative costs allowed; initial residual graph must have no negative cycle.
-    pair<ll, i128> flow(int s, int t, ll limit = LLONG_MAX)
+    pair<ll, i128> run(int s, int t, ll limit, vector<pair<ll, i128>> *curve)
     {
         assert(s != t && limit >= 0);
         const i128 inf = i128(1) << 120;
@@ -168,6 +168,7 @@ struct MinCostFlow
         }
         ll f = 0;
         i128 cost = 0;
+        optional<i128> last;
         while (f < limit)
         {
             fill(d.begin(), d.end(), inf);
@@ -207,8 +208,27 @@ struct MinCostFlow
                 cost += i128(take) * e[id].cost;
             }
             f += take;
+            if (curve)
+            {
+                i128 unit = h[t] - h[s];
+                if (last && *last == unit) curve->pop_back();
+                curve->push_back({f, cost});
+                last = unit;
+            }
         }
         return {f, cost};
+    }
+
+    pair<ll, i128> flow(int s, int t, ll limit = LLONG_MAX)
+    {
+        return run(s, t, limit, nullptr);
+    }
+
+    vector<pair<ll, i128>> slope(int s, int t, ll limit = LLONG_MAX)
+    {
+        vector<pair<ll, i128>> curve{{0, 0}};
+        run(s, t, limit, &curve);
+        return curve;
     }
 };
 

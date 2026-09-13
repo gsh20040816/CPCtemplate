@@ -394,3 +394,7 @@ python3 tests/dynamic_batch_application.py
 
 "$CXX" "${flags[@]}" tests/flow_edges.cpp -o build/flow_edges
 build/flow_edges
+
+"$CXX" "${flags[@]}" tests/flow_slope.cpp -o build/flow_slope
+build/flow_slope
+python3 tests/flow_slope_application.py

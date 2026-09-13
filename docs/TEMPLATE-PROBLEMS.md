@@ -31,7 +31,7 @@
 | `Lowlink::add/run/bridge` | [QOJ 995](https://qoj.ac/problem/995) | n<=100000; m<=500000; 1s; 1-based | 待编写驱动/提交 | 待核验 |
 | `Lowlink::add/run/cut` | [QOJ 996](https://qoj.ac/problem/996) | n<=20000; m<=100000; 0.5s; 1-based | 待编写驱动/提交 | 待核验 |
 | `Dinic::add/flow` | [Luogu P3376](https://www.luogu.com.cn/problem/P3376) | n<=200; m<=5000; 0<=capacity<2^31 | [记录](https://www.luogu.com.cn/record/297501480) | 待核验 |
-| `MinCostFlow::add/flow` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000; m<=50000; capacity,cost<=1000; result<=2^31-1 | 待编写驱动/提交 | 待核验 |
+| `MinCostFlow::slope` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000; m<=50000; capacity,cost<=1000; result<=2^31-1 | 待编写驱动/提交 | 待核验 |
 | `Biconnected::add/run/blocks` | [Luogu P8435](https://www.luogu.com.cn/problem/P8435) | n<=500000; m<=2000000 | [记录](https://www.luogu.com.cn/record/297517446) | 待核验 |
 | `Biconnected::add/run/bel` | [Luogu P8436](https://www.luogu.com.cn/problem/P8436) | n<=500000; m<=2000000; multigraph | [记录](https://www.luogu.com.cn/record/297519028) | 待核验 |
 | `BipartiteMatching::add/solve` | [Luogu P3386](https://www.luogu.com.cn/problem/P3386) | 1<=n,m<=500; edges<=50000; parallel edges allowed | 待编写驱动/提交 | 待核验 |
@@ -275,9 +275,9 @@ run 后扫描 cut[1..n]，先输出数量，再按顶点编号递增输出。必
 
 标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
 
-输出 flow(s,t) 返回的流量、费用，顺序不可反。原始费用非负，且题目不允许自环；不能用此题证明负费用边、负环处理或超大费用范围。库费用累加为 int128，驱动打印须与题目数值界兼容。
+输出 flow(s,t) 返回的流量、费用，顺序不可反。原始费用非负，且题目不允许自环；不能用此题证明负费用边、负环处理或超大费用范围。库费用累加为 int128，驱动打印须与题目数值界兼容。 新驱动输出 slope 最后一个折点，仅验证终点，不覆盖中间曲线。
 
-完整驱动、在线验证及速度榜口径仍待核验。
+完整 slope 终点驱动已通过独立边流枚举，线上和排名待核验。中间折点以独立曲线测试验证。
 
 ### Luogu P8435 / Biconnected
 

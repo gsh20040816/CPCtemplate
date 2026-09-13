@@ -292,11 +292,21 @@ Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新
 
 \lstinputlisting[firstline=72,lastline=118,firstnumber=67]{../src/compact/flow.hpp}
 
+\newpage
+
 \section{势能最小费用最大流}\label{compact-MinCostFlow}\index{MinCostFlow}
 
-add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 位费用，used(id) 返回原边流量。允许负费用，初始残量网络必须没有负环；检测到负环抛异常。Bellman-Ford 初始化 O(VE)，每次增广 O(E log V)；增广次数不能简单假设为 O(V)。 另要求 $\sum$(cap×|cost|)<2\textasciicircum{}120，防止总费用超过 int128。
+add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 位费用，used(id) 返回原边流量。允许负费用，初始残量网络必须没有负环；检测到负环抛异常。Bellman-Ford 初始化 O(VE)，每次增广 O(E log V)；增广次数不能简单假设为 O(V)。 另要求 $\sum$(cap×|cost|)<2\textasciicircum{}120，防止总费用超过 int128。 slope(s,t,limit) 返回从 (0,0) 开始的本次新增流量/费用折点，相邻同斜率段合并，费用为 int128。无增广时只返回起点；每个整数流量的费用可在线性段内插值。重复调用仍用同源汇，返回值不是历史累计值。flow 不存储曲线；slope 额外空间为折点数。内部 run 不是用户接口。新曲线接口仅本地验证，P3381 驱动只输出终点，不能据此验证全部中间折点。
 
-\lstinputlisting[firstline=119,lastline=214]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=119,lastline=148,firstnumber=1]{../src/compact/flow.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=149,lastline=197,firstnumber=31]{../src/compact/flow.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=198,lastline=234,firstnumber=80]{../src/compact/flow.hpp}
 
 \Needspace{540pt}
 
@@ -304,7 +314,7 @@ add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 �
 
 add(u,v,lo,hi)，0$\le$lo$\le$hi；solve() 仅调用一次，返回可行性，仅成功后读取 used(id)。约束为每点流量守恒；不是带源汇最大流。所有上下界及其总和须在 long long 范围内。依赖 Dinic。
 
-\lstinputlisting[firstline=215,lastline=258]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=235,lastline=278]{../src/compact/flow.hpp}
 
 \chapter{最大权闭合子图}
 

@@ -15,7 +15,7 @@
 | kuangbin 4.4.2 Kosaraju | SCC / Strong_Component | 原图完成序、反图 DFS、分量归属、块大小 | 本地覆盖 |
 | kuangbin 4.4 总项 | 上述两种算法 | 两个子算法都有独立实现和对应测试 | 本地覆盖 |
 
-源码位于 [Tarjan 动态版](../src/compact/tarjan.hpp)、[传统版](../src/classic/tarjan.hpp)及 [graph 动态版](../src/compact/graph.hpp)、[传统版](../src/classic/graph.hpp)。
+当前只发布 vector 版；本页传统版名称保留为历史对照，链接指向退役前的固定版本，不表示恢复两套模板。源码位于 [Tarjan 动态版](../src/compact/tarjan.hpp)、[传统版](https://github.com/gsh20040816/CPCtemplate/blob/1a9fa3e91d7dff58915341040be069611370054c/src/classic/tarjan.hpp)及 [graph 动态版](../src/compact/graph.hpp)、[传统版](https://github.com/gsh20040816/CPCtemplate/blob/1a9fa3e91d7dff58915341040be069611370054c/src/classic/graph.hpp)。
 
 `bel[u]` 在执行 run/Run 后是完整的分量映射；原文件的 `num/setNum/siz` 可按下面方式取得，不需要另写 SCC 算法：
 
@@ -25,7 +25,7 @@ for (int u = 1; u <= n; u++)
     size[graph.bel[u]]++;
 ```
 
-Tarjan 的跨分量边从大编号到小编号，Kosaraju 的跨分量边从小编号到大编号。不能把两者的编号大小含义互换。[tests/tarjan.cpp](../tests/tarjan.cpp)同时检查四个实现，用全对可达性作为分量参照，并检查编号方向、缩点边及重复运行；覆盖四点有向图的全部边子集及随机重边图。上述有向 SCC 仍没有独立在线 AC 记录，点双/边双题通过不能替代它。
+Tarjan 的跨分量边从大编号到小编号，Kosaraju 的跨分量边从小编号到大编号。不能把两者的编号大小含义互换。[tests/tarjan.cpp](../tests/tarjan.cpp)同时检查四个实现，用全对可达性作为分量参照，并检查编号方向、缩点边及重复运行；覆盖四点有向图的全部边子集及随机重边图。TarjanSCC 已有 [QOJ906 AC 2940638](https://qoj.ac/submission/2940638)，驱动验证 add/run/bel 并反转分量顺序输出拓扑序；dag 和派生块大小仍仅有本地证据。此记录不验证 Kosaraju，也不由点双/边双题替代。
 
 ## 双连通分量
 

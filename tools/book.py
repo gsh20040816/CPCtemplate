@@ -57,7 +57,7 @@ for style in ['compact']:
             if name == 'mixed_euler_orientation':
                 split = next((i for i in range(start, end) if '!edges.empty()' in lines[i]))
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name == 'release_bfs':
+            if name in ('release_bfs', 'MinCostFlow'):
                 body.append('\\newpage')
             if name in ('DirectedEuler', 'UndirectedEuler'):
                 split = next((i for i in range(start, end) if re.match('    bool (run|Run)\\(', lines[i]))) - 1
@@ -322,6 +322,12 @@ for style in ['compact']:
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'MinCostFlow':
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['// Negative costs allowed', 'if (d[t] == inf)']] + [end]
+                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
+                    if j:
+                        body.append('\\newpage')
+                    body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'Dinic':
                 cuts = [start, next(i for i in range(start, end) if 'bool bfs(' in lines[i]), next(i for i in range(start, end) if '// Returns additional flow' in lines[i]), end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):

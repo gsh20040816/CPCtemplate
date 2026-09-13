@@ -662,10 +662,10 @@
     "statement_checked": true,
     "checked_date": "2026-09-12",
     "limits": "n<=5000; m<=50000; capacity,cost<=1000; result<=2^31-1",
-    "adapter": "输出 flow(s,t) 返回的流量、费用，顺序不可反。原始费用非负，且题目不允许自环；不能用此题证明负费用边、负环处理或超大费用范围。库费用累加为 int128，驱动打印须与题目数值界兼容。",
-    "implementation": "existing",
+    "adapter": "输出 flow(s,t) 返回的流量、费用，顺序不可反。原始费用非负，且题目不允许自环；不能用此题证明负费用边、负环处理或超大费用范围。库费用累加为 int128，驱动打印须与题目数值界兼容。 新驱动输出 slope 最后一个折点，仅验证终点，不覆盖中间曲线。",
+    "implementation": "implemented_slope_endpoint_driver_local_verified",
     "source": "src/compact/flow.hpp",
-    "api": "add/flow",
+    "api": "slope",
     "candidate_api": [
       "add",
       "flow"
@@ -677,7 +677,8 @@
       "rank": null,
       "total": null
     },
-    "remaining": "完整驱动、在线验证及速度榜口径仍待核验。"
+    "remaining": "完整 slope 终点驱动已通过独立边流枚举，线上和排名待核验。中间折点以独立曲线测试验证。",
+    "source_driver": "verify/luogu/P3381.slope.compact.cpp"
   },
   {
     "symbol": "Biconnected",
