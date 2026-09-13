@@ -318,10 +318,22 @@
     "依赖 number_theory.hpp。模数固定 998244353，乘法结果长度≤2²³；inverse 要求 a[0]≠0，log 要求 a[0]=1，exp 要求 a[0]=0，截断长度 n>0。朴素逐层 NTT 实现的 FPS 为 O(n log n)。FWT 的 op 为 ^、|、&；独立且支持其他模数的接口见 SetConvolution。BM 返回 s[n]=Σc[i-1]s[n-i] 的系数；recurrence 用 O(k² log n) 求第 n 项。BM 对有限样本给出的递推不自动保证未知后续项成立。"
   ],
   [
-    "algebra",
-    "LinearAlgebra",
-    "模高斯消元、行列式、矩阵树定理",
-    "素数模数。solve(a,n) 输入增广矩阵，返回 consistent、rank、特解 particular 和零空间基 kernel。determinant(empty)=1。spanning_trees(n,edges) 使用 0-based 无向图，允许重边，忽略自环；返回生成树数模 p。高斯与行列式 O(n³)，矩阵幂 O(n³ log e)。"
+    "gauss_mod",
+    "GaussMod",
+    "素数模高斯消元与全部解",
+    "GaussMod<p>::solve(a,n) 接收 m 行 n+1 列增广矩阵，p 必须是素数，n≥0。返回 consistent、系数矩阵秩 rank、特解 particular 和零空间基 kernel；解为特解加基向量的任意线性组合。无解时解数组为空；空方程组需显式给出变量数。O(m n min(m,n)+n²) 时间，矩阵及解空间输出 O(mn+n²) 空间。只依赖 ModInt，不含行列式或矩阵树。"
+  ],
+  [
+    "det_prime",
+    "det_prime",
+    "素数模行列式",
+    "det_prime<p>(a) 输入 n×n 方阵，返回行列式模 p；p 必须是素数。允许奇异矩阵和零维矩阵，det(empty)=1。按行交换改变符号，主元求逆消元。O(n³) 时间、传值副本 O(n²) 空间，可传 move(a)。合数模数改用 determinant_mod。"
+  ],
+  [
+    "mod_matrix",
+    "ModMatrix",
+    "模矩阵乘法与幂",
+    "ModMatrix<p>::multiply(a,b) 计算 n×k 与 k×m 的矩阵积，要求非空且每行尺寸一致。power(a,e) 接收非空 n×n 方阵和 unsigned long long 指数；e=0 返回单位阵。只使用加乘，p 为≥2 的 int 模数，允许合数。矩阵乘法 O(nkm)，矩阵幂 O(n³ log(e+1))，额外空间 O(n²)；复用 ModInt。"
   ],
   [
     "determinant_mod",
@@ -333,7 +345,7 @@
     "matrix_tree",
     "MatrixTree",
     "带权矩阵树：无向树与内外向树形图",
-    "声明 MatrixTree<mod>，调用 count(n, edges, root, kind) 返回所有合法树的边权乘积之和，mod 必须是素数。Edge=(u,v,Z)，点号 0..n-1，n≥1；Kind::undirected 为无向生成树，toward_root 为每点沿边能到根，away_from_root 为根沿边能到每点。后两种使用输入边方向，不能混淆。重边按不同边计数，自环忽略；单点答案 1。支持模意义下的零权和负权，结果 0 不一定表示不存在树。无向图删除哪个根行列均可；有向图 root 决定答案。依赖 LinearAlgebra 的素数模行列式，O(n³+m) 时间、O(n²) 额外空间。"
+    "声明 MatrixTree<mod>，调用 count(n, edges, root, kind) 返回所有合法树的边权乘积之和，mod 必须是素数。Edge=(u,v,Z)，点号 0..n-1，n≥1；Kind::undirected 为无向生成树，toward_root 为每点沿边能到根，away_from_root 为根沿边能到每点。后两种使用输入边方向，不能混淆。重边按不同边计数，自环忽略；单点答案 1。支持模意义下的零权和负权，结果 0 不一定表示不存在树。无向图删除哪个根行列均可；有向图 root 决定答案。依赖 det_prime 的素数模行列式，O(n³+m) 时间、O(n²) 额外空间。"
   ],
   [
     "matrix_tree_mod",

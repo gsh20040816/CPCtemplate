@@ -1,10 +1,9 @@
 #pragma once
-#include "algebra.hpp"
+#include "det_prime.hpp"
 
 template <int mod> struct MatrixTree
 {
-    using A = LinearAlgebra<mod>;
-    using Z = typename A::Z;
+    using Z = ModInt<mod>;
     using Edge = tuple<int, int, Z>;
     enum class Kind
     {
@@ -17,7 +16,7 @@ template <int mod> struct MatrixTree
     static Z count(int n, const vector<Edge> &edges, int root, Kind kind)
     {
         assert(n >= 1 && root >= 0 && root < n);
-        typename A::Matrix lap(n - 1, vector<Z>(n - 1));
+        vector<vector<Z>> lap(n - 1, vector<Z>(n - 1));
         auto add = [&](int u, int v, Z w)
         {
             if (u == root) return;
@@ -33,6 +32,6 @@ template <int mod> struct MatrixTree
             add(u, v, w);
             if (kind == Kind::undirected) add(v, u, w);
         }
-        return A::determinant(lap);
+        return det_prime<mod>(move(lap));
     }
 };

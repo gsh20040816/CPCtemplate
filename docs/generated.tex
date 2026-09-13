@@ -358,7 +358,7 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 依赖 number\_theory.hpp 的求逆与快速幂。solve(a,b,m) 返回最小 x$\ge$0 使 a\textasciicircum{}x$\equiv$b (mod m)，无解返回 -1；1$\le$m$\le$10$^{12}$，a、b 可为完整 long long 范围，入口归一化，约定 0\textasciicircum{}0=1。先剥离 gcd 并逐次检查较小指数，再在互质剩余问题上 BSGS。baby 表对同余幂保留最小指数 j，按递增大步 i 检查区间，因此首个命中即最小解。单次期望时间 O($\sqrt{\vphantom x}$m+log m)，空间 O($\sqrt{\vphantom x}$m)，哈希表先 reserve；基于 unordered\_map 的界为期望界。每次调用独立建表；底数 1 及零指数解直接返回。
 
-\lstinputlisting[firstline=171,lastline=213]{../src/compact/algebra.hpp}
+\lstinputlisting[firstline=80,lastline=122]{../src/compact/algebra.hpp}
 
 \section{高次剩余 \& 单位根}
 
@@ -430,7 +430,7 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 构造预筛上限 1$\le$B<INT\_MAX，内存须可用；mertens(n) 返回 $\mu$ 的前缀和，totient\_sum(n) 返回 $\varphi$ 的前缀和（int128）。约定 0$\le$n$\le$10$^{11}$，n=0 返回 0。按整除分块递归并写入 mmu/mphi 缓存；重复查询复用结果，清空缓存可重算，不可修改 pmu/pphi/limit。单次最大参数 N 的常用均摊分析为 O(B+N/$\sqrt{\vphantom x}$B)（哈希按期望常数计算），B 约 N\textasciicircum{}(2/3) 时为 O(N\textasciicircum{}(2/3))；小 B 不构成大输入性能保证。多次不同 N 可能新增缓存，空间随实际缓存增长；递归深度 O(log N)。
 
-\lstinputlisting[firstline=124,lastline=170]{../src/compact/algebra.hpp}
+\lstinputlisting[firstline=33,lastline=79]{../src/compact/algebra.hpp}
 
 \section{类欧几里德算法}
 
@@ -596,6 +596,14 @@ Partitions(N,mod) 求无序正整数分拆，0$\le$N<INT\_MAX、1$\le$mod$\le$IN
 
 \section{矩阵}
 
+\Needspace{391pt}
+
+\subsection{模矩阵乘法与幂}\label{compact-ModMatrix}\index{ModMatrix}
+
+ModMatrix<p>::multiply(a,b) 计算 n×k 与 k×m 的矩阵积，要求非空且每行尺寸一致。power(a,e) 接收非空 n×n 方阵和 unsigned long long 指数；e=0 返回单位阵。只使用加乘，p 为$\ge$2 的 int 模数，允许合数。矩阵乘法 O(nkm)，矩阵幂 O(n$^{3}$ log(e+1))，额外空间 O(n$^{2}$)；复用 ModInt。
+
+\lstinputlisting[firstline=4,lastline=31]{../src/compact/mod_matrix.hpp}
+
 \Needspace{449pt}
 
 \subsection{Max-plus 矩阵幂}\label{compact-MaxPlusMatrix}\index{MaxPlusMatrix}
@@ -605,6 +613,14 @@ a[i][j] 为转移收益，不存在的边为 neg；power(k) 求恰好 k 步的�
 \lstinputlisting[firstline=6,lastline=40]{../src/compact/optimization.hpp}
 
 \section{行列式}
+
+\Needspace{371pt}
+
+\subsection{素数模行列式}\label{compact-det_prime}\index{det\_prime}
+
+det\_prime<p>(a) 输入 n×n 方阵，返回行列式模 p；p 必须是素数。允许奇异矩阵和零维矩阵，det(empty)=1。按行交换改变符号，主元求逆消元。O(n$^{3}$) 时间、传值副本 O(n$^{2}$) 空间，可传 move(a)。合数模数改用 determinant\_mod。
+
+\lstinputlisting[firstline=5,lastline=31]{../src/compact/det_prime.hpp}
 
 \Needspace{480pt}
 
@@ -680,11 +696,17 @@ XorWalk(n) 建图，点号 1..n，边权为 unsigned long long，支持完整 64
 
 \section{高斯消元}
 
-\subsection{模高斯消元、行列式、矩阵树定理}\label{compact-LinearAlgebra}\index{LinearAlgebra}
+\Needspace{639pt}
 
-素数模数。solve(a,n) 输入增广矩阵，返回 consistent、rank、特解 particular 和零空间基 kernel。determinant(empty)=1。spanning\_trees(n,edges) 使用 0-based 无向图，允许重边，忽略自环；返回生成树数模 p。高斯与行列式 O(n$^{3}$)，矩阵幂 O(n$^{3}$ log e)。
+\subsection{素数模高斯消元与全部解}\label{compact-GaussMod}\index{GaussMod}
 
-\lstinputlisting[firstline=4,lastline=123]{../src/compact/algebra.hpp}
+GaussMod<p>::solve(a,n) 接收 m 行 n+1 列增广矩阵，p 必须是素数，n$\ge$0。返回 consistent、系数矩阵秩 rank、特解 particular 和零空间基 kernel；解为特解加基向量的任意线性组合。无解时解数组为空；空方程组需显式给出变量数。O(m n min(m,n)+n$^{2}$) 时间，矩阵及解空间输出 O(mn+n$^{2}$) 空间。只依赖 ModInt，不含行列式或矩阵树。
+
+\lstinputlisting[firstline=4,lastline=40]{../src/compact/gauss_mod.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=41,lastline=55,firstnumber=38]{../src/compact/gauss_mod.hpp}
 
 \chapter{Berlekamp–Massey 算法}
 
@@ -1372,13 +1394,13 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 
 \chapter{矩阵树定理}
 
-\Needspace{484pt}
+\Needspace{473pt}
 
 \section{带权矩阵树：无向树与内外向树形图}\label{compact-MatrixTree}\index{MatrixTree}
 
-声明 MatrixTree<mod>，调用 count(n, edges, root, kind) 返回所有合法树的边权乘积之和，mod 必须是素数。Edge=(u,v,Z)，点号 0..n-1，n$\ge$1；Kind::undirected 为无向生成树，toward\_root 为每点沿边能到根，away\_from\_root 为根沿边能到每点。后两种使用输入边方向，不能混淆。重边按不同边计数，自环忽略；单点答案 1。支持模意义下的零权和负权，结果 0 不一定表示不存在树。无向图删除哪个根行列均可；有向图 root 决定答案。依赖 LinearAlgebra 的素数模行列式，O(n$^{3}$+m) 时间、O(n$^{2}$) 额外空间。
+声明 MatrixTree<mod>，调用 count(n, edges, root, kind) 返回所有合法树的边权乘积之和，mod 必须是素数。Edge=(u,v,Z)，点号 0..n-1，n$\ge$1；Kind::undirected 为无向生成树，toward\_root 为每点沿边能到根，away\_from\_root 为根沿边能到每点。后两种使用输入边方向，不能混淆。重边按不同边计数，自环忽略；单点答案 1。支持模意义下的零权和负权，结果 0 不一定表示不存在树。无向图删除哪个根行列均可；有向图 root 决定答案。依赖 det\_prime 的素数模行列式，O(n$^{3}$+m) 时间、O(n$^{2}$) 额外空间。
 
-\lstinputlisting[firstline=4,lastline=38]{../src/compact/matrix_tree.hpp}
+\lstinputlisting[firstline=4,lastline=37]{../src/compact/matrix_tree.hpp}
 
 \Needspace{485pt}
 

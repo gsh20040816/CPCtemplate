@@ -406,3 +406,6 @@ python3 tests/convolution_i64_application.py
 python3 tests/scc_sat_application.py
 
 python3 tests/lc_convolution_application.py
+
+"$CXX" "${flags[@]}" tests/algebra_components.cpp -o build/algebra-components
+build/algebra-components

@@ -1,106 +1,15 @@
 #pragma once
-#include "number_theory.hpp"
+#include "gauss_mod.hpp"
+#include "det_prime.hpp"
+#include "mod_matrix.hpp"
 
-template <int mod> struct LinearAlgebra
+// Compatibility entry for existing drivers; the handbook uses separate modules.
+template <int mod> struct LinearAlgebra : GaussMod<mod>, ModMatrix<mod>
 {
     using Z = ModInt<mod>;
     using Matrix = vector<vector<Z>>;
 
-    struct Solution
-    {
-        bool consistent;
-        int rank;
-        vector<Z> particular;
-        Matrix kernel;
-    };
-
-    // Augmented m x (n+1), prime modulus. Empty system needs explicit n.
-    static Solution solve(Matrix a, int n)
-    {
-        int m = (int)a.size(), row = 0;
-        vector<int> where(n, -1);
-        for (const auto &v : a) assert((int)v.size() == n + 1);
-        for (int col = 0; col < n && row < m; col++)
-        {
-            int p = row;
-            while (p < m && !a[p][col].v) ++p;
-            if (p == m) continue;
-            swap(a[p], a[row]);
-            Z inv = a[row][col].inv();
-            for (int j = col; j <= n; j++) a[row][j] = a[row][j] * inv;
-            for (int i = 0; i < m; i++)
-                if (i != row && a[i][col].v)
-                {
-                    Z f = a[i][col];
-                    for (int j = col; j <= n; j++) a[i][j] = a[i][j] - f * a[row][j];
-                }
-            where[col] = row++;
-        }
-        for (int i = row; i < m; i++)
-            if (a[i][n].v) return {false, row, {}, {}};
-        Solution ans{true, row, vector<Z>(n), {}};
-        for (int j = 0; j < n; j++)
-            if (where[j] != -1) ans.particular[j] = a[where[j]][n];
-        for (int j = 0; j < n; j++)
-            if (where[j] == -1)
-            {
-                vector<Z> v(n);
-                v[j] = 1;
-                for (int k = 0; k < n; k++)
-                    if (where[k] != -1) v[k] = Z(0) - a[where[k]][j];
-                ans.kernel.push_back(v);
-            }
-        return ans;
-    }
-
-    static Z determinant(Matrix a)
-    {
-        int n = (int)a.size();
-        Z ans = 1;
-        for (int i = 0; i < n; i++)
-        {
-            assert((int)a[i].size() == n);
-            int p = i;
-            while (p < n && !a[p][i].v) ++p;
-            if (p == n) return 0;
-            if (p != i)
-            {
-                swap(a[p], a[i]);
-                ans = Z(0) - ans;
-            }
-            ans = ans * a[i][i];
-            Z inv = a[i][i].inv();
-            for (int j = i + 1; j < n; j++)
-            {
-                Z f = a[j][i] * inv;
-                for (int k = i; k < n; k++) a[j][k] = a[j][k] - f * a[i][k];
-            }
-        }
-        return ans;
-    }
-
-    static Matrix multiply(const Matrix &a, const Matrix &b)
-    {
-        assert(!a.empty() && !b.empty());
-        int n = a.size(), m = b[0].size(), k = b.size();
-        assert((int)a[0].size() == k);
-        Matrix c(n, vector<Z>(m));
-        for (int i = 0; i < n; i++)
-            for (int t = 0; t < k; t++)
-                for (int j = 0; j < m; j++) c[i][j] = c[i][j] + a[i][t] * b[t][j];
-        return c;
-    }
-
-    static Matrix power(Matrix a, unsigned long long e)
-    {
-        int n = a.size();
-        assert(n > 0 && (int)a[0].size() == n);
-        Matrix r(n, vector<Z>(n));
-        for (int i = 0; i < n; i++) r[i][i] = 1;
-        for (; e; e >>= 1, a = multiply(a, a))
-            if (e & 1) r = multiply(r, a);
-        return r;
-    }
+    static Z determinant(Matrix a) { return det_prime<mod>(move(a)); }
 
     // Undirected multigraph, vertices 0..n-1; loops ignored.
     static Z spanning_trees(int n, const vector<pair<int, int>> &edges)

@@ -1,11 +1,11 @@
-#include "../../src/compact/algebra.hpp"
+#include "../../src/compact/gauss_mod.hpp"
 #include <iostream>
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    using A = LinearAlgebra<7>;
+    using A = GaussMod<7>;
     vector<string> days = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
     int n, m;
     while (cin >> n >> m && n)

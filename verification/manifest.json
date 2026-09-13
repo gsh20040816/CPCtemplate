@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T13:17:34.683003+00:00",
+  "recorded_at_utc": "2026-09-13T13:38:53.711954+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -308,7 +308,8 @@
       "Signed integer convolution: cpp_int oracle, certified primes/roots, int64 cancellation and large alternating triangles PASS",
       "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS",
       "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS",
-      "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS"
+      "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS",
+      "Separated algebra: exhaustive affine solution sets, permutation determinants, repeated-product matrices and uint64 composite-mod powers PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -592,7 +593,8 @@
       "Signed integer convolution: cpp_int oracle, certified primes/roots, int64 cancellation and large alternating triangles PASS",
       "P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS",
       "LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS",
-      "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS"
+      "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS",
+      "Separated algebra: exhaustive affine solution sets, permutation determinants, repeated-product matrices and uint64 composite-mod powers PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -763,7 +765,7 @@
   "sha256": {
     "src/compact/.clang-format": "42d22aa54114f0c08d145ea3e6e7647cd773ffc05b9cd67177a605c34c01214c",
     "src/compact/affine_segment_tree.hpp": "b5ab4a1c217952e1fb976ca3e3f9937d8bd4ea80b5bf901c477f4291f30b620f",
-    "src/compact/algebra.hpp": "569cd0b569567684c48865f4f40c0b6f7b7ef2cf399f1371a9cbff44fd7d691b",
+    "src/compact/algebra.hpp": "7ce05c600d1f8f98b381298c6bba9e4e63339bb27c51c9e64f9d58124248b4ee",
     "src/compact/basis_intersection.hpp": "4252e0b242a84e536de4f18d4af076bb3717a5490c7b26dbe96c3637bf970169",
     "src/compact/batch_inverse.hpp": "3dfd1f4f166e4d5abd6f8868533db223627c478b0c5490493afec559bda080ae",
     "src/compact/batch_units.hpp": "a2da600e0ed405238bdde470af923774e9b15b16a3ec7d66d24680bf9b5d1aec",
@@ -782,6 +784,7 @@
     "src/compact/coprime_pairs.hpp": "ea7f40732c06a85ce70bb3d63f5a220855a8e8d7462b18e3ef5cfb64e425482e",
     "src/compact/cut_tree_queries.hpp": "09ca5aec9e8308eaa0577e561858618656cb18f37b9c61130fa85d3ce41c8b4b",
     "src/compact/data_structure.hpp": "41a302fd87914867adb75d95a20430f2c7195ddfbc5d54646626187c5d262dac",
+    "src/compact/det_prime.hpp": "9fa02dbacf45b13e78517d088e901f2007f92b1556d3db468e4dcfd48678acdf",
     "src/compact/determinant_mod.hpp": "a0939bceed6db0bcbe174e426e52979c9ad49ef0547d717bbd7917bac39795a9",
     "src/compact/directed_euler.hpp": "32af4fef5ab3fb473b7424433b777d7b92825236f4b05cf8aa49db15b16db5b2",
     "src/compact/divisor_sum.hpp": "ced5f23db4f04b81a09146765a1022fcc5a0bc2ab4c84015ff12d63aa3ede9b8",
@@ -798,6 +801,7 @@
     "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
     "src/compact/functional_graph.hpp": "0a83e68dc49592adef845d9abe401f19bfa80ea72c4cacb23c12ca49114f2e7e",
     "src/compact/garner.hpp": "4c0daec9d92ccf740e2397ef5db6229795d9937a98d5c433ae56aebc313f3ec8",
+    "src/compact/gauss_mod.hpp": "852e697bfd7ef868caf6d20c06694813fb0df5b2fc11cfc2b0d7f684a78f2f05",
     "src/compact/gcd_sequence.hpp": "937662facef4ff9bddb14b9dbb2c20984a79920b8367f395fd362e2d77bf11c9",
     "src/compact/geometry.hpp": "c9b49800c722be4714f03ac08d224c3faf3b7753fd0d12f0267523bf8e41ee0f",
     "src/compact/geometry_extra.hpp": "0330483c3d563cf2730b397c3fcb45c75a0f933b943bddac3ef76c818a255cfa",
@@ -815,10 +819,11 @@
     "src/compact/linear_congruence.hpp": "19d11adefa899995795686020ca85e7081b7a95060877e0bc95e8b2053b41333",
     "src/compact/linear_equation.hpp": "5907ca42ab88dbfac940213d615cddc4a891e6fb455902e3a4f1beaf74250bca",
     "src/compact/lucas.hpp": "c2bff6649d45a3865dd0b255b1ca26f77b1aff1ca86385669c48cc09939ef99e",
-    "src/compact/matrix_tree.hpp": "2ca9ef955c9cc64b863c3ae3b2d1533562e460420f10a42d84b00c4e96fbafca",
+    "src/compact/matrix_tree.hpp": "c67fe9a5391cceac28b256eb7088e61a6bc1903ede3038228dcc04b2dcd23487",
     "src/compact/matrix_tree_mod.hpp": "9cece6021ce276867f2072c334a9589f600b1d27f12deca61f654451762ea038",
     "src/compact/maximum_closure.hpp": "2f12bf79f451cc1b651116d4e15b12d556a10a46de8ec8d4bf594f2468b2f221",
     "src/compact/mixed_euler.hpp": "ded1725c81a5f63986ccd483d283a15b1bcc7749fdb5d26cf787536ab69e87a1",
+    "src/compact/mod_matrix.hpp": "5f967172c90083e9a67815847d062c5e96d81f96a68d73493f8009531fa19efc",
     "src/compact/modified_mo.hpp": "aefda6284d59cc2d57e046f3cca0f94b548abd968eabe6e35e8e8b1d6434040d",
     "src/compact/modular_sqrt.hpp": "49ccff6f0effb2d27d6d383b3ae7377cc8eb90d1337a3d98483cd3ef9514e3c0",
     "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
@@ -935,6 +940,7 @@
     "tests/__pycache__/xor_walk_application.cpython-314.pyc": "17c96b2944248b535e5b166431dc176b0ba5b7e79ceefa510cd77c2bbe1cd86f",
     "tests/affine_segment_tree.cpp": "739c2a5cc83e1940f14c9b39dc0acbb02898cc6805c261c0fd852390de7dd2be",
     "tests/algebra.cpp": "8a5e1fe4f5515d376e5b3d6c2b620e784c07333cbe754a3268d5c7e8c52295bc",
+    "tests/algebra_components.cpp": "d779d81b1612d42fd50bbf3b97fcdf7926991484a117f83754aa4147432c291b",
     "tests/arborescence.cpp": "7879d560e0279e5f4ea3c8fc29105a5d78e587194f43fa78a9fda21cb0bebe33",
     "tests/basis_intersection.cpp": "fa79b34708d1115e88d37dfd3b7c8f71b151d47dab5935613013aa4ab4d1b956",
     "tests/basis_intersection_application.py": "91e8da417c0fa5db286c294a28a3c75bb357e4d5ce07583d95c8ad71a1a8e13e",

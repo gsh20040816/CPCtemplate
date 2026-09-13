@@ -1138,9 +1138,9 @@
       }
     },
     {
-      "symbol": "LinearAlgebra",
-      "title": "模高斯消元、行列式、矩阵树定理",
-      "source": "src/compact/algebra.hpp",
+      "symbol": "GaussMod",
+      "title": "素数模高斯消元与全部解",
+      "source": "src/compact/gauss_mod.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -1150,6 +1150,36 @@
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "det_prime",
+      "title": "素数模行列式",
+      "source": "src/compact/det_prime.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "ModMatrix",
+      "title": "模矩阵乘法与幂",
+      "source": "src/compact/mod_matrix.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

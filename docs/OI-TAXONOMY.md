@@ -63,6 +63,8 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | stirling_second_row | 数学 → 组合数学 → 斯特林数 | direct |  |
 | Partitions | 数学 → 组合数学 → 分拆数 | direct |  |
 | MaxPlusMatrix | 数学 → 线性代数 → 矩阵 | application | max-plus 半环矩阵；不是普通域矩阵运算。 |
+| ModMatrix | 数学 → 线性代数 → 矩阵 | direct |  |
+| det_prime | 数学 → 线性代数 → 行列式 | direct |  |
 | determinant_mod | 数学 → 线性代数 → 行列式 | direct |  |
 | PositionBasis | 数学 → 线性代数 → 线性基 | direct |  |
 | XorBasis | 数学 → 线性代数 → 线性基 | direct |  |
@@ -70,7 +72,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | basis_intersection | 数学 → 线性代数 → 线性基 | direct |  |
 | basis_sum_intersection | 数学 → 线性代数 → 线性基 | direct |  |
 | Lagrange | 数学 → 数值算法 → 插值 | direct |  |
-| LinearAlgebra | 数学 → 数值算法 → 高斯消元 | composite | 模高斯消元、行列式、矩阵树横跨数值算法、线性代数和图论。 |
+| GaussMod | 数学 → 数值算法 → 高斯消元 | direct |  |
 | berlekamp_massey | 数学 → Berlekamp–Massey 算法 | direct |  |
 | gp_map | 数据结构 → 哈希表 | application | GNU 哈希表组件，保留 GNU 扩展依赖。 |
 | RollbackDSU | 数据结构 → 并查集 → 并查集 | direct |  |
