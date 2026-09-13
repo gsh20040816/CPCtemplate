@@ -132,22 +132,52 @@
     "extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts() 返回 endpos 次数且不修改结构，可重复调用。状态 a，初始状态 0，link 根为 -1；空间 O(26n)，构建 O(26n)。"
   ],
   [
-    "number_theory",
-    "NumberTheory",
-    "模运算、素性、CRT 与类欧几里德",
-    "mul/power 支持无符号 64 位正模数，乘积用 uint128。prime 使用确定性 64 位底数。inverse(a,m) 无逆元返回 -1。crt(r,m,b,n) 合并 x≡r (mod m) 与 x≡b (mod n)，要求 m,n>0。从 r=0、m=1 开始逐项合并；成功后 r 为最小非负解、m 为最小正周期。余数允许完整 long long 范围。无解返回 false；有解但新周期超过 LLONG_MAX 抛 overflow_error。两种失败都会先将 r 归一化，m 不变；失败后不能继续当作完整解使用。递归 exgcd 和乘法中间量用 int128，单次 O(log min(m,n))，抄写 CRT 时只需类型别名、exgcd 和 crt。floor_sum 为 i=0..n-1 的 floor((ai+b)/m) 之和，支持负 a、b，返回 int128；约定 n≤10⁹、m≤10⁹，a、b 为有符号 64 位。 exgcd 单独调用约定 0≤a,b≤2^63，输出 int128 系数满足 ax+by=gcd(a,b)，(0,0) 返回 0；有符号方程用 linear_equation。"
+    "mod64",
+    "Mod64",
+    "无符号64位模乘与模幂",
+    "Mod64::mul(a,b,m) 与 power(a,e,m)，a、b、e 支持完整 unsigned long long，m 为非零无符号64位模数。乘积用 uint128 后取模，不通过浮点近似；m=1 返回0，e=0 返回1 mod m。mul 为 O(1)，power 为 O(log(e+1)) 次模乘、O(1) 空间。它也是64位判素的底层组件。"
+  ],
+  [
+    "prime64",
+    "Prime64",
+    "确定性64位 Miller–Rabin 判素",
+    "Prime64::prime(n) 接收完整 unsigned long long，n<2 返回 false。先试除小素数，再使用2、325、9375、28178、450775、9780504、1795265022七个底数，结果在64位输入范围内确定。继承 Mod64，模乘用 uint128；O(log n) 次模乘，O(1) 空间，不包含因数分解。"
+  ],
+  [
+    "extended_gcd",
+    "extended_gcd",
+    "扩展欧几里得与 Bézout 系数",
+    "extended_gcd(a,b,x,y) 约定0≤a,b≤2^63，参数和输出系数为 int128，返回非负 gcd 并满足 ax+by=gcd(a,b)。a=b=0 返回0、x=1、y=0；有符号线性方程用 linear_equation。递归实现，中间乘加为 int128；O(log(min(a,b)+1)) 时间与递归空间。"
+  ],
+  [
+    "mod_inverse",
+    "mod_inverse",
+    "任意正模数的单个逆元",
+    "mod_inverse(a,m) 支持完整 long long a 和正 long long m，将 a 规范化后用 extended_gcd 求逆。不可逆返回-1，可逆返回0..m-1内的代表；模数1返回0。允许合数模数，不使用费马小定理。O(log m) 时间与递归空间。"
+  ],
+  [
+    "crt_merge",
+    "crt_merge",
+    "广义 CRT：逐项合并同余",
+    "crt_merge(r,m,b,n) 合并 x≡r (mod m) 与 x≡b (mod n)，m,n>0，r、m须为不同变量。从r=0、m=1开始逐项合并；成功后r为最小非负解、m为最小正周期。余数支持完整long long。无解返回false；有解但新周期超过LLONG_MAX抛overflow_error。两种失败都会先规范化r，m不变，失败后不能视为完整解。依赖 extended_gcd，中间量用int128；O(log min(m,n)) 时间与递归空间。"
+  ],
+  [
+    "floor_sum",
+    "floor_sum",
+    "有符号整除和：类欧几里德",
+    "floor_sum(n,m,a,b) 返回 i=0..n-1 的 floor((ai+b)/m) 之和，结果为 int128。要求0≤n≤10^9、1≤m≤10^9，a、b支持完整long long；n=0返回0。先按数学向下取整规范化负系数，再迭代交换分母和余数；不能把C++负数截零除法当作floor。O(log m) 时间、O(1) 空间，不依赖完整数论模块。"
   ],
   [
     "linear_equation",
     "linear_equation",
     "二元一次不定方程",
-    "linear_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解。a、b、c 支持完整 long long，x、y 必须为 int128。无解返回 false 且 x=y=0；a=b=c=0 返回 true、x=y=0，此时所有整数对都是解。其他有解情况，令 g=gcd(|a|,|b|)，通解为 (x+(b/g)t,y-(a/g)t)。依赖 NumberTheory::exgcd；只需抄递归 exgcd 与本函数。时间、递归空间 O(log M)，其中 M=max(|a|,|b|)+2；不承诺特解最小或为正。"
+    "linear_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解。a、b、c 支持完整 long long，x、y 必须为 int128。无解返回 false 且 x=y=0；a=b=c=0 返回 true、x=y=0，此时所有整数对都是解。其他有解情况，令 g=gcd(|a|,|b|)，通解为 (x+(b/g)t,y-(a/g)t)。依赖 extended_gcd；只需抄递归 exgcd 与本函数。时间、递归空间 O(log M)，其中 M=max(|a|,|b|)+2；不承诺特解最小或为正。"
   ],
   [
     "linear_congruence",
     "linear_congruence",
     "线性同余方程",
-    "linear_congruence(a,b,m) 求 a*x+b≡0 (mod m)，返回 {最小非负解,最小正周期}，无解返回 {-1,-1}。m 为正 long long，a、b 支持完整 long long。若 g=gcd(a,m) 整除 b，周期为 m/g；包括 a=0 和 m=1，所有整数均满足时返回 {0,1}。先归一化 a，并在 int128 中对 b 取相反数和乘法。依赖 NumberTheory::exgcd；递归时间、空间 O(log(m+1))。注意本接口的常数项是 +b，若题目写 a*x≡c，应传 -c；c 为 LLONG_MIN 时须避免在 64 位中取负。"
+    "linear_congruence(a,b,m) 求 a*x+b≡0 (mod m)，返回 {最小非负解,最小正周期}，无解返回 {-1,-1}。m 为正 long long，a、b 支持完整 long long。若 g=gcd(a,m) 整除 b，周期为 m/g；包括 a=0 和 m=1，所有整数均满足时返回 {0,1}。先归一化 a，并在 int128 中对 b 取相反数和乘法。依赖 extended_gcd；递归时间、空间 O(log(m+1))。注意本接口的常数项是 +b，若题目写 a*x≡c，应传 -c；c 为 LLONG_MIN 时须避免在 64 位中取负。"
   ],
   [
     "segmented_sieve",
@@ -159,7 +189,7 @@
     "batch_inverse",
     "batch_inverse",
     "任意数组的批量逆元",
-    "batch_inverse(a,mod) 返回与 a 同序的逆元向量。要求 mod 为正 long long，每个输入可为完整 long long；只要某一项与 mod 不互素，整个结果返回 nullopt，不输出部分逆元。空输入返回有效的空向量；模数 1 约定返回全零，与单个逆元接口一致。模数可以是合数。函数按值接收数组并归一化；不再需要原数组时传 move(a) 可避免输入副本。依赖 NumberTheory 的 inverse 和 exgcd。仅求一次逆元，时间 O(n+log mod)，空间 O(n)；128 位中间乘法防止溢出。"
+    "batch_inverse(a,mod) 返回与 a 同序的逆元向量。要求 mod 为正 long long，每个输入可为完整 long long；只要某一项与 mod 不互素，整个结果返回 nullopt，不输出部分逆元。空输入返回有效的空向量；模数 1 约定返回全零，与单个逆元接口一致。模数可以是合数。函数按值接收数组并归一化；不再需要原数组时传 move(a) 可避免输入副本。依赖 mod_inverse 和 extended_gcd。仅求一次逆元，时间 O(n+log mod)，空间 O(n)；128 位中间乘法防止溢出。"
   ],
   [
     "inverse_table",
@@ -171,13 +201,13 @@
     "garner",
     "garner",
     "Garner：大周期 CRT 与混合进制",
-    "garner_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garner(b,moduli,target) 返回最小非负 CRT 解对 target 的余数。两个输入向量等长，长度可为 0；模数为正且两两互素，允许模数 1，余数支持完整 long long 范围。target 为正 long long，与输入模数无需互素。输入不互素时抛 invalid_argument，即使方程有解也不适用；此时用扩展 CRT。空输入的规范解取 0。算法从不构造模数乘积，中间运算使用 int128。k 个模数耗时 O(k²+k log M)，空间 O(k)；M 为最大输入模数。依赖 NumberTheory 的 inverse 和 exgcd。"
+    "garner_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garner(b,moduli,target) 返回最小非负 CRT 解对 target 的余数。两个输入向量等长，长度可为 0；模数为正且两两互素，允许模数 1，余数支持完整 long long 范围。target 为正 long long，与输入模数无需互素。输入不互素时抛 invalid_argument，即使方程有解也不适用；此时用扩展 CRT。空输入的规范解取 0。算法从不构造模数乘积，中间运算使用 int128。k 个模数耗时 O(k²+k log M)，空间 O(k)；M 为最大输入模数。依赖 mod_inverse 和 extended_gcd。"
   ],
   [
     "number_theory",
     "PollardRho",
     "Pollard–Rho 因数分解",
-    "factor(n) 返回升序质因子（含重数），1≤n≤ULLONG_MAX。n=1 返回空数组；n≥2 时 size()==1 等价于 n 为素数，否则 front()/back() 分别取最小/最大质因子。依赖 NumberTheory。公开使用 factor；rho/split 为内部辅助，rho 只接受大于 1 的合数，不能直接传素数。Las Vegas 随机运行时间，固定默认种子方便复现，可由构造参数更换；无确定性最坏时间保证。每次 rho 尝试最多 200000 轮，失败后换随机参数重试，不将失败当作素数。递归仅沿真因子拆分，深度 O(log n)。"
+    "factor(n) 返回升序质因子（含重数），1≤n≤ULLONG_MAX。n=1 返回空数组；n≥2 时 size()==1 等价于 n 为素数，否则 front()/back() 分别取最小/最大质因子。依赖 Mod64 与 Prime64。公开使用 factor；rho/split 为内部辅助，rho 只接受大于 1 的合数，不能直接传素数。Las Vegas 随机运行时间，固定默认种子方便复现，可由构造参数更换；无确定性最坏时间保证。每次 rho 尝试最多 200000 轮，失败后换随机参数重试，不将失败当作素数。递归仅沿真因子拆分，深度 O(log n)。"
   ],
   [
     "number_theory",
@@ -201,7 +231,7 @@
     "primitive_root",
     "PrimitiveRoot",
     "乘法阶与原根",
-    "构造 PrimitiveRoot(n)，要求 2≤n≤INT_MAX；init(n) 可重建。order(a) 返回 a 模 n 的乘法阶，a 不可逆时返回 0；is_root(a) 判断该剩余类是否为原根，a 可为完整 long long。minimum() 返回 1..n-1 内最小原根，无原根返回 -1；all() 返回升序的全部原根，无原根返回空向量。mod、phi、exists 只读；factors 为 phi 的不同素因子，辅助 factor 为试除分解。依赖 NumberTheory 的 power。初始化 O(√n)，求阶 O(log²n)，原根判定 O((1+ω(phi))log n)。若最小原根为 G，顺序枚举最坏检查 G 个候选，不能假定 G 总是常数。枚举全部另需 O(phi log phi+c log c) 时间、O(c) 空间，c 为原根数；大模数只求最小原根或阶时，不应调用 all。"
+    "构造 PrimitiveRoot(n)，要求 2≤n≤INT_MAX；init(n) 可重建。order(a) 返回 a 模 n 的乘法阶，a 不可逆时返回 0；is_root(a) 判断该剩余类是否为原根，a 可为完整 long long。minimum() 返回 1..n-1 内最小原根，无原根返回 -1；all() 返回升序的全部原根，无原根返回空向量。mod、phi、exists 只读；factors 为 phi 的不同素因子，辅助 factor 为试除分解。依赖 Mod64::power。初始化 O(√n)，求阶 O(log²n)，原根判定 O((1+ω(phi))log n)。若最小原根为 G，顺序枚举最坏检查 G 个候选，不能假定 G 总是常数。枚举全部另需 O(phi log phi+c log c) 时间、O(c) 空间，c 为原根数；大模数只求最小原根或阶时，不应调用 all。"
   ],
   [
     "coprime_pairs",
@@ -231,7 +261,7 @@
     "euler_phi",
     "euler_phi",
     "单个数的欧拉函数",
-    "euler_phi(n) 使用试除，O(√n) 时间、O(1) 额外空间；euler_phi(n,solver) 复用 PollardRho，时间由随机分解主导，分解结果与递归占 O(log n) 空间。1≤n≤ULLONG_MAX，phi(1)=1。大素数或平衡大半素数应选分解器入口，不要用试除穷扫平方根；批量求 1..N 用 LinearSieve。先除质因子再乘 p-1，结果及中间乘积均不超过原 n。只抄试除函数时不需要 NumberTheory/PollardRho。"
+    "euler_phi(n) 使用试除，O(√n) 时间、O(1) 额外空间；euler_phi(n,solver) 复用 PollardRho，时间由随机分解主导，分解结果与递归占 O(log n) 空间。1≤n≤ULLONG_MAX，phi(1)=1。大素数或平衡大半素数应选分解器入口，不要用试除穷扫平方根；批量求 1..N 用 LinearSieve。先除质因子再乘 p-1，结果及中间乘积均不超过原 n。只抄试除函数时不需要 Prime64/PollardRho。"
   ],
   [
     "carmichael",

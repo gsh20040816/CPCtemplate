@@ -61,7 +61,7 @@ for key, (title, _) in groups.items():
             r'建设稿：验证状态与适用边界见各条目及仓库 verification/。',
             r'\end{titlepage}\hypersetup{pageanchor=true}', r'\frontmatter\tableofcontents',
             r'\chapter{使用约定}',
-            r'C++20，默认包含 bits/stdc++.h 并使用 std 命名空间。下标、区间及数值范围以各条目说明为准。DFS 保持递归，需满足题目栈空间条件。',
+            r'C++20，默认包含 bits/stdc++.h 与 cassert，并使用 std 命名空间。下标、区间及数值范围以各条目说明为准。DFS 保持递归，需满足题目栈空间条件。',
             r'本册主目录沿用 OI Wiki 官方导航的大、中、小层级，各页下列本库实现。PBDS 与 GNU rope 按队内约定纳入平衡树。组合条目与相关挂靠仍见仓库分类审计。跨类引用的已收录组件附在依赖部分；源头文件中的依赖仍须一并检查。',
             r'本册尚非全量完成稿；传统版评测仅为历史档案，当前只维护 vector 代码。', r'\mainmatter']
     def emit(entries):

@@ -19,7 +19,7 @@ void check(long long a, long long b, long long c)
     }
     bool expected = g ? c % g == 0 : c == 0;
     i128 x, y, u, v;
-    assert(NumberTheory::exgcd(aa, bb, u, v) == g);
+    assert(extended_gcd(aa, bb, u, v) == g);
     assert(cpp_int(aa) * cpp_int(u) + cpp_int(bb) * cpp_int(v) == cpp_int(g));
     assert(Number_Theory::Exgcd(aa, bb, u, v) == g);
     assert(cpp_int(aa) * cpp_int(u) + cpp_int(bb) * cpp_int(v) == cpp_int(g));

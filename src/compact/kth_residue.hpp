@@ -19,8 +19,8 @@ struct KthResidue
         if (logarithm < 0) return nullopt;
         auto [exponent, period] = linear_congruence(k % (p - 1), -logarithm, p - 1);
         if (exponent < 0) return nullopt;
-        ll first = NumberTheory::power(g, exponent, p);
-        ll ratio = NumberTheory::power(g, period, p);
+        ll first = Mod64::power(g, exponent, p);
+        ll ratio = Mod64::power(g, period, p);
         return KthResidue{first, ratio, (p - 1) / period};
     }
 };

@@ -1,5 +1,5 @@
 #pragma once
-#include "number_theory.hpp"
+#include "extended_gcd.hpp"
 
 // BEGIN linear_congruence
 inline pair<long long, long long>
@@ -10,7 +10,7 @@ linear_congruence(long long a, long long b, long long m)
     a %= m;
     if (a < 0) a += m;
     i128 x, y;
-    i128 g = NumberTheory::exgcd(a, m, x, y);
+    i128 g = extended_gcd(a, m, x, y);
     if (i128(b) % g) return {-1, -1};
     i128 period = m / g;
     x = x * (-i128(b) / g) % period;

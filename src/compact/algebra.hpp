@@ -99,7 +99,7 @@ struct DiscreteLog
             k = (__int128)k * (a / g) % m;
             ++offset;
         }
-        ll target = (__int128)b * NumberTheory::inverse(k, m) % m;
+        ll target = (__int128)b * mod_inverse(k, m) % m;
         ll step = sqrtl(m) + 1;
         unordered_map<ll, ll> baby;
         baby.reserve(step);
@@ -109,7 +109,7 @@ struct DiscreteLog
             if (!baby.count(cur)) baby[cur] = j;
             cur = (__int128)cur * a % m;
         }
-        ll inv = NumberTheory::inverse(NumberTheory::power(a, step, m), m);
+        ll inv = mod_inverse(Mod64::power(a, step, m), m);
         cur = target;
         for (ll i = 0; i <= step; i++)
         {

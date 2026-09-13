@@ -1,5 +1,5 @@
 #pragma once
-#include "number_theory.hpp"
+#include "extended_gcd.hpp"
 
 // BEGIN linear_equation
 inline bool
@@ -12,7 +12,7 @@ linear_equation(long long a, long long b, long long c, __int128_t &x, __int128_t
     i128 aa = a < 0 ? -i128(a) : i128(a);
     i128 bb = b < 0 ? -i128(b) : i128(b);
     i128 u, v;
-    i128 g = NumberTheory::exgcd(aa, bb, u, v);
+    i128 g = extended_gcd(aa, bb, u, v);
     if (c % g) return false;
     x = u * (c / g);
     y = v * (c / g);

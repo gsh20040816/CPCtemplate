@@ -20,21 +20,25 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | manacher | 字符串 → Manacher | direct |  |
 | PalindromicTree | 字符串 → 回文树 | direct |  |
 | minimum_rotation | 字符串 → 最小表示法 | direct |  |
+| Mod64 | 数学 → 快速幂 | application | 包含uint128模乘作为64位模幂与判素的底层组件。 |
 | power_sum | 数学 → 快速幂 | application | 模幂与几何级数的联合倍增。 |
 | divisor_sum_power | 数学 → 数论 → 数论基础 | related | 约数和公式应用；需核对正文定位，导航无独立幂约数和页。 |
 | ModInt | 数学 → 数论 → 模算术简介 | application | 静态/动态模整数实现，属于模算术的可复用组件。 |
-| NumberTheory | 数学 → 数论 → 模算术简介 | composite | 需拆出模运算、素性、CRT、类欧几里德等小节，不能仅用总模块代表分类。 |
 | mint | 数学 → 数论 → 模算术简介 | application | 静态/动态模整数实现，属于模算术的可复用组件。 |
+| Prime64 | 数学 → 数论 → 素数 | direct |  |
 | euler_phi | 数学 → 数论 → 欧拉函数 | direct |  |
 | LinearSieve | 数学 → 数论 → 筛法 | direct |  |
 | segmented_primes | 数学 → 数论 → 筛法 | direct |  |
 | PollardRho | 数学 → 数论 → 分解质因数 | direct |  |
+| extended_gcd | 数学 → 数论 → 裴蜀定理 & 一次不定方程 | direct |  |
 | linear_equation | 数学 → 数论 → 裴蜀定理 & 一次不定方程 | direct |  |
 | carmichael | 数学 → 数论 → 费马小定理 & 欧拉定理 | related | 公共指数与欧拉定理相关；导航无独立 Carmichael 页，不伪造叶节点。 |
 | batch_inverse | 数学 → 数论 → 模逆元 | direct |  |
 | batch_units | 数学 → 数论 → 模逆元 | direct |  |
 | inverse_table | 数学 → 数论 → 模逆元 | direct |  |
+| mod_inverse | 数学 → 数论 → 模逆元 | direct |  |
 | linear_congruence | 数学 → 数论 → 线性同余方程 | direct |  |
+| crt_merge | 数学 → 数论 → 中国剩余定理 | direct |  |
 | garner | 数学 → 数论 → 中国剩余定理 | direct |  |
 | ExLucas | 数学 → 数论 → 卢卡斯定理 | direct |  |
 | Lucas | 数学 → 数论 → 卢卡斯定理 | direct |  |
@@ -48,6 +52,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | CoprimePairs | 数学 → 数论 → 莫比乌斯反演 | application | Möbius 反演的矩形计数应用。 |
 | DuJiao | 数学 → 数论 → 狄利克雷双曲线法 & 杜教筛 | direct |  |
 | floor_moments | 数学 → 数论 → 类欧几里德算法 | direct |  |
+| floor_sum | 数学 → 数论 → 类欧几里德算法 | direct |  |
 | NttConvolution | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | convolution_i64 | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | SetConvolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |

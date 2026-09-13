@@ -48,7 +48,7 @@ struct CompositeRoots
         for (const auto &p : answer.parts)
         {
             ll m = p.step * p.lifts, rest = answer.mod / m;
-            ll inverse = NumberTheory::inverse(rest % m, m);
+            ll inverse = mod_inverse(rest % m, m);
             answer.weight.push_back((__int128)rest * inverse % answer.mod);
         }
         return answer;

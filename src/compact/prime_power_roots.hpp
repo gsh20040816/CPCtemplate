@@ -14,8 +14,8 @@ struct PrimePowerRoots
     {
         assert(i >= 0 && i < count[0] && j >= 0 && j < count[1]);
         assert(lift >= 0 && lift < lifts);
-        ll x = (__int128)first * NumberTheory::power(ratio[0], i, step) % step;
-        x = (__int128)x * NumberTheory::power(ratio[1], j, step) % step;
+        ll x = (__int128)first * Mod64::power(ratio[0], i, step) % step;
+        x = (__int128)x * Mod64::power(ratio[1], j, step) % step;
         return x + lift * step;
     }
 
@@ -58,8 +58,8 @@ struct PrimePowerRoots
             if (logarithm < 0) return false;
             auto [x, period] = linear_congruence(k % order, -logarithm, order);
             if (x < 0) return false;
-            answer.first = (__int128)answer.first * NumberTheory::power(base, x, q) % q;
-            answer.ratio[slot] = NumberTheory::power(base, period, q);
+            answer.first = (__int128)answer.first * Mod64::power(base, x, q) % q;
+            answer.ratio[slot] = Mod64::power(base, period, q);
             answer.count[slot] = order / period;
             return true;
         };

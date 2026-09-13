@@ -28,8 +28,7 @@ inline vector<tuple<long long, int, long long>> root_factors(long long mod,
             {
                 if (candidate % p == 0) return false;
                 for (auto q : factors)
-                    if (NumberTheory::power(candidate, phi / q, power) == 1)
-                        return false;
+                    if (Mod64::power(candidate, phi / q, power) == 1) return false;
                 return true;
             };
             g = 2;

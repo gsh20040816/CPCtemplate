@@ -1,5 +1,5 @@
 #pragma once
-#include "number_theory.hpp"
+#include "mod_inverse.hpp"
 
 // BEGIN batch_inverse
 inline optional<vector<long long>> batch_inverse(vector<long long> a, long long mod)
@@ -13,7 +13,7 @@ inline optional<vector<long long>> batch_inverse(vector<long long> a, long long 
         if (a[i] < 0) a[i] += mod;
         prefix[i + 1] = __int128_t(prefix[i]) * a[i] % mod;
     }
-    long long inverse = NumberTheory::inverse(prefix[n], mod);
+    long long inverse = mod_inverse(prefix[n], mod);
     if (inverse == -1) return nullopt;
     for (int i = n - 1; i >= 0; i--)
     {

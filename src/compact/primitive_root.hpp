@@ -1,5 +1,5 @@
 #pragma once
-#include "number_theory.hpp"
+#include "mod64.hpp"
 
 struct PrimitiveRoot
 {
@@ -41,7 +41,7 @@ struct PrimitiveRoot
         if (gcd(a, (long long)mod) != 1) return 0;
         int result = phi;
         for (int p : factors)
-            while (result % p == 0 && NumberTheory::power(a, result / p, mod) == 1)
+            while (result % p == 0 && Mod64::power(a, result / p, mod) == 1)
                 result /= p;
         return result;
     }
@@ -53,7 +53,7 @@ struct PrimitiveRoot
         if (a < 0) a += mod;
         if (gcd(a, (long long)mod) != 1) return false;
         for (int p : factors)
-            if (NumberTheory::power(a, phi / p, mod) == 1) return false;
+            if (Mod64::power(a, phi / p, mod) == 1) return false;
         return true;
     }
 

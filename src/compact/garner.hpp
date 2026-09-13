@@ -1,5 +1,5 @@
 #pragma once
-#include "number_theory.hpp"
+#include "mod_inverse.hpp"
 
 // BEGIN garner
 // Pairwise coprime positive moduli. Digits use the input order.
@@ -15,7 +15,7 @@ inline vector<long long> garner_digits(const vector<long long> &b,
     for (int i = 0; i < n; i++)
     {
         ll m = moduli[i];
-        ll inverse = NumberTheory::inverse(coefficient[i], m);
+        ll inverse = mod_inverse(coefficient[i], m);
         if (inverse == -1) throw invalid_argument("Garner moduli are not coprime");
         i128 delta = (i128(b[i]) - value[i]) % m;
         if (delta < 0) delta += m;

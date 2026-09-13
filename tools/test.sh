@@ -422,3 +422,6 @@ build/cc-hash-table
 "$CXX" "${flags[@]}" tests/gnu_examples.cpp -o build/gnu-examples
 build/gnu-examples
 python3 tests/cc_associative_application.py
+
+"$CXX" "${flags[@]}" tests/number_components.cpp -o build/number-components
+build/number-components

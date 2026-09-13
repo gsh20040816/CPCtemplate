@@ -246,7 +246,7 @@ P1593 完整程序各验证 126 组输入，包含 $p\equiv0,1\pmod{9901}$ 和�
 来源：kuangbin 2.12；\url{https://www.luogu.com.cn/problem/P1593}。
 
 \section{类欧几里德：有符号整除求和}\index{floor sum}\index{类欧几里德}
-\texttt{NumberTheory::floor\_sum(n,m,a,b)} 返回
+\texttt{floor\_sum(n,m,a,b)} 返回
 \[
 F(n,m,a,b)=\sum_{i=0}^{n-1}\left\lfloor\frac{ai+b}{m}\right\rfloor.
 \]
@@ -439,7 +439,7 @@ P1516 中相遇条件为 $(m-n)t+(x-y)\equiv0\pmod L$。
 
 \section{扩展 CRT：逐式合并}\index{exCRT}\index{扩展中国剩余定理}
 kuangbin 2.5 的 \texttt{solve} 对应单次合并，\texttt{MLES} 对应下面的逐式循环。
-实现见第~\pageref{compact-NumberTheory}~页的 \texttt{crt}，
+实现见第~\pageref{compact-crt_merge}~页的 \texttt{crt\_merge}，
 初始取 $r=0,m=1$，依次合并 $x\equiv b\pmod n$。
 空方程组保持 $(0,1)$，表示任意整数；一旦无解即停止，不能忽略失败继续合并。
 先把余数归一化。设 $g=\gcd(m,n)$，由扩展欧几里得得到 $mu+nv=g$。

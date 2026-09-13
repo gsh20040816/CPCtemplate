@@ -1,4 +1,4 @@
-#include "../../src/compact/number_theory.hpp"
+#include "../../src/compact/crt_merge.hpp"
 #include <iostream>
 
 int main()
@@ -12,7 +12,7 @@ int main()
     {
         long long m, b;
         cin >> m >> b;
-        if (!NumberTheory::crt(r, modulus, b, m))
+        if (!crt_merge(r, modulus, b, m))
         {
             cout << -1 << '\n';
             return 0;

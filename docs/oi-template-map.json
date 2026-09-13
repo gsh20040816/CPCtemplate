@@ -217,17 +217,6 @@
       "note": "",
       "additional": []
     },
-    "NumberTheory": {
-      "primary": "math/number-theory/mod-arithmetic.md",
-      "relation": "composite",
-      "note": "需拆出模运算、素性、CRT、类欧几里德等小节，不能仅用总模块代表分类。",
-      "additional": [
-        "math/number-theory/prime.md",
-        "math/number-theory/crt.md",
-        "math/number-theory/euclidean.md",
-        "math/number-theory/inverse.md"
-      ]
-    },
     "linear_equation": {
       "primary": "math/number-theory/bezouts.md",
       "relation": "direct",
@@ -864,6 +853,42 @@
     },
     "FpsFunctions": {
       "primary": "math/poly/elementary-func.md",
+      "relation": "direct",
+      "note": "",
+      "additional": []
+    },
+    "Mod64": {
+      "primary": "math/binary-exponentiation.md",
+      "relation": "application",
+      "note": "包含uint128模乘作为64位模幂与判素的底层组件。",
+      "additional": []
+    },
+    "Prime64": {
+      "primary": "math/number-theory/prime.md",
+      "relation": "direct",
+      "note": "",
+      "additional": []
+    },
+    "extended_gcd": {
+      "primary": "math/number-theory/bezouts.md",
+      "relation": "direct",
+      "note": "",
+      "additional": []
+    },
+    "mod_inverse": {
+      "primary": "math/number-theory/inverse.md",
+      "relation": "direct",
+      "note": "",
+      "additional": []
+    },
+    "crt_merge": {
+      "primary": "math/number-theory/crt.md",
+      "relation": "direct",
+      "note": "",
+      "additional": []
+    },
+    "floor_sum": {
+      "primary": "math/number-theory/euclidean.md",
       "relation": "direct",
       "note": "",
       "additional": []

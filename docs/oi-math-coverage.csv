@@ -8,22 +8,22 @@ topic,url,status
 位操作,https://oi-wiki.org/math/bit/,pending
 二进制集合操作,https://oi-wiki.org/math/binary-set/,pending
 高精度计算,https://oi-wiki.org/math/bignum/,pending
-快速幂,https://oi-wiki.org/math/binary-exponentiation/,pending
+快速幂,https://oi-wiki.org/math/binary-exponentiation/,partial: Mod64 uint64 modular multiply/power split and cpp_int-verified; full-page audit and elementary-removal decision pending
 置换和排列,https://oi-wiki.org/math/permutation/,pending
 弧度制与坐标系,https://oi-wiki.org/math/coordinate/,pending
 复数,https://oi-wiki.org/math/complex/,pending
 数论基础,https://oi-wiki.org/math/number-theory/basic/,pending
 模算术简介,https://oi-wiki.org/math/number-theory/mod-arithmetic/,pending
-素数,https://oi-wiki.org/math/number-theory/prime/,pending
+素数,https://oi-wiki.org/math/number-theory/prime/,"partial: Prime64 deterministic uint64 Miller-Rabin split; independent sieve/trial, pseudoprime and cpp_int checks pass; full prime-page coverage audit pending"
 最大公约数,https://oi-wiki.org/math/number-theory/gcd/,pending
 欧拉函数,https://oi-wiki.org/math/number-theory/euler-totient/,pending
 筛法,https://oi-wiki.org/math/number-theory/sieve/,partial: segmented sieve dual local oracles and int32 boundary verified; complete sieve-page method audit pending
 分解质因数,https://oi-wiki.org/math/number-theory/pollard-rho/,pending
 裴蜀定理 & 一次不定方程,https://oi-wiki.org/math/number-theory/bezouts/,partial: binary signed equation and nonnegative Bezout coefficients locally certified; general solution and positive range documented; multi-variable page coverage audit pending
 费马小定理 & 欧拉定理,https://oi-wiki.org/math/number-theory/fermat/,pending
-模逆元,https://oi-wiki.org/math/number-theory/inverse/,local-tested: dual exgcd/Fermat/linear-table/batch methods with inverse certificates; P5431 dual AC 297561197/297561804; P3811 linear table dual AC 297563298/297563503; prime and coprimality conditions documented
+模逆元,https://oi-wiki.org/math/number-theory/inverse/,partial: mod_inverse positive int64 modulus and signed inputs split; exhaustive residue oracle including composite/nonunit/modulus-one cases; batch/table variants retain separate evidence; whole-page audit pending
 线性同余方程,https://oi-wiki.org/math/number-theory/linear-equation/,pending
-中国剩余定理,https://oi-wiki.org/math/number-theory/crt/,local-tested: dual exCRT plus Garner digits/target reduction; direct cpp_int CRT and reconstruction oracles; P4777 dual AC 297521102/297521173; P1495 dual AC 297521594/297521658; proofs in mathematics.tex
+中国剩余定理,https://oi-wiki.org/math/number-theory/crt/,"partial: crt_merge noncoprime int64-period systems split and independently verified, with normalized failure state and overflow contract; Garner remains separate; whole-page and new online evidence pending"
 升幂引理,https://oi-wiki.org/math/number-theory/lift-the-exponent/,pending
 阶乘取模,https://oi-wiki.org/math/number-theory/factorial/,pending
 卢卡斯定理,https://oi-wiki.org/math/number-theory/lucas/,local-tested: specialized Lucas digit tables and proof; Pascal/cpp_int/uint64/reset tests; P3807 dual AC 297556209/297556596; exLucas prime-power/CRT dual AC 297520142/297520151

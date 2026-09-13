@@ -4444,23 +4444,6 @@
       ],
       "order": 170
     },
-    "NumberTheory": {
-      "primary": "math/number-theory/mod-arithmetic.md",
-      "relation": "composite",
-      "note": "需拆出模运算、素性、CRT、类欧几里德等小节，不能仅用总模块代表分类。",
-      "additional": [
-        "math/number-theory/prime.md",
-        "math/number-theory/crt.md",
-        "math/number-theory/euclidean.md",
-        "math/number-theory/inverse.md"
-      ],
-      "hierarchy": [
-        "数学",
-        "数论",
-        "模算术简介"
-      ],
-      "order": 194
-    },
     "linear_equation": {
       "primary": "math/number-theory/bezouts.md",
       "relation": "direct",
@@ -5704,6 +5687,77 @@
         "多项式初等函数"
       ],
       "order": 234
+    },
+    "Mod64": {
+      "primary": "math/binary-exponentiation.md",
+      "relation": "application",
+      "note": "包含uint128模乘作为64位模幂与判素的底层组件。",
+      "additional": [],
+      "hierarchy": [
+        "数学",
+        "快速幂"
+      ],
+      "order": 189
+    },
+    "Prime64": {
+      "primary": "math/number-theory/prime.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "数学",
+        "数论",
+        "素数"
+      ],
+      "order": 195
+    },
+    "extended_gcd": {
+      "primary": "math/number-theory/bezouts.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "数学",
+        "数论",
+        "裴蜀定理 & 一次不定方程"
+      ],
+      "order": 200
+    },
+    "mod_inverse": {
+      "primary": "math/number-theory/inverse.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "数学",
+        "数论",
+        "模逆元"
+      ],
+      "order": 202
+    },
+    "crt_merge": {
+      "primary": "math/number-theory/crt.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "数学",
+        "数论",
+        "中国剩余定理"
+      ],
+      "order": 204
+    },
+    "floor_sum": {
+      "primary": "math/number-theory/euclidean.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "数学",
+        "数论",
+        "类欧几里德算法"
+      ],
+      "order": 221
     }
   }
 }

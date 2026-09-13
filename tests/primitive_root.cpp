@@ -60,7 +60,7 @@ int main()
             assert(a.order(g) == a.phi && b.Order(g) == b.phi);
             // Each prime divisor witnesses that no proper divisor is the order.
             for (int q : a.factors)
-                assert(NumberTheory::power(g, a.phi / q, n) != 1);
+                assert(Mod64::power(g, a.phi / q, n) != 1);
         }
         else
             assert(n == 1000000000 || n == 1000000);

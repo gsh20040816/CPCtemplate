@@ -23,9 +23,11 @@ def normalize(text):
                             capture_output=True, check=True).stdout
     return '\n'.join(line for line in result.splitlines() if line.strip())
 
-def component(text, name):
+def component(text, name, required=True):
     match = re.search(r'(?:template[^\n]*\n)?(?:template[^\n]* )?struct '
                       + re.escape(name) + r'\b.*?^};', text, re.S | re.M)
+    if not match and not required:
+        return ''
     if not match:
         raise ValueError('Missing tested component: ' + name)
     return match[0]
@@ -72,7 +74,10 @@ for row in rows:
         old = archived.decode()
         new = current.decode()
         old_rest = old.replace(component(old, unused), '', 1)
-        new_rest = new.replace(component(new, unused), '', 1)
+        # A minimal driver can now omit this known uninstantiated class entirely.
+        optional = component(new, unused, required=False)
+        new_rest = new.replace(optional, '', 1) if optional else new
+        entry['unused_component_present_in_current_bundle'] = bool(optional)
         entry['excluded_unused_component'] = unused
         entry['remaining_bundle_matches_after_formatting'] = normalize(old_rest) == normalize(new_rest)
         entry['scope_note'] = 'Only the uninstantiated factorial table is excluded; this does not validate its new APIs or confer a new AC.'

@@ -461,9 +461,24 @@
       }
     },
     {
-      "symbol": "NumberTheory",
-      "title": "模运算、素性、CRT 与类欧几里德",
-      "source": "src/compact/number_theory.hpp",
+      "symbol": "Mod64",
+      "title": "无符号64位模乘与模幂",
+      "source": "src/compact/mod64.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Prime64",
+      "title": "确定性64位 Miller–Rabin 判素",
+      "source": "src/compact/prime64.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -471,7 +486,53 @@
           "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
-        },
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "extended_gcd",
+      "title": "扩展欧几里得与 Bézout 系数",
+      "source": "src/compact/extended_gcd.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "mod_inverse",
+      "title": "任意正模数的单个逆元",
+      "source": "src/compact/mod_inverse.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "crt_merge",
+      "title": "广义 CRT：逐项合并同余",
+      "source": "src/compact/crt_merge.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
         {
           "driver": "verify/luogu/P4777.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P4777",
@@ -481,7 +542,22 @@
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
-      "qoj_tag_candidate": "https://qoj.ac/problem/249",
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "floor_sum",
+      "title": "有符号整除和：类欧几里德",
+      "source": "src/compact/floor_sum.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
         "rank": null,
