@@ -505,7 +505,7 @@
     ]
   },
   {
-    "symbol": "RopePersistentQueue",
+    "symbol": "rp",
     "problem": "Library Checker persistent_queue",
     "title": "Persistent Queue",
     "url": "https://judge.yosupo.jp/problem/persistent_queue",
@@ -513,18 +513,23 @@
     "statement_checked": true,
     "checked_date": "2026-09-12",
     "limits": "Q<=500000; -1<=t_i<i; 0<=x<=10^9; 5s",
-    "adapter": "Candidate rope composition: version -1 is empty; copy version t, append or remove/print its first element, creating version i. Pop is guaranteed nonempty. Installed GCC rope exposes copy construction, push_back, indexing and erase, but worst-case time/memory and version isolation are not yet tested. This target does not verify arbitrary rope editing or reversal.",
-    "implementation": "planned_extension",
-    "source": null,
+    "adapter": "Version -1 becomes index 0. Preallocate Q zero cells; copy root and head/tail per version. Push is replace at tail; pop reads head then increments it. This avoids repeated rope concat/erase rebalancing in direct queue implementation.",
+    "implementation": "implemented_online_scoped",
+    "source": "src/compact/rope.hpp",
     "api": null,
-    "tested_api": [],
-    "ac": null,
+    "tested_api": [
+      "filled construction",
+      "copy assignment",
+      "replace",
+      "operator[]"
+    ],
+    "ac": "https://judge.yosupo.jp/submission/401871",
     "ranking": {
       "status": "not_checked",
       "rank": null,
       "total": null
     },
-    "remaining": "Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.",
+    "remaining": "Ranking pending. General insert/erase/substr have local evidence only; significant version-memory overhead remains.",
     "statement_sources": [
       "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/task.md",
       "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/info.toml"

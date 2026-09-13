@@ -1,5 +1,15 @@
 \part{vector 模板}
 
+\chapter{GNU 扩展可持久化序列}
+
+\Needspace{204pt}
+
+\section{GNU rope 与版本共享}\label{compact-rp}\index{rp}
+
+GNU libstdc++ 扩展，包含 ext/rope；本工具链中随后重新包含 cassert，保留断言接口。rp<int>、rp<char> 表示序列，默认空。size()、empty()、push\_back(x)、insert(p,x)、erase(p,len)、replace(p,x)、substr(p,len) 直接沿用 rope；位置为 0-based，len 是长度而非右端点。约定 0$\le$p$\le$size，删除/截取要求 len$\le$size-p，读写单点要求 p<size。r[i] 读取第 i 项；substr 返回新序列。rp<T> b=a 共享底层树，随后通过容器接口修改 b 不影响 a，可用 vector<rp<int>> 保存分支版本。复制构造共享根为 O(1)；随机访问沿树路径，正常平衡时 O(log n)。插入/删除/截取涉及路径、叶块复制和可能的再平衡，不能把每次操作都写成严格最坏 O(log n)；释放最后引用可能递归回收整棵子树。长期保留所有版本的内存不能按单个序列 O(n) 估计。不可缓存修改前的迭代器或使用可变代理跨版本写入。仅使用默认内存分配器及普通整数/字符值；函数生成型 rope 不在本模板范围。 可持久化队列已通过定长构造加头尾下标版本：Q 个零单元，复制根与 l/r，入队 replace(r++,x)，出队读取 [l++]；直接 push\_back/erase 版本在针对数据上耗尽内存。线上 942 ms、591.26 MiB，具体失败与通过范围见 docs/ROPE-NOTES.md。
+
+\lstinputlisting[firstline=8,lastline=8]{../src/compact/rope.hpp}
+
 \chapter{GNU 扩展有序树}
 
 \Needspace{239pt}

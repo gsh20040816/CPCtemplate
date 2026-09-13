@@ -26,7 +26,7 @@
 | `ost` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | operations<=100000; \|x\|<=10000000 | 待编写驱动/提交 | 待核验 |
 | `ost` | [Luogu P6136](https://www.luogu.com.cn/problem/P6136) | n<=100000; m<=1000000; values<2^30 | 待编写驱动/提交 | 待核验 |
 | `gp_map` | [Library Checker associative_array](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; 0<=key,value<=10^18; 5s | [记录](https://judge.yosupo.jp/submission/401867) | 956 out of 7334（All AC submissions, all users including anonymous, all languages, Dedup user unchecked. Not all verdicts and not per-user best.） |
-| `RopePersistentQueue` | [Library Checker persistent_queue](https://judge.yosupo.jp/problem/persistent_queue) | Q<=500000; -1<=t_i<i; 0<=x<=10^9; 5s | 待实现 | 待核验 |
+| `rp` | [Library Checker persistent_queue](https://judge.yosupo.jp/problem/persistent_queue) | Q<=500000; -1<=t_i<i; 0<=x<=10^9; 5s | [记录](https://judge.yosupo.jp/submission/401871) | 待核验 |
 | `dsu` | [Luogu P3367](https://www.luogu.com.cn/problem/P3367) | N<=200000; M<=1000000; 1-based task vertices | [记录](https://www.luogu.com.cn/record/297668102) | 待核验 |
 | `Lowlink::add/run/bridge` | [QOJ 995](https://qoj.ac/problem/995) | n<=100000; m<=500000; 1s; 1-based | 待编写驱动/提交 | 待核验 |
 | `Lowlink::add/run/cut` | [QOJ 996](https://qoj.ac/problem/996) | n<=20000; m<=100000; 0.5s; 1-based | 待编写驱动/提交 | 待核验 |
@@ -225,13 +225,13 @@ PBDS ordered trees and rope remain separate work. This AC validates assignment/f
 
 原始题面与参数：[来源 1](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/associative_array/task.md)，[来源 2](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/associative_array/info.toml)
 
-### Library Checker persistent_queue / RopePersistentQueue
+### Library Checker persistent_queue / rp
 
 Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.
 
-Candidate rope composition: version -1 is empty; copy version t, append or remove/print its first element, creating version i. Pop is guaranteed nonempty. Installed GCC rope exposes copy construction, push_back, indexing and erase, but worst-case time/memory and version isolation are not yet tested. This target does not verify arbitrary rope editing or reversal.
+Version -1 becomes index 0. Preallocate Q zero cells; copy root and head/tail per version. Push is replace at tail; pop reads head then increments it. This avoids repeated rope concat/erase rebalancing in direct queue implementation.
 
-Implementation is not present. This is a reviewed target only; performance, driver, AC and ranking remain unverified.
+Ranking pending. General insert/erase/substr have local evidence only; significant version-memory overhead remains.
 
 原始题面与参数：[来源 1](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/task.md)，[来源 2](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/persistent_queue/info.toml)
 

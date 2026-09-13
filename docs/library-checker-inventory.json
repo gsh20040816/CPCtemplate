@@ -1331,15 +1331,19 @@
           "sha256": "d0209afd23d5f22327ed9cb893033dfe56a431e7b1f1d3abf6ca8a8af3d8a809"
         }
       },
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        "verify/library_checker/persistent_queue.compact.cpp"
+      ],
       "linked_statement_reviews": [
         {
-          "symbol": "RopePersistentQueue",
+          "symbol": "rp",
           "statement_checked": true
         }
       ],
-      "online_ac": [],
-      "status": "pending_statement_adapter_and_online_validation",
+      "online_ac": [
+        "https://judge.yosupo.jp/submission/401871"
+      ],
+      "status": "online_ac_scoped",
       "ranking": {
         "status": "not_checked",
         "rank": null,

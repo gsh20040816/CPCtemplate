@@ -1669,5 +1669,26 @@
       "end"
     ],
     "note": "37 cases passed. Submitted source copied back from editor and byte-equal to bundle. Distinct integer keys only; pair-based duplicates and reverse comparator have local tests, not this AC. All-AC time rank 628/1095, tied positions 628-629, no user deduplication; see ranking-audits.json."
+  },
+  {
+    "problem": "Library Checker persistent_queue",
+    "style": "compact",
+    "record": "https://judge.yosupo.jp/submission/401871",
+    "verdict": "Accepted",
+    "time_ms": 942,
+    "memory": "591.26 MiB",
+    "source_driver": "verify/library_checker/persistent_queue.compact.cpp",
+    "submitted_source": "verification/submitted/LC-persistent_queue.compact.cpp",
+    "submitted_sha256": "bb8e854b3b8775bcc5eb4f42d61bd55c7688d7b0954066459043b38833129b0e",
+    "date": "2026-09-12",
+    "account": "gsh",
+    "algorithm": "rp",
+    "tested_api": [
+      "filled construction",
+      "copy assignment",
+      "replace",
+      "operator[]"
+    ],
+    "note": "14 cases; preallocate Q cells and maintain per-version head/tail, avoiding concat/substr rebalancing. Does not online-verify push_back/erase/substr. Initial direct queue submission 401870 RE at 1024MiB on half_rot_killer. Source copied back and byte-equal."
   }
 ]

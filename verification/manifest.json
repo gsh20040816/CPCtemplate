@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-12T15:36:50.179078+00:00",
+  "recorded_at_utc": "2026-09-13T11:20:49.612771+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -288,7 +288,9 @@
       "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS",
       "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS",
       "gp_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes and million sparse keys PASS",
-      "PBDS ost sorted-vector oracle, duplicates by pair, bounds, reverse comparator and 500000 ordered keys PASS"
+      "PBDS ost sorted-vector oracle, duplicates by pair, bounds, reverse comparator and 500000 ordered keys PASS",
+      "GNU rope branching vector oracle, insert/replace/erase/substr, large shared copies and version isolation PASS",
+      "Fixed rope persistent-queue driver: independent branching list oracle PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -552,7 +554,9 @@
       "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS",
       "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS",
       "gp_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes and million sparse keys PASS",
-      "PBDS ost sorted-vector oracle, duplicates by pair, bounds, reverse comparator and 500000 ordered keys PASS"
+      "PBDS ost sorted-vector oracle, duplicates by pair, bounds, reverse comparator and 500000 ordered keys PASS",
+      "GNU rope branching vector oracle, insert/replace/erase/substr, large shared copies and version isolation PASS",
+      "Fixed rope persistent-queue driver: independent branching list oracle PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -797,6 +801,7 @@
     "src/compact/recurrence.hpp": "6399924d2d2b1009ead8244bf325988b180536ec68721092fb711ab1d0b80148",
     "src/compact/release_bfs.hpp": "a46546edee3c033541d93e27befe07e3c1b13dee57ffe7d4ca4f5d43bd0f60d4",
     "src/compact/root_factors.hpp": "e2cbaefa6d412932f77fc67998c25ab50b8096e4b869a93b17adc7b9dfb2744e",
+    "src/compact/rope.hpp": "4b62b0f54121309530d06339e55e8c69c15f4f8952ce63e33bbba7e9d4b89f43",
     "src/compact/segmented_sieve.hpp": "9d383937c5e063a142afaa9372edbf37cdaf41731675f6429617f66e5cf47cf6",
     "src/compact/set_convolution.hpp": "c3ed7630c8bd8c457ca2bb1c3fe46881ab5c7da3ffc9f05e56028d7d810a0158",
     "src/compact/splay.hpp": "d81babceed51c498b6e89a5de9413730d6a01b6e7a010841a0b387e9dc05a9f7",
@@ -954,6 +959,8 @@
     "tests/recurrence.cpp": "cce41f33b065fdff1af4fa5464c877c57613f4d8fa5f0e65cecee24b1fc79cc5",
     "tests/release_bfs.cpp": "b669e744ab1a9148fcd01e1289ec140db6023bbc61d784ad7676cb30e051bb2e",
     "tests/root_factors.cpp": "8d238960b70db06f4e9f48d2c8f1a37c36392b9f1f7b887b7fc80aa0cead3b46",
+    "tests/rope.cpp": "e3e983b3abdf4b46fd2b7964f6588b4540b077b922bedd5d3c4f20478b7f7827",
+    "tests/rope_queue_application.py": "143f9b83f0ab81aa8ca78f3fef1f70fdbea0d19970b00753be77421680ac7657",
     "tests/scc_template_application.py": "cd879e450e53d35eece9a7f27f844067219a9e9ab91f3abf6bb62d68f0537192",
     "tests/segmented_sieve.cpp": "8ce844d676a6abf0b02dc4c8da038ef27da9336582b4e469e0b25305c4c4b3ed",
     "tests/set_convolution.cpp": "006ac5effb1f307de465a4d9bb16b491febdcca96677bfb82f767f3752e73a3c",

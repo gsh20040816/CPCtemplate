@@ -362,3 +362,8 @@ build/hash_table
 
 "$CXX" "${flags[@]}" tests/ordered_set.cpp -o build/ordered_set
 build/ordered_set
+
+"$CXX" "${flags[@]}" tests/rope.cpp -o build/rope
+build/rope
+
+python3 tests/rope_queue_application.py

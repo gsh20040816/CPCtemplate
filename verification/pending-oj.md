@@ -87,3 +87,5 @@ OJ 只验证驱动实际调用的接口。点分治 P3806 只核验距离存在�
 - P3379 离线 LCA 动态版提交出现验证码，已请求当次确认，尚无评测记录；传统版未提交。
 
 - Library Checker 401866: CE，网页逐字输入后出现额外右括号；改用完整文件粘贴得到 401867 AC，并从提交页复制回源码，逐字节与本地 bundle 一致。
+
+- Library Checker 401870: direct rope push_back/erase queue returned RE with 1024.00 MiB on half_rot_killer_00. Failed source archived as LC-persistent_queue-401870-failed.cpp. Fixed-capacity rope with version head/tail passed as 401871; not a claim that general rope erase is memory-efficient.
