@@ -1134,5 +1134,26 @@
       "verification/lazy-official-local.json",
       "verification/lazy-official-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "mint",
+    "problem": "Luogu P5431",
+    "url": "https://www.luogu.com.cn/problem/P5431",
+    "classification": "Official batch inverse template with runtime prime modulus.",
+    "statement_checked": true,
+    "checked_date": "2026-09-13",
+    "limits": "n<=5000000;2<=k<p<=10^9;prime p;1<=a_i<p",
+    "adapter": "mint sets runtime modulus then combines batch_units. Return sum k^i/a_i for i starting at1; fast unsigned reader. Input guarantees units, so nonunit branch is only locally tested.",
+    "source": "src/compact/dynamic_modint.hpp",
+    "source_driver": "verify/luogu/P5431.mint.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission pending; existing long-long P5431 AC does not cover this new driver."
   }
 ]

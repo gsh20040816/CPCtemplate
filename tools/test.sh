@@ -385,3 +385,7 @@ build/lazy_binary_search
 
 "$CXX" "${flags[@]}" tests/dynamic_modint.cpp -o build/dynamic_modint
 build/dynamic_modint
+
+"$CXX" "${flags[@]}" tests/batch_units.cpp -o build/batch_units
+build/batch_units
+python3 tests/dynamic_batch_application.py

@@ -1,5 +1,15 @@
 \part{vector 模板}
 
+\chapter{模整数的批量运算}
+
+\Needspace{300pt}
+
+\section{模整数类型的批量逆元}\label{compact-batch_units}\index{batch\_units}
+
+batch\_units(a) 返回 optional<vector<Z>>，保持输入顺序；任一元素不可逆返回 nullopt，空输入返回空数组。Z 须可从 1 构造，支持乘法、复合乘法及 try\_inv，且元素来自同一交换模整数环；目前可与 mint<tag> 直接组合。先累计前缀乘积，只对总乘积求一次逆，再倒序求各项逆元。总乘积可逆当且仅当所有因子可逆，因此合数模数也可使用。O(n) 次乘法加一次求逆，空间 O(n)，要求大小可表示为 int；建议传 move(a) 避免保留额外输入副本。返回前不能切换动态模数。现有 long long 版 batch\_inverse 保留独立接口与历史证据，不由本函数替换。
+
+\lstinputlisting[firstline=6,lastline=22]{../src/compact/batch_units.hpp}
+
 \chapter{运行时模数运算}
 
 \section{动态模整数与合数模逆元}\label{compact-mint}\index{mint}

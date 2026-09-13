@@ -47,6 +47,7 @@
 | `segtree` | [Library Checker point_set_range_composite](https://judge.yosupo.jp/problem/point_set_range_composite) | N,Q<=500000; 0<=l<r<=N; coefficients mod998244353 with nonzero slopes | [记录](https://judge.yosupo.jp/submission/402090) | 454 out of 2914（All AC submissions, all users/languages, dedup disabled; excludes non-AC verdicts.） |
 | `segtree` | [Library Checker predecessor_problem](https://judge.yosupo.jp/problem/predecessor_problem) | 1<=N<=10000000;1<=Q<=1000000;0<=k<N;initial binary membership string | [记录](https://judge.yosupo.jp/submission/402089) | 687 out of 2582（All users and languages, AC only, user dedup disabled; not all verdicts.） |
 | `lazy_segtree` | [Library Checker range_affine_range_sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | N,Q<=500000; coefficients modulo998244353; nonzero multipliers;0<=l<r<=N | 待编写驱动/提交 | 待核验 |
+| `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | n<=5000000;2<=k<p<=10^9;prime p;1<=a_i<p | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -397,6 +398,14 @@ Official standalone range-affine/range-sum template.
 Node {sum,len}; tag {mul,add}. composition(f,g)=f after g, mapping multiplies sum and adds add*len. Driver calls construction/apply/prod only.
 
 19 official generated cases pass local checker in normal and sanitizer builds; online submit/ranking still pending. Other interfaces retain separate local evidence.
+
+### Luogu P5431 / mint
+
+Official batch inverse template with runtime prime modulus.
+
+mint sets runtime modulus then combines batch_units. Return sum k^i/a_i for i starting at1; fast unsigned reader. Input guarantees units, so nonunit branch is only locally tested.
+
+Online submission pending; existing long-long P5431 AC does not cover this new driver.
 
 ## 榜单口径
 

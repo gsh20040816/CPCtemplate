@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-13T12:09:27.853598+00:00",
+  "recorded_at_utc": "2026-09-13T12:12:53.257353+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -298,7 +298,9 @@
       "Generic lazy segtree: affine vector oracle, assignment string order, both boundary scans and 500000 pending tags PASS",
       "Generic lazy affine driver: independent modular vector updates and sums PASS",
       "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS",
-      "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS"
+      "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS",
+      "Generic batch units: exhaustive composite units/nonunits, empty input and independent product certificates PASS",
+      "Dynamic mint P5431 driver: Python inverse/power oracle and five-million geometric-sum case PASS"
     ],
     "sanitizer-tests.txt": [
       "structures PASS",
@@ -572,7 +574,9 @@
       "Generic lazy segtree: affine vector oracle, assignment string order, both boundary scans and 500000 pending tags PASS",
       "Generic lazy affine driver: independent modular vector updates and sums PASS",
       "Lazy binary searches: exhaustive flip/assignment composition, range-update predecessor/successor and logarithmic op-count bound PASS",
-      "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS"
+      "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS",
+      "Generic batch units: exhaustive composite units/nonunits, empty input and independent product certificates PASS",
+      "Dynamic mint P5431 driver: Python inverse/power oracle and five-million geometric-sum case PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -746,6 +750,7 @@
     "src/compact/algebra.hpp": "569cd0b569567684c48865f4f40c0b6f7b7ef2cf399f1371a9cbff44fd7d691b",
     "src/compact/basis_intersection.hpp": "4252e0b242a84e536de4f18d4af076bb3717a5490c7b26dbe96c3637bf970169",
     "src/compact/batch_inverse.hpp": "3dfd1f4f166e4d5abd6f8868533db223627c478b0c5490493afec559bda080ae",
+    "src/compact/batch_units.hpp": "a2da600e0ed405238bdde470af923774e9b15b16a3ec7d66d24680bf9b5d1aec",
     "src/compact/biconnected.hpp": "e5beab43dd2231327da7a6a7da19113c49ea677c208ab5b433b9fa84cb117c2b",
     "src/compact/blossom.hpp": "aad0090e30aa648928eedf785dab0587fd9eb23b7442aee676bd291208352986",
     "src/compact/bostan_mori.hpp": "b3e15c986e3d84c3c90430a2b11bd1c776e7f1648d0d334485593bc5a6736af5",
@@ -847,6 +852,7 @@
     "tests/basis_intersection_application.py": "38a885d895278372db9795437dbbeaa156e59c98977172aebed7b979bb976534",
     "tests/batch_inverse.cpp": "074f04a57c2074c4ca86fc67c4f0e9d5445636ed26f95c2029e9a45cc4c0f89f",
     "tests/batch_inverse_application.py": "36233016269ce71d4b1fa87ccf31fd0726232609f916783cbad5d461e24d6e08",
+    "tests/batch_units.cpp": "1833fc1699710835ef720684b4c26605e47444c126c3e920b79c893973fa98a8",
     "tests/biconnected.cpp": "de4fa6a9a028408879922a15c0cbe19b80f87ed7be2e274f36766dfb0ed4739f",
     "tests/binomial.cpp": "31b2ce11f9cf240e8767b0f5fc0a70edd5fee340b4ab41099a304ce3ab7cdd6e",
     "tests/blossom.cpp": "93361601e543fe63e84deccd84e5148b39de9fa919eda4345c18e5f653cf1f96",
@@ -884,6 +890,7 @@
     "tests/dsu_on_tree.cpp": "8af99c1002d77d57b85a8763efca24c52f03dd786c0f594f23df633a984ab68f",
     "tests/dual.cpp": "6a3e330198d0de2b47946a9c7868ef200d8a36f51fe40a71c25274d7d0f102ad",
     "tests/dujiao.cpp": "699f7ed0303c64d31ce39093184419b1b3c2512c6d587aa1d8ec8731c9447202",
+    "tests/dynamic_batch_application.py": "028b5049b6d20d4dc9a584c5b02d56acdb7e138f57db494b829629d307184f1d",
     "tests/dynamic_kth.cpp": "adef3100691e835610eb7346137273498f03126c7dbd6e062a4ef60313ac3671",
     "tests/dynamic_kth_application.py": "f148d3229752903db4d19a07291ef1c9a04081af86aa311b8a81d412e9476522",
     "tests/dynamic_kth_scale.py": "dc854dedf7f8cff74a2a69631c7b47cf35c366e52849bf8e2b8cfbe9dac331eb",

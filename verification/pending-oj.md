@@ -36,6 +36,7 @@
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.compact.cpp`
 - `verify/luogu/P5170.compact.cpp`
+- `verify/luogu/P5431.mint.compact.cpp`
 - `verify/luogu/P5656.compact.cpp`
 - `verify/luogu/P6113.compact.cpp`
 - `verify/luogu/P7771.compact.cpp`
