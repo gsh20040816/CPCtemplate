@@ -9,7 +9,7 @@
 | RollbackDSU | 待补 | pending_example |
 | Fenwick | 待补 | pending_example |
 | LazySeg | 待补 | pending_example |
-| XorBasis | 待补 | pending_example |
+| XorBasis | [example-36](usage/example-36.cpp) | locally_checked_example |
 | Dinic | [example-1](usage/example-1.cpp) | locally_checked_example |
 | maximum_closure | 待补 | pending_example |
 | MinCostFlow | 待补 | pending_example |
@@ -87,8 +87,8 @@
 | circle_overlap_area | 待补 | pending_example |
 | MaxPlusMatrix | 待补 | pending_example |
 | LiChao | 待补 | pending_example |
-| PersistentKth | 待补 | pending_example |
-| TreePathKth | 待补 | pending_example |
+| PersistentKth | [example-37](usage/example-37.cpp) | locally_checked_example |
+| TreePathKth | [example-38](usage/example-38.cpp) | locally_checked_example |
 | DynamicKth | 待补 | pending_example |
 | PersistentDistinct | 待补 | pending_example |
 | Hungarian | 待补 | pending_example |
@@ -128,7 +128,7 @@
 | SuffixLCP | 待补 | pending_example |
 | prefix_lcs | 待补 | pending_example |
 | square_counts | 待补 | pending_example |
-| PositionBasis | 待补 | pending_example |
+| PositionBasis | [example-39（应用补充）](usage/example-39.cpp) | generated_unverified |
 | basis_intersection | 待补 | pending_example |
 | basis_sum_intersection | 待补 | pending_example |
 | XorWalk | 待补 | pending_example |

@@ -61,6 +61,12 @@ cases.update({
     'example-34': lca_cases,
     'example-35': [('2 2 3\n1 1\n1 2\n2 1\n', '2'), ('3 2 0\n', '0'), ('3 2 4\n1 1\n1 1\n2 1\n3 2\n', '2')]
 })
+cases.update({
+    'example-36': [('4\n1 2 3 4\n', '7'), ('3\n0 0 0\n', '0'), ('3\n8 8 1\n', '9')],
+    'example-37': [('5 4\n5 1 5 3 2\n1 5 3\n2 4 2\n3 3 1\n1 5 5\n', '3 3 5 5'), ('1 1\n0\n1 1 1\n', '0')],
+    'example-38': [('5 3\n5 1 5 3 2\n1 2\n1 3\n3 4\n3 5\n2 4 2\n7 5 2\n1 2 1\n', '3 3 1'), ('1 2\n7\n1 1 1\n6 1 1\n', '7 7')],
+    'example-39': [('5\n1 2 3 4 0\n4\n3 5\n1 2\n5 5\n2 4\n', '7 3 0 7'), ('3\n8 8 1\n3\n2 2\n1 3\n3 3\n', '8 9 1')]
+})
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()

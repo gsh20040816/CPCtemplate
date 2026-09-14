@@ -403,5 +403,53 @@
     "requires": [
       "BipartiteMatching"
     ]
+  },
+  {
+    "id": "example-36",
+    "symbol": "XorBasis",
+    "problem": "Luogu P3812",
+    "url": "https://www.luogu.com.cn/problem/P3812",
+    "summary": "给定一组可能重复的非负整数，选任意子集使异或和最大。逐个 insert 后 query()；使用 unsigned long long 读取和输出。",
+    "driver": "verify/luogu/P3812.compact.cpp",
+    "requires": [
+      "XorBasis"
+    ],
+    "kind": "template"
+  },
+  {
+    "id": "example-37",
+    "symbol": "PersistentKth",
+    "problem": "Luogu P3834",
+    "url": "https://www.luogu.com.cn/problem/P3834",
+    "summary": "给定不再修改的数组，查询闭区间 [l,r] 内第 k 小的值，重复值按出现次数计数。构造传入 0-based vector，查询 l、r、k 均从 1 开始。",
+    "driver": "verify/luogu/P3834.compact.cpp",
+    "requires": [
+      "PersistentKth"
+    ],
+    "kind": "template"
+  },
+  {
+    "id": "example-38",
+    "symbol": "TreePathKth",
+    "problem": "Luogu P2633",
+    "url": "https://www.luogu.com.cn/problem/P2633",
+    "summary": "给点权树，查询路径上第 k 小的点权，包含两个端点。构造传入 0-based 权值数组，点号为 1..n；每次先将输入的第一个端点与上次答案异或解码，初始 last=0。",
+    "driver": "verify/luogu/P2633.compact.cpp",
+    "requires": [
+      "TreePathKth"
+    ],
+    "kind": "template"
+  },
+  {
+    "id": "example-39",
+    "symbol": "PositionBasis",
+    "problem": "Luogu CF1100F",
+    "url": "https://www.luogu.com.cn/problem/CF1100F",
+    "summary": "给数组及多个闭区间，求区间内任意子集的最大异或和。把查询按右端点排序，依次加入前缀元素及其 1-based 位置；query(l) 限制只使用位置不小于 l 的元素，最后按原查询顺序输出。",
+    "driver": "verify/luogu/CF1100F.compact.cpp",
+    "requires": [
+      "PositionBasis"
+    ],
+    "kind": "application"
   }
 ]

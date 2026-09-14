@@ -946,6 +946,20 @@ determinant\_mod(a,mod) 返回 det(a) 的最小非负余数。a 为 long long �
 
 \lstinputlisting[firstline=223,lastline=245,firstnumber=54]{../src/compact/data_structure.hpp}
 
+\Needspace{330pt}
+
+\subsection*{模板题使用：Luogu P3812}
+
+\label{usage-example-36}
+
+题意：给定一组可能重复的非负整数，选任意子集使异或和最大。逐个 insert 后 query()；使用 unsigned long long 读取和输出。
+
+所需模板：XorBasis。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3812}
+
+\lstinputlisting{usage/example-36.cpp}
+
 \subsection{带位置限制的异或线性基}\label{compact-PositionBasis}\index{PositionBasis}
 
 默认构造为空，重新赋值 PositionBasis() 可清空。insert/Insert(x,at) 插入 unsigned long long 值及非负 int 标签，支持完整 64 位，标签可重复、乱序。contains/Contains(x,lower=0) 判断 x 能否由标签至少为 lower 的输入异或得到；query/Query(lower=0,x=0) 返回 x 与这些输入子集异或后的最大值；rank/Rank(lower=0) 返回对应空间维数。lower 为非负 long long，可大于所有 int 标签，空集仍可产生 0。全部操作 O(64)，空间 O(64)。消元时同一主元优先保留标签较大的向量，较旧向量继续消元；按阈值筛选后仍是正确线性基。标签是组合可用范围的界，不是选点方案；数组仅供只读。区间 [l,r] 应按右端点排序询问，扫描并仅插入到 r，再查询 lower=l；接口本身没有上界，插入超过 r 后不能只用 lower 恢复旧区间。若需保留历史，可复制每个前缀的对象，但空间为 O(64n)。不提供非空零异或判定或第 k 小；普通线性基的 dependent 不能直接移植到所有阈值。
@@ -955,6 +969,20 @@ determinant\_mod(a,mod) 返回 det(a) 的最小非负余数。a 为 long long �
 \newpage
 
 \lstinputlisting[firstline=14,lastline=58,firstnumber=9]{../src/compact/position_basis.hpp}
+
+\Needspace{512pt}
+
+\subsection*{应用题补充：Luogu CF1100F}
+
+\label{usage-example-39}
+
+题意：给数组及多个闭区间，求区间内任意子集的最大异或和。把查询按右端点排序，依次加入前缀元素及其 1-based 位置；query(l) 限制只使用位置不小于 l 的元素，最后按原查询顺序输出。
+
+所需模板：PositionBasis。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/CF1100F}
+
+\lstinputlisting{usage/example-39.cpp}
 
 \Needspace{394pt}
 
@@ -1331,6 +1359,20 @@ insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不�
 
 \lstinputlisting[firstline=133,lastline=201]{../src/compact/optimization.hpp}
 
+\Needspace{342pt}
+
+\subsection*{模板题使用：Luogu P3834}
+
+\label{usage-example-37}
+
+题意：给定不再修改的数组，查询闭区间 [l,r] 内第 k 小的值，重复值按出现次数计数。构造传入 0-based vector，查询 l、r、k 均从 1 开始。
+
+所需模板：PersistentKth。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3834}
+
+\lstinputlisting{usage/example-37.cpp}
+
 \subsection{可持久化数组：历史版本分叉与单点修改}\label{compact-PersistentArray}\index{PersistentArray}
 
 PersistentArray(a,changes=0)，a 是非空 0-based 初值数组；第 0 版为初始状态。set(version,pos,value) 基于任意已有版本修改 1-based 位置，创建并返回新版本编号；copy(version) 以 O(1) 时间复制版本；query(version,pos) 只读且不自动创建版本。values 支持 long long 全范围。每次修改复制根到叶的节点，旧版本不变；build 为内部函数，不可覆盖历史节点。建树 O(n)，修改及查询 O(log n)，初始 2n-1 个节点，每次修改至多 ceil(log2(n))+1 个；总空间 O(n+修改数*log n+版本数)。changes 仅用于预留节点池，低估后可扩容，所有外部引用应使用下标，不保存 vector 元素引用。节点下标用 int，节点总量须可表示。
@@ -1374,6 +1416,20 @@ PersistentRange(n) 建立长度 n 的全零版本 0，n$\ge$1；使用隐式节�
 TreePathKth(a) 传入非空 0-based 权值数组，节点编号 1..n；add(u,v) 加无向边，要求恰好构成一棵树。build(root=1) 递归 DFS 建立根到各节点的频数版本与倍增表，可换根重建，旧版本自动清空。kth(u,v,k) 返回简单路径上第 k 小的点权，包含两个端点，每个节点计一次；1$\le$k$\le$路径点数。lca(u,v) 返回当前预处理根下的最近公共祖先。使用 root[u]+root[v]-root[lca]-root[parent(lca)]，编号 0 为全零版本，避免少算或重复算 LCA。支持重复值与完整 long long 权值，内部只统计频数；权值和树结构在查询阶段保持不变。预处理 O(n log n)，每次查询 O(log n)，空间 O(n log n)。递归深度最坏 O(n)，保持递归写法。
 
 \lstinputlisting[firstline=7,lastline=129]{../src/compact/tree_path_kth.hpp}
+
+\Needspace{465pt}
+
+\subsection*{模板题使用：Luogu P2633}
+
+\label{usage-example-38}
+
+题意：给点权树，查询路径上第 k 小的点权，包含两个端点。构造传入 0-based 权值数组，点号为 1..n；每次先将输入的第一个端点与上次答案异或解码，初始 last=0。
+
+所需模板：TreePathKth。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2633}
+
+\lstinputlisting{usage/example-38.cpp}
 
 \subsection{静态区间不同数计数（前驱位置主席树）}\label{compact-PersistentDistinct}\index{PersistentDistinct}
 
