@@ -10,6 +10,7 @@
 - `verify/library_checker/bitwise_and_convolution.compact.cpp`
 - `verify/library_checker/bitwise_xor_convolution.compact.cpp`
 - `verify/library_checker/convolution_mod.compact.cpp`
+- `verify/library_checker/dominatortree.compact.cpp`
 - `verify/library_checker/enumerate_palindromes.compact.cpp`
 - `verify/library_checker/enumerate_triangles.compact.cpp`
 - `verify/library_checker/exp_of_formal_power_series.compact.cpp`
@@ -66,6 +67,7 @@
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.compact.cpp`
 - `verify/luogu/P5170.compact.cpp`
+- `verify/luogu/P5180.compact.cpp`
 - `verify/luogu/P5357.compact.cpp`
 - `verify/luogu/P5431.mint.compact.cpp`
 - `verify/luogu/P5656.compact.cpp`

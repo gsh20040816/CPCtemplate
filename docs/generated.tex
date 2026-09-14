@@ -2697,6 +2697,50 @@ count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小
 
 \lstinputlisting[firstline=4,lastline=38]{../src/compact/matrix_tree_mod.hpp}
 
+\Needspace{563pt}
+
+\chapter{支配树}
+
+\section{支配树：Lengauer--Tarjan}\label{compact-DominatorTree}\index{DominatorTree}
+
+DominatorTree(n)，点号 1..n；add(u,v) 加有向边，允许重边、自环。build(root) 后 idom 为原点号直接支配点，根指向自身，不可达为 0。仅对 root 可达点定义支配关系：所有 root 到 v 的路径均经过 u，等价于 u 在支配树上是 v 的祖先。timer 是可达点数，vertex[1..timer] 为 DFS 顺序，dfn 为逆映射；逆序向 idom 累加可得支配点数，根不向自身累加。g 保留原点号；pred、bucket、semi 等辅助数组使用 DFS 编号。可更换根重建；加边使预处理失效，需重新 build。简单 LT 时间 O((n+m) log(n+1))，空间及递归栈 O(n+m) 与 O(n)，n+1、边数须可由 int 表示。一般图与 DAG 均适用；可由 idom 建树组合 LCA。
+
+\lstinputlisting[firstline=8,lastline=45]{../src/compact/dominator_tree.hpp}
+
+\newpage
+
+\noindent 路径查询、半支配点与直接支配点计算（接上页同一结构体）：
+
+\lstinputlisting[firstline=46,lastline=90,firstnumber=39]{../src/compact/dominator_tree.hpp}
+
+\Needspace{337pt}
+
+\subsection*{模板题使用：Library Checker dominatortree}
+
+\label{usage-example-82}
+
+题意：从指定起点求每个点的直接支配点。输入输出是 0-based，调用模板时加 1；输出减 1 后，不可达点为 -1，根仍指向自身。
+
+所需模板：DominatorTree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/dominatortree}
+
+\lstinputlisting{usage/example-82.cpp}
+
+\Needspace{413pt}
+
+\subsection*{模板题使用：Luogu P5180}
+
+\label{usage-example-83}
+
+题意：从点 1 出发，输出各点支配的可达点数，包含自己。按 DFS 序逆序向直接支配点累加，根不向自身累加；不可达点输出 0。
+
+所需模板：DominatorTree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5180}
+
+\lstinputlisting{usage/example-83.cpp}
+
 \part{计算几何}
 
 \Needspace{603pt}

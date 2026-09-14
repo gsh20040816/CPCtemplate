@@ -955,5 +955,27 @@
     "requires": [
       "berlekamp_massey"
     ]
+  },
+  {
+    "id": "example-82",
+    "symbol": "DominatorTree",
+    "problem": "Library Checker dominatortree",
+    "url": "https://judge.yosupo.jp/problem/dominatortree",
+    "summary": "从指定起点求每个点的直接支配点。输入输出是 0-based，调用模板时加 1；输出减 1 后，不可达点为 -1，根仍指向自身。",
+    "driver": "verify/library_checker/dominatortree.compact.cpp",
+    "requires": [
+      "DominatorTree"
+    ]
+  },
+  {
+    "id": "example-83",
+    "symbol": "DominatorTree",
+    "problem": "Luogu P5180",
+    "url": "https://www.luogu.com.cn/problem/P5180",
+    "summary": "从点 1 出发，输出各点支配的可达点数，包含自己。按 DFS 序逆序向直接支配点累加，根不向自身累加；不可达点输出 0。",
+    "driver": "verify/luogu/P5180.compact.cpp",
+    "requires": [
+      "DominatorTree"
+    ]
   }
 ]

@@ -463,3 +463,8 @@ python3 tests/ac_application.py
 
 "$CXX" "${flags[@]}" tests/johnson.cpp -o build/johnson
 build/johnson
+
+"$CXX" "${flags[@]}" tests/dominator_tree.cpp -o build/dominator-tree
+build/dominator-tree
+python3 tests/dominator_application.py
+python3 tests/lowlink_application.py

@@ -130,7 +130,7 @@
 | [Cycle Detection (Directed)](https://judge.yosupo.jp/problem/cycle_detection) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Cycle Detection (Undirected)](https://judge.yosupo.jp/problem/cycle_detection_undirected) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Directed MST](https://judge.yosupo.jp/problem/directedmst) | Graph | 待逐题审题、适配与在线验证 | — |
-| [Dominator Tree](https://judge.yosupo.jp/problem/dominatortree) | Graph | 待逐题审题、适配与在线验证 | — |
+| [Dominator Tree](https://judge.yosupo.jp/problem/dominatortree) | Graph | 待逐题审题、适配与在线验证 | [dominatortree.compact.cpp](../verify/library_checker/dominatortree.compact.cpp) |
 | [Dynamic Graph Vertex Add Component Sum](https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Enumerate Cliques](https://judge.yosupo.jp/problem/enumerate_cliques) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Enumerate Triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | Graph | 待逐题审题、适配与在线验证 | [enumerate_triangles.compact.cpp](../verify/library_checker/enumerate_triangles.compact.cpp) |

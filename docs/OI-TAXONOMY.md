@@ -149,6 +149,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Blossom | 图论 → 图的匹配 → 一般图最大匹配 | direct |  |
 | MatrixTree | 图论 → 矩阵树定理 | direct |  |
 | MatrixTreeMod | 图论 → 矩阵树定理 | direct |  |
+| DominatorTree | 图论 → 支配树 | direct |  |
 | CirclePolygon | 计算几何 → 二维计算几何基础 | application | 二维圆构造与面积应用，保留退化和精度条件。 |
 | CircleTangents | 计算几何 → 二维计算几何基础 | application | 二维圆构造与面积应用，保留退化和精度条件。 |
 | IntegerPlane | 计算几何 → 二维计算几何基础 | direct |  |

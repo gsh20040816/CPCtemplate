@@ -156,8 +156,11 @@
       "toc_page": 16,
       "physical_page": 18,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "DominatorTree"
+      ],
+      "review": "已核对实际 18–24 页，含 19–21 页图像中的支配定义、DAG 拓扑加 LCA 提示及 LT 半支配点过程；实现一般图 LT，DAG 也可调用，未另实现 DAG 专用变体。原点号直接支配点与 P5180 子树计数两个用法已补，过滤不可达点。全体 n≤4 图各根、2000 随机多重图、变更根/加边重建、20 万点长链/环/星形，以及 13 组 LC 官方本地数据均双模式通过；P5180 20 万点 30 万边驱动双模式通过。线上待补。"
     },
     {
       "section": "2.2.1",
@@ -165,8 +168,11 @@
       "toc_page": 16,
       "physical_page": 18,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "DominatorTree"
+      ],
+      "review": "已核对实际 18–24 页，含 19–21 页图像中的支配定义、DAG 拓扑加 LCA 提示及 LT 半支配点过程；实现一般图 LT，DAG 也可调用，未另实现 DAG 专用变体。原点号直接支配点与 P5180 子树计数两个用法已补，过滤不可达点。全体 n≤4 图各根、2000 随机多重图、变更根/加边重建、20 万点长链/环/星形，以及 13 组 LC 官方本地数据均双模式通过；P5180 20 万点 30 万边驱动双模式通过。线上待补。"
     },
     {
       "section": "2.3",
@@ -174,11 +180,11 @@
       "toc_page": 22,
       "physical_page": 24,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
         "Lowlink"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "已核对实际 24–26 页割点代码；现有 vector Lowlink 覆盖不连通图、根的子树数判定，按父边编号处理重边，支持自环及重复 run。当前源独立删点/删边连通分量 oracle 1000 图，20 万点链/环和重建双模式通过；P3388 实际驱动 200 随机图及 2 万点 10 万边双模式通过，验证见 verification/lowlink-current.json。未据历史 AC 认定当前源线上通过。"
     },
     {
       "section": "2.4",

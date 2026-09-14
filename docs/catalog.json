@@ -982,5 +982,11 @@
     "Johnson",
     "Johnson：负边全源最短路",
     "Johnson(n)，点号 1..n，1≤n<INT_MAX，总边数不超过 INT_MAX；add(u,v,w) 加有向边，允许重边、自环和完整 long long 边权。build() 用初值全零的 Bellman–Ford 求势能，等价于超级源点连向所有点；全图任意位置有负环时返回 false，否则返回 true。仅成功后可 distances(s)，返回 vector<int128> 的原图距离，d[s]=0，不可达为 Johnson::inf；0 号不用。可按需逐源调用，不强制存 n² 矩阵。加边会使预处理失效，再 build 后查询；可重复 build。重赋权为 w+h[u]-h[v]，非负；查询后加 h[v]-h[s] 还原。势能与距离全程 int128，不能无条件转为 long long。预处理 O(nm+n) 时间，单源用惰性优先队列，O(n+m log(m+1)) 时间、O(n+m) 辅助空间；整个结构 O(n+m)。g、edges、h 仅供读取，勿手动修改。"
+  ],
+  [
+    "dominator_tree",
+    "DominatorTree",
+    "支配树：Lengauer–Tarjan",
+    "DominatorTree(n)，点号 1..n；add(u,v) 加有向边，允许重边、自环。build(root) 后 idom 为原点号直接支配点，根指向自身，不可达为 0。仅对 root 可达点定义支配关系：所有 root 到 v 的路径均经过 u，等价于 u 在支配树上是 v 的祖先。timer 是可达点数，vertex[1..timer] 为 DFS 顺序，dfn 为逆映射；逆序向 idom 累加可得支配点数，根不向自身累加。g 保留原点号；pred、bucket、semi 等辅助数组使用 DFS 编号。可更换根重建；加边使预处理失效，需重新 build。简单 LT 时间 O((n+m) log(n+1))，空间及递归栈 O(n+m) 与 O(n)，n+1、边数须可由 int 表示。一般图与 DAG 均适用；可由 idom 建树组合 LCA。"
   ]
 ]

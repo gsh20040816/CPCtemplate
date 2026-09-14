@@ -20,9 +20,9 @@
 | 1.6 | 6. 回文自动机 | 12 | 14 | pending_content_review |
 | 2 | 图论 | 13 | 15 | pending_content_review |
 | 2.1 | 1. 2-SAT | 13 | 15 | pending_content_review |
-| 2.2 | 2. 支配树 | 16 | 18 | pending_content_review |
-| 2.2.1 | (1) 洛谷模板 | 16 | 18 | pending_content_review |
-| 2.3 | 3. 割点 | 22 | 24 | pending_content_review |
+| 2.2 | 2. 支配树 | 16 | 18 | implemented_local_verified_online_pending |
+| 2.2.1 | (1) 洛谷模板 | 16 | 18 | implemented_local_verified_online_pending |
+| 2.3 | 3. 割点 | 22 | 24 | implemented_local_verified_online_pending |
 | 2.4 | 4. 网络最大流 | 24 | 26 | pending_content_review |
 | 2.5 | 5. Johnson | 26 | 28 | implemented_local_verified_online_pending |
 | 2.6 | 6. 点双连通分量 | 31 | 33 | pending_content_review |

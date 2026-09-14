@@ -1,0 +1,19 @@
+{
+  "scope": "Current vector implementation and adapter local independent deletion oracles; not new online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+    "tests/lowlink.cpp": "247400ef0d70644f045a5bdc4b9d360d3ad39e3a8b6c51d021d8442901956945",
+    "tests/lowlink_application.py": "4f27be1d0eb7070424ef3339665a14a85e9bda18a3780502a3ae917676d5d29d",
+    "verify/luogu/P3388.compact.cpp": "db19895e84126bd3d46ce52e6eddd6bccf7e5b93516039628dfe9159e0d98327"
+  },
+  "log": [
+    "Lowlink: 1000 multigraph deletion oracles including component deltas; 200000-node chain, cycle and rebuild PASS",
+    "Lowlink: 1000 multigraph deletion oracles including component deltas; 200000-node chain, cycle and rebuild PASS",
+    "P3388: 200 deletion-component output oracles; 20000 vertices / 100000 edges PASS",
+    "P3388: 200 deletion-component output oracles; 20000 vertices / 100000 edges PASS"
+  ]
+}

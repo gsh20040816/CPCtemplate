@@ -1,0 +1,20 @@
+{
+  "scope": "Current vector implementation and adapter local independent deletion oracles; not new online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/dominator_tree.hpp": "2ecb17ac59056eda9de78749aec5a900a78fa1817642c1c7ec7fa5044b843726",
+    "tests/dominator_tree.cpp": "74d57815dc1e029e5916ac9e70329d5dde8e4aaec0d3439934fdd841aa29c42e",
+    "tests/dominator_application.py": "448be4455db46b747b682ed5b9a3f9d54e1c46a304c3da002b84484d342350cd",
+    "verify/library_checker/dominatortree.compact.cpp": "27466df2c1bf6524f4d0e6f884fce819b9d75ab9ec52c4e73b8cefe8fc254d25",
+    "verify/luogu/P5180.compact.cpp": "9e3ca8f0d8c71778ad73de10c573117d4a8834a1f287fade62c4b071b77c5e86"
+  },
+  "log": [
+    "DominatorTree: exhaustive n<=4 all roots, 2000 random multigraphs with mutation, deletion-reachability oracle and 200000-node chain/cycle/star PASS",
+    "DominatorTree: exhaustive n<=4 all roots, 2000 random multigraphs with mutation, deletion-reachability oracle and 200000-node chain/cycle/star PASS",
+    "P5180: 150 deletion-reachability output oracles; 200000 vertices / 300000 edges PASS",
+    "P5180: 150 deletion-reachability output oracles; 200000 vertices / 300000 edges PASS"
+  ]
+}
