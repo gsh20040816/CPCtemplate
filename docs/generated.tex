@@ -1565,11 +1565,27 @@ count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小
 
 \chapter{二维计算几何基础}
 
-\section{整数精确二维几何}\label{compact-IntegerGeometry}\index{IntegerGeometry}
+\section{整数点向量与线段判定}\label{compact-IntegerPlane}\index{IntegerPlane}
 
-坐标绝对值$\le$10$^{12}$，点数$\le$10$^{6}$。叉积、点积、线段相交、凸包、点在多边形、点在凸包、旋转卡壳直径。凸包逆时针，不保留共线内点，不重复首点。contains 返回 0 外部、1 边界、2 内部。convex\_contains/diameter2 输入必须为本模板 strict hull。PolarLess 要求排除零向量。
+坐标绝对值不超过 10$^{12}$，使用 long long 存点、\_\_int128\_t 计算叉积、点积与距离平方。Point 按 x、y 字典序比较；cross(a,b,c) 为 ab 与 ac 的叉积，dot 为点积。on\_segment 包含端点及退化线段；intersect 判断闭线段有交点。PolarLess 按半平面、叉积、长度平方排序，要求严格弱序。全部单次运算 O(1)，不使用 epsilon。
 
-\lstinputlisting[firstline=6,lastline=150]{../src/compact/integer_geometry.hpp}
+\lstinputlisting[firstline=6,lastline=63]{../src/compact/integer_plane.hpp}
+
+\Needspace{208pt}
+
+\section{整数多边形有向面积}\label{compact-polygon_area2}\index{polygon\_area2}
+
+polygon\_area2(p) 返回 \_\_int128\_t 的有向面积两倍；逆时针为正，反向为负。输入按边界顺序排列，隐式闭合；空集或不足三个点返回 0。单个多边形点数不超过 10$^{5}$、坐标绝对值不超过 10$^{12}$，确保求和在有符号 128 位内。时间 O(n)，额外空间 O(1)。
+
+\lstinputlisting[firstline=5,lastline=15]{../src/compact/polygon_area2.hpp}
+
+\Needspace{430pt}
+
+\section{点在整数简单多边形内}\label{compact-polygon_contains}\index{polygon\_contains}
+
+polygon\_contains(p,q) 返回 0 外部、1 边界、2 内部，输入简单多边形，可顺时针或逆时针，不重复首点。空多边形返回 0；单点与线段按闭集判断边界。绕数算法先判线段，再按半开纵坐标区间累计，避免顶点重复计数。坐标范围同 IntegerPlane，O(n) 时间、O(1) 空间。
+
+\lstinputlisting[firstline=5,lastline=21]{../src/compact/polygon_contains.hpp}
 
 \section{浮点点线圆构造}\label{compact-RealGeometry}\index{RealGeometry}
 
@@ -1615,11 +1631,27 @@ solve(a,b,eps) 返回 Result，包含 infinite 和 lines；infinite 为真表示
 
 坐标绝对值$\le$10$^{9}$；orient(a,b,c,d) 为有向六倍四面体体积，0 表示共面；collinear 判三点共线，on\_segment 支持退化线段。int128 精确判定，不包含三维凸包构造。
 
-\lstinputlisting[firstline=19,lastline=61]{../src/compact/geometry_extra.hpp}
+\lstinputlisting[firstline=20,lastline=62]{../src/compact/geometry_extra.hpp}
 
-\Needspace{659pt}
+\Needspace{401pt}
 
 \chapter{凸包}
+
+\section{整数凸包：单调链}\label{compact-integer_hull}\index{integer\_hull}
+
+integer\_hull(points) 按值接收 IntegerPlane::Point 序列，输出严格逆时针凸包，不重复首点、不保留共线边内点。自动排序去重；全共线时保留两个端点，空集及单点直接返回。坐标范围同 IntegerPlane。O(n log n) 时间、O(n) 空间；供凸包包含、直径与 Minkowski 和调用。
+
+\lstinputlisting[firstline=5,lastline=30]{../src/compact/integer_hull.hpp}
+
+\Needspace{335pt}
+
+\section{点在整数凸包内（二分）}\label{compact-convex_contains_i64}\index{convex\_contains\_i64}
+
+convex\_contains\_i64(p,q) 返回 0 外部、1 边界、2 内部。要求严格逆时针凸包，无共线边内点、不重复首点，例如 integer\_hull 的输出；允许循环旋转起点。空集、单点、线段转用 polygon\_contains。坐标范围同 IntegerPlane，O(log n) 时间、O(1) 空间。
+
+\lstinputlisting[firstline=5,lastline=27]{../src/compact/convex_contains_i64.hpp}
+
+\Needspace{624pt}
 
 \noindent 相关应用：固定导航没有独立 Minkowski 和条目，按凸包的相关应用归档。
 
@@ -1627,9 +1659,9 @@ solve(a,b,eps) 返回 Result，包含 infinite 和 lines；infinite 为真表示
 
 minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返回空集，点和线段允许作为退化凸包。
 
-点类型 IntegerGeometry::Point；输入坐标及两集合坐标和的绝对值不超过 10$^{12}$。结果不重复首点，非退化时沿逆时针边方向合并，平行同向边同时推进；O(n+m) 时间。
+点类型 IntegerPlane::Point；输入坐标及两集合坐标和的绝对值不超过 10$^{12}$。结果不重复首点，非退化时沿逆时针边方向合并，平行同向边同时推进；O(n+m) 时间。
 
-退化输入枚举与另一凸包各点的和再求凸包，O((n+m) log(n+m))。按值传入，内部旋转不修改调用方；依赖 IntegerGeometry 的 hull/cross。
+退化输入枚举与另一凸包各点的和再求凸包，O((n+m) log(n+m))。按值传入，内部旋转不修改调用方；依赖 IntegerPlane 的 integer\_hull/cross。
 
 \lstinputlisting[firstline=5,lastline=54]{../src/compact/minkowski_sum.hpp}
 
@@ -1644,6 +1676,16 @@ minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返
 \newpage
 
 \lstinputlisting[firstline=21,lastline=53,firstnumber=16]{../src/compact/support_hull.hpp}
+
+\Needspace{326pt}
+
+\chapter{旋转卡壳}
+
+\section{整数凸包直径：旋转卡壳}\label{compact-convex_diameter2}\index{convex\_diameter2}
+
+convex\_diameter2(p) 返回最远两点距离平方，类型 \_\_int128\_t；不足两点返回 0。输入须为严格逆时针凸包，不重复首点，例如 integer\_hull 的输出。坐标范围同 IntegerPlane；旋转卡壳 O(n) 时间、O(1) 额外空间，只返回距离，不返回端点编号。
+
+\lstinputlisting[firstline=5,lastline=23]{../src/compact/convex_diameter2.hpp}
 
 \Needspace{536pt}
 
@@ -1667,13 +1709,13 @@ bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}
 
 \lstinputlisting[firstline=79,lastline=105,firstnumber=71]{../src/compact/halfplanes.hpp}
 
-\Needspace{676pt}
+\Needspace{675pt}
 
 \chapter{平面最近点对}
 
 \section{整数最近点对（精确平方距离）}\label{compact-closest_pair_i64}\index{closest\_pair\_i64}
 
-closest\_pair\_i64(points) 返回 optional<\_\_int128\_t> 的最短距离平方；少于两点返回 nullopt，重复点返回 0。点类型为 IntegerGeometry::Point，坐标绝对值不超过 10$^{12}$。按横坐标排序后递归分治，递归返回时按纵坐标排序；O(n log n) 时间、O(n) 辅助空间，全程精确整数。按值传入，不修改调用方序列。依赖 IntegerGeometry 的比较与 dist2。
+closest\_pair\_i64(points) 返回 optional<\_\_int128\_t> 的最短距离平方；少于两点返回 nullopt，重复点返回 0。点类型为 IntegerPlane::Point，坐标绝对值不超过 10$^{12}$。按横坐标排序后递归分治，递归返回时按纵坐标排序；O(n log n) 时间、O(n) 辅助空间，全程精确整数。按值传入，不修改调用方序列。依赖 IntegerPlane 的比较与 dist2。
 
 \lstinputlisting[firstline=5,lastline=56]{../src/compact/closest_pair_i64.hpp}
 

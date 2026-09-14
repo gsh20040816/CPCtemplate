@@ -1,11 +1,11 @@
 #pragma once
-#include "integer_geometry.hpp"
+#include "integer_hull.hpp"
 
 // BEGIN minkowski_sum
-vector<IntegerGeometry::Point> minkowski_sum(vector<IntegerGeometry::Point> a,
-                                             vector<IntegerGeometry::Point> b)
+vector<IntegerPlane::Point> minkowski_sum(vector<IntegerPlane::Point> a,
+                                          vector<IntegerPlane::Point> b)
 {
-    using G = IntegerGeometry;
+    using G = IntegerPlane;
     using P = G::Point;
     using I = G::I;
     if (a.empty() || b.empty()) return {};
@@ -18,7 +18,7 @@ vector<IntegerGeometry::Point> minkowski_sum(vector<IntegerGeometry::Point> a,
         vector<P> p;
         for (P u : a)
             for (P v : b) p.push_back(plus(u, v));
-        return G::hull(p);
+        return integer_hull(p);
     }
     auto start = [](vector<P> &p)
     {

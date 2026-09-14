@@ -438,3 +438,6 @@ build/infra-examples
 python3 tests/infra_examples.py
 
 python3 tests/lc_pheap_application.py
+
+"$CXX" "${flags[@]}" tests/integer_components.cpp -o build/integer-components
+build/integer-components

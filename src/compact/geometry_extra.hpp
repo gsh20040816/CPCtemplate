@@ -1,4 +1,5 @@
 #pragma once
+#include "integer_geometry.hpp"
 #include "closest_pair_i64.hpp"
 #include "minkowski_sum.hpp"
 

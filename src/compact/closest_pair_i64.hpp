@@ -1,10 +1,10 @@
 #pragma once
-#include "integer_geometry.hpp"
+#include "integer_plane.hpp"
 
 // BEGIN closest_pair_i64
-optional<IntegerGeometry::I> closest_pair_i64(vector<IntegerGeometry::Point> p)
+optional<IntegerPlane::I> closest_pair_i64(vector<IntegerPlane::Point> p)
 {
-    using G = IntegerGeometry;
+    using G = IntegerPlane;
     using P = G::Point;
     using I = G::I;
     int n = p.size();

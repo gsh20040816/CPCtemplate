@@ -4885,20 +4885,6 @@
       ],
       "order": 211
     },
-    "IntegerGeometry": {
-      "primary": "geometry/2d.md",
-      "relation": "composite",
-      "note": "含凸包、旋转卡壳等内容，须拆小节或明确多重索引。",
-      "additional": [
-        "geometry/convex-hull.md",
-        "geometry/rotating-calipers.md"
-      ],
-      "hierarchy": [
-        "计算几何",
-        "二维计算几何基础"
-      ],
-      "order": 414
-    },
     "RealGeometry": {
       "primary": "geometry/2d.md",
       "relation": "composite",
@@ -5781,6 +5767,72 @@
         "凸包"
       ],
       "order": 419
+    },
+    "IntegerPlane": {
+      "primary": "geometry/2d.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "计算几何",
+        "二维计算几何基础"
+      ],
+      "order": 414
+    },
+    "integer_hull": {
+      "primary": "geometry/convex-hull.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "计算几何",
+        "凸包"
+      ],
+      "order": 419
+    },
+    "polygon_area2": {
+      "primary": "geometry/2d.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "计算几何",
+        "二维计算几何基础"
+      ],
+      "order": 414
+    },
+    "polygon_contains": {
+      "primary": "geometry/2d.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "计算几何",
+        "二维计算几何基础"
+      ],
+      "order": 414
+    },
+    "convex_contains_i64": {
+      "primary": "geometry/convex-hull.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "计算几何",
+        "凸包"
+      ],
+      "order": 419
+    },
+    "convex_diameter2": {
+      "primary": "geometry/rotating-calipers.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "计算几何",
+        "旋转卡壳"
+      ],
+      "order": 421
     }
   }
 }
