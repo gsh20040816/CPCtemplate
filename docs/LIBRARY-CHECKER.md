@@ -136,7 +136,7 @@
 | [Enumerate Triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | Graph | 待逐题审题、适配与在线验证 | [enumerate_triangles.compact.cpp](../verify/library_checker/enumerate_triangles.compact.cpp) |
 | [Eulerian Trail (Directed)](https://judge.yosupo.jp/problem/eulerian_trail_directed) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Eulerian Trail (Undirected)](https://judge.yosupo.jp/problem/eulerian_trail_undirected) | Graph | 待逐题审题、适配与在线验证 | — |
-| [Matching on General Graph](https://judge.yosupo.jp/problem/general_matching) | Graph | 待逐题审题、适配与在线验证 | — |
+| [Matching on General Graph](https://judge.yosupo.jp/problem/general_matching) | Graph | 待逐题审题、适配与在线验证 | [general_matching.compact.cpp](../verify/library_checker/general_matching.compact.cpp) |
 | [General Weighted Matching](https://judge.yosupo.jp/problem/general_weighted_matching) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Global Minimum Cut of Dynamic Star Augmented Graph](https://judge.yosupo.jp/problem/global_minimum_cut_of_dynamic_star_augmented_graph) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Strongly Connected Components (Incremental)](https://judge.yosupo.jp/problem/incremental_scc) | Graph | 待逐题审题、适配与在线验证 | — |

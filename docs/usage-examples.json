@@ -831,5 +831,27 @@
     "requires": [
       "SuffixAutomaton"
     ]
+  },
+  {
+    "id": "example-72",
+    "symbol": "Blossom",
+    "problem": "Library Checker general_matching",
+    "url": "https://judge.yosupo.jp/problem/general_matching",
+    "summary": "给简单无向图，输出最大匹配的边数及匹配边。点号 0..n-1；solve 后 mate[u]=-1 表示未匹配，只在 u<mate[u] 时输出，避免同一条边打印两次。",
+    "driver": "verify/library_checker/general_matching.compact.cpp",
+    "requires": [
+      "Blossom"
+    ]
+  },
+  {
+    "id": "example-73",
+    "symbol": "WeightedMatching",
+    "problem": "Luogu P6577",
+    "url": "https://www.luogu.com.cn/problem/P6577",
+    "summary": "求二分图最大权完美匹配，两侧均为 n 点，题目保证存在完美匹配。输出 r[j]，即右部 j 对应的左部编号，均为 1-based；题目权值与规模保证总权值可转为 long long。",
+    "driver": "verify/luogu/P6577.compact.cpp",
+    "requires": [
+      "WeightedMatching"
+    ]
   }
 ]

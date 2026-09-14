@@ -92,7 +92,7 @@
 | DynamicKth | [example-63](usage/example-63.cpp) | locally_checked_example |
 | PersistentDistinct | [example-46（应用补充）](usage/example-46.cpp) | generated_unverified |
 | Hungarian | 待补 | pending_example |
-| WeightedMatching | 待补 | pending_example |
+| WeightedMatching | [example-73](usage/example-73.cpp) | locally_checked_example |
 | Arborescence | 待补 | pending_example |
 | StoerWagner | 待补 | pending_example |
 | gomory_hu | [example-56](usage/example-56.cpp) | locally_checked_example |
@@ -111,7 +111,7 @@
 | SequenceTreap | [example-10](usage/example-10.cpp) | locally_checked_example |
 | OrderedSplay | [example-9](usage/example-9.cpp) | locally_checked_example |
 | GcdSequenceTreap | 待补 | pending_example |
-| Blossom | 待补 | pending_example |
+| Blossom | [example-72](usage/example-72.cpp) | locally_checked_example |
 | berlekamp_massey | 待补 | pending_example |
 | recurrence_nth | 待补 | pending_example |
 | TarjanSCC | [example-2](usage/example-2.cpp) | locally_checked_example |

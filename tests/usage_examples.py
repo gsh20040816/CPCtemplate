@@ -3,6 +3,7 @@ from compiler_config import CXX
 from pathlib import Path
 import argparse
 import json
+import itertools
 import math
 import subprocess
 import sys
@@ -119,6 +120,10 @@ cases.update({
     'example-70': [('4\na\naa\na\nb\naaa\n', '3 2 3 0'), ('4\nhe\nshe\nhers\nhis\nahishers\n', '1 1 1 1')],
     'example-71': [('ababa\n', '9'), ('aaaa\n', '4'), ('abcbc\n', '12'), ('z\n', '1')]
 })
+cases.update({
+    'example-72': [('4 4\n0 1\n1 2\n2 0\n2 3\n', {'matching': (4, [(0, 1), (1, 2), (2, 0), (2, 3)], 2)}), ('3 3\n0 1\n1 2\n2 0\n', {'matching': (3, [(0, 1), (1, 2), (2, 0)], 1)}), ('5 0\n', {'matching': (5, [], 0)})],
+    'example-73': [('2 4\n1 1 1\n1 2 5\n2 1 6\n2 2 2\n', {'weighted_matching': [[1, 5], [6, 2]]}), ('2 2\n1 1 -1\n2 2 -4\n', {'weighted_matching': [[-1, None], [None, -4]]}), ('2 4\n1 1 7\n1 2 7\n2 1 7\n2 2 7\n', {'weighted_matching': [[7, 7], [7, 7]]})]
+})
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()
@@ -153,6 +158,29 @@ for row in rows:
                     for i, (_, step) in enumerate(queries):
                         count = int(lines[2 * i])
                         assert len(lines[2 * i + 1].split()) == count // step
+            elif isinstance(expected, dict) and 'matching' in expected:
+                n, edges, size = expected['matching']
+                lines = [list(map(int, line.split())) for line in run.stdout.splitlines()]
+                assert lines[0] == [size] and len(lines) == size + 1
+                allowed = {tuple(sorted(e)) for e in edges}
+                used = set()
+                for edge in lines[1:]:
+                    assert len(edge) == 2
+                    u, v = edge
+                    assert 0 <= u < n and 0 <= v < n and u != v
+                    assert tuple(sorted(edge)) in allowed and u not in used and v not in used
+                    used.update(edge)
+            elif isinstance(expected, dict) and 'weighted_matching' in expected:
+                weights = expected['weighted_matching']
+                n = len(weights)
+                output = list(map(int, run.stdout.split()))
+                assert len(output) == n + 1 and sorted(output[1:]) == list(range(1, n + 1))
+                selected = [weights[u - 1][v] for v, u in enumerate(output[1:])]
+                assert all(w is not None for w in selected)
+                optimum = max(sum(weights[p[v]][v] for v in range(n))
+                              for p in itertools.permutations(range(n))
+                              if all(weights[p[v]][v] is not None for v in range(n)))
+                assert output[0] == sum(selected) == optimum
             elif isinstance(expected, dict) and 'diameter_cases' in expected:
                 lines = run.stdout.splitlines()
                 assert len(lines) == len(expected['diameter_cases'])
