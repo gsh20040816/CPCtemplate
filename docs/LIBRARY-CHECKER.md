@@ -158,7 +158,7 @@
 | [Inverse Matrix](https://judge.yosupo.jp/problem/inverse_matrix) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Inverse Matrix (Mod 2)](https://judge.yosupo.jp/problem/inverse_matrix_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Determinant of Matrix](https://judge.yosupo.jp/problem/matrix_det) | Linear Algebra | 待逐题审题、适配与在线验证 | [matrix_det.compact.cpp](../verify/library_checker/matrix_det.compact.cpp) |
-| [Determinant of Matrix (Arbitrary Mod)](https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
+| [Determinant of Matrix (Arbitrary Mod)](https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod) | Linear Algebra | 待逐题审题、适配与在线验证 | [matrix_det_arbitrary_mod.compact.cpp](../verify/library_checker/matrix_det_arbitrary_mod.compact.cpp) |
 | [Determinant of Matrix (Mod 2)](https://judge.yosupo.jp/problem/matrix_det_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Matrix Product](https://judge.yosupo.jp/problem/matrix_product) | Linear Algebra | 待逐题审题、适配与在线验证 | [matrix_product.compact.cpp](../verify/library_checker/matrix_product.compact.cpp) |
 | [Matrix Product (Mod 2)](https://judge.yosupo.jp/problem/matrix_product_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |

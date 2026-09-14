@@ -1124,6 +1124,20 @@ determinant\_mod(a,mod) 返回 det(a) 的最小非负余数。a 为 long long �
 
 \lstinputlisting[firstline=7,lastline=42]{../src/compact/determinant_mod.hpp}
 
+\Needspace{297pt}
+
+\subsection*{模板题使用：Library Checker matrix\_det\_arbitrary\_mod}
+
+\label{usage-example-77}
+
+题意：给方阵和模数，求行列式的最小非负余数，模数可以为合数。函数无需模逆元，按值接收矩阵，示例用 move 交出数据。0 阶方阵的行列式为 1，再对模数取余。
+
+所需模板：determinant\_mod。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod}
+
+\lstinputlisting{usage/example-77.cpp}
+
 \newpage
 
 \section{线性基}

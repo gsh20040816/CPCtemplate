@@ -1390,7 +1390,14 @@
       "title": "任意正模数行列式：欧几里得消元",
       "source": "src/compact/determinant_mod.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/matrix_det_arbitrary_mod.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

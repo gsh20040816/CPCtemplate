@@ -889,5 +889,16 @@
       "det_prime",
       "MatrixTree"
     ]
+  },
+  {
+    "id": "example-77",
+    "symbol": "determinant_mod",
+    "problem": "Library Checker matrix_det_arbitrary_mod",
+    "url": "https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod",
+    "summary": "给方阵和模数，求行列式的最小非负余数，模数可以为合数。函数无需模逆元，按值接收矩阵，示例用 move 交出数据。0 阶方阵的行列式为 1，再对模数取余。",
+    "driver": "verify/library_checker/matrix_det_arbitrary_mod.compact.cpp",
+    "requires": [
+      "determinant_mod"
+    ]
   }
 ]
