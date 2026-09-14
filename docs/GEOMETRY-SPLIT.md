@@ -16,3 +16,5 @@ geometry_extra.hpp 的旧静态接口只转发，三维整数几何暂仍在原�
 后续整数知识点拆分见 INTEGER-COMPONENTS.md：IntegerGeometry 已退出打印正文，现为六个独立条目；剩余复合条目为 RealGeometry 与 Biconnected。
 
 浮点知识点拆分见 REAL-COMPONENTS.md：基础类型和六个函数分别收录，RealGeometry 保留为兼容入口；知识点复合条目仅剩 Biconnected。
+
+双连通核心与森林拆分见 BCC-COMPONENTS.md；当前 composite 映射为零，附加说明与相关应用归类仍待逐项核对。

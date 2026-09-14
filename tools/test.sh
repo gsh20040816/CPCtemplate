@@ -447,3 +447,7 @@ build/real-components
 
 "$CXX" "${flags[@]}" tests/triangles.cpp -o build/triangles
 build/triangles
+
+"$CXX" "${flags[@]}" tests/bcc_compat.cpp -o build/bcc-compat
+build/bcc-compat
+python3 tests/bcc_application.py

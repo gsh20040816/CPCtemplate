@@ -7,7 +7,7 @@ int main()
     cin.tie(nullptr);
     int n, m;
     cin >> n >> m;
-    Biconnected graph(n);
+    BiconnectedCore graph(n);
     for (int i = 0; i < m; i++)
     {
         int u, v;

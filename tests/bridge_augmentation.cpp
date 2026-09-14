@@ -26,7 +26,7 @@ void check(int n, const vector<pair<int, int>> &edges)
 {
     if (!connected(n, edges))
         return;
-    Biconnected graph(n);
+    BiconnectedCore graph(n);
     static Biconnected_Graph<20> classic;
     classic.Init(n);
     for (auto [u, v] : edges)
@@ -75,7 +75,7 @@ void check(int n, const vector<pair<int, int>> &edges)
 void *large(void *)
 {
     constexpr int n = 200000;
-    Biconnected graph(n);
+    BiconnectedCore graph(n);
     static Biconnected_Graph<n> classic;
     classic.Init(n);
     for (int u = 2; u <= n; u++)

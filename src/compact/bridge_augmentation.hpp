@@ -1,15 +1,15 @@
 #pragma once
-#include "biconnected.hpp"
+#include "bridge_component_forest.hpp"
 
 // BEGIN bridge_augmentation
 // Connected, nonempty graph after run(); new parallel edges are allowed.
-vector<pair<int, int>> bridge_augmentation(const Biconnected &graph)
+vector<pair<int, int>> bridge_augmentation(const BiconnectedCore &graph)
 {
     assert(graph.n > 0 && graph.cnt > 0);
     int bridges = count(graph.bridge.begin(), graph.bridge.end(), 1);
     assert(graph.cnt - bridges == 1);
     if (graph.cnt == 1) return {};
-    auto tree = graph.bridge_forest();
+    auto tree = bridge_component_forest(graph);
     vector<int> representative(graph.cnt + 1);
     for (int u = 1; u <= graph.n; u++) representative[graph.bel[u]] = u;
     vector<int> leaves;

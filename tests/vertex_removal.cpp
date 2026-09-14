@@ -38,7 +38,7 @@ void check(int n, const vector<pair<int,int>> &edges)
 {
     Lowlink direct(n);
     Low_Link traditional(n);
-    Biconnected a(n);
+    BiconnectedCore a(n);
     static Biconnected_Graph<12> b;
     b.Init(n);
     for (auto [u,v] : edges)
@@ -102,7 +102,7 @@ void run()
     const int n = 200000;
     Lowlink direct(n);
     Low_Link traditional(n);
-    Biconnected a(n);
+    BiconnectedCore a(n);
     static Biconnected_Graph<n> b;
     b.Init(n);
     for (int u = 1; u < n; u++)

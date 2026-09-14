@@ -1,4 +1,5 @@
-#include "../src/compact/biconnected.hpp"
+#include "../src/compact/block_cut_forest.hpp"
+#include "../src/compact/bridge_component_forest.hpp"
 #include "../src/classic/biconnected.hpp"
 #include <iostream>
 #include <random>
@@ -76,7 +77,7 @@ void check(int n, const Edges &e)
             remaining.push_back(e[id]);
     }
     auto edge_components = components(n, remaining, all);
-    Biconnected a(n);
+    BiconnectedCore a(n);
     static Biconnected_Graph<8> b;
     b.Init(n);
     for (auto [u, v] : e)
@@ -117,7 +118,7 @@ void check(int n, const Edges &e)
                 assert((b.bel[u] == b.bel[v]) == same);
             }
         }
-        for (auto tree : {a.block_forest(), b.Block_Forest()})
+        for (auto tree : {block_cut_forest(a), b.Block_Forest()})
         {
             int nodes = tree.size() - 1;
             Edges te;
@@ -133,7 +134,7 @@ void check(int n, const Edges &e)
         }
         for (int style = 0; style < 2; style++)
         {
-            auto tree = style ? b.Bridge_Forest() : a.bridge_forest();
+            auto tree = style ? b.Bridge_Forest() : bridge_component_forest(a);
             int count = 0;
             for (int u = 1; u < (int)tree.size(); u++)
             {
@@ -176,7 +177,7 @@ void test_all()
         check(n, e);
     }
     const int n = 200000;
-    Biconnected a(n);
+    BiconnectedCore a(n);
     static Biconnected_Graph<n> b;
     b.Init(n);
     for (int u = 1; u < n; u++)

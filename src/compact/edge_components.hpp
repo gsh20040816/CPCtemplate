@@ -1,5 +1,5 @@
 #pragma once
-#include "biconnected.hpp"
+#include "biconnected_core.hpp"
 #include "graph.hpp"
 #include <array>
 
@@ -10,7 +10,8 @@ struct EdgeCompression
     vector<int> size, inside;
     vector<array<int, 3>> edges;
 
-    EdgeCompression(const Biconnected &graph) : n(graph.cnt), size(n + 1), inside(n + 1)
+    EdgeCompression(const BiconnectedCore &graph)
+        : n(graph.cnt), size(n + 1), inside(n + 1)
     {
         for (int u = 1; u <= graph.n; u++) size[graph.bel[u]]++;
         for (int id = 0; id < (int)graph.edges.size(); id++)

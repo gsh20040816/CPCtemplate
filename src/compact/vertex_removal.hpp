@@ -1,9 +1,9 @@
 #pragma once
-#include "biconnected.hpp"
+#include "biconnected_core.hpp"
 
 // BEGIN removal_components
 // Call after run(). Each vertex is deleted independently from the original graph.
-pair<int, vector<int>> removal_components(const Biconnected &graph)
+pair<int, vector<int>> removal_components(const BiconnectedCore &graph)
 {
     int before = graph.cnt - count(graph.bridge.begin(), graph.bridge.end(), 1);
     vector<int> after(graph.n + 1, before - 1);

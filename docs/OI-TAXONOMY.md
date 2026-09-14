@@ -117,13 +117,15 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | FunctionalGraph | 图论 → 连通性相关 → 强连通分量 | related | 函数图包含尾链与环分解，导航无独立页；需正文定位，不应等同一般 SCC 算法。 |
 | SCC | 图论 → 连通性相关 → 强连通分量 | direct |  |
 | TarjanSCC | 图论 → 连通性相关 → 强连通分量 | direct |  |
-| Biconnected | 图论 → 连通性相关 → 双连通分量 | composite | 点双、边双、圆方树分别建立小节，保留共享 lowlink 核心。 |
+| BiconnectedCore | 图论 → 连通性相关 → 双连通分量 | direct |  |
 | EdgeCompression | 图论 → 连通性相关 → 双连通分量 | application | 边双缩点及强连通定向应用。 |
+| bridge_component_forest | 图论 → 连通性相关 → 双连通分量 | direct |  |
 | odd_cycle_vertices | 图论 → 连通性相关 → 双连通分量 | application | 点双分解与二分图判定找奇环顶点。 |
 | orient_edges | 图论 → 连通性相关 → 双连通分量 | application | 边双缩点及强连通定向应用。 |
 | Lowlink | 图论 → 连通性相关 → 割点和桥 | application | 割点/桥及其删点、增边应用。 |
 | bridge_augmentation | 图论 → 连通性相关 → 割点和桥 | application | 割点/桥及其删点、增边应用。 |
 | removal_components | 图论 → 连通性相关 → 割点和桥 | application | 割点/桥及其删点、增边应用。 |
+| block_cut_forest | 图论 → 连通性相关 → 圆方树 | direct |  |
 | enumerate_triangles | 图论 → 环计数问题 | direct |  |
 | LexTwoSAT | 图论 → 2-SAT | direct |  |
 | TwoSAT | 图论 → 2-SAT | direct |  |

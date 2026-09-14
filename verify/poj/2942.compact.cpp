@@ -16,7 +16,7 @@ int main()
             hate[u][v] = true;
             hate[v][u] = true;
         }
-        Biconnected graph(n);
+        BiconnectedCore graph(n);
         for (int u = 1; u <= n; u++)
             for (int v = u + 1; v <= n; v++)
                 if (!hate[u][v]) graph.add(u, v);

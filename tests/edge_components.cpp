@@ -27,7 +27,7 @@ void check(int n,const vector<pair<int,int>> &edges)
 {
     Lowlink a(n);
     Low_Link b(n);
-    Biconnected c(n);
+    BiconnectedCore c(n);
     static Biconnected_Graph<10> d;
     d.Init(n);
     for (auto [u,v] : edges)

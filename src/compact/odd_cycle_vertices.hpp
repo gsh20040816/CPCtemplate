@@ -1,12 +1,12 @@
 #pragma once
-#include "biconnected.hpp"
+#include "block_cut_forest.hpp"
 
 // BEGIN odd_cycle_vertices
 // After run(). Simple odd cycles have length >= 3; self-loops are ignored.
-vector<int> odd_cycle_vertices(const Biconnected &graph)
+vector<int> odd_cycle_vertices(const BiconnectedCore &graph)
 {
     int n = graph.n;
-    auto forest = graph.block_forest();
+    auto forest = block_cut_forest(graph);
     vector<int> parent(forest.size()), depth(forest.size());
     auto root_tree = [&](auto &&self, int u, int p) -> void
     {

@@ -38,7 +38,7 @@ vector<int> brute(int n, const vector<pair<int, int>> &edges)
 
 void check(int n, const vector<pair<int, int>> &edges)
 {
-    Biconnected a(n);
+    BiconnectedCore a(n);
     static Biconnected_Graph<9> b;
     b.Init(n);
     for (auto [u, v] : edges)
@@ -64,7 +64,7 @@ void *large(void *)
     static Biconnected_Graph<n> b;
     for (int shape = 0; shape < 3; shape++)
     {
-        Biconnected a(n);
+        BiconnectedCore a(n);
         b.Init(n);
         auto add = [&](int u, int v)
         {

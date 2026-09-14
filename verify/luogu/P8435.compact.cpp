@@ -1,4 +1,4 @@
-#include "../../src/compact/biconnected.hpp"
+#include "../../src/compact/biconnected_core.hpp"
 #include <iostream>
 
 int main()
@@ -7,7 +7,7 @@ int main()
     std::cin.tie(nullptr);
     int n, m;
     std::cin >> n >> m;
-    Biconnected graph(n);
+    BiconnectedCore graph(n);
     for (int i = 0; i < m; i++)
     {
         int u, v;

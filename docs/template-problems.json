@@ -2211,9 +2211,9 @@
       }
     },
     {
-      "symbol": "Biconnected",
-      "title": "Tarjan 点双、边双与圆方树",
-      "source": "src/compact/biconnected.hpp",
+      "symbol": "BiconnectedCore",
+      "title": "点双与边双：共享 lowlink 核心",
+      "source": "src/compact/biconnected_core.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -2245,6 +2245,36 @@
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "block_cut_forest",
+      "title": "由点双构造圆方森林",
+      "source": "src/compact/block_cut_forest.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "bridge_component_forest",
+      "title": "边双缩点森林（保留桥编号）",
+      "source": "src/compact/bridge_component_forest.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
