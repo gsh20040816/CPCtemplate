@@ -79,8 +79,8 @@ P1516 compact: 242 simulated/planted cases, swapped speeds, equal speeds, initia
 CRT systems dual exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS
 Linear sieve dual prefixes, least-prime trial oracle, factor reconstruction and ten-million-entry divisor certificates PASS
 Primality/factorization dual sieve, cpp_int arithmetic, trial-certified factors, pseudoprimes, uint64 bounds and Lucas certificate PASS
-P4718 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 2.384s
-1811 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 1.403s
+P4718 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 2.275s
+1811 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.781s
 Euler phi dual trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS
 Coprime pairs dual gcd rectangle oracle, zero prefixes, million square and INT_MAX thin intervals PASS
 P2522 compact: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS
@@ -132,30 +132,30 @@ P5408 compact: complete row drivers, DP and maximum-size polynomial identities P
 Bostan-Mori dual rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS
 P4723 compact: signed-input recurrence DP and dense maximum-order binomial oracle PASS
 Set convolutions dual direct-character and submask oracles, composite moduli, INT_MAX and 18-bit tensor identities PASS
-P4717 compact: 50 pair-enumeration cases and full 17-bit tensor identity PASS; large driver wall time 0.087s
-P6097 compact: 50 pair-enumeration cases and full 20-bit tensor identity PASS; large driver wall time 1.313s
+P4717 compact: 50 pair-enumeration cases and full 17-bit tensor identity PASS; large driver wall time 0.081s
+P6097 compact: 50 pair-enumeration cases and full 20-bit tensor identity PASS; large driver wall time 1.282s
 Polynomial shift and Chirp-Z dual Pascal/Horner oracles, zero/one ratios, small-field capacity boundaries and large binomial/geometric identities PASS
 polynomial_taylor_shift compact: 60 independent small cases and full 524288-size closed-form driver checks PASS
 multipoint_evaluation_on_geometric_sequence compact: 60 independent small cases and full 524288-size closed-form driver checks PASS
 Persistent range dual branching vector oracle, lazy cross-version splice, immutable queries, sparse INT_MAX domain and logarithmic allocation PASS
 QOJ8240 compact: exhaustive binary arrays through length 7 and random literal card-removal simulation with XOR queries PASS
-QOJ8240 compact: n=q=300000 distinct closed-form case PASS (0.282s)
-QOJ8240 compact: n=q=300000 equal closed-form case PASS (0.318s)
-QOJ8240 compact: n=q=300000 periodic closed-form case PASS (0.480s)
-QOJ8240 compact: n=q=300000 sparse-repeat array with literal short-query oracle PASS (0.414s)
+QOJ8240 compact: n=q=300000 distinct closed-form case PASS (0.301s)
+QOJ8240 compact: n=q=300000 equal closed-form case PASS (0.328s)
+QOJ8240 compact: n=q=300000 periodic closed-form case PASS (0.510s)
+QOJ8240 compact: n=q=300000 sparse-repeat array with literal short-query oracle PASS (0.500s)
 Tree diameter dual exhaustive subsets, unions, farthest witnesses and weighted Euler LCA BFS/all-root oracles with zero and int64 distances PASS
 QOJ8235 compact: independent weighted paths, radius boundaries, missing values and mex set oracle PASS
-QOJ8235 compact: n=q=500000 recursive weighted chain closed form PASS (0.341s)
-QOJ8235 compact: n=q=500000 weighted star closed form PASS (0.216s)
+QOJ8235 compact: n=q=500000 recursive weighted chain closed form PASS (0.354s)
+QOJ8235 compact: n=q=500000 weighted star closed form PASS (0.242s)
 Local driver runner uses a 256 MiB pthread stack with main renamed only at compilation; submitted sources retain ordinary main and recursive DFS.
 Functional graph dual exhaustive successor maps, first-visit path oracles, uint64 jumps, rebuild and 500000 tail/cycle/self-loop cases PASS
 P2921 compact: first-visit walk oracle and maximum-size tail/cycle drivers PASS
 1750 compact: first-visit walk oracle and maximum-size tail/cycle drivers PASS
 1160 compact: first-visit walk oracle and maximum-size tail/cycle drivers PASS
 QOJ8237 compact: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS
-QOJ8237 compact: n=500000 chain closed-form checks PASS (0.263s)
-QOJ8237 compact: n=500000 cycle closed-form checks PASS (0.282s)
-QOJ8237 compact: 500000 singleton test cases and factorial-cache reuse PASS (0.581s)
+QOJ8237 compact: n=500000 chain closed-form checks PASS (0.286s)
+QOJ8237 compact: n=500000 cycle closed-form checks PASS (0.310s)
+QOJ8237 compact: 500000 singleton test cases and factorial-cache reuse PASS (0.659s)
 Release BFS dual heap oracle, exhaustive tiny snake states and 3000-square implicit grid PASS
 Snake configurations: 744
 QOJ8236 compact: official samples, full snake chain, 3000-square open/barrier grids PASS
@@ -239,26 +239,13 @@ Infra Python/Bash examples: exact arithmetic, fixed random bounds and quoted fil
 PBDS shortest-path driver: 160 Floyd-Warshall graph oracles, zero weights, unreachable targets and simple-path certificates PASS
 Vector library regression with pinned historical baseline PASS
 Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS
-Primitive root dual exhaustive power-cycle oracle, orders, signed inputs, existence, reset, int32 bounds and 999983 full cycle PASS
-Lucas dual Pascal oracle, exact big integers, uint64 extremes, prime-power identities and modulus reset PASS
-Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS
-PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS
-XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS
-Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS
-P4781 compact bundled driver / independent polynomial evaluation PASS
-Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS
-Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS
-Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS
-Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS
-Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS
-XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS
-Tarjan SCC exhaustive digraphs, reachability and condensation oracle PASS
-Biconnected subset/removal oracles and block/bridge forests PASS
-Link-cut forest / BFS oracle PASS
-Link-cut 200000-vertex chain PASS
-Ordered treap and splay / sorted vector oracle PASS
-Sequence treap / vector oracle PASS
-Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS
 closest pair, Minkowski, bounded circulation PASS
 Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS
 dual geometry, flow, optimization, graph-advanced PASS
+Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS
+closest pair, Minkowski, bounded circulation PASS
+dual geometry, flow, optimization, graph-advanced PASS
+Circle degeneracy, scale invariance and 100-digit overlap reference PASS
+Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS
+Circle tangents dual exact count oracle, 100-digit line/contact certificates, point circles, tangencies and scale extremes PASS
+Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS

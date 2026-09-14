@@ -1,5 +1,5 @@
 #pragma once
-#include "geometry.hpp"
+#include "integer_geometry.hpp"
 
 // BEGIN minkowski_sum
 vector<IntegerGeometry::Point> minkowski_sum(vector<IntegerGeometry::Point> a,

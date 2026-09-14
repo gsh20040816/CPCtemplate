@@ -1569,13 +1569,13 @@ count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小
 
 坐标绝对值$\le$10$^{12}$，点数$\le$10$^{6}$。叉积、点积、线段相交、凸包、点在多边形、点在凸包、旋转卡壳直径。凸包逆时针，不保留共线内点，不重复首点。contains 返回 0 外部、1 边界、2 内部。convex\_contains/diameter2 输入必须为本模板 strict hull。PolarLess 要求排除零向量。
 
-\lstinputlisting[firstline=6,lastline=151]{../src/compact/geometry.hpp}
+\lstinputlisting[firstline=6,lastline=150]{../src/compact/integer_geometry.hpp}
 
 \section{浮点点线圆构造}\label{compact-RealGeometry}\index{RealGeometry}
 
 long double，显式 eps 默认 10$^{-12}$。要求有限输入及适当尺度；接近相切时按容差分类，不能提供任意实数输入的精确拓扑保证。Result 区分 none/one/two/infinite/degenerate。圆圆交点仅在圆心和正半径完全相同时返回 infinite；零半径圆按点处理，不把近同心圆当作重合。圆相关交点容差按局部距离和半径缩放，不使用固定的单位长度下限。零长度线返回 degenerate；投影与点到线段距离将零线段视为点。overlap 返回交叠面积，小圆弓用级数避免三角函数相减消失。坐标缩放和误差预算仍须按题面复核。
 
-\lstinputlisting[firstline=152,lastline=298]{../src/compact/geometry.hpp}
+\lstinputlisting[firstline=6,lastline=152]{../src/compact/real_geometry.hpp}
 
 \Needspace{426pt}
 

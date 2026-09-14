@@ -1,5 +1,5 @@
 #pragma once
-#include "geometry.hpp"
+#include "integer_geometry.hpp"
 
 // BEGIN closest_pair_i64
 optional<IntegerGeometry::I> closest_pair_i64(vector<IntegerGeometry::Point> p)

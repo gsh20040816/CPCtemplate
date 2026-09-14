@@ -10,3 +10,5 @@ geometry_extra.hpp 的旧静态接口只转发，三维整数几何暂仍在原�
 本批不新增数学算法覆盖。两段算法体除局部类型别名与缩进外未变，脚本已比较；直接函数用 cpp_int 距离和独立 gift-wrapping 凸包参考验证，旧包装用既有调用与命名空间测试验证。普通及 ASan/UBSan 日志和源码哈希见 verification/geometry-split.json。在线 AC 未新增。
 
 导航依据仍为已披露的官方 GitHub 固定快照，非对 oi-wiki.com 域名的访问确认。
+
+整数与浮点类型现分别位于 integer_geometry.hpp / real_geometry.hpp；geometry.hpp 保留为兼容聚合入口。精确最近点对/Minkowski 只包含整数依赖，圆多边形、切线、最小覆盖圆只包含浮点依赖。类型定义不变，当前知识点复合条目数量仍为 3，不能把物理文件拆开算作细分类完成。
