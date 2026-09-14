@@ -43,10 +43,13 @@
 - `verify/luogu/P2860.compact.cpp`
 - `verify/luogu/P2921.compact.cpp`
 - `verify/luogu/P3369.pbds.compact.cpp`
+- `verify/luogu/P3377.compact.cpp`
 - `verify/luogu/P3379.euler.compact.cpp`
 - `verify/luogu/P3379.lifting.compact.cpp`
+- `verify/luogu/P3381.compact.cpp`
 - `verify/luogu/P3381.slope.compact.cpp`
 - `verify/luogu/P3386.compact.cpp`
+- `verify/luogu/P3388.compact.cpp`
 - `verify/luogu/P3398.compact.cpp`
 - `verify/luogu/P3649.compact.cpp`
 - `verify/luogu/P3803.i64.compact.cpp`
@@ -60,6 +63,7 @@
 - `verify/luogu/P5656.compact.cpp`
 - `verify/luogu/P6113.compact.cpp`
 - `verify/luogu/P7771.compact.cpp`
+- `verify/luogu/P7883.compact.cpp`
 - `verify/poj/1330.compact.cpp`
 - `verify/poj/1330.lifting.compact.cpp`
 - `verify/poj/1470.compact.cpp`

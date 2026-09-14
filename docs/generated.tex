@@ -1645,6 +1645,20 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 
 \lstinputlisting[firstline=89,lastline=123,firstnumber=83]{../src/compact/dynamic_kth.hpp}
 
+\Needspace{572pt}
+
+\subsection*{模板题使用：Luogu P2617}
+
+\label{usage-example-63}
+
+题意：支持单点赋值及闭区间第 k 小。先读完操作，把所有修改的新值收集到 future，再构造并按原顺序执行；初值 vector 为 0-based，位置、查询区间和 k 为 1-based。Query 仅保存输入字段。
+
+所需模板：DynamicKth。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2617}
+
+\lstinputlisting{usage/example-63.cpp}
+
 \Needspace{180pt}
 
 \chapter{动态树}

@@ -1,6 +1,3 @@
-#include "../../src/compact/dynamic_kth.hpp"
-#include <iostream>
-
 int main()
 {
     struct Query

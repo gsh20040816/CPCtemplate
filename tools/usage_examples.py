@@ -31,7 +31,13 @@ def records():
         prefix, snippet = text[:m.start()], text[m.start():]
         assert all(not line.strip() or line.startswith('#include') or line.startswith('using namespace')
                    for line in prefix.splitlines()), 'Usage depends on non-include prefix: ' + row['id']
-        assert '#include' not in snippet and not re.search(r'\bstruct\s+\w+\s*\{', snippet)
+        assert '#include' not in snippet
+        # Explicitly registered local input records may contain fields, not methods.
+        helpers = list(re.finditer(r'\bstruct\s+(\w+)\s*\{([^{}]*)\}\s*;', snippet))
+        declared = re.findall(r'\bstruct\s+(\w+)\s*\{', snippet)
+        assert declared == [h[1] for h in helpers] == row.get('helper_types', [])
+        for helper in helpers:
+            assert re.fullmatch(r'\s*(?:(?:char|int|long long)\s+\w+(?:\s*,\s*\w+)*\s*;\s*)+', helper[2]), 'Input records may only declare primitive fields'
         row['snippet'] = snippet
         row['snippet_file'] = 'docs/usage/' + row['id'] + '.cpp'
         row['program'] = '#include <bits/stdc++.h>\nusing namespace std;\n' + expand(prefix, source.parent, set()) + snippet

@@ -726,5 +726,19 @@
       "IntegerPlane",
       "closest_pair_i64"
     ]
+  },
+  {
+    "id": "example-63",
+    "symbol": "DynamicKth",
+    "problem": "Luogu P2617",
+    "url": "https://www.luogu.com.cn/problem/P2617",
+    "summary": "支持单点赋值及闭区间第 k 小。先读完操作，把所有修改的新值收集到 future，再构造并按原顺序执行；初值 vector 为 0-based，位置、查询区间和 k 为 1-based。Query 仅保存输入字段。",
+    "driver": "verify/luogu/P2617.compact.cpp",
+    "requires": [
+      "DynamicKth"
+    ],
+    "helper_types": [
+      "Query"
+    ]
   }
 ]

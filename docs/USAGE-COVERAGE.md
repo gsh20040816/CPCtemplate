@@ -89,7 +89,7 @@
 | LiChao | 待补 | pending_example |
 | PersistentKth | [example-37](usage/example-37.cpp) | locally_checked_example |
 | TreePathKth | [example-38](usage/example-38.cpp) | locally_checked_example |
-| DynamicKth | 待补 | pending_example |
+| DynamicKth | [example-63](usage/example-63.cpp) | locally_checked_example |
 | PersistentDistinct | [example-46（应用补充）](usage/example-46.cpp) | generated_unverified |
 | Hungarian | 待补 | pending_example |
 | WeightedMatching | 待补 | pending_example |
