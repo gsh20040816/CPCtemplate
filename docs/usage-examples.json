@@ -497,5 +497,42 @@
       "Prime64",
       "PollardRho"
     ]
+  },
+  {
+    "id": "example-44",
+    "symbol": "HLD",
+    "problem": "Luogu P3384",
+    "url": "https://www.luogu.com.cn/problem/P3384",
+    "summary": "给定有根点权树，支持路径加、路径和、子树加、子树和，答案模 mod。先按 dfn 重排初值再构造线段树；path 回调给出 1-based 闭区间，子树区间为 [dfn[u],dfn[u]+siz[u]-1]。",
+    "driver": "verify/luogu/P3384.compact.cpp",
+    "requires": [
+      "HLD",
+      "AffineSegTree"
+    ],
+    "kind": "template"
+  },
+  {
+    "id": "example-45",
+    "symbol": "LinkCutTree",
+    "problem": "Luogu P3690",
+    "url": "https://www.luogu.com.cn/problem/P3690",
+    "summary": "维护点权森林，支持路径异或、连边、删边和单点赋值。初始没有边；0 查询、1 连边、2 删边、3 赋值。题目保证查询两点连通，成环的连边和不存在的删边由接口拒绝。点号 1..n。",
+    "driver": "verify/luogu/P3690.compact.cpp",
+    "requires": [
+      "LinkCutTree"
+    ],
+    "kind": "template"
+  },
+  {
+    "id": "example-46",
+    "symbol": "PersistentDistinct",
+    "problem": "Luogu P1972",
+    "url": "https://www.luogu.com.cn/problem/P1972",
+    "summary": "给定固定数组，查询闭区间 [l,r] 内不同值的个数。构造传入 0-based vector，查询使用 1-based 闭区间；重复出现的同一值只计一次。",
+    "driver": "verify/luogu/P1972.compact.cpp",
+    "requires": [
+      "PersistentDistinct"
+    ],
+    "kind": "application"
   }
 ]

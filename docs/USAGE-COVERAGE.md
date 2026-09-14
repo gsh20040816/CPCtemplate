@@ -18,7 +18,7 @@
 | TwoSAT | [example-3](usage/example-3.cpp) | locally_checked_example |
 | BipartiteMatching | [example-35](usage/example-35.cpp) | locally_checked_example |
 | Lowlink | 待补 | pending_example |
-| HLD | 待补 | pending_example |
+| HLD | [example-44](usage/example-44.cpp) | locally_checked_example |
 | prefix_function | 待补 | pending_example |
 | kmp_match | 待补 | pending_example |
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
@@ -90,7 +90,7 @@
 | PersistentKth | [example-37](usage/example-37.cpp) | locally_checked_example |
 | TreePathKth | [example-38](usage/example-38.cpp) | locally_checked_example |
 | DynamicKth | 待补 | pending_example |
-| PersistentDistinct | 待补 | pending_example |
+| PersistentDistinct | [example-46（应用补充）](usage/example-46.cpp) | generated_unverified |
 | Hungarian | 待补 | pending_example |
 | WeightedMatching | 待补 | pending_example |
 | Arborescence | 待补 | pending_example |
@@ -106,7 +106,7 @@
 | closest_pair_i64 | 待补 | pending_example |
 | minkowski_sum | 待补 | pending_example |
 | IntegerGeometry3D | 待补 | pending_example |
-| LinkCutTree | 待补 | pending_example |
+| LinkCutTree | [example-45](usage/example-45.cpp) | locally_checked_example |
 | OrderedTreap | [example-8](usage/example-8.cpp) | locally_checked_example |
 | SequenceTreap | [example-10](usage/example-10.cpp) | locally_checked_example |
 | OrderedSplay | [example-9](usage/example-9.cpp) | locally_checked_example |

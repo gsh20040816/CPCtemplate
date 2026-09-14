@@ -1493,6 +1493,20 @@ PersistentDistinct(a) 传入非空 0-based 数组，query(l,r) 返回闭区间�
 
 \lstinputlisting[firstline=7,lastline=83]{../src/compact/persistent_distinct.hpp}
 
+\Needspace{364pt}
+
+\subsection*{应用题补充：Luogu P1972}
+
+\label{usage-example-46}
+
+题意：给定固定数组，查询闭区间 [l,r] 内不同值的个数。构造传入 0-based vector，查询使用 1-based 闭区间；重复出现的同一值只计一次。
+
+所需模板：PersistentDistinct。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1972}
+
+\lstinputlisting{usage/example-46.cpp}
+
 \Needspace{180pt}
 
 \chapter{树套树}
@@ -1532,6 +1546,20 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 \newpage
 
 \lstinputlisting[firstline=116,lastline=151,firstnumber=111]{../src/compact/dynamic_tree.hpp}
+
+\Needspace{466pt}
+
+\subsection*{模板题使用：Luogu P3690}
+
+\label{usage-example-45}
+
+题意：维护点权森林，支持路径异或、连边、删边和单点赋值。初始没有边；0 查询、1 连边、2 删边、3 赋值。题目保证查询两点连通，成环的连边和不存在的删边由接口拒绝。点号 1..n。
+
+所需模板：LinkCutTree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3690}
+
+\lstinputlisting{usage/example-45.cpp}
 
 \part{图论}
 
@@ -1662,6 +1690,20 @@ path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径�
 add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn、rk。子树对应 [dfn[u],dfn[u]+siz[u]-1]。lca(u,v) 为 O(log n)，path(u,v,work,edge) 分解路径；work(l,r) 仅适用于可交换聚合，边权模式排除 LCA 位置。输入必须是连通无环树，建树 O(n)，两遍递归 DFS；支持改变根后重复 build，dfn 会重新编号。
 
 \lstinputlisting[firstline=6,lastline=91]{../src/compact/tree.hpp}
+
+\Needspace{680pt}
+
+\subsection*{模板题使用：Luogu P3384}
+
+\label{usage-example-44}
+
+题意：给定有根点权树，支持路径加、路径和、子树加、子树和，答案模 mod。先按 dfn 重排初值再构造线段树；path 回调给出 1-based 闭区间，子树区间为 [dfn[u],dfn[u]+siz[u]-1]。
+
+所需模板：HLD、AffineSegTree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3384}
+
+\lstinputlisting{usage/example-44.cpp}
 
 \Needspace{180pt}
 

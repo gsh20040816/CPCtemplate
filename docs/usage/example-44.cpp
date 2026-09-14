@@ -1,7 +1,3 @@
-#include "../../src/compact/affine_segment_tree.hpp"
-#include "../../src/compact/tree.hpp"
-#include <iostream>
-
 int main()
 {
     ios::sync_with_stdio(false);
