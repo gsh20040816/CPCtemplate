@@ -42,6 +42,12 @@ cases.update({
     'example-22': [('ababa\n', '5 0 3 0 1'), ('aaaa\n', '4 3 2 1')],
     'example-23': [('aba\n', '1 0 3 0 1'), ('abba\n', '1 0 1 4 1 0 1')]
 })
+cases.update({
+    'example-24': [('2 2\n1 0\n0 1\n2 3\n', '0 2 3'), ('1 2\n1 1\n3\n', {'a': [[1, 1]], 'b': [3], 'nullity': 1}), ('2 1\n1\n1\n1 2\n', '-1')],
+    'example-25': [('2\n1 2\n3 4\n', '998244351'), ('2\n1 2\n2 4\n', '0')],
+    'example-26': [('2 3 2\n1 2 3\n4 5 6\n7 8\n9 10\n11 12\n', '58 64 139 154'), ('1 1 1\n998244352\n998244352\n', '1')],
+    'example-27': [('1\n1 2\n3 4\n', '3 18 13 8 11 10'), ('0\n2\n3\n', '6 6 6')]
+})
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()
@@ -68,6 +74,19 @@ for row in rows:
             assert not run.stderr, run.stderr
             if isinstance(expected, str):
                 assert run.stdout.split() == expected.split(), (row['id'], mode, run.stdout, expected)
+            elif isinstance(expected, dict):
+                lines = [list(map(int, line.split())) for line in run.stdout.splitlines()]
+                dim = expected['nullity']
+                assert dim in (0, 1), 'These certificates only establish independence for at most one basis vector'
+                assert lines[0] == [dim] and len(lines) == dim + 2
+                m = len(expected['a'][0])
+                assert all(len(v) == m and all(0 <= x < 998244353 for x in v) for v in lines[1:])
+                for a, b in zip(expected['a'], expected['b']):
+                    assert sum(x * y for x, y in zip(a, lines[1])) % 998244353 == b
+                    for v in lines[2:]:
+                        assert sum(x * y for x, y in zip(a, v)) % 998244353 == 0
+                if dim:
+                    assert any(lines[2])
             else:
                 lines = run.stdout.splitlines()
                 assert int(lines[0]) == len(lines) - 1

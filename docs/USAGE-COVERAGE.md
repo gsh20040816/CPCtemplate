@@ -64,9 +64,9 @@
 | stirling_first_row | 待补 | pending_example |
 | FpsInverse | [example-18](usage/example-18.cpp) | locally_checked_example |
 | FpsFunctions | 待补 | pending_example |
-| GaussMod | 待补 | pending_example |
-| det_prime | 待补 | pending_example |
-| ModMatrix | 待补 | pending_example |
+| GaussMod | [example-24](usage/example-24.cpp) | locally_checked_example |
+| det_prime | [example-25](usage/example-25.cpp) | locally_checked_example |
+| ModMatrix | [example-26](usage/example-26.cpp) | locally_checked_example |
 | determinant_mod | 待补 | pending_example |
 | MatrixTree | 待补 | pending_example |
 | MatrixTreeMod | 待补 | pending_example |
@@ -148,7 +148,7 @@
 | odd_cycle_vertices | 待补 | pending_example |
 | LexTwoSAT | 待补 | pending_example |
 | BostanMori | 待补 | pending_example |
-| SetConvolution | 待补 | pending_example |
+| SetConvolution | [example-27](usage/example-27.cpp) | locally_checked_example |
 | subset_convolution | 待补 | pending_example |
 | polynomial_shift | 待补 | pending_example |
 | chirp_z | 待补 | pending_example |

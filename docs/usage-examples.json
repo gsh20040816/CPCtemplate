@@ -257,5 +257,53 @@
     "requires": [
       "manacher"
     ]
+  },
+  {
+    "id": "example-24",
+    "symbol": "GaussMod",
+    "problem": "Library Checker system_of_linear_equations",
+    "url": "https://judge.yosupo.jp/problem/system_of_linear_equations",
+    "summary": "模 998244353 下解 n 个方程、m 个未知数的线性方程组。输入先给系数矩阵，再给常数列。无解输出 -1；否则输出解空间维数、一个特解和齐次解基。",
+    "driver": "verify/library_checker/system_of_linear_equations.compact.cpp",
+    "requires": [
+      "ModInt",
+      "GaussMod"
+    ]
+  },
+  {
+    "id": "example-25",
+    "symbol": "det_prime",
+    "problem": "Library Checker matrix_det",
+    "url": "https://judge.yosupo.jp/problem/matrix_det",
+    "summary": "求方阵行列式，模 998244353。输入元素已取模；函数按值接收矩阵，示例用 move 交出矩阵避免额外复制。",
+    "driver": "verify/library_checker/matrix_det.compact.cpp",
+    "requires": [
+      "ModInt",
+      "det_prime"
+    ]
+  },
+  {
+    "id": "example-26",
+    "symbol": "ModMatrix",
+    "problem": "Library Checker matrix_product",
+    "url": "https://judge.yosupo.jp/problem/matrix_product",
+    "summary": "计算 n×m 矩阵与 m×k 矩阵的乘积，模 998244353。输入元素已取模，按行输出 n×k 个结果。",
+    "driver": "verify/library_checker/matrix_product.compact.cpp",
+    "requires": [
+      "ModInt",
+      "ModMatrix"
+    ]
+  },
+  {
+    "id": "example-27",
+    "symbol": "SetConvolution",
+    "problem": "Luogu P4717",
+    "url": "https://www.luogu.com.cn/problem/P4717",
+    "summary": "给两个长度为 2^m 的数组，分别求按下标 OR、AND、XOR 合并的卷积，模 998244353，按此顺序输出三行。multiply 的最后参数选择运算。",
+    "driver": "verify/luogu/P4717.compact.cpp",
+    "requires": [
+      "ModInt",
+      "SetConvolution"
+    ]
   }
 ]

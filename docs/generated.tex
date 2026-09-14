@@ -652,6 +652,20 @@ SetConvolution<mod=998244353>；Z 为 ModInt<mod>，Poly 为 vector<Z>。数组�
 
 \lstinputlisting[firstline=41,lastline=50,firstnumber=38]{../src/compact/set_convolution.hpp}
 
+\Needspace{441pt}
+
+\subsection*{模板题使用：Luogu P4717}
+
+\label{usage-example-27}
+
+题意：给两个长度为 2\textasciicircum{}m 的数组，分别求按下标 OR、AND、XOR 合并的卷积，模 998244353，按此顺序输出三行。multiply 的最后参数选择运算。
+
+所需模板：ModInt、SetConvolution。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4717}
+
+\lstinputlisting{usage/example-27.cpp}
+
 \Needspace{506pt}
 
 \subsection{不相交子集卷积}\label{compact-subset_convolution}\index{subset\_convolution}
@@ -804,6 +818,20 @@ ModMatrix<p>::multiply(a,b) 计算 n×k 与 k×m 的矩阵积，要求非空且�
 
 \lstinputlisting[firstline=4,lastline=31]{../src/compact/mod_matrix.hpp}
 
+\Needspace{334pt}
+
+\subsection*{模板题使用：Library Checker matrix\_product}
+
+\label{usage-example-26}
+
+题意：计算 n×m 矩阵与 m×k 矩阵的乘积，模 998244353。输入元素已取模，按行输出 n×k 个结果。
+
+所需模板：ModInt、ModMatrix。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/matrix_product}
+
+\lstinputlisting{usage/example-26.cpp}
+
 \Needspace{449pt}
 
 \subsection{Max-plus 矩阵幂}\label{compact-MaxPlusMatrix}\index{MaxPlusMatrix}
@@ -821,6 +849,20 @@ a[i][j] 为转移收益，不存在的边为 neg；power(k) 求恰好 k 步的�
 det\_prime<p>(a) 输入 n×n 方阵，返回行列式模 p；p 必须是素数。允许奇异矩阵和零维矩阵，det(empty)=1。按行交换改变符号，主元求逆消元。O(n$^{3}$) 时间、传值副本 O(n$^{2}$) 空间，可传 move(a)。合数模数改用 determinant\_mod。
 
 \lstinputlisting[firstline=5,lastline=31]{../src/compact/det_prime.hpp}
+
+\Needspace{291pt}
+
+\subsection*{模板题使用：Library Checker matrix\_det}
+
+\label{usage-example-25}
+
+题意：求方阵行列式，模 998244353。输入元素已取模；函数按值接收矩阵，示例用 move 交出矩阵避免额外复制。
+
+所需模板：ModInt、det\_prime。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/matrix_det}
+
+\lstinputlisting{usage/example-25.cpp}
 
 \Needspace{480pt}
 
@@ -925,6 +967,20 @@ GaussMod<p>::solve(a,n) 接收 m 行 n+1 列增广矩阵，p 必须是素数，n
 \newpage
 
 \lstinputlisting[firstline=41,lastline=55,firstnumber=38]{../src/compact/gauss_mod.hpp}
+
+\Needspace{441pt}
+
+\subsection*{模板题使用：Library Checker system\_of\_linear\_equations}
+
+\label{usage-example-24}
+
+题意：模 998244353 下解 n 个方程、m 个未知数的线性方程组。输入先给系数矩阵，再给常数列。无解输出 -1；否则输出解空间维数、一个特解和齐次解基。
+
+所需模板：ModInt、GaussMod。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/system_of_linear_equations}
+
+\lstinputlisting{usage/example-24.cpp}
 
 \Needspace{585pt}
 
