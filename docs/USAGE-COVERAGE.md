@@ -12,7 +12,7 @@
 | XorBasis | [example-36](usage/example-36.cpp) | locally_checked_example |
 | Dinic | [example-1](usage/example-1.cpp) | locally_checked_example |
 | maximum_closure | 待补 | pending_example |
-| MinCostFlow | 待补 | pending_example |
+| MinCostFlow | [example-55](usage/example-55.cpp) | locally_checked_example |
 | Dijkstra | 待补 | pending_example |
 | SCC | 待补 | pending_example |
 | TwoSAT | [example-3](usage/example-3.cpp) | locally_checked_example |
@@ -95,7 +95,7 @@
 | WeightedMatching | 待补 | pending_example |
 | Arborescence | 待补 | pending_example |
 | StoerWagner | 待补 | pending_example |
-| gomory_hu | 待补 | pending_example |
+| gomory_hu | [example-56](usage/example-56.cpp) | locally_checked_example |
 | cut_tree_values | 待补 | pending_example |
 | BoundedCirculation | 待补 | pending_example |
 | IntegerHalfplanes | 待补 | pending_example |

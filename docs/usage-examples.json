@@ -634,5 +634,29 @@
       "NttConvolution",
       "stirling_first_row"
     ]
+  },
+  {
+    "id": "example-55",
+    "symbol": "MinCostFlow",
+    "problem": "Luogu P3381",
+    "url": "https://www.luogu.com.cn/problem/P3381",
+    "summary": "给有向容量费用网络，求最大流及对应最小费用。点号 1..n，add 参数依次为起点、终点、容量、单位费用。题目保证费用答案不超过 2^31-1，因此这里可将返回的 int128 转为 long long；一般题目不能照搬转换。",
+    "driver": "verify/luogu/P3381.compact.cpp",
+    "requires": [
+      "MinCostFlow"
+    ]
+  },
+  {
+    "id": "example-56",
+    "symbol": "gomory_hu",
+    "problem": "Luogu P4897",
+    "url": "https://www.luogu.com.cn/problem/P4897",
+    "summary": "给无向图，多次询问不同两点的最小割。点号为 0..n，因此建树传 n+1。再预处理所有点对的答案，查询矩阵额外占 O(n^2) 时间和空间。",
+    "driver": "verify/luogu/P4897.compact.cpp",
+    "requires": [
+      "Dinic",
+      "gomory_hu",
+      "cut_tree_values"
+    ]
   }
 ]

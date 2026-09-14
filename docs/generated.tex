@@ -2247,6 +2247,20 @@ gomory\_hu(n,edges) 返回 n-1 条 (u,v,容量) 树边；n$\ge$1，原图点号 
 
 \lstinputlisting[firstline=6,lastline=41]{../src/compact/gomory_hu.hpp}
 
+\Needspace{427pt}
+
+\subsection*{模板题使用：Luogu P4897}
+
+\label{usage-example-56}
+
+题意：给无向图，多次询问不同两点的最小割。点号为 0..n，因此建树传 n+1。再预处理所有点对的答案，查询矩阵额外占 O(n\textasciicircum{}2) 时间和空间。
+
+所需模板：Dinic、gomory\_hu、cut\_tree\_values。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4897}
+
+\lstinputlisting{usage/example-56.cpp}
+
 \Needspace{369pt}
 
 \subsection{最小割树全点对查询}\label{compact-cut_tree_values}\index{cut\_tree\_values}
@@ -2272,6 +2286,20 @@ add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 �
 \newpage
 
 \lstinputlisting[firstline=198,lastline=234,firstnumber=80]{../src/compact/flow.hpp}
+
+\Needspace{365pt}
+
+\subsection*{模板题使用：Luogu P3381}
+
+\label{usage-example-55}
+
+题意：给有向容量费用网络，求最大流及对应最小费用。点号 1..n，add 参数依次为起点、终点、容量、单位费用。题目保证费用答案不超过 2\textasciicircum{}31-1，因此这里可将返回的 int128 转为 long long；一般题目不能照搬转换。
+
+所需模板：MinCostFlow。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3381}
+
+\lstinputlisting{usage/example-55.cpp}
 
 \Needspace{575pt}
 
