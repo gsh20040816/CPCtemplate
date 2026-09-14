@@ -451,3 +451,7 @@ build/triangles
 "$CXX" "${flags[@]}" tests/bcc_compat.cpp -o build/bcc-compat
 build/bcc-compat
 python3 tests/bcc_application.py
+
+"$CXX" "${flags[@]}" tests/leftist_heap.cpp -o build/leftist-heap
+build/leftist-heap
+python3 tests/leftist_heap_application.py

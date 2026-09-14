@@ -57,8 +57,8 @@
 | 3.8 | 8. 中国剩余定理 | 87 | 89 | pending_content_review |
 | 3.9 | 9. 扩展卢卡斯定理 | 88 | 90 | pending_content_review |
 | 4 | 数据结构 | 96 | 98 | pending_content_review |
-| 4.1 | 1. 可并堆/左偏树 | 96 | 98 | pending_content_review |
-| 4.1.1 | (1) 洛谷模板 | 96 | 98 | pending_content_review |
+| 4.1 | 1. 可并堆/左偏树 | 96 | 98 | implemented_local_verified_online_pending |
+| 4.1.1 | (1) 洛谷模板 | 96 | 98 | implemented_local_verified_online_pending |
 | 4.2 | 2. LCT 动态树 | 98 | 100 | pending_content_review |
 | 4.2.1 | (1) 洛谷模板 | 98 | 100 | pending_content_review |
 | 4.2.2 | (2) 爱莲说 | 103 | 105 | pending_content_review |
@@ -96,4 +96,4 @@
 | 6.5.3 | (3) 模板 2 | 198 | 200 | pending_content_review |
 
 来源为 issue #11 用户提供附件；完整 PDF 留在本地 build 中，仓库仅登记来源、摘要与覆盖状态。
-三元环首次作为独立缺项处理；其余目录保留待审，不排除任何主题或变体。
+三元环、左偏树已独立实现并本地验证，在线待补；其余目录按上表状态继续核对，不排除任何主题或变体。

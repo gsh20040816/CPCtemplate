@@ -1244,6 +1244,30 @@ b.join(a);
 b.erase(h);
 \end{lstlisting}
 
+\Needspace{555pt}
+
+\section{左偏树}
+
+\subsection{左偏树可并小根堆}\label{compact-LeftistHeap}\index{LeftistHeap}
+
+默认构造为空节点池；singleton(key) 创建单点堆并返回节点编号，编号从 1 开始，0 表示空堆。meld(x,y) 原地合并两个不相交堆并返回新根，调用后旧根不能再当独立堆使用；pop(root) 删除非空堆的最小节点并返回新根，必须保存返回值。相同 key 按节点编号小者优先，t[root].key 为最小值，root 本身就是最小节点编号。key 支持完整 long long；仅比较而不做减法。dist[空]=0，叶子 dist=1，每点左子树 dist 不小于右子树；递归沿右链合并，meld/pop 为 O(log(n+1))，其中 n 为参与堆节点数。singleton 均摊 O(1)，节点池空间 O(累计创建数)，节点不回收，不保留版本；pop 后删除节点已脱离堆，不应继续作为根操作。只保证根操作，不提供任意点所属堆查询，P3377 驱动另用并查集和删除标记维护。不要改写内部 l/r/dist，也不要合并有交集的堆；assert(x!=y) 不能检测所有非法重叠。
+
+\lstinputlisting[firstline=7,lastline=42]{../src/compact/leftist_heap.hpp}
+
+\Needspace{639pt}
+
+\subsection*{模板题使用：Luogu P3377}
+
+\label{usage-example-50}
+
+题意：合并指定元素所在的堆，或弹出其堆最小值；已删除元素的操作无效。同值先删先输入者。并查集代表不一定是堆根，root 单独保存；节点编号比输入数组下标大 1。
+
+所需模板：LeftistHeap、dsu。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3377}
+
+\lstinputlisting{usage/example-50.cpp}
+
 \Needspace{521pt}
 
 \chapter{树状数组}

@@ -1,0 +1,26 @@
+{
+  "scope": "Local tests only; no online AC. Core checks include independent ordered-set results and leftist/heap/disjointness invariants; adapter uses independent live vertex sets.",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/leftist_heap.hpp": "bb7cd3ea8b25ca9045eb7be58e8ca1449cafdf585cf94b1f2a74cc4c70b512e7",
+    "tests/leftist_heap.cpp": "fc4966dde45176eec4ba642663e802d1398e49c371965515f4921b2371a06511",
+    "tests/leftist_heap_application.py": "56be341fb8a9ad5e2701e856365fe3d46a469fd4c80d8272868475d7ee7c2fe4",
+    "verify/luogu/P3377.compact.cpp": "89432f9a3764878f066be255433708d0c090f85be2e78d9f3d66fd30d2d2c709"
+  },
+  "logs": {
+    "build/leftist-heap.txt": [
+      "LeftistHeap: independent ordered sets, heap order, leftist ranks, disjointness, ties, int64 extremes and 200000 nodes PASS",
+      "LeftistHeap: independent ordered sets, heap order, leftist ranks, disjointness, ties, int64 extremes and 200000 nodes PASS"
+    ],
+    "build/leftist-application.txt": [
+      "P3377: 100 independent set-oracle traces, 300 operations each; ties, deleted handles and repeated merges PASS",
+      "P3377: 100 independent set-oracle traces, 300 operations each; ties, deleted handles and repeated merges PASS"
+    ],
+    "build/usage-leftist.txt": [
+      "Usage examples: 1 exact printed main programs in normal and ASan/UBSan modes PASS; 50 current program records"
+    ]
+  }
+}

@@ -167,3 +167,4 @@
 | convolution_i64 | 待补 | pending_example |
 | pheap | 待补 | pending_example |
 | enumerate_triangles | [example-6](usage/example-6.cpp) | locally_checked_example |
+| LeftistHeap | [example-50](usage/example-50.cpp) | locally_checked_example |

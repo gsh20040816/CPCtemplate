@@ -570,5 +570,17 @@
       "NttConvolution",
       "BostanMori"
     ]
+  },
+  {
+    "id": "example-50",
+    "symbol": "LeftistHeap",
+    "problem": "Luogu P3377",
+    "url": "https://www.luogu.com.cn/problem/P3377",
+    "summary": "合并指定元素所在的堆，或弹出其堆最小值；已删除元素的操作无效。同值先删先输入者。并查集代表不一定是堆根，root 单独保存；节点编号比输入数组下标大 1。",
+    "driver": "verify/luogu/P3377.compact.cpp",
+    "requires": [
+      "LeftistHeap",
+      "dsu"
+    ]
   }
 ]
