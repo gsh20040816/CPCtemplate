@@ -9,6 +9,7 @@
 - `verify/library_checker/bitwise_and_convolution.compact.cpp`
 - `verify/library_checker/bitwise_xor_convolution.compact.cpp`
 - `verify/library_checker/convolution_mod.compact.cpp`
+- `verify/library_checker/enumerate_palindromes.compact.cpp`
 - `verify/library_checker/enumerate_triangles.compact.cpp`
 - `verify/library_checker/exp_of_formal_power_series.compact.cpp`
 - `verify/library_checker/intersection_intersection.compact.cpp`
@@ -26,6 +27,7 @@
 - `verify/library_checker/sum_of_floor_of_linear.compact.cpp`
 - `verify/library_checker/system_of_linear_equations.compact.cpp`
 - `verify/library_checker/two_sat.compact.cpp`
+- `verify/library_checker/zalgorithm.compact.cpp`
 - `verify/luogu/CF1100F.compact.cpp`
 - `verify/luogu/CF118E.compact.cpp`
 - `verify/luogu/CF600E.compact.cpp`

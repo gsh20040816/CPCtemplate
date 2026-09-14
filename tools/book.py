@@ -89,8 +89,7 @@ for style in ['compact']:
                 split = next(i for i in range(start, end) if 'void dfs(' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'SuffixLCP':
-                split = next((i for i in range(start, end) if re.match('    int (query|Query)\\(', lines[i])))
-                estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
+                estimate = 670
             if name == 'divisor_sum_power':
                 body.append('\\newpage')
             if name == 'Arborescence':
@@ -399,7 +398,7 @@ for style in ['compact']:
                 count = len(usage['snippet'].splitlines())
                 space = min(680, 140 + count * 11 + len(usage['summary']) / 42 * 14)
                 body.append('\\Needspace{' + str(round(space)) + 'pt}')
-                body.append('\\subsection*{模板题使用：' + esc(usage['problem']) + '}')
+                body.append('\\subsection*{' + ('模板题使用：' if usage.get('kind', 'template') == 'template' else '应用题补充：') + esc(usage['problem']) + '}')
                 body.append('\\label{usage-' + usage['id'] + '}')
                 body.append('题意：' + esc(usage['summary']))
                 body.append('所需模板：' + esc('、'.join(usage['requires'])) + '。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。')

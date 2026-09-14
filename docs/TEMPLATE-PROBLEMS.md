@@ -65,6 +65,8 @@
 | `floor_sum` | [Library Checker sum_of_floor_of_linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | 1<=T<=100000;1<=N,M<=10^9;0<=A,B<M. | 待编写驱动/提交 | 待核验 |
 | `pheap` | [Library Checker shortest_path](https://judge.yosupo.jp/problem/shortest_path) | 2<=N<=500000; 1<=M<=500000; simple directed graph; 0<=weight<=1e9; s!=t | 待编写驱动/提交 | 待核验 |
 | `enumerate_triangles` | [Library Checker enumerate_triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | 1<=N,M<=100000; undirected simple graph; 0<=x<998244353 | 待编写驱动/提交 | 待核验 |
+| `z_function` | [Library Checker zalgorithm](https://judge.yosupo.jp/problem/zalgorithm) | 1<=N<=500000；非空小写字母串。 | 待编写驱动/提交 | 待核验 |
+| `manacher` | [Library Checker enumerate_palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | 1<=N<=500000；非空小写字母串。 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -563,6 +565,26 @@ Degree/id orientation order need not be vertex-number order; product is symmetri
 17 pinned official local cases in normal/ASan+UBSan modes passed; online submission and all-submission ranking pending.
 
 原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/enumerate_triangles/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/enumerate_triangles/info.toml)
+
+### Library Checker zalgorithm / z_function
+
+Standalone string template problem; nonempty lowercase input.
+
+直接输出 z，约定 z[0]=串长。
+
+29 组固定官方本地数据普通及 ASan/UBSan 通过；在线提交及速度排名待核验。
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/zalgorithm/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/zalgorithm/info.toml)
+
+### Library Checker enumerate_palindromes / manacher
+
+Standalone string template problem; nonempty lowercase input.
+
+odd[i] 转到位置 2*i 的长度 2*odd[i]-1；even[i] 转到位置 2*i-1 的长度 2*even[i]，只输出 2*n-1 个中心。
+
+24 组固定官方本地数据普通及 ASan/UBSan 通过；在线提交及速度排名待核验。
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/enumerate_palindromes/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/enumerate_palindromes/info.toml)
 
 ## 榜单口径
 

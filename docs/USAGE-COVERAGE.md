@@ -21,11 +21,11 @@
 | HLD | 待补 | pending_example |
 | prefix_function | 待补 | pending_example |
 | kmp_match | 待补 | pending_example |
-| z_function | 待补 | pending_example |
-| manacher | 待补 | pending_example |
+| z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
+| manacher | [example-23](usage/example-23.cpp) | locally_checked_example |
 | minimum_rotation | 待补 | pending_example |
 | AhoCorasick | 待补 | pending_example |
-| SuffixArray | 待补 | pending_example |
+| SuffixArray | [example-19](usage/example-19.cpp) | locally_checked_example |
 | SuffixAutomaton | 待补 | pending_example |
 | Mod64 | 待补 | pending_example |
 | Prime64 | [example-13](usage/example-13.cpp) | locally_checked_example |
@@ -118,7 +118,7 @@
 | BiconnectedCore | [example-4](usage/example-4.cpp), [example-5](usage/example-5.cpp) | locally_checked_example |
 | block_cut_forest | 待补 | pending_example |
 | bridge_component_forest | 待补 | pending_example |
-| PalindromicTree | 待补 | pending_example |
+| PalindromicTree | [example-20](usage/example-20.cpp), [example-21（应用补充）](usage/example-21.cpp) | locally_checked_example |
 | CentroidPairs | 待补 | pending_example |
 | SubtreeColors | 待补 | pending_example |
 | AffineSegTree | [example-12](usage/example-12.cpp) | locally_checked_example |

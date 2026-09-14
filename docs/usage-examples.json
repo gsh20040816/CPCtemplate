@@ -201,5 +201,61 @@
       "NttConvolution",
       "FpsInverse"
     ]
+  },
+  {
+    "id": "example-19",
+    "symbol": "SuffixArray",
+    "problem": "Luogu P3809",
+    "url": "https://www.luogu.com.cn/problem/P3809",
+    "summary": "把所有非空后缀按字典序排序，输出各后缀在原串中的起点。模板 sa 为 0-based，题目输出为 1-based，因此加 1。",
+    "driver": "verify/luogu/P3809.compact.cpp",
+    "requires": [
+      "SuffixArray"
+    ]
+  },
+  {
+    "id": "example-20",
+    "symbol": "PalindromicTree",
+    "problem": "Luogu P5496",
+    "url": "https://www.luogu.com.cn/problem/P5496",
+    "summary": "按上一次答案把当前字符循环偏移后追加，输出以当前位置结尾的回文串个数。add 返回最长回文后缀节点，读取其 suffixes。",
+    "driver": "verify/luogu/P5496.compact.cpp",
+    "requires": [
+      "PalindromicTree"
+    ]
+  },
+  {
+    "id": "example-21",
+    "symbol": "PalindromicTree",
+    "problem": "Luogu P3649",
+    "url": "https://www.luogu.com.cn/problem/P3649",
+    "summary": "求所有回文子串中“长度乘出现次数”的最大值。整串追加完后调用 occurrences 汇总次数，不能直接把 hits 当完整出现次数。",
+    "driver": "verify/luogu/P3649.compact.cpp",
+    "requires": [
+      "PalindromicTree"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-22",
+    "symbol": "z_function",
+    "problem": "Library Checker zalgorithm",
+    "url": "https://judge.yosupo.jp/problem/zalgorithm",
+    "summary": "给非空字符串，对每个起点求其后缀与原串的最长公共前缀长度。直接输出 Z 数组，z[0] 等于串长。",
+    "driver": "verify/library_checker/zalgorithm.compact.cpp",
+    "requires": [
+      "z_function"
+    ]
+  },
+  {
+    "id": "example-23",
+    "symbol": "manacher",
+    "problem": "Library Checker enumerate_palindromes",
+    "url": "https://judge.yosupo.jp/problem/enumerate_palindromes",
+    "summary": "给非空字符串，从左到右输出每个字符及相邻字符间隙处的最长回文长度，共 2n-1 项。odd 含中心，even[i] 的中心在 i 前面，因此分别转成 2*odd[i]-1 和 2*even[i]。",
+    "driver": "verify/library_checker/enumerate_palindromes.compact.cpp",
+    "requires": [
+      "manacher"
+    ]
   }
 ]

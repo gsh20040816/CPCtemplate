@@ -2,7 +2,7 @@
 
 执行 issue #12：每个模板应有题目链接、最简题意、所需模板名称与使用代码。正文示例只打印现有完整驱动的 main 部分，已粘贴的算法定义和标准头不重复打印。使用代码包含输入读取、模板对象构造、调用和答案输出。
 
-登记文件为 usage-examples.json，生成器 tools/usage_examples.py 输出 usage/*.cpp 和逐模板覆盖表 USAGE-COVERAGE.md / usage-coverage.json。新模板自动进入待补清单，未补项不隐去。当前 18 份示例覆盖 17 个模板，BiconnectedCore 包含点双和边双两题；其余继续补齐。
+登记文件为 usage-examples.json，生成器 tools/usage_examples.py 输出 usage/*.cpp 和逐模板覆盖表 USAGE-COVERAGE.md / usage-coverage.json。新模板自动进入待补清单，未补项不隐去。当前 23 份示例覆盖 21 个模板（含 1 份单独标出的应用题补充），BiconnectedCore 包含点双和边双两题；其余继续补齐。
 
 示例与完整驱动共用源文件，避免手册另存一份易失配的调用。生成器展开驱动所含模板依赖并计算源码哈希；verification/usage-examples.json 的哈希与两种执行模式均匹配，才记为 locally_checked_example。模板或驱动变化使哈希失配时恢复为未验证。
 
@@ -11,3 +11,5 @@
 CI 在全库测试后独立执行这组双模式示例检查，并核对生成覆盖表与哈希证据是否已提交。PDF 构建直接从同一登记表插入示例，保留题目链接及使用条件；不将示例执行通过称为在线 AC。
 
 本地可用 --only 指定新示例以避免重复执行未变的程序；被跳过示例的依赖哈希和双模式记录仍必须有效。CI 不传 --only，始终执行全部登记示例。
+
+应用题补充使用 kind=application 标记，正文标题明确区分；一个模板只有应用题示例时，不能计为模板题示例已完成。PAM 的 P3649 是补充，正式模板题示例使用 P5496。

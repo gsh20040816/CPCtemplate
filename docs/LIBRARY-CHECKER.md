@@ -231,7 +231,7 @@
 | [Power Projection of Set Power Series](https://judge.yosupo.jp/problem/power_projection_of_set_power_series) | Set Power Series | 待逐题审题、适配与在线验证 | — |
 | [Subset Convolution](https://judge.yosupo.jp/problem/subset_convolution) | Set Power Series | 待逐题审题、适配与在线验证 | — |
 | [Eertree](https://judge.yosupo.jp/problem/eertree) | String | 待逐题审题、适配与在线验证 | — |
-| [Enumerate Palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | String | 待逐题审题、适配与在线验证 | — |
+| [Enumerate Palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | String | 待逐题审题、适配与在线验证 | [enumerate_palindromes.compact.cpp](../verify/library_checker/enumerate_palindromes.compact.cpp) |
 | [Longest Common Substring](https://judge.yosupo.jp/problem/longest_common_substring) | String | 待逐题审题、适配与在线验证 | — |
 | [Lyndon Factorization](https://judge.yosupo.jp/problem/lyndon_factorization) | String | 待逐题审题、适配与在线验证 | — |
 | [Number of Substrings](https://judge.yosupo.jp/problem/number_of_substrings) | String | 待逐题审题、适配与在线验证 | — |
@@ -240,7 +240,7 @@
 | [Run Enumerate](https://judge.yosupo.jp/problem/runenumerate) | String | 待逐题审题、适配与在线验证 | — |
 | [Suffix Array](https://judge.yosupo.jp/problem/suffixarray) | String | 待逐题审题、适配与在线验证 | — |
 | [Wildcard Pattern Matching](https://judge.yosupo.jp/problem/wildcard_pattern_matching) | String | 待逐题审题、适配与在线验证 | — |
-| [Z Algorithm](https://judge.yosupo.jp/problem/zalgorithm) | String | 待逐题审题、适配与在线验证 | — |
+| [Z Algorithm](https://judge.yosupo.jp/problem/zalgorithm) | String | 待逐题审题、适配与在线验证 | [zalgorithm.compact.cpp](../verify/library_checker/zalgorithm.compact.cpp) |
 | [Cartesian Tree](https://judge.yosupo.jp/problem/cartesian_tree) | Tree | 待逐题审题、适配与在线验证 | — |
 | [Common Interval Decomposition Tree](https://judge.yosupo.jp/problem/common_interval_decomposition_tree) | Tree | 待逐题审题、适配与在线验证 | — |
 | [Dynamic Tree Subtree Add Subtree Sum](https://judge.yosupo.jp/problem/dynamic_tree_subtree_add_subtree_sum) | Tree | 待逐题审题、适配与在线验证 | — |

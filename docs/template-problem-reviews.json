@@ -1582,5 +1582,55 @@
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/enumerate_triangles/task.md",
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/enumerate_triangles/info.toml"
     ]
+  },
+  {
+    "symbol": "z_function",
+    "problem": "Library Checker zalgorithm",
+    "url": "https://judge.yosupo.jp/problem/zalgorithm",
+    "classification": "Standalone string template problem; nonempty lowercase input.",
+    "statement_checked": true,
+    "checked_date": "2026-09-14",
+    "limits": "1<=N<=500000；非空小写字母串。",
+    "adapter": "直接输出 z，约定 z[0]=串长。",
+    "tested_api": [
+      "z_function"
+    ],
+    "driver": "verify/library_checker/zalgorithm.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "29 组固定官方本地数据普通及 ASan/UBSan 通过；在线提交及速度排名待核验。",
+    "statement_sources": [
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/zalgorithm/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/zalgorithm/info.toml"
+    ]
+  },
+  {
+    "symbol": "manacher",
+    "problem": "Library Checker enumerate_palindromes",
+    "url": "https://judge.yosupo.jp/problem/enumerate_palindromes",
+    "classification": "Standalone string template problem; nonempty lowercase input.",
+    "statement_checked": true,
+    "checked_date": "2026-09-14",
+    "limits": "1<=N<=500000；非空小写字母串。",
+    "adapter": "odd[i] 转到位置 2*i 的长度 2*odd[i]-1；even[i] 转到位置 2*i-1 的长度 2*even[i]，只输出 2*n-1 个中心。",
+    "tested_api": [
+      "manacher"
+    ],
+    "driver": "verify/library_checker/enumerate_palindromes.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "24 组固定官方本地数据普通及 ASan/UBSan 通过；在线提交及速度排名待核验。",
+    "statement_sources": [
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/enumerate_palindromes/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/enumerate_palindromes/info.toml"
+    ]
   }
 ]

@@ -53,7 +53,7 @@ def generate():
     coverage = []
     for _, symbol, title, _ in catalog:
         matches = [r for r in rows if r['symbol'] == symbol]
-        verified = bool(matches) and all(proof.get(r['id'], {}).get('program_sha256') == r['program_sha256']
+        verified = any(r.get('kind', 'template') == 'template' for r in matches) and all(proof.get(r['id'], {}).get('program_sha256') == r['program_sha256']
                     and proof[r['id']].get('modes') == ['normal', 'sanitizer'] for r in matches)
         coverage.append(dict(symbol=symbol, title=title, examples=[r['id'] for r in matches],
                              status='locally_checked_example' if verified else 'generated_unverified' if matches else 'pending_example'))
@@ -62,8 +62,13 @@ def generate():
             '每个条目需要最简题意、所需模板和使用代码；代码仅含 main 调用部分，不重复算法。',
             '示例与现有完整驱动共用源文件；模板依赖展开后的源码哈希改变时，原执行记录不再视为当前验证。示例执行通过不等于在线 AC。', '',
             '| 模板 | 示例 | 状态 |', '|---|---|---|']
+    kind_by_id = {r['id']: r.get('kind', 'template') for r in rows}
     for row in coverage:
-        text.append(f"| {row['symbol']} | {', '.join('[' + e + '](usage/' + e + '.cpp)' for e in row['examples']) or '待补'} | {row['status']} |")
+        links = []
+        for e in row['examples']:
+            label = e + ('（应用补充）' if kind_by_id[e] == 'application' else '')
+            links.append('[' + label + '](usage/' + e + '.cpp)')
+        text.append(f"| {row['symbol']} | {', '.join(links) or '待补'} | {row['status']} |")
     (ROOT / 'docs/USAGE-COVERAGE.md').write_text('\n'.join(text) + '\n')
     print('Usage:', sum(r['status'] == 'locally_checked_example' for r in coverage), '/', len(coverage), 'templates locally checked;', len(rows), 'examples')
     return rows
