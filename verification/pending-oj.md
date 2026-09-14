@@ -17,6 +17,7 @@
 - `verify/library_checker/find_linear_recurrence.compact.cpp`
 - `verify/library_checker/furthest_pair.compact.cpp`
 - `verify/library_checker/general_matching.compact.cpp`
+- `verify/library_checker/general_sam/number_of_substrings.compact.cpp`
 - `verify/library_checker/intersection_intersection.compact.cpp`
 - `verify/library_checker/intersection_zassenhaus.compact.cpp`
 - `verify/library_checker/inv_of_formal_power_series.compact.cpp`
@@ -55,6 +56,7 @@
 - `verify/luogu/P2860.compact.cpp`
 - `verify/luogu/P2921.compact.cpp`
 - `verify/luogu/P3369.pbds.compact.cpp`
+- `verify/luogu/P3375.compact.cpp`
 - `verify/luogu/P3377.compact.cpp`
 - `verify/luogu/P3379.euler.compact.cpp`
 - `verify/luogu/P3379.lifting.compact.cpp`
@@ -79,6 +81,7 @@
 - `verify/luogu/P5656.compact.cpp`
 - `verify/luogu/P5905.compact.cpp`
 - `verify/luogu/P6113.compact.cpp`
+- `verify/luogu/P6139.compact.cpp`
 - `verify/luogu/P7771.compact.cpp`
 - `verify/luogu/P7883.compact.cpp`
 - `verify/poj/1330.compact.cpp`

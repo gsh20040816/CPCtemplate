@@ -19,8 +19,8 @@
 | BipartiteMatching | [example-35](usage/example-35.cpp) | locally_checked_example |
 | Lowlink | [example-58](usage/example-58.cpp) | locally_checked_example |
 | HLD | [example-44](usage/example-44.cpp) | locally_checked_example |
-| prefix_function | 待补 | pending_example |
-| kmp_match | 待补 | pending_example |
+| prefix_function | [example-91](usage/example-91.cpp) | locally_checked_example |
+| kmp_match | [example-91](usage/example-91.cpp) | locally_checked_example |
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
 | manacher | [example-23](usage/example-23.cpp) | locally_checked_example |
 | minimum_rotation | 待补 | pending_example |
@@ -171,3 +171,4 @@
 | Johnson | [example-74](usage/example-74.cpp) | locally_checked_example |
 | DominatorTree | [example-82](usage/example-82.cpp), [example-83](usage/example-83.cpp) | locally_checked_example |
 | SegmentLiChao | [example-87](usage/example-87.cpp), [example-88（应用补充）](usage/example-88.cpp) | locally_checked_example |
+| GeneralSAM | [example-90](usage/example-90.cpp) | locally_checked_example |

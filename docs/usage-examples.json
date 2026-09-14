@@ -1053,5 +1053,31 @@
     "helper_types": [
       "Query"
     ]
+  },
+  {
+    "id": "example-90",
+    "symbol": "GeneralSAM",
+    "problem": "Library Checker number_of_substrings",
+    "url": "https://judge.yosupo.jp/problem/number_of_substrings",
+    "summary": "本题只有一个字符串，输出不同非空子串数。广义模板可在 build 前多次 add；本例验证其单串特例，多串行为另有独立对拍。若只处理单串，原 SuffixAutomaton 更合适。此题不验证广义 SAM 状态数或最小 DFA 状态数。",
+    "driver": "verify/library_checker/general_sam/number_of_substrings.compact.cpp",
+    "requires": [
+      "GeneralSAM"
+    ]
+  },
+  {
+    "id": "example-91",
+    "symbol": "kmp_match",
+    "also_covers": [
+      "prefix_function"
+    ],
+    "problem": "Luogu P3375",
+    "url": "https://www.luogu.com.cn/problem/P3375",
+    "summary": "求模式串 t 在文本 s 中所有出现的位置，包含重叠匹配；模板返回 0-based 位置，输出加 1。最后一行直接输出 prefix_function(t)，它是模式串各前缀的最长真 border 长度。题目输入为非空大写串，函数按字符相等比较，不限于小写。",
+    "driver": "verify/luogu/P3375.compact.cpp",
+    "requires": [
+      "prefix_function",
+      "kmp_match"
+    ]
   }
 ]

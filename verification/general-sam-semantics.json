@@ -1,0 +1,31 @@
+{
+  "scope": "Independent exact suffix-language trie minimization vs document-position endpos equivalence. A rejecting sink is omitted, as in partial automata. No claim about the online P6139 checker.",
+  "cases": [
+    {
+      "words": [
+        "ab",
+        "b"
+      ],
+      "distinct": 3,
+      "endpos_states": 4,
+      "minimal_partial_suffix_dfa_states": 3
+    },
+    {
+      "words": [
+        "ab"
+      ],
+      "distinct": 3,
+      "endpos_states": 3,
+      "minimal_partial_suffix_dfa_states": 3
+    },
+    {
+      "words": [
+        "a",
+        "a"
+      ],
+      "distinct": 1,
+      "endpos_states": 2,
+      "minimal_partial_suffix_dfa_states": 2
+    }
+  ]
+}

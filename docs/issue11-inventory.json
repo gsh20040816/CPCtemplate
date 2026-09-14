@@ -81,11 +81,11 @@
       "toc_page": 6,
       "physical_page": 8,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "reviewed_variant_pending",
       "candidate_symbols": [
         "AhoCorasick"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "已阅读实际 8–10 页，附件在 fail 树 BFS 上传播 min_len，查询最短后缀匹配长度。现有 AhoCorasick 主要提供 occurrence count；虽然公开 order/fail 可组合传播，尚未补该 min_len 变体的可抄用法及独立验证，不将同名认定为完整覆盖。"
     },
     {
       "section": "1.4",
@@ -114,8 +114,11 @@
       "toc_page": 9,
       "physical_page": 11,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_state_count_pending",
+      "candidate_symbols": [
+        "GeneralSAM"
+      ],
+      "review": "已核对实际 11–14 页逐串扩展、转移复用/克隆与不同子串计数。新实现改为 Trie BFS 原地构建，完整多串子串/endpos/转移语言独立对拍、百万字符链及 40 万重复串双模式通过。LC number_of_substrings 24 组官方本地数据只验证单串特例。P6139 的最小 DFA 字面定义与常见 GSAM 状态数在 ab、b 上分别为 3 与 4，见 docs/GENERAL-SAM-NOTES.md，第二行实际评测口径待核实，候选驱动不列为已验证用法。"
     },
     {
       "section": "1.6",

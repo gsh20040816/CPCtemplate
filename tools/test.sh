@@ -474,3 +474,8 @@ python3 tests/dujiao_application.py
 "$CXX" "${flags[@]}" tests/segment_li_chao.cpp -o build/segment-li-chao
 build/segment-li-chao
 python3 tests/segment_li_chao_application.py
+
+"$CXX" "${flags[@]}" tests/general_sam.cpp -o build/general-sam
+build/general-sam
+python3 tests/suffix_state_semantics.py
+python3 tests/kmp_application.py

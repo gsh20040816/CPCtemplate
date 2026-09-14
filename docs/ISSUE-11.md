@@ -13,10 +13,10 @@
 | 1.2 | 2. 后缀数组 | 3 | 5 | pending_content_review |
 | 1.2.1 | (1) 模板 1 | 3 | 5 | pending_content_review |
 | 1.2.2 | (2) 模板 2 | 5 | 7 | pending_content_review |
-| 1.3 | 3. AC 自动机 | 6 | 8 | pending_content_review |
+| 1.3 | 3. AC 自动机 | 6 | 8 | reviewed_variant_pending |
 | 1.4 | 4. 后缀自动机 | 8 | 10 | pending_content_review |
 | 1.4.1 | (1) 模板 1 | 8 | 10 | pending_content_review |
-| 1.5 | 5. 广义后缀自动机 | 9 | 11 | pending_content_review |
+| 1.5 | 5. 广义后缀自动机 | 9 | 11 | implemented_local_verified_state_count_pending |
 | 1.6 | 6. 回文自动机 | 12 | 14 | pending_content_review |
 | 2 | 图论 | 13 | 15 | pending_content_review |
 | 2.1 | 1. 2-SAT | 13 | 15 | pending_content_review |

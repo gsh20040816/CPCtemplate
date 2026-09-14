@@ -49,6 +49,9 @@ def records():
             assert re.fullmatch(r'\s*(?:(?:char|int|long long)\s+\w+(?:\s*,\s*\w+)*\s*;\s*)+', helper[2]), 'Input records may only declare primitive fields'
         if row.get('page_break_before'):
             assert snippet.splitlines().count(row['page_break_before']) == 1, 'Usage page boundary must be unique'
+        for symbol in row.get('also_covers', []):
+            assert symbol != row['symbol'] and symbol in row['requires']
+            assert re.search(r'\b' + re.escape(symbol) + r'\s*\(', snippet), 'Joint example must explicitly call the extra template'
         row['snippet'] = snippet
         row['snippet_file'] = 'docs/usage/' + row['id'] + '.cpp'
         row['program'] = '#include <bits/stdc++.h>\nusing namespace std;\n' + expand(prefix, source.parent, set()) + snippet
@@ -69,7 +72,7 @@ def generate():
         path.write_text(row['snippet'])
     coverage = []
     for _, symbol, title, _ in catalog:
-        matches = [r for r in rows if r['symbol'] == symbol]
+        matches = [r for r in rows if r['symbol'] == symbol or symbol in r.get('also_covers', [])]
         verified = any(r.get('kind', 'template') == 'template' for r in matches) and all(proof.get(r['id'], {}).get('program_sha256') == r['program_sha256']
                     and proof[r['id']].get('modes') == ['normal', 'sanitizer'] for r in matches)
         coverage.append(dict(symbol=symbol, title=title, examples=[r['id'] for r in matches],

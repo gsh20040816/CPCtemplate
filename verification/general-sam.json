@@ -1,0 +1,23 @@
+{
+  "scope": "Current source local independent oracles and explicit scale checks; no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/general_sam.hpp": "aca4aa0897ce4650c923d32f34c3961a3f742840d147d1993198eaa38cf19aed",
+    "tests/general_sam.cpp": "80c6eee2297b95ed217a4fb0e9bf666c4e408f69213a561620148841a09ada8f",
+    "tests/suffix_state_semantics.py": "63624af9689c3d436694200c4bacccf49a65d004a4e6df0dea3c42892801e09a",
+    "verify/luogu/P6139.compact.cpp": "3a8c2a0791bd6d986453634c4d5a631fe9f0f40fbb60a8de44f7e0201299cb88"
+  },
+  "log": [
+    "GeneralSAM: 3375 exhaustive triples, 2000 random sets and reversed order, independent substring/endpos classes and accepted paths; million-character chain and 400000 duplicate strings PASS",
+    "GeneralSAM: 3375 exhaustive triples, 2000 random sets and reversed order, independent substring/endpos classes and accepted paths; million-character chain and 400000 duplicate strings PASS"
+  ],
+  "state_count_scope": "Document-position endpos equivalence, not minimization of the union of suffix languages; P6139 second-line judge convention remains unverified.",
+  "candidate_adapter": {
+    "input": "2\nab\nb\n",
+    "observed_output": "3\n4\n",
+    "scope": "Normal-mode compilation/smoke check only; this is not validation of P6139 second-line expected semantics."
+  }
+}

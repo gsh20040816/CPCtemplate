@@ -10,6 +10,8 @@ prefix\_function(s) 返回每个前缀的最长真 border 长度，0-based；空
 
 \lstinputlisting[firstline=7,lastline=19]{../src/compact/string.hpp}
 
+联合使用示例见第~\pageref{usage-example-91}~页（Luogu P3375），其中直接调用本模板。
+
 \Needspace{267pt}
 
 \section{KMP 匹配}\label{compact-kmp_match}\index{kmp\_match}
@@ -17,6 +19,20 @@ prefix\_function(s) 返回每个前缀的最长真 border 长度，0-based；空
 kmp\_match(s,t) 返回非空模式串 t 在 s 中的所有起点（0-based），允许重叠。需要同章前缀函数。O(|s|+|t|)。
 
 \lstinputlisting[firstline=23,lastline=40]{../src/compact/string.hpp}
+
+\Needspace{293pt}
+
+\subsection*{模板题使用：Luogu P3375}
+
+\label{usage-example-91}
+
+题意：求模式串 t 在文本 s 中所有出现的位置，包含重叠匹配；模板返回 0-based 位置，输出加 1。最后一行直接输出 prefix\_function(t)，它是模式串各前缀的最长真 border 长度。题目输入为非空大写串，函数按字符相等比较，不限于小写。
+
+所需模板：prefix\_function、kmp\_match。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3375}
+
+\lstinputlisting{usage/example-91.cpp}
 
 \Needspace{299pt}
 
@@ -149,6 +165,42 @@ extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts()
 题目：\url{https://judge.yosupo.jp/problem/number_of_substrings}
 
 \lstinputlisting{usage/example-71.cpp}
+
+\Needspace{476pt}
+
+\chapter{广义后缀自动机}
+
+\section{广义后缀自动机：Trie BFS 构建}\label{compact-GeneralSAM}\index{GeneralSAM}
+
+先 add(s) 登记若干小写字符串，再 build() 原地将 Trie 变为广义 SAM；build 后禁止继续 add，可重复 build，重新收集串需新建对象。空串与重复串允许，distinct() 返回所有输入串中不同非空子串的总数，不包含跨串拼接。根为 0，a[v].go[c] 为转移、0 表示无边，link 为后缀链接、len 为最长代表串长度；从根沿字符转移可判定子串是否存在。a.size() 为按文档 endpos 等价类构造的状态数，不应直接称为后缀并集语言的最小 DFA 点数；ab、b 是两者不同的例子。固定 26 字符，设累计输入长度 L、Trie 点数 K，登记总时间 O(L)，build 时间与空间 O(26K)，状态少于 2K；累计输入长度及 2K 须可由 int 表示。克隆只复制已处理转移，不能带入尚未 BFS 处理的 Trie 子边。此版不提供出现次数或各串所属标记。
+
+\lstinputlisting[firstline=9,lastline=37,firstnumber=1]{../src/compact/general_sam.hpp}
+
+\newpage
+
+\noindent BFS 构建（接上页同一结构体）：
+
+\lstinputlisting[firstline=38,lastline=84,firstnumber=30]{../src/compact/general_sam.hpp}
+
+\newpage
+
+\noindent 不同子串计数（接上页同一结构体）：
+
+\lstinputlisting[firstline=85,lastline=92,firstnumber=77]{../src/compact/general_sam.hpp}
+
+\Needspace{300pt}
+
+\subsection*{模板题使用：Library Checker number\_of\_substrings}
+
+\label{usage-example-90}
+
+题意：本题只有一个字符串，输出不同非空子串数。广义模板可在 build 前多次 add；本例验证其单串特例，多串行为另有独立对拍。若只处理单串，原 SuffixAutomaton 更合适。此题不验证广义 SAM 状态数或最小 DFA 状态数。
+
+所需模板：GeneralSAM。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/number_of_substrings}
+
+\lstinputlisting{usage/example-90.cpp}
 
 \Needspace{427pt}
 

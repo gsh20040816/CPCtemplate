@@ -234,7 +234,7 @@
 | [Enumerate Palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | String | 待逐题审题、适配与在线验证 | [enumerate_palindromes.compact.cpp](../verify/library_checker/enumerate_palindromes.compact.cpp) |
 | [Longest Common Substring](https://judge.yosupo.jp/problem/longest_common_substring) | String | 待逐题审题、适配与在线验证 | — |
 | [Lyndon Factorization](https://judge.yosupo.jp/problem/lyndon_factorization) | String | 待逐题审题、适配与在线验证 | — |
-| [Number of Substrings](https://judge.yosupo.jp/problem/number_of_substrings) | String | 待逐题审题、适配与在线验证 | [number_of_substrings.compact.cpp](../verify/library_checker/number_of_substrings.compact.cpp) |
+| [Number of Substrings](https://judge.yosupo.jp/problem/number_of_substrings) | String | 待逐题审题、适配与在线验证 | [number_of_substrings.compact.cpp](../verify/library_checker/general_sam/number_of_substrings.compact.cpp)<br>[number_of_substrings.compact.cpp](../verify/library_checker/number_of_substrings.compact.cpp) |
 | [Palindromes in Deque](https://judge.yosupo.jp/problem/palindromes_in_deque) | String | 待逐题审题、适配与在线验证 | — |
 | [Prefix-Substring LCS](https://judge.yosupo.jp/problem/prefix_substring_lcs) | String | 待逐题审题、适配与在线验证 | — |
 | [Run Enumerate](https://judge.yosupo.jp/problem/runenumerate) | String | 待逐题审题、适配与在线验证 | — |

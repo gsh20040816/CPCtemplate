@@ -17,6 +17,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | prefix_lcs | 字符串 → 后缀数组 (SA) → 后缀数组简介 | application | 后缀数组及 LCP 查询应用；保持依赖。 |
 | square_counts | 字符串 → 后缀数组 (SA) → 后缀数组简介 | application | 用后缀 LCP 枚举重复子串；不归为 Main–Lorentz 算法实现。 |
 | SuffixAutomaton | 字符串 → 后缀自动机 (SAM) | direct |  |
+| GeneralSAM | 字符串 → 广义后缀自动机 | direct |  |
 | manacher | 字符串 → Manacher | direct |  |
 | PalindromicTree | 字符串 → 回文树 | direct |  |
 | minimum_rotation | 字符串 → 最小表示法 | direct |  |

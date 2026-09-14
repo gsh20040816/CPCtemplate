@@ -39,7 +39,7 @@ for pid, p in sorted(files.items(), key=lambda x: (category.get(x[0], 'Unlisted'
     listed = pid in category
     excluded = category.get(pid) == 'Sample'
     drivers = []
-    for d in sorted((root / 'verify/library_checker').glob('*.compact.cpp')):
+    for d in sorted((root / 'verify/library_checker').rglob('*.compact.cpp')):
         urls = re.findall(r'https://judge\.yosupo\.jp/problem/([A-Za-z0-9_]+)', d.read_text())
         if pid in urls or (not urls and d.name == pid + '.compact.cpp'):
             drivers.append(str(d.relative_to(root)))
@@ -61,7 +61,7 @@ for pid, p in sorted(files.items(), key=lambda x: (category.get(x[0], 'Unlisted'
         sources=evidence, candidate_drivers=drivers, linked_statement_reviews=linked_reviews,
         online_ac=ac, status='excluded_sample' if excluded else ('online_ac_scoped' if ac else 'pending_statement_adapter_and_online_validation'),
         ranking={'status':'not_checked','rank':None,'total':None}))
-assert {d for r in rows for d in r['candidate_drivers']} == {str(d.relative_to(root)) for d in (root / 'verify/library_checker').glob('*.compact.cpp')}, 'An existing Library Checker driver has no exact problem mapping'
+assert {d for r in rows for d in r['candidate_drivers']} == {str(d.relative_to(root)) for d in (root / 'verify/library_checker').rglob('*.compact.cpp')}, 'An existing Library Checker driver has no exact problem mapping'
 report = dict(reference_repository='https://github.com/yosupo06/library-checker-problems', reference_commit=commit,
     categories_sha256=hashlib.sha256((up/'categories.toml').read_bytes()).hexdigest(),
     scope_note='All non-test info.toml entries are retained, including unlisted problems. Only official Sample entries are excluded. Metadata, existing drivers and matching review URLs do not confer implementation completeness or online acceptance. Unlisted problem URLs require deployment verification.',
