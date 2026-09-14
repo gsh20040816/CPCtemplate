@@ -451,5 +451,51 @@
       "PositionBasis"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-40",
+    "symbol": "Lucas",
+    "problem": "Luogu P3807",
+    "url": "https://www.luogu.com.cn/problem/P3807",
+    "summary": "多组查询 C(n+m,n) 模 p，题目保证 p 为素数且不超过 10^5。每组构造 Lucas(p)，choose 的参数为 n+m、n；此题范围内 n+m 不会溢出。",
+    "driver": "verify/luogu/P3807.compact.cpp",
+    "requires": [
+      "Lucas"
+    ]
+  },
+  {
+    "id": "example-41",
+    "symbol": "ExLucas",
+    "problem": "Luogu P4720",
+    "url": "https://www.luogu.com.cn/problem/P4720",
+    "summary": "求 C(n,m) 模 p，p 可以为合数且不超过 10^6。构造 ExLucas(p) 后 choose(n,m)；预处理与模数规模有关，不能直接用于 10^9 级模数。",
+    "driver": "verify/luogu/P4720.compact.cpp",
+    "requires": [
+      "ExLucas"
+    ]
+  },
+  {
+    "id": "example-42",
+    "symbol": "mod_sqrt",
+    "problem": "Luogu P5491",
+    "url": "https://www.luogu.com.cn/problem/P5491",
+    "summary": "多组求 x*x 与 N 模 p 同余的全部解，题目保证 p 为奇素数。mod_sqrt 返回升序且去重的根，空数组表示无解并输出 Hola!。",
+    "driver": "verify/luogu/P5491.compact.cpp",
+    "requires": [
+      "mod_sqrt"
+    ]
+  },
+  {
+    "id": "example-43",
+    "symbol": "PollardRho",
+    "problem": "Luogu P4718",
+    "url": "https://www.luogu.com.cn/problem/P4718",
+    "summary": "逐个判断 n 是否为素数，是则输出 Prime，否则输出最大质因子。题目保证 n≥2，factor 返回升序含重数的质因子，因此可取 back；若用于 n=1，须先处理空结果。",
+    "driver": "verify/luogu/P4718.compact.cpp",
+    "requires": [
+      "Mod64",
+      "Prime64",
+      "PollardRho"
+    ]
   }
 ]

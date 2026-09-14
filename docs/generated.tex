@@ -314,6 +314,20 @@ factor(n) 返回升序质因子（含重数），1$\le$n$\le$ULLONG\_MAX。n=1 �
 
 \lstinputlisting[firstline=38,lastline=89]{../src/compact/number_theory.hpp}
 
+\Needspace{356pt}
+
+\subsection*{模板题使用：Luogu P4718}
+
+\label{usage-example-43}
+
+题意：逐个判断 n 是否为素数，是则输出 Prime，否则输出最大质因子。题目保证 n$\ge$2，factor 返回升序含重数的质因子，因此可取 back；若用于 n=1，须先处理空结果。
+
+所需模板：Mod64、Prime64、PollardRho。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4718}
+
+\lstinputlisting{usage/example-43.cpp}
+
 \Needspace{279pt}
 
 \section{裴蜀定理 \& 一次不定方程}
@@ -440,6 +454,20 @@ Lucas(p) 预处理素数模数 p，choose(n,k) 返回 C(n,k) 模 p；n、k 为�
 
 \lstinputlisting[firstline=29,lastline=45,firstnumber=24]{../src/compact/lucas.hpp}
 
+\Needspace{344pt}
+
+\subsection*{模板题使用：Luogu P3807}
+
+\label{usage-example-40}
+
+题意：多组查询 C(n+m,n) 模 p，题目保证 p 为素数且不超过 10\textasciicircum{}5。每组构造 Lucas(p)，choose 的参数为 n+m、n；此题范围内 n+m 不会溢出。
+
+所需模板：Lucas。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3807}
+
+\lstinputlisting{usage/example-40.cpp}
+
 \subsection{合数模数组合数（扩展 Lucas）}\label{compact-ExLucas}\index{ExLucas}
 
 ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k 为 unsigned long long，k>n 返回 0，mod=1 返回 0。适合 mod$\le$10$^{6}$ 的合数或素数模数，不能用于 10$^{9}$ 级素数的整段预处理。分解 mod 为互素素数幂 q=p\textasciicircum{}e，预处理每段内不含 p 因子的前缀积；unit(n,f) 去除 n! 中全部 p 因子，valuation 统计指数。分子分母指数之差不少于 e 时该项为零，否则只对互素单位部分求逆，最后 CRT 合并。预处理 O($\sqrt{\vphantom x}$mod+$\sum$q)，空间 O($\sum$(q+1))；每次查询 O($\sum$(log\_p(n+1)·log(n+1)+log q))，求和遍历不同素因子。所有乘法用 long long；同一对象可重复查询，factors、fac 与辅助函数视为内部数据。
@@ -450,6 +478,20 @@ ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k �
 
 \lstinputlisting[firstline=85,lastline=101,firstnumber=80]{../src/compact/exlucas.hpp}
 
+\Needspace{278pt}
+
+\subsection*{模板题使用：Luogu P4720}
+
+\label{usage-example-41}
+
+题意：求 C(n,m) 模 p，p 可以为合数且不超过 10\textasciicircum{}6。构造 ExLucas(p) 后 choose(n,m)；预处理与模数规模有关，不能直接用于 10\textasciicircum{}9 级模数。
+
+所需模板：ExLucas。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4720}
+
+\lstinputlisting{usage/example-41.cpp}
+
 \Needspace{680pt}
 
 \section{二次剩余}
@@ -459,6 +501,20 @@ ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k �
 mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无解返回空向量，零或模数 2 返回单根。要求 p 为素数，2$\le$p$\le$INT\_MAX，n 支持完整 long long 范围并在入口归一化。先用 Euler 判别；p$\equiv$3 (mod 4) 时直接快速幂，其余使用 Cipolla 二次扩域。函数内保存固定种子的伪随机生成器；随机性影响寻找非剩余的尝试次数，不影响结果，通常期望 O(log p) 时间、O(1) 辅助空间。乘法用 long long，扩域实部的三因子乘积中间先取模；指数中的 p+1 先转 long long，避免 INT\_MAX 溢出。此版本不处理合数模数及 64 位大素数，也不用于浮点开方。
 
 \lstinputlisting[firstline=10,lastline=61]{../src/compact/modular_sqrt.hpp}
+
+\Needspace{395pt}
+
+\subsection*{模板题使用：Luogu P5491}
+
+\label{usage-example-42}
+
+题意：多组求 x*x 与 N 模 p 同余的全部解，题目保证 p 为奇素数。mod\_sqrt 返回升序且去重的根，空数组表示无解并输出 Hola!。
+
+所需模板：mod\_sqrt。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5491}
+
+\lstinputlisting{usage/example-42.cpp}
 
 \Needspace{180pt}
 

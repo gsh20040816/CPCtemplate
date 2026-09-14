@@ -39,7 +39,7 @@
 | batch_inverse | 待补 | pending_example |
 | inverse_table | 待补 | pending_example |
 | garner | 待补 | pending_example |
-| PollardRho | 待补 | pending_example |
+| PollardRho | [example-43](usage/example-43.cpp) | locally_checked_example |
 | LinearSieve | 待补 | pending_example |
 | ModInt | 待补 | pending_example |
 | Binomial | 待补 | pending_example |
@@ -51,9 +51,9 @@
 | euler_phi | 待补 | pending_example |
 | carmichael | 待补 | pending_example |
 | Partitions | 待补 | pending_example |
-| Lucas | 待补 | pending_example |
-| ExLucas | 待补 | pending_example |
-| mod_sqrt | 待补 | pending_example |
+| Lucas | [example-40](usage/example-40.cpp) | locally_checked_example |
+| ExLucas | [example-41](usage/example-41.cpp) | locally_checked_example |
+| mod_sqrt | [example-42](usage/example-42.cpp) | locally_checked_example |
 | KthResidue | 待补 | pending_example |
 | PrimePowerRoots | 待补 | pending_example |
 | root_factors | 待补 | pending_example |
