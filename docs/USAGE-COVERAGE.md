@@ -63,7 +63,7 @@
 | stirling_second_row | 待补 | pending_example |
 | stirling_first_row | 待补 | pending_example |
 | FpsInverse | [example-18](usage/example-18.cpp) | locally_checked_example |
-| FpsFunctions | 待补 | pending_example |
+| FpsFunctions | [example-28](usage/example-28.cpp), [example-29](usage/example-29.cpp) | locally_checked_example |
 | GaussMod | [example-24](usage/example-24.cpp) | locally_checked_example |
 | det_prime | [example-25](usage/example-25.cpp) | locally_checked_example |
 | ModMatrix | [example-26](usage/example-26.cpp) | locally_checked_example |
@@ -150,8 +150,8 @@
 | BostanMori | 待补 | pending_example |
 | SetConvolution | [example-27](usage/example-27.cpp) | locally_checked_example |
 | subset_convolution | 待补 | pending_example |
-| polynomial_shift | 待补 | pending_example |
-| chirp_z | 待补 | pending_example |
+| polynomial_shift | [example-30](usage/example-30.cpp) | locally_checked_example |
+| chirp_z | [example-31](usage/example-31.cpp) | locally_checked_example |
 | PersistentRange | 待补 | pending_example |
 | TreeDiameter | 待补 | pending_example |
 | FunctionalGraph | 待补 | pending_example |

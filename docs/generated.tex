@@ -690,6 +690,20 @@ chirp\_z(f,a,r,m) 返回 f(a*r\textasciicircum{}i)，i=0..m-1；f 为升幂系�
 
 \lstinputlisting[firstline=34,lastline=56,firstnumber=30]{../src/compact/chirp_z.hpp}
 
+\Needspace{331pt}
+
+\subsection*{模板题使用：Library Checker multipoint\_evaluation\_on\_geometric\_sequence}
+
+\label{usage-example-31}
+
+题意：给多项式 f 的升幂系数及 a、r，依次输出 f(a*r\textasciicircum{}i)，i=0..m-1，模 998244353。r=0 时首项仍为 f(a)，后续各项为 f(0)。
+
+所需模板：ModInt、NttConvolution、chirp\_z。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence}
+
+\lstinputlisting{usage/example-31.cpp}
+
 \Needspace{370pt}
 
 \section{多项式牛顿迭代}
@@ -728,6 +742,34 @@ FpsFunctions 继承 FpsInverse，复用同一 NTT 和求逆。derivative(a) 形�
 
 \lstinputlisting[firstline=32,lastline=47,firstnumber=29]{../src/compact/fps_functions.hpp}
 
+\Needspace{293pt}
+
+\subsection*{模板题使用：Library Checker log\_of\_formal\_power\_series}
+
+\label{usage-example-28}
+
+题意：给定常数项为 1 的形式幂级数，求其形式对数的前 n 项，模 998244353。系数按升幂输入且已取模，结果常数项为 0。
+
+所需模板：ModInt、NttConvolution、FpsInverse、FpsFunctions。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/log_of_formal_power_series}
+
+\lstinputlisting{usage/example-28.cpp}
+
+\Needspace{293pt}
+
+\subsection*{模板题使用：Library Checker exp\_of\_formal\_power\_series}
+
+\label{usage-example-29}
+
+题意：给定常数项为 0 的形式幂级数，求其形式指数的前 n 项，模 998244353。系数按升幂输入且已取模，结果常数项为 1。
+
+所需模板：ModInt、NttConvolution、FpsInverse、FpsFunctions。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/exp_of_formal_power_series}
+
+\lstinputlisting{usage/example-29.cpp}
+
 \Needspace{603pt}
 
 \section{常系数齐次线性递推}
@@ -761,6 +803,20 @@ BostanMori<mod=998244353,primitive=3>，依赖参数化 NTT；素数模数与原
 polynomial\_shift<mod=998244353,primitive=3>(f,c) 返回 f(x+c) 的升幂系数，结果长度始终与 f 相同，保留末尾零；空输入返回空。参数 c 使用 ModInt<mod>。依赖参数化 NTT，mod 为素数且 primitive 为原根；非空长度 n 要求 2n-1$\le$NTT::max\_size，因此阶乘均可逆。逆序的 f[i]i! 与 c\textasciicircum{}i/i! 卷积后提取对应项，O(n log n) 时间、O(n) 空间。c=0 合法。
 
 \lstinputlisting[firstline=5,lastline=30]{../src/compact/polynomial_shift.hpp}
+
+\Needspace{329pt}
+
+\subsection*{模板题使用：Library Checker polynomial\_taylor\_shift}
+
+\label{usage-example-30}
+
+题意：给多项式 f 的 n 个升幂系数和常数 c，输出 f(x+c) 的 n 个升幂系数，模 998244353。平移方向为加 c，c=0 时原样返回。
+
+所需模板：ModInt、NttConvolution、polynomial\_shift。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/polynomial_taylor_shift}
+
+\lstinputlisting{usage/example-30.cpp}
 
 \Needspace{541pt}
 

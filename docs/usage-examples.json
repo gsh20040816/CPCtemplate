@@ -305,5 +305,59 @@
       "ModInt",
       "SetConvolution"
     ]
+  },
+  {
+    "id": "example-28",
+    "symbol": "FpsFunctions",
+    "problem": "Library Checker log_of_formal_power_series",
+    "url": "https://judge.yosupo.jp/problem/log_of_formal_power_series",
+    "summary": "给定常数项为 1 的形式幂级数，求其形式对数的前 n 项，模 998244353。系数按升幂输入且已取模，结果常数项为 0。",
+    "driver": "verify/library_checker/log_of_formal_power_series.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "FpsFunctions"
+    ]
+  },
+  {
+    "id": "example-29",
+    "symbol": "FpsFunctions",
+    "problem": "Library Checker exp_of_formal_power_series",
+    "url": "https://judge.yosupo.jp/problem/exp_of_formal_power_series",
+    "summary": "给定常数项为 0 的形式幂级数，求其形式指数的前 n 项，模 998244353。系数按升幂输入且已取模，结果常数项为 1。",
+    "driver": "verify/library_checker/exp_of_formal_power_series.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "FpsFunctions"
+    ]
+  },
+  {
+    "id": "example-30",
+    "symbol": "polynomial_shift",
+    "problem": "Library Checker polynomial_taylor_shift",
+    "url": "https://judge.yosupo.jp/problem/polynomial_taylor_shift",
+    "summary": "给多项式 f 的 n 个升幂系数和常数 c，输出 f(x+c) 的 n 个升幂系数，模 998244353。平移方向为加 c，c=0 时原样返回。",
+    "driver": "verify/library_checker/polynomial_taylor_shift.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "polynomial_shift"
+    ]
+  },
+  {
+    "id": "example-31",
+    "symbol": "chirp_z",
+    "problem": "Library Checker multipoint_evaluation_on_geometric_sequence",
+    "url": "https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence",
+    "summary": "给多项式 f 的升幂系数及 a、r，依次输出 f(a*r^i)，i=0..m-1，模 998244353。r=0 时首项仍为 f(a)，后续各项为 f(0)。",
+    "driver": "verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "chirp_z"
+    ]
   }
 ]
