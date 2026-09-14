@@ -90,6 +90,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | lazy_segtree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | segtree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | LiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
+| SegmentLiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
 | ost | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
 | rp | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
 | GcdSequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |

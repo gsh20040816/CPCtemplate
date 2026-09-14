@@ -1,0 +1,22 @@
+{
+  "scope": "Local independent small oracles and explicitly named scale/consistency checks; official local cases recorded separately, no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/segment_li_chao.hpp": "66a1b68d23f4fef6ddf53bdbaafa80ea6f10f4ea5846744e167cb25fae0e9b9f",
+    "tests/segment_li_chao.cpp": "6f3b501be2f4e98c65b3b7a1767dba0ba75d212b3f2e1d980fdad9c51eb7f0e7",
+    "tests/segment_li_chao_application.py": "897fa0a1750de9465cc696cf7f6f7bd6b73f7042fee928d717aa0a53117203cd",
+    "verify/luogu/P4097.compact.cpp": "376ab7cd8ed3b13742a5cf81cc1e8682538377deda256353cf8941cb331cf47a",
+    "verify/library_checker/segment_add_get_min.compact.cpp": "29bcde4bc5bf0f3146c33afe3a46d76b2c8a1f6e42d71a7561867bb4a250323f"
+  },
+  "log": [
+    "SegmentLiChao: cpp_int rational scan, 150x80 insertions, empty/vertical/reversed/tied segments, signed coordinate bounds and sub-epsilon separation PASS",
+    "SegmentLiChao: cpp_int rational scan, 150x80 insertions, empty/vertical/reversed/tied segments, signed coordinate bounds and sub-epsilon separation PASS",
+    "P4097: 100x300 encrypted Fraction-oracle operations, ties/vertical/reversed/no-hit, 100000-operation scale PASS",
+    "P4097: 100x300 encrypted Fraction-oracle operations, ties/vertical/reversed/no-hit, 100000-operation scale PASS"
+  ],
+  "arithmetic_argument": "Every stored line covers its entire Li Chao node interval, so value comparisons use x between its endpoints. With |x|<=10^9 and |y|<=2*10^18, denominator <=2*10^9, numerator magnitude <=4*10^27, and either cross product magnitude <=8*10^36 < 2^127. Vertical segments use denominator 1. No epsilon or integer division is used for ordering.",
+  "ordering_argument": "On a fully covered interval, the difference of two rational affine functions has at most one sign change. Keep the better line at the midpoint and recurse only toward an endpoint where the loser is better. Exact equality is consistently broken by insertion id. Partial insertions first decompose the closed x-domain into tree intervals."
+}

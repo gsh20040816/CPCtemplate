@@ -1458,7 +1458,20 @@
       "title": "杜教筛",
       "source": "src/compact/algebra.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/sum_of_totient_function.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/sum_of_totient_function",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4213.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4213",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -1746,7 +1759,14 @@
       "title": "离散李超树与最优直线编号",
       "source": "src/compact/optimization.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/line_add_get_min.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/line_add_get_min",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -3672,6 +3692,34 @@
         {
           "driver": "verify/luogu/P5180.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P5180",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SegmentLiChao",
+      "title": "精确线段李超树：最大值编号",
+      "source": "src/compact/segment_li_chao.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/segment_add_get_min.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/segment_add_get_min",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4097.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4097",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -7405,12 +7453,6 @@
       "source": "issue11",
       "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
       "page": "74",
-      "topic": "3.3 3. 杜教筛"
-    },
-    {
-      "source": "issue11",
-      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
-      "page": "74",
       "topic": "3.3.1 (1) 洛谷模板"
     },
     {
@@ -7610,12 +7652,6 @@
       "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
       "page": "186",
       "topic": "6.1.1 (1) 洛谷模板"
-    },
-    {
-      "source": "issue11",
-      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
-      "page": "188",
-      "topic": "6.2 2. 李超线段树"
     },
     {
       "source": "issue11",

@@ -46,8 +46,8 @@
 | 3.1.2 | (2) min_25 筛质数个数 | 68 | 70 | pending_content_review |
 | 3.2 | 2. 原根 | 69 | 71 | pending_content_review |
 | 3.2.1 | (1) 洛谷模板 | 69 | 71 | pending_content_review |
-| 3.3 | 3. 杜教筛 | 72 | 74 | pending_content_review |
-| 3.3.1 | (1) 洛谷模板 | 72 | 74 | pending_content_review |
+| 3.3 | 3. 杜教筛 | 72 | 74 | implemented_local_verified_online_pending |
+| 3.3.1 | (1) 洛谷模板 | 72 | 74 | implemented_local_verified_online_pending |
 | 3.4 | 4. LGV 引理 | 79 | 81 | pending_content_review |
 | 3.5 | 5. 扩展欧拉定理 | 80 | 82 | pending_content_review |
 | 3.6 | 6. 矩阵求逆 | 80 | 82 | pending_content_review |
@@ -86,8 +86,8 @@
 | 6 | 计算几何 | 184 | 186 | pending_content_review |
 | 6.1 | 1. 二维凸包 | 184 | 186 | pending_content_review |
 | 6.1.1 | (1) 洛谷模板 | 184 | 186 | pending_content_review |
-| 6.2 | 2. 李超线段树 | 186 | 188 | pending_content_review |
-| 6.2.1 | (1) 洛谷模板 | 186 | 188 | pending_content_review |
+| 6.2 | 2. 李超线段树 | 186 | 188 | implemented_local_verified_online_pending |
+| 6.2.1 | (1) 洛谷模板 | 186 | 188 | implemented_local_verified_online_pending |
 | 6.3 | 3. 旋转卡壳 | 189 | 191 | pending_content_review |
 | 6.4 | 4. 半平面交 | 194 | 196 | pending_content_review |
 | 6.5 | 5. 极角排序 | 196 | 198 | pending_content_review |
@@ -96,4 +96,4 @@
 | 6.5.3 | (3) 模板 2 | 198 | 200 | pending_content_review |
 
 来源为 issue #11 用户提供附件；完整 PDF 留在本地 build 中，仓库仅登记来源、摘要与覆盖状态。
-三元环、左偏树、Johnson 已独立实现并本地验证，在线待补；其余目录按上表状态继续核对，不排除任何主题或变体。
+已核对项与实现、验证范围见 JSON 中各项 review；本地通过不等于线上 AC，其余目录按上表状态继续核对，不排除任何主题或变体。

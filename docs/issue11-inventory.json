@@ -420,11 +420,11 @@
       "toc_page": 72,
       "physical_page": 74,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
         "DuJiao"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "已核对实际 74–80 页，包括 75–78 页图像的 Dirichlet 卷积、反演和整除分块推导。现有 vector DuJiao 实现 μ、φ 前缀和，φ 返回 int128；补 P4213 和 LC sum_of_totient_function 用法。当前测试移除 classic 依赖，试除独立 oracle 双模式通过；10^11 两个预筛长度仅记一致性。P4213 大输入仅记规模/重复一致性，LC 全 48 组官方本地数据双模式通过。未新增在线 AC。"
     },
     {
       "section": "3.3.1",
@@ -432,8 +432,11 @@
       "toc_page": 72,
       "physical_page": 74,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "DuJiao"
+      ],
+      "review": "已核对实际 74–80 页，包括 75–78 页图像的 Dirichlet 卷积、反演和整除分块推导。现有 vector DuJiao 实现 μ、φ 前缀和，φ 返回 int128；补 P4213 和 LC sum_of_totient_function 用法。当前测试移除 classic 依赖，试除独立 oracle 双模式通过；10^11 两个预筛长度仅记一致性。P4213 大输入仅记规模/重复一致性，LC 全 48 组官方本地数据双模式通过。未新增在线 AC。"
     },
     {
       "section": "3.4",
@@ -840,11 +843,11 @@
       "toc_page": 186,
       "physical_page": 188,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
-        "LiChao"
+        "SegmentLiChao"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "已核对实际 188–191 页：在线解码、闭线段插入、竖直线段取高端点、最大值最小编号。新 SegmentLiChao 使用 int128 有理数比较，不复制 epsilon。cpp_int 逐段扫描、Fraction 在线解码对拍及 10 万操作双模式通过；LC segment_add_get_min 全 13 组官方本地数据双模式通过。原 LiChao 的整条直线接口保留。P4097 竞赛来源作为应用补充单列；未新增线上 AC。"
     },
     {
       "section": "6.2.1",
@@ -852,8 +855,11 @@
       "toc_page": 186,
       "physical_page": 188,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "SegmentLiChao"
+      ],
+      "review": "已核对实际 188–191 页：在线解码、闭线段插入、竖直线段取高端点、最大值最小编号。新 SegmentLiChao 使用 int128 有理数比较，不复制 epsilon。cpp_int 逐段扫描、Fraction 在线解码对拍及 10 万操作双模式通过；LC segment_add_get_min 全 13 组官方本地数据双模式通过。原 LiChao 的整条直线接口保留。P4097 竞赛来源作为应用补充单列；未新增线上 AC。"
     },
     {
       "section": "6.3",

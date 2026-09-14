@@ -47,6 +47,8 @@ def records():
         assert declared == [h[1] for h in helpers] == row.get('helper_types', [])
         for helper in helpers:
             assert re.fullmatch(r'\s*(?:(?:char|int|long long)\s+\w+(?:\s*,\s*\w+)*\s*;\s*)+', helper[2]), 'Input records may only declare primitive fields'
+        if row.get('page_break_before'):
+            assert snippet.splitlines().count(row['page_break_before']) == 1, 'Usage page boundary must be unique'
         row['snippet'] = snippet
         row['snippet_file'] = 'docs/usage/' + row['id'] + '.cpp'
         row['program'] = '#include <bits/stdc++.h>\nusing namespace std;\n' + expand(prefix, source.parent, set()) + snippet

@@ -469,3 +469,8 @@ build/dominator-tree
 python3 tests/dominator_application.py
 python3 tests/lowlink_application.py
 python3 tests/rollback_application.py
+
+python3 tests/dujiao_application.py
+"$CXX" "${flags[@]}" tests/segment_li_chao.cpp -o build/segment-li-chao
+build/segment-li-chao
+python3 tests/segment_li_chao_application.py

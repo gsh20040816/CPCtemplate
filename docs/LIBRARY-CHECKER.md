@@ -53,7 +53,7 @@
 | [Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Dynamic Point Rectangle Affine Rectangle Sum](https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Line Add Get Min](https://judge.yosupo.jp/problem/line_add_get_min) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Line Add Get Min](https://judge.yosupo.jp/problem/line_add_get_min) | Data Structure | 待逐题审题、适配与在线验证 | [line_add_get_min.compact.cpp](../verify/library_checker/line_add_get_min.compact.cpp) |
 | [Ordered Set](https://judge.yosupo.jp/problem/ordered_set) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [ordered_set.compact.cpp](../verify/library_checker/ordered_set.compact.cpp) |
 | [Persistent Queue](https://judge.yosupo.jp/problem/persistent_queue) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [persistent_queue.compact.cpp](../verify/library_checker/persistent_queue.compact.cpp) |
 | [Persistent Range Affine Range Sum](https://judge.yosupo.jp/problem/persistent_range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
@@ -77,7 +77,7 @@
 | [Range Set Range Composite](https://judge.yosupo.jp/problem/range_set_range_composite) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Rectangle Add Point Get](https://judge.yosupo.jp/problem/rectangle_add_point_get) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Rectangle Sum](https://judge.yosupo.jp/problem/rectangle_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Segment Add Get Min](https://judge.yosupo.jp/problem/segment_add_get_min) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Segment Add Get Min](https://judge.yosupo.jp/problem/segment_add_get_min) | Data Structure | 待逐题审题、适配与在线验证 | [segment_add_get_min.compact.cpp](../verify/library_checker/segment_add_get_min.compact.cpp) |
 | [Set Xor-Min](https://judge.yosupo.jp/problem/set_xor_min) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Static Range Count Distinct](https://judge.yosupo.jp/problem/static_range_count_distinct) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Static Range Frequency](https://judge.yosupo.jp/problem/static_range_frequency) | Data Structure | 待逐题审题、适配与在线验证 | — |
@@ -187,7 +187,7 @@
 | [Stern–Brocot Tree](https://judge.yosupo.jp/problem/stern_brocot_tree) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Sum of Floor of Linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | Number Theory | 待逐题审题、适配与在线验证 | [sum_of_floor_of_linear.compact.cpp](../verify/library_checker/sum_of_floor_of_linear.compact.cpp) |
 | [Sum of Multiplicative Function(Large)](https://judge.yosupo.jp/problem/sum_of_multiplicative_function_large) | Number Theory | 待逐题审题、适配与在线验证 | — |
-| [Sum of Totient Function](https://judge.yosupo.jp/problem/sum_of_totient_function) | Number Theory | 待逐题审题、适配与在线验证 | — |
+| [Sum of Totient Function](https://judge.yosupo.jp/problem/sum_of_totient_function) | Number Theory | 待逐题审题、适配与在线验证 | [sum_of_totient_function.compact.cpp](../verify/library_checker/sum_of_totient_function.compact.cpp) |
 | [Tetration Mod](https://judge.yosupo.jp/problem/tetration_mod) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Represent A Number As Two Square Sum](https://judge.yosupo.jp/problem/two_square_sum) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Consecutive Terms of Linear Recurrent Sequence](https://judge.yosupo.jp/problem/consecutive_terms_of_linear_recurrent_sequence) | Other | 待逐题审题、适配与在线验证 | — |

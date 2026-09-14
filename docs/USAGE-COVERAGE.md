@@ -70,7 +70,7 @@
 | determinant_mod | [example-77](usage/example-77.cpp) | locally_checked_example |
 | MatrixTree | [example-76](usage/example-76.cpp) | locally_checked_example |
 | MatrixTreeMod | 待补 | pending_example |
-| DuJiao | 待补 | pending_example |
+| DuJiao | [example-85](usage/example-85.cpp), [example-86](usage/example-86.cpp) | locally_checked_example |
 | DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |
 | IntegerPlane | 待补 | pending_example |
 | integer_hull | [example-64](usage/example-64.cpp) | locally_checked_example |
@@ -86,7 +86,7 @@
 | circle_intersections | 待补 | pending_example |
 | circle_overlap_area | 待补 | pending_example |
 | MaxPlusMatrix | 待补 | pending_example |
-| LiChao | 待补 | pending_example |
+| LiChao | [example-89](usage/example-89.cpp) | locally_checked_example |
 | PersistentKth | [example-37](usage/example-37.cpp) | locally_checked_example |
 | TreePathKth | [example-38](usage/example-38.cpp) | locally_checked_example |
 | DynamicKth | [example-63](usage/example-63.cpp) | locally_checked_example |
@@ -170,3 +170,4 @@
 | LeftistHeap | [example-50](usage/example-50.cpp) | locally_checked_example |
 | Johnson | [example-74](usage/example-74.cpp) | locally_checked_example |
 | DominatorTree | [example-82](usage/example-82.cpp), [example-83](usage/example-83.cpp) | locally_checked_example |
+| SegmentLiChao | [example-87](usage/example-87.cpp), [example-88（应用补充）](usage/example-88.cpp) | locally_checked_example |

@@ -690,6 +690,34 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=33,lastline=79]{../src/compact/algebra.hpp}
 
+\Needspace{325pt}
+
+\subsection*{模板题使用：Luogu P4213}
+
+\label{usage-example-85}
+
+题意：多次查询 $\varphi$ 与 $\mu$ 的前缀和，先输出 $\varphi$，再输出 $\mu$。先读入全部 n，预筛到 min(最大 n,2000000)，同一结构复用缓存。题目 n<2\textasciicircum{}31，所以 $\varphi$ 的总和可安全转为 long long；模板更大范围的 int128 返回值不能照搬此转换。
+
+所需模板：LinearSieve、DuJiao。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4213}
+
+\lstinputlisting{usage/example-85.cpp}
+
+\Needspace{273pt}
+
+\subsection*{模板题使用：Library Checker sum\_of\_totient\_function}
+
+\label{usage-example-86}
+
+题意：求 $\varphi$ 前缀和对 998244353 的余数，n$\le$10\textasciicircum{}10。先在 int128 中求和并取模，再转为 long long 输出；不能先把未取模的总和截成 64 位。预筛上限按输入截到 2000000。
+
+所需模板：LinearSieve、DuJiao。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/sum_of_totient_function}
+
+\lstinputlisting{usage/example-86.cpp}
+
 \Needspace{445pt}
 
 \section{类欧几里德算法}
@@ -1546,15 +1574,91 @@ AffineSegTree(a,mod) 传入非空 0-based 初值数组；查询与修改采用 1
 
 \lstinputlisting{usage/example-12.cpp}
 
-\Needspace{180pt}
+\Needspace{473pt}
 
 \section{李超线段树}
+
+\subsection{精确线段李超树：最大值编号}\label{compact-SegmentLiChao}\index{SegmentLiChao}
+
+构造传入非空的所有查询横坐标，排序去重后数量 M。add(x1,y1,x2,y2) 插入闭线段并返回从 1 开始的编号；可交换端点，竖直线段在该横坐标取较高端点。query(x) 返回交点最高的线段编号，同值取较早插入者；无交点返回 0，x 必须在预登记坐标内。value(id,x) 返回未约分的 (分子,正分母)，要求 id>0 且 x 在线段内；不直接相除即可保留精度。横坐标绝对值$\le$10\textasciicircum{}9，端点纵坐标绝对值$\le$2×10\textasciicircum{}18，int128 交叉乘积在这些界内安全；不使用浮点或 epsilon。最小值问题可先把纵坐标取负，得到编号后再还原。整条直线用原 LiChao 更短；这里插入仅作用于端点范围。构造 O(M log M)，插入 O(log$^{2}$(M+1))，查询 O(log(M+1))，空间 O(M+线段数)；要求 M<INT\_MAX/4，累计插入线段数<INT\_MAX。
+
+\lstinputlisting[firstline=8,lastline=36,firstnumber=1]{../src/compact/segment_li_chao.hpp}
+
+\newpage
+
+\noindent 精确比较与线段插入（接上页同一结构体）：
+
+\lstinputlisting[firstline=37,lastline=80,firstnumber=30]{../src/compact/segment_li_chao.hpp}
+
+\newpage
+
+\noindent 查询最优线段编号（接上页同一结构体）：
+
+\lstinputlisting[firstline=81,lastline=103,firstnumber=74]{../src/compact/segment_li_chao.hpp}
+
+\Needspace{499pt}
+
+\subsection*{模板题使用：Library Checker segment\_add\_get\_min}
+
+\label{usage-example-87}
+
+题意：在线段有效区间内查询最小值。预读所有查询横坐标以离散化，再按原序处理；没有查询时直接退出。题目横坐标都是整数，因此半开区间 [l,r) 换成闭区间 [l,r-1]。端点值取负，把最小值转为最大值；无结果输出 INFINITY，返回分数在本题必为整数。原线性式的端点计算在题目范围内可用 long long。
+
+所需模板：SegmentLiChao。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/segment_add_get_min}
+
+\lstinputlisting[lastline=28]{usage/example-87.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=29,firstnumber=29]{usage/example-87.cpp}
+
+\Needspace{507pt}
+
+\subsection*{应用题补充：Luogu P4097 / HEOI2013 Segment}
+
+\label{usage-example-88}
+
+题意：强制在线插入整数端点线段，查询最高交点的最早线段编号。预登记全部 1..39989 横坐标；每个操作用上次查询答案解码，插入不会修改 last。竖直线段取较高端点，无交点输出并保存 0。此题源自 HEOI，作为应用补充单列。
+
+所需模板：SegmentLiChao。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4097}
+
+\lstinputlisting{usage/example-88.cpp}
+
+\newpage
+
+\Needspace{511pt}
 
 \subsection{离散李超树与最优直线编号}\label{compact-LiChao}\index{LiChao}
 
 构造传入所有可能查询的横坐标，add(\{k,b,id\}) 插入直线，query(x) 返回最小值与最小编号，要求 x 在预登记坐标内且至少有一条线。整数求值用 int128，k、b、x 为有符号 64 位且中间值可表示。单次 O(log n)。
 
-\lstinputlisting[firstline=41,lastline=132]{../src/compact/optimization.hpp}
+\lstinputlisting[firstline=41,lastline=81]{../src/compact/optimization.hpp}
+
+\newpage
+
+\noindent 插入与查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=82,lastline=132,firstnumber=42]{../src/compact/optimization.hpp}
+
+\Needspace{561pt}
+
+\subsection*{模板题使用：Library Checker line\_add\_get\_min}
+
+\label{usage-example-89}
+
+题意：插入整条直线并查询最小值。先收集查询横坐标，再按输入顺序处理；初始至少一条线，查询必有结果。编号由调用者递增指定，本题只输出值。题目系数与横坐标范围保证最终值可转为 long long；模板内部用 int128 比较。
+
+所需模板：LiChao。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/line_add_get_min}
+
+\lstinputlisting{usage/example-89.cpp}
 
 \Needspace{301pt}
 

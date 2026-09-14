@@ -56,6 +56,6 @@ lines = ['# Issue 11 附件核对清单', '',
 for r in rows:
     lines.append(f"| {r['section']} | {r['title']} | {r['toc_page']} | {r['physical_page']} | {r['status']} |")
 lines += ['', '来源为 issue #11 用户提供附件；完整 PDF 留在本地 build 中，仓库仅登记来源、摘要与覆盖状态。',
-          '三元环、左偏树、Johnson 已独立实现并本地验证，在线待补；其余目录按上表状态继续核对，不排除任何主题或变体。']
+          '已核对项与实现、验证范围见 JSON 中各项 review；本地通过不等于线上 AC，其余目录按上表状态继续核对，不排除任何主题或变体。']
 (root / 'docs/ISSUE-11.md').write_text('\n'.join(lines) + '\n')
 print('Issue 11:', len(rows), 'headings, 55 primary topics,', len(pages), 'PDF pages')

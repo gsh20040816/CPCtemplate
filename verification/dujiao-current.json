@@ -1,0 +1,21 @@
+{
+  "scope": "Local independent small oracles and explicitly named scale/consistency checks; official local cases recorded separately, no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/algebra.hpp": "90ac3ec55bcec497d0acd3bfd199424529a9576b1d47cf6271c1c0dadae3adb7",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "tests/dujiao.cpp": "70103e2faa0e511e8e721e77dafba5bb0e0ed108b416fe89fc83a743042b357e",
+    "tests/dujiao_application.py": "6542beabc95a01bb0954051931719eacd1fa86452d1573a4cfbed77c91ea935b",
+    "verify/luogu/P4213.compact.cpp": "74cf15a7b94fe836b9a571e55193562d7206a4cd59ce6da1048472b504070ef8",
+    "verify/library_checker/sum_of_totient_function.compact.cpp": "41f2f3bc20bfff39703bd487bfdb5da66bf94feb7c86556acd129f3373a272af"
+  },
+  "log": [
+    "DuJiao current vector trial-prefix oracle, zero/cutoff boundaries, shuffled/repeated queries, cache rebuild and 1e11 cutoff consistency PASS",
+    "DuJiao current vector trial-prefix oracle, zero/cutoff boundaries, shuffled/repeated queries, cache rebuild and 1e11 cutoff consistency PASS",
+    "P4213: 30x10 trial-factor exact prefix queries PASS; ten maximum queries pass scale/bounds/repetition consistency (not independent large oracle)",
+    "P4213: 30x10 trial-factor exact prefix queries PASS; ten maximum queries pass scale/bounds/repetition consistency (not independent large oracle)"
+  ]
+}

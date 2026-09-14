@@ -20,6 +20,7 @@
 - `verify/library_checker/intersection_intersection.compact.cpp`
 - `verify/library_checker/intersection_zassenhaus.compact.cpp`
 - `verify/library_checker/inv_of_formal_power_series.compact.cpp`
+- `verify/library_checker/line_add_get_min.compact.cpp`
 - `verify/library_checker/log_of_formal_power_series.compact.cpp`
 - `verify/library_checker/matrix_det.compact.cpp`
 - `verify/library_checker/matrix_det_arbitrary_mod.compact.cpp`
@@ -31,9 +32,11 @@
 - `verify/library_checker/primality_test.compact.cpp`
 - `verify/library_checker/range_affine_range_sum.compact.cpp`
 - `verify/library_checker/scc.compact.cpp`
+- `verify/library_checker/segment_add_get_min.compact.cpp`
 - `verify/library_checker/shortest_path.compact.cpp`
 - `verify/library_checker/static_convex_hull.compact.cpp`
 - `verify/library_checker/sum_of_floor_of_linear.compact.cpp`
+- `verify/library_checker/sum_of_totient_function.compact.cpp`
 - `verify/library_checker/system_of_linear_equations.compact.cpp`
 - `verify/library_checker/two_sat.compact.cpp`
 - `verify/library_checker/zalgorithm.compact.cpp`
@@ -64,7 +67,9 @@
 - `verify/luogu/P3803.i64.compact.cpp`
 - `verify/luogu/P3809.compact.cpp`
 - `verify/luogu/P3812.compact.cpp`
+- `verify/luogu/P4097.compact.cpp`
 - `verify/luogu/P4151.compact.cpp`
+- `verify/luogu/P4213.compact.cpp`
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.compact.cpp`
 - `verify/luogu/P5170.compact.cpp`

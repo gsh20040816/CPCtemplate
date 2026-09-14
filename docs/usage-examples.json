@@ -988,5 +988,70 @@
     "requires": [
       "RollbackDSU"
     ]
+  },
+  {
+    "id": "example-85",
+    "symbol": "DuJiao",
+    "problem": "Luogu P4213",
+    "url": "https://www.luogu.com.cn/problem/P4213",
+    "summary": "多次查询 φ 与 μ 的前缀和，先输出 φ，再输出 μ。先读入全部 n，预筛到 min(最大 n,2000000)，同一结构复用缓存。题目 n<2^31，所以 φ 的总和可安全转为 long long；模板更大范围的 int128 返回值不能照搬此转换。",
+    "driver": "verify/luogu/P4213.compact.cpp",
+    "requires": [
+      "LinearSieve",
+      "DuJiao"
+    ]
+  },
+  {
+    "id": "example-86",
+    "symbol": "DuJiao",
+    "problem": "Library Checker sum_of_totient_function",
+    "url": "https://judge.yosupo.jp/problem/sum_of_totient_function",
+    "summary": "求 φ 前缀和对 998244353 的余数，n≤10^10。先在 int128 中求和并取模，再转为 long long 输出；不能先把未取模的总和截成 64 位。预筛上限按输入截到 2000000。",
+    "driver": "verify/library_checker/sum_of_totient_function.compact.cpp",
+    "requires": [
+      "LinearSieve",
+      "DuJiao"
+    ]
+  },
+  {
+    "id": "example-87",
+    "symbol": "SegmentLiChao",
+    "problem": "Library Checker segment_add_get_min",
+    "url": "https://judge.yosupo.jp/problem/segment_add_get_min",
+    "summary": "在线段有效区间内查询最小值。预读所有查询横坐标以离散化，再按原序处理；没有查询时直接退出。题目横坐标都是整数，因此半开区间 [l,r) 换成闭区间 [l,r-1]。端点值取负，把最小值转为最大值；无结果输出 INFINITY，返回分数在本题必为整数。原线性式的端点计算在题目范围内可用 long long。",
+    "driver": "verify/library_checker/segment_add_get_min.compact.cpp",
+    "requires": [
+      "SegmentLiChao"
+    ],
+    "helper_types": [
+      "Query"
+    ],
+    "page_break_before": "    if (xs.empty()) return 0;"
+  },
+  {
+    "id": "example-88",
+    "symbol": "SegmentLiChao",
+    "problem": "Luogu P4097 / HEOI2013 Segment",
+    "url": "https://www.luogu.com.cn/problem/P4097",
+    "summary": "强制在线插入整数端点线段，查询最高交点的最早线段编号。预登记全部 1..39989 横坐标；每个操作用上次查询答案解码，插入不会修改 last。竖直线段取较高端点，无交点输出并保存 0。此题源自 HEOI，作为应用补充单列。",
+    "driver": "verify/luogu/P4097.compact.cpp",
+    "requires": [
+      "SegmentLiChao"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-89",
+    "symbol": "LiChao",
+    "problem": "Library Checker line_add_get_min",
+    "url": "https://judge.yosupo.jp/problem/line_add_get_min",
+    "summary": "插入整条直线并查询最小值。先收集查询横坐标，再按输入顺序处理；初始至少一条线，查询必有结果。编号由调用者递增指定，本题只输出值。题目系数与横坐标范围保证最终值可转为 long long；模板内部用 int128 比较。",
+    "driver": "verify/library_checker/line_add_get_min.compact.cpp",
+    "requires": [
+      "LiChao"
+    ],
+    "helper_types": [
+      "Query"
+    ]
   }
 ]
