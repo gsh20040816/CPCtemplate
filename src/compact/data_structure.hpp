@@ -176,15 +176,6 @@ struct XorBasis
     int rank = 0;
     bool dependent = false, dirty = false;
 
-    void init()
-    {
-        fill(a, a + 64, 0);
-        p.clear();
-        rank = 0;
-        dependent = false;
-        dirty = false;
-    }
-
     bool insert(U x)
     {
         for (int i = 63; i >= 0; i--)

@@ -71,7 +71,7 @@ int main()
                 verify(a,b,values);
             }
             verify(a,b,values);
-            a.init();
+            a = XorBasis();
             b.Init();
             verify(a,b,{});
         }
@@ -120,7 +120,7 @@ int main()
     b.Merge(b);
     assert(a.dependent && b.dependent);
     assert(a.kth(count,true) == ~0ULL && b.Kth(count,true) == ~0ULL);
-    a.init();
+    a = XorBasis();
     b.Init();
     for (int i = 1; i < 64; i++)
     {

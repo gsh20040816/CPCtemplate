@@ -6,16 +6,10 @@ using namespace std;
 struct PositionBasis
 {
     using U = unsigned long long;
-    U a[64];
+    U a[64]{};
     int pos[64];
 
-    PositionBasis() { init(); }
-
-    void init()
-    {
-        fill(a, a + 64, 0);
-        fill(pos, pos + 64, -1);
-    }
+    PositionBasis() { fill(pos, pos + 64, -1); }
 
     void insert(U x, int at)
     {

@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-14T01:42:58.906877+00:00",
+  "recorded_at_utc": "2026-09-14T01:46:10.538451+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -255,7 +255,11 @@
       "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
       "P4781 compact bundled driver / independent polynomial evaluation PASS",
       "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
-      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS"
+      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS",
+      "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS",
+      "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS",
+      "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS",
+      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS"
     ],
     "sanitizer-tests.txt": [
       "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
@@ -507,7 +511,11 @@
       "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
       "P4781 compact bundled driver / independent polynomial evaluation PASS",
       "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
-      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS"
+      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS",
+      "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS",
+      "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS",
+      "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS",
+      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -697,7 +705,7 @@
     "src/compact/coprime_pairs.hpp": "ea7f40732c06a85ce70bb3d63f5a220855a8e8d7462b18e3ef5cfb64e425482e",
     "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
     "src/compact/cut_tree_queries.hpp": "df21f68b307c626be45eb8e19bc11f639e7b66c3199c0e68617859a2dae5d7e4",
-    "src/compact/data_structure.hpp": "41a302fd87914867adb75d95a20430f2c7195ddfbc5d54646626187c5d262dac",
+    "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
     "src/compact/det_prime.hpp": "9fa02dbacf45b13e78517d088e901f2007f92b1556d3db468e4dcfd48678acdf",
     "src/compact/determinant_mod.hpp": "74bc214510c041e023ea0da1747c5376ebcfcb2e0864879015fd36e1b5a8f511",
     "src/compact/directed_euler.hpp": "32af4fef5ab3fb473b7424433b777d7b92825236f4b05cf8aa49db15b16db5b2",
@@ -761,7 +769,7 @@
     "src/compact/persistent_range.hpp": "108995c6654309946f3aae19e67c3d70ff8db468fc1311c5b274801507ed4cf8",
     "src/compact/polynomial.hpp": "7eadbd0a6a9c4ad4904e135b88330643271ae1f306a378dc84eefd0186c99b11",
     "src/compact/polynomial_shift.hpp": "d42e99cba55b21a3e4dd14a2d02979c05bcf06aeff6ecb70650dec2528a9ceae",
-    "src/compact/position_basis.hpp": "ca1efe2f60afdd4786a9832d187a09720b97a8eece21d7af895e172075d4a439",
+    "src/compact/position_basis.hpp": "2ac68f0a31c07dc28a08ab07ae8875f976dccade871f3cbaf4b39614b4bf3472",
     "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
     "src/compact/prime_power_roots.hpp": "f2a30f55949d7b73191fc8b313bb0629772aad95b2d65c87bc52449e2f9d32aa",
     "src/compact/primitive_root.hpp": "7128aeceeeb02de5fbc37a0a34332cc83b874f2ff83746fef37d4b05d87f809a",
@@ -788,7 +796,7 @@
     "src/compact/virtual_tree.hpp": "753874b82428b8be14686c2394186f97b3094b07d1284539874c85f474b7d3f0",
     "src/compact/weighted_matching.hpp": "4f0987607b206edd3fd58c81f3c05703bdeb2767e44711ba4f69ea6c6bf093f3",
     "src/compact/word_chain.hpp": "de49ba4e7b05cf98844f5822a9d2ed473f20165b9e433cde983811a7ff51d54b",
-    "src/compact/xor_walk.hpp": "aa3d67beef1370ee2353a636435ea2e6e7d369036180484f300ff47b8c1b5f7b",
+    "src/compact/xor_walk.hpp": "33f54ae6a8ece9cff922600f4dd05bec703d0f8228b382aeba65a810ecf88c40",
     "tests/__pycache__/basis_intersection_application.cpython-314.pyc": "64efe67ae7d3a995751e2af94fe557922178ca5f3db28c2536634c1ebf32b2de",
     "tests/__pycache__/batch_inverse_application.cpython-314.pyc": "6a11c940ef7dc7e923fb96fad6e2b68ead6558efa4a2e2415218f27204b87954",
     "tests/__pycache__/bostan_mori_application.cpython-314.pyc": "ab700251fe8772915f25742983ae4c4086954ea4dd786bc176f812bfed279d39",
@@ -1015,7 +1023,7 @@
     "tests/phi_inversion.cpp": "047a63f9f86a3537411e0f129d9d06e797107a352b683dfb6b5131119dd2c306",
     "tests/polynomial_evaluation.cpp": "21e28b5678254a73cda8cab90cef6751bfe52cae25bae6de62008fc8ff40ce04",
     "tests/polynomial_evaluation_application.py": "9246d7dfb291f46f97ba18d5fe7c542af05e61faf2234434b9d9e0e3bf77ea98",
-    "tests/position_basis.cpp": "07dc30fc48916b61ed5f681219752ed51cd030ef0e071ccaa990a26430cc7a4f",
+    "tests/position_basis.cpp": "8c3c5dec40b4dfc2e51ac54eb9485b1fac03baf79ac647080981aea933b64988",
     "tests/position_basis_application.py": "2f250a2767852d40be32409549bb5dbe531ee6ee2659dccf28b95fa264a74b94",
     "tests/primality_factorization.cpp": "6251b0621134caef63be1955ceab0b0b04364129688cb8feed0df7c06dbf46a0",
     "tests/prime_distance_application.py": "20176c6fcb0157efa8541718d457ca0846c015dc169842f1eec1cef9553898b3",
@@ -1064,7 +1072,7 @@
     "tests/widget_factory_application.py": "613c940476f6ebc02b81b72c2b32ea4ea9ebdf6f1a115a49170584c57092d133",
     "tests/word_chain.cpp": "cda712bcbd8a9d0a295f2de917bc208ae4e7496143ade2c4164052a8fb744671",
     "tests/word_chain_application.py": "9fe3d5e621d51b7e6d0ab8f033846c4972359842f1a68aa28464e73cbd03abad",
-    "tests/xor_basis.cpp": "e06141440ba3865a9605725d7633786ff4d747cb3c2a292de5c576f36bfa2251",
+    "tests/xor_basis.cpp": "8e8bc2c4aa982fc501d55d68b8b00112a6a4eaccddfb1e841dfea49d6bd1f469",
     "tests/xor_basis_application.py": "96d300f83a4e247b95cbfd54365a1aa8075f361d1b54548f1d44b66c57c77530",
     "tests/xor_walk.cpp": "35c3f48305fbbd1312d3f5a526439abbbc5991524c9bd5bbb705700b944bed3e",
     "tests/xor_walk_application.py": "47f522c93499bf8af0b487a1a7ce9e35fc17b68c45ff5f3a750d41b6a284c00f"

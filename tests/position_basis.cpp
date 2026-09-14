@@ -63,7 +63,7 @@ int main()
                 verify(a,b,items);
             }
             verify(a,b,items);
-            a.init();
+            a = PositionBasis();
             b.Init();
             verify(a,b,{});
         }

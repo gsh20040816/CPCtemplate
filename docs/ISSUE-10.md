@@ -14,14 +14,14 @@
 | --- | --- |
 | PrimitiveRoot、Lucas | 已直接并入构造函数，重置测试改为重新构造赋值 |
 | SuffixLCP | 已合并入构造函数，保留重建空串及不同长度测试 |
-| Binomial | 默认大小与扩缩容测试、QOJ 8237 驱动使用 init；须同步适配 |
+| Binomial | 保留有实际增量用途的 init：只扩展缺失部分，较小请求不缩表；构造共享该逻辑，避免重复实现或每次从头预处理 |
 | SuffixArray | 整数序列构造函数直接构建；字符串按无符号字节转换后复用它，重建改为重新构造赋值 |
 | XorWalk | 已直接构造空图；重新构造赋值清图、访问数组、线性基及 built，验证重建后的状态 |
 | Lagrange | 已改为任意点/连续点两个构造函数；P4781 驱动与重建调用同步适配 |
 | PalindromicTree | 已直接构造两根与哨兵；重复建树测试改为重新构造赋值 |
-| XorBasis、PositionBasis | init 是清空操作；须核对使用方后决定改名/替换方式 |
+| XorBasis、PositionBasis | 删除独立 init；默认构造/成员初值生成空基，重置改为重新构造赋值 |
 
-以上为实际调用审计，尚未宣称构造函数迁移完成。短语句压缩随具体算法审阅进行，不批量引入逗号副作用或改变执行顺序。
+以上初始化用途已逐项处理；Binomial 增量扩表是明确保留项。短语句压缩随具体算法审阅进行，不批量引入逗号副作用或改变执行顺序。
 
 PrimitiveRoot、Lucas、SuffixLCP 的首批迁移已通过原有独立枚举/对拍测试的普通及 ASan/UBSan 两种模式，源码哈希与证据见 verification/constructors.json。后缀 LCP 在原字号下一页展示完整结构，原根在方法边界分页。其余类型继续按上表处理。
 
@@ -30,3 +30,5 @@ PrimitiveRoot、Lucas、SuffixLCP 的首批迁移已通过原有独立枚举/对
 Lagrange 的任意点/连续点构造与原有多项式对拍在普通、ASan/UBSan 模式均通过；P4781 驱动另执行 100 组独立多项式求值，含 2000 点规模。见 verification/lagrange-constructors.json；旧在线 AC 不迁移为当前驱动的在线验证。
 
 SuffixArray 的整数构造已承接共用算法体，字符串入口保留 unsigned char 转换后复用构造结果；不复制倍增实现。完整字节集、整数字母表、空串重建、百万周期串与下游 SuffixLCP 在普通及 ASan/UBSan 模式通过，见 verification/suffix-constructors.json。
+
+线性基清空迁移已通过四套普通及 ASan/UBSan 测试：普通基、带位置基、子空间求交、图上异或行走；详见 verification/basis-constructors.json。Binomial 保留的 init 只处理新增范围，不是无意义的初始化代理，QOJ 8237 的增量调用不变。

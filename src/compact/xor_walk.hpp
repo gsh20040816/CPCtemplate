@@ -48,7 +48,7 @@ struct XorWalk
         assert(1 <= root && root <= n);
         fill(vis.begin(), vis.end(), 0);
         fill(dist.begin(), dist.end(), 0);
-        cycles.init();
+        cycles = XorBasis();
         dfs(root);
         built = true;
     }
