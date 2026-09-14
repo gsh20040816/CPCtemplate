@@ -460,3 +460,6 @@ python3 tests/leftist_heap_application.py
 build/diameter-endpoints
 
 python3 tests/ac_application.py
+
+"$CXX" "${flags[@]}" tests/johnson.cpp -o build/johnson
+build/johnson

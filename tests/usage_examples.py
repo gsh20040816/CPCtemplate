@@ -124,6 +124,7 @@ cases.update({
     'example-72': [('4 4\n0 1\n1 2\n2 0\n2 3\n', {'matching': (4, [(0, 1), (1, 2), (2, 0), (2, 3)], 2)}), ('3 3\n0 1\n1 2\n2 0\n', {'matching': (3, [(0, 1), (1, 2), (2, 0)], 1)}), ('5 0\n', {'matching': (5, [], 0)})],
     'example-73': [('2 4\n1 1 1\n1 2 5\n2 1 6\n2 2 2\n', {'weighted_matching': [[1, 5], [6, 2]]}), ('2 2\n1 1 -1\n2 2 -4\n', {'weighted_matching': [[-1, None], [None, -4]]}), ('2 4\n1 1 7\n1 2 7\n2 1 7\n2 2 7\n', {'weighted_matching': [[7, 7], [7, 7]]})]
 })
+cases['example-74'] = [('3 3\n1 2 -2\n2 3 3\n1 3 5\n', '-1 1000000009 3000000000'), ('3 2\n2 3 -1\n3 2 0\n', '-1'), ('1 1\n1 1 0\n', '0')]
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()

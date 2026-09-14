@@ -853,5 +853,16 @@
     "requires": [
       "WeightedMatching"
     ]
+  },
+  {
+    "id": "example-74",
+    "symbol": "Johnson",
+    "problem": "Luogu P5905",
+    "url": "https://www.luogu.com.cn/problem/P5905",
+    "summary": "有向图可能有负边，若任意位置存在负环输出 -1。否则逐源求距离，按题意把不可达距离换为 10^9，再求编号加权和。题目规模和边权界保证最终和可转为 long long。",
+    "driver": "verify/luogu/P5905.compact.cpp",
+    "requires": [
+      "Johnson"
+    ]
   }
 ]

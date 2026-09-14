@@ -24,7 +24,7 @@
 | 2.2.1 | (1) 洛谷模板 | 16 | 18 | pending_content_review |
 | 2.3 | 3. 割点 | 22 | 24 | pending_content_review |
 | 2.4 | 4. 网络最大流 | 24 | 26 | pending_content_review |
-| 2.5 | 5. Johnson | 26 | 28 | pending_content_review |
+| 2.5 | 5. Johnson | 26 | 28 | implemented_local_verified_online_pending |
 | 2.6 | 6. 点双连通分量 | 31 | 33 | pending_content_review |
 | 2.7 | 7. 边双连通分量 | 33 | 35 | pending_content_review |
 | 2.8 | 8. 最小费用最大流 | 35 | 37 | pending_content_review |
@@ -96,4 +96,4 @@
 | 6.5.3 | (3) 模板 2 | 198 | 200 | pending_content_review |
 
 来源为 issue #11 用户提供附件；完整 PDF 留在本地 build 中，仓库仅登记来源、摘要与覆盖状态。
-三元环、左偏树已独立实现并本地验证，在线待补；其余目录按上表状态继续核对，不排除任何主题或变体。
+三元环、左偏树、Johnson 已独立实现并本地验证，在线待补；其余目录按上表状态继续核对，不排除任何主题或变体。

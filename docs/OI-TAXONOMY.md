@@ -113,6 +113,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | VirtualTree | 图论 → 树上问题 → 虚树 | direct |  |
 | CentroidPairs | 图论 → 树上问题 → 树分治 | direct |  |
 | Dijkstra | 图论 → 最短路问题 → 最短路 | direct |  |
+| Johnson | 图论 → 最短路问题 → 最短路 | direct |  |
 | release_bfs | 图论 → 最短路问题 → 最短路 | application | 开放时间松弛的单位边特例。 |
 | Arborescence | 图论 → 生成树问题 → 最小树形图 | direct |  |
 | FunctionalGraph | 图论 → 连通性相关 → 强连通分量 | related | 函数图包含尾链与环分解，导航无独立页；需正文定位，不应等同一般 SCC 算法。 |

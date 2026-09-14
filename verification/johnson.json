@@ -1,0 +1,16 @@
+{
+  "scope": "Local Floyd and scale regression plus separately recorded printed P5905 cases; no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/johnson.hpp": "1b0ebbb9cb9f1b1dc6ba93f504ce8a30f96756254fd228caee03bd9bdd0a40ce",
+    "tests/johnson.cpp": "b4a6bfa8deb2b88515f27cb082be283a76f5bda923d944ac65ceaef428c8d72f",
+    "verify/luogu/P5905.compact.cpp": "68d84d15fd35612f626af22c960c567c4e712b9eecc5bb7170574c6b52d0f80c"
+  },
+  "log": [
+    "Johnson: Floyd oracle, disconnected negative cycles, parallel/self edges, int64 extremes, rebuild and 3000x6000 all-source chain PASS",
+    "Johnson: Floyd oracle, disconnected negative cycles, parallel/self edges, int64 extremes, rebuild and 3000x6000 all-source chain PASS"
+  ]
+}
