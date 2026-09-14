@@ -16,7 +16,7 @@
 | Dijkstra | 待补 | pending_example |
 | SCC | 待补 | pending_example |
 | TwoSAT | [example-3](usage/example-3.cpp) | locally_checked_example |
-| BipartiteMatching | 待补 | pending_example |
+| BipartiteMatching | [example-35](usage/example-35.cpp) | locally_checked_example |
 | Lowlink | 待补 | pending_example |
 | HLD | 待补 | pending_example |
 | prefix_function | 待补 | pending_example |
@@ -136,9 +136,9 @@
 | EdgeCompression | 待补 | pending_example |
 | orient_edges | 待补 | pending_example |
 | bridge_augmentation | 待补 | pending_example |
-| OfflineLCA | 待补 | pending_example |
-| EulerLCA | 待补 | pending_example |
-| LiftingLCA | 待补 | pending_example |
+| OfflineLCA | [example-32](usage/example-32.cpp) | locally_checked_example |
+| EulerLCA | [example-33](usage/example-33.cpp) | locally_checked_example |
+| LiftingLCA | [example-34](usage/example-34.cpp) | locally_checked_example |
 | path_intersection | 待补 | pending_example |
 | DirectedEuler | 待补 | pending_example |
 | UndirectedEuler | 待补 | pending_example |

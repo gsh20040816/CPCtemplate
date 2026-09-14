@@ -1455,6 +1455,20 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 
 \lstinputlisting[firstline=44,lastline=84,firstnumber=36]{../src/compact/offline_lca.hpp}
 
+\Needspace{417pt}
+
+\subsection*{模板题使用：Luogu P3379}
+
+\label{usage-example-32}
+
+题意：给定以 root 为根的树，回答两点的最近公共祖先。先登记全部查询，再 run(root)，answer 按查询加入顺序输出；点号为 1..n。
+
+所需模板：OfflineLCA。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3379}
+
+\lstinputlisting{usage/example-32.cpp}
+
 \Needspace{451pt}
 
 \subsection{欧拉序与 ST 表 LCA}\label{compact-EulerLCA}\index{EulerLCA}
@@ -1475,6 +1489,20 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 
 \lstinputlisting[firstline=74,lastline=94,firstnumber=68]{../src/compact/euler_lca.hpp}
 
+\Needspace{408pt}
+
+\subsection*{模板题使用：Luogu P3379}
+
+\label{usage-example-33}
+
+题意：给定以 root 为根的树，回答两点的最近公共祖先。加完所有边后 build(root)，再逐条调用 lca；点号为 1..n。此题只使用无权 LCA 接口。
+
+所需模板：EulerLCA。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3379}
+
+\lstinputlisting{usage/example-33.cpp}
+
 \Needspace{439pt}
 
 \subsection{倍增 LCA、祖先与最大边权}\label{compact-LiftingLCA}\index{LiftingLCA}
@@ -1490,6 +1518,20 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 \newpage
 
 \lstinputlisting[firstline=74,lastline=117,firstnumber=65]{../src/compact/lifting_lca.hpp}
+
+\Needspace{409pt}
+
+\subsection*{模板题使用：Luogu P3379}
+
+\label{usage-example-34}
+
+题意：给定以 root 为根的树，回答两点的最近公共祖先。加完所有边后 build(root)，再逐条调用 lca；点号为 1..n。此题不涉及跳祖先或路径最大边权。
+
+所需模板：LiftingLCA。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3379}
+
+\lstinputlisting{usage/example-34.cpp}
 
 \Needspace{429pt}
 
@@ -1992,6 +2034,20 @@ solve(w)，n$\ge$2；w 为 n×n 对称非负权矩阵，重边先累加，主对
 左右两侧分别编号 1..n、1..m，可有空侧及重边；add(u,v) 加边，solve() 返回最大匹配总数，l[u] 与 r[v] 为匹配端点，0 表示未匹配。保留已有合法匹配，可加边后再次 solve；不支持删边或手动更改匹配数组。BFS 用 dep[0] 记录最短终点层，递归 DFS 只沿最短层增广，并使用当前弧。V=n+m，单次 solve 最坏 O((V+E)$\sqrt{\vphantom x}$V)，空间 O(V+E)。cover() 在 solve 后、下一次改图前调用，返回 (左侧点列表,右侧点列表)，为最小点覆盖；其补集是最大独立集。覆盖与匹配方案均可直接输出。
 
 \lstinputlisting[firstline=139,lastline=232]{../src/compact/graph.hpp}
+
+\Needspace{333pt}
+
+\subsection*{模板题使用：Luogu P3386}
+
+\label{usage-example-35}
+
+题意：给定二分图，求最大匹配数。左右两侧分别编号 1..n、1..m，add(u,v) 的 u 属于左侧，v 属于右侧；solve 返回匹配数。此题不输出匹配或最小点覆盖方案。
+
+所需模板：BipartiteMatching。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3386}
+
+\lstinputlisting{usage/example-35.cpp}
 
 \Needspace{180pt}
 

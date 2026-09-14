@@ -54,6 +54,13 @@ cases.update({
     'example-30': [('3 2\n1 2 3\n', '17 14 3'), ('3 0\n998244352 2 3\n', '998244352 2 3'), ('1 998244352\n7\n', '7')],
     'example-31': [('3 3 2 2\n1 2 3\n', '17 57 209'), ('3 3 2 0\n1 2 3\n', '17 1 1'), ('3 3 0 2\n1 2 3\n', '1 1 1'), ('3 3 2 1\n1 2 3\n', '17 17 17'), ('2 2 998244352 998244352\n1 1\n', '0 2')]
 })
+lca_cases = [('5 5 3\n1 2\n1 3\n3 4\n3 5\n2 4\n1 2\n4 5\n2 2\n3 2\n', '3 1 3 2 3'), ('1 2 1\n1 1\n1 1\n', '1 1'), ('4 3 4\n1 2\n2 3\n3 4\n1 2\n1 3\n4 2\n', '2 3 4')]
+cases.update({
+    'example-32': lca_cases,
+    'example-33': lca_cases,
+    'example-34': lca_cases,
+    'example-35': [('2 2 3\n1 1\n1 2\n2 1\n', '2'), ('3 2 0\n', '0'), ('3 2 4\n1 1\n1 1\n2 1\n3 2\n', '2')]
+})
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()
