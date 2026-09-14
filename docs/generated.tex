@@ -720,6 +720,20 @@ convolution\_i64(a,b) 返回 signed64 整数卷积，空输入返回空。非空
 
 \lstinputlisting[firstline=5,lastline=43]{../src/compact/convolution_i64.hpp}
 
+\Needspace{312pt}
+
+\subsection*{模板题使用：Luogu P3803}
+
+\label{usage-example-52}
+
+题意：求两个整数多项式的乘积，系数按升幂输入。首行 n、m 是次数，系数个数分别为 n+1、m+1；输出精确整数，不能取模。本题系数在 0..9，满足 signed64 结果范围。
+
+所需模板：ModInt、NttConvolution、convolution\_i64。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3803}
+
+\lstinputlisting{usage/example-52.cpp}
+
 \Needspace{647pt}
 
 \section{快速沃尔什变换}
@@ -757,6 +771,20 @@ SetConvolution<mod=998244353>；Z 为 ModInt<mod>，Poly 为 vector<Z>。数组�
 subset\_convolution<mod=998244353>(a,b) 返回 c[s]=$\sum$ a[t]b[s xor t]，求和枚举 t$\subseteq$s，等价于 i|j=s 且 i\&j=0。依赖 SetConvolution，只使用 OR 变换；mod 为$\ge$2 的 int 范围整数，允许偶数与合数。两个数组长度相同、非空，N=2\textasciicircum{}m$\le$INT\_MAX；长度 1 的结果为 a[0]b[0]。按 popcount 分层，层间普通卷积再逆 OR 变换，保留总层数等于目标集合大小的项。O(m$^{2}$2\textasciicircum{}m) 时间、O(m2\textasciicircum{}m) 空间；两组分层数组约占 8(m+1)2\textasciicircum{}m 字节，另有线性辅助数组。m=20 时仅分层数组约 168 MiB，使用前核对内存。
 
 \lstinputlisting[firstline=5,lastline=41]{../src/compact/subset_convolution.hpp}
+
+\Needspace{410pt}
+
+\subsection*{模板题使用：Luogu P6097}
+
+\label{usage-example-51}
+
+题意：把下标看作集合，求 c[s]=$\sum$ a[t]*b[s\t]，t 遍历 s 的子集，两部分不相交。输入首项为集合大小 m，数组长度 2\textasciicircum{}m；本题模数为 1000000009。
+
+所需模板：ModInt、SetConvolution、subset\_convolution。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6097}
+
+\lstinputlisting{usage/example-51.cpp}
 
 \Needspace{680pt}
 
@@ -942,6 +970,20 @@ stirling\_second\_row<mod,primitive>(n,m) 返回 S(n,0..m)，默认 mod=99824435
 
 \lstinputlisting[firstline=5,lastline=26]{../src/compact/stirling.hpp}
 
+\Needspace{242pt}
+
+\subsection*{模板题使用：Luogu P5395}
+
+\label{usage-example-53}
+
+题意：输出第二类斯特林数 S(n,0..n)，即把 n 个不同元素分成各个数目的非空无标号集合的方案数。本题模数为 167772161，须显式传模板参数。
+
+所需模板：ModInt、NttConvolution、stirling\_second\_row。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5395}
+
+\lstinputlisting{usage/example-53.cpp}
+
 \Needspace{513pt}
 
 \subsection{无符号第一类斯特林数：同一行}\label{compact-stirling_first_row}\index{stirling\_first\_row}
@@ -949,6 +991,20 @@ stirling\_second\_row<mod,primitive>(n,m) 返回 S(n,0..m)，默认 mod=99824435
 stirling\_first\_row<mod,primitive>(n) 返回无符号 c(n,0..n)，默认模 998244353、原根 3。c(n,k) 为 n 元排列恰有 k 个循环的个数。n$\ge$0，n+1$\le$NTT 的 max\_size；n=0 返回 \{1\}。倍增配合多项式平移计算 x(x+1)…(x+n-1)，O(n log n) 时间、O(n) 空间。带符号版本再乘 (-1)\textasciicircum{}(n-k)。依赖 NttConvolution；模 167772161 可用 <167772161>。
 
 \lstinputlisting[firstline=30,lastline=68]{../src/compact/stirling.hpp}
+
+\Needspace{241pt}
+
+\subsection*{模板题使用：Luogu P5408}
+
+\label{usage-example-54}
+
+题意：输出无符号第一类斯特林数 c(n,0..n)，即 n 元排列按循环个数计数。本题模数为 167772161，须显式传模板参数；无需乘交替符号。
+
+所需模板：ModInt、NttConvolution、stirling\_first\_row。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5408}
+
+\lstinputlisting{usage/example-54.cpp}
 
 \Needspace{567pt}
 

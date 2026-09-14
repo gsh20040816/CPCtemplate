@@ -582,5 +582,57 @@
       "LeftistHeap",
       "dsu"
     ]
+  },
+  {
+    "id": "example-51",
+    "symbol": "subset_convolution",
+    "problem": "Luogu P6097",
+    "url": "https://www.luogu.com.cn/problem/P6097",
+    "summary": "把下标看作集合，求 c[s]=Σ a[t]*b[s\\t]，t 遍历 s 的子集，两部分不相交。输入首项为集合大小 m，数组长度 2^m；本题模数为 1000000009。",
+    "driver": "verify/luogu/P6097.compact.cpp",
+    "requires": [
+      "ModInt",
+      "SetConvolution",
+      "subset_convolution"
+    ]
+  },
+  {
+    "id": "example-52",
+    "symbol": "convolution_i64",
+    "problem": "Luogu P3803",
+    "url": "https://www.luogu.com.cn/problem/P3803",
+    "summary": "求两个整数多项式的乘积，系数按升幂输入。首行 n、m 是次数，系数个数分别为 n+1、m+1；输出精确整数，不能取模。本题系数在 0..9，满足 signed64 结果范围。",
+    "driver": "verify/luogu/P3803.i64.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "convolution_i64"
+    ]
+  },
+  {
+    "id": "example-53",
+    "symbol": "stirling_second_row",
+    "problem": "Luogu P5395",
+    "url": "https://www.luogu.com.cn/problem/P5395",
+    "summary": "输出第二类斯特林数 S(n,0..n)，即把 n 个不同元素分成各个数目的非空无标号集合的方案数。本题模数为 167772161，须显式传模板参数。",
+    "driver": "verify/luogu/P5395.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "stirling_second_row"
+    ]
+  },
+  {
+    "id": "example-54",
+    "symbol": "stirling_first_row",
+    "problem": "Luogu P5408",
+    "url": "https://www.luogu.com.cn/problem/P5408",
+    "summary": "输出无符号第一类斯特林数 c(n,0..n)，即 n 元排列按循环个数计数。本题模数为 167772161，须显式传模板参数；无需乘交替符号。",
+    "driver": "verify/luogu/P5408.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "stirling_first_row"
+    ]
   }
 ]

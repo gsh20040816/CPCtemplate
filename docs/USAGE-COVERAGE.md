@@ -60,8 +60,8 @@
 | CompositeRoots | 待补 | pending_example |
 | Lagrange | [example-17](usage/example-17.cpp) | locally_checked_example |
 | NttConvolution | [example-16](usage/example-16.cpp) | locally_checked_example |
-| stirling_second_row | 待补 | pending_example |
-| stirling_first_row | 待补 | pending_example |
+| stirling_second_row | [example-53](usage/example-53.cpp) | locally_checked_example |
+| stirling_first_row | [example-54](usage/example-54.cpp) | locally_checked_example |
 | FpsInverse | [example-18](usage/example-18.cpp) | locally_checked_example |
 | FpsFunctions | [example-28](usage/example-28.cpp), [example-29](usage/example-29.cpp) | locally_checked_example |
 | GaussMod | [example-24](usage/example-24.cpp) | locally_checked_example |
@@ -149,7 +149,7 @@
 | LexTwoSAT | 待补 | pending_example |
 | BostanMori | [example-49](usage/example-49.cpp) | locally_checked_example |
 | SetConvolution | [example-27](usage/example-27.cpp) | locally_checked_example |
-| subset_convolution | 待补 | pending_example |
+| subset_convolution | [example-51](usage/example-51.cpp) | locally_checked_example |
 | polynomial_shift | [example-30](usage/example-30.cpp) | locally_checked_example |
 | chirp_z | [example-31](usage/example-31.cpp) | locally_checked_example |
 | PersistentRange | 待补 | pending_example |
@@ -164,7 +164,7 @@
 | lazy_segtree | 待补 | pending_example |
 | mint | 待补 | pending_example |
 | batch_units | 待补 | pending_example |
-| convolution_i64 | 待补 | pending_example |
+| convolution_i64 | [example-52](usage/example-52.cpp) | locally_checked_example |
 | pheap | 待补 | pending_example |
 | enumerate_triangles | [example-6](usage/example-6.cpp) | locally_checked_example |
 | LeftistHeap | [example-50](usage/example-50.cpp) | locally_checked_example |
