@@ -1134,5 +1134,32 @@
       "matching_edges"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-96",
+    "symbol": "odd_induced_partition",
+    "problem": "奇度诱导子图划分（本地接口示例）",
+    "url": "https://people.maths.ox.ac.uk/scott/Papers/odds2.pdf",
+    "summary": "输入无向简单图，点号减 1 后调用；输出同组顶点的诱导子图全部为奇度的顶点分组，无解输出 -1。组号本身无唯一答案，验证时按原图所有同组边计算度数。本例是本地接口演示，链接为存在性定理来源，不是 OJ 记录。",
+    "driver": "verify/examples/odd_induced_partition.compact.cpp",
+    "requires": [
+      "dsu",
+      "odd_induced_partition"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-97",
+    "symbol": "unit_flow_edges",
+    "problem": "最大流单位边 Y/N/?（本地接口示例）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/issues/11",
+    "summary": "输入 n、m、s、t、q，随后 m 条有向容量边和 q 个原边序号；被询问边容量须为 1。先输出最大流值，再输出 Y（所有方案取 1）、N（没有方案取 1）、?（两种都可能）。用 add 返回值保存残量边号。本地示例对应附件 2.14 的分类内核，不代替原比赛题的排列约束建图。",
+    "driver": "verify/examples/unit_flow_edges.compact.cpp",
+    "requires": [
+      "Dinic",
+      "TarjanSCC",
+      "unit_flow_edges"
+    ],
+    "kind": "application"
   }
 ]

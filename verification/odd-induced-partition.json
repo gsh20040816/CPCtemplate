@@ -1,0 +1,18 @@
+{
+  "scope": "Local independent certificates/oracles and explicit scale checks; no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/odd_induced_partition.hpp": "9956edac0a8ceb9d3c39331d67401d9f2a5f040f0cf76ab3548b67e6ee9064a8",
+    "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
+    "tests/odd_induced_partition.cpp": "550e2377fab674cc02cc6632d096258c253c991261f2624e96a89a0ecc7bd9f7",
+    "verify/examples/odd_induced_partition.compact.cpp": "ec6d35e39f4d6c3102e4d87e665de4f6ad5e9caa239dddd55d91b4ee90cc62c3"
+  },
+  "log": [
+    "Odd induced partition: all simple graphs through n=6, 10000 shuffled random graphs, induced-degree certificates; 100000-node path/star/repeated-reparent fan and 600-clique PASS",
+    "Odd induced partition: all simple graphs through n=6, 10000 shuffled random graphs, induced-degree certificates; 100000-node path/star/repeated-reparent fan and 600-clique PASS"
+  ],
+  "notes": "Existence theorem and construction invariant in docs/ODD-INDUCED-PARTITION.md. Test certificate uses every same-color original edge, not a selected spanning subgraph. Original attachment predecessor scan replaced by sorted ancestor lookup."
+}

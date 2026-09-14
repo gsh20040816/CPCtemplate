@@ -2051,6 +2051,36 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 
 \part{图论}
 
+\Needspace{459pt}
+
+\chapter{DFS（图论）}
+
+\section{顶点划分：各诱导子图全为奇度}\label{compact-odd_induced_partition}\index{odd\_induced\_partition}
+
+odd\_induced\_partition(n,edges) 接收 0..n-1 的无向简单图，禁止自环、重边。返回 optional<vector<int>>：无解为 nullopt，否则每点一个正组号，同组顶点的诱导子图中每个点度数均为奇数。不删选组内边，不要求组数最少。充要条件是每个连通分量点数为偶数；空图返回空划分。先递归 DFS 取得原深度和后序，再合并未完成分组；内部点已为奇度、根为偶度，奇数个子组可封口，偶数时留一个可上挂的子组给祖先。level 只记录活动根的挂接深度，原 depth 不修改。祖先邻点按原深度排序，以二分寻找最近的严格祖先，避免反复扫描高出度根的全部邻居。时间 O((n+m) log(n+1))，空间 O(n+m)，递归栈 O(n)；节点数、边数须可由 int 表示。依赖 dsu 的按调用方向连接根语义。
+
+\lstinputlisting[firstline=6,lastline=33]{../src/compact/odd_induced_partition.hpp}
+
+\newpage
+
+\noindent 合并未完成分组（接上页同一函数）：
+
+\lstinputlisting[firstline=34,lastline=65,firstnumber=29]{../src/compact/odd_induced_partition.hpp}
+
+\Needspace{417pt}
+
+\subsection*{应用题补充：奇度诱导子图划分（本地接口示例）}
+
+\label{usage-example-96}
+
+题意：输入无向简单图，点号减 1 后调用；输出同组顶点的诱导子图全部为奇度的顶点分组，无解输出 -1。组号本身无唯一答案，验证时按原图所有同组边计算度数。本例是本地接口演示，链接为存在性定理来源，不是 OJ 记录。
+
+所需模板：dsu、odd\_induced\_partition。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://people.maths.ox.ac.uk/scott/Papers/odds2.pdf}
+
+\lstinputlisting{usage/example-96.cpp}
+
 \Needspace{653pt}
 
 \chapter{树上问题}
@@ -2664,6 +2694,28 @@ Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新
 题目：\url{https://www.luogu.com.cn/problem/P3376}
 
 \lstinputlisting{usage/example-1.cpp}
+
+\Needspace{317pt}
+
+\subsection{最大流中单位容量边的可行性与必选性}\label{compact-unit_flow_edges}\index{unit\_flow\_edges}
+
+unit\_flow\_edges(g,ids) 在完整普通最大流的残量图上，查询每条指定边的流量是否在至少一个/每一个整数最大流中等于 1，返回 \{possible,forced\}。ids 必须是 Dinic.add 返回的原始偶数边号，且每条被查询边初始容量恰为 1；其他边允许任意非负 long long 容量，最大流值须可表示。结果保持查询顺序，支持重复编号。已使用或两端残量 SCC 相同则可行，已使用且不同 SCC 则必选。这里比较的是完整流量方案，允许不改变源汇净流量的环流；单位自环可以取 0 或 1，不应解释成必经的简单 s-t 路径。不是最小割边分类，也不把容量大于 1 的边强行按布尔流处理。O(n+m+查询数) 时间与空间，Tarjan 保留递归；分析不修改 g。
+
+\lstinputlisting[firstline=6,lastline=23]{../src/compact/unit_flow_edges.hpp}
+
+\Needspace{472pt}
+
+\subsection*{应用题补充：最大流单位边 Y/N/?（本地接口示例）}
+
+\label{usage-example-97}
+
+题意：输入 n、m、s、t、q，随后 m 条有向容量边和 q 个原边序号；被询问边容量须为 1。先输出最大流值，再输出 Y（所有方案取 1）、N（没有方案取 1）、?（两种都可能）。用 add 返回值保存残量边号。本地示例对应附件 2.14 的分类内核，不代替原比赛题的排列约束建图。
+
+所需模板：Dinic、TarjanSCC、unit\_flow\_edges。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://github.com/gsh20040816/CPCtemplate/issues/11}
+
+\lstinputlisting{usage/example-97.cpp}
 
 \Needspace{350pt}
 

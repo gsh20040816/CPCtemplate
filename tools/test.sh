@@ -491,3 +491,9 @@ python3 tests/bounded_maxflow_application.py
 "$CXX" "${flags[@]}" tests/optimal_edge_classes.cpp -o build/optimal-edge-classes
 build/optimal-edge-classes
 python3 tests/mincut_application.py
+
+"$CXX" "${flags[@]}" tests/odd_induced_partition.cpp -o build/odd-induced-partition
+build/odd-induced-partition
+
+"$CXX" "${flags[@]}" tests/unit_flow_edges.cpp -o build/unit-flow-edges
+build/unit-flow-edges

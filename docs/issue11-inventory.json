@@ -352,8 +352,11 @@
       "toc_page": 54,
       "physical_page": 56,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_kernel_application_pending",
+      "candidate_symbols": [
+        "unit_flow_edges"
+      ],
+      "review": "已阅读实际 56–61 页，分类对象为拆点边、容量均为 1。unit_flow_edges 补通用网络的单位边流量 Y/N/? 内核，5000 小图整数最大流枚举及 10 万点链双模式通过；含零容量旁边和环流，不能视为简单路径边分类。完整排列/子序列约束建图尚未移植与验证，见子项 2.14.1。"
     },
     {
       "section": "2.14.1",
@@ -361,8 +364,11 @@
       "toc_page": 54,
       "physical_page": 56,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "reviewed_application_pending",
+      "candidate_symbols": [
+        "unit_flow_edges"
+      ],
+      "review": "已读两套排列与含 -1 锚点的分段、组容量和拆点单位边建图。仅通用单位边分类内核已实现验证；该比赛题完整输入模型、Inconsistent 判定及驱动仍待补，不能把内核测试当作比赛题 AC。"
     },
     {
       "section": "2.15",
@@ -370,8 +376,11 @@
       "toc_page": 59,
       "physical_page": 61,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "odd_induced_partition"
+      ],
+      "review": "已阅读实际 61–64 页，明确目标是顶点分组后的诱导子图全奇度，不是选边。实现递归 DFS 后序和按方向合并 DSU，祖先邻表排序后二分，避免公共高出度根反复扫描邻居。六点以内全部简单图、10000 随机图、10 万点链/星/反复上挂扇形和 600 点完全图的原图诱导度证书双模式通过；存在性定理与不变量见 docs/ODD-INDUCED-PARTITION.md。本地接口示例，在线待补。"
     },
     {
       "section": "3",

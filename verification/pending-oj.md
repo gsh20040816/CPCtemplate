@@ -6,6 +6,8 @@
 - `verify/cses/1750.compact.cpp`
 - `verify/examples/ac_shortest.compact.cpp`
 - `verify/examples/matching_edges.compact.cpp`
+- `verify/examples/odd_induced_partition.compact.cpp`
+- `verify/examples/unit_flow_edges.compact.cpp`
 - `verify/hdu/1814.compact.cpp`
 - `verify/library_checker/assignment.compact.cpp`
 - `verify/library_checker/associative_array.cc.compact.cpp`

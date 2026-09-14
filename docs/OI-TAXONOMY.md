@@ -106,6 +106,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | TreePathKth | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | DynamicKth | 数据结构 → 树套树 → 树状数组套权值线段树 | direct |  |
 | LinkCutTree | 数据结构 → 动态树 → Link Cut Tree | direct |  |
+| odd_induced_partition | 图论 → DFS（图论） | application | DFS 后序与回边构造奇度诱导子图划分；固定导航没有此定理的独立条目，不等同于普通图染色。 |
 | TreeDiameter | 图论 → 树上问题 → 树的直径 | direct |  |
 | EulerLCA | 图论 → 树上问题 → 最近公共祖先 | application | LCA 不同算法及路径交应用。 |
 | LiftingLCA | 图论 → 树上问题 → 最近公共祖先 | application | LCA 不同算法及路径交应用。 |
@@ -140,6 +141,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | mixed_euler_trail | 图论 → 欧拉图 | application | 有向、无向、混合和字典序应用，保留差异。 |
 | word_chain | 图论 → 欧拉图 | application | 有向、无向、混合和字典序应用，保留差异。 |
 | Dinic | 图论 → 网络流 → 最大流 | direct |  |
+| unit_flow_edges | 图论 → 网络流 → 最大流 | application | 固定最大流值下的单位边流量可行性，通过残量环与 SCC 分类；不是最小割边分类。 |
 | cut_tree_values | 图论 → 网络流 → 最小割 | application | 最小割的应用或查询；需在对应小节下保留本库名称。 |
 | gomory_hu | 图论 → 网络流 → 最小割 | application | 最小割的应用或查询；需在对应小节下保留本库名称。 |
 | maximum_closure | 图论 → 网络流 → 最小割 | application | 最小割的应用或查询；需在对应小节下保留本库名称。 |

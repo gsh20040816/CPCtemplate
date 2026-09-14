@@ -13,6 +13,36 @@ def check_output(example_id, mode, data, stdout, expected):
             for i, (_, step) in enumerate(queries):
                 count = int(lines[2 * i])
                 assert len(lines[2 * i + 1].split()) == count // step
+    elif isinstance(expected, dict) and 'odd_partition' in expected:
+        n, edges = expected['odd_partition']
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        seen = set()
+        possible = True
+        for u in range(n):
+            if u in seen:
+                continue
+            q = [u]
+            seen.add(u)
+            for v in q:
+                for w in g[v]:
+                    if w not in seen:
+                        seen.add(w)
+                        q.append(w)
+            possible &= len(q) % 2 == 0
+        color = list(map(int, stdout.split()))
+        if not possible:
+            assert color == [-1]
+        else:
+            assert len(color) == n and all(1 <= c <= n for c in color)
+            degree = [0] * n
+            for u, v in edges:
+                if color[u] == color[v]:
+                    degree[u] += 1
+                    degree[v] += 1
+            assert all(d % 2 == 1 for d in degree)
     elif isinstance(expected, dict) and 'exact_text' in expected:
         assert stdout == expected['exact_text'], (example_id, mode, stdout, expected)
     elif isinstance(expected, dict) and 'matching' in expected:

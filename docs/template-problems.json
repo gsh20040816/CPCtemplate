@@ -126,6 +126,12 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
+          "driver": "verify/examples/unit_flow_edges.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/luogu/P4126.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P4126",
           "existing_ac": [],
@@ -3874,6 +3880,50 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "odd_induced_partition",
+      "title": "顶点划分：各诱导子图全为奇度",
+      "source": "src/compact/odd_induced_partition.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/examples/odd_induced_partition.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "unit_flow_edges",
+      "title": "最大流中单位容量边的可行性与必选性",
+      "source": "src/compact/unit_flow_edges.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/examples/unit_flow_edges.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [
@@ -7517,19 +7567,7 @@
       "source": "issue11",
       "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
       "page": "56",
-      "topic": "2.14 14. 最大流的必经边与可行边"
-    },
-    {
-      "source": "issue11",
-      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
-      "page": "56",
       "topic": "2.14.1 (1) The 2024 ICPC Northern Eurasia Finals vp"
-    },
-    {
-      "source": "issue11",
-      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
-      "page": "61",
-      "topic": "2.15 15. 划分子图使每个点度数为奇数"
     },
     {
       "source": "issue11",

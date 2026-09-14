@@ -1,0 +1,19 @@
+{
+  "scope": "Local independent certificates/oracles and explicit scale checks; no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/unit_flow_edges.hpp": "716311766ef9d54f824fdc2309aab52827cb8a79dc3714d6e53a72e79b090555",
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "src/compact/tarjan.hpp": "61899731db759d931d805d476f659163f404b999e6eba368536a39e404fc5bf1",
+    "tests/unit_flow_edges.cpp": "b24a45613cfef80c9ce067dd2925fdc2505d99480a4a956693ed1758c14988bf",
+    "verify/examples/unit_flow_edges.compact.cpp": "34fbfa22d5d28322fe8c29ba0a504b4e699c542080dfa4cfd45c93b6d9bd4fb5"
+  },
+  "log": [
+    "Unit flow edges: 5000 exhaustive integral maximum-flow union/intersection oracles, zero capacities, cycles, unit self-loop, repeated/reordered ids PASS",
+    "Unit flow edges: 5000 exhaustive integral maximum-flow union/intersection oracles, zero capacities, cycles, unit self-loop, repeated/reordered ids PASS"
+  ],
+  "notes": "Classification concerns integral maximum-flow assignments including circulations; only queried edges must have capacity one. The larger permutation-model application in attachment 2.14.1 is not validated by this kernel test."
+}
