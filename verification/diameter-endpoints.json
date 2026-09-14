@@ -1,0 +1,23 @@
+{
+  "scope": "Local endpoint and legacy distance regression; official case reports separately recorded; no online AC.",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/convex_diameter2.hpp": "efc6712df07016a5e82db1a512e9a4bdf776bb240e58b37ed2947d81ca8f957f",
+    "tests/diameter_endpoints.cpp": "e0334e18416dbedcbe66d521fa37832c3db90bc464d60ed011b34030437711eb",
+    "tests/integer_components.cpp": "c6b7d85c471d850ae6e0347b7817c13451b08301e0534442954ed1bb9c4e2e7b",
+    "verify/library_checker/furthest_pair.compact.cpp": "93c2246f7286b423f47b2749b089db178e9aeac401c42b17cd1054225ea3a12b"
+  },
+  "logs": {
+    "build/diameter-ends.txt": [
+      "Diameter endpoints: all 3x3 subsets, random all-pairs oracle, every cyclic hull start, degeneracies and coordinate bounds PASS",
+      "Diameter endpoints: all 3x3 subsets, random all-pairs oracle, every cyclic hull start, degeneracies and coordinate bounds PASS"
+    ],
+    "build/diameter-compat.txt": [
+      "Integer geometry components: standalone headers, analytic scaled squares, rotated hulls, boundary/exterior queries, signed area and degenerate segments PASS",
+      "Integer geometry components: standalone headers, analytic scaled squares, rotated hulls, boundary/exterior queries, signed area and degenerate segments PASS"
+    ]
+  }
+}

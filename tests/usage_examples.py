@@ -107,6 +107,7 @@ cases.update({
 })
 cases['example-63'] = [('3 6\n5 1 5\nQ 1 3 2\nC 2 7\nQ 1 3 2\nC 1 0\nQ 1 2 1\nQ 2 2 1\n', '5 5 0 7'), ('1 4\n9\nC 1 9\nQ 1 1 1\nC 1 1000000000\nQ 1 1 1\n', '9 1000000000')]
 cases['example-64'] = [('3\n0\n3\n2 3\n2 3\n2 3\n4\n0 0\n1 1\n2 2\n1 1\n', '0 1 2 3 2 0 0 2 2'), ('1\n6\n0 0\n2 0\n2 2\n0 2\n1 0\n1 1\n', '4 0 0 2 0 2 2 0 2')]
+cases['example-65'] = [('2\n3\n0 0\n3 4\n1 1\n2\n7 8\n7 8\n', {'diameter_cases': [[(0, 0), (3, 4), (1, 1)], [(7, 8), (7, 8)]]}), ('1\n4\n-1000000000 -1000000000\n-1000000000 1000000000\n1000000000 1000000000\n1000000000 -1000000000\n', {'diameter_cases': [[(-1000000000, -1000000000), (-1000000000, 1000000000), (1000000000, 1000000000), (1000000000, -1000000000)]]})]
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()
@@ -141,6 +142,14 @@ for row in rows:
                     for i, (_, step) in enumerate(queries):
                         count = int(lines[2 * i])
                         assert len(lines[2 * i + 1].split()) == count // step
+            elif isinstance(expected, dict) and 'diameter_cases' in expected:
+                lines = run.stdout.splitlines()
+                assert len(lines) == len(expected['diameter_cases'])
+                for line, points in zip(lines, expected['diameter_cases']):
+                    a, b = map(int, line.split())
+                    assert 0 <= a < len(points) and 0 <= b < len(points) and a != b
+                    distance = lambda p, q: (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2
+                    assert distance(points[a], points[b]) == max(distance(p, q) for p in points for q in points)
             elif isinstance(expected, dict) and 'values' in expected:
                 actual = list(map(float, run.stdout.split()))
                 assert len(actual) == len(expected['values'])

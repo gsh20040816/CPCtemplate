@@ -77,7 +77,7 @@
 | polygon_area2 | 待补 | pending_example |
 | polygon_contains | 待补 | pending_example |
 | convex_contains_i64 | 待补 | pending_example |
-| convex_diameter2 | 待补 | pending_example |
+| convex_diameter2 | [example-65](usage/example-65.cpp) | locally_checked_example |
 | RealPlane | 待补 | pending_example |
 | line_projection | 待补 | pending_example |
 | segment_distance_real | 待补 | pending_example |

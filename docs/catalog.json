@@ -435,7 +435,7 @@
     "convex_diameter2",
     "convex_diameter2",
     "整数凸包直径：旋转卡壳",
-    "convex_diameter2(p) 返回最远两点距离平方，类型 __int128_t；不足两点返回 0。输入须为严格逆时针凸包，不重复首点，例如 integer_hull 的输出。坐标范围同 IntegerPlane；旋转卡壳 O(n) 时间、O(1) 额外空间，只返回距离，不返回端点编号。"
+    "convex_diameter2(p,endpoints=nullptr) 返回最远两点距离平方，类型 __int128_t；不足两点返回 0。输入须为严格逆时针凸包，不重复首点，例如 integer_hull 的输出。坐标范围同 IntegerPlane；旋转卡壳 O(n) 时间、O(1) 额外空间。可传 pair<int,int> 的地址，接收凸包内的 0-based 端点下标；空集为 {-1,-1}，单点为 {0,0}，至少两点时端点不同。不保证并列最优端点的顺序。映射到原始输入编号由调用者完成。"
   ],
   [
     "real_plane",

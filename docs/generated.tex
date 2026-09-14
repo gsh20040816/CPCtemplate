@@ -2639,15 +2639,29 @@ minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返
 
 \lstinputlisting[firstline=21,lastline=53,firstnumber=16]{../src/compact/support_hull.hpp}
 
-\Needspace{326pt}
+\Needspace{468pt}
 
 \chapter{旋转卡壳}
 
 \section{整数凸包直径：旋转卡壳}\label{compact-convex_diameter2}\index{convex\_diameter2}
 
-convex\_diameter2(p) 返回最远两点距离平方，类型 \_\_int128\_t；不足两点返回 0。输入须为严格逆时针凸包，不重复首点，例如 integer\_hull 的输出。坐标范围同 IntegerPlane；旋转卡壳 O(n) 时间、O(1) 额外空间，只返回距离，不返回端点编号。
+convex\_diameter2(p,endpoints=nullptr) 返回最远两点距离平方，类型 \_\_int128\_t；不足两点返回 0。输入须为严格逆时针凸包，不重复首点，例如 integer\_hull 的输出。坐标范围同 IntegerPlane；旋转卡壳 O(n) 时间、O(1) 额外空间。可传 pair<int,int> 的地址，接收凸包内的 0-based 端点下标；空集为 \{-1,-1\}，单点为 \{0,0\}，至少两点时端点不同。不保证并列最优端点的顺序。映射到原始输入编号由调用者完成。
 
-\lstinputlisting[firstline=5,lastline=23]{../src/compact/convex_diameter2.hpp}
+\lstinputlisting[firstline=5,lastline=35]{../src/compact/convex_diameter2.hpp}
+
+\Needspace{485pt}
+
+\subsection*{模板题使用：Library Checker furthest\_pair}
+
+\label{usage-example-65}
+
+题意：多组求距离最远的两个不同输入点编号。先建凸包，端点接口返回凸包下标，再按坐标映射回输入下标。题目保证至少两点；若凸包只剩一个点，所有坐标相同，输出 0、1。
+
+所需模板：IntegerPlane、integer\_hull、convex\_diameter2。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/furthest_pair}
+
+\lstinputlisting{usage/example-65.cpp}
 
 \Needspace{536pt}
 

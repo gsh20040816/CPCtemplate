@@ -455,3 +455,6 @@ python3 tests/bcc_application.py
 "$CXX" "${flags[@]}" tests/leftist_heap.cpp -o build/leftist-heap
 build/leftist-heap
 python3 tests/leftist_heap_application.py
+
+"$CXX" "${flags[@]}" tests/diameter_endpoints.cpp -o build/diameter-endpoints
+build/diameter-endpoints

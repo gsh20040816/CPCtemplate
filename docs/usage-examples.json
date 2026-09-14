@@ -752,5 +752,18 @@
       "IntegerPlane",
       "integer_hull"
     ]
+  },
+  {
+    "id": "example-65",
+    "symbol": "convex_diameter2",
+    "problem": "Library Checker furthest_pair",
+    "url": "https://judge.yosupo.jp/problem/furthest_pair",
+    "summary": "多组求距离最远的两个不同输入点编号。先建凸包，端点接口返回凸包下标，再按坐标映射回输入下标。题目保证至少两点；若凸包只剩一个点，所有坐标相同，输出 0、1。",
+    "driver": "verify/library_checker/furthest_pair.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "integer_hull",
+      "convex_diameter2"
+    ]
   }
 ]

@@ -12,6 +12,7 @@
 - `verify/library_checker/enumerate_palindromes.compact.cpp`
 - `verify/library_checker/enumerate_triangles.compact.cpp`
 - `verify/library_checker/exp_of_formal_power_series.compact.cpp`
+- `verify/library_checker/furthest_pair.compact.cpp`
 - `verify/library_checker/intersection_intersection.compact.cpp`
 - `verify/library_checker/intersection_zassenhaus.compact.cpp`
 - `verify/library_checker/inv_of_formal_power_series.compact.cpp`
@@ -24,6 +25,7 @@
 - `verify/library_checker/range_affine_range_sum.compact.cpp`
 - `verify/library_checker/scc.compact.cpp`
 - `verify/library_checker/shortest_path.compact.cpp`
+- `verify/library_checker/static_convex_hull.compact.cpp`
 - `verify/library_checker/sum_of_floor_of_linear.compact.cpp`
 - `verify/library_checker/system_of_linear_equations.compact.cpp`
 - `verify/library_checker/two_sat.compact.cpp`
