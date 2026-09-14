@@ -17,16 +17,10 @@ struct PalindromicTree
     int last = 0;
     long long total = 0;
 
-    PalindromicTree() { init(); }
-
-    void init()
+    PalindromicTree() : t(2), s(1, -1)
     {
-        t.assign(2, Node{});
         t[0].fail = 1;
         t[1].len = -1;
-        s.assign(1, -1);
-        last = 0;
-        total = 0;
     }
 
     int get_fail(int u) const

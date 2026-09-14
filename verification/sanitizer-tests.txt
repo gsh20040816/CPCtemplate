@@ -1,10 +1,10 @@
+Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS
 structures PASS
 flows PASS
 graphs PASS
 strings PASS
 math PASS
 geometry PASS
-classic modules PASS
 algebra, discrete log, Du Jiao, FWT PASS
 Li Chao, persistent kth, max-plus PASS
 Hungarian, arborescence, Stoer-Wagner PASS
@@ -57,208 +57,124 @@ Lifting LCA dual exhaustive trees, ancestors, signed maximum edges, reroot and 5
 Path intersection dual exhaustive labelled trees/roots/four endpoints, set oracle and Euler/HLD callbacks PASS
 Directed Euler dual exhaustive trails, lexicographic optimum, edge certificates, multigraphs and 200000 recursive edges PASS
 Undirected Euler dual exhaustive trails, lexicographic optimum, edge certificates, loops and 200000 recursive edges PASS
-Incremental word_chain-only check; unchanged-module evidence retained from a9a111a:
 Word chain dual permutation oracle, word-vs-vertex order, duplicate IDs, prefixes and 200000 recursive words PASS
-Incremental mixed_euler-only check; unchanged-module evidence retained from 76a4f39:
 Mixed Euler dual exhaustive orientations, fixed/free endpoints, loops, isolated vertices, full trail certificates and 100000-node flow chain PASS
-Incremental odd_cycle_vertices-only check; unchanged-module evidence retained from 7aa4eb5:
 Odd-cycle vertices dual exhaustive simple-cycle oracle, multigraphs, reordered blocks and 100001-node chain/star/odd-cycle PASS
-Incremental lex_two_sat-only check; unchanged-module evidence retained from 7508260:
 Lex 2-SAT dual exhaustive assignment oracle, incremental/forced clauses, rollback and 100000-variable recursive chain PASS
-Incremental CRT audit; unchanged-module evidence retained from 161a02c (CRT core unchanged):
 CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS
-Incremental Widget Factory application audit; unchanged library evidence retained from 5e02aec:
 Widget Factory compact: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS
-Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS
-Incremental Garner checks; unchanged-module evidence retained from eb36f6d:
 Garner dual direct cpp_int CRT oracle, mixed-radix reconstruction, signed extremes, noncoprime rejection and 1000 moduli PASS
-Incremental Lucas checks; unchanged-module evidence retained from d2a43c2:
 Lucas dual Pascal oracle, exact big integers, uint64 extremes, prime-power identities and modulus reset PASS
-Incremental primitive root checks; unchanged-module evidence retained from 1c8722a:
 Primitive root dual exhaustive power-cycle oracle, orders, signed inputs, existence, reset, int32 bounds and 999983 full cycle PASS
-Incremental Carmichael checks; unchanged-module evidence retained from 5283775:
 Carmichael dual exhaustive unit-order LCM, prime powers, int32 bounds, exponent certificates and composition PASS
-Incremental Binomial/Combination extension and boundary regression; other number_theory classes unchanged from 6cae21d:
 Binomial dual Pascal/falling-factorial oracle, incremental growth, no-shrink reuse, boundaries and million-entry tables PASS
-rollback, basis, SAM counts, binomial, boundary regressions PASS
-Incremental batch inverse checks; unchanged-module evidence retained from acc7b80:
 Batch inverse dual exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS
-Incremental inverse table and existing single inverse audit; unchanged-module evidence retained from f9b30f5:
 Inverse table dual prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS
-
-Incremental segmented sieve; unchanged-module evidence retained from beb195c:
 Segmented sieve dual trial/Miller-Rabin oracles, prime squares, singleton and million-wide int32 boundary PASS
 Prime Distance compact: 208 EOF datasets, tied pairs, empty pairs and million-wide INT_MAX interval PASS
-Prime Distance classic: 208 EOF datasets, tied pairs, empty pairs and million-wide INT_MAX interval PASS
-
-Incremental linear equation and nonnegative exgcd audit; unchanged-module evidence retained from 7da08f2:
 Linear equation dual signed exhaustive cases, cpp_int Bezout certificates, int64 extremes and Fibonacci recursion PASS
 P5656 compact: 200000 cases, exhaustive positive-solution counts/extrema and independent minimum-positive coordinates PASS
-P5656 classic: 200000 cases, exhaustive positive-solution counts/extrema and independent minimum-positive coordinates PASS
-
-Incremental linear congruence; unchanged-module evidence retained from 9d41998:
 Linear congruence dual exhaustive residue sets, minimal solution/period, modulus one and signed int64 cpp_int certificates PASS
 P1516 compact: 242 simulated/planted cases, swapped speeds, equal speeds, initial coincidence and large minimal time PASS
-P1516 classic: 242 simulated/planted cases, swapped speeds, equal speeds, initial coincidence and large minimal time PASS
-
-Incremental CRT system audit; unchanged-module evidence retained from c2086c8:
 CRT systems dual exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS
-
-Incremental linear sieve audit; unchanged-module evidence retained from 3b775fc:
 Linear sieve dual prefixes, least-prime trial oracle, factor reconstruction and ten-million-entry divisor certificates PASS
-
-Incremental primality/factorization audit; unchanged-module evidence retained from 8af6011:
 Primality/factorization dual sieve, cpp_int arithmetic, trial-certified factors, pseudoprimes, uint64 bounds and Lucas certificate PASS
-
-Incremental factorization drivers; unchanged-module evidence retained from 94091ba:
-P4718 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 2.028s
-1811 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.486s
-P4718 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 1.862s
-1811 classic: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 0.473s
-
-Incremental Euler phi; unchanged-module evidence retained from d7bd045:
+P4718 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 2.384s
+1811 compact: 350 trial-certified cases, prime labels and factor extrema PASS; local elapsed 1.403s
 Euler phi dual trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS
-
-Incremental coprime rectangles; unchanged-module evidence retained from 61e718c:
 Coprime pairs dual gcd rectangle oracle, zero prefixes, million square and INT_MAX thin intervals PASS
 P2522 compact: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS
-P2522 classic: 50000 queries, direct gcd rectangles, totient square counts, k scaling and boundary strips PASS
-
-Incremental phi inversion audit; unchanged-module evidence retained from e0ec8cf:
 Phi inversion dual million-entry Mobius convolution and proper-divisor subtraction certificates PASS
-
-Incremental DuJiao audit; unchanged-module evidence retained from e335b1f:
 DuJiao dual trial-prefix oracle, zero/cutoff boundaries, shuffled/repeated queries, cache rebuild and 1e11 cutoff consistency PASS
-
-Incremental partitions; unchanged-module evidence retained from f7e752c:
 Partitions dual exact coin DP, bounded-multiplicity enumeration, composite moduli and n=100000 boundaries PASS
-
-Incremental divisor sums; unchanged-module evidence retained from e8017fb:
 Divisor sum dual direct divisors, geometric iteration, cpp_int matrix oracle, composite moduli and uint128 lengths PASS
 P1593 compact: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS
-P1593 classic: 126 trial-factor/geometric-quotient cases, zero exponent, maximum inputs and p=0/1 mod 9901 PASS
-
-Incremental signed floor sum; unchanged-module evidence retained from bab13c6:
 Floor sum dual cpp_int signed oracle, zero terms, quotient boundaries and billion-term closed forms PASS
-
-Incremental floor moments; unchanged-module evidence retained from a2dabfe:
 Floor moments dual cpp_int weighted/squared oracle, signed extremes, zero terms and billion-term polynomial certificates PASS
 P5170 compact: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS
-P5170 classic: 100000 queries, inclusive 1e9 endpoint, all three outputs and direct/polynomial oracles PASS
-
-Incremental large floor-moment identities; unchanged-module evidence retained from 06aeccb:
 Floor moments large dual reversal/complement/difference identities, scalar floor-sum cross-check and Fibonacci depth PASS
-
-Incremental arborescence audit; unchanged-module evidence retained from db7f4e4:
 Arborescence dual exhaustive all-root incoming-edge oracle, loops/parallel edges and 800-vertex nested contractions PASS
-
-Incremental global min-cut audit; unchanged-module evidence retained from 76064a8:
 Global min-cut dual exhaustive partition oracle, returned-side certificates, parallel sums and 300-vertex int128 families PASS
-
-Incremental Gomory-Hu construction; unchanged-module evidence retained from 9f57a34:
 Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS
-
-Incremental cut-tree queries and composition; unchanged-module evidence retained from 32e3410:
 Cut-tree queries dual Floyd bottleneck oracle, zero weights, diagonal sentinel and 1200-vertex recursive chain PASS
-Gomory-Hu dual all-pairs cut oracle, tree-edge cut certificates, multigraph reorder and 70-vertex high capacities PASS
-
-Incremental P4897 drivers; unchanged-module evidence retained from 6210add:
 P4897 compact: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS
-P4897 classic: 103 graphs, exhaustive cut oracle, n+1 indexing, zero queries and 501 vertices/1500 edges/100000 queries PASS
-
-Incremental exact bounded halfplanes; unchanged-module evidence retained from e03a1d4:
 Integer halfplanes dual cpp_int pair-intersection oracle, parallel/degenerate cases and near-parallel billion coefficients and 100000 redundant constraints PASS
-
-Incremental dual geometry-extra audit; unchanged-module evidence retained from 9a81caf:
 Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS
-
-Incremental dual integer 3D audit and classic coordinate rename; unchanged-module evidence retained from 8e907ae:
 Integer 3D dual cpp_int determinant/minor oracle, exhaustive cube, degenerate segments and billion coordinates PASS
-
-Incremental floating closest pair; unchanged-module evidence retained from c952eea:
 Floating closest pair dual 100-digit distance oracle, decimal/adjacent/subnormal scales and 200000 points PASS
-
-Incremental circle tangents; unchanged-module evidence retained from 0a9c9d7:
+P1429 compact: 103 complete inputs, exact integer distance oracle and 200000-point cases PASS
 Circle tangents dual exact count oracle, 100-digit line/contact certificates, point circles, tangencies and scale extremes PASS
-
-Incremental minimum enclosing circle; unchanged-module evidence retained from ed4cf94:
 Enclosing circle dual 100-digit support enumeration, multiple shuffle seeds, collinear/duplicate points and 100000 points PASS
-
-Incremental circle-polygon area; unchanged-module evidence retained from f8698f3:
+P1742 compact: singleton/duplicate/acute/obtuse/boundary/100000-point drivers PASS
 Circle polygon dual analytic disk/cap cases, independent vertical-slice integration, concavity, orientation and duplicate vertices PASS
-
-Incremental prime kth residues; unchanged-module evidence retained from 57b597d:
+In file included from /opt/homebrew/include/boost/assert.hpp:71,
+                 from /opt/homebrew/include/boost/integer/common_factor_rt.hpp:10,
+                 from /opt/homebrew/include/boost/multiprecision/cpp_int/misc.hpp:25,
+                 from /opt/homebrew/include/boost/multiprecision/cpp_int.hpp:2355,
+                 from tests/kth_residue.cpp:4:
+tests/kth_residue.cpp: In function 'void check(L, U, L, L, bool)':
+tests/kth_residue.cpp:40:20: warning: comparison of integer expressions of different signedness: 'KthResidue::ll' {aka 'long long int'} and 'long long unsigned int' [-Wsign-compare]
+   40 |     assert(x->count==(target==0?1:gcd(U(p-1),k)));
+      |            ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Kth residue dual exhaustive root sets and primitive roots, signed/uint64 extremes, planted large roots and compressed 998244352 roots PASS
-
-Incremental prime-power root families; unchanged-module evidence retained from 6784fc7:
 Prime-power roots dual exhaustive nonunit/unit root sets, 2-adic sign group, uint64 exponents and compressed large lifts PASS
-
-Incremental composite root CRT families; unchanged-module evidence retained from c75ec8a:
 Composite roots dual exhaustive CRT root sets, reordered factors, modulus one, signed/uint64 extremes and large mixed factors PASS
-
-Incremental automatic root preparation; unchanged-module evidence retained from a081fb0:
 Root preparation dual trial factorization, primitive-order certificates, trillion bounds and end-to-end composite root sets PASS
-
-Incremental weighted directed Matrix-Tree; unchanged-module evidence retained from b718ad8:
 Matrix tree dual exhaustive weighted edge sets, all roots/directions, parallel loops, signed weights and 220-vertex Cayley families PASS
-
-Incremental arbitrary-modulus determinant; unchanged-module evidence retained from 20258df:
+P6178 compact: 103 complete drivers, directed outward convention and 300 vertices/100000 edges PASS
 Arbitrary-mod determinant dual permutation/Bareiss oracles, composite nonunits, signed64 extremes and large diagonal/Cayley matrices PASS
-
-Incremental arbitrary-modulus Matrix-Tree; unchanged-module evidence retained from 4277b24:
 Composite-mod Matrix tree dual weighted edge-set oracle, all roots/directions, signed64 accumulation and large Cayley matrices PASS
-
-Incremental fast Stirling rows; unchanged-module evidence retained from ab785ff:
 Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS
-
-Incremental parameterized NTT and both Stirling moduli; unchanged-module evidence retained from f31a275:
 Parameterized NTT dual cpp_int DFT/convolution oracles, certified primitive roots, capacity boundaries and large triangular convolutions PASS
-Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS
 Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS
-
-Incremental Stirling first-kind recursive doubling and Taylor shift; unchanged-module evidence retained from bf38599:
-Stirling rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 20000 first-kind identities PASS
-Stirling 167772161 rows dual partition/permutation enumeration, DP and uint64 matrix oracles, 200000 second-kind and 262143 first-kind identities PASS
-
-Incremental Bostan-Mori checks; unchanged-module evidence retained from 45c8b41:
+P5395 compact: complete row drivers, DP and maximum-size polynomial identities PASS
+P5408 compact: complete row drivers, DP and maximum-size polynomial identities PASS
 Bostan-Mori dual rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS
-
-Incremental set and subset convolutions; unchanged-module evidence retained from 475ada9:
+P4723 compact: signed-input recurrence DP and dense maximum-order binomial oracle PASS
 Set convolutions dual direct-character and submask oracles, composite moduli, INT_MAX and 18-bit tensor identities PASS
-
-Incremental polynomial shift and geometric evaluation; unchanged-module evidence retained from 7d12e70:
+P4717 compact: 50 pair-enumeration cases and full 17-bit tensor identity PASS; large driver wall time 0.087s
+P6097 compact: 50 pair-enumeration cases and full 20-bit tensor identity PASS; large driver wall time 1.313s
 Polynomial shift and Chirp-Z dual Pascal/Horner oracles, zero/one ratios, small-field capacity boundaries and large binomial/geometric identities PASS
-
-Incremental persistent range operations; unchanged-module evidence retained from 29a1d0f:
+polynomial_taylor_shift compact: 60 independent small cases and full 524288-size closed-form driver checks PASS
+multipoint_evaluation_on_geometric_sequence compact: 60 independent small cases and full 524288-size closed-form driver checks PASS
 Persistent range dual branching vector oracle, lazy cross-version splice, immutable queries, sparse INT_MAX domain and logarithmic allocation PASS
-
-Incremental weighted Euler LCA and point-set diameter; unchanged-module evidence retained from 79f5449:
-Euler LCA dual exhaustive labelled trees, all roots/pairs, distances, rebuild and 500000 recursive chain PASS
+QOJ8240 compact: exhaustive binary arrays through length 7 and random literal card-removal simulation with XOR queries PASS
+QOJ8240 compact: n=q=300000 distinct closed-form case PASS (0.282s)
+QOJ8240 compact: n=q=300000 equal closed-form case PASS (0.318s)
+QOJ8240 compact: n=q=300000 periodic closed-form case PASS (0.480s)
+QOJ8240 compact: n=q=300000 sparse-repeat array with literal short-query oracle PASS (0.414s)
 Tree diameter dual exhaustive subsets, unions, farthest witnesses and weighted Euler LCA BFS/all-root oracles with zero and int64 distances PASS
-
-Incremental functional graph checks; unchanged-module evidence retained from 2447532:
+QOJ8235 compact: independent weighted paths, radius boundaries, missing values and mex set oracle PASS
+QOJ8235 compact: n=q=500000 recursive weighted chain closed form PASS (0.341s)
+QOJ8235 compact: n=q=500000 weighted star closed form PASS (0.216s)
+Local driver runner uses a 256 MiB pthread stack with main renamed only at compilation; submitted sources retain ordinary main and recursive DFS.
 Functional graph dual exhaustive successor maps, first-visit path oracles, uint64 jumps, rebuild and 500000 tail/cycle/self-loop cases PASS
-
-Sugar Sweet II complete-driver checks; unchanged-core evidence retained from 33adc6e:
+P2921 compact: first-visit walk oracle and maximum-size tail/cycle drivers PASS
+1750 compact: first-visit walk oracle and maximum-size tail/cycle drivers PASS
+1160 compact: first-visit walk oracle and maximum-size tail/cycle drivers PASS
 QOJ8237 compact: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS
-QOJ8237 compact: n=500000 chain closed-form checks PASS (0.251s)
-QOJ8237 compact: n=500000 cycle closed-form checks PASS (0.269s)
-QOJ8237 compact: 500000 singleton test cases and factorial-cache reuse PASS (0.566s)
-QOJ8237 classic: exhaustive n<=3 inputs and all-permutation simulation through n=8 PASS
-QOJ8237 classic: n=500000 chain closed-form checks PASS (0.259s)
-QOJ8237 classic: n=500000 cycle closed-form checks PASS (0.270s)
-QOJ8237 classic: 500000 singleton test cases and factorial-cache reuse PASS (0.540s)
-
+QOJ8237 compact: n=500000 chain closed-form checks PASS (0.263s)
+QOJ8237 compact: n=500000 cycle closed-form checks PASS (0.282s)
+QOJ8237 compact: 500000 singleton test cases and factorial-cache reuse PASS (0.581s)
 Release BFS dual heap oracle, exhaustive tiny snake states and 3000-square implicit grid PASS
 Snake configurations: 744
-
+QOJ8236 compact: official samples, full snake chain, 3000-square open/barrier grids PASS
 Modified Mo snapshot/set oracle, all ranges/times, empty queries, custom blocks and bidirectional state invariants PASS
-
+P1903 vector driver: sequential set oracle, all-update/all-query cases and 133333 unique-color random ranges PASS
 QOJ906 vector driver: independent reachability, topological partition certificates and 500000-vertex recursive chain/cycle PASS
-
 User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS
+P3367 vector driver: independent component labels, 1-based adapter and n=200000 m=1000000 PASS
 ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS
 gp_map ordered-map oracle, erase/insert/copy/clear, signed64 extremes and million sparse keys PASS
+In file included from /opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/ext/pb_ds/detail/pat_trie_/pat_trie_.hpp:45,
+                 from /opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/ext/pb_ds/detail/container_base_dispatch.hpp:90,
+                 from /opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/ext/pb_ds/assoc_container.hpp:48,
+                 from tests/../src/compact/ordered_set.hpp:3,
+                 from tests/ordered_set.cpp:1:
+tests/ordered_set.cpp: In function 'int main()':
+tests/ordered_set.cpp:58:36: warning: comparison of integer expressions of different signedness: '__gnu_pbds::tree_order_statistics_node_update<__gnu_pbds::detail::bin_search_tree_const_node_it_<__gnu_pbds::detail::rb_tree_node_<int, long unsigned int, std::allocator<char> >, __gnu_pbds::detail::bin_search_tree_const_it_<__gnu_pbds::detail::rb_tree_node_<int, long unsigned int, std::allocator<char> >*, int, int*, const int*, int&, const int&, true, std::allocator<char> >, __gnu_pbds::detail::bin_search_tree_const_it_<__gnu_pbds::detail::rb_tree_node_<int, long unsigned int, std::allocator<char> >*, int, int*, const int*, int&, const int&, true, std::allocator<char> >, std::allocator<char> >, __gnu_pbds::detail::bin_search_tree_const_node_it_<__gnu_pbds::detail::rb_tree_node_<int, long unsigned int, std::allocator<char> >, __gnu_pbds::detail::bin_search_tree_const_it_<__gnu_pbds::detail::rb_tree_node_<int, long unsigned int, std::allocator<char> >*, int, int*, const int*, int&, const int&, true, std::allocator<char> >, __gnu_pbds::detail::bin_search_tree_const_it_<__gnu_pbds::detail::rb_tree_node_<int, long unsigned int, std::allocator<char> >*, int, int*, const int*, int&, const int&, true, std::allocator<char> >, std::allocator<char> >, std::greater<int>, std::allocator<char> >::size_type' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+   58 |         assert(rev.order_of_key(i) == 499999 - i);
+      |                ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
 PBDS ost sorted-vector oracle, duplicates by pair, bounds, reverse comparator and 500000 ordered keys PASS
 GNU rope branching vector oracle, insert/replace/erase/substr, large shared copies and version isolation PASS
 Fixed rope persistent-queue driver: independent branching list oracle PASS
@@ -275,11 +191,39 @@ Dynamic mint P5431 driver: Python inverse/power oracle and five-million geometri
 Dinic edge API: exhaustive-cut oracle after capacity edits, residual/conservation certificates and int64 limits PASS
 Min-cost slope: exhaustive feasible-flow costs, negative edges without negative cycles, ties, limits, continuation and int128 totals PASS
 P3381 slope endpoint driver: exhaustive feasible edge-flow assignment oracle PASS
-
 Signed integer convolution: cpp_int oracle, certified primes/roots, int64 cancellation and large alternating triangles PASS
 P3803 signed-convolution driver: integer schoolbook oracle and maximum-degree coefficient-nine triangle PASS
 LC SCC/SAT drivers: reachability partitions, topological edges, exhaustive assignments and 500000-variable recursive chains PASS
 LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS
+In file included from /opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/cassert:46,
+                 from tests/../src/compact/floor_sum.hpp:2,
+                 from tests/../src/compact/number_theory.hpp:10,
+                 from tests/../src/compact/gauss_mod.hpp:2,
+                 from tests/algebra_components.cpp:1:
+tests/algebra_components.cpp: In function 'int main()':
+tests/algebra_components.cpp:103:26: warning: comparison of integer expressions of different signedness: 'int' and 'long long unsigned int' [-Wsign-compare]
+  103 |         assert(r[0][1].v == e % 1000);
+tests/algebra_components.cpp: In instantiation of 'void check() [with int p = 2]':
+tests/algebra_components.cpp:94:13:   required from here
+   94 |     check<2>();
+      |     ~~~~~~~~^~
+tests/algebra_components.cpp:44:24: warning: unused variable 'v' [-Wunused-variable]
+   44 |             for (auto &v : s.kernel) choices *= p;
+      |                        ^
+tests/algebra_components.cpp: In instantiation of 'void check() [with int p = 3]':
+tests/algebra_components.cpp:95:13:   required from here
+   95 |     check<3>();
+      |     ~~~~~~~~^~
+tests/algebra_components.cpp:44:24: warning: unused variable 'v' [-Wunused-variable]
+   44 |             for (auto &v : s.kernel) choices *= p;
+      |                        ^
+tests/algebra_components.cpp: In instantiation of 'void check() [with int p = 5]':
+tests/algebra_components.cpp:96:13:   required from here
+   96 |     check<5>();
+      |     ~~~~~~~~^~
+tests/algebra_components.cpp:44:24: warning: unused variable 'v' [-Wunused-variable]
+   44 |             for (auto &v : s.kernel) choices *= p;
+      |                        ^
 Separated algebra: exhaustive affine solution sets, permutation determinants, repeated-product matrices and uint64 composite-mod powers PASS
 LC algebra drivers: permutation-minor ranks, affine basis certificates, rectangular product oracle and maximal structured matrices PASS
 Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS
@@ -289,10 +233,14 @@ GNU handbook examples: rope version isolation, PBDS duplicate ranks and gp/cc co
 CC associative driver: Python dictionary oracle, absent/stored zeros and 1e18 endpoints PASS
 Separated number theory: cpp_int modular oracle, trial primes, Bezout certificates, exhaustive residues and signed floor sums PASS
 LC number drivers: sieve/Proth certificates, factored composites, exhaustive floor cases and 100000-query closed forms PASS
-Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS
 PBDS pairing heap: ordered-set oracle, handle ownership after join/swap/split, copy isolation and 200000 modifications PASS
 Infra C++ examples: move/copy dispatch, valid moved-from reuse, STL ranges and PBDS ownership PASS
+Infra Python/Bash examples: exact arithmetic, fixed random bounds and quoted file paths PASS
 PBDS shortest-path driver: 160 Floyd-Warshall graph oracles, zero weights, unreachable targets and simple-path certificates PASS
+Vector library regression with pinned historical baseline PASS
+Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS
 Primitive root dual exhaustive power-cycle oracle, orders, signed inputs, existence, reset, int32 bounds and 999983 full cycle PASS
 Lucas dual Pascal oracle, exact big integers, uint64 extremes, prime-power identities and modulus reset PASS
 Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS
+PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS
+XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS

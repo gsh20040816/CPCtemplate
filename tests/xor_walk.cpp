@@ -117,7 +117,7 @@ void run()
     assert(a.query(3,3) == 0 && b.Query(3,3) == 0);
     assert(!a.query(1,2) && !b.Query(1,2));
     const int n = 200000;
-    a.init(n);
+    a = XorWalk(n);
     b.Init(n);
     for (int i = 1; i < n; i++)
     {
@@ -130,7 +130,7 @@ void run()
     a.build(n);
     b.Build(n);
     assert(a.query(1,n-1) == 0 && b.Query(1,n-1) == 0);
-    a.init(1);
+    a = XorWalk(1);
     b.Init(1);
     a.build();
     b.Build();

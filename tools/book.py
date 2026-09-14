@@ -74,6 +74,9 @@ for style in ['compact']:
             if name == 'Lowlink':
                 split = next((i for i in range(start, end) if re.match('    void (dfs|Dfs)\\(', lines[i])))
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
+            if name == 'XorWalk':
+                split = next(i for i in range(start, end) if 'void add(' in lines[i])
+                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'SuffixLCP':
                 split = next((i for i in range(start, end) if re.match('    int (query|Query)\\(', lines[i])))
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12

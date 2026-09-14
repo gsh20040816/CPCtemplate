@@ -68,7 +68,7 @@ void check(const std::string &input)
             assert(actual == expected);
         }
     }
-    a.init();
+    a = PalindromicTree();
     b.Init();
     assert(a.distinct() == 0 && b.Distinct() == 0);
     assert(a.total == 0 && b.total == 0);

@@ -11,18 +11,13 @@ struct XorWalk
     vector<U> dist;
     XorBasis cycles;
 
-    XorWalk(int n) { init(n); }
-
-    void init(int size)
+    XorWalk(int size)
     {
         assert(size >= 0);
         n = size;
-        g.clear();
         g.resize(size_t(n) + 1);
-        vis.assign(size_t(n) + 1, 0);
-        dist.assign(size_t(n) + 1, 0);
-        cycles.init();
-        built = false;
+        vis.resize(size_t(n) + 1);
+        dist.resize(size_t(n) + 1);
     }
 
     void add(int u, int v, U w)
