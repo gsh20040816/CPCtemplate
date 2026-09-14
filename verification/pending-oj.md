@@ -5,6 +5,7 @@
 - `verify/cses/1160.compact.cpp`
 - `verify/cses/1750.compact.cpp`
 - `verify/examples/ac_shortest.compact.cpp`
+- `verify/examples/matching_edges.compact.cpp`
 - `verify/hdu/1814.compact.cpp`
 - `verify/library_checker/assignment.compact.cpp`
 - `verify/library_checker/associative_array.cc.compact.cpp`
@@ -71,6 +72,7 @@
 - `verify/luogu/P3809.compact.cpp`
 - `verify/luogu/P3812.compact.cpp`
 - `verify/luogu/P4097.compact.cpp`
+- `verify/luogu/P4126.compact.cpp`
 - `verify/luogu/P4151.compact.cpp`
 - `verify/luogu/P4213.compact.cpp`
 - `verify/luogu/P4779.compact.cpp`

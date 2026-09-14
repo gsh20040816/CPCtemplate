@@ -2665,9 +2665,31 @@ Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新
 
 \lstinputlisting{usage/example-1.cpp}
 
-\Needspace{492pt}
+\Needspace{350pt}
 
 \section{最小割}
+
+\subsection{正容量最小割的可行边与必选边}\label{compact-mincut_edges}\index{mincut\_edges}
+
+mincut\_edges(g,s,t) 只读分析 Dinic 已经完整求出的普通 s→t 最大流；不得传入限流提前停止或人为修改过的残量网络。所有原边初始容量必须严格为正，最大流值须可由 long long 表示。返回逐条原边的 \{possible,forced\}，对应 Dinic 原始偶数边号 id 的结果是 ans[id/2]。只有饱和边可能属于最小割：两端残量 SCC 不同则可行；起点与 s 同 SCC、终点与 t 同 SCC 则必选。支持平行边和自环，源汇不同，点号 1..g.n。O(n+m) 时间与空间，Tarjan 递归栈 O(n)。零容量边没有正流对应的反向残量边，不能套用本函数的同 SCC 简化条件。每次修改图或重新增广后都需重新分析。
+
+\lstinputlisting[firstline=6,lastline=23]{../src/compact/mincut_edges.hpp}
+
+\Needspace{371pt}
+
+\subsection*{应用题补充：Luogu P4126 / AHOI2009 最小割}
+
+\label{usage-example-94}
+
+题意：求每条正容量有向边是否出现在至少一个/每一个最小割中。先不设额外限制地跑完最大流，再按原边输入顺序输出两项布尔值。容量用 long long；平行道路分别加边。此题源自 AHOI，作为应用补充单列。
+
+所需模板：Dinic、TarjanSCC、mincut\_edges。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4126}
+
+\lstinputlisting{usage/example-94.cpp}
+
+\Needspace{457pt}
 
 \subsection{最大权闭合子图与选点方案}\label{compact-maximum_closure}\index{maximum\_closure}
 
@@ -2810,6 +2832,28 @@ solve(w)，n$\ge$2；w 为 n×n 对称非负权矩阵，重边先累加，主对
 题目：\url{https://www.luogu.com.cn/problem/P3386}
 
 \lstinputlisting{usage/example-35.cpp}
+
+\Needspace{590pt}
+
+\subsection{二分图最大匹配的可行边与必选边}\label{compact-matching_edges}\index{matching\_edges}
+
+matching\_edges(n,m,edges) 接收左右两侧点号各为 1..n、1..m 的边表，返回 (最大匹配大小,逐边分类)。每项为 \{possible,forced\}：是否属于至少一个/每一个最大匹配；分类保持输入顺序，平行边作为不同边处理。允许空侧、空图和非完备匹配。先用 BipartiteMatching 求解，再建含源汇的残量图跑 TarjanSCC；已匹配或两端同 SCC 为可行，已匹配且两端不同 SCC 为必选。不能在非完备匹配时省略源汇，也不能把可行条件写成已匹配且同 SCC。时间 O(E$\sqrt{\vphantom x}$(n+m)+n+m)，空间 O(n+m+E)，节点与残量边数须可用 int 表示。HK 与 SCC 都保留递归，栈深可为 O(n+m)。
+
+\lstinputlisting[firstline=6,lastline=50]{../src/compact/matching_edges.hpp}
+
+\Needspace{298pt}
+
+\subsection*{应用题补充：二分图最优匹配边分类（本地接口示例）}
+
+\label{usage-example-95}
+
+题意：输入左右点数、边数及 1-based 边表，输出最大匹配大小，再按原边顺序输出可行/必选标记。非完备匹配和平行边都允许；本例演示接口，不是 OJ 提交记录。
+
+所需模板：BipartiteMatching、TarjanSCC、matching\_edges。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://oi-wiki.org/graph/graph-matching/bigraph-match/}
+
+\lstinputlisting{usage/example-95.cpp}
 
 \Needspace{180pt}
 

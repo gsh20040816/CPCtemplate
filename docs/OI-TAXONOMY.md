@@ -143,11 +143,13 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | cut_tree_values | 图论 → 网络流 → 最小割 | application | 最小割的应用或查询；需在对应小节下保留本库名称。 |
 | gomory_hu | 图论 → 网络流 → 最小割 | application | 最小割的应用或查询；需在对应小节下保留本库名称。 |
 | maximum_closure | 图论 → 网络流 → 最小割 | application | 最小割的应用或查询；需在对应小节下保留本库名称。 |
+| mincut_edges | 图论 → 网络流 → 最小割 | direct |  |
 | MinCostFlow | 图论 → 网络流 → 费用流 | direct |  |
 | BoundedCirculation | 图论 → 网络流 → 上下界网络流 | direct |  |
 | BoundedMaxFlow | 图论 → 网络流 → 上下界网络流 | direct |  |
 | StoerWagner | 图论 → 网络流 → Stoer–Wagner 算法 | direct |  |
 | BipartiteMatching | 图论 → 图的匹配 → 二分图最大匹配 | direct |  |
+| matching_edges | 图论 → 图的匹配 → 二分图最大匹配 | direct |  |
 | Hungarian | 图论 → 图的匹配 → 二分图最大权匹配 | direct |  |
 | WeightedMatching | 图论 → 图的匹配 → 二分图最大权匹配 | direct |  |
 | Blossom | 图论 → 图的匹配 → 一般图最大匹配 | direct |  |

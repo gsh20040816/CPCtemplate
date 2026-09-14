@@ -11,6 +11,7 @@ fi
 export CXX
 export CPC_SANITIZE="${SANITIZE:-0}"
 flags=(-std=c++20 -O2 -Wall -Wextra)
+if [[ "$(uname -s)" == Darwin ]]; then flags+=(-Wl,-stack_size,0x20000000); fi
 if [[ -d /opt/homebrew/include/boost ]]; then flags+=(-I/opt/homebrew/include); fi
 if [[ "${SANITIZE:-0}" == 1 ]]; then flags+=(-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer); fi
 "$CXX" "${flags[@]}" tests/namespace_number_theory.cpp -o build/namespace-number
@@ -486,3 +487,7 @@ build/ac-shortest-core
 "$CXX" "${flags[@]}" tests/bounded_maxflow.cpp -o build/bounded-maxflow
 build/bounded-maxflow
 python3 tests/bounded_maxflow_application.py
+
+"$CXX" "${flags[@]}" tests/optimal_edge_classes.cpp -o build/optimal-edge-classes
+build/optimal-edge-classes
+python3 tests/mincut_application.py

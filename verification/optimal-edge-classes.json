@@ -1,0 +1,25 @@
+{
+  "scope": "Independent enumeration of all optimal matching/cut edge-set unions and intersections; local tests only, no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/matching_edges.hpp": "55fc1c38ddb06a300ae1b37208aaf5e9fae72ce200d45c501239420fbd573e7c",
+    "src/compact/mincut_edges.hpp": "c9b34a2e3a7170842da70ae3232a0493539f3b05dfa1dd98321ee5f41e4b2a25",
+    "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "src/compact/tarjan.hpp": "61899731db759d931d805d476f659163f404b999e6eba368536a39e404fc5bf1",
+    "tests/optimal_edge_classes.cpp": "13c2c3c7af03b50d306c11fe9d8769657726c0cab436f317ecf461bf45438214",
+    "tests/mincut_application.py": "0a26779cb591c882a8c66a56d176ec56edbab7a7140cbb01f900c52cf1140056",
+    "verify/luogu/P4126.compact.cpp": "1c121e5d61fdf15ddb9b384ebc8766a0b8fd1c56f3670c0245bafeecd8d63837",
+    "verify/examples/matching_edges.compact.cpp": "762219cebad2992cfa6254b4e4c5630dc6b3aff8739845e008684ee784fed1c8"
+  },
+  "log": [
+    "Optimal edge classes: exhaustive <=3x3 matching graphs, 3000 random multigraph matching/cut union-intersection oracles, repeated const queries; 100000-node ladder/chain PASS",
+    "Optimal edge classes: exhaustive <=3x3 matching graphs, 3000 random multigraph matching/cut union-intersection oracles, repeated const queries; 100000-node ladder/chain PASS",
+    "P4126: 200 exhaustive partition output oracles; 4000 vertices / 60000 edges, loops, parallel roads and flow above int32 PASS",
+    "P4126: 200 exhaustive partition output oracles; 4000 vertices / 60000 edges, loops, parallel roads and flow above int32 PASS"
+  ],
+  "limits": "Minimum-cut classifier requires strictly positive original capacities and a completed ordinary maximum flow; matching classifier supports empty sides, nonperfect matchings and distinct parallel edges."
+}

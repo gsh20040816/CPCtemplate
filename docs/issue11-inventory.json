@@ -286,8 +286,11 @@
       "toc_page": 41,
       "physical_page": 43,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "matching_edges"
+      ],
+      "review": "已核对实际 43–44 页，包含完备与非完备匹配。使用 HK 后建立含源汇的残量图并 Tarjan SCC；平行边按输入编号独立分类。附件最后一条可行边条件的且应为或：已匹配或同 SCC；必选为已匹配且不同 SCC。<=3x3 全图、3000 随机多重图的全部最优匹配并/交集 oracle、10 万点梯形图双模式通过。本地接口示例已补，线上待验证。"
     },
     {
       "section": "2.11",
@@ -295,8 +298,11 @@
       "toc_page": 42,
       "physical_page": 44,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "mincut_edges"
+      ],
+      "review": "已核对实际 44 页判定：满流并且残量图无 u 到 v 路径为可行，源可达 u 且 v 可达汇为必选。新函数明确限制原边正容量，再用 SCC 简化；零容量不套此判定。3000 随机正容量图全部最小割并/交集 oracle、10 万点链双模式通过；P4126 200 组输出对拍与 4000 点/60000 边规模、平行边/自环/超过 int32 总流量双模式通过，应用单列，未新增在线 AC。"
     },
     {
       "section": "2.12",

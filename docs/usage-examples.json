@@ -1106,5 +1106,33 @@
       "BoundedMaxFlow"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-94",
+    "symbol": "mincut_edges",
+    "problem": "Luogu P4126 / AHOI2009 最小割",
+    "url": "https://www.luogu.com.cn/problem/P4126",
+    "summary": "求每条正容量有向边是否出现在至少一个/每一个最小割中。先不设额外限制地跑完最大流，再按原边输入顺序输出两项布尔值。容量用 long long；平行道路分别加边。此题源自 AHOI，作为应用补充单列。",
+    "driver": "verify/luogu/P4126.compact.cpp",
+    "requires": [
+      "Dinic",
+      "TarjanSCC",
+      "mincut_edges"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-95",
+    "symbol": "matching_edges",
+    "problem": "二分图最优匹配边分类（本地接口示例）",
+    "url": "https://oi-wiki.org/graph/graph-matching/bigraph-match/",
+    "summary": "输入左右点数、边数及 1-based 边表，输出最大匹配大小，再按原边顺序输出可行/必选标记。非完备匹配和平行边都允许；本例演示接口，不是 OJ 提交记录。",
+    "driver": "verify/examples/matching_edges.compact.cpp",
+    "requires": [
+      "BipartiteMatching",
+      "TarjanSCC",
+      "matching_edges"
+    ],
+    "kind": "application"
   }
 ]

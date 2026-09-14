@@ -31,8 +31,8 @@
 | 2.8.1 | (1) Dijkstra 费用流 | 35 | 37 | pending_content_review |
 | 2.8.2 | (2) SPFA 费用流 | 37 | 39 | pending_content_review |
 | 2.9 | 9. 无向图三元环计数 | 40 | 42 | implemented_local_verified_online_pending |
-| 2.10 | 10. 二分图最大匹配的可行边与必经边 | 41 | 43 | pending_content_review |
-| 2.11 | 11. 最小割可行边与必经边 | 42 | 44 | pending_content_review |
+| 2.10 | 10. 二分图最大匹配的可行边与必经边 | 41 | 43 | implemented_local_verified_online_pending |
+| 2.11 | 11. 最小割可行边与必经边 | 42 | 44 | implemented_local_verified_online_pending |
 | 2.12 | 12. 有源汇有上下界的最大流 | 44 | 46 | implemented_local_verified_online_pending |
 | 2.12.1 | (1) 洛谷模板 | 44 | 46 | implemented_local_verified_online_pending |
 | 2.13 | 13. 有负圈的费用流 | 50 | 52 | pending_content_review |

@@ -126,6 +126,12 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
+          "driver": "verify/luogu/P4126.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4126",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/luogu/P3376.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P3376",
           "existing_ac": [
@@ -3824,6 +3830,50 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "matching_edges",
+      "title": "二分图最大匹配的可行边与必选边",
+      "source": "src/compact/matching_edges.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/examples/matching_edges.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "mincut_edges",
+      "title": "正容量最小割的可行边与必选边",
+      "source": "src/compact/mincut_edges.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4126.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4126",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [
@@ -7444,18 +7494,6 @@
       "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
       "page": "39",
       "topic": "2.8.2 (2) SPFA 费用流"
-    },
-    {
-      "source": "issue11",
-      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
-      "page": "43",
-      "topic": "2.10 10. 二分图最大匹配的可行边与必经边"
-    },
-    {
-      "source": "issue11",
-      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
-      "page": "44",
-      "topic": "2.11 11. 最小割可行边与必经边"
     },
     {
       "source": "issue11",
