@@ -1046,6 +1046,12 @@
       "relation": "application",
       "note": "固定最大流值下的单位边流量可行性，通过残量环与 SCC 分类；不是最小割边分类。",
       "additional": []
+    },
+    "NegativeCostFlow": {
+      "primary": "graph/flow/min-cost.md",
+      "relation": "direct",
+      "note": "通过负边预流与需求修复处理负环，随后继续最短增广。",
+      "additional": []
     }
   },
   "reference_source_sha256": "de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806"

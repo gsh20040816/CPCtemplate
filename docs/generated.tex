@@ -2811,6 +2811,34 @@ add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 �
 
 \lstinputlisting{usage/example-55.cpp}
 
+\Needspace{515pt}
+
+\subsection{允许负环的最小费用最大流}\label{compact-NegativeCostFlow}\index{NegativeCostFlow}
+
+NegativeCostFlow(n)，点号 1..n；add(u,v,cap,cost) 返回从 0 开始的原边编号。容量非负，所有原边容量总和$\le$LLONG\_MAX；费用为 long long 且不等于 LLONG\_MIN。允许重边、自环及任意位置的负环。solve(s, t, limit) 只调用一次，limit 默认 LLONG\_MAX，s$\ne$t、limit$\ge$0，返回 (不超过 limit 的最大流量,该流量下的最小费用)，费用为 int128。limit=0 可求最小费用循环流；不足 limit 时返回实际最大流。成功后 used(id) 返回原边流量，自动还原负边退流。先满流负费用边并建立反向正费用退流边，再用超级源汇修复平衡；初始残量费用非负，修复后无负环。删除辅助边后继续最短增广，包含不经过源汇的负环收益。依赖 MinCostFlow，使用两次势能预处理；若总增广次数为 K，时间 O(VE + K(E log(E+1) + V))，空间 O(V+E)，整数容量下为伪多项式，不是费用缩放算法。节点和残量边数须可由 int 表示。
+
+\lstinputlisting[firstline=4,lastline=38]{../src/compact/negative_cost_flow.hpp}
+
+\newpage
+
+\noindent 需求修复、增广与原边流量还原（接上页同一结构体）：
+
+\lstinputlisting[firstline=39,lastline=70,firstnumber=36]{../src/compact/negative_cost_flow.hpp}
+
+\Needspace{362pt}
+
+\subsection*{模板题使用：Luogu P7173}
+
+\label{usage-example-98}
+
+题意：求允许负费用环的最小费用最大流，独立于源汇的负环也计入费用。无额外流量上限时调用 solve(s,t)。题目容量和费用界保证最终费用可转为 long long；一般模板返回 int128，不能任意照搬此转换。
+
+所需模板：MinCostFlow、NegativeCostFlow。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P7173}
+
+\lstinputlisting{usage/example-98.cpp}
+
 \Needspace{598pt}
 
 \section{上下界网络流}

@@ -1161,5 +1161,17 @@
       "unit_flow_edges"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-98",
+    "symbol": "NegativeCostFlow",
+    "problem": "Luogu P7173",
+    "url": "https://www.luogu.com.cn/problem/P7173",
+    "summary": "求允许负费用环的最小费用最大流，独立于源汇的负环也计入费用。无额外流量上限时调用 solve(s,t)。题目容量和费用界保证最终费用可转为 long long；一般模板返回 int128，不能任意照搬此转换。",
+    "driver": "verify/luogu/P7173.compact.cpp",
+    "requires": [
+      "MinCostFlow",
+      "NegativeCostFlow"
+    ]
   }
 ]

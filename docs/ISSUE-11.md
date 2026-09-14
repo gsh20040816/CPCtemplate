@@ -35,8 +35,8 @@
 | 2.11 | 11. 最小割可行边与必经边 | 42 | 44 | implemented_local_verified_online_pending |
 | 2.12 | 12. 有源汇有上下界的最大流 | 44 | 46 | implemented_local_verified_online_pending |
 | 2.12.1 | (1) 洛谷模板 | 44 | 46 | implemented_local_verified_online_pending |
-| 2.13 | 13. 有负圈的费用流 | 50 | 52 | pending_content_review |
-| 2.13.1 | (1) 洛谷模板 | 50 | 52 | pending_content_review |
+| 2.13 | 13. 有负圈的费用流 | 50 | 52 | implemented_local_verified_online_pending |
+| 2.13.1 | (1) 洛谷模板 | 50 | 52 | implemented_local_verified_online_pending |
 | 2.14 | 14. 最大流的必经边与可行边 | 54 | 56 | implemented_kernel_application_pending |
 | 2.14.1 | (1) The 2024 ICPC Northern Eurasia Finals vp | 54 | 56 | reviewed_application_pending |
 | 2.15 | 15. 划分子图使每个点度数为奇数 | 59 | 61 | implemented_local_verified_online_pending |

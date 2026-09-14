@@ -1,0 +1,22 @@
+{
+  "scope": "Local exhaustive integral-flow max-value/min-cost oracles and full P7173 adapter scale checks; no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/negative_cost_flow.hpp": "d613605d83a5d0e45c84549d731e3cfa67aa1e1eec66470e25254e0d57964b8b",
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "tests/negative_cost_flow.cpp": "a17a51b86eb1c2070f11e2190cfac3c68ccb21bb3ddf274a9008d2cfd205c174",
+    "tests/negative_cost_application.py": "684c0c58edfebdb162b206a95775db3152fea872401ba4dcb6912fd1b53c1c32",
+    "verify/luogu/P7173.compact.cpp": "6a726d65bbead8b994d498b38e1833a99396152cd1a1cb636805365e6fa6cbe6"
+  },
+  "log": [
+    "NegativeCostFlow: 8000 exhaustive integral-flow oracles, limited/unlimited max-value/min-cost lexicographic optimum, certificates, disconnected negative cycles, self-loops and signed64 extremes PASS",
+    "NegativeCostFlow: 8000 exhaustive integral-flow oracles, limited/unlimited max-value/min-cost lexicographic optimum, certificates, disconnected negative cycles, self-loops and signed64 extremes PASS",
+    "P7173: 200 exhaustive flow/cost output oracles; 200 vertices / 10000 arcs / capacity-cost 100 scale, disconnected negative cycles PASS",
+    "P7173: 200 exhaustive flow/cost output oracles; 200 vertices / 10000 arcs / capacity-cost 100 scale, disconnected negative cycles PASS"
+  ],
+  "limits": "Capacity sum <= LLONG_MAX, costs exclude LLONG_MIN, int128 cost. SSP complexity, not cost scaling. LC min_cost_b_flow full range is not claimed.",
+  "argument": "See docs/NEGATIVE-COST-FLOW.md for the bijective negative-edge preflow/undo transform, feasibility of restoring zero flow, and optimality of demand repair followed by augmentation."
+}

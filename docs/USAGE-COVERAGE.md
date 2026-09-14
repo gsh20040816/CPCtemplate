@@ -178,3 +178,4 @@
 | mincut_edges | [example-94（应用补充）](usage/example-94.cpp) | generated_unverified |
 | odd_induced_partition | [example-96（应用补充）](usage/example-96.cpp) | generated_unverified |
 | unit_flow_edges | [example-97（应用补充）](usage/example-97.cpp) | generated_unverified |
+| NegativeCostFlow | [example-98](usage/example-98.cpp) | locally_checked_example |

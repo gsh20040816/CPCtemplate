@@ -497,3 +497,7 @@ build/odd-induced-partition
 
 "$CXX" "${flags[@]}" tests/unit_flow_edges.cpp -o build/unit-flow-edges
 build/unit-flow-edges
+
+"$CXX" "${flags[@]}" tests/negative_cost_flow.cpp -o build/negative-cost-flow
+build/negative-cost-flow
+python3 tests/negative_cost_application.py
