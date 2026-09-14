@@ -658,5 +658,38 @@
       "gomory_hu",
       "cut_tree_values"
     ]
+  },
+  {
+    "id": "example-57",
+    "symbol": "DirectedEuler",
+    "problem": "Luogu P7771",
+    "url": "https://www.luogu.com.cn/problem/P7771",
+    "summary": "给有向图，求字典序最小的欧拉路径。run 默认选择可行起点并按字典序遍历；成功后 vertices 含 m+1 个顶点，失败输出 No。点号 1..n。",
+    "driver": "verify/luogu/P7771.compact.cpp",
+    "requires": [
+      "DirectedEuler"
+    ]
+  },
+  {
+    "id": "example-58",
+    "symbol": "Lowlink",
+    "problem": "Luogu P3388",
+    "url": "https://www.luogu.com.cn/problem/P3388",
+    "summary": "给无向图，按编号递增输出全部割点。图可以不连通；run 后读取 cut[u] 标记。不要把 bridge 的边编号当作顶点标记。点号 1..n。",
+    "driver": "verify/luogu/P3388.compact.cpp",
+    "requires": [
+      "Lowlink"
+    ]
+  },
+  {
+    "id": "example-59",
+    "symbol": "Dijkstra",
+    "problem": "Luogu P4779",
+    "url": "https://www.luogu.com.cn/problem/P4779",
+    "summary": "给非负权有向图和源点 s，输出 s 到各点的最短距离。加完边后 run(s)，读取 dis[1..n]；本题保证源点可达所有点，一般输入的不可达值须按目标题目格式另行转换。",
+    "driver": "verify/luogu/P4779.compact.cpp",
+    "requires": [
+      "Dijkstra"
+    ]
   }
 ]

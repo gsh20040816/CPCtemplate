@@ -13,11 +13,11 @@
 | Dinic | [example-1](usage/example-1.cpp) | locally_checked_example |
 | maximum_closure | 待补 | pending_example |
 | MinCostFlow | [example-55](usage/example-55.cpp) | locally_checked_example |
-| Dijkstra | 待补 | pending_example |
+| Dijkstra | [example-59](usage/example-59.cpp) | locally_checked_example |
 | SCC | 待补 | pending_example |
 | TwoSAT | [example-3](usage/example-3.cpp) | locally_checked_example |
 | BipartiteMatching | [example-35](usage/example-35.cpp) | locally_checked_example |
-| Lowlink | 待补 | pending_example |
+| Lowlink | [example-58](usage/example-58.cpp) | locally_checked_example |
 | HLD | [example-44](usage/example-44.cpp) | locally_checked_example |
 | prefix_function | 待补 | pending_example |
 | kmp_match | 待补 | pending_example |
@@ -140,7 +140,7 @@
 | EulerLCA | [example-33](usage/example-33.cpp) | locally_checked_example |
 | LiftingLCA | [example-34](usage/example-34.cpp) | locally_checked_example |
 | path_intersection | 待补 | pending_example |
-| DirectedEuler | 待补 | pending_example |
+| DirectedEuler | [example-57](usage/example-57.cpp) | locally_checked_example |
 | UndirectedEuler | 待补 | pending_example |
 | word_chain | 待补 | pending_example |
 | mixed_euler_orientation | 待补 | pending_example |

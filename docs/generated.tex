@@ -1869,6 +1869,20 @@ add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。
 
 \lstinputlisting[firstline=6,lastline=54]{../src/compact/graph.hpp}
 
+\Needspace{356pt}
+
+\subsection*{模板题使用：Luogu P4779}
+
+\label{usage-example-59}
+
+题意：给非负权有向图和源点 s，输出 s 到各点的最短距离。加完边后 run(s)，读取 dis[1..n]；本题保证源点可达所有点，一般输入的不可达值须按目标题目格式另行转换。
+
+所需模板：Dijkstra。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4779}
+
+\lstinputlisting{usage/example-59.cpp}
+
 \newpage
 
 \Needspace{559pt}
@@ -2071,6 +2085,20 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 \lstinputlisting[firstline=249,lastline=291,firstnumber=17]{../src/compact/graph.hpp}
 
+\Needspace{395pt}
+
+\subsection*{模板题使用：Luogu P3388}
+
+\label{usage-example-58}
+
+题意：给无向图，按编号递增输出全部割点。图可以不连通；run 后读取 cut[u] 标记。不要把 bridge 的边编号当作顶点标记。点号 1..n。
+
+所需模板：Lowlink。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3388}
+
+\lstinputlisting{usage/example-58.cpp}
+
 \Needspace{309pt}
 
 \section{圆方树}
@@ -2154,6 +2182,20 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 \newpage
 
 \lstinputlisting[firstline=44,lastline=91,firstnumber=37]{../src/compact/directed_euler.hpp}
+
+\Needspace{407pt}
+
+\subsection*{模板题使用：Luogu P7771}
+
+\label{usage-example-57}
+
+题意：给有向图，求字典序最小的欧拉路径。run 默认选择可行起点并按字典序遍历；成功后 vertices 含 m+1 个顶点，失败输出 No。点号 1..n。
+
+所需模板：DirectedEuler。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P7771}
+
+\lstinputlisting{usage/example-57.cpp}
 
 \Needspace{421pt}
 
