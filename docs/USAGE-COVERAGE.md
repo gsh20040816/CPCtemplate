@@ -33,7 +33,7 @@
 | mod_inverse | 待补 | pending_example |
 | crt_merge | [example-15](usage/example-15.cpp) | locally_checked_example |
 | floor_sum | [example-14](usage/example-14.cpp) | locally_checked_example |
-| linear_equation | 待补 | pending_example |
+| linear_equation | [example-75](usage/example-75.cpp) | locally_checked_example |
 | linear_congruence | 待补 | pending_example |
 | segmented_primes | 待补 | pending_example |
 | batch_inverse | 待补 | pending_example |
@@ -68,7 +68,7 @@
 | det_prime | [example-25](usage/example-25.cpp) | locally_checked_example |
 | ModMatrix | [example-26](usage/example-26.cpp) | locally_checked_example |
 | determinant_mod | 待补 | pending_example |
-| MatrixTree | 待补 | pending_example |
+| MatrixTree | [example-76](usage/example-76.cpp) | locally_checked_example |
 | MatrixTreeMod | 待补 | pending_example |
 | DuJiao | 待补 | pending_example |
 | DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |

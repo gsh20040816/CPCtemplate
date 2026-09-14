@@ -374,6 +374,20 @@ linear\_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解。a、b、c 支持
 
 \lstinputlisting[firstline=5,lastline=23]{../src/compact/linear_equation.hpp}
 
+\Needspace{513pt}
+
+\subsection*{模板题使用：Luogu P5656}
+
+\label{usage-example-75}
+
+题意：解 ax+by=c，题目 a、b、c 均为正数。无整数解输出 -1；有正整数解则输出数量及 x、y 的最小/最大值，否则输出 x、y 各自的最小正值，它们不一定构成同一组解。正整数不含 0。
+
+所需模板：extended\_gcd、linear\_equation。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5656}
+
+\lstinputlisting{usage/example-75.cpp}
+
 \Needspace{358pt}
 
 \section{费马小定理 \& 欧拉定理}
@@ -2584,6 +2598,20 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 声明 MatrixTree<mod>，调用 count(n, edges, root, kind) 返回所有合法树的边权乘积之和，mod 必须是素数。Edge=(u,v,Z)，点号 0..n-1，n$\ge$1；Kind::undirected 为无向生成树，toward\_root 为每点沿边能到根，away\_from\_root 为根沿边能到每点。后两种使用输入边方向，不能混淆。重边按不同边计数，自环忽略；单点答案 1。支持模意义下的零权和负权，结果 0 不一定表示不存在树。无向图删除哪个根行列均可；有向图 root 决定答案。依赖 det\_prime 的素数模行列式，O(n$^{3}$+m) 时间、O(n$^{2}$) 额外空间。
 
 \lstinputlisting[firstline=4,lastline=37]{../src/compact/matrix_tree.hpp}
+
+\Needspace{345pt}
+
+\subsection*{模板题使用：Luogu P6178}
+
+\label{usage-example-76}
+
+题意：求所有生成树边权乘积之和，模 1000000007。type=0 为无向图，type=1 为以输入点 1 为根的外向树；输入点号减 1 后根为 0。重边分别计数，自环不贡献。
+
+所需模板：ModInt、det\_prime、MatrixTree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6178}
+
+\lstinputlisting{usage/example-76.cpp}
 
 \Needspace{485pt}
 

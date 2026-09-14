@@ -864,5 +864,30 @@
     "requires": [
       "Johnson"
     ]
+  },
+  {
+    "id": "example-75",
+    "symbol": "linear_equation",
+    "problem": "Luogu P5656",
+    "url": "https://www.luogu.com.cn/problem/P5656",
+    "summary": "解 ax+by=c，题目 a、b、c 均为正数。无整数解输出 -1；有正整数解则输出数量及 x、y 的最小/最大值，否则输出 x、y 各自的最小正值，它们不一定构成同一组解。正整数不含 0。",
+    "driver": "verify/luogu/P5656.compact.cpp",
+    "requires": [
+      "extended_gcd",
+      "linear_equation"
+    ]
+  },
+  {
+    "id": "example-76",
+    "symbol": "MatrixTree",
+    "problem": "Luogu P6178",
+    "url": "https://www.luogu.com.cn/problem/P6178",
+    "summary": "求所有生成树边权乘积之和，模 1000000007。type=0 为无向图，type=1 为以输入点 1 为根的外向树；输入点号减 1 后根为 0。重边分别计数，自环不贡献。",
+    "driver": "verify/luogu/P6178.compact.cpp",
+    "requires": [
+      "ModInt",
+      "det_prime",
+      "MatrixTree"
+    ]
   }
 ]
