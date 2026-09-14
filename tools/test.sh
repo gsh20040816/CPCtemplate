@@ -458,3 +458,5 @@ python3 tests/leftist_heap_application.py
 
 "$CXX" "${flags[@]}" tests/diameter_endpoints.cpp -o build/diameter-endpoints
 build/diameter-endpoints
+
+python3 tests/ac_application.py

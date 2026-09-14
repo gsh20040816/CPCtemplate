@@ -809,5 +809,27 @@
     "requires": [
       "gp_map"
     ]
+  },
+  {
+    "id": "example-70",
+    "symbol": "AhoCorasick",
+    "problem": "Luogu P5357",
+    "url": "https://www.luogu.com.cn/problem/P5357",
+    "summary": "给多个小写字母模式和文本，输出每个模式的出现次数，允许重叠。先保存 add 返回的终止状态，全部插入后 build，再 count 文本并按状态取值；重复模式共享状态，仍按输入顺序输出。",
+    "driver": "verify/luogu/P5357.compact.cpp",
+    "requires": [
+      "AhoCorasick"
+    ]
+  },
+  {
+    "id": "example-71",
+    "symbol": "SuffixAutomaton",
+    "problem": "Library Checker number_of_substrings",
+    "url": "https://judge.yosupo.jp/problem/number_of_substrings",
+    "summary": "给小写字母串，求不同非空子串的个数。extend 接收 0..25 的整数，故字符减去 a；所有字符追加后调用 distinct，结果使用 long long。",
+    "driver": "verify/library_checker/number_of_substrings.compact.cpp",
+    "requires": [
+      "SuffixAutomaton"
+    ]
   }
 ]

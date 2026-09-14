@@ -24,9 +24,9 @@
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
 | manacher | [example-23](usage/example-23.cpp) | locally_checked_example |
 | minimum_rotation | 待补 | pending_example |
-| AhoCorasick | 待补 | pending_example |
+| AhoCorasick | [example-70](usage/example-70.cpp) | locally_checked_example |
 | SuffixArray | [example-19](usage/example-19.cpp) | locally_checked_example |
-| SuffixAutomaton | 待补 | pending_example |
+| SuffixAutomaton | [example-71](usage/example-71.cpp) | locally_checked_example |
 | Mod64 | 待补 | pending_example |
 | Prime64 | [example-13](usage/example-13.cpp) | locally_checked_example |
 | extended_gcd | 待补 | pending_example |

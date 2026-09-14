@@ -115,6 +115,10 @@ cases.update({
     'example-68': associative_cases,
     'example-69': associative_cases
 })
+cases.update({
+    'example-70': [('4\na\naa\na\nb\naaa\n', '3 2 3 0'), ('4\nhe\nshe\nhers\nhis\nahishers\n', '1 1 1 1')],
+    'example-71': [('ababa\n', '9'), ('aaaa\n', '4'), ('abcbc\n', '12'), ('z\n', '1')]
+})
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()

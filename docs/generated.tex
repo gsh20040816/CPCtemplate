@@ -52,6 +52,20 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 \lstinputlisting[firstline=127,lastline=199]{../src/compact/string.hpp}
 
+\Needspace{391pt}
+
+\subsection*{模板题使用：Luogu P5357}
+
+\label{usage-example-70}
+
+题意：给多个小写字母模式和文本，输出每个模式的出现次数，允许重叠。先保存 add 返回的终止状态，全部插入后 build，再 count 文本并按状态取值；重复模式共享状态，仍按输入顺序输出。
+
+所需模板：AhoCorasick。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5357}
+
+\lstinputlisting{usage/example-70.cpp}
+
 \newpage
 
 \chapter{后缀数组 (SA)}
@@ -121,6 +135,20 @@ square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long l
 extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts() 返回 endpos 次数且不修改结构，可重复调用。状态 a，初始状态 0，link 根为 -1；空间 O(26n)，构建 O(26n)。
 
 \lstinputlisting[firstline=272,lastline=344]{../src/compact/string.hpp}
+
+\Needspace{277pt}
+
+\subsection*{模板题使用：Library Checker number\_of\_substrings}
+
+\label{usage-example-71}
+
+题意：给小写字母串，求不同非空子串的个数。extend 接收 0..25 的整数，故字符减去 a；所有字符追加后调用 distinct，结果使用 long long。
+
+所需模板：SuffixAutomaton。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/number_of_substrings}
+
+\lstinputlisting{usage/example-71.cpp}
 
 \Needspace{427pt}
 
