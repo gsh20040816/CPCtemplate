@@ -2849,13 +2849,13 @@ BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0$\le$
 
 \lstinputlisting[firstline=235,lastline=278]{../src/compact/flow.hpp}
 
-\Needspace{517pt}
+\Needspace{605pt}
 
-\subsection{有源汇上下界最大流与边流量}\label{compact-BoundedMaxFlow}\index{BoundedMaxFlow}
+\subsection{有源汇上下界最值流与边流量}\label{compact-BoundedMaxFlow}\index{BoundedMaxFlow}
 
-BoundedMaxFlow(n)，点号 1..n；add(u,v,lo,hi) 返回从 0 开始的原边编号，0$\le$lo$\le$hi，所有原边上界总和$\le$LLONG\_MAX。solve(s,t) 仅调用一次，s$\ne$t；返回 optional<long long>，nullopt 表示无可行流。目标为源点流出减流入的净流量，允许负答案，不能把 -1 直接当无解。只在成功后读取 used(id) 的原边方案。先加 t→s 与 s→t 两条辅助边兼容负净流，再求可行循环流；保存净值后清空全部辅助残量边，最后在原图从 s 到 t 增广。最优值与增加量均受原边上界总和控制。允许自环、重边；构建和清理 O(n+m)，主体为两次 Dinic，额外空间 O(n+m)。依赖 BoundedCirculation 与 Dinic，二者内部字段只读，不应在求解后再加边或改流。
+BoundedMaxFlow(n)，点号 1..n；add(u,v,lo,hi) 返回从 0 开始的原边编号，0$\le$lo$\le$hi，所有原边上界总和$\le$LLONG\_MAX。solve(s,t) 求最大净流，minimum(s,t) 求最小净流；同一对象只能任选其一调用一次，s$\ne$t。minimum 交换源汇求最大值后取反，原边方向及 used 不变；返回 optional<long long>，nullopt 表示无可行流。目标为源点流出减流入的净流量，两种查询都允许负答案，不能把 -1 直接当无解；minimum 不额外强制净流量非负。只在成功后读取 used(id) 的原边方案。先加 t→s 与 s→t 两条辅助边兼容负净流，再求可行循环流；保存净值后清空全部辅助残量边，最后在原图从 s 到 t 增广。最优值与增加量均受原边上界总和控制。允许自环、重边；构建和清理 O(n+m)，主体为两次 Dinic，额外空间 O(n+m)。依赖 BoundedCirculation 与 Dinic，二者内部字段只读，不应在求解后再加边或改流。
 
-\lstinputlisting[firstline=5,lastline=41]{../src/compact/bounded_maxflow.hpp}
+\lstinputlisting[firstline=5,lastline=48]{../src/compact/bounded_maxflow.hpp}
 
 \Needspace{539pt}
 
@@ -2870,6 +2870,20 @@ BoundedMaxFlow(n)，点号 1..n；add(u,v,lo,hi) 返回从 0 开始的原边编�
 题目：\url{https://www.luogu.com.cn/problem/P5192}
 
 \lstinputlisting{usage/example-93.cpp}
+
+\Needspace{426pt}
+
+\subsection*{应用题补充：有源汇上下界最小净流（本地接口示例）}
+
+\label{usage-example-99}
+
+题意：输入带上下界的有向网络，求源点流出减流入的最小净流量，并输出每条原边流量。无解输出 NO；有解输出 YES、最小值及方案。净值可以为负，因此不能用 -1 作为无解哨兵；本地接口未附加“净流非负”约束。
+
+所需模板：Dinic、BoundedCirculation、BoundedMaxFlow。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://github.com/gsh20040816/CPCtemplate/issues/11}
+
+\lstinputlisting{usage/example-99.cpp}
 
 \Needspace{436pt}
 

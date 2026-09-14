@@ -150,6 +150,7 @@ cases['example-95'] = [('2 2 3\n1 1\n1 2\n2 2\n', '2 1 1 0 0 1 1'), ('1 1 2\n1 1
 cases['example-96'] = [('4 3\n1 2\n2 3\n3 4\n', {'odd_partition': (4, [(0,1),(1,2),(2,3)])}), ('4 3\n1 2\n1 3\n1 4\n', {'odd_partition': (4, [(0,1),(0,2),(0,3)])}), ('3 3\n1 2\n2 3\n3 1\n', {'odd_partition': (3, [(0,1),(1,2),(2,0)])}), ('0 0\n', {'odd_partition': (0, [])})]
 cases['example-97'] = [('4 4 1 4 4\n1 2 1\n2 3 1\n2 3 1\n3 4 1\n1 2 3 4\n', '1 Y??Y'), ('3 3 1 3 2\n1 2 1\n2 3 0\n2 2 1\n1 3\n', '0 N?'), ('2 1 1 2 0\n1 2 2\n', {'exact_text': '2\n\n'})]
 cases['example-98'] = [('4 4 1 4\n1 4 2 3\n2 3 2 -4\n3 2 1 1\n2 2 2 -3\n', '2 -3'), ('3 1 1 3\n2 2 5 -2\n', '0 -10'), ('2 2 1 2\n1 2 2 -3\n1 2 1 4\n', '3 -2')]
+cases['example-99'] = [('2 1 1 2\n1 2 2 5\n', 'YES 2 2'), ('2 1 1 2\n2 1 0 3\n', 'YES -3 3'), ('3 1 1 3\n1 2 1 1\n', 'NO')]
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()

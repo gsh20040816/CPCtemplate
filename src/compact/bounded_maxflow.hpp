@@ -33,6 +33,13 @@ struct BoundedMaxFlow
         return (ll)ans;
     }
 
+    optional<ll> minimum(int s, int t)
+    {
+        auto ans = solve(t, s);
+        if (ans) *ans = -*ans;
+        return ans;
+    }
+
     ll used(int id) const
     {
         assert(0 <= id && id < m);

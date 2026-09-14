@@ -5,17 +5,18 @@
     "sanitizer"
   ],
   "sha256": {
-    "src/compact/bounded_maxflow.hpp": "1444ff0d65d08fda9b3c9fe651aa4f660484cd18de7aac23b5a3841a9fbd70e4",
+    "src/compact/bounded_maxflow.hpp": "060646d739b8a7a76f70d883f0878cd1cccc0849c962f326d5d43d0a013a4e7b",
     "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
-    "tests/bounded_maxflow.cpp": "adf6ac49dd82943bd86a40afd6728bbcdb0c81c91c0d93d59358dbc4f66dcc25",
+    "tests/bounded_maxflow.cpp": "2403c859796aacf3efa3cf4e2d9c414c6738a804a3c1e1b2f4a10b91c1ea760c",
     "tests/bounded_maxflow_application.py": "a0e69b098d814189875b3ed907465595eb4638cf715b6dba3910307362d6014d",
-    "verify/luogu/P5192.compact.cpp": "71db53b4f7883fab771e124280382b484fac97a5d4b8080ecc00aad585ecca01"
+    "verify/luogu/P5192.compact.cpp": "71db53b4f7883fab771e124280382b484fac97a5d4b8080ecc00aad585ecca01",
+    "verify/examples/bounded_minflow.compact.cpp": "b9a941c70a3ea6b90af11a15e0948377528cc97fba8a1a8146003055cdea660a"
   },
   "log": [
-    "BoundedMaxFlow: 6000 independent edge-flow enumerations, signed net flow, infeasibility, loops/parallel edges, solution certificates and LLONG_MAX boundaries PASS",
-    "BoundedMaxFlow: 6000 independent edge-flow enumerations, signed net flow, infeasibility, loops/parallel edges, solution certificates and LLONG_MAX boundaries PASS",
+    "BoundedMaxFlow: 6000 independent edge-flow enumerations, minimum/maximum signed net flow, infeasibility, loops/parallel edges, solution certificates and LLONG_MAX boundaries PASS",
+    "BoundedMaxFlow: 6000 independent edge-flow enumerations, minimum/maximum signed net flow, infeasibility, loops/parallel edges, solution certificates and LLONG_MAX boundaries PASS",
     "P5192: 200 exhaustive photo-assignment oracles in EOF batches, duplicate targets, empty graph, required blank lines; 365 days / 1000 targets / 109500 edges scale PASS",
     "P5192: 200 exhaustive photo-assignment oracles in EOF batches, duplicate targets, empty graph, required blank lines; 365 days / 1000 targets / 109500 edges scale PASS"
   ],
-  "argument": "Auxiliary edges in both directions allow signed initial net flow. After obtaining a feasible circulation, delete all artificial residual pairs and augment s to t. Every residual augmentation preserves original internal-node conservation. The original upper-capacity sum bounds the source-cut range, so the additional value fits signed64; lower demands also fit because their sum is no larger. Auxiliary edges have zero lower bound and do not change that demand bound."
+  "argument": "Auxiliary edges in both directions allow signed initial net flow. After obtaining a feasible circulation, delete all artificial residual pairs and augment s to t. Every residual augmentation preserves original internal-node conservation. The original upper-capacity sum bounds the source-cut range, so the additional value fits signed64; lower demands also fit because their sum is no larger. Auxiliary edges have zero lower bound and do not change that demand bound. minimum(s,t) maximizes net flow at t and negates it, preserving the feasible domain and original edge directions. The result is signed, not constrained to be nonnegative. Total upper capacity <= LLONG_MAX excludes LLONG_MIN, so negation is safe."
 }

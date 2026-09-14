@@ -3817,10 +3817,16 @@
     },
     {
       "symbol": "BoundedMaxFlow",
-      "title": "有源汇上下界最大流与边流量",
+      "title": "有源汇上下界最值流与边流量",
       "source": "src/compact/bounded_maxflow.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
+        {
+          "driver": "verify/examples/bounded_minflow.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
         {
           "driver": "verify/luogu/P5192.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P5192",

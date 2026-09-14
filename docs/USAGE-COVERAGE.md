@@ -173,7 +173,7 @@
 | SegmentLiChao | [example-87](usage/example-87.cpp), [example-88（应用补充）](usage/example-88.cpp) | locally_checked_example |
 | GeneralSAM | [example-90](usage/example-90.cpp) | locally_checked_example |
 | ac_shortest | [example-92（应用补充）](usage/example-92.cpp) | generated_unverified |
-| BoundedMaxFlow | [example-93（应用补充）](usage/example-93.cpp) | generated_unverified |
+| BoundedMaxFlow | [example-93（应用补充）](usage/example-93.cpp), [example-99（应用补充）](usage/example-99.cpp) | generated_unverified |
 | matching_edges | [example-95（应用补充）](usage/example-95.cpp) | generated_unverified |
 | mincut_edges | [example-94（应用补充）](usage/example-94.cpp) | generated_unverified |
 | odd_induced_partition | [example-96（应用补充）](usage/example-96.cpp) | generated_unverified |

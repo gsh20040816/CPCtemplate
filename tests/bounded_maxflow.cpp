@@ -5,7 +5,7 @@ using namespace std;
 
 void check(int n, int s, int t, const vector<array<int, 4>> &edges)
 {
-    optional<long long> best;
+    optional<long long> best, least;
     vector<long long> balance(n + 1);
     auto dfs = [&](auto &&self, int i) -> void
     {
@@ -14,6 +14,7 @@ void check(int n, int s, int t, const vector<array<int, 4>> &edges)
             for (int u = 1; u <= n; u++)
                 if (u != s && u != t && balance[u]) return;
             if (!best || balance[s] > *best) best = balance[s];
+            if (!least || balance[s] < *least) least = balance[s];
             return;
         }
         auto [u, v, lo, hi] = edges[i];
@@ -30,6 +31,24 @@ void check(int n, int s, int t, const vector<array<int, 4>> &edges)
     BoundedMaxFlow f(n);
     for (auto [u, v, lo, hi] : edges) f.add(u, v, lo, hi);
     assert(f.solve(s, t) == best);
+    BoundedMaxFlow lower(n);
+    for (auto [u, v, lo, hi] : edges) lower.add(u, v, lo, hi);
+    assert(lower.minimum(s, t) == least);
+    if (least)
+    {
+        vector<long long> net(n + 1);
+        for (int i = 0; i < (int)edges.size(); i++)
+        {
+            auto [u, v, lo, hi] = edges[i];
+            auto x = lower.used(i);
+            assert(lo <= x && x <= hi);
+            net[u] += x;
+            net[v] -= x;
+        }
+        assert(net[s] == *least && net[t] == -*least);
+        for (int u = 1; u <= n; u++)
+            if (u != s && u != t) assert(!net[u]);
+    }
     if (!best) return;
     fill(balance.begin(), balance.end(), 0);
     for (int i = 0; i < (int)edges.size(); i++)
@@ -68,10 +87,15 @@ int main()
         assert(f.solve(1, 2) == (reverse ? -LLONG_MAX : LLONG_MAX));
         assert(f.used(0) == LLONG_MAX);
     }
+    BoundedMaxFlow minimum(2);
+    minimum.add(2, 1, 0, LLONG_MAX);
+    assert(minimum.minimum(1, 2) == -LLONG_MAX);
+    assert(minimum.used(0) == LLONG_MAX);
     BoundedMaxFlow wide(2);
     wide.add(1, 2, 0, LLONG_MAX);
     assert(wide.solve(1, 2) == LLONG_MAX && wide.used(0) == LLONG_MAX);
-    cout << "BoundedMaxFlow: 6000 independent edge-flow enumerations, signed net flow, "
+    cout << "BoundedMaxFlow: 6000 independent edge-flow enumerations, minimum/maximum "
+            "signed net flow, "
             "infeasibility, loops/parallel edges, solution certificates and LLONG_MAX "
             "boundaries PASS\n";
 }

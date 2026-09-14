@@ -1173,5 +1173,19 @@
       "MinCostFlow",
       "NegativeCostFlow"
     ]
+  },
+  {
+    "id": "example-99",
+    "symbol": "BoundedMaxFlow",
+    "problem": "有源汇上下界最小净流（本地接口示例）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/issues/11",
+    "summary": "输入带上下界的有向网络，求源点流出减流入的最小净流量，并输出每条原边流量。无解输出 NO；有解输出 YES、最小值及方案。净值可以为负，因此不能用 -1 作为无解哨兵；本地接口未附加“净流非负”约束。",
+    "driver": "verify/examples/bounded_minflow.compact.cpp",
+    "requires": [
+      "Dinic",
+      "BoundedCirculation",
+      "BoundedMaxFlow"
+    ],
+    "kind": "application"
   }
 ]
