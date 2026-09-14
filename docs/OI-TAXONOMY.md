@@ -147,10 +147,16 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | CirclePolygon | 计算几何 → 二维计算几何基础 | application | 二维圆构造与面积应用，保留退化和精度条件。 |
 | CircleTangents | 计算几何 → 二维计算几何基础 | application | 二维圆构造与面积应用，保留退化和精度条件。 |
 | IntegerPlane | 计算几何 → 二维计算几何基础 | direct |  |
-| RealGeometry | 计算几何 → 二维计算几何基础 | composite | 点线圆构造按二维基础各节拆分，保持统一数值契约。 |
+| RealPlane | 计算几何 → 二维计算几何基础 | direct |  |
+| circle_intersections | 计算几何 → 二维计算几何基础 | direct |  |
+| circle_overlap_area | 计算几何 → 二维计算几何基础 | direct |  |
+| line_circle_intersections | 计算几何 → 二维计算几何基础 | direct |  |
+| line_intersection_real | 计算几何 → 二维计算几何基础 | direct |  |
+| line_projection | 计算几何 → 二维计算几何基础 | direct |  |
 | polygon_area2 | 计算几何 → 二维计算几何基础 | direct |  |
 | polygon_contains | 计算几何 → 二维计算几何基础 | direct |  |
 | IntegerGeometry3D | 计算几何 → 三维计算几何基础 | direct |  |
+| segment_distance_real | 计算几何 → 距离 | direct |  |
 | SupportHull | 计算几何 → 凸包 | application | 支撑点查询恢复下凸包。 |
 | convex_contains_i64 | 计算几何 → 凸包 | direct |  |
 | integer_hull | 计算几何 → 凸包 | direct |  |

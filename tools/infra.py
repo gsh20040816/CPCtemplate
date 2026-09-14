@@ -6,7 +6,7 @@ from taxonomy_layout import escape
 root=Path(__file__).resolve().parents[1]
 volumes=json.loads((root/'docs/volumes.json').read_text())
 owner={s:v for v in volumes for s in v['entries']}
-links=[('PBDS 配对堆：修改、合并与句柄','pheap'),('PBDS 有序树：排名与第 k 小','ost'),('GNU rope：序列与版本共享','rp'),('gp/cc 哈希表：整数键映射','gp_map'),('优先队列的最短路应用','Dijkstra'),('vector 与下标：树状数组','Fenwick'),('扩容与下标：可持久化数组','PersistentArray'),('比较次序：后缀数组','SuffixArray'),('数值精度约定：浮点几何','RealGeometry'),('移动大数组：NTT 卷积','NttConvolution')]
+links=[('PBDS 配对堆：修改、合并与句柄','pheap'),('PBDS 有序树：排名与第 k 小','ost'),('GNU rope：序列与版本共享','rp'),('gp/cc 哈希表：整数键映射','gp_map'),('优先队列的最短路应用','Dijkstra'),('vector 与下标：树状数组','Fenwick'),('扩容与下标：可持久化数组','PersistentArray'),('比较次序：后缀数组','SuffixArray'),('数值精度约定：浮点几何','RealPlane'),('移动大数组：NTT 卷积','NttConvolution')]
 intro=[r'\input{preamble.tex}']
 for v in volumes:
  intro.append(r'\externaldocument[ext-'+v['id']+'-]{../build/pdf/volume-'+v['id']+'}[xcpc-'+v['id']+'.pdf]')

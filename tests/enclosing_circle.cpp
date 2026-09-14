@@ -2,7 +2,7 @@
 #include "../src/compact/enclosing_circle.hpp"
 #include <boost/multiprecision/cpp_dec_float.hpp>
 using B = boost::multiprecision::cpp_dec_float_100;
-using G = RealGeometry;
+using G = RealPlane;
 using P = G::Point;
 using R = G::R;
 struct Ref { B x,y,r2; };

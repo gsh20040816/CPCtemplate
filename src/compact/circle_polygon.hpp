@@ -1,9 +1,9 @@
 #pragma once
-#include "real_geometry.hpp"
+#include "real_plane.hpp"
 
 struct CirclePolygon
 {
-    using G = RealGeometry;
+    using G = RealPlane;
     using R = G::R;
     using Point = G::Point;
     using Circle = G::Circle;

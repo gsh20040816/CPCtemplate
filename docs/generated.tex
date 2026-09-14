@@ -1561,9 +1561,59 @@ count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小
 
 \part{计算几何}
 
-\Needspace{180pt}
+\Needspace{603pt}
 
 \chapter{二维计算几何基础}
+
+\section{浮点点向量、圆与交点结果}\label{compact-RealPlane}\index{RealPlane}
+
+R 为 long double；Point 支持向量加减、数乘和数除（除数非零）。dot/cross/norm/perp 为基本运算，norm 使用 hypotl；Circle 保存圆心和非负半径。Kind 为 none、one、two、infinite、degenerate；Result 同时保存类别与有限交点。输入须有限，尺度须使后续平方、乘积不溢出或下溢；排序不使用 epsilon。具体容差与退化约定见各函数。
+
+\lstinputlisting[firstline=6,lastline=27]{../src/compact/real_plane.hpp}
+
+\Needspace{310pt}
+
+\lstinputlisting[firstline=28,lastline=50,firstnumber=23]{../src/compact/real_plane.hpp}
+
+\Needspace{217pt}
+
+\section{点在直线上的投影}\label{compact-line_projection}\index{line\_projection}
+
+line\_projection(p,a,b) 返回 p 在过 a、b 直线上的正交投影；若 a=b，则约定返回 a。类型为 RealPlane::Point。输入有限且尺度适当，平方和与点积须能可靠表示；不使用 epsilon 把短线段自动视为零。O(1) 时间和空间。
+
+\lstinputlisting[firstline=5,lastline=16]{../src/compact/line_projection.hpp}
+
+\Needspace{460pt}
+
+\section{浮点两直线交点}\label{compact-line_intersection_real}\index{line\_intersection\_real}
+
+line\_intersection\_real(a,b,c,d,eps=1e-12L) 返回 RealPlane::Result；eps 必须为正。端点重合使任一直线退化时返回 degenerate。按方向叉积与方向长度乘积的相对阈值判断平行，再按位置阈值区分 none 与 infinite；唯一交点返回 one。输入有限且尺度适当；近似分类不等同于精确共线判定。O(1)。
+
+\lstinputlisting[firstline=5,lastline=27]{../src/compact/line_intersection_real.hpp}
+
+\Needspace{460pt}
+
+\section{浮点直线与圆交点}\label{compact-line_circle_intersections}\index{line\_circle\_intersections}
+
+line\_circle\_intersections(a,b,c,eps=1e-12L) 返回 Result；c 为 RealPlane::Circle，半径非负，eps 为正。a=b 返回 degenerate；按投影点到圆心的距离和半径的相对阈值区分 none、one、two。点圆允许；只有正半径同心圆才涉及无限交点，本函数不会返回 infinite。依赖 line\_projection，O(1)。输入有限且尺度适当，接近相切时按容差归类。
+
+\lstinputlisting[firstline=5,lastline=27]{../src/compact/line_circle_intersections.hpp}
+
+\Needspace{481pt}
+
+\section{浮点两圆交点}\label{compact-circle_intersections}\index{circle\_intersections}
+
+circle\_intersections(a,b,eps=1e-12L) 返回 Result；半径非负，eps 为正。两个完全相同的正半径圆返回 infinite；同位置两个点圆返回 one；同心不同半径返回 none。其余用距离和半径的相对阈值分类，点圆单独处理，接近相切可返回 one。输入有限且尺度适当，O(1) 时间空间；返回的有限交点仍受浮点构造误差影响。
+
+\lstinputlisting[firstline=5,lastline=41]{../src/compact/circle_intersections.hpp}
+
+\Needspace{335pt}
+
+\section{两圆交面积}\label{compact-circle_overlap_area}\index{circle\_overlap\_area}
+
+circle\_overlap\_area(a,b) 返回 long double 面积，半径非负。分离或外切返回 0；内含时返回小圆面积，含点圆和同心圆。部分相交计算两个圆弓形面积，小角度使用展开式减轻相消；acos 入参截断至 [-1,1]。不使用交点分类容差；要求有限且尺度适当的输入。O(1) 时间空间，不把浮点输出视为精确面积。
+
+\lstinputlisting[firstline=5,lastline=27]{../src/compact/circle_overlap_area.hpp}
 
 \section{整数点向量与线段判定}\label{compact-IntegerPlane}\index{IntegerPlane}
 
@@ -1586,12 +1636,6 @@ polygon\_area2(p) 返回 \_\_int128\_t 的有向面积两倍；逆时针为正�
 polygon\_contains(p,q) 返回 0 外部、1 边界、2 内部，输入简单多边形，可顺时针或逆时针，不重复首点。空多边形返回 0；单点与线段按闭集判断边界。绕数算法先判线段，再按半开纵坐标区间累计，避免顶点重复计数。坐标范围同 IntegerPlane，O(n) 时间、O(1) 空间。
 
 \lstinputlisting[firstline=5,lastline=21]{../src/compact/polygon_contains.hpp}
-
-\section{浮点点线圆构造}\label{compact-RealGeometry}\index{RealGeometry}
-
-long double，显式 eps 默认 10$^{-12}$。要求有限输入及适当尺度；接近相切时按容差分类，不能提供任意实数输入的精确拓扑保证。Result 区分 none/one/two/infinite/degenerate。圆圆交点仅在圆心和正半径完全相同时返回 infinite；零半径圆按点处理，不把近同心圆当作重合。圆相关交点容差按局部距离和半径缩放，不使用固定的单位长度下限。零长度线返回 degenerate；投影与点到线段距离将零线段视为点。overlap 返回交叠面积，小圆弓用级数避免三角函数相减消失。坐标缩放和误差预算仍须按题面复核。
-
-\lstinputlisting[firstline=6,lastline=152]{../src/compact/real_geometry.hpp}
 
 \Needspace{426pt}
 
@@ -1632,6 +1676,16 @@ solve(a,b,eps) 返回 Result，包含 infinite 和 lines；infinite 为真表示
 坐标绝对值$\le$10$^{9}$；orient(a,b,c,d) 为有向六倍四面体体积，0 表示共面；collinear 判三点共线，on\_segment 支持退化线段。int128 精确判定，不包含三维凸包构造。
 
 \lstinputlisting[firstline=20,lastline=62]{../src/compact/geometry_extra.hpp}
+
+\Needspace{259pt}
+
+\chapter{距离}
+
+\section{点到闭线段的距离}\label{compact-segment_distance_real}\index{segment\_distance\_real}
+
+segment\_distance\_real(p,a,b) 返回点 p 到闭线段 ab 的 long double 距离。a=b 时返回到端点的距离；否则把投影参数截断至 [0,1]。要求有限且尺度适当的输入；O(1) 时间和空间。
+
+\lstinputlisting[firstline=5,lastline=17]{../src/compact/segment_distance_real.hpp}
 
 \Needspace{401pt}
 

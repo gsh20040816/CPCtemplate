@@ -5,7 +5,7 @@
 using B = boost::multiprecision::cpp_dec_float_100;
 using I = boost::multiprecision::cpp_int;
 using T = CircleTangents;
-using G = RealGeometry;
+using G = RealPlane;
 using R = G::R;
 using C = G::Circle;
 

@@ -2,7 +2,7 @@
 #include "../src/compact/circle_polygon.hpp"
 #include <boost/multiprecision/cpp_dec_float.hpp>
 using B = boost::multiprecision::cpp_dec_float_100;
-using G = RealGeometry;
+using G = RealPlane;
 using R = G::R;
 using P = G::Point;
 using C = G::Circle;

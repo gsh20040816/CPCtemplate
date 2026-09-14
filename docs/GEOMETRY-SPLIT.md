@@ -14,3 +14,5 @@ geometry_extra.hpp 的旧静态接口只转发，三维整数几何暂仍在原�
 整数与浮点类型现分别位于 integer_geometry.hpp / real_geometry.hpp；geometry.hpp 保留为兼容聚合入口。精确最近点对/Minkowski 只包含整数依赖，圆多边形、切线、最小覆盖圆只包含浮点依赖。类型定义不变，当前知识点复合条目数量仍为 3，不能把物理文件拆开算作细分类完成。
 
 后续整数知识点拆分见 INTEGER-COMPONENTS.md：IntegerGeometry 已退出打印正文，现为六个独立条目；剩余复合条目为 RealGeometry 与 Biconnected。
+
+浮点知识点拆分见 REAL-COMPONENTS.md：基础类型和六个函数分别收录，RealGeometry 保留为兼容入口；知识点复合条目仅剩 Biconnected。

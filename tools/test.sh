@@ -441,3 +441,6 @@ python3 tests/lc_pheap_application.py
 
 "$CXX" "${flags[@]}" tests/integer_components.cpp -o build/integer-components
 build/integer-components
+
+"$CXX" "${flags[@]}" tests/real_components.cpp -o build/real-components
+build/real-components
