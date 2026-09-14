@@ -27,6 +27,8 @@
 
 ## 验证
 
+按队内要求停用 GitHub 自动 CI；验证脚本保留供本地按需运行。
+
 ```sh
 tools/test.sh
 SANITIZE=1 tools/test.sh
