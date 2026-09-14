@@ -4,7 +4,7 @@
 using namespace std;
 
 // BEGIN determinant_mod
-inline long long determinant_mod(vector<vector<long long>> a, long long mod)
+long long determinant_mod(vector<vector<long long>> a, long long mod)
 {
     assert(mod >= 1);
     int n = a.size();

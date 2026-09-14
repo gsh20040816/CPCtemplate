@@ -2,8 +2,7 @@
 #include "number_theory.hpp"
 
 // BEGIN root_factors
-inline vector<tuple<long long, int, long long>> root_factors(long long mod,
-                                                             PollardRho &rho)
+vector<tuple<long long, int, long long>> root_factors(long long mod, PollardRho &rho)
 {
     assert(mod >= 1 && mod <= 1000000000000LL);
     auto primes = rho.factor(mod);

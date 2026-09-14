@@ -3,7 +3,7 @@
 #include "extended_gcd.hpp"
 
 // BEGIN crt_merge
-inline bool crt_merge(long long &r, long long &m, long long b, long long n)
+bool crt_merge(long long &r, long long &m, long long b, long long n)
 {
     using ll = long long;
     using i128 = __int128_t;

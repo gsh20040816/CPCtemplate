@@ -3,8 +3,8 @@
 
 // BEGIN garner
 // Pairwise coprime positive moduli. Digits use the input order.
-inline vector<long long> garner_digits(const vector<long long> &b,
-                                       const vector<long long> &moduli)
+vector<long long> garner_digits(const vector<long long> &b,
+                                const vector<long long> &moduli)
 {
     using ll = long long;
     using i128 = __int128_t;
@@ -30,7 +30,7 @@ inline vector<long long> garner_digits(const vector<long long> &b,
 }
 
 // Return the least nonnegative CRT solution modulo target, not all solutions.
-inline long long
+long long
 garner(const vector<long long> &b, const vector<long long> &moduli, long long target)
 {
     assert(target > 0);

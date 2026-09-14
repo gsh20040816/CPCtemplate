@@ -2,7 +2,7 @@
 #include "number_theory.hpp"
 
 // BEGIN euler_phi
-inline unsigned long long euler_phi(unsigned long long n)
+unsigned long long euler_phi(unsigned long long n)
 {
     assert(n >= 1);
     unsigned long long answer = n;
@@ -16,7 +16,7 @@ inline unsigned long long euler_phi(unsigned long long n)
     return answer;
 }
 
-inline unsigned long long euler_phi(unsigned long long n, PollardRho &solver)
+unsigned long long euler_phi(unsigned long long n, PollardRho &solver)
 {
     assert(n >= 1);
     auto factors = solver.factor(n);

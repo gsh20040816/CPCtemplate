@@ -4,7 +4,7 @@
 using namespace std;
 
 // BEGIN inverse_table
-inline vector<int> inverse_table(int n, int p)
+vector<int> inverse_table(int n, int p)
 {
     assert(p >= 2 && 0 <= n && n < p);
     vector<int> inverse(n + 1);

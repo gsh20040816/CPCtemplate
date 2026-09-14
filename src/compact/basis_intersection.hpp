@@ -2,7 +2,7 @@
 #include "data_structure.hpp"
 
 // BEGIN basis_intersection
-inline XorBasis basis_intersection(const XorBasis &a, const XorBasis &b)
+XorBasis basis_intersection(const XorBasis &a, const XorBasis &b)
 {
     using U = unsigned long long;
     U pivot[64], from_b[64]{};
@@ -32,8 +32,7 @@ inline XorBasis basis_intersection(const XorBasis &a, const XorBasis &b)
 
 // BEGIN basis_sum_intersection
 // Return independent generators of (sum space, intersection space).
-inline pair<XorBasis, XorBasis> basis_sum_intersection(const XorBasis &a,
-                                                       const XorBasis &b)
+pair<XorBasis, XorBasis> basis_sum_intersection(const XorBasis &a, const XorBasis &b)
 {
     using W = __uint128_t;
     W pivot[128]{};

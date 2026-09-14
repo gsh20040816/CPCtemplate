@@ -3,7 +3,7 @@
 
 // BEGIN bridge_augmentation
 // Connected, nonempty graph after run(); new parallel edges are allowed.
-inline vector<pair<int, int>> bridge_augmentation(const Biconnected &graph)
+vector<pair<int, int>> bridge_augmentation(const Biconnected &graph)
 {
     assert(graph.n > 0 && graph.cnt > 0);
     int bridges = count(graph.bridge.begin(), graph.bridge.end(), 1);

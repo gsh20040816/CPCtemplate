@@ -7,7 +7,7 @@
 using namespace std;
 
 // BEGIN mod_sqrt
-inline vector<long long> mod_sqrt(long long n, int p)
+vector<long long> mod_sqrt(long long n, int p)
 {
     using ll = long long;
     assert(p >= 2);

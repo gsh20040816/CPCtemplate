@@ -4,7 +4,7 @@
 using namespace std;
 
 // BEGIN carmichael
-inline int carmichael(int n)
+int carmichael(int n)
 {
     assert(n >= 1);
     long long answer = 1;

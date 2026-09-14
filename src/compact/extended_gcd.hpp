@@ -4,7 +4,7 @@
 using namespace std;
 
 // BEGIN extended_gcd
-inline __int128_t extended_gcd(__int128_t a, __int128_t b, __int128_t &x, __int128_t &y)
+__int128_t extended_gcd(__int128_t a, __int128_t b, __int128_t &x, __int128_t &y)
 {
     using i128 = __int128_t;
     if (!b)

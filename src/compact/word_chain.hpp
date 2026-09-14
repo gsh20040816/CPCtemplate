@@ -6,7 +6,7 @@
 
 // BEGIN word_chain
 // Lowercase nonempty words. Returns original 0-based IDs; duplicates stay distinct.
-inline optional<vector<int>> word_chain(const vector<string> &words)
+optional<vector<int>> word_chain(const vector<string> &words)
 {
     int n = words.size();
     vector<int> order(n);

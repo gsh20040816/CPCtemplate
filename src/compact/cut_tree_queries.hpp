@@ -7,7 +7,7 @@
 using namespace std;
 
 // BEGIN cut_tree_values
-inline vector<vector<long long>>
+vector<vector<long long>>
 cut_tree_values(int n, const vector<tuple<int, int, long long>> &tree)
 {
     assert(n >= 1 && tree.size() == (size_t)n - 1);

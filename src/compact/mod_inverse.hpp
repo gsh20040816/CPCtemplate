@@ -3,7 +3,7 @@
 #include "extended_gcd.hpp"
 
 // BEGIN mod_inverse
-inline long long mod_inverse(long long a, long long m)
+long long mod_inverse(long long a, long long m)
 {
     using i128 = __int128_t;
     assert(m > 0);

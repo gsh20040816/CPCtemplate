@@ -4,7 +4,7 @@
 using namespace std;
 
 // BEGIN floor_sum
-inline __int128_t floor_sum(long long n, long long m, long long a, long long b)
+__int128_t floor_sum(long long n, long long m, long long a, long long b)
 {
     using ll = long long;
     using i128 = __int128_t;

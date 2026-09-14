@@ -2,8 +2,8 @@
 #include "extended_gcd.hpp"
 
 // BEGIN linear_equation
-inline bool
-linear_equation(long long a, long long b, long long c, __int128_t &x, __int128_t &y)
+bool linear_equation(
+    long long a, long long b, long long c, __int128_t &x, __int128_t &y)
 {
     using i128 = __int128_t;
     x = 0;

@@ -3,7 +3,7 @@
 
 // BEGIN odd_cycle_vertices
 // After run(). Simple odd cycles have length >= 3; self-loops are ignored.
-inline vector<int> odd_cycle_vertices(const Biconnected &graph)
+vector<int> odd_cycle_vertices(const Biconnected &graph)
 {
     int n = graph.n;
     auto forest = graph.block_forest();

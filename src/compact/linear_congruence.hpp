@@ -2,8 +2,7 @@
 #include "extended_gcd.hpp"
 
 // BEGIN linear_congruence
-inline pair<long long, long long>
-linear_congruence(long long a, long long b, long long m)
+pair<long long, long long> linear_congruence(long long a, long long b, long long m)
 {
     assert(m > 0);
     using i128 = __int128_t;

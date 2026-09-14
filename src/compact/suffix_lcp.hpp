@@ -52,7 +52,7 @@ struct SuffixLCP
 
 // BEGIN prefix_lcs
 // reversed must be built on the reversed original sequence.
-inline int prefix_lcs(const SuffixLCP &reversed, int x, int y)
+int prefix_lcs(const SuffixLCP &reversed, int x, int y)
 {
     assert(0 <= x && x <= reversed.n && 0 <= y && y <= reversed.n);
     return reversed.query(reversed.n - x, reversed.n - y);
@@ -62,8 +62,8 @@ inline int prefix_lcs(const SuffixLCP &reversed, int x, int y)
 
 // BEGIN square_counts
 // Count nonempty squares AA by their starting and ending positions.
-inline pair<vector<long long>, vector<long long>>
-square_counts(const SuffixLCP &forward, const SuffixLCP &reversed)
+pair<vector<long long>, vector<long long>> square_counts(const SuffixLCP &forward,
+                                                         const SuffixLCP &reversed)
 {
     int n = forward.n;
     assert(reversed.n == n);

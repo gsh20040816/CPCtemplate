@@ -8,7 +8,7 @@
 // BEGIN mixed_euler_orientation
 // Edge = {u,v,type}: type 1 is fixed u->v; type 0 may be reversed.
 // start=finish=0 requests a circuit; positive endpoints request a specified trail.
-inline optional<vector<pair<int, int>>> mixed_euler_orientation(
+optional<vector<pair<int, int>>> mixed_euler_orientation(
     int n, const vector<array<int, 3>> &edges, int start = 0, int finish = 0)
 {
     assert(n > 0 && 0 <= start && start <= n && 0 <= finish && finish <= n);
@@ -72,8 +72,8 @@ inline optional<vector<pair<int, int>>> mixed_euler_orientation(
 // BEGIN mixed_euler_trail
 // Any endpoints: zero odd degrees requests a circuit; two odd degrees tries both
 // orders.
-inline optional<vector<pair<int, int>>>
-mixed_euler_trail(int n, const vector<array<int, 3>> &edges)
+optional<vector<pair<int, int>>> mixed_euler_trail(int n,
+                                                   const vector<array<int, 3>> &edges)
 {
     assert(n > 0);
     vector<long long> degree(n + 1);

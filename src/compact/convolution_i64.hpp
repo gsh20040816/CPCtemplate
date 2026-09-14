@@ -13,8 +13,8 @@ vector<int> convolution_residue(const vector<long long> &a, const vector<long lo
     return r;
 }
 
-inline vector<long long> convolution_i64(const vector<long long> &a,
-                                         const vector<long long> &b)
+vector<long long> convolution_i64(const vector<long long> &a,
+                                  const vector<long long> &b)
 {
     if (a.empty() || b.empty()) return {};
     assert(a.size() <= (1 << 24) && b.size() <= (1 << 24));

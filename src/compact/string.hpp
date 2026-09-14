@@ -4,7 +4,7 @@
 using namespace std;
 
 // BEGIN prefix_function
-inline vector<int> prefix_function(const string &s)
+vector<int> prefix_function(const string &s)
 {
     int n = (int)s.size();
     vector<int> p(n);
@@ -20,7 +20,7 @@ inline vector<int> prefix_function(const string &s)
 // END prefix_function
 
 // BEGIN kmp_match
-inline vector<int> kmp_match(const string &s, const string &t)
+vector<int> kmp_match(const string &s, const string &t)
 {
     assert(!t.empty());
     auto p = prefix_function(t);
@@ -41,7 +41,7 @@ inline vector<int> kmp_match(const string &s, const string &t)
 // END kmp_match
 
 // BEGIN z_function
-inline vector<int> z_function(const string &s)
+vector<int> z_function(const string &s)
 {
     int n = (int)s.size();
     vector<int> a(n);
@@ -63,7 +63,7 @@ inline vector<int> z_function(const string &s)
 
 // BEGIN manacher
 // odd[i] includes the center; even[i] is centered before i.
-inline pair<vector<int>, vector<int>> manacher(const string &s)
+pair<vector<int>, vector<int>> manacher(const string &s)
 {
     int n = (int)s.size();
     vector<int> odd(n), even(n);
@@ -95,7 +95,7 @@ inline pair<vector<int>, vector<int>> manacher(const string &s)
 // END manacher
 
 // BEGIN minimum_rotation
-inline int minimum_rotation(const string &s)
+int minimum_rotation(const string &s)
 {
     int n = (int)s.size(), i = 0, j = 1, k = 0;
     if (!n) return 0;

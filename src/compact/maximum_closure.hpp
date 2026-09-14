@@ -2,9 +2,8 @@
 #include "flow.hpp"
 
 // BEGIN maximum_closure
-inline pair<long long, vector<int>>
-maximum_closure(const vector<long long> &weight,
-                const vector<pair<int, int>> &dependencies)
+pair<long long, vector<int>> maximum_closure(const vector<long long> &weight,
+                                             const vector<pair<int, int>> &dependencies)
 {
     using I = __int128_t;
     int n = weight.size(), s = n + 1, t = n + 2;

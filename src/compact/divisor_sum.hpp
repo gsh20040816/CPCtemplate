@@ -2,7 +2,7 @@
 #include "number_theory.hpp"
 
 // BEGIN power_sum
-inline pair<unsigned long long, unsigned long long>
+pair<unsigned long long, unsigned long long>
 power_sum(unsigned long long a, __uint128_t n, unsigned long long mod)
 {
     assert(mod >= 1);
@@ -18,10 +18,10 @@ power_sum(unsigned long long a, __uint128_t n, unsigned long long mod)
 // END power_sum
 
 // BEGIN divisor_sum_power
-inline unsigned long long divisor_sum_power(unsigned long long a,
-                                            unsigned long long b,
-                                            unsigned long long mod,
-                                            PollardRho &solver)
+unsigned long long divisor_sum_power(unsigned long long a,
+                                     unsigned long long b,
+                                     unsigned long long mod,
+                                     PollardRho &solver)
 {
     assert(a >= 1 && mod >= 1);
     if (!b) return 1 % mod;

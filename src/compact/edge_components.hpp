@@ -30,7 +30,7 @@ struct EdgeCompression
 
 // BEGIN orient_edges
 // Tree edges go down; other edges go to ancestors. Handles each logical edge once.
-inline vector<pair<int, int>> orient_edges(const Lowlink &graph)
+vector<pair<int, int>> orient_edges(const Lowlink &graph)
 {
     vector<pair<int, int>> direction(graph.edges);
     vector<int> seen(graph.n + 1);

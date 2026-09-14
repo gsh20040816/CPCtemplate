@@ -2,7 +2,7 @@
 #include "number_theory.hpp"
 
 // BEGIN floor_moments
-inline array<ModInt<998244353>, 3>
+array<ModInt<998244353>, 3>
 floor_moments(long long n, long long m, long long a, long long b)
 {
     using Z = ModInt<998244353>;

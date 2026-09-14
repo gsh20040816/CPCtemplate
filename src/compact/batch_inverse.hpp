@@ -2,7 +2,7 @@
 #include "mod_inverse.hpp"
 
 // BEGIN batch_inverse
-inline optional<vector<long long>> batch_inverse(vector<long long> a, long long mod)
+optional<vector<long long>> batch_inverse(vector<long long> a, long long mod)
 {
     assert(mod > 0);
     int n = a.size();

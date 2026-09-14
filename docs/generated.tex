@@ -294,7 +294,7 @@ inverse\_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p �
 
 \lstinputlisting[firstline=7,lastline=15]{../src/compact/inverse_table.hpp}
 
-\Needspace{321pt}
+\Needspace{311pt}
 
 \section{线性同余方程}
 
@@ -302,7 +302,7 @@ inverse\_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p �
 
 linear\_congruence(a,b,m) 求 a*x+b$\equiv$0 (mod m)，返回 \{最小非负解,最小正周期\}，无解返回 \{-1,-1\}。m 为正 long long，a、b 支持完整 long long。若 g=gcd(a,m) 整除 b，周期为 m/g；包括 a=0 和 m=1，所有整数均满足时返回 \{0,1\}。先归一化 a，并在 int128 中对 b 取相反数和乘法。依赖 extended\_gcd；递归时间、空间 O(log(m+1))。注意本接口的常数项是 +b，若题目写 a*x$\equiv$c，应传 -c；c 为 LLONG\_MIN 时须避免在 64 位中取负。
 
-\lstinputlisting[firstline=5,lastline=20]{../src/compact/linear_congruence.hpp}
+\lstinputlisting[firstline=5,lastline=19]{../src/compact/linear_congruence.hpp}
 
 \Needspace{352pt}
 
@@ -420,13 +420,13 @@ solve(a,k,p,e,g) 求 x\textasciicircum{}k$\equiv$a (mod p\textasciicircum{}e)。
 
 \lstinputlisting[firstline=51,lastline=84,firstnumber=47]{../src/compact/prime_power_roots.hpp}
 
-\Needspace{484pt}
+\Needspace{474pt}
 
 \subsection{合数求根准备：分解模数与素数幂原根}\label{compact-root_factors}\index{root\_factors}
 
 root\_factors(M,rho) 为 1$\le$M$\le$1e12 生成完整的 (p,e,g) 列表，可直接传入 CompositeRoots。rho 是可复用的 PollardRho 对象。按素数递增返回；p=2 时 g=0，其余 g 为模 p\textasciicircum{}e 的最小正原根。先分解 M，再分解各个欧拉函数值，逐个检查原根候选的阶。M=1 返回空列表。分解使用随机重试；原根搜索耗时取决于候选数，不包含 BSGS。
 
-\lstinputlisting[firstline=5,lastline=41]{../src/compact/root_factors.hpp}
+\lstinputlisting[firstline=5,lastline=40]{../src/compact/root_factors.hpp}
 
 \Needspace{470pt}
 
@@ -722,13 +722,13 @@ basis\_intersection(a,b) 返回 span(a) 与 span(b) 的交空间的一组独立�
 
 \lstinputlisting[firstline=5,lastline=30]{../src/compact/basis_intersection.hpp}
 
-\Needspace{470pt}
+\Needspace{460pt}
 
 \subsection{Zassenhaus：同时求和空间与交空间}\label{compact-basis_sum_intersection}\index{basis\_sum\_intersection}
 
 basis\_sum\_intersection(a,b) 返回和空间基、交空间基这一对结果。和空间由两组基共同张成，一般不是两个空间的集合并；两结果都是独立生成元，其 dependent 均为 false。将 a 的向量 x 编成 (x,x)，b 的向量 y 编成 (y,0)，用 \_\_uint128\_t 储存高低各 64 位并按高位到低位消元。高半部非零的行投影构成和空间的基，高半部为零的行取低半部构成交空间的基。必须先提升到 128 位再左移 64；不能用 64 位变量移位 64。时间 O(128$^{2}$)，额外空间 O(128)。结果满足 dim(A+B)+dim(A交B)=dim(A)+dim(B)，但维数恒等式只是检查条件，不能单独证明返回向量正确。包含空空间、相同空间和输入别名。
 
-\lstinputlisting[firstline=34,lastline=66]{../src/compact/basis_intersection.hpp}
+\lstinputlisting[firstline=34,lastline=65]{../src/compact/basis_intersection.hpp}
 
 \subsection{无向图最大异或行走}\label{compact-XorWalk}\index{XorWalk}
 
@@ -1425,7 +1425,7 @@ Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新
 
 \lstinputlisting[firstline=72,lastline=118,firstnumber=67]{../src/compact/flow.hpp}
 
-\Needspace{502pt}
+\Needspace{492pt}
 
 \section{最小割}
 
@@ -1433,7 +1433,7 @@ Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新
 
 maximum\_closure(weight,dependencies) 返回 (最大权值,选中点列表)，weight 为 0-based vector<long long>，图中点号 1..n。依赖边 (u,v) 表示选 u 必须选 v，允许环、自环与重边；允许空选集，因此答案不小于 0。依赖 flow.hpp 中的 Dinic。正权连源、负权连汇，依赖边容量取正权总和加 1；要求所有正权之和严格小于 LLONG\_MAX。负权先提升到 int128 再取负，并截断到依赖边容量，因此 LLONG\_MIN 也可处理。返回残量图源点可达的原顶点，权值为正权总和减最小割；超大负权边不会出现在最优割中，截断不改变原问题最优值。每次调用重建网络。复杂度沿用 Dinic：一般 O(V$^{2}$E)，空间 O(V+E)，增广保持递归。返回一种最优闭合集，不承诺最大或最小选点个数。
 
-\lstinputlisting[firstline=5,lastline=36]{../src/compact/maximum_closure.hpp}
+\lstinputlisting[firstline=5,lastline=35]{../src/compact/maximum_closure.hpp}
 
 \Needspace{490pt}
 

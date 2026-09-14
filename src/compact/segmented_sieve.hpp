@@ -5,7 +5,7 @@
 using namespace std;
 
 // BEGIN segmented_primes
-inline vector<int> segmented_primes(int l, int r)
+vector<int> segmented_primes(int l, int r)
 {
     assert(0 <= l && l <= r);
     int limit = 0;

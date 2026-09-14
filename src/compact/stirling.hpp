@@ -3,7 +3,7 @@
 
 // BEGIN stirling_second_row
 template <int mod = 998244353, int primitive = 3>
-inline vector<ModInt<mod>> stirling_second_row(unsigned long long n, int m)
+vector<ModInt<mod>> stirling_second_row(unsigned long long n, int m)
 {
     using N = NttConvolution<mod, primitive>;
     assert(m >= 0 && m <= (N::max_size - 1) / 2);
@@ -28,7 +28,7 @@ inline vector<ModInt<mod>> stirling_second_row(unsigned long long n, int m)
 
 // BEGIN stirling_first_row
 template <int mod = 998244353, int primitive = 3>
-inline vector<ModInt<mod>> stirling_first_row(int n)
+vector<ModInt<mod>> stirling_first_row(int n)
 {
     using N = NttConvolution<mod, primitive>;
     assert(n >= 0 && n < N::max_size);

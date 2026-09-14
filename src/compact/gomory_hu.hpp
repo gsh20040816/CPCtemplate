@@ -3,7 +3,7 @@
 #include <tuple>
 
 // BEGIN gomory_hu
-inline vector<tuple<int, int, long long>>
+vector<tuple<int, int, long long>>
 gomory_hu(int n, const vector<tuple<int, int, long long>> &edges)
 {
     assert(n >= 1);
