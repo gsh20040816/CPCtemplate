@@ -1,7 +1,3 @@
-// https://judge.yosupo.jp/problem/range_affine_range_sum
-#include "../../src/compact/lazy_segtree.hpp"
-
-// BEGIN USAGE
 using S = pair<long long, int>;
 using F = pair<long long, long long>;
 const int mod = 998244353;

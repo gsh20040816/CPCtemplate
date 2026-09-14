@@ -1,7 +1,3 @@
-// https://judge.yosupo.jp/problem/point_set_range_composite
-#include "../../src/compact/segtree.hpp"
-
-// BEGIN USAGE
 using S = pair<long long, long long>;
 const int mod = 998244353;
 

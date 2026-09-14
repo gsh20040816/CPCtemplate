@@ -28,7 +28,16 @@ def records():
         text = source.read_text()
         m = re.search(r'(?m)^int main\(\)', text)
         assert m, row
-        prefix, snippet = text[:m.start()], text[m.start():]
+        start = m.start()
+        if row.get('configuration_functions'):
+            marker = '// BEGIN USAGE\n'
+            assert text.count(marker) == 1
+            start = text.index(marker) + len(marker)
+            assert start < m.start()
+            config = text[start:m.start()]
+            names = re.findall(r'(?m)^\w+\s+(\w+)\([^;\n]*\)\s*\n\{', config)
+            assert names == row['configuration_functions'], 'Configuration callback list changed'
+        prefix, snippet = text[:start], text[start:]
         assert all(not line.strip() or line.startswith('#include') or line.startswith('using namespace') or line.lstrip().startswith('//')
                    for line in prefix.splitlines()), 'Usage depends on non-include prefix: ' + row['id']
         assert '#include' not in snippet
@@ -65,7 +74,7 @@ def generate():
                              status='locally_checked_example' if verified else 'generated_unverified' if matches else 'pending_example'))
     (ROOT / 'docs/usage-coverage.json').write_text(json.dumps(coverage, ensure_ascii=False, indent=2) + '\n')
     text = ['# 模板题使用示例覆盖', '',
-            '每个条目需要最简题意、所需模板和使用代码；代码仅含 main 调用部分，不重复算法。',
+            '每个条目需要最简题意、所需模板和使用代码；代码只含必要配置与 main 调用部分，不重复算法。',
             '示例与现有完整驱动共用源文件；模板依赖展开后的源码哈希改变时，原执行记录不再视为当前验证。示例执行通过不等于在线 AC。', '',
             '| 模板 | 示例 | 状态 |', '|---|---|---|']
     kind_by_id = {r['id']: r.get('kind', 'template') for r in rows}

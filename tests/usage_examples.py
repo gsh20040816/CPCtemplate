@@ -1,10 +1,9 @@
 """Compile the exact printed usage listings with their declared template context."""
 from compiler_config import CXX
+from usage_checkers import check_output
 from pathlib import Path
 import argparse
 import json
-import itertools
-import math
 import subprocess
 import sys
 
@@ -130,6 +129,10 @@ cases.update({
     'example-76': [('3 3 0\n1 2 2\n1 3 3\n2 3 5\n', '31'), ('3 4 1\n1 2 2\n1 3 3\n2 3 5\n3 2 7\n', '37'), ('2 1 1\n2 1 7\n', '0'), ('1 1 1\n1 1 9\n', '1')]
 })
 cases['example-77'] = [('2 4\n2 1\n1 1\n', '1'), ('2 8\n2 4\n1 2\n', '0'), ('0 7\n', '1'), ('2 1\n0 0\n0 0\n', '0'), ('2 1000000000\n1 2\n3 4\n', '999999998')]
+cases['example-78'] = [('2 4\n2 1\n3 4\n1 0 2 5\n1 1 1 7\n0 0 1 0\n1 0 2 5\n', '37 7 19'), ('1 3\n0 8\n1 0 1 99\n0 0 998244352 1\n1 0 1 2\n', '8 998244352')]
+cases['example-79'] = [('3 5\n1 2 3\n1 0 3\n0 0 2 2 1\n0 1 3 3 4\n1 0 3\n1 1 1\n', '6 35 0'), ('1 4\n5\n0 0 1 0 7\n0 0 1 2 3\n1 0 1\n1 0 0\n', '17 0')]
+cases['example-80'] = [('3\n5 1 9\n2 6 3\n4 8 7\n', {'assignment': [[5, 1, 9], [2, 6, 3], [4, 8, 7]]}), ('2\n7 7\n7 7\n', {'assignment': [[7, 7], [7, 7]]}), ('1\n-1000000000\n', {'assignment': [[-1000000000]]})]
+cases['example-81'] = [('8\n0 1 1 2 3 5 8 13\n', {'recurrence': ([0, 1, 1, 2, 3, 5, 8, 13], 2)}), ('0\n', {'recurrence': ([], 0)}), ('3\n0 0 0\n', {'recurrence': ([0, 0, 0], 0)}), ('3\n0 0 1\n', {'recurrence': ([0, 0, 1], 3)})]
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()
@@ -140,6 +143,7 @@ proof = json.loads(proof_path.read_text()) if args.only else {}
 selected = set(args.only) if args.only else set(cases)
 assert selected <= set(cases)
 (root / 'build').mkdir(parents=True, exist_ok=True)
+completed = set()
 for row in rows:
     assert (root / row['snippet_file']).read_text() == row['snippet'], 'Regenerate printed usage first'
     if row['id'] not in selected:
@@ -155,75 +159,11 @@ for row in rows:
         for data, expected in cases[row['id']]:
             run = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=30)
             assert not run.stderr, run.stderr
-            if isinstance(expected, str):
-                assert run.stdout.split() == expected.split(), (row['id'], mode, run.stdout, expected)
-                if row['id'] == 'example-48':
-                    queries = [list(map(int, line.split())) for line in data.splitlines()[1:]]
-                    lines = run.stdout.splitlines()
-                    assert len(lines) == 2 * len(queries), 'Each primitive-root query needs two output lines'
-                    for i, (_, step) in enumerate(queries):
-                        count = int(lines[2 * i])
-                        assert len(lines[2 * i + 1].split()) == count // step
-            elif isinstance(expected, dict) and 'matching' in expected:
-                n, edges, size = expected['matching']
-                lines = [list(map(int, line.split())) for line in run.stdout.splitlines()]
-                assert lines[0] == [size] and len(lines) == size + 1
-                allowed = {tuple(sorted(e)) for e in edges}
-                used = set()
-                for edge in lines[1:]:
-                    assert len(edge) == 2
-                    u, v = edge
-                    assert 0 <= u < n and 0 <= v < n and u != v
-                    assert tuple(sorted(edge)) in allowed and u not in used and v not in used
-                    used.update(edge)
-            elif isinstance(expected, dict) and 'weighted_matching' in expected:
-                weights = expected['weighted_matching']
-                n = len(weights)
-                output = list(map(int, run.stdout.split()))
-                assert len(output) == n + 1 and sorted(output[1:]) == list(range(1, n + 1))
-                selected = [weights[u - 1][v] for v, u in enumerate(output[1:])]
-                assert all(w is not None for w in selected)
-                optimum = max(sum(weights[p[v]][v] for v in range(n))
-                              for p in itertools.permutations(range(n))
-                              if all(weights[p[v]][v] is not None for v in range(n)))
-                assert output[0] == sum(selected) == optimum
-            elif isinstance(expected, dict) and 'diameter_cases' in expected:
-                lines = run.stdout.splitlines()
-                assert len(lines) == len(expected['diameter_cases'])
-                for line, points in zip(lines, expected['diameter_cases']):
-                    a, b = map(int, line.split())
-                    assert 0 <= a < len(points) and 0 <= b < len(points) and a != b
-                    distance = lambda p, q: (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2
-                    assert distance(points[a], points[b]) == max(distance(p, q) for p in points for q in points)
-            elif isinstance(expected, dict) and 'values' in expected:
-                actual = list(map(float, run.stdout.split()))
-                assert len(actual) == len(expected['values'])
-                assert all(math.isfinite(x) and abs(x - y) <= expected['atol']
-                           for x, y in zip(actual, expected['values'])), (row['id'], mode, actual, expected)
-            elif isinstance(expected, dict):
-                lines = [list(map(int, line.split())) for line in run.stdout.splitlines()]
-                dim = expected['nullity']
-                assert dim in (0, 1), 'These certificates only establish independence for at most one basis vector'
-                assert lines[0] == [dim] and len(lines) == dim + 2
-                m = len(expected['a'][0])
-                assert all(len(v) == m and all(0 <= x < 998244353 for x in v) for v in lines[1:])
-                for a, b in zip(expected['a'], expected['b']):
-                    assert sum(x * y for x, y in zip(a, lines[1])) % 998244353 == b
-                    for v in lines[2:]:
-                        assert sum(x * y for x, y in zip(a, v)) % 998244353 == 0
-                if dim:
-                    assert any(lines[2])
-            else:
-                lines = run.stdout.splitlines()
-                assert int(lines[0]) == len(lines) - 1
-                actual = []
-                for line in lines[1:]:
-                    nums = list(map(int, line.split()))
-                    assert nums[0] == len(nums) - 1
-                    actual.append(tuple(sorted(nums[1:])))
-                assert sorted(actual) == sorted(expected), (row['id'], mode, actual)
+            check_output(row['id'], mode, data, run.stdout, expected)
     proof[row['id']] = dict(program_sha256=row['program_sha256'], modes=['normal', 'sanitizer'],
                            cases_per_mode=len(cases[row['id']]), driver=row['driver'],
                            scope='Printed usage execution only; no new online AC or comprehensive algorithm proof')
+    completed.add(row['id'])
+assert completed == selected, 'Not every selected example was executed'
 (root / 'verification/usage-examples.json').write_text(json.dumps(proof, indent=2) + '\n')
-print(f'Usage examples: {len(selected)} exact printed main programs in normal and ASan/UBSan modes PASS; {len(proof)} current program records')
+print(f'Usage examples: {len(selected)} exact printed usage programs in normal and ASan/UBSan modes PASS; {len(proof)} current program records')

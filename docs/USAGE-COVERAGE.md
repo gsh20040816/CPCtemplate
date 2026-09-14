@@ -1,6 +1,6 @@
 # 模板题使用示例覆盖
 
-每个条目需要最简题意、所需模板和使用代码；代码仅含 main 调用部分，不重复算法。
+每个条目需要最简题意、所需模板和使用代码；代码只含必要配置与 main 调用部分，不重复算法。
 示例与现有完整驱动共用源文件；模板依赖展开后的源码哈希改变时，原执行记录不再视为当前验证。示例执行通过不等于在线 AC。
 
 | 模板 | 示例 | 状态 |
@@ -91,7 +91,7 @@
 | TreePathKth | [example-38](usage/example-38.cpp) | locally_checked_example |
 | DynamicKth | [example-63](usage/example-63.cpp) | locally_checked_example |
 | PersistentDistinct | [example-46（应用补充）](usage/example-46.cpp) | generated_unverified |
-| Hungarian | 待补 | pending_example |
+| Hungarian | [example-80](usage/example-80.cpp) | locally_checked_example |
 | WeightedMatching | [example-73](usage/example-73.cpp) | locally_checked_example |
 | Arborescence | 待补 | pending_example |
 | StoerWagner | 待补 | pending_example |
@@ -112,7 +112,7 @@
 | OrderedSplay | [example-9](usage/example-9.cpp) | locally_checked_example |
 | GcdSequenceTreap | 待补 | pending_example |
 | Blossom | [example-72](usage/example-72.cpp) | locally_checked_example |
-| berlekamp_massey | 待补 | pending_example |
+| berlekamp_massey | [example-81](usage/example-81.cpp) | locally_checked_example |
 | recurrence_nth | 待补 | pending_example |
 | TarjanSCC | [example-2](usage/example-2.cpp) | locally_checked_example |
 | BiconnectedCore | [example-4](usage/example-4.cpp), [example-5](usage/example-5.cpp) | locally_checked_example |
@@ -160,8 +160,8 @@
 | gp_map | [example-68](usage/example-68.cpp), [example-69](usage/example-69.cpp) | locally_checked_example |
 | ost | [example-67](usage/example-67.cpp) | locally_checked_example |
 | rp | [example-66](usage/example-66.cpp) | locally_checked_example |
-| segtree | 待补 | pending_example |
-| lazy_segtree | 待补 | pending_example |
+| segtree | [example-78](usage/example-78.cpp) | locally_checked_example |
+| lazy_segtree | [example-79](usage/example-79.cpp) | locally_checked_example |
 | mint | 待补 | pending_example |
 | batch_units | 待补 | pending_example |
 | convolution_i64 | [example-52](usage/example-52.cpp) | locally_checked_example |

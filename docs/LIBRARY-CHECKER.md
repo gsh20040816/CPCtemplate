@@ -115,7 +115,7 @@
 | [Manhattan MST](https://judge.yosupo.jp/problem/manhattanmst) | Geometry | 待逐题审题、适配与在线验证 | — |
 | [Sort Points by Argument](https://judge.yosupo.jp/problem/sort_points_by_argument) | Geometry | 待逐题审题、适配与在线验证 | — |
 | [Static Convex Hull](https://judge.yosupo.jp/problem/static_convex_hull) | Geometry | 待逐题审题、适配与在线验证 | [static_convex_hull.compact.cpp](../verify/library_checker/static_convex_hull.compact.cpp) |
-| [Assignment Problem](https://judge.yosupo.jp/problem/assignment) | Graph | 待逐题审题、适配与在线验证 | — |
+| [Assignment Problem](https://judge.yosupo.jp/problem/assignment) | Graph | 待逐题审题、适配与在线验证 | [assignment.compact.cpp](../verify/library_checker/assignment.compact.cpp) |
 | [Biconnected Components](https://judge.yosupo.jp/problem/biconnected_components) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Edge Coloring of Bipartite Graph](https://judge.yosupo.jp/problem/bipartite_edge_coloring) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Matching on Bipartite Graph](https://judge.yosupo.jp/problem/bipartitematching) | Graph | 待逐题审题、适配与在线验证 | — |
@@ -191,7 +191,7 @@
 | [Tetration Mod](https://judge.yosupo.jp/problem/tetration_mod) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Represent A Number As Two Square Sum](https://judge.yosupo.jp/problem/two_square_sum) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Consecutive Terms of Linear Recurrent Sequence](https://judge.yosupo.jp/problem/consecutive_terms_of_linear_recurrent_sequence) | Other | 待逐题审题、适配与在线验证 | — |
-| [Find Linear Recurrence](https://judge.yosupo.jp/problem/find_linear_recurrence) | Other | 待逐题审题、适配与在线验证 | — |
+| [Find Linear Recurrence](https://judge.yosupo.jp/problem/find_linear_recurrence) | Other | 待逐题审题、适配与在线验证 | [find_linear_recurrence.compact.cpp](../verify/library_checker/find_linear_recurrence.compact.cpp) |
 | [Kth term of Linearly Recurrent Sequence](https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence) | Other | 待逐题审题、适配与在线验证 | — |
 | [Longest Increasing Subsequence](https://judge.yosupo.jp/problem/longest_increasing_subsequence) | Other | 待逐题审题、适配与在线验证 | — |
 | [$\sum_{i=0}^{n-1} r^i i^d$](https://judge.yosupo.jp/problem/sum_of_exponential_times_polynomial) | Other | 待逐题审题、适配与在线验证 | — |

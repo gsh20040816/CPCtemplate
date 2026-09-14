@@ -405,14 +405,24 @@ for style in ['compact']:
                 if usage['symbol'] != name:
                     continue
                 count = len(usage['snippet'].splitlines())
-                space = min(680, 140 + count * 11 + len(usage['summary']) / 42 * 14)
+                config_lines = 0
+                if usage.get('configuration_functions') and count > 48:
+                    config_lines = usage['snippet'].splitlines().index('int main()')
+                space = min(680, 140 + (config_lines or count) * 11 + len(usage['summary']) / 42 * 14)
                 body.append('\\Needspace{' + str(round(space)) + 'pt}')
                 body.append('\\subsection*{' + ('模板题使用：' if usage.get('kind', 'template') == 'template' else '应用题补充：') + esc(usage['problem']) + '}')
                 body.append('\\label{usage-' + usage['id'] + '}')
                 body.append('题意：' + esc(usage['summary']))
                 body.append('所需模板：' + esc('、'.join(usage['requires'])) + '。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。')
                 body.append('题目：\\url{' + usage['url'] + '}')
-                body.append('\\lstinputlisting{' + usage['snippet_file'].removeprefix('docs/') + '}')
+                listing = usage['snippet_file'].removeprefix('docs/')
+                if config_lines:
+                    body.append('\\lstinputlisting[lastline=' + str(config_lines) + ']{' + listing + '}')
+                    body.append('\\newpage')
+                    body.append('\\noindent 使用入口（接上页配置函数）：')
+                    body.append('\\lstinputlisting[firstline=' + str(config_lines + 1) + ',firstnumber=' + str(config_lines + 1) + ']{' + listing + '}')
+                else:
+                    body.append('\\lstinputlisting{' + listing + '}')
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 (root / 'build').mkdir(exist_ok=True)
 (root / 'build/book-sections.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')

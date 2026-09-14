@@ -1,0 +1,23 @@
+{
+  "scope": "Local clean workspace without build directory; all 81 registered programs checked in normal and ASan/UBSan modes; generated coverage/proof bytes match source workspace. Independent output-checker negative controls and selected matching-then-Johnson regression also passed.",
+  "sha256": {
+    "tests/usage_examples.py": "0b5c877a86a357c433e321829da491ed79f6a06c499ea1761a7ef0cc4e4bb4df",
+    "tests/usage_checkers.py": "bfac77d1c65269e487e033ca3f255ecbe6a279a047efad48007c2544a8268b73",
+    "tests/usage_checkers_test.py": "4c6d91595b534a9e312318b673728e96e113027ffaea0a0dc4b653e19bf74214",
+    "tools/usage_examples.py": "a0c88efb98c031aef32394095ac8d156de6b2d7092e676c6722cd5075276b81b",
+    "docs/usage-examples.json": "8c27293b91e2fb8fd22750379424405b5127a77b66cea4a812366b30d59df97b",
+    "verification/usage-examples.json": "e453a9f54e7ec2f4c406ea4f9157253f6269137cdbda79b42b9f4856280e1321"
+  },
+  "logs": {
+    "build/usage-clean-full.txt": [
+      "Usage examples: 81 exact printed usage programs in normal and ASan/UBSan modes PASS; 81 current program records",
+      "Usage: 75 / 164 templates locally checked; 81 examples"
+    ],
+    "build/usage-selection-regression.txt": [
+      "Usage examples: 2 exact printed usage programs in normal and ASan/UBSan modes PASS; 81 current program records"
+    ],
+    "build/usage-checkers-controls.txt": [
+      "Usage checkers: 9 invalid certificates rejected; valid matching and required blank line accepted"
+    ]
+  }
+}

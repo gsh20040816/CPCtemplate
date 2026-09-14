@@ -1286,6 +1286,20 @@ berlekamp\_massey(s,p) 要求 p 为素数，2$\le$p$\le$INT\_MAX，输入均在 
 
 \lstinputlisting[firstline=7,lastline=49]{../src/compact/recurrence.hpp}
 
+\Needspace{312pt}
+
+\subsection*{模板题使用：Library Checker find\_linear\_recurrence}
+
+\label{usage-example-81}
+
+题意：给模 998244353 下的有限序列，求最短线性递推。c[0] 乘前一项，输出阶数及系数；空序列或全零序列可以是 0 阶。递推只保证对已给序列成立，不能仅凭前缀推定未知后续。
+
+所需模板：berlekamp\_massey。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/find_linear_recurrence}
+
+\lstinputlisting{usage/example-81.cpp}
+
 \part{数据结构}
 
 \Needspace{409pt}
@@ -1442,6 +1456,26 @@ add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有�
 
 \lstinputlisting[firstline=139,lastline=161,firstnumber=133]{../src/compact/lazy_segtree.hpp}
 
+\Needspace{499pt}
+
+\subsection*{模板题使用：Library Checker range\_affine\_range\_sum}
+
+\label{usage-example-79}
+
+题意：对数组区间施加 x→b*x+c，并查询区间和。S 保存和与长度；空单位元长度 0，单个元素长度 1。composition(f,g) 表示先 g 后 f，mapping 按长度累加常数项。区间为 0-based 半开，模 998244353。
+
+所需模板：lazy\_segtree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/range_affine_range_sum}
+
+\lstinputlisting[lastline=29]{usage/example-79.cpp}
+
+\newpage
+
+\noindent 使用入口（接上页配置函数）：
+
+\lstinputlisting[firstline=30,firstnumber=30]{usage/example-79.cpp}
+
 \subsection{通用线段树与左右边界搜索}\label{compact-segtree}\index{segtree}
 
 segtree<S,op,e>(a) 从 0-based vector 构建，或 segtree(n) 初始化为单位元。0$\le$n$\le$2\textasciicircum{}29，实际受内存限制。op(S,S) 须满足结合律，e() 是双侧单位元；无需交换律。set(p,x)、get(p) 操作单点，prod(l,r) 返回半开区间 [l,r) 从左到右的合并，空区间返回 e；all() 返回全区间结果。max\_right(l,ok) 返回最大的 r 使 ok(prod(l,r)) 为真；min\_left(r,ok) 返回最小的 l。要求 ok(e()) 为真，ok 无副作用，并随对应方向扩展从真变假后不再变真；例如非负和不超过阈值，不能对任意负数和这样搜索。l=n、r=0 支持空端点。构建 O(n)，单点/区间/边界搜索 O(log n)，all O(1)，空间 O(n)，假设 op、e、ok 及 S 复制为 O(1)。d、sz、pull 为内部实现，不直接修改。函数复合时 op(f,g) 表示 g(f(x))，对应先执行左区间再执行右区间；min\_left 不能照抄 max\_right 的合并顺序。
@@ -1455,6 +1489,20 @@ segtree<S,op,e>(a) 从 0-based vector 构建，或 segtree(n) 初始化为单位
 \newpage
 
 \lstinputlisting[firstline=74,lastline=98,firstnumber=68]{../src/compact/segtree.hpp}
+
+\Needspace{649pt}
+
+\subsection*{模板题使用：Library Checker point\_set\_range\_composite}
+
+\label{usage-example-78}
+
+题意：单点修改一次函数，查询区间内从左到右依次作用于 x 的结果。op(f,g) 表示先 f 后 g，单位元为 x；prod(l,r) 使用 0-based 半开区间，空区间返回单位元。配置函数须和 main 一起抄写。
+
+所需模板：segtree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/point_set_range_composite}
+
+\lstinputlisting{usage/example-78.cpp}
 
 \Needspace{607pt}
 
@@ -2558,6 +2606,20 @@ solve(w)，n$\ge$2；w 为 n×n 对称非负权矩阵，重边先累加，主对
 solve(cost) 输入 n×m 完整权值矩阵，0$\le$n$\le$m；每行匹配不同列，返回最小费用及列号（0-based）。允许负费用，使用 int128 势能；O(n$^{2}$m)。禁止边不能用未经证明的有限大常数随意替代，当前接口仅表示完整二分图。
 
 \lstinputlisting[firstline=6,lastline=70]{../src/compact/graph_advanced.hpp}
+
+\Needspace{329pt}
+
+\subsection*{模板题使用：Library Checker assignment}
+
+\label{usage-example-80}
+
+题意：给完整方阵，为每一行分配一个不同的列，使费用和最小。返回列号是 0-based，按行顺序输出。题目 n$\le$500、单项绝对值$\le$10\textasciicircum{}9，总费用可由 int128 转为 long long；缺边问题不能直接套本例。
+
+所需模板：Hungarian。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/assignment}
+
+\lstinputlisting{usage/example-80.cpp}
 
 \subsection{二分图最大权匹配（缺边与可选匹配）}\label{compact-WeightedMatching}\index{WeightedMatching}
 

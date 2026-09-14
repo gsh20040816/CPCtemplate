@@ -900,5 +900,60 @@
     "requires": [
       "determinant_mod"
     ]
+  },
+  {
+    "id": "example-78",
+    "symbol": "segtree",
+    "problem": "Library Checker point_set_range_composite",
+    "url": "https://judge.yosupo.jp/problem/point_set_range_composite",
+    "summary": "单点修改一次函数，查询区间内从左到右依次作用于 x 的结果。op(f,g) 表示先 f 后 g，单位元为 x；prod(l,r) 使用 0-based 半开区间，空区间返回单位元。配置函数须和 main 一起抄写。",
+    "driver": "verify/library_checker/point_set_range_composite.compact.cpp",
+    "requires": [
+      "segtree"
+    ],
+    "configuration_functions": [
+      "op",
+      "e"
+    ]
+  },
+  {
+    "id": "example-79",
+    "symbol": "lazy_segtree",
+    "problem": "Library Checker range_affine_range_sum",
+    "url": "https://judge.yosupo.jp/problem/range_affine_range_sum",
+    "summary": "对数组区间施加 x→b*x+c，并查询区间和。S 保存和与长度；空单位元长度 0，单个元素长度 1。composition(f,g) 表示先 g 后 f，mapping 按长度累加常数项。区间为 0-based 半开，模 998244353。",
+    "driver": "verify/library_checker/range_affine_range_sum.compact.cpp",
+    "requires": [
+      "lazy_segtree"
+    ],
+    "configuration_functions": [
+      "op",
+      "e",
+      "mapping",
+      "composition",
+      "id"
+    ]
+  },
+  {
+    "id": "example-80",
+    "symbol": "Hungarian",
+    "problem": "Library Checker assignment",
+    "url": "https://judge.yosupo.jp/problem/assignment",
+    "summary": "给完整方阵，为每一行分配一个不同的列，使费用和最小。返回列号是 0-based，按行顺序输出。题目 n≤500、单项绝对值≤10^9，总费用可由 int128 转为 long long；缺边问题不能直接套本例。",
+    "driver": "verify/library_checker/assignment.compact.cpp",
+    "requires": [
+      "Hungarian"
+    ]
+  },
+  {
+    "id": "example-81",
+    "symbol": "berlekamp_massey",
+    "problem": "Library Checker find_linear_recurrence",
+    "url": "https://judge.yosupo.jp/problem/find_linear_recurrence",
+    "summary": "给模 998244353 下的有限序列，求最短线性递推。c[0] 乘前一项，输出阶数及系数；空序列或全零序列可以是 0 阶。递推只保证对已给序列成立，不能仅凭前缀推定未知后续。",
+    "driver": "verify/library_checker/find_linear_recurrence.compact.cpp",
+    "requires": [
+      "berlekamp_massey"
+    ]
   }
 ]

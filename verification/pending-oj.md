@@ -5,6 +5,7 @@
 - `verify/cses/1160.compact.cpp`
 - `verify/cses/1750.compact.cpp`
 - `verify/hdu/1814.compact.cpp`
+- `verify/library_checker/assignment.compact.cpp`
 - `verify/library_checker/associative_array.cc.compact.cpp`
 - `verify/library_checker/bitwise_and_convolution.compact.cpp`
 - `verify/library_checker/bitwise_xor_convolution.compact.cpp`
@@ -12,14 +13,18 @@
 - `verify/library_checker/enumerate_palindromes.compact.cpp`
 - `verify/library_checker/enumerate_triangles.compact.cpp`
 - `verify/library_checker/exp_of_formal_power_series.compact.cpp`
+- `verify/library_checker/find_linear_recurrence.compact.cpp`
 - `verify/library_checker/furthest_pair.compact.cpp`
+- `verify/library_checker/general_matching.compact.cpp`
 - `verify/library_checker/intersection_intersection.compact.cpp`
 - `verify/library_checker/intersection_zassenhaus.compact.cpp`
 - `verify/library_checker/inv_of_formal_power_series.compact.cpp`
 - `verify/library_checker/log_of_formal_power_series.compact.cpp`
 - `verify/library_checker/matrix_det.compact.cpp`
+- `verify/library_checker/matrix_det_arbitrary_mod.compact.cpp`
 - `verify/library_checker/matrix_product.compact.cpp`
 - `verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp`
+- `verify/library_checker/number_of_substrings.compact.cpp`
 - `verify/library_checker/polynomial_taylor_shift.compact.cpp`
 - `verify/library_checker/primality_test.compact.cpp`
 - `verify/library_checker/range_affine_range_sum.compact.cpp`
@@ -61,8 +66,10 @@
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.compact.cpp`
 - `verify/luogu/P5170.compact.cpp`
+- `verify/luogu/P5357.compact.cpp`
 - `verify/luogu/P5431.mint.compact.cpp`
 - `verify/luogu/P5656.compact.cpp`
+- `verify/luogu/P5905.compact.cpp`
 - `verify/luogu/P6113.compact.cpp`
 - `verify/luogu/P7771.compact.cpp`
 - `verify/luogu/P7883.compact.cpp`
