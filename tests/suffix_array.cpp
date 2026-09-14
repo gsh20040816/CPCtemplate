@@ -45,11 +45,11 @@ void check(const Sequence &s, int alphabet = 256)
         assert(c.sa == want && d.sa == want);
         assert(c.lcp == height && d.lcp == height);
     }
-    a.init({}, 1);
+    a = SuffixArray({}, 1);
     b.Init({}, 1);
     assert(a.sa.empty() && a.rk.empty() && a.lcp.empty());
     assert(b.sa.empty() && b.rk.empty() && b.lcp.empty());
-    a.init(symbols, alphabet);
+    a = SuffixArray(symbols, alphabet);
     b.Init(symbols, alphabet);
     assert(a.sa == want && b.sa == want);
     assert(a.lcp == height && b.lcp == height);

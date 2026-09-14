@@ -14,7 +14,7 @@ void check(const vector<int> &s, int alphabet)
     SuffixLCP reverse_a{SuffixArray(reverse_s, alphabet)};
     Suffix_LCP reverse_b{Suffix_Array(reverse_s, alphabet)};
     // Queries own their rank and RMQ data; source lifetime is irrelevant.
-    forward.init({}, 1);
+    forward = SuffixArray({}, 1);
     forward_classic.Init({}, 1);
     for (int x = 0; x <= n; x++)
         for (int y = 0; y <= n; y++)
@@ -67,7 +67,7 @@ void check(const vector<int> &s, int alphabet)
     b.Init(forward_classic);
     assert(a.query(0, 0) == 0 && b.Query(0, 0) == 0);
     assert(a.compare(0, 0, 0, 0) == 0 && b.Compare(0, 0, 0, 0) == 0);
-    forward.init(s, alphabet);
+    forward = SuffixArray(s, alphabet);
     forward_classic.Init(s, alphabet);
     a = SuffixLCP(forward);
     b.Init(forward_classic);

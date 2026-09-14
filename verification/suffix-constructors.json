@@ -1,0 +1,18 @@
+{
+  "scope": "SuffixArray integer constructor builds directly; byte-string constructor reuses it with unsigned-byte conversion. No duplicated suffix construction.",
+  "files": {
+    "src/compact/string.hpp": "b2d66016ede91178051e1467ec9111f5c05f4e2916fdc1419e2c0f1bbfbfdfe3",
+    "tests/suffix_array.cpp": "4aa005065dc0d4184018aeaf9e64507246c32d9f1850f320f270b340ca66a812",
+    "tests/suffix_lcp.cpp": "6ffca549cc6e1f64f131b2383db72fb42540340111c0b76648818ecd0e0f6f39"
+  },
+  "logs": [
+    "suffix-constructors-local.txt",
+    "suffix-constructors-sanitizer.txt"
+  ],
+  "historical_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
+  "online_ac": "No new online acceptance claimed",
+  "pdf_checks": [
+    "All eight PDF builds and audits passed; ten infra links verified",
+    "Both suffix-array pages visually inspected"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-14T01:39:40.550091+00:00",
+  "recorded_at_utc": "2026-09-14T01:42:58.906877+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -253,7 +253,9 @@
       "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS",
       "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
       "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
-      "P4781 compact bundled driver / independent polynomial evaluation PASS"
+      "P4781 compact bundled driver / independent polynomial evaluation PASS",
+      "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
+      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS"
     ],
     "sanitizer-tests.txt": [
       "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
@@ -503,7 +505,9 @@
       "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS",
       "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
       "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
-      "P4781 compact bundled driver / independent polynomial evaluation PASS"
+      "P4781 compact bundled driver / independent polynomial evaluation PASS",
+      "Suffix array dual exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle PASS",
+      "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -770,7 +774,7 @@
     "src/compact/set_convolution.hpp": "c3ed7630c8bd8c457ca2bb1c3fe46881ab5c7da3ffc9f05e56028d7d810a0158",
     "src/compact/splay.hpp": "d81babceed51c498b6e89a5de9413730d6a01b6e7a010841a0b387e9dc05a9f7",
     "src/compact/stirling.hpp": "8ddedb8583a0779640a233c333a622fac1ed754bd42f51c8f971137e93f5ceb0",
-    "src/compact/string.hpp": "92b39c1004419df267e6590b8a8de10934d6d4a70e4a96f74556ac629b06250d",
+    "src/compact/string.hpp": "b2d66016ede91178051e1467ec9111f5c05f4e2916fdc1419e2c0f1bbfbfdfe3",
     "src/compact/subset_convolution.hpp": "a61883d0c6d2c8009b0506b25af4d9cd1c4718daea5d369fed8b59b953213ea3",
     "src/compact/suffix_lcp.hpp": "6055557be1d2f458b5aac09fbebccd2417ad1aee342be800db9329c7adec3891",
     "src/compact/support_hull.hpp": "443ff3e2f1a8d3c9b7de874316d7ae7f169a1b4c3826626d801077f98fb6956c",
@@ -1036,9 +1040,9 @@
     "tests/stirling.cpp": "717aed2c859a2c288a454e0354d58e00bf26ff3f60f5d23451e009377f04f37b",
     "tests/stirling167.cpp": "cd72746fcf091934778ab665d67262f23009c78aa512064c6a72675d361ad08c",
     "tests/stirling_application.py": "0798ebeaaf8d7080b4af82c3ea776589752e6537872559b5a324d0ac99174aa8",
-    "tests/suffix_array.cpp": "bc3ce98f7cce3a68acd4b1e2d98b20ee912b2a2e0676cb1141ab869226dec3d6",
+    "tests/suffix_array.cpp": "4aa005065dc0d4184018aeaf9e64507246c32d9f1850f320f270b340ca66a812",
     "tests/suffix_array_application.py": "0b844fc30e3a8a9352cb29cc513e100fd1d88923429e178198872cf51b45888a",
-    "tests/suffix_lcp.cpp": "f205d2c15ffb0f9901b00634411cfbbe8ae2d6e1021f4572cebdaffdab36c038",
+    "tests/suffix_lcp.cpp": "6ffca549cc6e1f64f131b2383db72fb42540340111c0b76648818ecd0e0f6f39",
     "tests/suffix_lcp_application.py": "0756f144ef105e0987e3a083d5e8aa89cd136da4d5dcb5cb60b1b74d4df0a082",
     "tests/sugar_sweet_application.py": "e97a8c4e2500b65064dc5295065c93da30874a2461051fae88a7f73079becebe",
     "tests/support_hull.cpp": "9b6f1ce2cb81abf6a9393a2673da8db7b0e1f6c050f8337d6a4a0ac66ed3237c",

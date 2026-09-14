@@ -46,13 +46,13 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 \subsection{倍增后缀数组与 LCP}\label{compact-SuffixArray}\index{SuffixArray}
 
-构造 SuffixArray(s) 支持任意字节串，按 unsigned char 的 0..255 数值比较，包含内嵌零字节；也可构造 SuffixArray(a,alphabet)，整数序列要求 0$\le$a[i]<alphabet、1$\le$alphabet<INT\_MAX。init(a,alphabet) 可重复重建。长度须小于 INT\_MAX。sa[k] 为第 k 个非空后缀起点，rk[i] 为排名，全部 0-based；lcp[k] 为 sa[k-1] 与 sa[k] 的最长公共前缀，lcp[0]=0。空序列合法，三数组均为空。无需手动追加哨兵，也不输出空后缀。每轮按第二关键字已有顺序、第一关键字稳定计数排序，倍增 O(n log n+alphabet)，空间 O(n+alphabet)；字节串 alphabet=256。大整数先自行保序离散化，避免按最大原值开桶。Kasai 求 lcp 为 O(n)。不同起点 x,y 的 LCP 为 lcp[min(rk[x],rk[y])+1..max(rk[x],rk[y])] 的最小值；本结构不内建 RMQ，需要频繁查询时另接静态 RMQ。同一起点的 LCP 为 n-x。覆盖倍增构造，不替代 DC3/SA-IS。
+构造 SuffixArray(s) 支持任意字节串，按 unsigned char 的 0..255 数值比较，包含内嵌零字节；也可构造 SuffixArray(a,alphabet)，整数序列要求 0$\le$a[i]<alphabet、1$\le$alphabet<INT\_MAX。重新赋值 SuffixArray(a,alphabet) 可重建。长度须小于 INT\_MAX。sa[k] 为第 k 个非空后缀起点，rk[i] 为排名，全部 0-based；lcp[k] 为 sa[k-1] 与 sa[k] 的最长公共前缀，lcp[0]=0。空序列合法，三数组均为空。无需手动追加哨兵，也不输出空后缀。每轮按第二关键字已有顺序、第一关键字稳定计数排序，倍增 O(n log n+alphabet)，空间 O(n+alphabet)；字节串 alphabet=256。大整数先自行保序离散化，避免按最大原值开桶。Kasai 求 lcp 为 O(n)。不同起点 x,y 的 LCP 为 lcp[min(rk[x],rk[y])+1..max(rk[x],rk[y])] 的最小值；本结构不内建 RMQ，需要频繁查询时另接静态 RMQ。同一起点的 LCP 为 n-x。覆盖倍增构造，不替代 DC3/SA-IS。
 
-\lstinputlisting[firstline=200,lastline=232]{../src/compact/string.hpp}
+\lstinputlisting[firstline=200,lastline=230]{../src/compact/string.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=233,lastline=273,firstnumber=34]{../src/compact/string.hpp}
+\lstinputlisting[firstline=231,lastline=271,firstnumber=32]{../src/compact/string.hpp}
 
 \newpage
 
@@ -92,7 +92,7 @@ square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long l
 
 extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts() 返回 endpos 次数且不修改结构，可重复调用。状态 a，初始状态 0，link 根为 -1；空间 O(26n)，构建 O(26n)。
 
-\lstinputlisting[firstline=274,lastline=346]{../src/compact/string.hpp}
+\lstinputlisting[firstline=272,lastline=344]{../src/compact/string.hpp}
 
 \Needspace{427pt}
 

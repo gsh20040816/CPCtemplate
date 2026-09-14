@@ -206,12 +206,10 @@ struct SuffixArray
         vector<int> a;
         a.reserve(s.size());
         for (unsigned char c : s) a.push_back(c);
-        init(a, 256);
+        *this = SuffixArray(a, 256);
     }
 
-    SuffixArray(const vector<int> &s, int alphabet) { init(s, alphabet); }
-
-    void init(const vector<int> &s, int alphabet)
+    SuffixArray(const vector<int> &s, int alphabet)
     {
         assert(s.size() < INT_MAX);
         assert(1 <= alphabet && alphabet < INT_MAX);
