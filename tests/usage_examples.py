@@ -57,6 +57,7 @@ proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}
 selected = set(args.only) if args.only else set(cases)
 assert selected <= set(cases)
+(root / 'build').mkdir(parents=True, exist_ok=True)
 for row in rows:
     assert (root / row['snippet_file']).read_text() == row['snippet'], 'Regenerate printed usage first'
     if row['id'] not in selected:
