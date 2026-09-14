@@ -65,7 +65,7 @@ void closest(const vector<P> &p, optional<I> expected = nullopt)
             }
         expected = best.convert_to<I>();
     }
-    assert(GeometryExtra::closest_pair(p) == expected);
+    assert(closest_pair_i64(p) == expected);
     assert(Geometry_Extra::Closest_Pair(classic(p)) == expected);
 }
 
@@ -81,7 +81,7 @@ void minkowski(vector<P> a, vector<P> b)
     sort(want.begin(), want.end());
     for (int repeat = 0; repeat < 3; repeat++)
     {
-        auto got = GeometryExtra::minkowski(a, b);
+        auto got = minkowski_sum(a, b);
         auto old = Geometry_Extra::Minkowski(classic(a), classic(b));
         assert(got.size() == old.size());
         for (int i = 0; i < (int)got.size(); i++)
@@ -130,7 +130,7 @@ int main()
     vector<P> curve;
     for (long long x = -20000; x <= 20000; x++)
         curve.push_back({x, x * x});
-    auto sum = GeometryExtra::minkowski(curve, curve);
+    auto sum = minkowski_sum(curve, curve);
     auto old_sum = Geometry_Extra::Minkowski(classic(curve), classic(curve));
     vector<P> expected;
     for (auto v : curve)

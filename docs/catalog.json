@@ -522,10 +522,16 @@
     "solve(points) 返回 long double 最短距离（不是平方），少于两个点返回 nullopt，重复点返回零。Point={x,y}；输入须有限，坐标绝对值≤1e100。递归分治，按纵坐标归并，O(n log n) 时间、O(n) 额外空间。用 hypotl 求距离，不先平方；排序不使用 epsilon。浮点运算仍有舍入误差，输入前已丢失的精度无法恢复。"
   ],
   [
-    "geometry_extra",
-    "GeometryExtra",
-    "整数最近点对与 Minkowski 和",
-    "closest_pair(points) 返回最短距离平方，少于两个点为 nullopt，重复点返回 0，O(n log n)，全程精确整数。minkowski 输入 strict CCW 凸包，返回不重复首点的凸包；非退化 O(n+m)，退化时 O((n+m)log(n+m))。坐标及坐标和须满足整数几何范围。"
+    "closest_pair_i64",
+    "closest_pair_i64",
+    "整数最近点对（精确平方距离）",
+    "closest_pair_i64(points) 返回 optional<__int128_t> 的最短距离平方；少于两点返回 nullopt，重复点返回 0。点类型为 IntegerGeometry::Point，坐标绝对值不超过 10¹²。按横坐标排序后递归分治，递归返回时按纵坐标排序；O(n log n) 时间、O(n) 辅助空间，全程精确整数。按值传入，不修改调用方序列。依赖 IntegerGeometry 的比较与 dist2。"
+  ],
+  [
+    "minkowski_sum",
+    "minkowski_sum",
+    "凸多边形 Minkowski 和",
+    "minkowski_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返回空集，点和线段允许作为退化凸包。\n\n点类型 IntegerGeometry::Point；输入坐标及两集合坐标和的绝对值不超过 10¹²。结果不重复首点，非退化时沿逆时针边方向合并，平行同向边同时推进；O(n+m) 时间。\n\n退化输入枚举与另一凸包各点的和再求凸包，O((n+m) log(n+m))。按值传入，内部旋转不修改调用方；依赖 IntegerGeometry 的 hull/cross。"
   ],
   [
     "geometry_extra",

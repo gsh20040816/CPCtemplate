@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-14T01:50:09.622184+00:00",
+  "recorded_at_utc": "2026-09-14T01:57:27.521586+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -266,7 +266,10 @@
       "Link-cut 200000-vertex chain PASS",
       "Ordered treap and splay / sorted vector oracle PASS",
       "Sequence treap / vector oracle PASS",
-      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS"
+      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
+      "closest pair, Minkowski, bounded circulation PASS",
+      "Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS",
+      "dual geometry, flow, optimization, graph-advanced PASS"
     ],
     "sanitizer-tests.txt": [
       "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
@@ -529,7 +532,10 @@
       "Link-cut 200000-vertex chain PASS",
       "Ordered treap and splay / sorted vector oracle PASS",
       "Sequence treap / vector oracle PASS",
-      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS"
+      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
+      "closest pair, Minkowski, bounded circulation PASS",
+      "Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS",
+      "dual geometry, flow, optimization, graph-advanced PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -714,6 +720,7 @@
     "src/compact/circle_polygon.hpp": "0619b92a677aba2eb035f53a8ff58b44a236c7243fda3f3c085ea340f09d50d7",
     "src/compact/circle_tangents.hpp": "aff668f25731379379e6b5b05f7766adb6a95e848b32171fd99eb41c14c462b6",
     "src/compact/closest_pair.hpp": "803c0de693ccddce95f4400c351fa2a724bb85cc586b72afa72bb68549af1ec9",
+    "src/compact/closest_pair_i64.hpp": "922a724188a62ecbd54559e9491d3dc78bca739363beeb97baff360d063d749e",
     "src/compact/composite_roots.hpp": "508238b19ea9530e26d3a1eb34a93f67000a0e857419df59238e666241f677f4",
     "src/compact/convolution_i64.hpp": "5cbcef354ca925e61089a034c7f442be51df27c0f94979a88e272ed902ac5be9",
     "src/compact/coprime_pairs.hpp": "ea7f40732c06a85ce70bb3d63f5a220855a8e8d7462b18e3ef5cfb64e425482e",
@@ -744,7 +751,7 @@
     "src/compact/gauss_mod.hpp": "852e697bfd7ef868caf6d20c06694813fb0df5b2fc11cfc2b0d7f684a78f2f05",
     "src/compact/gcd_sequence.hpp": "937662facef4ff9bddb14b9dbb2c20984a79920b8367f395fd362e2d77bf11c9",
     "src/compact/geometry.hpp": "c9b49800c722be4714f03ac08d224c3faf3b7753fd0d12f0267523bf8e41ee0f",
-    "src/compact/geometry_extra.hpp": "0330483c3d563cf2730b397c3fcb45c75a0f933b943bddac3ef76c818a255cfa",
+    "src/compact/geometry_extra.hpp": "aeb636bc119bff112899bd839b3dac6efea1be97522ded8df774fa30028da31c",
     "src/compact/gomory_hu.hpp": "16634242de3dde70e9d436fb36d2b6db2b2530294baeb3146134bdf90fda948f",
     "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
     "src/compact/graph_advanced.hpp": "3b892063307b0f50f1f373085d40f4e2b7160fb16a23ea8c13ae726fe37c1059",
@@ -762,6 +769,7 @@
     "src/compact/matrix_tree.hpp": "c67fe9a5391cceac28b256eb7088e61a6bc1903ede3038228dcc04b2dcd23487",
     "src/compact/matrix_tree_mod.hpp": "9cece6021ce276867f2072c334a9589f600b1d27f12deca61f654451762ea038",
     "src/compact/maximum_closure.hpp": "08acfa4d02711ab632f5a40133e7cbea9b995568f973bcb75bc55169c13ff23d",
+    "src/compact/minkowski_sum.hpp": "f08f0a2faf7719d1475ca10ec4c78b08dbfc3f8dfcdb35ba26b11c058f6bb4ae",
     "src/compact/mixed_euler.hpp": "5184276d05a58271c73203649d8c6f42a7175ce1dc78775a73ea2f3eb5955c88",
     "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
     "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
@@ -964,7 +972,7 @@
     "tests/gcd_sequence.cpp": "6fc5d7844d8048b7415bbb3fab83cd0f87d64d16d915a9ae491e89283a33528e",
     "tests/geometry_3d.cpp": "ad223ae3259bf3222aeacb3a18c5bc34d1627aad0ce857cbfabbd2452a4616ec",
     "tests/geometry_extra.cpp": "b6106d1762b5994a56e89a680fb4a79e3abda8cf9028678aeca4e40e752ab89c",
-    "tests/geometry_extra_audit.cpp": "76ed386f01ec8744c051a358922e4d3db7e376d7e5bc9c738991e913ed12829d",
+    "tests/geometry_extra_audit.cpp": "d9b200a81159d470a3dd0a92bdd93b8db10d512c33f31a0ebfbb06990a69ef15",
     "tests/global_min_cut.cpp": "833783cda9e962873c8b7df3f8bc75276d573f16629820d81ebdc0f914ec7e31",
     "tests/gnu_examples.cpp": "5ea3599cf48e81b199edcf04fccce651983f2be5ee7d183244cd846f07fd1fb1",
     "tests/gomory_hu.cpp": "888601101b60a6196478f7b6b321227b087514cf1a45391c84e8cb7ac39371fa",

@@ -5121,19 +5121,6 @@
       ],
       "order": 423
     },
-    "GeometryExtra": {
-      "primary": "geometry/nearest-points.md",
-      "relation": "composite",
-      "note": "整数最近点对与 Minkowski 和需拆开，后者暂挂凸包相关应用。",
-      "additional": [
-        "geometry/convex-hull.md"
-      ],
-      "hierarchy": [
-        "计算几何",
-        "平面最近点对"
-      ],
-      "order": 423
-    },
     "IntegerGeometry3D": {
       "primary": "geometry/3d.md",
       "relation": "direct",
@@ -5772,6 +5759,28 @@
         "配对堆"
       ],
       "order": 302
+    },
+    "closest_pair_i64": {
+      "primary": "geometry/nearest-points.md",
+      "relation": "direct",
+      "note": "",
+      "additional": [],
+      "hierarchy": [
+        "计算几何",
+        "平面最近点对"
+      ],
+      "order": 423
+    },
+    "minkowski_sum": {
+      "primary": "geometry/convex-hull.md",
+      "relation": "related",
+      "note": "固定导航没有独立 Minkowski 和条目，按凸包的相关应用归档。",
+      "additional": [],
+      "hierarchy": [
+        "计算几何",
+        "凸包"
+      ],
+      "order": 419
     }
   }
 }

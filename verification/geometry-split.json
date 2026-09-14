@@ -1,0 +1,22 @@
+{
+  "scope": "Separate printed functions and taxonomy placements; legacy wrappers forward to them. Algorithm bodies unchanged except local aliases/indentation.",
+  "unchanged_bodies": [
+    "closest_pair_i64",
+    "minkowski_sum"
+  ],
+  "files": {
+    "src/compact/geometry_extra.hpp": "aeb636bc119bff112899bd839b3dac6efea1be97522ded8df774fa30028da31c",
+    "src/compact/closest_pair_i64.hpp": "922a724188a62ecbd54559e9491d3dc78bca739363beeb97baff360d063d749e",
+    "src/compact/minkowski_sum.hpp": "f08f0a2faf7719d1475ca10ec4c78b08dbfc3f8dfcdb35ba26b11c058f6bb4ae",
+    "tests/geometry_extra_audit.cpp": "d9b200a81159d470a3dd0a92bdd93b8db10d512c33f31a0ebfbb06990a69ef15"
+  },
+  "logs": [
+    "geometry-split-local.txt",
+    "geometry-split-sanitizer.txt"
+  ],
+  "online_ac": "No new online AC claimed",
+  "pdf_checks": [
+    "Eight books pass final warning/index/page audits; ten infra external jumps resolve",
+    "Four pages for the two standalone integer geometry functions visually inspected"
+  ]
+}

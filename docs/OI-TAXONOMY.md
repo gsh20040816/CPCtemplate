@@ -150,8 +150,9 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | RealGeometry | 计算几何 → 二维计算几何基础 | composite | 点线圆构造按二维基础各节拆分，保持统一数值契约。 |
 | IntegerGeometry3D | 计算几何 → 三维计算几何基础 | direct |  |
 | SupportHull | 计算几何 → 凸包 | application | 支撑点查询恢复下凸包。 |
+| minkowski_sum | 计算几何 → 凸包 | related | 固定导航没有独立 Minkowski 和条目，按凸包的相关应用归档。 |
 | IntegerHalfplanes | 计算几何 → 半平面交 | direct |  |
 | ClosestPair | 计算几何 → 平面最近点对 | direct |  |
-| GeometryExtra | 计算几何 → 平面最近点对 | composite | 整数最近点对与 Minkowski 和需拆开，后者暂挂凸包相关应用。 |
+| closest_pair_i64 | 计算几何 → 平面最近点对 | direct |  |
 | EnclosingCircle | 计算几何 → 随机增量法 | application | 随机增量最小覆盖圆。 |
 | ModifiedMo | 杂项 → 离线算法 → 莫队算法 → 带修改莫队 | direct |  |

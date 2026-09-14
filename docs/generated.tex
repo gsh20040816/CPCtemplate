@@ -1615,11 +1615,25 @@ solve(a,b,eps) 返回 Result，包含 infinite 和 lines；infinite 为真表示
 
 坐标绝对值$\le$10$^{9}$；orient(a,b,c,d) 为有向六倍四面体体积，0 表示共面；collinear 判三点共线，on\_segment 支持退化线段。int128 精确判定，不包含三维凸包构造。
 
-\lstinputlisting[firstline=111,lastline=153]{../src/compact/geometry_extra.hpp}
+\lstinputlisting[firstline=19,lastline=61]{../src/compact/geometry_extra.hpp}
 
-\Needspace{680pt}
+\Needspace{659pt}
 
 \chapter{凸包}
+
+\noindent 相关应用：固定导航没有独立 Minkowski 和条目，按凸包的相关应用归档。
+
+\section{凸多边形 Minkowski 和}\label{compact-minkowski_sum}\index{minkowski\_sum}
+
+minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返回空集，点和线段允许作为退化凸包。
+
+点类型 IntegerGeometry::Point；输入坐标及两集合坐标和的绝对值不超过 10$^{12}$。结果不重复首点，非退化时沿逆时针边方向合并，平行同向边同时推进；O(n+m) 时间。
+
+退化输入枚举与另一凸包各点的和再求凸包，O((n+m) log(n+m))。按值传入，内部旋转不修改调用方；依赖 IntegerGeometry 的 hull/cross。
+
+\lstinputlisting[firstline=5,lastline=54]{../src/compact/minkowski_sum.hpp}
+
+\Needspace{658pt}
 
 \section{支撑点查询恢复下凸包}\label{compact-SupportHull}\index{SupportHull}
 
@@ -1653,9 +1667,17 @@ bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}
 
 \lstinputlisting[firstline=79,lastline=105,firstnumber=71]{../src/compact/halfplanes.hpp}
 
-\Needspace{563pt}
+\Needspace{676pt}
 
 \chapter{平面最近点对}
+
+\section{整数最近点对（精确平方距离）}\label{compact-closest_pair_i64}\index{closest\_pair\_i64}
+
+closest\_pair\_i64(points) 返回 optional<\_\_int128\_t> 的最短距离平方；少于两点返回 nullopt，重复点返回 0。点类型为 IntegerGeometry::Point，坐标绝对值不超过 10$^{12}$。按横坐标排序后递归分治，递归返回时按纵坐标排序；O(n log n) 时间、O(n) 辅助空间，全程精确整数。按值传入，不修改调用方序列。依赖 IntegerGeometry 的比较与 dist2。
+
+\lstinputlisting[firstline=5,lastline=56]{../src/compact/closest_pair_i64.hpp}
+
+\Needspace{528pt}
 
 \section{浮点平面最近点对}\label{compact-ClosestPair}\index{ClosestPair}
 
@@ -1668,12 +1690,6 @@ solve(points) 返回 long double 最短距离（不是平方），少于两个�
 \noindent 分治、归并与跨分界线点对（接上页同一函数）：
 
 \lstinputlisting[firstline=43,lastline=68,firstnumber=39]{../src/compact/closest_pair.hpp}
-
-\section{整数最近点对与 Minkowski 和}\label{compact-GeometryExtra}\index{GeometryExtra}
-
-closest\_pair(points) 返回最短距离平方，少于两个点为 nullopt，重复点返回 0，O(n log n)，全程精确整数。minkowski 输入 strict CCW 凸包，返回不重复首点的凸包；非退化 O(n+m)，退化时 O((n+m)log(n+m))。坐标及坐标和须满足整数几何范围。
-
-\lstinputlisting[firstline=4,lastline=110]{../src/compact/geometry_extra.hpp}
 
 \Needspace{549pt}
 

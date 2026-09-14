@@ -32,7 +32,7 @@ WIDA 的一般半平面交条目保留部分完成状态，浮点版本与无界
 
 \clearpage
 \section{最近点对、Minkowski 和与三维整数判定}
-最近点对与 Minkowski 和见第~\pageref{compact-GeometryExtra}~页。
+整数最近点对见第~\pageref{compact-closest_pair_i64}~页；Minkowski 和见第~\pageref{compact-minkowski_sum}~页。
 最近点对返回距离平方，不开方；少于两个点时返回空 optional，重复点返回零。
 分治使用递归，每层按纵坐标归并，总时间 $O(n\log n)$，额外空间 $O(n)$。
 坐标绝对值上限为 $10^{12}$，作差后平方使用 128 位。
