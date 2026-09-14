@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-14T01:46:10.538451+00:00",
+  "recorded_at_utc": "2026-09-14T01:50:09.622184+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -259,7 +259,14 @@
       "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS",
       "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS",
       "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS",
-      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS"
+      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
+      "Tarjan SCC exhaustive digraphs, reachability and condensation oracle PASS",
+      "Biconnected subset/removal oracles and block/bridge forests PASS",
+      "Link-cut forest / BFS oracle PASS",
+      "Link-cut 200000-vertex chain PASS",
+      "Ordered treap and splay / sorted vector oracle PASS",
+      "Sequence treap / vector oracle PASS",
+      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS"
     ],
     "sanitizer-tests.txt": [
       "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
@@ -515,7 +522,14 @@
       "Xor basis dual exhaustive nonempty subsets, merge, cache and 64-bit kth boundaries PASS",
       "Position basis dual threshold subset oracle, arbitrary tags, all intervals and 64-bit scale PASS",
       "Basis intersection dual exhaustive subspaces, Zassenhaus sum, generators and 64-bit boundaries PASS",
-      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS"
+      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
+      "Tarjan SCC exhaustive digraphs, reachability and condensation oracle PASS",
+      "Biconnected subset/removal oracles and block/bridge forests PASS",
+      "Link-cut forest / BFS oracle PASS",
+      "Link-cut 200000-vertex chain PASS",
+      "Ordered treap and splay / sorted vector oracle PASS",
+      "Sequence treap / vector oracle PASS",
+      "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -690,7 +704,7 @@
     "src/compact/basis_intersection.hpp": "cc828f05a4a8f528d08e1644e9818622e975927c0207bf8006a09798c3426799",
     "src/compact/batch_inverse.hpp": "bb277a6c825f84d744b914dd9966a4a6aafa5e61ffdf23eb41370f55fa6b0209",
     "src/compact/batch_units.hpp": "a2da600e0ed405238bdde470af923774e9b15b16a3ec7d66d24680bf9b5d1aec",
-    "src/compact/biconnected.hpp": "e5beab43dd2231327da7a6a7da19113c49ea677c208ab5b433b9fa84cb117c2b",
+    "src/compact/biconnected.hpp": "4af6798d33c4de33c5fcda69d6d2a07e92d885a9ad040f9bd9e94ef2c57afd4d",
     "src/compact/blossom.hpp": "aad0090e30aa648928eedf785dab0587fd9eb23b7442aee676bd291208352986",
     "src/compact/bostan_mori.hpp": "b3e15c986e3d84c3c90430a2b11bd1c776e7f1648d0d334485593bc5a6736af5",
     "src/compact/bridge_augmentation.hpp": "3d439fcd3704775b28004d0f3b9001991f2d3af82c652e6ae28bfc1d11765842",
@@ -755,7 +769,7 @@
     "src/compact/modified_mo.hpp": "aefda6284d59cc2d57e046f3cca0f94b548abd968eabe6e35e8e8b1d6434040d",
     "src/compact/modular_sqrt.hpp": "b35d0cf49b3dc630db16ccc045a0f84d5e00c9f48cdbc0bfac0b280270bdd2a3",
     "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
-    "src/compact/number_theory.hpp": "e71c866b118ab653d816e267b384691bbbfd2946d7ef21f3afec87002eb20b94",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
     "src/compact/odd_cycle_vertices.hpp": "7535d5d820f5128488e08e1c89e2f74a9d60d064b41b42d5b3c3f045b3e11723",
     "src/compact/offline_lca.hpp": "99c53fc625a5d595a1c09b188849bb09c2c7ba43f863af40f124e64775e010e0",
     "src/compact/optimization.hpp": "3cbefa26ecb0cddfd836587e9350ad214d6630f40b29697ce8a3d4e7a198c439",
@@ -767,7 +781,7 @@
     "src/compact/persistent_array.hpp": "9187d32b4aa443cf57347a17e7943a4d07cf086c142257763e925d80f9021982",
     "src/compact/persistent_distinct.hpp": "b72f294559b01aff1a06d7e0aa64bd57d7772e9337025eb2995a7359fe199deb",
     "src/compact/persistent_range.hpp": "108995c6654309946f3aae19e67c3d70ff8db468fc1311c5b274801507ed4cf8",
-    "src/compact/polynomial.hpp": "7eadbd0a6a9c4ad4904e135b88330643271ae1f306a378dc84eefd0186c99b11",
+    "src/compact/polynomial.hpp": "13c516f1d852b5bc3e8c3d4a9786d9e3ae8255dcce79ca411641c60f7026a27e",
     "src/compact/polynomial_shift.hpp": "d42e99cba55b21a3e4dd14a2d02979c05bcf06aeff6ecb70650dec2528a9ceae",
     "src/compact/position_basis.hpp": "2ac68f0a31c07dc28a08ab07ae8875f976dccade871f3cbaf4b39614b4bf3472",
     "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
@@ -786,8 +800,8 @@
     "src/compact/subset_convolution.hpp": "a61883d0c6d2c8009b0506b25af4d9cd1c4718daea5d369fed8b59b953213ea3",
     "src/compact/suffix_lcp.hpp": "6055557be1d2f458b5aac09fbebccd2417ad1aee342be800db9329c7adec3891",
     "src/compact/support_hull.hpp": "443ff3e2f1a8d3c9b7de874316d7ae7f169a1b4c3826626d801077f98fb6956c",
-    "src/compact/tarjan.hpp": "89ae133d40c112b5f4aa016dac035a401dd872984bca7b390ad3d7accba45079",
-    "src/compact/treap.hpp": "83bf33f42569ef65fe840c154c51eaf79e168adb211094b9d1f1eed3aeb07bb6",
+    "src/compact/tarjan.hpp": "61899731db759d931d805d476f659163f404b999e6eba368536a39e404fc5bf1",
+    "src/compact/treap.hpp": "29c0ba1d81da52eea73a10da02ae494c54941e2a5f3c6c2e7abd33e71b2a8a44",
     "src/compact/tree.hpp": "f8592533ea8599ab84263e9c33a6257785edc81972a78cd6e231e42891392046",
     "src/compact/tree_diameter.hpp": "c875fa09dfcf060f123e706b4d9799f8d2247315e444672a82fe67571987059b",
     "src/compact/tree_path_kth.hpp": "ace534a221f313883fce1c87868493f028d231be5b5f42ad459aaf34a0543553",

@@ -957,13 +957,15 @@ GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp 和 ext/pb\_ds/tre
 
 insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在；rank(x) 为严格小于 x 的元素数加一，x 不必存在；kth(k) 要求 1$\le$k$\le$size()。prev/next 为严格前驱/后继，不存在时返回 nullopt。支持重复值、LLONG\_MIN 和 LLONG\_MAX，分裂不使用 x-1。随机优先级下单次期望 O(log n)，并非确定性最坏界。节点池不回收已删除节点，空间按累计插入次数计算；可在构造时指定随机种子。
 
-\lstinputlisting[firstline=8,lastline=140]{../src/compact/treap.hpp}
+\lstinputlisting[firstline=8,lastline=139]{../src/compact/treap.hpp}
+
+\Needspace{401pt}
 
 \subsection{隐式 Treap：序列翻转、加值与区间和}\label{compact-SequenceTreap}\index{SequenceTreap}
 
 insert(k,value) 在前 k 个元素后插入，0$\le$k$\le$size()；erase(l,r)、reverse(l,r)、add(l,r,value)、query(l,r) 均使用 1-based 非空闭区间。values() 返回当前完整序列，O(n)，使用递归中序遍历。其余操作在随机优先级下期望 O(log n)；翻转与加法懒标记同时维护。所有值、和、标记及 value×长度中间结果必须落在 long long 范围内。删除不回收节点，内存按累计插入数计算。
 
-\lstinputlisting[firstline=141,lastline=304]{../src/compact/treap.hpp}
+\lstinputlisting[firstline=140,lastline=300]{../src/compact/treap.hpp}
 
 \subsection{状态序列 Treap：分组区间 GCD}\label{compact-GcdSequenceTreap}\index{GcdSequenceTreap}
 
@@ -1237,7 +1239,7 @@ solve(n,root,edges)，点号 0..n-1，n$\ge$1、0$\le$root<n；返回以 root �
 
 TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u] 为 1..cnt 的强连通分量编号，跨分量边总从大编号指向小编号，可按 cnt..1 做拓扑 DP。dag() 返回缩点邻接表，保留重边；若 DP 需要对不同邻点去重，调用者应排序去重。支持自环、重边、不连通图和重复 run。时间及图存储 O(n+m)，递归 DFS 另需 O(n) 调用栈；本地验证应配置足够栈内存。注意已有 SCC 模板的编号方向与本模板相反。
 
-\lstinputlisting[firstline=7,lastline=76]{../src/compact/tarjan.hpp}
+\lstinputlisting[firstline=7,lastline=75]{../src/compact/tarjan.hpp}
 
 \noindent 相关应用：函数图包含尾链与环分解，导航无独立页；需正文定位，不应等同一般 SCC 算法。
 
@@ -1275,7 +1277,7 @@ add(u,v)、run()，bel[1..n] 为分量编号，cnt 为数量；分量编号按�
 
 Biconnected(n)，点号 1..n；add(u,v) 返回原边的 0-based 编号，run() 从头计算。blocks 为点双的顶点列表：桥的两端构成一个块，孤立点独立成块；同一个割点可出现在多个块。cut[u] 标记割点，bridge[id] 标记桥；bel[u] 是 1..cnt 的边双编号。block\_forest() 返回圆方森林，原点 1..n，blocks[i] 的方点编号 n+i+1；孤立点也连接自己的单点方块。bridge\_forest() 返回边双缩点森林，邻接项为 (相邻分量,原桥编号)。重边按边号处理；自环保留原边编号但不参与 DFS，不是桥，不额外产生点双。全程 O(n+m)，递归 DFS，分量栈不替代递归调用。两种森林必须在 run 后获取。
 
-\lstinputlisting[firstline=8,lastline=131]{../src/compact/biconnected.hpp}
+\lstinputlisting[firstline=8,lastline=130]{../src/compact/biconnected.hpp}
 
 \Needspace{365pt}
 

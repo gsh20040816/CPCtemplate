@@ -6,7 +6,7 @@
 
 第一批去除 31 个头文件中 42 处显式函数 inline。按单个 C++ 源文件抄写、打包与提交，函数体及其他非空白文本保持不变；记录见 verification/inline-style.json。这些片段不承诺直接供多个翻译单元重复包含并链接，inline 的 ODR 作用与优化器是否展开调用是不同问题。
 
-保留 DynamicModInt 的 static inline 数据成员：它使类内初始化的可变静态变量成为定义，并非函数内联提示。number_theory_detail/polynomial_detail 的 inline constexpr 函数指针变量暂保留，后续与兼容层一起检查。
+保留 DynamicModInt 的 static inline 数据成员：它使类内初始化的可变静态变量成为定义，并非函数内联提示。number_theory_detail/polynomial_detail 的函数指针常量省略 inline，保留 constexpr；命名空间嵌入回归覆盖兼容调用。
 
 ## init 到构造函数的逐项核对
 
@@ -32,3 +32,7 @@ Lagrange 的任意点/连续点构造与原有多项式对拍在普通、ASan/UB
 SuffixArray 的整数构造已承接共用算法体，字符串入口保留 unsigned char 转换后复用构造结果；不复制倍增实现。完整字节集、整数字母表、空串重建、百万周期串与下游 SuffixLCP 在普通及 ASan/UBSan 模式通过，见 verification/suffix-constructors.json。
 
 线性基清空迁移已通过四套普通及 ASan/UBSan 测试：普通基、带位置基、子空间求交、图上异或行走；详见 verification/basis-constructors.json。Binomial 保留的 init 只处理新增范围，不是无意义的初始化代理，QOJ 8237 的增量调用不变。
+
+短语句采用少量明确的合并：Tarjan/双连通计数器同时清零，Treap 空分裂两端同时置零，区间加的值/和/标记按原顺序更新。只涉及内置整数赋值与逗号求值，不合并递归、下传或复杂分支；用户指定 DSU 已按原先的逗号写法保留。
+
+本 issue 的函数修饰、初始化与短语句改动均已落实，专项普通/消毒器测试通过；当前整合版本的全量回归已启动，等待结果后作最终确认，不提前关闭。

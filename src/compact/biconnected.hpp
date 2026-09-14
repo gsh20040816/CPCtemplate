@@ -72,8 +72,7 @@ struct Biconnected
 
     void run()
     {
-        timer = 0;
-        cnt = 0;
+        timer = cnt = 0;
         dfn.assign(n + 1, 0);
         low = dfn;
         cut = dfn;

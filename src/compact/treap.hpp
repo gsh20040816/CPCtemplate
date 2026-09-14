@@ -36,8 +36,7 @@ struct OrderedTreap
     {
         if (!p)
         {
-            l = 0;
-            r = 0;
+            l = r = 0;
             return;
         }
         if (a[p].val < x || (equal && a[p].val == x))
@@ -167,9 +166,7 @@ struct SequenceTreap
     void apply_add(int p, ll x)
     {
         if (!p) return;
-        a[p].val += x;
-        a[p].sum += x * a[p].siz;
-        a[p].tag += x;
+        a[p].val += x, a[p].sum += x * a[p].siz, a[p].tag += x;
     }
 
     void apply_reverse(int p)
@@ -200,8 +197,7 @@ struct SequenceTreap
     {
         if (!p)
         {
-            l = 0;
-            r = 0;
+            l = r = 0;
             return;
         }
         push(p);

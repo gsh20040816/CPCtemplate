@@ -5,8 +5,8 @@
 
 namespace polynomial_detail
 {
-inline constexpr auto bm = berlekamp_massey;
-inline constexpr auto nth = recurrence_nth;
+constexpr auto bm = berlekamp_massey;
+constexpr auto nth = recurrence_nth;
 } // namespace polynomial_detail
 
 // Compatibility entry; the handbook prints the independently classified modules.

@@ -48,8 +48,7 @@ struct TarjanSCC
     // IDs 1..cnt are in reverse topological order. Recursive DFS needs O(n) stack.
     void run()
     {
-        timer = 0;
-        cnt = 0;
+        timer = cnt = 0;
         dfn.assign(n + 1, 0);
         low = dfn;
         bel = dfn;

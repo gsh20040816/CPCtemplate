@@ -12,7 +12,7 @@ using namespace std;
 // Compatibility entry; handbook components are classified independently.
 namespace number_theory_detail
 {
-inline constexpr auto floor_sum_fn = floor_sum;
+constexpr auto floor_sum_fn = floor_sum;
 }
 
 struct NumberTheory : Prime64
