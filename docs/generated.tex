@@ -1368,13 +1368,27 @@ dsu(n)，点号 0..n-1，n$\ge$0。find(x) 路径减半；same(x,y) 判断同集
 
 \lstinputlisting{usage/example-7.cpp}
 
-\Needspace{493pt}
+\Needspace{527pt}
 
 \subsection{可撤销并查集}\label{compact-RollbackDSU}\index{RollbackDSU}
 
-构造后 snapshot() 保存历史长度，rollback(t) 回退。禁止路径压缩；find/merge 为 O(log n)，回退每次成功合并 O(1)。
+RollbackDSU(n) 可使用 0..n（若题目 0-based 则不用 n）。find 不压缩路径，merge 按集合大小合并，已同集合返回 false 且不记历史；siz 仅根处有效。snapshot() 返回历史长度，退出递归分支时 rollback(t) 撤销此后成功合并。t 必须是当前历史的祖先快照，不能用已回滚分支的旧快照恢复版本。find/merge 为 O(log(n+1))，每次撤销成功合并 O(1)，空间 O(n)；适合版本树或时间分治。它按大小合并以保证回滚复杂度，接口与普通 dsu 的根连接方向不同。
 
 \lstinputlisting[firstline=41,lastline=80]{../src/compact/data_structure.hpp}
+
+\Needspace{551pt}
+
+\subsection*{模板题使用：Library Checker persistent\_unionfind}
+
+\label{usage-example-84}
+
+题意：离线读入所有操作，按所依赖的版本建立树。版本 -1 映射到树根 0，操作 i 映射到 i+1；顶点仍是 0-based。递归进入版本前保存 snapshot，退出时 rollback，答案按原查询顺序输出。只有合并产生可引用版本；本例是离线解法，不提供在线任意版本访问。总时间 O(n+q log(n+1))，空间 O(n+q)，版本链递归深度可为 q。
+
+所需模板：RollbackDSU。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/persistent_unionfind}
+
+\lstinputlisting{usage/example-84.cpp}
 
 \Needspace{264pt}
 

@@ -9,7 +9,7 @@
     "data_structure",
     "RollbackDSU",
     "可撤销并查集",
-    "构造后 snapshot() 保存历史长度，rollback(t) 回退。禁止路径压缩；find/merge 为 O(log n)，回退每次成功合并 O(1)。"
+    "RollbackDSU(n) 可使用 0..n（若题目 0-based 则不用 n）。find 不压缩路径，merge 按集合大小合并，已同集合返回 false 且不记历史；siz 仅根处有效。snapshot() 返回历史长度，退出递归分支时 rollback(t) 撤销此后成功合并。t 必须是当前历史的祖先快照，不能用已回滚分支的旧快照恢复版本。find/merge 为 O(log(n+1))，每次撤销成功合并 O(1)，空间 O(n)；适合版本树或时间分治。它按大小合并以保证回滚复杂度，接口与普通 dsu 的根连接方向不同。"
   ],
   [
     "data_structure",

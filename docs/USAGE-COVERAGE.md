@@ -6,7 +6,7 @@
 | 模板 | 示例 | 状态 |
 |---|---|---|
 | dsu | [example-7](usage/example-7.cpp) | locally_checked_example |
-| RollbackDSU | 待补 | pending_example |
+| RollbackDSU | [example-84](usage/example-84.cpp) | locally_checked_example |
 | Fenwick | 待补 | pending_example |
 | LazySeg | 待补 | pending_example |
 | XorBasis | [example-36](usage/example-36.cpp) | locally_checked_example |

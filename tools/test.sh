@@ -468,3 +468,4 @@ build/johnson
 build/dominator-tree
 python3 tests/dominator_application.py
 python3 tests/lowlink_application.py
+python3 tests/rollback_application.py

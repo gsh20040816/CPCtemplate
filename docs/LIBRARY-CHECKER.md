@@ -57,7 +57,7 @@
 | [Ordered Set](https://judge.yosupo.jp/problem/ordered_set) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [ordered_set.compact.cpp](../verify/library_checker/ordered_set.compact.cpp) |
 | [Persistent Queue](https://judge.yosupo.jp/problem/persistent_queue) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [persistent_queue.compact.cpp](../verify/library_checker/persistent_queue.compact.cpp) |
 | [Persistent Range Affine Range Sum](https://judge.yosupo.jp/problem/persistent_range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Persistent Unionfind](https://judge.yosupo.jp/problem/persistent_unionfind) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Persistent Unionfind](https://judge.yosupo.jp/problem/persistent_unionfind) | Data Structure | 待逐题审题、适配与在线验证 | [persistent_unionfind.compact.cpp](../verify/library_checker/persistent_unionfind.compact.cpp) |
 | [Point Add Range Sum](https://judge.yosupo.jp/problem/point_add_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Point Add Rectangle Sum](https://judge.yosupo.jp/problem/point_add_rectangle_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Point Set Range Composite](https://judge.yosupo.jp/problem/point_set_range_composite) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [point_set_range_composite.compact.cpp](../verify/library_checker/point_set_range_composite.compact.cpp) |

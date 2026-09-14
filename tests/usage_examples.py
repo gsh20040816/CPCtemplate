@@ -135,6 +135,7 @@ cases['example-80'] = [('3\n5 1 9\n2 6 3\n4 8 7\n', {'assignment': [[5, 1, 9], [
 cases['example-81'] = [('8\n0 1 1 2 3 5 8 13\n', {'recurrence': ([0, 1, 1, 2, 3, 5, 8, 13], 2)}), ('0\n', {'recurrence': ([], 0)}), ('3\n0 0 0\n', {'recurrence': ([0, 0, 0], 0)}), ('3\n0 0 1\n', {'recurrence': ([0, 0, 1], 3)})]
 cases['example-82'] = [('6 6 0\n0 1\n0 2\n1 3\n2 3\n3 4\n4 3\n', '0 0 0 0 3 -1'), ('3 2 2\n2 1\n1 0\n', '1 2 2'), ('1 1 0\n0 0\n', '0')]
 cases['example-83'] = [('6 6\n1 2\n1 3\n2 4\n3 4\n4 5\n5 4\n', '5 1 1 2 1 0'), ('4 3\n1 2\n2 3\n3 4\n', '4 3 2 1'), ('1 1\n1 1\n', '1')]
+cases['example-84'] = [('4 8\n0 -1 0 1\n0 0 1 2\n1 1 0 2\n1 0 0 2\n0 -1 2 3\n1 4 0 1\n1 4 2 3\n1 -1 3 3\n', '1 0 0 1 1'), ('2 4\n0 -1 0 0\n0 0 0 1\n1 0 0 1\n1 1 0 1\n', '0 1'), ('1 1\n0 -1 0 0\n', '')]
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()

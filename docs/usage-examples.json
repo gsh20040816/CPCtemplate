@@ -977,5 +977,16 @@
     "requires": [
       "DominatorTree"
     ]
+  },
+  {
+    "id": "example-84",
+    "symbol": "RollbackDSU",
+    "problem": "Library Checker persistent_unionfind",
+    "url": "https://judge.yosupo.jp/problem/persistent_unionfind",
+    "summary": "离线读入所有操作，按所依赖的版本建立树。版本 -1 映射到树根 0，操作 i 映射到 i+1；顶点仍是 0-based。递归进入版本前保存 snapshot，退出时 rollback，答案按原查询顺序输出。只有合并产生可引用版本；本例是离线解法，不提供在线任意版本访问。总时间 O(n+q log(n+1))，空间 O(n+q)，版本链递归深度可为 q。",
+    "driver": "verify/library_checker/persistent_unionfind.compact.cpp",
+    "requires": [
+      "RollbackDSU"
+    ]
   }
 ]
