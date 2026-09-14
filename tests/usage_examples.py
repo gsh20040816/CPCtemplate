@@ -106,6 +106,7 @@ cases.update({
     'example-62': [('3\n0 0\n1 1\n9 9\n', '2'), ('2\n-10000000 -10000000\n10000000 10000000\n', '800000000000000'), ('3\n2 7\n2 3\n2 4\n', '1')]
 })
 cases['example-63'] = [('3 6\n5 1 5\nQ 1 3 2\nC 2 7\nQ 1 3 2\nC 1 0\nQ 1 2 1\nQ 2 2 1\n', '5 5 0 7'), ('1 4\n9\nC 1 9\nQ 1 1 1\nC 1 1000000000\nQ 1 1 1\n', '9 1000000000')]
+cases['example-64'] = [('3\n0\n3\n2 3\n2 3\n2 3\n4\n0 0\n1 1\n2 2\n1 1\n', '0 1 2 3 2 0 0 2 2'), ('1\n6\n0 0\n2 0\n2 2\n0 2\n1 0\n1 1\n', '4 0 0 2 0 2 2 0 2')]
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()

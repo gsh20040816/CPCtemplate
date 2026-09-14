@@ -73,7 +73,7 @@
 | DuJiao | 待补 | pending_example |
 | DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |
 | IntegerPlane | 待补 | pending_example |
-| integer_hull | 待补 | pending_example |
+| integer_hull | [example-64](usage/example-64.cpp) | locally_checked_example |
 | polygon_area2 | 待补 | pending_example |
 | polygon_contains | 待补 | pending_example |
 | convex_contains_i64 | 待补 | pending_example |

@@ -740,5 +740,17 @@
     "helper_types": [
       "Query"
     ]
+  },
+  {
+    "id": "example-64",
+    "symbol": "integer_hull",
+    "problem": "Library Checker static_convex_hull",
+    "url": "https://judge.yosupo.jp/problem/static_convex_hull",
+    "summary": "多组求整数点集的凸包，去重并去掉边上非顶点。输出顶点数及逆时针顶点，不重复首点；空集输出 0，共线时仅保留两端。传 move 交出点集，避免按值传参时额外复制。",
+    "driver": "verify/library_checker/static_convex_hull.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "integer_hull"
+    ]
   }
 ]
