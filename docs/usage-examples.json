@@ -1,0 +1,79 @@
+[
+  {
+    "id": "example-1",
+    "symbol": "Dinic",
+    "problem": "Luogu P3376",
+    "url": "https://www.luogu.com.cn/problem/P3376",
+    "summary": "给定有向容量网络与源点、汇点，求最大流。输入点号为 1..n，平行边逐条加入。",
+    "driver": "verify/luogu/P3376.compact.cpp",
+    "requires": [
+      "Dinic"
+    ]
+  },
+  {
+    "id": "example-2",
+    "symbol": "TarjanSCC",
+    "problem": "Library Checker scc",
+    "url": "https://judge.yosupo.jp/problem/scc",
+    "summary": "把有向图分成强连通分量，并按缩点图的拓扑顺序输出各分量。题目点号为 0..n-1，调用时加 1，输出时减 1。",
+    "driver": "verify/library_checker/scc.compact.cpp",
+    "requires": [
+      "TarjanSCC"
+    ]
+  },
+  {
+    "id": "example-3",
+    "symbol": "TwoSAT",
+    "problem": "Library Checker two_sat",
+    "url": "https://judge.yosupo.jp/problem/two_sat",
+    "summary": "每个子句是两个文字的或，判断是否可满足并输出一组赋值。输入为 DIMACS：首行 p cnf n m，正数表示变量，负数表示取反，每个子句末尾为 0。",
+    "driver": "verify/library_checker/two_sat.compact.cpp",
+    "requires": [
+      "TwoSAT"
+    ]
+  },
+  {
+    "id": "example-4",
+    "symbol": "BiconnectedCore",
+    "problem": "Luogu P8435",
+    "url": "https://www.luogu.com.cn/problem/P8435",
+    "summary": "给定无向图，输出所有点双连通分量的顶点集合；割点可出现在多个集合中，孤立点单独成块。点号 1..n。",
+    "driver": "verify/luogu/P8435.compact.cpp",
+    "requires": [
+      "BiconnectedCore"
+    ]
+  },
+  {
+    "id": "example-5",
+    "symbol": "BiconnectedCore",
+    "problem": "Luogu P8436",
+    "url": "https://www.luogu.com.cn/problem/P8436",
+    "summary": "给定无向图，输出所有边双连通分量的顶点集合；利用 bel 按边双编号分组。点号 1..n。",
+    "driver": "verify/luogu/P8436.compact.cpp",
+    "requires": [
+      "BiconnectedCore"
+    ]
+  },
+  {
+    "id": "example-6",
+    "symbol": "enumerate_triangles",
+    "problem": "Library Checker enumerate_triangles",
+    "url": "https://judge.yosupo.jp/problem/enumerate_triangles",
+    "summary": "给简单无向图的每个点一个权值，求所有三角形三个点权乘积之和，模 998244353。点号 0..n-1。",
+    "driver": "verify/library_checker/enumerate_triangles.compact.cpp",
+    "requires": [
+      "enumerate_triangles"
+    ]
+  },
+  {
+    "id": "example-7",
+    "symbol": "dsu",
+    "problem": "Luogu P3367",
+    "url": "https://www.luogu.com.cn/problem/P3367",
+    "summary": "维护集合合并与两点是否同集合。题目点号 1..n，传给 dsu 前减 1；查询输出 Y 或 N。",
+    "driver": "verify/luogu/P3367.compact.cpp",
+    "requires": [
+      "dsu"
+    ]
+  }
+]

@@ -16,6 +16,9 @@ jobs:
       - run: tools/format.sh --check
       - run: tools/test.sh
       - run: SANITIZE=1 tools/test.sh
+      - run: python3 tests/usage_examples.py
+      - run: python3 tools/usage_examples.py
+      - run: git diff --exit-code -- docs/usage-coverage.json docs/USAGE-COVERAGE.md verification/usage-examples.json
   handbook:
     runs-on: ubuntu-latest
     steps:

@@ -3,6 +3,8 @@ import json, re
 from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 cat = json.loads((root / 'docs/catalog.json').read_text())
+from usage_examples import generate as generate_usage
+usage_rows = generate_usage()
 
 def esc(s):
     for a, b in [('\\', '\\textbackslash{}'), ('&', '\\&'), ('%', '\\%'), ('$', '\\$'), ('#', '\\#'), ('_', '\\_'), ('{', '\\{'), ('}', '\\}')]:
@@ -391,6 +393,18 @@ for style in ['compact']:
                 body.append(r'\begin{lstlisting}' + '\n' + 'rp<int> a;\na.push_back(3);\na.insert(0, 7);\nrp<int> b = a;\nb.replace(1, 9);\nb.erase(0, 1);\nauto c = a.substr(0, 1);\nint x = a[1];\n' + r'\end{lstlisting}')
             if name == 'pheap':
                 body.append(r'\begin{lstlisting}' + '\n' + 'pheap<int> a, b;\nauto h = a.push(7);\na.modify(h, 2);\nb.join(a);\nb.erase(h);\n' + r'\end{lstlisting}')
+            for usage in usage_rows:
+                if usage['symbol'] != name:
+                    continue
+                count = len(usage['snippet'].splitlines())
+                space = min(680, 140 + count * 11 + len(usage['summary']) / 42 * 14)
+                body.append('\\Needspace{' + str(round(space)) + 'pt}')
+                body.append('\\subsection*{模板题使用：' + esc(usage['problem']) + '}')
+                body.append('\\label{usage-' + usage['id'] + '}')
+                body.append('题意：' + esc(usage['summary']))
+                body.append('所需模板：' + esc('、'.join(usage['requires'])) + '。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。')
+                body.append('题目：\\url{' + usage['url'] + '}')
+                body.append('\\lstinputlisting{' + usage['snippet_file'].removeprefix('docs/') + '}')
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 (root / 'build').mkdir(exist_ok=True)
 (root / 'build/book-sections.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')

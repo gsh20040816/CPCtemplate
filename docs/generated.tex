@@ -808,6 +808,20 @@ dsu(n)，点号 0..n-1，n$\ge$0。find(x) 路径减半；same(x,y) 判断同集
 
 \lstinputlisting[firstline=6,lastline=40]{../src/compact/data_structure.hpp}
 
+\Needspace{332pt}
+
+\subsection*{模板题使用：Luogu P3367}
+
+\label{usage-example-7}
+
+题意：维护集合合并与两点是否同集合。题目点号 1..n，传给 dsu 前减 1；查询输出 Y 或 N。
+
+所需模板：dsu。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3367}
+
+\lstinputlisting{usage/example-7.cpp}
+
 \Needspace{493pt}
 
 \subsection{可撤销并查集}\label{compact-RollbackDSU}\index{RollbackDSU}
@@ -1241,6 +1255,20 @@ TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u]
 
 \lstinputlisting[firstline=7,lastline=75]{../src/compact/tarjan.hpp}
 
+\Needspace{422pt}
+
+\subsection*{模板题使用：Library Checker scc}
+
+\label{usage-example-2}
+
+题意：把有向图分成强连通分量，并按缩点图的拓扑顺序输出各分量。题目点号为 0..n-1，调用时加 1，输出时减 1。
+
+所需模板：TarjanSCC。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/scc}
+
+\lstinputlisting{usage/example-2.cpp}
+
 \noindent 相关应用：函数图包含尾链与环分解，导航无独立页；需正文定位，不应等同一般 SCC 算法。
 
 \subsection{函数图分解、跳转与到达}\label{compact-FunctionalGraph}\index{FunctionalGraph}
@@ -1294,6 +1322,34 @@ BiconnectedCore(n)，点号 1..n；add(u,v) 返回原边的 0-based 编号，run
 \Needspace{308pt}
 
 \lstinputlisting[firstline=73,lastline=98,firstnumber=66]{../src/compact/biconnected_core.hpp}
+
+\Needspace{410pt}
+
+\subsection*{模板题使用：Luogu P8435}
+
+\label{usage-example-4}
+
+题意：给定无向图，输出所有点双连通分量的顶点集合；割点可出现在多个集合中，孤立点单独成块。点号 1..n。
+
+所需模板：BiconnectedCore。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P8435}
+
+\lstinputlisting{usage/example-4.cpp}
+
+\Needspace{419pt}
+
+\subsection*{模板题使用：Luogu P8436}
+
+\label{usage-example-5}
+
+题意：给定无向图，输出所有边双连通分量的顶点集合；利用 bel 按边双编号分组。点号 1..n。
+
+所需模板：BiconnectedCore。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P8436}
+
+\lstinputlisting{usage/example-5.cpp}
 
 \Needspace{296pt}
 
@@ -1381,6 +1437,20 @@ enumerate\_triangles(n,edges,visit) 使用 0..n-1 点号；edges 须为无向简
 
 \lstinputlisting[firstline=8,lastline=32]{../src/compact/enumerate_triangles.hpp}
 
+\Needspace{355pt}
+
+\subsection*{模板题使用：Library Checker enumerate\_triangles}
+
+\label{usage-example-6}
+
+题意：给简单无向图的每个点一个权值，求所有三角形三个点权乘积之和，模 998244353。点号 0..n-1。
+
+所需模板：enumerate\_triangles。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/enumerate_triangles}
+
+\lstinputlisting{usage/example-6.cpp}
+
 \Needspace{417pt}
 
 \chapter{2-SAT}
@@ -1390,6 +1460,20 @@ enumerate\_triangles(n,edges,visit) 使用 0..n-1 点号；edges 须为无向简
 add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性，仅成功时读取 ans。依赖同文件 SCC；O(V+E)，不保证字典序最小。
 
 \lstinputlisting[firstline=110,lastline=138]{../src/compact/graph.hpp}
+
+\Needspace{418pt}
+
+\subsection*{模板题使用：Library Checker two\_sat}
+
+\label{usage-example-3}
+
+题意：每个子句是两个文字的或，判断是否可满足并输出一组赋值。输入为 DIMACS：首行 p cnf n m，正数表示变量，负数表示取反，每个子句末尾为 0。
+
+所需模板：TwoSAT。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/two_sat}
+
+\lstinputlisting{usage/example-3.cpp}
 
 \Needspace{406pt}
 
@@ -1476,6 +1560,20 @@ Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新
 \newpage
 
 \lstinputlisting[firstline=72,lastline=118,firstnumber=67]{../src/compact/flow.hpp}
+
+\Needspace{329pt}
+
+\subsection*{模板题使用：Luogu P3376}
+
+\label{usage-example-1}
+
+题意：给定有向容量网络与源点、汇点，求最大流。输入点号为 1..n，平行边逐条加入。
+
+所需模板：Dinic。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3376}
+
+\lstinputlisting{usage/example-1.cpp}
 
 \Needspace{492pt}
 
