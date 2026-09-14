@@ -133,7 +133,7 @@
 | [Dominator Tree](https://judge.yosupo.jp/problem/dominatortree) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Dynamic Graph Vertex Add Component Sum](https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Enumerate Cliques](https://judge.yosupo.jp/problem/enumerate_cliques) | Graph | 待逐题审题、适配与在线验证 | — |
-| [Enumerate Triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | Graph | 待逐题审题、适配与在线验证 | — |
+| [Enumerate Triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | Graph | 待逐题审题、适配与在线验证 | [enumerate_triangles.compact.cpp](../verify/library_checker/enumerate_triangles.compact.cpp) |
 | [Eulerian Trail (Directed)](https://judge.yosupo.jp/problem/eulerian_trail_directed) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Eulerian Trail (Undirected)](https://judge.yosupo.jp/problem/eulerian_trail_undirected) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Matching on General Graph](https://judge.yosupo.jp/problem/general_matching) | Graph | 待逐题审题、适配与在线验证 | — |

@@ -124,6 +124,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Lowlink | 图论 → 连通性相关 → 割点和桥 | application | 割点/桥及其删点、增边应用。 |
 | bridge_augmentation | 图论 → 连通性相关 → 割点和桥 | application | 割点/桥及其删点、增边应用。 |
 | removal_components | 图论 → 连通性相关 → 割点和桥 | application | 割点/桥及其删点、增边应用。 |
+| enumerate_triangles | 图论 → 环计数问题 | direct |  |
 | LexTwoSAT | 图论 → 2-SAT | direct |  |
 | TwoSAT | 图论 → 2-SAT | direct |  |
 | DirectedEuler | 图论 → 欧拉图 | application | 有向、无向、混合和字典序应用，保留差异。 |

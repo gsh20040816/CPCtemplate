@@ -1556,5 +1556,31 @@
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/shortest_path/task.md",
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/shortest_path/info.toml"
     ]
+  },
+  {
+    "symbol": "enumerate_triangles",
+    "problem": "Library Checker enumerate_triangles",
+    "url": "https://judge.yosupo.jp/problem/enumerate_triangles",
+    "classification": "Standalone simple-graph triangle weighted-sum template; user issue 11 attachment section 2.9 supplies counting use case.",
+    "statement_checked": true,
+    "checked_date": "2026-09-14",
+    "limits": "1<=N,M<=100000; undirected simple graph; 0<=x<998244353",
+    "tested_api": [
+      "enumerate_triangles",
+      "visit"
+    ],
+    "adapter": "Degree/id orientation order need not be vertex-number order; product is symmetric. Reduce after each multiplication to stay in signed64.",
+    "driver": "verify/library_checker/enumerate_triangles.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "17 pinned official local cases in normal/ASan+UBSan modes passed; online submission and all-submission ranking pending.",
+    "statement_sources": [
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/enumerate_triangles/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/enumerate_triangles/info.toml"
+    ]
   }
 ]

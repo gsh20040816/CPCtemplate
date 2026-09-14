@@ -1337,6 +1337,16 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 \lstinputlisting[firstline=249,lastline=291,firstnumber=17]{../src/compact/graph.hpp}
 
+\Needspace{410pt}
+
+\chapter{环计数问题}
+
+\section{无向简单图三元环枚举}\label{compact-enumerate_triangles}\index{enumerate\_triangles}
+
+enumerate\_triangles(n,edges,visit) 使用 0..n-1 点号；edges 须为无向简单图，无自环、无重边，每条边只给一次，端点顺序任意。每个三角形恰调用一次 visit(u,v,w)，参数按度数和编号组成的次序排列，不保证编号递增。可在回调中计数、累计权值或收集方案；计数用 long long。按 (度数,编号) 从小到大定向，标记 u 的出邻点后枚举 u 到 v 到 w 的有向路径。每个出度为 O($\sqrt{\vphantom x}$m)，总时间 O(n+m$\sqrt{\vphantom x}$m)，含常数时间回调，空间 O(n+m)；空图合法。调用期间不修改输入边集。
+
+\lstinputlisting[firstline=8,lastline=32]{../src/compact/enumerate_triangles.hpp}
+
 \Needspace{417pt}
 
 \chapter{2-SAT}

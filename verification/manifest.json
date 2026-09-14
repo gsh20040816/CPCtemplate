@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-14T02:25:14.316185+00:00",
+  "recorded_at_utc": "2026-09-14T02:40:30.158883+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -278,7 +278,8 @@
       "math PASS",
       "geometry PASS",
       "dual geometry, flow, optimization, graph-advanced PASS",
-      "Real geometry components: standalone headers, scaled analytic projection/distance/intersections, tangencies, point circles and containment area PASS"
+      "Real geometry components: standalone headers, scaled analytic projection/distance/intersections, tangencies, point circles and containment area PASS",
+      "Triangles: exhaustive simple graphs through six vertices, unique callback certificates, reversed inputs, dense clique, 200000-vertex star and complete bipartite graph PASS"
     ],
     "sanitizer-tests.txt": [
       "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
@@ -553,7 +554,8 @@
       "math PASS",
       "geometry PASS",
       "dual geometry, flow, optimization, graph-advanced PASS",
-      "Real geometry components: standalone headers, scaled analytic projection/distance/intersections, tangencies, point circles and containment area PASS"
+      "Real geometry components: standalone headers, scaled analytic projection/distance/intersections, tangencies, point circles and containment area PASS",
+      "Triangles: exhaustive simple graphs through six vertices, unique callback certificates, reversed inputs, dense clique, 200000-vertex star and complete bipartite graph PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -759,6 +761,7 @@
     "src/compact/dynamic_tree.hpp": "8843df5902e063642a6ae73eda750164ce7d890090cd46b8963002b0d908b707",
     "src/compact/edge_components.hpp": "d184c8cbcfdc4eb7175977cefff5040f6509878ecb754ca9068b4ec458ee17d8",
     "src/compact/enclosing_circle.hpp": "9c69f6ba95006046accf771828a349475f44b911096ba2e843755d49039fffaa",
+    "src/compact/enumerate_triangles.hpp": "7d7a7dd73bb5087adbe59d3f9a008890e4b10c85ee0232c4a32454f978a217f4",
     "src/compact/euler_lca.hpp": "12e4b94116b516a6ba6e9bc9b656a4e68b8542e596c9319805397eb1af8f7319",
     "src/compact/euler_phi.hpp": "918ef68dc6e91e058bf58744d3addde881baed882e382fc723df3df4328be9dc",
     "src/compact/exlucas.hpp": "7a4c53f56d500d0c66df38d4788d50c54df607d539ef918ab24cd271cbfbee0d",
@@ -1117,6 +1120,7 @@
     "tests/tree_path_kth.cpp": "055496ce8bbe4c70a00e1f1a2bb3bfb281896ab3d5be320d7dfadf334ba87ac8",
     "tests/tree_path_kth_application.py": "50345d895103dbeab115a17df1c9f02fa5eab2e13db8e9598b1d430dd20fd6cf",
     "tests/trees.cpp": "c3e3638787018828c717310634b3ffee5b9d5b9d40010680b03c6e527b2df555",
+    "tests/triangles.cpp": "44b295648ac11a0a60b39727455f09cb99abe2da230719c69b5e3d8bfb33e1c3",
     "tests/undirected_euler.cpp": "6b143c7e4f933abfae52091be0a37441f602062a874bebcac30626f48eb97ce3",
     "tests/undirected_euler_application.py": "d751ab82f0a790f7cee8a49ebf08340a79085a6d0eb69c165a5a659860e99483",
     "tests/vertex_removal.cpp": "b2f0a2b090c565e3398d38f3a7d89c49e7ff95e570f1a0d18c9305456c6c490f",

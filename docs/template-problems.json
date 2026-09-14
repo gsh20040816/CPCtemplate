@@ -3434,6 +3434,28 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "enumerate_triangles",
+      "title": "无向简单图三元环枚举",
+      "source": "src/compact/enumerate_triangles.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/enumerate_triangles.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/enumerate_triangles",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [
@@ -6952,6 +6974,492 @@
       "source_path": "ACM template (2018)",
       "page": "264",
       "topic": "8.8 VIM 配置"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "4",
+      "topic": "1.1 1. manacher"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "4",
+      "topic": "1.1.1 (1) 数组"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "5",
+      "topic": "1.1.2 (2) vector + string"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "5",
+      "topic": "1.2 2. 后缀数组"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "5",
+      "topic": "1.2.1 (1) 模板 1"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "7",
+      "topic": "1.2.2 (2) 模板 2"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "8",
+      "topic": "1.3 3. AC 自动机"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "10",
+      "topic": "1.4 4. 后缀自动机"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "10",
+      "topic": "1.4.1 (1) 模板 1"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "11",
+      "topic": "1.5 5. 广义后缀自动机"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "14",
+      "topic": "1.6 6. 回文自动机"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "15",
+      "topic": "2.1 1. 2-SAT"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "18",
+      "topic": "2.2 2. 支配树"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "18",
+      "topic": "2.2.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "24",
+      "topic": "2.3 3. 割点"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "26",
+      "topic": "2.4 4. 网络最大流"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "28",
+      "topic": "2.5 5. Johnson"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "33",
+      "topic": "2.6 6. 点双连通分量"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "35",
+      "topic": "2.7 7. 边双连通分量"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "37",
+      "topic": "2.8 8. 最小费用最大流"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "37",
+      "topic": "2.8.1 (1) Dijkstra 费用流"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "39",
+      "topic": "2.8.2 (2) SPFA 费用流"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "43",
+      "topic": "2.10 10. 二分图最大匹配的可行边与必经边"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "44",
+      "topic": "2.11 11. 最小割可行边与必经边"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "46",
+      "topic": "2.12 12. 有源汇有上下界的最大流"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "46",
+      "topic": "2.12.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "52",
+      "topic": "2.13 13. 有负圈的费用流"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "52",
+      "topic": "2.13.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "56",
+      "topic": "2.14 14. 最大流的必经边与可行边"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "56",
+      "topic": "2.14.1 (1) The 2024 ICPC Northern Eurasia Finals vp"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "61",
+      "topic": "2.15 15. 划分子图使每个点度数为奇数"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "65",
+      "topic": "3.1 1. Min_25 筛"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "65",
+      "topic": "3.1.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "70",
+      "topic": "3.1.2 (2) min_25 筛质数个数"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "71",
+      "topic": "3.2 2. 原根"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "71",
+      "topic": "3.2.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "74",
+      "topic": "3.3 3. 杜教筛"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "74",
+      "topic": "3.3.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "81",
+      "topic": "3.4 4. LGV 引理"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "82",
+      "topic": "3.5 5. 扩展欧拉定理"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "82",
+      "topic": "3.6 6. 矩阵求逆"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "82",
+      "topic": "3.6.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "85",
+      "topic": "3.7 7. Matrix-Tree 定理"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "85",
+      "topic": "3.7.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "89",
+      "topic": "3.8 8. 中国剩余定理"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "90",
+      "topic": "3.9 9. 扩展卢卡斯定理"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "98",
+      "topic": "4.1 1. 可并堆/左偏树"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "98",
+      "topic": "4.1.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "100",
+      "topic": "4.2 2. LCT 动态树"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "100",
+      "topic": "4.2.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "105",
+      "topic": "4.2.2 (2) 爱莲说"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "109",
+      "topic": "4.3 3. FHQ_Treap"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "109",
+      "topic": "4.3.1 (1) 牛客"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "113",
+      "topic": "4.4 4. 替罪羊树"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "113",
+      "topic": "4.4.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "117",
+      "topic": "4.5 5. 莫队二次离线"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "120",
+      "topic": "4.6 6. 线段树维护单调栈"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "126",
+      "topic": "4.7 7. K-D Tree"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "130",
+      "topic": "5.1 1. 拉格朗日插值"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "130",
+      "topic": "5.2 2. 多项式乘法 FFT"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "131",
+      "topic": "5.3 3. 多项式乘法 NTT"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "134",
+      "topic": "5.4 4. 分治 FFT"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "136",
+      "topic": "5.5 5. 多项式求逆"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "142",
+      "topic": "5.6 6. 多项式除法"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "150",
+      "topic": "5.7 7. 多项式开根"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "156",
+      "topic": "5.8 8. 多项式 ln"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "161",
+      "topic": "5.9 9. 多项式 exp"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "169",
+      "topic": "5.10 10. 快速莫比乌斯 / 沃尔什变换 (FMT / FWT)"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "171",
+      "topic": "5.11 11. 多项式快速幂"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "178",
+      "topic": "5.12 12. 任意模数多项式乘法"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "180",
+      "topic": "5.13 13. 常系数齐次线性递推"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "186",
+      "topic": "6.1 1. 二维凸包"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "186",
+      "topic": "6.1.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "188",
+      "topic": "6.2 2. 李超线段树"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "188",
+      "topic": "6.2.1 (1) 洛谷模板"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "191",
+      "topic": "6.3 3. 旋转卡壳"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "196",
+      "topic": "6.4 4. 半平面交"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "198",
+      "topic": "6.5 5. 极角排序"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "198",
+      "topic": "6.5.1 (1) The 2025 ICPC Asia Seoul Regional Contest vp 写法"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "199",
+      "topic": "6.5.2 (2) 模板 1"
+    },
+    {
+      "source": "issue11",
+      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
+      "page": "200",
+      "topic": "6.5.3 (3) 模板 2"
     }
   ]
 }
