@@ -765,5 +765,49 @@
       "integer_hull",
       "convex_diameter2"
     ]
+  },
+  {
+    "id": "example-66",
+    "symbol": "rp",
+    "problem": "Library Checker persistent_queue",
+    "url": "https://judge.yosupo.jp/problem/persistent_queue",
+    "summary": "维护可持久化队列，每次从指定版本入队或出队并建立新版本。题目的 -1 号空版本映射为下标 0；rope 副本和头尾指针一起复制，replace 写入不会改变历史版本，出队只推进该版本队头。",
+    "driver": "verify/library_checker/persistent_queue.compact.cpp",
+    "requires": [
+      "rp"
+    ]
+  },
+  {
+    "id": "example-67",
+    "symbol": "ost",
+    "problem": "Library Checker ordered_set",
+    "url": "https://judge.yosupo.jp/problem/ordered_set",
+    "summary": "维护无重复整数集合，支持第 k 小、计数及含等号的前驱/后继。find_by_order 使用 0-based 排名；order_of_key 只计严格小于 x，故不大于 x 的数量需补上相等元素。越界查询按题意输出 -1。",
+    "driver": "verify/library_checker/ordered_set.compact.cpp",
+    "requires": [
+      "ost"
+    ]
+  },
+  {
+    "id": "example-68",
+    "symbol": "gp_map",
+    "problem": "Library Checker associative_array",
+    "url": "https://judge.yosupo.jp/problem/associative_array",
+    "summary": "维护整数键值映射，修改为覆盖赋值，查询不存在的键输出 0。gp_map 用 operator[] 写入，用 find 查询，避免查询插入新键。所需条目中包含 hash64。",
+    "driver": "verify/library_checker/associative_array.compact.cpp",
+    "requires": [
+      "gp_map"
+    ]
+  },
+  {
+    "id": "example-69",
+    "symbol": "gp_map",
+    "problem": "Library Checker associative_array",
+    "url": "https://judge.yosupo.jp/problem/associative_array",
+    "summary": "同一关联数组题的 cc_map 用法：覆盖赋值，查询不存在的键输出 0。cc_map 与 hash64 均在 gp_map 条目中；本例独立执行验证，不借用 gp_map 的运行结果。",
+    "driver": "verify/library_checker/associative_array.cc.compact.cpp",
+    "requires": [
+      "gp_map"
+    ]
   }
 ]

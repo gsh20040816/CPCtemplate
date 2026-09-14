@@ -1244,6 +1244,34 @@ GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp。gp\_map<K,V> 为
 
 \lstinputlisting[firstline=7,lastline=26]{../src/compact/hash_table.hpp}
 
+\Needspace{433pt}
+
+\subsection*{模板题使用：Library Checker associative\_array}
+
+\label{usage-example-68}
+
+题意：维护整数键值映射，修改为覆盖赋值，查询不存在的键输出 0。gp\_map 用 operator[] 写入，用 find 查询，避免查询插入新键。所需条目中包含 hash64。
+
+所需模板：gp\_map。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/associative_array}
+
+\lstinputlisting{usage/example-68.cpp}
+
+\Needspace{435pt}
+
+\subsection*{模板题使用：Library Checker associative\_array}
+
+\label{usage-example-69}
+
+题意：同一关联数组题的 cc\_map 用法：覆盖赋值，查询不存在的键输出 0。cc\_map 与 hash64 均在 gp\_map 条目中；本例独立执行验证，不借用 gp\_map 的运行结果。
+
+所需模板：gp\_map。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/associative_array}
+
+\lstinputlisting{usage/example-69.cpp}
+
 \Needspace{549pt}
 
 \chapter{并查集}
@@ -1435,6 +1463,20 @@ auto c = a.substr(0, 1);
 int x = a[1];
 \end{lstlisting}
 
+\Needspace{479pt}
+
+\subsection*{模板题使用：Library Checker persistent\_queue}
+
+\label{usage-example-66}
+
+题意：维护可持久化队列，每次从指定版本入队或出队并建立新版本。题目的 -1 号空版本映射为下标 0；rope 副本和头尾指针一起复制，replace 写入不会改变历史版本，出队只推进该版本队头。
+
+所需模板：rp。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/persistent_queue}
+
+\lstinputlisting{usage/example-66.cpp}
+
 \newpage
 
 \Needspace{239pt}
@@ -1448,6 +1490,20 @@ GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp 和 ext/pb\_ds/tre
 序列中间插删、截取与版本共享的 GNU rope 见第~\pageref{compact-rp}~页。
 
 \lstinputlisting[firstline=8,lastline=13]{../src/compact/ordered_set.hpp}
+
+\Needspace{573pt}
+
+\subsection*{模板题使用：Library Checker ordered\_set}
+
+\label{usage-example-67}
+
+题意：维护无重复整数集合，支持第 k 小、计数及含等号的前驱/后继。find\_by\_order 使用 0-based 排名；order\_of\_key 只计严格小于 x，故不大于 x 的数量需补上相等元素。越界查询按题意输出 -1。
+
+所需模板：ost。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/ordered_set}
+
+\lstinputlisting{usage/example-67.cpp}
 
 \Needspace{180pt}
 

@@ -157,9 +157,9 @@
 | FunctionalGraph | 待补 | pending_example |
 | release_bfs | 待补 | pending_example |
 | ModifiedMo | 待补 | pending_example |
-| gp_map | 待补 | pending_example |
-| ost | 待补 | pending_example |
-| rp | 待补 | pending_example |
+| gp_map | [example-68](usage/example-68.cpp), [example-69](usage/example-69.cpp) | locally_checked_example |
+| ost | [example-67](usage/example-67.cpp) | locally_checked_example |
+| rp | [example-66](usage/example-66.cpp) | locally_checked_example |
 | segtree | 待补 | pending_example |
 | lazy_segtree | 待补 | pending_example |
 | mint | 待补 | pending_example |

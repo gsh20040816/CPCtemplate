@@ -29,7 +29,7 @@ def records():
         m = re.search(r'(?m)^int main\(\)', text)
         assert m, row
         prefix, snippet = text[:m.start()], text[m.start():]
-        assert all(not line.strip() or line.startswith('#include') or line.startswith('using namespace')
+        assert all(not line.strip() or line.startswith('#include') or line.startswith('using namespace') or line.lstrip().startswith('//')
                    for line in prefix.splitlines()), 'Usage depends on non-include prefix: ' + row['id']
         assert '#include' not in snippet
         # Explicitly registered local input records may contain fields, not methods.
