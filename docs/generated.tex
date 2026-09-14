@@ -56,17 +56,17 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 \newpage
 
-\Needspace{389pt}
+\Needspace{368pt}
 
 \subsection{后缀 LCP 与子串比较}\label{compact-SuffixLCP}\index{SuffixLCP}
 
-先构造 SuffixArray，再构造 SuffixLCP(sa)。init(sa) / Init(sa) 可重新建表。复制所需排名与 LCP 数据，不保存原字符串或源对象引用，源对象可销毁或重建。query(x,y) 返回 s[x..n) 与 s[y..n) 的最长公共前缀，0$\le$x,y$\le$n，允许空后缀；同起点返回 n-x。compare(l1,r1,l2,r2) 比较两个 0-based 半开子串，允许空串，返回 -1/0/1。若公共前缀覆盖较短子串，按长度比较，否则原后缀排名给出首个不同字符的顺序。字节排序及整数字母表约束继承 SuffixArray。预处理稀疏表 O(n log n) 时间、空间，每次查询 O(1)，无需哈希和原串。n、rk、lg、st 可读，禁止调用方破坏。
+先构造 SuffixArray，再构造 SuffixLCP(sa)。重新赋值 SuffixLCP(sa) 可建新表。复制所需排名与 LCP 数据，不保存原字符串或源对象引用，源对象可销毁或重建。query(x,y) 返回 s[x..n) 与 s[y..n) 的最长公共前缀，0$\le$x,y$\le$n，允许空后缀；同起点返回 n-x。compare(l1,r1,l2,r2) 比较两个 0-based 半开子串，允许空串，返回 -1/0/1。若公共前缀覆盖较短子串，按长度比较，否则原后缀排名给出首个不同字符的顺序。字节排序及整数字母表约束继承 SuffixArray。预处理稀疏表 O(n log n) 时间、空间，每次查询 O(1)，无需哈希和原串。n、rk、lg、st 可读，禁止调用方破坏。
 
-\lstinputlisting[firstline=5,lastline=29]{../src/compact/suffix_lcp.hpp}
+\lstinputlisting[firstline=5,lastline=27]{../src/compact/suffix_lcp.hpp}
 
-\newpage
+\Needspace{253pt}
 
-\lstinputlisting[firstline=30,lastline=50,firstnumber=26]{../src/compact/suffix_lcp.hpp}
+\lstinputlisting[firstline=28,lastline=48,firstnumber=24]{../src/compact/suffix_lcp.hpp}
 
 \Needspace{183pt}
 
@@ -74,7 +74,7 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 prefix\_lcs(reversed,x,y) 返回原序列 s[0..x) 与 s[0..y) 的最长公共后缀，端点满足 0$\le$x,y$\le$n。reversed 必须在原序列的反转序列上构造 SuffixLCP，不能传正向对象；转换为 reversed.query(n-x,n-y)，单次 O(1)。只需前向 LCP 时不必构造反向对象；该接口中的 LCS 是最长公共后缀，不是最长公共子序列。对于两个任意子串，以右端点查询后还需截断到两个子串长度的最小值。
 
-\lstinputlisting[firstline=54,lastline=60]{../src/compact/suffix_lcp.hpp}
+\lstinputlisting[firstline=52,lastline=58]{../src/compact/suffix_lcp.hpp}
 
 \Needspace{450pt}
 
@@ -82,7 +82,7 @@ prefix\_lcs(reversed,x,y) 返回原序列 s[0..x) 与 s[0..y) 的最长公共后
 
 square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long long 数组，start[i]/finish[i] 为开始/结束于位置 i 的非空 AA 型子串个数；结束位置是最后一个字符下标，均 0-based。两对象必须分别对应同一原序列及其反序列，长度相同，允许空序列。枚举半长 len，并以其整数倍 i 为锚点；向左匹配截断为 len-1，向右截断为 len，由 LCP/LCS 得出合法起点连续区间，差分累计。左侧不能放宽到 len，否则相邻锚点会重复计数。预处理查询器后，此函数 O(n log n) 时间、O(n) 额外空间。不同出现位置、不同半长分别计数；不要求 A 为最小周期。P1117 的 AABB 拆分数为所有分界点 finish[i]*start[i+1] 之和，累加类型需按题目范围选择，函数本身只返回起止计数。
 
-\lstinputlisting[firstline=64,lastline=93]{../src/compact/suffix_lcp.hpp}
+\lstinputlisting[firstline=62,lastline=91]{../src/compact/suffix_lcp.hpp}
 
 \Needspace{180pt}
 
@@ -328,19 +328,19 @@ garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garn
 
 \lstinputlisting[firstline=32,lastline=43,firstnumber=28]{../src/compact/garner.hpp}
 
-\Needspace{587pt}
+\Needspace{568pt}
 
 \section{卢卡斯定理}
 
 \subsection{Lucas：小素数模的大下标组合数}\label{compact-Lucas}\index{Lucas}
 
-Lucas(p) 预处理素数模数 p，choose(n,k) 返回 C(n,k) 模 p；n、k 为完整 unsigned long long 范围，k>n 返回 0，C(0,0)=1。init(p) 可更换模数并重新预处理；不检测素性，要求调用者保证 p 为素数且 p$\ge$2。预处理时间 O(p+log p)，动态版空间 O(p)；单次查询 O(1+log\_p(n+1))。适合小素数模数，通常 p$\le$10$^{6}$；大素数不能因查询下标小就忽略这里整段 O(p) 的预处理。fac、ifac 下标为 0..p-1，模数和表只读；中间乘法用 long long。合数模数请使用 exLucas。
+Lucas(p) 预处理素数模数 p，choose(n,k) 返回 C(n,k) 模 p；n、k 为完整 unsigned long long 范围，k>n 返回 0，C(0,0)=1。重新赋值 Lucas(p) 可更换模数并重新预处理；不检测素性，要求调用者保证 p 为素数且 p$\ge$2。预处理时间 O(p+log p)，动态版空间 O(p)；单次查询 O(1+log\_p(n+1))。适合小素数模数，通常 p$\le$10$^{6}$；大素数不能因查询下标小就忽略这里整段 O(p) 的预处理。fac、ifac 下标为 0..p-1，模数和表只读；中间乘法用 long long。合数模数请使用 exLucas。
 
-\lstinputlisting[firstline=6,lastline=30]{../src/compact/lucas.hpp}
+\lstinputlisting[firstline=6,lastline=28]{../src/compact/lucas.hpp}
 
 \Needspace{270pt}
 
-\lstinputlisting[firstline=31,lastline=47,firstnumber=26]{../src/compact/lucas.hpp}
+\lstinputlisting[firstline=29,lastline=45,firstnumber=24]{../src/compact/lucas.hpp}
 
 \subsection{合数模数组合数（扩展 Lucas）}\label{compact-ExLucas}\index{ExLucas}
 
@@ -368,17 +368,21 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 \subsection{乘法阶与原根}\label{compact-PrimitiveRoot}\index{PrimitiveRoot}
 
-构造 PrimitiveRoot(n)，要求 2$\le$n$\le$INT\_MAX；init(n) 可重建。order(a) 返回 a 模 n 的乘法阶，a 不可逆时返回 0；is\_root(a) 判断该剩余类是否为原根，a 可为完整 long long。minimum() 返回 1..n-1 内最小原根，无原根返回 -1；all() 返回升序的全部原根，无原根返回空向量。mod、phi、exists 只读；factors 为 phi 的不同素因子，辅助 factor 为试除分解。依赖 Mod64::power。初始化 O($\sqrt{\vphantom x}$n)，求阶 O(log$^{2}$n)，原根判定 O((1+$\omega$(phi))log n)。若最小原根为 G，顺序枚举最坏检查 G 个候选，不能假定 G 总是常数。枚举全部另需 O(phi log phi+c log c) 时间、O(c) 空间，c 为原根数；大模数只求最小原根或阶时，不应调用 all。
+构造 PrimitiveRoot(n)，要求 2$\le$n$\le$INT\_MAX；重新赋值 PrimitiveRoot(n) 可重建。order(a) 返回 a 模 n 的乘法阶，a 不可逆时返回 0；is\_root(a) 判断该剩余类是否为原根，a 可为完整 long long。minimum() 返回 1..n-1 内最小原根，无原根返回 -1；all() 返回升序的全部原根，无原根返回空向量。mod、phi、exists 只读；factors 为 phi 的不同素因子，辅助 factor 为试除分解。依赖 Mod64::power。初始化 O($\sqrt{\vphantom x}$n)，求阶 O(log$^{2}$n)，原根判定 O((1+$\omega$(phi))log n)。若最小原根为 G，顺序枚举最坏检查 G 个候选，不能假定 G 总是常数。枚举全部另需 O(phi log phi+c log c) 时间、O(c) 空间，c 为原根数；大模数只求最小原根或阶时，不应调用 all。
 
-\lstinputlisting[firstline=4,lastline=24,firstnumber=1]{../src/compact/primitive_root.hpp}
+\lstinputlisting[firstline=4,lastline=22,firstnumber=1]{../src/compact/primitive_root.hpp}
 
-\newpage
+\Needspace{286pt}
 
-\lstinputlisting[firstline=25,lastline=48,firstnumber=22]{../src/compact/primitive_root.hpp}
+\lstinputlisting[firstline=23,lastline=46,firstnumber=20]{../src/compact/primitive_root.hpp}
 
-\newpage
+\Needspace{231pt}
 
-\lstinputlisting[firstline=49,lastline=82,firstnumber=46]{../src/compact/primitive_root.hpp}
+\lstinputlisting[firstline=47,lastline=65,firstnumber=44]{../src/compact/primitive_root.hpp}
+
+\Needspace{187pt}
+
+\lstinputlisting[firstline=66,lastline=80,firstnumber=63]{../src/compact/primitive_root.hpp}
 
 \Needspace{596pt}
 

@@ -8,9 +8,7 @@ struct SuffixLCP
     vector<int> rk, lg;
     vector<vector<int>> st;
 
-    SuffixLCP(const SuffixArray &suffix) { init(suffix); }
-
-    void init(const SuffixArray &suffix)
+    SuffixLCP(const SuffixArray &suffix)
     {
         n = suffix.sa.size();
         rk = suffix.rk;

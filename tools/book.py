@@ -258,10 +258,10 @@ for style in ['compact']:
                 body.append('\\Needspace{270pt}')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'PrimitiveRoot':
-                cuts = [start, next((i for i in range(start, end) if re.match('    void (init|Init)\\(', lines[i]))), next((i for i in range(start, end) if re.match('    bool (is_root|Is_Root)\\(', lines[i]))), end]
+                cuts = [start, next((i for i in range(start, end) if re.match('    PrimitiveRoot\\(', lines[i]))), next((i for i in range(start, end) if re.match('    bool (is_root|Is_Root)\\(', lines[i]))), next(i for i in range(start, end) if 'vector<int> all()' in lines[i]), end]
                 for j in range(len(cuts) - 1):
                     if j:
-                        body.append('\\newpage')
+                        body.append('\\Needspace{' + str((cuts[j + 1] - cuts[j] + 2) * 11) + 'pt}')
                     body.append('\\lstinputlisting[firstline=' + str(cuts[j] + 1) + ',lastline=' + str(cuts[j + 1]) + ',firstnumber=' + str(cuts[j] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'Binomial':
                 split = next((i for i in range(start, end) if re.match('    Z (choose|Choose)\\(', lines[i])))
@@ -312,7 +312,7 @@ for style in ['compact']:
                 else:
                     split = next((i for i in range(start, end) if re.match('    (?:int (?:choose|Choose)|void (?:set|Set))\\(', lines[i])))
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                if name in ('SupportHull', 'SuffixLCP', 'PositionBasis', 'XorWalk', 'Lowlink', 'OfflineLCA', 'EulerLCA', 'DirectedEuler', 'UndirectedEuler', 'mixed_euler_orientation', 'odd_cycle_vertices', 'LexTwoSAT'):
+                if name in ('SupportHull', 'PositionBasis', 'XorWalk', 'Lowlink', 'OfflineLCA', 'EulerLCA', 'DirectedEuler', 'UndirectedEuler', 'mixed_euler_orientation', 'odd_cycle_vertices', 'LexTwoSAT'):
                     body.append('\\newpage')
                 else:
                     body.append('\\Needspace{' + str((end - split + 2) * 11) + 'pt}')

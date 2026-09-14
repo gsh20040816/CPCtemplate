@@ -20,9 +20,7 @@ struct PrimitiveRoot
         return result;
     }
 
-    PrimitiveRoot(int n) { init(n); }
-
-    void init(int n)
+    PrimitiveRoot(int n)
     {
         assert(n >= 2);
         mod = n;

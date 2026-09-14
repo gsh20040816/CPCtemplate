@@ -8,9 +8,7 @@ struct Lucas
     int mod;
     vector<int> fac, ifac;
 
-    Lucas(int p) { init(p); }
-
-    void init(int p)
+    Lucas(int p)
     {
         assert(p >= 2);
         mod = p;

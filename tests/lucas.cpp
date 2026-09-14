@@ -13,7 +13,7 @@ int main()
     mt19937_64 rng(3807);
     for (int p : {2, 3, 5, 7, 11, 97, 2, 99991})
     {
-        compact.init(p);
+        compact = Lucas(p);
         classic.Init(p);
         auto check = [&](unsigned long long n, unsigned long long k, int want)
         {

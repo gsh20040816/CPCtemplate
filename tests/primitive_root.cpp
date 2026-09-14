@@ -21,7 +21,7 @@ int main()
     Primitive_Root b(2);
     for (int n = 2; n <= 400; n++)
     {
-        a.init(n);
+        a = PrimitiveRoot(n);
         b.Init(n);
         int phi = 0;
         for (int g = 1; g < n; g++)
@@ -51,7 +51,7 @@ int main()
     }
     for (int n : {998244353, 2147483647, 1000000000, 1000000, 999983})
     {
-        a.init(n);
+        a = PrimitiveRoot(n);
         b.Init(n);
         int g = a.minimum();
         assert(g == b.Minimum());
@@ -68,7 +68,7 @@ int main()
             assert(g == 3);
     }
     // Full residue-cycle oracle at the judge's largest prime scale.
-    a.init(999983);
+    a = PrimitiveRoot(999983);
     b.Init(999983);
     int g = a.minimum();
     vector<bool> seen(a.mod);

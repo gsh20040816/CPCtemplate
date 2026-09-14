@@ -63,13 +63,13 @@ void check(const vector<int> &s, int alphabet)
     auto expected_counts = make_pair(start,finish);
     assert(square_counts(a,reverse_a) == expected_counts);
     assert(Square_Counts(b,reverse_b) == expected_counts);
-    a.init(forward);
+    a = SuffixLCP(forward);
     b.Init(forward_classic);
     assert(a.query(0, 0) == 0 && b.Query(0, 0) == 0);
     assert(a.compare(0, 0, 0, 0) == 0 && b.Compare(0, 0, 0, 0) == 0);
     forward.init(s, alphabet);
     forward_classic.Init(s, alphabet);
-    a.init(forward);
+    a = SuffixLCP(forward);
     b.Init(forward_classic);
     assert(a.query(0, 0) == n && b.Query(0, 0) == n);
 }

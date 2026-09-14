@@ -1,0 +1,21 @@
+{
+  "scope": "PrimitiveRoot, Lucas, SuffixLCP direct construction and reconstruct-by-assignment; focused existing exhaustive/oracle tests in normal and ASan/UBSan modes.",
+  "historical_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
+  "files": {
+    "src/compact/primitive_root.hpp": "7128aeceeeb02de5fbc37a0a34332cc83b874f2ff83746fef37d4b05d87f809a",
+    "src/compact/lucas.hpp": "8c09b8ce61bb279de6e2ab257ef078366afd9e6d3d1775c5b80f74997d6fbc73",
+    "src/compact/suffix_lcp.hpp": "6055557be1d2f458b5aac09fbebccd2417ad1aee342be800db9329c7adec3891",
+    "tests/primitive_root.cpp": "1d1c1fe7b785f7deab126786de748d3903c5eb9f9157190e034168b84d0ded6f",
+    "tests/lucas.cpp": "b8f55a2f7e5f1e9cc3f34e73d0063596366aee0bd0f92ec5e8fe52b0344aa3b2",
+    "tests/suffix_lcp.cpp": "f205d2c15ffb0f9901b00634411cfbbe8ae2d6e1021f4572cebdaffdab36c038"
+  },
+  "logs": [
+    "constructors-local.txt",
+    "constructors-sanitizer.txt"
+  ],
+  "online_ac": "No new online AC claimed",
+  "pdf_checks": [
+    "Eight PDFs rebuilt without warnings; all infra cross-book targets and page labels checked",
+    "Lucas, PrimitiveRoot method boundaries and complete SuffixLCP page visually inspected"
+  ]
+}
