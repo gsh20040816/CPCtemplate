@@ -691,5 +691,40 @@
     "requires": [
       "Dijkstra"
     ]
+  },
+  {
+    "id": "example-60",
+    "symbol": "ClosestPair",
+    "problem": "Luogu P1429",
+    "url": "https://www.luogu.com.cn/problem/P1429",
+    "summary": "求平面最近两点的距离，输出小数点后四位。solve 返回距离而非平方；题目保证至少两点，因此可解引用 optional。坐标按 long double 读取。",
+    "driver": "verify/luogu/P1429.compact.cpp",
+    "requires": [
+      "ClosestPair"
+    ]
+  },
+  {
+    "id": "example-61",
+    "symbol": "EnclosingCircle",
+    "problem": "Luogu P1742",
+    "url": "https://www.luogu.com.cn/problem/P1742",
+    "summary": "求包含全部点的最小圆，先输出半径，再输出圆心坐标。题目保证非空，因此可解引用返回值；显式传随机引擎，不能省略随机打乱。用 long double 读取并输出十二位小数。",
+    "driver": "verify/luogu/P1742.compact.cpp",
+    "requires": [
+      "RealPlane",
+      "EnclosingCircle"
+    ]
+  },
+  {
+    "id": "example-62",
+    "symbol": "closest_pair_i64",
+    "problem": "Luogu P7883",
+    "url": "https://www.luogu.com.cn/problem/P7883",
+    "summary": "求整数点集最近距离的平方，全程不取平方根。题目保证至少两点，坐标绝对值不超过 10^7，平方距离不超过 8×10^14，可将 int128 转为 long long；模板完整范围内不能无条件照搬转换。",
+    "driver": "verify/luogu/P7883.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "closest_pair_i64"
+    ]
   }
 ]

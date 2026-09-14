@@ -100,10 +100,10 @@
 | BoundedCirculation | 待补 | pending_example |
 | IntegerHalfplanes | 待补 | pending_example |
 | CirclePolygon | 待补 | pending_example |
-| EnclosingCircle | 待补 | pending_example |
+| EnclosingCircle | [example-61](usage/example-61.cpp) | locally_checked_example |
 | CircleTangents | 待补 | pending_example |
-| ClosestPair | 待补 | pending_example |
-| closest_pair_i64 | 待补 | pending_example |
+| ClosestPair | [example-60](usage/example-60.cpp) | locally_checked_example |
+| closest_pair_i64 | [example-62](usage/example-62.cpp) | locally_checked_example |
 | minkowski_sum | 待补 | pending_example |
 | IntegerGeometry3D | 待补 | pending_example |
 | LinkCutTree | [example-45](usage/example-45.cpp) | locally_checked_example |
