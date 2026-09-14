@@ -78,6 +78,11 @@ cases.update({
     'example-45': [('3 10\n1 2 4\n1 1 2\n1 2 3\n0 1 3\n3 2 8\n0 1 3\n2 1 3\n0 1 3\n2 2 3\n1 1 3\n0 2 3\n', '7 13 13 13'), ('1 3\n7\n0 1 1\n3 1 0\n0 1 1\n', '7 0')],
     'example-46': [('5\n1 2 1 3 2\n4\n1 5\n2 4\n3 3\n1 3\n', '3 3 1 2'), ('3\n9 9 9\n2\n1 3\n2 3\n', '1 1')]
 })
+cases.update({
+    'example-47': [('2 7 4\n2 8 4\n2 8 3\n5 9 1\n0 0 0\n', '2 2 No Solution 0'), ('4 14 8\n3 1 8\n0 0 0\n', '3 0')],
+    'example-48': [('3\n7 1\n8 1\n9 2\n', '2 3 5 0 2 5'), ('2\n2 2\n5 1\n', '1 2 2 3')],
+    'example-49': [('10 2\n1 1\n0 1\n', '55'), ('5 1\n-1\n3\n', '998244350'), ('1 3\n2 3 4\n5 6 7\n', '6'), ('1000000000 1\n1\n9\n', '9')]
+})
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()
@@ -105,6 +110,13 @@ for row in rows:
             assert not run.stderr, run.stderr
             if isinstance(expected, str):
                 assert run.stdout.split() == expected.split(), (row['id'], mode, run.stdout, expected)
+                if row['id'] == 'example-48':
+                    queries = [list(map(int, line.split())) for line in data.splitlines()[1:]]
+                    lines = run.stdout.splitlines()
+                    assert len(lines) == 2 * len(queries), 'Each primitive-root query needs two output lines'
+                    for i, (_, step) in enumerate(queries):
+                        count = int(lines[2 * i])
+                        assert len(lines[2 * i + 1].split()) == count // step
             elif isinstance(expected, dict):
                 lines = [list(map(int, line.split())) for line in run.stdout.splitlines()]
                 dim = expected['nullity']

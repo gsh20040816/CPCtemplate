@@ -43,7 +43,7 @@
 | LinearSieve | 待补 | pending_example |
 | ModInt | 待补 | pending_example |
 | Binomial | 待补 | pending_example |
-| PrimitiveRoot | 待补 | pending_example |
+| PrimitiveRoot | [example-48](usage/example-48.cpp) | locally_checked_example |
 | CoprimePairs | 待补 | pending_example |
 | floor_moments | 待补 | pending_example |
 | power_sum | 待补 | pending_example |
@@ -71,7 +71,7 @@
 | MatrixTree | 待补 | pending_example |
 | MatrixTreeMod | 待补 | pending_example |
 | DuJiao | 待补 | pending_example |
-| DiscreteLog | 待补 | pending_example |
+| DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |
 | IntegerPlane | 待补 | pending_example |
 | integer_hull | 待补 | pending_example |
 | polygon_area2 | 待补 | pending_example |
@@ -147,7 +147,7 @@
 | mixed_euler_trail | 待补 | pending_example |
 | odd_cycle_vertices | 待补 | pending_example |
 | LexTwoSAT | 待补 | pending_example |
-| BostanMori | 待补 | pending_example |
+| BostanMori | [example-49](usage/example-49.cpp) | locally_checked_example |
 | SetConvolution | [example-27](usage/example-27.cpp) | locally_checked_example |
 | subset_convolution | 待补 | pending_example |
 | polynomial_shift | [example-30](usage/example-30.cpp) | locally_checked_example |

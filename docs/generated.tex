@@ -538,6 +538,20 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 \lstinputlisting[firstline=66,lastline=80,firstnumber=63]{../src/compact/primitive_root.hpp}
 
+\Needspace{421pt}
+
+\subsection*{模板题使用：Luogu P6091}
+
+\label{usage-example-48}
+
+题意：多组枚举模 n 的全部原根，先输出个数，再输出升序原根的第 d、2d、3d 等项。all 返回升序数组，下标从 d-1 开始；即使没有取到任何原根，第二行也必须输出空行。
+
+所需模板：Mod64、PrimitiveRoot。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6091}
+
+\lstinputlisting{usage/example-48.cpp}
+
 \Needspace{596pt}
 
 \section{离散对数}
@@ -547,6 +561,20 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 依赖 number\_theory.hpp 的求逆与快速幂。solve(a,b,m) 返回最小 x$\ge$0 使 a\textasciicircum{}x$\equiv$b (mod m)，无解返回 -1；1$\le$m$\le$10$^{12}$，a、b 可为完整 long long 范围，入口归一化，约定 0\textasciicircum{}0=1。先剥离 gcd 并逐次检查较小指数，再在互质剩余问题上 BSGS。baby 表对同余幂保留最小指数 j，按递增大步 i 检查区间，因此首个命中即最小解。单次期望时间 O($\sqrt{\vphantom x}$m+log m)，空间 O($\sqrt{\vphantom x}$m)，哈希表先 reserve；基于 unordered\_map 的界为期望界。每次调用独立建表；底数 1 及零指数解直接返回。
 
 \lstinputlisting[firstline=80,lastline=122]{../src/compact/algebra.hpp}
+
+\Needspace{339pt}
+
+\subsection*{模板题使用：Luogu P4195}
+
+\label{usage-example-47}
+
+题意：多组求 a\textasciicircum{}x 与 b 模 p 同余的最小非负整数 x，a 与 p 不必互质。输入顺序为 a、p、b，调用顺序为 solve(a,b,p)；返回 -1 时输出 No Solution，三个 0 结束输入。
+
+所需模板：DiscreteLog。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4195}
+
+\lstinputlisting{usage/example-47.cpp}
 
 \Needspace{393pt}
 
@@ -849,6 +877,20 @@ BostanMori<mod=998244353,primitive=3>，依赖参数化 NTT；素数模数与原
 \noindent 从初值构造递推生成函数（接上页同一结构体）：
 
 \lstinputlisting[firstline=31,lastline=46,firstnumber=28]{../src/compact/bostan_mori.hpp}
+
+\Needspace{408pt}
+
+\subsection*{模板题使用：Luogu P4723}
+
+\label{usage-example-49}
+
+题意：给 k 个递推系数和 a[0..k-1]，求 a[n] 模 998244353。c[0] 乘前一项，c[k-1] 乘前 k 项；输入先系数后初值，recurrence 参数先初值后系数。通过 ModInt 赋值归一化负数。
+
+所需模板：ModInt、NttConvolution、BostanMori。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4723}
+
+\lstinputlisting{usage/example-49.cpp}
 
 \Needspace{414pt}
 

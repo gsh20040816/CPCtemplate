@@ -534,5 +534,41 @@
       "PersistentDistinct"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-47",
+    "symbol": "DiscreteLog",
+    "problem": "Luogu P4195",
+    "url": "https://www.luogu.com.cn/problem/P4195",
+    "summary": "多组求 a^x 与 b 模 p 同余的最小非负整数 x，a 与 p 不必互质。输入顺序为 a、p、b，调用顺序为 solve(a,b,p)；返回 -1 时输出 No Solution，三个 0 结束输入。",
+    "driver": "verify/luogu/P4195.compact.cpp",
+    "requires": [
+      "DiscreteLog"
+    ]
+  },
+  {
+    "id": "example-48",
+    "symbol": "PrimitiveRoot",
+    "problem": "Luogu P6091",
+    "url": "https://www.luogu.com.cn/problem/P6091",
+    "summary": "多组枚举模 n 的全部原根，先输出个数，再输出升序原根的第 d、2d、3d 等项。all 返回升序数组，下标从 d-1 开始；即使没有取到任何原根，第二行也必须输出空行。",
+    "driver": "verify/luogu/P6091.compact.cpp",
+    "requires": [
+      "Mod64",
+      "PrimitiveRoot"
+    ]
+  },
+  {
+    "id": "example-49",
+    "symbol": "BostanMori",
+    "problem": "Luogu P4723",
+    "url": "https://www.luogu.com.cn/problem/P4723",
+    "summary": "给 k 个递推系数和 a[0..k-1]，求 a[n] 模 998244353。c[0] 乘前一项，c[k-1] 乘前 k 项；输入先系数后初值，recurrence 参数先初值后系数。通过 ModInt 赋值归一化负数。",
+    "driver": "verify/luogu/P4723.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "BostanMori"
+    ]
   }
 ]
