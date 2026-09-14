@@ -107,9 +107,9 @@
 | minkowski_sum | 待补 | pending_example |
 | IntegerGeometry3D | 待补 | pending_example |
 | LinkCutTree | 待补 | pending_example |
-| OrderedTreap | 待补 | pending_example |
-| SequenceTreap | 待补 | pending_example |
-| OrderedSplay | 待补 | pending_example |
+| OrderedTreap | [example-8](usage/example-8.cpp) | locally_checked_example |
+| SequenceTreap | [example-10](usage/example-10.cpp) | locally_checked_example |
+| OrderedSplay | [example-9](usage/example-9.cpp) | locally_checked_example |
 | GcdSequenceTreap | 待补 | pending_example |
 | Blossom | 待补 | pending_example |
 | berlekamp_massey | 待补 | pending_example |
@@ -121,9 +121,9 @@
 | PalindromicTree | 待补 | pending_example |
 | CentroidPairs | 待补 | pending_example |
 | SubtreeColors | 待补 | pending_example |
-| AffineSegTree | 待补 | pending_example |
+| AffineSegTree | [example-12](usage/example-12.cpp) | locally_checked_example |
 | VirtualTree | 待补 | pending_example |
-| PersistentArray | 待补 | pending_example |
+| PersistentArray | [example-11](usage/example-11.cpp) | locally_checked_example |
 | SupportHull | 待补 | pending_example |
 | SuffixLCP | 待补 | pending_example |
 | prefix_lcs | 待补 | pending_example |

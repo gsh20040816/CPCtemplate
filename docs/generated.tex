@@ -914,6 +914,20 @@ AffineSegTree(a,mod) 传入非空 0-based 初值数组；查询与修改采用 1
 
 \lstinputlisting[firstline=6,lastline=101]{../src/compact/affine_segment_tree.hpp}
 
+\Needspace{447pt}
+
+\subsection*{模板题使用：Luogu P3373}
+
+\label{usage-example-12}
+
+题意：对数组执行区间乘、区间加和区间求和，结果对给定模数取模。区间为 1-based 闭区间；update 的两个参数表示先乘再加。
+
+所需模板：AffineSegTree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3373}
+
+\lstinputlisting{usage/example-12.cpp}
+
 \Needspace{180pt}
 
 \section{李超线段树}
@@ -973,6 +987,20 @@ insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在�
 
 \lstinputlisting[firstline=8,lastline=139]{../src/compact/treap.hpp}
 
+\Needspace{447pt}
+
+\subsection*{模板题使用：Luogu P3369}
+
+\label{usage-example-8}
+
+题意：维护可重复整数集合，支持插入、删除一个值、排名、第 k 小、严格前驱和严格后继。题目保证前驱/后继存在，因此可解引用返回值。
+
+所需模板：OrderedTreap。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3369}
+
+\lstinputlisting{usage/example-8.cpp}
+
 \Needspace{401pt}
 
 \subsection{隐式 Treap：序列翻转、加值与区间和}\label{compact-SequenceTreap}\index{SequenceTreap}
@@ -980,6 +1008,20 @@ insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在�
 insert(k,value) 在前 k 个元素后插入，0$\le$k$\le$size()；erase(l,r)、reverse(l,r)、add(l,r,value)、query(l,r) 均使用 1-based 非空闭区间。values() 返回当前完整序列，O(n)，使用递归中序遍历。其余操作在随机优先级下期望 O(log n)；翻转与加法懒标记同时维护。所有值、和、标记及 value×长度中间结果必须落在 long long 范围内。删除不回收节点，内存按累计插入数计算。
 
 \lstinputlisting[firstline=140,lastline=300]{../src/compact/treap.hpp}
+
+\Needspace{348pt}
+
+\subsection*{模板题使用：Luogu P3391}
+
+\label{usage-example-10}
+
+题意：初始序列为 1..n，多次翻转闭区间 [l,r]，最后输出序列。插入参数为前面已有元素数，翻转区间为 1-based 闭区间。
+
+所需模板：SequenceTreap。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3391}
+
+\lstinputlisting{usage/example-10.cpp}
 
 \subsection{状态序列 Treap：分组区间 GCD}\label{compact-GcdSequenceTreap}\index{GcdSequenceTreap}
 
@@ -996,6 +1038,20 @@ build(v) 用数值与状态组成的序列替换当前内容。数值为无符�
 insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不存在返回 nullopt。重复键计数存储；失败查询也伸展最后访问节点，单次均摊 O(log n)。不回收节点，空间按累计新建节点数计算。支持 long long 全范围；不包含序列 Splay、虚子树信息或矩阵动态 DP。
 
 \lstinputlisting[firstline=7,lastline=210]{../src/compact/splay.hpp}
+
+\Needspace{447pt}
+
+\subsection*{模板题使用：Luogu P3369}
+
+\label{usage-example-9}
+
+题意：维护可重复整数集合，支持插入、删除一个值、排名、第 k 小、严格前驱和严格后继。题目保证前驱/后继存在，因此可解引用返回值。
+
+所需模板：OrderedSplay。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3369}
+
+\lstinputlisting{usage/example-9.cpp}
 
 \Needspace{180pt}
 
@@ -1014,6 +1070,20 @@ insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不�
 PersistentArray(a,changes=0)，a 是非空 0-based 初值数组；第 0 版为初始状态。set(version,pos,value) 基于任意已有版本修改 1-based 位置，创建并返回新版本编号；copy(version) 以 O(1) 时间复制版本；query(version,pos) 只读且不自动创建版本。values 支持 long long 全范围。每次修改复制根到叶的节点，旧版本不变；build 为内部函数，不可覆盖历史节点。建树 O(n)，修改及查询 O(log n)，初始 2n-1 个节点，每次修改至多 ceil(log2(n))+1 个；总空间 O(n+修改数*log n+版本数)。changes 仅用于预留节点池，低估后可扩容，所有外部引用应使用下标，不保存 vector 元素引用。节点下标用 int，节点总量须可表示。
 
 \lstinputlisting[firstline=6,lastline=108]{../src/compact/persistent_array.hpp}
+
+\Needspace{448pt}
+
+\subsection*{模板题使用：Luogu P3919}
+
+\label{usage-example-11}
+
+题意：从指定历史版本修改单点或查询单点，每次操作都创建新版本。查询后也要 copy 原版本；版本号从 0 开始，位置为 1-based。
+
+所需模板：PersistentArray。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3919}
+
+\lstinputlisting{usage/example-11.cpp}
 
 \subsection{可持久化区间加与版本拼接}\label{compact-PersistentRange}\index{PersistentRange}
 

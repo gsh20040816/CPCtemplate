@@ -55,3 +55,5 @@ Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECK
 固定版本官方数据的本地复验与报告口径见 [OFFICIAL-TESTS.md](docs/OFFICIAL-TESTS.md)。它与线上 AC 档案分开记录。
 
 环境和标准库速查见 [Infra说明](docs/INFRA.md)，构建时另生成 `output/pdf/infra.pdf`，集中提供到算法分册的页码跳转。
+
+各模板的“最简题意＋使用代码”补齐进度见 [使用示例覆盖表](docs/USAGE-COVERAGE.md)，生成与执行检查方式见 [使用示例说明](docs/USAGE-EXAMPLES.md)。未补示例仍明确列出。

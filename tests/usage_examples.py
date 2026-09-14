@@ -1,6 +1,7 @@
 """Compile the exact printed usage listings with their declared template context."""
 from compiler_config import CXX
 from pathlib import Path
+import argparse
 import json
 import subprocess
 import sys
@@ -18,11 +19,29 @@ cases = {
     'example-6': [('4 5\n1 2 3 4\n0 2\n2 3\n0 3\n1 2\n1 3\n', '36'), ('3 3\n998244352 998244352 998244352\n0 1\n1 2\n2 0\n', '998244352')],
     'example-7': [('5 7\n2 1 2\n1 1 2\n2 1 2\n1 3 4\n2 1 4\n1 2 3\n2 1 4\n', 'N Y N Y'), ('1 1\n2 1 1\n', 'Y')]
 }
+ordered = [('12\n1 5\n1 2\n1 5\n3 5\n4 3\n5 5\n6 2\n2 5\n3 6\n4 2\n2 2\n4 1\n', '2 5 2 5 3 5 5'), ('5\n1 -3\n1 7\n3 -3\n5 7\n6 -3\n', '1 -3 7')]
+cases.update({
+    'example-8': ordered,
+    'example-9': ordered,
+    'example-10': [('5 3\n2 4\n1 5\n3 3\n', '5 2 3 4 1'), ('1 2\n1 1\n1 1\n', '1')],
+    'example-11': [('3 5\n10 20 30\n0 1 2 99\n0 2 2\n1 2 2\n2 1 1 -7\n4 2 1\n', '20 99 -7'), ('1 3\n7\n0 2 1\n1 1 1 8\n0 2 1\n', '7 7')],
+    'example-12': [('3 5 100\n1 2 3\n3 1 3\n1 1 2 3\n2 2 3 5\n3 1 3\n3 2 2\n', '6 22 11'), ('2 3 1\n4 5\n1 1 2 9\n2 1 1 3\n3 1 2\n', '0')]
+})
+ap = argparse.ArgumentParser()
+ap.add_argument('--only', nargs='+')
+args = ap.parse_args()
 rows = records()
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
-proof = {}
+proof_path = root / 'verification/usage-examples.json'
+proof = json.loads(proof_path.read_text()) if args.only else {}
+selected = set(args.only) if args.only else set(cases)
+assert selected <= set(cases)
 for row in rows:
     assert (root / row['snippet_file']).read_text() == row['snippet'], 'Regenerate printed usage first'
+    if row['id'] not in selected:
+        assert proof.get(row['id'], {}).get('program_sha256') == row['program_sha256'], 'Unselected example became stale'
+        assert proof[row['id']].get('modes') == ['normal', 'sanitizer']
+        continue
     source = root / ('build/usage-' + row['id'] + '.cpp')
     source.write_text(row['program'])
     for mode in ['normal', 'sanitizer']:
@@ -47,4 +66,4 @@ for row in rows:
                            cases_per_mode=len(cases[row['id']]), driver=row['driver'],
                            scope='Printed usage execution only; no new online AC or comprehensive algorithm proof')
 (root / 'verification/usage-examples.json').write_text(json.dumps(proof, indent=2) + '\n')
-print('Usage examples: seven exact printed main programs, fourteen input/output certificates in normal and ASan/UBSan modes PASS')
+print(f'Usage examples: {len(selected)} exact printed main programs in normal and ASan/UBSan modes PASS; {len(proof)} current program records')

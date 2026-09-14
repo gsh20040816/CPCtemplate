@@ -75,5 +75,60 @@
     "requires": [
       "dsu"
     ]
+  },
+  {
+    "id": "example-8",
+    "symbol": "OrderedTreap",
+    "problem": "Luogu P3369",
+    "url": "https://www.luogu.com.cn/problem/P3369",
+    "summary": "维护可重复整数集合，支持插入、删除一个值、排名、第 k 小、严格前驱和严格后继。题目保证前驱/后继存在，因此可解引用返回值。",
+    "driver": "verify/luogu/P3369.compact.cpp",
+    "requires": [
+      "OrderedTreap"
+    ]
+  },
+  {
+    "id": "example-9",
+    "symbol": "OrderedSplay",
+    "problem": "Luogu P3369",
+    "url": "https://www.luogu.com.cn/problem/P3369",
+    "summary": "维护可重复整数集合，支持插入、删除一个值、排名、第 k 小、严格前驱和严格后继。题目保证前驱/后继存在，因此可解引用返回值。",
+    "driver": "verify/luogu/P3369.splay.compact.cpp",
+    "requires": [
+      "OrderedSplay"
+    ]
+  },
+  {
+    "id": "example-10",
+    "symbol": "SequenceTreap",
+    "problem": "Luogu P3391",
+    "url": "https://www.luogu.com.cn/problem/P3391",
+    "summary": "初始序列为 1..n，多次翻转闭区间 [l,r]，最后输出序列。插入参数为前面已有元素数，翻转区间为 1-based 闭区间。",
+    "driver": "verify/luogu/P3391.compact.cpp",
+    "requires": [
+      "SequenceTreap"
+    ]
+  },
+  {
+    "id": "example-11",
+    "symbol": "PersistentArray",
+    "problem": "Luogu P3919",
+    "url": "https://www.luogu.com.cn/problem/P3919",
+    "summary": "从指定历史版本修改单点或查询单点，每次操作都创建新版本。查询后也要 copy 原版本；版本号从 0 开始，位置为 1-based。",
+    "driver": "verify/luogu/P3919.compact.cpp",
+    "requires": [
+      "PersistentArray"
+    ]
+  },
+  {
+    "id": "example-12",
+    "symbol": "AffineSegTree",
+    "problem": "Luogu P3373",
+    "url": "https://www.luogu.com.cn/problem/P3373",
+    "summary": "对数组执行区间乘、区间加和区间求和，结果对给定模数取模。区间为 1-based 闭区间；update 的两个参数表示先乘再加。",
+    "driver": "verify/luogu/P3373.compact.cpp",
+    "requires": [
+      "AffineSegTree"
+    ]
   }
 ]
