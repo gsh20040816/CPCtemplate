@@ -1,0 +1,21 @@
+{
+  "scope": "Two direct constructors: arbitrary nodes and 0..n-1 nodes; reconstruction assignment keeps empty/large/changed-node tests.",
+  "files": {
+    "src/compact/interpolation.hpp": "7159ff70aa8d24e59c48a6a642fc045b0df8c73ff39e0685f703e23b0edd1b70",
+    "tests/interpolation.cpp": "9720b4ec614d142dca9faa176613058e20c1bf028fdb19e74fa27c016e4c59ea",
+    "tests/interpolation_application.py": "7c45574cdcc52523b1f0921f9e75905f220f5777e187a178358d250d9357f8b7",
+    "verify/luogu/P4781.compact.cpp": "ea3b685474da3229e2530d8ccabde3e2495e11fd00f7d704ecfe47dd46300930"
+  },
+  "logs": [
+    "lagrange-constructors-local.txt",
+    "lagrange-constructors-sanitizer.txt",
+    "lagrange-driver-local.txt",
+    "lagrange-driver-sanitizer.txt"
+  ],
+  "driver_cases": "100 generated-polynomial evaluations, including 2000 nodes; normal and ASan/UBSan",
+  "online_ac": "Prior accepted snapshots retained; no new online AC claimed",
+  "pdf_checks": [
+    "Eight PDF warning/index/page audits and ten infra cross-file jumps passed",
+    "Both Lagrange pages visually inspected"
+  ]
+}

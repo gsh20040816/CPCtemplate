@@ -1,20 +1,24 @@
 """Check P4781 bundles against direct evaluation of generated polynomials."""
 from compiler_config import CXX
+import os
 import random
 import subprocess
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
 rng = random.Random(4781)
+flags = ['-O2']
+if os.environ.get('SANITIZE') == '1':
+    flags = ['-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
 p = 998244353
 for style in ['compact']:
     source = root / f'build/P4781.{style}.cpp'
     exe = root / f'build/P4781.{style}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),
                     str(root / f'verify/luogu/P4781.{style}.cpp'), str(source)], check=True)
-    subprocess.run([CXX, '-std=c++20', '-O2', str(source), '-o', str(exe)], check=True)
+    subprocess.run([CXX, '-std=c++20', *flags, str(source), '-o', str(exe)], check=True)
     for trial in range(100):
-        n = rng.randrange(1, 40)
+        n = 2000 if trial == 99 else rng.randrange(1, 40)
         c = [rng.randrange(p) for _ in range(n)]
         xs = rng.sample(range(1, p), n)
         k = xs[0] if trial % 2 else rng.randrange(1, p)

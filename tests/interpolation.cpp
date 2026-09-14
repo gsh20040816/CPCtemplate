@@ -24,15 +24,14 @@ ll horner(const vector<ll> &c, ll x, int p)
 
 void check(const vector<ll> &c, const vector<ll> &xs, int p)
 {
-    Lagrange a, b;
     Lagrange_Interpolation<100> classic;
     vector<ll> y, consecutive;
     for (ll x : xs)
         y.push_back(horner(c, x, p));
     for (int i = 0; i < int(xs.size()); i++)
         consecutive.push_back(horner(c, i, p));
-    a.init(xs, y, p);
-    b.consecutive(consecutive, p);
+    Lagrange a(xs, y, p);
+    Lagrange b(consecutive, p);
     classic.Init(xs, y, p);
     vector<ll> queries = xs;
     for (int x = -7; x <= 12; x++)
@@ -50,7 +49,7 @@ void check(const vector<ll> &c, const vector<ll> &xs, int p)
         assert(classic.Query(x) == horner(c, x, p));
     classic.Init({}, {}, p);
     assert(classic.Query(LLONG_MIN) == 0);
-    a.consecutive({}, p);
+    a = Lagrange({}, p);
     assert(a.query(LLONG_MAX) == 0);
 }
 
@@ -96,10 +95,9 @@ int main()
             check(c, xs, p);
         }
     // Input normalization itself: signed extremes in both coordinates and values.
-    Lagrange a;
     Lagrange_Interpolation<4> b;
     vector<ll> xs{LLONG_MIN, LLONG_MAX}, ys{LLONG_MAX, LLONG_MIN};
-    a.init(xs, ys, 998244353);
+    Lagrange a(xs, ys, 998244353);
     b.Init(xs, ys, 998244353);
     for (int i = 0; i < 2; i++)
     {
@@ -119,9 +117,8 @@ int main()
                 sums[i] = (sums[i - 1] + term) % p;
             }
             vector<ll> y(sums.begin(), sums.begin() + d + 2);
-            Lagrange dynamic;
             Lagrange_Interpolation<22> classic;
-            dynamic.consecutive(y, p);
+            Lagrange dynamic(y, p);
             classic.Consecutive(y, p);
             for (int n = 0; n <= 400; n++)
             {
@@ -134,13 +131,13 @@ int main()
     iota(x.begin(), x.end(), 0);
     for (int i = 0; i < 2000; i++)
         y[i] = (ll(i) * i + i + 7) % 998244353;
-    a.init(x, y, 998244353);
+    a = Lagrange(x, y, 998244353);
     assert(a.query(123456789) == horner({7, 1, 1}, 123456789, 998244353));
     y.resize(200000);
     for (int i = 0; i < 200000; i++)
         y[i] = (ll(i) * i + i + 7) % 998244353;
     static Lagrange_Interpolation<200000> large;
-    a.consecutive(y, 998244353);
+    a = Lagrange(y, 998244353);
     large.Consecutive(y, 998244353);
     assert(a.query(123456789) == horner({7, 1, 1}, 123456789, 998244353));
     assert(large.Query(123456789) == a.query(123456789));

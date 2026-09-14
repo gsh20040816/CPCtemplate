@@ -28,7 +28,7 @@ struct Lagrange
         return result;
     }
 
-    void init(const vector<ll> &xs, const vector<ll> &ys, int p)
+    Lagrange(const vector<ll> &xs, const vector<ll> &ys, int p)
     {
         n = ys.size();
         mod = p;
@@ -46,7 +46,7 @@ struct Lagrange
         }
     }
 
-    void consecutive(const vector<ll> &ys, int p)
+    Lagrange(const vector<ll> &ys, int p)
     {
         n = ys.size();
         mod = p;

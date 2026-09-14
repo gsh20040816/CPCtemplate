@@ -1,7 +1,7 @@
 {
   "current_style": "vector (src/compact)",
   "historical_test_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
-  "recorded_at_utc": "2026-09-14T01:35:33.069489+00:00",
+  "recorded_at_utc": "2026-09-14T01:39:40.550091+00:00",
   "compiler": "GCC 16.2.0, C++20, macOS arm64",
   "verification": "local randomized/exhaustive small-instance oracles and ASan/UBSan; not a universal correctness proof",
   "logs": {
@@ -251,7 +251,9 @@
       "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS",
       "Widget Factory classic: 912 datasets; exhaustive weekdays/repeated counts, assignment oracle, sample, dense n=300 rank certificates and k=10000 PASS",
       "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS",
-      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS"
+      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
+      "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
+      "P4781 compact bundled driver / independent polynomial evaluation PASS"
     ],
     "sanitizer-tests.txt": [
       "Isolated namespace number theory: legacy floor/BM/recurrence forwarding, arithmetic and CRT certificates PASS",
@@ -499,7 +501,9 @@
       "Lucas dual Pascal oracle, exact big integers, uint64 extremes, prime-power identities and modulus reset PASS",
       "Suffix LCP dual exhaustive substring comparison, reversed prefix LCS, square counts, reset and large RMQ PASS",
       "PAM exhaustive substrings, suffix links, repeated counts and 200000 letters PASS",
-      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS"
+      "XOR walk dual product-graph oracle, loops, parallel edges, components and recursive chain PASS",
+      "Lagrange dual exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS",
+      "P4781 compact bundled driver / independent polynomial evaluation PASS"
     ],
     "vector-migration-tests.txt": [
       "structures PASS",
@@ -720,7 +724,7 @@
     "src/compact/graph_advanced.hpp": "3b892063307b0f50f1f373085d40f4e2b7160fb16a23ea8c13ae726fe37c1059",
     "src/compact/halfplanes.hpp": "2b7908c0ad44e6ce91ec1699a0ced13b040e9be6d810e4b342b96d6931106d68",
     "src/compact/hash_table.hpp": "91da212884e12050a05e7c048dee0e72fc37167576b82fdac42197d66d1f7372",
-    "src/compact/interpolation.hpp": "e8fb4f56f4cc5c76a2e1807c9c0d8dfa26b1c1e072b311ac9019613119308e93",
+    "src/compact/interpolation.hpp": "7159ff70aa8d24e59c48a6a642fc045b0df8c73ff39e0685f703e23b0edd1b70",
     "src/compact/inverse_table.hpp": "b58875e9d4f7539920a6c21967bd536e02b9c3ad24d5ab15386d81d8c710f326",
     "src/compact/kth_residue.hpp": "2a43c928a743786ebe7e6f2c8a1363a0376b9302a4cb6282e8ff5107dca8a9f8",
     "src/compact/lazy_segtree.hpp": "b4ba9f60235c0eac1b4e7a405b67b46a1b8d57ee83a5415b2f54b3c4e4554251",
@@ -948,8 +952,8 @@
     "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
     "tests/infra_examples.cpp": "2b0e91b3ca78c32361a1bf22c300a3ead5420a9bab65e333fe69be56b4e03d37",
     "tests/infra_examples.py": "2c384d71a5527ef7449125646b18435d088449f06c61681476107030cde9eb26",
-    "tests/interpolation.cpp": "9f7205163b894fdcc3107da60883c88468c0045d92351eee8f71cc8854cefc76",
-    "tests/interpolation_application.py": "e4dd053f8c3b7368ae3bf0c6e4b09f58cc237a8ffc228e991e5f623e5eb19052",
+    "tests/interpolation.cpp": "9720b4ec614d142dca9faa176613058e20c1bf028fdb19e74fa27c016e4c59ea",
+    "tests/interpolation_application.py": "7c45574cdcc52523b1f0921f9e75905f220f5777e187a178358d250d9357f8b7",
     "tests/inverse_table.cpp": "e8d111f62575bf0b5fa3dccf36aac3cb8e0234cd549180662f757b5c4a0b9fd3",
     "tests/inverse_table_application.py": "7336fd0d61338f303e7c450a3f543664d4ab91b9514c9ab1c3db910fdac3406a",
     "tests/kth_residue.cpp": "d30f1e7f325b334cf4fe3e4967d2752066ae313eab56919029fd2ac7c09cda9a",

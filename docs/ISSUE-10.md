@@ -17,7 +17,7 @@
 | Binomial | 默认大小与扩缩容测试、QOJ 8237 驱动使用 init；须同步适配 |
 | SuffixArray | 字符串与整数序列共用初始化逻辑；需保留共用实现，避免复制算法体 |
 | XorWalk | 已直接构造空图；重新构造赋值清图、访问数组、线性基及 built，验证重建后的状态 |
-| Lagrange | 当前先声明后初始化；需同步 P4781 驱动与调用示例 |
+| Lagrange | 已改为任意点/连续点两个构造函数；P4781 驱动与重建调用同步适配 |
 | PalindromicTree | 已直接构造两根与哨兵；重复建树测试改为重新构造赋值 |
 | XorBasis、PositionBasis | init 是清空操作；须核对使用方后决定改名/替换方式 |
 
@@ -26,3 +26,5 @@
 PrimitiveRoot、Lucas、SuffixLCP 的首批迁移已通过原有独立枚举/对拍测试的普通及 ASan/UBSan 两种模式，源码哈希与证据见 verification/constructors.json。后缀 LCP 在原字号下一页展示完整结构，原根在方法边界分页。其余类型继续按上表处理。
 
 回文树与异或行走的直接构造已通过普通及 ASan/UBSan 原有对拍；20 万规模和重新构造测试保留。证据见 verification/state-constructors.json。e739d1d 的全量普通及消毒器回归均已通过；后续改动按对应专项测试记录。
+
+Lagrange 的任意点/连续点构造与原有多项式对拍在普通、ASan/UBSan 模式均通过；P4781 驱动另执行 100 组独立多项式求值，含 2000 点规模。见 verification/lagrange-constructors.json；旧在线 AC 不迁移为当前驱动的在线验证。
