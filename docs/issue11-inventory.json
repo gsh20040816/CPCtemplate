@@ -81,11 +81,12 @@
       "toc_page": 6,
       "physical_page": 8,
       "level": 1,
-      "status": "reviewed_variant_pending",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
-        "AhoCorasick"
+        "AhoCorasick",
+        "ac_shortest"
       ],
-      "review": "已阅读实际 8–10 页，附件在 fail 树 BFS 上传播 min_len，查询最短后缀匹配长度。现有 AhoCorasick 主要提供 occurrence count；虽然公开 order/fail 可组合传播，尚未补该 min_len 变体的可抄用法及独立验证，不将同名认定为完整覆盖。"
+      "review": "实际 8–10 页最短匹配 min_len 传播已补 ac_shortest：按 add 返回的终止状态登记真实长度，按 BFS order 传播 fail 最小值。独立后缀扫描 150 组、20 万模式长度/数量与 200 万文本长度、子集/重复登记/重复调用/原 count 保持，双模式通过。接口用法为本地演示，不计 OJ AC 或正式模板题覆盖。"
     },
     {
       "section": "1.4",
@@ -303,8 +304,11 @@
       "toc_page": 44,
       "physical_page": 46,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "BoundedMaxFlow"
+      ],
+      "review": "已核对实际 46–52 页含 47–48 页图像的需求平衡与辅助汇源边，新增 BoundedMaxFlow 复用循环流与 Dinic。双向辅助边兼容负净流，移除全部辅助残量对后增广，成功后可读原边流量。6000 组逐边流量枚举及 LLONG_MAX 边界双模式通过；P5192 建图、重复目标独立边、EOF 与空行、365 天/1000 目标/109500 拍摄边驱动双模式通过。P5192 作为应用补充，未新增在线 AC。"
     },
     {
       "section": "2.12.1",
@@ -312,8 +316,11 @@
       "toc_page": 44,
       "physical_page": 46,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "BoundedMaxFlow"
+      ],
+      "review": "已核对实际 46–52 页含 47–48 页图像的需求平衡与辅助汇源边，新增 BoundedMaxFlow 复用循环流与 Dinic。双向辅助边兼容负净流，移除全部辅助残量对后增广，成功后可读原边流量。6000 组逐边流量枚举及 LLONG_MAX 边界双模式通过；P5192 建图、重复目标独立边、EOF 与空行、365 天/1000 目标/109500 拍摄边驱动双模式通过。P5192 作为应用补充，未新增在线 AC。"
     },
     {
       "section": "2.13",

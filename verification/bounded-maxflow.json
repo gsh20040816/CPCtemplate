@@ -1,0 +1,21 @@
+{
+  "scope": "Local independent oracles and explicit full-adapter scale checks; no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/bounded_maxflow.hpp": "1444ff0d65d08fda9b3c9fe651aa4f660484cd18de7aac23b5a3841a9fbd70e4",
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "tests/bounded_maxflow.cpp": "adf6ac49dd82943bd86a40afd6728bbcdb0c81c91c0d93d59358dbc4f66dcc25",
+    "tests/bounded_maxflow_application.py": "a0e69b098d814189875b3ed907465595eb4638cf715b6dba3910307362d6014d",
+    "verify/luogu/P5192.compact.cpp": "71db53b4f7883fab771e124280382b484fac97a5d4b8080ecc00aad585ecca01"
+  },
+  "log": [
+    "BoundedMaxFlow: 6000 independent edge-flow enumerations, signed net flow, infeasibility, loops/parallel edges, solution certificates and LLONG_MAX boundaries PASS",
+    "BoundedMaxFlow: 6000 independent edge-flow enumerations, signed net flow, infeasibility, loops/parallel edges, solution certificates and LLONG_MAX boundaries PASS",
+    "P5192: 200 exhaustive photo-assignment oracles in EOF batches, duplicate targets, empty graph, required blank lines; 365 days / 1000 targets / 109500 edges scale PASS",
+    "P5192: 200 exhaustive photo-assignment oracles in EOF batches, duplicate targets, empty graph, required blank lines; 365 days / 1000 targets / 109500 edges scale PASS"
+  ],
+  "argument": "Auxiliary edges in both directions allow signed initial net flow. After obtaining a feasible circulation, delete all artificial residual pairs and augment s to t. Every residual augmentation preserves original internal-node conservation. The original upper-capacity sum bounds the source-cut range, so the additional value fits signed64; lower demands also fit because their sum is no larger. Auxiliary edges have zero lower bound and do not change that demand bound."
+}

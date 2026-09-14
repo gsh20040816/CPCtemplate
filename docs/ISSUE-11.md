@@ -13,7 +13,7 @@
 | 1.2 | 2. 后缀数组 | 3 | 5 | pending_content_review |
 | 1.2.1 | (1) 模板 1 | 3 | 5 | pending_content_review |
 | 1.2.2 | (2) 模板 2 | 5 | 7 | pending_content_review |
-| 1.3 | 3. AC 自动机 | 6 | 8 | reviewed_variant_pending |
+| 1.3 | 3. AC 自动机 | 6 | 8 | implemented_local_verified_online_pending |
 | 1.4 | 4. 后缀自动机 | 8 | 10 | pending_content_review |
 | 1.4.1 | (1) 模板 1 | 8 | 10 | pending_content_review |
 | 1.5 | 5. 广义后缀自动机 | 9 | 11 | implemented_local_verified_state_count_pending |
@@ -33,8 +33,8 @@
 | 2.9 | 9. 无向图三元环计数 | 40 | 42 | implemented_local_verified_online_pending |
 | 2.10 | 10. 二分图最大匹配的可行边与必经边 | 41 | 43 | pending_content_review |
 | 2.11 | 11. 最小割可行边与必经边 | 42 | 44 | pending_content_review |
-| 2.12 | 12. 有源汇有上下界的最大流 | 44 | 46 | pending_content_review |
-| 2.12.1 | (1) 洛谷模板 | 44 | 46 | pending_content_review |
+| 2.12 | 12. 有源汇有上下界的最大流 | 44 | 46 | implemented_local_verified_online_pending |
+| 2.12.1 | (1) 洛谷模板 | 44 | 46 | implemented_local_verified_online_pending |
 | 2.13 | 13. 有负圈的费用流 | 50 | 52 | pending_content_review |
 | 2.13.1 | (1) 洛谷模板 | 50 | 52 | pending_content_review |
 | 2.14 | 14. 最大流的必经边与可行边 | 54 | 56 | pending_content_review |

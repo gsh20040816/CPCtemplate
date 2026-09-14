@@ -13,6 +13,8 @@ def check_output(example_id, mode, data, stdout, expected):
             for i, (_, step) in enumerate(queries):
                 count = int(lines[2 * i])
                 assert len(lines[2 * i + 1].split()) == count // step
+    elif isinstance(expected, dict) and 'exact_text' in expected:
+        assert stdout == expected['exact_text'], (example_id, mode, stdout, expected)
     elif isinstance(expected, dict) and 'matching' in expected:
         n, edges, size = expected['matching']
         lines = [list(map(int, line.split())) for line in stdout.splitlines()]

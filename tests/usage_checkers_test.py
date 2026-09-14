@@ -2,6 +2,7 @@
 from usage_checkers import check_output
 
 controls = [
+    ('example-93', '', '4\n', {'exact_text': '4\n\n'}),
     ('example-73', '', '14\n1 1\n', {'weighted_matching': [[7, 7], [7, 7]]}),
     ('example-72', '', '2\n0 1\n1 2\n', {'matching': (4, [(0, 1), (1, 2)], 2)}),
     ('example-80', '', '11\n0 1\n', {'assignment': [[5, 1], [2, 6]]}),
@@ -20,4 +21,5 @@ for example, data, output, expected in controls:
     raise AssertionError(f'Invalid certificate accepted: {example}')
 check_output('example-73', 'positive-control', '', '14\n2 1\n', {'weighted_matching': [[7, 7], [7, 7]]})
 check_output('example-48', 'positive-control', '1\n8 1\n', '0\n\n', '0')
-print('Usage checkers: 9 invalid certificates rejected; valid matching and required blank line accepted')
+check_output('example-93', 'positive-control', '', '4\n\n', {'exact_text': '4\n\n'})
+print('Usage checkers: 10 invalid certificates rejected; valid matching and required blank line accepted')

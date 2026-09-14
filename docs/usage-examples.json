@@ -1079,5 +1079,32 @@
       "prefix_function",
       "kmp_match"
     ]
+  },
+  {
+    "id": "example-92",
+    "symbol": "ac_shortest",
+    "problem": "AC 最短后缀匹配（本地接口示例）",
+    "url": "https://oi-wiki.org/string/ac-automaton/",
+    "summary": "输入模式数、各个非空小写模式串及文本，逐位置输出以该位置结尾的最短模式长度，无匹配输出 0。先登记终止节点与长度，再 build 和传播。示例对应附件 min_len 变体，只作本地接口演示，不是 OJ 提交记录。",
+    "driver": "verify/examples/ac_shortest.compact.cpp",
+    "requires": [
+      "AhoCorasick",
+      "ac_shortest"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-93",
+    "symbol": "BoundedMaxFlow",
+    "problem": "Luogu P5192 Shoot the Bullet",
+    "url": "https://www.luogu.com.cn/problem/P5192",
+    "summary": "每天至多拍 D 张，每次独立拍摄有 [L,R] 限制，每位目标至少拍 G 张，求最多拍摄数。源连天、天连目标、目标连汇；重复目标记录分别加边。目标原编号加 1 后再偏移 n。题目总拍摄数至多 365×30000，用作目标到汇的容量上界。读至 EOF，每组输出后空一行。本题净流非负，因此无解可输出 -1；一般接口允许负净流。作为附件建图应用单列。",
+    "driver": "verify/luogu/P5192.compact.cpp",
+    "requires": [
+      "Dinic",
+      "BoundedCirculation",
+      "BoundedMaxFlow"
+    ],
+    "kind": "application"
   }
 ]

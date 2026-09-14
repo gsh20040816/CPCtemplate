@@ -82,6 +82,28 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 \lstinputlisting{usage/example-70.cpp}
 
+\Needspace{264pt}
+
+\section{AC 自动机最短后缀匹配长度}\label{compact-ac_shortest}\index{ac\_shortest}
+
+先用 AhoCorasick.add(s) 得到终止节点，记录 (节点,模式长度)，再 build 后调用 ac\_shortest(ac,ends)。返回每个状态沿 fail 链对应的最短已登记模式长度，无模式为 INT\_MAX。登记长度须真实且在 1..INT\_MAX-1；重复模式、部分模式集合、空集合均可，未登记的模式不会参与最小值。按 ac.order 的 BFS 顺序传播，父 fail 状态先完成；O(状态数+登记数) 时间，O(状态数) 额外空间。扫描文本时 u=ac.a[u].go[c]，len[u] 就是当前位置结尾的最短匹配长度；文本仍须为小写字母。辅助函数不修改自动机，也不影响 count(text)，可对同一自动机的不同登记集合重复调用。
+
+\lstinputlisting[firstline=6,lastline=18]{../src/compact/ac_shortest.hpp}
+
+\Needspace{462pt}
+
+\subsection*{应用题补充：AC 最短后缀匹配（本地接口示例）}
+
+\label{usage-example-92}
+
+题意：输入模式数、各个非空小写模式串及文本，逐位置输出以该位置结尾的最短模式长度，无匹配输出 0。先登记终止节点与长度，再 build 和传播。示例对应附件 min\_len 变体，只作本地接口演示，不是 OJ 提交记录。
+
+所需模板：AhoCorasick、ac\_shortest。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://oi-wiki.org/string/ac-automaton/}
+
+\lstinputlisting{usage/example-92.cpp}
+
 \newpage
 
 \chapter{后缀数组 (SA)}
@@ -2715,15 +2737,37 @@ add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 �
 
 \lstinputlisting{usage/example-55.cpp}
 
-\Needspace{575pt}
+\Needspace{598pt}
 
 \section{上下界网络流}
 
 \subsection{上下界可行循环流}\label{compact-BoundedCirculation}\index{BoundedCirculation}
 
-add(u,v,lo,hi)，0$\le$lo$\le$hi；solve() 仅调用一次，返回可行性，仅成功后读取 used(id)。约束为每点流量守恒；不是带源汇最大流。所有上下界及其总和须在 long long 范围内。依赖 Dinic。
+BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0$\le$lo$\le$hi$\le$LLONG\_MAX，所有下界总和须$\le$LLONG\_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。
 
 \lstinputlisting[firstline=235,lastline=278]{../src/compact/flow.hpp}
+
+\Needspace{517pt}
+
+\subsection{有源汇上下界最大流与边流量}\label{compact-BoundedMaxFlow}\index{BoundedMaxFlow}
+
+BoundedMaxFlow(n)，点号 1..n；add(u,v,lo,hi) 返回从 0 开始的原边编号，0$\le$lo$\le$hi，所有原边上界总和$\le$LLONG\_MAX。solve(s,t) 仅调用一次，s$\ne$t；返回 optional<long long>，nullopt 表示无可行流。目标为源点流出减流入的净流量，允许负答案，不能把 -1 直接当无解。只在成功后读取 used(id) 的原边方案。先加 t→s 与 s→t 两条辅助边兼容负净流，再求可行循环流；保存净值后清空全部辅助残量边，最后在原图从 s 到 t 增广。最优值与增加量均受原边上界总和控制。允许自环、重边；构建和清理 O(n+m)，主体为两次 Dinic，额外空间 O(n+m)。依赖 BoundedCirculation 与 Dinic，二者内部字段只读，不应在求解后再加边或改流。
+
+\lstinputlisting[firstline=5,lastline=41]{../src/compact/bounded_maxflow.hpp}
+
+\Needspace{539pt}
+
+\subsection*{应用题补充：Luogu P5192 Shoot the Bullet}
+
+\label{usage-example-93}
+
+题意：每天至多拍 D 张，每次独立拍摄有 [L,R] 限制，每位目标至少拍 G 张，求最多拍摄数。源连天、天连目标、目标连汇；重复目标记录分别加边。目标原编号加 1 后再偏移 n。题目总拍摄数至多 365×30000，用作目标到汇的容量上界。读至 EOF，每组输出后空一行。本题净流非负，因此无解可输出 -1；一般接口允许负净流。作为附件建图应用单列。
+
+所需模板：Dinic、BoundedCirculation、BoundedMaxFlow。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5192}
+
+\lstinputlisting{usage/example-93.cpp}
 
 \Needspace{436pt}
 

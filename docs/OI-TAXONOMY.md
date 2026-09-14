@@ -12,6 +12,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | prefix_function | 字符串 → 前缀函数与 KMP 算法 | direct |  |
 | z_function | 字符串 → Z 函数（扩展 KMP） | direct |  |
 | AhoCorasick | 字符串 → AC 自动机 | direct |  |
+| ac_shortest | 字符串 → AC 自动机 | direct |  |
 | SuffixArray | 字符串 → 后缀数组 (SA) → 后缀数组简介 | application | 后缀数组及 LCP 查询应用；保持依赖。 |
 | SuffixLCP | 字符串 → 后缀数组 (SA) → 后缀数组简介 | application | 后缀数组及 LCP 查询应用；保持依赖。 |
 | prefix_lcs | 字符串 → 后缀数组 (SA) → 后缀数组简介 | application | 后缀数组及 LCP 查询应用；保持依赖。 |
@@ -144,6 +145,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | maximum_closure | 图论 → 网络流 → 最小割 | application | 最小割的应用或查询；需在对应小节下保留本库名称。 |
 | MinCostFlow | 图论 → 网络流 → 费用流 | direct |  |
 | BoundedCirculation | 图论 → 网络流 → 上下界网络流 | direct |  |
+| BoundedMaxFlow | 图论 → 网络流 → 上下界网络流 | direct |  |
 | StoerWagner | 图论 → 网络流 → Stoer–Wagner 算法 | direct |  |
 | BipartiteMatching | 图论 → 图的匹配 → 二分图最大匹配 | direct |  |
 | Hungarian | 图论 → 图的匹配 → 二分图最大权匹配 | direct |  |

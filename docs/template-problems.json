@@ -462,6 +462,12 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
+          "driver": "verify/examples/ac_shortest.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/luogu/P5357.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P5357",
           "existing_ac": [],
@@ -3762,6 +3768,50 @@
         {
           "driver": "verify/library_checker/general_sam/number_of_substrings.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/number_of_substrings",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "ac_shortest",
+      "title": "AC 自动机最短后缀匹配长度",
+      "source": "src/compact/ac_shortest.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/examples/ac_shortest.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "BoundedMaxFlow",
+      "title": "有源汇上下界最大流与边流量",
+      "source": "src/compact/bounded_maxflow.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5192.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5192",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -7406,12 +7456,6 @@
       "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
       "page": "44",
       "topic": "2.11 11. 最小割可行边与必经边"
-    },
-    {
-      "source": "issue11",
-      "source_path": "https://github.com/user-attachments/files/32176902/default.pdf",
-      "page": "46",
-      "topic": "2.12 12. 有源汇有上下界的最大流"
     },
     {
       "source": "issue11",

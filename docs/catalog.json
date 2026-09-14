@@ -555,7 +555,7 @@
     "flow",
     "BoundedCirculation",
     "上下界可行循环流",
-    "add(u,v,lo,hi)，0≤lo≤hi；solve() 仅调用一次，返回可行性，仅成功后读取 used(id)。约束为每点流量守恒；不是带源汇最大流。所有上下界及其总和须在 long long 范围内。依赖 Dinic。"
+    "BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0≤lo≤hi≤LLONG_MAX，所有下界总和须≤LLONG_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。"
   ],
   [
     "halfplanes",
@@ -1000,5 +1000,17 @@
     "GeneralSAM",
     "广义后缀自动机：Trie BFS 构建",
     "先 add(s) 登记若干小写字符串，再 build() 原地将 Trie 变为广义 SAM；build 后禁止继续 add，可重复 build，重新收集串需新建对象。空串与重复串允许，distinct() 返回所有输入串中不同非空子串的总数，不包含跨串拼接。根为 0，a[v].go[c] 为转移、0 表示无边，link 为后缀链接、len 为最长代表串长度；从根沿字符转移可判定子串是否存在。a.size() 为按文档 endpos 等价类构造的状态数，不应直接称为后缀并集语言的最小 DFA 点数；ab、b 是两者不同的例子。固定 26 字符，设累计输入长度 L、Trie 点数 K，登记总时间 O(L)，build 时间与空间 O(26K)，状态少于 2K；累计输入长度及 2K 须可由 int 表示。克隆只复制已处理转移，不能带入尚未 BFS 处理的 Trie 子边。此版不提供出现次数或各串所属标记。"
+  ],
+  [
+    "ac_shortest",
+    "ac_shortest",
+    "AC 自动机最短后缀匹配长度",
+    "先用 AhoCorasick.add(s) 得到终止节点，记录 (节点,模式长度)，再 build 后调用 ac_shortest(ac,ends)。返回每个状态沿 fail 链对应的最短已登记模式长度，无模式为 INT_MAX。登记长度须真实且在 1..INT_MAX-1；重复模式、部分模式集合、空集合均可，未登记的模式不会参与最小值。按 ac.order 的 BFS 顺序传播，父 fail 状态先完成；O(状态数+登记数) 时间，O(状态数) 额外空间。扫描文本时 u=ac.a[u].go[c]，len[u] 就是当前位置结尾的最短匹配长度；文本仍须为小写字母。辅助函数不修改自动机，也不影响 count(text)，可对同一自动机的不同登记集合重复调用。"
+  ],
+  [
+    "bounded_maxflow",
+    "BoundedMaxFlow",
+    "有源汇上下界最大流与边流量",
+    "BoundedMaxFlow(n)，点号 1..n；add(u,v,lo,hi) 返回从 0 开始的原边编号，0≤lo≤hi，所有原边上界总和≤LLONG_MAX。solve(s,t) 仅调用一次，s≠t；返回 optional<long long>，nullopt 表示无可行流。目标为源点流出减流入的净流量，允许负答案，不能把 -1 直接当无解。只在成功后读取 used(id) 的原边方案。先加 t→s 与 s→t 两条辅助边兼容负净流，再求可行循环流；保存净值后清空全部辅助残量边，最后在原图从 s 到 t 增广。最优值与增加量均受原边上界总和控制。允许自环、重边；构建和清理 O(n+m)，主体为两次 Dinic，额外空间 O(n+m)。依赖 BoundedCirculation 与 Dinic，二者内部字段只读，不应在求解后再加边或改流。"
   ]
 ]

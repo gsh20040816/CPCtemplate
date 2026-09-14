@@ -1,0 +1,21 @@
+{
+  "scope": "Local independent oracles and explicit full-adapter scale checks; no online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/ac_shortest.hpp": "82dc961b20dce742adfdf2340c3e40520f567432856a16dba6ad3c9679eadf33",
+    "src/compact/string.hpp": "b2d66016ede91178051e1467ec9111f5c05f4e2916fdc1419e2c0f1bbfbfdfe3",
+    "tests/ac_shortest.cpp": "cd0afadab5ecdc3249cf14fd8523db840439a0b5475bf4f91eddf74c134e9614",
+    "tests/ac_shortest_application.py": "cde604023c641742e4e12aa632fc8cf286a42632eb5148e2e56fe3906d994ee0",
+    "verify/examples/ac_shortest.compact.cpp": "37efa329ae186784340fd8a959ebaa48b04da6724c42fa3a383a2166bb65ea03"
+  },
+  "log": [
+    "AC shortest suffix: independent subsets, duplicate registrations, repeated queries and count preservation PASS",
+    "AC shortest suffix: independent subsets, duplicate registrations, repeated queries and count preservation PASS",
+    "AC shortest suffix: 150 direct-suffix oracles, empty set, nested/duplicate patterns, 200000 pattern length/count and 2000000 text length PASS",
+    "AC shortest suffix: 150 direct-suffix oracles, empty set, nested/duplicate patterns, 200000 pattern length/count and 2000000 text length PASS"
+  ],
+  "source_note": "BEGIN/END extraction comments added after application run; semantics unchanged; core and printed usage recompiled in both modes."
+}

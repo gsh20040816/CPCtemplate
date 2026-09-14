@@ -479,3 +479,10 @@ python3 tests/segment_li_chao_application.py
 build/general-sam
 python3 tests/suffix_state_semantics.py
 python3 tests/kmp_application.py
+python3 tests/ac_shortest_application.py
+
+"$CXX" "${flags[@]}" tests/ac_shortest.cpp -o build/ac-shortest-core
+build/ac-shortest-core
+"$CXX" "${flags[@]}" tests/bounded_maxflow.cpp -o build/bounded-maxflow
+build/bounded-maxflow
+python3 tests/bounded_maxflow_application.py
