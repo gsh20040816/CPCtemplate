@@ -192,6 +192,20 @@ Prime64::prime(n) 接收完整 unsigned long long，n<2 返回 false。先试除
 
 \lstinputlisting[firstline=4,lastline=38]{../src/compact/prime64.hpp}
 
+\Needspace{302pt}
+
+\subsection*{模板题使用：Library Checker primality\_test}
+
+\label{usage-example-13}
+
+题意：逐个判断给定正整数是否为素数，输出 Yes 或 No。此题输入不超过 10$^{18}$；模板支持的完整范围另见接口约定。
+
+所需模板：Mod64、Prime64。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/primality_test}
+
+\lstinputlisting{usage/example-13.cpp}
+
 \Needspace{444pt}
 
 \section{欧拉函数}
@@ -313,6 +327,20 @@ linear\_congruence(a,b,m) 求 a*x+b$\equiv$0 (mod m)，返回 \{最小非负解,
 crt\_merge(r,m,b,n) 合并 x$\equiv$r (mod m) 与 x$\equiv$b (mod n)，m,n>0，r、m须为不同变量。从r=0、m=1开始逐项合并；成功后r为最小非负解、m为最小正周期。余数支持完整long long。无解返回false；有解但新周期超过LLONG\_MAX抛overflow\_error。两种失败都会先规范化r，m不变，失败后不能视为完整解。依赖 extended\_gcd，中间量用int128；O(log min(m,n)) 时间与递归空间。
 
 \lstinputlisting[firstline=6,lastline=25]{../src/compact/crt_merge.hpp}
+
+\Needspace{381pt}
+
+\subsection*{模板题使用：Luogu P4777}
+
+\label{usage-example-15}
+
+题意：求同时满足多个同余式的最小非负整数，模数可以不互质。每行按模数、余数输入，逐式合并；合并后模数须在 long long 范围内。
+
+所需模板：extended\_gcd、crt\_merge。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4777}
+
+\lstinputlisting{usage/example-15.cpp}
 
 \Needspace{528pt}
 
@@ -476,6 +504,20 @@ floor\_sum(n,m,a,b) 返回 i=0..n-1 的 floor((ai+b)/m) 之和，结果为 int12
 
 \lstinputlisting[firstline=7,lastline=36]{../src/compact/floor_sum.hpp}
 
+\Needspace{322pt}
+
+\subsection*{模板题使用：Library Checker sum\_of\_floor\_of\_linear}
+
+\label{usage-example-14}
+
+题意：求 i=0..n-1 的 floor((a*i+b)/m) 之和。此题有 0$\le$a,b<m，因此结果可转为 long long 输出；更一般的有符号输入不能照搬该转换。
+
+所需模板：floor\_sum。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/sum_of_floor_of_linear}
+
+\lstinputlisting{usage/example-14.cpp}
+
 \Needspace{464pt}
 
 \subsection{整除和、带权和与平方和}\label{compact-floor_moments}\index{floor\_moments}
@@ -501,6 +543,20 @@ floor\_moments(n,m,a,b) 对 i=0..n-1，令 y\_i=floor((a*i+b)/m)，返回 \{$\su
 \noindent 蝶形变换与卷积（接上页同一结构体与函数）：
 
 \lstinputlisting[firstline=23,lastline=62,firstnumber=20]{../src/compact/ntt_convolution.hpp}
+
+\Needspace{315pt}
+
+\subsection*{模板题使用：Library Checker convolution\_mod}
+
+\label{usage-example-16}
+
+题意：求两个多项式的卷积，模 998244353。输入为各自系数个数和升幂系数；输出 n+m-1 个系数。题目保证输入系数已经取模。
+
+所需模板：ModInt、NttConvolution。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/convolution_mod}
+
+\lstinputlisting{usage/example-16.cpp}
 
 \Needspace{509pt}
 
@@ -559,6 +615,20 @@ chirp\_z(f,a,r,m) 返回 f(a*r\textasciicircum{}i)，i=0..m-1；f 为升幂系�
 FpsInverse::inverse(a,n) 返回 a 的逆级数前 n 项，模数固定 998244353。要求 n>0、a 非空且 a[0]$\ne$0；不足项视为零，多余项只取需要的前缀。继承 NttConvolution<998244353> 的 Poly、Z、multiply，按 Newton 公式 b←b(2-ab) 倍增。所有内部卷积结果长度须$\le$2$^{23}$，n$\le$2$^{22}$ 是统一充分界。O(n log n) 时间、O(n) 辅助空间。
 
 \lstinputlisting[firstline=4,lastline=25]{../src/compact/fps_inverse.hpp}
+
+\Needspace{290pt}
+
+\subsection*{模板题使用：Library Checker inv\_of\_formal\_power\_series}
+
+\label{usage-example-18}
+
+题意：给出常数项非零的形式幂级数，求其乘法逆的前 n 项，模 998244353。系数按升幂输入，题目保证已经取模。
+
+所需模板：ModInt、NttConvolution、FpsInverse。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/inv_of_formal_power_series}
+
+\lstinputlisting{usage/example-18.cpp}
 
 \Needspace{612pt}
 
@@ -757,6 +827,20 @@ XorWalk(n) 建图，点号 1..n，边权为 unsigned long long，支持完整 64
 Lagrange(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long long>；Lagrange(ys,p) 专用于横坐标 0..n-1。重新构造赋值可更换数据。要求 p 为素数，2$\le$p$\le$INT\_MAX，点数 n$\le$p，任意横坐标取模后两两不同；不是仅要求原整数不同。query(k) 返回次数小于 n 的插值多项式在 k 处的值，允许 k、xs、ys 为完整 long long 范围，内部先归一化；空数据约定零多项式。通用预处理 O(n$^{2}$+n log p)，连续点预处理 O(n+log p)，每次查询 O(n)，空间 O(n)。查询利用前缀积与滚动后缀积，无需求逆，因此 k 与样本点模 p 相等时也正确。若求 1\textasciicircum{}d+…+k\textasciicircum{}d，要求 0$\le$d$\le$p-2，先计算 0..d+1 的前缀和作为 ys，再构造 Lagrange(ys,p)；用快速幂生成这些样本另花 O(d log(d+1))。仅处理素数域中的精确插值，不适用于浮点曲线拟合或重复节点的导数约束。
 
 \lstinputlisting[firstline=6,lastline=83]{../src/compact/interpolation.hpp}
+
+\Needspace{293pt}
+
+\subsection*{模板题使用：Luogu P4781}
+
+\label{usage-example-17}
+
+题意：给出 n 个横坐标模素数后互不相同的点，求次数小于 n 的插值多项式在 k 处的值，模 998244353。使用任意点构造函数。
+
+所需模板：Lagrange。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4781}
+
+\lstinputlisting{usage/example-17.cpp}
 
 \Needspace{674pt}
 

@@ -130,5 +130,76 @@
     "requires": [
       "AffineSegTree"
     ]
+  },
+  {
+    "id": "example-13",
+    "symbol": "Prime64",
+    "problem": "Library Checker primality_test",
+    "url": "https://judge.yosupo.jp/problem/primality_test",
+    "summary": "逐个判断给定正整数是否为素数，输出 Yes 或 No。此题输入不超过 10¹⁸；模板支持的完整范围另见接口约定。",
+    "driver": "verify/library_checker/primality_test.compact.cpp",
+    "requires": [
+      "Mod64",
+      "Prime64"
+    ]
+  },
+  {
+    "id": "example-14",
+    "symbol": "floor_sum",
+    "problem": "Library Checker sum_of_floor_of_linear",
+    "url": "https://judge.yosupo.jp/problem/sum_of_floor_of_linear",
+    "summary": "求 i=0..n-1 的 floor((a*i+b)/m) 之和。此题有 0≤a,b<m，因此结果可转为 long long 输出；更一般的有符号输入不能照搬该转换。",
+    "driver": "verify/library_checker/sum_of_floor_of_linear.compact.cpp",
+    "requires": [
+      "floor_sum"
+    ]
+  },
+  {
+    "id": "example-15",
+    "symbol": "crt_merge",
+    "problem": "Luogu P4777",
+    "url": "https://www.luogu.com.cn/problem/P4777",
+    "summary": "求同时满足多个同余式的最小非负整数，模数可以不互质。每行按模数、余数输入，逐式合并；合并后模数须在 long long 范围内。",
+    "driver": "verify/luogu/P4777.compact.cpp",
+    "requires": [
+      "extended_gcd",
+      "crt_merge"
+    ]
+  },
+  {
+    "id": "example-16",
+    "symbol": "NttConvolution",
+    "problem": "Library Checker convolution_mod",
+    "url": "https://judge.yosupo.jp/problem/convolution_mod",
+    "summary": "求两个多项式的卷积，模 998244353。输入为各自系数个数和升幂系数；输出 n+m-1 个系数。题目保证输入系数已经取模。",
+    "driver": "verify/library_checker/convolution_mod.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution"
+    ]
+  },
+  {
+    "id": "example-17",
+    "symbol": "Lagrange",
+    "problem": "Luogu P4781",
+    "url": "https://www.luogu.com.cn/problem/P4781",
+    "summary": "给出 n 个横坐标模素数后互不相同的点，求次数小于 n 的插值多项式在 k 处的值，模 998244353。使用任意点构造函数。",
+    "driver": "verify/luogu/P4781.compact.cpp",
+    "requires": [
+      "Lagrange"
+    ]
+  },
+  {
+    "id": "example-18",
+    "symbol": "FpsInverse",
+    "problem": "Library Checker inv_of_formal_power_series",
+    "url": "https://judge.yosupo.jp/problem/inv_of_formal_power_series",
+    "summary": "给出常数项非零的形式幂级数，求其乘法逆的前 n 项，模 998244353。系数按升幂输入，题目保证已经取模。",
+    "driver": "verify/library_checker/inv_of_formal_power_series.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse"
+    ]
   }
 ]
