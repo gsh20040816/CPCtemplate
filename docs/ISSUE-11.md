@@ -52,8 +52,8 @@
 | 3.5 | 5. 扩展欧拉定理 | 80 | 82 | pending_content_review |
 | 3.6 | 6. 矩阵求逆 | 80 | 82 | pending_content_review |
 | 3.6.1 | (1) 洛谷模板 | 80 | 82 | pending_content_review |
-| 3.7 | 7. Matrix-Tree 定理 | 83 | 85 | pending_content_review |
-| 3.7.1 | (1) 洛谷模板 | 83 | 85 | pending_content_review |
+| 3.7 | 7. Matrix-Tree 定理 | 83 | 85 | implemented_local_verified_online_pending |
+| 3.7.1 | (1) 洛谷模板 | 83 | 85 | implemented_local_verified_online_pending |
 | 3.8 | 8. 中国剩余定理 | 87 | 89 | pending_content_review |
 | 3.9 | 9. 扩展卢卡斯定理 | 88 | 90 | pending_content_review |
 | 4 | 数据结构 | 96 | 98 | pending_content_review |

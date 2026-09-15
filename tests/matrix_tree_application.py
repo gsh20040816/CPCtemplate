@@ -1,6 +1,6 @@
 from compiler_config import CXX
 from pathlib import Path
-import subprocess, random
+import subprocess, random, os
 root=Path(__file__).resolve().parents[1]
 rng=random.Random(6178)
 P=1000000007
@@ -33,13 +33,18 @@ for kind in [0,1]:
     want=pow(n,n-2,P)*pow(7,n-1,P)%P
     cases.append((n,kind,edges,want))
 cases.append((1,1,[(0,0,10**9)],1))
+flags=['-std=c++20','-O2']
+if os.environ.get('SANITIZE', os.environ.get('CPC_SANITIZE'))=='1':
+    flags=['-std=c++20','-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']
 for style in ['compact']:
     path=root/f'build/submit/P6178.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P6178.{style}.cpp',str(path)],cwd=root,check=True)
     exe=root/f'build/P6178.{style}'
-    subprocess.run([CXX,'-std=c++20','-O2',str(path),'-o',str(exe)],check=True)
+    subprocess.run([CXX,*flags,str(path),'-o',str(exe)],check=True)
     for n,kind,edges,want in cases:
         data=f'{n} {len(edges)} {kind}\n'+''.join(f'{u+1} {v+1} {w}\n' for u,v,w in edges)
-        got=int(subprocess.check_output([str(exe)],input=data,text=True))
+        result=subprocess.run([str(exe)],input=data,text=True,capture_output=True,check=True,timeout=120)
+        assert not result.stderr,result.stderr
+        got=int(result.stdout)
         assert got==want,(style,n,kind,got,want)
     print(f'P6178 {style}: 103 complete drivers, directed outward convention and 300 vertices/100000 edges PASS')
