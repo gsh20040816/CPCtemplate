@@ -26,6 +26,8 @@
 - `verify/library_checker/intersection_intersection.compact.cpp`
 - `verify/library_checker/intersection_zassenhaus.compact.cpp`
 - `verify/library_checker/inv_of_formal_power_series.compact.cpp`
+- `verify/library_checker/inverse_matrix.compact.cpp`
+- `verify/library_checker/inverse_matrix_mod_2.compact.cpp`
 - `verify/library_checker/line_add_get_min.compact.cpp`
 - `verify/library_checker/log_of_formal_power_series.compact.cpp`
 - `verify/library_checker/matrix_det.compact.cpp`
@@ -80,6 +82,7 @@
 - `verify/luogu/P4213.compact.cpp`
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.compact.cpp`
+- `verify/luogu/P4783.compact.cpp`
 - `verify/luogu/P5170.compact.cpp`
 - `verify/luogu/P5180.compact.cpp`
 - `verify/luogu/P5192.compact.cpp`

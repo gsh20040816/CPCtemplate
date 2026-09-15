@@ -1,0 +1,25 @@
+{
+  "scope": "Prime field matrix inverse, independent determinant/product oracles and P4783 full adapter; no new online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/matrix_inverse.hpp": "817409cc8d7b1ffc8591a516562b900c1afa1ea422f2b5c6dfdc98e7efb9e575",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "tests/matrix_inverse.cpp": "ddec17eb539200bc8a80cec05749d267b142309107dd853d57c2852d2cf2557b",
+    "tests/matrix_inverse_application.py": "25405ae1102083e87dd7bb5719e9fa4e6f46e666109de7cbae079ae797eb1aa2",
+    "verify/luogu/P4783.compact.cpp": "48e3d9c353461ef3b5821a1509eedf7f576713afd86ec08d140c9bc62c71fd01",
+    "verify/library_checker/inverse_matrix.compact.cpp": "b661b4877620baaae234b723cb8879a24ea5c363fb8be38a9c3c4f9c46601f4e"
+  },
+  "log": [
+    "matrix_inverse: exhaustive F2 3x3/F3 2x2, empty, 1000 permutation determinant oracles, left/right certificates, 400x400 dense invertible/singular PASS",
+    "matrix_inverse: exhaustive F2 3x3/F3 2x2, empty, 1000 permutation determinant oracles, left/right certificates, 400x400 dense invertible/singular PASS",
+    "P4783: shuffled Pascal/inverse-binomial certificates through n=400, row swaps and singular variants PASS",
+    "P4783: shuffled Pascal/inverse-binomial certificates through n=400, row swaps and singular variants PASS"
+  ],
+  "official_reports": [
+    "verification/inverse-matrix-official-local.json",
+    "verification/inverse-matrix-official-sanitizer.json"
+  ]
+}

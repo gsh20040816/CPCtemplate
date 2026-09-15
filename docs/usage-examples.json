@@ -1187,5 +1187,40 @@
       "BoundedMaxFlow"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-100",
+    "symbol": "matrix_inverse",
+    "problem": "Luogu P4783",
+    "url": "https://www.luogu.com.cn/problem/P4783",
+    "summary": "给定 n 阶方阵，求模 1000000007 的逆矩阵；不可逆输出 No Solution。输入按行读取，输出按行给出逆矩阵，不对原矩阵进行覆盖。",
+    "driver": "verify/luogu/P4783.compact.cpp",
+    "requires": [
+      "ModInt",
+      "matrix_inverse"
+    ]
+  },
+  {
+    "id": "example-101",
+    "symbol": "matrix_inverse",
+    "problem": "Library Checker inverse_matrix",
+    "url": "https://judge.yosupo.jp/problem/inverse_matrix",
+    "summary": "给定 n 阶方阵，求模 998244353 的逆矩阵；不可逆输出 -1。输入按行读取，输出按行给出逆矩阵，不对原矩阵进行覆盖。",
+    "driver": "verify/library_checker/inverse_matrix.compact.cpp",
+    "requires": [
+      "ModInt",
+      "matrix_inverse"
+    ]
+  },
+  {
+    "id": "example-102",
+    "symbol": "matrix_inverse_mod2",
+    "problem": "Library Checker inverse_matrix_mod_2",
+    "url": "https://judge.yosupo.jp/problem/inverse_matrix_mod_2",
+    "summary": "输入 n 阶模 2 方阵，每行是无空格的 01 字符串。求逆矩阵，按同样形式逐行输出；奇异则输出 -1。",
+    "driver": "verify/library_checker/inverse_matrix_mod_2.compact.cpp",
+    "requires": [
+      "matrix_inverse_mod2"
+    ]
   }
 ]

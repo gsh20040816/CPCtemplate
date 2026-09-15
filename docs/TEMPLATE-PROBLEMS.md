@@ -67,6 +67,8 @@
 | `enumerate_triangles` | [Library Checker enumerate_triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | 1<=N,M<=100000; undirected simple graph; 0<=x<998244353 | 待编写驱动/提交 | 待核验 |
 | `z_function` | [Library Checker zalgorithm](https://judge.yosupo.jp/problem/zalgorithm) | 1<=N<=500000；非空小写字母串。 | 待编写驱动/提交 | 待核验 |
 | `manacher` | [Library Checker enumerate_palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | 1<=N<=500000；非空小写字母串。 | 待编写驱动/提交 | 待核验 |
+| `matrix_inverse` | [Library Checker inverse_matrix](https://judge.yosupo.jp/problem/inverse_matrix) | 1<=N<=500, entries modulo998244353. | 待编写驱动/提交 | 待核验 |
+| `matrix_inverse_mod2` | [Library Checker inverse_matrix_mod_2](https://judge.yosupo.jp/problem/inverse_matrix_mod_2) | 1<=N<=4096, each row is a length-N binary string. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -585,6 +587,22 @@ odd[i] 转到位置 2*i 的长度 2*odd[i]-1；even[i] 转到位置 2*i-1 的长
 24 组固定官方本地数据普通及 ASan/UBSan 通过；在线提交及速度排名待核验。
 
 原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/enumerate_palindromes/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/enumerate_palindromes/info.toml)
+
+### Library Checker inverse_matrix / matrix_inverse
+
+Official standalone linear algebra template task.
+
+matrix_inverse<998244353>(a); optional matrix or -1.
+
+Online AC and ranking pending; local official checker runs use a 120-second timeout, not an OJ time-limit verdict. Empty matrix extension checked by independent local test.
+
+### Library Checker inverse_matrix_mod_2 / matrix_inverse_mod2
+
+Official standalone linear algebra template task.
+
+matrix_inverse_mod2(a); optional rows of binary strings or -1.
+
+Online AC and ranking pending; local official checker runs use a 120-second timeout, not an OJ time-limit verdict. Empty matrix extension checked by independent local test.
 
 ## 榜单口径
 

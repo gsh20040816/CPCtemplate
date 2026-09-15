@@ -67,6 +67,8 @@
 | GaussMod | [example-24](usage/example-24.cpp) | locally_checked_example |
 | det_prime | [example-25](usage/example-25.cpp) | locally_checked_example |
 | ModMatrix | [example-26](usage/example-26.cpp) | locally_checked_example |
+| matrix_inverse | [example-100](usage/example-100.cpp), [example-101](usage/example-101.cpp) | locally_checked_example |
+| matrix_inverse_mod2 | [example-102](usage/example-102.cpp) | locally_checked_example |
 | determinant_mod | [example-77](usage/example-77.cpp) | locally_checked_example |
 | MatrixTree | [example-76](usage/example-76.cpp) | locally_checked_example |
 | MatrixTreeMod | 待补 | pending_example |

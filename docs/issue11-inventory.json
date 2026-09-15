@@ -493,11 +493,11 @@
       "toc_page": 80,
       "physical_page": 82,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
-        "GaussMod"
+        "matrix_inverse"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "附件 82–84 页 Gauss-Jordan 求逆已用 vector 函数实现；主元换行同步作用于两侧、奇异返回 nullopt。P4783 用法和独立 Pascal 矩阵校验至 400 阶；置换行列式及双向乘积证明性检查，LC inverse_matrix 26 组官方本地数据，均普通/ASan/UBSan 通过。见 docs/MATRIX-INVERSE.md 和 verification/matrix-inverse.json；无新在线 AC。 另补 matrix_inverse_mod2 位运算扩展与 LC 37 组官方本地数据（最大 4096 阶），不作为附件要求额外变体的推断。"
     },
     {
       "section": "3.6.1",
@@ -505,8 +505,11 @@
       "toc_page": 80,
       "physical_page": 82,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "matrix_inverse"
+      ],
+      "review": "附件 82–84 页 Gauss-Jordan 求逆已用 vector 函数实现；主元换行同步作用于两侧、奇异返回 nullopt。P4783 用法和独立 Pascal 矩阵校验至 400 阶；置换行列式及双向乘积证明性检查，LC inverse_matrix 26 组官方本地数据，均普通/ASan/UBSan 通过。见 docs/MATRIX-INVERSE.md 和 verification/matrix-inverse.json；无新在线 AC。 另补 matrix_inverse_mod2 位运算扩展与 LC 37 组官方本地数据（最大 4096 阶），不作为附件要求额外变体的推断。"
     },
     {
       "section": "3.7",

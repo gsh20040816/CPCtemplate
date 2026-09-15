@@ -866,6 +866,12 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
+          "driver": "verify/library_checker/inverse_matrix.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/inverse_matrix",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/library_checker/polynomial_taylor_shift.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/polynomial_taylor_shift",
           "existing_ac": [],
@@ -883,6 +889,12 @@
           "existing_ac": [
             "https://qoj.ac/submission/2939916"
           ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4783.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4783",
+          "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
@@ -1411,6 +1423,56 @@
         {
           "driver": "verify/library_checker/matrix_product.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/matrix_product",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "matrix_inverse",
+      "title": "素数模矩阵求逆",
+      "source": "src/compact/matrix_inverse.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/inverse_matrix.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/inverse_matrix",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4783.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4783",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "matrix_inverse_mod2",
+      "title": "模 2 矩阵求逆（按位消元）",
+      "source": "src/compact/matrix_inverse_mod2.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/inverse_matrix_mod_2.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/inverse_matrix_mod_2",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }

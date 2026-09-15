@@ -1186,6 +1186,70 @@ ModMatrix<p>::multiply(a,b) 计算 n×k 与 k×m 的矩阵积，要求非空且�
 
 \lstinputlisting{usage/example-26.cpp}
 
+\newpage
+
+\Needspace{432pt}
+
+\subsection{素数模矩阵求逆}\label{compact-matrix_inverse}\index{matrix\_inverse}
+
+matrix\_inverse<mod>(a) 返回 optional 方阵；a 为 n×n 的 ModInt<mod> 矩阵，mod 必须是素数。可逆时返回逆矩阵，奇异时返回 nullopt；按值传入不改原矩阵，空方阵返回有值的空矩阵。每次同时对原矩阵和单位阵进行换行、倍乘、消元；必须同步交换两边的行。依赖 ModInt；O(n$^{3}$ + n log mod) 时间、O(n$^{2}$) 额外空间。
+
+\lstinputlisting[firstline=6,lastline=37]{../src/compact/matrix_inverse.hpp}
+
+\Needspace{417pt}
+
+\subsection*{模板题使用：Luogu P4783}
+
+\label{usage-example-100}
+
+题意：给定 n 阶方阵，求模 1000000007 的逆矩阵；不可逆输出 No Solution。输入按行读取，输出按行给出逆矩阵，不对原矩阵进行覆盖。
+
+所需模板：ModInt、matrix\_inverse。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4783}
+
+\lstinputlisting{usage/example-100.cpp}
+
+\Needspace{414pt}
+
+\subsection*{模板题使用：Library Checker inverse\_matrix}
+
+\label{usage-example-101}
+
+题意：给定 n 阶方阵，求模 998244353 的逆矩阵；不可逆输出 -1。输入按行读取，输出按行给出逆矩阵，不对原矩阵进行覆盖。
+
+所需模板：ModInt、matrix\_inverse。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/inverse_matrix}
+
+\lstinputlisting{usage/example-101.cpp}
+
+\newpage
+
+\Needspace{444pt}
+
+\subsection{模 2 矩阵求逆（按位消元）}\label{compact-matrix_inverse_mod2}\index{matrix\_inverse\_mod2}
+
+matrix\_inverse\_mod2(a) 接收 n 行长度 n 的 01 字符串，返回 optional<vector<string>>。可逆时返回同样格式的逆矩阵，奇异返回 nullopt；空矩阵返回有值的空矩阵，不改输入。将原矩阵与单位阵拼成 2n 位一行，按 uint64\_t 存储，换行后用异或消元；无需固定 bitset 上限，移位量始终在 0..63。O(n$^{2}$ ceil(n/64)) 时间，工作数组 O(n ceil(n/64)) 个机器字，输入输出 O(n$^{2}$) 字节。仅用于 F2，不处理一般模数。
+
+\lstinputlisting[firstline=7,lastline=38]{../src/compact/matrix_inverse_mod2.hpp}
+
+\Needspace{311pt}
+
+\subsection*{模板题使用：Library Checker inverse\_matrix\_mod\_2}
+
+\label{usage-example-102}
+
+题意：输入 n 阶模 2 方阵，每行是无空格的 01 字符串。求逆矩阵，按同样形式逐行输出；奇异则输出 -1。
+
+所需模板：matrix\_inverse\_mod2。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/inverse_matrix_mod_2}
+
+\lstinputlisting{usage/example-102.cpp}
+
+\newpage
+
 \Needspace{449pt}
 
 \subsection{Max-plus 矩阵幂}\label{compact-MaxPlusMatrix}\index{MaxPlusMatrix}

@@ -372,6 +372,18 @@
     "ModMatrix<p>::multiply(a,b) 计算 n×k 与 k×m 的矩阵积，要求非空且每行尺寸一致。power(a,e) 接收非空 n×n 方阵和 unsigned long long 指数；e=0 返回单位阵。只使用加乘，p 为≥2 的 int 模数，允许合数。矩阵乘法 O(nkm)，矩阵幂 O(n³ log(e+1))，额外空间 O(n²)；复用 ModInt。"
   ],
   [
+    "matrix_inverse",
+    "matrix_inverse",
+    "素数模矩阵求逆",
+    "matrix_inverse<mod>(a) 返回 optional 方阵；a 为 n×n 的 ModInt<mod> 矩阵，mod 必须是素数。可逆时返回逆矩阵，奇异时返回 nullopt；按值传入不改原矩阵，空方阵返回有值的空矩阵。每次同时对原矩阵和单位阵进行换行、倍乘、消元；必须同步交换两边的行。依赖 ModInt；O(n³ + n log mod) 时间、O(n²) 额外空间。"
+  ],
+  [
+    "matrix_inverse_mod2",
+    "matrix_inverse_mod2",
+    "模 2 矩阵求逆（按位消元）",
+    "matrix_inverse_mod2(a) 接收 n 行长度 n 的 01 字符串，返回 optional<vector<string>>。可逆时返回同样格式的逆矩阵，奇异返回 nullopt；空矩阵返回有值的空矩阵，不改输入。将原矩阵与单位阵拼成 2n 位一行，按 uint64_t 存储，换行后用异或消元；无需固定 bitset 上限，移位量始终在 0..63。O(n² ceil(n/64)) 时间，工作数组 O(n ceil(n/64)) 个机器字，输入输出 O(n²) 字节。仅用于 F2，不处理一般模数。"
+  ],
+  [
     "determinant_mod",
     "determinant_mod",
     "任意正模数行列式：欧几里得消元",

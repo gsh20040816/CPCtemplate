@@ -1632,5 +1632,59 @@
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/enumerate_palindromes/task.md",
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/enumerate_palindromes/info.toml"
     ]
+  },
+  {
+    "symbol": "matrix_inverse",
+    "problem": "Library Checker inverse_matrix",
+    "url": "https://judge.yosupo.jp/problem/inverse_matrix",
+    "classification": "Official standalone linear algebra template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-15",
+    "limits": "1<=N<=500, entries modulo998244353.",
+    "adapter": "matrix_inverse<998244353>(a); optional matrix or -1.",
+    "source": "src/compact/matrix_inverse.hpp",
+    "source_driver": "verify/library_checker/inverse_matrix.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [
+      "matrix_inverse"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending; local official checker runs use a 120-second timeout, not an OJ time-limit verdict. Empty matrix extension checked by independent local test.",
+    "local_official_tests": [
+      "verification/inverse-matrix-official-local.json",
+      "verification/inverse-matrix-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "matrix_inverse_mod2",
+    "problem": "Library Checker inverse_matrix_mod_2",
+    "url": "https://judge.yosupo.jp/problem/inverse_matrix_mod_2",
+    "classification": "Official standalone linear algebra template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-15",
+    "limits": "1<=N<=4096, each row is a length-N binary string.",
+    "adapter": "matrix_inverse_mod2(a); optional rows of binary strings or -1.",
+    "source": "src/compact/matrix_inverse_mod2.hpp",
+    "source_driver": "verify/library_checker/inverse_matrix_mod_2.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [
+      "matrix_inverse_mod2"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending; local official checker runs use a 120-second timeout, not an OJ time-limit verdict. Empty matrix extension checked by independent local test.",
+    "local_official_tests": [
+      "verification/inverse-matrix-mod2-official-local.json",
+      "verification/inverse-matrix-mod2-official-sanitizer.json"
+    ]
   }
 ]

@@ -71,6 +71,8 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Partitions | 数学 → 组合数学 → 分拆数 | direct |  |
 | MaxPlusMatrix | 数学 → 线性代数 → 矩阵 | application | max-plus 半环矩阵；不是普通域矩阵运算。 |
 | ModMatrix | 数学 → 线性代数 → 矩阵 | direct |  |
+| matrix_inverse | 数学 → 线性代数 → 矩阵 | direct | 素数模方阵求逆，使用 Gauss-Jordan 消元。 |
+| matrix_inverse_mod2 | 数学 → 线性代数 → 矩阵 | direct | F2 上的方阵求逆，uint64_t 按位消元。 |
 | det_prime | 数学 → 线性代数 → 行列式 | direct |  |
 | determinant_mod | 数学 → 线性代数 → 行列式 | direct |  |
 | PositionBasis | 数学 → 线性代数 → 线性基 | direct |  |

@@ -501,3 +501,10 @@ build/unit-flow-edges
 "$CXX" "${flags[@]}" tests/negative_cost_flow.cpp -o build/negative-cost-flow
 build/negative-cost-flow
 python3 tests/negative_cost_application.py
+
+"$CXX" "${flags[@]}" tests/matrix_inverse.cpp -o build/matrix-inverse
+build/matrix-inverse
+python3 tests/matrix_inverse_application.py
+
+"$CXX" "${flags[@]}" tests/matrix_inverse_mod2.cpp -o build/matrix-inverse-mod2
+build/matrix-inverse-mod2

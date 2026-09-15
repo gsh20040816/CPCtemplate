@@ -1,0 +1,20 @@
+{
+  "scope": "F2 packed matrix inverse, independent nonzero kernel enumeration and two-sided scalar product certificates; no new online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/matrix_inverse_mod2.hpp": "827b2bf9e0d855d901de2a0f17fd8c2dbed9411da45671a35a8075774ca7bedf",
+    "tests/matrix_inverse_mod2.cpp": "f31822bc9081d171dd1081dce25ada5a13fa81b4a90ec9f5ab64a6aa231bcbf8",
+    "verify/library_checker/inverse_matrix_mod_2.compact.cpp": "c7f77c5e34c530eb22081faebb0139395cc725d635c5826392d0f3c418c3fa8b"
+  },
+  "log": [
+    "matrix_inverse_mod2: all 65536 4x4 matrices by nonzero-kernel enumeration, two-sided scalar certificates, empty and word-boundary sizes through 129 PASS",
+    "matrix_inverse_mod2: all 65536 4x4 matrices by nonzero-kernel enumeration, two-sided scalar certificates, empty and word-boundary sizes through 129 PASS"
+  ],
+  "official_reports": [
+    "verification/inverse-matrix-mod2-official-local.json",
+    "verification/inverse-matrix-mod2-official-sanitizer.json"
+  ]
+}
