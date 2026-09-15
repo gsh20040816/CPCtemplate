@@ -860,6 +860,12 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
+          "driver": "verify/examples/dag_path_determinant.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence",
           "existing_ac": [],
@@ -1053,7 +1059,14 @@
       "title": "单个数的欧拉函数",
       "source": "src/compact/euler_phi.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5091.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5091",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -4064,6 +4077,50 @@
         {
           "driver": "verify/luogu/P5325.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P5325",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "euler_power",
+      "title": "十进制大指数：扩展欧拉降幂",
+      "source": "src/compact/euler_power.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5091.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5091",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "dag_path_determinant",
+      "title": "LGV：DAG 路径权值行列式",
+      "source": "src/compact/dag_path_determinant.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/examples/dag_path_determinant.compact.cpp",
+          "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }

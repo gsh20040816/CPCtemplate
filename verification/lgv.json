@@ -1,0 +1,18 @@
+{
+  "scope": "Independent local oracles and explicit scale cases; no new online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/dag_path_determinant.hpp": "c40871d9e8938f3f776fc5884406bd02b6dfb584710730df4f64b0f94c1d25fe",
+    "src/compact/det_prime.hpp": "9fa02dbacf45b13e78517d088e901f2007f92b1556d3db468e4dcfd48678acdf",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "tests/dag_path_determinant.cpp": "b9f616280e9e2f7425800674895bc3f5ddb6ff3f2d80487029d92251e1223bcf",
+    "verify/examples/dag_path_determinant.compact.cpp": "50ea66cb5eec935942ef463e691b93da2e5bd677cbc1163e67f182c78e5a447e"
+  },
+  "log": [
+    "LGV: 3000 independent disjoint path-family enumerations, signed permutations, zero-length paths, overlap, parallel/negative/zero edges; disconnected cycles and 100000-vertex DAG PASS",
+    "LGV: 3000 independent disjoint path-family enumerations, signed permutations, zero-length paths, overlap, parallel/negative/zero edges; disconnected cycles and 100000-vertex DAG PASS"
+  ]
+}

@@ -6,6 +6,7 @@
 - `verify/cses/1750.compact.cpp`
 - `verify/examples/ac_shortest.compact.cpp`
 - `verify/examples/bounded_minflow.compact.cpp`
+- `verify/examples/dag_path_determinant.compact.cpp`
 - `verify/examples/matching_edges.compact.cpp`
 - `verify/examples/odd_induced_partition.compact.cpp`
 - `verify/examples/unit_flow_edges.compact.cpp`
@@ -85,6 +86,7 @@
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.compact.cpp`
 - `verify/luogu/P4783.compact.cpp`
+- `verify/luogu/P5091.compact.cpp`
 - `verify/luogu/P5170.compact.cpp`
 - `verify/luogu/P5180.compact.cpp`
 - `verify/luogu/P5192.compact.cpp`

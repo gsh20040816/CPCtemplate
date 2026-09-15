@@ -71,6 +71,8 @@
 | `matrix_inverse_mod2` | [Library Checker inverse_matrix_mod_2](https://judge.yosupo.jp/problem/inverse_matrix_mod_2) | 1<=N<=4096, each row is a length-N binary string. | 待编写驱动/提交 | 待核验 |
 | `prime_count` | [Library Checker counting_primes](https://judge.yosupo.jp/problem/counting_primes) | 1<=N<=10^11; local extension also accepts N=0. | 待编写驱动/提交 | 待核验 |
 | `Min25` | [Library Checker sum_of_multiplicative_function](https://judge.yosupo.jp/problem/sum_of_multiplicative_function) | N<=10^11; T<=10000, T>1 implies T sqrt(N)<=100000; modulus469762049 | 待编写驱动/提交 | 待核验 |
+| `euler_power` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 待编写驱动/提交 | 待核验 |
+| `euler_phi` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -621,6 +623,22 @@ Official standalone number theory template task.
 See directly executed registered usage and current full driver.
 
 Online AC/ranking pending. Local timeout is wider than OJ limit. Ordinary Min25 reference is explicitly allow_tle; do not interpret local correctness as a time-limit verdict.
+
+### Luogu P5091 / euler_power
+
+Standalone extended Euler theorem template task.
+
+Explicitly compute euler_phi(m), then euler_power(a,b,m,phi); b is a decimal string.
+
+Online AC and speed ranking pending; full unsigned64 modulus and zero exponent are local API extensions outside P5091.
+
+### Luogu P5091 / euler_phi
+
+Standalone extended Euler theorem template task.
+
+Explicitly compute euler_phi(m), then euler_power(a,b,m,phi); b is a decimal string.
+
+Online AC and speed ranking pending; full unsigned64 modulus and zero exponent are local API extensions outside P5091.
 
 ## 榜单口径
 

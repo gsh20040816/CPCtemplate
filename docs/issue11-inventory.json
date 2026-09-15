@@ -484,8 +484,11 @@
       "toc_page": 79,
       "physical_page": 81,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "dag_path_determinant"
+      ],
+      "review": "逐页核对附件 81 页嵌入图片的带符号 LGV 恒等式，新增 DAG 路径矩阵接口；明确排列符号、顶点不交与普通计数所需额外条件。3000 个独立路径族枚举、环拒绝和 10 万点链双模式通过。仅本地接口用法，未声称全部应用适配或在线 AC；见 docs/LGV.md、verification/lgv.json。"
     },
     {
       "section": "3.5",
@@ -493,8 +496,12 @@
       "toc_page": 80,
       "physical_page": 82,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "euler_power",
+        "euler_phi"
+      ],
+      "review": "逐页核对附件 82 页图片的非互质降幂公式，新增十进制指数扫描与 128 位降后指数。P5091 最大 20000001 位输入、前导零、独立 Python pow、cpp_int 与小模数穷举双模式通过；euler_phi 当前测试移除旧 classic 依赖。见 docs/EULER-POWER.md、verification/euler-power.json；无新在线 AC。"
     },
     {
       "section": "3.6",

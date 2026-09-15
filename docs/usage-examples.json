@@ -1257,5 +1257,35 @@
       "ModInt",
       "Min25"
     ]
+  },
+  {
+    "id": "example-106",
+    "symbol": "euler_power",
+    "also_covers": [
+      "euler_phi"
+    ],
+    "problem": "Luogu P5091",
+    "url": "https://www.luogu.com.cn/problem/P5091",
+    "summary": "输入顺序为底数 a、模数 m、指数 b；b 最多 20000001 位，以字符串读入。先用试除法计算 φ(m)，再做扩展欧拉降幂；题目 m≤10^8，不能把输入顺序写成 a,b,m。",
+    "driver": "verify/luogu/P5091.compact.cpp",
+    "requires": [
+      "euler_phi",
+      "euler_power",
+      "Mod64"
+    ]
+  },
+  {
+    "id": "example-107",
+    "symbol": "dag_path_determinant",
+    "problem": "DAG 路径行列式（本地接口示例）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/issues/11",
+    "summary": "输入 n,m,k、m 条有向带权边、k 个起点和 k 个终点，均为 0-based。输出模 998244353 的带符号路径族权值和，整图有环输出 CYCLE。端点顺序原样保留，不能把负号当作错误去掉。",
+    "driver": "verify/examples/dag_path_determinant.compact.cpp",
+    "requires": [
+      "ModInt",
+      "det_prime",
+      "dag_path_determinant"
+    ],
+    "kind": "application"
   }
 ]

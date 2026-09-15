@@ -48,7 +48,7 @@
 | floor_moments | 待补 | pending_example |
 | power_sum | 待补 | pending_example |
 | divisor_sum_power | 待补 | pending_example |
-| euler_phi | 待补 | pending_example |
+| euler_phi | [example-106](usage/example-106.cpp) | locally_checked_example |
 | carmichael | 待补 | pending_example |
 | Partitions | 待补 | pending_example |
 | Lucas | [example-40](usage/example-40.cpp) | locally_checked_example |
@@ -183,3 +183,5 @@
 | NegativeCostFlow | [example-98](usage/example-98.cpp) | locally_checked_example |
 | prime_count | [example-103](usage/example-103.cpp) | locally_checked_example |
 | Min25 | [example-104](usage/example-104.cpp), [example-105](usage/example-105.cpp) | locally_checked_example |
+| euler_power | [example-106](usage/example-106.cpp) | locally_checked_example |
+| dag_path_determinant | [example-107（应用补充）](usage/example-107.cpp) | generated_unverified |

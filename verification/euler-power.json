@@ -1,0 +1,24 @@
+{
+  "scope": "Independent local oracles and explicit scale cases; no new online AC",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/euler_power.hpp": "8c24c9c8ba036400f14079a2792188530ce5e56b85653ec0a1d8b58153760379",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/euler_phi.hpp": "918ef68dc6e91e058bf58744d3addde881baed882e382fc723df3df4328be9dc",
+    "tests/euler_power.cpp": "a5714507b234e510554bd7dec5924b54513b4ef86346e328e7bda3839c456dad",
+    "tests/euler_phi.cpp": "c19c81a8db61cb932f6c643cc2387dacb292a5f3a8d3a58b006d34655548064e",
+    "tests/euler_power_application.py": "f15495b93a5870004128eeb99a5e0fd5948b4adf89f2a92ea3379106b48f7136",
+    "verify/luogu/P5091.compact.cpp": "0d4abefb22d497bf8b37d3f47a86a8238cb775f49c194d25a8b6bd2ac310b689"
+  },
+  "log": [
+    "euler_power: exhaustive small a/m/e with leading zeroes, independent repeated multiplication, cpp_int powm over full unsigned64 and 200-digit exponents, phi threshold and 65-bit reduced exponent PASS",
+    "euler_power: exhaustive small a/m/e with leading zeroes, independent repeated multiplication, cpp_int powm over full unsigned64 and 200-digit exponents, phi threshold and 65-bit reduced exponent PASS",
+    "Euler phi independent trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS",
+    "Euler phi independent trial/rho paths, gcd/sieve oracles, repeated primes, uint64 composites and large prime PASS",
+    "P5091: 200 Python pow oracles, noncoprime/leading-zero cases; 20000001-digit exponent, parity identity and long-small exponent PASS",
+    "P5091: 200 Python pow oracles, noncoprime/leading-zero cases; 20000001-digit exponent, parity identity and long-small exponent PASS"
+  ]
+}

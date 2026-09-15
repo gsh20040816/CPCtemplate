@@ -35,6 +35,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | extended_gcd | 数学 → 数论 → 裴蜀定理 & 一次不定方程 | direct |  |
 | linear_equation | 数学 → 数论 → 裴蜀定理 & 一次不定方程 | direct |  |
 | carmichael | 数学 → 数论 → 费马小定理 & 欧拉定理 | related | 公共指数与欧拉定理相关；导航无独立 Carmichael 页，不伪造叶节点。 |
+| euler_power | 数学 → 数论 → 费马小定理 & 欧拉定理 | direct | 非互质情形的扩展欧拉降幂。 |
 | batch_inverse | 数学 → 数论 → 模逆元 | direct |  |
 | batch_units | 数学 → 数论 → 模逆元 | direct |  |
 | inverse_table | 数学 → 数论 → 模逆元 | direct |  |
@@ -162,6 +163,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Blossom | 图论 → 图的匹配 → 一般图最大匹配 | direct |  |
 | MatrixTree | 图论 → 矩阵树定理 | direct |  |
 | MatrixTreeMod | 图论 → 矩阵树定理 | direct |  |
+| dag_path_determinant | 图论 → LGV 引理 | direct | DAG 路径矩阵及带排列符号的 LGV 行列式。 |
 | DominatorTree | 图论 → 支配树 | direct |  |
 | CirclePolygon | 计算几何 → 二维计算几何基础 | application | 二维圆构造与面积应用，保留退化和精度条件。 |
 | CircleTangents | 计算几何 → 二维计算几何基础 | application | 二维圆构造与面积应用，保留退化和精度条件。 |

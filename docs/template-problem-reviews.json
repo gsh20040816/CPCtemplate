@@ -1741,5 +1741,57 @@
       "verification/min25-official-local.json",
       "verification/min25-official-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "euler_power",
+    "problem": "Luogu P5091",
+    "url": "https://www.luogu.com.cn/problem/P5091",
+    "classification": "Standalone extended Euler theorem template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-15",
+    "limits": "1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b.",
+    "adapter": "Explicitly compute euler_phi(m), then euler_power(a,b,m,phi); b is a decimal string.",
+    "source": "src/compact/euler_power.hpp",
+    "source_driver": "verify/luogu/P5091.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [
+      "euler_power"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending; full unsigned64 modulus and zero exponent are local API extensions outside P5091.",
+    "local_tests": [
+      "verification/euler-power.json"
+    ]
+  },
+  {
+    "symbol": "euler_phi",
+    "problem": "Luogu P5091",
+    "url": "https://www.luogu.com.cn/problem/P5091",
+    "classification": "Standalone extended Euler theorem template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-15",
+    "limits": "1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b.",
+    "adapter": "Explicitly compute euler_phi(m), then euler_power(a,b,m,phi); b is a decimal string.",
+    "source": "src/compact/euler_phi.hpp",
+    "source_driver": "verify/luogu/P5091.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [
+      "euler_phi"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending; full unsigned64 modulus and zero exponent are local API extensions outside P5091.",
+    "local_tests": [
+      "verification/euler-power.json"
+    ]
   }
 ]

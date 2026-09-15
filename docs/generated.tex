@@ -388,6 +388,8 @@ euler\_phi(n) 使用试除，O($\sqrt{\vphantom x}$n) 时间、O(1) 额外空间
 
 \lstinputlisting[firstline=5,lastline=33]{../src/compact/euler_phi.hpp}
 
+联合使用示例见第~\pageref{usage-example-106}~页（Luogu P5091），其中直接调用本模板。
+
 \Needspace{494pt}
 
 \section{筛法}
@@ -462,9 +464,31 @@ linear\_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解。a、b、c 支持
 
 \lstinputlisting{usage/example-75.cpp}
 
-\Needspace{358pt}
+\Needspace{402pt}
 
 \section{费马小定理 \& 欧拉定理}
+
+\subsection{十进制大指数：扩展欧拉降幂}\label{compact-euler_power}\index{euler\_power}
+
+euler\_power(a,b,m,phi) 求 a\textasciicircum{}b mod m，a、m 为 unsigned long long，m>0；b 为非空十进制数字串，可为 0、可含前导零，约定 0\textasciicircum{}0=1。调用者必须传入正确的 phi=$\varphi$(m)，包括 $\varphi$(1)=1；函数只检查数值范围，不验证 phi 正确性。指数小于 phi 时保持原值，否则使用 b mod phi + phi，非互质底数也适用。相加和十进制更新都用 int128，支持完整 unsigned64 模数。O(|b|+log m) 时间、O(1) 额外空间，不含求 phi 的成本；依赖 Mod64::mul。
+
+\lstinputlisting[firstline=5,lastline=28]{../src/compact/euler_power.hpp}
+
+\Needspace{280pt}
+
+\subsection*{模板题使用：Luogu P5091}
+
+\label{usage-example-106}
+
+题意：输入顺序为底数 a、模数 m、指数 b；b 最多 20000001 位，以字符串读入。先用试除法计算 $\varphi$(m)，再做扩展欧拉降幂；题目 m$\le$10\textasciicircum{}8，不能把输入顺序写成 a,b,m。
+
+所需模板：euler\_phi、euler\_power、Mod64。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5091}
+
+\lstinputlisting{usage/example-106.cpp}
+
+\Needspace{323pt}
 
 \noindent 相关应用：公共指数与欧拉定理相关；导航无独立 Carmichael 页，不伪造叶节点。
 
@@ -3180,6 +3204,36 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小非负余数。mod 为任意正 signed 64 位数，边权支持完整 signed 64 位。Kind 的 undirected、toward\_root、away\_from\_root 分别表示无向、内向和外向树；点号 0..n-1。自环忽略，重边按不同边计数，单点返回 1\%mod，mod=1 返回零。先在 128 位中构造模拉普拉斯余子式，再调用 determinant\_mod；O(n$^{3}$ log mod + m) 时间、O(n$^{2}$) 额外空间。不使用模逆元。已知模数是素数时一般优先使用 MatrixTree<mod>。
 
 \lstinputlisting[firstline=4,lastline=38]{../src/compact/matrix_tree_mod.hpp}
+
+\newpage
+
+\Needspace{473pt}
+
+\chapter{LGV 引理}
+
+\section{LGV：DAG 路径权值行列式}\label{compact-dag_path_determinant}\index{dag\_path\_determinant}
+
+dag\_path\_determinant<mod>(g,sources,sinks) 返回路径权值矩阵的行列式，mod 必须为素数。g[u] 的项为 (v,ModInt<mod> 权值)，点号 0..n-1；两个端点序列等长 k，各自不能重复，但可相互重叠。允许重边、零权、负权；长度为 0 的路径权为 1。整张图有环则返回 nullopt，空端点族在 DAG 上返回 1。由 LGV，它是顶点不交路径族按汇点排列带符号的权值和；只有能证明非恒等排列均不可能时，才是对应配对的普通计数。顺序不能随意排序，模结果为 0 也不能据此断言不存在路径族。时间 O((k+1)(n+m)+k$^{3}$+k log mod)，额外空间 O(n+k$^{2}$)，依赖 det\_prime 和 ModInt。
+
+\lstinputlisting[firstline=6,lastline=35]{../src/compact/dag_path_determinant.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=36,lastline=47,firstnumber=31]{../src/compact/dag_path_determinant.hpp}
+
+\Needspace{416pt}
+
+\subsection*{应用题补充：DAG 路径行列式（本地接口示例）}
+
+\label{usage-example-107}
+
+题意：输入 n,m,k、m 条有向带权边、k 个起点和 k 个终点，均为 0-based。输出模 998244353 的带符号路径族权值和，整图有环输出 CYCLE。端点顺序原样保留，不能把负号当作错误去掉。
+
+所需模板：ModInt、det\_prime、dag\_path\_determinant。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://github.com/gsh20040816/CPCtemplate/issues/11}
+
+\lstinputlisting{usage/example-107.cpp}
 
 \Needspace{563pt}
 

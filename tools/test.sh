@@ -514,3 +514,9 @@ build/prime-count
 "$CXX" "${flags[@]}" tests/min25.cpp -o build/min25
 build/min25
 python3 tests/min25_application.py
+
+"$CXX" "${flags[@]}" tests/euler_power.cpp -o build/euler-power
+build/euler-power
+python3 tests/euler_power_application.py
+"$CXX" "${flags[@]}" tests/dag_path_determinant.cpp -o build/lgv
+build/lgv
