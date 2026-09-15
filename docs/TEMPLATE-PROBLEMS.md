@@ -69,6 +69,8 @@
 | `manacher` | [Library Checker enumerate_palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | 1<=N<=500000；非空小写字母串。 | 待编写驱动/提交 | 待核验 |
 | `matrix_inverse` | [Library Checker inverse_matrix](https://judge.yosupo.jp/problem/inverse_matrix) | 1<=N<=500, entries modulo998244353. | 待编写驱动/提交 | 待核验 |
 | `matrix_inverse_mod2` | [Library Checker inverse_matrix_mod_2](https://judge.yosupo.jp/problem/inverse_matrix_mod_2) | 1<=N<=4096, each row is a length-N binary string. | 待编写驱动/提交 | 待核验 |
+| `prime_count` | [Library Checker counting_primes](https://judge.yosupo.jp/problem/counting_primes) | 1<=N<=10^11; local extension also accepts N=0. | 待编写驱动/提交 | 待核验 |
+| `Min25` | [Library Checker sum_of_multiplicative_function](https://judge.yosupo.jp/problem/sum_of_multiplicative_function) | N<=10^11; T<=10000, T>1 implies T sqrt(N)<=100000; modulus469762049 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -603,6 +605,22 @@ Official standalone linear algebra template task.
 matrix_inverse_mod2(a); optional rows of binary strings or -1.
 
 Online AC and ranking pending; local official checker runs use a 120-second timeout, not an OJ time-limit verdict. Empty matrix extension checked by independent local test.
+
+### Library Checker counting_primes / prime_count
+
+Official standalone number theory template task.
+
+See directly executed registered usage and current full driver.
+
+Online AC/ranking pending; local official execution uses 120-second timeout rather than an OJ time-limit verdict.
+
+### Library Checker sum_of_multiplicative_function / Min25
+
+Official standalone number theory template task.
+
+See directly executed registered usage and current full driver.
+
+Online AC/ranking pending. Local timeout is wider than OJ limit. Ordinary Min25 reference is explicitly allow_tle; do not interpret local correctness as a time-limit verdict.
 
 ## 榜单口径
 

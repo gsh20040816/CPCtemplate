@@ -792,6 +792,74 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting{usage/example-86.cpp}
 
+\Needspace{493pt}
+
+\section{素数计数}
+
+\subsection{素数计数（整除分块筛）}\label{compact-prime_count}\index{prime\_count}
+
+prime\_count(n) 返回不大于 n 的素数个数，精确 long long，不取模。支持 0$\le$n$\le$10\textasciicircum{}12；n<2 返回 0。仅存不同的 floor(n/i)，由大到小筛去最小质因子为 p 的合数；平方根经整数修正。O(n\textasciicircum{}0.75 / log n) 时间、O($\sqrt{\vphantom x}$n) 空间，小 n 按常数处理；范围上界不表示所有平台时限保证。
+
+\lstinputlisting[firstline=7,lastline=41]{../src/compact/prime_count.hpp}
+
+\Needspace{217pt}
+
+\subsection*{模板题使用：Library Checker counting\_primes}
+
+\label{usage-example-103}
+
+题意：输入 n，输出不大于 n 的素数个数，不取模。题目 n$\le$10\textasciicircum{}11。
+
+所需模板：prime\_count。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/counting_primes}
+
+\lstinputlisting{usage/example-103.cpp}
+
+\newpage
+
+\Needspace{516pt}
+
+\section{Min\_25 筛}
+
+\subsection{Min\_25 积性函数求和}\label{compact-Min25}\index{Min25}
+
+构造 Min25<mod>(n)，1$\le$n$\le$10\textasciicircum{}12，mod 为大于 3 的素数。sum(c, power) 求 $\sum$(1$\le$i$\le$n) f(i)，要求 f 为积性函数、f(1)=1，f(p)=c[0]+c[1]p+c[2]p$^{2}$；power(p,e,pe) 返回 f(p\textasciicircum{}e)，其中 pe=p\textasciicircum{}e、e$\ge$1，回调必须与一次幂系数一致。支持同一对象多次 sum；不改筛表。预处理 O(n\textasciicircum{}0.75 / log n)，回调 O(1) 时递归求和保守 O(n) 上界；O($\sqrt{\vphantom x}$n) 空间、O(log n) 递归栈。w 降序存不同整除商，g[id(x)][d] 是模意义下 $\sum$(p$\le$x) p\textasciicircum{}d；id 仅允许查询这些整除商（包含 1..$\sqrt{\vphantom x}$n），各字段只读。依赖 ModInt；普通递归版，未承诺全部官方时限达标。
+
+\lstinputlisting[firstline=4,lastline=37]{../src/compact/min25.hpp}
+
+\newpage
+
+\lstinputlisting[firstline=38,lastline=80,firstnumber=35]{../src/compact/min25.hpp}
+
+\Needspace{312pt}
+
+\subsection*{模板题使用：Luogu P5325}
+
+\label{usage-example-104}
+
+题意：求积性函数前缀和，f(p\textasciicircum{}e)=p\textasciicircum{}e(p\textasciicircum{}e-1)，模 1000000007。一次幂为 p$^{2}$-p，故系数传 \{0,-1,1\}；回调的 pe 已是整数 p\textasciicircum{}e，无需再快速幂。
+
+所需模板：ModInt、Min25。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5325}
+
+\lstinputlisting{usage/example-104.cpp}
+
+\Needspace{375pt}
+
+\subsection*{模板题使用：Library Checker sum\_of\_multiplicative\_function}
+
+\label{usage-example-105}
+
+题意：多组输入 n,a,b，求 f(p\textasciicircum{}e)=ae+bp 的积性函数前缀和，模 469762049。一次幂系数为 \{a,b,0\}；每组重新构造筛表。官方把普通 Min\_25 参考解标为允许超时，本地正确性通过不代表在线时限通过。
+
+所需模板：ModInt、Min25。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/sum_of_multiplicative_function}
+
+\lstinputlisting{usage/example-105.cpp}
+
 \Needspace{445pt}
 
 \section{类欧几里德算法}

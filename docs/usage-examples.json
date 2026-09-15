@@ -1222,5 +1222,40 @@
     "requires": [
       "matrix_inverse_mod2"
     ]
+  },
+  {
+    "id": "example-103",
+    "symbol": "prime_count",
+    "problem": "Library Checker counting_primes",
+    "url": "https://judge.yosupo.jp/problem/counting_primes",
+    "summary": "输入 n，输出不大于 n 的素数个数，不取模。题目 n≤10^11。",
+    "driver": "verify/library_checker/counting_primes.compact.cpp",
+    "requires": [
+      "prime_count"
+    ]
+  },
+  {
+    "id": "example-104",
+    "symbol": "Min25",
+    "problem": "Luogu P5325",
+    "url": "https://www.luogu.com.cn/problem/P5325",
+    "summary": "求积性函数前缀和，f(p^e)=p^e(p^e-1)，模 1000000007。一次幂为 p²-p，故系数传 {0,-1,1}；回调的 pe 已是整数 p^e，无需再快速幂。",
+    "driver": "verify/luogu/P5325.compact.cpp",
+    "requires": [
+      "ModInt",
+      "Min25"
+    ]
+  },
+  {
+    "id": "example-105",
+    "symbol": "Min25",
+    "problem": "Library Checker sum_of_multiplicative_function",
+    "url": "https://judge.yosupo.jp/problem/sum_of_multiplicative_function",
+    "summary": "多组输入 n,a,b，求 f(p^e)=ae+bp 的积性函数前缀和，模 469762049。一次幂系数为 {a,b,0}；每组重新构造筛表。官方把普通 Min_25 参考解标为允许超时，本地正确性通过不代表在线时限通过。",
+    "driver": "verify/library_checker/sum_of_multiplicative_function.compact.cpp",
+    "requires": [
+      "ModInt",
+      "Min25"
+    ]
   }
 ]

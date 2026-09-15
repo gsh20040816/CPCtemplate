@@ -508,3 +508,9 @@ python3 tests/matrix_inverse_application.py
 
 "$CXX" "${flags[@]}" tests/matrix_inverse_mod2.cpp -o build/matrix-inverse-mod2
 build/matrix-inverse-mod2
+
+"$CXX" "${flags[@]}" tests/prime_count.cpp -o build/prime-count
+build/prime-count
+"$CXX" "${flags[@]}" tests/min25.cpp -o build/min25
+build/min25
+python3 tests/min25_application.py

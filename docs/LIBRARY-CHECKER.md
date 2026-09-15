@@ -169,7 +169,7 @@
 | [System of Linear Equations](https://judge.yosupo.jp/problem/system_of_linear_equations) | Linear Algebra | 待逐题审题、适配与在线验证 | [system_of_linear_equations.compact.cpp](../verify/library_checker/system_of_linear_equations.compact.cpp) |
 | [System of Linear Equations (Mod 2)](https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Bernoulli Number](https://judge.yosupo.jp/problem/bernoulli_number) | Number Theory | 待逐题审题、适配与在线验证 | — |
-| [Counting Primes](https://judge.yosupo.jp/problem/counting_primes) | Number Theory | 待逐题审题、适配与在线验证 | — |
+| [Counting Primes](https://judge.yosupo.jp/problem/counting_primes) | Number Theory | 待逐题审题、适配与在线验证 | [counting_primes.compact.cpp](../verify/library_checker/counting_primes.compact.cpp) |
 | [Counting Square-free Integers](https://judge.yosupo.jp/problem/counting_squarefrees) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Discrete Logarithm](https://judge.yosupo.jp/problem/discrete_logarithm_mod) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Enumerate Primes](https://judge.yosupo.jp/problem/enumerate_primes) | Number Theory | 待逐题审题、适配与在线验证 | — |
@@ -277,7 +277,7 @@
 | [Prefix Sum of Polynomial](https://judge.yosupo.jp/problem/prefix_sum_of_polynomial) | Unlisted | 待逐题审题、适配与在线验证；尚未列入分类 | — |
 | [Range Add Range Min](https://judge.yosupo.jp/problem/range_add_range_min) | Unlisted | 待逐题审题、适配与在线验证；尚未列入分类 | — |
 | [Static Range Sum with Upper Bound](https://judge.yosupo.jp/problem/static_range_sum_with_upper_bound) | Unlisted | 待逐题审题、适配与在线验证；尚未列入分类 | — |
-| [Sum of Multiplicative Function](https://judge.yosupo.jp/problem/sum_of_multiplicative_function) | Unlisted | 待逐题审题、适配与在线验证；尚未列入分类 | — |
+| [Sum of Multiplicative Function](https://judge.yosupo.jp/problem/sum_of_multiplicative_function) | Unlisted | 待逐题审题、适配与在线验证；尚未列入分类 | [sum_of_multiplicative_function.compact.cpp](../verify/library_checker/sum_of_multiplicative_function.compact.cpp) |
 
 机器清单： [library-checker-inventory.json](library-checker-inventory.json)，包含参数、测试生成数量、题面/校验器摘要及固定版本链接。
 

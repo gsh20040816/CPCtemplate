@@ -1,0 +1,20 @@
+{
+  "scope": "Independent local checks and full adapter execution; no new online AC or online time-limit verdict",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/prime_count.hpp": "045dcf428eaa0b06f7c37f61da3e04c1aff9a9e9de533a776adc4266dd516305",
+    "tests/prime_count.cpp": "a631df4cf1e14a4589195545f9dbc7e763b798ccfe77aed12ae70b2cb4931af2",
+    "verify/library_checker/counting_primes.compact.cpp": "5267a545f51b190660e8386ef4e3d334094cc95d655858134064803fec810acf"
+  },
+  "log": [
+    "prime_count: independent sieve through 1e6, all n<=10000, 1000 random queries, square boundaries, pi(1e9) PASS",
+    "prime_count: independent sieve through 1e6, all n<=10000, 1000 random queries, square boundaries, pi(1e9) PASS"
+  ],
+  "official_reports": [
+    "verification/prime-count-official-local.json",
+    "verification/prime-count-official-sanitizer.json"
+  ]
+}

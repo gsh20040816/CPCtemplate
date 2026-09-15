@@ -1686,5 +1686,60 @@
       "verification/inverse-matrix-mod2-official-local.json",
       "verification/inverse-matrix-mod2-official-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "prime_count",
+    "problem": "Library Checker counting_primes",
+    "url": "https://judge.yosupo.jp/problem/counting_primes",
+    "classification": "Official standalone number theory template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-15",
+    "limits": "1<=N<=10^11; local extension also accepts N=0.",
+    "adapter": "See directly executed registered usage and current full driver.",
+    "source": "src/compact/prime_count.hpp",
+    "source_driver": "verify/library_checker/counting_primes.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [
+      "prime_count"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC/ranking pending; local official execution uses 120-second timeout rather than an OJ time-limit verdict.",
+    "local_official_tests": [
+      "verification/prime-count-official-local.json",
+      "verification/prime-count-official-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "Min25",
+    "problem": "Library Checker sum_of_multiplicative_function",
+    "url": "https://judge.yosupo.jp/problem/sum_of_multiplicative_function",
+    "classification": "Official standalone number theory template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-15",
+    "limits": "N<=10^11; T<=10000, T>1 implies T sqrt(N)<=100000; modulus469762049",
+    "adapter": "See directly executed registered usage and current full driver.",
+    "source": "src/compact/min25.hpp",
+    "source_driver": "verify/library_checker/sum_of_multiplicative_function.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [
+      "Min25",
+      "Min25.sum"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC/ranking pending. Local timeout is wider than OJ limit. Ordinary Min25 reference is explicitly allow_tle; do not interpret local correctness as a time-limit verdict.",
+    "local_official_tests": [
+      "verification/min25-official-local.json",
+      "verification/min25-official-sanitizer.json"
+    ]
   }
 ]

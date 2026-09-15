@@ -1,0 +1,25 @@
+{
+  "scope": "Independent local checks and full adapter execution; no new online AC or online time-limit verdict",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "sha256": {
+    "src/compact/min25.hpp": "f729ba63c998ba98a232e880764547c6e39b9ff02722f24fe9ac6e914460f5ad",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "tests/min25.cpp": "25e27e580c6704ffa26c4ed612ca8a15bb0e5dd682eeea32a1eb94a839a28c0a",
+    "tests/min25_application.py": "407e7391ecbe0aff0ce90f628c55f8fb4438c26c07ebd4f4f2167439318d11e3",
+    "verify/luogu/P5325.compact.cpp": "4ed65135ab286909377ca5e46183fecf89e561c2c7d4b12adacd6fbefc9ab5f5",
+    "verify/library_checker/sum_of_multiplicative_function.compact.cpp": "33963b644cd7b0d7085231c4ca3a652e499b827b032de64db64181b5536db13f"
+  },
+  "log": [
+    "Min25: all quotient prime moments; 7 independent factorization families over mod5/469762049/1e9+7, all n<=300 and 80 random n<=5000; repeated sums and n=1e9 identities PASS",
+    "Min25: all quotient prime moments; 7 independent factorization families over mod5/469762049/1e9+7, all n<=300 and 80 random n<=5000; repeated sums and n=1e9 identities PASS",
+    "P5325: 107 complete driver cases against independent prime-factor prefix through 100000 PASS",
+    "P5325: 107 complete driver cases against independent prime-factor prefix through 100000 PASS"
+  ],
+  "official_reports": [
+    "verification/min25-official-local.json",
+    "verification/min25-official-sanitizer.json"
+  ]
+}

@@ -53,6 +53,8 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | root_factors | 数学 → 数论 → 高次剩余 & 单位根 | application | 高次剩余求根及素数幂、CRT 组合，准备函数保留依赖。 |
 | CoprimePairs | 数学 → 数论 → 莫比乌斯反演 | application | Möbius 反演的矩形计数应用。 |
 | DuJiao | 数学 → 数论 → 狄利克雷双曲线法 & 杜教筛 | direct |  |
+| prime_count | 数学 → 数论 → 素数计数 | direct | 整除分块埃筛精确计算素数个数。 |
+| Min25 | 数学 → 数论 → Min_25 筛 | direct | 低次素数多项式加素数幂回调的递归版本。 |
 | floor_moments | 数学 → 数论 → 类欧几里德算法 | direct |  |
 | floor_sum | 数学 → 数论 → 类欧几里德算法 | direct |  |
 | NttConvolution | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
