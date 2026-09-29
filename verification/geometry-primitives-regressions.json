@@ -1,0 +1,111 @@
+{
+  "scope": "Five new printed drivers with exact-rational oracles; existing integer/real core regressions; twelve AOJ public data sets with local numeric comparator. No online AC or official checker claim.",
+  "source_sha256": {
+    "tests/geometry_primitives_usages.py": "6a87e99280476771b6b07b28ef7d0aa144819f573f13e5b9e86af3bba7cb97d5",
+    "tests/real_components.cpp": "812b3112a2b432441b6187845b842f24c914327eb1b286dd87538977f81640b5",
+    "tests/integer_components.cpp": "c6b7d85c471d850ae6e0347b7817c13451b08301e0534442954ed1bb9c4e2e7b",
+    "tools/aoj_cases.py": "925790917863eb74595ecd8b71ccfc7537114fa9a0d71f779e242c8c7009fb7a",
+    "src/compact/real_plane.hpp": "86dcffd9e63c636e6504083935d4a7657effe15832290dd39c20c931546d03c2",
+    "src/compact/line_projection.hpp": "7ac9e8b077893d9e7cedb8e5ce4adbe6d24f5de21ce413c1d28a673c9dfd7e53",
+    "src/compact/segment_distance_real.hpp": "826e3ab66b3124e64a9c7dc50ea6bb9aa2d1546c46d863f2c051d3d352936963",
+    "src/compact/line_intersection_real.hpp": "90bde29959b9d7a4764ce49352a6125b40adc7fa52796e39dd7ad97261666859",
+    "src/compact/integer_plane.hpp": "019023dc3d1f4de34aaa376613d131be8991d55624a9591e3d09f07d1862a482",
+    "src/compact/polygon_area2.hpp": "5aaa1196bbe9937293fbaa943f38f724f76ba3b8c4c8f41cf05719923ad9ff03"
+  },
+  "program_sha256": {
+    "example-135": "669ed016db0c3e28877d0e76166d109340d7c1dcb37c99e777ffbf438fe7f802",
+    "example-151": "71f744fe6fa140729dfdf56f165bf684a1650f90c728d944535539ead323f744",
+    "example-152": "a1a89aa0ba1a070f5d883ea6abadc715a727afda9124608220dfef0b34f6d78f",
+    "example-153": "1df930b7b9110967c4d62ba93c586013a998d1567fc14b35c75a49a84604d093",
+    "example-154": "c3c68aaa84405b5574bfe87d1f37e70086436c45bd4a4ab316067987acaa953d",
+    "example-155": "166606c965a629718c74e53a9690e0493dba5753ad33a218a1d622e0d6503282",
+    "example-156": "4b9b4c2021e4b11ea74954c97b196d2457381f9e60398de0bd8cb03d924fdc10",
+    "example-180": "b2f2ea419b3b03bf3a2084855e0b0b5442767123eee92b9062776bdcd57dee39",
+    "example-181": "5055ea91b62b2b13fd8dd7309882a7c02d288fe49896ea72c19d38bc8206fd43",
+    "example-182": "2a04a2d3709f189d87710a020212b175ddccfe917e49c02ca627db7cffb9df03",
+    "example-183": "7fcf74b986d5c98f6b593424860e8861d23e5dca1e72d97133d4004c7a6047cc",
+    "example-184": "04ed6e8fa97e7617aff7a8b21bbe3605787831e482bcd9e097d9f6b52d72cdb6"
+  },
+  "public_cases": {
+    "CGL_3_C": {
+      "normal": 20,
+      "sanitizer": 20
+    },
+    "CGL_7_D": {
+      "normal": 12,
+      "sanitizer": 12
+    },
+    "CGL_7_E": {
+      "normal": 25,
+      "sanitizer": 25
+    },
+    "CGL_7_H": {
+      "normal": 32,
+      "sanitizer": 32
+    },
+    "CGL_7_I": {
+      "normal": 40,
+      "sanitizer": 40
+    },
+    "CGL_7_F": {
+      "normal": 20,
+      "sanitizer": 20
+    },
+    "CGL_7_G": {
+      "normal": 40,
+      "sanitizer": 40
+    },
+    "CGL_2_A": {
+      "normal": 32,
+      "sanitizer": 32
+    },
+    "CGL_1_A": {
+      "normal": 32,
+      "sanitizer": 32
+    },
+    "CGL_2_D": {
+      "normal": 20,
+      "sanitizer": 20
+    },
+    "CGL_2_C": {
+      "normal": 20,
+      "sanitizer": 20
+    },
+    "CGL_3_A": {
+      "normal": 20,
+      "sanitizer": 20
+    }
+  },
+  "report_sha256": {
+    "verification/geometry-primitives-aoj-135-normal.json": "5f6d4b48df81047d3d64bf9828e33367b49b76ccb093cc190ea40810b5888c3d",
+    "verification/geometry-primitives-aoj-135-sanitizer.json": "a114edead772cf261bef25c7fb6d90380a760985559ff30ca645561341dbeb46",
+    "verification/geometry-primitives-aoj-151-normal.json": "e3d28dd64e812ab535167d0e09ca765c03e500617f5d94425f119cb08b19a115",
+    "verification/geometry-primitives-aoj-151-sanitizer.json": "8fd57b062745701f78e9107587a29f3ae5d3484c65c1ef7e20f67c238f0cbb66",
+    "verification/geometry-primitives-aoj-152-normal.json": "5138f6d73580ce64196695d9083197a7b753a388f3ea0e9156d0c1d789a520b2",
+    "verification/geometry-primitives-aoj-152-sanitizer.json": "304c5e4563d29572433db98869187eb36ac2bc5ec0c96eec8b9fbbb6d3e4fd38",
+    "verification/geometry-primitives-aoj-153-normal.json": "39434803eb950be8635262126c4da5126bdf2e43a0c119f80aed1676d548fbff",
+    "verification/geometry-primitives-aoj-153-sanitizer.json": "36ed44860cee5d823a04e3857e93344ead9b08374a508de4675568ed4d220efb",
+    "verification/geometry-primitives-aoj-154-normal.json": "8380a4c4faddbb3d7b010639934abd3e2f514d3e73ced489d2ee1d582cbd8a77",
+    "verification/geometry-primitives-aoj-154-sanitizer.json": "f1e39b8d5a35d8f101ece74374a11e566016da5a290a7159bfe1f9bf55b5df7d",
+    "verification/geometry-primitives-aoj-155-normal.json": "42a4a288729c0473bbc5ca23ee66df98cde21f78e9ac026ebcda66622f95cbbb",
+    "verification/geometry-primitives-aoj-155-sanitizer.json": "688e9942586ef527a2c4e0e9d66f2e3723e55d78b8ce3dfca216e404c8647ae2",
+    "verification/geometry-primitives-aoj-156-normal.json": "f13e06ae89d20d6608717d46eaaa5ea8178821206ae3b16d861e41ca0f6da16e",
+    "verification/geometry-primitives-aoj-156-sanitizer.json": "c1e392adf892978cf447cda9f2d9e67ef901b77e4ba8c2bc0471ec787e57cb9b",
+    "verification/geometry-primitives-aoj-180-normal.json": "badbc5069c8fedd8faccbb653399c1c62b88310fce77d11d2e8800d8211ba0e1",
+    "verification/geometry-primitives-aoj-180-sanitizer.json": "897027e71a99c0e3b341109520e52af594b447f27aaa2546a16199cc6590d24e",
+    "verification/geometry-primitives-aoj-181-normal.json": "7ddf8c2171b62936a5aacf97f8e6dcb39d8af752eeb41bdfec6806c13dcb30d4",
+    "verification/geometry-primitives-aoj-181-sanitizer.json": "6eabe8c20cdc589f0c9f1e11055818b028307cb3c49d95bf189c28ae3ed5405c",
+    "verification/geometry-primitives-aoj-182-normal.json": "6d25fef719baaaf4998f1e48a1b9cd8d051537e2eb9bd9f08bfdf8b7c32e9ba7",
+    "verification/geometry-primitives-aoj-182-sanitizer.json": "61a8ff4f588325de2df8cae9652ccd8fa54cba68983fd6834e2424f88f23852d",
+    "verification/geometry-primitives-aoj-183-normal.json": "de5c918988ac5aa49e40d9ded3f0a6018c5f80678ade2240901078a6178018b4",
+    "verification/geometry-primitives-aoj-183-sanitizer.json": "655f7c2da39532325f477b557a22c59b02ced409fa75a9e39a2ac2840f74d140",
+    "verification/geometry-primitives-aoj-184-normal.json": "805cf1cb2f03bae6083651d95a5eefb57c44e0f54ec55f4c38b33aae828a8758",
+    "verification/geometry-primitives-aoj-184-sanitizer.json": "95737416a120394085f33148ddad7f1de8022286f17ee980eb11df71febaa246",
+    "verification/geometry-primitives-core-integer_components-normal.txt": "09d04e56d4f4b3b416e9f1fef5fa70d945b2664fee49b8096adff67217de50ce",
+    "verification/geometry-primitives-core-integer_components-sanitizer.txt": "09d04e56d4f4b3b416e9f1fef5fa70d945b2664fee49b8096adff67217de50ce",
+    "verification/geometry-primitives-core-real_components-normal.txt": "b9c8987a6aa23b8b0c414c44610e2c76c60fc1075bb72096e360219e61c9bfa9",
+    "verification/geometry-primitives-core-real_components-sanitizer.txt": "b9c8987a6aa23b8b0c414c44610e2c76c60fc1075bb72096e360219e61c9bfa9",
+    "verification/geometry-primitives-usages-normal.json": "1b5631b7bc3b240ecbdbfff2f44b89462478919d83c67c10cf91759dd6cf7cb0",
+    "verification/geometry-primitives-usages-sanitizer.json": "8366562f16ba13d0714431133e0a4cb1f8d48d3164aea5cb5259362ba4bc6a6a"
+  }
+}

@@ -71,3 +71,16 @@ macOS 官方数据 runner 使用 512 MiB 主线程栈链接选项，记录在报
 独立驱动测试 `tests/lc_number_application.py` 每项包含十万查询。判素参考为筛表、试除确认因子的乘积和Proth证书：N=3·2^k+1，若a^((N-1)/2)=-1 mod N，则每个素因子的减一都含因子2^k；测试中2^k>sqrt(N)，故不存在不超过sqrt(N)的素因子。此判据没有调用Miller–Rabin。整除和采用小参数逐项枚举，以及A=B=M-1时按完整模数块计数的闭式参考。
 
 判素官方题只到10^18，不验证0或更大uint64输入。整除和官方题只有0≤A,B<M和N≥1，因此每项≤i，结果≤N(N-1)/2，驱动的long long输出转换有明确上界；负系数、N=0仍保留组件独立证据。线上AC、限时表现和全AC提交排名仍待完成。
+
+## AOJ公开数据与本地数字比较器
+
+`tools/aoj_cases.py`接受已登记的完整用法编号、绝对误差阈值和报告路径，读取官方公开测试数据的header及每个序号的原始输入/答案。它编译实际打印程序，不提交账号，也不产生线上AC。阈值0表示数字精确相等，正阈值要求绝对误差严格小于阈值；NaN、无穷和输出项数错误均拒绝。
+
+```sh
+python3 tools/aoj_cases.py --usage example-181 --atol 1e-8 --report verification/geometry-primitives-aoj-181-normal.json
+python3 tools/aoj_cases.py --usage example-181 --atol 1e-8 --sanitizer --report verification/geometry-primitives-aoj-181-sanitizer.json
+```
+
+文件字节数默认与header核对。AOJ个别header存在过期长度：例如CGL_7_F第4组标称输入9字节，但原始接口及JSON接口均返回相同的10字节内容。发生不一致时必须从第二接口核对完整输入与答案；报告保留声明/实际长度、第二接口地址及哈希。任何截断提示或双接口内容不一致都会中止，不写通过报告。报告同时记录当前程序、测试脚本、header、全部数据和实际输出指纹。
+
+这里调用的是本地数字比较器，不能称为“通过AOJ官方checker”。本地测试也不证明OJ时间限制或速度榜排名。当前几何复验的范围、条目和结果见[GEOMETRY-PRIMITIVES-USAGES.md](GEOMETRY-PRIMITIVES-USAGES.md)。

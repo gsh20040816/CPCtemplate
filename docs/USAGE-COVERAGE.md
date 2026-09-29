@@ -82,14 +82,14 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |
 | IntegerPlane | [example-126](usage/example-126.cpp) | locally_checked_example |
 | integer_hull | [example-64](usage/example-64.cpp), [example-123（应用补充）](usage/example-123.cpp) | locally_checked_example |
-| polygon_area2 | 待补 | pending_example |
+| polygon_area2 | [example-184](usage/example-184.cpp) | locally_checked_example |
 | polygon_contains | [example-135](usage/example-135.cpp) | locally_checked_example |
 | convex_contains_i64 | [example-136（应用补充）](usage/example-136.cpp) | locally_checked_application |
 | convex_diameter2 | [example-65](usage/example-65.cpp), [example-124（应用补充）](usage/example-124.cpp) | locally_checked_example |
-| RealPlane | 待补 | pending_example |
-| line_projection | 待补 | pending_example |
-| segment_distance_real | 待补 | pending_example |
-| line_intersection_real | 待补 | pending_example |
+| RealPlane | [example-180](usage/example-180.cpp) | locally_checked_example |
+| line_projection | [example-181](usage/example-181.cpp) | locally_checked_example |
+| segment_distance_real | [example-182](usage/example-182.cpp) | locally_checked_example |
+| line_intersection_real | [example-183](usage/example-183.cpp) | locally_checked_example |
 | line_circle_intersections | 待补 | pending_example |
 | circle_intersections | 待补 | pending_example |
 | circle_overlap_area | [example-154](usage/example-154.cpp) | locally_checked_example |

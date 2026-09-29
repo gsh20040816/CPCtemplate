@@ -3515,5 +3515,150 @@
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/task.md",
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/info.toml"
     ]
+  },
+  {
+    "symbol": "RealPlane",
+    "problem": "AOJ CGL_2_A",
+    "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_A",
+    "classification": "AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.",
+    "statement_checked": true,
+    "statement_source": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A",
+    "checked_date": "2026-09-30",
+    "limits": "integer coordinates |x|,|y|<=10000; 1<=q<=1000; nondegenerate input lines/segments",
+    "adapter": "每组给两条非退化直线，平行输出2，垂直输出1，否则输出0。输入为绝对值不超过10000的整数，点积与叉积在此范围可由浮点精确表示，所以直接比较0；这不适用于一般实数或更大整数。只演示点向量与dot/cross，不涵盖圆及Result分类。",
+    "usage": "example-180",
+    "tested_api": [
+      "RealPlane::Point subtraction",
+      "RealPlane::dot",
+      "RealPlane::cross"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-submission ranking unresolved; local tests are not online AC.",
+    "local_evidence": [
+      "verification/geometry-primitives-usages-normal.json",
+      "verification/geometry-primitives-usages-sanitizer.json",
+      "verification/geometry-primitives-aoj-180-normal.json",
+      "verification/geometry-primitives-aoj-180-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "line_projection",
+    "problem": "AOJ CGL_1_A",
+    "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_1_A",
+    "classification": "AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.",
+    "statement_checked": true,
+    "statement_source": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A",
+    "checked_date": "2026-09-30",
+    "limits": "integer coordinates |x|,|y|<=10000; 1<=q<=1000; nondegenerate input lines/segments",
+    "adapter": "固定直线两端点，对每个点输出其在无限直线上的投影。题目保证两端点不同，整数坐标绝对值不超过10000，q不超过1000；投影可在线段外。接口参数为(p,a,b)，不截断到线段；a=b时模板返回a属于额外边界。",
+    "usage": "example-181",
+    "tested_api": [
+      "line_projection"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-submission ranking unresolved; local tests are not online AC.",
+    "local_evidence": [
+      "verification/geometry-primitives-usages-normal.json",
+      "verification/geometry-primitives-usages-sanitizer.json",
+      "verification/geometry-primitives-aoj-181-normal.json",
+      "verification/geometry-primitives-aoj-181-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "segment_distance_real",
+    "problem": "AOJ CGL_2_D",
+    "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D",
+    "classification": "AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.",
+    "statement_checked": true,
+    "statement_source": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D",
+    "checked_date": "2026-09-30",
+    "limits": "integer coordinates |x|,|y|<=10000; 1<=q<=1000; nondegenerate input lines/segments",
+    "adapter": "求两条闭线段间距离，q不超过1000，整数坐标绝对值不超过10000。先用IntegerPlane精确判相交（含接触和共线重叠），相交输出0；否则取四个端点到另一线段距离的最小值。单点距离接口参数为(p,a,b)。题目线段非退化，点线段属于额外接口边界。",
+    "usage": "example-182",
+    "tested_api": [
+      "IntegerPlane::intersect",
+      "segment_distance_real"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-submission ranking unresolved; local tests are not online AC.",
+    "local_evidence": [
+      "verification/geometry-primitives-usages-normal.json",
+      "verification/geometry-primitives-usages-sanitizer.json",
+      "verification/geometry-primitives-aoj-182-normal.json",
+      "verification/geometry-primitives-aoj-182-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "line_intersection_real",
+    "problem": "AOJ CGL_2_C",
+    "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C",
+    "classification": "AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.",
+    "statement_checked": true,
+    "statement_source": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_C",
+    "checked_date": "2026-09-30",
+    "limits": "integer coordinates |x|,|y|<=10000; 1<=q<=1000; nondegenerate input lines/segments",
+    "adapter": "输出两条线段的唯一交点；题目保证非平行且相交，q不超过1000，整数坐标绝对值不超过10000，因此可直接取one结果。模板计算支撑直线交点，不自动检查交点在线段内；一般输入须先检查kind。整数方向叉积非零时绝对值至少1，大于本题范围下默认相对阈值。",
+    "usage": "example-183",
+    "tested_api": [
+      "line_intersection_real",
+      "RealPlane::Result::kind",
+      "RealPlane::Result::p"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-submission ranking unresolved; local tests are not online AC.",
+    "local_evidence": [
+      "verification/geometry-primitives-usages-normal.json",
+      "verification/geometry-primitives-usages-sanitizer.json",
+      "verification/geometry-primitives-aoj-183-normal.json",
+      "verification/geometry-primitives-aoj-183-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "polygon_area2",
+    "problem": "AOJ CGL_3_A",
+    "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_A",
+    "classification": "AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.",
+    "statement_checked": true,
+    "statement_source": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A",
+    "checked_date": "2026-09-30",
+    "limits": "integer coordinates |x|,|y|<=10000; 3<=n<=100; simple CCW polygon",
+    "adapter": "给出逆时针简单多边形，3至100点，整数坐标绝对值不超过10000，输出面积并保留一位小数。无需凸包，凹多边形也适用。接口返回有向二倍面积，逆时针为正；取绝对值后按奇偶精确打印.0或.5。本题范围允许将半面积转为long long；一般int128结果不可任意缩窄。",
+    "usage": "example-184",
+    "tested_api": [
+      "polygon_area2"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-submission ranking unresolved; local tests are not online AC.",
+    "local_evidence": [
+      "verification/geometry-primitives-usages-normal.json",
+      "verification/geometry-primitives-usages-sanitizer.json",
+      "verification/geometry-primitives-aoj-184-normal.json",
+      "verification/geometry-primitives-aoj-184-sanitizer.json"
+    ]
   }
 ]

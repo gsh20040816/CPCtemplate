@@ -4477,6 +4477,20 @@ R 为 long double；Point 支持向量加减、数乘和数除（除数非零）
 
 \lstinputlisting[firstline=28,lastline=50,firstnumber=23]{../src/compact/real_plane.hpp}
 
+\Needspace{389pt}
+
+\subsection*{模板题使用：AOJ CGL\_2\_A}
+
+\label{usage-example-180}
+
+题意：每组给两条非退化直线，平行输出2，垂直输出1，否则输出0。输入为绝对值不超过10000的整数，点积与叉积在此范围可由浮点精确表示，所以直接比较0；这不适用于一般实数或更大整数。只演示点向量与dot/cross，不涵盖圆及Result分类。
+
+所需模板：RealPlane。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_A}
+
+\lstinputlisting{usage/example-180.cpp}
+
 \Needspace{217pt}
 
 \section{点在直线上的投影}\label{compact-line_projection}\index{line\_projection}
@@ -4485,6 +4499,20 @@ line\_projection(p,a,b) 返回 p 在过 a、b 直线上的正交投影；若 a=b
 
 \lstinputlisting[firstline=5,lastline=16]{../src/compact/line_projection.hpp}
 
+\Needspace{351pt}
+
+\subsection*{模板题使用：AOJ CGL\_1\_A}
+
+\label{usage-example-181}
+
+题意：固定直线两端点，对每个点输出其在无限直线上的投影。题目保证两端点不同，整数坐标绝对值不超过10000，q不超过1000；投影可在线段外。接口参数为(p,a,b)，不截断到线段；a=b时模板返回a属于额外边界。
+
+所需模板：RealPlane、line\_projection。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_1_A}
+
+\lstinputlisting{usage/example-181.cpp}
+
 \Needspace{460pt}
 
 \section{浮点两直线交点}\label{compact-line_intersection_real}\index{line\_intersection\_real}
@@ -4492,6 +4520,20 @@ line\_projection(p,a,b) 返回 p 在过 a、b 直线上的正交投影；若 a=b
 line\_intersection\_real(a,b,c,d,eps=1e-12L) 返回 RealPlane::Result；eps 必须为正。端点重合使任一直线退化时返回 degenerate。按方向叉积与方向长度乘积的相对阈值判断平行，再按位置阈值区分 none 与 infinite；唯一交点返回 one。输入有限且尺度适当；近似分类不等同于精确共线判定。O(1)。
 
 \lstinputlisting[firstline=5,lastline=27]{../src/compact/line_intersection_real.hpp}
+
+\Needspace{358pt}
+
+\subsection*{模板题使用：AOJ CGL\_2\_C}
+
+\label{usage-example-183}
+
+题意：输出两条线段的唯一交点；题目保证非平行且相交，q不超过1000，整数坐标绝对值不超过10000，因此可直接取one结果。模板计算支撑直线交点，不自动检查交点在线段内；一般输入须先检查kind。整数方向叉积非零时绝对值至少1，大于本题范围下默认相对阈值。
+
+所需模板：RealPlane、line\_intersection\_real。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C}
+
+\lstinputlisting{usage/example-183.cpp}
 
 \Needspace{460pt}
 
@@ -4612,6 +4654,20 @@ circle\_intersections\_i64(a,r,b,s)：a、b为圆心。依赖IntegerPlane::Point
 polygon\_area2(p) 返回 \_\_int128\_t 的有向面积两倍；逆时针为正，反向为负。输入按边界顺序排列，隐式闭合；空集或不足三个点返回 0。单个多边形点数不超过 10$^{5}$、坐标绝对值不超过 10$^{12}$，确保求和在有符号 128 位内。时间 O(n)，额外空间 O(1)。
 
 \lstinputlisting[firstline=5,lastline=15]{../src/compact/polygon_area2.hpp}
+
+\Needspace{316pt}
+
+\subsection*{模板题使用：AOJ CGL\_3\_A}
+
+\label{usage-example-184}
+
+题意：给出逆时针简单多边形，3至100点，整数坐标绝对值不超过10000，输出面积并保留一位小数。无需凸包，凹多边形也适用。接口返回有向二倍面积，逆时针为正；取绝对值后按奇偶精确打印.0或.5。本题范围允许将半面积转为long long；一般int128结果不可任意缩窄。
+
+所需模板：IntegerPlane、polygon\_area2。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_A}
+
+\lstinputlisting{usage/example-184.cpp}
 
 \Needspace{430pt}
 
@@ -4740,6 +4796,20 @@ solve(a,r,b,s)：a、b为IntegerPlane::Point，所有坐标绝对值$\le$10$^{4}
 segment\_distance\_real(p,a,b) 返回点 p 到闭线段 ab 的 long double 距离。a=b 时返回到端点的距离；否则把投影参数截断至 [0,1]。要求有限且尺度适当的输入；O(1) 时间和空间。
 
 \lstinputlisting[firstline=5,lastline=17]{../src/compact/segment_distance_real.hpp}
+
+\Needspace{457pt}
+
+\subsection*{模板题使用：AOJ CGL\_2\_D}
+
+\label{usage-example-182}
+
+题意：求两条闭线段间距离，q不超过1000，整数坐标绝对值不超过10000。先用IntegerPlane精确判相交（含接触和共线重叠），相交输出0；否则取四个端点到另一线段距离的最小值。单点距离接口参数为(p,a,b)。题目线段非退化，点线段属于额外接口边界。
+
+所需模板：IntegerPlane、RealPlane、segment\_distance\_real。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D}
+
+\lstinputlisting{usage/example-182.cpp}
 
 \Needspace{401pt}
 

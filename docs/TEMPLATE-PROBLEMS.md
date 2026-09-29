@@ -147,6 +147,11 @@
 | `UndirectedEuler` | [Luogu P2731](https://www.luogu.com.cn/problem/P2731) | 1<=m<=1024;vertex labels1..500;Euler trail exists | [记录](https://www.luogu.com.cn/record/299974727) | 待核验 |
 | `basis_intersection` | [LC Intersection of F2 Vector Spaces](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces) | T<=100000;n,m<=30;independent30-bit generators | 待编写驱动/提交 | 待核验 |
 | `basis_sum_intersection` | [LC Intersection / Zassenhaus](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces) | T<=100000;n,m<=30;independent30-bit generators | 待编写驱动/提交 | 待核验 |
+| `RealPlane` | [AOJ CGL_2_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_A) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
+| `line_projection` | [AOJ CGL_1_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_1_A) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
+| `segment_distance_real` | [AOJ CGL_2_D](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
+| `line_intersection_real` | [AOJ CGL_2_C](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
+| `polygon_area2` | [AOJ CGL_3_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_A) | integer coordinates \|x\|,\|y\|<=10000; 3<=n<=100; simple CCW polygon | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1351,6 +1356,46 @@ Library Checker standalone non-contest template problem; only intersection compo
 Online AC and global speed rank pending; local tests cover only their stated scopes.
 
 原始题面与参数：[来源 1](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/task.md)，[来源 3](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/info.toml)
+
+### AOJ CGL_2_A / RealPlane
+
+AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.
+
+每组给两条非退化直线，平行输出2，垂直输出1，否则输出0。输入为绝对值不超过10000的整数，点积与叉积在此范围可由浮点精确表示，所以直接比较0；这不适用于一般实数或更大整数。只演示点向量与dot/cross，不涵盖圆及Result分类。
+
+Online submission and all-submission ranking unresolved; local tests are not online AC.
+
+### AOJ CGL_1_A / line_projection
+
+AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.
+
+固定直线两端点，对每个点输出其在无限直线上的投影。题目保证两端点不同，整数坐标绝对值不超过10000，q不超过1000；投影可在线段外。接口参数为(p,a,b)，不截断到线段；a=b时模板返回a属于额外边界。
+
+Online submission and all-submission ranking unresolved; local tests are not online AC.
+
+### AOJ CGL_2_D / segment_distance_real
+
+AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.
+
+求两条闭线段间距离，q不超过1000，整数坐标绝对值不超过10000。先用IntegerPlane精确判相交（含接触和共线重叠），相交输出0；否则取四个端点到另一线段距离的最小值。单点距离接口参数为(p,a,b)。题目线段非退化，点线段属于额外接口边界。
+
+Online submission and all-submission ranking unresolved; local tests are not online AC.
+
+### AOJ CGL_2_C / line_intersection_real
+
+AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.
+
+输出两条线段的唯一交点；题目保证非平行且相交，q不超过1000，整数坐标绝对值不超过10000，因此可直接取one结果。模板计算支撑直线交点，不自动检查交点在线段内；一般输入须先检查kind。整数方向叉积非零时绝对值至少1，大于本题范围下默认相对阈值。
+
+Online submission and all-submission ranking unresolved; local tests are not online AC.
+
+### AOJ CGL_3_A / polygon_area2
+
+AOJ Library of Computational Geometry standalone template exercise, not a regional-contest application.
+
+给出逆时针简单多边形，3至100点，整数坐标绝对值不超过10000，输出面积并保留一位小数。无需凸包，凹多边形也适用。接口返回有向二倍面积，逆时针为正；取绝对值后按奇偶精确打印.0或.5。本题范围允许将半面积转为long long；一般int128结果不可任意缩窄。
+
+Online submission and all-submission ranking unresolved; local tests are not online AC.
 
 ## 榜单口径
 

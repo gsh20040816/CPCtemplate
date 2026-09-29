@@ -1,0 +1,633 @@
+{
+  "problem": "CGL_7_H",
+  "usage": "example-153",
+  "mode": "sanitizer",
+  "driver": "verify/aoj/CGL_7_H.compact.cpp",
+  "program_sha256": "1df930b7b9110967c4d62ba93c586013a998d1567fc14b35c75a49a84604d093",
+  "scope": "Complete public AOJ data from official API, checked with a local numeric comparator; not the official checker, not online AC or a speed rank.",
+  "fetched_at_utc": "2026-09-29T16:36:04.005410+00:00",
+  "header_url": "https://judgedat.u-aizu.ac.jp/testcases/CGL_7_H/header",
+  "header_sha256": "b9f73e7c5aace6be963be4d2b2c66db8312b8c08d18ded43e362e6054de0d3fd",
+  "comparator": {
+    "type": "absolute error strictly below threshold; exact numeric equality if threshold zero",
+    "atol": "0.00001",
+    "negative_controls": "wrong value, NaN and wrong token count rejected"
+  },
+  "test_sha256": "925790917863eb74595ecd8b71ccfc7537114fa9a0d71f779e242c8c7009fb7a",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "flags": [
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined"
+  ],
+  "cases": [
+    {
+      "serial": 1,
+      "name": "00_sample_00.in",
+      "sizes": {
+        "in": {
+          "declared": 16,
+          "received": 16
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "c1fe89c8666c833e6ebb66130e8db8d80f63637f7a372ff474b2277902a8487d",
+      "expected_sha256": "c231558c651cf179fccf85eb64d6494158e47115518e044ccaae3771f710c17d",
+      "actual_sha256": "1aa37be3ca553d4b9840bbdd7034d3aa4f3f2c42db6773eff63e7c8b713c4014",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 2,
+      "name": "00_sample_01.in",
+      "sizes": {
+        "in": {
+          "declared": 24,
+          "received": 24
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "b73d1d431e342fd0515518d2ea2a3cc96b841baf3134a3ba99eab92b88124518",
+      "expected_sha256": "87848182f9c6e03fe547d1cffbcccfb08b36f01844b7b6db1f4bbb305a631272",
+      "actual_sha256": "8958c934307eb591a940c6163c44878027f64a633897f8521ab11e3250596cd2",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 3,
+      "name": "01_triangle_00.in",
+      "sizes": {
+        "in": {
+          "declared": 18,
+          "received": 18
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "3e55c77b141a3ded642447c6f29ffd4f55efb59835964ec57068dc4969e48252",
+      "expected_sha256": "eca2321b34645aa654d34ba4478d72b70644b13a6d7dfa99ceddcb3b012b46ec",
+      "actual_sha256": "9492766e613e74649c063739578940b8c912ed11790edf9f58f878124d5df136",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 4,
+      "name": "01_triangle_01.in",
+      "sizes": {
+        "in": {
+          "declared": 16,
+          "received": 16
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "338be4173ff81c1df84a2b28f846f9cac1bd0ab9125682dcdf8153d573cb1a6f",
+      "expected_sha256": "bb40f0ef6ea4378dbbb65ece4eb1d1321a7eb0f41d19c4ab7207a66b757c4fee",
+      "actual_sha256": "bfd1bb0b77976dfb880a2c97b8352486cc2093ff7e3d206d18944757c8dca35a",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 5,
+      "name": "01_triangle_02.in",
+      "sizes": {
+        "in": {
+          "declared": 19,
+          "received": 19
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "1efa56b7bfbf90911417de2990f26c335760d43d91c82647c0ae2bfb2469cc69",
+      "expected_sha256": "4d33a62ac8dd64a0c9463b44260687e2d01dd850358effa0b8f00adeef6babf9",
+      "actual_sha256": "ea124bd9539de7641bffe2718b03fdb8e140491a0a9b59f9d7f6d3237364ec5f",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 6,
+      "name": "01_triangle_03.in",
+      "sizes": {
+        "in": {
+          "declared": 19,
+          "received": 19
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "059fbad62841b9d53ad9d47ddd24ebaaa4a4d1ea55ab52f7f6ddec368d4c0ff6",
+      "expected_sha256": "52e123cfac729cd770c4b531449a8d4e78ba43c082a63ef48dfa4bbcd6b9f6cb",
+      "actual_sha256": "39f9b331fd23792d3f8038856050556c2da9442decff8c9a7731479c28154645",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 7,
+      "name": "01_triangle_04.in",
+      "sizes": {
+        "in": {
+          "declared": 19,
+          "received": 19
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "b09dbfca1181c282fb9ec3da61becfcc5557a9df2de7a168dca76a519a749c4a",
+      "expected_sha256": "e645234fa62d925f411677d3e30ea65328cb6520d54e9ba40cf8e83a3578774d",
+      "actual_sha256": "9ed1ff3a70cd094d71695d4bf28c4bb3adb338713ad258d505596d6a158af523",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 8,
+      "name": "01_triangle_05.in",
+      "sizes": {
+        "in": {
+          "declared": 19,
+          "received": 19
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "c93e61c616d0db4b4a92d13a6d2775bb2f90d23208ef8db219c0370e906bf9da",
+      "expected_sha256": "80272d5a01ac4608983bd534631f5b0e2d53f960543b8d9ff7a070a04562ea5e",
+      "actual_sha256": "238956e1ac53b63d59475eeb7de43543ced564f9b7a5c1d290a27d47fa3da01e",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 9,
+      "name": "01_triangle_06.in",
+      "sizes": {
+        "in": {
+          "declared": 17,
+          "received": 17
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "86378e479ea4c0c7fa0511b04fd7711e5c544576d2a264a386b8bb56074d119c",
+      "expected_sha256": "1d900f105bd122c6527750b54ce0090c27160cb99ade79acef037de2ddea8556",
+      "actual_sha256": "b60ab078afce16f5fd7436df8a760fde89f28ec60046c0ccfe9c88109754d7c1",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 10,
+      "name": "01_triangle_07.in",
+      "sizes": {
+        "in": {
+          "declared": 22,
+          "received": 22
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "a9d2d197ec49de547d487d5a5848e0134e266685424fb9c2ba46297813574d5e",
+      "expected_sha256": "2b32d7e72cbe1c8b89c2428293550f6774bd279bcd0657a7c7aa87efce665f4b",
+      "actual_sha256": "3188557aca11e861c501296ffbcc2ea2ec0e9e976f6468b26df1394f37e08404",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 11,
+      "name": "02_small_00.in",
+      "sizes": {
+        "in": {
+          "declared": 34,
+          "received": 34
+        },
+        "out": {
+          "declared": 15,
+          "received": 15
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "ff7549b1a1c408d3b3099a772257f10aacac8679d111cafaef0cec74e8e4f7fe",
+      "expected_sha256": "a01dad40d56173a9d1903878b37022e6fa02a20b7a2e2bc9389ffa8cdd7b3c6a",
+      "actual_sha256": "8fbbfaf174e768dc26718f3598bc9dbdcb9c27fe5cedfb228d92c43795491726",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 12,
+      "name": "02_small_01.in",
+      "sizes": {
+        "in": {
+          "declared": 72,
+          "received": 72
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "deb17aba797a789aa0ea9d6c19154feacc45cd1f050e2790810eed325f9796fd",
+      "expected_sha256": "3a83ac99aa71d0fd0691e60a898dbf69a6c43915550d57687fdc508d3bdd2132",
+      "actual_sha256": "e51064548f585c1bc1f6e1a887bd7ba1ae3428423731c26f2915bf8acebdc83f",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 13,
+      "name": "02_small_02.in",
+      "sizes": {
+        "in": {
+          "declared": 160,
+          "received": 160
+        },
+        "out": {
+          "declared": 16,
+          "received": 16
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "41433da8b8511eeb83c84829cb44f328eea5c34dfe98fe58b7e2dfd47425c9fb",
+      "expected_sha256": "8c6aca638b169b6991fa0f4058a38cc3353d1e2daeef8df0ebdf14de7c37fa36",
+      "actual_sha256": "bfc9077a5209e51c871032d9bbd82de92144534ba9c994dbda78a6e0a2809bc8",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 14,
+      "name": "03_medium_00.in",
+      "sizes": {
+        "in": {
+          "declared": 140,
+          "received": 140
+        },
+        "out": {
+          "declared": 15,
+          "received": 15
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "3b27ef3238da4043ba0d1aeb1d651fed2b38e98e79ad9414ec7ede67e26539d2",
+      "expected_sha256": "290a56f5a4e556231dc3ec8484f4d3271d0569da235371804ede86ed31c48536",
+      "actual_sha256": "93db0ea2f941965ad41d5567b9c5bbc8cc23a3e269945de89dfe561b49d5d649",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 15,
+      "name": "03_medium_01.in",
+      "sizes": {
+        "in": {
+          "declared": 396,
+          "received": 396
+        },
+        "out": {
+          "declared": 16,
+          "received": 16
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "6ea070b471e6ac2e250a32d0ac4a7b6048dcfad8d5c1f015afecf4cc35723826",
+      "expected_sha256": "0a9a8b2b8ee3a4da5b5917047f46a84dfc9af37989dc7dc5bd336b7957a237a7",
+      "actual_sha256": "7ea2eb28c5f8f99b41d310e88615a9fae932456402a5cae2c30bc1f8e100712d",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 16,
+      "name": "04_corner_00.in",
+      "sizes": {
+        "in": {
+          "declared": 67,
+          "received": 67
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "0417705bce71056b9c0b054f9a73734d5830626b1fdb962a795d1d1b80f93c24",
+      "expected_sha256": "52e123cfac729cd770c4b531449a8d4e78ba43c082a63ef48dfa4bbcd6b9f6cb",
+      "actual_sha256": "39f9b331fd23792d3f8038856050556c2da9442decff8c9a7731479c28154645",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 17,
+      "name": "04_corner_01.in",
+      "sizes": {
+        "in": {
+          "declared": 26,
+          "received": 26
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "d31068a4f05481785201097347777a680573b4925f0f1e9553605783af356493",
+      "expected_sha256": "a55c68a5e0048cb4e5252ca950f94db337c689514ce9cd83f2e65d5deaa7d13e",
+      "actual_sha256": "39f9b331fd23792d3f8038856050556c2da9442decff8c9a7731479c28154645",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 18,
+      "name": "04_corner_02.in",
+      "sizes": {
+        "in": {
+          "declared": 78,
+          "received": 78
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "91f3108337bfc7031204089ef2e73b84cc1915b19d71049360ddc5ae256936b4",
+      "expected_sha256": "52e123cfac729cd770c4b531449a8d4e78ba43c082a63ef48dfa4bbcd6b9f6cb",
+      "actual_sha256": "39f9b331fd23792d3f8038856050556c2da9442decff8c9a7731479c28154645",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 19,
+      "name": "04_corner_03.in",
+      "sizes": {
+        "in": {
+          "declared": 32,
+          "received": 32
+        },
+        "out": {
+          "declared": 17,
+          "received": 17
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "9e5c775e6b47740f429fc1534e31cdd810a41a0693e8316d85f8c3550bfcb016",
+      "expected_sha256": "c16f65ef5b136c1d3b0d55bd13536ec737e615feadc27c70afdf2a8e9903fd33",
+      "actual_sha256": "837dbea4f14c708e3cb3bdb6dec799cb70eef1142cb5348ea6ac958e07520980",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 20,
+      "name": "04_corner_04.in",
+      "sizes": {
+        "in": {
+          "declared": 28,
+          "received": 28
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "bd46990394738f3349d053810663eae05862f38c6620790d10c7e03c6dc6d6c7",
+      "expected_sha256": "a55a97c4e280eef1a02ddf143ab0376f626a398ba987bdda2741de4f63439f2f",
+      "actual_sha256": "13b9e94d5a679898b9e24294b6c063536f03e003c7350053bd69ed1b5a6a2492",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 21,
+      "name": "05_corner_00.in",
+      "sizes": {
+        "in": {
+          "declared": 65,
+          "received": 65
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "47bfbbd52782dedfdedbe1990528c6898da094042f076908621fc33eff332221",
+      "expected_sha256": "0684e3109a216ef7c56f7c056d79d1bf8268b0fd8e771126712c73f7ceeb78a3",
+      "actual_sha256": "e56f60c8c15f03b0e3a88c027580674912f8f0aa0e9b119ef3525c1a33dc7bed",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 22,
+      "name": "05_corner_01.in",
+      "sizes": {
+        "in": {
+          "declared": 24,
+          "received": 24
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "d860ee8c937cabb1bf7081edb41b103ce643fb330b482e5efc798e939f92c7a4",
+      "expected_sha256": "773438e044b77d5480550a2b0399713c2b18bcf4f9a60f4f28801a1fcc0381bc",
+      "actual_sha256": "7cd385d600bdae1ff30e020c3c217a15daf6437e525f98397994fa187476dae8",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 23,
+      "name": "05_corner_02.in",
+      "sizes": {
+        "in": {
+          "declared": 26,
+          "received": 26
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "33eb983718656901cde8920cf6d980f77dbd4e807ef052168565b6872abd377c",
+      "expected_sha256": "14223f4e31deccaa57b802d413bfa300ebf1881421ec2022f4da3dd42d86b8a6",
+      "actual_sha256": "9a086132308acf0ed4ce39961325abd4469309035e4d1a0c84afb788d8238975",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 24,
+      "name": "05_corner_03.in",
+      "sizes": {
+        "in": {
+          "declared": 50,
+          "received": 50
+        },
+        "out": {
+          "declared": 13,
+          "received": 13
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "47a1946d18c53f1ed0615810a613a438be3470f3b158b165a352f7d82ea38fee",
+      "expected_sha256": "8f66bbbee73df689b2bf8e49f86c8f7cdf31166b1b3efd9d177195213830078c",
+      "actual_sha256": "b6fe2052b841643295ad77aa2ebdadd2627e30eaeac6516f343eb16a51346b08",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 25,
+      "name": "05_corner_04.in",
+      "sizes": {
+        "in": {
+          "declared": 183,
+          "received": 183
+        },
+        "out": {
+          "declared": 16,
+          "received": 16
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "1e848d50335484842a43c60e61cd4bf46109d5fd6c7b87b3ff524fad80ded23c",
+      "expected_sha256": "71f20649ff4aed82884a57741b82c82df23ece94e8e894ed5bd689ffa2fe34ea",
+      "actual_sha256": "624a0be44773d0cd0ef6c8dd05ae5cfb8456550bd2bae6ecaf38c21fdbb6c84c",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 26,
+      "name": "05_corner_05.in",
+      "sizes": {
+        "in": {
+          "declared": 182,
+          "received": 182
+        },
+        "out": {
+          "declared": 16,
+          "received": 16
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "5b173d9b651336726b8ffac87bc1494266df1bf20d49efd1324e0520df95104c",
+      "expected_sha256": "779583223b06922c7257ead44dda6a09a0561627548f82e1de78667e57c4cce5",
+      "actual_sha256": "01df1644d241df0c2e0b3793c9a06f10f6f2f3d906fc48554620a7cb35693e26",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 27,
+      "name": "05_corner_06.in",
+      "sizes": {
+        "in": {
+          "declared": 182,
+          "received": 182
+        },
+        "out": {
+          "declared": 16,
+          "received": 16
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "0585152da870bba344f0f949bfeae2bded18f52399d5d686fb9467ce6bad53c4",
+      "expected_sha256": "5f053af3a421e5c781d5a4dc903bb86eff1aad5873f977b8580072c66907f1b3",
+      "actual_sha256": "c6598e171a040570568ae53a75b747cdf53ef8e07d4cde475d084525da56d9e2",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 28,
+      "name": "05_corner_07.in",
+      "sizes": {
+        "in": {
+          "declared": 182,
+          "received": 182
+        },
+        "out": {
+          "declared": 16,
+          "received": 16
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "d6ef68d87194be1634f5dcd5f23e5e2402b6d426ef12277ba142d26d2967005d",
+      "expected_sha256": "3b93db8d47c9c5ab5fd018344590959269738813096112d2ed3eb5c5f3ca0691",
+      "actual_sha256": "ba00e3c8b6a105d5b7f829cb7c952be176ac0cd275c83c9d28d3752fba79a6f7",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 29,
+      "name": "06_maximum_00.in",
+      "sizes": {
+        "in": {
+          "declared": 500,
+          "received": 500
+        },
+        "out": {
+          "declared": 15,
+          "received": 15
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "9a61ffa901ddd1c18cc1b7a8506b94c4ef9c6d5a5ae7de371e71a405b53f7a7f",
+      "expected_sha256": "dcf88640bb701ae5176f5ffc5774b550475643540b6b45298bef7a166a9e3dd7",
+      "actual_sha256": "f216324085847e98a38d9e6fa0e299789fd597c824abdf711f98e58a2dc7518e",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 30,
+      "name": "06_maximum_01.in",
+      "sizes": {
+        "in": {
+          "declared": 499,
+          "received": 499
+        },
+        "out": {
+          "declared": 15,
+          "received": 15
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "b5c58ebfb470d579d8a63e3250c114e250a19fbb7ab7aaefa6d6cf7b484705a8",
+      "expected_sha256": "b57343b4f27b55e21476cacf71b0c5c680f48bf40f0345491fb7b34c023b9f56",
+      "actual_sha256": "8a9e5e8e57b63e97a1d4a807b31a048a93df302e1d67f85cbf30cda992b094a0",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 31,
+      "name": "06_maximum_02.in",
+      "sizes": {
+        "in": {
+          "declared": 499,
+          "received": 499
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "4dcbda0fd590faa40b2527ebd5b8f50e0635ade470dda86d94a5247be24e31a1",
+      "expected_sha256": "0e963019f1b88ce6cd0814fb5effbae843123d5c7572be148e3e98d012391b2a",
+      "actual_sha256": "e8b5c02cf6dcb0051d68353a8c38f6a195ae0f0a97f3a97a5bcb90005642d582",
+      "verdict": "local_comparator_accepted"
+    },
+    {
+      "serial": 32,
+      "name": "06_maximum_03.in",
+      "sizes": {
+        "in": {
+          "declared": 499,
+          "received": 499
+        },
+        "out": {
+          "declared": 14,
+          "received": 14
+        }
+      },
+      "size_mismatch_confirmation": null,
+      "input_sha256": "4d50b6a2183b3c928889fae4c2aeeeaf564f1ad77febbf46532e10e0562bf98a",
+      "expected_sha256": "328b7d9a0007a1f9a220408782885ab7a63f564a4a7b59e1e34d5dd1774553bd",
+      "actual_sha256": "63fb5f5095aa66fa47733cc9ee193430ccf04800e591e72ee6df7dc3ecf32596",
+      "verdict": "local_comparator_accepted"
+    }
+  ]
+}

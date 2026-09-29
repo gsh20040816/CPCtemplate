@@ -1,0 +1,49 @@
+{
+  "scope": "Local exact-rational driver oracles only; not online AC. AOJ range plus separately counted degenerate/clockwise extensions.",
+  "mode": "normal",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "flags": [
+    "-O2"
+  ],
+  "test_sha256": "6a87e99280476771b6b07b28ef7d0aa144819f573f13e5b9e86af3bba7cb97d5",
+  "results": {
+    "180": {
+      "driver": "verify/aoj/CGL_2_A.compact.cpp",
+      "program_sha256": "b2f2ea419b3b03bf3a2084855e0b0b5442767123eee92b9062776bdcd57dee39",
+      "invocations": 9,
+      "queries": 8272,
+      "max_absolute_error": "0"
+    },
+    "181": {
+      "driver": "verify/aoj/CGL_1_A.compact.cpp",
+      "program_sha256": "5055ea91b62b2b13fd8dd7309882a7c02d288fe49896ea72c19d38bc8206fd43",
+      "invocations": 275,
+      "queries": 274002,
+      "max_absolute_error": "3.20187231684957254149689597845841575944646197824864260E-12",
+      "extension_queries": 2
+    },
+    "182": {
+      "driver": "verify/aoj/CGL_2_D.compact.cpp",
+      "program_sha256": "2a04a2d3709f189d87710a020212b175ddccfe917e49c02ca627db7cffb9df03",
+      "invocations": 11,
+      "queries": 9649,
+      "max_absolute_error": "3.60358588297401560359447090857079912554044525185052336E-12",
+      "extension_queries": 1377
+    },
+    "183": {
+      "driver": "verify/aoj/CGL_2_C.compact.cpp",
+      "program_sha256": "7fcf74b986d5c98f6b593424860e8861d23e5dca1e72d97133d4004c7a6047cc",
+      "invocations": 9,
+      "queries": 3561,
+      "max_absolute_error": "1.747085622969524076965804444013553773108672801328239886E-12"
+    },
+    "184": {
+      "driver": "verify/aoj/CGL_3_A.compact.cpp",
+      "program_sha256": "04ed6e8fa97e7617aff7a8b21bbe3605787831e482bcd9e097d9f6b52d72cdb6",
+      "invocations": 510,
+      "queries": 510,
+      "max_absolute_error": "0",
+      "clockwise_extension_invocations": 255
+    }
+  }
+}
