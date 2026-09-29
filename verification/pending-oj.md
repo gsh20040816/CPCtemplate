@@ -20,6 +20,7 @@
 - `verify/library_checker/bitwise_xor_convolution.compact.cpp`
 - `verify/library_checker/convolution_mod.compact.cpp`
 - `verify/library_checker/counting_primes.compact.cpp`
+- `verify/library_checker/division_of_polynomials.compact.cpp`
 - `verify/library_checker/dominatortree.compact.cpp`
 - `verify/library_checker/enumerate_palindromes.compact.cpp`
 - `verify/library_checker/enumerate_triangles.compact.cpp`
@@ -47,6 +48,7 @@
 - `verify/library_checker/scc.compact.cpp`
 - `verify/library_checker/segment_add_get_min.compact.cpp`
 - `verify/library_checker/shortest_path.compact.cpp`
+- `verify/library_checker/sqrt_of_formal_power_series.compact.cpp`
 - `verify/library_checker/static_convex_hull.compact.cpp`
 - `verify/library_checker/sum_of_floor_of_linear.compact.cpp`
 - `verify/library_checker/sum_of_multiplicative_function.compact.cpp`
@@ -89,6 +91,7 @@
 - `verify/luogu/P4148.compact.cpp`
 - `verify/luogu/P4151.compact.cpp`
 - `verify/luogu/P4213.compact.cpp`
+- `verify/luogu/P4512.compact.cpp`
 - `verify/luogu/P4721.compact.cpp`
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.compact.cpp`
@@ -98,6 +101,7 @@
 - `verify/luogu/P5170.compact.cpp`
 - `verify/luogu/P5180.compact.cpp`
 - `verify/luogu/P5192.compact.cpp`
+- `verify/luogu/P5205.compact.cpp`
 - `verify/luogu/P5325.compact.cpp`
 - `verify/luogu/P5357.compact.cpp`
 - `verify/luogu/P5431.mint.compact.cpp`

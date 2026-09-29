@@ -549,3 +549,7 @@ python3 tests/kd_tree_application.py
 "$CXX" "${flags[@]}" tests/cdq_convolution.cpp -o build/cdq-convolution
 build/cdq-convolution
 python3 tests/cdq_convolution_application.py
+
+"$CXX" "${flags[@]}" tests/fps_division_sqrt.cpp -o build/fps-extended
+build/fps-extended
+python3 tests/fps_extended_application.py

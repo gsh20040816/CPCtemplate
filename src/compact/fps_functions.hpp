@@ -12,6 +12,7 @@ struct FpsFunctions : FpsInverse
 
     static Poly integral(const Poly &a)
     {
+        assert(a.size() < mod);
         Poly b(a.size() + 1);
         vector<Z> inv(a.size() + 1);
         if (!a.empty()) inv[1] = 1;
@@ -24,7 +25,8 @@ struct FpsFunctions : FpsInverse
     static Poly log(const Poly &a, int n)
     {
         assert(n > 0 && !a.empty() && a[0].v == 1);
-        auto b = multiply(derivative(a), inverse(a, n));
+        Poly f(a.begin(), a.begin() + min(n, (int)a.size()));
+        auto b = multiply(derivative(f), inverse(f, n));
         b.resize(n - 1);
         return integral(b);
     }

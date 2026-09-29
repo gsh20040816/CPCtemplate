@@ -65,7 +65,9 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | subset_convolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |
 | chirp_z | 数学 → 多项式与生成函数 → Chirp Z 变换 | direct |  |
 | FpsInverse | 数学 → 多项式与生成函数 → 多项式牛顿迭代 | direct |  |
+| PolynomialDivision | 数学 → 多项式与生成函数 → 多项式牛顿迭代 | application | 反转后调用逆级数的带余除法；此页挂靠为求逆应用，不代表页面包含全部除法接口。 |
 | FpsFunctions | 数学 → 多项式与生成函数 → 多项式初等函数 | direct |  |
+| FpsSqrt | 数学 → 多项式与生成函数 → 多项式初等函数 | direct | 一般前导零、无解与二次剩余首项；Newton 开根。 |
 | BostanMori | 数学 → 多项式与生成函数 → 常系数齐次线性递推 | direct |  |
 | recurrence_nth | 数学 → 多项式与生成函数 → 常系数齐次线性递推 | direct |  |
 | polynomial_shift | 数学 → 多项式与生成函数 → 多项式平移\|连续点值平移 | direct |  |

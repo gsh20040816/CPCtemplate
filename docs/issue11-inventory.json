@@ -795,11 +795,11 @@
       "toc_page": 134,
       "physical_page": 136,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "FpsInverse"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际136–142页：Newton b(2-ab)，常数项非零。现有求逆输入不足补零、多余截断，131072/500000项闭式与独立系数递推双模式通过；本批新增超NTT容量长输入求单项的边界验证。 见 docs/FPS-ATTACHMENT.md；没有新增在线AC。"
     },
     {
       "section": "5.6",
@@ -807,8 +807,11 @@
       "toc_page": 140,
       "physical_page": 142,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "PolynomialDivision"
+      ],
+      "review": "实际142–150页：反转求逆求商再减去乘积得余式。新增去高次零的divide，空向量表示零，支持低次被除式和常数除数；3000长除法及50万项构造、P4512完整驱动和35个官方LC测试双模式通过。 见 docs/FPS-ATTACHMENT.md；没有新增在线AC。"
     },
     {
       "section": "5.7",
@@ -816,11 +819,11 @@
       "toc_page": 148,
       "physical_page": 150,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
-        "FpsFunctions"
+        "FpsSqrt"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际150–156页：附件a[0]=1、Newton (b+a/b)/2。原FpsFunctions候选并未含开根；本批新增独立FpsSqrt，扩展前导零、非剩余/奇数最低次数无解及截断自由尾项取零。2400截断平方、6480赋值/非剩余情形、50万项闭式及35个官方LC测试双模式。 见 docs/FPS-ATTACHMENT.md；没有新增在线AC。"
     },
     {
       "section": "5.8",
@@ -828,11 +831,11 @@
       "toc_page": 154,
       "physical_page": 156,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "FpsFunctions"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际156–161页：ln(a)=积分(a'/a)，a[0]=1。保留简单微积分接口；本批只对a所需前缀求导和求逆，去掉旧版长输入需全长变换的限制；输入大于2^23但只求一项也通过。独立三角系数递推与50万项闭式、完整LC驱动双模式。 见 docs/FPS-ATTACHMENT.md；没有新增在线AC。"
     },
     {
       "section": "5.9",
@@ -840,11 +843,11 @@
       "toc_page": 159,
       "physical_page": 161,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "FpsFunctions"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际161–169页：a[0]=0、Newton b(1+a-ln b)。当前实现复用截断ln/inverse，无全局lim状态。空输入、单项、非二次幂截断、独立三角系数递推、50万项阶乘逆闭式及完整LC驱动双模式。 见 docs/FPS-ATTACHMENT.md；没有新增在线AC。"
     },
     {
       "section": "5.10",

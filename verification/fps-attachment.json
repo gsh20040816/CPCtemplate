@@ -1,0 +1,97 @@
+{
+  "scope": "Local independent coefficient/long-division oracles and complete Luogu/LC drivers; no online AC or ranking",
+  "recorded_at_utc": "2026-09-29T08:30:08.140993+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/fps_sqrt.hpp": "b04f978ee0767ce688b01f46893d80eea17ca8eb2385f576a1265f7e7fcbe87e",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/modular_sqrt.hpp": "b35d0cf49b3dc630db16ccc045a0f84d5e00c9f48cdbc0bfac0b280270bdd2a3",
+    "tests/fps_division_sqrt.cpp": "c5b624002743605a2a1d1ed5fad1960deb772773312b0fd42aa403fa47921e6a",
+    "tests/fps_extended_application.py": "ae40d7e8ad61a217485deece61676b179e723aceab9ec0b18696f88a9022df2e",
+    "tests/fps_components.cpp": "dd053b34feb8eb46f756c4fec63b76cc6a8c62b439c44e200ff01f885e5c4717",
+    "tests/lc_fps_application.py": "cf1406f468c33edba06a06d0c9764f96043c4ef11a9326bd9ad4a4b2807fa827",
+    "verify/luogu/P4512.compact.cpp": "4e5b2d48e04c028b3cf124487f85c98d0f9d4df49b2825f5c5f33ca0b15c381e",
+    "verify/luogu/P5205.compact.cpp": "3c472b192449b780d6dd7300be999f62fc8363433d14af8266170bdfc0d6c365"
+  },
+  "runs": [
+    {
+      "module": "inv_log_exp",
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS"
+    },
+    {
+      "module": "inv_log_exp",
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "Separated FPS: independent triangular coefficient recurrences, calculus, 131072-term analytic series and compatibility prefixes PASS"
+    },
+    {
+      "module": "inv_log_exp",
+      "kind": "driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "LC FPS drivers: triangular coefficient oracles, constant terms, 262145 truncation and 500000-term analytic series PASS"
+    },
+    {
+      "module": "inv_log_exp",
+      "kind": "driver",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "LC FPS drivers: triangular coefficient oracles, constant terms, 262145 truncation and 500000-term analytic series PASS"
+    },
+    {
+      "module": "division_sqrt",
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "Polynomial division/sqrt: 3000 long-division oracles, 2400 truncated squares, 6480 valuation/residue cases, empty/long/short inputs, 200000 and 500000 closed forms PASS"
+    },
+    {
+      "module": "division_sqrt",
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "Polynomial division/sqrt: 3000 long-division oracles, 2400 truncated squares, 6480 valuation/residue cases, empty/long/short inputs, 200000 and 500000 closed forms PASS"
+    },
+    {
+      "module": "division_sqrt",
+      "kind": "driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "P4512: 150 independent quadratic-oracle programs and a 100000-scale closed form PASS\nP5205: 150 independent quadratic-oracle programs and a 100000-scale closed form PASS"
+    },
+    {
+      "module": "division_sqrt",
+      "kind": "driver",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "P4512: 150 independent quadratic-oracle programs and a 100000-scale closed form PASS\nP5205: 150 independent quadratic-oracle programs and a 100000-scale closed form PASS"
+    }
+  ],
+  "official_reports": [
+    "verification/polynomial-division-official.json",
+    "verification/polynomial-division-official-sanitized.json",
+    "verification/fps-sqrt-official.json",
+    "verification/fps-sqrt-official-sanitized.json"
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  }
+}

@@ -7,8 +7,8 @@ import subprocess
 root=Path(__file__).resolve().parents[1]
 p=998244353
 flags=['-std=c++20','-O2']
-if os.environ.get('SANITIZE')=='1':
-    flags=['-std=c++20','-O1','-g','-fsanitize=address,undefined']
+if os.environ.get('SANITIZE')=='1' or os.environ.get('CPC_SANITIZE')=='1':
+    flags=['-std=c++20','-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']
 rng=random.Random(415739)
 for op in ['inv','log','exp']:
     exe=root/('build/lc-fps-'+op)

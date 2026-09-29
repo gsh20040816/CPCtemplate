@@ -78,6 +78,10 @@
 | `MonotoneStackSeg` | [Luogu P12438 / CF1912G](https://www.luogu.com.cn/problem/P12438) | 1<=n,q<=200000; 1<=a_i<=1e9; each closed interval increases by one. | 待编写驱动/提交 | 待核验 |
 | `KDTreeSum` | [Luogu P4148](https://www.luogu.com.cn/problem/P4148) | N<=500000, at most 200000 operations, 20 MB memory, positive updates, XOR all arguments with last answer; answers fit int. | 待编写驱动/提交 | 待核验 |
 | `cdq_convolution` | [Luogu P4721](https://www.luogu.com.cn/problem/P4721) | 2<=n<=100000; recurrence modulo 998244353, f[0]=1. | 待编写驱动/提交 | 待核验 |
+| `PolynomialDivision` | [Luogu P4512](https://www.luogu.com.cn/problem/P4512) | 1<=m<=n<=100000; input degrees, fixed output lengths; mod 998244353 | 待编写驱动/提交 | 待核验 |
+| `FpsSqrt` | [Luogu P5205](https://www.luogu.com.cn/problem/P5205) | 1<=n<=100000; a[0]=1; smaller constant root | 待编写驱动/提交 | 待核验 |
+| `PolynomialDivision` | [Library Checker division_of_polynomials](https://judge.yosupo.jp/problem/division_of_polynomials) | 1<=N,M<=500000; normalized leading coefficients; zero polynomial output length 0 | 待编写驱动/提交 | 待核验 |
+| `FpsSqrt` | [Library Checker sqrt_of_formal_power_series](https://judge.yosupo.jp/problem/sqrt_of_formal_power_series) | 1<=N<=500000; arbitrary coefficients; output any root or -1 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -684,6 +688,38 @@ Official title explicitly labels divide-and-conquer FFT as a template; implement
 
 
 Online submission/ranking pending; general forcing terms and other prime fields are verified separately by local quadratic DP.
+
+### Luogu P4512 / PolynomialDivision
+
+Official standalone algorithm template; not a regional-contest application.
+
+
+
+Online AC and speed ranking pending. Local independent oracles and pinned Library Checker official cases are recorded separately.
+
+### Luogu P5205 / FpsSqrt
+
+Official standalone algorithm template; not a regional-contest application.
+
+
+
+Online AC and speed ranking pending. Local independent oracles and pinned Library Checker official cases are recorded separately.
+
+### Library Checker division_of_polynomials / PolynomialDivision
+
+Official standalone algorithm template; not a regional-contest application.
+
+
+
+Online AC and speed ranking pending. Local independent oracles and pinned Library Checker official cases are recorded separately.
+
+### Library Checker sqrt_of_formal_power_series / FpsSqrt
+
+Official standalone algorithm template; not a regional-contest application.
+
+
+
+Online AC and speed ranking pending. Local independent oracles and pinned Library Checker official cases are recorded separately.
 
 ## 榜单口径
 

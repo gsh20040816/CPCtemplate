@@ -1102,19 +1102,91 @@ FpsInverse::inverse(a,n) 返回 a 的逆级数前 n 项，模数固定 998244353
 
 \lstinputlisting{usage/example-18.cpp}
 
-\Needspace{612pt}
+\Needspace{419pt}
+
+\subsection{多项式带余除法}\label{compact-PolynomialDivision}\index{PolynomialDivision}
+
+PolynomialDivision::divide(a,b) 返回 pair<Poly,Poly>\{商,余式\}，模数固定 998244353，系数从低次到高次。输入按值传入；先删除高次端零系数，零多项式统一返回空 vector；b 不可为零。支持零被除式、常数除数及 deg(a)<deg(b)。返回 a=q*b+r，deg(r)<deg(b)，商和余式都去掉高次零。依赖 FpsInverse 与 NttConvolution；反转后求逆得到商，再计算余式。输入各长度$\le$2$^{22}$；令 N=max(a.size(),b.size())，时间 O(N log(N+1))，额外空间 O(N)。trim(a) 是可直接使用的去高次零工具。P4512 的固定长度输出需在使用处 resize 补零。
+
+\lstinputlisting[firstline=4,lastline=31]{../src/compact/polynomial_division.hpp}
+
+\Needspace{469pt}
+
+\subsection*{模板题使用：Luogu P4512 多项式除法}
+
+\label{usage-example-116}
+
+题意：输入两个多项式的次数与系数，输出商的 n-m+1 项和余式的 m 项；模板返回的商、余式均已去高次零，打印前按题目要求补零。
+
+所需模板：ModInt、NttConvolution、FpsInverse、PolynomialDivision。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4512}
+
+\lstinputlisting{usage/example-116.cpp}
+
+\Needspace{457pt}
+
+\subsection*{模板题使用：Library Checker Division of Polynomials}
+
+\label{usage-example-118}
+
+题意：输入系数个数 N、M；输出去高次零后的商和余式长度，再输出两行系数。零商或零余式长度为 0，对应空行；允许被除式次数更小。
+
+所需模板：ModInt、NttConvolution、FpsInverse、PolynomialDivision。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/division_of_polynomials}
+
+\lstinputlisting{usage/example-118.cpp}
+
+\Needspace{461pt}
 
 \section{多项式初等函数}
 
+\subsection{形式幂级数开根（含前导零与无解）}\label{compact-FpsSqrt}\index{FpsSqrt}
+
+FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回 nullopt；有解返回恰好 n 项，n=0 返回有值的空 vector。要求 0$\le$n$\le$2$^{22}$、a.size() 在 int 范围内；仅看输入前 n 项，不足补零。全零返回全零；首个非零项次数 k 为奇数或该系数为非二次剩余时无解。否则提出 x\textasciicircum{}k，首项选两个模平方根中较小者，Newton 迭代 b←(b+a/b)/2；最后乘 x\textasciicircum{}(k/2)，未被条件确定的末 k/2 项取零。这只是确定地返回一个解，不枚举全部根。依赖 mod\_sqrt、FpsInverse 与 NttConvolution。时间 O(n log(n+1)) 加一次标量开根的期望 O(log mod)，额外空间 O(n)。P5205 保证 a[0]=1，得到常数项为 1 的根。
+
+\lstinputlisting[firstline=5,lastline=32]{../src/compact/fps_sqrt.hpp}
+
+\Needspace{404pt}
+
+\subsection*{模板题使用：Luogu P5205 多项式开根}
+
+\label{usage-example-117}
+
+题意：输入 n 项、保证 a[0]=1，输出平方根的前 n 项，首项取较小的 1。通用接口也可用于无解输入，须先检查 optional。
+
+所需模板：ModInt、NttConvolution、FpsInverse、mod\_sqrt、FpsSqrt。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5205}
+
+\lstinputlisting{usage/example-117.cpp}
+
+\Needspace{407pt}
+
+\subsection*{模板题使用：Library Checker Sqrt of Formal Power Series}
+
+\label{usage-example-119}
+
+题意：输入任意常数项的 n 项级数；没有平方根输出 -1，否则输出 n 项。接口处理前导零、非二次剩余和全零级数，检查 optional 后才能读取结果。
+
+所需模板：ModInt、NttConvolution、FpsInverse、mod\_sqrt、FpsSqrt。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/sqrt_of_formal_power_series}
+
+\lstinputlisting{usage/example-119.cpp}
+
+\Needspace{593pt}
+
 \subsection{形式幂级数微积分、对数与指数}\label{compact-FpsFunctions}\index{FpsFunctions}
 
-FpsFunctions 继承 FpsInverse，复用同一 NTT 和求逆。derivative(a) 形式求导；integral(a) 返回常数项为零的积分，要求 a.size()<998244353。log(a,n) 要求 n>0、a 非空、a[0]=1；exp(a,n) 要求 n>0、a 为空或 a[0]=0。返回前 n 项，不足输入项视为零。内部每次卷积结果长度须$\le$2$^{23}$；n$\le$2$^{22}$ 且 a.size()$\le$n 是对数/指数的统一充分界。log 会对完整 a 求导，长输入仍须检查容量。微积分 O(a.size())；在 a.size()$\le$n 时 log/exp 为 O(n log n) 时间和 O(n) 辅助空间。
+FpsFunctions 继承 FpsInverse，复用同一 NTT 和求逆。derivative(a) 形式求导；integral(a) 返回常数项为零的积分，要求 a.size()<998244353。log(a,n) 要求 n>0、a 非空、a[0]=1；exp(a,n) 要求 n>0、a 为空或 a[0]=0。返回前 n 项，不足输入项视为零，超过 n 的尾项不参与计算。内部每次卷积结果长度须$\le$2$^{23}$；n$\le$2$^{22}$ 是统一充分界，输入数组长度须在 int 范围内。微积分 O(a.size())；log/exp 为 O(n log(n+1)) 时间和 O(n) 辅助空间。
 
-\lstinputlisting[firstline=4,lastline=31]{../src/compact/fps_functions.hpp}
+\lstinputlisting[firstline=4,lastline=33]{../src/compact/fps_functions.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=32,lastline=47,firstnumber=29]{../src/compact/fps_functions.hpp}
+\lstinputlisting[firstline=34,lastline=49,firstnumber=31]{../src/compact/fps_functions.hpp}
 
 \Needspace{293pt}
 

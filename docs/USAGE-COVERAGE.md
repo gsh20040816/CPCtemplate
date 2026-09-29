@@ -191,3 +191,5 @@
 | MonotoneStackSeg | [example-112（应用补充）](usage/example-112.cpp), [example-113（应用补充）](usage/example-113.cpp) | generated_unverified |
 | KDTreeSum | [example-114（应用补充）](usage/example-114.cpp) | generated_unverified |
 | cdq_convolution | [example-115](usage/example-115.cpp) | locally_checked_example |
+| PolynomialDivision | [example-116](usage/example-116.cpp), [example-118](usage/example-118.cpp) | locally_checked_example |
+| FpsSqrt | [example-117](usage/example-117.cpp), [example-119](usage/example-119.cpp) | locally_checked_example |

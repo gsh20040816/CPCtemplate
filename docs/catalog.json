@@ -351,7 +351,7 @@
     "fps_functions",
     "FpsFunctions",
     "形式幂级数微积分、对数与指数",
-    "FpsFunctions 继承 FpsInverse，复用同一 NTT 和求逆。derivative(a) 形式求导；integral(a) 返回常数项为零的积分，要求 a.size()<998244353。log(a,n) 要求 n>0、a 非空、a[0]=1；exp(a,n) 要求 n>0、a 为空或 a[0]=0。返回前 n 项，不足输入项视为零。内部每次卷积结果长度须≤2²³；n≤2²² 且 a.size()≤n 是对数/指数的统一充分界。log 会对完整 a 求导，长输入仍须检查容量。微积分 O(a.size())；在 a.size()≤n 时 log/exp 为 O(n log n) 时间和 O(n) 辅助空间。"
+    "FpsFunctions 继承 FpsInverse，复用同一 NTT 和求逆。derivative(a) 形式求导；integral(a) 返回常数项为零的积分，要求 a.size()<998244353。log(a,n) 要求 n>0、a 非空、a[0]=1；exp(a,n) 要求 n>0、a 为空或 a[0]=0。返回前 n 项，不足输入项视为零，超过 n 的尾项不参与计算。内部每次卷积结果长度须≤2²³；n≤2²² 是统一充分界，输入数组长度须在 int 范围内。微积分 O(a.size())；log/exp 为 O(n log(n+1)) 时间和 O(n) 辅助空间。"
   ],
   [
     "gauss_mod",
@@ -1114,5 +1114,17 @@
     "cdq_convolution",
     "CDQ 分治卷积递推",
     "cdq_convolution<mod=998244353,primitive=3>(kernel,initial) 求 f[i]=initial[i]+Σ(j<i)f[j]kernel[i-j]，返回前 n 项。两数组为等长 vector<ModInt<mod>>，kernel[0] 必须为 0；空输入返回空。模数须为 int 范围素数，primitive 是原根；依赖 NttConvolution。非空时要求 n+floor(n/2)-1≤NTT::max_size，保证每层完整卷积可变换。初始项可任意，并非只有 f[0]=1；左半区解定后，将其到右半区的卷积贡献加上，再递归右半区。O(n log²(n+1)) 时间、O(n) 额外空间，递归深度 O(log n)。本函数是静态线性递推，不提供流式追加或非线性叶子回调。P4721 使用 initial[0]=1、其他项 0。"
+  ],
+  [
+    "polynomial_division",
+    "PolynomialDivision",
+    "多项式带余除法",
+    "PolynomialDivision::divide(a,b) 返回 pair<Poly,Poly>{商,余式}，模数固定 998244353，系数从低次到高次。输入按值传入；先删除高次端零系数，零多项式统一返回空 vector；b 不可为零。支持零被除式、常数除数及 deg(a)<deg(b)。返回 a=q*b+r，deg(r)<deg(b)，商和余式都去掉高次零。依赖 FpsInverse 与 NttConvolution；反转后求逆得到商，再计算余式。输入各长度≤2²²；令 N=max(a.size(),b.size())，时间 O(N log(N+1))，额外空间 O(N)。trim(a) 是可直接使用的去高次零工具。P4512 的固定长度输出需在使用处 resize 补零。"
+  ],
+  [
+    "fps_sqrt",
+    "FpsSqrt",
+    "形式幂级数开根（含前导零与无解）",
+    "FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回 nullopt；有解返回恰好 n 项，n=0 返回有值的空 vector。要求 0≤n≤2²²、a.size() 在 int 范围内；仅看输入前 n 项，不足补零。全零返回全零；首个非零项次数 k 为奇数或该系数为非二次剩余时无解。否则提出 x^k，首项选两个模平方根中较小者，Newton 迭代 b←(b+a/b)/2；最后乘 x^(k/2)，未被条件确定的末 k/2 项取零。这只是确定地返回一个解，不枚举全部根。依赖 mod_sqrt、FpsInverse 与 NttConvolution。时间 O(n log(n+1)) 加一次标量开根的期望 O(log mod)，额外空间 O(n)。P5205 保证 a[0]=1，得到常数项为 1 的根。"
   ]
 ]

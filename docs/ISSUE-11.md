@@ -74,11 +74,11 @@
 | 5.2 | 2. 多项式乘法 FFT | 128 | 130 | reviewed_implementation_pending |
 | 5.3 | 3. 多项式乘法 NTT | 129 | 131 | existing_implementation_local_verified |
 | 5.4 | 4. 分治 FFT | 132 | 134 | implemented_local_verified_online_pending |
-| 5.5 | 5. 多项式求逆 | 134 | 136 | pending_content_review |
-| 5.6 | 6. 多项式除法 | 140 | 142 | pending_content_review |
-| 5.7 | 7. 多项式开根 | 148 | 150 | pending_content_review |
-| 5.8 | 8. 多项式 ln | 154 | 156 | pending_content_review |
-| 5.9 | 9. 多项式 exp | 159 | 161 | pending_content_review |
+| 5.5 | 5. 多项式求逆 | 134 | 136 | existing_implementation_local_verified |
+| 5.6 | 6. 多项式除法 | 140 | 142 | implemented_local_verified_online_pending |
+| 5.7 | 7. 多项式开根 | 148 | 150 | implemented_local_verified_online_pending |
+| 5.8 | 8. 多项式 ln | 154 | 156 | existing_implementation_local_verified |
+| 5.9 | 9. 多项式 exp | 159 | 161 | existing_implementation_local_verified |
 | 5.10 | 10. 快速莫比乌斯 / 沃尔什变换 (FMT / FWT) | 167 | 169 | pending_content_review |
 | 5.11 | 11. 多项式快速幂 | 169 | 171 | pending_content_review |
 | 5.12 | 12. 任意模数多项式乘法 | 176 | 178 | pending_content_review |

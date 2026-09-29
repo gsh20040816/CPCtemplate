@@ -1386,5 +1386,67 @@
       "cdq_convolution"
     ],
     "kind": "template"
+  },
+  {
+    "id": "example-116",
+    "symbol": "PolynomialDivision",
+    "problem": "Luogu P4512 多项式除法",
+    "url": "https://www.luogu.com.cn/problem/P4512",
+    "summary": "输入两个多项式的次数与系数，输出商的 n-m+1 项和余式的 m 项；模板返回的商、余式均已去高次零，打印前按题目要求补零。",
+    "driver": "verify/luogu/P4512.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "PolynomialDivision"
+    ],
+    "kind": "template"
+  },
+  {
+    "id": "example-117",
+    "symbol": "FpsSqrt",
+    "problem": "Luogu P5205 多项式开根",
+    "url": "https://www.luogu.com.cn/problem/P5205",
+    "summary": "输入 n 项、保证 a[0]=1，输出平方根的前 n 项，首项取较小的 1。通用接口也可用于无解输入，须先检查 optional。",
+    "driver": "verify/luogu/P5205.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "mod_sqrt",
+      "FpsSqrt"
+    ],
+    "kind": "template"
+  },
+  {
+    "id": "example-118",
+    "symbol": "PolynomialDivision",
+    "problem": "Library Checker Division of Polynomials",
+    "url": "https://judge.yosupo.jp/problem/division_of_polynomials",
+    "summary": "输入系数个数 N、M；输出去高次零后的商和余式长度，再输出两行系数。零商或零余式长度为 0，对应空行；允许被除式次数更小。",
+    "driver": "verify/library_checker/division_of_polynomials.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "PolynomialDivision"
+    ],
+    "kind": "template"
+  },
+  {
+    "id": "example-119",
+    "symbol": "FpsSqrt",
+    "problem": "Library Checker Sqrt of Formal Power Series",
+    "url": "https://judge.yosupo.jp/problem/sqrt_of_formal_power_series",
+    "summary": "输入任意常数项的 n 项级数；没有平方根输出 -1，否则输出 n 项。接口处理前导零、非二次剩余和全零级数，检查 optional 后才能读取结果。",
+    "driver": "verify/library_checker/sqrt_of_formal_power_series.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "mod_sqrt",
+      "FpsSqrt"
+    ],
+    "kind": "template"
   }
 ]

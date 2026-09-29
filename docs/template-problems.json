@@ -4289,6 +4289,62 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "PolynomialDivision",
+      "title": "多项式带余除法",
+      "source": "src/compact/polynomial_division.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/division_of_polynomials.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/division_of_polynomials",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4512.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4512",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "FpsSqrt",
+      "title": "形式幂级数开根（含前导零与无解）",
+      "source": "src/compact/fps_sqrt.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/sqrt_of_formal_power_series.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/sqrt_of_formal_power_series",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P5205.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5205",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [
