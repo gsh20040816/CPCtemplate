@@ -9,6 +9,7 @@
 - `verify/aoj/CGL_7_G.compact.cpp`
 - `verify/aoj/CGL_7_H.compact.cpp`
 - `verify/aoj/CGL_7_I.compact.cpp`
+- `verify/aoj/GRL_3_A.removal.compact.cpp`
 - `verify/cses/1160.compact.cpp`
 - `verify/cses/1750.compact.cpp`
 - `verify/examples/ac_shortest.compact.cpp`
@@ -61,6 +62,7 @@
 - `verify/library_checker/range_kth_smallest.division.compact.cpp`
 - `verify/library_checker/range_kth_smallest.wavelet.compact.cpp`
 - `verify/library_checker/scc.compact.cpp`
+- `verify/library_checker/scc.kosaraju.compact.cpp`
 - `verify/library_checker/segment_add_get_min.compact.cpp`
 - `verify/library_checker/shortest_path.compact.cpp`
 - `verify/library_checker/sort_points_by_argument.compact.cpp`
@@ -166,6 +168,7 @@
 - `verify/qoj/10424.compact.cpp`
 - `verify/sgu/101.compact.cpp`
 - `verify/uva/10006.compact.cpp`
+- `verify/uva/10765.compact.cpp`
 - `verify/uva/796.compact.cpp`
 
 ## 已解决的提交异常

@@ -127,6 +127,10 @@
 | `Partitions` | [Library Checker partition_function](https://judge.yosupo.jp/problem/partition_function) | 输出0..N的全部整数分拆数，模998244353，N≤500000。构造Partitions后直接读p；p[0]=1表示空分拆。五边形数递推O(N√N)时间、O(N)空间，不是有序拆分。此用法不调用limited。 | 待编写驱动/提交 | 待核验 |
 | `Partitions` | [Luogu P6189 [NOI Online #1 入门组] 跑步](https://www.luogu.com.cn/problem/P6189) | 正整数非增序列的总和为n，等价于n的无序分拆。n≤10⁵，1≤p<2³⁰且不保证素数；直接构造Partitions(n,p)，输出p[n]。这是比赛应用，单独记录，不替代正式模板题。 | 待编写驱动/提交 | 待核验 |
 | `recurrence_nth` | [Luogu P5487](https://www.luogu.com.cn/problem/P5487) | 给出n个初值，恢复唯一的最短递推并求第m项，n≤10000、n<m≤10⁹、阶数≤5000，模998244353。BM返回c[j-1]乘a[i-j]，首行仅输出系数、不带阶数；裁取恰好c.size()个初值后调用recurrence_nth。全零序列空递推仍输出空首行和第二行0。复杂度O(nk+k²log m)，O(n+k)空间。 | 待编写驱动/提交 | 待核验 |
+| `SCC` | [Library Checker scc (Kosaraju)](https://judge.yosupo.jp/problem/scc) | 给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。 | 待编写驱动/提交 | 待核验 |
+| `removal_components` | [AOJ GRL_3_A](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en) | 连通无向简单图，按编号升序输出所有割点，N、M≤100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。 | 待编写驱动/提交 | 待核验 |
+| `removal_components` | [UVA 10765 Doves and Bombs](https://onlinejudge.org/external/107/10765.pdf) | 分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n≤10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。 | 待编写驱动/提交 | 待核验 |
+| `orient_edges` | [Codeforces 118E Bertown roads](https://codeforces.com/problemset/problem/118/E) | 给连通无向简单图，把每条边定向使整图强连通，无解输出0。n≤100000、m≤300000。先用Lowlink.run确认连通且无桥，再调用orient_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1145,6 +1149,46 @@ Official standalone template/library problem.
 Online AC and speed ranking pending.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5487)
+
+### Library Checker scc (Kosaraju) / SCC
+
+Official standalone library/template problem.
+
+给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。
+
+Online AC and speed ranking pending.
+
+原始题面与参数：[来源 1](https://judge.yosupo.jp/problem/scc)
+
+### AOJ GRL_3_A / removal_components
+
+Official standalone library/template problem.
+
+连通无向简单图，按编号升序输出所有割点，N、M≤100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。
+
+Online AC and speed ranking pending. AOJ checks articulation threshold; UVA application checks complete removal counts and ranking.
+
+原始题面与参数：[来源 1](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en)
+
+### UVA 10765 Doves and Bombs / removal_components
+
+Contest/application usage; not formal-template coverage.
+
+分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n≤10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。
+
+Online AC and speed ranking pending. AOJ checks articulation threshold; UVA application checks complete removal counts and ranking.
+
+原始题面与参数：[来源 1](https://onlinejudge.org/external/107/10765.pdf)
+
+### Codeforces 118E Bertown roads / orient_edges
+
+Contest/application usage; not formal-template coverage.
+
+给连通无向简单图，把每条边定向使整图强连通，无解输出0。n≤100000、m≤300000。先用Lowlink.run确认连通且无桥，再调用orient_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。
+
+Contest application only; standalone formal-template problem, online AC and speed ranking pending.
+
+原始题面与参数：[来源 1](https://codeforces.com/problemset/problem/118/E)
 
 ## 榜单口径
 

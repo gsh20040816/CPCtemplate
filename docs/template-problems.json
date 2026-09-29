@@ -268,7 +268,14 @@
       "title": "强连通分量",
       "source": "src/compact/graph.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/scc.kosaraju.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/scc",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -2859,6 +2866,18 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
+          "driver": "verify/aoj/GRL_3_A.removal.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_A",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/uva/10765.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/library_checker/biconnected_components.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/biconnected_components",
           "existing_ac": [],
@@ -3259,7 +3278,20 @@
       "title": "由点双分解计算删点连通块数",
       "source": "src/compact/vertex_removal.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/aoj/GRL_3_A.removal.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_A",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/uva/10765.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

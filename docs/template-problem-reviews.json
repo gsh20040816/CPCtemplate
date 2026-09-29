@@ -2959,5 +2959,108 @@
     "statement_sources": [
       "https://www.luogu.com.cn/problem/P5487"
     ]
+  },
+  {
+    "symbol": "SCC",
+    "problem": "Library Checker scc (Kosaraju)",
+    "url": "https://judge.yosupo.jp/problem/scc",
+    "classification": "Official standalone library/template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。",
+    "adapter": "给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。",
+    "tested_api": [
+      "SCC.add",
+      "SCC.run",
+      "SCC.bel",
+      "SCC.cnt"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending.",
+    "statement_sources": [
+      "https://judge.yosupo.jp/problem/scc"
+    ]
+  },
+  {
+    "symbol": "removal_components",
+    "problem": "AOJ GRL_3_A",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en",
+    "classification": "Official standalone library/template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "连通无向简单图，按编号升序输出所有割点，N、M≤100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。",
+    "adapter": "连通无向简单图，按编号升序输出所有割点，N、M≤100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。",
+    "tested_api": [
+      "BiconnectedCore.add",
+      "BiconnectedCore.run",
+      "removal_components"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending. AOJ checks articulation threshold; UVA application checks complete removal counts and ranking.",
+    "statement_sources": [
+      "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en"
+    ]
+  },
+  {
+    "symbol": "removal_components",
+    "problem": "UVA 10765 Doves and Bombs",
+    "url": "https://onlinejudge.org/external/107/10765.pdf",
+    "classification": "Contest/application usage; not formal-template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n≤10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。",
+    "adapter": "分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n≤10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。",
+    "tested_api": [
+      "BiconnectedCore.add",
+      "BiconnectedCore.run",
+      "removal_components"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending. AOJ checks articulation threshold; UVA application checks complete removal counts and ranking.",
+    "statement_sources": [
+      "https://onlinejudge.org/external/107/10765.pdf"
+    ]
+  },
+  {
+    "symbol": "orient_edges",
+    "problem": "Codeforces 118E Bertown roads",
+    "url": "https://codeforces.com/problemset/problem/118/E",
+    "classification": "Contest/application usage; not formal-template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "给连通无向简单图，把每条边定向使整图强连通，无解输出0。n≤100000、m≤300000。先用Lowlink.run确认连通且无桥，再调用orient_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。",
+    "adapter": "给连通无向简单图，把每条边定向使整图强连通，无解输出0。n≤100000、m≤300000。先用Lowlink.run确认连通且无桥，再调用orient_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。",
+    "tested_api": [
+      "Lowlink.add",
+      "Lowlink.run",
+      "Lowlink.components",
+      "Lowlink.bridge",
+      "orient_edges"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Contest application only; standalone formal-template problem, online AC and speed ranking pending.",
+    "statement_sources": [
+      "https://codeforces.com/problemset/problem/118/E"
+    ]
   }
 ]

@@ -17,7 +17,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | MinCostFlow | [example-55](usage/example-55.cpp) | locally_checked_example |
 | SpfaFlow | [example-127](usage/example-127.cpp) | locally_checked_example |
 | Dijkstra | [example-59](usage/example-59.cpp) | locally_checked_example |
-| SCC | 待补 | pending_example |
+| SCC | [example-161](usage/example-161.cpp) | locally_checked_example |
 | TwoSAT | [example-3](usage/example-3.cpp), [example-128](usage/example-128.cpp) | locally_checked_example |
 | BipartiteMatching | [example-35](usage/example-35.cpp) | locally_checked_example |
 | Lowlink | [example-58](usage/example-58.cpp) | locally_checked_example |
@@ -142,9 +142,9 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | basis_intersection | 待补 | pending_example |
 | basis_sum_intersection | 待补 | pending_example |
 | XorWalk | 待补 | pending_example |
-| removal_components | 待补 | pending_example |
+| removal_components | [example-162](usage/example-162.cpp), [example-163（应用补充）](usage/example-163.cpp) | locally_checked_example |
 | EdgeCompression | 待补 | pending_example |
-| orient_edges | 待补 | pending_example |
+| orient_edges | [example-164（应用补充）](usage/example-164.cpp) | locally_checked_application |
 | bridge_augmentation | 待补 | pending_example |
 | OfflineLCA | [example-32](usage/example-32.cpp) | locally_checked_example |
 | EulerLCA | [example-33](usage/example-33.cpp) | locally_checked_example |

@@ -50,6 +50,11 @@ for style in ['compact']:
                 if end and lines[end - 1].startswith('template'):
                     end -= 1
             estimate = sum((max(1, (len(line.expandtabs(4)) + 109) // 110) for line in lines[start:end])) * 10.2 + 70 + len(info) / 65 * 12
+            if name == 'SCC':
+                split = next(i for i in range(start, end) if '// Recursive Kosaraju' in lines[i])
+                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
+            if name == 'orient_edges':
+                estimate = 650
             if name == 'PalindromicTree':
                 split = next(i for i in range(start, end) if '// Append a lowercase letter' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
@@ -188,7 +193,13 @@ for style in ['compact']:
                 body.append(r'序列中间插删、截取与版本共享的 GNU rope 见第~\pageref{compact-rp}~页。')
             if name == 'gp_map':
                 body.append(r'\index{gp\_hash\_table}\index{cc\_hash\_table}需要排名与有序前驱时，PBDS 平衡树见第~\pageref{compact-ost}~页。')
-            if name == 'ModifiedMo':
+            if name == 'SCC':
+                split = next(i for i in range(start, end) if '// Recursive Kosaraju' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 重算入口与拓扑编号（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'ModifiedMo':
                 split = next(i for i in range(start, end) if 'template <class Add' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')

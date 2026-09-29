@@ -1,0 +1,26 @@
+{
+  "scope": "Vector SCC/Kosaraju and Tarjan, vertex removal and orientations: exhaustive independent reachability and explicit deletion references. Historical classic staged only for extra comparison. Local only.",
+  "baseline_commit": "1a9fa3e91d7dff58915341040be069611370054c",
+  "modes": [
+    "normal",
+    "ASan/UBSan"
+  ],
+  "sha256": {
+    "src/compact/tarjan.hpp": "61899731db759d931d805d476f659163f404b999e6eba368536a39e404fc5bf1",
+    "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+    "src/compact/biconnected_core.hpp": "3ab80f3d7f5098d9fbc344248624a0d045dce4cf72043931252ca9dbb09ce224",
+    "src/compact/vertex_removal.hpp": "50e255a7ebdb37934ea5e7c3ef2fed9b7416cfe117006bbb732dbc0c03ad47c4",
+    "src/compact/edge_components.hpp": "461c2a9b7e640a2a4564fdd37ec953ec5dc601d7f4665b6d0989791bc14feaed",
+    "tests/tarjan.cpp": "35dd53d553e4435d79a7bc9a81900b4908fc97b35c1a4be99ccf93f09c1815b9",
+    "tests/vertex_removal.cpp": "2c8dbd2943f27534716e8fd38243ec434489ee1bb110ebdfaf3d6211111914b2",
+    "tests/edge_components.cpp": "287878ab50e34e0ba291674c5a5faab1f616db633c5c5321efe433e4f279db9d"
+  },
+  "logs": [
+    "verification/connectivity-core-edge_components-normal.txt",
+    "verification/connectivity-core-edge_components-sanitizer.txt",
+    "verification/connectivity-core-tarjan-normal.txt",
+    "verification/connectivity-core-tarjan-sanitizer.txt",
+    "verification/connectivity-core-vertex_removal-normal.txt",
+    "verification/connectivity-core-vertex_removal-sanitizer.txt"
+  ]
+}
