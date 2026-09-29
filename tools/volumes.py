@@ -26,7 +26,7 @@ for part in parts:
     key = 'mathematics'
     if '数值算法与几何' in title:
         key = 'geometry'
-    elif any(x in title for x in ['可持久化区间', '杭州 2023 K', '带修莫队', '并查集模板题']):
+    elif any(x in title for x in ['可持久化区间', '杭州 2023 K', '带修莫队', '并查集模板题', '动态树路径乘积']):
         key = 'data-structures'
     elif '非负权树' in title:
         key = 'graphs'

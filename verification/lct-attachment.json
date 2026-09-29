@@ -1,0 +1,40 @@
+{
+  "scope": "Current vector implementations only; independent local oracles, not new online AC",
+  "recorded_at_utc": "2026-09-29T07:08:42.910363+00:00",
+  "files": {
+    "tests/trees.cpp": "147575d2846ff199f0f647316fe89db73b0a73f82be0243c206438d0c85f50d7",
+    "tests/lct_application.py": "96d4af824750c7297fbfe9f795e943a7d6e37c8e930d7ea901b99e0b6011ffb4",
+    "verify/luogu/P3690.compact.cpp": "8a65ff45159c6f68244aeb576b45748e94b76286b8aa46dc9afbd5c309532211",
+    "src/compact/dynamic_tree.hpp": "8843df5902e063642a6ae73eda750164ce7d890090cd46b8963002b0d908b707",
+    "src/compact/treap.hpp": "29c0ba1d81da52eea73a10da02ae494c54941e2a5f3c6c2e7abd33e71b2a8a44",
+    "src/compact/splay.hpp": "d81babceed51c498b6e89a5de9413730d6a01b6e7a010841a0b387e9dc05a9f7"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "kind": "trees_cpp",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "normal",
+      "kind": "P3690_driver",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "trees_cpp",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "P3690_driver",
+      "verdict": "local_oracle_passed"
+    }
+  ],
+  "coverage": [
+    "300 forests, 500 operations each, BFS path/XOR oracle",
+    "200000-vertex chain, cut and reconnect",
+    "ordered treap/splay versus sorted vector; sequence treap versus vector; sorted splay scale",
+    "200 P3690 forests, 100000 operations, independent Python BFS"
+  ]
+}

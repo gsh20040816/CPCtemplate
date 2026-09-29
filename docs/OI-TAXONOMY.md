@@ -111,6 +111,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | TreePathKth | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | DynamicKth | 数据结构 → 树套树 → 树状数组套权值线段树 | direct |  |
 | LinkCutTree | 数据结构 → 动态树 → Link Cut Tree | direct |  |
+| TreePathProducts | 数据结构 → 动态树 → Link Cut Tree | application | 固定树动态点权与任意根路径乘积总和，维护虚子树及双向信息 |
 | odd_induced_partition | 图论 → DFS（图论） | application | DFS 后序与回边构造奇度诱导子图划分；固定导航没有此定理的独立条目，不等同于普通图染色。 |
 | TreeDiameter | 图论 → 树上问题 → 树的直径 | direct |  |
 | EulerLCA | 图论 → 树上问题 → 最近公共祖先 | application | LCA 不同算法及路径交应用。 |

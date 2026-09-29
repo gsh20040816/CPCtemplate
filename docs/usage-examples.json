@@ -1287,5 +1287,18 @@
       "dag_path_determinant"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-108",
+    "symbol": "TreePathProducts",
+    "problem": "附件爱莲说接口（本地应用示例）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/issues/11",
+    "summary": "沿用附件输入：n,q，n 个 x，n-1 条 1-based 无向边；1 u x 修改参数，2 u 查询。主程序把每个 x 转为点权 1-x，并把顶点转为 0-based。输出所有从 u 出发路径的点权乘积总和。原题外部地址和线上结果尚未核验。",
+    "driver": "verify/examples/tree_path_products.compact.cpp",
+    "requires": [
+      "ModInt",
+      "TreePathProducts"
+    ],
+    "kind": "application"
   }
 ]

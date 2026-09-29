@@ -9,6 +9,7 @@
 - `verify/examples/dag_path_determinant.compact.cpp`
 - `verify/examples/matching_edges.compact.cpp`
 - `verify/examples/odd_induced_partition.compact.cpp`
+- `verify/examples/tree_path_products.compact.cpp`
 - `verify/examples/unit_flow_edges.compact.cpp`
 - `verify/hdu/1814.compact.cpp`
 - `verify/library_checker/assignment.compact.cpp`

@@ -2205,6 +2205,42 @@ DynamicKth(a,future) 传入非空 0-based 初值，future 包含所有将来可�
 
 \lstinputlisting{usage/example-45.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\subsection{动态换根路径乘积总和}\label{compact-TreePathProducts}\index{TreePathProducts}
+
+TreePathProducts<mod>(g,weight) 要求 g 是非空无向树，点号 0..n-1、每条边双向存储，weight 为等长 vector<ModInt<mod>>。set(u,w) 修改点权；query(u) 返回从 u 到所有顶点 v 的唯一路径上点权乘积之和，含 u=v 的单点路径。固定拓扑，不提供 link/cut。建树 O(n)，修改和查询摊 O(log n)，空间 O(n)，递归建树和 splay 下传最坏深度 O(n)。允许零和负权，mod>1 且不要求素数，不用除法或逆元。a 与全部辅助接口仅供内部使用，内部点号 1..n；不能把公开接口的 0-based 点号直接传给 make\_root。依赖 ModInt；附件爱莲说的输入 x 由主程序显式转为权值 1-x。
+
+\lstinputlisting[firstline=4,lastline=37]{../src/compact/tree_path_products.hpp}
+
+\newpage
+
+\noindent 聚合、翻转、递归下传与旋转（接上页同一结构体）：
+
+\lstinputlisting[firstline=38,lastline=88,firstnumber=35]{../src/compact/tree_path_products.hpp}
+
+\newpage
+
+\noindent Splay、虚实边切换与公开接口（接上页同一结构体）：
+
+\lstinputlisting[firstline=89,lastline=134,firstnumber=86]{../src/compact/tree_path_products.hpp}
+
+\Needspace{610pt}
+
+\subsection*{应用题补充：附件爱莲说接口（本地应用示例）}
+
+\label{usage-example-108}
+
+题意：沿用附件输入：n,q，n 个 x，n-1 条 1-based 无向边；1 u x 修改参数，2 u 查询。主程序把每个 x 转为点权 1-x，并把顶点转为 0-based。输出所有从 u 出发路径的点权乘积总和。原题外部地址和线上结果尚未核验。
+
+所需模板：ModInt、TreePathProducts。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://github.com/gsh20040816/CPCtemplate/issues/11}
+
+\lstinputlisting{usage/example-108.cpp}
+
 \part{图论}
 
 \Needspace{459pt}

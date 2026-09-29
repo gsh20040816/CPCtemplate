@@ -1,0 +1,54 @@
+{
+  "scope": "Local independent path enumeration and full attachment adapter; no online AC or original-problem attribution",
+  "recorded_at_utc": "2026-09-29T07:05:11.365029+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/tree_path_products.hpp": "343a577703dfd74efa74969f71dea6b2077e8bd8973b06aec143c3b4b07faae0",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "tests/tree_path_products.cpp": "1a9b5abbbba6055f02bbc20138ed0443be33fc2e925dc686e9ceec2c7ae75a7d",
+    "tests/tree_path_products_application.py": "4854f6186397bef41148c69e1ba80dca9727e6332e387fccf6b12f1e70e131b2",
+    "verify/examples/tree_path_products.compact.cpp": "fbc7b1922dbf5d3fa8965b13887dac87b36c3eb45990c70ab49696ac61b675cb"
+  },
+  "runs": [
+    {
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "coverage": "2000 random trees over mod 998244353 and mod 8; explicit endpoint paths; zeros; 200000-vertex chain and star; repeated reroot"
+    },
+    {
+      "kind": "application",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "coverage": "150 trees and 15000 operations; Python explicit paths; attachment 1-based input and 1-x conversion"
+    },
+    {
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "coverage": "2000 random trees over mod 998244353 and mod 8; explicit endpoint paths; zeros; 200000-vertex chain and star; repeated reroot"
+    },
+    {
+      "kind": "application",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "coverage": "150 trees and 15000 operations; Python explicit paths; attachment 1-based input and 1-x conversion"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "unit_stack": [
+      "-Wl,-stack_size,0x20000000"
+    ]
+  }
+}

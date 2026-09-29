@@ -109,6 +109,7 @@
 | minkowski_sum | 待补 | pending_example |
 | IntegerGeometry3D | 待补 | pending_example |
 | LinkCutTree | [example-45](usage/example-45.cpp) | locally_checked_example |
+| TreePathProducts | [example-108（应用补充）](usage/example-108.cpp) | generated_unverified |
 | OrderedTreap | [example-8](usage/example-8.cpp) | locally_checked_example |
 | SequenceTreap | [example-10](usage/example-10.cpp) | locally_checked_example |
 | OrderedSplay | [example-9](usage/example-9.cpp) | locally_checked_example |

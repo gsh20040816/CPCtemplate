@@ -59,9 +59,9 @@
 | 4 | 数据结构 | 96 | 98 | pending_content_review |
 | 4.1 | 1. 可并堆/左偏树 | 96 | 98 | implemented_local_verified_online_pending |
 | 4.1.1 | (1) 洛谷模板 | 96 | 98 | implemented_local_verified_online_pending |
-| 4.2 | 2. LCT 动态树 | 98 | 100 | pending_content_review |
-| 4.2.1 | (1) 洛谷模板 | 98 | 100 | pending_content_review |
-| 4.2.2 | (2) 爱莲说 | 103 | 105 | pending_content_review |
+| 4.2 | 2. LCT 动态树 | 98 | 100 | implemented_local_verified_online_pending |
+| 4.2.1 | (1) 洛谷模板 | 98 | 100 | implemented_local_verified_online_pending |
+| 4.2.2 | (2) 爱莲说 | 103 | 105 | implemented_local_verified_online_pending |
 | 4.3 | 3. FHQ_Treap | 107 | 109 | pending_content_review |
 | 4.3.1 | (1) 牛客 | 107 | 109 | pending_content_review |
 | 4.4 | 4. 替罪羊树 | 111 | 113 | pending_content_review |

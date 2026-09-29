@@ -520,3 +520,8 @@ build/euler-power
 python3 tests/euler_power_application.py
 "$CXX" "${flags[@]}" tests/dag_path_determinant.cpp -o build/lgv
 build/lgv
+
+"$CXX" "${flags[@]}" tests/tree_path_products.cpp -o build/tree-path-products
+build/tree-path-products
+python3 tests/tree_path_products_application.py
+python3 tests/lct_application.py

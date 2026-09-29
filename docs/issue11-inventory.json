@@ -617,11 +617,12 @@
       "toc_page": 98,
       "physical_page": 100,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
-        "LinkCutTree"
+        "LinkCutTree",
+        "TreePathProducts"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际 100–109 页的普通路径异或与虚子树双向乘积两个变体已分别核对。普通 LCT：300 组 BFS 森林、20 万点链与 P3690 200 组/10 万次操作双模式通过，trees 测试移除 classic 依赖；4.2.2 使用独立 TreePathProducts 覆盖，不能复用普通 LCT 的 AC。详见 docs/TREE-PATH-PRODUCTS.md、verification/lct-attachment.json 与 tree-path-products.json。无新增在线 AC。"
     },
     {
       "section": "4.2.1",
@@ -629,8 +630,11 @@
       "toc_page": 98,
       "physical_page": 100,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "LinkCutTree"
+      ],
+      "review": "实际 100–109 页的普通路径异或与虚子树双向乘积两个变体已分别核对。普通 LCT：300 组 BFS 森林、20 万点链与 P3690 200 组/10 万次操作双模式通过，trees 测试移除 classic 依赖；4.2.2 使用独立 TreePathProducts 覆盖，不能复用普通 LCT 的 AC。详见 docs/TREE-PATH-PRODUCTS.md、verification/lct-attachment.json 与 tree-path-products.json。无新增在线 AC。"
     },
     {
       "section": "4.2.2",
@@ -638,8 +642,11 @@
       "toc_page": 103,
       "physical_page": 105,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "TreePathProducts"
+      ],
+      "review": "实际 105–109 页已核对：固定树虚子树贡献、双向路径乘积 DP，点权改为 1-x。新增 TreePathProducts，2000 随机树独立路径枚举、合数模数和 20 万点链/星形，以及 150 组完整输入驱动双模式通过；只登记本地应用，原题外部地址与线上 AC 待核验。详见 docs/TREE-PATH-PRODUCTS.md。"
     },
     {
       "section": "4.3",

@@ -624,6 +624,12 @@
     "构造 LinkCutTree(n)，点号 1..n，初始权值为零。set(x,value) 修改点权；link(x,y) 仅在不同连通块之间连边并返回是否成功；cut(x,y) 只删除真实存在的边，否则返回 false。connected 查询连通性；query(x,y) 返回路径点权异或，要求两点连通，支持 x=y。make_root/find_root 维护与查询当前表示树根。每次操作均摊 O(log n)，O(n) 空间，splay 下传使用显式栈，支持长链。权值为 unsigned long long。仅维护路径异或，不包含虚子树聚合或动态直径。"
   ],
   [
+    "tree_path_products",
+    "TreePathProducts",
+    "动态换根路径乘积总和",
+    "TreePathProducts<mod>(g,weight) 要求 g 是非空无向树，点号 0..n-1、每条边双向存储，weight 为等长 vector<ModInt<mod>>。set(u,w) 修改点权；query(u) 返回从 u 到所有顶点 v 的唯一路径上点权乘积之和，含 u=v 的单点路径。固定拓扑，不提供 link/cut。建树 O(n)，修改和查询摊 O(log n)，空间 O(n)，递归建树和 splay 下传最坏深度 O(n)。允许零和负权，mod>1 且不要求素数，不用除法或逆元。a 与全部辅助接口仅供内部使用，内部点号 1..n；不能把公开接口的 0-based 点号直接传给 make_root。依赖 ModInt；附件爱莲说的输入 x 由主程序显式转为权值 1-x。"
+  ],
+  [
     "treap",
     "OrderedTreap",
     "FHQ Treap：可重集合与顺序统计",
