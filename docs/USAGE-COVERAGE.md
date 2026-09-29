@@ -23,7 +23,7 @@
 | prefix_function | [example-91](usage/example-91.cpp) | locally_checked_example |
 | kmp_match | [example-91](usage/example-91.cpp) | locally_checked_example |
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
-| manacher | [example-23](usage/example-23.cpp) | locally_checked_example |
+| manacher | [example-23](usage/example-23.cpp), [example-129](usage/example-129.cpp) | locally_checked_example |
 | minimum_rotation | 待补 | pending_example |
 | AhoCorasick | [example-70](usage/example-70.cpp) | locally_checked_example |
 | SuffixArray | [example-19](usage/example-19.cpp) | locally_checked_example |

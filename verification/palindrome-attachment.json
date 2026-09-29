@@ -1,0 +1,89 @@
+{
+  "scope": "Attachment 1.1.1, 1.1.2, 1.6: radius conventions, sentinel constraints and online palindrome suffix counts. Existing vector kernels; no new online AC or rankings.",
+  "recorded_at_utc": "2026-09-29T10:14:48.551061+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "platform": "Darwin arm64",
+  "files": {
+    "src/compact/string.hpp": "b2d66016ede91178051e1467ec9111f5c05f4e2916fdc1419e2c0f1bbfbfdfe3",
+    "src/compact/palindromic_tree.hpp": "5c5fbe8fa4d2e0c52cf50fdd7d75790f1c8b00ba2ed578644ad92e89e098ce9f",
+    "tests/manacher.cpp": "c2f934969994e0cd89351f46fbc141cf485dfc3bbb5332643e2ff4d1afa4fea2",
+    "tests/palindromic_tree.cpp": "c556040185d36aead14eb634f5d62d70fb317c9ffe8ae99deb37c879d46fe20a",
+    "tests/palindrome_attachment.py": "4276341b64ad84525e6acde6fce93b3aef865b5afcea40a3a4be588a75f6b594",
+    "verify/luogu/P3805.compact.cpp": "24d099ce8d3e98e15f007c092a6cff981342c694cb9e514e85eaa4d247b44803",
+    "verify/luogu/P5496.compact.cpp": "c165fd868e753b9750087c9cd4c0e24fd9bf0d9b63d7b88c949bdcad7fad9c7d",
+    "verify/library_checker/enumerate_palindromes.compact.cpp": "90284634c52c8b85d4ec79a6c99a36a118a02d45af6cec2367e20fbd67110db3"
+  },
+  "runs": [
+    {
+      "module": "manacher",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/manacher-review-normal.txt",
+      "output": "Manacher: 19531 sentinel/zero/high-byte strings, 2000 arbitrary-byte strings, every substring predicate/count and million-character radius closed forms PASS"
+    },
+    {
+      "module": "manacher",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/manacher-review-san.txt",
+      "output": "Manacher: 19531 sentinel/zero/high-byte strings, 2000 arbitrary-byte strings, every substring predicate/count and million-character radius closed forms PASS"
+    },
+    {
+      "module": "palindromic_tree",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/pam-review-normal.txt",
+      "output": "PAM vector: all ternary strings through length 8, independent substrings, links, suffix counts, repeated occurrences, later append/reset and 500000 letters PASS"
+    },
+    {
+      "module": "palindromic_tree",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/pam-review-san.txt",
+      "output": "PAM vector: all ternary strings through length 8, independent substrings, links, suffix counts, repeated occurrences, later append/reset and 500000 letters PASS"
+    },
+    {
+      "module": "drivers",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/palindrome-drivers-normal.txt",
+      "output": "P3805/P5496: each 200 independently reversed-substring oracles, PAM sequential decoding and CRLF input PASS\nP3805: 11000000 characters, equal, alternating and palindrome-free length>=2 closed forms PASS\nP5496: 500000 decoded equal/alternating characters, maximal distinct nodes and suffix counts PASS"
+    },
+    {
+      "module": "drivers",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/palindrome-drivers-san.txt",
+      "output": "P3805/P5496: each 200 independently reversed-substring oracles, PAM sequential decoding and CRLF input PASS\nP3805: 11000000 characters, equal, alternating and palindrome-free length>=2 closed forms PASS\nP5496: 500000 decoded equal/alternating characters, maximal distinct nodes and suffix counts PASS"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "san": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  },
+  "official_reports": [
+    "verification/manacher-official.json",
+    "verification/manacher-official-sanitized.json"
+  ],
+  "usage_examples": [
+    "example-129"
+  ],
+  "references": [
+    "https://www.luogu.com.cn/problem/P3805",
+    "https://www.luogu.com.cn/problem/P5496"
+  ],
+  "unchanged_kernel_sources": true,
+  "limitations": [
+    "Manacher accepts arbitrary bytes; PalindromicTree accepts lowercase English letters only.",
+    "No new online acceptance or speed ranking."
+  ]
+}

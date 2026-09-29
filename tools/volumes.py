@@ -24,7 +24,9 @@ for part in parts:
         # General ACL comparison stays in the omnibus, not every category.
         continue
     key = 'mathematics'
-    if '数值算法与几何' in title:
+    if '回文半径与在线回文计数' in title:
+        key = 'strings'
+    elif '数值算法与几何' in title:
         key = 'geometry'
     elif any(x in title for x in ['可持久化区间', '杭州 2023 K', '带修莫队', '并查集模板题', '动态树路径乘积', '隐式 Treap 位翻转', '替罪羊树', '线段树维护单调栈', '动态 K-D Tree']):
         key = 'data-structures'

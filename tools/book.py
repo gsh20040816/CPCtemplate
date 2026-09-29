@@ -50,6 +50,9 @@ for style in ['compact']:
                 if end and lines[end - 1].startswith('template'):
                     end -= 1
             estimate = sum((max(1, (len(line.expandtabs(4)) + 109) // 110) for line in lines[start:end])) * 10.2 + 70 + len(info) / 65 * 12
+            if name == 'PalindromicTree':
+                split = next(i for i in range(start, end) if '// Append a lowercase letter' in lines[i])
+                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'SpfaFlow':
                 split = next(i for i in range(start, end) if '// Internal:' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
@@ -493,6 +496,12 @@ for style in ['compact']:
                 split = next(i for i in range(start, end) if 'optional<mint> try_inv' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'PalindromicTree':
+                split = next(i for i in range(start, end) if '// Append a lowercase letter' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 接上页同一结构体：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'SpfaFlow':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['// Internal:', '// Returns additional']] + [end]

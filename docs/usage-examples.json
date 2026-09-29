@@ -1560,5 +1560,16 @@
     "requires": [
       "TwoSAT"
     ]
+  },
+  {
+    "id": "example-129",
+    "symbol": "manacher",
+    "problem": "Luogu P3805",
+    "url": "https://www.luogu.com.cn/problem/P3805",
+    "summary": "给定长度不超过11000000的小写字符串，输出最长回文子串长度。odd含中心，even[i]以i前间隙为中心，分别用2*odd[i]-1和2*even[i]取最大值。",
+    "driver": "verify/luogu/P3805.compact.cpp",
+    "requires": [
+      "manacher"
+    ]
   }
 ]

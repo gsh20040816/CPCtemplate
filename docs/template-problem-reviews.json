@@ -2246,5 +2246,29 @@
       "verification/ecc-official-sanitized.json"
     ],
     "remaining": "Official generated data accepted locally in both modes. No online AC or ranking."
+  },
+  {
+    "symbol": "manacher",
+    "problem": "Luogu P3805",
+    "url": "https://www.luogu.com.cn/problem/P3805",
+    "classification": "Luogu explicitly labeled standard Manacher template.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "1<=n<=11000000; lowercase English letters",
+    "adapter": "Take max of 2*odd[i]-1 and 2*even[i]; no transformed-string radius convention.",
+    "tested_api": [
+      "manacher"
+    ],
+    "driver": "verify/luogu/P3805.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "local_reports": [
+      "verification/palindrome-attachment.json"
+    ],
+    "remaining": "Local independent and maximum-length verification only; online AC and ranking pending."
   }
 ]

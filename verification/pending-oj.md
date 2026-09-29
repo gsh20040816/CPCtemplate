@@ -93,6 +93,7 @@
 - `verify/luogu/P3649.compact.cpp`
 - `verify/luogu/P3803.fft.compact.cpp`
 - `verify/luogu/P3803.i64.compact.cpp`
+- `verify/luogu/P3805.compact.cpp`
 - `verify/luogu/P3809.compact.cpp`
 - `verify/luogu/P3812.compact.cpp`
 - `verify/luogu/P4097.compact.cpp`

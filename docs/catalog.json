@@ -111,7 +111,7 @@
     "string",
     "manacher",
     "Manacher 回文半径",
-    "manacher(s) 返回 odd 与 even；odd[i] 的半径包含中心，even[i] 的中心在 i 前。字符串及下标为 0-based，空串合法，O(n)。"
+    "manacher(s) 返回 odd/even，下标从0开始。odd[i] 包含中心，闭区间 [i-odd[i]+1,i+odd[i]-1]，长度2*odd[i]-1；even[i] 的中心在i前，区间 [i-even[i],i+even[i]-1]，长度2*even[i]，零半径为空。空串合法，支持任意字节（含零），按字节而非Unicode字素比较；int索引要求n<2^30。最长回文取上述长度最大值；全部odd/even以long long求和得到回文出现总数。O(n)时间和空间，边界显式检查，无需选择哨兵字符。"
   ],
   [
     "string",

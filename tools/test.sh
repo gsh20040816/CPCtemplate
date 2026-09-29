@@ -576,3 +576,7 @@ python3 tests/flow_attachment.py
 "$CXX" "${flags[@]}" tests/two_sat.cpp -o build/two-sat
 build/two-sat
 python3 tests/graph_attachment.py
+
+"$CXX" "${flags[@]}" tests/manacher.cpp -o build/manacher
+build/manacher
+python3 tests/palindrome_attachment.py

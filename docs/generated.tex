@@ -224,13 +224,13 @@ extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts()
 
 \lstinputlisting{usage/example-90.cpp}
 
-\Needspace{427pt}
+\Needspace{459pt}
 
 \chapter{Manacher}
 
 \section{Manacher 回文半径}\label{compact-manacher}\index{manacher}
 
-manacher(s) 返回 odd 与 even；odd[i] 的半径包含中心，even[i] 的中心在 i 前。字符串及下标为 0-based，空串合法，O(n)。
+manacher(s) 返回 odd/even，下标从0开始。odd[i] 包含中心，闭区间 [i-odd[i]+1,i+odd[i]-1]，长度2*odd[i]-1；even[i] 的中心在i前，区间 [i-even[i],i+even[i]-1]，长度2*even[i]，零半径为空。空串合法，支持任意字节（含零），按字节而非Unicode字素比较；int索引要求n<2\textasciicircum{}30。最长回文取上述长度最大值；全部odd/even以long long求和得到回文出现总数。O(n)时间和空间，边界显式检查，无需选择哨兵字符。
 
 \lstinputlisting[firstline=65,lastline=94]{../src/compact/string.hpp}
 
@@ -248,7 +248,21 @@ manacher(s) 返回 odd 与 even；odd[i] 的半径包含中心，even[i] 的中�
 
 \lstinputlisting{usage/example-23.cpp}
 
-\Needspace{180pt}
+\Needspace{333pt}
+
+\subsection*{模板题使用：Luogu P3805}
+
+\label{usage-example-129}
+
+题意：给定长度不超过11000000的小写字符串，输出最长回文子串长度。odd含中心，even[i]以i前间隙为中心，分别用2*odd[i]-1和2*even[i]取最大值。
+
+所需模板：manacher。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3805}
+
+\lstinputlisting{usage/example-129.cpp}
+
+\Needspace{493pt}
 
 \chapter{回文树}
 
@@ -256,7 +270,13 @@ manacher(s) 返回 odd 与 even；odd[i] 的半径包含中心，even[i] 的中�
 
 add(ch) 追加小写英文字母，返回最长回文后缀节点，亦保存于 last。节点 0 是长度 0 根，1 是长度 -1 根，实际回文节点从 2 开始；distinct() 为不同非空回文串数。t[u].len 为长度，fail 为最长真回文后缀链接，suffixes 为该节点的非空回文后缀数量；追加后的 t[last].suffixes 就是本位置结尾的回文串数。total 为当前全部回文子串的出现次数之和。end 为首次出现时的 0-based 右端点，可恢复原串子段；hits 仅统计作为最长后缀的次数，不能当出现次数。occurrences() 返回按节点编号的完整出现次数副本，根置零，O(n)；重复调用以及查询后继续追加均安全。重新赋值 PalindromicTree() 清空重建。固定 26 字符集下建树 O(n)，空间 O(26n)。
 
-\lstinputlisting[firstline=6,lastline=68]{../src/compact/palindromic_tree.hpp}
+\lstinputlisting[firstline=6,lastline=32]{../src/compact/palindromic_tree.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体：
+
+\lstinputlisting[firstline=33,lastline=68,firstnumber=28]{../src/compact/palindromic_tree.hpp}
 
 \Needspace{337pt}
 
