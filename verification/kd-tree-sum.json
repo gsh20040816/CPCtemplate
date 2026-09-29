@@ -1,0 +1,57 @@
+{
+  "scope": "Local point-map/invariant tests and P4148 XOR driver; no online AC, judge memory verdict or ranking",
+  "recorded_at_utc": "2026-09-29T08:01:59.293619+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/kd_tree_sum.hpp": "30e98241feaec1a5094f685b91df19ea84b5957553eb94d389d85ad57600dc44",
+    "tests/kd_tree_sum.cpp": "977fad6094bcfd861919d86d96d2535d50ed8edf8ac15a7d9f91e7c6389ed231",
+    "tests/kd_tree_application.py": "2c79a629e1e28201b651cdc030904e2a9b50b24b49d1a8e0730d774af533e78e",
+    "verify/luogu/P4148.compact.cpp": "4060870412c041b62def2359947283bc315af3e1c8104208737fcd30d414e687"
+  },
+  "runs": [
+    {
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "KDTreeSum: 160000 map-oracle updates, invariant audits, signed64 extremes, 200000 grid, duplicates PASS"
+    },
+    {
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "KDTreeSum: 160000 map-oracle updates, invariant audits, signed64 extremes, 200000 grid, duplicates PASS"
+    },
+    {
+      "kind": "driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "P4148: 150 random XOR streams, two 200000-operation cases, near-limit distinct allocation and INT_MAX answer PASS"
+    },
+    {
+      "kind": "driver",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "P4148: 150 random XOR streams, two 200000-operation cases, near-limit distinct allocation and INT_MAX answer PASS"
+    }
+  ],
+  "allocation": {
+    "default_int_node_bytes": 56,
+    "reserved_node_capacity": 200001,
+    "reserved_pool_bytes": 11200056,
+    "maximum_rebuild_index_bytes": 800000,
+    "scope": "ABI/vector-capacity assertions; excludes process, allocator and runtime overhead; not RSS or online verdict"
+  },
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  }
+}

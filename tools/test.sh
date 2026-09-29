@@ -541,3 +541,7 @@ python3 tests/mo_secondary_application.py
 "$CXX" "${flags[@]}" tests/monotone_stack_seg.cpp -o build/monotone-stack-seg
 build/monotone-stack-seg
 python3 tests/monotone_stack_application.py
+
+"$CXX" "${flags[@]}" tests/kd_tree_sum.cpp -o build/kd-tree-sum
+build/kd-tree-sum
+python3 tests/kd_tree_application.py

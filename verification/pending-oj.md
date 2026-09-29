@@ -86,6 +86,7 @@
 - `verify/luogu/P3812.compact.cpp`
 - `verify/luogu/P4097.compact.cpp`
 - `verify/luogu/P4126.compact.cpp`
+- `verify/luogu/P4148.compact.cpp`
 - `verify/luogu/P4151.compact.cpp`
 - `verify/luogu/P4213.compact.cpp`
 - `verify/luogu/P4779.compact.cpp`

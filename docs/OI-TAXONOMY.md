@@ -112,6 +112,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | PersistentRange | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | TreePathKth | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | DynamicKth | 数据结构 → 树套树 → 树状数组套权值线段树 | direct |  |
+| KDTreeSum | 数据结构 → K-D Tree | direct | 动态二维点权累加、闭矩形求和；不包含最近邻或删除坐标。 |
 | LinkCutTree | 数据结构 → 动态树 → Link Cut Tree | direct |  |
 | TreePathProducts | 数据结构 → 动态树 → Link Cut Tree | application | 固定树动态点权与任意根路径乘积总和，维护虚子树及双向信息 |
 | odd_induced_partition | 图论 → DFS（图论） | application | DFS 后序与回边构造奇度诱导子图划分；固定导航没有此定理的独立条目，不等同于普通图染色。 |

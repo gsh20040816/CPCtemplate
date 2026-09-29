@@ -726,8 +726,11 @@
       "toc_page": 124,
       "physical_page": 126,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "KDTreeSum"
+      ],
+      "review": "实际 126–129 页：动态单点累加/矩形和，P4148 XOR 协议已核对。重复点合并，交替轴递归 nth_element 重建，bbox 剪枝；去掉 x=-1 重建标志和有限 inf，int/long long 坐标及负权单测。16万 map 对拍、结构审计、20万网格、重复点、152个完整 XOR 输入双模式。默认 int 节点56字节，驱动预留20万点；不将本地分配量等同于在线20MB通过。范围不含最近邻/删除；docs/KD-TREE-SUM.md，线上待补。"
     },
     {
       "section": "5",

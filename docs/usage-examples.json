@@ -1360,5 +1360,17 @@
       "MonotoneStackSeg"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-114",
+    "symbol": "KDTreeSum",
+    "problem": "Luogu P4148 简单题",
+    "url": "https://www.luogu.com.cn/problem/P4148",
+    "summary": "在线单点累加与闭矩形求和，每条命令除操作码外都异或上次答案，3 结束。答案保证在 int 范围内，因此 last 使用 int。预留 200000 个不同点，减少 vector 扩容峰值；本地验证不等于通过该题 20 MB 平台内存限制。",
+    "driver": "verify/luogu/P4148.compact.cpp",
+    "requires": [
+      "KDTreeSum"
+    ],
+    "kind": "application"
   }
 ]
