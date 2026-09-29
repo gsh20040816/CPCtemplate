@@ -2923,6 +2923,20 @@ odd\_induced\_partition(n,edges) 接收 0..n-1 的无向简单图，禁止自环
 
 \lstinputlisting[firstline=36,lastline=50,firstnumber=30]{../src/compact/tree_diameter.hpp}
 
+\Needspace{539pt}
+
+\subsection*{应用题补充：Codeforces 379F New Year Tree}
+
+\label{usage-example-170}
+
+题意：初始1连接2、3、4；每次给指定叶子添两个新叶子，输出直径边数。q$\le$500000，最终点数4+2q。先离线建最终树并做HLD，再按编号顺序insert；添叶不会改变旧点间距离，满足固定非负权树前提。只维护已出现顶点。O(q log q)时间、O(q)空间，DFS递归；只调用insert及length，merge/farthest由接口测试验证。
+
+所需模板：HLD、TreeDiameter。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/problemset/problem/379/F}
+
+\lstinputlisting{usage/example-170.cpp}
+
 \Needspace{530pt}
 
 \section{最近公共祖先}
@@ -3023,7 +3037,21 @@ path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径�
 
 \lstinputlisting[firstline=7,lastline=33]{../src/compact/path_intersection.hpp}
 
-\Needspace{180pt}
+\Needspace{489pt}
+
+\subsection*{应用题补充：Luogu P3398}
+
+\label{usage-example-169}
+
+题意：树上两条路径是否有公共顶点，n,q$\le$100000。点号1..n，EulerLCA的depth与lca必须来自同一根，depth是边数而非带权距离。vertices非零输出Y，否则N；此题只使用是否相交，交集端点和顶点数另由本地路径点集验证。EulerLCA预处理O(n log n)，每次查询O(1)，DFS递归。
+
+所需模板：EulerLCA、path\_intersection。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3398}
+
+\lstinputlisting{usage/example-169.cpp}
+
+\Needspace{591pt}
 
 \section{树链剖分}
 
@@ -3031,7 +3059,13 @@ path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径�
 
 add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn、rk。子树对应 [dfn[u],dfn[u]+siz[u]-1]。lca(u,v) 为 O(log n)，path(u,v,work,edge) 分解路径；work(l,r) 仅适用于可交换聚合，边权模式排除 LCA 位置。输入必须是连通无环树，建树 O(n)，两遍递归 DFS；支持改变根后重复 build，dfn 会重新编号。
 
-\lstinputlisting[firstline=6,lastline=91]{../src/compact/tree.hpp}
+\lstinputlisting[firstline=6,lastline=45]{../src/compact/tree.hpp}
+
+\newpage
+
+\noindent 链顶与序号、建树和路径接口（接上页同一结构体）：
+
+\lstinputlisting[firstline=46,lastline=91,firstnumber=41]{../src/compact/tree.hpp}
 
 \Needspace{680pt}
 
@@ -4850,6 +4884,24 @@ ModifiedMo(n,m) 保存离线询问，n>0，m 为修改总数。add(l,r,t) 登记
 \newpage
 
 \lstinputlisting[firstline=29,lastline=65,firstnumber=22]{../src/compact/modified_mo.hpp}
+
+\Needspace{200pt}
+
+\subsection*{模板题使用：Luogu P1903}
+
+题意：单点改色、区间不同颜色数，n,m$\le$133333，颜色1..1000000。先读完操作，cur仅用于记录每次修改前后的颜色，a保持初始数组。题目闭区间[L,R]转为[L-1,R)，询问时间是此前修改数。chg必须先删旧贡献、改a[p]、再加新贡献，回退使用pre。按登记顺序输出。三维莫队，回调O(1)，同阶规模时O(n\textasciicircum{}(5/3))。
+
+所需模板：ModifiedMo。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1903}
+
+\newpage
+
+\subsection*{Luogu P1903：使用代码}
+
+\label{usage-example-168}
+
+\lstinputlisting{usage/example-168.cpp}
 
 \newpage
 

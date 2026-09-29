@@ -50,6 +50,9 @@ for style in ['compact']:
                 if end and lines[end - 1].startswith('template'):
                     end -= 1
             estimate = sum((max(1, (len(line.expandtabs(4)) + 109) // 110) for line in lines[start:end])) * 10.2 + 70 + len(info) / 65 * 12
+            if name == 'HLD':
+                split = next(i for i in range(start, end) if 'void dfs2(' in lines[i])
+                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'SCC':
                 split = next(i for i in range(start, end) if '// Recursive Kosaraju' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
@@ -200,6 +203,12 @@ for style in ['compact']:
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\noindent 重算入口与拓扑编号（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'HLD':
+                split = next(i for i in range(start, end) if 'void dfs2(' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 链顶与序号、建树和路径接口（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'ModifiedMo':
                 split = next(i for i in range(start, end) if 'template <class Add' in lines[i])

@@ -149,7 +149,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | OfflineLCA | [example-32](usage/example-32.cpp) | locally_checked_example |
 | EulerLCA | [example-33](usage/example-33.cpp) | locally_checked_example |
 | LiftingLCA | [example-34](usage/example-34.cpp) | locally_checked_example |
-| path_intersection | 待补 | pending_example |
+| path_intersection | [example-169（应用补充）](usage/example-169.cpp) | locally_checked_application |
 | DirectedEuler | [example-57](usage/example-57.cpp) | locally_checked_example |
 | UndirectedEuler | 待补 | pending_example |
 | word_chain | 待补 | pending_example |
@@ -163,10 +163,10 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | polynomial_shift | [example-30](usage/example-30.cpp) | locally_checked_example |
 | chirp_z | [example-31](usage/example-31.cpp) | locally_checked_example |
 | PersistentRange | 待补 | pending_example |
-| TreeDiameter | 待补 | pending_example |
+| TreeDiameter | [example-170（应用补充）](usage/example-170.cpp) | locally_checked_application |
 | FunctionalGraph | 待补 | pending_example |
 | release_bfs | 待补 | pending_example |
-| ModifiedMo | 待补 | pending_example |
+| ModifiedMo | [example-168](usage/example-168.cpp) | locally_checked_example |
 | gp_map | [example-68](usage/example-68.cpp), [example-69](usage/example-69.cpp) | locally_checked_example |
 | ost | [example-67](usage/example-67.cpp) | locally_checked_example |
 | rp | [example-66](usage/example-66.cpp) | locally_checked_example |

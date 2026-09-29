@@ -16,7 +16,15 @@
       "rank": null,
       "total": null
     },
-    "remaining": "Check fastest-submission leaderboard availability and denominator. This AC does not complete issue #1."
+    "remaining": "Check fastest-submission leaderboard availability and denominator. This AC does not complete issue #1.",
+    "checked_date": "2026-09-29",
+    "usage": "example-168",
+    "local_evidence": [
+      "verification/mo-tree-usages-normal.json",
+      "verification/mo-tree-usages-sanitizer.json",
+      "verification/mo-tree-core-modified_mo-normal.txt",
+      "verification/mo-tree-core-modified_mo-sanitizer.txt"
+    ]
   },
   {
     "symbol": "TarjanSCC",
@@ -3196,6 +3204,57 @@
     "remaining": "CCF_NOI online AC: 87ms / 42352kb, C++20, 20 accepted tests. Only the edge-biconnected partition is checked; other outputs and global speed ranking remain separate.",
     "statement_sources": [
       "https://qoj.ac/problem/999"
+    ]
+  },
+  {
+    "symbol": "path_intersection",
+    "problem": "Luogu P3398",
+    "url": "https://www.luogu.com.cn/problem/P3398",
+    "classification": "Contest application; not a formal template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n,q<=100000; tree; 1-based vertices",
+    "adapter": "EulerLCA depth counts edges and shares its root with lca. Boolean intersection only; full endpoints/count independently checked locally.",
+    "tested_api": [
+      "vertices != 0"
+    ],
+    "ac": "https://www.luogu.com.cn/record/299972443",
+    "usage": "example-169",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Global speed rank unverified. Online verdict checks only whether vertices is nonzero; endpoints/count remain local evidence. Contest application does not supply formal-template coverage.",
+    "local_evidence": [
+      "verification/mo-tree-usages-normal.json",
+      "verification/mo-tree-usages-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "TreeDiameter",
+    "problem": "Codeforces 379F",
+    "url": "https://codeforces.com/problemset/problem/379/F",
+    "classification": "Contest application; not a formal template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "q<=500000; final n=4+2q; two new leaves per operation",
+    "adapter": "Build final tree offline using HLD, then insert vertices in appearance order. Future leaf additions cannot change old pair distances. merge/farthest not called.",
+    "tested_api": [
+      "insert",
+      "length"
+    ],
+    "ac": null,
+    "usage": "example-170",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Luogu submission form rejected on 2026-09-29: Codeforces RemoteJudge temporarily unavailable. No submission ID or online verdict. Global speed rank unverified.",
+    "local_evidence": [
+      "verification/mo-tree-usages-normal.json",
+      "verification/mo-tree-usages-sanitizer.json"
     ]
   }
 ]

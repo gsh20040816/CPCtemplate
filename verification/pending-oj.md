@@ -78,6 +78,7 @@
 - `verify/library_checker/zalgorithm.compact.cpp`
 - `verify/luogu/CF1100F.compact.cpp`
 - `verify/luogu/CF118E.compact.cpp`
+- `verify/luogu/CF379F.compact.cpp`
 - `verify/luogu/CF600E.compact.cpp`
 - `verify/luogu/P1117.compact.cpp`
 - `verify/luogu/P12438.compact.cpp`
@@ -106,7 +107,6 @@
 - `verify/luogu/P3381.spfa.compact.cpp`
 - `verify/luogu/P3386.compact.cpp`
 - `verify/luogu/P3388.compact.cpp`
-- `verify/luogu/P3398.compact.cpp`
 - `verify/luogu/P3649.compact.cpp`
 - `verify/luogu/P3803.fft.compact.cpp`
 - `verify/luogu/P3803.i64.compact.cpp`

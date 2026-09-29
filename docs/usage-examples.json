@@ -2039,5 +2039,43 @@
       "bridge_augmentation"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-168",
+    "symbol": "ModifiedMo",
+    "problem": "Luogu P1903",
+    "url": "https://www.luogu.com.cn/problem/P1903",
+    "summary": "单点改色、区间不同颜色数，n,m≤133333，颜色1..1000000。先读完操作，cur仅用于记录每次修改前后的颜色，a保持初始数组。题目闭区间[L,R]转为[L-1,R)，询问时间是此前修改数。chg必须先删旧贡献、改a[p]、再加新贡献，回退使用pre。按登记顺序输出。三维莫队，回调O(1)，同阶规模时O(n^(5/3))。",
+    "driver": "verify/luogu/P1903.compact.cpp",
+    "requires": [
+      "ModifiedMo"
+    ],
+    "listing_new_page": true
+  },
+  {
+    "id": "example-169",
+    "symbol": "path_intersection",
+    "problem": "Luogu P3398",
+    "url": "https://www.luogu.com.cn/problem/P3398",
+    "summary": "树上两条路径是否有公共顶点，n,q≤100000。点号1..n，EulerLCA的depth与lca必须来自同一根，depth是边数而非带权距离。vertices非零输出Y，否则N；此题只使用是否相交，交集端点和顶点数另由本地路径点集验证。EulerLCA预处理O(n log n)，每次查询O(1)，DFS递归。",
+    "driver": "verify/luogu/P3398.compact.cpp",
+    "requires": [
+      "EulerLCA",
+      "path_intersection"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-170",
+    "symbol": "TreeDiameter",
+    "problem": "Codeforces 379F New Year Tree",
+    "url": "https://codeforces.com/problemset/problem/379/F",
+    "summary": "初始1连接2、3、4；每次给指定叶子添两个新叶子，输出直径边数。q≤500000，最终点数4+2q。先离线建最终树并做HLD，再按编号顺序insert；添叶不会改变旧点间距离，满足固定非负权树前提。只维护已出现顶点。O(q log q)时间、O(q)空间，DFS递归；只调用insert及length，merge/farthest由接口测试验证。",
+    "driver": "verify/luogu/CF379F.compact.cpp",
+    "requires": [
+      "HLD",
+      "TreeDiameter"
+    ],
+    "kind": "application"
   }
 ]

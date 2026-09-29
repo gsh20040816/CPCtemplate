@@ -136,6 +136,8 @@
 | `bridge_augmentation` | [Luogu P2860 (construct augmentation)](https://www.luogu.com.cn/problem/P2860) | 同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。 | 待编写驱动/提交 | 待核验 |
 | `SCC` | [QOJ 906 (Kosaraju)](https://qoj.ac/problem/906) | 给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。 | [记录](https://qoj.ac/submission/3061625) | 待核验 |
 | `BiconnectedCore` | [QOJ 999 (BiconnectedCore)](https://qoj.ac/problem/999) | 1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed | [记录](https://qoj.ac/submission/3061643) | 待核验 |
+| `path_intersection` | [Luogu P3398](https://www.luogu.com.cn/problem/P3398) | n,q<=100000; tree; 1-based vertices | [记录](https://www.luogu.com.cn/record/299972443) | 待核验 |
+| `TreeDiameter` | [Codeforces 379F](https://codeforces.com/problemset/problem/379/F) | q<=500000; final n=4+2q; two new leaves per operation | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1244,6 +1246,22 @@ Group vertices by bel after run; input and output zero-based, adapted to one-bas
 CCF_NOI online AC: 87ms / 42352kb, C++20, 20 accepted tests. Only the edge-biconnected partition is checked; other outputs and global speed ranking remain separate.
 
 原始题面与参数：[来源 1](https://qoj.ac/problem/999)
+
+### Luogu P3398 / path_intersection
+
+Contest application; not a formal template problem.
+
+EulerLCA depth counts edges and shares its root with lca. Boolean intersection only; full endpoints/count independently checked locally.
+
+Global speed rank unverified. Online verdict checks only whether vertices is nonzero; endpoints/count remain local evidence. Contest application does not supply formal-template coverage.
+
+### Codeforces 379F / TreeDiameter
+
+Contest application; not a formal template problem.
+
+Build final tree offline using HLD, then insert vertices in appearance order. Future leaf additions cannot change old pair distances. merge/farthest not called.
+
+Luogu submission form rejected on 2026-09-29: Codeforces RemoteJudge temporarily unavailable. No submission ID or online verdict. Global speed rank unverified.
 
 ## 榜单口径
 

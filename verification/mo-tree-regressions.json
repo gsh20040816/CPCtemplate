@@ -1,0 +1,25 @@
+{
+  "scope": "Local complete-driver oracles and API regressions, normal and ASan/UBSan. Classic baseline staged only in a temporary directory.",
+  "baseline_commit": "1a9fa3e91d7dff58915341040be069611370054c",
+  "files": {
+    "src/compact/modified_mo.hpp": "aefda6284d59cc2d57e046f3cca0f94b548abd968eabe6e35e8e8b1d6434040d",
+    "src/compact/path_intersection.hpp": "f2cfec7e2dd2ddc51ff0871df746744ae03e0594f9074ddbf70580853722623f",
+    "src/compact/tree_diameter.hpp": "c875fa09dfcf060f123e706b4d9799f8d2247315e444672a82fe67571987059b",
+    "src/compact/tree.hpp": "f8592533ea8599ab84263e9c33a6257785edc81972a78cd6e231e42891392046",
+    "src/compact/euler_lca.hpp": "12e4b94116b516a6ba6e9bc9b656a4e68b8542e596c9319805397eb1af8f7319",
+    "tests/modified_mo.cpp": "e697f7af59378fc8db2bccb6633118b4ee4eabd0d024fa6a978de277c610a40c",
+    "tests/path_intersection.cpp": "2ba35c6bab128d75d547e64762f0b28213181f3f9872ea24a05c0b92c4e663e8",
+    "tests/tree_diameter.cpp": "8b442388cc19e5591d9233e7621b634877e3407e852791409b5b94c66293e5c9",
+    "tests/mo_tree_usages.py": "331ebda84052694394c6d22cb8da38828c4a3714c1d958ccb686caa27d7be2e5"
+  },
+  "reports": [
+    "verification/mo-tree-usages-normal.json",
+    "verification/mo-tree-usages-sanitizer.json",
+    "verification/mo-tree-core-modified_mo-normal.txt",
+    "verification/mo-tree-core-modified_mo-sanitizer.txt",
+    "verification/mo-tree-core-path_intersection-normal.txt",
+    "verification/mo-tree-core-path_intersection-sanitizer.txt",
+    "verification/mo-tree-core-tree_diameter-normal.txt",
+    "verification/mo-tree-core-tree_diameter-sanitizer.txt"
+  ]
+}
