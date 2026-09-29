@@ -1448,5 +1448,21 @@
       "FpsSqrt"
     ],
     "kind": "template"
+  },
+  {
+    "id": "example-120",
+    "symbol": "FpsPower",
+    "problem": "Luogu P5273 多项式幂函数（加强版）",
+    "url": "https://www.luogu.com.cn/problem/P5273",
+    "summary": "输入 n 和十进制大指数 k，输出 a^k 的前 n 项；k 必须用 string 读入，不能只读 k mod p。允许前导零和 k=0。本程序同样适用于 P5245（a[0]=1）及 Library Checker Pow of Formal Power Series，三个入口均已本地验证。",
+    "driver": "verify/luogu/P5273.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "FpsFunctions",
+      "FpsPower"
+    ],
+    "kind": "template"
   }
 ]

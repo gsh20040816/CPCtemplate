@@ -1,17 +1,22 @@
 from compiler_config import CXX
 from pathlib import Path
-import subprocess, random, time
+import subprocess, random, time, os
 root=Path(__file__).resolve().parents[1]
 rng=random.Random(61577)
+flags=['-std=c++20','-O2']
+if os.environ.get('SANITIZE')=='1' or os.environ.get('CPC_SANITIZE')=='1':
+    flags=['-std=c++20','-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']
 for style in ['compact']:
     for problem,p,limit in [('P4717',998244353,17),('P6097',1000000009,20)]:
         source=root/f'build/submit/{problem}.{style}.cpp'
         subprocess.run(['python3','tools/bundle.py',f'verify/luogu/{problem}.{style}.cpp',str(source)],cwd=root,check=True)
         exe=root/f'build/{problem}.{style}'
-        subprocess.run([CXX,'-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
+        subprocess.run([CXX,*flags,str(source),'-o',str(exe)],check=True)
         def run(m,a,b):
             data=f'{m}\n'+' '.join(map(str,a))+'\n'+' '.join(map(str,b))+'\n'
-            return [list(map(int,line.split())) for line in subprocess.check_output([str(exe)],input=data,text=True).splitlines()]
+            result=subprocess.run([str(exe)],input=data,text=True,capture_output=True,check=True,timeout=120)
+            assert not result.stderr,result.stderr
+            return [list(map(int,line.split())) for line in result.stdout.splitlines()]
         for t in range(50):
             m=rng.randrange(1,7)
             n=1<<m

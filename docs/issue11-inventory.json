@@ -855,11 +855,11 @@
       "toc_page": 167,
       "physical_page": 169,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "SetConvolution"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际169–171页为P4717的OR/AND/XOR卷积。已核对三类变换及每层逆2，现有接口还支持合数（XOR须奇数）。去classic测试依赖；独立字符/下标对、6561穷举、六模900随机、18位张量及P4717/P6097完整驱动双模式通过。模板源码未改；不相交子集卷积仅回归，不冒充附件同一算法。docs/POWER-SET-ATTACHMENT.md。"
     },
     {
       "section": "5.11",
@@ -867,11 +867,11 @@
       "toc_page": 169,
       "physical_page": 171,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
-        "FpsFunctions"
+        "FpsPower"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际171–178页原实现仅exp(k ln a)、k mod p，对应a[0]=1。新增十进制大指数FpsPower，任意首项和前导零；分别保存mod p、mod(p-1)、饱和值，防止位移溢出。6558穷举、1600朴素幂、十万位指数/50万项闭式、303个完整驱动及37个官方LC测试双模式；一个打印主程序共用于三题。线上待补；docs/POWER-SET-ATTACHMENT.md。"
     },
     {
       "section": "5.12",

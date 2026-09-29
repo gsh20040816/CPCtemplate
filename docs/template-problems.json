@@ -4345,6 +4345,40 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "FpsPower",
+      "title": "形式幂级数快速幂（十进制大指数）",
+      "source": "src/compact/fps_power.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/pow_of_formal_power_series.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/pow_of_formal_power_series",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P5245.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5245",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P5273.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5273",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [

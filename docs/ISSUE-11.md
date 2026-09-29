@@ -79,8 +79,8 @@
 | 5.7 | 7. 多项式开根 | 148 | 150 | implemented_local_verified_online_pending |
 | 5.8 | 8. 多项式 ln | 154 | 156 | existing_implementation_local_verified |
 | 5.9 | 9. 多项式 exp | 159 | 161 | existing_implementation_local_verified |
-| 5.10 | 10. 快速莫比乌斯 / 沃尔什变换 (FMT / FWT) | 167 | 169 | pending_content_review |
-| 5.11 | 11. 多项式快速幂 | 169 | 171 | pending_content_review |
+| 5.10 | 10. 快速莫比乌斯 / 沃尔什变换 (FMT / FWT) | 167 | 169 | existing_implementation_local_verified |
+| 5.11 | 11. 多项式快速幂 | 169 | 171 | implemented_local_verified_online_pending |
 | 5.12 | 12. 任意模数多项式乘法 | 176 | 178 | pending_content_review |
 | 5.13 | 13. 常系数齐次线性递推 | 178 | 180 | pending_content_review |
 | 6 | 计算几何 | 184 | 186 | pending_content_review |

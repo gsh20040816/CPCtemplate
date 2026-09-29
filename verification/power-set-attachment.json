@@ -1,0 +1,96 @@
+{
+  "scope": "Local independent integer/character oracles and complete drivers; no new online AC or speed ranking",
+  "recorded_at_utc": "2026-09-29T08:43:43.343473+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/fps_power.hpp": "b5678567b42bf77e7693544006efe7ebae53578be474fcc5203c6190e13fa759",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/set_convolution.hpp": "c3ed7630c8bd8c457ca2bb1c3fe46881ab5c7da3ffc9f05e56028d7d810a0158",
+    "src/compact/subset_convolution.hpp": "a61883d0c6d2c8009b0506b25af4d9cd1c4718daea5d369fed8b59b953213ea3",
+    "tests/fps_power.cpp": "dcaa5df53d8273a3c7fb5bf632231d14f93b550676587a3823a342ef8171987e",
+    "tests/fps_power_application.py": "96ccee357615b1afd657a65567eb4f528d2bdd9c291de0d5bf3fe4ddbfcdf7c0",
+    "tests/set_convolution.cpp": "2247933ac616177b43c3366caed1c8a090be6f63f81cc40b9448dfe0e104593f",
+    "tests/set_convolution_application.py": "4507a19923c505300342d4a466fb999df2db2bc0193b9e2573d262b387d18409",
+    "verify/luogu/P5245.compact.cpp": "5d90cce624b831603d93342ff5c0b95d0c51ea318e9ee353599036140fd38b83",
+    "verify/luogu/P5273.compact.cpp": "5d90cce624b831603d93342ff5c0b95d0c51ea318e9ee353599036140fd38b83",
+    "verify/library_checker/pow_of_formal_power_series.compact.cpp": "5d90cce624b831603d93342ff5c0b95d0c51ea318e9ee353599036140fd38b83"
+  },
+  "runs": [
+    {
+      "module": "fps_power",
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "FPS power: 6558 exhaustive ternary powers, 1600 binary-convolution oracles, ULLONG_MAX/modulus boundaries, 100001-digit exponent, 500000 binomial coefficients and exact valuation cutoffs PASS"
+    },
+    {
+      "module": "fps_power",
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "FPS power: 6558 exhaustive ternary powers, 1600 binary-convolution oracles, ULLONG_MAX/modulus boundaries, 100001-digit exponent, 500000 binomial coefficients and exact valuation cutoffs PASS"
+    },
+    {
+      "module": "fps_power",
+      "kind": "driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "P5245: 100 binary-convolution oracle programs and n=100000 binomial with 100001-digit exponent PASS\nP5273: 100 binary-convolution oracle programs and n=100000 binomial with 100001-digit exponent PASS\nLC power: 100 binary-convolution oracle programs and n=500000 binomial with 19-digit exponent PASS"
+    },
+    {
+      "module": "fps_power",
+      "kind": "driver",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "P5245: 100 binary-convolution oracle programs and n=100000 binomial with 100001-digit exponent PASS\nP5273: 100 binary-convolution oracle programs and n=100000 binomial with 100001-digit exponent PASS\nLC power: 100 binary-convolution oracle programs and n=500000 binomial with 19-digit exponent PASS"
+    },
+    {
+      "module": "set_convolution",
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "Set convolutions direct-character and submask oracles, composite moduli, INT_MAX and 18-bit tensor identities PASS"
+    },
+    {
+      "module": "set_convolution",
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "Set convolutions direct-character and submask oracles, composite moduli, INT_MAX and 18-bit tensor identities PASS"
+    },
+    {
+      "module": "set_convolution",
+      "kind": "driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "P4717 compact: 50 pair-enumeration cases and full 17-bit tensor identity PASS; large driver wall time 0.106s\nP6097 compact: 50 pair-enumeration cases and full 20-bit tensor identity PASS; large driver wall time 1.533s"
+    },
+    {
+      "module": "set_convolution",
+      "kind": "driver",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "P4717 compact: 50 pair-enumeration cases and full 17-bit tensor identity PASS; large driver wall time 0.308s\nP6097 compact: 50 pair-enumeration cases and full 20-bit tensor identity PASS; large driver wall time 6.721s"
+    }
+  ],
+  "official_reports": [
+    "verification/fps-power-official.json",
+    "verification/fps-power-official-sanitized.json"
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  }
+}

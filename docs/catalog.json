@@ -1126,5 +1126,11 @@
     "FpsSqrt",
     "形式幂级数开根（含前导零与无解）",
     "FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回 nullopt；有解返回恰好 n 项，n=0 返回有值的空 vector。要求 0≤n≤2²²、a.size() 在 int 范围内；仅看输入前 n 项，不足补零。全零返回全零；首个非零项次数 k 为奇数或该系数为非二次剩余时无解。否则提出 x^k，首项选两个模平方根中较小者，Newton 迭代 b←(b+a/b)/2；最后乘 x^(k/2)，未被条件确定的末 k/2 项取零。这只是确定地返回一个解，不枚举全部根。依赖 mod_sqrt、FpsInverse 与 NttConvolution。时间 O(n log(n+1)) 加一次标量开根的期望 O(log mod)，额外空间 O(n)。P5205 保证 a[0]=1，得到常数项为 1 的根。"
+  ],
+  [
+    "fps_power",
+    "FpsPower",
+    "形式幂级数快速幂（十进制大指数）",
+    "FpsPower::power(a,exponent,n) 返回 a 的非负整数次幂模 x^n 的前 n 项，固定模数 998244353。exponent 为非空十进制数字 string_view，允许前导零；整数指数可传 to_string(k)。0≤n≤2²²，a.size() 须在 int 范围内；短输入补零、长输入只看前 n 项。n=0 返回空，零次幂（含零多项式的零次幂）返回 1。对首个非零项次数 s，若真实 s*k≥n 则返回全零；否则提取常数 c，计算 x^(s*k)*c^k*exp(k*log(a/(c*x^s)))。指数分别保留模 p、模 p-1 和截到 n 的值；不可仅用 k mod p 判零或算位移。依赖 FpsFunctions、FpsInverse、NTT。指数位数 L，时间 O(L+n log(n+1))、额外空间 O(n)，不支持负指数或小数指数。"
   ]
 ]

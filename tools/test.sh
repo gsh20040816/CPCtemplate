@@ -553,3 +553,7 @@ python3 tests/cdq_convolution_application.py
 "$CXX" "${flags[@]}" tests/fps_division_sqrt.cpp -o build/fps-extended
 build/fps-extended
 python3 tests/fps_extended_application.py
+
+"$CXX" "${flags[@]}" tests/fps_power.cpp -o build/fps-power
+build/fps-power
+python3 tests/fps_power_application.py

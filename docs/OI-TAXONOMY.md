@@ -67,6 +67,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | FpsInverse | 数学 → 多项式与生成函数 → 多项式牛顿迭代 | direct |  |
 | PolynomialDivision | 数学 → 多项式与生成函数 → 多项式牛顿迭代 | application | 反转后调用逆级数的带余除法；此页挂靠为求逆应用，不代表页面包含全部除法接口。 |
 | FpsFunctions | 数学 → 多项式与生成函数 → 多项式初等函数 | direct |  |
+| FpsPower | 数学 → 多项式与生成函数 → 多项式初等函数 | direct | 非负十进制大指数，首项非1与前导零单独处理。 |
 | FpsSqrt | 数学 → 多项式与生成函数 → 多项式初等函数 | direct | 一般前导零、无解与二次剩余首项；Newton 开根。 |
 | BostanMori | 数学 → 多项式与生成函数 → 常系数齐次线性递推 | direct |  |
 | recurrence_nth | 数学 → 多项式与生成函数 → 常系数齐次线性递推 | direct |  |

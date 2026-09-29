@@ -193,3 +193,4 @@
 | cdq_convolution | [example-115](usage/example-115.cpp) | locally_checked_example |
 | PolynomialDivision | [example-116](usage/example-116.cpp), [example-118](usage/example-118.cpp) | locally_checked_example |
 | FpsSqrt | [example-117](usage/example-117.cpp), [example-119](usage/example-119.cpp) | locally_checked_example |
+| FpsPower | [example-120](usage/example-120.cpp) | locally_checked_example |

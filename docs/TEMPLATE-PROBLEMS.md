@@ -82,6 +82,9 @@
 | `FpsSqrt` | [Luogu P5205](https://www.luogu.com.cn/problem/P5205) | 1<=n<=100000; a[0]=1; smaller constant root | 待编写驱动/提交 | 待核验 |
 | `PolynomialDivision` | [Library Checker division_of_polynomials](https://judge.yosupo.jp/problem/division_of_polynomials) | 1<=N,M<=500000; normalized leading coefficients; zero polynomial output length 0 | 待编写驱动/提交 | 待核验 |
 | `FpsSqrt` | [Library Checker sqrt_of_formal_power_series](https://judge.yosupo.jp/problem/sqrt_of_formal_power_series) | 1<=N<=500000; arbitrary coefficients; output any root or -1 | 待编写驱动/提交 | 待核验 |
+| `FpsPower` | [Luogu P5245](https://www.luogu.com.cn/problem/P5245) | 1<n<=100000; 0<k<=10^100000; a[0]=1 | 待编写驱动/提交 | 待核验 |
+| `FpsPower` | [Luogu P5273](https://www.luogu.com.cn/problem/P5273) | 1<n<=100000; 0<=k<=10^100000; arbitrary coefficients | 待编写驱动/提交 | 待核验 |
+| `FpsPower` | [Library Checker pow_of_formal_power_series](https://judge.yosupo.jp/problem/pow_of_formal_power_series) | 1<=N<=500000; 0<=M<=10^18; arbitrary coefficients | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -720,6 +723,30 @@ Official standalone algorithm template; not a regional-contest application.
 
 
 Online AC and speed ranking pending. Local independent oracles and pinned Library Checker official cases are recorded separately.
+
+### Luogu P5245 / FpsPower
+
+Official standalone power-of-formal-series template.
+
+
+
+Online AC and ranking pending; independent local powers, decimal boundary cases and official LC checker evidence recorded separately.
+
+### Luogu P5273 / FpsPower
+
+Official standalone power-of-formal-series template.
+
+
+
+Online AC and ranking pending; independent local powers, decimal boundary cases and official LC checker evidence recorded separately.
+
+### Library Checker pow_of_formal_power_series / FpsPower
+
+Official standalone power-of-formal-series template.
+
+
+
+Online AC and ranking pending; independent local powers, decimal boundary cases and official LC checker evidence recorded separately.
 
 ## 榜单口径
 

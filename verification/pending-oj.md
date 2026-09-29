@@ -43,6 +43,7 @@
 - `verify/library_checker/number_of_substrings.compact.cpp`
 - `verify/library_checker/persistent_unionfind.compact.cpp`
 - `verify/library_checker/polynomial_taylor_shift.compact.cpp`
+- `verify/library_checker/pow_of_formal_power_series.compact.cpp`
 - `verify/library_checker/primality_test.compact.cpp`
 - `verify/library_checker/range_affine_range_sum.compact.cpp`
 - `verify/library_checker/scc.compact.cpp`
@@ -102,6 +103,8 @@
 - `verify/luogu/P5180.compact.cpp`
 - `verify/luogu/P5192.compact.cpp`
 - `verify/luogu/P5205.compact.cpp`
+- `verify/luogu/P5245.compact.cpp`
+- `verify/luogu/P5273.compact.cpp`
 - `verify/luogu/P5325.compact.cpp`
 - `verify/luogu/P5357.compact.cpp`
 - `verify/luogu/P5431.mint.compact.cpp`
