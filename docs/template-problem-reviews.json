@@ -2725,5 +2725,97 @@
       "total": null
     },
     "remaining": "Online AC and rankings pending. P5632 driver prints only the weight; original-side certificate is covered by separate core tests. Arborescence has no edge reconstruction."
+  },
+  {
+    "symbol": "line_circle_i64",
+    "problem": "AOJ CGL_7_D",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D",
+    "classification": "AOJ Computational Geometry standard library exercise; standalone template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "整数圆心/半径及直线，坐标绝对值≤10⁴、半径1..10⁴，q≤1000。题目保证直线非退化且至少一个交点；精确分类后构造坐标，按x/y字典序输出，相切点复制一次。绝对误差要求小于1e-6。",
+    "adapter": "Complete vector-style driver in verify/aoj; integer predicates for D/E, original area functions for H/I.",
+    "tested_api": [
+      "line_circle_i64"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Local verification only; online AC and ranking remain pending.",
+    "statement_sources": [
+      "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D"
+    ]
+  },
+  {
+    "symbol": "circle_intersections_i64",
+    "problem": "AOJ CGL_7_E",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E",
+    "classification": "AOJ Computational Geometry standard library exercise; standalone template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "整数圆心/半径，坐标绝对值≤10⁴、半径1..10⁴；不同圆心且至少一个交点。按x/y字典序输出，相切点复制一次；不使用eps排序。绝对误差要求小于1e-6。",
+    "adapter": "Complete vector-style driver in verify/aoj; integer predicates for D/E, original area functions for H/I.",
+    "tested_api": [
+      "circle_intersections_i64"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Local verification only; online AC and ranking remain pending.",
+    "statement_sources": [
+      "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E"
+    ]
+  },
+  {
+    "symbol": "CirclePolygon",
+    "problem": "AOJ CGL_7_H",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_H",
+    "classification": "AOJ Computational Geometry standard library exercise; standalone template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "原点圆与逆时针简单多边形的公共面积，允许凹多边形。n为3..100，整数坐标绝对值≤100，半径1..100。直接传入顶点序列，不取凸包；绝对误差小于1e-5。",
+    "adapter": "Complete vector-style driver in verify/aoj; integer predicates for D/E, original area functions for H/I.",
+    "tested_api": [
+      "CirclePolygon"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Local verification only; online AC and ranking remain pending.",
+    "statement_sources": [
+      "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_H"
+    ]
+  },
+  {
+    "symbol": "circle_overlap_area",
+    "problem": "AOJ CGL_7_I",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I",
+    "classification": "AOJ Computational Geometry standard library exercise; standalone template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "两个圆的公共面积，整数坐标绝对值≤10⁴、半径1..10⁴。覆盖相离、内含、同心与部分相交；输出面积的绝对误差须小于1e-6。",
+    "adapter": "Complete vector-style driver in verify/aoj; integer predicates for D/E, original area functions for H/I.",
+    "tested_api": [
+      "circle_overlap_area"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Local verification only; online AC and ranking remain pending.",
+    "statement_sources": [
+      "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I"
+    ]
   }
 ]

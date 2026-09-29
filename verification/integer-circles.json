@@ -1,0 +1,34 @@
+{
+  "scope": "Local core predicates and floating constructions; no online AC",
+  "cases": {
+    "line": 86876,
+    "circle": 51458
+  },
+  "modes": [
+    "normal",
+    "ASan/UBSan"
+  ],
+  "references": [
+    "cpp_int parametric quadratic for lines",
+    "cpp_int center-distance and radius-sum/difference classification",
+    "cpp_dec_float_100 coordinates"
+  ],
+  "coordinate_tolerances": {
+    "small_grid": 1e-11,
+    "aoj_scale": 1e-08,
+    "billion_scale": 3e-06
+  },
+  "compiler": "/opt/homebrew/bin/g++-16",
+  "boost_include": "/opt/homebrew/include",
+  "sha256": {
+    "src/compact/line_circle_i64.hpp": "aafbfa665fda3a0e57c0bf8a5bc40a5e564f5d5c1a07f1614a7415a807571f5f",
+    "src/compact/circle_intersections_i64.hpp": "38de92498bac8df2f9bb2c52a148937cee088524991b16c9e451a758110bf743",
+    "src/compact/integer_plane.hpp": "019023dc3d1f4de34aaa376613d131be8991d55624a9591e3d09f07d1862a482",
+    "src/compact/real_plane.hpp": "86dcffd9e63c636e6504083935d4a7657effe15832290dd39c20c931546d03c2",
+    "tests/integer_circles.cpp": "6c448b40ebf75fc8658d91c33838333657d9fcf7768f200a7f55259354e41981"
+  },
+  "logs": [
+    "verification/integer-circles-tests.txt",
+    "verification/integer-circles-sanitizer.txt"
+  ]
+}

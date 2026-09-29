@@ -92,7 +92,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | line_intersection_real | 待补 | pending_example |
 | line_circle_intersections | 待补 | pending_example |
 | circle_intersections | 待补 | pending_example |
-| circle_overlap_area | 待补 | pending_example |
+| circle_overlap_area | [example-154](usage/example-154.cpp) | locally_checked_example |
 | MaxPlusMatrix | 待补 | pending_example |
 | LiChao | [example-89](usage/example-89.cpp) | locally_checked_example |
 | PersistentKth | [example-37](usage/example-37.cpp) | locally_checked_example |
@@ -107,7 +107,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | cut_tree_values | 待补 | pending_example |
 | BoundedCirculation | 待补 | pending_example |
 | IntegerHalfplanes | [example-125（应用补充）](usage/example-125.cpp) | locally_checked_application |
-| CirclePolygon | 待补 | pending_example |
+| CirclePolygon | [example-153](usage/example-153.cpp) | locally_checked_example |
 | EnclosingCircle | [example-61](usage/example-61.cpp) | locally_checked_example |
 | CircleTangents | 待补 | pending_example |
 | ClosestPair | [example-60](usage/example-60.cpp) | locally_checked_example |
@@ -204,3 +204,5 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | GaussXor | [example-143](usage/example-143.cpp), [example-145（应用补充）](usage/example-145.cpp) | locally_checked_example |
 | SecondMST | [example-144（应用补充）](usage/example-144.cpp) | locally_checked_application |
 | DivisionTree | [example-146](usage/example-146.cpp), [example-147](usage/example-147.cpp) | locally_checked_example |
+| line_circle_i64 | [example-151](usage/example-151.cpp) | locally_checked_example |
+| circle_intersections_i64 | [example-152](usage/example-152.cpp) | locally_checked_example |

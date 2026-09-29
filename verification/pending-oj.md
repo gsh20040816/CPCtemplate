@@ -3,6 +3,10 @@
 以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/ 与 oj.json 对照生成。
 
 - `verify/aoj/CGL_3_C.compact.cpp`
+- `verify/aoj/CGL_7_D.compact.cpp`
+- `verify/aoj/CGL_7_E.compact.cpp`
+- `verify/aoj/CGL_7_H.compact.cpp`
+- `verify/aoj/CGL_7_I.compact.cpp`
 - `verify/cses/1160.compact.cpp`
 - `verify/cses/1750.compact.cpp`
 - `verify/examples/ac_shortest.compact.cpp`

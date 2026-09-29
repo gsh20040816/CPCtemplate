@@ -1,0 +1,25 @@
+{
+  "mode": "sanitizer",
+  "cases": {
+    "D": 4002,
+    "E": 552,
+    "H": 97,
+    "I": 1418
+  },
+  "maximum_absolute_errors": {
+    "D": "0.0000000000048632955501686247534623395557410469883631755737401386436735128327938669558341394",
+    "E": "0.0000000000032447401761845698798352579593036626121174757896403238110869323008100860718920076",
+    "H": "0.0000000000015167575647394345955378602518232766052505233909321371358921189868918107068811901",
+    "I": "0.000000085806216263752662404198632312824786673630674818161532573114077621800881887486098"
+  },
+  "oracle": "80-digit mpmath; parametric quadratic, distance/projection, lens segments, analytic vertical slices",
+  "negative_controls": 5,
+  "scope": "Local complete AOJ drivers, no online submission or AC",
+  "sha256": {
+    "tests/circle_applications.py": "6dc61cd1e4d6b786a2a7ce30a1869738cf7196003535ccd8dc8f2c23579358cf",
+    "verify/aoj/CGL_7_D.compact.cpp": "0d055d13f22538da4c102c7939c19a786a4c9eecc38cd5735dbf1533cb1ebd8e",
+    "verify/aoj/CGL_7_E.compact.cpp": "d3981758c1f2738b4e94cb82697341aef12f6502238f8a09af1d58d3ebb0802e",
+    "verify/aoj/CGL_7_H.compact.cpp": "35ef099f5c495f2802ec57882396e6667f3408c78e9cd3e6c63a0f0f6971e8c6",
+    "verify/aoj/CGL_7_I.compact.cpp": "7434da3f707d74222bbbd71c0d517de4e2317405edaf396d8fa4830689f5d131"
+  }
+}

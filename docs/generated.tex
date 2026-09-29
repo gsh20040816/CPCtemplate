@@ -4169,6 +4169,20 @@ circle\_overlap\_area(a,b) 返回 long double 面积，半径非负。分离或�
 
 \lstinputlisting[firstline=5,lastline=27]{../src/compact/circle_overlap_area.hpp}
 
+\Needspace{249pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_I}
+
+\label{usage-example-154}
+
+题意：两个圆的公共面积，整数坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$。覆盖相离、内含、同心与部分相交；输出面积的绝对误差须小于1e-6。
+
+所需模板：RealPlane、circle\_overlap\_area。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I}
+
+\lstinputlisting{usage/example-154.cpp}
+
 \newpage
 
 \Needspace{581pt}
@@ -4198,6 +4212,50 @@ circle\_overlap\_area(a,b) 返回 long double 面积，半径非负。分离或�
 题目：\url{https://judge.yosupo.jp/problem/sort_points_by_argument}
 
 \lstinputlisting{usage/example-126.cpp}
+
+\Needspace{383pt}
+
+\section{整数输入直线与圆交点}\label{compact-line_circle_i64}\index{line\_circle\_i64}
+
+line\_circle\_i64(a,b,o,r)：a、b定直线，o为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值$\le$10$^{9}$，半径在0..10$^{9}$；先用int128精确判定交点数，再用long double构造坐标。a=b返回degenerate；相离none、相切one、相交two。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10$^{9}$尺度不承诺绝对1e-6。AOJ整数范围10$^{4}$内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。
+
+\lstinputlisting[firstline=6,lastline=30]{../src/compact/line_circle_i64.hpp}
+
+\Needspace{414pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_D}
+
+\label{usage-example-151}
+
+题意：整数圆心/半径及直线，坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$，q$\le$1000。题目保证直线非退化且至少一个交点；精确分类后构造坐标，按x/y字典序输出，相切点复制一次。绝对误差要求小于1e-6。
+
+所需模板：IntegerPlane、RealPlane、line\_circle\_i64。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D}
+
+\lstinputlisting{usage/example-151.cpp}
+
+\Needspace{438pt}
+
+\section{整数输入两圆交点}\label{compact-circle_intersections_i64}\index{circle\_intersections\_i64}
+
+circle\_intersections\_i64(a,r,b,s)：a、b为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值$\le$10$^{9}$，半径在0..10$^{9}$；先用int128精确判定交点数，再用long double构造坐标。相离或严格内含返回none、相切one、相交two；同心等正半径返回infinite，同心零半径返回one。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10$^{9}$尺度不承诺绝对1e-6。AOJ整数范围10$^{4}$内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。
+
+\lstinputlisting[firstline=6,lastline=35]{../src/compact/circle_intersections_i64.hpp}
+
+\Needspace{331pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_E}
+
+\label{usage-example-152}
+
+题意：整数圆心/半径，坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$；不同圆心且至少一个交点。按x/y字典序输出，相切点复制一次；不使用eps排序。绝对误差要求小于1e-6。
+
+所需模板：IntegerPlane、RealPlane、circle\_intersections\_i64。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E}
+
+\lstinputlisting{usage/example-152.cpp}
 
 \Needspace{208pt}
 
@@ -4242,6 +4300,20 @@ area(points,circle) 返回非负相交面积；多边形须简单，允许凹多
 \noindent 分段面积与逐边累加（接上页同一结构体与函数）：
 
 \lstinputlisting[firstline=31,lastline=60,firstnumber=28]{../src/compact/circle_polygon.hpp}
+
+\Needspace{288pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_H}
+
+\label{usage-example-153}
+
+题意：原点圆与逆时针简单多边形的公共面积，允许凹多边形。n为3..100，整数坐标绝对值$\le$100，半径1..100。直接传入顶点序列，不取凸包；绝对误差小于1e-5。
+
+所需模板：RealPlane、CirclePolygon。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_H}
+
+\lstinputlisting{usage/example-153.cpp}
 
 \Needspace{470pt}
 

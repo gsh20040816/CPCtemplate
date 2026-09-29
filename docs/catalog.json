@@ -1180,5 +1180,17 @@
     "DivisionTree",
     "划分树：静态区间第 k 小",
     "DivisionTree(v)，v为0-based vector<long long>，完整signed64位、可重复；0≤n<INT_MAX。kth(l,r,k)返回半开区间[l,r)内0-based第k小，要求0≤l<r≤n、0≤k<r-l；第k大改传r-l-1-k。允许构造空数组但不能查询；输入不改变，建后无修改接口。按中位数稳定划分，重复中位值只给左边所需配额。构造和空间O(n log(n+1))，单次O(log(n+1))；build/query为递归内部函数，深度O(log(n+1))。sorted/a/pre只读。与压位小波矩阵同功能但存储更多、代码更短；原书第k大注释与实现不一致，本接口明确为第k小。"
+  ],
+  [
+    "line_circle_i64",
+    "line_circle_i64",
+    "整数输入直线与圆交点",
+    "line_circle_i64(a,b,o,r)：a、b定直线，o为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值≤10⁹，半径在0..10⁹；先用int128精确判定交点数，再用long double构造坐标。a=b返回degenerate；相离none、相切one、相交two。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10⁹尺度不承诺绝对1e-6。AOJ整数范围10⁴内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。"
+  ],
+  [
+    "circle_intersections_i64",
+    "circle_intersections_i64",
+    "整数输入两圆交点",
+    "circle_intersections_i64(a,r,b,s)：a、b为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值≤10⁹，半径在0..10⁹；先用int128精确判定交点数，再用long double构造坐标。相离或严格内含返回none、相切one、相交two；同心等正半径返回infinite，同心零半径返回one。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10⁹尺度不承诺绝对1e-6。AOJ整数范围10⁴内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。"
   ]
 ]

@@ -117,6 +117,10 @@
 | `maximum_closure` | [Luogu P2762 太空飞行计划问题](https://www.luogu.com.cn/problem/P2762) | 选实验获得收益，配置仪器支付费用，输出最优实验/仪器编号和净收益。m、n至50，单项费用为正且小于2³¹，累计用long long。逐行读取变长依赖，istringstream兼容CRLF；实验i依赖仪器m+j。应用用法，不计非比赛模板覆盖。 | 待编写驱动/提交 | 待核验 |
 | `Arborescence` | [Luogu P4716](https://www.luogu.com.cn/problem/P4716) | 给定根的有向最小树形图费用，无解输出-1。n至100、m至10⁴、正权至10⁶；顶点和根从1-based转0-based。optional有值时才解引用，本题总费用可转long long；核心只返回费用，不恢复选边。 | 待编写驱动/提交 | 待核验 |
 | `StoerWagner` | [Luogu P5632](https://www.luogu.com.cn/problem/P5632) | 无向连通正权图的全局最小割，n至600、边权总和至10⁹；矩阵按无向边双向累加、自环忽略。核心返回费用与0-based割侧side，本题只输出费用。核心要求n≥2；单点没有非平凡割，驱动额外约定输出0。 | 待编写驱动/提交 | 待核验 |
+| `line_circle_i64` | [AOJ CGL_7_D](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D) | 整数圆心/半径及直线，坐标绝对值≤10⁴、半径1..10⁴，q≤1000。题目保证直线非退化且至少一个交点；精确分类后构造坐标，按x/y字典序输出，相切点复制一次。绝对误差要求小于1e-6。 | 待编写驱动/提交 | 待核验 |
+| `circle_intersections_i64` | [AOJ CGL_7_E](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E) | 整数圆心/半径，坐标绝对值≤10⁴、半径1..10⁴；不同圆心且至少一个交点。按x/y字典序输出，相切点复制一次；不使用eps排序。绝对误差要求小于1e-6。 | 待编写驱动/提交 | 待核验 |
+| `CirclePolygon` | [AOJ CGL_7_H](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_H) | 原点圆与逆时针简单多边形的公共面积，允许凹多边形。n为3..100，整数坐标绝对值≤100，半径1..100。直接传入顶点序列，不取凸包；绝对误差小于1e-5。 | 待编写驱动/提交 | 待核验 |
+| `circle_overlap_area` | [AOJ CGL_7_I](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I) | 两个圆的公共面积，整数坐标绝对值≤10⁴、半径1..10⁴。覆盖相离、内含、同心与部分相交；输出面积的绝对误差须小于1e-6。 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1035,6 +1039,46 @@ Officially titled standalone template problem
 
 
 Online AC and rankings pending. P5632 driver prints only the weight; original-side certificate is covered by separate core tests. Arborescence has no edge reconstruction.
+
+### AOJ CGL_7_D / line_circle_i64
+
+AOJ Computational Geometry standard library exercise; standalone template problem.
+
+Complete vector-style driver in verify/aoj; integer predicates for D/E, original area functions for H/I.
+
+Local verification only; online AC and ranking remain pending.
+
+原始题面与参数：[来源 1](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D)
+
+### AOJ CGL_7_E / circle_intersections_i64
+
+AOJ Computational Geometry standard library exercise; standalone template problem.
+
+Complete vector-style driver in verify/aoj; integer predicates for D/E, original area functions for H/I.
+
+Local verification only; online AC and ranking remain pending.
+
+原始题面与参数：[来源 1](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E)
+
+### AOJ CGL_7_H / CirclePolygon
+
+AOJ Computational Geometry standard library exercise; standalone template problem.
+
+Complete vector-style driver in verify/aoj; integer predicates for D/E, original area functions for H/I.
+
+Local verification only; online AC and ranking remain pending.
+
+原始题面与参数：[来源 1](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_H)
+
+### AOJ CGL_7_I / circle_overlap_area
+
+AOJ Computational Geometry standard library exercise; standalone template problem.
+
+Complete vector-style driver in verify/aoj; integer predicates for D/E, original area functions for H/I.
+
+Local verification only; online AC and ranking remain pending.
+
+原始题面与参数：[来源 1](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I)
 
 ## 榜单口径
 

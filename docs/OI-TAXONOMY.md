@@ -186,7 +186,9 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | IntegerPlane | 计算几何 → 二维计算几何基础 | direct |  |
 | RealPlane | 计算几何 → 二维计算几何基础 | direct |  |
 | circle_intersections | 计算几何 → 二维计算几何基础 | direct |  |
+| circle_intersections_i64 | 计算几何 → 二维计算几何基础 | direct | 整数输入的精确判别式变体，坐标构造仍为浮点。 |
 | circle_overlap_area | 计算几何 → 二维计算几何基础 | direct |  |
+| line_circle_i64 | 计算几何 → 二维计算几何基础 | direct | 整数输入的精确判别式变体，坐标构造仍为浮点。 |
 | line_circle_intersections | 计算几何 → 二维计算几何基础 | direct |  |
 | line_intersection_real | 计算几何 → 二维计算几何基础 | direct |  |
 | line_projection | 计算几何 → 二维计算几何基础 | direct |  |
