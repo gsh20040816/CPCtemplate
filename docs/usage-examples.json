@@ -1488,5 +1488,55 @@
       "ComplexFFT",
       "convolution_mod_fft"
     ]
+  },
+  {
+    "id": "example-123",
+    "symbol": "integer_hull",
+    "problem": "Luogu P2742",
+    "url": "https://www.luogu.com.cn/problem/P2742",
+    "kind": "application",
+    "summary": "求围住所有点的最短围栏长度。坐标绝对值≤10⁶、最多两位小数；按字符串读成放大 100 倍的整数，精确求凸包，最后才开方并除以 100。全共线时周长为两端距离的两倍，全部重合为 0。USACO 来源作为应用补充。",
+    "driver": "verify/luogu/P2742.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "integer_hull"
+    ]
+  },
+  {
+    "id": "example-124",
+    "symbol": "convex_diameter2",
+    "problem": "Luogu P1452",
+    "url": "https://www.luogu.com.cn/problem/P1452",
+    "kind": "application",
+    "summary": "求最多 5 万个点的最远距离平方，坐标绝对值≤10⁴。先求严格凸包再旋转卡壳；本题答案≤8×10⁸，可转 long long 输出，不能照搬到通用万亿坐标。USACO 来源作为应用补充；返回端点的正式示例见 Library Checker furthest_pair。",
+    "driver": "verify/luogu/P1452.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "integer_hull",
+      "convex_diameter2"
+    ]
+  },
+  {
+    "id": "example-125",
+    "symbol": "IntegerHalfplanes",
+    "problem": "Luogu P4196",
+    "url": "https://www.luogu.com.cn/problem/P4196",
+    "kind": "application",
+    "summary": "逆时针输入 2..10 个凸多边形，每个 3..50 个顶点、整数坐标绝对值≤1000，求交面积。每条有向边的左侧转为 a*x+b*y≤c，系数满足模板范围；交集必有界，空集或退化交集面积为 0。交点与面积各项分子分母先用整数，最后转浮点累加；CQOI 来源作为应用补充。",
+    "driver": "verify/luogu/P4196.compact.cpp",
+    "requires": [
+      "IntegerHalfplanes"
+    ]
+  },
+  {
+    "id": "example-126",
+    "symbol": "IntegerPlane",
+    "problem": "Library Checker sort_points_by_argument",
+    "url": "https://judge.yosupo.jp/problem/sort_points_by_argument",
+    "summary": "将最多 20 万个整数点按 (-π,π] 的极角排序，坐标绝对值≤10⁹，约定原点角度为 0，同角顺序任意。PolarLess 从正 x 轴按 [0,2π) 排序，再把 y<0 的后缀整体移到前面；负 x 轴留在最后，不要把它和负 y 半平面一起前移。仅调用整数点与极角比较器。",
+    "driver": "verify/library_checker/sort_points_by_argument.compact.cpp",
+    "requires": [
+      "IntegerPlane"
+    ]
   }
 ]

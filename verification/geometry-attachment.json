@@ -1,0 +1,114 @@
+{
+  "scope": "Attachment geometry: exact integer kernels, fixed-decimal P2742, P1452 diameter, P4196 bounded intersection area, integer argument sort. Not arbitrary floating predicates, unbounded feasibility, online AC or rankings.",
+  "recorded_at_utc": "2026-09-29T09:37:58.143655+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "platform": "Darwin arm64",
+  "files": {
+    "src/compact/integer_plane.hpp": "019023dc3d1f4de34aaa376613d131be8991d55624a9591e3d09f07d1862a482",
+    "src/compact/integer_hull.hpp": "93009007e660a92fd56d424a280b93ff016f311667b9d67e24c63951ca157630",
+    "src/compact/convex_diameter2.hpp": "efc6712df07016a5e82db1a512e9a4bdf776bb240e58b37ed2947d81ca8f957f",
+    "src/compact/halfplanes.hpp": "2b7908c0ad44e6ce91ec1699a0ced13b040e9be6d810e4b342b96d6931106d68",
+    "tests/diameter_endpoints.cpp": "6dfc5067e794064788cb1c224484a9f2c6132463b95ca60b3f52fa2908e36739",
+    "tests/halfplanes.cpp": "7cb7e332274c201bfeb91510a8f6702716a9bfe4efbda6baf7f3dbed56e81a23",
+    "tests/polar_order.cpp": "8da3771a9ef48e919fc279a088cf73acb8a90028083b56f165965f2bc2b76e55",
+    "tests/geometry_attachment.py": "67c3a43ede0335505bf66d7c2e7949ca2fd107d5ffbf6084311cfb6af809951a",
+    "verify/luogu/P2742.compact.cpp": "20e485b8384aabb08b0c67985fdd8dbdcdf8a913ef99a56846e2e4ffeefb7b0f",
+    "verify/luogu/P1452.compact.cpp": "ecef3c2b77f7c9dc5bdae6881499c88638f5c3820c60fe100aef7887a4d5319a",
+    "verify/luogu/P4196.compact.cpp": "5c54843eb42b13875647342ddbbd368a668bed0df51adb09933ed3c1ac96d38d",
+    "verify/library_checker/sort_points_by_argument.compact.cpp": "3424f6b2310cc39b6e70693b1bdf905e9fb0455ad60e5442631529e68307f8fb"
+  },
+  "runs": [
+    {
+      "module": "diameter_endpoints",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/geometry-diameter_endpoints-normal.txt",
+      "output": "Diameter endpoints: all 3x3 subsets, independent cpp_int gift wrapping and all-pairs oracle, every cyclic hull start, degeneracies, near-collinearity and 1000 trillion-coordinate clouds PASS"
+    },
+    {
+      "module": "diameter_endpoints",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/geometry-diameter_endpoints-san.txt",
+      "output": "Diameter endpoints: all 3x3 subsets, independent cpp_int gift wrapping and all-pairs oracle, every cyclic hull start, degeneracies, near-collinearity and 1000 trillion-coordinate clouds PASS"
+    },
+    {
+      "module": "halfplanes",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/geometry-halfplanes-normal.txt",
+      "output": "Integer halfplanes vector cpp_int pair-intersection oracle, parallel/degenerate cases and near-parallel billion coefficients and 100000 redundant constraints PASS"
+    },
+    {
+      "module": "halfplanes",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/geometry-halfplanes-san.txt",
+      "output": "Integer halfplanes vector cpp_int pair-intersection oracle, parallel/degenerate cases and near-parallel billion coefficients and 100000 redundant constraints PASS"
+    },
+    {
+      "module": "polar_order",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/geometry-polar_order-normal.txt",
+      "output": "PolarLess: 81-point all triples strict weak order; 100-digit atan2 all pairs with origin, axes, duplicate rays and trillion-scale near-parallel vectors PASS"
+    },
+    {
+      "module": "polar_order",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/geometry-polar_order-san.txt",
+      "output": "PolarLess: 81-point all triples strict weak order; 100-digit atan2 all pairs with origin, axes, duplicate rays and trillion-scale near-parallel vectors PASS"
+    },
+    {
+      "module": "drivers",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/geometry-drivers-normal.txt",
+      "output": "P2742: 155 independent gift-wrap / 100-digit perimeter cases, signed decimal parsing, 100000 points PASS\nP1452: 150 arbitrary-integer all-pairs cases and 50000 distinct points PASS\nP4196: 207 exact Fraction clipping cases, empty/point/segment intersections, collinear sides and 500 total constraints PASS"
+    },
+    {
+      "module": "drivers",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/geometry-drivers-san.txt",
+      "output": "P2742: 155 independent gift-wrap / 100-digit perimeter cases, signed decimal parsing, 100000 points PASS\nP1452: 150 arbitrary-integer all-pairs cases and 50000 distinct points PASS\nP4196: 207 exact Fraction clipping cases, empty/point/segment intersections, collinear sides and 500 total constraints PASS"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "san": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  },
+  "test_only_include_path": "/opt/homebrew/include",
+  "official_reports": [
+    "verification/polar-official.json",
+    "verification/polar-official-sanitized.json"
+  ],
+  "usage_examples": [
+    "example-123",
+    "example-124",
+    "example-125",
+    "example-126"
+  ],
+  "references": [
+    "https://www.luogu.com.cn/problem/P2742",
+    "https://www.luogu.com.cn/problem/P1452",
+    "https://www.luogu.com.cn/problem/P4196",
+    "https://judge.yosupo.jp/problem/sort_points_by_argument"
+  ],
+  "unchanged_kernel_source": true,
+  "remaining": [
+    "Floating-input hull and robust polar predicates need explicit contracts and verification.",
+    "General floating halfplanes and unbounded feasibility classification remain incomplete.",
+    "No new online AC or speed ranking."
+  ]
+}

@@ -50,6 +50,7 @@
 - `verify/library_checker/scc.compact.cpp`
 - `verify/library_checker/segment_add_get_min.compact.cpp`
 - `verify/library_checker/shortest_path.compact.cpp`
+- `verify/library_checker/sort_points_by_argument.compact.cpp`
 - `verify/library_checker/sqrt_of_formal_power_series.compact.cpp`
 - `verify/library_checker/static_convex_hull.compact.cpp`
 - `verify/library_checker/sum_of_floor_of_linear.compact.cpp`
@@ -63,6 +64,7 @@
 - `verify/luogu/CF600E.compact.cpp`
 - `verify/luogu/P1117.compact.cpp`
 - `verify/luogu/P12438.compact.cpp`
+- `verify/luogu/P1452.compact.cpp`
 - `verify/luogu/P1516.compact.cpp`
 - `verify/luogu/P1593.compact.cpp`
 - `verify/luogu/P1972.compact.cpp`
@@ -71,6 +73,7 @@
 - `verify/luogu/P2617.compact.cpp`
 - `verify/luogu/P2633.compact.cpp`
 - `verify/luogu/P2731.compact.cpp`
+- `verify/luogu/P2742.compact.cpp`
 - `verify/luogu/P2860.compact.cpp`
 - `verify/luogu/P2921.compact.cpp`
 - `verify/luogu/P3369.pbds.compact.cpp`
@@ -93,6 +96,7 @@
 - `verify/luogu/P4126.compact.cpp`
 - `verify/luogu/P4148.compact.cpp`
 - `verify/luogu/P4151.compact.cpp`
+- `verify/luogu/P4196.compact.cpp`
 - `verify/luogu/P4213.compact.cpp`
 - `verify/luogu/P4245.compact.cpp`
 - `verify/luogu/P4512.compact.cpp`

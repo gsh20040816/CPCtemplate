@@ -2093,5 +2093,84 @@
       "total": null
     },
     "remaining": "New FFT implementation: online AC and ranking pending. Local exact references, full-size complete drivers and all-root high-precision checks recorded separately. Numeric preconditions remain part of the contract."
+  },
+  {
+    "symbol": "integer_hull",
+    "problem": "Luogu P2742",
+    "url": "https://www.luogu.com.cn/problem/P2742",
+    "classification": "Competition-origin application supplement; does not complete the noncompetition-template requirement.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "3<=n<=100000; |coordinate|<=1000000, at most two fractional decimal digits",
+    "tested_api": [
+      "integer_hull",
+      "IntegerPlane::dist2"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending. Current vector driver independently verified in both local modes; see geometry-attachment.json."
+  },
+  {
+    "symbol": "convex_diameter2",
+    "problem": "Luogu P1452",
+    "url": "https://www.luogu.com.cn/problem/P1452",
+    "classification": "Competition-origin application supplement; does not complete the noncompetition-template requirement.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "2<=n<=50000 distinct points; |coordinate|<=10000",
+    "tested_api": [
+      "integer_hull",
+      "convex_diameter2"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending. Current vector driver independently verified in both local modes; see geometry-attachment.json."
+  },
+  {
+    "symbol": "IntegerHalfplanes",
+    "problem": "Luogu P4196",
+    "url": "https://www.luogu.com.cn/problem/P4196",
+    "classification": "Competition-origin application supplement; does not complete the noncompetition-template requirement.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "2<=polygons<=10; 3<=vertices<=50 each; CCW; integer coordinates in [-1000,1000]",
+    "tested_api": [
+      "bounded_polygon"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending. Current vector driver independently verified in both local modes; see geometry-attachment.json."
+  },
+  {
+    "symbol": "IntegerPlane",
+    "problem": "Library Checker sort_points_by_argument",
+    "url": "https://judge.yosupo.jp/problem/sort_points_by_argument",
+    "classification": "Official standalone integer argument-sort template; tests only Point and PolarLess, not all plane predicates.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "1<=n<=200000; |x|,|y|<=10^9; order (-pi,pi], origin angle 0, equal angles arbitrary",
+    "tested_api": [
+      "Point",
+      "PolarLess"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending. Pinned official local checker accepts all 21 cases in both modes."
   }
 ]

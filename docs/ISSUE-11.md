@@ -83,17 +83,17 @@
 | 5.11 | 11. 多项式快速幂 | 169 | 171 | implemented_local_verified_online_pending |
 | 5.12 | 12. 任意模数多项式乘法 | 176 | 178 | implemented_local_verified_online_pending |
 | 5.13 | 13. 常系数齐次线性递推 | 178 | 180 | existing_implementation_local_verified |
-| 6 | 计算几何 | 184 | 186 | pending_content_review |
-| 6.1 | 1. 二维凸包 | 184 | 186 | pending_content_review |
-| 6.1.1 | (1) 洛谷模板 | 184 | 186 | pending_content_review |
+| 6 | 计算几何 | 184 | 186 | reviewed_partial_coverage |
+| 6.1 | 1. 二维凸包 | 184 | 186 | existing_implementation_local_verified |
+| 6.1.1 | (1) 洛谷模板 | 184 | 186 | existing_implementation_local_verified |
 | 6.2 | 2. 李超线段树 | 186 | 188 | implemented_local_verified_online_pending |
 | 6.2.1 | (1) 洛谷模板 | 186 | 188 | implemented_local_verified_online_pending |
-| 6.3 | 3. 旋转卡壳 | 189 | 191 | pending_content_review |
-| 6.4 | 4. 半平面交 | 194 | 196 | pending_content_review |
-| 6.5 | 5. 极角排序 | 196 | 198 | pending_content_review |
-| 6.5.1 | (1) The 2025 ICPC Asia Seoul Regional Contest vp 写法 | 196 | 198 | pending_content_review |
-| 6.5.2 | (2) 模板 1 | 197 | 199 | pending_content_review |
-| 6.5.3 | (3) 模板 2 | 198 | 200 | pending_content_review |
+| 6.3 | 3. 旋转卡壳 | 189 | 191 | existing_implementation_local_verified |
+| 6.4 | 4. 半平面交 | 194 | 196 | existing_implementation_local_verified |
+| 6.5 | 5. 极角排序 | 196 | 198 | reviewed_partial_coverage |
+| 6.5.1 | (1) The 2025 ICPC Asia Seoul Regional Contest vp 写法 | 196 | 198 | existing_implementation_local_verified |
+| 6.5.2 | (2) 模板 1 | 197 | 199 | reviewed_partial_coverage |
+| 6.5.3 | (3) 模板 2 | 198 | 200 | existing_implementation_local_verified |
 
 来源为 issue #11 用户提供附件；完整 PDF 留在本地 build 中，仓库仅登记来源、摘要与覆盖状态。
 已核对项与实现、验证范围见 JSON 中各项 review；本地通过不等于线上 AC，其余目录按上表状态继续核对，不排除任何主题或变体。

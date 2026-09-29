@@ -3715,11 +3715,35 @@ circle\_overlap\_area(a,b) 返回 long double 面积，半径非负。分离或�
 
 \lstinputlisting[firstline=5,lastline=27]{../src/compact/circle_overlap_area.hpp}
 
+\newpage
+
+\Needspace{581pt}
+
 \section{整数点向量与线段判定}\label{compact-IntegerPlane}\index{IntegerPlane}
 
-坐标绝对值不超过 10$^{12}$，使用 long long 存点、\_\_int128\_t 计算叉积、点积与距离平方。Point 按 x、y 字典序比较；cross(a,b,c) 为 ab 与 ac 的叉积，dot 为点积。on\_segment 包含端点及退化线段；intersect 判断闭线段有交点。PolarLess 按半平面、叉积、长度平方排序，要求严格弱序。全部单次运算 O(1)，不使用 epsilon。
+坐标绝对值不超过 10$^{12}$，使用 long long 存点、\_\_int128\_t 计算叉积、点积与距离平方。Point 按 x、y 字典序比较；cross(a,b,c) 为 ab 与 ac 的叉积，dot 为点积。on\_segment 包含端点及退化线段；intersect 判断闭线段有交点。PolarLess 从正 x 轴按 [0,2$\pi$) 逆时针极角排序，同向按长度平方递增；零向量排在最前。同点等价，比较器满足严格弱序。按其他起点排序应整体循环移动，LC 的 (-$\pi$,$\pi$] 顺序仅将 y<0 后缀移到前面。全部单次运算 O(1)，不使用 epsilon。
 
-\lstinputlisting[firstline=6,lastline=63]{../src/compact/integer_plane.hpp}
+\lstinputlisting[firstline=6,lastline=50]{../src/compact/integer_plane.hpp}
+
+\newpage
+
+\noindent 极角比较器（接上页同一结构体）：
+
+\lstinputlisting[firstline=51,lastline=63,firstnumber=46]{../src/compact/integer_plane.hpp}
+
+\Needspace{329pt}
+
+\subsection*{模板题使用：Library Checker sort\_points\_by\_argument}
+
+\label{usage-example-126}
+
+题意：将最多 20 万个整数点按 (-$\pi$,$\pi$] 的极角排序，坐标绝对值$\le$10$^{9}$，约定原点角度为 0，同角顺序任意。PolarLess 从正 x 轴按 [0,2$\pi$) 排序，再把 y<0 的后缀整体移到前面；负 x 轴留在最后，不要把它和负 y 半平面一起前移。仅调用整数点与极角比较器。
+
+所需模板：IntegerPlane。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/sort_points_by_argument}
+
+\lstinputlisting{usage/example-126.cpp}
 
 \Needspace{208pt}
 
@@ -3811,6 +3835,20 @@ integer\_hull(points) 按值接收 IntegerPlane::Point 序列，输出严格逆�
 
 \lstinputlisting{usage/example-64.cpp}
 
+\Needspace{549pt}
+
+\subsection*{应用题补充：Luogu P2742}
+
+\label{usage-example-123}
+
+题意：求围住所有点的最短围栏长度。坐标绝对值$\le$10$^{6}$、最多两位小数；按字符串读成放大 100 倍的整数，精确求凸包，最后才开方并除以 100。全共线时周长为两端距离的两倍，全部重合为 0。USACO 来源作为应用补充。
+
+所需模板：IntegerPlane、integer\_hull。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2742}
+
+\lstinputlisting{usage/example-123.cpp}
+
 \Needspace{335pt}
 
 \section{点在整数凸包内（二分）}\label{compact-convex_contains_i64}\index{convex\_contains\_i64}
@@ -3869,6 +3907,20 @@ convex\_diameter2(p,endpoints=nullptr) 返回最远两点距离平方，类型 \
 
 \lstinputlisting{usage/example-65.cpp}
 
+\Needspace{306pt}
+
+\subsection*{应用题补充：Luogu P1452}
+
+\label{usage-example-124}
+
+题意：求最多 5 万个点的最远距离平方，坐标绝对值$\le$10$^{4}$。先求严格凸包再旋转卡壳；本题答案$\le$8×10$^{8}$，可转 long long 输出，不能照搬到通用万亿坐标。USACO 来源作为应用补充；返回端点的正式示例见 Library Checker furthest\_pair。
+
+所需模板：IntegerPlane、integer\_hull、convex\_diameter2。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1452}
+
+\lstinputlisting{usage/example-124.cpp}
+
 \Needspace{536pt}
 
 \chapter{半平面交}
@@ -3890,6 +3942,20 @@ bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}
 \noindent 接上页同一结构体与函数：
 
 \lstinputlisting[firstline=79,lastline=105,firstnumber=71]{../src/compact/halfplanes.hpp}
+
+\Needspace{548pt}
+
+\subsection*{应用题补充：Luogu P4196}
+
+\label{usage-example-125}
+
+题意：逆时针输入 2..10 个凸多边形，每个 3..50 个顶点、整数坐标绝对值$\le$1000，求交面积。每条有向边的左侧转为 a*x+b*y$\le$c，系数满足模板范围；交集必有界，空集或退化交集面积为 0。交点与面积各项分子分母先用整数，最后转浮点累加；CQOI 来源作为应用补充。
+
+所需模板：IntegerHalfplanes。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4196}
+
+\lstinputlisting{usage/example-125.cpp}
 
 \Needspace{675pt}
 

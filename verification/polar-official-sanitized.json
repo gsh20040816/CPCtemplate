@@ -1,0 +1,236 @@
+{
+  "problem": "sort_points_by_argument",
+  "scope": "Local official generated tests only; not online AC or controlled OJ speed ranking",
+  "reference_commit": "e64660561a995c357cdc61ddee1bde68b80528db",
+  "reference_problem_path": "geo/sort_points_by_argument",
+  "metadata_sha256": "106603b1cf375518e27d5107a3d7001d9d7fc7ba187ff1ee43c51b6306a20110",
+  "checker_source_sha256": "aab8a4a94dafda7da90f3c0d3dc2ef9d108416296b9bda2ffb2d8242bb92439a",
+  "checker_binary_sha256": "a1504e93180a2b9bb881d6e54c3de03fa08e62c50f0a101fc8ae08c5d9451b99",
+  "driver": "verify/library_checker/sort_points_by_argument.compact.cpp",
+  "bundle_sha256": "b206aee7c989dd6ad986c40d7bf8723464154d39242bd0e4c849f6cb7f0dfe78",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "flags": [
+    "-std=c++20",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-Wl,-stack_size,0x20000000"
+  ],
+  "recorded_at_utc": "2026-09-29T09:29:47.080372+00:00",
+  "negative_control": "deliberately wrong output rejected",
+  "negative_control_exit_code": 2,
+  "negative_control_message": "wrong output format Expected integer, but \"not-a-valid-answer\" found",
+  "cases": [
+    {
+      "case": "all_same_00",
+      "input_sha256": "550ac1479dcaada2baa6eefd6f07c28c3a62a43a7d51ec3622b4f442e62bc1f4",
+      "answer_sha256": "021b56dc482168f6cce3963c80d11795effc22a0f5c50cca505f6b49c56b8580",
+      "output_sha256": "021b56dc482168f6cce3963c80d11795effc22a0f5c50cca505f6b49c56b8580",
+      "elapsed_seconds": 0.3298,
+      "resident_bytes": 13369344,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "all_same_01",
+      "input_sha256": "afaed2d6c53d99296df6049d3cd14637df08a5618f7629a68c5e5157af46d4bf",
+      "answer_sha256": "8cf21f64a2ac92cb475e52de508078956c8cb7eb3b6136c4a568f5958fba2576",
+      "output_sha256": "8cf21f64a2ac92cb475e52de508078956c8cb7eb3b6136c4a568f5958fba2576",
+      "elapsed_seconds": 0.1391,
+      "resident_bytes": 13451264,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "all_same_02",
+      "input_sha256": "7b87a791cada63595f90371b090a8d07f9645414d0c19b9cbf6e5dcc05d74d6e",
+      "answer_sha256": "d8a95832a789cd8b255fadc4d3c601b1a1b926dca0bc1fa3bdcd872d66ba7168",
+      "output_sha256": "d8a95832a789cd8b255fadc4d3c601b1a1b926dca0bc1fa3bdcd872d66ba7168",
+      "elapsed_seconds": 0.1496,
+      "resident_bytes": 13369344,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "example_00",
+      "input_sha256": "d0d8486f0ec6681b9e48ee9c9fbff227696d8c127d8fbb233a990e740c00f2d2",
+      "answer_sha256": "92ac6391a2aa1a5bbf9c3fd621a88bb157cc5254f8cbbefca97b3fcea0c06e3d",
+      "output_sha256": "f1506695a09c900118a9e404f44674a4f07820845985e8408c80001db361c222",
+      "elapsed_seconds": 0.0899,
+      "resident_bytes": 10256384,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "half_same_00",
+      "input_sha256": "094b1a67063e6df684348df781981eea97ecd1f57bafe2e590f468f4f97751f9",
+      "answer_sha256": "9e9908d01827b676a78e3d5b816ee62b8457fa1efde7673f8e3dffb857dc5d0a",
+      "output_sha256": "9e9908d01827b676a78e3d5b816ee62b8457fa1efde7673f8e3dffb857dc5d0a",
+      "elapsed_seconds": 0.15,
+      "resident_bytes": 13336576,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "half_same_01",
+      "input_sha256": "00d1c739a2a29bc5cd22c6d7fa92ebb215b6f161de8cb3b03ee7a9358a5cdf7b",
+      "answer_sha256": "bf1a1c171e063e963e6b9e078a0ecd75b18cf7a0a1d0c6ab6432f25ff60fe427",
+      "output_sha256": "bf1a1c171e063e963e6b9e078a0ecd75b18cf7a0a1d0c6ab6432f25ff60fe427",
+      "elapsed_seconds": 0.1519,
+      "resident_bytes": 13352960,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "half_same_02",
+      "input_sha256": "0ae04acc8df8b49a1e42912c2b92ec98a424a7410f71fd70df975885e639171c",
+      "answer_sha256": "60891494438b194d89815f13948a62f8811548696583d8cb1e9facb372a727c3",
+      "output_sha256": "60891494438b194d89815f13948a62f8811548696583d8cb1e9facb372a727c3",
+      "elapsed_seconds": 0.1501,
+      "resident_bytes": 13205504,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "max_random_00",
+      "input_sha256": "b258f2e090be006a31077a627c155bf890fc82653b63512d33cbba3db9cbccf2",
+      "answer_sha256": "bdd0c5c84c89b81b36e7a8da5491cf42fb36d752808350a1813dee490072b226",
+      "output_sha256": "bdd0c5c84c89b81b36e7a8da5491cf42fb36d752808350a1813dee490072b226",
+      "elapsed_seconds": 0.1501,
+      "resident_bytes": 13451264,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "max_random_01",
+      "input_sha256": "7832d89603f328d51b77c59097f28cc9bd26fa7c18a10d7b730fd6b1b7cd16ad",
+      "answer_sha256": "bcba157032fbc9b8be627e4a19e614436f4d0de2fd943dd6c06f3804cba1d65f",
+      "output_sha256": "bcba157032fbc9b8be627e4a19e614436f4d0de2fd943dd6c06f3804cba1d65f",
+      "elapsed_seconds": 0.1519,
+      "resident_bytes": 13369344,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "max_random_02",
+      "input_sha256": "1d72b44a739a939e55e879cc4a40f3a87a89d9505c6a9be6a094bca57e8f24d6",
+      "answer_sha256": "907807c7668fe87d4182762ee2a6817d7ccd0675be728c9300035beacda6537b",
+      "output_sha256": "907807c7668fe87d4182762ee2a6817d7ccd0675be728c9300035beacda6537b",
+      "elapsed_seconds": 0.1499,
+      "resident_bytes": 13385728,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "near_arg_00",
+      "input_sha256": "c5f0fe6bf1dfb211f61ef250ae56b6e44012144bafd9eb9ffd39338fa083d464",
+      "answer_sha256": "2e3a5d076744052e468c00b41f4cac460a83bddd3ce0c1d729e56c1da12de005",
+      "output_sha256": "2e3a5d076744052e468c00b41f4cac460a83bddd3ce0c1d729e56c1da12de005",
+      "elapsed_seconds": 0.15,
+      "resident_bytes": 13385728,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "near_arg_01",
+      "input_sha256": "7da44b135d4170341919f7abb6371e78d0b30329540ad8721d56887d083df52f",
+      "answer_sha256": "cb40050ff9082cb1b58af73257318a51a1b15b75592e1123252234dcf29eeb08",
+      "output_sha256": "cb40050ff9082cb1b58af73257318a51a1b15b75592e1123252234dcf29eeb08",
+      "elapsed_seconds": 0.1502,
+      "resident_bytes": 13287424,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "near_arg_02",
+      "input_sha256": "fcbc4c1116bbf6bbe2f12465b61ab3338c3a25d7d53e50e440d5ad8c3ffb98b4",
+      "answer_sha256": "4f1205838ef910916c540d9e8acdcb8a49463bfea70ca2b5b847bd8a0eff81d4",
+      "output_sha256": "4f1205838ef910916c540d9e8acdcb8a49463bfea70ca2b5b847bd8a0eff81d4",
+      "elapsed_seconds": 0.1499,
+      "resident_bytes": 13369344,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "near_arg_shuffle_00",
+      "input_sha256": "95c3d5ce0ef65e5a38891768a92dc2ab0cfaffa8d291c6291fb5a219b3fbbf7b",
+      "answer_sha256": "2e3a5d076744052e468c00b41f4cac460a83bddd3ce0c1d729e56c1da12de005",
+      "output_sha256": "2e3a5d076744052e468c00b41f4cac460a83bddd3ce0c1d729e56c1da12de005",
+      "elapsed_seconds": 0.1499,
+      "resident_bytes": 13369344,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "near_arg_shuffle_01",
+      "input_sha256": "f4ec05400cece139e19bc1ea7d2148ac476dfafec6097727e26316b81627fc36",
+      "answer_sha256": "cb40050ff9082cb1b58af73257318a51a1b15b75592e1123252234dcf29eeb08",
+      "output_sha256": "cb40050ff9082cb1b58af73257318a51a1b15b75592e1123252234dcf29eeb08",
+      "elapsed_seconds": 0.1488,
+      "resident_bytes": 13320192,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "near_arg_shuffle_02",
+      "input_sha256": "9251afd151bcf1de41f6b553ce87545b5a895360a6893439b13fbc6ba4b5b264",
+      "answer_sha256": "4f1205838ef910916c540d9e8acdcb8a49463bfea70ca2b5b847bd8a0eff81d4",
+      "output_sha256": "4f1205838ef910916c540d9e8acdcb8a49463bfea70ca2b5b847bd8a0eff81d4",
+      "elapsed_seconds": 0.1502,
+      "resident_bytes": 13320192,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "only_x_axis_00",
+      "input_sha256": "62c9c9deb885d34b4e211cf3109e4996bccd3eb6ce1e4806a811768a358ea4f1",
+      "answer_sha256": "591696cc3d5c1a76c8a33424e3a49f268fa238b58027187bbce1ce352f9b9c6d",
+      "output_sha256": "0ff98928204989405658f1bd4cb120c70c7b0e69a74df88df55cd40c3ea7e274",
+      "elapsed_seconds": 0.09,
+      "resident_bytes": 10256384,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_00",
+      "input_sha256": "e81d765dc7ce4a9122b784d400c8a2ad3692e99c45ff9c1a61d715302c42a81d",
+      "answer_sha256": "bae561952387139e90ff3d53914fd3b35e5231640026946514cb87d32d020dcc",
+      "output_sha256": "bae561952387139e90ff3d53914fd3b35e5231640026946514cb87d32d020dcc",
+      "elapsed_seconds": 0.1417,
+      "resident_bytes": 12075008,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_01",
+      "input_sha256": "b0c1d8f57dbefc0a8d1d27ff287e30c0f9c9cc3424c473b855b597d274f47e90",
+      "answer_sha256": "ceb2d34bd4ce3b425b9336598f7d9d7484b3f820c4786d80023ace8a500d1b14",
+      "output_sha256": "ceb2d34bd4ce3b425b9336598f7d9d7484b3f820c4786d80023ace8a500d1b14",
+      "elapsed_seconds": 0.1403,
+      "resident_bytes": 12550144,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_02",
+      "input_sha256": "c0998b1f875918945f22769c2ab991c61f271de6d24f1ba7118ffb856073ceaa",
+      "answer_sha256": "5c29211aad5bc1bc98e79ad6e1228398d3361a6bf23ee9052f73c4ee66620e0c",
+      "output_sha256": "5c29211aad5bc1bc98e79ad6e1228398d3361a6bf23ee9052f73c4ee66620e0c",
+      "elapsed_seconds": 0.09,
+      "resident_bytes": 10797056,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "small_all_00",
+      "input_sha256": "3d6ef60127035b8670663e43462d720e95d7b1fd569988ed90ec4a18bf28f6bc",
+      "answer_sha256": "f09e4781af821f3d88d494ead537fae73f6204eaca0f06ccb23057ee3aaf732b",
+      "output_sha256": "2f2928c02050a03fccee1e9e6b590455c1bb1fa767e563c2790ae69f329d2e0d",
+      "elapsed_seconds": 0.0899,
+      "resident_bytes": 10256384,
+      "checker_message": "ok OK",
+      "verdict": "local_checker_accepted"
+    }
+  ]
+}

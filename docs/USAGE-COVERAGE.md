@@ -77,12 +77,12 @@
 | MatrixTreeMod | 待补 | pending_example |
 | DuJiao | [example-85](usage/example-85.cpp), [example-86](usage/example-86.cpp) | locally_checked_example |
 | DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |
-| IntegerPlane | 待补 | pending_example |
-| integer_hull | [example-64](usage/example-64.cpp) | locally_checked_example |
+| IntegerPlane | [example-126](usage/example-126.cpp) | locally_checked_example |
+| integer_hull | [example-64](usage/example-64.cpp), [example-123（应用补充）](usage/example-123.cpp) | locally_checked_example |
 | polygon_area2 | 待补 | pending_example |
 | polygon_contains | 待补 | pending_example |
 | convex_contains_i64 | 待补 | pending_example |
-| convex_diameter2 | [example-65](usage/example-65.cpp) | locally_checked_example |
+| convex_diameter2 | [example-65](usage/example-65.cpp), [example-124（应用补充）](usage/example-124.cpp) | locally_checked_example |
 | RealPlane | 待补 | pending_example |
 | line_projection | 待补 | pending_example |
 | segment_distance_real | 待补 | pending_example |
@@ -103,7 +103,7 @@
 | gomory_hu | [example-56](usage/example-56.cpp) | locally_checked_example |
 | cut_tree_values | 待补 | pending_example |
 | BoundedCirculation | 待补 | pending_example |
-| IntegerHalfplanes | 待补 | pending_example |
+| IntegerHalfplanes | [example-125（应用补充）](usage/example-125.cpp) | generated_unverified |
 | CirclePolygon | 待补 | pending_example |
 | EnclosingCircle | [example-61](usage/example-61.cpp) | locally_checked_example |
 | CircleTangents | 待补 | pending_example |

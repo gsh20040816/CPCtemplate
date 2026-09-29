@@ -435,7 +435,7 @@
     "integer_plane",
     "IntegerPlane",
     "整数点向量与线段判定",
-    "坐标绝对值不超过 10¹²，使用 long long 存点、__int128_t 计算叉积、点积与距离平方。Point 按 x、y 字典序比较；cross(a,b,c) 为 ab 与 ac 的叉积，dot 为点积。on_segment 包含端点及退化线段；intersect 判断闭线段有交点。PolarLess 按半平面、叉积、长度平方排序，要求严格弱序。全部单次运算 O(1)，不使用 epsilon。"
+    "坐标绝对值不超过 10¹²，使用 long long 存点、__int128_t 计算叉积、点积与距离平方。Point 按 x、y 字典序比较；cross(a,b,c) 为 ab 与 ac 的叉积，dot 为点积。on_segment 包含端点及退化线段；intersect 判断闭线段有交点。PolarLess 从正 x 轴按 [0,2π) 逆时针极角排序，同向按长度平方递增；零向量排在最前。同点等价，比较器满足严格弱序。按其他起点排序应整体循环移动，LC 的 (-π,π] 顺序仅将 y<0 后缀移到前面。全部单次运算 O(1)，不使用 epsilon。"
   ],
   [
     "integer_hull",

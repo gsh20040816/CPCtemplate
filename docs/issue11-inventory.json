@@ -904,8 +904,9 @@
       "toc_page": 184,
       "physical_page": 186,
       "level": 0,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "reviewed_partial_coverage",
+      "candidate_symbols": [],
+      "review": "计算几何全部附件页面已审阅；定点凸包、李超、整数直径、整数半平面交、整数极角已有本地证据，6.5.2通用浮点排序仍待补，不记全覆盖。"
     },
     {
       "section": "6.1",
@@ -913,11 +914,12 @@
       "toc_page": 184,
       "physical_page": 186,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
+        "IntegerPlane",
         "integer_hull"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "已审阅 186–187 页；P2742 当前范围最多两位小数，新增字符串放大100的精确驱动，不复制附件平方距离漏乘号和非严格弱序比较器。独立 cpp_int 礼品包装、百位周长及10万点双模式通过；任意浮点输入的稳健凸包不据此宣称完成。"
     },
     {
       "section": "6.1.1",
@@ -925,8 +927,12 @@
       "toc_page": 184,
       "physical_page": 186,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "existing_implementation_local_verified",
+      "candidate_symbols": [
+        "IntegerPlane",
+        "integer_hull"
+      ],
+      "review": "已审阅 186–187 页；P2742 当前范围最多两位小数，新增字符串放大100的精确驱动，不复制附件平方距离漏乘号和非严格弱序比较器。独立 cpp_int 礼品包装、百位周长及10万点双模式通过；任意浮点输入的稳健凸包不据此宣称完成。"
     },
     {
       "section": "6.2",
@@ -958,11 +964,12 @@
       "toc_page": 189,
       "physical_page": 191,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
+        "integer_hull",
         "convex_diameter2"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "已审阅 191–195 页，两份程序均为 P1452 直径平方，无矩形变体。新增完整驱动；cpp_int 全点对/礼品包装、512子集、随机万亿坐标、每个循环起点及5万点双模式通过。输出端点接口及已有 LC 用法保留。"
     },
     {
       "section": "6.4",
@@ -970,11 +977,11 @@
       "toc_page": 194,
       "physical_page": 196,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "IntegerHalfplanes"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "已审阅 196–198 页，实际任务 P4196 使用整数顶点且交集有界。新增有向边到整数不等式、齐次鞋带面积的完整应用和打印用法；5000任意精度边界枚举与207组 Fraction 裁剪、500边界双模式通过。通用浮点输入/无界分类仍不在本接口范围。"
     },
     {
       "section": "6.5",
@@ -982,11 +989,11 @@
       "toc_page": 196,
       "physical_page": 198,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "reviewed_partial_coverage",
       "candidate_symbols": [
         "IntegerPlane"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "198–201页三份变体均已逐页核对；整数排序已用严格弱序穷举、百位 atan2及LC全部21组双模式验证。6.5.2通用浮点变体仍待稳健谓词与数值契约，不能记作全部实现。细节见 GEOMETRY-ATTACHMENT.md。"
     },
     {
       "section": "6.5.1",
@@ -994,8 +1001,11 @@
       "toc_page": 196,
       "physical_page": 198,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "existing_implementation_local_verified",
+      "candidate_symbols": [
+        "IntegerPlane"
+      ],
+      "review": "附件只提供八区整数比较器，没有具体 Seoul 题目/完整应用。现有双半圆整数排序等价覆盖极角功能，但起点和零向量约定单独说明；不声称完成 Seoul 原题。"
     },
     {
       "section": "6.5.2",
@@ -1003,8 +1013,11 @@
       "toc_page": 197,
       "physical_page": 199,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "reviewed_partial_coverage",
+      "candidate_symbols": [
+        "IntegerPlane"
+      ],
+      "review": "已审阅浮点 atan2/纯叉积/象限三写法：未分半圆有比较环，原点缺返回、cmp3 else缺return。整数替代已有正式LC验证，通用浮点输入版仍待稳健谓词和数值契约。"
     },
     {
       "section": "6.5.3",
@@ -1012,8 +1025,11 @@
       "toc_page": 198,
       "physical_page": 200,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "existing_implementation_local_verified",
+      "candidate_symbols": [
+        "IntegerPlane"
+      ],
+      "review": "已核对 y>0 分组在同时含正负x轴时违反传递性；采用完整双半圆整数比较器，保留零向量和同向长度约定，逐对高精度参考及LC21组双模式通过。"
     }
   ]
 }

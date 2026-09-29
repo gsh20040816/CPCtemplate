@@ -564,3 +564,7 @@ build/fft_roots
 "$CXX" "${flags[@]}" tests/fft_convolution.cpp -o build/fft_convolution
 build/fft_convolution
 python3 tests/fft_application.py
+
+"$CXX" "${flags[@]}" tests/polar_order.cpp -o build/polar-order
+build/polar-order
+python3 tests/geometry_attachment.py
