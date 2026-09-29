@@ -49,12 +49,12 @@ for style in ['compact']:
     exe = root / f'build/P4777.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P4777.{style}.cpp', str(bundle)], cwd=root, check=True)
     flags = ['-std=c++20', '-O2']
-    if os.environ.get('SANITIZE') == '1':
+    if os.environ.get('SANITIZE') == '1' or os.environ.get('CPC_SANITIZE') == '1':
         flags = ['-std=c++20', '-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
     subprocess.run([CXX, *flags, str(bundle), '-o', str(exe)], check=True)
     for equations in cases:
         data = str(len(equations)) + '\n' + ''.join(f'{m} {b}\n' for m, b in equations)
-        result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=10)
+        result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=120)
         assert not result.stderr, result.stderr
         assert result.stdout.strip() == str(oracle(equations))
     print(f'P4777 {style}: {len(cases)} consistent systems, Python exact oracle, noncoprime/repeated moduli, modulus one, near 1e18 LCM and n=100000 passed')

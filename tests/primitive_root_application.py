@@ -2,6 +2,7 @@
 from compiler_config import CXX
 from pathlib import Path
 import math
+import os
 import subprocess
 root = Path(__file__).resolve().parents[1]
 
@@ -31,11 +32,15 @@ for style in ['compact']:
     bundle = root / f'build/P6091.{style}.cpp'
     exe = root / f'build/P6091.{style}'
     subprocess.run(['python3', 'tools/bundle.py', f'verify/luogu/P6091.{style}.cpp', str(bundle)], cwd=root, check=True)
-    subprocess.run([CXX, '-std=c++20', '-O2', str(bundle), '-o', str(exe)], check=True)
+    flags = ['-std=c++20', '-O2']
+    if os.environ.get('SANITIZE') == '1' or os.environ.get('CPC_SANITIZE') == '1':
+        flags = ['-std=c++20', '-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
+    subprocess.run([CXX, *flags, str(bundle), '-o', str(exe)], check=True)
     for begin in range(0, len(cases), 10):
         group = cases[begin:begin+10]
         data = str(len(group)) + '\n' + ''.join(f'{n} {d}\n' for n, d in group)
-        result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=20)
+        result = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=120)
+        assert not result.stderr, result.stderr
         want = [line for pair in expected[begin:begin+10] for line in pair]
         assert result.stdout.splitlines() == want
     print(f'P6091 {style}: 124 cases, independent candidate scan, sorted sampling, empty lines, prime powers and n=1000000 PASS')

@@ -1,5 +1,4 @@
-#include "../src/compact/number_theory.hpp"
-#include "../src/classic/number_theory.hpp"
+#include "../src/compact/crt_merge.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 #include <iostream>
 #include <random>
@@ -8,8 +7,7 @@ using boost::multiprecision::cpp_int;
 cpp_int norm(cpp_int a, const cpp_int &m)
 {
     a %= m;
-    if (a < 0)
-        a += m;
+    if (a < 0) a += m;
     return a;
 }
 
@@ -31,13 +29,12 @@ void check(long long r, long long m, long long b, long long n)
     cpp_int result = 0;
     if (exists)
         result = norm(R + cpp_int(m) * norm(diff / a * x, cpp_int(n) / a), modulus);
-    for (int style = 0; style < 2; style++)
     {
         long long rr = r, mm = m;
         bool overflow = false, ok = false;
         try
         {
-            ok = style ? Number_Theory::Crt(rr, mm, b, n) : NumberTheory::crt(rr, mm, b, n);
+            ok = crt_merge(rr, mm, b, n);
         }
         catch (const overflow_error &)
         {
@@ -48,8 +45,7 @@ void check(long long r, long long m, long long b, long long n)
             assert(mm == m && cpp_int(rr) == R);
         else
             assert(ok && cpp_int(rr) == result && cpp_int(mm) == modulus);
-        if (!exists)
-            assert(!ok);
+        if (!exists) assert(!ok);
     }
 }
 
@@ -68,10 +64,9 @@ int main()
                             break;
                         }
                     long long rr = r - 3 * m, mm = m;
-                    bool ok = NumberTheory::crt(rr, mm, b + 2 * n, n);
+                    bool ok = crt_merge(rr, mm, b + 2 * n, n);
                     assert(ok == (expected != -1));
-                    if (ok)
-                        assert(rr == expected && mm == period);
+                    if (ok) assert(rr == expected && mm == period);
                     check(r - 3 * m, m, b + 2 * n, n);
                 }
     mt19937_64 rng(4777);
@@ -89,5 +84,6 @@ int main()
         check(r, LLONG_MAX, r, LLONG_MAX);
     }
     check(0, LLONG_MAX - 1, 1, LLONG_MAX - 3);
-    cout << "CRT dual exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS\n";
+    cout << "CRT standalone exhaustive residue oracle, cpp_int reference, signed "
+            "extremes, inconsistency and modulus overflow PASS\n";
 }

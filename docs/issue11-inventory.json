@@ -439,11 +439,11 @@
       "toc_page": 69,
       "physical_page": 71,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
         "PrimitiveRoot"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际 71–74 页完整原根流程已核对：存在性、最小原根、互素指数枚举、排序与采样；vector 独立幂循环及 P6091 124 组完整驱动双模式通过。接口上限 INT_MAX，不声称覆盖 LC 10^18 原根题。 详见 docs/NUMBER-THEORY-ATTACHMENT-REVIEW.md、verification/number-theory-attachment.json；无新增在线 AC。"
     },
     {
       "section": "3.2.1",
@@ -451,8 +451,11 @@
       "toc_page": 69,
       "physical_page": 71,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "PrimitiveRoot"
+      ],
+      "review": "同 3.2，附件洛谷模板与 P6091 完整驱动已核对，保留无原根时的空行。 详见 docs/NUMBER-THEORY-ATTACHMENT-REVIEW.md、verification/number-theory-attachment.json；无新增在线 AC。"
     },
     {
       "section": "3.3",
@@ -557,11 +560,11 @@
       "toc_page": 87,
       "physical_page": 89,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
         "crt_merge"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际 89–90 页图片已核对，包含两两互质 CRT 及非互质合并。独立函数完整剩余类枚举、15000 组 cpp_int、负余数/周期越界，以及 P4777 186 组含 10 万式的驱动双模式通过；失败时 r 已归一化的语义明确保留。 详见 docs/NUMBER-THEORY-ATTACHMENT-REVIEW.md、verification/number-theory-attachment.json；无新增在线 AC。"
     },
     {
       "section": "3.9",
@@ -569,11 +572,11 @@
       "toc_page": 88,
       "physical_page": 90,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
         "ExLucas"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际 90–97 页图片推导与代码已核对，覆盖素数幂阶乘单位及 CRT；不沿用附件 int 阶乘指数。Pascal/cpp_int/逐项剥除因子/6000 组 Kummer 进位与 P4720 144 组完整驱动双模式通过，含 uint64 边界和 n=10^18。 详见 docs/NUMBER-THEORY-ATTACHMENT-REVIEW.md、verification/number-theory-attachment.json；无新增在线 AC。"
     },
     {
       "section": "4",

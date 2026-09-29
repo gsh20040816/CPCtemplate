@@ -44,8 +44,8 @@
 | 3.1 | 1. Min_25 筛 | 63 | 65 | implemented_local_verified_online_pending |
 | 3.1.1 | (1) 洛谷模板 | 63 | 65 | implemented_local_verified_online_pending |
 | 3.1.2 | (2) min_25 筛质数个数 | 68 | 70 | implemented_local_verified_online_pending |
-| 3.2 | 2. 原根 | 69 | 71 | pending_content_review |
-| 3.2.1 | (1) 洛谷模板 | 69 | 71 | pending_content_review |
+| 3.2 | 2. 原根 | 69 | 71 | implemented_local_verified_online_pending |
+| 3.2.1 | (1) 洛谷模板 | 69 | 71 | implemented_local_verified_online_pending |
 | 3.3 | 3. 杜教筛 | 72 | 74 | implemented_local_verified_online_pending |
 | 3.3.1 | (1) 洛谷模板 | 72 | 74 | implemented_local_verified_online_pending |
 | 3.4 | 4. LGV 引理 | 79 | 81 | implemented_local_verified_online_pending |
@@ -54,8 +54,8 @@
 | 3.6.1 | (1) 洛谷模板 | 80 | 82 | implemented_local_verified_online_pending |
 | 3.7 | 7. Matrix-Tree 定理 | 83 | 85 | implemented_local_verified_online_pending |
 | 3.7.1 | (1) 洛谷模板 | 83 | 85 | implemented_local_verified_online_pending |
-| 3.8 | 8. 中国剩余定理 | 87 | 89 | pending_content_review |
-| 3.9 | 9. 扩展卢卡斯定理 | 88 | 90 | pending_content_review |
+| 3.8 | 8. 中国剩余定理 | 87 | 89 | implemented_local_verified_online_pending |
+| 3.9 | 9. 扩展卢卡斯定理 | 88 | 90 | implemented_local_verified_online_pending |
 | 4 | 数据结构 | 96 | 98 | pending_content_review |
 | 4.1 | 1. 可并堆/左偏树 | 96 | 98 | implemented_local_verified_online_pending |
 | 4.1.1 | (1) 洛谷模板 | 96 | 98 | implemented_local_verified_online_pending |

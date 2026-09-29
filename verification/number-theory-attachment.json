@@ -1,0 +1,153 @@
+{
+  "scope": "Issue 11 sections 3.2, 3.8, 3.9; local validation only, no new online AC",
+  "compiler": "/opt/homebrew/bin/g++-16",
+  "files": {
+    "tests/primitive_root.cpp": "27f2d5e029dd17a403a25b2f59fa4190ec94d630728b497a4ed5e96acd93090a",
+    "tests/primitive_root_application.py": "fd126ffc5b6da1db999f3a559e1b22e843772ea7c830083347c755e7d02f3ec0",
+    "tests/crt.cpp": "eb892c68a0041e9c5afbef0a068d6f56635a59a17783ba9110661f8322d3dbcd",
+    "tests/crt_application.py": "00774ee35753f319af0950029b779b2504f0679546f80b2f6d0c63051a579c7a",
+    "tests/exlucas.cpp": "b33e37cf484574550f97b07570986176bd8af6b35210ee99d058de41e1bd8dfe",
+    "tests/exlucas_application.py": "6ea0d65d7c331a255b7d4be13f22645553ed2e98ac1a9cd9611486517efb0093",
+    "src/compact/primitive_root.hpp": "7128aeceeeb02de5fbc37a0a34332cc83b874f2ff83746fef37d4b05d87f809a",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/exlucas.hpp": "7a4c53f56d500d0c66df38d4788d50c54df607d539ef918ab24cd271cbfbee0d",
+    "verify/luogu/P6091.compact.cpp": "a18eb9ebd870d288fccf5396385e97028d72d5fc58b9460369a7adf05e52c40e",
+    "verify/luogu/P4777.compact.cpp": "c2be8c52350354a7ade12199c726f4b3ebfd0c9f01578e1bbe5e935bbb9b72cb",
+    "verify/luogu/P4720.compact.cpp": "c14c0436f7eef1e65ca3fce6d0c5f27cb68a14d0f12d10b675594645cec08872",
+    "tests/crt_system.cpp": "ffb46f17575d83f1186245f060b566cb89153e508e73348aba7d6ce0709535e1"
+  },
+  "runs": [
+    {
+      "algorithm": "primitive_root",
+      "mode": "normal",
+      "kind": "unit",
+      "seconds": 0.998,
+      "stdout": "Primitive root vector exhaustive power-cycle oracle, orders, signed inputs, existence, reset, int32 bounds and 999983 full cycle PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "primitive_root",
+      "mode": "normal",
+      "kind": "driver",
+      "seconds": 2.892,
+      "stdout": "P6091 compact: 124 cases, independent candidate scan, sorted sampling, empty lines, prime powers and n=1000000 PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "primitive_root",
+      "mode": "asan_ubsan",
+      "kind": "unit",
+      "seconds": 0.568,
+      "stdout": "Primitive root vector exhaustive power-cycle oracle, orders, signed inputs, existence, reset, int32 bounds and 999983 full cycle PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "primitive_root",
+      "mode": "asan_ubsan",
+      "kind": "driver",
+      "seconds": 4.151,
+      "stdout": "P6091 compact: 124 cases, independent candidate scan, sorted sampling, empty lines, prime powers and n=1000000 PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "crt",
+      "mode": "normal",
+      "kind": "unit",
+      "seconds": 0.376,
+      "stdout": "CRT standalone exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "crt",
+      "mode": "normal",
+      "kind": "driver",
+      "seconds": 2.416,
+      "stdout": "P4777 compact: 186 consistent systems, Python exact oracle, noncoprime/repeated moduli, modulus one, near 1e18 LCM and n=100000 passed",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "crt",
+      "mode": "asan_ubsan",
+      "kind": "unit",
+      "seconds": 0.506,
+      "stdout": "CRT standalone exhaustive residue oracle, cpp_int reference, signed extremes, inconsistency and modulus overflow PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "crt",
+      "mode": "asan_ubsan",
+      "kind": "driver",
+      "seconds": 11.957,
+      "stdout": "P4777 compact: 186 consistent systems, Python exact oracle, noncoprime/repeated moduli, modulus one, near 1e18 LCM and n=100000 passed",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "exlucas",
+      "mode": "normal",
+      "kind": "unit",
+      "seconds": 0.456,
+      "stdout": "exLucas vector Pascal, exact big integers, uint64 extremes, stripped factorials, Kummer carries and prime Lucas oracle PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "exlucas",
+      "mode": "normal",
+      "kind": "driver",
+      "seconds": 1.69,
+      "stdout": "P4720 compact: 144 cases, bundled driver / Python exact combinations PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "exlucas",
+      "mode": "asan_ubsan",
+      "kind": "unit",
+      "seconds": 0.699,
+      "stdout": "exLucas vector Pascal, exact big integers, uint64 extremes, stripped factorials, Kummer carries and prime Lucas oracle PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "exlucas",
+      "mode": "asan_ubsan",
+      "kind": "driver",
+      "seconds": 9.705,
+      "stdout": "P4720 compact: 144 cases, bundled driver / Python exact combinations PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "crt",
+      "mode": "normal",
+      "kind": "system",
+      "seconds": 0.75,
+      "stdout": "CRT systems standalone exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "algorithm": "crt",
+      "mode": "asan_ubsan",
+      "kind": "system",
+      "seconds": 0.381,
+      "stdout": "CRT systems standalone exhaustive up-to-three equations, empty system, orderings and late inconsistency PASS",
+      "verdict": "local_oracle_passed"
+    }
+  ],
+  "compiler_version": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "recorded_at_utc": "2026-09-29T06:57:33.624430+00:00",
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "boost_unit_include": [
+      "-I/opt/homebrew/include"
+    ]
+  }
+}
