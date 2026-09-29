@@ -218,6 +218,18 @@ HDU 原题页面本次无法读取，不能由这条注释推断原题措辞。
 覆盖素数与合数模数、0/1 重数限制和大于总和的限制；另检查 $N=100000$ 的边界。
 普通与 ASan/UBSan 均通过，暂无在线 AC。
 
+
+\Needspace{9\baselineskip}
+Library Checker 的分拆函数要求输出 $p(0),\ldots,p(N)$，$N\le500000$，
+完整用法见第~\pageref{usage-example-158}~页；固定官方11组数据的本地checker已通过。
+P6189 将非增跑步距离序列对应到无序分拆，模数不保证素数，
+用法见第~\pageref{usage-example-159}~页。它是比赛应用，不替代正式模板题。
+额外独立参考将部分分成不超过 $B$ 与大于 $B$ 两组：前者完全背包，
+后者按恰好 $j$ 个部分维护 $g_j(s)=g_j(s-j)+g_{j-1}(s-B-1)$，再卷积。
+取 $B=\lfloor\sqrt N\rfloor$，时间 $O(N\sqrt N)$、滚动数组空间 $O(N)$，
+不复用被测的五边形数递推；覆盖 $N=10^5$ 的合数模数与模数1。
+这两份用法只调用构造和 $p$ 表，不代表 limited 接口已有正式题的线上验证。
+
 来源：kuangbin 2.11；\url{https://oi-wiki.org/math/combinatorics/partition/}。
 
 \section{幂的约数和：不除以 \texorpdfstring{$p-1$}{p-1}}\index{divisor sum}\index{geometric series}
@@ -765,6 +777,21 @@ BM 在域上求有限前缀的最短递推。本书实现要求素数模数；
 至少给出前 $2d$ 项，再用恢复出的系数求后续项。
 系数向量末尾的零不能擅自删除：它可能对应非平稳的初始段，
 改变阶数会改变递推开始适用的位置。
+
+\Needspace{12\baselineskip}
+P5487 同时输出最短系数与远项，见第~\pageref{usage-example-160}~页。
+第一行仅有 $c_0,\ldots,c_{k-1}$，没有阶数前缀；取恰好 $k$ 个初值再求远项。
+全零前缀得到空系数时保留空首行，第二行输出0。题目保证最短递推唯一；
+本程序用 BM 与特征多项式求余，时间 $O(nk+k^2\log m)$，空间 $O(n+k)$。
+
+小规模参考逐阶建立全部递推方程，用高斯消元验证最短性和唯一系数，
+用伴随矩阵幂求远项。最大5000阶使用独立构造
+$a_n=\sum_{t=1}^{k}t^n$，特征多项式为 $\prod_{t=1}^{k}(x-t)$。
+前 $2k$ 项的 Hankel 矩阵是 $VV^{\mathsf T}$，其中 $V_{i,t}=t^i$；
+不同非零底数给出可逆的 Vandermonde 矩阵，所以最短阶数确为 $k$。
+远项直接求 $\sum t^m$，无需调用被测递推算法。普通与ASan/UBSan均通过，
+本地时间与线上AC、速度排名分开记录。
+
 
 \clearpage
 \section{素数模高次剩余与单位根}

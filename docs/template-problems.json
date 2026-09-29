@@ -1173,7 +1173,20 @@
       "title": "整数分拆与重数上限",
       "source": "src/compact/partitions.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/partition_function.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/partition_function",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P6189.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6189",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -2764,6 +2777,12 @@
           "url": "https://judge.yosupo.jp/problem/find_linear_recurrence",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P5487.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5487",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
       "qoj_tag_candidate": "https://qoj.ac/problem/547",
@@ -2780,7 +2799,14 @@
       "title": "特征多项式求线性递推第 k 项",
       "source": "src/compact/recurrence.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5487.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5487",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

@@ -2886,5 +2886,78 @@
     "statement_sources": [
       "https://www.luogu.com.cn/problem/P5170"
     ]
+  },
+  {
+    "symbol": "Partitions",
+    "problem": "Library Checker partition_function",
+    "url": "https://judge.yosupo.jp/problem/partition_function",
+    "classification": "Official standalone template/library problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "输出0..N的全部整数分拆数，模998244353，N≤500000。构造Partitions后直接读p；p[0]=1表示空分拆。五边形数递推O(N√N)时间、O(N)空间，不是有序拆分。此用法不调用limited。",
+    "adapter": "输出0..N的全部整数分拆数，模998244353，N≤500000。构造Partitions后直接读p；p[0]=1表示空分拆。五边形数递推O(N√N)时间、O(N)空间，不是有序拆分。此用法不调用limited。",
+    "tested_api": [
+      "constructor",
+      "p"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending. Partitions::limited is not exercised by these usages.",
+    "statement_sources": [
+      "https://judge.yosupo.jp/problem/partition_function",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/enumerative_combinatorics/partition_function/task.md"
+    ]
+  },
+  {
+    "symbol": "Partitions",
+    "problem": "Luogu P6189 [NOI Online #1 入门组] 跑步",
+    "url": "https://www.luogu.com.cn/problem/P6189",
+    "classification": "NOI Online contest application; not formal-template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "正整数非增序列的总和为n，等价于n的无序分拆。n≤10⁵，1≤p<2³⁰且不保证素数；直接构造Partitions(n,p)，输出p[n]。这是比赛应用，单独记录，不替代正式模板题。",
+    "adapter": "正整数非增序列的总和为n，等价于n的无序分拆。n≤10⁵，1≤p<2³⁰且不保证素数；直接构造Partitions(n,p)，输出p[n]。这是比赛应用，单独记录，不替代正式模板题。",
+    "tested_api": [
+      "constructor",
+      "p"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending. Partitions::limited is not exercised by these usages.",
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P6189"
+    ]
+  },
+  {
+    "symbol": "recurrence_nth",
+    "problem": "Luogu P5487",
+    "url": "https://www.luogu.com.cn/problem/P5487",
+    "classification": "Official standalone template/library problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "给出n个初值，恢复唯一的最短递推并求第m项，n≤10000、n<m≤10⁹、阶数≤5000，模998244353。BM返回c[j-1]乘a[i-j]，首行仅输出系数、不带阶数；裁取恰好c.size()个初值后调用recurrence_nth。全零序列空递推仍输出空首行和第二行0。复杂度O(nk+k²log m)，O(n+k)空间。",
+    "adapter": "给出n个初值，恢复唯一的最短递推并求第m项，n≤10000、n<m≤10⁹、阶数≤5000，模998244353。BM返回c[j-1]乘a[i-j]，首行仅输出系数、不带阶数；裁取恰好c.size()个初值后调用recurrence_nth。全零序列空递推仍输出空首行和第二行0。复杂度O(nk+k²log m)，O(n+k)空间。",
+    "tested_api": [
+      "berlekamp_massey",
+      "recurrence_nth"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending.",
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P5487"
+    ]
   }
 ]

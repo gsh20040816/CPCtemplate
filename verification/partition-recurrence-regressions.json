@@ -1,0 +1,20 @@
+{
+  "scope": "Current vector partitions and recurrence core: independent coin DP, bounded multiplicity enumeration, BM exhaustive minimality and uint64 matrix oracle; local only.",
+  "baseline_commit": "1a9fa3e91d7dff58915341040be069611370054c",
+  "modes": [
+    "normal",
+    "ASan/UBSan"
+  ],
+  "sha256": {
+    "src/compact/partitions.hpp": "7dc494705598e23c1a5771810fc7b5df100d952f7021a4115f0b423887a43edc",
+    "src/compact/recurrence.hpp": "6399924d2d2b1009ead8244bf325988b180536ec68721092fb711ab1d0b80148",
+    "tests/partitions.cpp": "5c02337cddf5a7b8fbc681106a01eaa79d5918aeb5602208e228f0132a84159c",
+    "tests/recurrence.cpp": "e9ef61142fc46ff3ea053efa12bd05befac556bc1df1c0d695b0338b9f3270a5"
+  },
+  "logs": [
+    "verification/partition-recurrence-partitions-normal.txt",
+    "verification/partition-recurrence-partitions-sanitizer.txt",
+    "verification/partition-recurrence-recurrence-normal.txt",
+    "verification/partition-recurrence-recurrence-sanitizer.txt"
+  ]
+}

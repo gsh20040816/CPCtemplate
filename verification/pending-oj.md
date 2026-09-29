@@ -52,6 +52,7 @@
 - `verify/library_checker/matrix_product.compact.cpp`
 - `verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp`
 - `verify/library_checker/number_of_substrings.compact.cpp`
+- `verify/library_checker/partition_function.compact.cpp`
 - `verify/library_checker/persistent_unionfind.compact.cpp`
 - `verify/library_checker/polynomial_taylor_shift.compact.cpp`
 - `verify/library_checker/pow_of_formal_power_series.compact.cpp`
@@ -140,11 +141,13 @@
 - `verify/luogu/P5325.compact.cpp`
 - `verify/luogu/P5357.compact.cpp`
 - `verify/luogu/P5431.mint.compact.cpp`
+- `verify/luogu/P5487.compact.cpp`
 - `verify/luogu/P5632.compact.cpp`
 - `verify/luogu/P5656.compact.cpp`
 - `verify/luogu/P5905.compact.cpp`
 - `verify/luogu/P6113.compact.cpp`
 - `verify/luogu/P6139.compact.cpp`
+- `verify/luogu/P6189.compact.cpp`
 - `verify/luogu/P7173.compact.cpp`
 - `verify/luogu/P7771.compact.cpp`
 - `verify/luogu/P7883.compact.cpp`

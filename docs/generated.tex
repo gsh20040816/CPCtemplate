@@ -1398,6 +1398,20 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 \lstinputlisting[firstline=53,lastline=96]{../src/compact/recurrence.hpp}
 
+\Needspace{459pt}
+
+\subsection*{模板题使用：Luogu P5487}
+
+\label{usage-example-160}
+
+题意：给出n个初值，恢复唯一的最短递推并求第m项，n$\le$10000、n<m$\le$10$^{9}$、阶数$\le$5000，模998244353。BM返回c[j-1]乘a[i-j]，首行仅输出系数、不带阶数；裁取恰好c.size()个初值后调用recurrence\_nth。全零序列空递推仍输出空首行和第二行0。复杂度O(nk+k$^{2}$log m)，O(n+k)空间。
+
+所需模板：berlekamp\_massey、recurrence\_nth。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5487}
+
+\lstinputlisting{usage/example-160.cpp}
+
 \Needspace{584pt}
 
 \subsection{快速递推与有理生成函数单项}\label{compact-BostanMori}\index{BostanMori}
@@ -1521,6 +1535,34 @@ stirling\_first\_row<mod,primitive>(n) 返回无符号 c(n,0..n)，默认模 998
 Partitions(N,mod) 求无序正整数分拆，0$\le$N<INT\_MAX、1$\le$mod$\le$INT\_MAX，p[n] 为不限制重数的分拆数；p[0]=1\%mod。预处理 O(N$\sqrt{\vphantom x}$N) 时间、O(N) 空间；模数不要求素数。limited(n,k) 限制每个正整数最多出现 k 次，0$\le$n$\le$N、0$\le$k$\le$INT\_MAX；k=0 时仅空分拆存在，k=1 为互异分拆。单次 O(1+$\sqrt{\vphantom x}$(n/(k+1)))，额外空间 O(1)。p/mod 只读；中间五边形数与累加采用 long long。
 
 \lstinputlisting[firstline=7,lastline=47]{../src/compact/partitions.hpp}
+
+\Needspace{275pt}
+
+\subsection*{模板题使用：Library Checker partition\_function}
+
+\label{usage-example-158}
+
+题意：输出0..N的全部整数分拆数，模998244353，N$\le$500000。构造Partitions后直接读p；p[0]=1表示空分拆。五边形数递推O(N$\sqrt{\vphantom x}$N)时间、O(N)空间，不是有序拆分。此用法不调用limited。
+
+所需模板：Partitions。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/partition_function}
+
+\lstinputlisting{usage/example-158.cpp}
+
+\Needspace{269pt}
+
+\subsection*{应用题补充：Luogu P6189 [NOI Online \#1 入门组] 跑步}
+
+\label{usage-example-159}
+
+题意：正整数非增序列的总和为n，等价于n的无序分拆。n$\le$10$^{5}$，1$\le$p<2$^{30}$且不保证素数；直接构造Partitions(n,p)，输出p[n]。这是比赛应用，单独记录，不替代正式模板题。
+
+所需模板：Partitions。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6189}
+
+\lstinputlisting{usage/example-159.cpp}
 
 \Needspace{461pt}
 
@@ -1875,6 +1917,8 @@ berlekamp\_massey(s,p) 要求 p 为素数，2$\le$p$\le$INT\_MAX，输入均在 
 题目：\url{https://judge.yosupo.jp/problem/find_linear_recurrence}
 
 \lstinputlisting{usage/example-81.cpp}
+
+联合使用示例见第~\pageref{usage-example-160}~页（Luogu P5487），其中直接调用本模板。
 
 \part{数据结构}
 

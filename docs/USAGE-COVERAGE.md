@@ -53,7 +53,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | divisor_sum_power | 待补 | pending_example |
 | euler_phi | [example-106](usage/example-106.cpp) | locally_checked_example |
 | carmichael | 待补 | pending_example |
-| Partitions | 待补 | pending_example |
+| Partitions | [example-158](usage/example-158.cpp), [example-159（应用补充）](usage/example-159.cpp) | locally_checked_example |
 | Lucas | [example-40](usage/example-40.cpp) | locally_checked_example |
 | ExLucas | [example-41](usage/example-41.cpp) | locally_checked_example |
 | mod_sqrt | [example-42](usage/example-42.cpp) | locally_checked_example |
@@ -122,8 +122,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ScapegoatTree | [example-110](usage/example-110.cpp) | locally_checked_example |
 | GcdSequenceTreap | 待补 | pending_example |
 | Blossom | [example-72](usage/example-72.cpp) | locally_checked_example |
-| berlekamp_massey | [example-81](usage/example-81.cpp) | locally_checked_example |
-| recurrence_nth | 待补 | pending_example |
+| berlekamp_massey | [example-81](usage/example-81.cpp), [example-160](usage/example-160.cpp) | locally_checked_example |
+| recurrence_nth | [example-160](usage/example-160.cpp) | locally_checked_example |
 | TarjanSCC | [example-2](usage/example-2.cpp) | locally_checked_example |
 | BiconnectedCore | [example-4](usage/example-4.cpp), [example-5](usage/example-5.cpp) | locally_checked_example |
 | block_cut_forest | 待补 | pending_example |

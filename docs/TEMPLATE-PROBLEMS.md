@@ -124,6 +124,9 @@
 | `CircleTangents` | [AOJ CGL_7_F](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_F) | 过圆外整数点作切线，输出圆上的两个切点。坐标绝对值≤1000，半径1..1000，保证点严格在圆外。from_point把点作为第一圆，圆上切点在line.b；按x/y字典序输出，每行一个点，绝对误差小于1e-5。 | 待编写驱动/提交 | 待核验 |
 | `IntegerTangents` | [AOJ CGL_7_G](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G) | 不同整数圆的公切线，输出第一圆上的全部切点。坐标绝对值≤1000，半径1..1000；可能0..4条，同心不等圆需空输出。整数版已精确排序，直接顺序输出line.a，不再按舍入值排序；绝对误差小于1e-5。 | 待编写驱动/提交 | 待核验 |
 | `floor_moments` | [Luogu P5170](https://www.luogu.com.cn/problem/P5170) | 求i=0..n的整除和、整除值平方和、i乘整除值之和，模998244353。t至10⁵，n/a/b/c至10⁹且c>0。核心参数顺序(n+1,c,a,b)，返回顺序是和/带权和/平方和；本题输出索引0、2、1，不能只核对第一项。 | 待编写驱动/提交 | 待核验 |
+| `Partitions` | [Library Checker partition_function](https://judge.yosupo.jp/problem/partition_function) | 输出0..N的全部整数分拆数，模998244353，N≤500000。构造Partitions后直接读p；p[0]=1表示空分拆。五边形数递推O(N√N)时间、O(N)空间，不是有序拆分。此用法不调用limited。 | 待编写驱动/提交 | 待核验 |
+| `Partitions` | [Luogu P6189 [NOI Online #1 入门组] 跑步](https://www.luogu.com.cn/problem/P6189) | 正整数非增序列的总和为n，等价于n的无序分拆。n≤10⁵，1≤p<2³⁰且不保证素数；直接构造Partitions(n,p)，输出p[n]。这是比赛应用，单独记录，不替代正式模板题。 | 待编写驱动/提交 | 待核验 |
+| `recurrence_nth` | [Luogu P5487](https://www.luogu.com.cn/problem/P5487) | 给出n个初值，恢复唯一的最短递推并求第m项，n≤10000、n<m≤10⁹、阶数≤5000，模998244353。BM返回c[j-1]乘a[i-j]，首行仅输出系数、不带阶数；裁取恰好c.size()个初值后调用recurrence_nth。全零序列空递推仍输出空首行和第二行0。复杂度O(nk+k²log m)，O(n+k)空间。 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1112,6 +1115,36 @@ Official standalone library/template problem.
 Local verification only; online AC and speed ranking pending.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5170)
+
+### Library Checker partition_function / Partitions
+
+Official standalone template/library problem.
+
+输出0..N的全部整数分拆数，模998244353，N≤500000。构造Partitions后直接读p；p[0]=1表示空分拆。五边形数递推O(N√N)时间、O(N)空间，不是有序拆分。此用法不调用limited。
+
+Online AC and speed ranking pending. Partitions::limited is not exercised by these usages.
+
+原始题面与参数：[来源 1](https://judge.yosupo.jp/problem/partition_function)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/enumerative_combinatorics/partition_function/task.md)
+
+### Luogu P6189 [NOI Online #1 入门组] 跑步 / Partitions
+
+NOI Online contest application; not formal-template coverage.
+
+正整数非增序列的总和为n，等价于n的无序分拆。n≤10⁵，1≤p<2³⁰且不保证素数；直接构造Partitions(n,p)，输出p[n]。这是比赛应用，单独记录，不替代正式模板题。
+
+Online AC and speed ranking pending. Partitions::limited is not exercised by these usages.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P6189)
+
+### Luogu P5487 / recurrence_nth
+
+Official standalone template/library problem.
+
+给出n个初值，恢复唯一的最短递推并求第m项，n≤10000、n<m≤10⁹、阶数≤5000，模998244353。BM返回c[j-1]乘a[i-j]，首行仅输出系数、不带阶数；裁取恰好c.size()个初值后调用recurrence_nth。全零序列空递推仍输出空首行和第二行0。复杂度O(nk+k²log m)，O(n+k)空间。
+
+Online AC and speed ranking pending.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5487)
 
 ## 榜单口径
 

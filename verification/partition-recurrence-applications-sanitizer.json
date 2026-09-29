@@ -1,0 +1,91 @@
+{
+  "mode": "sanitizer",
+  "cases": {
+    "partition": 8,
+    "running": 42,
+    "recurrence": 289
+  },
+  "negative_controls": 5,
+  "timings": [
+    {
+      "problem": "P6189",
+      "n": 100000,
+      "mod": 1,
+      "seconds": 0.11956899997312576
+    },
+    {
+      "problem": "P6189",
+      "n": 100000,
+      "mod": 2,
+      "seconds": 0.11580249993130565
+    },
+    {
+      "problem": "P6189",
+      "n": 100000,
+      "mod": 6,
+      "seconds": 0.11497225007042289
+    },
+    {
+      "problem": "P6189",
+      "n": 100000,
+      "mod": 97,
+      "seconds": 0.11780462495516986
+    },
+    {
+      "problem": "P6189",
+      "n": 100000,
+      "mod": 1000000006,
+      "seconds": 0.11661541706416756
+    },
+    {
+      "problem": "P6189",
+      "n": 100000,
+      "mod": 1073741823,
+      "seconds": 0.11754308303352445
+    },
+    {
+      "problem": "P5487",
+      "k": 1,
+      "n": 2,
+      "m": 1000000000,
+      "seconds": 0.058223916101269424,
+      "fixture": "Vandermonde distinct roots, provably unique order k"
+    },
+    {
+      "problem": "P5487",
+      "k": 2,
+      "n": 4,
+      "m": 1000000000,
+      "seconds": 0.05262962495908141,
+      "fixture": "Vandermonde distinct roots, provably unique order k"
+    },
+    {
+      "problem": "P5487",
+      "k": 10,
+      "n": 20,
+      "m": 1000000000,
+      "seconds": 0.058687916956841946,
+      "fixture": "Vandermonde distinct roots, provably unique order k"
+    },
+    {
+      "problem": "P5487",
+      "k": 5000,
+      "n": 10000,
+      "m": 1000000000,
+      "seconds": 11.389269332983531,
+      "fixture": "Vandermonde distinct roots, provably unique order k"
+    }
+  ],
+  "scope": "Local full drivers, no online AC or OJ speed ranking",
+  "references": "Exact coin DP and small/large part decomposition; independent Gaussian minimality, matrix powers; order5000 Vandermonde fixture",
+  "sha256": {
+    "tests/partition_recurrence_applications.py": "2cc0150d2c7cc9d8c959d552fbccd4fe45356f6827d9885b773fee5a957f13c1",
+    "verify/library_checker/partition_function.compact.cpp": "105cd26b268dd6bf04dec877e338c089b254c88f048fe2d372425c53b08bfcae",
+    "verify/luogu/P6189.compact.cpp": "0e83e05c7305814069d305677386c95264caf77e1b28be0f7f31a4fd953c2ab5",
+    "verify/luogu/P5487.compact.cpp": "ab722636a48471e3cba4f9cacef5623241dee1f7affd7cece5d160ebf7b60315",
+    "tests/partition_split_oracle.cpp": "964a489091ed06f189fdfca8e14f15146750cf9f6b399dadf72d581841374607",
+    "tests/recurrence_vandermonde.cpp": "314cc3a188865bb09c01af603959251aa53f2f9393596e48f66181bc1435a6fc",
+    "src/compact/partitions.hpp": "7dc494705598e23c1a5771810fc7b5df100d952f7021a4115f0b423887a43edc",
+    "src/compact/recurrence.hpp": "6399924d2d2b1009ead8244bf325988b180536ec68721092fb711ab1d0b80148"
+  }
+}
