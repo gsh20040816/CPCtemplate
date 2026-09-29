@@ -90,7 +90,6 @@
 - `verify/luogu/P2522.compact.cpp`
 - `verify/luogu/P2617.compact.cpp`
 - `verify/luogu/P2633.compact.cpp`
-- `verify/luogu/P2731.compact.cpp`
 - `verify/luogu/P2742.compact.cpp`
 - `verify/luogu/P2762.compact.cpp`
 - `verify/luogu/P2860.compact.cpp`

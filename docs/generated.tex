@@ -1772,6 +1772,20 @@ basis\_intersection(a,b) 返回 span(a) 与 span(b) 的交空间的一组独立�
 
 \lstinputlisting[firstline=5,lastline=30]{../src/compact/basis_intersection.hpp}
 
+\Needspace{526pt}
+
+\subsection*{模板题使用：LC Intersection of F2 Vector Spaces}
+
+\label{usage-example-178}
+
+题意：多组给两个F2向量空间的基，输出交空间的一组基。T$\le$100000，n,m$\le$30，输入独立且小于2\textasciicircum{}30。把输入插入两个XorBasis，调用求交，输出rank和a中的非零主元；答案不唯一，不能逐字比较不同实现输出。模板本身支持64位和相关生成元，属于题外扩展。零维输出0。
+
+所需模板：basis\_intersection、XorBasis。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces}
+
+\lstinputlisting{usage/example-178.cpp}
+
 \Needspace{460pt}
 
 \subsection{Zassenhaus：同时求和空间与交空间}\label{compact-basis_sum_intersection}\index{basis\_sum\_intersection}
@@ -1779,6 +1793,20 @@ basis\_intersection(a,b) 返回 span(a) 与 span(b) 的交空间的一组独立�
 basis\_sum\_intersection(a,b) 返回和空间基、交空间基这一对结果。和空间由两组基共同张成，一般不是两个空间的集合并；两结果都是独立生成元，其 dependent 均为 false。将 a 的向量 x 编成 (x,x)，b 的向量 y 编成 (y,0)，用 \_\_uint128\_t 储存高低各 64 位并按高位到低位消元。高半部非零的行投影构成和空间的基，高半部为零的行取低半部构成交空间的基。必须先提升到 128 位再左移 64；不能用 64 位变量移位 64。时间 O(128$^{2}$)，额外空间 O(128)。结果满足 dim(A+B)+dim(A交B)=dim(A)+dim(B)，但维数恒等式只是检查条件，不能单独证明返回向量正确。包含空空间、相同空间和输入别名。
 
 \lstinputlisting[firstline=34,lastline=65]{../src/compact/basis_intersection.hpp}
+
+\Needspace{520pt}
+
+\subsection*{模板题使用：LC Intersection / Zassenhaus}
+
+\label{usage-example-179}
+
+题意：同一线性空间求交题，约束与前例相同。Zassenhaus返回\{和空间,交空间\}，本题仅输出second的rank和非零主元，不能据此声称first也获线上验证。和空间由独立本地测试检查。两部分均为独立生成元；无需对输入枚举全部异或值。
+
+所需模板：basis\_sum\_intersection、XorBasis。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces}
+
+\lstinputlisting{usage/example-179.cpp}
 
 \Needspace{410pt}
 
@@ -1791,6 +1819,20 @@ XorWalk(n) 建图，点号 1..n，边权为 unsigned long long，支持完整 64
 \newpage
 
 \lstinputlisting[firstline=23,lastline=62,firstnumber=20]{../src/compact/xor_walk.hpp}
+
+\Needspace{379pt}
+
+\subsection*{应用题补充：Luogu P4151}
+
+\label{usage-example-176}
+
+题意：无向连通带权图，求1到n可重复经过点边的最大异或和；n$\le$50000，m$\le$100000，权值$\le$10\textasciicircum{}18，允许重边、自环。点号保留1-based，build(1)后query(1,n)。题目保证连通才可直接解引用；通用图先检查optional。此题验证行走，不能改成简单路径。O((n+m)·64)，DFS递归。
+
+所需模板：XorWalk、XorBasis。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4151}
+
+\lstinputlisting{usage/example-176.cpp}
 
 \Needspace{180pt}
 
@@ -3829,17 +3871,31 @@ word\_chain(words) 返回可空的编号序列（optional），有解时为原�
 
 \lstinputlisting[firstline=8,lastline=35]{../src/compact/word_chain.hpp}
 
-\Needspace{508pt}
+\Needspace{510pt}
 
 \section{无向图欧拉路与边方向}\label{compact-UndirectedEuler}\index{UndirectedEuler}
 
-构造 UndirectedEuler(n)，n$\ge$1，点号 1..n；add(u,v) 返回从 0 开始的逻辑边号，自环和重边均保留。run() 返回是否存在欧拉路，参数 start 默认 0（自动），lexicographic 默认 true。自动选最小可行起点；指定起点须满足奇度条件且位于有边部分。成功得到 m+1 个 vertices 和 m 个 edge\_ids，失败清空两数组。第 i 条边方向是 vertices[i] 到 vertices[i+1]，与 edges[edge\_ids[i]] 比较可判断是否反向，自环任选方向。used 按逻辑边号标记，使两条半边共同只消费一次；自环贡献度数 2。孤立点不影响有边部分；无边图返回指定点或点 1 的单点序列。默认求顶点序列字典序最小方案；关闭排序只保证任意方案，可能保留上次排序。可重复 run，加边清空旧方案。排序开启时 O(n+m log(m+1))，否则 O(n+m)，空间 O(n+m)，DFS 递归深度可能达到 m+1。全小图走法、原边号与方向独立验证，P2731 和 SGU101 完整程序本地验证；在线待补。
+构造 UndirectedEuler(n)，n$\ge$1，点号 1..n；add(u,v) 返回从 0 开始的逻辑边号，自环和重边均保留。run() 返回是否存在欧拉路，参数 start 默认 0（自动），lexicographic 默认 true。自动选最小可行起点；指定起点须满足奇度条件且位于有边部分。成功得到 m+1 个 vertices 和 m 个 edge\_ids，失败清空两数组。第 i 条边方向是 vertices[i] 到 vertices[i+1]，与 edges[edge\_ids[i]] 比较可判断是否反向，自环任选方向。used 按逻辑边号标记，使两条半边共同只消费一次；自环贡献度数 2。孤立点不影响有边部分；无边图返回指定点或点 1 的单点序列。默认求顶点序列字典序最小方案；关闭排序只保证任意方案，可能保留上次排序。可重复 run，加边清空旧方案。排序开启时 O(n+m log(m+1))，否则 O(n+m)，空间 O(n+m)，DFS 递归深度可能达到 m+1。全小图走法、原边号与方向独立验证，P2731 字典序顶点序列已线上 AC；边编号、失败输入及其他模式仍由本地验证。
 
 \lstinputlisting[firstline=8,lastline=41]{../src/compact/undirected_euler.hpp}
 
 \newpage
 
 \lstinputlisting[firstline=42,lastline=82,firstnumber=35]{../src/compact/undirected_euler.hpp}
+
+\Needspace{381pt}
+
+\subsection*{模板题使用：Luogu P2731}
+
+\label{usage-example-177}
+
+题意：USACO Training：无向多重图保证有欧拉路，输出字典序最小顶点序列。m$\le$1024，点号1..500；直接构造500个点，不把孤立点1强设为起点。run()自动选较小奇点，若全偶选最小非孤立点，并按邻点排序。输出vertices，共m+1项；本题不输出edge\_ids，边编号与方向另验。DFS递归，最深可达m+1。
+
+所需模板：UndirectedEuler。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2731}
+
+\lstinputlisting{usage/example-177.cpp}
 
 \Needspace{447pt}
 

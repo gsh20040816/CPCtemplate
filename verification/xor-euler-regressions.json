@@ -1,0 +1,42 @@
+{
+  "scope": "Local independent full-driver oracles, normal and ASan/UBSan core regressions, pinned official generated inputs checked with official checker. These are not online AC or speed ranks.",
+  "baseline_commit": "1a9fa3e91d7dff58915341040be069611370054c",
+  "files": {
+    "src/compact/xor_walk.hpp": "33f54ae6a8ece9cff922600f4dd05bec703d0f8228b382aeba65a810ecf88c40",
+    "src/compact/undirected_euler.hpp": "508dd1b67a9e921d12700e9297b107b5c4f6dbda06f4a51ac9cca18b22d5f735",
+    "src/compact/basis_intersection.hpp": "cc828f05a4a8f528d08e1644e9818622e975927c0207bf8006a09798c3426799",
+    "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
+    "tests/xor_walk.cpp": "35c3f48305fbbd1312d3f5a526439abbbc5991524c9bd5bbb705700b944bed3e",
+    "tests/undirected_euler.cpp": "6b143c7e4f933abfae52091be0a37441f602062a874bebcac30626f48eb97ce3",
+    "tests/basis_intersection.cpp": "fa79b34708d1115e88d37dfd3b7c8f71b151d47dab5935613013aa4ab4d1b956",
+    "tests/xor_euler_usages.py": "2755af9fe5a316d7c6a2401c003a7ff623f64c42318ee3421929ea82835c5cdc"
+  },
+  "reports": [
+    "verification/xor-euler-core-basis_intersection-normal.txt",
+    "verification/xor-euler-core-basis_intersection-sanitizer.txt",
+    "verification/xor-euler-core-undirected_euler-normal.txt",
+    "verification/xor-euler-core-undirected_euler-sanitizer.txt",
+    "verification/xor-euler-core-xor_walk-normal.txt",
+    "verification/xor-euler-core-xor_walk-sanitizer.txt",
+    "verification/xor-euler-intersection-official-sanitizer.json",
+    "verification/xor-euler-intersection-official.json",
+    "verification/xor-euler-usages-normal.json",
+    "verification/xor-euler-usages-sanitizer.json",
+    "verification/xor-euler-zassenhaus-official-sanitizer.json",
+    "verification/xor-euler-zassenhaus-official.json"
+  ],
+  "report_sha256": {
+    "verification/xor-euler-core-basis_intersection-normal.txt": "42de58ffa6033324ff39f555088694a5cc10c09f869f0ffbd1343e966a0f7f8a",
+    "verification/xor-euler-core-basis_intersection-sanitizer.txt": "42de58ffa6033324ff39f555088694a5cc10c09f869f0ffbd1343e966a0f7f8a",
+    "verification/xor-euler-core-undirected_euler-normal.txt": "37c2c0f12d61ea4b675e26cdaa35448d9b656657eaf34f43e163af95e07a9645",
+    "verification/xor-euler-core-undirected_euler-sanitizer.txt": "37c2c0f12d61ea4b675e26cdaa35448d9b656657eaf34f43e163af95e07a9645",
+    "verification/xor-euler-core-xor_walk-normal.txt": "f90da02859a3fed737fc555e75a99dde812ebd1e053365a65421953f78a4d9a4",
+    "verification/xor-euler-core-xor_walk-sanitizer.txt": "f90da02859a3fed737fc555e75a99dde812ebd1e053365a65421953f78a4d9a4",
+    "verification/xor-euler-intersection-official-sanitizer.json": "0d4a857d01ebe7185b8f9ee170e74c725f661c3048a0cef295d15f67575f6a45",
+    "verification/xor-euler-intersection-official.json": "340c17839ac7238634de2749b0a631e7c74b9608c790fdc97d8ab193ae6f727e",
+    "verification/xor-euler-usages-normal.json": "de060fa5bbb433b128027159d1d50f8067f7b8d3def2fbbc0a6eb0ea6d47fef1",
+    "verification/xor-euler-usages-sanitizer.json": "1903213dcf752e5b293aea0f538cb2d2f35d50dd7fba15b37f51442ab647747f",
+    "verification/xor-euler-zassenhaus-official-sanitizer.json": "bfabceb55abf21dbec3198e615d0c4ac216d886975b604543091886b842af056",
+    "verification/xor-euler-zassenhaus-official.json": "d433c4952d8a85916a33e02bfb11fda433cffb8d8d85e4ea5735ba457ab21037"
+  }
+}

@@ -143,6 +143,10 @@
 | `FunctionalGraph` | [Luogu P2921](https://www.luogu.com.cn/problem/P2921) | n<=100000 | [记录](https://www.luogu.com.cn/record/299973954) | 待核验 |
 | `PersistentRange` | [SPOJ TTM / Luogu SP11470](https://www.luogu.com.cn/problem/SP11470) | n,m<=100000; abs(initial)<=1e9; abs(delta)<=10000 | 待编写驱动/提交 | 待核验 |
 | `PersistentRange` | [QOJ 8240](https://qoj.ac/problem/8240) | n,q<=300000; colors1..n; online XOR endpoints | [记录](https://qoj.ac/submission/2939235) | 待核验 |
+| `XorWalk` | [Luogu P4151](https://www.luogu.com.cn/problem/P4151) | n<=50000;m<=100000;0<=w<=1e18;connected;loops/parallel edges | 待编写驱动/提交 | 待核验 |
+| `UndirectedEuler` | [Luogu P2731](https://www.luogu.com.cn/problem/P2731) | 1<=m<=1024;vertex labels1..500;Euler trail exists | [记录](https://www.luogu.com.cn/record/299974727) | 待核验 |
+| `basis_intersection` | [LC Intersection of F2 Vector Spaces](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces) | T<=100000;n,m<=30;independent30-bit generators | 待编写驱动/提交 | 待核验 |
+| `basis_sum_intersection` | [LC Intersection / Zassenhaus](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces) | T<=100000;n,m<=30;independent30-bit generators | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1307,6 +1311,46 @@ Global speed rank unverified; only stated APIs are covered. Local acceptance doe
 Version indexed by left endpoint, coordinate is right endpoint. Range add1 then suffix splice; output point query. Signed increments, arbitrary splice ranges and range sums require separate tests.
 
 Global speed rank unverified; only stated APIs are covered. Local acceptance does not confer an online AC.
+
+### Luogu P4151 / XorWalk
+
+WC2011 competition application, not formal-template coverage.
+
+无向连通带权图，求1到n可重复经过点边的最大异或和；n≤50000，m≤100000，权值≤10^18，允许重边、自环。点号保留1-based，build(1)后query(1,n)。题目保证连通才可直接解引用；通用图先检查optional。此题验证行走，不能改成简单路径。O((n+m)·64)，DFS递归。
+
+Online AC and global speed rank pending; local tests cover only their stated scopes.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P4151)
+
+### Luogu P2731 / UndirectedEuler
+
+USACO Training Section3.3; non-contest training task directly specifying lexicographic undirected Euler trail.
+
+USACO Training：无向多重图保证有欧拉路，输出字典序最小顶点序列。m≤1024，点号1..500；直接构造500个点，不把孤立点1强设为起点。run()自动选较小奇点，若全偶选最小非孤立点，并按邻点排序。输出vertices，共m+1项；本题不输出edge_ids，边编号与方向另验。DFS递归，最深可达m+1。
+
+AC covers automatic-start lexicographic vertex sequence on promised valid inputs. Edge-ID output, rejected inputs and other modes only locally checked. Global speed rank pending.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P2731)
+
+### LC Intersection of F2 Vector Spaces / basis_intersection
+
+Library Checker standalone non-contest template problem.
+
+多组给两个F2向量空间的基，输出交空间的一组基。T≤100000，n,m≤30，输入独立且小于2^30。把输入插入两个XorBasis，调用求交，输出rank和a中的非零主元；答案不唯一，不能逐字比较不同实现输出。模板本身支持64位和相关生成元，属于题外扩展。零维输出0。
+
+Online AC and global speed rank pending; local tests cover only their stated scopes.
+
+原始题面与参数：[来源 1](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/task.md)，[来源 3](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/info.toml)
+
+### LC Intersection / Zassenhaus / basis_sum_intersection
+
+Library Checker standalone non-contest template problem; only intersection component output.
+
+同一线性空间求交题，约束与前例相同。Zassenhaus返回{和空间,交空间}，本题仅输出second的rank和非零主元，不能据此声称first也获线上验证。和空间由独立本地测试检查。两部分均为独立生成元；无需对输入枚举全部异或值。
+
+Online AC and global speed rank pending; local tests cover only their stated scopes.
+
+原始题面与参数：[来源 1](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/task.md)，[来源 3](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/info.toml)
 
 ## 榜单口径
 

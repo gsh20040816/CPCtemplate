@@ -1,0 +1,36 @@
+{
+  "mode": "normal",
+  "counts": {
+    "walk": 356,
+    "euler": 321,
+    "intersection": 3,
+    "zassenhaus": 3
+  },
+  "seconds": {
+    "walk": 3.455489959102124,
+    "euler": 2.969310960965231,
+    "intersection": 0.8169586259173229,
+    "zassenhaus": 0.7139396250713617
+  },
+  "basis_cases_per_driver": 104990,
+  "exhaustive_subspaces": 67,
+  "scope": "Local full-driver tests: walk-state BFS, exhaustive Euler edge-identity trails, enumerated vector spans and coordinate-subspace certificates. 64-bit and dependent-vector cases explicitly extend the official30-bit independent-input task. No online AC claim.",
+  "programs": {
+    "walk": {
+      "driver": "verify/luogu/P4151.compact.cpp",
+      "bundle_sha256": "a366ca1c2d8728a52ff0d655146b3ab9a5f36c4ca72aad2e5c789cd231c5a8f1"
+    },
+    "euler": {
+      "driver": "verify/luogu/P2731.compact.cpp",
+      "bundle_sha256": "fb83e8b7392da8f1ab95c38ade52550706a64d100e7b8f2ce369022d3cbbc497"
+    },
+    "intersection": {
+      "driver": "verify/library_checker/intersection_intersection.compact.cpp",
+      "bundle_sha256": "a5c47ff2737edf127ca963316a3d3eb854e174fe49dbe9153086e20333abbf20"
+    },
+    "zassenhaus": {
+      "driver": "verify/library_checker/intersection_zassenhaus.compact.cpp",
+      "bundle_sha256": "d63fead942796f4d53d33942fec980efa1051e24c996ef01cf631bb2f61aac39"
+    }
+  }
+}

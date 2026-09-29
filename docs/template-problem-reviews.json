@@ -3387,5 +3387,133 @@
       "verification/version-function-usages-normal.json",
       "verification/version-function-usages-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "XorWalk",
+    "problem": "Luogu P4151",
+    "url": "https://www.luogu.com.cn/problem/P4151",
+    "classification": "WC2011 competition application, not formal-template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "n<=50000;m<=100000;0<=w<=1e18;connected;loops/parallel edges",
+    "tested_api": [
+      "add",
+      "build",
+      "query"
+    ],
+    "adapter": "无向连通带权图，求1到n可重复经过点边的最大异或和；n≤50000，m≤100000，权值≤10^18，允许重边、自环。点号保留1-based，build(1)后query(1,n)。题目保证连通才可直接解引用；通用图先检查optional。此题验证行走，不能改成简单路径。O((n+m)·64)，DFS递归。",
+    "ac": null,
+    "usage": "example-176",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and global speed rank pending; local tests cover only their stated scopes.",
+    "local_evidence": [
+      "verification/xor-euler-usages-normal.json",
+      "verification/xor-euler-usages-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P4151"
+    ]
+  },
+  {
+    "symbol": "UndirectedEuler",
+    "problem": "Luogu P2731",
+    "url": "https://www.luogu.com.cn/problem/P2731",
+    "classification": "USACO Training Section3.3; non-contest training task directly specifying lexicographic undirected Euler trail.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "1<=m<=1024;vertex labels1..500;Euler trail exists",
+    "tested_api": [
+      "add",
+      "run",
+      "vertices"
+    ],
+    "adapter": "USACO Training：无向多重图保证有欧拉路，输出字典序最小顶点序列。m≤1024，点号1..500；直接构造500个点，不把孤立点1强设为起点。run()自动选较小奇点，若全偶选最小非孤立点，并按邻点排序。输出vertices，共m+1项；本题不输出edge_ids，边编号与方向另验。DFS递归，最深可达m+1。",
+    "ac": "https://www.luogu.com.cn/record/299974727",
+    "usage": "example-177",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "AC covers automatic-start lexicographic vertex sequence on promised valid inputs. Edge-ID output, rejected inputs and other modes only locally checked. Global speed rank pending.",
+    "local_evidence": [
+      "verification/xor-euler-usages-normal.json",
+      "verification/xor-euler-usages-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P2731"
+    ]
+  },
+  {
+    "symbol": "basis_intersection",
+    "problem": "LC Intersection of F2 Vector Spaces",
+    "url": "https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces",
+    "classification": "Library Checker standalone non-contest template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "T<=100000;n,m<=30;independent30-bit generators",
+    "tested_api": [
+      "basis_intersection",
+      "rank",
+      "a"
+    ],
+    "adapter": "多组给两个F2向量空间的基，输出交空间的一组基。T≤100000，n,m≤30，输入独立且小于2^30。把输入插入两个XorBasis，调用求交，输出rank和a中的非零主元；答案不唯一，不能逐字比较不同实现输出。模板本身支持64位和相关生成元，属于题外扩展。零维输出0。",
+    "ac": null,
+    "usage": "example-178",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and global speed rank pending; local tests cover only their stated scopes.",
+    "local_evidence": [
+      "verification/xor-euler-usages-normal.json",
+      "verification/xor-euler-usages-sanitizer.json",
+      "verification/xor-euler-intersection-official.json",
+      "verification/xor-euler-intersection-official-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/info.toml"
+    ]
+  },
+  {
+    "symbol": "basis_sum_intersection",
+    "problem": "LC Intersection / Zassenhaus",
+    "url": "https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces",
+    "classification": "Library Checker standalone non-contest template problem; only intersection component output.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "T<=100000;n,m<=30;independent30-bit generators",
+    "tested_api": [
+      "basis_sum_intersection:second",
+      "rank",
+      "a"
+    ],
+    "adapter": "同一线性空间求交题，约束与前例相同。Zassenhaus返回{和空间,交空间}，本题仅输出second的rank和非零主元，不能据此声称first也获线上验证。和空间由独立本地测试检查。两部分均为独立生成元；无需对输入枚举全部异或值。",
+    "ac": null,
+    "usage": "example-179",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and global speed rank pending; local tests cover only their stated scopes.",
+    "local_evidence": [
+      "verification/xor-euler-usages-normal.json",
+      "verification/xor-euler-usages-sanitizer.json",
+      "verification/xor-euler-zassenhaus-official.json",
+      "verification/xor-euler-zassenhaus-official-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/linear_algebra/intersection_of_f2_vector_spaces/info.toml"
+    ]
   }
 ]

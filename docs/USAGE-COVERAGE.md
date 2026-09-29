@@ -139,9 +139,9 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | prefix_lcs | 待补 | pending_example |
 | square_counts | 待补 | pending_example |
 | PositionBasis | [example-39（应用补充）](usage/example-39.cpp) | locally_checked_application |
-| basis_intersection | 待补 | pending_example |
-| basis_sum_intersection | 待补 | pending_example |
-| XorWalk | 待补 | pending_example |
+| basis_intersection | [example-178](usage/example-178.cpp) | locally_checked_example |
+| basis_sum_intersection | [example-179](usage/example-179.cpp) | locally_checked_example |
+| XorWalk | [example-176（应用补充）](usage/example-176.cpp) | locally_checked_application |
 | removal_components | [example-162](usage/example-162.cpp), [example-163（应用补充）](usage/example-163.cpp) | locally_checked_example |
 | EdgeCompression | 待补 | pending_example |
 | orient_edges | [example-164（应用补充）](usage/example-164.cpp) | locally_checked_application |
@@ -151,7 +151,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | LiftingLCA | [example-34](usage/example-34.cpp) | locally_checked_example |
 | path_intersection | [example-169（应用补充）](usage/example-169.cpp) | locally_checked_application |
 | DirectedEuler | [example-57](usage/example-57.cpp) | locally_checked_example |
-| UndirectedEuler | 待补 | pending_example |
+| UndirectedEuler | [example-177](usage/example-177.cpp) | locally_checked_example |
 | word_chain | 待补 | pending_example |
 | mixed_euler_orientation | 待补 | pending_example |
 | mixed_euler_trail | 待补 | pending_example |
