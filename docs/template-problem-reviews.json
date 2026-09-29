@@ -3062,5 +3062,140 @@
     "statement_sources": [
       "https://codeforces.com/problemset/problem/118/E"
     ]
+  },
+  {
+    "symbol": "block_cut_forest",
+    "problem": "Luogu P4630",
+    "url": "https://www.luogu.com.cn/problem/P4630",
+    "classification": "Contest/application usage; not formal-template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "无向简单图，可不连通，n≤100000、m≤200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。",
+    "adapter": "无向简单图，可不连通，n≤100000、m≤200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。",
+    "tested_api": [
+      "BiconnectedCore.add",
+      "BiconnectedCore.run",
+      "block_cut_forest"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Contest application; formal-template coverage, online AC and speed ranking pending. Independent simple-path triple enumeration and large closed-form cases checked locally.",
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P4630"
+    ],
+    "driver": "verify/luogu/P4630.compact.cpp"
+  },
+  {
+    "symbol": "bridge_component_forest",
+    "problem": "Luogu P2860 (bridge forest)",
+    "url": "https://www.luogu.com.cn/problem/P2860",
+    "classification": "Contest/application usage; not formal-template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "连通无向图，n≤5000、m≤10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。",
+    "adapter": "连通无向图，n≤5000、m≤10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。",
+    "tested_api": [
+      "BiconnectedCore.add",
+      "BiconnectedCore.run",
+      "bridge_component_forest"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending. P2860 only outputs cardinality; returned endpoint certificates and original bridge IDs separately checked by local interface tests.",
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P2860"
+    ],
+    "driver": "verify/luogu/P2860.forest.compact.cpp"
+  },
+  {
+    "symbol": "bridge_augmentation",
+    "problem": "Luogu P2860 (construct augmentation)",
+    "url": "https://www.luogu.com.cn/problem/P2860",
+    "classification": "Contest/application usage; not formal-template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。",
+    "adapter": "同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。",
+    "tested_api": [
+      "BiconnectedCore.add",
+      "BiconnectedCore.run",
+      "bridge_augmentation"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending. P2860 only outputs cardinality; returned endpoint certificates and original bridge IDs separately checked by local interface tests.",
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P2860"
+    ],
+    "driver": "verify/luogu/P2860.compact.cpp"
+  },
+  {
+    "symbol": "SCC",
+    "problem": "QOJ 906 (Kosaraju)",
+    "url": "https://qoj.ac/problem/906",
+    "classification": "Official standalone library/template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。",
+    "adapter": "给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。",
+    "tested_api": [
+      "SCC.add",
+      "SCC.run",
+      "SCC.bel",
+      "SCC.cnt"
+    ],
+    "ac": "https://qoj.ac/submission/3061625",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC on CCF_NOI: 226ms / 76512kb, 11 accepted tests, C++20. Global all-submission speed ranking unresolved; bundled unused algorithms and dag are not covered.",
+    "statement_sources": [
+      "https://qoj.ac/problem/906/statement/zh_cn"
+    ],
+    "driver": "verify/library_checker/scc.kosaraju.compact.cpp"
+  },
+  {
+    "symbol": "BiconnectedCore",
+    "problem": "QOJ 999 (BiconnectedCore)",
+    "url": "https://qoj.ac/problem/999",
+    "classification": "Library Checker standalone standard template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed",
+    "adapter": "Group vertices by bel after run; input and output zero-based, adapted to one-based core",
+    "tested_api": [
+      "add",
+      "run",
+      "bel"
+    ],
+    "driver": "verify/library_checker/two_edge_connected_components.compact.cpp",
+    "ac": "https://qoj.ac/submission/3061643",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "local_reports": [
+      "verification/ecc-official.json",
+      "verification/ecc-official-sanitized.json"
+    ],
+    "remaining": "CCF_NOI online AC: 87ms / 42352kb, C++20, 20 accepted tests. Only the edge-biconnected partition is checked; other outputs and global speed ranking remain separate.",
+    "statement_sources": [
+      "https://qoj.ac/problem/999"
+    ]
   }
 ]

@@ -272,7 +272,9 @@
         {
           "driver": "verify/library_checker/scc.kosaraju.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/scc",
-          "existing_ac": [],
+          "existing_ac": [
+            "https://qoj.ac/submission/3061625"
+          ],
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
@@ -2886,6 +2888,14 @@
         {
           "driver": "verify/library_checker/two_edge_connected_components.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/two_edge_connected_components",
+          "existing_ac": [
+            "https://qoj.ac/submission/3061643"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4630.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4630",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -2895,6 +2905,12 @@
           "existing_ac": [
             "https://www.luogu.com.cn/record/297519028"
           ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P2860.forest.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2860",
+          "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
@@ -2926,7 +2942,14 @@
       "title": "由点双构造圆方森林",
       "source": "src/compact/block_cut_forest.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4630.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4630",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -2941,7 +2964,14 @@
       "title": "边双缩点森林（保留桥编号）",
       "source": "src/compact/bridge_component_forest.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P2860.forest.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2860",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

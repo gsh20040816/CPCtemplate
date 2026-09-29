@@ -1,0 +1,31 @@
+{
+  "mode": "normal",
+  "counts": {
+    "paths": 1205,
+    "interfaces": 1,
+    "leaves": 856,
+    "augment": 856
+  },
+  "all_simple_graphs_up_to_5": 1099,
+  "interface_cases": 1301,
+  "independent_minimum_enumerations": 836,
+  "scope": "Local simple-path enumeration, bridge IDs and adjacency multiplicities, optimal added-edge multisets and edge-deletion certificates. No online AC.",
+  "programs": {
+    "paths": {
+      "driver": "verify/luogu/P4630.compact.cpp",
+      "bundle_sha256": "807a71a10503cfc55d930e6bae2592872c19e47ec9b11964bc4436e0f8ed1623"
+    },
+    "leaves": {
+      "driver": "verify/luogu/P2860.forest.compact.cpp",
+      "bundle_sha256": "d854dadffeb1e4e3a6b2b2592bd517592866e148291c03b60d35ee40e0ff3c2e"
+    },
+    "augment": {
+      "driver": "verify/luogu/P2860.compact.cpp",
+      "bundle_sha256": "0a9d9f2ab8b80e3a186e787813af77b1c5066b82fe99657fb3921ddc2007e382"
+    },
+    "interfaces": {
+      "driver": "tests/forest_interfaces.cpp",
+      "bundle_sha256": "79cc3fb04d1920eff060fca6fd1501df81903622e0508cf592b0e911d01d568c"
+    }
+  }
+}

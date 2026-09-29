@@ -126,8 +126,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | recurrence_nth | [example-160](usage/example-160.cpp) | locally_checked_example |
 | TarjanSCC | [example-2](usage/example-2.cpp) | locally_checked_example |
 | BiconnectedCore | [example-4](usage/example-4.cpp), [example-5](usage/example-5.cpp) | locally_checked_example |
-| block_cut_forest | 待补 | pending_example |
-| bridge_component_forest | 待补 | pending_example |
+| block_cut_forest | [example-165（应用补充）](usage/example-165.cpp) | locally_checked_application |
+| bridge_component_forest | [example-166（应用补充）](usage/example-166.cpp) | locally_checked_application |
 | PalindromicTree | [example-20](usage/example-20.cpp), [example-21（应用补充）](usage/example-21.cpp) | locally_checked_example |
 | CentroidPairs | [example-137](usage/example-137.cpp) | locally_checked_example |
 | SubtreeColors | [example-138（应用补充）](usage/example-138.cpp) | locally_checked_application |
@@ -145,7 +145,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | removal_components | [example-162](usage/example-162.cpp), [example-163（应用补充）](usage/example-163.cpp) | locally_checked_example |
 | EdgeCompression | 待补 | pending_example |
 | orient_edges | [example-164（应用补充）](usage/example-164.cpp) | locally_checked_application |
-| bridge_augmentation | 待补 | pending_example |
+| bridge_augmentation | [example-167（应用补充）](usage/example-167.cpp) | locally_checked_application |
 | OfflineLCA | [example-32](usage/example-32.cpp) | locally_checked_example |
 | EulerLCA | [example-33](usage/example-33.cpp) | locally_checked_example |
 | LiftingLCA | [example-34](usage/example-34.cpp) | locally_checked_example |

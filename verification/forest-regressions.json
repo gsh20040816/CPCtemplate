@@ -1,0 +1,22 @@
+{
+  "scope": "Local forest batch, modes normal and ASan/UBSan. Core regressions stage classic only in a temporary directory.",
+  "baseline_commit": "1a9fa3e91d7dff58915341040be069611370054c",
+  "files": {
+    "src/compact/biconnected_core.hpp": "3ab80f3d7f5098d9fbc344248624a0d045dce4cf72043931252ca9dbb09ce224",
+    "src/compact/block_cut_forest.hpp": "63ea04e066be16a04fd83559855db9814d3453e8b4995d49aee9138e5392a061",
+    "src/compact/bridge_component_forest.hpp": "bfd2571cd8cc851e1e265dca1305d1f07e3d969cdb8c21b6a25c036e5a9f5e29",
+    "src/compact/bridge_augmentation.hpp": "c6677ce89d509e43a49da2be09fa5238c370dc9f313525bf7d6d434603f121a1",
+    "tests/forest_usages.py": "b1797955f59e1c1c213c4091e9d4a5fc6f978cfa60473c482557ae5687dd1294",
+    "tests/forest_interfaces.cpp": "e9d6cd13a089a4b83f5e81e03923c40e93977017630428e382daf502053496f4",
+    "tests/biconnected.cpp": "024b585b8d8c4b55fec17bd2f9cf0c85139d405aeedb3d9e7d80b0bf963f3139",
+    "tests/bridge_augmentation.cpp": "a556e7fdb50a7989dbd5ce867df186ed0a3a6f22635d31a1c150f1c19089bd99"
+  },
+  "reports": [
+    "verification/forest-usages-normal.json",
+    "verification/forest-usages-sanitizer.json",
+    "verification/forest-core-biconnected-normal.txt",
+    "verification/forest-core-biconnected-sanitizer.txt",
+    "verification/forest-core-bridge_augmentation-normal.txt",
+    "verification/forest-core-bridge_augmentation-sanitizer.txt"
+  ]
+}

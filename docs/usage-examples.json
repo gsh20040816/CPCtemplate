@@ -1999,5 +1999,45 @@
       "orient_edges"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-165",
+    "symbol": "block_cut_forest",
+    "problem": "Luogu P4630",
+    "url": "https://www.luogu.com.cn/problem/P4630",
+    "summary": "无向简单图，可不连通，n≤100000、m≤200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。",
+    "driver": "verify/luogu/P4630.compact.cpp",
+    "requires": [
+      "BiconnectedCore",
+      "block_cut_forest"
+    ],
+    "kind": "application",
+    "listing_new_page": true
+  },
+  {
+    "id": "example-166",
+    "symbol": "bridge_component_forest",
+    "problem": "Luogu P2860 (bridge forest)",
+    "url": "https://www.luogu.com.cn/problem/P2860",
+    "summary": "连通无向图，n≤5000、m≤10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。",
+    "driver": "verify/luogu/P2860.forest.compact.cpp",
+    "requires": [
+      "BiconnectedCore",
+      "bridge_component_forest"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-167",
+    "symbol": "bridge_augmentation",
+    "problem": "Luogu P2860 (construct augmentation)",
+    "url": "https://www.luogu.com.cn/problem/P2860",
+    "summary": "同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。",
+    "driver": "verify/luogu/P2860.compact.cpp",
+    "requires": [
+      "BiconnectedCore",
+      "bridge_augmentation"
+    ],
+    "kind": "application"
   }
 ]

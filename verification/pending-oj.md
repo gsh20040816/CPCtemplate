@@ -62,7 +62,6 @@
 - `verify/library_checker/range_kth_smallest.division.compact.cpp`
 - `verify/library_checker/range_kth_smallest.wavelet.compact.cpp`
 - `verify/library_checker/scc.compact.cpp`
-- `verify/library_checker/scc.kosaraju.compact.cpp`
 - `verify/library_checker/segment_add_get_min.compact.cpp`
 - `verify/library_checker/shortest_path.compact.cpp`
 - `verify/library_checker/sort_points_by_argument.compact.cpp`
@@ -75,7 +74,6 @@
 - `verify/library_checker/sum_of_totient_function.compact.cpp`
 - `verify/library_checker/system_of_linear_equations.compact.cpp`
 - `verify/library_checker/system_of_linear_equations_mod_2.compact.cpp`
-- `verify/library_checker/two_edge_connected_components.compact.cpp`
 - `verify/library_checker/two_sat.compact.cpp`
 - `verify/library_checker/zalgorithm.compact.cpp`
 - `verify/luogu/CF1100F.compact.cpp`
@@ -95,6 +93,7 @@
 - `verify/luogu/P2742.compact.cpp`
 - `verify/luogu/P2762.compact.cpp`
 - `verify/luogu/P2860.compact.cpp`
+- `verify/luogu/P2860.forest.compact.cpp`
 - `verify/luogu/P2921.compact.cpp`
 - `verify/luogu/P3369.pbds.compact.cpp`
 - `verify/luogu/P3369.scapegoat.compact.cpp`
@@ -127,6 +126,7 @@
 - `verify/luogu/P4245.compact.cpp`
 - `verify/luogu/P4512.compact.cpp`
 - `verify/luogu/P4557.compact.cpp`
+- `verify/luogu/P4630.compact.cpp`
 - `verify/luogu/P4716.compact.cpp`
 - `verify/luogu/P4721.compact.cpp`
 - `verify/luogu/P4779.compact.cpp`

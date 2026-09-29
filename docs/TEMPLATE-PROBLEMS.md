@@ -131,6 +131,11 @@
 | `removal_components` | [AOJ GRL_3_A](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en) | 连通无向简单图，按编号升序输出所有割点，N、M≤100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。 | 待编写驱动/提交 | 待核验 |
 | `removal_components` | [UVA 10765 Doves and Bombs](https://onlinejudge.org/external/107/10765.pdf) | 分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n≤10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。 | 待编写驱动/提交 | 待核验 |
 | `orient_edges` | [Codeforces 118E Bertown roads](https://codeforces.com/problemset/problem/118/E) | 给连通无向简单图，把每条边定向使整图强连通，无解输出0。n≤100000、m≤300000。先用Lowlink.run确认连通且无桥，再调用orient_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。 | 待编写驱动/提交 | 待核验 |
+| `block_cut_forest` | [Luogu P4630](https://www.luogu.com.cn/problem/P4630) | 无向简单图，可不连通，n≤100000、m≤200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。 | 待编写驱动/提交 | 待核验 |
+| `bridge_component_forest` | [Luogu P2860 (bridge forest)](https://www.luogu.com.cn/problem/P2860) | 连通无向图，n≤5000、m≤10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。 | 待编写驱动/提交 | 待核验 |
+| `bridge_augmentation` | [Luogu P2860 (construct augmentation)](https://www.luogu.com.cn/problem/P2860) | 同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。 | 待编写驱动/提交 | 待核验 |
+| `SCC` | [QOJ 906 (Kosaraju)](https://qoj.ac/problem/906) | 给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。 | [记录](https://qoj.ac/submission/3061625) | 待核验 |
+| `BiconnectedCore` | [QOJ 999 (BiconnectedCore)](https://qoj.ac/problem/999) | 1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed | [记录](https://qoj.ac/submission/3061643) | 待核验 |
 
 ## 适配与证据范围
 
@@ -1189,6 +1194,56 @@ Contest/application usage; not formal-template coverage.
 Contest application only; standalone formal-template problem, online AC and speed ranking pending.
 
 原始题面与参数：[来源 1](https://codeforces.com/problemset/problem/118/E)
+
+### Luogu P4630 / block_cut_forest
+
+Contest/application usage; not formal-template coverage.
+
+无向简单图，可不连通，n≤100000、m≤200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。
+
+Contest application; formal-template coverage, online AC and speed ranking pending. Independent simple-path triple enumeration and large closed-form cases checked locally.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P4630)
+
+### Luogu P2860 (bridge forest) / bridge_component_forest
+
+Contest/application usage; not formal-template coverage.
+
+连通无向图，n≤5000、m≤10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。
+
+Online AC and speed ranking pending. P2860 only outputs cardinality; returned endpoint certificates and original bridge IDs separately checked by local interface tests.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P2860)
+
+### Luogu P2860 (construct augmentation) / bridge_augmentation
+
+Contest/application usage; not formal-template coverage.
+
+同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。
+
+Online AC and speed ranking pending. P2860 only outputs cardinality; returned endpoint certificates and original bridge IDs separately checked by local interface tests.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P2860)
+
+### QOJ 906 (Kosaraju) / SCC
+
+Official standalone library/template problem.
+
+给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。
+
+Online AC on CCF_NOI: 226ms / 76512kb, 11 accepted tests, C++20. Global all-submission speed ranking unresolved; bundled unused algorithms and dag are not covered.
+
+原始题面与参数：[来源 1](https://qoj.ac/problem/906/statement/zh_cn)
+
+### QOJ 999 (BiconnectedCore) / BiconnectedCore
+
+Library Checker standalone standard template task.
+
+Group vertices by bel after run; input and output zero-based, adapted to one-based core
+
+CCF_NOI online AC: 87ms / 42352kb, C++20, 20 accepted tests. Only the edge-biconnected partition is checked; other outputs and global speed ranking remain separate.
+
+原始题面与参数：[来源 1](https://qoj.ac/problem/999)
 
 ## 榜单口径
 

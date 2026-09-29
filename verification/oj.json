@@ -1755,5 +1755,49 @@
       "prod"
     ],
     "note": "16 test cases passed; noncommutative affine composition. Source pasted via app.paste. get/all/boundary searches not invoked in this driver."
+  },
+  {
+    "problem": "QOJ 906",
+    "style": "compact",
+    "record": "https://qoj.ac/submission/3061625",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 226,
+    "memory": "76512kb",
+    "source_driver": "verify/library_checker/scc.kosaraju.compact.cpp",
+    "submitted_source": "verification/submitted/QOJ906.kosaraju.compact.cpp",
+    "submitted_sha256": "9379185c2c8a5421d375fba5cf12a5b60824c45519ee25da2d7097289e9c2c05",
+    "date": "2026-09-29",
+    "account": "CCF_NOI",
+    "algorithm": "SCC",
+    "tested_api": [
+      "add",
+      "run",
+      "bel",
+      "cnt"
+    ],
+    "note": "Kosaraju SCC. File uploaded through Firefox native file picker in C++20. Detail page shows 11 accepted tests. Other bundled algorithms and SCC.dag are not invoked. No speed-ranking claim."
+  },
+  {
+    "problem": "QOJ 999",
+    "style": "compact",
+    "record": "https://qoj.ac/submission/3061643",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 87,
+    "memory": "42352kb",
+    "source_driver": "verify/library_checker/two_edge_connected_components.compact.cpp",
+    "submitted_source": "verification/submitted/QOJ999.core.compact.cpp",
+    "submitted_sha256": "2e5380bba522e7a09c560d2b4541885a17455397ba5d85e4d55601185abfacf9",
+    "date": "2026-09-29",
+    "account": "CCF_NOI",
+    "algorithm": "BiconnectedCore",
+    "tested_api": [
+      "add",
+      "run",
+      "bel",
+      "cnt"
+    ],
+    "note": "20 accepted tests in C++20; native Firefox file upload. Only edge-biconnected partition output is checked; blocks, cut, forest and augmentation outputs are not covered by this AC."
   }
 ]

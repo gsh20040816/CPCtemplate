@@ -3423,6 +3423,20 @@ bridge\_component\_forest(graph) 接收已 run 的 BiconnectedCore，返回按 1
 
 \lstinputlisting[firstline=5,lastline=23]{../src/compact/bridge_component_forest.hpp}
 
+\Needspace{420pt}
+
+\subsection*{应用题补充：Luogu P2860 (bridge forest)}
+
+\label{usage-example-166}
+
+题意：连通无向图，n$\le$5000、m$\le$10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。
+
+所需模板：BiconnectedCore、bridge\_component\_forest。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2860}
+
+\lstinputlisting{usage/example-166.cpp}
+
 \Needspace{366pt}
 
 \subsection{属于简单奇环的全部顶点}\label{compact-odd_cycle_vertices}\index{odd\_cycle\_vertices}
@@ -3503,13 +3517,27 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 \lstinputlisting{usage/example-163.cpp}
 
-\Needspace{394pt}
+\Needspace{402pt}
 
 \subsection{连通无向图最少加边方案}\label{compact-bridge_augmentation}\index{bridge\_augmentation}
 
-先对非空连通无向图调用 BiconnectedCore.run()，再调用 bridge\_augmentation(graph)。返回原图点号构成的新增边列表，不修改原图。允许新增重边，不产生自环；不适用于非连通图。已无桥时返回空列表。桥树有 L 个叶子时最少加 (L+1)/2 条边（整数除法）。递归 DFS 顺序收集叶子，奇数时复制首叶，前后半段配对。每条桥一侧的叶子是循环连续区间，半周配对必跨过该割，故所有桥被消除；每个叶子至少需要一个新边端点，得到同样的下界。分解后本函数 O(n+m) 时间与空间。依赖 biconnected.hpp。P2860 双风格完整程序本地验证；新增方案以逐边删除连通性独立验证，尚无本库在线 AC。
+先对非空连通无向图调用 BiconnectedCore.run()，再调用 bridge\_augmentation(graph)。返回原图点号构成的新增边列表，不修改原图。允许新增重边，不产生自环；不适用于非连通图。已无桥时返回空列表。桥树有 L 个叶子时最少加 (L+1)/2 条边（整数除法）。递归 DFS 顺序收集叶子，奇数时复制首叶，前后半段配对。每条桥一侧的叶子是循环连续区间，半周配对必跨过该割，故所有桥被消除；每个叶子至少需要一个新边端点，得到同样的下界。分解后本函数 O(n+m) 时间与空间。依赖 bridge\_component\_forest.hpp。P2860 的 vector 用法已通过普通及 ASan/UBSan 本地验证；新增方案以逐边删除连通性及小图最优解枚举独立核验，该应用尚无本库在线 AC。
 
 \lstinputlisting[firstline=5,lastline=30]{../src/compact/bridge_augmentation.hpp}
+
+\Needspace{380pt}
+
+\subsection*{应用题补充：Luogu P2860 (construct augmentation)}
+
+\label{usage-example-167}
+
+题意：同题的构造接口：连通非空图run后调用bridge\_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。
+
+所需模板：BiconnectedCore、bridge\_augmentation。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2860}
+
+\lstinputlisting{usage/example-167.cpp}
 
 \Needspace{297pt}
 
@@ -3537,7 +3565,7 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 \lstinputlisting{usage/example-58.cpp}
 
-\Needspace{309pt}
+\Needspace{680pt}
 
 \section{圆方树}
 
@@ -3546,6 +3574,24 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 block\_cut\_forest(graph) 接收已经 run 的 BiconnectedCore，返回 1-based 邻接表。原点为 1..n，blocks[i] 的方点为 n+i+1；每个点双内的所有原点连向该方点。孤立点也连向自己的单点方块。不连通原图得到森林；0 号空置。O(n+m) 时间与输出空间，不修改分解结果。
 
 \lstinputlisting[firstline=5,lastline=21]{../src/compact/block_cut_forest.hpp}
+
+\Needspace{200pt}
+
+\subsection*{应用题补充：Luogu P4630}
+
+题意：无向简单图，可不连通，n$\le$100000、m$\le$200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。
+
+所需模板：BiconnectedCore、block\_cut\_forest。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4630}
+
+\newpage
+
+\subsection*{Luogu P4630：使用代码}
+
+\label{usage-example-165}
+
+\lstinputlisting{usage/example-165.cpp}
 
 \Needspace{410pt}
 

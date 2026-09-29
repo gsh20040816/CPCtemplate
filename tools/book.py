@@ -137,6 +137,8 @@ for style in ['compact']:
                 estimate = 650
             if name in ('SubtreeColors', 'VirtualTree', 'CentroidPairs', 'WaveletMatrix', 'GaussXor', 'SecondMST', 'DivisionTree'):
                 estimate = 650
+            if name == 'block_cut_forest':
+                estimate = 650
             if name == 'polygon_contains':
                 estimate = 430
             if name in ('line_intersection_real', 'line_circle_intersections'):
@@ -635,12 +637,19 @@ for style in ['compact']:
                 if usage.get('page_break_before'):
                     split_lines = usage['snippet'].splitlines().index(usage['page_break_before'])
                 space = min(680, 140 + (split_lines or count) * 11 + len(usage['summary']) / 42 * 14)
+                if usage.get('listing_new_page'):
+                    space = 200
                 body.append('\\Needspace{' + str(round(space)) + 'pt}')
                 body.append('\\subsection*{' + ('模板题使用：' if usage.get('kind', 'template') == 'template' else '应用题补充：') + esc(usage['problem']) + '}')
-                body.append('\\label{usage-' + usage['id'] + '}')
+                if not usage.get('listing_new_page'):
+                    body.append('\\label{usage-' + usage['id'] + '}')
                 body.append('题意：' + esc(usage['summary']))
                 body.append('所需模板：' + esc('、'.join(usage['requires'])) + '。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。')
                 body.append('题目：\\url{' + usage['url'] + '}')
+                if usage.get('listing_new_page'):
+                    body.append('\\newpage')
+                    body.append('\\subsection*{' + esc(usage['problem']) + '：使用代码}')
+                    body.append('\\label{usage-' + usage['id'] + '}')
                 listing = usage['snippet_file'].removeprefix('docs/')
                 if split_lines:
                     body.append('\\lstinputlisting[lastline=' + str(split_lines) + ']{' + listing + '}')
