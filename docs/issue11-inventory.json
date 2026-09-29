@@ -145,8 +145,9 @@
       "toc_page": 13,
       "physical_page": 15,
       "level": 0,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "reviewed_partial_coverage",
+      "candidate_symbols": [],
+      "review": "各子项均已核对并有本地实现/驱动证据，2.14的完整比赛应用已补。线上模板提交及排名仍未全部完成；比赛应用不代替正式模板题覆盖。"
     },
     {
       "section": "2.1",
@@ -371,11 +372,11 @@
       "toc_page": 54,
       "physical_page": 56,
       "level": 1,
-      "status": "implemented_kernel_application_pending",
+      "status": "implemented_application_local_verified_online_pending",
       "candidate_symbols": [
         "unit_flow_edges"
       ],
-      "review": "已阅读实际 56–61 页，分类对象为拆点边、容量均为 1。unit_flow_edges 补通用网络的单位边流量 Y/N/? 内核，5000 小图整数最大流枚举及 10 万点链双模式通过；含零容量旁边和环流，不能视为简单路径边分类。完整排列/子序列约束建图尚未移植与验证，见子项 2.14.1。"
+      "review": "完整应用已补为QOJ10424/NERC2024K驱动与example-133。锚点分段容量、Inconsistent及Y/N/?由8166小输入穷举/2000子集随机参考/最大n=2000边界双模式验证；117官方配方本地重建经validator和双参考核对，官方checker双模式接受。直接单位边代替附件拆点路径，一次SCC分类，见docs/KNOWNS-UNKNOWNS.md。生成器无用越界迭代的显式修订有指纹记录。不新增线上AC或正式模板题覆盖。"
     },
     {
       "section": "2.14.1",
@@ -383,11 +384,11 @@
       "toc_page": 54,
       "physical_page": 56,
       "level": 2,
-      "status": "reviewed_application_pending",
+      "status": "implemented_application_local_verified_online_pending",
       "candidate_symbols": [
         "unit_flow_edges"
       ],
-      "review": "已读两套排列与含 -1 锚点的分段、组容量和拆点单位边建图。仅通用单位边分类内核已实现验证；该比赛题完整输入模型、Inconsistent 判定及驱动仍待补，不能把内核测试当作比赛题 AC。"
+      "review": "完整应用已补为QOJ10424/NERC2024K驱动与example-133。锚点分段容量、Inconsistent及Y/N/?由8166小输入穷举/2000子集随机参考/最大n=2000边界双模式验证；117官方配方本地重建经validator和双参考核对，官方checker双模式接受。直接单位边代替附件拆点路径，一次SCC分类，见docs/KNOWNS-UNKNOWNS.md。生成器无用越界迭代的显式修订有指纹记录。不新增线上AC或正式模板题覆盖。"
     },
     {
       "section": "2.15",

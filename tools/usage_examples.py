@@ -35,7 +35,7 @@ def records():
             start = text.index(marker) + len(marker)
             assert start < m.start()
             config = text[start:m.start()]
-            names = re.findall(r'(?m)^\w+\s+(\w+)\([^;\n]*\)\s*\n\{', config)
+            names = re.findall(r'(?m)^\w+\s+(\w+)\([^;{}]*\)\s*\n\{', config)
             assert names == row['configuration_functions'], 'Configuration callback list changed'
         prefix, snippet = text[:start], text[start:]
         assert all(not line.strip() or line.startswith('#include') or line.startswith('using namespace') or line.lstrip().startswith('//')

@@ -18,7 +18,7 @@
 | 1.4.1 | (1) 模板 1 | 8 | 10 | existing_implementation_local_verified |
 | 1.5 | 5. 广义后缀自动机 | 9 | 11 | implemented_local_verified_online_pending |
 | 1.6 | 6. 回文自动机 | 12 | 14 | existing_implementation_local_verified |
-| 2 | 图论 | 13 | 15 | pending_content_review |
+| 2 | 图论 | 13 | 15 | reviewed_partial_coverage |
 | 2.1 | 1. 2-SAT | 13 | 15 | existing_implementation_local_verified |
 | 2.2 | 2. 支配树 | 16 | 18 | implemented_local_verified_online_pending |
 | 2.2.1 | (1) 洛谷模板 | 16 | 18 | implemented_local_verified_online_pending |
@@ -37,8 +37,8 @@
 | 2.12.1 | (1) 洛谷模板 | 44 | 46 | implemented_local_verified_online_pending |
 | 2.13 | 13. 有负圈的费用流 | 50 | 52 | implemented_local_verified_online_pending |
 | 2.13.1 | (1) 洛谷模板 | 50 | 52 | implemented_local_verified_online_pending |
-| 2.14 | 14. 最大流的必经边与可行边 | 54 | 56 | implemented_kernel_application_pending |
-| 2.14.1 | (1) The 2024 ICPC Northern Eurasia Finals vp | 54 | 56 | reviewed_application_pending |
+| 2.14 | 14. 最大流的必经边与可行边 | 54 | 56 | implemented_application_local_verified_online_pending |
+| 2.14.1 | (1) The 2024 ICPC Northern Eurasia Finals vp | 54 | 56 | implemented_application_local_verified_online_pending |
 | 2.15 | 15. 划分子图使每个点度数为奇数 | 59 | 61 | implemented_local_verified_online_pending |
 | 3 | 数学 | 63 | 65 | pending_content_review |
 | 3.1 | 1. Min_25 筛 | 63 | 65 | implemented_local_verified_online_pending |

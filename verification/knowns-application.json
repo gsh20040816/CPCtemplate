@@ -1,0 +1,44 @@
+{
+  "scope": "Attachment 2.14.1 full permutation/partial-subsequence application, QOJ10424/NERC2024K. No new online AC/rank and not standalone template coverage.",
+  "recorded_at_utc": "2026-09-29T10:56:10.582843+00:00",
+  "files": {
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "src/compact/tarjan.hpp": "61899731db759d931d805d476f659163f404b999e6eba368536a39e404fc5bf1",
+    "src/compact/unit_flow_edges.hpp": "716311766ef9d54f824fdc2309aab52827cb8a79dc3714d6e53a72e79b090555",
+    "verify/qoj/10424.compact.cpp": "b0c3bf6479e3872165f3e13ee3a8a3cb269bd67546539773ace4dcf8f83dc5dc",
+    "tests/knowns_unknowns.py": "5c09a0b3cde5089413194ced10aca2610d246d6b5877dbe43a81a30e1bb4b586",
+    "tools/knowns_official.py": "898e2d4892df2326eaf757f8308b2b8068f4a8214a0e46d47ea19071e6987f78"
+  },
+  "reference": {
+    "attachment_sha256": "b5ce46f7cf542be2d9846d8f01898c8ccd7f4619521036b0b7895206895745f3",
+    "physical_pages": [
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+    ],
+    "statement_url": "https://neerc.ifmo.ru/archive/2024/nef-2024-statement.pdf",
+    "statement_sha256": "65b210b860e480825b527789ab75a49f91e34de355f941464e607ef603613529",
+    "tutorial_url": "https://neerc.ifmo.ru/archive/2024/nef-2024-tutorial.pdf"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "verdict": "independent_subset_oracle_passed",
+      "log": "build/knowns-normal.txt",
+      "output": "Knowns and Unknowns: four official sample cases, 8166 exhaustive normalized n<=3 inputs and 2000 independent selected-subset oracles PASS\nKnowns and Unknowns: n=2000 all-unknown/all-selected/exact-set/conflicting-anchor cases, 666 independent choice blocks and 2000-case reset PASS",
+      "bundled_source_sha256": "cb1ce66db203c0e235cd3b7938cf1857af6a3e203773657e76b7a0cef46718cb"
+    },
+    {
+      "mode": "san",
+      "verdict": "independent_subset_oracle_passed",
+      "log": "build/knowns-san.txt",
+      "output": "Knowns and Unknowns: four official sample cases, 8166 exhaustive normalized n<=3 inputs and 2000 independent selected-subset oracles PASS\nKnowns and Unknowns: n=2000 all-unknown/all-selected/exact-set/conflicting-anchor cases, 666 independent choice blocks and 2000-case reset PASS",
+      "bundled_source_sha256": "cb1ce66db203c0e235cd3b7938cf1857af6a3e203773657e76b7a0cef46718cb"
+    }
+  ],
+  "official_local_evidence": "verification/knowns-official.json",
+  "usage": "example-133"
+}

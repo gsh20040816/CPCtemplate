@@ -1604,5 +1604,22 @@
     "requires": [
       "GeneralSAM"
     ]
+  },
+  {
+    "id": "example-133",
+    "symbol": "unit_flow_edges",
+    "problem": "QOJ 10424 / NERC 2024 K",
+    "url": "https://qoj.ac/problem/10424",
+    "summary": "两套排列各给出同一k元素集合的部分子序列，-1表示未知；输出每个元素必选Y、必不选N或可选?，无解输出Inconsistent。已知元素切分两侧容量组，每个元素对应一条单位边；最大流必须等于k，再作残量SCC分类。n及所有测试的n之和至2000。比赛应用，不计作独立模板题覆盖。",
+    "driver": "verify/qoj/10424.compact.cpp",
+    "requires": [
+      "Dinic",
+      "TarjanSCC",
+      "unit_flow_edges"
+    ],
+    "configuration_functions": [
+      "blocks"
+    ],
+    "kind": "application"
   }
 ]

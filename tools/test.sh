@@ -585,3 +585,4 @@ python3 tests/palindrome_attachment.py
 build/suffix-automaton
 python3 tests/suffix_attachment.py
 python3 tests/general_sam_application.py
+python3 tests/knowns_unknowns.py
