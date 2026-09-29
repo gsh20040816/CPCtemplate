@@ -190,3 +190,4 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | closest_pair_i64 | 计算几何 → 平面最近点对 | direct |  |
 | EnclosingCircle | 计算几何 → 随机增量法 | application | 随机增量最小覆盖圆。 |
 | ModifiedMo | 杂项 → 离线算法 → 莫队算法 → 带修改莫队 | direct |  |
+| xor_hamming_pairs | 杂项 → 离线算法 → 莫队算法 → 莫队二次离线 | direct | 附件及 P4887 的异或 popcount 配对应用；不声称任意问题可直接代入。 |

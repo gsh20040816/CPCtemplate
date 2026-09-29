@@ -74,6 +74,7 @@
 | `euler_power` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 待编写驱动/提交 | 待核验 |
 | `euler_phi` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 待编写驱动/提交 | 待核验 |
 | `ScapegoatTree` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000; rank/predecessor/successor query key may be absent; kth and neighbors exist. | 待编写驱动/提交 | 待核验 |
+| `xor_hamming_pairs` | [Luogu P4887](https://www.luogu.com.cn/problem/P4887) | 1<=n,m<=100000; 0<=a_i,k<2^14. Note k may exceed 14. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -648,6 +649,14 @@ Standalone ordinary balanced BST template; separate deterministic rebuilding imp
 Map operations 1..6 to insert/erase/rank/kth/prev/next. Dereference optional only under judge existence guarantee.
 
 Online AC and speed ranking pending. Full signed64 keys, absent-neighbor nullopt, empty tree and deletion failure covered by local API tests.
+
+### Luogu P4887 / xor_hamming_pairs
+
+Official title explicitly labels secondary-offline Mo as a template.
+
+
+
+Online submission/ranking pending. Independent local normal and sanitizer evidence in verification/mo-secondary.json.
 
 ## 榜单口径
 

@@ -702,8 +702,11 @@
       "toc_page": 115,
       "physical_page": 117,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "xor_hamming_pairs"
+      ],
+      "review": "实际 117–119 页代码逐项核对；异或 popcount 配对，不是通用动态莫队。0-based 半开区间、前缀事件、k=0 自身扣除、越界 k 全零。小数组全枚举、1500 随机查询组及 n=m=10万的 k=0/7；153 个 P4887 完整驱动，普通与 ASan/UBSan。详见 docs/MO-SECONDARY.md；线上待补。"
     },
     {
       "section": "4.6",

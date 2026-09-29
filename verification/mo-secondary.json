@@ -1,0 +1,51 @@
+{
+  "scope": "Local independent pair oracles and P4887 adapter only; no online AC or speed ranking",
+  "recorded_at_utc": "2026-09-29T07:40:47.205201+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/mo_secondary.hpp": "afde50bb462ce97e3b0fddfe0cc9ef1d37e62cc2e9ee6f2025b6f2d0a32a12e6",
+    "tests/mo_secondary.cpp": "f252dac1c1be2473af73bb69381df37fcc55efbfcc9f01951809507870fae54f",
+    "tests/mo_secondary_application.py": "a2f97f04ebe174fbe5b29f043911ef364c81b94fc0ac4bc87168f0281ec95585",
+    "verify/luogu/P4887.compact.cpp": "c9e690142a335b9348f4fb1c0520cadae1cfd34f4fc78fd22add441bd7540a98"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "kind": "unit",
+      "verdict": "local_oracle_passed",
+      "output": "mo_secondary: exhaustive, 1500 random, 100000-scale k=0/7 passed"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "unit",
+      "verdict": "local_oracle_passed",
+      "output": "mo_secondary: exhaustive, 1500 random, 100000-scale k=0/7 passed"
+    },
+    {
+      "mode": "normal",
+      "kind": "driver",
+      "verdict": "local_oracle_passed",
+      "output": "P4887: 153 programs; direct pair oracle, k=0/7/14/out-of-range, n=m=100000 PASS"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "driver",
+      "verdict": "local_oracle_passed",
+      "output": "P4887: 153 programs; direct pair oracle, k=0/7/14/out-of-range, n=m=100000 PASS"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  },
+  "additional_unit_coverage": "bits=14 and20 extrema with k=0,bits,bits+1; normal and sanitizer rerun after adding these cases"
+}

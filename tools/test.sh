@@ -533,3 +533,7 @@ python3 tests/sequence_flip_application.py
 "$CXX" "${flags[@]}" tests/scapegoat_tree.cpp -o build/scapegoat
 build/scapegoat
 python3 tests/scapegoat_application.py
+
+"$CXX" "${flags[@]}" tests/mo_secondary.cpp -o build/mo-secondary
+build/mo-secondary
+python3 tests/mo_secondary_application.py

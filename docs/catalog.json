@@ -1090,5 +1090,11 @@
     "dag_path_determinant",
     "LGV：DAG 路径权值行列式",
     "dag_path_determinant<mod>(g,sources,sinks) 返回路径权值矩阵的行列式，mod 必须为素数。g[u] 的项为 (v,ModInt<mod> 权值)，点号 0..n-1；两个端点序列等长 k，各自不能重复，但可相互重叠。允许重边、零权、负权；长度为 0 的路径权为 1。整张图有环则返回 nullopt，空端点族在 DAG 上返回 1。由 LGV，它是顶点不交路径族按汇点排列带符号的权值和；只有能证明非恒等排列均不可能时，才是对应配对的普通计数。顺序不能随意排序，模结果为 0 也不能据此断言不存在路径族。时间 O((k+1)(n+m)+k³+k log mod)，额外空间 O(n+k²)，依赖 det_prime 和 ModInt。"
+  ],
+  [
+    "mo_secondary",
+    "xor_hamming_pairs",
+    "莫队二次离线：异或位数配对",
+    "xor_hamming_pairs(a,queries,k,bits=14) 按查询输入顺序返回 long long 答案，统计 l≤i<j<r 且 popcount(a[i] xor a[j])=k 的下标对。queries 为 0-based 半开区间，允许空区间、重复查询与空数组；0≤bits≤20，0≤a[i]<2^bits，n、m 和容器下标须可由 int 表示。k 超出 [0,bits] 直接返回全零；相等值来自不同下标才构成一对。莫队移动生成前缀事件，第二次离线按前缀扫描；k=0 显式扣掉自身。令 C=binom(bits,k)，时间 O(2^bits+nC+m log(m+1)+n√m+m)，空间 O(2^bits+n+m)，m=0 直接返回。无需维护可逆的在线窗口，也不支持修改。"
   ]
 ]

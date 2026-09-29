@@ -3722,3 +3722,41 @@ ModifiedMo(n,m) 保存离线询问，n>0，m 为修改总数。add(l,r,t) 登记
 \newpage
 
 \lstinputlisting[firstline=29,lastline=65,firstnumber=22]{../src/compact/modified_mo.hpp}
+
+\newpage
+
+\Needspace{680pt}
+
+\subsection{莫队二次离线}
+
+\subsubsection{莫队二次离线：异或位数配对}\label{compact-xor_hamming_pairs}\index{xor\_hamming\_pairs}
+
+xor\_hamming\_pairs(a,queries,k,bits=14) 按查询输入顺序返回 long long 答案，统计 l$\le$i<j<r 且 popcount(a[i] xor a[j])=k 的下标对。queries 为 0-based 半开区间，允许空区间、重复查询与空数组；0$\le$bits$\le$20，0$\le$a[i]<2\textasciicircum{}bits，n、m 和容器下标须可由 int 表示。k 超出 [0,bits] 直接返回全零；相等值来自不同下标才构成一对。莫队移动生成前缀事件，第二次离线按前缀扫描；k=0 显式扣掉自身。令 C=binom(bits,k)，时间 O(2\textasciicircum{}bits+nC+m log(m+1)+n$\sqrt{\vphantom x}$m+m)，空间 O(2\textasciicircum{}bits+n+m)，m=0 直接返回。无需维护可逆的在线窗口，也不支持修改。
+
+\lstinputlisting[firstline=12,lastline=53,firstnumber=1]{../src/compact/mo_secondary.hpp}
+
+\newpage
+
+\noindent 莫队端点移动与前缀事件（接上页同一函数）：
+
+\lstinputlisting[firstline=54,lastline=82,firstnumber=43]{../src/compact/mo_secondary.hpp}
+
+\newpage
+
+\noindent 第二次离线与差分还原（接上页同一函数）：
+
+\lstinputlisting[firstline=83,lastline=103,firstnumber=72]{../src/compact/mo_secondary.hpp}
+
+\Needspace{351pt}
+
+\subsection*{模板题使用：Luogu P4887}
+
+\label{usage-example-111}
+
+题意：统计每个区间内异或值恰有 k 个 1 的无序下标对。输入 1-based 闭区间 [l,r]，只将 l 减一转为 0-based 半开区间；k 可以大于 14，此时全零。k=0 统计相等值的不同下标，不计自身。
+
+所需模板：xor\_hamming\_pairs。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4887}
+
+\lstinputlisting{usage/example-111.cpp}

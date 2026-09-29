@@ -1324,5 +1324,17 @@
       "ScapegoatTree"
     ],
     "kind": "template"
+  },
+  {
+    "id": "example-111",
+    "symbol": "xor_hamming_pairs",
+    "problem": "Luogu P4887",
+    "url": "https://www.luogu.com.cn/problem/P4887",
+    "summary": "统计每个区间内异或值恰有 k 个 1 的无序下标对。输入 1-based 闭区间 [l,r]，只将 l 减一转为 0-based 半开区间；k 可以大于 14，此时全零。k=0 统计相等值的不同下标，不计自身。",
+    "driver": "verify/luogu/P4887.compact.cpp",
+    "requires": [
+      "xor_hamming_pairs"
+    ],
+    "kind": "template"
   }
 ]

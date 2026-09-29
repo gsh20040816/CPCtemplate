@@ -32,7 +32,7 @@ for part in parts:
         key = 'graphs'
     elif any(x in title for x in ['函数图', '杭州 2023 H', '杭州 2023 G', 'SCC 模板题']):
         key = 'graphs'
-    if '带修莫队' in title:
+    if '带修莫队' in title or '莫队二次离线' in title:
         key = 'misc'
     notes[key].append(part)
 notes['geometry'].append((root / 'docs/geometry-notes.tex').read_text())
