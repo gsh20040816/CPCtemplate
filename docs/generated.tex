@@ -1792,6 +1792,26 @@ GaussXor::solve(a,n)，a为m行n+1列的01字符串增广矩阵，0$\le$n<INT\_M
 
 \lstinputlisting{usage/example-143.cpp}
 
+\Needspace{552pt}
+
+\subsection*{应用题补充：POJ 1681 Painter's Problem}
+
+\label{usage-example-145}
+
+题意：方格w为白、y为黄，每次翻转自身及四邻，求全部变黄的最少操作数，无解输出inf。按kuangbin2.10.1建模，枚举特解异或零空间基的所有子集；不是直接数特解的1。本地验证到15×15，原OJ题面当前不可达，线上尚待验证。
+
+所需模板：GaussXor。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{http://poj.org/problem?id=1681}
+
+\lstinputlisting[lastline=34]{usage/example-145.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=35,firstnumber=35]{usage/example-145.cpp}
+
 \Needspace{639pt}
 
 \subsection{素数模高斯消元与全部解}\label{compact-GaussMod}\index{GaussMod}
@@ -2229,6 +2249,48 @@ MonotoneStackSeg(a) 要求非空 long long 数组；add(l,r,delta) 对 0-based �
 \Needspace{680pt}
 
 \chapter{划分树}
+
+\section{划分树：静态区间第 k 小}\label{compact-DivisionTree}\index{DivisionTree}
+
+DivisionTree(v)，v为0-based vector<long long>，完整signed64位、可重复；0$\le$n<INT\_MAX。kth(l,r,k)返回半开区间[l,r)内0-based第k小，要求0$\le$l<r$\le$n、0$\le$k<r-l；第k大改传r-l-1-k。允许构造空数组但不能查询；输入不改变，建后无修改接口。按中位数稳定划分，重复中位值只给左边所需配额。构造和空间O(n log(n+1))，单次O(log(n+1))；build/query为递归内部函数，深度O(log(n+1))。sorted/a/pre只读。与压位小波矩阵同功能但存储更多、代码更短；原书第k大注释与实现不一致，本接口明确为第k小。
+
+\lstinputlisting[firstline=8,lastline=24,firstnumber=1]{../src/compact/division_tree.hpp}
+
+\newpage
+
+\noindent 稳定划分与区间查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=25,lastline=64,firstnumber=18]{../src/compact/division_tree.hpp}
+
+\Needspace{343pt}
+
+\subsection*{模板题使用：Luogu P3834}
+
+\label{usage-example-146}
+
+题意：静态区间第k小；n、q至20万，非负值至10$^{9}$。输入为1-based闭区间与排名，调用kth(l-1,r,k-1)。本程序使用中位数划分树，重复数仍按出现次数排名。
+
+所需模板：DivisionTree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3834}
+
+\lstinputlisting{usage/example-146.cpp}
+
+\Needspace{334pt}
+
+\subsection*{模板题使用：Library Checker range\_kth\_smallest}
+
+\label{usage-example-147}
+
+题意：半开区间[l,r)内第k小，位置和k均为0-based，直接调用kth；n、q至20万，值在0..10$^{9}$。
+
+所需模板：DivisionTree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/range_kth_smallest}
+
+\lstinputlisting{usage/example-147.cpp}
+
+\Needspace{650pt}
 
 \noindent 相关应用：小波矩阵使用逐位稳定划分和压位rank，解决静态区间顺序统计；在固定导航的划分树下按相关结构收录，不等同于原文划分树实现。
 
@@ -3093,9 +3155,51 @@ release\_bfs(open,source,neighbors) 返回各点最早到达时间，不可达�
 
 \lstinputlisting[firstline=9,lastline=51]{../src/compact/release_bfs.hpp}
 
-\Needspace{546pt}
+\Needspace{680pt}
 
 \chapter{生成树问题}
+
+\section{最小生成树}
+
+\subsection{严格与非严格次小生成树、换边方案}\label{compact-SecondMST}\index{SecondMST}
+
+SecondMST(n)，n$\ge$1，点号0..n-1。add(u,v,w)返回0-based边号；允许自环、重边、完整signed64位权。solve(strict=true)返回connected、128位MST总权weight、所选边号tree，以及可选128位次小权next和换入/换出边号in/out。strict=true要求权值严格增大；false要求边集与返回的MST不同，可同权。不连通返回默认空结果；无次小树时next为空且in/out=-1。存在时将tree中的out删去并加入in即得方案。可加边后重算；每次solve重建。依赖dsu，沿用路径减半及y根挂x根；不用按秩合并。时间O((n+m)log(n+m))，空间O(m+n log n)，DFS递归深度O(n)。merge/dfs/path与工作数组为内部实现；原始e只读。
+
+\lstinputlisting[firstline=4,lastline=39,firstnumber=1]{../src/compact/second_mst.hpp}
+
+\newpage
+
+\noindent 不同权摘要与递归预处理（接上页同一结构体）：
+
+\lstinputlisting[firstline=40,lastline=74,firstnumber=37]{../src/compact/second_mst.hpp}
+
+\newpage
+
+\noindent 路径查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=75,lastline=95,firstnumber=72]{../src/compact/second_mst.hpp}
+
+\newpage
+
+\noindent Kruskal与逐边换入（接上页同一结构体）：
+
+\lstinputlisting[firstline=96,lastline=141,firstnumber=93]{../src/compact/second_mst.hpp}
+
+\Needspace{387pt}
+
+\subsection*{应用题补充：Luogu P4180 [BJWC2010] 严格次小生成树}
+
+\label{usage-example-144}
+
+题意：无向图求总权严格大于MST的最小生成树权值；n至10万、m至30万、边权0..10$^{9}$，允许自环并保证答案存在。1-based顶点读入后减一，solve默认严格；题目答案可安全转long long。比赛应用，不计非比赛模板覆盖。
+
+所需模板：dsu、SecondMST。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4180}
+
+\lstinputlisting{usage/example-144.cpp}
+
+\Needspace{511pt}
 
 \section{最小树形图}
 

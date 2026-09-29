@@ -595,3 +595,11 @@ python3 tests/wavelet_applications.py
 
 "$CXX" "${flags[@]}" tests/gauss_xor.cpp -o build/gauss-xor-core
 build/gauss-xor-core
+
+"$CXX" "${flags[@]}" tests/second_mst.cpp -o build/second-mst-core
+build/second-mst-core
+python3 tests/mst_switch_applications.py
+
+"$CXX" "${flags[@]}" tests/division_tree.cpp -o build/division-core
+build/division-core
+python3 tests/division_applications.py

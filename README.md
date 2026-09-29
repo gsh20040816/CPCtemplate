@@ -61,3 +61,7 @@ Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECK
 各模板的“最简题意＋使用代码”补齐进度见 [使用示例覆盖表](docs/USAGE-COVERAGE.md)，生成与执行检查方式见 [使用示例说明](docs/USAGE-EXAMPLES.md)。未补示例仍明确列出。
 
 压位小波矩阵的接口、来源范围和本地证据见 [WAVELET-MATRIX.md](docs/WAVELET-MATRIX.md)；模2压位消元、特解和零空间基见 [GAUSS-XOR.md](docs/GAUSS-XOR.md)。
+
+划分树的重复值配额与区间转换见 [DIVISION-TREE.md](docs/DIVISION-TREE.md)。
+
+次小生成树的两种定义与换边方案见 [SECOND-MST.md](docs/SECOND-MST.md)；模2消元的最少开关应用见 [SWITCH-MINIMUM.md](docs/SWITCH-MINIMUM.md)。

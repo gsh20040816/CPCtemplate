@@ -1,0 +1,26 @@
+{
+  "scope": "Local normal and ASan/UBSan tests; no online AC or ranking.",
+  "recorded_at_utc": "2026-09-29T12:14:44.322642+00:00",
+  "compiler": "/opt/homebrew/bin/g++-16",
+  "files": {
+    "src/compact/second_mst.hpp": "e73ec7d609d97bf904c8c3ea92dd77814f5cd6f26ba5de25931ee4ff28c8b9b1",
+    "src/compact/gauss_xor.hpp": "4e86905ccaf04bd3e0dfe22c4fd8a66f47debae4598e15002cd7daac0bb1688a",
+    "verify/luogu/P4180.compact.cpp": "8b197022a7c2a4c516ff134bba63c5386f66eba1c4f0b73c7e5daefca8117ed1",
+    "verify/poj/1681.compact.cpp": "35afbc7e379220cdea7d91ed73a957aad4345646dc2c602eb81d44944ed0e43f",
+    "tests/second_mst.cpp": "f630e7ab953d7ccaef62ef6e824fadf1ac3d95d6fe851a7da15f49b64cbfbe7f",
+    "tests/mst_switch_applications.py": "ab2bf4b407548aa88592917d74f25796342268e408878d81a42405b5645860c5"
+  },
+  "logs": {
+    "build/second-mst-core.txt": "SecondMST PASS: 6368 graphs vs all spanning trees, both meanings and exchange witnesses; 100000-node chain/star, 300000 edges, signed extremes and rebuild\n",
+    "build/second-mst-core-san.txt": "SecondMST PASS: 6368 graphs vs all spanning trees, both meanings and exchange witnesses; 100000-node chain/star, 300000 edges, signed extremes and rebuild\n",
+    "build/mst-switch-normal.txt": "P4180 PASS: 260 independent spanning-tree subsets; 100000 vertices/300000 edges chain and star/self-loops with 64-bit total\nPOJ1681 modeled application PASS: 622 boards; all boards through 3x3 checked by physical press enumeration; independent first-row chase through 15x15; multi-case reset and inf\n",
+    "build/mst-switch-san.txt": "P4180 PASS: 260 independent spanning-tree subsets; 100000 vertices/300000 edges chain and star/self-loops with 64-bit total\nPOJ1681 modeled application PASS: 622 boards; all boards through 3x3 checked by physical press enumeration; independent first-row chase through 15x15; multi-case reset and inf\n",
+    "build/mst-switch-usage.txt": "Usage examples: 2 exact printed usage programs in normal and ASan/UBSan modes PASS; 145 current program records\n",
+    "build/switch-usage-final.txt": "Usage examples: 1 exact printed usage programs in normal and ASan/UBSan modes PASS; 145 current program records\n"
+  },
+  "source": {
+    "kuangbin_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad"
+  },
+  "gauss_xor_unchanged_from": "e76c8e1",
+  "poj_statement": "Pinned source model only; original POJ/Bailian inaccessible; no claim of official statement revalidation."
+}

@@ -1,0 +1,26 @@
+{
+  "scope": "Local normal and ASan/UBSan tests; no online AC or ranking.",
+  "recorded_at_utc": "2026-09-29T12:14:44.340339+00:00",
+  "compiler": "/opt/homebrew/bin/g++-16",
+  "files": {
+    "src/compact/division_tree.hpp": "b0863c862c512b0476d625c38a6977756c98d592a7bace188a1497422412ce04",
+    "verify/luogu/P3834.division.compact.cpp": "d7c16ebffb4b40c8f6f9926b1a0290f6b487afa87daa0d67e43da3d18346ad40",
+    "verify/library_checker/range_kth_smallest.division.compact.cpp": "196d108cc3303a9bb121d586c2050e248b191c6a002fc113ce9e1c2c5e0674f9",
+    "tests/division_tree.cpp": "6eed940676f646c5d08ca6afe126380fec4978817eb131df18f8d423ddd36ee8",
+    "tests/division_applications.py": "10834e09056b4d72718602af0e25ec9beafe711ce23e9876e55e76c19d8eea25"
+  },
+  "logs": {
+    "build/division-core.txt": "DivisionTree PASS: 3280 exhaustive arrays, 700 random, 36 power-of-two/quota boundaries, three 500000-element arrays; 1928342 sorting/closed-form checks\n",
+    "build/division-core-san.txt": "DivisionTree PASS: 3280 exhaustive arrays, 700 random, 36 power-of-two/quota boundaries, three 500000-element arrays; 1928342 sorting/closed-form checks\n",
+    "build/division-app-normal.txt": "Division P3834 PASS: 240 independent sorting inputs; three N=Q=200000 increasing/decreasing/equal inputs\n",
+    "build/division-app-san.txt": "Division P3834 PASS: 240 independent sorting inputs; three N=Q=200000 increasing/decreasing/equal inputs\n",
+    "build/division-usage.txt": "Usage examples: 2 exact printed usage programs in normal and ASan/UBSan modes PASS; 147 current program records\n"
+  },
+  "source": {
+    "kuangbin_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad"
+  },
+  "official_reports": {
+    "verification/division-tree-official-san.json": "545063502f2bae004a671973a5f08e7afa00e9cd18230933d60055aa1cf655cd",
+    "verification/division-tree-official.json": "6e72c2c7c83a1429f4448dc1f96a978da8e30c54fe2740e3d5cf21e54d74058f"
+  }
+}

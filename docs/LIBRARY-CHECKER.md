@@ -70,7 +70,7 @@
 | [Range Affine Range Sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | [range_affine_range_sum.compact.cpp](../verify/library_checker/range_affine_range_sum.compact.cpp) |
 | [Range Affine Range Sum (Large Array)](https://judge.yosupo.jp/problem/range_affine_range_sum_large_array) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Chmin Chmax Add Range Sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Range Kth Smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | Data Structure | 待逐题审题、适配与在线验证 | [range_kth_smallest.wavelet.compact.cpp](../verify/library_checker/range_kth_smallest.wavelet.compact.cpp) |
+| [Range Kth Smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | Data Structure | 待逐题审题、适配与在线验证 | [range_kth_smallest.division.compact.cpp](../verify/library_checker/range_kth_smallest.division.compact.cpp)<br>[range_kth_smallest.wavelet.compact.cpp](../verify/library_checker/range_kth_smallest.wavelet.compact.cpp) |
 | [Range Linear Add Range Min](https://judge.yosupo.jp/problem/range_linear_add_range_min) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Parallel Unionfind](https://judge.yosupo.jp/problem/range_parallel_unionfind) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Reverse Range Sum](https://judge.yosupo.jp/problem/range_reverse_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |

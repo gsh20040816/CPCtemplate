@@ -51,6 +51,7 @@
 - `verify/library_checker/pow_of_formal_power_series.compact.cpp`
 - `verify/library_checker/primality_test.compact.cpp`
 - `verify/library_checker/range_affine_range_sum.compact.cpp`
+- `verify/library_checker/range_kth_smallest.division.compact.cpp`
 - `verify/library_checker/range_kth_smallest.wavelet.compact.cpp`
 - `verify/library_checker/scc.compact.cpp`
 - `verify/library_checker/segment_add_get_min.compact.cpp`
@@ -104,11 +105,13 @@
 - `verify/luogu/P3805.compact.cpp`
 - `verify/luogu/P3809.compact.cpp`
 - `verify/luogu/P3812.compact.cpp`
+- `verify/luogu/P3834.division.compact.cpp`
 - `verify/luogu/P3834.wavelet.compact.cpp`
 - `verify/luogu/P4097.compact.cpp`
 - `verify/luogu/P4126.compact.cpp`
 - `verify/luogu/P4148.compact.cpp`
 - `verify/luogu/P4151.compact.cpp`
+- `verify/luogu/P4180.compact.cpp`
 - `verify/luogu/P4196.compact.cpp`
 - `verify/luogu/P4213.compact.cpp`
 - `verify/luogu/P4245.compact.cpp`
@@ -140,6 +143,7 @@
 - `verify/poj/1330.lifting.compact.cpp`
 - `verify/poj/1470.compact.cpp`
 - `verify/poj/1637.compact.cpp`
+- `verify/poj/1681.compact.cpp`
 - `verify/poj/1811.compact.cpp`
 - `verify/poj/2117.compact.cpp`
 - `verify/poj/2337.compact.cpp`

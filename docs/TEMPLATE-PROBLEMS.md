@@ -1,6 +1,6 @@
 # 已核对的模板题入口
 
-本表仅收录已经阅读题面与适配约定的映射。AC、接口覆盖与速度榜分别记录；空白项不表示完成。完整候选和上游缺项见 [候选清单](template-problems.json)，执行依据为 [issue #1](ISSUE-1.md)。
+本表记录已核对的题面或来源模型与适配约定；原题面不可访问的记录明确标注，不能视为题面核验完成。AC、接口覆盖与速度榜分别记录；空白项不表示完成。完整候选和上游缺项见 [候选清单](template-problems.json)，执行依据为 [issue #1](ISSUE-1.md)。
 
 | 算法 | 模板题 | 边界 | 当前 AC | 速度榜 |
 |---|---|---|---|---|
@@ -110,6 +110,10 @@
 | `WaveletMatrix` | [Library Checker static_range_frequency](https://judge.yosupo.jp/problem/static_range_frequency) | 静态数组，统计半开区间[l,r)中x的出现次数；允许空数组、空查询区间、q=0和未出现的x。n、q至50万，值在0..10⁹。 | 待编写驱动/提交 | 待核验 |
 | `WaveletMatrix` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | 静态区间第k小；题目为1-based闭区间和1-based k，调用时转换成kth(l-1,r,k-1)。n、q至20万，题面值在0..10⁹；本程序采用小波矩阵，不建立历史版本。 | 待编写驱动/提交 | 待核验 |
 | `GaussXor` | [Library Checker system_of_linear_equations_mod_2](https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2) | 给定模2矩阵A和右端b，输出无解-1，或解空间维数、一个特解和全部零空间基。输出维数是变量数减系数秩，不是rank。输入每行是连续01字符，先把b追加到对应行；行列数各至4096。 | 待编写驱动/提交 | 待核验 |
+| `SecondMST` | [Luogu P4180](https://www.luogu.com.cn/problem/P4180) | n<=100000,m<=300000,w=0..1e9; self-loops allowed; strict second tree guaranteed. | 待编写驱动/提交 | 待核验 |
+| `GaussXor` | [POJ 1681](http://poj.org/problem?id=1681) | Locally tested n<=15,t<=20; w requires toggle, y does not; own cell and four neighbors; enumerate entire affine solution space to minimize presses. | 待编写驱动/提交 | 待核验 |
+| `DivisionTree` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | N/Q<=200000, values 0..1e9; kth(l-1,r,k-1) converts 1-based closed interval/rank. | 待编写驱动/提交 | 待核验 |
+| `DivisionTree` | [Library Checker range_kth_smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | N/Q<=200000, values 0..1e9; directly query half-open [l,r), 0-based k. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -972,6 +976,38 @@ Standalone template problem; local validation only
 
 
 Online AC and speed ranking pending; extra core APIs and extended inputs have separate local tests.
+
+### Luogu P4180 / SecondMST
+
+BJWC2010 contest application; not formal standalone template coverage.
+
+
+
+No online AC or ranking; local validation only.
+
+### POJ 1681 / GaussXor
+
+Source-model application from kuangbin; original statement access pending.
+
+
+
+Original POJ/Bailian statement unavailable; model checked against pinned kuangbin pp37–39 only. No online AC or ranking.
+
+### Luogu P3834 / DivisionTree
+
+Standalone template problem; local validation only.
+
+
+
+No online AC or ranking; local validation only.
+
+### Library Checker range_kth_smallest / DivisionTree
+
+Standalone template problem; local validation only.
+
+
+
+No online AC or ranking; local validation only.
 
 ## 榜单口径
 

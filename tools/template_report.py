@@ -5,7 +5,7 @@ import json
 root=Path(__file__).resolve().parents[1]
 rows=json.loads((root/'docs/template-problem-reviews.json').read_text())
 lines=['# 已核对的模板题入口','',
-'本表仅收录已经阅读题面与适配约定的映射。AC、接口覆盖与速度榜分别记录；空白项不表示完成。完整候选和上游缺项见 [候选清单](template-problems.json)，执行依据为 [issue #1](ISSUE-1.md)。','',
+'本表记录已核对的题面或来源模型与适配约定；原题面不可访问的记录明确标注，不能视为题面核验完成。AC、接口覆盖与速度榜分别记录；空白项不表示完成。完整候选和上游缺项见 [候选清单](template-problems.json)，执行依据为 [issue #1](ISSUE-1.md)。','',
 '| 算法 | 模板题 | 边界 | 当前 AC | 速度榜 |','|---|---|---|---|---|']
 for r in rows:
     rank=r['ranking'];txt='待核验'

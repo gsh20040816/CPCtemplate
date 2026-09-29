@@ -201,4 +201,6 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | FpsSqrt | [example-117](usage/example-117.cpp), [example-119](usage/example-119.cpp) | locally_checked_example |
 | FpsPower | [example-120](usage/example-120.cpp) | locally_checked_example |
 | WaveletMatrix | [example-140](usage/example-140.cpp), [example-141](usage/example-141.cpp), [example-142](usage/example-142.cpp) | locally_checked_example |
-| GaussXor | [example-143](usage/example-143.cpp) | locally_checked_example |
+| GaussXor | [example-143](usage/example-143.cpp), [example-145（应用补充）](usage/example-145.cpp) | locally_checked_example |
+| SecondMST | [example-144（应用补充）](usage/example-144.cpp) | locally_checked_application |
+| DivisionTree | [example-146](usage/example-146.cpp), [example-147](usage/example-147.cpp) | locally_checked_example |

@@ -584,7 +584,7 @@ kuangbin,ACM template (2018),32,2.7.4 线性筛（同时得到欧拉函数和素
 kuangbin,ACM template (2018),33,2.8 高斯消元（浮点数）,pending,,
 kuangbin,ACM template (2018),34,2.9 FFT,pending,,
 kuangbin,ACM template (2018),37,2.10 高斯消元法求方程组的解,pending,,
-kuangbin,ACM template (2018),37,2.10.1 一类开关问题，对 2 取模的 01 方程组,partial,src/compact/gauss_xor.hpp: GaussXor,docs/GAUSS-XOR.md; tests/gauss_xor.cpp; verification/gauss-xor-official*.json; packed F2 solve/rank/particular/full kernel locally verified; source POJ1681 minimum-switch application still pending; no online AC
+kuangbin,ACM template (2018),37,2.10.1 一类开关问题，对 2 取模的 01 方程组,local-tested,src/compact/gauss_xor.hpp: GaussXor; verify/poj/1681.compact.cpp,"docs/GAUSS-XOR.md; docs/SWITCH-MINIMUM.md; verification/gauss-xor-official*.json; verification/mst-switch.json; packed F2 solutions plus full minimum-switch application: physical press subsets and first-row chase through 15x15, 622 boards, dual modes; original POJ page unavailable, no online AC"
 kuangbin,ACM template (2018),39,2.10.2 解同余方程组,local-tested,src/compact/gauss_mod.hpp: GaussMod<7>::solve; verify/poj/2947.compact.cpp,tests/widget_factory_application.py; verification/widget-factory-driver-tests.txt; verification/widget-factory-sanitizer-tests.txt; classification and unique 3..9-day assignment; no OJ AC
 kuangbin,ACM template (2018),41,2.11 整数拆分,local-tested,src/compact/partitions.hpp,"tests/partitions.cpp; exact unbounded coin DP through 1000; bounded multiplicity oracle through 100; n=100000 boundaries; inclusive k API uses k+1 (source solve(n,k) formula means fewer than k); HDU statement unavailable; no OJ AC"
 kuangbin,ACM template (2018),43,2.12 求 AB 的约数之和对 MOD 取模,local-tested,src/compact/divisor_sum.hpp; verify/luogu/P1593.compact.cpp,tests/divisor_sum.cpp; tests/divisor_sum_application.py; inverse-free power/sum recursion; cpp_int matrix oracle; uint128 length; direct divisor oracle; 126 full driver cases each; no OJ AC
@@ -599,7 +599,7 @@ kuangbin,ACM template (2018),51,2.18 快速数论变换,pending,,
 kuangbin,ACM template (2018),51,2.18.1 HDU4656 卷积取模,pending,,
 kuangbin,ACM template (2018),54,2.19 其它公式,pending,,
 kuangbin,ACM template (2018),54,2.19.1 Polya,pending,,
-kuangbin,ACM template (2018),56,3.1 划分树,pending,,
+kuangbin,ACM template (2018),56,3.1 划分树,local-tested,src/compact/division_tree.hpp: DivisionTree,"docs/DIVISION-TREE.md; verification/division-tree.json; actual stable median partition, duplicate quota, signed64, recursive build/query; source kth-largest comment corrected to kth-smallest; 24 official cases in both modes; no online AC"
 kuangbin,ACM template (2018),57,3.2 RMQ,pending,,
 kuangbin,ACM template (2018),57,3.2.1 一维,pending,,
 kuangbin,ACM template (2018),57,3.2.2 二维,pending,,
@@ -640,7 +640,7 @@ kuangbin,ACM template (2018),132,4.1.4 单源最短路 SPF A,pending,,
 kuangbin,ACM template (2018),133,4.2 最小生成树,pending,,
 kuangbin,ACM template (2018),133,4.2.1 Prim 算法,pending,,
 kuangbin,ACM template (2018),134,4.2.2 Kruskal 算法,pending,,
-kuangbin,ACM template (2018),135,4.3 次小生成树,pending,,
+kuangbin,ACM template (2018),135,4.3 次小生成树,local-tested,src/compact/second_mst.hpp: SecondMST,"docs/SECOND-MST.md; verification/mst-switch.json; replaces dense Prim/path-max table by Kruskal+recursive lifting; strict/non-strict and edge exchange witnesses; exhaustive spanning-tree subsets, long chains, signed extremes, P4180 full application; no online AC"
 kuangbin,ACM template (2018),136,4.4 有向图的强连通分量,local-tested,src/compact/tarjan.hpp;src/compact/graph.hpp#SCC,Both child algorithms implemented and locally verified by tests/tarjan.cpp; component sizes derive from membership. This is not an OJ acceptance claim
 kuangbin,ACM template (2018),136,4.4.1 Tarjan,local-tested,src/compact/tarjan.hpp#TarjanSCC,Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; QOJ906 AC 2940638 covers add/run/bel via topological partition output; dag and component-size derivation remain local evidence. See docs/GRAPH_COVERAGE_REVIEW.md
 kuangbin,ACM template (2018),137,4.4.2 Kosaraju,local-tested,src/compact/graph.hpp#SCC,"Recursive two-pass Kosaraju; cnt/bel, sizes from histogram; current IDs 1-based topological versus upstream 0-based. tests/tarjan.cpp independently checks both styles against reachability; OJ pending"

@@ -23,7 +23,7 @@ for part in parts:
     if 'ACL 的组合约定' in title:
         # General ACL comparison stays in the omnibus, not every category.
         continue
-    if any(x in title for x in ['压位小波矩阵与区间顺序统计', '模2压位消元与完整解空间']):
+    if any(x in title for x in ['压位小波矩阵与区间顺序统计', '模2压位消元与完整解空间', '严格次小生成树与换边', '模2消元后的最少开关用法']):
         part = r'\Needspace{360pt}' + '\n' + part
     key = 'mathematics'
     if any(s in title for s in ['回文半径与在线回文计数', '整数后缀数组的边界', '广义 SAM 点数']):
@@ -32,7 +32,7 @@ for part in parts:
         key = 'geometry'
     elif any(x in title for x in ['压位小波矩阵', '可持久化区间', '杭州 2023 K', '带修莫队', '并查集模板题', '动态树路径乘积', '隐式 Treap 位翻转', '替罪羊树', '线段树维护单调栈', '动态 K-D Tree']):
         key = 'data-structures'
-    elif any(s in title for s in ['点分治、启发式合并与虚树用法', '非负权树', 'SPFA 费用流', '2-SAT 编号方向', '排列约束与最大流单位边分类']):
+    elif any(s in title for s in ['严格次小生成树与换边', '点分治、启发式合并与虚树用法', '非负权树', 'SPFA 费用流', '2-SAT 编号方向', '排列约束与最大流单位边分类']):
         key = 'graphs'
     elif any(x in title for x in ['函数图', '杭州 2023 H', '杭州 2023 G', 'SCC 模板题']):
         key = 'graphs'

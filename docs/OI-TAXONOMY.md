@@ -107,6 +107,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | segtree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | LiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
 | SegmentLiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
+| DivisionTree | 数据结构 → 划分树 | direct | 原序列按排序中位数稳定划分，重复中位值限额进入左半，递归查询静态区间顺序统计。 |
 | WaveletMatrix | 数据结构 → 划分树 | related | 小波矩阵使用逐位稳定划分和压位rank，解决静态区间顺序统计；在固定导航的划分树下按相关结构收录，不等同于原文划分树实现。 |
 | ost | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
 | rp | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
@@ -137,6 +138,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Dijkstra | 图论 → 最短路问题 → 最短路 | direct |  |
 | Johnson | 图论 → 最短路问题 → 最短路 | direct |  |
 | release_bfs | 图论 → 最短路问题 → 最短路 | application | 开放时间松弛的单位边特例。 |
+| SecondMST | 图论 → 生成树问题 → 最小生成树 | direct | Kruskal与树上两个不同最大边权，支持严格/非严格次小树及原边编号换边方案；不表示整页其他MST扩展已覆盖。 |
 | Arborescence | 图论 → 生成树问题 → 最小树形图 | direct |  |
 | FunctionalGraph | 图论 → 连通性相关 → 强连通分量 | related | 函数图包含尾链与环分解，导航无独立页；需正文定位，不应等同一般 SCC 算法。 |
 | SCC | 图论 → 连通性相关 → 强连通分量 | direct |  |

@@ -1742,5 +1742,53 @@
     "requires": [
       "GaussXor"
     ]
+  },
+  {
+    "id": "example-144",
+    "symbol": "SecondMST",
+    "problem": "Luogu P4180 [BJWC2010] 严格次小生成树",
+    "url": "https://www.luogu.com.cn/problem/P4180",
+    "summary": "无向图求总权严格大于MST的最小生成树权值；n至10万、m至30万、边权0..10⁹，允许自环并保证答案存在。1-based顶点读入后减一，solve默认严格；题目答案可安全转long long。比赛应用，不计非比赛模板覆盖。",
+    "driver": "verify/luogu/P4180.compact.cpp",
+    "requires": [
+      "dsu",
+      "SecondMST"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-145",
+    "symbol": "GaussXor",
+    "problem": "POJ 1681 Painter's Problem",
+    "url": "http://poj.org/problem?id=1681",
+    "summary": "方格w为白、y为黄，每次翻转自身及四邻，求全部变黄的最少操作数，无解输出inf。按kuangbin2.10.1建模，枚举特解异或零空间基的所有子集；不是直接数特解的1。本地验证到15×15，原OJ题面当前不可达，线上尚待验证。",
+    "driver": "verify/poj/1681.compact.cpp",
+    "requires": [
+      "GaussXor"
+    ],
+    "kind": "application",
+    "page_break_before": "        string x = sol.particular;"
+  },
+  {
+    "id": "example-146",
+    "symbol": "DivisionTree",
+    "problem": "Luogu P3834",
+    "url": "https://www.luogu.com.cn/problem/P3834",
+    "summary": "静态区间第k小；n、q至20万，非负值至10⁹。输入为1-based闭区间与排名，调用kth(l-1,r,k-1)。本程序使用中位数划分树，重复数仍按出现次数排名。",
+    "driver": "verify/luogu/P3834.division.compact.cpp",
+    "requires": [
+      "DivisionTree"
+    ]
+  },
+  {
+    "id": "example-147",
+    "symbol": "DivisionTree",
+    "problem": "Library Checker range_kth_smallest",
+    "url": "https://judge.yosupo.jp/problem/range_kth_smallest",
+    "summary": "半开区间[l,r)内第k小，位置和k均为0-based，直接调用kth；n、q至20万，值在0..10⁹。",
+    "driver": "verify/library_checker/range_kth_smallest.division.compact.cpp",
+    "requires": [
+      "DivisionTree"
+    ]
   }
 ]

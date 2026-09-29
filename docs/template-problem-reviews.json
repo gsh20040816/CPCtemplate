@@ -2579,5 +2579,90 @@
       "total": null
     },
     "remaining": "Online AC and speed ranking pending; extra core APIs and extended inputs have separate local tests."
+  },
+  {
+    "symbol": "SecondMST",
+    "problem": "Luogu P4180",
+    "url": "https://www.luogu.com.cn/problem/P4180",
+    "classification": "BJWC2010 contest application; not formal standalone template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n<=100000,m<=300000,w=0..1e9; self-loops allowed; strict second tree guaranteed.",
+    "tested_api": [
+      "add",
+      "solve",
+      "next"
+    ],
+    "local_evidence": "verification/mst-switch.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No online AC or ranking; local validation only."
+  },
+  {
+    "symbol": "GaussXor",
+    "problem": "POJ 1681",
+    "url": "http://poj.org/problem?id=1681",
+    "classification": "Source-model application from kuangbin; original statement access pending.",
+    "statement_checked": false,
+    "checked_date": "2026-09-29",
+    "limits": "Locally tested n<=15,t<=20; w requires toggle, y does not; own cell and four neighbors; enumerate entire affine solution space to minimize presses.",
+    "tested_api": [
+      "solve",
+      "consistent",
+      "particular",
+      "kernel"
+    ],
+    "local_evidence": "verification/mst-switch.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Original POJ/Bailian statement unavailable; model checked against pinned kuangbin pp37–39 only. No online AC or ranking."
+  },
+  {
+    "symbol": "DivisionTree",
+    "problem": "Luogu P3834",
+    "url": "https://www.luogu.com.cn/problem/P3834",
+    "classification": "Standalone template problem; local validation only.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "N/Q<=200000, values 0..1e9; kth(l-1,r,k-1) converts 1-based closed interval/rank.",
+    "tested_api": [
+      "kth"
+    ],
+    "local_evidence": "verification/division-tree.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No online AC or ranking; local validation only."
+  },
+  {
+    "symbol": "DivisionTree",
+    "problem": "Library Checker range_kth_smallest",
+    "url": "https://judge.yosupo.jp/problem/range_kth_smallest",
+    "classification": "Standalone template problem; local validation only.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "N/Q<=200000, values 0..1e9; directly query half-open [l,r), 0-based k.",
+    "tested_api": [
+      "kth"
+    ],
+    "local_evidence": "verification/division-tree.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No online AC or ranking; local validation only."
   }
 ]
