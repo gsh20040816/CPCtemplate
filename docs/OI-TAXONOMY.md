@@ -58,6 +58,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Min25 | 数学 → 数论 → Min_25 筛 | direct | 低次素数多项式加素数幂回调的递归版本。 |
 | floor_moments | 数学 → 数论 → 类欧几里德算法 | direct |  |
 | floor_sum | 数学 → 数论 → 类欧几里德算法 | direct |  |
+| cdq_convolution | 数学 → 多项式与生成函数 → 快速傅里叶变换 | related | CDQ 分治配合 NTT 的卷积递推，附件标题为分治 FFT；算法不做浮点变换。 |
 | NttConvolution | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | convolution_i64 | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | SetConvolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |

@@ -70,10 +70,10 @@
 | 4.6 | 6. 线段树维护单调栈 | 118 | 120 | implemented_local_verified_online_pending |
 | 4.7 | 7. K-D Tree | 124 | 126 | implemented_local_verified_online_pending |
 | 5 | 多项式 | 128 | 130 | pending_content_review |
-| 5.1 | 1. 拉格朗日插值 | 128 | 130 | pending_content_review |
-| 5.2 | 2. 多项式乘法 FFT | 128 | 130 | pending_content_review |
-| 5.3 | 3. 多项式乘法 NTT | 129 | 131 | pending_content_review |
-| 5.4 | 4. 分治 FFT | 132 | 134 | pending_content_review |
+| 5.1 | 1. 拉格朗日插值 | 128 | 130 | existing_formula_implementation_local_verified |
+| 5.2 | 2. 多项式乘法 FFT | 128 | 130 | reviewed_implementation_pending |
+| 5.3 | 3. 多项式乘法 NTT | 129 | 131 | existing_implementation_local_verified |
+| 5.4 | 4. 分治 FFT | 132 | 134 | implemented_local_verified_online_pending |
 | 5.5 | 5. 多项式求逆 | 134 | 136 | pending_content_review |
 | 5.6 | 6. 多项式除法 | 140 | 142 | pending_content_review |
 | 5.7 | 7. 多项式开根 | 148 | 150 | pending_content_review |

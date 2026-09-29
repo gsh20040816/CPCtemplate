@@ -747,11 +747,11 @@
       "toc_page": 128,
       "physical_page": 130,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_formula_implementation_local_verified",
       "candidate_symbols": [
         "Lagrange"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际130页截图包含一般拉格朗日公式及朴素/快速插值复杂度说明，无完整实现代码。任意点权重对应截图公式，连续点为本库扩展，不据此登记快速插值覆盖。现有任意点/连续点接口经独立int128 Horner、小素数域穷举、模INT_MAX及signed64输入、2000一般点/20万连续点、P4781完整驱动双模式重新验证；移除classic依赖，未改模板源码。见 docs/POLYNOMIAL-ATTACHMENT-BASE.md。"
     },
     {
       "section": "5.2",
@@ -759,8 +759,11 @@
       "toc_page": 128,
       "physical_page": 130,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "reviewed_implementation_pending",
+      "candidate_symbols": [
+        "convolution_i64"
+      ],
+      "review": "实际130–131页是complex<double> FFT整数乘法，当前精确CRT整数卷积不视为同一算法覆盖。原代码仅向正方向加0.5再强转，负系数不正确；截图位逆序循环i=1..total-1，常数乘法无负移位，文本提取遗漏-1；浮点范围需另行核定。保留实现缺口，不以P3803精确驱动AC/本地通过冒充FFT验证。"
     },
     {
       "section": "5.3",
@@ -768,11 +771,11 @@
       "toc_page": 129,
       "physical_page": 131,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "NttConvolution"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际131–133页998244353/原根3 NTT乘法。现有参数化NTT覆盖并处理长度1，避免附件bit-1负移位。七个素数域cpp_int DFT/卷积、原根阶验证、大规模三角卷积，以及LC卷积完整驱动双模式；测试去classic，模板源码不变。docs/POLYNOMIAL-ATTACHMENT-BASE.md。"
     },
     {
       "section": "5.4",
@@ -780,8 +783,11 @@
       "toc_page": 132,
       "physical_page": 134,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "cdq_convolution"
+      ],
+      "review": "实际134–136页为NTT加速CDQ卷积递推，P4721。新增静态线性递推入口，支持任意initial、空/单项、参数化素数域，严格检查根层完整卷积长度。六域2400组二次递推、20万项闭式、154个P4721完整输入及打印程序双模式。非多项式求逆替代，线上待补。"
     },
     {
       "section": "5.5",

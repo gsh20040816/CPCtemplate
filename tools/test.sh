@@ -545,3 +545,7 @@ python3 tests/monotone_stack_application.py
 "$CXX" "${flags[@]}" tests/kd_tree_sum.cpp -o build/kd-tree-sum
 build/kd-tree-sum
 python3 tests/kd_tree_application.py
+
+"$CXX" "${flags[@]}" tests/cdq_convolution.cpp -o build/cdq-convolution
+build/cdq-convolution
+python3 tests/cdq_convolution_application.py

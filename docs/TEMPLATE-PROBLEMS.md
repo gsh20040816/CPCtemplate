@@ -77,6 +77,7 @@
 | `xor_hamming_pairs` | [Luogu P4887](https://www.luogu.com.cn/problem/P4887) | 1<=n,m<=100000; 0<=a_i,k<2^14. Note k may exceed 14. | 待编写驱动/提交 | 待核验 |
 | `MonotoneStackSeg` | [Luogu P12438 / CF1912G](https://www.luogu.com.cn/problem/P12438) | 1<=n,q<=200000; 1<=a_i<=1e9; each closed interval increases by one. | 待编写驱动/提交 | 待核验 |
 | `KDTreeSum` | [Luogu P4148](https://www.luogu.com.cn/problem/P4148) | N<=500000, at most 200000 operations, 20 MB memory, positive updates, XOR all arguments with last answer; answers fit int. | 待编写驱动/提交 | 待核验 |
+| `cdq_convolution` | [Luogu P4721](https://www.luogu.com.cn/problem/P4721) | 2<=n<=100000; recurrence modulo 998244353, f[0]=1. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -675,6 +676,14 @@ Online dynamic rectangle-sum application; no explicit official noncompetition te
 
 
 Online AC, actual judge memory/time and ranking pending; local normal/sanitizer and allocation records in verification/kd-tree-sum.json.
+
+### Luogu P4721 / cdq_convolution
+
+Official title explicitly labels divide-and-conquer FFT as a template; implementation uses CDQ with NTT convolution.
+
+
+
+Online submission/ranking pending; general forcing terms and other prime fields are verified separately by local quadratic DP.
 
 ## 榜单口径
 

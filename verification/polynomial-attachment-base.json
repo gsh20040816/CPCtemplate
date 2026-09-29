@@ -1,0 +1,124 @@
+{
+  "scope": "Local independent oracle tests and complete drivers; no new online AC or speed ranking",
+  "recorded_at_utc": "2026-09-29T08:17:20.421179+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/cdq_convolution.hpp": "86da5dfc847c83fc0cc38dc4099d0bcb303fa84e6cf8b3d7d128c0cca27c0d33",
+    "src/compact/interpolation.hpp": "7159ff70aa8d24e59c48a6a642fc045b0df8c73ff39e0685f703e23b0edd1b70",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "tests/cdq_convolution.cpp": "03d89e238db3145af5c85724e837b19d73b4db9e0bcaea4cf41ff1bd282742b5",
+    "tests/cdq_convolution_application.py": "8c3c4f33be330b84855d1e3f87a0d7902c689bc2f471786b81cedfb730ff12b7",
+    "tests/interpolation.cpp": "074d5e206dae94b30da5978a41564506ffbce8b09455fcb5dc812755524dc896",
+    "tests/interpolation_application.py": "ffe05294fc4f815a7d3616feb02b8856d8c947ff855005ebe419beb0792a0834",
+    "tests/ntt_convolution.cpp": "64c03539797e0e7b5f430a366ad792f0400045703274404d566ef6fe56ed61ca",
+    "tests/lc_convolution_application.py": "ada835e8285170ad1843bd5823ddbcf890c4297450c531110733f728f76125ed",
+    "verify/luogu/P4721.compact.cpp": "3b42c96fdb1855ec53cbcf6828aa47837fccb086ce2c1a9cf7493932f84b1de6",
+    "verify/luogu/P4781.compact.cpp": "ea3b685474da3229e2530d8ccabde3e2495e11fd00f7d704ecfe47dd46300930",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b"
+  },
+  "runs": [
+    {
+      "module": "interpolation",
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "Lagrange exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS"
+    },
+    {
+      "module": "interpolation",
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "Lagrange exhaustive fields, Horner oracle, power sums and large consecutive nodes PASS"
+    },
+    {
+      "module": "interpolation",
+      "kind": "driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "P4781 compact bundled driver / independent polynomial evaluation PASS"
+    },
+    {
+      "module": "interpolation",
+      "kind": "driver",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "P4781 compact bundled driver / independent polynomial evaluation PASS"
+    },
+    {
+      "module": "ntt",
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "Parameterized NTT cpp_int DFT/convolution oracles, certified primitive roots, capacity boundaries and large triangular convolutions PASS"
+    },
+    {
+      "module": "ntt",
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "Parameterized NTT cpp_int DFT/convolution oracles, certified primitive roots, capacity boundaries and large triangular convolutions PASS"
+    },
+    {
+      "module": "ntt",
+      "kind": "driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS"
+    },
+    {
+      "module": "ntt",
+      "kind": "driver",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "LC convolution drivers: schoolbook and direct bitwise oracles, maximum constant counts, impulses and modular signs PASS"
+    },
+    {
+      "module": "cdq",
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "CDQ convolution: 2400 quadratic-oracle systems over six fields, empty/singleton, small capacity limits, 200000 all-one/sparse kernels PASS"
+    },
+    {
+      "module": "cdq",
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "CDQ convolution: 2400 quadratic-oracle systems over six fields, empty/singleton, small capacity limits, 200000 all-one/sparse kernels PASS"
+    },
+    {
+      "module": "cdq",
+      "kind": "driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "P4721: 150 quadratic-DP programs and four n=100000 zero/all-one/geometric/sparse closed forms PASS"
+    },
+    {
+      "module": "cdq",
+      "kind": "driver",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "P4721: 150 quadratic-DP programs and four n=100000 zero/all-one/geometric/sparse closed forms PASS"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "ntt_unit_additional": [
+      "-I/opt/homebrew/include"
+    ]
+  }
+}

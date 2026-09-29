@@ -916,9 +916,35 @@ floor\_moments(n,m,a,b) 对 i=0..n-1，令 y\_i=floor((a*i+b)/m)，返回 \{$\su
 
 \lstinputlisting[firstline=5,lastline=38]{../src/compact/floor_moments.hpp}
 
-\Needspace{430pt}
+\Needspace{488pt}
 
 \chapter{多项式与生成函数}
+
+\section{快速傅里叶变换}
+
+\noindent 相关应用：CDQ 分治配合 NTT 的卷积递推，附件标题为分治 FFT；算法不做浮点变换。
+
+\subsection{CDQ 分治卷积递推}\label{compact-cdq_convolution}\index{cdq\_convolution}
+
+cdq\_convolution<mod=998244353,primitive=3>(kernel,initial) 求 f[i]=initial[i]+$\sum$(j<i)f[j]kernel[i-j]，返回前 n 项。两数组为等长 vector<ModInt<mod>>，kernel[0] 必须为 0；空输入返回空。模数须为 int 范围素数，primitive 是原根；依赖 NttConvolution。非空时要求 n+floor(n/2)-1$\le$NTT::max\_size，保证每层完整卷积可变换。初始项可任意，并非只有 f[0]=1；左半区解定后，将其到右半区的卷积贡献加上，再递归右半区。O(n log$^{2}$(n+1)) 时间、O(n) 额外空间，递归深度 O(log n)。本函数是静态线性递推，不提供流式追加或非线性叶子回调。P4721 使用 initial[0]=1、其他项 0。
+
+\lstinputlisting[firstline=5,lastline=31]{../src/compact/cdq_convolution.hpp}
+
+\Needspace{377pt}
+
+\subsection*{模板题使用：Luogu P4721 分治 FFT}
+
+\label{usage-example-115}
+
+题意：输入 g[1..n-1]，计算 f[0]=1、f[i]=$\sum$(j=1..i)f[i-j]g[j]，模 998244353。kernel[0] 留零，initial 仅第零项为 1；调用的是真正 CDQ 分治卷积，依赖 NTT 与模整数。
+
+所需模板：ModInt、NttConvolution、cdq\_convolution。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4721}
+
+\lstinputlisting{usage/example-115.cpp}
+
+\Needspace{395pt}
 
 \section{快速数论变换}
 

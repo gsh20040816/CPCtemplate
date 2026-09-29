@@ -8,8 +8,8 @@ from compiler_config import CXX
 
 root = Path(__file__).resolve().parents[1]
 flags = ['-std=c++20', '-O2']
-if os.environ.get('SANITIZE') == '1':
-    flags = ['-std=c++20', '-O1', '-g', '-fsanitize=address,undefined']
+if os.environ.get('SANITIZE') == '1' or os.environ.get('CPC_SANITIZE') == '1':
+    flags = ['-std=c++20', '-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
 p = 998244353
 rng = random.Random(982143)
 for problem, op in [('convolution_mod', '+'), ('bitwise_and_convolution', '&'), ('bitwise_xor_convolution', '^')]:

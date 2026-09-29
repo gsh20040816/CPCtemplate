@@ -8,7 +8,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 rng = random.Random(4781)
 flags = ['-O2']
-if os.environ.get('SANITIZE') == '1':
+if os.environ.get('SANITIZE') == '1' or os.environ.get('CPC_SANITIZE') == '1':
     flags = ['-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
 p = 998244353
 for style in ['compact']:
@@ -28,6 +28,8 @@ for style in ['compact']:
                 value = (value * x + a) % p
             return value
         data = f'{n} {k}\n' + ''.join(f'{x} {evaluate(x)}\n' for x in xs)
-        answer = int(subprocess.check_output([str(exe)], input=data.encode()))
+        run = subprocess.run([str(exe)], input=data, text=True, capture_output=True, check=True, timeout=120)
+        assert not run.stderr, run.stderr
+        answer = int(run.stdout)
         assert answer == evaluate(k)
     print(f'P4781 {style} bundled driver / independent polynomial evaluation PASS')

@@ -1372,5 +1372,19 @@
       "KDTreeSum"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-115",
+    "symbol": "cdq_convolution",
+    "problem": "Luogu P4721 分治 FFT",
+    "url": "https://www.luogu.com.cn/problem/P4721",
+    "summary": "输入 g[1..n-1]，计算 f[0]=1、f[i]=Σ(j=1..i)f[i-j]g[j]，模 998244353。kernel[0] 留零，initial 仅第零项为 1；调用的是真正 CDQ 分治卷积，依赖 NTT 与模整数。",
+    "driver": "verify/luogu/P4721.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "cdq_convolution"
+    ],
+    "kind": "template"
   }
 ]
