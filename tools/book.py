@@ -130,6 +130,8 @@ for style in ['compact']:
             if name == 'SequenceTreap':
                 body.append('\\newpage')
                 estimate = 650
+            if name in ('SubtreeColors', 'VirtualTree', 'CentroidPairs'):
+                estimate = 650
             if name == 'polygon_contains':
                 estimate = 430
             if name in ('line_intersection_real', 'line_circle_intersections'):
@@ -303,6 +305,31 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 只读查询与对外接口（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(second + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(second - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name in ('SubtreeColors', 'VirtualTree', 'CentroidPairs'):
+                tokens = {'SubtreeColors': ['void solve('],
+                          'VirtualTree': ['void dfs(', 'Edge path('],
+                          'CentroidPairs': ['int centroid(', '// Input must be a forest.']}[name]
+                captions = {'SubtreeColors': ['启发式合并与运行入口'],
+                            'VirtualTree': ['预处理与最近公共祖先', '压缩路径与虚树构造'],
+                            'CentroidPairs': ['重心与分解', '重建与距离计数']}[name]
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
+                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
+                    if j:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + captions[j - 1] + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'minkowski_sum':
+                split = next(i for i in range(start, end) if 'while (i < n || j < m)' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 合并凸包边（接上页同一函数）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'closest_pair_i64':
+                split = next(i for i in range(start, end) if 'function<I(int, int)> solve' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 递归分治（接上页同一函数）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'chirp_z':
                 split = next((i for i in range(start, end) if 'power = 1;' == lines[i].strip()))
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')

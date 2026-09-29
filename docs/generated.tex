@@ -2833,7 +2833,7 @@ add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn�
 
 \lstinputlisting{usage/example-44.cpp}
 
-\Needspace{180pt}
+\Needspace{680pt}
 
 \section{树上启发式合并}
 
@@ -2841,9 +2841,29 @@ add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn�
 
 SubtreeColors(n)，点号 1..n，add(u,v) 建无向树；要求图连通且无环，n=0 可空运行。run(colors,root=1) 传入长度 n+1 的 int 颜色数组，colors[0] 忽略。answer[u] 为子树内所有最高频颜色的原始编号之和，max\_freq[u] 为该频次；支持负颜色与稀疏编号，内部离散化，和用 long long。重复 run 可更换颜色或根。重儿子信息保留，轻儿子通过 DFS 序区间加入；清空整棵临时子树后再重置最大值，不尝试逐次删除时维护众数。O(n log n) 时间、O(n) 空间，全部 DFS 递归。insert 是内部增量统计，可按题目修改统计量，但相应清空规则也必须调整。
 
-\lstinputlisting[firstline=7,lastline=102]{../src/compact/dsu_on_tree.hpp}
+\lstinputlisting[firstline=7,lastline=52,firstnumber=1]{../src/compact/dsu_on_tree.hpp}
 
-\Needspace{180pt}
+\newpage
+
+\noindent 启发式合并与运行入口（接上页同一结构体）：
+
+\lstinputlisting[firstline=53,lastline=102,firstnumber=47]{../src/compact/dsu_on_tree.hpp}
+
+\Needspace{372pt}
+
+\subsection*{应用题补充：Codeforces 600E}
+
+\label{usage-example-138}
+
+题意：以1为根，对每个子树输出出现次数最多的所有颜色编号之和；并列颜色都计入。颜色数组1-based，run后直接读answer，和用long long。n至10万、颜色在1..n；比赛应用，不替代正式模板题。
+
+所需模板：SubtreeColors。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/problemset/problem/600/E}
+
+\lstinputlisting{usage/example-138.cpp}
+
+\Needspace{680pt}
 
 \section{虚树}
 
@@ -2851,9 +2871,35 @@ SubtreeColors(n)，点号 1..n，add(u,v) 建无向树；要求图连通且无�
 
 VirtualTree(n)，n$\ge$1，点号 1..n；add(u,v,w=1) 建非负权连通树，无环和重边。prepare(root=1) 递归预处理，可换根重建；根到任一点距离须在 long long 范围内。build(keys) 自动去重并补齐必要 LCA，返回 vertices 和 edges；全部编号沿用原树，vertices 按 DFS 序排列，非空时首项即虚树根。edges 为 (from,to,distance,minimum)，分别是祖先到后代的虚边、压缩路径长度和路径最小边权。空关键点返回空结果，单点返回单节点；原树根不会强制加入，需要时由调用者加入 keys。边按后代 DFS 序排列，可逆序做自底向上的 DP。不分配或清空 n 个查询邻接表；每次仅返回 O(k) 结果。预处理 O(n log n) 时间空间，单次 O(k log k+k log n)。lca、ancestor 也可直接使用，要求有效点号且已经 prepare。构造用的祖先链栈属于虚树算法，原树 DFS 保持递归。
 
-\lstinputlisting[firstline=9,lastline=131]{../src/compact/virtual_tree.hpp}
+\lstinputlisting[firstline=9,lastline=40,firstnumber=1]{../src/compact/virtual_tree.hpp}
 
-\Needspace{180pt}
+\newpage
+
+\noindent 预处理与最近公共祖先（接上页同一结构体）：
+
+\lstinputlisting[firstline=41,lastline=89,firstnumber=33]{../src/compact/virtual_tree.hpp}
+
+\newpage
+
+\noindent 压缩路径与虚树构造（接上页同一结构体）：
+
+\lstinputlisting[firstline=90,lastline=131,firstnumber=82]{../src/compact/virtual_tree.hpp}
+
+\Needspace{639pt}
+
+\subsection*{应用题补充：Luogu P2495 [SDOI2011] 消耗战}
+
+\label{usage-example-139}
+
+题意：每次给若干非根关键点，求删边使它们都与根1断开的最小代价。显式加入根构造虚树，逆序遍历虚边，使用路径最小边权与子树代价取小；只清空本次顶点和标记。n至25万、询问及关键点总数至50万。省选应用，正式非比赛模板题映射仍待补。
+
+所需模板：VirtualTree。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2495}
+
+\lstinputlisting{usage/example-139.cpp}
+
+\Needspace{680pt}
 
 \section{树分治}
 
@@ -2861,7 +2907,33 @@ VirtualTree(n)，n$\ge$1，点号 1..n；add(u,v,w=1) 建非负权连通树，�
 
 CentroidPairs(n)，点号 1..n；add(u,v,w) 建树，允许森林但禁止环、重边、自环，边权非负；所有简单路径长度须能用 long long 表示。build() 预处理，可重复调用；改变边后须重建。count\_leq(k) 统计距离$\le$k 的无序不同顶点对，count\_exact(k) 统计距离恰为 k 的点对；负 k 返回 0，零距离只统计不同顶点，跨连通块不配对。parent[c] 是点分树父节点，根为 0。all[c] 为该层分治块到重心的距离，含重心距离 0；part[c] 为去掉重心后各子块的距离。预处理 O(n log$^{2}$ n)，空间 O(n log n)，每次计数 O(n log n)；固定树上多次查询可以复用排序结果。DFS 递归，距离和比较采用减法避免溢出。不是动态点分树更新模板。
 
-\lstinputlisting[firstline=9,lastline=141]{../src/compact/centroid.hpp}
+\lstinputlisting[firstline=9,lastline=46,firstnumber=1]{../src/compact/centroid.hpp}
+
+\newpage
+
+\noindent 重心与分解（接上页同一结构体）：
+
+\lstinputlisting[firstline=47,lastline=90,firstnumber=39]{../src/compact/centroid.hpp}
+
+\newpage
+
+\noindent 重建与距离计数（接上页同一结构体）：
+
+\lstinputlisting[firstline=91,lastline=141,firstnumber=83]{../src/compact/centroid.hpp}
+
+\Needspace{415pt}
+
+\subsection*{模板题使用：Luogu P3806}
+
+\label{usage-example-137}
+
+题意：正权树上查询距离为k的不同顶点对是否存在。先build一次，再用count\_exact的结果是否非零输出AYE/NAY。n至1万、询问至100、边权至1万；该程序查询存在性，底层计数另支持零权和森林。
+
+所需模板：CentroidPairs。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3806}
+
+\lstinputlisting{usage/example-137.cpp}
 
 \Needspace{426pt}
 
@@ -3903,6 +3975,20 @@ polygon\_contains(p,q) 返回 0 外部、1 边界、2 内部，输入简单多�
 
 \lstinputlisting[firstline=5,lastline=21]{../src/compact/polygon_contains.hpp}
 
+\Needspace{347pt}
+
+\subsection*{模板题使用：AOJ CGL\_3\_C}
+
+\label{usage-example-135}
+
+题意：给定简单多边形和查询点，逐个输出0外部、1边界、2内部；允许凹多边形，按题目给出的逆时针边界顺序读入，不要求重建凸包。n至100、q至1000，坐标绝对值至10000；核心也接受反向边界。
+
+所需模板：IntegerPlane、polygon\_contains。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_C}
+
+\lstinputlisting{usage/example-135.cpp}
+
 \Needspace{426pt}
 
 \section{圆与简单多边形相交面积}\label{compact-CirclePolygon}\index{CirclePolygon}
@@ -3999,6 +4085,8 @@ convex\_contains\_i64(p,q) 返回 0 外部、1 边界、2 内部。要求严格�
 
 \lstinputlisting[firstline=5,lastline=27]{../src/compact/convex_contains_i64.hpp}
 
+联合使用示例见第~\pageref{usage-example-136}~页（Luogu P4557 [JSOI2018] 战争），其中直接调用本模板。
+
 \Needspace{624pt}
 
 \noindent 相关应用：固定导航没有独立 Minkowski 和条目，按凸包的相关应用归档。
@@ -4011,7 +4099,27 @@ minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返
 
 退化输入枚举与另一凸包各点的和再求凸包，O((n+m) log(n+m))。按值传入，内部旋转不修改调用方；依赖 IntegerPlane 的 integer\_hull/cross。
 
-\lstinputlisting[firstline=5,lastline=54]{../src/compact/minkowski_sum.hpp}
+\lstinputlisting[firstline=5,lastline=32]{../src/compact/minkowski_sum.hpp}
+
+\newpage
+
+\noindent 合并凸包边（接上页同一函数）：
+
+\lstinputlisting[firstline=33,lastline=54,firstnumber=29]{../src/compact/minkowski_sum.hpp}
+
+\Needspace{416pt}
+
+\subsection*{应用题补充：Luogu P4557 [JSOI2018] 战争}
+
+\label{usage-example-136}
+
+题意：两组点各自凸包为领地；每次将第二组平移d，问两领地是否相交，接触边界也输出1。先构造A+(-B)，再判断d是否在其闭包内。n、m、q各至10万，坐标和平移量绝对值至10$^{8}$。比赛应用，不计正式模板题覆盖。
+
+所需模板：IntegerPlane、integer\_hull、minkowski\_sum、convex\_contains\_i64。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4557}
+
+\lstinputlisting{usage/example-136.cpp}
 
 \Needspace{658pt}
 
@@ -4099,15 +4207,21 @@ bounded\_polygon(lines) 求 a*x+b*y$\le$c 的交集闭包顶点，Line=\{a,b,c\}
 
 \lstinputlisting{usage/example-125.cpp}
 
-\Needspace{675pt}
+\Needspace{180pt}
 
 \chapter{平面最近点对}
 
 \section{整数最近点对（精确平方距离）}\label{compact-closest_pair_i64}\index{closest\_pair\_i64}
 
-closest\_pair\_i64(points) 返回 optional<\_\_int128\_t> 的最短距离平方；少于两点返回 nullopt，重复点返回 0。点类型为 IntegerPlane::Point，坐标绝对值不超过 10$^{12}$。按横坐标排序后递归分治，递归返回时按纵坐标排序；O(n log n) 时间、O(n) 辅助空间，全程精确整数。按值传入，不修改调用方序列。依赖 IntegerPlane 的比较与 dist2。
+closest\_pair\_i64(points, endpoints=nullptr) 返回 optional<\_\_int128\_t> 的最短距离平方；传 \&ids 时同时返回一对原输入的 0-based 下标，最优解不唯一时任选。少于两点返回 nullopt 且 ids=\{-1,-1\}，重复点返回 0 和两个不同下标。坐标绝对值不超过 10$^{12}$。递归分治内部排序下标，不改变输入；返回时子区间按纵坐标有序。O(n log n) 时间、O(n) 辅助空间，全程精确整数。distance 更新全局端点，solve 返回局部最短平方距离；依赖 IntegerPlane。
 
-\lstinputlisting[firstline=5,lastline=56]{../src/compact/closest_pair_i64.hpp}
+\lstinputlisting[firstline=5,lastline=36]{../src/compact/closest_pair_i64.hpp}
+
+\newpage
+
+\noindent 递归分治（接上页同一函数）：
+
+\lstinputlisting[firstline=37,lastline=74,firstnumber=33]{../src/compact/closest_pair_i64.hpp}
 
 \Needspace{294pt}
 
@@ -4122,6 +4236,20 @@ closest\_pair\_i64(points) 返回 optional<\_\_int128\_t> 的最短距离平方�
 题目：\url{https://www.luogu.com.cn/problem/P7883}
 
 \lstinputlisting{usage/example-62.cpp}
+
+\Needspace{362pt}
+
+\subsection*{模板题使用：Library Checker closest\_pair}
+
+\label{usage-example-134}
+
+题意：多组整数点集，输出一对不同的原输入0-based下标，使欧氏距离最小；最优解任选，重复坐标仍须返回不同下标。每组至少2点，总点数至50万，坐标绝对值至10$^{9}$。直接传入端点指针，无需开方或重建坐标到编号的映射。
+
+所需模板：IntegerPlane、closest\_pair\_i64。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/closest_pair}
+
+\lstinputlisting{usage/example-134.cpp}
 
 \Needspace{528pt}
 

@@ -1,5 +1,4 @@
 #include "../src/compact/dsu_on_tree.hpp"
-#include "../src/classic/dsu_on_tree.hpp"
 #include <iostream>
 #include <limits>
 #include <map>
@@ -9,18 +8,18 @@
 void test_all()
 {
     std::mt19937 rng(531177);
-    static Subtree_Colors<64> b;
+
     for (int trial = 0; trial < 1000; trial++)
     {
         int n = 1 + rng() % 64;
         SubtreeColors a(n);
-        b.Init(n);
+
         std::vector<std::vector<int>> g(n + 1);
         for (int v = 2; v <= n; v++)
         {
             int u = 1 + rng() % (v - 1);
             a.add(u, v);
-            b.Insert(u, v);
+
             g[u].push_back(v);
             g[v].push_back(u);
         }
@@ -44,7 +43,7 @@ void test_all()
                 for (int u = v; u; u = p[u])
                     count[u][c[v]]++;
             a.run(c, root);
-            b.Run(c, root);
+
             for (int u = 1; u <= n; u++)
             {
                 int best = 0;
@@ -54,52 +53,48 @@ void test_all()
                 for (auto [color, freq] : count[u])
                     if (freq == best)
                         sum += color;
-                assert(a.max_freq[u] == best && b.max_freq[u] == best);
-                assert(a.answer[u] == sum && b.answer[u] == sum);
+                assert(a.max_freq[u] == best);
+                assert(a.answer[u] == sum);
             }
-            assert(a.best == 0 && b.best == 0 && a.sum == 0 && b.sum == 0);
+            assert(a.best == 0 && a.sum == 0);
             for (int x : a.freq)
-                assert(x == 0);
-            for (int x : b.freq)
                 assert(x == 0);
         }
     }
     const int n = 100000;
     SubtreeColors a(n);
-    static Subtree_Colors<n> large;
-    large.Init(n);
+
     for (int v = 2; v <= n; v++)
     {
         a.add(v - 1, v);
-        large.Insert(v - 1, v);
+
     }
     std::vector<int> c(n + 1, -7);
     a.run(c);
-    large.Run(c);
+
     for (int u = 1; u <= n; u++)
     {
-        assert(a.answer[u] == -7 && large.answer[u] == -7);
-        assert(a.max_freq[u] == n - u + 1 && large.max_freq[u] == n - u + 1);
+        assert(a.answer[u] == -7);
+        assert(a.max_freq[u] == n - u + 1);
     }
     SubtreeColors star(n);
-    large.Init(n);
+
     for (int v = 2; v <= n; v++)
     {
         star.add(1, v);
-        large.Insert(1, v);
+
     }
     for (int u = 1; u <= n; u++)
         c[u] = u;
     star.run(c);
-    large.Run(c);
+
     assert(star.answer[1] == 1LL * n * (n + 1) / 2);
-    assert(large.answer[1] == star.answer[1]);
     for (int u = 2; u <= n; u++)
-        assert(star.answer[u] == u && large.answer[u] == u);
+        assert(star.answer[u] == u);
     SubtreeColors empty(0);
     empty.run({0});
-    large.Init(0);
-    large.Run({0});
+
+
     std::cout << "DSU-on-tree ancestor histogram, reroot/reset, recursive chain and star PASS\n";
 }
 

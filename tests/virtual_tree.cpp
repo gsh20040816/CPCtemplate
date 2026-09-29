@@ -1,5 +1,4 @@
 #include "../src/compact/virtual_tree.hpp"
-#include "../src/classic/virtual_tree.hpp"
 #include <iostream>
 #include <map>
 #include <random>
@@ -11,19 +10,19 @@ void test_all()
 {
     using ll = long long;
     std::mt19937 rng(247339);
-    static Virtual_Tree<64> b;
+
     for (int trial = 0; trial < 300; trial++)
     {
         int n = 1 + rng() % 64;
         VirtualTree a(n);
-        b.Init(n);
+
         std::vector<std::vector<std::pair<int, ll>>> g(n + 1);
         for (int v = 2; v <= n; v++)
         {
             int u = 1 + rng() % (v - 1);
             ll w = rng() % 100;
             a.add(u, v, w);
-            b.Insert(u, v, w);
+
             g[u].push_back({v, w});
             g[v].push_back({u, w});
         }
@@ -55,7 +54,7 @@ void test_all()
                 return u;
             };
             a.prepare(root);
-            b.Prepare(root);
+
             for (int query = 0; query < 40; query++)
             {
                 std::vector<int> keys;
@@ -67,7 +66,7 @@ void test_all()
                     for (int v : keys)
                     {
                         int p = lca(u, v);
-                        assert(a.lca(u, v) == p && b.Lca(u, v) == p);
+                        assert(a.lca(u, v) == p);
                         expected.insert(p);
                     }
                 std::set<std::tuple<int, int, ll, ll>> expected_edges;
@@ -103,26 +102,22 @@ void test_all()
                     assert(result.edges.size() + !result.vertices.empty() == result.vertices.size());
                 };
                 verify(a.build(keys));
-                verify(b.Build(keys));
             }
         }
     }
     const int n = 100000;
     VirtualTree a(n);
-    static Virtual_Tree<n> large;
-    large.Init(n);
+
     for (int v = 2; v <= n; v++)
     {
         a.add(v - 1, v);
-        large.Insert(v - 1, v);
+
     }
     a.prepare();
-    large.Prepare();
+
     auto x = a.build({1, n / 2, n});
-    auto y = large.Build({1, n / 2, n});
-    assert(x.edges.size() == 2 && y.edges.size() == 2);
+    assert(x.edges.size() == 2);
     assert(x.edges[0].distance == n / 2 - 1 && x.edges[1].distance == n - n / 2);
-    assert(y.edges[0].distance == x.edges[0].distance && y.edges[1].distance == x.edges[1].distance);
     VirtualTree boundary(2);
     boundary.add(1, 2, std::numeric_limits<ll>::max());
     boundary.prepare();

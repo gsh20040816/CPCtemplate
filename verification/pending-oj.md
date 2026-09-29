@@ -2,6 +2,7 @@
 
 以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/ 与 oj.json 对照生成。
 
+- `verify/aoj/CGL_3_C.compact.cpp`
 - `verify/cses/1160.compact.cpp`
 - `verify/cses/1750.compact.cpp`
 - `verify/examples/ac_shortest.compact.cpp`
@@ -19,6 +20,7 @@
 - `verify/library_checker/biconnected_components.compact.cpp`
 - `verify/library_checker/bitwise_and_convolution.compact.cpp`
 - `verify/library_checker/bitwise_xor_convolution.compact.cpp`
+- `verify/library_checker/closest_pair.compact.cpp`
 - `verify/library_checker/convolution_mod.compact.cpp`
 - `verify/library_checker/counting_primes.compact.cpp`
 - `verify/library_checker/division_of_polynomials.compact.cpp`
@@ -107,6 +109,7 @@
 - `verify/luogu/P4213.compact.cpp`
 - `verify/luogu/P4245.compact.cpp`
 - `verify/luogu/P4512.compact.cpp`
+- `verify/luogu/P4557.compact.cpp`
 - `verify/luogu/P4721.compact.cpp`
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.compact.cpp`

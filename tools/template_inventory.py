@@ -14,7 +14,7 @@ for file,name,title,contract in cat:
         text=driver.read_text()
         if not re.search(r'\b'+re.escape(name)+r'\b',text):continue
         rel=str(driver.relative_to(root));pid=driver.name.split('.')[0];judge=driver.relative_to(root / 'verify').parts[0]
-        url={'luogu':f'https://www.luogu.com.cn/problem/{pid}','qoj':f'https://qoj.ac/problem/{pid}','cses':f'https://cses.fi/problemset/task/{pid}','library_checker':f'https://judge.yosupo.jp/problem/{pid}'}.get(judge,'')
+        url={'luogu':f'https://www.luogu.com.cn/problem/{pid}','qoj':f'https://qoj.ac/problem/{pid}','cses':f'https://cses.fi/problemset/task/{pid}','library_checker':f'https://judge.yosupo.jp/problem/{pid}','aoj':f'https://onlinejudge.u-aizu.ac.jp/problems/{pid}'}.get(judge,'')
         ac=[r['record'] for r in records if r['style']=='compact' and r['source_driver']==rel and r['verdict']=='Accepted']
         candidates.append(dict(driver=rel,url=url,existing_ac=ac,review='candidate: audit full statement and exclude competition applications'))
     rows.append(dict(symbol=name,title=title,source=f'src/compact/{file}.hpp',status='needs_template_problem_review',candidate_drivers=candidates,qoj_tag_candidate=f'https://qoj.ac/problem/{qoj[name]}' if name in qoj else None,ranking=dict(status='not_checked',rank=None,total=None,checked_at=None,scope=None)))

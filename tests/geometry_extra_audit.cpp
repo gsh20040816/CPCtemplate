@@ -1,9 +1,7 @@
-#include "../src/classic/geometry_extra.hpp"
 #include "../src/compact/geometry_extra.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 using B = boost::multiprecision::cpp_int;
 using P = IntegerGeometry::Point;
-using Q = Integer_Geometry::Point;
 using I = __int128_t;
 
 B turn(P a, P b, P c)
@@ -41,14 +39,6 @@ vector<P> hull(vector<P> p)
     return h;
 }
 
-vector<Q> classic(const vector<P> &p)
-{
-    vector<Q> q;
-    for (auto a : p)
-        q.push_back({a.x, a.y});
-    return q;
-}
-
 void closest(const vector<P> &p, optional<I> expected = nullopt)
 {
     if (!expected && p.size() >= 2)
@@ -65,8 +55,23 @@ void closest(const vector<P> &p, optional<I> expected = nullopt)
             }
         expected = best.convert_to<I>();
     }
+    auto original = p;
+    pair<int, int> ids{123, 456};
+    assert(closest_pair_i64(p, &ids) == expected);
+    assert(p == original);
     assert(closest_pair_i64(p) == expected);
-    assert(Geometry_Extra::Closest_Pair(classic(p)) == expected);
+    if (expected)
+    {
+        auto [a, b] = ids;
+        assert(a >= 0 && a < (int)p.size());
+        assert(b >= 0 && b < (int)p.size() && a != b);
+        B x = B(p[a].x) - p[b].x;
+        B y = B(p[a].y) - p[b].y;
+        assert(x * x + y * y == B(*expected));
+        assert(GeometryExtra::closest_pair(p) == expected);
+    }
+    else
+        assert(ids == make_pair(-1, -1));
 }
 
 void minkowski(vector<P> a, vector<P> b)
@@ -82,11 +87,8 @@ void minkowski(vector<P> a, vector<P> b)
     for (int repeat = 0; repeat < 3; repeat++)
     {
         auto got = minkowski_sum(a, b);
-        auto old = Geometry_Extra::Minkowski(classic(a), classic(b));
-        assert(got.size() == old.size());
         for (int i = 0; i < (int)got.size(); i++)
         {
-            assert(got[i].x == old[i].x && got[i].y == old[i].y);
             if (got.size() >= 3)
                 assert(turn(got[i], got[(i + 1) % got.size()], got[(i + 2) % got.size()]) > 0);
         }
@@ -106,6 +108,20 @@ int main()
     closest({{-1000000000000LL, -1000000000000LL}, {1000000000000LL, 1000000000000LL}});
     minkowski({}, {{0, 0}});
     minkowski({{0, 0}, {3, 3}}, {{0, 0}, {-3, -3}});
+    vector<P> grid;
+    for (int x = -1; x <= 1; x++)
+        for (int y = -1; y <= 1; y++) grid.push_back({x, y});
+    for (int mask = 0; mask < 512; mask++)
+    {
+        vector<P> points;
+        for (int i = 0; i < 9; i++)
+            if (mask >> i & 1) points.push_back(grid[i]);
+        closest(points);
+        reverse(points.begin(), points.end());
+        closest(points);
+        if (!points.empty()) points.push_back(points[0]);
+        closest(points);
+    }
     mt19937_64 rng(20260912);
     for (int test = 0; test < 2000; test++)
     {
@@ -131,16 +147,11 @@ int main()
     for (long long x = -20000; x <= 20000; x++)
         curve.push_back({x, x * x});
     auto sum = minkowski_sum(curve, curve);
-    auto old_sum = Geometry_Extra::Minkowski(classic(curve), classic(curve));
     vector<P> expected;
     for (auto v : curve)
         expected.push_back({2 * v.x, 2 * v.y});
     assert(sum.size() == expected.size());
-    vector<P> old_points;
-    for (auto v : old_sum)
-        old_points.push_back({v.x, v.y});
     sort(sum.begin(), sum.end());
-    sort(old_points.begin(), old_points.end());
-    assert(sum == expected && old_points == expected);
-    cout << "Geometry extra dual cpp_int distance/gift-wrap oracle, rotated hulls, degeneracies, trillion coordinates and 200000 points PASS\n";
+    assert(sum == expected);
+    cout << "Geometry extra: original closest-pair endpoints, 512 grid subsets/reversal/duplicates, 2000 cpp_int distance/gift-wrap oracles, rotated hulls, trillion coordinates and 200000 points PASS\n";
 }

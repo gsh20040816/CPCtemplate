@@ -627,7 +627,7 @@
     "closest_pair_i64",
     "closest_pair_i64",
     "整数最近点对（精确平方距离）",
-    "closest_pair_i64(points) 返回 optional<__int128_t> 的最短距离平方；少于两点返回 nullopt，重复点返回 0。点类型为 IntegerPlane::Point，坐标绝对值不超过 10¹²。按横坐标排序后递归分治，递归返回时按纵坐标排序；O(n log n) 时间、O(n) 辅助空间，全程精确整数。按值传入，不修改调用方序列。依赖 IntegerPlane 的比较与 dist2。"
+    "closest_pair_i64(points, endpoints=nullptr) 返回 optional<__int128_t> 的最短距离平方；传 &ids 时同时返回一对原输入的 0-based 下标，最优解不唯一时任选。少于两点返回 nullopt 且 ids={-1,-1}，重复点返回 0 和两个不同下标。坐标绝对值不超过 10¹²。递归分治内部排序下标，不改变输入；返回时子区间按纵坐标有序。O(n log n) 时间、O(n) 辅助空间，全程精确整数。distance 更新全局端点，solve 返回局部最短平方距离；依赖 IntegerPlane。"
   ],
   [
     "minkowski_sum",

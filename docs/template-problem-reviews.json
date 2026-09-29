@@ -2366,5 +2366,134 @@
       "total": null
     },
     "remaining": "Online AC/ranking unverified; general unit-edge kernel evidence retained independently."
+  },
+  {
+    "symbol": "closest_pair_i64",
+    "problem": "Library Checker closest_pair",
+    "url": "https://judge.yosupo.jp/problem/closest_pair",
+    "classification": "Official standalone geometry template; outputs original point IDs, including duplicate coordinates.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "T<=100000; 2<=N; sum(N)<=500000; integer |x|,|y|<=1e9",
+    "tested_api": [
+      "closest_pair_i64(p, &ids)",
+      "original-index endpoints",
+      "duplicates"
+    ],
+    "local_evidence": "verification/polygon-applications.json; verification/closest-pair-official.json; verification/closest-pair-official-san.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending. Local official-checker acceptance is not online acceptance."
+  },
+  {
+    "symbol": "polygon_contains",
+    "problem": "AOJ CGL_3_C",
+    "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_C",
+    "classification": "Aizu Library of Computational Geometry standalone polygon-point containment task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "3<=n<=100; q<=1000; integer coordinates with absolute values<=10000; CCW simple polygon, not necessarily convex",
+    "tested_api": [
+      "polygon_contains(p,q)"
+    ],
+    "local_evidence": "verification/polygon-applications.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending. Extended clockwise/degenerate core checks are separate from official input constraints."
+  },
+  {
+    "symbol": "minkowski_sum",
+    "problem": "Luogu P4557 [JSOI2018] 战争",
+    "url": "https://www.luogu.com.cn/problem/P4557",
+    "classification": "Competition application, not standalone template coverage. Minkowski difference plus logarithmic convex containment.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "3<=n,m<=100000; q<=100000; |coordinates| and |translation|<=1e8; each set noncollinear; all original points distinct",
+    "tested_api": [
+      "integer_hull",
+      "minkowski_sum",
+      "convex_contains_i64"
+    ],
+    "local_evidence": "verification/polygon-applications.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC pending. Does not finish formal template matching for Minkowski sum or convex containment."
+  },
+  {
+    "symbol": "CentroidPairs",
+    "problem": "Luogu P3806",
+    "url": "https://www.luogu.com.cn/problem/P3806",
+    "classification": "Explicit standalone centroid-decomposition template; tests existence of distinct pairs at exact distance. count_leq and broader forest/zero-weight contracts separately checked locally.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n<=10000,m<=100,k<=1e7,positive edge weights<=10000",
+    "tested_api": [
+      "add",
+      "build",
+      "count_exact"
+    ],
+    "local_evidence": "verification/tree-usage.json",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No new online submission this batch. Historical snapshots remain separately audited; formal coverage/ranking not inferred from local tests."
+  },
+  {
+    "symbol": "SubtreeColors",
+    "problem": "Codeforces 600E",
+    "url": "https://codeforces.com/problemset/problem/600/E",
+    "classification": "Competition application; formal noncompetition template matching remains pending.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n<=100000,1<=colors<=n,root=1",
+    "tested_api": [
+      "add",
+      "run",
+      "answer"
+    ],
+    "local_evidence": "verification/tree-usage.json",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No new online submission this batch. Historical snapshots remain separately audited; formal coverage/ranking not inferred from local tests."
+  },
+  {
+    "symbol": "VirtualTree",
+    "problem": "Luogu P2495 [SDOI2011] 消耗战",
+    "url": "https://www.luogu.com.cn/problem/P2495",
+    "classification": "Provincial competition application despite current template-labelled title; formal noncompetition template matching remains pending.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n<=250000,queries<=500000,sum(keys)<=500000,1<=weights<=100000,keys exclude root1",
+    "tested_api": [
+      "add",
+      "prepare",
+      "build",
+      "vertices",
+      "edges.minimum"
+    ],
+    "local_evidence": "verification/tree-usage.json",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No new online submission this batch. Historical snapshots remain separately audited; formal coverage/ranking not inferred from local tests."
   }
 ]

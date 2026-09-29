@@ -73,14 +73,16 @@ def generate():
     coverage = []
     for _, symbol, title, _ in catalog:
         matches = [r for r in rows if r['symbol'] == symbol or symbol in r.get('also_covers', [])]
-        verified = any(r.get('kind', 'template') == 'template' for r in matches) and all(proof.get(r['id'], {}).get('program_sha256') == r['program_sha256']
+        verified = bool(matches) and all(proof.get(r['id'], {}).get('program_sha256') == r['program_sha256']
                     and proof[r['id']].get('modes') == ['normal', 'sanitizer'] for r in matches)
+        formal = any(r.get('kind', 'template') == 'template' for r in matches)
         coverage.append(dict(symbol=symbol, title=title, examples=[r['id'] for r in matches],
-                             status='locally_checked_example' if verified else 'generated_unverified' if matches else 'pending_example'))
+                             status=('locally_checked_example' if formal else 'locally_checked_application') if verified else 'generated_unverified' if matches else 'pending_example'))
     (ROOT / 'docs/usage-coverage.json').write_text(json.dumps(coverage, ensure_ascii=False, indent=2) + '\n')
     text = ['# 模板题使用示例覆盖', '',
             '每个条目需要最简题意、所需模板和使用代码；代码只含必要配置与 main 调用部分，不重复算法。',
             '示例与现有完整驱动共用源文件；模板依赖展开后的源码哈希改变时，原执行记录不再视为当前验证。示例执行通过不等于在线 AC。', '',
+            'locally_checked_example 表示至少有一份正式模板题用法；locally_checked_application 表示只有已验证的应用用法，仍不计正式模板题覆盖。generated_unverified 表示执行证据缺失或源码指纹已失配。', '',
             '| 模板 | 示例 | 状态 |', '|---|---|---|']
     kind_by_id = {r['id']: r.get('kind', 'template') for r in rows}
     for row in coverage:

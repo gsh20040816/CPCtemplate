@@ -1,0 +1,56 @@
+{
+  "scope": "Closest original-index endpoint extension, general/convex polygon containment, complete closest/AOJ/P4557 applications. Local tests only; no new online AC or speed rankings.",
+  "recorded_at_utc": "2026-09-29T11:12:56.443317+00:00",
+  "files": {
+    "src/compact/closest_pair_i64.hpp": "c6288422363e7a50d2b0e63be083498b086530258664a0b63a732fa73539c5d1",
+    "src/compact/polygon_contains.hpp": "73f9cba056bdcdc340b6870e249b2a7551989dcef270bfc3716608e17781c457",
+    "src/compact/convex_contains_i64.hpp": "15960cd889907514c6d723704984023a23757c7a0c7ae8ddd0c80692a5236612",
+    "src/compact/minkowski_sum.hpp": "6bf059f8dcdb5e4e348c8ca91b8ef2148d2f586b5ddd079ee0e38efedbfd55b4",
+    "src/compact/integer_plane.hpp": "019023dc3d1f4de34aaa376613d131be8991d55624a9591e3d09f07d1862a482",
+    "src/compact/integer_hull.hpp": "93009007e660a92fd56d424a280b93ff016f311667b9d67e24c63951ca157630",
+    "tests/geometry_extra_audit.cpp": "057edcdbcba3f14d6a54632bf417fad9f4290a83557fed9a6a556f7bd7a0cbcb",
+    "tests/polygon_probe.cpp": "540f090e9ef2e79d7259cc07e4d6db9c6c0e895238dcdb646cbafb8f7c3ca87f",
+    "tests/polygon_applications.py": "9e5166255d22f6481552661e69484f4dca73d9af43d5b802105d357cc8f74f56",
+    "verify/library_checker/closest_pair.compact.cpp": "e18faf8c7f1ea578af7c8c5c39df3f040286f9fb131e3c23cdc855ce1b6f9020",
+    "verify/aoj/CGL_3_C.compact.cpp": "75130bc7638ebd2b9f67ffcecd8d5dcd80590cdbf5a348da6d896b18dc9ea403",
+    "verify/luogu/P4557.compact.cpp": "a96f590732a5edd5c7a3065199b4a4a7ef31d76806262c4d09913ac144a02074",
+    "verify/luogu/P7883.compact.cpp": "9883314a03e4ee7dff000c68e2914a362dd24ac567a3bbd1e80cf8c9516075e3"
+  },
+  "runs": [
+    {
+      "log": "build/geometry-endpoints-normal.txt",
+      "output": "Geometry extra: original closest-pair endpoints, 512 grid subsets/reversal/duplicates, 2000 cpp_int distance/gift-wrap oracles, rotated hulls, trillion coordinates and 200000 points PASS",
+      "log_sha256": "34ea3bf6d157aca66afd0a1fee14d8e27dd441e60418730c3ca765d83f4237c1"
+    },
+    {
+      "log": "build/geometry-endpoints-san.txt",
+      "output": "Geometry extra: original closest-pair endpoints, 512 grid subsets/reversal/duplicates, 2000 cpp_int distance/gift-wrap oracles, rotated hulls, trillion coordinates and 200000 points PASS",
+      "log_sha256": "34ea3bf6d157aca66afd0a1fee14d8e27dd441e60418730c3ca765d83f4237c1"
+    },
+    {
+      "log": "build/polygon-applications-normal.txt",
+      "output": "Polygon containment: all 512 grid subset hulls/cyclic starts, 161 simple boundaries including concave cases in both orientations and translated trillion-scale inputs, AOJ sample/max shape and 100001-vertex/300001-query convex search PASS\nMinkowski difference full P4557 driver: 180 independent translated-hull intersection cases including boundary differences, 100000+100000 distinct points and 100000 queries PASS\nClosest-pair complete driver: 1600 Python integer pair-enumeration cases, 500000 duplicates/collinear points, 100000-case reset and extreme coordinates PASS\nExisting P7883 full driver: 200 unique-point pair-enumeration inputs, 400000-point maximum and 8e14 squared-distance boundary PASS",
+      "log_sha256": "98b204b7c4880be215f835e283f338cdd5673228eeb902a34613e24f231dcf1a"
+    },
+    {
+      "log": "build/polygon-applications-san.txt",
+      "output": "Polygon containment: all 512 grid subset hulls/cyclic starts, 161 simple boundaries including concave cases in both orientations and translated trillion-scale inputs, AOJ sample/max shape and 100001-vertex/300001-query convex search PASS\nMinkowski difference full P4557 driver: 180 independent translated-hull intersection cases including boundary differences, 100000+100000 distinct points and 100000 queries PASS\nClosest-pair complete driver: 1600 Python integer pair-enumeration cases, 500000 duplicates/collinear points, 100000-case reset and extreme coordinates PASS\nExisting P7883 full driver: 200 unique-point pair-enumeration inputs, 400000-point maximum and 8e14 squared-distance boundary PASS",
+      "log_sha256": "98b204b7c4880be215f835e283f338cdd5673228eeb902a34613e24f231dcf1a"
+    },
+    {
+      "log": "build/polygon-usage.txt",
+      "output": "Usage examples: 4 exact printed usage programs in normal and ASan/UBSan modes PASS; 136 current program records",
+      "log_sha256": "c80da124d6c29ad916678313e4001de19cf89587bd4855da56d1296e787cbe6d"
+    }
+  ],
+  "official_local_evidence": [
+    "verification/closest-pair-official.json",
+    "verification/closest-pair-official-san.json"
+  ],
+  "usage_examples": [
+    "example-62",
+    "example-134",
+    "example-135",
+    "example-136"
+  ]
+}

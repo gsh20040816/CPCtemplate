@@ -85,6 +85,14 @@ def check_output(example_id, mode, data, stdout, expected):
                       for p in itertools.permutations(range(n))
                       if all(weights[p[v]][v] is not None for v in range(n)))
         assert output[0] == sum(matched_weights) == optimum
+    elif isinstance(expected, dict) and 'closest_cases' in expected:
+        lines = stdout.splitlines()
+        assert len(lines) == len(expected['closest_cases'])
+        for line, points in zip(lines, expected['closest_cases']):
+            a, b = map(int, line.split())
+            assert 0 <= a < len(points) and 0 <= b < len(points) and a != b
+            distance = lambda p, q: (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2
+            assert distance(points[a], points[b]) == min(distance(p, q) for p, q in itertools.combinations(points, 2))
     elif isinstance(expected, dict) and 'diameter_cases' in expected:
         lines = stdout.splitlines()
         assert len(lines) == len(expected['diameter_cases'])

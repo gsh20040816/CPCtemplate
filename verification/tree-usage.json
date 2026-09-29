@@ -1,0 +1,70 @@
+{
+  "scope": "Three tree usage programs, independent core tests with classic dependency removed, complete independent input and maximum-size driver checks. No new online AC or rankings.",
+  "recorded_at_utc": "2026-09-29T11:18:57.893874+00:00",
+  "files": {
+    "src/compact/centroid.hpp": "f935523229f185a31cebe29fae1628ca4c073f9fbb5f4ba8ea6c3d20b889ec37",
+    "src/compact/dsu_on_tree.hpp": "d99eb2bc4bcc40bcce9c863db26aeab56a442e316205dbbe59c5f1ad5ba75eca",
+    "src/compact/virtual_tree.hpp": "753874b82428b8be14686c2394186f97b3094b07d1284539874c85f474b7d3f0",
+    "tests/centroid.cpp": "158bdd4acb32fc55a630f3d38552bc39126471f2a1526213af11b3ba9b0b72af",
+    "tests/dsu_on_tree.cpp": "e8c8c173100f9e368ab660120eaae372b97469f8df095c6a86b1645c3aff8c0e",
+    "tests/virtual_tree.cpp": "7a5460a9addfce55f7845f455a4abaa7ecd9dac230b86ca7530e378568e803fb",
+    "tests/tree_usage_applications.py": "d9747dbc0892fe496cae97c98b9d18f3160dae481acf27dd7c1a38b5f3e489d5",
+    "verify/luogu/P3806.compact.cpp": "7c7763142a7adc64b35584ee339acf42d24a92a50eb0b95cca4b36f3f28e2f04",
+    "verify/luogu/CF600E.compact.cpp": "a661ab3b6ae9f373ec6b1be5a7a41cdaaeca43b17a698ff69028ad530b211d8b",
+    "verify/luogu/P2495.compact.cpp": "5b726ff35d97544a57127d054b0fbcc62625a88404ab3d32ec8b62100e85a427"
+  },
+  "unchanged_core_against": "3b458fb",
+  "runs": [
+    {
+      "log": "build/tree-usage-centroid-normal.txt",
+      "output": "Centroid distance/Floyd oracle, zero weights, overflow boundary and recursive chain PASS",
+      "log_sha256": "ecbeb10524225d08e2022981f589acd431942c2752d087933831f6a2a398d8f9"
+    },
+    {
+      "log": "build/tree-usage-centroid-san.txt",
+      "output": "Centroid distance/Floyd oracle, zero weights, overflow boundary and recursive chain PASS",
+      "log_sha256": "ecbeb10524225d08e2022981f589acd431942c2752d087933831f6a2a398d8f9"
+    },
+    {
+      "log": "build/tree-usage-dsu_on_tree-normal.txt",
+      "output": "DSU-on-tree ancestor histogram, reroot/reset, recursive chain and star PASS",
+      "log_sha256": "34e9c5744171ec62e39525555fd8ce4d670b0c7387509f1d854466ddd4ee7a6a"
+    },
+    {
+      "log": "build/tree-usage-dsu_on_tree-san.txt",
+      "output": "DSU-on-tree ancestor histogram, reroot/reset, recursive chain and star PASS",
+      "log_sha256": "34e9c5744171ec62e39525555fd8ce4d670b0c7387509f1d854466ddd4ee7a6a"
+    },
+    {
+      "log": "build/tree-usage-virtual_tree-normal.txt",
+      "output": "Virtual tree all-pairs LCA closure, compressed paths, reroot and recursive chain PASS",
+      "log_sha256": "cc337076a36b409c038df1af96b530db6634fdb8e5b8e75357b760d35d87ae5a"
+    },
+    {
+      "log": "build/tree-usage-virtual_tree-san.txt",
+      "output": "Virtual tree all-pairs LCA closure, compressed paths, reroot and recursive chain PASS",
+      "log_sha256": "cc337076a36b409c038df1af96b530db6634fdb8e5b8e75357b760d35d87ae5a"
+    },
+    {
+      "log": "build/tree-applications-normal.txt",
+      "output": "P3806 full driver: 220 independent all-path inputs, 10000-node chain/100 queries and singleton PASS\nCF600E full driver: 260 independent ancestor histograms, 100000-node same/distinct-color chains and distinct-color star with 64-bit sum PASS\nP2495 full driver: 160 trees/2240 exhaustive cut-subset queries, 250000-node weighted chain/star, 500000-query reset, nested keys and 24999900000 answer PASS",
+      "log_sha256": "010fa67762fb7c0ce8d4dd811dcc75af50cc784815c976c7684df7b257eb2e5f"
+    },
+    {
+      "log": "build/tree-applications-san.txt",
+      "output": "P3806 full driver: 220 independent all-path inputs, 10000-node chain/100 queries and singleton PASS\nCF600E full driver: 260 independent ancestor histograms, 100000-node same/distinct-color chains and distinct-color star with 64-bit sum PASS\nP2495 full driver: 160 trees/2240 exhaustive cut-subset queries, 250000-node weighted chain/star, 500000-query reset, nested keys and 24999900000 answer PASS",
+      "log_sha256": "010fa67762fb7c0ce8d4dd811dcc75af50cc784815c976c7684df7b257eb2e5f"
+    },
+    {
+      "log": "build/tree-usage-examples.txt",
+      "output": "Usage examples: 3 exact printed usage programs in normal and ASan/UBSan modes PASS; 139 current program records",
+      "log_sha256": "cb3885c8a7edbd388a499619bac7899fcd2328678082d21a33c81986696c3090"
+    }
+  ],
+  "stack": "Core long-chain tests use 256MiB pthread stacks; macOS complete drivers use linker -stack_size 0x20000000 (512MiB). DFS remains recursive; no explicit call-stack conversion.",
+  "usage_examples": [
+    "example-137",
+    "example-138",
+    "example-139"
+  ]
+}

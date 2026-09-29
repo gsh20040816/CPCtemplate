@@ -18,3 +18,5 @@ geometry_extra.hpp 的旧静态接口只转发，三维整数几何暂仍在原�
 浮点知识点拆分见 REAL-COMPONENTS.md：基础类型和六个函数分别收录，RealGeometry 保留为兼容入口；知识点复合条目仅剩 Biconnected。
 
 双连通核心与森林拆分见 BCC-COMPONENTS.md；当前 composite 映射为零，附加说明与相关应用归类仍待逐项核对。
+
+最近点对后续已增加可选原输入端点输出，内部改为排序下标；因此上文“算法体未变”仅描述当时拆分提交。当前实现和完整应用验证见 POLYGON-APPLICATIONS.md、verification/polygon-applications.json。Minkowski核心保持不变，新增P4557组合用法。

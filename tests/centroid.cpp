@@ -1,5 +1,4 @@
 #include "../src/compact/centroid.hpp"
-#include "../src/classic/centroid.hpp"
 #include <iostream>
 #include <random>
 #include <tuple>
@@ -10,8 +9,7 @@ using Edge = std::tuple<int, int, ll>;
 void check(int n, const std::vector<Edge> &edges)
 {
     CentroidPairs a(n);
-    static Centroid_Pairs<64> b;
-    b.Init(n);
+
     using I = __int128_t;
     const I inf = I(1) << 100;
     std::vector<std::vector<I>> d(n + 1, std::vector<I>(n + 1, inf));
@@ -20,7 +18,7 @@ void check(int n, const std::vector<Edge> &edges)
     for (auto [u, v, w] : edges)
     {
         a.add(u, v, w);
-        b.Insert(u, v, w);
+
         d[u][v] = d[v][u] = w;
     }
     for (int k = 1; k <= n; k++)
@@ -35,7 +33,7 @@ void check(int n, const std::vector<Edge> &edges)
     for (int repeat = 0; repeat < 2; repeat++)
     {
         a.build();
-        b.Build();
+
         for (ll k : queries)
         {
             ll leq = 0, exact = 0;
@@ -45,8 +43,8 @@ void check(int n, const std::vector<Edge> &edges)
                     leq += d[u][v] <= k;
                     exact += d[u][v] == k;
                 }
-            assert(a.count_leq(k) == leq && b.Count_Leq(k) == leq);
-            assert(a.count_exact(k) == exact && b.Count_Exact(k) == exact);
+            assert(a.count_leq(k) == leq);
+            assert(a.count_exact(k) == exact);
         }
     }
 }
@@ -68,32 +66,30 @@ void test_all()
     }
     const int n = 100000;
     CentroidPairs a(n);
-    static Centroid_Pairs<n> b;
-    b.Init(n);
+
     for (int v = 2; v <= n; v++)
     {
         a.add(v - 1, v, 1);
-        b.Insert(v - 1, v, 1);
+
     }
     a.build();
-    b.Build();
+
     for (ll k : {0LL, 1LL, 123LL, (ll)n, std::numeric_limits<ll>::max()})
     {
         ll t = std::min(k, (ll)n - 1);
         ll expected = t * n - t * (t + 1) / 2;
-        assert(a.count_leq(k) == expected && b.Count_Leq(k) == expected);
+        assert(a.count_leq(k) == expected);
     }
     CentroidPairs star(n);
-    b.Init(n);
+
     for (int v = 2; v <= n; v++)
     {
         star.add(1, v, 0);
-        b.Insert(1, v, 0);
+
     }
     star.build();
-    b.Build();
+
     assert(star.count_exact(0) == 1LL * n * (n - 1) / 2);
-    assert(b.Count_Exact(0) == star.count_exact(0));
     std::cout << "Centroid distance/Floyd oracle, zero weights, overflow boundary and recursive chain PASS\n";
 }
 

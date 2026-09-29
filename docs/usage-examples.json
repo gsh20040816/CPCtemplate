@@ -1621,5 +1621,82 @@
       "blocks"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-134",
+    "symbol": "closest_pair_i64",
+    "problem": "Library Checker closest_pair",
+    "url": "https://judge.yosupo.jp/problem/closest_pair",
+    "summary": "多组整数点集，输出一对不同的原输入0-based下标，使欧氏距离最小；最优解任选，重复坐标仍须返回不同下标。每组至少2点，总点数至50万，坐标绝对值至10⁹。直接传入端点指针，无需开方或重建坐标到编号的映射。",
+    "driver": "verify/library_checker/closest_pair.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "closest_pair_i64"
+    ]
+  },
+  {
+    "id": "example-135",
+    "symbol": "polygon_contains",
+    "problem": "AOJ CGL_3_C",
+    "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_C",
+    "summary": "给定简单多边形和查询点，逐个输出0外部、1边界、2内部；允许凹多边形，按题目给出的逆时针边界顺序读入，不要求重建凸包。n至100、q至1000，坐标绝对值至10000；核心也接受反向边界。",
+    "driver": "verify/aoj/CGL_3_C.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "polygon_contains"
+    ]
+  },
+  {
+    "id": "example-136",
+    "symbol": "minkowski_sum",
+    "problem": "Luogu P4557 [JSOI2018] 战争",
+    "url": "https://www.luogu.com.cn/problem/P4557",
+    "summary": "两组点各自凸包为领地；每次将第二组平移d，问两领地是否相交，接触边界也输出1。先构造A+(-B)，再判断d是否在其闭包内。n、m、q各至10万，坐标和平移量绝对值至10⁸。比赛应用，不计正式模板题覆盖。",
+    "driver": "verify/luogu/P4557.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "integer_hull",
+      "minkowski_sum",
+      "convex_contains_i64"
+    ],
+    "also_covers": [
+      "convex_contains_i64"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-137",
+    "symbol": "CentroidPairs",
+    "problem": "Luogu P3806",
+    "url": "https://www.luogu.com.cn/problem/P3806",
+    "summary": "正权树上查询距离为k的不同顶点对是否存在。先build一次，再用count_exact的结果是否非零输出AYE/NAY。n至1万、询问至100、边权至1万；该程序查询存在性，底层计数另支持零权和森林。",
+    "driver": "verify/luogu/P3806.compact.cpp",
+    "requires": [
+      "CentroidPairs"
+    ]
+  },
+  {
+    "id": "example-138",
+    "symbol": "SubtreeColors",
+    "problem": "Codeforces 600E",
+    "url": "https://codeforces.com/problemset/problem/600/E",
+    "summary": "以1为根，对每个子树输出出现次数最多的所有颜色编号之和；并列颜色都计入。颜色数组1-based，run后直接读answer，和用long long。n至10万、颜色在1..n；比赛应用，不替代正式模板题。",
+    "driver": "verify/luogu/CF600E.compact.cpp",
+    "requires": [
+      "SubtreeColors"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-139",
+    "symbol": "VirtualTree",
+    "problem": "Luogu P2495 [SDOI2011] 消耗战",
+    "url": "https://www.luogu.com.cn/problem/P2495",
+    "summary": "每次给若干非根关键点，求删边使它们都与根1断开的最小代价。显式加入根构造虚树，逆序遍历虚边，使用路径最小边权与子树代价取小；只清空本次顶点和标记。n至25万、询问及关键点总数至50万。省选应用，正式非比赛模板题映射仍待补。",
+    "driver": "verify/luogu/P2495.compact.cpp",
+    "requires": [
+      "VirtualTree"
+    ],
+    "kind": "application"
   }
 ]

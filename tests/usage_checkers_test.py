@@ -2,6 +2,8 @@
 from usage_checkers import check_output
 
 controls = [
+    ('example-134', '', '0 0\n', {'closest_cases': [[(0,0),(0,0)]]}),
+    ('example-134', '', '0 2\n', {'closest_cases': [[(0,0),(1,0),(5,0)]]}),
     ('example-96', '', '1 1 1 1\n', {'odd_partition': (4, [(0,1),(1,2),(2,3)])}),
     ('example-93', '', '4\n', {'exact_text': '4\n\n'}),
     ('example-73', '', '14\n1 1\n', {'weighted_matching': [[7, 7], [7, 7]]}),
@@ -24,4 +26,5 @@ check_output('example-73', 'positive-control', '', '14\n2 1\n', {'weighted_match
 check_output('example-48', 'positive-control', '1\n8 1\n', '0\n\n', '0')
 check_output('example-93', 'positive-control', '', '4\n\n', {'exact_text': '4\n\n'})
 check_output('example-96', 'positive-control', '', '1 1 2 2\n', {'odd_partition': (4, [(0,1),(1,2),(2,3)])})
-print('Usage checkers: 11 invalid certificates rejected; valid matching and required blank line accepted')
+check_output('example-134', 'positive-control', '', '1 0\n', {'closest_cases': [[(0,0),(0,0)]]})
+print('Usage checkers: 13 invalid certificates rejected; valid matching and required blank line accepted')
