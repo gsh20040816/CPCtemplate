@@ -104,6 +104,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | OrderedTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | SequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | OrderedSplay | 数据结构 → 二叉搜索树 & 平衡树 → Splay 树 | direct |  |
+| ScapegoatTree | 数据结构 → 二叉搜索树 & 平衡树 → 替罪羊树 | direct | 重复值计数、有效节点清理与递归重建 |
 | PersistentArray | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | PersistentDistinct | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | PersistentKth | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |

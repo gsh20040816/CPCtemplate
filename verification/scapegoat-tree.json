@@ -1,0 +1,50 @@
+{
+  "scope": "Local independent oracles and P3369 adapter only; not online AC or controlled speed ranking",
+  "recorded_at_utc": "2026-09-29T07:28:07.623578+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/scapegoat_tree.hpp": "77c1ac87e559e48ee88ccd298492432dbde9a9a9b103bec5f511eefb42d0cafb",
+    "tests/scapegoat_tree.cpp": "17bb8fa5827bf56544a25b987bb232ac1b639096f7c1c62ef2e16fd5dc8818cf",
+    "tests/scapegoat_application.py": "2233fa42630f1a1b5b69a8c837e21d2120ab5ab3a2b05cfccc7d5f129caac2ba",
+    "verify/luogu/P3369.scapegoat.compact.cpp": "3655437aa1ac7fdd6f64bb27f115f9b31889f7c6017c23004087e1600564cd11"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "kind": "unit",
+      "coverage": "600000 sorted-vector operations; signed64 boundaries; BST, size, physical count, live count, 3/4 balance and 1/2 density invariants; 200000 monotone insert/delete/reinsert; duplicates",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "normal",
+      "kind": "driver",
+      "coverage": "201 programs, Python sorted-list reference, absent rank keys, strict neighbors, 100000-operation scale",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "unit",
+      "coverage": "600000 sorted-vector operations; signed64 boundaries; BST, size, physical count, live count, 3/4 balance and 1/2 density invariants; 200000 monotone insert/delete/reinsert; duplicates",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "driver",
+      "coverage": "201 programs, Python sorted-list reference, absent rank keys, strict neighbors, 100000-operation scale",
+      "verdict": "local_oracle_passed"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  }
+}

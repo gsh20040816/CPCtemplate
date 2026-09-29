@@ -2347,10 +2347,16 @@
     },
     {
       "symbol": "SequenceTreap",
-      "title": "隐式 Treap：序列翻转、加值与区间和",
+      "title": "隐式 Treap：顺序反转、位翻转、加值与区间和",
       "source": "src/compact/treap.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
+        {
+          "driver": "verify/examples/sequence_flip.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
         {
           "driver": "verify/luogu/P3391.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P3391",
@@ -2381,6 +2387,28 @@
           "existing_ac": [
             "https://www.luogu.com.cn/record/297520192"
           ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "ScapegoatTree",
+      "title": "替罪羊树：可重集合与顺序统计",
+      "source": "src/compact/scapegoat_tree.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3369.scapegoat.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3369",
+          "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],

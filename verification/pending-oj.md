@@ -68,6 +68,7 @@
 - `verify/luogu/P2860.compact.cpp`
 - `verify/luogu/P2921.compact.cpp`
 - `verify/luogu/P3369.pbds.compact.cpp`
+- `verify/luogu/P3369.scapegoat.compact.cpp`
 - `verify/luogu/P3375.compact.cpp`
 - `verify/luogu/P3377.compact.cpp`
 - `verify/luogu/P3379.euler.compact.cpp`

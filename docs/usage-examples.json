@@ -1312,5 +1312,17 @@
       "SequenceTreap"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-110",
+    "symbol": "ScapegoatTree",
+    "problem": "Luogu P3369（替罪羊树）",
+    "url": "https://www.luogu.com.cn/problem/P3369",
+    "summary": "维护可重集合，操作 1..6 分别为插入、删除一个副本、排名、第 k 小、严格前驱、严格后继。排名查询键不一定存在；题目保证第 k 小和前驱后继的答案存在，因此可解引用 optional。该驱动单独调用替罪羊树，不沿用其他平衡树的 AC。",
+    "driver": "verify/luogu/P3369.scapegoat.compact.cpp",
+    "requires": [
+      "ScapegoatTree"
+    ],
+    "kind": "template"
   }
 ]

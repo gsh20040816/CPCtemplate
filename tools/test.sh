@@ -529,3 +529,7 @@ python3 tests/lct_application.py
 "$CXX" "${flags[@]}" tests/sequence_flip.cpp -o build/sequence-flip
 build/sequence-flip
 python3 tests/sequence_flip_application.py
+
+"$CXX" "${flags[@]}" tests/scapegoat_tree.cpp -o build/scapegoat
+build/scapegoat
+python3 tests/scapegoat_application.py

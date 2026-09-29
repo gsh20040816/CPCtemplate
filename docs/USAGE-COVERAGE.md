@@ -113,6 +113,7 @@
 | OrderedTreap | [example-8](usage/example-8.cpp) | locally_checked_example |
 | SequenceTreap | [example-10](usage/example-10.cpp), [example-109（应用补充）](usage/example-109.cpp) | locally_checked_example |
 | OrderedSplay | [example-9](usage/example-9.cpp) | locally_checked_example |
+| ScapegoatTree | [example-110](usage/example-110.cpp) | locally_checked_example |
 | GcdSequenceTreap | 待补 | pending_example |
 | Blossom | [example-72](usage/example-72.cpp) | locally_checked_example |
 | berlekamp_massey | [example-81](usage/example-81.cpp) | locally_checked_example |

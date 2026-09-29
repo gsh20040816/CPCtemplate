@@ -1793,5 +1793,36 @@
     "local_tests": [
       "verification/euler-power.json"
     ]
+  },
+  {
+    "symbol": "ScapegoatTree",
+    "problem": "Luogu P3369",
+    "url": "https://www.luogu.com.cn/problem/P3369",
+    "classification": "Standalone ordinary balanced BST template; separate deterministic rebuilding implementation.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "1<=operations<=100000; |x|<=10000000; rank/predecessor/successor query key may be absent; kth and neighbors exist.",
+    "adapter": "Map operations 1..6 to insert/erase/rank/kth/prev/next. Dereference optional only under judge existence guarantee.",
+    "source": "src/compact/scapegoat_tree.hpp",
+    "source_driver": "verify/luogu/P3369.scapegoat.compact.cpp",
+    "implementation": "implemented_driver_local_verified_online_pending",
+    "tested_api": [
+      "insert",
+      "erase",
+      "rank",
+      "kth",
+      "prev",
+      "next"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and speed ranking pending. Full signed64 keys, absent-neighbor nullopt, empty tree and deletion failure covered by local API tests.",
+    "local_tests": [
+      "verification/scapegoat-tree.json"
+    ]
   }
 ]

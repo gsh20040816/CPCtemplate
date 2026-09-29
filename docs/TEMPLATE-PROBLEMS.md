@@ -73,6 +73,7 @@
 | `Min25` | [Library Checker sum_of_multiplicative_function](https://judge.yosupo.jp/problem/sum_of_multiplicative_function) | N<=10^11; T<=10000, T>1 implies T sqrt(N)<=100000; modulus469762049 | 待编写驱动/提交 | 待核验 |
 | `euler_power` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 待编写驱动/提交 | 待核验 |
 | `euler_phi` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 待编写驱动/提交 | 待核验 |
+| `ScapegoatTree` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000; rank/predecessor/successor query key may be absent; kth and neighbors exist. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -639,6 +640,14 @@ Standalone extended Euler theorem template task.
 Explicitly compute euler_phi(m), then euler_power(a,b,m,phi); b is a decimal string.
 
 Online AC and speed ranking pending; full unsigned64 modulus and zero exponent are local API extensions outside P5091.
+
+### Luogu P3369 / ScapegoatTree
+
+Standalone ordinary balanced BST template; separate deterministic rebuilding implementation.
+
+Map operations 1..6 to insert/erase/rank/kth/prev/next. Dereference optional only under judge existence guarantee.
+
+Online AC and speed ranking pending. Full signed64 keys, absent-neighbor nullopt, empty tree and deletion failure covered by local API tests.
 
 ## 榜单口径
 

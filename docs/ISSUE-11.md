@@ -64,8 +64,8 @@
 | 4.2.2 | (2) 爱莲说 | 103 | 105 | implemented_local_verified_online_pending |
 | 4.3 | 3. FHQ_Treap | 107 | 109 | implemented_local_verified_online_pending |
 | 4.3.1 | (1) 牛客 | 107 | 109 | implemented_local_verified_online_pending |
-| 4.4 | 4. 替罪羊树 | 111 | 113 | pending_content_review |
-| 4.4.1 | (1) 洛谷模板 | 111 | 113 | pending_content_review |
+| 4.4 | 4. 替罪羊树 | 111 | 113 | implemented_local_verified_online_pending |
+| 4.4.1 | (1) 洛谷模板 | 111 | 113 | implemented_local_verified_online_pending |
 | 4.5 | 5. 莫队二次离线 | 115 | 117 | pending_content_review |
 | 4.6 | 6. 线段树维护单调栈 | 118 | 120 | pending_content_review |
 | 4.7 | 7. K-D Tree | 124 | 126 | pending_content_review |

@@ -648,6 +648,12 @@
     "insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不存在返回 nullopt。重复键计数存储；失败查询也伸展最后访问节点，单次均摊 O(log n)。不回收节点，空间按累计新建节点数计算。支持 long long 全范围；不包含序列 Splay、虚子树信息或矩阵动态 DP。"
   ],
   [
+    "scapegoat_tree",
+    "ScapegoatTree",
+    "替罪羊树：可重集合与顺序统计",
+    "默认空树；insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在。less(x) 计严格小于 x 的元素，less(x,true) 计小于等于；rank(x)=less(x)+1，x 不必存在。kth(k) 要求 1≤k≤size()。prev/next 返回严格前驱/后继，不存在为 nullopt。键支持完整 long long，不使用数值哨兵。节点数过度偏向单侧或有效不同值不足一半时递归重建，复用活节点编号。若 d 为有效不同值数，查询 O(log(d+2))，更新摊 O(log(d+2))、单次最坏 O(d+1)。元素数与累计分配节点数均须小于 INT_MAX。内存 O(K)，K 为累计分配节点数；墓碑从树中清除后不回收到节点池，重建本身不增分配量。a、root 和辅助接口只供内部使用；重新赋值 ScapegoatTree() 可清空。"
+  ],
+  [
     "gcd_sequence",
     "GcdSequenceTreap",
     "状态序列 Treap：分组区间 GCD",
