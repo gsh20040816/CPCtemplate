@@ -1464,5 +1464,29 @@
       "FpsPower"
     ],
     "kind": "template"
+  },
+  {
+    "id": "example-121",
+    "symbol": "convolution_fft",
+    "problem": "Luogu P3803",
+    "url": "https://www.luogu.com.cn/problem/P3803",
+    "summary": "输入两个多项式的次数与升幂系数，输出整数乘积。次数最多一百万，系数 0..9，满足本浮点入口的范数限制；输出用 long long。此处实际调用复数 FFT，原精确整数卷积入口另行保留。",
+    "driver": "verify/luogu/P3803.fft.compact.cpp",
+    "requires": [
+      "ComplexFFT",
+      "convolution_fft"
+    ]
+  },
+  {
+    "id": "example-122",
+    "symbol": "convolution_mod_fft",
+    "problem": "Luogu P4245",
+    "url": "https://www.luogu.com.cn/problem/P4245",
+    "summary": "输入两个多项式的次数、任意模数与升幂系数，输出模乘积。题目次数不超过十万、模数最多 1000000009；函数会先归一化再拆系数，不要求模数支持 NTT。这里使用三块浮点 FFT，并遵守其单位根与舍入前提。",
+    "driver": "verify/luogu/P4245.compact.cpp",
+    "requires": [
+      "ComplexFFT",
+      "convolution_mod_fft"
+    ]
   }
 ]

@@ -71,7 +71,7 @@
 | 4.7 | 7. K-D Tree | 124 | 126 | implemented_local_verified_online_pending |
 | 5 | 多项式 | 128 | 130 | pending_content_review |
 | 5.1 | 1. 拉格朗日插值 | 128 | 130 | existing_formula_implementation_local_verified |
-| 5.2 | 2. 多项式乘法 FFT | 128 | 130 | reviewed_implementation_pending |
+| 5.2 | 2. 多项式乘法 FFT | 128 | 130 | implemented_local_verified_online_pending |
 | 5.3 | 3. 多项式乘法 NTT | 129 | 131 | existing_implementation_local_verified |
 | 5.4 | 4. 分治 FFT | 132 | 134 | implemented_local_verified_online_pending |
 | 5.5 | 5. 多项式求逆 | 134 | 136 | existing_implementation_local_verified |
@@ -81,7 +81,7 @@
 | 5.9 | 9. 多项式 exp | 159 | 161 | existing_implementation_local_verified |
 | 5.10 | 10. 快速莫比乌斯 / 沃尔什变换 (FMT / FWT) | 167 | 169 | existing_implementation_local_verified |
 | 5.11 | 11. 多项式快速幂 | 169 | 171 | implemented_local_verified_online_pending |
-| 5.12 | 12. 任意模数多项式乘法 | 176 | 178 | reviewed_implementation_pending |
+| 5.12 | 12. 任意模数多项式乘法 | 176 | 178 | implemented_local_verified_online_pending |
 | 5.13 | 13. 常系数齐次线性递推 | 178 | 180 | existing_implementation_local_verified |
 | 6 | 计算几何 | 184 | 186 | pending_content_review |
 | 6.1 | 1. 二维凸包 | 184 | 186 | pending_content_review |

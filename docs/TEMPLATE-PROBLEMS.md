@@ -86,6 +86,8 @@
 | `FpsPower` | [Luogu P5273](https://www.luogu.com.cn/problem/P5273) | 1<n<=100000; 0<=k<=10^100000; arbitrary coefficients | 待编写驱动/提交 | 待核验 |
 | `FpsPower` | [Library Checker pow_of_formal_power_series](https://judge.yosupo.jp/problem/pow_of_formal_power_series) | 1<=N<=500000; 0<=M<=10^18; arbitrary coefficients | 待编写驱动/提交 | 待核验 |
 | `BostanMori` | [Library Checker kth_term_of_linearly_recurrent_sequence](https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence) | 1<=d<=100000; 0<=k<=10^18; normalized coefficients and initial values modulo 998244353; input initial values before recurrence coefficients | 待编写驱动/提交 | 待核验 |
+| `convolution_fft` | [Luogu P3803](https://www.luogu.com.cn/problem/P3803) | 0<=n,m<=1000000; integer coefficients 0..9 | 待编写驱动/提交 | 待核验 |
+| `convolution_mod_fft` | [Luogu P4245](https://www.luogu.com.cn/problem/P4245) | 1<=n,m<=100000; coefficients 0..10^9; 2<=mod<=1000000009 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -756,6 +758,22 @@ Official standalone algorithm template; not a regional-contest application.
 
 
 Online AC and ranking pending. Pinned official local checker evidence is recorded separately; the general rational coefficient entry is covered by independent series oracles.
+
+### Luogu P3803 / convolution_fft
+
+Official standalone polynomial multiplication template.
+
+
+
+New FFT implementation: online AC and ranking pending. Local exact references, full-size complete drivers and all-root high-precision checks recorded separately. Numeric preconditions remain part of the contract.
+
+### Luogu P4245 / convolution_mod_fft
+
+Official standalone polynomial multiplication template.
+
+
+
+New FFT implementation: online AC and ranking pending. Local exact references, full-size complete drivers and all-root high-precision checks recorded separately. Numeric preconditions remain part of the contract.
 
 ## 榜单口径
 

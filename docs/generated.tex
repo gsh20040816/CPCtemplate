@@ -916,11 +916,73 @@ floor\_moments(n,m,a,b) 对 i=0..n-1，令 y\_i=floor((a*i+b)/m)，返回 \{$\su
 
 \lstinputlisting[firstline=5,lastline=38]{../src/compact/floor_moments.hpp}
 
-\Needspace{488pt}
+\Needspace{412pt}
 
 \chapter{多项式与生成函数}
 
 \section{快速傅里叶变换}
+
+\subsection{复数 FFT（可复用单位根）}\label{compact-ComplexFFT}\index{ComplexFFT}
+
+ComplexFFT(n) 预计算单位根，n 为 1..2\textasciicircum{}22 的二次幂。transform(a,inverse=false) 原地正变换，正向指数为正；inverse=true 用共轭根并除以 n。a 长度须等于 n；C=complex<long double>。根直接用角度计算，不沿整层连乘。单次变换 O(n log(n+1))，根表 O(n)，可复用。浮点环境须二进制至少 53 位、最近舍入、禁用 fast-math；整数卷积还要求单位根绝对误差$\le$8×2\textasciicircum{}-53，本机全根已用百位参考核验。变换本身是近似值。
+
+\lstinputlisting[firstline=10,lastline=31]{../src/compact/fft.hpp}
+
+\newpage
+
+\noindent 正逆变换（接上页同一结构体）：
+
+\lstinputlisting[firstline=32,lastline=60,firstnumber=23]{../src/compact/fft.hpp}
+
+\newpage
+
+\Needspace{363pt}
+
+\subsection{浮点 FFT 整数卷积}\label{compact-convolution_fft}\index{convolution\_fft}
+
+convolution\_fft(a,b) 接受 vector<int>，返回 vector<long long>，空输入返回空；非空结果长度$\le$2\textasciicircum{}22。令 A、B 为两输入最大绝对值，要求 A·B·sqrt(a.size()*b.size())$\le$2×10\textasciicircum{}12。依赖 ComplexFFT 及其浮点前提，最坏误差界小于 0.166，llroundl 对正负数正确舍入。超过此界须改用精确整数卷积，不能只看结果是否装入 long long。O(N log N) 时间、O(N) 空间；覆盖 P3803 百万次数/系数 0..9。
+
+\lstinputlisting[firstline=5,lastline=28]{../src/compact/convolution_fft.hpp}
+
+\Needspace{314pt}
+
+\subsection*{模板题使用：Luogu P3803}
+
+\label{usage-example-121}
+
+题意：输入两个多项式的次数与升幂系数，输出整数乘积。次数最多一百万，系数 0..9，满足本浮点入口的范数限制；输出用 long long。此处实际调用复数 FFT，原精确整数卷积入口另行保留。
+
+所需模板：ComplexFFT、convolution\_fft。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3803}
+
+\lstinputlisting{usage/example-121.cpp}
+
+\Needspace{606pt}
+
+\subsection{拆系数 FFT 任意模卷积}\label{compact-convolution_mod_fft}\index{convolution\_mod\_fft}
+
+convolution\_mod\_fft(a,b,mod) 接受 vector<int>，返回 [0,mod) 系数；1$\le$mod$\le$INT\_MAX，允许合数与负输入，mod=1 返回零。空输入返回空，非空结果长度$\le$2\textasciicircum{}19。依赖 ComplexFFT 及其浮点前提；归一化后拆成三个 11 位块，六次正变换和九次逆变换，分别舍入后模合并。每路误差界小于 0.079；不依赖更宽的 long double。时间 O(N log N)，空间 O(N)，常数高于打包版本以保持数值界与代码清楚；覆盖 P4245。
+
+\lstinputlisting[firstline=5,lastline=52]{../src/compact/convolution_mod_fft.hpp}
+
+\Needspace{317pt}
+
+\subsection*{模板题使用：Luogu P4245}
+
+\label{usage-example-122}
+
+题意：输入两个多项式的次数、任意模数与升幂系数，输出模乘积。题目次数不超过十万、模数最多 1000000009；函数会先归一化再拆系数，不要求模数支持 NTT。这里使用三块浮点 FFT，并遵守其单位根与舍入前提。
+
+所需模板：ComplexFFT、convolution\_mod\_fft。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4245}
+
+\lstinputlisting{usage/example-122.cpp}
+
+\newpage
+
+\Needspace{418pt}
 
 \noindent 相关应用：CDQ 分治配合 NTT 的卷积递推，附件标题为分治 FFT；算法不做浮点变换。
 

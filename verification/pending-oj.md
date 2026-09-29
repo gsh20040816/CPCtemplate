@@ -85,6 +85,7 @@
 - `verify/luogu/P3388.compact.cpp`
 - `verify/luogu/P3398.compact.cpp`
 - `verify/luogu/P3649.compact.cpp`
+- `verify/luogu/P3803.fft.compact.cpp`
 - `verify/luogu/P3803.i64.compact.cpp`
 - `verify/luogu/P3809.compact.cpp`
 - `verify/luogu/P3812.compact.cpp`
@@ -93,6 +94,7 @@
 - `verify/luogu/P4148.compact.cpp`
 - `verify/luogu/P4151.compact.cpp`
 - `verify/luogu/P4213.compact.cpp`
+- `verify/luogu/P4245.compact.cpp`
 - `verify/luogu/P4512.compact.cpp`
 - `verify/luogu/P4721.compact.cpp`
 - `verify/luogu/P4779.compact.cpp`

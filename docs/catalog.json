@@ -324,6 +324,24 @@
     "Lagrange(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long long>；Lagrange(ys,p) 专用于横坐标 0..n-1。重新构造赋值可更换数据。要求 p 为素数，2≤p≤INT_MAX，点数 n≤p，任意横坐标取模后两两不同；不是仅要求原整数不同。query(k) 返回次数小于 n 的插值多项式在 k 处的值，允许 k、xs、ys 为完整 long long 范围，内部先归一化；空数据约定零多项式。通用预处理 O(n²+n log p)，连续点预处理 O(n+log p)，每次查询 O(n)，空间 O(n)。查询利用前缀积与滚动后缀积，无需求逆，因此 k 与样本点模 p 相等时也正确。若求 1^d+…+k^d，要求 0≤d≤p-2，先计算 0..d+1 的前缀和作为 ys，再构造 Lagrange(ys,p)；用快速幂生成这些样本另花 O(d log(d+1))。仅处理素数域中的精确插值，不适用于浮点曲线拟合或重复节点的导数约束。"
   ],
   [
+    "fft",
+    "ComplexFFT",
+    "复数 FFT（可复用单位根）",
+    "ComplexFFT(n) 预计算单位根，n 为 1..2^22 的二次幂。transform(a,inverse=false) 原地正变换，正向指数为正；inverse=true 用共轭根并除以 n。a 长度须等于 n；C=complex<long double>。根直接用角度计算，不沿整层连乘。单次变换 O(n log(n+1))，根表 O(n)，可复用。浮点环境须二进制至少 53 位、最近舍入、禁用 fast-math；整数卷积还要求单位根绝对误差≤8×2^-53，本机全根已用百位参考核验。变换本身是近似值。"
+  ],
+  [
+    "convolution_fft",
+    "convolution_fft",
+    "浮点 FFT 整数卷积",
+    "convolution_fft(a,b) 接受 vector<int>，返回 vector<long long>，空输入返回空；非空结果长度≤2^22。令 A、B 为两输入最大绝对值，要求 A·B·sqrt(a.size()*b.size())≤2×10^12。依赖 ComplexFFT 及其浮点前提，最坏误差界小于 0.166，llroundl 对正负数正确舍入。超过此界须改用精确整数卷积，不能只看结果是否装入 long long。O(N log N) 时间、O(N) 空间；覆盖 P3803 百万次数/系数 0..9。"
+  ],
+  [
+    "convolution_mod_fft",
+    "convolution_mod_fft",
+    "拆系数 FFT 任意模卷积",
+    "convolution_mod_fft(a,b,mod) 接受 vector<int>，返回 [0,mod) 系数；1≤mod≤INT_MAX，允许合数与负输入，mod=1 返回零。空输入返回空，非空结果长度≤2^19。依赖 ComplexFFT 及其浮点前提；归一化后拆成三个 11 位块，六次正变换和九次逆变换，分别舍入后模合并。每路误差界小于 0.079；不依赖更宽的 long double。时间 O(N log N)，空间 O(N)，常数高于打包版本以保持数值界与代码清楚；覆盖 P4245。"
+  ],
+  [
     "ntt_convolution",
     "NttConvolution",
     "可指定素数与原根的 NTT 卷积",

@@ -759,11 +759,12 @@
       "toc_page": 128,
       "physical_page": 130,
       "level": 1,
-      "status": "reviewed_implementation_pending",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
-        "convolution_i64"
+        "ComplexFFT",
+        "convolution_fft"
       ],
-      "review": "实际130–131页是complex<double> FFT整数乘法，当前精确CRT整数卷积不视为同一算法覆盖。原代码仅向正方向加0.5再强转，负系数不正确；截图位逆序循环i=1..total-1，常数乘法无负移位，文本提取遗漏-1；浮点范围需另行核定。保留实现缺口，不以P3803精确驱动AC/本地通过冒充FFT验证。"
+      "review": "实际130–131页复数FFT，现已独立实现可复用单位根与整数卷积，非精确CRT替代。n=1合法、llroundl对称取整；根直接计算，明确53位最近舍入/根误差及范数界，理论误差<0.166。全2097152根百位参考、DFT、14641穷举、1200随机、百万次数及完整P3803驱动双模式；在线待补。docs/FFT-ATTACHMENT.md。"
     },
     {
       "section": "5.3",
@@ -879,9 +880,11 @@
       "toc_page": 176,
       "physical_page": 178,
       "level": 1,
-      "status": "reviewed_implementation_pending",
-      "candidate_symbols": [],
-      "review": "已逐页查看实际178–180页：complex<long double>、2^15拆系数、打包两路实变换、四个分量重组的浮点FFT。常数乘法bit=0仍从i=0求rev，存在负移位；Make_Int只加0.5取整，负系数未归一化。平台long double精度和误差边界待独立实现核验；现有精确CRT不能作为该算法覆盖。"
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "convolution_mod_fft"
+      ],
+      "review": "实际178–180页浮点拆系数FFT。新增三块11位版本，先归一化支持负数/INT_MIN、mod=1及合数；复用六路正变换，九路分别舍入再模合并。结果<=2^19、每路理论误差<0.079，适用于53位精度，不假定long double扩展精度。修复附件常数输入负移位/单向取整风险；600随机int128、最大长度闭式、完整int随机精确CRT和P4245驱动双模式。实际为FFT，非CRT替代；在线待补。docs/FFT-ATTACHMENT.md。"
     },
     {
       "section": "5.13",

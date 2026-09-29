@@ -1,0 +1,101 @@
+{
+  "scope": "Complex FFT and three-limb floating modular convolution; local platform numeric assumptions verified, not new online AC or speed ranking",
+  "recorded_at_utc": "2026-09-29T09:15:14.101125+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "platform": "Darwin arm64",
+  "floating_contract": {
+    "radix": 2,
+    "minimum_mantissa_bits": 53,
+    "local_long_double_bits": 53,
+    "rounding": "nearest; no fast-math",
+    "unit_root_absolute_error_bound": "8 * 2^-53",
+    "root_grid_size": 4194304,
+    "root_count_tested": 2097152,
+    "integer_norm_product_limit": "2e12",
+    "modular_max_output_length": 524288,
+    "modular_limbs": 3,
+    "modular_limb_bits": 11
+  },
+  "files": {
+    "src/compact/fft.hpp": "bf24df441d0d20e55b422077fc525761064bb913dfc7272c7e0ba884b94176be",
+    "src/compact/convolution_fft.hpp": "543c693a75c3f06790729307599a453d8407ef722198ec606730743b93912ccf",
+    "src/compact/convolution_mod_fft.hpp": "28669869ddf428c30c9fecfe14c7198d91d6b2bfe9ebc16026f8e8d342925f26",
+    "src/compact/convolution_i64.hpp": "5cbcef354ca925e61089a034c7f442be51df27c0f94979a88e272ed902ac5be9",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "tests/fft_roots.cpp": "e9d73b2454e868fbf9a57af123e306b3132938f46054134858eb2c7494f3d139",
+    "tests/fft_convolution.cpp": "e0fc508405263f5f588da5f36fbaed0fd7b57ff3100d506a7b3ed79e90d1a49e",
+    "tests/fft_error_bound.py": "9308d205e4563f345863396d4bd850b868e44938d5d74389ef1c4f20b838c466",
+    "tests/fft_application.py": "76d03e029079e44e925a614182f941b8b68206af297f0b4c0bfa2a51fe2f79e0",
+    "verify/luogu/P3803.fft.compact.cpp": "258e0f0e9fe13ad9c9747026c087940bf0ac4d85df9de6419458ca4c6526d36a",
+    "verify/luogu/P4245.compact.cpp": "28ccd92d7d4972d99aabdf1f3181e87ef2332741b600c0c5623455240cc6ad37"
+  },
+  "runs": [
+    {
+      "module": "unit_roots",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "FFT roots: all 2097152 dyadic roots checked against 100-digit independent recurrence; max error / 2^-53 = 3.68681; long double digits = 53 PASS"
+    },
+    {
+      "module": "unit_roots",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "FFT roots: all 2097152 dyadic roots checked against 100-digit independent recurrence; max error / 2^-53 = 3.68681; long double digits = 53 PASS"
+    },
+    {
+      "module": "unit_convolution",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "FFT: 100-digit DFT, 14641 signed exhaustive pairs, 1200 integer and 600 modular random pairs, signed int boundaries, million-degree triangles, spectral inputs, exact CRT and full 2^19 modular length PASS"
+    },
+    {
+      "module": "unit_convolution",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "FFT: 100-digit DFT, 14641 signed exhaustive pairs, 1200 integer and 600 modular random pairs, signed int boundaries, million-degree triangles, spectral inputs, exact CRT and full 2^19 modular length PASS"
+    },
+    {
+      "module": "complete_drivers",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "P3803: 100 schoolbook programs and maximum-degree closed form PASS; full driver wall time 0.334s\nP4245: 100 schoolbook programs and maximum-degree closed form PASS; full driver wall time 0.087s"
+    },
+    {
+      "module": "complete_drivers",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "P3803: 100 schoolbook programs and maximum-degree closed form PASS; full driver wall time 1.001s\nP4245: 100 schoolbook programs and maximum-degree closed form PASS; full driver wall time 0.492s"
+    },
+    {
+      "module": "error_bound",
+      "mode": "100_digit_decimal",
+      "verdict": "bound_below_half",
+      "output": "integer: worst-case absolute error < 0.166; evaluated 0.165160452979 PASS\nmodular limb: worst-case absolute error < 0.079; evaluated 0.078377309125 PASS"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  },
+  "test_only_include_path": "/opt/homebrew/include",
+  "usage_examples": [
+    "example-121",
+    "example-122"
+  ],
+  "references": [
+    "https://www.daemonology.net/papers/fft.pdf",
+    "https://www.luogu.com.cn/problem/P3803",
+    "https://www.luogu.com.cn/problem/P4245"
+  ],
+  "post_test_nonsemantic_change": "Only listing BEGIN/END markers and clang-format blank lines were added to convolution headers; printed bundled examples rerun after formatting."
+}

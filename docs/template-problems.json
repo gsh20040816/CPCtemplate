@@ -1282,6 +1282,65 @@
       }
     },
     {
+      "symbol": "ComplexFFT",
+      "title": "复数 FFT（可复用单位根）",
+      "source": "src/compact/fft.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "convolution_fft",
+      "title": "浮点 FFT 整数卷积",
+      "source": "src/compact/convolution_fft.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3803.fft.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3803",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "convolution_mod_fft",
+      "title": "拆系数 FFT 任意模卷积",
+      "source": "src/compact/convolution_mod_fft.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4245.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4245",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
       "symbol": "NttConvolution",
       "title": "可指定素数与原根的 NTT 卷积",
       "source": "src/compact/ntt_convolution.hpp",

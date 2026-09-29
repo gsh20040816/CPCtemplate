@@ -557,3 +557,10 @@ python3 tests/fps_extended_application.py
 "$CXX" "${flags[@]}" tests/fps_power.cpp -o build/fps-power
 build/fps-power
 python3 tests/fps_power_application.py
+
+python3 tests/fft_error_bound.py
+"$CXX" "${flags[@]}" tests/fft_roots.cpp -o build/fft_roots
+build/fft_roots
+"$CXX" "${flags[@]}" tests/fft_convolution.cpp -o build/fft_convolution
+build/fft_convolution
+python3 tests/fft_application.py
