@@ -2192,5 +2192,59 @@
       "total": null
     },
     "remaining": "Online AC and ranking pending. used, limits, continuation, negative edges and global negative-cycle rejection have independent local tests, beyond P3381 scope."
+  },
+  {
+    "symbol": "BiconnectedCore",
+    "problem": "Library Checker biconnected_components",
+    "url": "https://judge.yosupo.jp/problem/biconnected_components",
+    "classification": "Library Checker standalone standard template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "1<=N<=500000; 0<=M<=500000; parallel edges allowed, no loops",
+    "adapter": "Vertex blocks, singleton isolated vertices; input and output zero-based, adapted to one-based core",
+    "tested_api": [
+      "add",
+      "run",
+      "blocks"
+    ],
+    "driver": "verify/library_checker/biconnected_components.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "local_reports": [
+      "verification/bcc-official.json",
+      "verification/bcc-official-sanitized.json"
+    ],
+    "remaining": "Official generated data accepted locally in both modes. No online AC or ranking."
+  },
+  {
+    "symbol": "BiconnectedCore",
+    "problem": "Library Checker two_edge_connected_components",
+    "url": "https://judge.yosupo.jp/problem/two_edge_connected_components",
+    "classification": "Library Checker standalone standard template task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed",
+    "adapter": "Group vertices by bel after run; input and output zero-based, adapted to one-based core",
+    "tested_api": [
+      "add",
+      "run",
+      "bel"
+    ],
+    "driver": "verify/library_checker/two_edge_connected_components.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "local_reports": [
+      "verification/ecc-official.json",
+      "verification/ecc-official-sanitized.json"
+    ],
+    "remaining": "Official generated data accepted locally in both modes. No online AC or ranking."
   }
 ]

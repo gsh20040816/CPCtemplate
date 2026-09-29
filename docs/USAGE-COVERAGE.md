@@ -16,7 +16,7 @@
 | SpfaFlow | [example-127](usage/example-127.cpp) | locally_checked_example |
 | Dijkstra | [example-59](usage/example-59.cpp) | locally_checked_example |
 | SCC | 待补 | pending_example |
-| TwoSAT | [example-3](usage/example-3.cpp) | locally_checked_example |
+| TwoSAT | [example-3](usage/example-3.cpp), [example-128](usage/example-128.cpp) | locally_checked_example |
 | BipartiteMatching | [example-35](usage/example-35.cpp) | locally_checked_example |
 | Lowlink | [example-58](usage/example-58.cpp) | locally_checked_example |
 | HLD | [example-44](usage/example-44.cpp) | locally_checked_example |

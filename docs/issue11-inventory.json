@@ -148,11 +148,11 @@
       "toc_page": 13,
       "physical_page": 15,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "TwoSAT"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际15–17页：附件Tarjan逆拓扑编号，本库TwoSAT依赖Kosaraju正拓扑编号，赋值比较方向已逐项核对；一般复杂度O(n+m)。2500组真值表、重复求解/追加子句、P4782完整驱动及百万变量长链双模式验证；新增example-128。见docs/GRAPH-ATTACHMENT.md，未新增线上AC。"
     },
     {
       "section": "2.2",
@@ -220,11 +220,11 @@
       "toc_page": 31,
       "physical_page": 33,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "BiconnectedCore"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际33–34页：按P8435无割点定义核对桥两端、孤立点、自环与重边。附件跳过父顶点不影响点双阈值真假，但该low不可用于桥。本库按边号处理。1024简单图/1500多重图子集删点参考，完整驱动50万点/200万边双模式通过；LC点双22官方本地数据双模式checker接受。见docs/GRAPH-ATTACHMENT.md。"
     },
     {
       "section": "2.7",
@@ -232,11 +232,11 @@
       "toc_page": 33,
       "physical_page": 35,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "BiconnectedCore"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际35–36页：附件is_first仅跳过一次父邻接，保留重边；本库标桥后非桥递归染色等价，桥森林保留原边号。独立逐边删除参考、重复run及最大规模完整驱动双模式通过；LC边双21官方本地数据双模式checker接受。见docs/GRAPH-ATTACHMENT.md；未新增线上AC。"
     },
     {
       "section": "2.8",

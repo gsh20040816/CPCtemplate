@@ -16,6 +16,7 @@
 - `verify/hdu/1814.compact.cpp`
 - `verify/library_checker/assignment.compact.cpp`
 - `verify/library_checker/associative_array.cc.compact.cpp`
+- `verify/library_checker/biconnected_components.compact.cpp`
 - `verify/library_checker/bitwise_and_convolution.compact.cpp`
 - `verify/library_checker/bitwise_xor_convolution.compact.cpp`
 - `verify/library_checker/convolution_mod.compact.cpp`
@@ -57,6 +58,7 @@
 - `verify/library_checker/sum_of_multiplicative_function.compact.cpp`
 - `verify/library_checker/sum_of_totient_function.compact.cpp`
 - `verify/library_checker/system_of_linear_equations.compact.cpp`
+- `verify/library_checker/two_edge_connected_components.compact.cpp`
 - `verify/library_checker/two_sat.compact.cpp`
 - `verify/library_checker/zalgorithm.compact.cpp`
 - `verify/luogu/CF1100F.compact.cpp`

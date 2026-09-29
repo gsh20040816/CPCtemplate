@@ -1549,5 +1549,16 @@
     "requires": [
       "SpfaFlow"
     ]
+  },
+  {
+    "id": "example-128",
+    "symbol": "TwoSAT",
+    "problem": "Luogu P4782",
+    "url": "https://www.luogu.com.cn/problem/P4782",
+    "summary": "n 个布尔变量，m 个 (x=a) 或 (y=b) 子句，输出任意满足全部子句的赋值或 IMPOSSIBLE。变量号 1..n；n,m≤10^6。同一变量的重复文字照常 add，成功后才读取 ans。",
+    "driver": "verify/luogu/P4782.compact.cpp",
+    "requires": [
+      "TwoSAT"
+    ]
   }
 ]

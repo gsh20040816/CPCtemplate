@@ -1,0 +1,106 @@
+{
+  "scope": "Attachment 2.1, 2.6 and 2.7: existing vector TwoSAT and BiconnectedCore, independent oracles, full driver limits and new official local biconnected/edge-connected checkers. No new online AC or rankings.",
+  "recorded_at_utc": "2026-09-29T10:08:18.264418+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "platform": "Darwin arm64",
+  "files": {
+    "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+    "src/compact/biconnected_core.hpp": "3ab80f3d7f5098d9fbc344248624a0d045dce4cf72043931252ca9dbb09ce224",
+    "src/compact/block_cut_forest.hpp": "63ea04e066be16a04fd83559855db9814d3453e8b4995d49aee9138e5392a061",
+    "src/compact/bridge_component_forest.hpp": "bfd2571cd8cc851e1e265dca1305d1f07e3d969cdb8c21b6a25c036e5a9f5e29",
+    "tests/biconnected.cpp": "024b585b8d8c4b55fec17bd2f9cf0c85139d405aeedb3d9e7d80b0bf963f3139",
+    "tests/two_sat.cpp": "de301319f24c3e82744978bf890096aed0e1e7a2e8c6b574be9e03ff63b45b28",
+    "tests/graph_attachment.py": "c267289932459d1d05638dbf107a22da1963f041236e9c27ba9e39a47aa7c7cb",
+    "tests/driver_stack.cpp": "0cd4195d8b05dab82c3603a70f681ac014a50c1c104aa29cd47e4feca885f1b4",
+    "verify/luogu/P4782.compact.cpp": "f19ce3631ecd37a9e4b245e4e81e2b39cffa02856f978badfd312552b0c7f7fd",
+    "verify/luogu/P8435.compact.cpp": "d3adc38ec89603b2d13038959c28dca8b0a5e22d8b4c21c3c9e6d2aa3db44f4b",
+    "verify/luogu/P8436.compact.cpp": "35c1c4b0dc7c39913afc31caef46cc14f06642336a8fcd137e74a087aa87e949",
+    "verify/library_checker/biconnected_components.compact.cpp": "5234f06650a26d3aa952d15be084ddbc6f21cb15c37ac0d42d47b8fe5cb4bec8",
+    "verify/library_checker/two_edge_connected_components.compact.cpp": "e6040e6bb6bb61543565445f9e2cb3b112e5c2c3fcbeae5b5dadab5b9b986945"
+  },
+  "runs": [
+    {
+      "module": "biconnected",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/bcc-review-normal.txt",
+      "output": "Biconnected vector: all 1024 five-vertex simple graphs, 1500 multigraphs, subset/removal oracles, forests, repeat runs and 200000-vertex chain/cycle PASS"
+    },
+    {
+      "module": "biconnected",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/bcc-review-san.txt",
+      "output": "Biconnected vector: all 1024 five-vertex simple graphs, 1500 multigraphs, subset/removal oracles, forests, repeat runs and 200000-vertex chain/cycle PASS"
+    },
+    {
+      "module": "two_sat",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/sat-review-normal.txt",
+      "output": "TwoSAT: 2500 truth-table oracles, six clause additions, repeated solve, empty formula, units and contradictory units PASS"
+    },
+    {
+      "module": "two_sat",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/sat-review-san.txt",
+      "output": "TwoSAT: 2500 truth-table oracles, six clause additions, repeated solve, empty formula, units and contradictory units PASS"
+    },
+    {
+      "module": "drivers",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/graph-attachment-normal.txt",
+      "output": "P4782: 200 exhaustive assignment oracles, one million variables/clauses, long forced chain and contradiction PASS\nP8435/P8436: each 200 maximal-subset / individual-edge-deletion oracles, disconnected graphs, loops and parallel edges PASS\nP8435/P8436: 500000 vertices / 2000000 edges, recursive chain with loops and four-copy non-loop cycle PASS"
+    },
+    {
+      "module": "drivers",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/graph-attachment-san.txt",
+      "output": "P4782: 200 exhaustive assignment oracles, one million variables/clauses, long forced chain and contradiction PASS\nP8435/P8436: each 200 maximal-subset / individual-edge-deletion oracles, disconnected graphs, loops and parallel edges PASS\nP8435/P8436: 500000 vertices / 2000000 edges, recursive chain with loops and four-copy non-loop cycle PASS"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "san": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  },
+  "stack_configuration": {
+    "biconnected_api": "256 MiB pthread stack in both modes",
+    "full_drivers": "512 MiB main stack; exception P4782 sanitizer uses original driver with main renamed on 1 GiB pthread stack; explicit return 0 preserves semantics",
+    "reason": "A nearly two-million-literal contradictory chain exceeds the macOS 512 MiB main-stack limit with ASan-expanded recursive frames. Ordinary driver passed. DFS remains recursive."
+  },
+  "official_reports": [
+    "verification/bcc-official.json",
+    "verification/bcc-official-sanitized.json",
+    "verification/ecc-official.json",
+    "verification/ecc-official-sanitized.json"
+  ],
+  "existing_unchanged_two_sat_reports": [
+    "verification/two-sat-official-local.json",
+    "verification/two-sat-official-sanitizer.json"
+  ],
+  "usage_examples": [
+    "example-128"
+  ],
+  "references": [
+    "https://www.luogu.com.cn/problem/P4782",
+    "https://www.luogu.com.cn/problem/P8435",
+    "https://www.luogu.com.cn/problem/P8436"
+  ],
+  "unchanged_kernel_sources": true,
+  "limitations": [
+    "Official checker acceptance is local only, not online AC or OJ performance ranking.",
+    "Library Checker vertex-biconnected tests exclude self-loops; independent Luogu-driver tests include them."
+  ]
+}

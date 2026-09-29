@@ -28,7 +28,7 @@ for part in parts:
         key = 'geometry'
     elif any(x in title for x in ['可持久化区间', '杭州 2023 K', '带修莫队', '并查集模板题', '动态树路径乘积', '隐式 Treap 位翻转', '替罪羊树', '线段树维护单调栈', '动态 K-D Tree']):
         key = 'data-structures'
-    elif '非负权树' in title or 'SPFA 费用流' in title:
+    elif '非负权树' in title or 'SPFA 费用流' in title or '2-SAT 编号方向' in title:
         key = 'graphs'
     elif any(x in title for x in ['函数图', '杭州 2023 H', '杭州 2023 G', 'SCC 模板题']):
         key = 'graphs'

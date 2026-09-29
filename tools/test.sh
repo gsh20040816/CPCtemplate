@@ -572,3 +572,7 @@ python3 tests/geometry_attachment.py
 "$CXX" "${flags[@]}" tests/spfa_flow.cpp -o build/spfa-flow
 build/spfa-flow
 python3 tests/flow_attachment.py
+
+"$CXX" "${flags[@]}" tests/two_sat.cpp -o build/two-sat
+build/two-sat
+python3 tests/graph_attachment.py

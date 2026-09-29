@@ -3093,13 +3093,13 @@ enumerate\_triangles(n,edges,visit) 使用 0..n-1 点号；edges 须为无向简
 
 \lstinputlisting{usage/example-6.cpp}
 
-\Needspace{417pt}
+\Needspace{446pt}
 
 \chapter{2-SAT}
 
 \section{2-SAT 与任意可行方案}\label{compact-TwoSAT}\index{TwoSAT}
 
-add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性，仅成功时读取 ans。依赖同文件 SCC；O(V+E)，不保证字典序最小。
+TwoSAT(n)，变量 1..n；add(x,a,y,b) 添加 (x=a) 或 (y=b)，强制值写 add(x,a,x,a)，蕴含 (x=a)=>(y=b) 写 add(x,!a,y,b)。solve() 返回可满足性，仅成功时读取 ans[1..n]；可重复求解和追加子句后重算，空公式可满足。不保证字典序最小。依赖同文件 SCC：Kosaraju 编号为拓扑序，故真值分量编号较大时取真；不能直接套用 Tarjan 逆拓扑编号的不等号。O(n+m) 时间和空间，DFS 递归。
 
 \lstinputlisting[firstline=110,lastline=138]{../src/compact/graph.hpp}
 
@@ -3116,6 +3116,20 @@ add(x,a,y,b) 添加 (x=a) 或 (y=b)，变量 1..n；solve() 返回可满足性�
 题目：\url{https://judge.yosupo.jp/problem/two_sat}
 
 \lstinputlisting{usage/example-3.cpp}
+
+\Needspace{415pt}
+
+\subsection*{模板题使用：Luogu P4782}
+
+\label{usage-example-128}
+
+题意：n 个布尔变量，m 个 (x=a) 或 (y=b) 子句，输出任意满足全部子句的赋值或 IMPOSSIBLE。变量号 1..n；n,m$\le$10\textasciicircum{}6。同一变量的重复文字照常 add，成功后才读取 ans。
+
+所需模板：TwoSAT。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4782}
+
+\lstinputlisting{usage/example-128.cpp}
 
 \Needspace{406pt}
 
