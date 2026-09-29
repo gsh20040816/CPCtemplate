@@ -4173,6 +4173,20 @@ BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0$\le$
 
 \lstinputlisting[firstline=235,lastline=278]{../src/compact/flow.hpp}
 
+\Needspace{435pt}
+
+\subsection*{模板题使用：LibreOJ 115}
+
+\label{usage-example-185}
+
+题意：无源汇有上下界可行流：每个点流入等于流出，按输入顺序输出每条边的合法流量，无解输出NO。点号1..n，n不超过200、m不超过10200，0$\le$lo$\le$hi<3000。add返回0起原始边编号，used(i)不是Dinic残量边号；solve只能调用一次，且只有可行时才可读取used。自环、重边逐条保留，不添加源汇回边。
+
+所需模板：Dinic、BoundedCirculation。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://loj.ac/p/115}
+
+\lstinputlisting{usage/example-185.cpp}
+
 \Needspace{605pt}
 
 \subsection{有源汇上下界最值流与边流量}\label{compact-BoundedMaxFlow}\index{BoundedMaxFlow}

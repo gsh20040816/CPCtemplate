@@ -4,7 +4,25 @@ import math
 
 
 def check_output(example_id, mode, data, stdout, expected):
-    if isinstance(expected, str):
+    if isinstance(expected, dict) and 'circulation' in expected:
+        values = list(map(int, data.split()))
+        n, m = values[:2]
+        edges = [values[i:i + 4] for i in range(2, len(values), 4)]
+        assert len(edges) == m
+        lines = stdout.splitlines()
+        if not expected['circulation']:
+            assert lines == ['NO'], (example_id, mode, stdout)
+            return
+        assert len(lines) == m + 1 and lines[0] == 'YES'
+        balance = [0] * (n + 1)
+        for line, (u, v, lo, hi) in zip(lines[1:], edges):
+            assert len(line.split()) == 1
+            f = int(line)
+            assert lo <= f <= hi
+            balance[u] -= f
+            balance[v] += f
+        assert not any(balance), (example_id, mode, balance)
+    elif isinstance(expected, str):
         assert stdout.split() == expected.split(), (example_id, mode, stdout, expected)
         if example_id == 'example-48':
             queries = [list(map(int, line.split())) for line in data.splitlines()[1:]]

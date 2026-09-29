@@ -152,6 +152,7 @@
 | `segment_distance_real` | [AOJ CGL_2_D](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
 | `line_intersection_real` | [AOJ CGL_2_C](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
 | `polygon_area2` | [AOJ CGL_3_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_A) | integer coordinates \|x\|,\|y\|<=10000; 3<=n<=100; simple CCW polygon | 待编写驱动/提交 | 待核验 |
+| `BoundedCirculation` | [LibreOJ 115](https://loj.ac/p/115) | 1<=n<=200; 1<=m<=10200; 1<=u,v<=n; 0<=lower<=upper<3000 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1396,6 +1397,16 @@ AOJ Library of Computational Geometry standalone template exercise, not a region
 给出逆时针简单多边形，3至100点，整数坐标绝对值不超过10000，输出面积并保留一位小数。无需凸包，凹多边形也适用。接口返回有向二倍面积，逆时针为正；取绝对值后按奇偶精确打印.0或.5。本题范围允许将半面积转为long long；一般int128结果不可任意缩窄。
 
 Online submission and all-submission ranking unresolved; local tests are not online AC.
+
+### LibreOJ 115 / BoundedCirculation
+
+Official statement explicitly identifies this as a standalone template problem.
+
+Read each directed edge once; solve a circulation without an artificial t-to-s edge. A feasible result outputs used(i) for the original input-edge IDs, including the lower bound. solve is one-shot and used requires feasibility.
+
+Online AC and all-submission ranking are pending. Local feasible certificates do not prove an online time bound.
+
+原始题面与参数：[来源 1](https://loj.ac/p/115)，[来源 2](https://api.loj.ac/api/problem/getProblem)
 
 ## 榜单口径
 

@@ -3660,5 +3660,36 @@
       "verification/geometry-primitives-aoj-184-normal.json",
       "verification/geometry-primitives-aoj-184-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "BoundedCirculation",
+    "problem": "LibreOJ 115",
+    "url": "https://loj.ac/p/115",
+    "classification": "Official statement explicitly identifies this as a standalone template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "statement_sources": [
+      "https://loj.ac/p/115",
+      "https://api.loj.ac/api/problem/getProblem"
+    ],
+    "limits": "1<=n<=200; 1<=m<=10200; 1<=u,v<=n; 0<=lower<=upper<3000",
+    "usage": "example-185",
+    "adapter": "Read each directed edge once; solve a circulation without an artificial t-to-s edge. A feasible result outputs used(i) for the original input-edge IDs, including the lower bound. solve is one-shot and used requires feasibility.",
+    "tested_api": [
+      "add",
+      "solve",
+      "used"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-submission ranking are pending. Local feasible certificates do not prove an online time bound.",
+    "local_evidence": [
+      "verification/circulation-usages-normal.json",
+      "verification/circulation-usages-sanitizer.json"
+    ]
   }
 ]

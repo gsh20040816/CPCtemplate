@@ -2245,5 +2245,17 @@
       "IntegerPlane",
       "polygon_area2"
     ]
+  },
+  {
+    "id": "example-185",
+    "symbol": "BoundedCirculation",
+    "problem": "LibreOJ 115",
+    "url": "https://loj.ac/p/115",
+    "summary": "无源汇有上下界可行流：每个点流入等于流出，按输入顺序输出每条边的合法流量，无解输出NO。点号1..n，n不超过200、m不超过10200，0≤lo≤hi<3000。add返回0起原始边编号，used(i)不是Dinic残量边号；solve只能调用一次，且只有可行时才可读取used。自环、重边逐条保留，不添加源汇回边。",
+    "driver": "verify/loj/115.compact.cpp",
+    "requires": [
+      "Dinic",
+      "BoundedCirculation"
+    ]
   }
 ]

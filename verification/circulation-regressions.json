@@ -1,0 +1,25 @@
+{
+  "scope": "Independent local full-driver balance enumeration and flow certificates; API tests; statement checked from official LibreOJ API. Full data download denied HTTP403; no online AC.",
+  "program_sha256": "bd5f7aa41de57e6e7e5748172c388359dca89433b2764a11b9abceb0e296a15f",
+  "source_sha256": {
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "verify/loj/115.compact.cpp": "cbfc45113c15eb0489f62722c2a9227acbd0938cefa28cd18d08134c6325838e",
+    "tests/circulation.cpp": "da35683175098d27700f735fe4194c88f886146d7bbebd77295dca403e29a9a7",
+    "tests/circulation_usages.py": "f3a62916c4d98e65dcef5114692f452e8b5fbc636949c06e5ca876a0c73c2ffb",
+    "tests/usage_checkers.py": "b6bd99c5e629920bd805a6f54bde795c8e85b621027f95813583738800db365c"
+  },
+  "report_sha256": {
+    "verification/circulation-core-normal.txt": "305dabbb4d69c12fe5d4c60425e926e7ce8b13e5bc5271fd8c523412ddfedb82",
+    "verification/circulation-core-sanitizer.txt": "305dabbb4d69c12fe5d4c60425e926e7ce8b13e5bc5271fd8c523412ddfedb82",
+    "verification/circulation-usages-normal.json": "fb2b2eea2176e2f5d8dfba1e3c1cf9111382d690e574d52f3dab53d2febe4c0c",
+    "verification/circulation-usages-sanitizer.json": "109f0eb53f8616e78dda8150473ca007abf0ff67947b32670ca7ed424fbf4e42",
+    "verification/circulation-statement.json": "46adaf04fc4a2485a996689c6696c9038b85c66b405285fbeef23a26f6d05ddf",
+    "verification/circulation-usage-layout.json": "911092e52440d10ef58c5c73fabb3746fec6ced5d9dd61c07f00adab62470b00"
+  },
+  "shared_checker_regressions": [
+    "example-143",
+    "example-148",
+    "example-178",
+    "example-185"
+  ]
+}

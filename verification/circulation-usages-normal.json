@@ -1,0 +1,25 @@
+{
+  "scope": "Local complete-driver feasibility enumeration and certificate verification; not online AC.",
+  "mode": "normal",
+  "driver": "verify/loj/115.compact.cpp",
+  "program_sha256": "bd5f7aa41de57e6e7e5748172c388359dca89433b2764a11b9abceb0e296a15f",
+  "test_sha256": "f3a62916c4d98e65dcef5114692f452e8b5fbc636949c06e5ca876a0c73c2ffb",
+  "certificate_checker_sha256": "b6bd99c5e629920bd805a6f54bde795c8e85b621027f95813583738800db365c",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "flags": [
+    "-O2",
+    "-Wl,-stack_size,0x20000000"
+  ],
+  "cases": {
+    "two_vertex_ordered_multigraphs": 420,
+    "three_vertex_directed_graphs": 728,
+    "random_small": 400,
+    "empty_graph_extension": 3,
+    "maximum_legal_feasible": 1,
+    "maximum_legal_infeasible": 1,
+    "maximum_legal_recursive_path": 1,
+    "int64_extension": 1,
+    "deep_recursion_extension": 1
+  },
+  "negative_controls": 5
+}
