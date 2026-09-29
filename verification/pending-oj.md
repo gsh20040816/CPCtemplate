@@ -95,7 +95,6 @@
 - `verify/luogu/P2762.compact.cpp`
 - `verify/luogu/P2860.compact.cpp`
 - `verify/luogu/P2860.forest.compact.cpp`
-- `verify/luogu/P2921.compact.cpp`
 - `verify/luogu/P3369.pbds.compact.cpp`
 - `verify/luogu/P3369.scapegoat.compact.cpp`
 - `verify/luogu/P3375.compact.cpp`
@@ -153,6 +152,7 @@
 - `verify/luogu/P7173.compact.cpp`
 - `verify/luogu/P7771.compact.cpp`
 - `verify/luogu/P7883.compact.cpp`
+- `verify/luogu/SP11470.compact.cpp`
 - `verify/poj/1330.compact.cpp`
 - `verify/poj/1330.lifting.compact.cpp`
 - `verify/poj/1470.compact.cpp`

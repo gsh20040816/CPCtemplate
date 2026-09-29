@@ -138,6 +138,11 @@
 | `BiconnectedCore` | [QOJ 999 (BiconnectedCore)](https://qoj.ac/problem/999) | 1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed | [记录](https://qoj.ac/submission/3061643) | 待核验 |
 | `path_intersection` | [Luogu P3398](https://www.luogu.com.cn/problem/P3398) | n,q<=100000; tree; 1-based vertices | [记录](https://www.luogu.com.cn/record/299972443) | 待核验 |
 | `TreeDiameter` | [Codeforces 379F](https://codeforces.com/problemset/problem/379/F) | q<=500000; final n=4+2q; two new leaves per operation | 待编写驱动/提交 | 待核验 |
+| `FunctionalGraph` | [CSES 1750](https://cses.fi/problemset/task/1750) | n,q<=200000; 0<=k<=1000000000 | 待编写驱动/提交 | 待核验 |
+| `FunctionalGraph` | [CSES 1160](https://cses.fi/problemset/task/1160) | n,q<=200000 | 待编写驱动/提交 | 待核验 |
+| `FunctionalGraph` | [Luogu P2921](https://www.luogu.com.cn/problem/P2921) | n<=100000 | [记录](https://www.luogu.com.cn/record/299973954) | 待核验 |
+| `PersistentRange` | [SPOJ TTM / Luogu SP11470](https://www.luogu.com.cn/problem/SP11470) | n,m<=100000; abs(initial)<=1e9; abs(delta)<=10000 | 待编写驱动/提交 | 待核验 |
+| `PersistentRange` | [QOJ 8240](https://qoj.ac/problem/8240) | n,q<=300000; colors1..n; online XOR endpoints | [记录](https://qoj.ac/submission/2939235) | 待核验 |
 
 ## 适配与证据范围
 
@@ -1262,6 +1267,46 @@ Contest application; not a formal template problem.
 Build final tree offline using HLD, then insert vertices in appearance order. Future leaf additions cannot change old pair distances. merge/farthest not called.
 
 Luogu submission form rejected on 2026-09-29: Codeforces RemoteJudge temporarily unavailable. No submission ID or online verdict. Global speed rank unverified.
+
+### CSES 1750 / FunctionalGraph
+
+Standalone direct successor-jump exercise; CSES problem-set task, not a regional contest application.
+
+Convert 1-based vertices to zero-based and add1 to returned vertex. The API supports unsigned64 steps, but CSES only tests up to1e9.
+
+Global speed rank unverified; only stated APIs are covered. Local acceptance does not confer an online AC.
+
+### CSES 1160 / FunctionalGraph
+
+Standalone direct functional-graph reachability/minimum-step exercise.
+
+Subtract1 from both vertices; result is a distance or -1 and must not be shifted. Same component alone does not imply reachability.
+
+Global speed rank unverified; only stated APIs are covered. Local acceptance does not confer an online AC.
+
+### Luogu P2921 / FunctionalGraph
+
+USACO2008 December contest application, not formal-template coverage.
+
+Number of distinct visited vertices equals tail depth plus cycle length; start included. Does not call advance/steps.
+
+Online AC covers decomposition fields only; advance/steps and global speed ranking are not covered.
+
+### SPOJ TTM / Luogu SP11470 / PersistentRange
+
+Direct range-update/history task; origin not established as a non-contest template, conservatively application-only.
+
+Store only changes in zero-initialized tree, add initial prefix sum to every query. ver[logical_time] maps to append-only template IDs; after B, next C overwrites logical slot without mutating old roots. splice not called.
+
+Global speed rank unverified; only stated APIs are covered. Local acceptance does not confer an online AC.
+
+### QOJ 8240 / PersistentRange
+
+2023 ICPC Asia Hangzhou K Card Game; contest application, not formal-template coverage.
+
+Version indexed by left endpoint, coordinate is right endpoint. Range add1 then suffix splice; output point query. Signed increments, arbitrary splice ranges and range sums require separate tests.
+
+Global speed rank unverified; only stated APIs are covered. Local acceptance does not confer an online AC.
 
 ## 榜单口径
 

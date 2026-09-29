@@ -2691,11 +2691,61 @@ PersistentRange(n) 建立长度 n 的全零版本 0，n$\ge$1；使用隐式节�
 
 \lstinputlisting[firstline=74,lastline=114,firstnumber=69]{../src/compact/persistent_range.hpp}
 
+\Needspace{200pt}
+
+\subsection*{应用题补充：SPOJ TTM / Luogu SP11470}
+
+题意：C对当前版本区间加并使时间戳加1；Q查当前和，H查指定时间和，B回退时间；n,m$\le$100000，初值绝对值$\le$10\textasciicircum{}9，增量绝对值$\le$10\textasciicircum{}4。模板存相对初值的增量，初值用前缀和单独累加。ver[t]映射逻辑时间到追加版本ID，回退后C覆盖ver[t+1]而非使用t作为模板版本。闭区间转[l-1,r)，O(n+m log n)。
+
+所需模板：PersistentRange。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/SP11470}
+
+\newpage
+
+\subsection*{SPOJ TTM / Luogu SP11470：使用代码}
+
+\label{usage-example-174}
+
+\lstinputlisting{usage/example-174.cpp}
+
+\Needspace{200pt}
+
+\subsection*{应用题补充：QOJ 8240 Card Game}
+
+题意：ICPC杭州2023K：给区间牌列，顺序放牌，遇到已有同号牌就连同其后所有牌及新牌一起删除，问最终剩余数。n,q$\le$300000，牌号1..n；端点须与上次答案异或解码。version[i]的坐标r表示[i,r]答案；下一同号位置p前区间加1，p起后缀从version[p+1]拼接。nodes仅估算分配上界，最后按右端点单点查。O((n+q)log n)。
+
+所需模板：PersistentRange。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://qoj.ac/problem/8240}
+
+\newpage
+
+\subsection*{QOJ 8240 Card Game：使用代码}
+
+\label{usage-example-175}
+
+\lstinputlisting{usage/example-175.cpp}
+
+\newpage
+
 \subsection{树上路径点权第 k 小}\label{compact-TreePathKth}\index{TreePathKth}
 
 TreePathKth(a) 传入非空 0-based 权值数组，节点编号 1..n；add(u,v) 加无向边，要求恰好构成一棵树。build(root=1) 递归 DFS 建立根到各节点的频数版本与倍增表，可换根重建，旧版本自动清空。kth(u,v,k) 返回简单路径上第 k 小的点权，包含两个端点，每个节点计一次；1$\le$k$\le$路径点数。lca(u,v) 返回当前预处理根下的最近公共祖先。使用 root[u]+root[v]-root[lca]-root[parent(lca)]，编号 0 为全零版本，避免少算或重复算 LCA。支持重复值与完整 long long 权值，内部只统计频数；权值和树结构在查询阶段保持不变。预处理 O(n log n)，每次查询 O(log n)，空间 O(n log n)。递归深度最坏 O(n)，保持递归写法。
 
-\lstinputlisting[firstline=7,lastline=129]{../src/compact/tree_path_kth.hpp}
+\lstinputlisting[firstline=7,lastline=36,firstnumber=1]{../src/compact/tree_path_kth.hpp}
+
+\newpage
+
+\noindent 版本插入与递归建树（接上页同一结构体）：
+
+\lstinputlisting[firstline=37,lastline=82,firstnumber=31]{../src/compact/tree_path_kth.hpp}
+
+\newpage
+
+\noindent 最近公共祖先与路径第 k 小（接上页同一结构体）：
+
+\lstinputlisting[firstline=83,lastline=129,firstnumber=77]{../src/compact/tree_path_kth.hpp}
 
 \Needspace{465pt}
 
@@ -3366,6 +3416,48 @@ FunctionalGraph(to) 或 build(to) 重建，每个点恰有一条出边，to[u] �
 \noindent 跳转与最少步数接口（接上页同一结构体）：
 
 \lstinputlisting[firstline=71,lastline=99,firstnumber=64]{../src/compact/functional_graph.hpp}
+
+\Needspace{404pt}
+
+\subsection*{模板题使用：CSES 1750 Planets Queries I}
+
+\label{usage-example-171}
+
+题意：给每点唯一后继，查询从x走k步后的点，n,q$\le$200000，0$\le$k$\le$10\textasciicircum{}9。题目1-based点号读入减1、输出加1；k用unsigned long long，模板也支持完整64位步数。advance先处理入环链再对环长取模，不能只建30层就宣称支持任意64位。预处理O(n log n)，查询O(log n)，入环后O(1)。
+
+所需模板：FunctionalGraph。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://cses.fi/problemset/task/1750}
+
+\lstinputlisting{usage/example-171.cpp}
+
+\Needspace{383pt}
+
+\subsection*{模板题使用：CSES 1160 Planets Queries II}
+
+\label{usage-example-172}
+
+题意：同样每点一个后继，查询u到v的最少步数，不可达输出-1；n,q$\le$200000。1-based读入转0-based，steps返回步数，不能加1；同一点答案0。处于同一弱连通分量也可能不可达，例如不同入环分支或从环走回链。预处理O(n log n)，单次O(log n)。
+
+所需模板：FunctionalGraph。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://cses.fi/problemset/task/1160}
+
+\lstinputlisting{usage/example-172.cpp}
+
+\Needspace{348pt}
+
+\subsection*{应用题补充：Luogu P2921}
+
+\label{usage-example-173}
+
+题意：每点一个后继，输出从各点出发直到首次重复前访问的不同点数，包含起点，n$\le$100000。结果为入环链长depth[u]加所在环的长度；component是内部0-based环编号，不能当成环顶点。自环答案1。这份用法只读取分解字段，不调用advance/steps。当前模板含倍增表，建图O(n log n)，输出O(n)。
+
+所需模板：FunctionalGraph。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2921}
+
+\lstinputlisting{usage/example-173.cpp}
 
 \Needspace{457pt}
 

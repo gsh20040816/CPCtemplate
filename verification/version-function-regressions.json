@@ -1,0 +1,27 @@
+{
+  "scope": "Local complete-driver independent oracles and API regressions in normal and ASan/UBSan modes. Classic baseline staged only in temporary directory.",
+  "baseline_commit": "1a9fa3e91d7dff58915341040be069611370054c",
+  "files": {
+    "src/compact/functional_graph.hpp": "0a83e68dc49592adef845d9abe401f19bfa80ea72c4cacb23c12ca49114f2e7e",
+    "src/compact/persistent_range.hpp": "108995c6654309946f3aae19e67c3d70ff8db468fc1311c5b274801507ed4cf8",
+    "tests/functional_graph.cpp": "3f58e6ad3b55f34e551e2c93a7cc8eda500c43f15467f0a2ce4182a8137929bc",
+    "tests/persistent_range.cpp": "bea4137851959951ec4cbc853fc941b0df90d71d2186dc8701749909e7d8a191",
+    "tests/version_function_usages.py": "679ae126ae6ab7f14a16b2098d9293a42cb27395ef76e29610f2c1fb1157322c"
+  },
+  "reports": [
+    "verification/version-function-core-functional_graph-normal.txt",
+    "verification/version-function-core-functional_graph-sanitizer.txt",
+    "verification/version-function-core-persistent_range-normal.txt",
+    "verification/version-function-core-persistent_range-sanitizer.txt",
+    "verification/version-function-usages-normal.json",
+    "verification/version-function-usages-sanitizer.json"
+  ],
+  "report_sha256": {
+    "verification/version-function-core-functional_graph-normal.txt": "98b0aad4b62fbef3dce27c9abe3c28a45a65b5e3f2c0c6658d9d19d228845f3f",
+    "verification/version-function-core-functional_graph-sanitizer.txt": "98b0aad4b62fbef3dce27c9abe3c28a45a65b5e3f2c0c6658d9d19d228845f3f",
+    "verification/version-function-core-persistent_range-normal.txt": "98e3ee46853e5f6469f737a687ecfe85c6ec359c10f16565fab0a98b85260004",
+    "verification/version-function-core-persistent_range-sanitizer.txt": "98e3ee46853e5f6469f737a687ecfe85c6ec359c10f16565fab0a98b85260004",
+    "verification/version-function-usages-normal.json": "09eac72fe1c082c7bb34f6d853ce9c01df99e3b1d32f7293324c85eab8540ac0",
+    "verification/version-function-usages-sanitizer.json": "dc2d430ee5a91eff31f19b3f9b1cac8f670cc8cbeaefe87ee00536dd3d50e3d1"
+  }
+}

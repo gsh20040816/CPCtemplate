@@ -2077,5 +2077,65 @@
       "TreeDiameter"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-171",
+    "symbol": "FunctionalGraph",
+    "problem": "CSES 1750 Planets Queries I",
+    "url": "https://cses.fi/problemset/task/1750",
+    "summary": "给每点唯一后继，查询从x走k步后的点，n,q≤200000，0≤k≤10^9。题目1-based点号读入减1、输出加1；k用unsigned long long，模板也支持完整64位步数。advance先处理入环链再对环长取模，不能只建30层就宣称支持任意64位。预处理O(n log n)，查询O(log n)，入环后O(1)。",
+    "driver": "verify/cses/1750.compact.cpp",
+    "requires": [
+      "FunctionalGraph"
+    ]
+  },
+  {
+    "id": "example-172",
+    "symbol": "FunctionalGraph",
+    "problem": "CSES 1160 Planets Queries II",
+    "url": "https://cses.fi/problemset/task/1160",
+    "summary": "同样每点一个后继，查询u到v的最少步数，不可达输出-1；n,q≤200000。1-based读入转0-based，steps返回步数，不能加1；同一点答案0。处于同一弱连通分量也可能不可达，例如不同入环分支或从环走回链。预处理O(n log n)，单次O(log n)。",
+    "driver": "verify/cses/1160.compact.cpp",
+    "requires": [
+      "FunctionalGraph"
+    ]
+  },
+  {
+    "id": "example-173",
+    "symbol": "FunctionalGraph",
+    "problem": "Luogu P2921",
+    "url": "https://www.luogu.com.cn/problem/P2921",
+    "summary": "每点一个后继，输出从各点出发直到首次重复前访问的不同点数，包含起点，n≤100000。结果为入环链长depth[u]加所在环的长度；component是内部0-based环编号，不能当成环顶点。自环答案1。这份用法只读取分解字段，不调用advance/steps。当前模板含倍增表，建图O(n log n)，输出O(n)。",
+    "driver": "verify/luogu/P2921.compact.cpp",
+    "requires": [
+      "FunctionalGraph"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-174",
+    "symbol": "PersistentRange",
+    "problem": "SPOJ TTM / Luogu SP11470",
+    "url": "https://www.luogu.com.cn/problem/SP11470",
+    "summary": "C对当前版本区间加并使时间戳加1；Q查当前和，H查指定时间和，B回退时间；n,m≤100000，初值绝对值≤10^9，增量绝对值≤10^4。模板存相对初值的增量，初值用前缀和单独累加。ver[t]映射逻辑时间到追加版本ID，回退后C覆盖ver[t+1]而非使用t作为模板版本。闭区间转[l-1,r)，O(n+m log n)。",
+    "driver": "verify/luogu/SP11470.compact.cpp",
+    "requires": [
+      "PersistentRange"
+    ],
+    "kind": "application",
+    "listing_new_page": true
+  },
+  {
+    "id": "example-175",
+    "symbol": "PersistentRange",
+    "problem": "QOJ 8240 Card Game",
+    "url": "https://qoj.ac/problem/8240",
+    "summary": "ICPC杭州2023K：给区间牌列，顺序放牌，遇到已有同号牌就连同其后所有牌及新牌一起删除，问最终剩余数。n,q≤300000，牌号1..n；端点须与上次答案异或解码。version[i]的坐标r表示[i,r]答案；下一同号位置p前区间加1，p起后缀从version[p+1]拼接。nodes仅估算分配上界，最后按右端点单点查。O((n+q)log n)。",
+    "driver": "verify/qoj/8240.compact.cpp",
+    "requires": [
+      "PersistentRange"
+    ],
+    "kind": "application",
+    "listing_new_page": true
   }
 ]

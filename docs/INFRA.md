@@ -14,7 +14,7 @@ build/tools-env/bin/pip install clang-format==23.1.1 pypdf==6.0.0
 tools/build_pdf.sh
 ```
 
-CI显式安装同版本pypdf。构建器先生成算法各册，随后用xr-hyper读取最终aux，再构建infra；不能先生成infra而引用旧页码。所有PDF放在同一目录，链接采用GoToR命名目的地，不手写页码。
+本地验证使用同版本pypdf；GitHub CI已停用。构建器先生成算法各册，随后用xr-hyper读取最终aux，再构建infra；不能先生成infra而引用旧页码。所有PDF放在同一目录，链接采用GoToR命名目的地，不手写页码。
 
 `tools/infra_audit.py` 读取infra实际链接，核对目标文件、命名目的地及目标页的印刷页码。当前10项跳转包含PBDS堆、有序树、rope、GP/CC哈希表及标准库典型使用场景；报告为 `verification/infra-links.json`。原来的字体、溢出、索引与页码检查不放松。
 

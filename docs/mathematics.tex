@@ -1242,15 +1242,24 @@ offset 为零时直接共享源节点；没有覆盖时保留目标节点。
 包含正负增量、不同祖先标记、空区间、全段共享，以及查询前后的节点数量检查。
 规模验证包含长度 200000 的 10000 次区间版本组合，
 并在长度 \texttt{INT\_MAX} 的隐式坐标域验证端点操作与共享根。
-普通与 ASan/UBSan 均通过；区间加 1、后缀拼接和单点读取的应用已获 QOJ8240 双 AC，
+普通与 ASan/UBSan 均通过；区间加 1、后缀拼接和单点读取的vector 应用已有 QOJ8240 AC，
 其余通用接口范围仍由本地验证覆盖。
 来源需求是\href{https://icpcarchive.github.io/Asia\%20East\%20Continent\%20Contests/Hangzhou/2023\%20Asia\%20Hangzhou\%20Regional\%20Contest/solution.pdf}{2023 杭州站题解}
 第 24--26 页的 K 题，完整驱动及验证见下节。
 
+\paragraph{回退时间与追加版本编号。}
+\href{https://www.luogu.com.cn/problem/SP11470}{SP11470 To the moon} 完整用法见第~\pageref{usage-example-174}~页。
+模板 add 返回不断追加的版本编号，而题目的时间戳在 B 操作后可能减小，二者不能直接混用。
+用 ver[t] 保存时间戳 t 对应的模板版本；C 从 ver[t] 更新，再令 ver[t+1] 指向新版本并推进时间。
+再次经过同一时间戳时替换映射，不能写入原来版本的节点。Q、H 读取对应映射；B 只移动当前时间。
+初值无需逐点建树：把初始前缀和单独保留，树中仅存后续区间增量，每次查询将两部分相加。
+这样初始构造 $O(n)$，之后每次 C/Q/H 为 $O(\log n)$，B 为 $O(1)$；不调用 splice。
+本地以完整数组快照独立核验分支与历史，并检查正负大初值、反复回退、时间戳覆盖和最大规模部分区间更新。
+
 \clearpage
 \section{杭州 2023 K：跨版本拼接应用}
-\href{https://qoj.ac/problem/8240}{Card Game} 的完整驱动在
-\texttt{verify/qoj/8240.*.cpp}，使用前节的可持久化区间模板。
+\href{https://qoj.ac/problem/8240}{Card Game} 完整用法见第~\pageref{usage-example-175}~页，使用前节的可持久化区间模板。
+
 将下标转为从 0 开始，设 $F_i(r)$ 为区间 $[i,r]$ 的剩余牌数，
 $p$ 为 $i$ 之后第一张与 $a_i$ 相同的牌，若不存在则 $p=n$。
 当 $r<p$ 时，第一张牌始终保留，剩余牌的过程与从 $i+1$ 开始相同；
@@ -1278,9 +1287,8 @@ $n,q\le300000$，牌号位于 $[1,n]$。
 穷举长度不超过 7 的二元牌序列与全部区间，并打乱询问顺序、真实编码异或输入。
 另有随机牌局、$n=q=300000$ 的全异、全同、周期序列闭式检查，
 以及稀疏重复大数组的短区间逐张模拟。
-两套驱动均在线 AC，各 41 个正式测试和 3 个额外测试全过：
-\href{https://qoj.ac/submission/2939235}{动态版}最慢 789 ms、452688 KB，
-\href{https://qoj.ac/submission/2939291}{传统版}最慢 752 ms、452492 KB。
+vector 驱动的\href{https://qoj.ac/submission/2939235}{历史 AC}通过 41 个正式测试和 3 个额外测试，最慢 789 ms、452688 KB。
+当前展开程序与该快照仅格式不同，本轮未重新提交；传统版已退役。
 此应用仅调用区间加 1、后缀拼接、单点读取；一般有符号增量与区间求和仍由前节本地测试支持。
 
 \clearpage
@@ -1351,6 +1359,12 @@ OJ 验证题面正权边、前缀插入和最远距离判定；零权边、完�
 \clearpage
 \section{函数图的入环链与到达查询}
 代码见第~\pageref{compact-FunctionalGraph}~页。
+三份完整用法分别见第~\pageref{usage-example-171}~页（CSES1750跳转）、第~\pageref{usage-example-172}~页（CSES1160最少步数）、第~\pageref{usage-example-173}~页（P2921不同访问点数）。
+题目点号均从1开始，构造时统一减1；只有跳转返回的顶点需要加1，最少步数的0和不可达的-1应原样输出。
+P2921只需 depth 加环长，不代表它测试了跳转或两点可达查询。
+本轮完整驱动穷举至四点的全部288个后继映射，独立沿后继走到首次重复，核验步数、跳转与访问数；另验随机映射和题目最大规模。
+CSES1750的题面步数上限为 $10^9$，完整unsigned64范围另由本地测试覆盖，不能由该题AC推出。
+
 每个点有且仅有一个后继，故每个弱连通分量由一个有向环和若干指向环的树组成。
 先不断移除入度为零的点，剩下的点恰在环上；沿后继枚举各环。
 反向处理移除序列时，后继的环编号、入环点和入环距离均已确定，可直接传给当前点。
@@ -1374,9 +1388,9 @@ OJ 验证题面正权边、前缀插入和最远距离判定；零权边、完�
 普通与 ASan/UBSan 均通过。
 完整驱动对应\href{https://cses.fi/problemset/task/1750}{CSES 1750}、
 \href{https://cses.fi/problemset/task/1160}{CSES 1160} 和
-\href{https://www.luogu.com.cn/problem/P2921}{P2921}，均准备两套码风。
+\href{https://www.luogu.com.cn/problem/P2921}{P2921}，均使用 vector 版驱动。
 前两题检查跳转与可达步数，后一题仅使用“入环步数＋环长”，不能替代查询接口的验证。
-线上评测尚待完成。
+P2921 的当前程序已取得\href{https://www.luogu.com.cn/record/299973954}{线上 AC}；两道 CSES 查询题的线上评测仍待完成。
 
 \clearpage
 \section{杭州 2023 H：随机事件顺序与函数图}

@@ -188,7 +188,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost'):
+            if name in ('SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             body.append(esc(info))
@@ -294,6 +294,16 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent Splay、虚实边切换与公开接口（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(second + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(second - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'TreePathKth':
+                cuts = [start,
+                        next(i for i in range(start, end) if 'int insert(' in lines[i]),
+                        next(i for i in range(start, end) if 'int lca(' in lines[i]), end]
+                captions = ['', '版本插入与递归建树', '最近公共祖先与路径第 k 小']
+                for part in range(3):
+                    if part:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'FunctionalGraph':
                 first = next((i for i in range(start, end) if 'component.assign' in lines[i]))
                 second = next((i for i in range(first, end) if re.match('    int (advance|Advance)\\(', lines[i])))

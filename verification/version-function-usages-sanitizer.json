@@ -1,0 +1,42 @@
+{
+  "mode": "sanitizer",
+  "counts": {
+    "jump": 389,
+    "steps": 389,
+    "visits": 389,
+    "versions": 303,
+    "cards": 357
+  },
+  "seconds": {
+    "jump": 28.277094751712866,
+    "steps": 28.07393485365901,
+    "visits": 27.983449912746437,
+    "versions": 22.903675332898274,
+    "cards": 29.987847086507827
+  },
+  "exhaustive_functions_up_to_4": 288,
+  "exhaustive_binary_card_arrays_up_to_7": 253,
+  "scope": "Local complete programs. First-visit functional walks, full version snapshots with overwrites, literal card removal with XOR queries, statement maxima. Jump tests additionally include full unsigned64 range; this is beyond CSES constraints and not an online AC claim.",
+  "programs": {
+    "jump": {
+      "driver": "verify/cses/1750.compact.cpp",
+      "bundle_sha256": "2489ca563c54ec5889fe408aa9eb3c0cd3538f3e52f4a6be4297acfbceafd061"
+    },
+    "steps": {
+      "driver": "verify/cses/1160.compact.cpp",
+      "bundle_sha256": "69eec2d67a48f5470072a2cd582244994e71920522d75e28ad2c29e03dfc318f"
+    },
+    "visits": {
+      "driver": "verify/luogu/P2921.compact.cpp",
+      "bundle_sha256": "20facb360ed0899baa94c980601f32673ae754b33fbcebc776ba70f176b78d46"
+    },
+    "versions": {
+      "driver": "verify/luogu/SP11470.compact.cpp",
+      "bundle_sha256": "8ddca6c53a3de1ffb14064cf274d629af0c34a2f1e9d4f35bc89de980c9216c7"
+    },
+    "cards": {
+      "driver": "verify/qoj/8240.compact.cpp",
+      "bundle_sha256": "b6ebaf66916048fd3c8b87a24e4aa7957cb5af90b23a073cf28514a4ee16ebf5"
+    }
+  }
+}

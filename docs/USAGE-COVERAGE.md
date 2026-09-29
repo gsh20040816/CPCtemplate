@@ -162,9 +162,9 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | subset_convolution | [example-51](usage/example-51.cpp) | locally_checked_example |
 | polynomial_shift | [example-30](usage/example-30.cpp) | locally_checked_example |
 | chirp_z | [example-31](usage/example-31.cpp) | locally_checked_example |
-| PersistentRange | 待补 | pending_example |
+| PersistentRange | [example-174（应用补充）](usage/example-174.cpp), [example-175（应用补充）](usage/example-175.cpp) | locally_checked_application |
 | TreeDiameter | [example-170（应用补充）](usage/example-170.cpp) | locally_checked_application |
-| FunctionalGraph | 待补 | pending_example |
+| FunctionalGraph | [example-171](usage/example-171.cpp), [example-172](usage/example-172.cpp), [example-173（应用补充）](usage/example-173.cpp) | locally_checked_example |
 | release_bfs | 待补 | pending_example |
 | ModifiedMo | [example-168](usage/example-168.cpp) | locally_checked_example |
 | gp_map | [example-68](usage/example-68.cpp), [example-69](usage/example-69.cpp) | locally_checked_example |

@@ -3256,5 +3256,136 @@
       "verification/mo-tree-usages-normal.json",
       "verification/mo-tree-usages-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "FunctionalGraph",
+    "problem": "CSES 1750",
+    "url": "https://cses.fi/problemset/task/1750",
+    "classification": "Standalone direct successor-jump exercise; CSES problem-set task, not a regional contest application.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n,q<=200000; 0<=k<=1000000000",
+    "tested_api": [
+      "advance"
+    ],
+    "adapter": "Convert 1-based vertices to zero-based and add1 to returned vertex. The API supports unsigned64 steps, but CSES only tests up to1e9.",
+    "ac": null,
+    "usage": "example-171",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Global speed rank unverified; only stated APIs are covered. Local acceptance does not confer an online AC.",
+    "local_evidence": [
+      "verification/version-function-usages-normal.json",
+      "verification/version-function-usages-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "FunctionalGraph",
+    "problem": "CSES 1160",
+    "url": "https://cses.fi/problemset/task/1160",
+    "classification": "Standalone direct functional-graph reachability/minimum-step exercise.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n,q<=200000",
+    "tested_api": [
+      "steps"
+    ],
+    "adapter": "Subtract1 from both vertices; result is a distance or -1 and must not be shifted. Same component alone does not imply reachability.",
+    "ac": null,
+    "usage": "example-172",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Global speed rank unverified; only stated APIs are covered. Local acceptance does not confer an online AC.",
+    "local_evidence": [
+      "verification/version-function-usages-normal.json",
+      "verification/version-function-usages-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "FunctionalGraph",
+    "problem": "Luogu P2921",
+    "url": "https://www.luogu.com.cn/problem/P2921",
+    "classification": "USACO2008 December contest application, not formal-template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n<=100000",
+    "tested_api": [
+      "depth",
+      "component",
+      "cycles"
+    ],
+    "adapter": "Number of distinct visited vertices equals tail depth plus cycle length; start included. Does not call advance/steps.",
+    "ac": "https://www.luogu.com.cn/record/299973954",
+    "usage": "example-173",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC covers decomposition fields only; advance/steps and global speed ranking are not covered.",
+    "local_evidence": [
+      "verification/version-function-usages-normal.json",
+      "verification/version-function-usages-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "PersistentRange",
+    "problem": "SPOJ TTM / Luogu SP11470",
+    "url": "https://www.luogu.com.cn/problem/SP11470",
+    "classification": "Direct range-update/history task; origin not established as a non-contest template, conservatively application-only.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n,m<=100000; abs(initial)<=1e9; abs(delta)<=10000",
+    "tested_api": [
+      "add",
+      "query"
+    ],
+    "adapter": "Store only changes in zero-initialized tree, add initial prefix sum to every query. ver[logical_time] maps to append-only template IDs; after B, next C overwrites logical slot without mutating old roots. splice not called.",
+    "ac": null,
+    "usage": "example-174",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Global speed rank unverified; only stated APIs are covered. Local acceptance does not confer an online AC.",
+    "local_evidence": [
+      "verification/version-function-usages-normal.json",
+      "verification/version-function-usages-sanitizer.json"
+    ],
+    "submission_attempt": "2026-09-29: Luogu rejected before creating a record: third-party login cannot use Remote Judge; requested logout/relogin. No online verdict."
+  },
+  {
+    "symbol": "PersistentRange",
+    "problem": "QOJ 8240",
+    "url": "https://qoj.ac/problem/8240",
+    "classification": "2023 ICPC Asia Hangzhou K Card Game; contest application, not formal-template coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "n,q<=300000; colors1..n; online XOR endpoints",
+    "tested_api": [
+      "add",
+      "splice",
+      "query"
+    ],
+    "adapter": "Version indexed by left endpoint, coordinate is right endpoint. Range add1 then suffix splice; output point query. Signed increments, arbitrary splice ranges and range sums require separate tests.",
+    "ac": "https://qoj.ac/submission/2939235",
+    "usage": "example-175",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Global speed rank unverified; only stated APIs are covered. Local acceptance does not confer an online AC.",
+    "local_evidence": [
+      "verification/version-function-usages-normal.json",
+      "verification/version-function-usages-sanitizer.json"
+    ]
   }
 ]
