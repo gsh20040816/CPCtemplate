@@ -1,6 +1,6 @@
 from compiler_config import CXX
 from pathlib import Path
-import subprocess, random
+import subprocess, random, os
 root=Path(__file__).resolve().parents[1]
 P=998244353
 rng=random.Random(1024)
@@ -8,10 +8,15 @@ for style in ['compact']:
     source=root/f'build/submit/P4723.{style}.cpp'
     subprocess.run(['python3','tools/bundle.py',f'verify/luogu/P4723.{style}.cpp',str(source)],cwd=root,check=True)
     exe=root/f'build/P4723.{style}'
-    subprocess.run([CXX,'-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
+    flags=['-std=c++20','-O2']
+    if os.environ.get('SANITIZE') == '1' or os.environ.get('CPC_SANITIZE') == '1':
+        flags += ['-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']
+    subprocess.run([CXX,*flags,str(source),'-o',str(exe)],check=True)
     def check(n,c,init,want):
         data=f'{n} {len(c)}\n'+ ' '.join(map(str,c))+'\n'+' '.join(map(str,init))+'\n'
-        got=int(subprocess.check_output([str(exe)],input=data,text=True))
+        run=subprocess.run([str(exe)],input=data,text=True,capture_output=True,check=True,timeout=120)
+        assert not run.stderr,run.stderr
+        got=int(run.stdout)
         assert got==want,(style,n,len(c),got,want)
     for case in range(100):
         k=rng.randrange(1,16)

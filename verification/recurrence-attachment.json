@@ -1,0 +1,85 @@
+{
+  "scope": "Attachment 5.13 audit and independent vector-only tests; 5.12 floating FFT remains unimplemented; no new online AC or ranking",
+  "recorded_at_utc": "2026-09-29T08:55:34.633178+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/bostan_mori.hpp": "b3e15c986e3d84c3c90430a2b11bd1c776e7f1648d0d334485593bc5a6736af5",
+    "src/compact/recurrence.hpp": "6399924d2d2b1009ead8244bf325988b180536ec68721092fb711ab1d0b80148",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "tests/bostan_mori.cpp": "41b1383b298f9084ce25796f5f115b94cc6dc5a5eb7cc75607da8447b43e5b02",
+    "tests/recurrence.cpp": "e9ef61142fc46ff3ea053efa12bd05befac556bc1df1c0d695b0338b9f3270a5",
+    "tests/bostan_mori_application.py": "99a4338d7f7cb62d05638b0a273e8389be8bba52be6d961c93ed77e46aed873b",
+    "verify/luogu/P4723.compact.cpp": "a64e779ef79f046ada2117be98047a596c4c94579f7e55f4ec938fb631faed76",
+    "verify/library_checker/kth_term_of_linearly_recurrent_sequence.compact.cpp": "6dbc62c973b2dc5da5bf581c2cfc9eab68748d3d06bd8befd9366f7235125749",
+    "verify/library_checker/find_linear_recurrence.compact.cpp": "9a07c37888c07a2057a3a51eda70852443b28267b314dc31e2936c526f0ccf63"
+  },
+  "runs": [
+    {
+      "module": "bostan_mori",
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "Bostan-Mori rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS"
+    },
+    {
+      "module": "bostan_mori",
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "Bostan-Mori rational-series division, companion-matrix uint64 oracle and dense order-32000 binomial sequences PASS"
+    },
+    {
+      "module": "recurrence",
+      "kind": "unit",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "BM exhaustive minimality, recurrence holdout and uint64 matrix oracle PASS"
+    },
+    {
+      "module": "recurrence",
+      "kind": "unit",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "BM exhaustive minimality, recurrence holdout and uint64 matrix oracle PASS"
+    },
+    {
+      "module": "P4723",
+      "kind": "driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "output": "P4723 compact: signed-input recurrence DP and dense maximum-order binomial oracle PASS"
+    },
+    {
+      "module": "P4723",
+      "kind": "driver",
+      "mode": "asan_ubsan",
+      "verdict": "local_oracle_passed",
+      "output": "P4723 compact: signed-input recurrence DP and dense maximum-order binomial oracle PASS"
+    }
+  ],
+  "official_reports": [
+    "verification/recurrence-find-official-sanitized.json",
+    "verification/recurrence-find-official.json",
+    "verification/recurrence-nth-official-sanitized.json",
+    "verification/recurrence-nth-official.json"
+  ],
+  "usage_examples": [
+    "example-49",
+    "example-81"
+  ],
+  "usage_verification": "Both exact printed programs passed normal and ASan/UBSan modes; source/template hashes unchanged",
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  }
+}

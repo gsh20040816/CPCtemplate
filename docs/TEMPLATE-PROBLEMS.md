@@ -85,6 +85,7 @@
 | `FpsPower` | [Luogu P5245](https://www.luogu.com.cn/problem/P5245) | 1<n<=100000; 0<k<=10^100000; a[0]=1 | 待编写驱动/提交 | 待核验 |
 | `FpsPower` | [Luogu P5273](https://www.luogu.com.cn/problem/P5273) | 1<n<=100000; 0<=k<=10^100000; arbitrary coefficients | 待编写驱动/提交 | 待核验 |
 | `FpsPower` | [Library Checker pow_of_formal_power_series](https://judge.yosupo.jp/problem/pow_of_formal_power_series) | 1<=N<=500000; 0<=M<=10^18; arbitrary coefficients | 待编写驱动/提交 | 待核验 |
+| `BostanMori` | [Library Checker kth_term_of_linearly_recurrent_sequence](https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence) | 1<=d<=100000; 0<=k<=10^18; normalized coefficients and initial values modulo 998244353; input initial values before recurrence coefficients | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -747,6 +748,14 @@ Official standalone power-of-formal-series template.
 
 
 Online AC and ranking pending; independent local powers, decimal boundary cases and official LC checker evidence recorded separately.
+
+### Library Checker kth_term_of_linearly_recurrent_sequence / BostanMori
+
+Official standalone algorithm template; not a regional-contest application.
+
+
+
+Online AC and ranking pending. Pinned official local checker evidence is recorded separately; the general rational coefficient entry is covered by independent series oracles.
 
 ## 榜单口径
 

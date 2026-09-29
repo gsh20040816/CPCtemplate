@@ -1,5 +1,4 @@
 #include "../src/compact/recurrence.hpp"
-#include "../src/classic/recurrence.hpp"
 #include <algorithm>
 #include <iostream>
 #include <random>
@@ -9,10 +8,8 @@ bool fits(const std::vector<int> &s, const std::vector<int> &c, int p)
     for (int i = c.size(); i < (int)s.size(); i++)
     {
         long long v = 0;
-        for (int j = 0; j < (int)c.size(); j++)
-            v = (v + 1LL * c[j] * s[i - j - 1]) % p;
-        if (v != s[i])
-            return false;
+        for (int j = 0; j < (int)c.size(); j++) v = (v + 1LL * c[j] * s[i - j - 1]) % p;
+        if (v != s[i]) return false;
     }
     return true;
 }
@@ -31,8 +28,7 @@ int minimum_order(const std::vector<int> &s, int p)
                 x = code % p;
                 code /= p;
             }
-            if (fits(s, c, p))
-                return k;
+            if (fits(s, c, p)) return k;
         }
         possibilities *= p;
     }
@@ -40,6 +36,7 @@ int minimum_order(const std::vector<int> &s, int p)
 }
 
 using Matrix = std::vector<std::vector<int>>;
+
 Matrix mul(const Matrix &a, const Matrix &b, int p)
 {
     int n = a.size();
@@ -51,29 +48,26 @@ Matrix mul(const Matrix &a, const Matrix &b, int p)
     return c;
 }
 
-int matrix_nth(const std::vector<int> &s, const std::vector<int> &c,
-               unsigned long long index, int p)
+int matrix_nth(const std::vector<int> &s,
+               const std::vector<int> &c,
+               unsigned long long index,
+               int p)
 {
     int n = c.size();
-    if (index < s.size())
-        return s[index];
+    if (index < s.size()) return s[index];
     Matrix a(n, std::vector<int>(n)), r = a;
     a[0] = c;
-    for (int i = 1; i < n; i++)
-        a[i][i - 1] = 1;
-    for (int i = 0; i < n; i++)
-        r[i][i] = 1;
+    for (int i = 1; i < n; i++) a[i][i - 1] = 1;
+    for (int i = 0; i < n; i++) r[i][i] = 1;
     index -= n - 1;
     while (index)
     {
-        if (index & 1)
-            r = mul(r, a, p);
+        if (index & 1) r = mul(r, a, p);
         a = mul(a, a, p);
         index >>= 1;
     }
     long long answer = 0;
-    for (int i = 0; i < n; i++)
-        answer = (answer + 1LL * r[0][i] * s[n - 1 - i]) % p;
+    for (int i = 0; i < n; i++) answer = (answer + 1LL * r[0][i] * s[n - 1 - i]) % p;
     return answer;
 }
 
@@ -94,10 +88,9 @@ int main()
                     code /= p;
                 }
                 auto a = berlekamp_massey(s, p);
-                auto b = Berlekamp_Massey(s, p);
                 int k = minimum_order(s, p);
-                assert((int)a.size() == k && (int)b.size() == k);
-                assert(fits(s, a, p) && fits(s, b, p));
+                assert((int)a.size() == k);
+                assert(fits(s, a, p));
             }
             possibilities *= p;
         }
@@ -109,27 +102,21 @@ int main()
         {
             int k = 1 + rng() % 12;
             std::vector<int> c(k), s(k);
-            for (int &x : c)
-                x = rng() % p;
-            for (int &x : s)
-                x = rng() % p;
+            for (int &x : c) x = rng() % p;
+            for (int &x : s) x = rng() % p;
             for (int i = k; i < 100; i++)
             {
                 long long v = 0;
-                for (int j = 0; j < k; j++)
-                    v = (v + 1LL * c[j] * s[i - j - 1]) % p;
+                for (int j = 0; j < k; j++) v = (v + 1LL * c[j] * s[i - j - 1]) % p;
                 s.push_back(v);
             }
             std::vector<int> prefix(s.begin(), s.begin() + 2 * k);
             auto a = berlekamp_massey(prefix, p);
-            auto b = Berlekamp_Massey(prefix, p);
-            assert(fits(s, a, p) && fits(s, b, p));
+            assert(fits(s, a, p));
             std::vector<int> ia(s.begin(), s.begin() + a.size());
-            std::vector<int> ib(s.begin(), s.begin() + b.size());
             for (int index = 0; index < 100; index++)
             {
                 assert(recurrence_nth(ia, a, index, p) == s[index]);
-                assert(Recurrence_Nth(ib, b, index, p) == s[index]);
             }
         }
     }
@@ -139,17 +126,14 @@ int main()
         {
             int k = 1 + rng() % 5;
             std::vector<int> c(k), s(k);
-            for (int &x : c)
-                x = rng() % p;
-            for (int &x : s)
-                x = rng() % p;
+            for (int &x : c) x = rng() % p;
+            for (int &x : s) x = rng() % p;
             unsigned long long index = trial % 2 ? rng() : ~0ULL;
             int expected = matrix_nth(s, c, index, p);
             assert(recurrence_nth(s, c, index, p) == expected);
-            assert(Recurrence_Nth(s, c, index, p) == expected);
         }
     }
     assert(recurrence_nth({}, {}, ~0ULL) == 0);
-    assert(Recurrence_Nth({}, {}, ~0ULL) == 0);
-    std::cout << "BM exhaustive minimality, recurrence holdout and uint64 matrix oracle PASS\n";
+    std::cout << "BM exhaustive minimality, recurrence holdout and uint64 matrix "
+                 "oracle PASS\n";
 }

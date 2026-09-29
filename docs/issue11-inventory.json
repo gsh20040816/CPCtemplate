@@ -879,8 +879,9 @@
       "toc_page": 176,
       "physical_page": 178,
       "level": 1,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "reviewed_implementation_pending",
+      "candidate_symbols": [],
+      "review": "已逐页查看实际178–180页：complex<long double>、2^15拆系数、打包两路实变换、四个分量重组的浮点FFT。常数乘法bit=0仍从i=0求rev，存在负移位；Make_Int只加0.5取整，负系数未归一化。平台long double精度和误差边界待独立实现核验；现有精确CRT不能作为该算法覆盖。"
     },
     {
       "section": "5.13",
@@ -888,12 +889,11 @@
       "toc_page": 178,
       "physical_page": 180,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
-        "recurrence_nth",
         "BostanMori"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "已逐页核对实际180–186页，为NTT加速Bostan–Mori。正文分母常数项0有误；末尾代码实际分子分母同时取负，比例自洽。现有coefficient/recurrence支持空/高次分子、任意非零q0、uint64下标及容量检查。六域900组分式、伴随矩阵、32000阶闭式、P4723完整驱动双模式；LC第n项20组与求递推18组官方本地测试均双模式接受。后者BM和小阶recurrence_nth仅相关回归，不替代大阶算法。模板源码不变；docs/RECURRENCE-ATTACHMENT.md。"
     },
     {
       "section": "6",

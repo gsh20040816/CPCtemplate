@@ -34,6 +34,7 @@
 - `verify/library_checker/inv_of_formal_power_series.compact.cpp`
 - `verify/library_checker/inverse_matrix.compact.cpp`
 - `verify/library_checker/inverse_matrix_mod_2.compact.cpp`
+- `verify/library_checker/kth_term_of_linearly_recurrent_sequence.compact.cpp`
 - `verify/library_checker/line_add_get_min.compact.cpp`
 - `verify/library_checker/log_of_formal_power_series.compact.cpp`
 - `verify/library_checker/matrix_det.compact.cpp`
