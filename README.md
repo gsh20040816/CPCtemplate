@@ -65,3 +65,7 @@ Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECK
 划分树的重复值配额与区间转换见 [DIVISION-TREE.md](docs/DIVISION-TREE.md)。
 
 次小生成树的两种定义与换边方案见 [SECOND-MST.md](docs/SECOND-MST.md)；模2消元的最少开关应用见 [SWITCH-MINIMUM.md](docs/SWITCH-MINIMUM.md)。
+
+闭合集选点、最小树形图和全局最小割的完整调用见 [CUT-APPLICATIONS.md](docs/CUT-APPLICATIONS.md)。
+
+kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md](docs/HOPCROFT-SOURCE-AUDIT.md)。

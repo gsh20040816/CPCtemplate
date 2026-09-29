@@ -2664,5 +2664,66 @@
       "total": null
     },
     "remaining": "No online AC or ranking; local validation only."
+  },
+  {
+    "symbol": "maximum_closure",
+    "problem": "Luogu P2762 太空飞行计划问题",
+    "url": "https://www.luogu.com.cn/problem/P2762",
+    "classification": "Application; not formal template coverage",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "选实验获得收益，配置仪器支付费用，输出最优实验/仪器编号和净收益。m、n至50，单项费用为正且小于2³¹，累计用long long。逐行读取变长依赖，istringstream兼容CRLF；实验i依赖仪器m+j。应用用法，不计非比赛模板覆盖。",
+    "tested_api": [
+      "maximum_closure",
+      "selected"
+    ],
+    "local_evidence": "verification/cut-applications.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and rankings pending. P5632 driver prints only the weight; original-side certificate is covered by separate core tests. Arborescence has no edge reconstruction."
+  },
+  {
+    "symbol": "Arborescence",
+    "problem": "Luogu P4716",
+    "url": "https://www.luogu.com.cn/problem/P4716",
+    "classification": "Officially titled standalone template problem",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "给定根的有向最小树形图费用，无解输出-1。n至100、m至10⁴、正权至10⁶；顶点和根从1-based转0-based。optional有值时才解引用，本题总费用可转long long；核心只返回费用，不恢复选边。",
+    "tested_api": [
+      "solve"
+    ],
+    "local_evidence": "verification/cut-applications.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and rankings pending. P5632 driver prints only the weight; original-side certificate is covered by separate core tests. Arborescence has no edge reconstruction."
+  },
+  {
+    "symbol": "StoerWagner",
+    "problem": "Luogu P5632",
+    "url": "https://www.luogu.com.cn/problem/P5632",
+    "classification": "Officially titled standalone template problem",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "无向连通正权图的全局最小割，n至600、边权总和至10⁹；矩阵按无向边双向累加、自环忽略。核心返回费用与0-based割侧side，本题只输出费用。核心要求n≥2；单点没有非平凡割，驱动额外约定输出0。",
+    "tested_api": [
+      "solve"
+    ],
+    "local_evidence": "verification/cut-applications.json",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and rankings pending. P5632 driver prints only the weight; original-side certificate is covered by separate core tests. Arborescence has no edge reconstruction."
   }
 ]

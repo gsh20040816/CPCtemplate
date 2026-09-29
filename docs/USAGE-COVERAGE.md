@@ -13,7 +13,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | LazySeg | 待补 | pending_example |
 | XorBasis | [example-36](usage/example-36.cpp) | locally_checked_example |
 | Dinic | [example-1](usage/example-1.cpp) | locally_checked_example |
-| maximum_closure | 待补 | pending_example |
+| maximum_closure | [example-148（应用补充）](usage/example-148.cpp) | locally_checked_application |
 | MinCostFlow | [example-55](usage/example-55.cpp) | locally_checked_example |
 | SpfaFlow | [example-127](usage/example-127.cpp) | locally_checked_example |
 | Dijkstra | [example-59](usage/example-59.cpp) | locally_checked_example |
@@ -101,8 +101,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | PersistentDistinct | [example-46（应用补充）](usage/example-46.cpp) | locally_checked_application |
 | Hungarian | [example-80](usage/example-80.cpp) | locally_checked_example |
 | WeightedMatching | [example-73](usage/example-73.cpp) | locally_checked_example |
-| Arborescence | 待补 | pending_example |
-| StoerWagner | 待补 | pending_example |
+| Arborescence | [example-149](usage/example-149.cpp) | locally_checked_example |
+| StoerWagner | [example-150](usage/example-150.cpp) | locally_checked_example |
 | gomory_hu | [example-56](usage/example-56.cpp) | locally_checked_example |
 | cut_tree_values | 待补 | pending_example |
 | BoundedCirculation | 待补 | pending_example |

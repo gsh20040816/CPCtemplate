@@ -1790,5 +1790,40 @@
     "requires": [
       "DivisionTree"
     ]
+  },
+  {
+    "id": "example-148",
+    "symbol": "maximum_closure",
+    "problem": "Luogu P2762 太空飞行计划问题",
+    "url": "https://www.luogu.com.cn/problem/P2762",
+    "summary": "选实验获得收益，配置仪器支付费用，输出最优实验/仪器编号和净收益。m、n至50，单项费用为正且小于2³¹，累计用long long。逐行读取变长依赖，istringstream兼容CRLF；实验i依赖仪器m+j。应用用法，不计非比赛模板覆盖。",
+    "driver": "verify/luogu/P2762.compact.cpp",
+    "requires": [
+      "Dinic",
+      "maximum_closure"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-149",
+    "symbol": "Arborescence",
+    "problem": "Luogu P4716",
+    "url": "https://www.luogu.com.cn/problem/P4716",
+    "summary": "给定根的有向最小树形图费用，无解输出-1。n至100、m至10⁴、正权至10⁶；顶点和根从1-based转0-based。optional有值时才解引用，本题总费用可转long long；核心只返回费用，不恢复选边。",
+    "driver": "verify/luogu/P4716.compact.cpp",
+    "requires": [
+      "Arborescence"
+    ]
+  },
+  {
+    "id": "example-150",
+    "symbol": "StoerWagner",
+    "problem": "Luogu P5632",
+    "url": "https://www.luogu.com.cn/problem/P5632",
+    "summary": "无向连通正权图的全局最小割，n至600、边权总和至10⁹；矩阵按无向边双向累加、自环忽略。核心返回费用与0-based割侧side，本题只输出费用。核心要求n≥2；单点没有非平凡割，驱动额外约定输出0。",
+    "driver": "verify/luogu/P5632.compact.cpp",
+    "requires": [
+      "StoerWagner"
+    ]
   }
 ]

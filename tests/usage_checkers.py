@@ -13,6 +13,18 @@ def check_output(example_id, mode, data, stdout, expected):
             for i, (_, step) in enumerate(queries):
                 count = int(lines[2 * i])
                 assert len(lines[2 * i + 1].split()) == count // step
+    elif isinstance(expected, dict) and 'project_plan' in expected:
+        profit, needs, cost, best = expected['project_plan']
+        lines = stdout.splitlines()
+        assert len(lines) == 3, 'Two selection lines and one objective line required'
+        a, b = [list(map(int, line.split())) for line in lines[:2]]
+        assert len(a) == len(set(a)) and len(b) == len(set(b)), 'Duplicate IDs'
+        assert all(1 <= i <= len(profit) for i in a)
+        assert all(1 <= j <= len(cost) for j in b)
+        tools = {j-1 for j in b}
+        assert all(set(needs[i-1]) <= tools for i in a), 'Missing required instrument'
+        value = sum(profit[i-1] for i in a) - sum(cost[j-1] for j in b)
+        assert lines[2].split() == [str(best)] and value == best
     elif isinstance(expected, dict) and 'xor_system' in expected:
         a, b = expected['xor_system']
         n = len(a[0])

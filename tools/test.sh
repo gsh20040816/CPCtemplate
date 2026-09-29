@@ -603,3 +603,5 @@ python3 tests/mst_switch_applications.py
 "$CXX" "${flags[@]}" tests/division_tree.cpp -o build/division-core
 build/division-core
 python3 tests/division_applications.py
+
+python3 tests/cut_applications.py

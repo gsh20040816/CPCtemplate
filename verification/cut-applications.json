@@ -1,0 +1,32 @@
+{
+  "scope": "Complete current drivers and exact printed usage programs, normal and ASan/UBSan; no online AC or ranking.",
+  "recorded_at_utc": "2026-09-29T12:28:57.058276+00:00",
+  "core_unchanged_from": "7a9922f",
+  "files": {
+    "src/compact/maximum_closure.hpp": "08acfa4d02711ab632f5a40133e7cbea9b995568f973bcb75bc55169c13ff23d",
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "src/compact/graph_advanced.hpp": "3b892063307b0f50f1f373085d40f4e2b7160fb16a23ea8c13ae726fe37c1059",
+    "tests/cut_applications.py": "081bba3221b714f33d33a5fec927360ef67a485270d753151b3c2081231c255d",
+    "tests/usage_checkers.py": "4da3bf852f411a72d9a4d798e2265a768e58f702126eb94f3a832c5245e925cb",
+    "verify/luogu/P2762.compact.cpp": "daac42be38de1c752562d31aaffa096fb5f14524bb059f8bc17a2daa8c686eff",
+    "verify/luogu/P4716.compact.cpp": "f15e9dac8a6e2e5d17a942baad9b476b1532524b3618a6af2a02e82b8df0bdc1",
+    "verify/luogu/P5632.compact.cpp": "6003b1c1ac83874e12ddd346287d17131d12ddbe4da774d5ff8f463ae558af27"
+  },
+  "logs": {
+    "build/cut-app-normal.txt": "P2762 PASS: 660 independent optimum and selection certificates; exhaustive 2x2 models, CRLF/LF, empty lines, 50x50 and 64-bit totals; 6 negative controls rejected\nP4716 PASS: 355 full inputs; independent incoming-edge choices and root reachability; 100-vertex/10000-edge nested cycles, arbitrary roots, unreachable and maximum weights\nP5632 PASS: 891 official-scope full inputs; all connected ternary-weight graphs through 4 vertices and independent cut enumeration; 600-vertex dense/chain/star/bridge families\nP5632 extensions PASS: singleton convention, disconnected graph, parallel/reversed edges and ignored loops\n",
+    "build/cut-app-san.txt": "P2762 PASS: 660 independent optimum and selection certificates; exhaustive 2x2 models, CRLF/LF, empty lines, 50x50 and 64-bit totals; 6 negative controls rejected\nP4716 PASS: 355 full inputs; independent incoming-edge choices and root reachability; 100-vertex/10000-edge nested cycles, arbitrary roots, unreachable and maximum weights\nP5632 PASS: 891 official-scope full inputs; all connected ternary-weight graphs through 4 vertices and independent cut enumeration; 600-vertex dense/chain/star/bridge families\nP5632 extensions PASS: singleton convention, disconnected graph, parallel/reversed edges and ignored loops\n",
+    "build/cut-usage.txt": "Usage examples: 3 exact printed usage programs in normal and ASan/UBSan modes PASS; 150 current program records\n"
+  },
+  "statement_sources": [
+    "https://www.luogu.com.cn/problem/P2762",
+    "https://www.luogu.com.cn/problem/P4716",
+    "https://www.luogu.com.cn/problem/P5632"
+  ],
+  "historical_core_evidence": [
+    "verification/arborescence-sanitizer-tests.txt",
+    "verification/arborescence-tests.txt",
+    "verification/global-min-cut-sanitizer-tests.txt",
+    "verification/global-min-cut-tests.txt",
+    "verification/maximum-closure-driver-tests.txt"
+  ]
+}

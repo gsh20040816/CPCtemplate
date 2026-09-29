@@ -114,6 +114,9 @@
 | `GaussXor` | [POJ 1681](http://poj.org/problem?id=1681) | Locally tested n<=15,t<=20; w requires toggle, y does not; own cell and four neighbors; enumerate entire affine solution space to minimize presses. | 待编写驱动/提交 | 待核验 |
 | `DivisionTree` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | N/Q<=200000, values 0..1e9; kth(l-1,r,k-1) converts 1-based closed interval/rank. | 待编写驱动/提交 | 待核验 |
 | `DivisionTree` | [Library Checker range_kth_smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | N/Q<=200000, values 0..1e9; directly query half-open [l,r), 0-based k. | 待编写驱动/提交 | 待核验 |
+| `maximum_closure` | [Luogu P2762 太空飞行计划问题](https://www.luogu.com.cn/problem/P2762) | 选实验获得收益，配置仪器支付费用，输出最优实验/仪器编号和净收益。m、n至50，单项费用为正且小于2³¹，累计用long long。逐行读取变长依赖，istringstream兼容CRLF；实验i依赖仪器m+j。应用用法，不计非比赛模板覆盖。 | 待编写驱动/提交 | 待核验 |
+| `Arborescence` | [Luogu P4716](https://www.luogu.com.cn/problem/P4716) | 给定根的有向最小树形图费用，无解输出-1。n至100、m至10⁴、正权至10⁶；顶点和根从1-based转0-based。optional有值时才解引用，本题总费用可转long long；核心只返回费用，不恢复选边。 | 待编写驱动/提交 | 待核验 |
+| `StoerWagner` | [Luogu P5632](https://www.luogu.com.cn/problem/P5632) | 无向连通正权图的全局最小割，n至600、边权总和至10⁹；矩阵按无向边双向累加、自环忽略。核心返回费用与0-based割侧side，本题只输出费用。核心要求n≥2；单点没有非平凡割，驱动额外约定输出0。 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1008,6 +1011,30 @@ Standalone template problem; local validation only.
 
 
 No online AC or ranking; local validation only.
+
+### Luogu P2762 太空飞行计划问题 / maximum_closure
+
+Application; not formal template coverage
+
+
+
+Online AC and rankings pending. P5632 driver prints only the weight; original-side certificate is covered by separate core tests. Arborescence has no edge reconstruction.
+
+### Luogu P4716 / Arborescence
+
+Officially titled standalone template problem
+
+
+
+Online AC and rankings pending. P5632 driver prints only the weight; original-side certificate is covered by separate core tests. Arborescence has no edge reconstruction.
+
+### Luogu P5632 / StoerWagner
+
+Officially titled standalone template problem
+
+
+
+Online AC and rankings pending. P5632 driver prints only the weight; original-side certificate is covered by separate core tests. Arborescence has no edge reconstruction.
 
 ## 榜单口径
 

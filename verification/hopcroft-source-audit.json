@@ -1,0 +1,19 @@
+{
+  "scope": "Pinned kuangbin 4.10.3 source audit and unchanged current vector core tests only; no online AC or ranking.",
+  "recorded_at_utc": "2026-09-29T13:33:42.471824+00:00",
+  "core_unchanged_from": "7a9922f",
+  "files": {
+    "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+    "tests/hopcroft_karp.cpp": "c6a4a4c525aea1b161fb46ed43d883675cc6f84bef457d9f0b91b07452f7af89",
+    "tools/test_baseline.py": "59305da641a433fdfaf83f98f0fefa451c68971a3c159124ec2b894f244b946b",
+    "verify/luogu/P3386.compact.cpp": "5aa5a2e5b59654ededc247270953def8037243bdcc6a958fe6d82e2ba0d3cb1d"
+  },
+  "source_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "source_pages": "149–152, 4.10.1–4.10.3; only 4.10.3 completed",
+  "baseline": "1a9fa3e91d7dff58915341040be069611370054c",
+  "isolation": "Temporary checkout: copy current src and tests/hopcroft_karp.cpp; extract pinned src/classic, compile with -pthread using g++-16; run ordinary and address/undefined sanitizers. Historical library not restored to workspace.",
+  "logs": {
+    "build/hk-source-normal.txt": "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS\n",
+    "build/hk-source-san.txt": "Hopcroft-Karp exhaustive matching/cover, incremental edges and long layered path PASS\n"
+  }
+}
