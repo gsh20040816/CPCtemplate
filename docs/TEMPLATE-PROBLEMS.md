@@ -88,6 +88,28 @@
 | `BostanMori` | [Library Checker kth_term_of_linearly_recurrent_sequence](https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence) | 1<=d<=100000; 0<=k<=10^18; normalized coefficients and initial values modulo 998244353; input initial values before recurrence coefficients | 待编写驱动/提交 | 待核验 |
 | `convolution_fft` | [Luogu P3803](https://www.luogu.com.cn/problem/P3803) | 0<=n,m<=1000000; integer coefficients 0..9 | 待编写驱动/提交 | 待核验 |
 | `convolution_mod_fft` | [Luogu P4245](https://www.luogu.com.cn/problem/P4245) | 1<=n,m<=100000; coefficients 0..10^9; 2<=mod<=1000000009 | 待编写驱动/提交 | 待核验 |
+| `integer_hull` | [Luogu P2742](https://www.luogu.com.cn/problem/P2742) | 3<=n<=100000; \|coordinate\|<=1000000, at most two fractional decimal digits | 待编写驱动/提交 | 待核验 |
+| `convex_diameter2` | [Luogu P1452](https://www.luogu.com.cn/problem/P1452) | 2<=n<=50000 distinct points; \|coordinate\|<=10000 | 待编写驱动/提交 | 待核验 |
+| `IntegerHalfplanes` | [Luogu P4196](https://www.luogu.com.cn/problem/P4196) | 2<=polygons<=10; 3<=vertices<=50 each; CCW; integer coordinates in [-1000,1000] | 待编写驱动/提交 | 待核验 |
+| `IntegerPlane` | [Library Checker sort_points_by_argument](https://judge.yosupo.jp/problem/sort_points_by_argument) | 1<=n<=200000; \|x\|,\|y\|<=10^9; order (-pi,pi], origin angle 0, equal angles arbitrary | 待编写驱动/提交 | 待核验 |
+| `SpfaFlow` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000, m<=50000; nonnegative integer capacity/cost<=1000; no self-loop; flow and minimum cost<=2^31-1; distinct source/sink required by API | 待编写驱动/提交 | 待核验 |
+| `BiconnectedCore` | [Library Checker biconnected_components](https://judge.yosupo.jp/problem/biconnected_components) | 1<=N<=500000; 0<=M<=500000; parallel edges allowed, no loops | 待编写驱动/提交 | 待核验 |
+| `BiconnectedCore` | [Library Checker two_edge_connected_components](https://judge.yosupo.jp/problem/two_edge_connected_components) | 1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed | 待编写驱动/提交 | 待核验 |
+| `manacher` | [Luogu P3805](https://www.luogu.com.cn/problem/P3805) | 1<=n<=11000000; lowercase English letters | 待编写驱动/提交 | 待核验 |
+| `SuffixArray` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase English letters | 待编写驱动/提交 | 待核验 |
+| `SuffixArray` | [Library Checker longest_common_substring](https://judge.yosupo.jp/problem/longest_common_substring) | 1<=\|S\|,\|T\|<=500000; lowercase | 待编写驱动/提交 | 待核验 |
+| `GeneralSAM` | [Luogu P6139](https://www.luogu.com.cn/problem/P6139) | 1<=n<=400000; nonempty lowercase strings; total length<=1000000; 1s/512MB | 待编写驱动/提交 | 待核验 |
+| `unit_flow_edges` | [QOJ 10424 / NERC 2024 K](https://qoj.ac/problem/10424) | 1<=k<=n<=2000; sum(n)<=2000; two permutations and partial subsequences; 3s/1024MB | 待编写驱动/提交 | 待核验 |
+| `closest_pair_i64` | [Library Checker closest_pair](https://judge.yosupo.jp/problem/closest_pair) | T<=100000; 2<=N; sum(N)<=500000; integer \|x\|,\|y\|<=1e9 | 待编写驱动/提交 | 待核验 |
+| `polygon_contains` | [AOJ CGL_3_C](https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_C) | 3<=n<=100; q<=1000; integer coordinates with absolute values<=10000; CCW simple polygon, not necessarily convex | 待编写驱动/提交 | 待核验 |
+| `minkowski_sum` | [Luogu P4557 [JSOI2018] 战争](https://www.luogu.com.cn/problem/P4557) | 3<=n,m<=100000; q<=100000; \|coordinates\| and \|translation\|<=1e8; each set noncollinear; all original points distinct | 待编写驱动/提交 | 待核验 |
+| `CentroidPairs` | [Luogu P3806](https://www.luogu.com.cn/problem/P3806) | n<=10000,m<=100,k<=1e7,positive edge weights<=10000 | 待编写驱动/提交 | 待核验 |
+| `SubtreeColors` | [Codeforces 600E](https://codeforces.com/problemset/problem/600/E) | n<=100000,1<=colors<=n,root=1 | 待编写驱动/提交 | 待核验 |
+| `VirtualTree` | [Luogu P2495 [SDOI2011] 消耗战](https://www.luogu.com.cn/problem/P2495) | n<=250000,queries<=500000,sum(keys)<=500000,1<=weights<=100000,keys exclude root1 | 待编写驱动/提交 | 待核验 |
+| `WaveletMatrix` | [Library Checker range_kth_smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | 静态数组，查询半开区间[l,r)内第k小，l/r/k均按题面0-based；直接调用kth。n、q至20万，值在0..10⁹。 | 待编写驱动/提交 | 待核验 |
+| `WaveletMatrix` | [Library Checker static_range_frequency](https://judge.yosupo.jp/problem/static_range_frequency) | 静态数组，统计半开区间[l,r)中x的出现次数；允许空数组、空查询区间、q=0和未出现的x。n、q至50万，值在0..10⁹。 | 待编写驱动/提交 | 待核验 |
+| `WaveletMatrix` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | 静态区间第k小；题目为1-based闭区间和1-based k，调用时转换成kth(l-1,r,k-1)。n、q至20万，题面值在0..10⁹；本程序采用小波矩阵，不建立历史版本。 | 待编写驱动/提交 | 待核验 |
+| `GaussXor` | [Library Checker system_of_linear_equations_mod_2](https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2) | 给定模2矩阵A和右端b，输出无解-1，或解空间维数、一个特解和全部零空间基。输出维数是变量数减系数秩，不是rank。输入每行是连续01字符，先把b追加到对应行；行列数各至4096。 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -217,7 +239,7 @@ Standalone, explicitly designated standard template; reuse in template-practice 
 
 Use extend and counts; maximize cnt[u]*a[u].len only where cnt[u]>1, otherwise output zero. Use 64-bit multiplication. distinct is not tested. The QOJ217 candidate was not reviewed because the fetch returned HTTP 429; no equivalence to it is claimed.
 
-Driver, online evidence and fastest-ranking scope still require verification.
+Independent local frequency oracle and million-letter closed forms passed in normal and sanitizer modes. Online AC and ranking still pending.
 
 ### Luogu P3369 / OrderedTreap
 
@@ -774,6 +796,182 @@ Official standalone polynomial multiplication template.
 
 
 New FFT implementation: online AC and ranking pending. Local exact references, full-size complete drivers and all-root high-precision checks recorded separately. Numeric preconditions remain part of the contract.
+
+### Luogu P2742 / integer_hull
+
+Competition-origin application supplement; does not complete the noncompetition-template requirement.
+
+
+
+Online AC and ranking pending. Current vector driver independently verified in both local modes; see geometry-attachment.json.
+
+### Luogu P1452 / convex_diameter2
+
+Competition-origin application supplement; does not complete the noncompetition-template requirement.
+
+
+
+Online AC and ranking pending. Current vector driver independently verified in both local modes; see geometry-attachment.json.
+
+### Luogu P4196 / IntegerHalfplanes
+
+Competition-origin application supplement; does not complete the noncompetition-template requirement.
+
+
+
+Online AC and ranking pending. Current vector driver independently verified in both local modes; see geometry-attachment.json.
+
+### Library Checker sort_points_by_argument / IntegerPlane
+
+Official standalone integer argument-sort template; tests only Point and PolarLess, not all plane predicates.
+
+
+
+Online AC and ranking pending. Pinned official local checker accepts all 21 cases in both modes.
+
+### Luogu P3381 / SpfaFlow
+
+Official standalone minimum-cost maximum-flow template; new SPFA variant tested separately from old potential version.
+
+
+
+Online AC and ranking pending. used, limits, continuation, negative edges and global negative-cycle rejection have independent local tests, beyond P3381 scope.
+
+### Library Checker biconnected_components / BiconnectedCore
+
+Library Checker standalone standard template task.
+
+Vertex blocks, singleton isolated vertices; input and output zero-based, adapted to one-based core
+
+Official generated data accepted locally in both modes. No online AC or ranking.
+
+### Library Checker two_edge_connected_components / BiconnectedCore
+
+Library Checker standalone standard template task.
+
+Group vertices by bel after run; input and output zero-based, adapted to one-based core
+
+Official generated data accepted locally in both modes. No online AC or ranking.
+
+### Luogu P3805 / manacher
+
+Luogu explicitly labeled standard Manacher template.
+
+Take max of 2*odd[i]-1 and 2*even[i]; no transformed-string radius convention.
+
+Local independent and maximum-length verification only; online AC and ranking pending.
+
+### Library Checker suffixarray / SuffixArray
+
+Library Checker standalone standard string task.
+
+
+
+Official generated data accepted locally in normal and sanitizer modes; no online AC or ranking.
+
+### Library Checker longest_common_substring / SuffixArray
+
+Library Checker standalone standard string task.
+
+
+
+Official generated data accepted locally in normal and sanitizer modes; no online AC or ranking.
+
+### Luogu P6139 / GeneralSAM
+
+Official generalized suffix automaton template; official sample 1 requires endpos state count 10, not suffix-union minimal partial DFA count 7.
+
+
+
+Online submission/hidden tests and ranking unverified. Interpret second output according to official sample endpos-class convention.
+
+### QOJ 10424 / NERC 2024 K / unit_flow_edges
+
+Regional contest application, not a standalone template problem; excluded from formal template coverage.
+
+
+
+Online AC/ranking unverified; general unit-edge kernel evidence retained independently.
+
+### Library Checker closest_pair / closest_pair_i64
+
+Official standalone geometry template; outputs original point IDs, including duplicate coordinates.
+
+
+
+Online AC and speed ranking pending. Local official-checker acceptance is not online acceptance.
+
+### AOJ CGL_3_C / polygon_contains
+
+Aizu Library of Computational Geometry standalone polygon-point containment task.
+
+
+
+Online AC and speed ranking pending. Extended clockwise/degenerate core checks are separate from official input constraints.
+
+### Luogu P4557 [JSOI2018] 战争 / minkowski_sum
+
+Competition application, not standalone template coverage. Minkowski difference plus logarithmic convex containment.
+
+
+
+Online AC pending. Does not finish formal template matching for Minkowski sum or convex containment.
+
+### Luogu P3806 / CentroidPairs
+
+Explicit standalone centroid-decomposition template; tests existence of distinct pairs at exact distance. count_leq and broader forest/zero-weight contracts separately checked locally.
+
+
+
+No new online submission this batch. Historical snapshots remain separately audited; formal coverage/ranking not inferred from local tests.
+
+### Codeforces 600E / SubtreeColors
+
+Competition application; formal noncompetition template matching remains pending.
+
+
+
+No new online submission this batch. Historical snapshots remain separately audited; formal coverage/ranking not inferred from local tests.
+
+### Luogu P2495 [SDOI2011] 消耗战 / VirtualTree
+
+Provincial competition application despite current template-labelled title; formal noncompetition template matching remains pending.
+
+
+
+No new online submission this batch. Historical snapshots remain separately audited; formal coverage/ranking not inferred from local tests.
+
+### Library Checker range_kth_smallest / WaveletMatrix
+
+Standalone template problem; local validation only
+
+
+
+Online AC and speed ranking pending; extra core APIs and extended inputs have separate local tests.
+
+### Library Checker static_range_frequency / WaveletMatrix
+
+Standalone template problem; local validation only
+
+
+
+Online AC and speed ranking pending; extra core APIs and extended inputs have separate local tests.
+
+### Luogu P3834 / WaveletMatrix
+
+Standalone template problem; local validation only
+
+
+
+Online AC and speed ranking pending; extra core APIs and extended inputs have separate local tests.
+
+### Library Checker system_of_linear_equations_mod_2 / GaussXor
+
+Standalone template problem; local validation only
+
+
+
+Online AC and speed ranking pending; extra core APIs and extended inputs have separate local tests.
 
 ## 榜单口径
 

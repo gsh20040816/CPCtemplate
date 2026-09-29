@@ -1762,9 +1762,37 @@ Lagrange(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long 
 
 \lstinputlisting{usage/example-17.cpp}
 
-\Needspace{674pt}
+\Needspace{680pt}
 
 \section{高斯消元}
+
+\subsection{压位模2高斯消元与全部解}\label{compact-GaussXor}\index{GaussXor}
+
+GaussXor::solve(a,n)，a为m行n+1列的01字符串增广矩阵，0$\le$n<INT\_MAX，最末字符为右端项。返回consistent、系数秩rank、01字符串特解particular与零空间基kernel；所有解为特解异或任意基子集。无解时解数组为空；rank仍为系数秩。有解时kernel.size()=n-rank，唯一解的kernel为空。允许空方程组或零变量，原输入不变。自由列按原列号递增，基在各自自由列为1、其他自由列为0；没有最少1个数保证。时间O(mn+mn min(m,n)/64+n$^{2}$)，除输入外空间O(m ceil((n+1)/64)+n$^{2}$)；输出本身可能有n$^{2}$字符。全程精确异或，不用eps。
+
+\lstinputlisting[firstline=8,lastline=50,firstnumber=1]{../src/compact/gauss_xor.hpp}
+
+\newpage
+
+\noindent 构造特解与零空间基（接上页 solve）（接上页同一结构体）：
+
+\lstinputlisting[firstline=51,lastline=65,firstnumber=44]{../src/compact/gauss_xor.hpp}
+
+\Needspace{401pt}
+
+\subsection*{模板题使用：Library Checker system\_of\_linear\_equations\_mod\_2}
+
+\label{usage-example-143}
+
+题意：给定模2矩阵A和右端b，输出无解-1，或解空间维数、一个特解和全部零空间基。输出维数是变量数减系数秩，不是rank。输入每行是连续01字符，先把b追加到对应行；行列数各至4096。
+
+所需模板：GaussXor。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2}
+
+\lstinputlisting{usage/example-143.cpp}
+
+\Needspace{639pt}
 
 \subsection{素数模高斯消元与全部解}\label{compact-GaussMod}\index{GaussMod}
 
@@ -2197,6 +2225,72 @@ MonotoneStackSeg(a) 要求非空 long long 数组；add(l,r,delta) 对 0-based �
 题目：\url{https://judge.yosupo.jp/problem/line_add_get_min}
 
 \lstinputlisting{usage/example-89.cpp}
+
+\Needspace{680pt}
+
+\chapter{划分树}
+
+\noindent 相关应用：小波矩阵使用逐位稳定划分和压位rank，解决静态区间顺序统计；在固定导航的划分树下按相关结构收录，不等同于原文划分树实现。
+
+\section{压位小波矩阵：静态区间顺序统计}\label{compact-WaveletMatrix}\index{WaveletMatrix}
+
+WaveletMatrix(a)，a为0-based vector<long long>，支持完整有符号64位和重复值，建后不可修改；n 小于 INT\_MAX。接口都用半开区间[l,r)。kth(l,r,k)取0-based第k小，要求0$\le$k<r-l；第k大改传r-l-1-k。less(l,r,x)统计严格小于x，freq统计等于x；两计数允许空数组和空区间，kth不允许。构造O(n log(n+1))，查询O(log(s+1))，s为不同值数。常驻空间O(n+ceil(n/64)log(s+1))机器字，构造另用O(n)空间。rank为内部方法，成员只读。字边界、区间值域计数及证明见本册补充说明。
+
+\lstinputlisting[firstline=8,lastline=26,firstnumber=1]{../src/compact/wavelet_matrix.hpp}
+
+\newpage
+
+\noindent 逐层稳定划分（接上页构造函数）、rank 与第 k 小（接上页同一结构体）：
+
+\lstinputlisting[firstline=27,lastline=80,firstnumber=20]{../src/compact/wavelet_matrix.hpp}
+
+\newpage
+
+\noindent 严格小于计数与频次（接上页同一结构体）：
+
+\lstinputlisting[firstline=81,lastline=127,firstnumber=74]{../src/compact/wavelet_matrix.hpp}
+
+\Needspace{337pt}
+
+\subsection*{模板题使用：Library Checker range\_kth\_smallest}
+
+\label{usage-example-140}
+
+题意：静态数组，查询半开区间[l,r)内第k小，l/r/k均按题面0-based；直接调用kth。n、q至20万，值在0..10$^{9}$。
+
+所需模板：WaveletMatrix。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/range_kth_smallest}
+
+\lstinputlisting{usage/example-140.cpp}
+
+\Needspace{348pt}
+
+\subsection*{模板题使用：Library Checker static\_range\_frequency}
+
+\label{usage-example-141}
+
+题意：静态数组，统计半开区间[l,r)中x的出现次数；允许空数组、空查询区间、q=0和未出现的x。n、q至50万，值在0..10$^{9}$。
+
+所需模板：WaveletMatrix。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/static_range_frequency}
+
+\lstinputlisting{usage/example-141.cpp}
+
+\Needspace{346pt}
+
+\subsection*{模板题使用：Luogu P3834}
+
+\label{usage-example-142}
+
+题意：静态区间第k小；题目为1-based闭区间和1-based k，调用时转换成kth(l-1,r,k-1)。n、q至20万，题面值在0..10$^{9}$；本程序采用小波矩阵，不建立历史版本。
+
+所需模板：WaveletMatrix。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3834}
+
+\lstinputlisting{usage/example-142.cpp}
 
 \Needspace{301pt}
 

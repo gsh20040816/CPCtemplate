@@ -1,0 +1,36 @@
+{
+  "scope": "Current source core, complete printed drivers and independent oracles in normal and ASan/UBSan modes; local evidence only, not online AC or speed ranking.",
+  "recorded_at_utc": "2026-09-29T11:46:14.580204+00:00",
+  "compiler": "/opt/homebrew/bin/g++-16 (GCC 16.2.0)",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "files": {
+    "src/compact/wavelet_matrix.hpp": "620265fa8d27602412b04cd7efe8d425c131a13227432077b8d0e761458642eb",
+    "tests/wavelet_matrix.cpp": "45a6e18a2fbb6bfe337bb1778f9a43d60caca341be74a59162107bcd96fd5a84",
+    "tests/wavelet_applications.py": "ca36ead83d2168cd7f21280bb404c9b95032676f0f138258eb065e673bbd1e9c",
+    "verify/library_checker/range_kth_smallest.wavelet.compact.cpp": "3ac01049537e8504ee34c24c8095a6e4eb59e09eb8f2aa7f14461c521828e983",
+    "verify/library_checker/static_range_frequency.wavelet.compact.cpp": "959149618f5f7b1ab26b1c752b07c1fa9adf1519b045cb78809fd154ccfb1aa0",
+    "verify/luogu/P3834.wavelet.compact.cpp": "4f19f4a31c19031aefc130a78672171de04c7c3333bddfead76477b570b4c5c3"
+  },
+  "logs": {
+    "build/wavelet-core.txt": "WaveletMatrix PASS: 3280 exhaustive arrays; 600 random; 27 word-boundary arrays; 3 x 500000 scale queries; 10316541 API checks\n",
+    "build/wavelet-core-san.txt": "WaveletMatrix PASS: 3280 exhaustive arrays; 600 random; 27 word-boundary arrays; 3 x 500000 scale queries; 10316541 API checks\n",
+    "build/wavelet-app-normal.txt": "Wavelet full drivers PASS: 160 independent inputs x 3 drivers; empty input/query; 200000/200000/500000 maximum N=Q with closed-form answers\n",
+    "build/wavelet-app-san.txt": "Wavelet full drivers PASS: 160 independent inputs x 3 drivers; empty input/query; 200000/200000/500000 maximum N=Q with closed-form answers\n",
+    "build/wavelet-usage.txt": "Usage examples: 3 exact printed usage programs in normal and ASan/UBSan modes PASS; 142 current program records\n"
+  },
+  "source": {
+    "wida_commit": "484e9e0e6e4f127f187eb3df5bc419e9ec863795",
+    "path": "02 - 打印稿模板汇总/08 - 数据结构.md",
+    "sha256": "1f44b7fd6f6871ecbd667d9cab2ece0fad06d2e3f7bb15e3aa603e311b54c450",
+    "topic": "小波矩阵树：高效静态区间第 K 大查询"
+  },
+  "official_reports": {
+    "verification/wavelet-kth-official.json": "d1e482846de149e7e673126192b74692da7a59c0b6a99e95632bb1a0b6040a90",
+    "verification/wavelet-kth-official-san.json": "4fe0d9011fe0a82485c5d4ced87e567d21039f986e3f21615bb6e8223917a14b",
+    "verification/wavelet-freq-official.json": "806e58a370f898e45460018e5e5e136a7a3f3a693c26270025fff9f1f21ce2f8",
+    "verification/wavelet-freq-official-san.json": "5c4d0125e77d5384fbef977794b768aae0b66df2e32e72866fbe05fbe9204ad1"
+  }
+}

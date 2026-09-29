@@ -13,6 +13,28 @@ def check_output(example_id, mode, data, stdout, expected):
             for i, (_, step) in enumerate(queries):
                 count = int(lines[2 * i])
                 assert len(lines[2 * i + 1].split()) == count // step
+    elif isinstance(expected, dict) and 'xor_system' in expected:
+        a, b = expected['xor_system']
+        n = len(a[0])
+        # Small printed examples: enumerate the entire solution set independently.
+        def image(x):
+            return ''.join(str(sum(int(u) * int(v) for u, v in zip(row, x)) % 2) for row in a)
+        solutions = {''.join(x) for x in itertools.product('01', repeat=n) if image(x) == b}
+        if not solutions:
+            assert stdout.split() == ['-1']
+            return
+        lines = stdout.splitlines()
+        dim = len(solutions).bit_length() - 1
+        assert lines[0] == str(dim) and len(lines) == dim + 2
+        assert all(len(v) == n and set(v) <= {'0', '1'} for v in lines[1:])
+        produced = set()
+        for mask in range(1 << dim):
+            x = list(map(int, lines[1]))
+            for i, v in enumerate(lines[2:]):
+                if mask >> i & 1:
+                    x = [u ^ int(w) for u, w in zip(x, v)]
+            produced.add(''.join(map(str, x)))
+        assert produced == solutions
     elif isinstance(expected, dict) and 'odd_partition' in expected:
         n, edges = expected['odd_partition']
         g = [[] for _ in range(n)]

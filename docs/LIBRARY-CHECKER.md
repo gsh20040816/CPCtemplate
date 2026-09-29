@@ -70,7 +70,7 @@
 | [Range Affine Range Sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | [range_affine_range_sum.compact.cpp](../verify/library_checker/range_affine_range_sum.compact.cpp) |
 | [Range Affine Range Sum (Large Array)](https://judge.yosupo.jp/problem/range_affine_range_sum_large_array) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Chmin Chmax Add Range Sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Range Kth Smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Range Kth Smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | Data Structure | 待逐题审题、适配与在线验证 | [range_kth_smallest.wavelet.compact.cpp](../verify/library_checker/range_kth_smallest.wavelet.compact.cpp) |
 | [Range Linear Add Range Min](https://judge.yosupo.jp/problem/range_linear_add_range_min) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Parallel Unionfind](https://judge.yosupo.jp/problem/range_parallel_unionfind) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Reverse Range Sum](https://judge.yosupo.jp/problem/range_reverse_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
@@ -80,7 +80,7 @@
 | [Segment Add Get Min](https://judge.yosupo.jp/problem/segment_add_get_min) | Data Structure | 待逐题审题、适配与在线验证 | [segment_add_get_min.compact.cpp](../verify/library_checker/segment_add_get_min.compact.cpp) |
 | [Set Xor-Min](https://judge.yosupo.jp/problem/set_xor_min) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Static Range Count Distinct](https://judge.yosupo.jp/problem/static_range_count_distinct) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Static Range Frequency](https://judge.yosupo.jp/problem/static_range_frequency) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Static Range Frequency](https://judge.yosupo.jp/problem/static_range_frequency) | Data Structure | 待逐题审题、适配与在线验证 | [static_range_frequency.wavelet.compact.cpp](../verify/library_checker/static_range_frequency.wavelet.compact.cpp) |
 | [Static Range Inversions Query](https://judge.yosupo.jp/problem/static_range_inversions_query) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Static Range LIS Query](https://judge.yosupo.jp/problem/static_range_lis_query) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Static Range Mode Query](https://judge.yosupo.jp/problem/static_range_mode_query) | Data Structure | 待逐题审题、适配与在线验证 | — |
@@ -107,16 +107,16 @@
 | [Stirling Number of the Second Kind](https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
 | [Stirling Number of the Second Kind (Fixed K)](https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
 | [Stirling Number of the Second Kind (Small p, Large n)](https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_small_p_large_n) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
-| [Closest Pair of Points](https://judge.yosupo.jp/problem/closest_pair) | Geometry | 待逐题审题、适配与在线验证 | — |
+| [Closest Pair of Points](https://judge.yosupo.jp/problem/closest_pair) | Geometry | 待逐题审题、适配与在线验证 | [closest_pair.compact.cpp](../verify/library_checker/closest_pair.compact.cpp) |
 | [Convex Layers](https://judge.yosupo.jp/problem/convex_layers) | Geometry | 待逐题审题、适配与在线验证 | — |
 | [Count Points in Triangles](https://judge.yosupo.jp/problem/count_points_in_triangle) | Geometry | 待逐题审题、适配与在线验证 | — |
 | [Euclidean MST](https://judge.yosupo.jp/problem/euclidean_mst) | Geometry | 待逐题审题、适配与在线验证 | — |
 | [Furthest Pair of Points](https://judge.yosupo.jp/problem/furthest_pair) | Geometry | 待逐题审题、适配与在线验证 | [furthest_pair.compact.cpp](../verify/library_checker/furthest_pair.compact.cpp) |
 | [Manhattan MST](https://judge.yosupo.jp/problem/manhattanmst) | Geometry | 待逐题审题、适配与在线验证 | — |
-| [Sort Points by Argument](https://judge.yosupo.jp/problem/sort_points_by_argument) | Geometry | 待逐题审题、适配与在线验证 | — |
+| [Sort Points by Argument](https://judge.yosupo.jp/problem/sort_points_by_argument) | Geometry | 待逐题审题、适配与在线验证 | [sort_points_by_argument.compact.cpp](../verify/library_checker/sort_points_by_argument.compact.cpp) |
 | [Static Convex Hull](https://judge.yosupo.jp/problem/static_convex_hull) | Geometry | 待逐题审题、适配与在线验证 | [static_convex_hull.compact.cpp](../verify/library_checker/static_convex_hull.compact.cpp) |
 | [Assignment Problem](https://judge.yosupo.jp/problem/assignment) | Graph | 待逐题审题、适配与在线验证 | [assignment.compact.cpp](../verify/library_checker/assignment.compact.cpp) |
-| [Biconnected Components](https://judge.yosupo.jp/problem/biconnected_components) | Graph | 待逐题审题、适配与在线验证 | — |
+| [Biconnected Components](https://judge.yosupo.jp/problem/biconnected_components) | Graph | 待逐题审题、适配与在线验证 | [biconnected_components.compact.cpp](../verify/library_checker/biconnected_components.compact.cpp) |
 | [Edge Coloring of Bipartite Graph](https://judge.yosupo.jp/problem/bipartite_edge_coloring) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Matching on Bipartite Graph](https://judge.yosupo.jp/problem/bipartitematching) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Chordal Graph Recognition](https://judge.yosupo.jp/problem/chordal_graph_recognition) | Graph | 待逐题审题、适配与在线验证 | — |
@@ -150,7 +150,7 @@
 | [st-Numbering](https://judge.yosupo.jp/problem/st_numbering) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Three-Edge-Connected Components](https://judge.yosupo.jp/problem/three_edge_connected_components) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Tree Decomposition (Width 2)](https://judge.yosupo.jp/problem/tree_decomposition_width_2) | Graph | 待逐题审题、适配与在线验证 | — |
-| [Two-Edge-Connected Components](https://judge.yosupo.jp/problem/two_edge_connected_components) | Graph | 待逐题审题、适配与在线验证 | — |
+| [Two-Edge-Connected Components](https://judge.yosupo.jp/problem/two_edge_connected_components) | Graph | 待逐题审题、适配与在线验证 | [two_edge_connected_components.compact.cpp](../verify/library_checker/two_edge_connected_components.compact.cpp) |
 | [Adjugate Matrix](https://judge.yosupo.jp/problem/adjugate_matrix) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Characteristic Polynomial](https://judge.yosupo.jp/problem/characteristic_polynomial) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Hafnian of Matrix](https://judge.yosupo.jp/problem/hafnian_of_matrix) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
@@ -167,7 +167,7 @@
 | [Pow of Matrix](https://judge.yosupo.jp/problem/pow_of_matrix) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [Determinant of Sparse Matrix](https://judge.yosupo.jp/problem/sparse_matrix_det) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
 | [System of Linear Equations](https://judge.yosupo.jp/problem/system_of_linear_equations) | Linear Algebra | 待逐题审题、适配与在线验证 | [system_of_linear_equations.compact.cpp](../verify/library_checker/system_of_linear_equations.compact.cpp) |
-| [System of Linear Equations (Mod 2)](https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | — |
+| [System of Linear Equations (Mod 2)](https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2) | Linear Algebra | 待逐题审题、适配与在线验证 | [system_of_linear_equations_mod_2.compact.cpp](../verify/library_checker/system_of_linear_equations_mod_2.compact.cpp) |
 | [Bernoulli Number](https://judge.yosupo.jp/problem/bernoulli_number) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Counting Primes](https://judge.yosupo.jp/problem/counting_primes) | Number Theory | 待逐题审题、适配与在线验证 | [counting_primes.compact.cpp](../verify/library_checker/counting_primes.compact.cpp) |
 | [Counting Square-free Integers](https://judge.yosupo.jp/problem/counting_squarefrees) | Number Theory | 待逐题审题、适配与在线验证 | — |
@@ -192,7 +192,7 @@
 | [Represent A Number As Two Square Sum](https://judge.yosupo.jp/problem/two_square_sum) | Number Theory | 待逐题审题、适配与在线验证 | — |
 | [Consecutive Terms of Linear Recurrent Sequence](https://judge.yosupo.jp/problem/consecutive_terms_of_linear_recurrent_sequence) | Other | 待逐题审题、适配与在线验证 | — |
 | [Find Linear Recurrence](https://judge.yosupo.jp/problem/find_linear_recurrence) | Other | 待逐题审题、适配与在线验证 | [find_linear_recurrence.compact.cpp](../verify/library_checker/find_linear_recurrence.compact.cpp) |
-| [Kth term of Linearly Recurrent Sequence](https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence) | Other | 待逐题审题、适配与在线验证 | — |
+| [Kth term of Linearly Recurrent Sequence](https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence) | Other | 待逐题审题、适配与在线验证 | [kth_term_of_linearly_recurrent_sequence.compact.cpp](../verify/library_checker/kth_term_of_linearly_recurrent_sequence.compact.cpp) |
 | [Longest Increasing Subsequence](https://judge.yosupo.jp/problem/longest_increasing_subsequence) | Other | 待逐题审题、适配与在线验证 | — |
 | [$\sum_{i=0}^{n-1} r^i i^d$](https://judge.yosupo.jp/problem/sum_of_exponential_times_polynomial) | Other | 待逐题审题、适配与在线验证 | — |
 | [$\sum_{i=0}^{\infty} r^i i^d$](https://judge.yosupo.jp/problem/sum_of_exponential_times_polynomial_limit) | Other | 待逐题审题、适配与在线验证 | — |
@@ -202,7 +202,7 @@
 | [Compositional Inverse of Formal Power Series](https://judge.yosupo.jp/problem/compositional_inverse_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Compositional Inverse of Formal Power Series (Large)](https://judge.yosupo.jp/problem/compositional_inverse_of_formal_power_series_large) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Conversion from Monomial Basis to Newton Basis](https://judge.yosupo.jp/problem/conversion_from_monomial_basis_to_newton_basis) | Polynomial | 待逐题审题、适配与在线验证 | — |
-| [Division of Polynomials](https://judge.yosupo.jp/problem/division_of_polynomials) | Polynomial | 待逐题审题、适配与在线验证 | — |
+| [Division of Polynomials](https://judge.yosupo.jp/problem/division_of_polynomials) | Polynomial | 待逐题审题、适配与在线验证 | [division_of_polynomials.compact.cpp](../verify/library_checker/division_of_polynomials.compact.cpp) |
 | [Exp of Formal Power Series](https://judge.yosupo.jp/problem/exp_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | [exp_of_formal_power_series.compact.cpp](../verify/library_checker/exp_of_formal_power_series.compact.cpp) |
 | [Exp of Formal Power Series (Sparse)](https://judge.yosupo.jp/problem/exp_of_formal_power_series_sparse) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Factorization of Polynomial (Mod)](https://judge.yosupo.jp/problem/factorization_of_polynomials) | Polynomial | 待逐题审题、适配与在线验证 | — |
@@ -217,11 +217,11 @@
 | [Polynomial Interpolation (Geometric Sequence)](https://judge.yosupo.jp/problem/polynomial_interpolation_on_geometric_sequence) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Polynomial Root Finding (Mod 998244353)](https://judge.yosupo.jp/problem/polynomial_root_finding) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Polynomial Taylor Shift](https://judge.yosupo.jp/problem/polynomial_taylor_shift) | Polynomial | 待逐题审题、适配与在线验证 | [polynomial_taylor_shift.compact.cpp](../verify/library_checker/polynomial_taylor_shift.compact.cpp) |
-| [Pow of Formal Power Series](https://judge.yosupo.jp/problem/pow_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | — |
+| [Pow of Formal Power Series](https://judge.yosupo.jp/problem/pow_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | [pow_of_formal_power_series.compact.cpp](../verify/library_checker/pow_of_formal_power_series.compact.cpp) |
 | [Pow of Formal Power Series (Sparse)](https://judge.yosupo.jp/problem/pow_of_formal_power_series_sparse) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Product of Polynomial Sequence](https://judge.yosupo.jp/problem/product_of_polynomial_sequence) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Shift of Sampling Points of Polynomial](https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial) | Polynomial | 待逐题审题、适配与在线验证 | — |
-| [Sqrt of Formal Power Series](https://judge.yosupo.jp/problem/sqrt_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | — |
+| [Sqrt of Formal Power Series](https://judge.yosupo.jp/problem/sqrt_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | [sqrt_of_formal_power_series.compact.cpp](../verify/library_checker/sqrt_of_formal_power_series.compact.cpp) |
 | [Sqrt of Formal Power Series (Sparse)](https://judge.yosupo.jp/problem/sqrt_of_formal_power_series_sparse) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [A + B](https://judge.yosupo.jp/problem/aplusb) | Sample | 排除：官方 Sample | — |
 | [Many A + B](https://judge.yosupo.jp/problem/many_aplusb) | Sample | 排除：官方 Sample | — |
@@ -232,13 +232,13 @@
 | [Subset Convolution](https://judge.yosupo.jp/problem/subset_convolution) | Set Power Series | 待逐题审题、适配与在线验证 | — |
 | [Eertree](https://judge.yosupo.jp/problem/eertree) | String | 待逐题审题、适配与在线验证 | — |
 | [Enumerate Palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | String | 待逐题审题、适配与在线验证 | [enumerate_palindromes.compact.cpp](../verify/library_checker/enumerate_palindromes.compact.cpp) |
-| [Longest Common Substring](https://judge.yosupo.jp/problem/longest_common_substring) | String | 待逐题审题、适配与在线验证 | — |
+| [Longest Common Substring](https://judge.yosupo.jp/problem/longest_common_substring) | String | 待逐题审题、适配与在线验证 | [longest_common_substring.compact.cpp](../verify/library_checker/longest_common_substring.compact.cpp) |
 | [Lyndon Factorization](https://judge.yosupo.jp/problem/lyndon_factorization) | String | 待逐题审题、适配与在线验证 | — |
 | [Number of Substrings](https://judge.yosupo.jp/problem/number_of_substrings) | String | 待逐题审题、适配与在线验证 | [number_of_substrings.compact.cpp](../verify/library_checker/general_sam/number_of_substrings.compact.cpp)<br>[number_of_substrings.compact.cpp](../verify/library_checker/number_of_substrings.compact.cpp) |
 | [Palindromes in Deque](https://judge.yosupo.jp/problem/palindromes_in_deque) | String | 待逐题审题、适配与在线验证 | — |
 | [Prefix-Substring LCS](https://judge.yosupo.jp/problem/prefix_substring_lcs) | String | 待逐题审题、适配与在线验证 | — |
 | [Run Enumerate](https://judge.yosupo.jp/problem/runenumerate) | String | 待逐题审题、适配与在线验证 | — |
-| [Suffix Array](https://judge.yosupo.jp/problem/suffixarray) | String | 待逐题审题、适配与在线验证 | — |
+| [Suffix Array](https://judge.yosupo.jp/problem/suffixarray) | String | 待逐题审题、适配与在线验证 | [suffixarray.compact.cpp](../verify/library_checker/suffixarray.compact.cpp) |
 | [Wildcard Pattern Matching](https://judge.yosupo.jp/problem/wildcard_pattern_matching) | String | 待逐题审题、适配与在线验证 | — |
 | [Z Algorithm](https://judge.yosupo.jp/problem/zalgorithm) | String | 待逐题审题、适配与在线验证 | [zalgorithm.compact.cpp](../verify/library_checker/zalgorithm.compact.cpp) |
 | [Cartesian Tree](https://judge.yosupo.jp/problem/cartesian_tree) | Tree | 待逐题审题、适配与在线验证 | — |

@@ -41,7 +41,7 @@ for pid, p in sorted(files.items(), key=lambda x: (category.get(x[0], 'Unlisted'
     drivers = []
     for d in sorted((root / 'verify/library_checker').rglob('*.compact.cpp')):
         urls = re.findall(r'https://judge\.yosupo\.jp/problem/([A-Za-z0-9_]+)', d.read_text())
-        if pid in urls or (not urls and d.name == pid + '.compact.cpp'):
+        if pid in urls or (not urls and d.name.split('.')[0] == pid):
             drivers.append(str(d.relative_to(root)))
     linked_reviews = []
     for review in reviews:

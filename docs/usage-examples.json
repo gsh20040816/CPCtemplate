@@ -1698,5 +1698,49 @@
       "VirtualTree"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-140",
+    "symbol": "WaveletMatrix",
+    "problem": "Library Checker range_kth_smallest",
+    "url": "https://judge.yosupo.jp/problem/range_kth_smallest",
+    "summary": "静态数组，查询半开区间[l,r)内第k小，l/r/k均按题面0-based；直接调用kth。n、q至20万，值在0..10⁹。",
+    "driver": "verify/library_checker/range_kth_smallest.wavelet.compact.cpp",
+    "requires": [
+      "WaveletMatrix"
+    ]
+  },
+  {
+    "id": "example-141",
+    "symbol": "WaveletMatrix",
+    "problem": "Library Checker static_range_frequency",
+    "url": "https://judge.yosupo.jp/problem/static_range_frequency",
+    "summary": "静态数组，统计半开区间[l,r)中x的出现次数；允许空数组、空查询区间、q=0和未出现的x。n、q至50万，值在0..10⁹。",
+    "driver": "verify/library_checker/static_range_frequency.wavelet.compact.cpp",
+    "requires": [
+      "WaveletMatrix"
+    ]
+  },
+  {
+    "id": "example-142",
+    "symbol": "WaveletMatrix",
+    "problem": "Luogu P3834",
+    "url": "https://www.luogu.com.cn/problem/P3834",
+    "summary": "静态区间第k小；题目为1-based闭区间和1-based k，调用时转换成kth(l-1,r,k-1)。n、q至20万，题面值在0..10⁹；本程序采用小波矩阵，不建立历史版本。",
+    "driver": "verify/luogu/P3834.wavelet.compact.cpp",
+    "requires": [
+      "WaveletMatrix"
+    ]
+  },
+  {
+    "id": "example-143",
+    "symbol": "GaussXor",
+    "problem": "Library Checker system_of_linear_equations_mod_2",
+    "url": "https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2",
+    "summary": "给定模2矩阵A和右端b，输出无解-1，或解空间维数、一个特解和全部零空间基。输出维数是变量数减系数秩，不是rank。输入每行是连续01字符，先把b追加到对应行；行列数各至4096。",
+    "driver": "verify/library_checker/system_of_linear_equations_mod_2.compact.cpp",
+    "requires": [
+      "GaussXor"
+    ]
   }
 ]

@@ -320,7 +320,7 @@ WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,坐标压缩与离散化,p
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,简单版本,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,封装,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,轻重链剖分/树链剖分,pending,,
-WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,小波矩阵树：高效静态区间第 K 大查询,pending,,
+WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,小波矩阵树：高效静态区间第 K 大查询,local-tested,src/compact/wavelet_matrix.hpp: WaveletMatrix,"docs/WAVELET-MATRIX.md; tests/wavelet_matrix.cpp; tests/wavelet_applications.py; verification/wavelet-*-official*.json; packed rank/stable partition, 0-based half-open kth/less/freq; largest via kth(l,r,r-l-1-k); no online AC"
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,普通莫队,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,带修改的莫队（带时间维度的莫队）,local-tested,src/compact/modified_mo.hpp,"tests/modified_mo.cpp independent snapshots, all ranges and times, forward/backward state invariants; P1903 complete driver and maximum constraints locally tested with ASan/UBSan; P1903 AC 297653743 (13 tests); leaderboard rank pending"
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,分数运算类,pending,,
@@ -584,7 +584,7 @@ kuangbin,ACM template (2018),32,2.7.4 线性筛（同时得到欧拉函数和素
 kuangbin,ACM template (2018),33,2.8 高斯消元（浮点数）,pending,,
 kuangbin,ACM template (2018),34,2.9 FFT,pending,,
 kuangbin,ACM template (2018),37,2.10 高斯消元法求方程组的解,pending,,
-kuangbin,ACM template (2018),37,2.10.1 一类开关问题，对 2 取模的 01 方程组,pending,,
+kuangbin,ACM template (2018),37,2.10.1 一类开关问题，对 2 取模的 01 方程组,partial,src/compact/gauss_xor.hpp: GaussXor,docs/GAUSS-XOR.md; tests/gauss_xor.cpp; verification/gauss-xor-official*.json; packed F2 solve/rank/particular/full kernel locally verified; source POJ1681 minimum-switch application still pending; no online AC
 kuangbin,ACM template (2018),39,2.10.2 解同余方程组,local-tested,src/compact/gauss_mod.hpp: GaussMod<7>::solve; verify/poj/2947.compact.cpp,tests/widget_factory_application.py; verification/widget-factory-driver-tests.txt; verification/widget-factory-sanitizer-tests.txt; classification and unique 3..9-day assignment; no OJ AC
 kuangbin,ACM template (2018),41,2.11 整数拆分,local-tested,src/compact/partitions.hpp,"tests/partitions.cpp; exact unbounded coin DP through 1000; bounded multiplicity oracle through 100; n=100000 boundaries; inclusive k API uses k+1 (source solve(n,k) formula means fewer than k); HDU statement unavailable; no OJ AC"
 kuangbin,ACM template (2018),43,2.12 求 AB 的约数之和对 MOD 取模,local-tested,src/compact/divisor_sum.hpp; verify/luogu/P1593.compact.cpp,tests/divisor_sum.cpp; tests/divisor_sum_application.py; inverse-free power/sum recursion; cpp_int matrix oracle; uint128 length; direct divisor oracle; 126 full driver cases each; no OJ AC

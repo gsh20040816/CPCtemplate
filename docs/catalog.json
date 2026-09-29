@@ -1156,5 +1156,17 @@
     "FpsPower",
     "形式幂级数快速幂（十进制大指数）",
     "FpsPower::power(a,exponent,n) 返回 a 的非负整数次幂模 x^n 的前 n 项，固定模数 998244353。exponent 为非空十进制数字 string_view，允许前导零；整数指数可传 to_string(k)。0≤n≤2²²，a.size() 须在 int 范围内；短输入补零、长输入只看前 n 项。n=0 返回空，零次幂（含零多项式的零次幂）返回 1。对首个非零项次数 s，若真实 s*k≥n 则返回全零；否则提取常数 c，计算 x^(s*k)*c^k*exp(k*log(a/(c*x^s)))。指数分别保留模 p、模 p-1 和截到 n 的值；不可仅用 k mod p 判零或算位移。依赖 FpsFunctions、FpsInverse、NTT。指数位数 L，时间 O(L+n log(n+1))、额外空间 O(n)，不支持负指数或小数指数。"
+  ],
+  [
+    "wavelet_matrix",
+    "WaveletMatrix",
+    "压位小波矩阵：静态区间顺序统计",
+    "WaveletMatrix(a)，a为0-based vector<long long>，支持完整有符号64位和重复值，建后不可修改；n 小于 INT_MAX。接口都用半开区间[l,r)。kth(l,r,k)取0-based第k小，要求0≤k<r-l；第k大改传r-l-1-k。less(l,r,x)统计严格小于x，freq统计等于x；两计数允许空数组和空区间，kth不允许。构造O(n log(n+1))，查询O(log(s+1))，s为不同值数。常驻空间O(n+ceil(n/64)log(s+1))机器字，构造另用O(n)空间。rank为内部方法，成员只读。字边界、区间值域计数及证明见本册补充说明。"
+  ],
+  [
+    "gauss_xor",
+    "GaussXor",
+    "压位模2高斯消元与全部解",
+    "GaussXor::solve(a,n)，a为m行n+1列的01字符串增广矩阵，0≤n<INT_MAX，最末字符为右端项。返回consistent、系数秩rank、01字符串特解particular与零空间基kernel；所有解为特解异或任意基子集。无解时解数组为空；rank仍为系数秩。有解时kernel.size()=n-rank，唯一解的kernel为空。允许空方程组或零变量，原输入不变。自由列按原列号递增，基在各自自由列为1、其他自由列为0；没有最少1个数保证。时间O(mn+mn min(m,n)/64+n²)，除输入外空间O(m ceil((n+1)/64)+n²)；输出本身可能有n²字符。全程精确异或，不用eps。"
   ]
 ]

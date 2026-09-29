@@ -92,6 +92,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | basis_sum_intersection | 数学 → 线性代数 → 线性基 | direct |  |
 | Lagrange | 数学 → 数值算法 → 插值 | direct |  |
 | GaussMod | 数学 → 数值算法 → 高斯消元 | direct |  |
+| GaussXor | 数学 → 数值算法 → 高斯消元 | direct | 模2线性方程组的压位实现，返回特解与完整零空间基；不替代浮点高斯的精度分析。 |
 | berlekamp_massey | 数学 → Berlekamp–Massey 算法 | direct |  |
 | gp_map | 数据结构 → 哈希表 | application | GNU 哈希表组件，保留 GNU 扩展依赖。 |
 | RollbackDSU | 数据结构 → 并查集 → 并查集 | direct |  |
@@ -106,6 +107,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | segtree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | LiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
 | SegmentLiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
+| WaveletMatrix | 数据结构 → 划分树 | related | 小波矩阵使用逐位稳定划分和压位rank，解决静态区间顺序统计；在固定导航的划分树下按相关结构收录，不等同于原文划分树实现。 |
 | ost | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
 | rp | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
 | GcdSequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |

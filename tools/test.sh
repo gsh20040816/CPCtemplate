@@ -588,3 +588,10 @@ python3 tests/general_sam_application.py
 python3 tests/knowns_unknowns.py
 python3 tests/polygon_applications.py
 python3 tests/tree_usage_applications.py
+
+"$CXX" "${flags[@]}" tests/wavelet_matrix.cpp -o build/wavelet-core
+build/wavelet-core
+python3 tests/wavelet_applications.py
+
+"$CXX" "${flags[@]}" tests/gauss_xor.cpp -o build/gauss-xor-core
+build/gauss-xor-core

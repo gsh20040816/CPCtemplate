@@ -4608,6 +4608,62 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "WaveletMatrix",
+      "title": "压位小波矩阵：静态区间顺序统计",
+      "source": "src/compact/wavelet_matrix.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/range_kth_smallest.wavelet.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/range_kth_smallest",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/static_range_frequency.wavelet.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/static_range_frequency",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3834.wavelet.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3834",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "GaussXor",
+      "title": "压位模2高斯消元与全部解",
+      "source": "src/compact/gauss_xor.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/system_of_linear_equations_mod_2.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [
@@ -6229,12 +6285,6 @@
       "source": "WIDA",
       "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
       "page": "",
-      "topic": "小波矩阵树：高效静态区间第 K 大查询"
-    },
-    {
-      "source": "WIDA",
-      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
-      "page": "",
       "topic": "普通莫队"
     },
     {
@@ -7604,12 +7654,6 @@
       "source_path": "ACM template (2018)",
       "page": "37",
       "topic": "2.10 高斯消元法求方程组的解"
-    },
-    {
-      "source": "kuangbin",
-      "source_path": "ACM template (2018)",
-      "page": "37",
-      "topic": "2.10.1 一类开关问题，对 2 取模的 01 方程组"
     },
     {
       "source": "kuangbin",

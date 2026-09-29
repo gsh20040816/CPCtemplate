@@ -1,0 +1,31 @@
+{
+  "scope": "Current source core, complete printed drivers and independent oracles in normal and ASan/UBSan modes; local evidence only, not online AC or speed ranking.",
+  "recorded_at_utc": "2026-09-29T11:46:14.582362+00:00",
+  "compiler": "/opt/homebrew/bin/g++-16 (GCC 16.2.0)",
+  "modes": [
+    "normal",
+    "sanitizer"
+  ],
+  "files": {
+    "src/compact/gauss_xor.hpp": "4e86905ccaf04bd3e0dfe22c4fd8a66f47debae4598e15002cd7daac0bb1688a",
+    "tests/gauss_xor.cpp": "7200fbed123c8743a66fef49fcd5edce6c366b797da95f2c98ea0110a7e5af49",
+    "tests/usage_checkers.py": "1964d979d15101a9471703142709588d9cbe6184a62cb0d6faefb1f4a02a5ff2",
+    "tests/usage_checkers_test.py": "cd77a03febe6811f8279333fbc4159a0427e4695b96b63a50a5adff874e75339",
+    "verify/library_checker/system_of_linear_equations_mod_2.compact.cpp": "3748af92f4b72d021910fff7a9ab6d82d93bb7a7b67ca56af4210e9e3e65d94a"
+  },
+  "logs": {
+    "build/gauss-xor-core.txt": "GaussXor PASS: 5654 enumerated-image/solution systems; 56 planted-rank word-boundary systems; 4096 reverse identity/zero/inconsistent matrices\n",
+    "build/gauss-xor-core-san.txt": "GaussXor PASS: 5654 enumerated-image/solution systems; 56 planted-rank word-boundary systems; 4096 reverse identity/zero/inconsistent matrices\n",
+    "build/gauss-xor-usage.txt": "Usage examples: 1 exact printed usage programs in normal and ASan/UBSan modes PASS; 143 current program records\n"
+  },
+  "source": {
+    "kuangbin_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+    "section": "2.10.1",
+    "pages": "37-39",
+    "remaining": "POJ1681 minimum-switch application still pending; this audit covers packed linear systems only"
+  },
+  "official_reports": {
+    "verification/gauss-xor-official.json": "3a83195c7fb8ea4dfa41705dcd2fedf7ab3d2440b49cf07369cc0e7c447a0595",
+    "verification/gauss-xor-official-san.json": "7e52bbb08d5e969e05d7ec455d2159cfe8f2e5ade1c123ef18ff6cdeadd8460b"
+  }
+}
