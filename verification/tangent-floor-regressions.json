@@ -1,0 +1,30 @@
+{
+  "scope": "Current vector core and full P5170 driver; historical classic staged only as extra reference; no online AC.",
+  "baseline_commit": "1a9fa3e91d7dff58915341040be069611370054c",
+  "modes": [
+    "normal",
+    "ASan/UBSan"
+  ],
+  "P5170_cases_per_mode": 100000,
+  "sha256": {
+    "src/compact/circle_tangents.hpp": "e70ca954458e8b0e8bdd531a2d95bf0c99d8dc7835cff3753b90ff8e51d4309d",
+    "src/compact/real_plane.hpp": "86dcffd9e63c636e6504083935d4a7657effe15832290dd39c20c931546d03c2",
+    "src/compact/floor_moments.hpp": "045b63bf5c0679ef66bf2ba98e12b024bdf062d8dff7c1b803e23f22809f357a",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "verify/luogu/P5170.compact.cpp": "cb0403be745dce3bc4cce39193d8a9dd13f5ac0d807ba545bcc641ac0f4eb24f",
+    "tests/floor_moments_application.py": "e089ab7b691a1566bb8115bb9bf70ff066b36c11b1df04916be8d8c8902781c5",
+    "tests/circle_tangents.cpp": "3f3b88f146f5b24f4f5d12ba460d11c0d3a80dea9d0b71f2efb67a3c7c01a390",
+    "tests/floor_moments.cpp": "32fc3a2473cbb47360c9a8f016da1f48c46261f6ce31912f2e40d4b61c8f3c48",
+    "tests/floor_moments_large.cpp": "8d2ca5f078ae46f70fdb39f6921c78dbf3a419b17e57ea5b6714957d0a2531ee"
+  },
+  "logs": [
+    "verification/tangent-floor-P5170-normal.txt",
+    "verification/tangent-floor-P5170-sanitizer.txt",
+    "verification/tangent-floor-circle_tangents-normal.txt",
+    "verification/tangent-floor-circle_tangents-sanitizer.txt",
+    "verification/tangent-floor-floor_moments-normal.txt",
+    "verification/tangent-floor-floor_moments-sanitizer.txt",
+    "verification/tangent-floor-floor_moments_large-normal.txt",
+    "verification/tangent-floor-floor_moments_large-sanitizer.txt"
+  ]
+}

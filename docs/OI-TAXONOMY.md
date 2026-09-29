@@ -184,6 +184,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | CirclePolygon | 计算几何 → 二维计算几何基础 | application | 二维圆构造与面积应用，保留退化和精度条件。 |
 | CircleTangents | 计算几何 → 二维计算几何基础 | application | 二维圆构造与面积应用，保留退化和精度条件。 |
 | IntegerPlane | 计算几何 → 二维计算几何基础 | direct |  |
+| IntegerTangents | 计算几何 → 二维计算几何基础 | direct | 整数公切线：精确分类及第一圆切点排序，坐标浮点构造。 |
 | RealPlane | 计算几何 → 二维计算几何基础 | direct |  |
 | circle_intersections | 计算几何 → 二维计算几何基础 | direct |  |
 | circle_intersections_i64 | 计算几何 → 二维计算几何基础 | direct | 整数输入的精确判别式变体，坐标构造仍为浮点。 |

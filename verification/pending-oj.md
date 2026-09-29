@@ -5,6 +5,8 @@
 - `verify/aoj/CGL_3_C.compact.cpp`
 - `verify/aoj/CGL_7_D.compact.cpp`
 - `verify/aoj/CGL_7_E.compact.cpp`
+- `verify/aoj/CGL_7_F.compact.cpp`
+- `verify/aoj/CGL_7_G.compact.cpp`
 - `verify/aoj/CGL_7_H.compact.cpp`
 - `verify/aoj/CGL_7_I.compact.cpp`
 - `verify/cses/1160.compact.cpp`

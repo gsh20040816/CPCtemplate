@@ -48,7 +48,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Binomial | 待补 | pending_example |
 | PrimitiveRoot | [example-48](usage/example-48.cpp) | locally_checked_example |
 | CoprimePairs | 待补 | pending_example |
-| floor_moments | 待补 | pending_example |
+| floor_moments | [example-157](usage/example-157.cpp) | locally_checked_example |
 | power_sum | 待补 | pending_example |
 | divisor_sum_power | 待补 | pending_example |
 | euler_phi | [example-106](usage/example-106.cpp) | locally_checked_example |
@@ -109,7 +109,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | IntegerHalfplanes | [example-125（应用补充）](usage/example-125.cpp) | locally_checked_application |
 | CirclePolygon | [example-153](usage/example-153.cpp) | locally_checked_example |
 | EnclosingCircle | [example-61](usage/example-61.cpp) | locally_checked_example |
-| CircleTangents | 待补 | pending_example |
+| CircleTangents | [example-155](usage/example-155.cpp) | locally_checked_example |
 | ClosestPair | [example-60](usage/example-60.cpp) | locally_checked_example |
 | closest_pair_i64 | [example-62](usage/example-62.cpp), [example-134](usage/example-134.cpp) | locally_checked_example |
 | minkowski_sum | [example-136（应用补充）](usage/example-136.cpp) | locally_checked_application |
@@ -206,3 +206,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | DivisionTree | [example-146](usage/example-146.cpp), [example-147](usage/example-147.cpp) | locally_checked_example |
 | line_circle_i64 | [example-151](usage/example-151.cpp) | locally_checked_example |
 | circle_intersections_i64 | [example-152](usage/example-152.cpp) | locally_checked_example |
+| IntegerTangents | [example-156](usage/example-156.cpp) | locally_checked_example |

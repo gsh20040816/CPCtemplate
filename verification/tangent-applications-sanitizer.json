@@ -1,0 +1,23 @@
+{
+  "mode": "sanitizer",
+  "cases": {
+    "F": 404,
+    "G": 995
+  },
+  "maximum_absolute_errors": {
+    "F": "0.000000000036000001999998000001999998000001999998000001999998000001999998000205451191913256",
+    "G": "0.00000000000065599536342659313182200142419065647315030652025976621723881022356107867398520307"
+  },
+  "negative_controls": 6,
+  "oracle": "80-digit angular coordinates; exact integer count and algebraic separation for reference tie handling",
+  "sha256": {
+    "tests/tangent_applications.py": "ad1a37205c7fb3e55e812c75ed53cc148954a7fb18f0b1cc0ba6c5b23d1009d7",
+    "verify/aoj/CGL_7_F.compact.cpp": "9c13eddcb03d7f510e73cd66c573d8e47a9d55fc421def2b29a7b9d229c8e579",
+    "verify/aoj/CGL_7_G.compact.cpp": "992fdebfe80d1787efa9247046bfb1bae08a33a17582343ecf3776a86e2fcb89",
+    "src/compact/circle_tangents.hpp": "e70ca954458e8b0e8bdd531a2d95bf0c99d8dc7835cff3753b90ff8e51d4309d",
+    "src/compact/integer_tangents.hpp": "44531044f6421275b173346aa67ef7e746ea30c4b9bdd0792a937cd1c4f128fa",
+    "src/compact/integer_plane.hpp": "019023dc3d1f4de34aaa376613d131be8991d55624a9591e3d09f07d1862a482",
+    "src/compact/real_plane.hpp": "86dcffd9e63c636e6504083935d4a7657effe15832290dd39c20c931546d03c2"
+  },
+  "scope": "Local complete AOJ F/G drivers, no online AC"
+}

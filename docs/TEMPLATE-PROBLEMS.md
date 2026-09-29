@@ -121,6 +121,9 @@
 | `circle_intersections_i64` | [AOJ CGL_7_E](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E) | 整数圆心/半径，坐标绝对值≤10⁴、半径1..10⁴；不同圆心且至少一个交点。按x/y字典序输出，相切点复制一次；不使用eps排序。绝对误差要求小于1e-6。 | 待编写驱动/提交 | 待核验 |
 | `CirclePolygon` | [AOJ CGL_7_H](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_H) | 原点圆与逆时针简单多边形的公共面积，允许凹多边形。n为3..100，整数坐标绝对值≤100，半径1..100。直接传入顶点序列，不取凸包；绝对误差小于1e-5。 | 待编写驱动/提交 | 待核验 |
 | `circle_overlap_area` | [AOJ CGL_7_I](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I) | 两个圆的公共面积，整数坐标绝对值≤10⁴、半径1..10⁴。覆盖相离、内含、同心与部分相交；输出面积的绝对误差须小于1e-6。 | 待编写驱动/提交 | 待核验 |
+| `CircleTangents` | [AOJ CGL_7_F](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_F) | 过圆外整数点作切线，输出圆上的两个切点。坐标绝对值≤1000，半径1..1000，保证点严格在圆外。from_point把点作为第一圆，圆上切点在line.b；按x/y字典序输出，每行一个点，绝对误差小于1e-5。 | 待编写驱动/提交 | 待核验 |
+| `IntegerTangents` | [AOJ CGL_7_G](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G) | 不同整数圆的公切线，输出第一圆上的全部切点。坐标绝对值≤1000，半径1..1000；可能0..4条，同心不等圆需空输出。整数版已精确排序，直接顺序输出line.a，不再按舍入值排序；绝对误差小于1e-5。 | 待编写驱动/提交 | 待核验 |
+| `floor_moments` | [Luogu P5170](https://www.luogu.com.cn/problem/P5170) | 求i=0..n的整除和、整除值平方和、i乘整除值之和，模998244353。t至10⁵，n/a/b/c至10⁹且c>0。核心参数顺序(n+1,c,a,b)，返回顺序是和/带权和/平方和；本题输出索引0、2、1，不能只核对第一项。 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1079,6 +1082,36 @@ Complete vector-style driver in verify/aoj; integer predicates for D/E, original
 Local verification only; online AC and ranking remain pending.
 
 原始题面与参数：[来源 1](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I)
+
+### AOJ CGL_7_F / CircleTangents
+
+Official standalone library/template problem.
+
+过圆外整数点作切线，输出圆上的两个切点。坐标绝对值≤1000，半径1..1000，保证点严格在圆外。from_point把点作为第一圆，圆上切点在line.b；按x/y字典序输出，每行一个点，绝对误差小于1e-5。
+
+Local verification only; online AC and speed ranking pending.
+
+原始题面与参数：[来源 1](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_F)
+
+### AOJ CGL_7_G / IntegerTangents
+
+Official standalone library/template problem.
+
+不同整数圆的公切线，输出第一圆上的全部切点。坐标绝对值≤1000，半径1..1000；可能0..4条，同心不等圆需空输出。整数版已精确排序，直接顺序输出line.a，不再按舍入值排序；绝对误差小于1e-5。
+
+Local verification only; online AC and speed ranking pending.
+
+原始题面与参数：[来源 1](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G)
+
+### Luogu P5170 / floor_moments
+
+Official standalone library/template problem.
+
+求i=0..n的整除和、整除值平方和、i乘整除值之和，模998244353。t至10⁵，n/a/b/c至10⁹且c>0。核心参数顺序(n+1,c,a,b)，返回顺序是和/带权和/平方和；本题输出索引0、2、1，不能只核对第一项。
+
+Local verification only; online AC and speed ranking pending.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5170)
 
 ## 榜单口径
 

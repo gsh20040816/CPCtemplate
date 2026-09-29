@@ -1,0 +1,24 @@
+{
+  "scope": "Integer classification and exact first-circle contact order; approximate coordinate construction. Local tests only.",
+  "cases": 4644,
+  "single_radical_signs": 9261,
+  "double_radical_signs": 10000,
+  "exact_cancellations": 10000,
+  "modes": [
+    "normal",
+    "ASan/UBSan"
+  ],
+  "reference": "cpp_int count; cpp_dec_float_100 angular construction; algebraic-separation reference tie recognition",
+  "coordinate_absolute_tolerance": 3e-09,
+  "compiler": "/opt/homebrew/bin/g++-16",
+  "sha256": {
+    "src/compact/integer_tangents.hpp": "44531044f6421275b173346aa67ef7e746ea30c4b9bdd0792a937cd1c4f128fa",
+    "src/compact/integer_plane.hpp": "019023dc3d1f4de34aaa376613d131be8991d55624a9591e3d09f07d1862a482",
+    "src/compact/real_plane.hpp": "86dcffd9e63c636e6504083935d4a7657effe15832290dd39c20c931546d03c2",
+    "tests/integer_tangents.cpp": "94897fa4219af9091a385959f5c2bc8df17c24078f2ac29d21a7c8a57fb93199"
+  },
+  "logs": [
+    "verification/integer-tangents-tests.txt",
+    "verification/integer-tangents-sanitizer.txt"
+  ]
+}

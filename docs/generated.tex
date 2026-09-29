@@ -990,6 +990,20 @@ floor\_moments(n,m,a,b) 对 i=0..n-1，令 y\_i=floor((a*i+b)/m)，返回 \{$\su
 
 \lstinputlisting[firstline=5,lastline=38]{../src/compact/floor_moments.hpp}
 
+\Needspace{321pt}
+
+\subsection*{模板题使用：Luogu P5170}
+
+\label{usage-example-157}
+
+题意：求i=0..n的整除和、整除值平方和、i乘整除值之和，模998244353。t至10$^{5}$，n/a/b/c至10$^{9}$且c>0。核心参数顺序(n+1,c,a,b)，返回顺序是和/带权和/平方和；本题输出索引0、2、1，不能只核对第一项。
+
+所需模板：ModInt、floor\_moments。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5170}
+
+\lstinputlisting{usage/example-157.cpp}
+
 \Needspace{412pt}
 
 \chapter{多项式与生成函数}
@@ -4328,6 +4342,48 @@ solve(a,b,eps) 返回 Result，包含 infinite 和 lines；infinite 为真表示
 \noindent 内外公切线枚举（接上页同一函数）：
 
 \lstinputlisting[firstline=32,lastline=57,firstnumber=29]{../src/compact/circle_tangents.hpp}
+
+\Needspace{352pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_F}
+
+\label{usage-example-155}
+
+题意：过圆外整数点作切线，输出圆上的两个切点。坐标绝对值$\le$1000，半径1..1000，保证点严格在圆外。from\_point把点作为第一圆，圆上切点在line.b；按x/y字典序输出，每行一个点，绝对误差小于1e-5。
+
+所需模板：RealPlane、CircleTangents。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_F}
+
+\lstinputlisting{usage/example-155.cpp}
+
+\Needspace{565pt}
+
+\section{整数圆公切线与精确切点排序}\label{compact-IntegerTangents}\index{IntegerTangents}
+
+solve(a,r,b,s)：a、b为IntegerPlane::Point，所有坐标绝对值$\le$10$^{4}$，半径0..10$^{4}$。依赖RealPlane；返回Result\{infinite,lines\}，每条Tangent含第一/第二圆切点a、b、单位法向normal、side（1外切、-1内切、0两点圆）。直线满足dot(normal,x-a)=0，不能用相切时重合的两个切点定直线。精确整数判断条数，并用根式符号精确比较第一圆切点的(x,y)次序；返回顺序已正确，不要按舍入后的坐标重排。同心同半径infinite=true（含两个相同点圆），同心不同半径为空；异心两个点圆仅一条线。坐标和法向仍为long double近似构造。O(1)时间/空间，最多4条。sign/root\_sign/compare仅为内部比较，不能任意扩大参数范围。此范围较圆交点版更小，因为排序包含二次平方；不是任意64位整数几何。
+
+\lstinputlisting[firstline=5,lastline=41]{../src/compact/integer_tangents.hpp}
+
+\newpage
+
+\noindent 公切线枚举与精确切点排序（接上页同一结构体）：
+
+\lstinputlisting[firstline=42,lastline=88,firstnumber=38]{../src/compact/integer_tangents.hpp}
+
+\Needspace{295pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_G}
+
+\label{usage-example-156}
+
+题意：不同整数圆的公切线，输出第一圆上的全部切点。坐标绝对值$\le$1000，半径1..1000；可能0..4条，同心不等圆需空输出。整数版已精确排序，直接顺序输出line.a，不再按舍入值排序；绝对误差小于1e-5。
+
+所需模板：IntegerPlane、RealPlane、IntegerTangents。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G}
+
+\lstinputlisting{usage/example-156.cpp}
 
 \newpage
 

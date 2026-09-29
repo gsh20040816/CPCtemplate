@@ -1875,5 +1875,42 @@
       "RealPlane",
       "circle_overlap_area"
     ]
+  },
+  {
+    "id": "example-155",
+    "symbol": "CircleTangents",
+    "problem": "AOJ CGL_7_F",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_F",
+    "summary": "过圆外整数点作切线，输出圆上的两个切点。坐标绝对值≤1000，半径1..1000，保证点严格在圆外。from_point把点作为第一圆，圆上切点在line.b；按x/y字典序输出，每行一个点，绝对误差小于1e-5。",
+    "driver": "verify/aoj/CGL_7_F.compact.cpp",
+    "requires": [
+      "RealPlane",
+      "CircleTangents"
+    ]
+  },
+  {
+    "id": "example-156",
+    "symbol": "IntegerTangents",
+    "problem": "AOJ CGL_7_G",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G",
+    "summary": "不同整数圆的公切线，输出第一圆上的全部切点。坐标绝对值≤1000，半径1..1000；可能0..4条，同心不等圆需空输出。整数版已精确排序，直接顺序输出line.a，不再按舍入值排序；绝对误差小于1e-5。",
+    "driver": "verify/aoj/CGL_7_G.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "RealPlane",
+      "IntegerTangents"
+    ]
+  },
+  {
+    "id": "example-157",
+    "symbol": "floor_moments",
+    "problem": "Luogu P5170",
+    "url": "https://www.luogu.com.cn/problem/P5170",
+    "summary": "求i=0..n的整除和、整除值平方和、i乘整除值之和，模998244353。t至10⁵，n/a/b/c至10⁹且c>0。核心参数顺序(n+1,c,a,b)，返回顺序是和/带权和/平方和；本题输出索引0、2、1，不能只核对第一项。",
+    "driver": "verify/luogu/P5170.compact.cpp",
+    "requires": [
+      "ModInt",
+      "floor_moments"
+    ]
   }
 ]

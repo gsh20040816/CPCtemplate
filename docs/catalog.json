@@ -1192,5 +1192,11 @@
     "circle_intersections_i64",
     "整数输入两圆交点",
     "circle_intersections_i64(a,r,b,s)：a、b为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值≤10⁹，半径在0..10⁹；先用int128精确判定交点数，再用long double构造坐标。相离或严格内含返回none、相切one、相交two；同心等正半径返回infinite，同心零半径返回one。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10⁹尺度不承诺绝对1e-6。AOJ整数范围10⁴内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。"
+  ],
+  [
+    "integer_tangents",
+    "IntegerTangents",
+    "整数圆公切线与精确切点排序",
+    "solve(a,r,b,s)：a、b为IntegerPlane::Point，所有坐标绝对值≤10⁴，半径0..10⁴。依赖RealPlane；返回Result{infinite,lines}，每条Tangent含第一/第二圆切点a、b、单位法向normal、side（1外切、-1内切、0两点圆）。直线满足dot(normal,x-a)=0，不能用相切时重合的两个切点定直线。精确整数判断条数，并用根式符号精确比较第一圆切点的(x,y)次序；返回顺序已正确，不要按舍入后的坐标重排。同心同半径infinite=true（含两个相同点圆），同心不同半径为空；异心两个点圆仅一条线。坐标和法向仍为long double近似构造。O(1)时间/空间，最多4条。sign/root_sign/compare仅为内部比较，不能任意扩大参数范围。此范围较圆交点版更小，因为排序包含二次平方；不是任意64位整数几何。"
   ]
 ]
