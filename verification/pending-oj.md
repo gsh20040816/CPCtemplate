@@ -38,6 +38,7 @@
 - `verify/library_checker/kth_term_of_linearly_recurrent_sequence.compact.cpp`
 - `verify/library_checker/line_add_get_min.compact.cpp`
 - `verify/library_checker/log_of_formal_power_series.compact.cpp`
+- `verify/library_checker/longest_common_substring.compact.cpp`
 - `verify/library_checker/matrix_det.compact.cpp`
 - `verify/library_checker/matrix_det_arbitrary_mod.compact.cpp`
 - `verify/library_checker/matrix_product.compact.cpp`
@@ -54,6 +55,7 @@
 - `verify/library_checker/sort_points_by_argument.compact.cpp`
 - `verify/library_checker/sqrt_of_formal_power_series.compact.cpp`
 - `verify/library_checker/static_convex_hull.compact.cpp`
+- `verify/library_checker/suffixarray.compact.cpp`
 - `verify/library_checker/sum_of_floor_of_linear.compact.cpp`
 - `verify/library_checker/sum_of_multiplicative_function.compact.cpp`
 - `verify/library_checker/sum_of_totient_function.compact.cpp`
@@ -93,6 +95,7 @@
 - `verify/luogu/P3649.compact.cpp`
 - `verify/luogu/P3803.fft.compact.cpp`
 - `verify/luogu/P3803.i64.compact.cpp`
+- `verify/luogu/P3804.compact.cpp`
 - `verify/luogu/P3805.compact.cpp`
 - `verify/luogu/P3809.compact.cpp`
 - `verify/luogu/P3812.compact.cpp`

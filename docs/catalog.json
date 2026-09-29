@@ -135,7 +135,7 @@
     "string",
     "SuffixAutomaton",
     "后缀自动机",
-    "extend(c) 接收整数 0..25；distinct() 返回不同非空子串数，counts() 返回 endpos 次数且不修改结构，可重复调用。状态 a，初始状态 0，link 根为 -1；空间 O(26n)，构建 O(26n)。"
+    "extend(c) 接收整数0..25，每次追加一个小写字符；last为整串状态，a[0]为根，根link=-1。a[u].len为状态最大长度，非根代表(len[link[u]],len[u]]且具有同一endpos集合。occ是原始种子：真实扩展为1、克隆为0，不能直接当出现次数。counts()按长度倒序汇总后返回副本，不改结构，重复查询及查询后继续追加安全；根计数为n，非空子串只看u>0。distinct()为不同非空子串数。重赋值SuffixAutomaton()清空；固定26字母表构建O(n)，counts/distinct为O(n)，空间O(26n)。如需前缀位置对应状态，在每次extend后保存last；本结构不输出广义SAM或最小DFA状态数。"
   ],
   [
     "mod64",

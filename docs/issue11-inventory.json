@@ -12,8 +12,9 @@
       "toc_page": 2,
       "physical_page": 4,
       "level": 0,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "reviewed_partial_coverage",
+      "candidate_symbols": [],
+      "review": "字符串各实际代码主题均已逐项核对；Manacher、SA（含分隔符LCP）、AC、SAM、PAM与GeneralSAM已有各自本地证据。1.5广义SAM状态数/最小DFA语义及相应在线验证仍未完成，不能将整个字符串章节标为完全完成。"
     },
     {
       "section": "1.1",
@@ -53,11 +54,11 @@
       "toc_page": 3,
       "physical_page": 5,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "SuffixArray"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "核对实际5–8页，两份均为倍增计数排序，本库统一字节/整数入口。分隔符截止LCP用普通LCP和两端remain取最小，1500重复/连续分隔符独立对拍；独立字节/整数排序、LCP区间、百万周期串通过。新增LC最长公共子串整数拼接完整用法，LC后缀数组50组/LCS28组官方本地数据双模式通过。见docs/SUFFIX-ATTACHMENT.md，不新增线上AC。"
     },
     {
       "section": "1.2.1",
@@ -65,8 +66,9 @@
       "toc_page": 3,
       "physical_page": 5,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "existing_implementation_local_verified",
+      "candidate_symbols": [],
+      "review": "核对实际5–8页，两份均为倍增计数排序，本库统一字节/整数入口。分隔符截止LCP用普通LCP和两端remain取最小，1500重复/连续分隔符独立对拍；独立字节/整数排序、LCP区间、百万周期串通过。新增LC最长公共子串整数拼接完整用法，LC后缀数组50组/LCS28组官方本地数据双模式通过。见docs/SUFFIX-ATTACHMENT.md，不新增线上AC。"
     },
     {
       "section": "1.2.2",
@@ -74,8 +76,9 @@
       "toc_page": 5,
       "physical_page": 7,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "existing_implementation_local_verified",
+      "candidate_symbols": [],
+      "review": "核对实际5–8页，两份均为倍增计数排序，本库统一字节/整数入口。分隔符截止LCP用普通LCP和两端remain取最小，1500重复/连续分隔符独立对拍；独立字节/整数排序、LCP区间、百万周期串通过。新增LC最长公共子串整数拼接完整用法，LC后缀数组50组/LCS28组官方本地数据双模式通过。见docs/SUFFIX-ATTACHMENT.md，不新增线上AC。"
     },
     {
       "section": "1.3",
@@ -96,11 +99,11 @@
       "toc_page": 8,
       "physical_page": 10,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "SuffixAutomaton"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "核对实际10–11页：附件endpos=id是原始位置标记，本库occ为计数种子，克隆置0；counts按长度倒序且不污染结构。3280三字母短串逐前缀独立endpos集合/长度区间/转移/次数、查询后追加重建及百万频次闭式双模式通过。新增P3804完整用法，独立频次参考及百万驱动双模式通过。见docs/SUFFIX-ATTACHMENT.md，不新增线上AC。"
     },
     {
       "section": "1.4.1",
@@ -108,8 +111,9 @@
       "toc_page": 8,
       "physical_page": 10,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "existing_implementation_local_verified",
+      "candidate_symbols": [],
+      "review": "核对实际10–11页：附件endpos=id是原始位置标记，本库occ为计数种子，克隆置0；counts按长度倒序且不污染结构。3280三字母短串逐前缀独立endpos集合/长度区间/转移/次数、查询后追加重建及百万频次闭式双模式通过。新增P3804完整用法，独立频次参考及百万驱动双模式通过。见docs/SUFFIX-ATTACHMENT.md，不新增线上AC。"
     },
     {
       "section": "1.5",

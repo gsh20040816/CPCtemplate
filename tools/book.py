@@ -53,6 +53,9 @@ for style in ['compact']:
             if name == 'PalindromicTree':
                 split = next(i for i in range(start, end) if '// Append a lowercase letter' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
+            if name == 'SuffixAutomaton':
+                split = next(i for i in range(start, end) if 'void extend(' in lines[i])
+                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'SpfaFlow':
                 split = next(i for i in range(start, end) if '// Internal:' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
@@ -503,8 +506,9 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 接上页同一结构体：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'SpfaFlow':
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['// Internal:', '// Returns additional']] + [end]
+            elif name in ('SpfaFlow', 'SuffixAutomaton'):
+                tokens = ['// Internal:', '// Returns additional'] if name == 'SpfaFlow' else ['void extend(', 'vector<long long> counts()']
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
                     if j:
                         body.append('\\newpage')

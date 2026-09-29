@@ -325,20 +325,27 @@
     "url": "https://www.luogu.com.cn/problem/P3804",
     "classification": "Standalone, explicitly designated standard template; reuse in template-practice contests is distinguished from regional-contest applications.",
     "statement_checked": true,
-    "checked_date": "2026-09-12",
+    "checked_date": "2026-09-29",
     "limits": "1<=|S|<=1000000; lowercase",
     "adapter": "Use extend and counts; maximize cnt[u]*a[u].len only where cnt[u]>1, otherwise output zero. Use 64-bit multiplication. distinct is not tested. The QOJ217 candidate was not reviewed because the fetch returned HTTP 429; no equivalence to it is claimed.",
     "implementation": "existing",
     "source": "src/compact/string.hpp",
     "api": "extend/counts",
-    "tested_api": [],
+    "tested_api": [
+      "extend",
+      "counts"
+    ],
     "ac": null,
     "ranking": {
       "status": "not_checked",
       "rank": null,
       "total": null
     },
-    "remaining": "Driver, online evidence and fastest-ranking scope still require verification."
+    "remaining": "Independent local frequency oracle and million-letter closed forms passed in normal and sanitizer modes. Online AC and ranking still pending.",
+    "driver": "verify/luogu/P3804.compact.cpp",
+    "local_reports": [
+      "verification/suffix-attachment.json"
+    ]
   },
   {
     "symbol": "OrderedTreap",
@@ -2270,5 +2277,48 @@
       "verification/palindrome-attachment.json"
     ],
     "remaining": "Local independent and maximum-length verification only; online AC and ranking pending."
+  },
+  {
+    "symbol": "SuffixArray",
+    "problem": "Library Checker suffixarray",
+    "url": "https://judge.yosupo.jp/problem/suffixarray",
+    "classification": "Library Checker standalone standard string task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "1<=N<=500000; lowercase English letters",
+    "driver": "verify/library_checker/suffixarray.compact.cpp",
+    "tested_api": [
+      "SuffixArray",
+      "sa"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Official generated data accepted locally in normal and sanitizer modes; no online AC or ranking."
+  },
+  {
+    "symbol": "SuffixArray",
+    "problem": "Library Checker longest_common_substring",
+    "url": "https://judge.yosupo.jp/problem/longest_common_substring",
+    "classification": "Library Checker standalone standard string task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-29",
+    "limits": "1<=|S|,|T|<=500000; lowercase",
+    "driver": "verify/library_checker/longest_common_substring.compact.cpp",
+    "tested_api": [
+      "SuffixArray",
+      "sa",
+      "lcp"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Official generated data accepted locally in normal and sanitizer modes; no online AC or ranking."
   }
 ]

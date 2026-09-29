@@ -1571,5 +1571,27 @@
     "requires": [
       "manacher"
     ]
+  },
+  {
+    "id": "example-130",
+    "symbol": "SuffixAutomaton",
+    "problem": "Luogu P3804",
+    "url": "https://www.luogu.com.cn/problem/P3804",
+    "summary": "长度至100万的小写串，只考虑出现次数大于1的子串，最大化长度乘次数。counts按长度汇总，取非根状态len*count；无重复子串输出0，乘积使用long long。",
+    "driver": "verify/luogu/P3804.compact.cpp",
+    "requires": [
+      "SuffixAutomaton"
+    ]
+  },
+  {
+    "id": "example-131",
+    "symbol": "SuffixArray",
+    "problem": "Library Checker longest_common_substring",
+    "url": "https://judge.yosupo.jp/problem/longest_common_substring",
+    "summary": "求两个小写字符串的一段最长公共子串，输出两串各自0-based半开区间，各串长度至50万。整数拼接以26为分隔符、alphabet=27；扫描异来源相邻后缀，并将LCP截断至原串边界。",
+    "driver": "verify/library_checker/longest_common_substring.compact.cpp",
+    "requires": [
+      "SuffixArray"
+    ]
   }
 ]

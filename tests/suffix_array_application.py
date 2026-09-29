@@ -1,21 +1,24 @@
-"""Validate the two actual P3809 bundles against Python suffix sorting."""
+"""Validate the current vector P3809 bundle against Python suffix sorting."""
 from compiler_config import CXX
 from pathlib import Path
+import os
 import random
 import subprocess
 
 root = Path(__file__).resolve().parents[1]
 rng = random.Random(3809)
+mode = 'san' if os.environ.get('CPC_SANITIZE') == '1' else 'normal'
+flags = ['-std=c++20', '-O2'] if mode == 'normal' else ['-std=c++20', '-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
 cases = ['a', 'banana', 'a' * 100, 'zZ0zZ0', '9876543210']
 for _ in range(100):
     cases.append(''.join(rng.choice('abcxyzABCXYZ0123456789')
                          for _ in range(rng.randrange(1, 250))))
 for style in ['compact']:
-    source = root / f'build/P3809.{style}.cpp'
-    exe = root / f'build/P3809.{style}'
+    source = root / f'build/P3809.{style}.{mode}.cpp'
+    exe = root / f'build/P3809.{style}.{mode}'
     subprocess.run(['python3', str(root / 'tools/bundle.py'),
                     str(root / f'verify/luogu/P3809.{style}.cpp'), str(source)], check=True)
-    subprocess.run([CXX, '-std=c++20', '-O2', str(source),
+    subprocess.run([CXX, *flags, str(source),
                     '-o', str(exe)], check=True)
     for s in cases:
         got = list(map(int, subprocess.check_output([str(exe)],

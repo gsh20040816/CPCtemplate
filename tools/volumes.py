@@ -24,7 +24,7 @@ for part in parts:
         # General ACL comparison stays in the omnibus, not every category.
         continue
     key = 'mathematics'
-    if '回文半径与在线回文计数' in title:
+    if '回文半径与在线回文计数' in title or '整数后缀数组的边界' in title:
         key = 'strings'
     elif '数值算法与几何' in title:
         key = 'geometry'

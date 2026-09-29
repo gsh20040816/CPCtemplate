@@ -580,3 +580,7 @@ python3 tests/graph_attachment.py
 "$CXX" "${flags[@]}" tests/manacher.cpp -o build/manacher
 build/manacher
 python3 tests/palindrome_attachment.py
+
+"$CXX" "${flags[@]}" tests/suffix_automaton.cpp -o build/suffix-automaton
+build/suffix-automaton
+python3 tests/suffix_attachment.py

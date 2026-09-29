@@ -1,0 +1,115 @@
+{
+  "scope": "Attachment 1.2.1, 1.2.2 and 1.4.1: byte/integer doubling SA, delimiter-clipped LCP formula and SAM endpos/occurrence semantics. No new online AC or rankings.",
+  "recorded_at_utc": "2026-09-29T10:27:43.894916+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "platform": "Darwin arm64",
+  "files": {
+    "src/compact/string.hpp": "b2d66016ede91178051e1467ec9111f5c05f4e2916fdc1419e2c0f1bbfbfdfe3",
+    "tests/suffix_array.cpp": "7184f958bb7c673113aad5048c6b9c35644861045346d190962e876597acd09b",
+    "tests/suffix_automaton.cpp": "32c1501b85398d2d557200301d48c638ee8be37fbb323b0f035f62f6e8a092b6",
+    "tests/suffix_array_application.py": "ef602dbe6904b5ba99e114647534303365b5033974ca02e3bce546d56af24bf7",
+    "tests/suffix_attachment.py": "595abd38249fa2f6a6f9c3a3894b3eef2880415d7037c19d7c3edc271077c199",
+    "verify/luogu/P3809.compact.cpp": "512ccbcb966b96d03022c9672995332ea6292ca04d440d836c7959d0f1c3e47d",
+    "verify/luogu/P3804.compact.cpp": "2db931347624d60ef1cd61d8d5f86ab4af3ca6586aef1218cc5ec9d00b00cbbe",
+    "verify/library_checker/suffixarray.compact.cpp": "0674f9a2740b3f4d08b4c411fc29189e589930690f0f7d5e3d72a22a22722cbd",
+    "verify/library_checker/longest_common_substring.compact.cpp": "15b28a739478b9c1de1c3ad2106339cf3c752f986c3d1b9b06ad0b82a5f88c92",
+    "verify/library_checker/number_of_substrings.compact.cpp": "ef612b303ed5aee5c0a57bd1cddaa4c78d1e3bf6153ad159696dfa64dc32ed67"
+  },
+  "runs": [
+    {
+      "module": "suffix_array",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/sa-review-normal.txt",
+      "output": "Suffix array vector exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle and 1500 repeated-separator LCP cases PASS"
+    },
+    {
+      "module": "suffix_array",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/sa-review-san.txt",
+      "output": "Suffix array vector exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle and 1500 repeated-separator LCP cases PASS"
+    },
+    {
+      "module": "suffix_automaton",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/sam-review-normal.txt",
+      "output": "SAM: 3280 ternary strings with every prefix, independent endpos classes, length intervals, raw seeds, repeated counts/append/reset and million-character frequencies PASS"
+    },
+    {
+      "module": "suffix_automaton",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/sam-review-san.txt",
+      "output": "SAM: 3280 ternary strings with every prefix, independent endpos classes, length intervals, raw seeds, repeated counts/append/reset and million-character frequencies PASS"
+    },
+    {
+      "module": "suffix_array_driver",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/sa-drivers-normal.txt",
+      "output": "P3809 compact bundled driver / Python suffix oracle and million-character output PASS"
+    },
+    {
+      "module": "suffix_array_driver",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/sa-drivers-san.txt",
+      "output": "P3809 compact bundled driver / Python suffix oracle and million-character output PASS"
+    },
+    {
+      "module": "sam_lcs_drivers",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/suffix-drivers-normal.txt",
+      "output": "P3804 / integer-SA LCS: each 200 independent substring frequency/set oracles and output interval certificates PASS\nP3804: million-letter equal/alternating closed forms, 64-bit answer and no-repeat zero PASS\nInteger-SA LCS: two 500000-letter strings, equal/disjoint/shifted alternation interval certificates PASS"
+    },
+    {
+      "module": "sam_lcs_drivers",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/suffix-drivers-san.txt",
+      "output": "P3804 / integer-SA LCS: each 200 independent substring frequency/set oracles and output interval certificates PASS\nP3804: million-letter equal/alternating closed forms, 64-bit answer and no-repeat zero PASS\nInteger-SA LCS: two 500000-letter strings, equal/disjoint/shifted alternation interval certificates PASS"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "san": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  },
+  "official_reports": [
+    "verification/sa-official.json",
+    "verification/sa-official-sanitized.json",
+    "verification/lcs-official.json",
+    "verification/lcs-official-sanitized.json"
+  ],
+  "existing_unchanged_sam_reports": [
+    "verification/number-substrings-official.json",
+    "verification/number-substrings-official-sanitizer.json"
+  ],
+  "usage_examples": [
+    "example-130",
+    "example-131"
+  ],
+  "references": [
+    "https://www.luogu.com.cn/problem/P3804",
+    "https://www.luogu.com.cn/problem/P3809",
+    "https://judge.yosupo.jp/problem/longest_common_substring"
+  ],
+  "unchanged_kernel_sources": true,
+  "limitations": [
+    "SuffixArray is doubling, not DC3 or SA-IS.",
+    "Ordinary and delimiter-clipped LCP have distinct semantics.",
+    "Single-string SAM evidence does not resolve generalized SAM or minimal-DFA state counts.",
+    "No new online AC or OJ ranking."
+  ]
+}
