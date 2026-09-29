@@ -584,3 +584,4 @@ python3 tests/palindrome_attachment.py
 "$CXX" "${flags[@]}" tests/suffix_automaton.cpp -o build/suffix-automaton
 build/suffix-automaton
 python3 tests/suffix_attachment.py
+python3 tests/general_sam_application.py

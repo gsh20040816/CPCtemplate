@@ -1,5 +1,10 @@
 {
-  "scope": "Independent exact suffix-language trie minimization vs document-position endpos equivalence. A rejecting sink is omitted, as in partial automata. No claim about the online P6139 checker.",
+  "scope": "Independent exact suffix-language trie minimization vs document-position endpos equivalence. A rejecting sink is omitted, as in partial automata. P6139 official sample 1 explicitly requires 10 states, matching endpos classes and differing from the 7-state minimal suffix-union DFA. This establishes the sample convention, not an online AC.",
+  "official_sample_url": "https://www.luogu.com.cn/problem/P6139",
+  "official_sample_output": [
+    10,
+    10
+  ],
   "cases": [
     {
       "words": [
@@ -26,6 +31,17 @@
       "distinct": 1,
       "endpos_states": 2,
       "minimal_partial_suffix_dfa_states": 2
+    },
+    {
+      "words": [
+        "aa",
+        "ab",
+        "bac",
+        "caa"
+      ],
+      "distinct": 10,
+      "endpos_states": 10,
+      "minimal_partial_suffix_dfa_states": 7
     }
   ]
 }

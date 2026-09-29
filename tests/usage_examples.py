@@ -20,6 +20,7 @@ cases = {
     'example-6': [('4 5\n1 2 3 4\n0 2\n2 3\n0 3\n1 2\n1 3\n', '36'), ('3 3\n998244352 998244352 998244352\n0 1\n1 2\n2 0\n', '998244352')],
     'example-7': [('5 7\n2 1 2\n1 1 2\n2 1 2\n1 3 4\n2 1 4\n1 2 3\n2 1 4\n', 'N Y N Y'), ('1 1\n2 1 1\n', 'Y')]
 }
+cases['example-132'] = [('4\naa\nab\nbac\ncaa\n', '10 10'), ('1\na\n', '1 2'), ('2\nab\nb\n', '3 4'), ('3\nb\nab\nb\n', '3 4')]
 cases['example-130'] = [('aaaa\n', '6'), ('abab\n', '4'), ('abc\n', '0')]
 cases['example-131'] = [('abcde\nbc\n', '1 3 0 2'), ('abc\nxyz\n', '0 0 0 0'), ('abc\nabc\n', '0 3 0 3')]
 cases['example-129'] = [('abba\n', '4'), ('abacaba\n', '7'), ('abcdef\n', '1'), ('a\n', '1')]

@@ -1593,5 +1593,16 @@
     "requires": [
       "SuffixArray"
     ]
+  },
+  {
+    "id": "example-132",
+    "symbol": "GeneralSAM",
+    "problem": "Luogu P6139",
+    "url": "https://www.luogu.com.cn/problem/P6139",
+    "summary": "读入所有小写字符串，求不同非空子串数及含根的广义 SAM 点数。先全部 add，再 build，输出 distinct 和 a.size；总长度至100万、文档数至40万。点数按官方样例的 endpos 等价类口径：aa、ab、bac、caa 输出10和10，不另做后缀语言 DFA 最小化。本例通过完整驱动本地验证，线上待补。",
+    "driver": "verify/luogu/P6139.compact.cpp",
+    "requires": [
+      "GeneralSAM"
+    ]
   }
 ]

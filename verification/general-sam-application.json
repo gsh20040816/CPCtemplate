@@ -1,0 +1,51 @@
+{
+  "scope": "P6139 official-sample endpos-state convention and full-driver independent local verification. No new online submission, AC or ranking.",
+  "recorded_at_utc": "2026-09-29T10:43:37.214914+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/general_sam.hpp": "aca4aa0897ce4650c923d32f34c3961a3f742840d147d1993198eaa38cf19aed",
+    "tests/general_sam.cpp": "80c6eee2297b95ed217a4fb0e9bf666c4e408f69213a561620148841a09ada8f",
+    "tests/general_sam_application.py": "69a5746ab47a72a399b6987d55c5a71288dcd935c6b33d615911a9dcd6b7a3b8",
+    "tests/suffix_state_semantics.py": "e829568dda88378d24739e3008d0cbbaf725b2e5c09739e36a23ab9ad85b4e84",
+    "verify/luogu/P6139.compact.cpp": "b746f179c4e0114a4687d89b29b0da0b897348b4143bb193330a84bbf81deb6f"
+  },
+  "official_sample": {
+    "url": "https://www.luogu.com.cn/problem/P6139",
+    "input": "4\naa\nab\nbac\ncaa\n",
+    "output": [
+      10,
+      10
+    ],
+    "minimal_partial_suffix_dfa_states": 7,
+    "evidence": "Read visible official problem statement in Firefox and independently checked trie minimization and literal residual languages."
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/gsam-driver-normal.txt",
+      "output": "P6139: official samples and 600 independent endpos/count cases including insertion permutations PASS\nP6139: million-character chain/clone-heavy input, two half-million alternating words, 400000 documents/1000000 chars PASS\nP6139: complete depth-15 binary trie (32768 documents, 491520 chars) PASS",
+      "flags": [
+        "-std=c++20",
+        "-O2"
+      ],
+      "bundled_source_sha256": "9bd40de718106fa008706dd082b49fcc74ea629eaabf5bdfdb1c8a3fc321773a"
+    },
+    {
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/gsam-driver-san.txt",
+      "output": "P6139: official samples and 600 independent endpos/count cases including insertion permutations PASS\nP6139: million-character chain/clone-heavy input, two half-million alternating words, 400000 documents/1000000 chars PASS\nP6139: complete depth-15 binary trie (32768 documents, 491520 chars) PASS",
+      "flags": [
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer"
+      ],
+      "bundled_source_sha256": "9bd40de718106fa008706dd082b49fcc74ea629eaabf5bdfdb1c8a3fc321773a"
+    }
+  ],
+  "core_evidence": "verification/general-sam.json",
+  "usage_evidence": "verification/usage-examples.json:example-132"
+}

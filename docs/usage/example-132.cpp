@@ -1,8 +1,3 @@
-#include "../../src/compact/general_sam.hpp"
-#include <iostream>
-using namespace std;
-
-// The official sample counts endpos states, including the root.
 int main()
 {
     ios::sync_with_stdio(false);

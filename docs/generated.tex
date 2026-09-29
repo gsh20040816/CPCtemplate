@@ -228,13 +228,13 @@ extend(c) 接收整数0..25，每次追加一个小写字符；last为整串状�
 
 \lstinputlisting{usage/example-130.cpp}
 
-\Needspace{476pt}
+\Needspace{486pt}
 
 \chapter{广义后缀自动机}
 
 \section{广义后缀自动机：Trie BFS 构建}\label{compact-GeneralSAM}\index{GeneralSAM}
 
-先 add(s) 登记若干小写字符串，再 build() 原地将 Trie 变为广义 SAM；build 后禁止继续 add，可重复 build，重新收集串需新建对象。空串与重复串允许，distinct() 返回所有输入串中不同非空子串的总数，不包含跨串拼接。根为 0，a[v].go[c] 为转移、0 表示无边，link 为后缀链接、len 为最长代表串长度；从根沿字符转移可判定子串是否存在。a.size() 为按文档 endpos 等价类构造的状态数，不应直接称为后缀并集语言的最小 DFA 点数；ab、b 是两者不同的例子。固定 26 字符，设累计输入长度 L、Trie 点数 K，登记总时间 O(L)，build 时间与空间 O(26K)，状态少于 2K；累计输入长度及 2K 须可由 int 表示。克隆只复制已处理转移，不能带入尚未 BFS 处理的 Trie 子边。此版不提供出现次数或各串所属标记。
+先 add(s) 登记若干小写字符串，再 build() 原地将 Trie 变为广义 SAM；build 后禁止继续 add，可重复 build，重新收集串需新建对象。空串与重复串允许，distinct() 返回所有输入串中不同非空子串的总数，不包含跨串拼接。根为 0，a[v].go[c] 为转移、0 表示无边，link 为后缀链接、len 为最长代表串长度；从根沿字符转移可判定子串是否存在。a.size() 为按文档 endpos 等价类构造的状态数，不应直接称为后缀并集语言的最小 DFA 点数；ab、b 是两者不同的例子。P6139 官方样例一要求 endpos 点数10，后缀语言最小化仅7点；该题用 a.size()，勿再最小化。固定 26 字符，设累计输入长度 L、Trie 点数 K，登记总时间 O(L)，build 时间与空间 O(26K)，状态少于 2K；累计输入长度及 2K 须可由 int 表示。克隆只复制已处理转移，不能带入尚未 BFS 处理的 Trie 子边。此版不提供出现次数或各串所属标记。
 
 \lstinputlisting[firstline=9,lastline=37,firstnumber=1]{../src/compact/general_sam.hpp}
 
@@ -263,6 +263,20 @@ extend(c) 接收整数0..25，每次追加一个小写字符；last为整串状�
 题目：\url{https://judge.yosupo.jp/problem/number_of_substrings}
 
 \lstinputlisting{usage/example-90.cpp}
+
+\Needspace{371pt}
+
+\subsection*{模板题使用：Luogu P6139}
+
+\label{usage-example-132}
+
+题意：读入所有小写字符串，求不同非空子串数及含根的广义 SAM 点数。先全部 add，再 build，输出 distinct 和 a.size；总长度至100万、文档数至40万。点数按官方样例的 endpos 等价类口径：aa、ab、bac、caa 输出10和10，不另做后缀语言 DFA 最小化。本例通过完整驱动本地验证，线上待补。
+
+所需模板：GeneralSAM。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6139}
+
+\lstinputlisting{usage/example-132.cpp}
 
 \Needspace{459pt}
 
