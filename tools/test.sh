@@ -525,3 +525,7 @@ build/lgv
 build/tree-path-products
 python3 tests/tree_path_products_application.py
 python3 tests/lct_application.py
+
+"$CXX" "${flags[@]}" tests/sequence_flip.cpp -o build/sequence-flip
+build/sequence-flip
+python3 tests/sequence_flip_application.py

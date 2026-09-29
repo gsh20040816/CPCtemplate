@@ -62,8 +62,8 @@
 | 4.2 | 2. LCT 动态树 | 98 | 100 | implemented_local_verified_online_pending |
 | 4.2.1 | (1) 洛谷模板 | 98 | 100 | implemented_local_verified_online_pending |
 | 4.2.2 | (2) 爱莲说 | 103 | 105 | implemented_local_verified_online_pending |
-| 4.3 | 3. FHQ_Treap | 107 | 109 | pending_content_review |
-| 4.3.1 | (1) 牛客 | 107 | 109 | pending_content_review |
+| 4.3 | 3. FHQ_Treap | 107 | 109 | implemented_local_verified_online_pending |
+| 4.3.1 | (1) 牛客 | 107 | 109 | implemented_local_verified_online_pending |
 | 4.4 | 4. 替罪羊树 | 111 | 113 | pending_content_review |
 | 4.4.1 | (1) 洛谷模板 | 111 | 113 | pending_content_review |
 | 4.5 | 5. 莫队二次离线 | 115 | 117 | pending_content_review |

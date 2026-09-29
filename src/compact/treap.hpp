@@ -146,7 +146,7 @@ struct SequenceTreap
         int l = 0, r = 0, siz = 0;
         ll val = 0, sum = 0, tag = 0;
         unsigned long long pri = 0;
-        bool rev = false;
+        bool rev = false, neg = false;
     };
 
     vector<Node> a{Node{}};
@@ -166,7 +166,18 @@ struct SequenceTreap
     void apply_add(int p, ll x)
     {
         if (!p) return;
-        a[p].val += x, a[p].sum += x * a[p].siz, a[p].tag += x;
+        a[p].val += x;
+        a[p].sum += x * a[p].siz;
+        a[p].tag += x;
+    }
+
+    void apply_negate(int p)
+    {
+        if (!p) return;
+        a[p].val = -a[p].val;
+        a[p].sum = -a[p].sum;
+        a[p].tag = -a[p].tag;
+        a[p].neg = !a[p].neg;
     }
 
     void apply_reverse(int p)
@@ -183,6 +194,12 @@ struct SequenceTreap
             apply_reverse(a[p].l);
             apply_reverse(a[p].r);
             a[p].rev = false;
+        }
+        if (a[p].neg)
+        {
+            apply_negate(a[p].l);
+            apply_negate(a[p].r);
+            a[p].neg = false;
         }
         if (a[p].tag)
         {
@@ -236,7 +253,7 @@ struct SequenceTreap
     {
         assert(0 <= k && k <= size());
         int p = a.size(), l, r;
-        a.push_back({0, 0, 1, value, value, 0, rng(), false});
+        a.push_back({0, 0, 1, value, value, 0, rng(), false, false});
         split(root, k, l, r);
         root = merge(merge(l, p), r);
     }
@@ -258,6 +275,18 @@ struct SequenceTreap
         split(root, r, y, z);
         split(y, l - 1, x, y);
         apply_reverse(y);
+        root = merge(merge(x, y), z);
+    }
+
+    // Requires every value in [l,r] to be 0 or 1; preserves their order.
+    void flip_bits(int l, int r)
+    {
+        assert(1 <= l && l <= r && r <= size());
+        int x, y, z;
+        split(root, r, y, z);
+        split(y, l - 1, x, y);
+        apply_negate(y);
+        apply_add(y, 1);
         root = merge(merge(x, y), z);
     }
 

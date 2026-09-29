@@ -1,0 +1,69 @@
+{
+  "scope": "Local current-source tests; no new online AC. Attachment FHQ Reverse means bit flip, not sequence reversal.",
+  "recorded_at_utc": "2026-09-29T07:16:58.177781+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/treap.hpp": "450842fc5c0389f12749083ddca4f6273a2156abee15c92da5cccb716eddafb5",
+    "tests/sequence_flip.cpp": "54e9f8534ba9e005aa10bae222e46ad7926d62c42b7390bd93678be43c5dca56",
+    "tests/sequence_flip_application.py": "5d41336af4c51f8d38b78b7c8967921fecb6a801d803cb8f03cbaf50589f36f4",
+    "tests/trees.cpp": "147575d2846ff199f0f647316fe89db73b0a73f82be0243c206438d0c85f50d7",
+    "verify/examples/sequence_flip.compact.cpp": "f9606e7c894c0276727b464cfa137f499ac18e3ced13c7eb1673db01819af050",
+    "verify/luogu/P3391.compact.cpp": "e6641c16f7713e9b3448c22a89ed977673ef139f92c5ec11eb67654de288fdf9"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "kind": "unit",
+      "coverage": "All binary sequences and intervals through length 7; 500000 mixed operations against vector; recursive heap/size/sum audit; 200000 nodes",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "normal",
+      "kind": "driver",
+      "coverage": "151 cases; independent XOR difference array; n=q=200000",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "normal",
+      "kind": "regression",
+      "coverage": "trees.cpp: vector-only BFS forest, long chain, ordered treap/splay and sequence vector oracles",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "unit",
+      "coverage": "All binary sequences and intervals through length 7; 500000 mixed operations against vector; recursive heap/size/sum audit; 200000 nodes",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "driver",
+      "coverage": "151 cases; independent XOR difference array; n=q=200000",
+      "verdict": "local_oracle_passed"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "regression",
+      "coverage": "trees.cpp: vector-only BFS forest, long chain, ordered treap/splay and sequence vector oracles",
+      "verdict": "local_oracle_passed"
+    }
+  ],
+  "printed_usage": [
+    "example-8",
+    "example-10",
+    "example-109"
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  }
+}

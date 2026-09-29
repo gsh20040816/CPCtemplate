@@ -1981,13 +1981,33 @@ insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在�
 
 \lstinputlisting{usage/example-8.cpp}
 
-\Needspace{401pt}
+\newpage
 
-\subsection{隐式 Treap：序列翻转、加值与区间和}\label{compact-SequenceTreap}\index{SequenceTreap}
+\Needspace{650pt}
 
-insert(k,value) 在前 k 个元素后插入，0$\le$k$\le$size()；erase(l,r)、reverse(l,r)、add(l,r,value)、query(l,r) 均使用 1-based 非空闭区间。values() 返回当前完整序列，O(n)，使用递归中序遍历。其余操作在随机优先级下期望 O(log n)；翻转与加法懒标记同时维护。所有值、和、标记及 value×长度中间结果必须落在 long long 范围内。删除不回收节点，内存按累计插入数计算。
+\subsection{隐式 Treap：顺序反转、位翻转、加值与区间和}\label{compact-SequenceTreap}\index{SequenceTreap}
 
-\lstinputlisting[firstline=140,lastline=300]{../src/compact/treap.hpp}
+insert(k,value) 在前 k 个元素后插入，0$\le$k$\le$size()；区间接口 erase、reverse、flip\_bits、add、query 均使用 1-based 非空闭区间。reverse 反转元素顺序；flip\_bits 要求区间内全为 0/1，逐位取反并保持顺序，不检查这一前提。query 返回和，二进制区间即 1 的个数。values() 递归中序返回完整序列，O(n)。其余操作期望 O(log n)，不是最坏界。符号与加法标记表示 s*x+b，位翻转通过取负后加 1 实现，下传必须先符号再加法；顺序反转另行维护。所有值、和、标记、乘法及取负中间结果须在 long long 范围内。删除不回收节点，空间按累计插入次数计算；辅助函数和节点数组只供内部使用。
+
+\lstinputlisting[firstline=140,lastline=182,firstnumber=1]{../src/compact/treap.hpp}
+
+\newpage
+
+\noindent 顺序反转、懒标记下传与分裂（接上页同一结构体）：
+
+\lstinputlisting[firstline=183,lastline=234,firstnumber=44]{../src/compact/treap.hpp}
+
+\newpage
+
+\noindent 合并、插入、删除与顺序反转（接上页同一结构体）：
+
+\lstinputlisting[firstline=235,lastline=280,firstnumber=96]{../src/compact/treap.hpp}
+
+\newpage
+
+\noindent 位翻转、加法、查询与输出（接上页同一结构体）：
+
+\lstinputlisting[firstline=281,lastline=329,firstnumber=142]{../src/compact/treap.hpp}
 
 \Needspace{348pt}
 
@@ -2002,6 +2022,20 @@ insert(k,value) 在前 k 个元素后插入，0$\le$k$\le$size()；erase(l,r)、
 题目：\url{https://www.luogu.com.cn/problem/P3391}
 
 \lstinputlisting{usage/example-10.cpp}
+
+\Needspace{377pt}
+
+\subsection*{应用题补充：二进制序列区间取反（本地接口示例）}
+
+\label{usage-example-109}
+
+题意：输入 n,q、长度 n 的 01 字符串，再输入 q 个 1-based 闭区间。每次逐位取反，最后输出字符串。保持位置顺序；要反转顺序应调用 reverse。按插入构造，保证随机优先级堆序；附件未提供完整牛客题号，仅登记本地应用。
+
+所需模板：SequenceTreap。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://github.com/gsh20040816/CPCtemplate/issues/11}
+
+\lstinputlisting{usage/example-109.cpp}
 
 \subsection{状态序列 Treap：分组区间 GCD}\label{compact-GcdSequenceTreap}\index{GcdSequenceTreap}
 

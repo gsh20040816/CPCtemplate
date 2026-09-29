@@ -638,8 +638,8 @@
   [
     "treap",
     "SequenceTreap",
-    "隐式 Treap：序列翻转、加值与区间和",
-    "insert(k,value) 在前 k 个元素后插入，0≤k≤size()；erase(l,r)、reverse(l,r)、add(l,r,value)、query(l,r) 均使用 1-based 非空闭区间。values() 返回当前完整序列，O(n)，使用递归中序遍历。其余操作在随机优先级下期望 O(log n)；翻转与加法懒标记同时维护。所有值、和、标记及 value×长度中间结果必须落在 long long 范围内。删除不回收节点，内存按累计插入数计算。"
+    "隐式 Treap：顺序反转、位翻转、加值与区间和",
+    "insert(k,value) 在前 k 个元素后插入，0≤k≤size()；区间接口 erase、reverse、flip_bits、add、query 均使用 1-based 非空闭区间。reverse 反转元素顺序；flip_bits 要求区间内全为 0/1，逐位取反并保持顺序，不检查这一前提。query 返回和，二进制区间即 1 的个数。values() 递归中序返回完整序列，O(n)。其余操作期望 O(log n)，不是最坏界。符号与加法标记表示 s*x+b，位翻转通过取负后加 1 实现，下传必须先符号再加法；顺序反转另行维护。所有值、和、标记、乘法及取负中间结果须在 long long 范围内。删除不回收节点，空间按累计插入次数计算；辅助函数和节点数组只供内部使用。"
   ],
   [
     "splay",

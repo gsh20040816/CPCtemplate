@@ -654,12 +654,11 @@
       "toc_page": 107,
       "physical_page": 109,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
-        "OrderedTreap",
         "SequenceTreap"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "实际 109–112 页已逐行核对：Reverse 是逐位异或 1 而不是顺序反转，新增 flip_bits 补此缺项。使用符号与加法标记正确组合；不沿用中点建树后随机赋优先级而不修堆序的构建。二进制全区间穷举、50 万次混合操作、堆序与聚合不变量、151 组 XOR 差分驱动含 n=q=20 万双模式通过。附件无完整牛客题号，仅本地用法；详见 docs/SEQUENCE-FLIP.md、verification/sequence-flip.json。"
     },
     {
       "section": "4.3.1",
@@ -667,8 +666,11 @@
       "toc_page": 107,
       "physical_page": 109,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "SequenceTreap"
+      ],
+      "review": "实际 109–112 页已逐行核对：Reverse 是逐位异或 1 而不是顺序反转，新增 flip_bits 补此缺项。使用符号与加法标记正确组合；不沿用中点建树后随机赋优先级而不修堆序的构建。二进制全区间穷举、50 万次混合操作、堆序与聚合不变量、151 组 XOR 差分驱动含 n=q=20 万双模式通过。附件无完整牛客题号，仅本地用法；详见 docs/SEQUENCE-FLIP.md、verification/sequence-flip.json。"
     },
     {
       "section": "4.4",

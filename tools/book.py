@@ -107,7 +107,8 @@ for style in ['compact']:
                 split = next(i for i in range(start, end) if 'void add(' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'SequenceTreap':
-                estimate = 350 + len(info) / 55 * 12
+                body.append('\\newpage')
+                estimate = 650
             if name == 'polygon_contains':
                 estimate = 430
             if name in ('line_intersection_real', 'line_circle_intersections'):
@@ -184,6 +185,17 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 本轮割、合并与继续扩张（接上页同一函数）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'SequenceTreap':
+                cuts = [start,
+                        next(i for i in range(start, end) if 'void apply_reverse(' in lines[i]),
+                        next(i for i in range(start, end) if 'int merge(' in lines[i]),
+                        next(i for i in range(start, end) if '// Requires every value' in lines[i]), end]
+                captions = ['', '顺序反转、懒标记下传与分裂', '合并、插入、删除与顺序反转', '位翻转、加法、查询与输出']
+                for part in range(4):
+                    if part:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'TreePathProducts':
                 first = next(i for i in range(start, end) if 'bool is_root(' in lines[i])
                 second = next(i for i in range(first, end) if 'void splay(' in lines[i])
