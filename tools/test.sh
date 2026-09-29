@@ -537,3 +537,7 @@ python3 tests/scapegoat_application.py
 "$CXX" "${flags[@]}" tests/mo_secondary.cpp -o build/mo-secondary
 build/mo-secondary
 python3 tests/mo_secondary_application.py
+
+"$CXX" "${flags[@]}" tests/monotone_stack_seg.cpp -o build/monotone-stack-seg
+build/monotone-stack-seg
+python3 tests/monotone_stack_application.py

@@ -188,3 +188,4 @@
 | euler_power | [example-106](usage/example-106.cpp) | locally_checked_example |
 | dag_path_determinant | [example-107（应用补充）](usage/example-107.cpp) | generated_unverified |
 | xor_hamming_pairs | [example-111](usage/example-111.cpp) | locally_checked_example |
+| MonotoneStackSeg | [example-112（应用补充）](usage/example-112.cpp), [example-113（应用补充）](usage/example-113.cpp) | generated_unverified |

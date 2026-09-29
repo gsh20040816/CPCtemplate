@@ -67,7 +67,7 @@
 | 4.4 | 4. 替罪羊树 | 111 | 113 | implemented_local_verified_online_pending |
 | 4.4.1 | (1) 洛谷模板 | 111 | 113 | implemented_local_verified_online_pending |
 | 4.5 | 5. 莫队二次离线 | 115 | 117 | implemented_local_verified_online_pending |
-| 4.6 | 6. 线段树维护单调栈 | 118 | 120 | pending_content_review |
+| 4.6 | 6. 线段树维护单调栈 | 118 | 120 | implemented_local_verified_online_pending |
 | 4.7 | 7. K-D Tree | 124 | 126 | pending_content_review |
 | 5 | 多项式 | 128 | 130 | pending_content_review |
 | 5.1 | 1. 拉格朗日插值 | 128 | 130 | pending_content_review |

@@ -1,0 +1,51 @@
+{
+  "scope": "Local independent prefix/suffix oracles, P12438 full driver and scan example; no online AC or ranking",
+  "recorded_at_utc": "2026-09-29T07:53:12.394493+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/monotone_stack_seg.hpp": "60371053ca23609faab0ac362ee38f3e3ccf1ee962e6cd46cd037d1d44b943e7",
+    "tests/monotone_stack_seg.cpp": "fe7a73992a6ffadebe87f2580c8c603e83a6cffd0f7aa6e58cc187ec07285a7d",
+    "tests/monotone_stack_application.py": "22f9e0b2eba99d33d6a247d0f0b0a64826e2b186146c22fc3ac245466e723c80",
+    "verify/luogu/P12438.compact.cpp": "d19c29936089007fc777d28afdd1faf28e12e479f4709a2890658cb206280608",
+    "verify/examples/monotone_scan.compact.cpp": "ca0dd7130800d5834ab67d1b79f1ee8ebb7edf76decb89839972255aa26fb604"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "kind": "unit",
+      "verdict": "local_oracle_passed",
+      "output": "MonotoneStackSeg: exhaustive signed arrays, 300000 updates, scans, invariants, 200000 scale PASS"
+    },
+    {
+      "mode": "normal",
+      "kind": "driver",
+      "verdict": "local_oracle_passed",
+      "output": "P12438: two official samples, 150 random programs, n=q=200000 closed-form case PASS"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "unit",
+      "verdict": "local_oracle_passed",
+      "output": "MonotoneStackSeg: exhaustive signed arrays, 300000 updates, scans, invariants, 200000 scale PASS"
+    },
+    {
+      "mode": "asan_ubsan",
+      "kind": "driver",
+      "verdict": "local_oracle_passed",
+      "output": "P12438: two official samples, 150 random programs, n=q=200000 closed-form case PASS"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "asan_ubsan": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  }
+}

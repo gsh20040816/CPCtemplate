@@ -1096,5 +1096,11 @@
     "xor_hamming_pairs",
     "莫队二次离线：异或位数配对",
     "xor_hamming_pairs(a,queries,k,bits=14) 按查询输入顺序返回 long long 答案，统计 l≤i<j<r 且 popcount(a[i] xor a[j])=k 的下标对。queries 为 0-based 半开区间，允许空区间、重复查询与空数组；0≤bits≤20，0≤a[i]<2^bits，n、m 和容器下标须可由 int 表示。k 超出 [0,bits] 直接返回全零；相等值来自不同下标才构成一对。莫队移动生成前缀事件，第二次离线按前缀扫描；k=0 显式扣掉自身。令 C=binom(bits,k)，时间 O(2^bits+nC+m log(m+1)+n√m+m)，空间 O(2^bits+n+m)，m=0 直接返回。无需维护可逆的在线窗口，也不支持修改。"
+  ],
+  [
+    "monotone_stack_seg",
+    "MonotoneStackSeg",
+    "线段树维护单调栈：区间加与接雨水",
+    "MonotoneStackSeg(a) 要求非空 long long 数组；add(l,r,delta) 对 0-based 半开区间加值，空区间不变。water() 返回整个数组的接雨水体积。scan(l,r,height,reverse=false) 按左到右（reverse=true 则右到左）扫描，将 height 与当前元素取 max 并累加 height-a[i]，返回 (累加值,最后的 height)；空区间返回 (0,height)。支持负高度与负增量，无固定零边界。节点缓存双向前缀极大值减原值的和；区间平移不改变两者差。建树 O(n)，add/scan 最坏 O(log²(n+1))，water 为 O(1)，空间 O(n)；递归深度 O(log n)。4n 须可由 int 表示；高度、和、懒标记、外部 height 与长度的乘积以及所有中间运算均须在 long long 范围内。t 与 extra/pull/push 及带节点编号的函数属内部实现。"
   ]
 ]

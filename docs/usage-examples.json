@@ -1336,5 +1336,29 @@
       "xor_hamming_pairs"
     ],
     "kind": "template"
+  },
+  {
+    "id": "example-112",
+    "symbol": "MonotoneStackSeg",
+    "problem": "NERC 2023 G / Luogu P12438",
+    "url": "https://www.luogu.com.cn/problem/P12438",
+    "summary": "Great City Saint Petersburg：先输出初始雨水量，每次输入 1-based 闭区间使高度加一，再输出全局雨水量。调用时只减 l。该题为比赛应用，不计正式模板题覆盖；一般负增量和 scan 接口另有本地验证。",
+    "driver": "verify/luogu/P12438.compact.cpp",
+    "requires": [
+      "MonotoneStackSeg"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-113",
+    "symbol": "MonotoneStackSeg",
+    "problem": "带外部高度的双向扫描（本地接口示例）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/issues/11",
+    "summary": "输入 n,q 和高度数组，再输入 op,l,r,x；区间均为 0-based 半开。op=0 对区间加 x；op=1 从左向右、op=2 从右向左，初始最高值为 x，输出逐步最高值与当前元素之差的和，以及最终最高值。空区间保持 x，支持负数。",
+    "driver": "verify/examples/monotone_scan.compact.cpp",
+    "requires": [
+      "MonotoneStackSeg"
+    ],
+    "kind": "application"
   }
 ]

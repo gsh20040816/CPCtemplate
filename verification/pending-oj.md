@@ -8,6 +8,7 @@
 - `verify/examples/bounded_minflow.compact.cpp`
 - `verify/examples/dag_path_determinant.compact.cpp`
 - `verify/examples/matching_edges.compact.cpp`
+- `verify/examples/monotone_scan.compact.cpp`
 - `verify/examples/odd_induced_partition.compact.cpp`
 - `verify/examples/sequence_flip.compact.cpp`
 - `verify/examples/tree_path_products.compact.cpp`
@@ -57,6 +58,7 @@
 - `verify/luogu/CF118E.compact.cpp`
 - `verify/luogu/CF600E.compact.cpp`
 - `verify/luogu/P1117.compact.cpp`
+- `verify/luogu/P12438.compact.cpp`
 - `verify/luogu/P1516.compact.cpp`
 - `verify/luogu/P1593.compact.cpp`
 - `verify/luogu/P1972.compact.cpp`

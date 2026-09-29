@@ -94,6 +94,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Fenwick | 数据结构 → 树状数组 | direct |  |
 | AffineSegTree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | LazySeg | 数据结构 → 线段树 → 线段树基础 | direct |  |
+| MonotoneStackSeg | 数据结构 → 线段树 → 线段树基础 | related | 线段树维护单调栈的双向极大值贡献；区间加接雨水应用，不将普通单调栈直接视为覆盖。 |
 | lazy_segtree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | segtree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | LiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
