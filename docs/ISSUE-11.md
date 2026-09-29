@@ -23,13 +23,13 @@
 | 2.2 | 2. 支配树 | 16 | 18 | implemented_local_verified_online_pending |
 | 2.2.1 | (1) 洛谷模板 | 16 | 18 | implemented_local_verified_online_pending |
 | 2.3 | 3. 割点 | 22 | 24 | implemented_local_verified_online_pending |
-| 2.4 | 4. 网络最大流 | 24 | 26 | pending_content_review |
+| 2.4 | 4. 网络最大流 | 24 | 26 | existing_implementation_local_verified |
 | 2.5 | 5. Johnson | 26 | 28 | implemented_local_verified_online_pending |
 | 2.6 | 6. 点双连通分量 | 31 | 33 | pending_content_review |
 | 2.7 | 7. 边双连通分量 | 33 | 35 | pending_content_review |
-| 2.8 | 8. 最小费用最大流 | 35 | 37 | pending_content_review |
-| 2.8.1 | (1) Dijkstra 费用流 | 35 | 37 | pending_content_review |
-| 2.8.2 | (2) SPFA 费用流 | 37 | 39 | pending_content_review |
+| 2.8 | 8. 最小费用最大流 | 35 | 37 | implemented_local_verified_online_pending |
+| 2.8.1 | (1) Dijkstra 费用流 | 35 | 37 | existing_implementation_local_verified |
+| 2.8.2 | (2) SPFA 费用流 | 37 | 39 | implemented_local_verified_online_pending |
 | 2.9 | 9. 无向图三元环计数 | 40 | 42 | implemented_local_verified_online_pending |
 | 2.10 | 10. 二分图最大匹配的可行边与必经边 | 41 | 43 | implemented_local_verified_online_pending |
 | 2.11 | 11. 最小割可行边与必经边 | 42 | 44 | implemented_local_verified_online_pending |

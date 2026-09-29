@@ -84,6 +84,7 @@
 - `verify/luogu/P3379.lifting.compact.cpp`
 - `verify/luogu/P3381.compact.cpp`
 - `verify/luogu/P3381.slope.compact.cpp`
+- `verify/luogu/P3381.spfa.compact.cpp`
 - `verify/luogu/P3386.compact.cpp`
 - `verify/luogu/P3388.compact.cpp`
 - `verify/luogu/P3398.compact.cpp`

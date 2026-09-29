@@ -13,6 +13,7 @@
 | Dinic | [example-1](usage/example-1.cpp) | locally_checked_example |
 | maximum_closure | 待补 | pending_example |
 | MinCostFlow | [example-55](usage/example-55.cpp) | locally_checked_example |
+| SpfaFlow | [example-127](usage/example-127.cpp) | locally_checked_example |
 | Dijkstra | [example-59](usage/example-59.cpp) | locally_checked_example |
 | SCC | 待补 | pending_example |
 | TwoSAT | [example-3](usage/example-3.cpp) | locally_checked_example |

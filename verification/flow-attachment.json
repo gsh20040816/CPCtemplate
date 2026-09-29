@@ -1,0 +1,102 @@
+{
+  "scope": "Attachment 2.4 and 2.8: Dinic, potential-based minimum cost flow and new SPFA alternative. Local oracle verification only; no new online AC or rankings.",
+  "recorded_at_utc": "2026-09-29T09:57:44.340222+00:00",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "platform": "Darwin arm64",
+  "files": {
+    "src/compact/spfa_flow.hpp": "f5e917c6d9c8d02625cc3d5fcf83c512eaa8570271d16c095909c9701d9071e6",
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "tests/spfa_flow.cpp": "7ca1b3aca8ced66cd3345e2dadc2361203f7022610ccd34abe212a3f9939eead",
+    "tests/flow_edges.cpp": "61b54575fe16490b66810d04b5c89c745f92a8a9d61bd80eb9eb8c28159cfc1b",
+    "tests/flow_slope.cpp": "15201a266da9170048bea4db491ca35f2b06348ef6564e93e864d03923f8546d",
+    "tests/flow_attachment.py": "d414d4e309662a181c64a7b6d398ab30bfe296744d1a02cf1e35ac902185673f",
+    "verify/luogu/P3376.compact.cpp": "1f8cd8de6426561e4f0bde090d85e56773a57e994b3056d14ccb56265d32acee",
+    "verify/luogu/P3381.compact.cpp": "de77e7575c122bb50ea7ae7dfb200ce5cd6c088cdc974a0411ea5d17caab77f4",
+    "verify/luogu/P3381.slope.compact.cpp": "0ccc0b10f8cf6e72948a7f9ea45c5edd39f53d9cde99047d9ac69121a9d6c07c",
+    "verify/luogu/P3381.spfa.compact.cpp": "5f0c93af38f7194cc3be95288f0bc3dfb122e34f2c87f199ee0c4abf1cf73062"
+  },
+  "runs": [
+    {
+      "module": "spfa_flow",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/spfa-flow-normal.txt",
+      "output": "SPFA and potential min-cost flow: 4000 cpp_int exhaustive feasible-flow oracles, residual certificates, limits/continuation, forced cancellation, global negative-cycle rejection, int64 capacity and long-path int128 costs PASS"
+    },
+    {
+      "module": "spfa_flow",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/spfa-flow-san.txt",
+      "output": "SPFA and potential min-cost flow: 4000 cpp_int exhaustive feasible-flow oracles, residual certificates, limits/continuation, forced cancellation, global negative-cycle rejection, int64 capacity and long-path int128 costs PASS"
+    },
+    {
+      "module": "flow_edges",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/flow-review-flow_edges-normal.txt",
+      "output": "Dinic edge API: exhaustive-cut oracle after capacity edits, residual/conservation certificates and int64 limits PASS"
+    },
+    {
+      "module": "flow_edges",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/flow-review-flow_edges-san.txt",
+      "output": "Dinic edge API: exhaustive-cut oracle after capacity edits, residual/conservation certificates and int64 limits PASS"
+    },
+    {
+      "module": "flow_slope",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/flow-review-flow_slope-normal.txt",
+      "output": "Min-cost slope: exhaustive feasible-flow costs, negative edges without negative cycles, ties, limits, continuation and int128 totals PASS"
+    },
+    {
+      "module": "flow_slope",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/flow-review-flow_slope-san.txt",
+      "output": "Min-cost slope: exhaustive feasible-flow costs, negative edges without negative cycles, ties, limits, continuation and int128 totals PASS"
+    },
+    {
+      "module": "drivers",
+      "mode": "normal",
+      "verdict": "local_oracle_passed",
+      "log": "build/flow-drivers-normal.txt",
+      "output": "P3376: 200 arbitrary-integer cut oracles, 200 vertices / 5000 edges and int64 total PASS\nP3381 flow/slope/SPFA: each 200 enumerated feasible-flow cases, 1000 augmentations at 5000 vertices / 50000 edges, reverse-ordered chain and 50000 positive-capacity DAG edges with a topological-DP oracle PASS"
+    },
+    {
+      "module": "drivers",
+      "mode": "san",
+      "verdict": "local_oracle_passed",
+      "log": "build/flow-drivers-san.txt",
+      "output": "P3376: 200 arbitrary-integer cut oracles, 200 vertices / 5000 edges and int64 total PASS\nP3381 flow/slope/SPFA: each 200 enumerated feasible-flow cases, 1000 augmentations at 5000 vertices / 50000 edges, reverse-ordered chain and 50000 positive-capacity DAG edges with a topological-DP oracle PASS"
+    }
+  ],
+  "flags": {
+    "normal": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "san": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ]
+  },
+  "test_only_include_path": "/opt/homebrew/include",
+  "usage_examples": [
+    "example-127"
+  ],
+  "references": [
+    "https://www.luogu.com.cn/problem/P3376",
+    "https://www.luogu.com.cn/problem/P3381"
+  ],
+  "limitations": [
+    "Negative residual cycles, including unreachable ones, are rejected before changing capacities.",
+    "SPFA complexity O((A+1)VE), where A is actual augmentation count; no speed superiority claim.",
+    "Existing flow.hpp unchanged; no new online acceptance."
+  ]
+}

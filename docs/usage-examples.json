@@ -1538,5 +1538,16 @@
     "requires": [
       "IntegerPlane"
     ]
+  },
+  {
+    "id": "example-127",
+    "symbol": "SpfaFlow",
+    "problem": "Luogu P3381",
+    "url": "https://www.luogu.com.cn/problem/P3381",
+    "summary": "求最小费用最大流。点号 1..n，输入容量与费用均为 0..1000，最多5000点、50000边；本题保证最大流及最小费用≤2³¹-1，可把返回费用转 long long 输出。这里实际使用SPFA增广，通用接口允许负边但禁止负环；有负环的费用流须用另一套算法。",
+    "driver": "verify/luogu/P3381.spfa.compact.cpp",
+    "requires": [
+      "SpfaFlow"
+    ]
   }
 ]

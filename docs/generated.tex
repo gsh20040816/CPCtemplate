@@ -3205,7 +3205,7 @@ mixed\_euler\_trail(n,edges) 返回任意可行欧拉路径的定向边序列，
 
 \subsection{最大流与方案}\label{compact-Dinic}\index{Dinic}
 
-Dinic(n)，add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新增流；used(id) 查询原边净流，cut(s) 返回残量可达点集。允许重边、自环，容量非负，s$\ne$t；重复求流须使用相同源汇。只有求尽最大流后 cut 才是最小割。一般 O(V$^{2}$E)，递归增广深度 O(V)。总流不得超过 long long 上限。 get\_edge(id) 返回 tuple(起点,终点,总容量,当前流)，change\_edge(id,cap,f) 修改总容量与流，要求 id 为 add 返回的偶数原边编号且 0$\le$f$\le$cap；正向残量变为 cap-f，反向为 f。仅保证此残量对一致，不自动维持所有顶点的流量守恒；继续 flow 前必须由调用方保证全局可行流及同源汇。增容且保留 f 合法，缩容低于已有流时不能只截断该边。要从零重算须将所有原边一起重置为零流。两个新接口为 O(1)，尚只有本地验证。
+Dinic(n)，点号 1..n；add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新增流；used(id) 查询原边净流，cut(s) 返回残量可达点集。允许重边、自环，容量非负，s$\ne$t；重复求流须使用相同源汇。只有求尽最大流后 cut 才是最小割。一般 O(V$^{2}$E)，递归增广深度 O(V)。总流不得超过 long long 上限。 get\_edge(id) 返回 tuple(起点,终点,总容量,当前流)，change\_edge(id,cap,f) 修改总容量与流，要求 id 为 add 返回的偶数原边编号且 0$\le$f$\le$cap；正向残量变为 cap-f，反向为 f。仅保证此残量对一致，不自动维持所有顶点的流量守恒；继续 flow 前必须由调用方保证全局可行流及同源汇。增容且保留 f 合法，缩容低于已有流时不能只截断该边。要从零重算须将所有原边一起重置为零流。两个新接口为 O(1)，尚只有本地验证。
 
 \lstinputlisting[firstline=6,lastline=33,firstnumber=1]{../src/compact/flow.hpp}
 
@@ -3321,7 +3321,7 @@ cut\_tree\_values(n,tree) 对合法的连通无环加权树计算全点对路径
 
 \subsection{势能最小费用最大流}\label{compact-MinCostFlow}\index{MinCostFlow}
 
-add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 位费用，used(id) 返回原边流量。允许负费用，初始残量网络必须没有负环；检测到负环抛异常。Bellman-Ford 初始化 O(VE)，每次增广 O(E log V)；增广次数不能简单假设为 O(V)。 另要求 $\sum$(cap×|cost|)<2\textasciicircum{}120，防止总费用超过 int128。 slope(s,t,limit) 返回从 (0,0) 开始的本次新增流量/费用折点，相邻同斜率段合并，费用为 int128。无增广时只返回起点；每个整数流量的费用可在线性段内插值。重复调用仍用同源汇，返回值不是历史累计值。flow 不存储曲线；slope 额外空间为折点数。内部 run 不是用户接口。新曲线接口仅本地验证，P3381 驱动只输出终点，不能据此验证全部中间折点。
+MinCostFlow(n)，点号 1..n；add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 位费用，used(id) 返回原边流量。允许负费用，初始残量网络必须没有负环；检测到负环抛异常。Bellman-Ford 初始化 O(VE)，每次增广 O(E log V)；增广次数不能简单假设为 O(V)。 另要求 $\sum$(cap×|cost|)<2\textasciicircum{}120，防止总费用超过 int128。 slope(s,t,limit) 返回从 (0,0) 开始的本次新增流量/费用折点，相邻同斜率段合并，费用为 int128。无增广时只返回起点；每个整数流量的费用可在线性段内插值。重复调用仍用同源汇，返回值不是历史累计值。flow 不存储曲线；slope 额外空间为折点数。内部 run 不是用户接口。新曲线接口仅本地验证，P3381 驱动只输出终点，不能据此验证全部中间折点。
 
 \lstinputlisting[firstline=119,lastline=148,firstnumber=1]{../src/compact/flow.hpp}
 
@@ -3346,6 +3346,40 @@ add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 �
 题目：\url{https://www.luogu.com.cn/problem/P3381}
 
 \lstinputlisting{usage/example-55.cpp}
+
+\Needspace{498pt}
+
+\subsection{SPFA 最小费用最大流}\label{compact-SpfaFlow}\index{SpfaFlow}
+
+SpfaFlow(n)，点号 1..n；add(u,v,cap,cost) 返回偶数原边编号，used(id) 查询原边流量。flow(s,t,limit) 返回本次新增流量及 int128 费用；默认 limit=LLONG\_MAX，s$\ne$t。允许重边、自环、零容量和负费用，调用前残量网络不得有负环；先用全点入队 SPFA 检查全图，含不可达负环也抛 invalid\_argument，检查阶段不修改流量。重复调用须保持同源汇，返回值不累计历史。容量非负、费用不能是 LLONG\_MIN，总流$\le$LLONG\_MAX，$\sum$(cap×|cost|)<2\textasciicircum{}120。每次增广用 SPFA 最短路，复杂度 O((A+1)VE)，A 为实际增广次数，不能假设等于点数；空间 O(V+E)。通常优先势能 Dijkstra，本版作为更直接的 SPFA 备选。e/g 可读，不能任意修改残量；shortest 为内部方法，0 仅是全点初始化标记，不是合法顶点。
+
+\lstinputlisting[firstline=6,lastline=35,firstnumber=1]{../src/compact/spfa_flow.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体：
+
+\lstinputlisting[firstline=36,lastline=72,firstnumber=31]{../src/compact/spfa_flow.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体：
+
+\lstinputlisting[firstline=73,lastline=99,firstnumber=68]{../src/compact/spfa_flow.hpp}
+
+\Needspace{371pt}
+
+\subsection*{模板题使用：Luogu P3381}
+
+\label{usage-example-127}
+
+题意：求最小费用最大流。点号 1..n，输入容量与费用均为 0..1000，最多5000点、50000边；本题保证最大流及最小费用$\le$2$^{31}$-1，可把返回费用转 long long 输出。这里实际使用SPFA增广，通用接口允许负边但禁止负环；有负环的费用流须用另一套算法。
+
+所需模板：SpfaFlow。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3381}
+
+\lstinputlisting{usage/example-127.cpp}
 
 \Needspace{515pt}
 

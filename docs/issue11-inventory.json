@@ -196,11 +196,11 @@
       "toc_page": 24,
       "physical_page": 26,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "existing_implementation_local_verified",
       "candidate_symbols": [
         "Dinic"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "已逐页核对26–28页：递归DFS、当前弧Dinic；现有vector构造器可多测，逐边方案/限流续流/割接口比附件更明确。6000图独立割枚举与容量修改证书、P3376完整程序200组/最大规模双模式复验；保持递归，不冒用构造器未清空的附件写法。"
     },
     {
       "section": "2.5",
@@ -244,11 +244,12 @@
       "toc_page": 35,
       "physical_page": 37,
       "level": 1,
-      "status": "pending_content_review",
+      "status": "implemented_local_verified_online_pending",
       "candidate_symbols": [
-        "MinCostFlow"
+        "MinCostFlow",
+        "SpfaFlow"
       ],
-      "review": "候选仅按主题匹配，尚未逐项核对附件代码的接口、限制和变体；不代表完整覆盖。"
+      "review": "37–41页两种算法分别覆盖：现有Bellman-Ford初始化势能+Dijkstra，新增实际SPFA逐次增广。两版各对4000组 cpp_int 可行流量枚举、负边/反向撤销/限流续流/全局负环/128位费用双模式核对；完整P3381三个驱动另有枚举和最大规模，未新增线上AC。"
     },
     {
       "section": "2.8.1",
@@ -256,8 +257,11 @@
       "toc_page": 35,
       "physical_page": 37,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "existing_implementation_local_verified",
+      "candidate_symbols": [
+        "MinCostFlow"
+      ],
+      "review": "附件37–39页初势为零，仅适用于P3381非负费用；本库全点Bellman-Ford可处理无负环负边。独立全流量枚举、slope每个整数流量核对、原边方案证书与完整驱动双模式通过。"
     },
     {
       "section": "2.8.2",
@@ -265,8 +269,11 @@
       "toc_page": 37,
       "physical_page": 39,
       "level": 2,
-      "status": "pending_content_review",
-      "candidate_symbols": []
+      "status": "implemented_local_verified_online_pending",
+      "candidate_symbols": [
+        "SpfaFlow"
+      ],
+      "review": "附件39–41页的SPFA逐次增广已独立补齐，轻量vector结构，add/flow/used、负边、全图负环拒绝、限流和续流，距离/费用int128。新P3381驱动及例127双模式通过。没有用势能版或负环费用流冒充SPFA方法；报告flow-attachment.json。"
     },
     {
       "section": "2.9",

@@ -568,3 +568,7 @@ python3 tests/fft_application.py
 "$CXX" "${flags[@]}" tests/polar_order.cpp -o build/polar-order
 build/polar-order
 python3 tests/geometry_attachment.py
+
+"$CXX" "${flags[@]}" tests/spfa_flow.cpp -o build/spfa-flow
+build/spfa-flow
+python3 tests/flow_attachment.py
