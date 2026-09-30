@@ -3661,6 +3661,52 @@ CentroidPairs(n)，点号 1..n；add(u,v,w) 建树，允许森林但禁止环、
 
 \lstinputlisting{usage/example-137.cpp}
 
+\newpage
+
+\Needspace{680pt}
+
+\section{动态树分治}
+
+\subsection{动态点分树：点权赋值与距离球求和}\label{compact-CentroidSum}\index{CentroidSum}
+
+代码依赖：\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+构造 CentroidSum(n)，T 默认为 long long；n$\ge$1，输入是固定连通单位边树。点号 0..n-1；先 add(u,v)，再 build(values)。set(u,x)是点权赋值；query(u,k)返回到u距离$\le$k的全部点权和，含u自身；负半径返回0，半径用long long。build可在同一拓扑上重建并替换全部权值，建树后不再add边，不提供link/cut。每点保存重心祖先、距离和分支，使用总距离桶减同支桶容斥；距离d对应Fenwick下标d+1。线性建每层Fenwick，构造/空间O(n log n)，修改/查询O(log$^{2}$ n)。T支持零值及加减，所有桶和、赋值差与容斥中间值均须可表示；可用负权，不使用kth。内部图、路径、桶和辅助函数不能外部改写。原树DFS递归深度最坏O(n)，不等于重心层数；最大链测试提供256MiB栈，仍需核对目标评测栈限制。
+
+\lstinputlisting[firstline=8,lastline=34,firstnumber=1]{../src/compact/centroid_sum.hpp}
+
+\newpage
+
+\noindent 子树大小、重心与距离记录（接上页同一结构体）：
+
+\lstinputlisting[firstline=35,lastline=62,firstnumber=28]{../src/compact/centroid_sum.hpp}
+
+\newpage
+
+\noindent 线性构建距离桶和递归分解（接上页同一结构体）：
+
+\lstinputlisting[firstline=63,lastline=93,firstnumber=56]{../src/compact/centroid_sum.hpp}
+
+\newpage
+
+\noindent 重建、点权赋值与距离球求和（接上页同一结构体）：
+
+\lstinputlisting[firstline=94,lastline=138,firstnumber=87]{../src/compact/centroid_sum.hpp}
+
+\Needspace{555pt}
+
+\subsection*{模板题使用：Luogu P6329 【模板】点分树 / 震波}
+
+\label{usage-example-201}
+
+题意：固定单位边树上修改点权，查询到中心距离不超过k的权值和。操作0查询，操作1赋值；每次先将x及y/k与最近一次查询答案异或，再把1-based顶点x减一。更新不改变last，操作类型不异或。n,m$\le$100000，点权/新值在1..10000，解码后k在0..n-1。构造后先build；原树递归DFS需要足够栈空间。
+
+所需模板：\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）、\hyperref[compact-CentroidSum]{CentroidSum}（第~\pageref{compact-CentroidSum}~页，\ref{compact-CentroidSum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6329}
+
+\lstinputlisting{usage/example-201.cpp}
+
 \Needspace{426pt}
 
 \chapter{最短路问题}

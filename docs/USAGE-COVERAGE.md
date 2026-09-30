@@ -131,6 +131,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | bridge_component_forest | [example-166（应用补充）](usage/example-166.cpp) | locally_checked_application |
 | PalindromicTree | [example-20](usage/example-20.cpp), [example-21（应用补充）](usage/example-21.cpp) | locally_checked_example |
 | CentroidPairs | [example-137](usage/example-137.cpp) | locally_checked_example |
+| CentroidSum | [example-201](usage/example-201.cpp) | locally_checked_example |
 | SubtreeColors | [example-138（应用补充）](usage/example-138.cpp) | locally_checked_application |
 | AffineSegTree | [example-12](usage/example-12.cpp) | locally_checked_example |
 | SegmentBeats | [example-200](usage/example-200.cpp) | locally_checked_example |

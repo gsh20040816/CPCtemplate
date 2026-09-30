@@ -1,0 +1,158 @@
+{
+  "base_commit": "6cad7340a8894243184e47eef031792e30f84f55",
+  "scope": "Dynamic centroid fixed-tree point weights, independent BFS and direct sum oracle, rebuilds/signed values, online-XOR bundled driver and maximum topologies. Normal/ASan/UBSan; LSan disabled, no full-library run or OJ AC.",
+  "checks": [
+    {
+      "command": "/usr/bin/g++ -std=c++20 -Wall -Wextra -pthread -O2 tests/centroid_sum.cpp -o build/centroid-core-normal && build/centroid-core-normal",
+      "mode": "normal",
+      "returncode": 0,
+      "stdout": "CentroidSum BFS/weight-scan oracle, rebuilds, signed values and four n=100000 topologies PASS\nseconds=1.209860333998222 peak_rss_kib=90328\n",
+      "stderr": ""
+    },
+    {
+      "command": "CPC_SANITIZE=0 python3 tests/centroid_sum_application.py",
+      "returncode": 0,
+      "stdout": "CentroidSum copied P6329 driver PASS: 140 BFS-oracle and four n=m=100000 online-XOR inputs\n",
+      "stderr": ""
+    },
+    {
+      "command": "/usr/bin/g++ -std=c++20 -Wall -Wextra -pthread -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -no-pie tests/centroid_sum.cpp -o build/centroid-core-sanitizer && build/centroid-core-sanitizer",
+      "mode": "sanitizer",
+      "returncode": 0,
+      "stdout": "CentroidSum BFS/weight-scan oracle, rebuilds, signed values and four n=100000 topologies PASS\nseconds=18.812514173998352 peak_rss_kib=592776\n",
+      "stderr": ""
+    },
+    {
+      "command": "CPC_SANITIZE=1 python3 tests/centroid_sum_application.py",
+      "returncode": 0,
+      "stdout": "CentroidSum copied P6329 driver PASS: 140 BFS-oracle and four n=m=100000 online-XOR inputs\n",
+      "stderr": ""
+    }
+  ],
+  "stack": "Recursive core tests use a pthread with256MiB stack; driver test supplies process stack up to256MiB bounded by existing hard limit. Target judge stack not verified.",
+  "source": "https://www.luogu.com.cn/problem/P6329",
+  "sha256": {
+    "src/compact/centroid_sum.hpp": "193b75adb04e2e7a1b2bd6c3ca37900e4572973ea6cd60b08581a5c490fbebc7",
+    "tests/centroid_sum.cpp": "088d67ca0d65dbf8a2b1d2504b190514ba7cc6c19da0152e915303ed09920ac0",
+    "tests/centroid_sum_application.py": "19d8961100e389dcf72427fa57b9f80abe64e1ee575cbf032c8f1a2603be374b",
+    "verify/luogu/P6329.compact.cpp": "f391db126bbb37bbc7bdf2711a12545a86920a15b9dc0d07cdc4502665cfd6a0",
+    "docs/usage/example-201.cpp": "9cae1e7b21f1a364a07849d8c9a2842aa114647d5a995cf4f6ae772ad87e2e0a",
+    "docs/CENTROID-SUM.md": "99d79a40b98d938aeda96d87e52956c755202d253aadd3e0eec461fa8e20023f"
+  },
+  "integration_checks": [
+    {
+      "command": "python3 tests/basic_template_scope.py",
+      "returncode": 0,
+      "stdout": "Basic template scope: three exact exclusions, advanced dependencies, DSU and history scope preserved PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/template_dependencies.py",
+      "returncode": 0,
+      "stdout": "203 algorithms, 129 direct edges, 201 complete usages and six local transitive closures PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_integration.py",
+      "returncode": 0,
+      "stdout": "PASS: 15 knowledge sections shared once; math-only routing; section/page references resolve\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "layout": {
+    "build": "8 PDFs; final logs without warnings",
+    "reviewed_physical_pages": {
+      "total_book": [
+        334,
+        335,
+        336,
+        337,
+        338,
+        339
+      ],
+      "graphs": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "infra": [
+        7
+      ]
+    },
+    "findings": "All13 affected/adjacent pages visually checked; no clipping, missing glyphs or orphan headings. Four contiguous method-boundary chunks; complete driver on its own page; dependency and cross-volume page references synchronized.",
+    "source_line_spans": [
+      [
+        8,
+        34
+      ],
+      [
+        35,
+        62
+      ],
+      [
+        63,
+        93
+      ],
+      [
+        94,
+        138
+      ]
+    ],
+    "dependency_reference_groups": 986,
+    "cross_volume_links": 13,
+    "unchanged_pdf_checks": [
+      {
+        "file": "output/pdf/infra.pdf",
+        "different_text_pages": [
+          7
+        ],
+        "identical_destination_pages": true,
+        "kept_original_bytes": false
+      },
+      {
+        "file": "output/pdf/xcpc-strings.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-mathematics.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-data-structures.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-geometry.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-misc.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      }
+    ],
+    "pdf_sha256": {
+      "output/pdf/xcpc-template.pdf": "1acbff6323d0c087c980088ae6cce675fd6ee5bc9a6d9e4403a03f0809aee842",
+      "output/pdf/xcpc-graphs.pdf": "4212f59b432985812acbed497795b0fb6a43ac933b1d627bd2f9b657a3ca47ab",
+      "output/pdf/infra.pdf": "cf2fa1a585b6336ea4ebec26c733fb3a9879cbbbeb0acf3f174df4a5f7868ef4"
+    }
+  }
+}

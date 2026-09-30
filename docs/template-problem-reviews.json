@@ -4118,5 +4118,35 @@
       "https://github.com/yosupo06/library-checker-problems/blob/master/data_structure/range_chmin_chmax_add_range_sum/info.toml",
       "https://github.com/yosupo06/library-checker-problems/blob/master/data_structure/range_chmin_chmax_add_range_sum/verifier.cpp"
     ]
+  },
+  {
+    "symbol": "CentroidSum",
+    "problem": "Luogu P6329",
+    "title": "点分树 / 震波",
+    "url": "https://www.luogu.com.cn/problem/P6329",
+    "classification": "Explicitly designated standalone template in the official statement; original source BZOJ3730 retained.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "1<=n,m<=100000;1<=weights,newvalue<=10000;unit edges;0<=decoded k<=n-1",
+    "adapter": "Decode x and y/k with last query output before 1-based to 0-based conversion. Type0 queries update last; type1 assignments do not. Build once on connected fixed tree.",
+    "implementation": "existing",
+    "source": "src/compact/centroid_sum.hpp",
+    "tested_api": [
+      "add",
+      "build",
+      "set",
+      "query"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "BFS/weight-scan oracle, rebuild/signed core tests and independently XOR-encoded complete driver passed normal+ASan/UBSan; maximum-size topology tests provide256MiB stack. Online AC, target stack conditions and ranking pending.",
+    "driver": "verify/luogu/P6329.compact.cpp",
+    "local_reports": [
+      "verification/centroid-sum.json"
+    ]
   }
 ]

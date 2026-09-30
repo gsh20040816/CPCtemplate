@@ -2465,5 +2465,17 @@
     "requires": [
       "SegmentBeats"
     ]
+  },
+  {
+    "id": "example-201",
+    "symbol": "CentroidSum",
+    "problem": "Luogu P6329 【模板】点分树 / 震波",
+    "url": "https://www.luogu.com.cn/problem/P6329",
+    "summary": "固定单位边树上修改点权，查询到中心距离不超过k的权值和。操作0查询，操作1赋值；每次先将x及y/k与最近一次查询答案异或，再把1-based顶点x减一。更新不改变last，操作类型不异或。n,m≤100000，点权/新值在1..10000，解码后k在0..n-1。构造后先build；原树递归DFS需要足够栈空间。",
+    "driver": "verify/luogu/P6329.compact.cpp",
+    "requires": [
+      "Fenwick",
+      "CentroidSum"
+    ]
   }
 ]

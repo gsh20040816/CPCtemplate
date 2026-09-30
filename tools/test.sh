@@ -614,3 +614,7 @@ python3 tests/persistent_treap_application.py
 "$CXX" "${flags[@]}" tests/segment_beats.cpp -o build/segment-beats-unit
 build/segment-beats-unit
 python3 tests/segment_beats_application.py
+
+"$CXX" "${flags[@]}" -pthread tests/centroid_sum.cpp -o build/centroid-sum-unit
+build/centroid-sum-unit
+python3 tests/centroid_sum_application.py
