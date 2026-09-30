@@ -1,0 +1,23 @@
+[
+  {
+    "mode": "normal",
+    "flags": [
+      "-O2"
+    ],
+    "test_sha256": "590b1667fbe1306ac6080268133c56ab00990e744f20ae625c90c0ab8e97568b",
+    "stdout": "Coprime pairs independent gcd rectangle oracle, zero prefixes, million square and INT_MAX thin intervals PASS\n",
+    "online_ac": false
+  },
+  {
+    "mode": "sanitizer",
+    "flags": [
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "test_sha256": "590b1667fbe1306ac6080268133c56ab00990e744f20ae625c90c0ab8e97568b",
+    "stdout": "Coprime pairs independent gcd rectangle oracle, zero prefixes, million square and INT_MAX thin intervals PASS\n",
+    "online_ac": false
+  }
+]

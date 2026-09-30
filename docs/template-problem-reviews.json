@@ -3825,5 +3825,136 @@
     "statement_sources": [
       "https://www.luogu.com.cn/problem/P1593"
     ]
+  },
+  {
+    "symbol": "CompositeRoots",
+    "problem": "Luogu P5668 【模板】N 次剩余",
+    "url": "https://www.luogu.com.cn/problem/P5668",
+    "classification": "Explicit Luogu template tag; general modulus complete task solved by composed branches, and each named API directly invoked.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB",
+    "adapter": "T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。",
+    "usage": "example-194",
+    "ac": "https://www.luogu.com.cn/record/300024458",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "All-submission speed rank unverified. Full interfaces above judge bounds, signed/uint64 extremes and automatic modulus overload are local-only; Library Checker kth_root_mod remains separate.",
+    "local_evidence": [
+      "verification/nth-roots-usages-normal.json",
+      "verification/nth-roots-usages-sanitizer.json",
+      "verification/nth-roots-online.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P5668"
+    ]
+  },
+  {
+    "symbol": "KthResidue",
+    "problem": "Luogu P5668 【模板】N 次剩余",
+    "url": "https://www.luogu.com.cn/problem/P5668",
+    "classification": "Explicit Luogu template tag; general modulus complete task solved by composed branches, and each named API directly invoked.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB",
+    "adapter": "T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。",
+    "usage": "example-194",
+    "ac": "https://www.luogu.com.cn/record/300024458",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "All-submission speed rank unverified. Full interfaces above judge bounds, signed/uint64 extremes and automatic modulus overload are local-only; Library Checker kth_root_mod remains separate.",
+    "local_evidence": [
+      "verification/nth-roots-usages-normal.json",
+      "verification/nth-roots-usages-sanitizer.json",
+      "verification/nth-roots-online.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P5668"
+    ]
+  },
+  {
+    "symbol": "PrimePowerRoots",
+    "problem": "Luogu P5668 【模板】N 次剩余",
+    "url": "https://www.luogu.com.cn/problem/P5668",
+    "classification": "Explicit Luogu template tag; general modulus complete task solved by composed branches, and each named API directly invoked.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB",
+    "adapter": "T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。",
+    "usage": "example-194",
+    "ac": "https://www.luogu.com.cn/record/300024458",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "All-submission speed rank unverified. Full interfaces above judge bounds, signed/uint64 extremes and automatic modulus overload are local-only; Library Checker kth_root_mod remains separate.",
+    "local_evidence": [
+      "verification/nth-roots-usages-normal.json",
+      "verification/nth-roots-usages-sanitizer.json",
+      "verification/nth-roots-online.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P5668"
+    ]
+  },
+  {
+    "symbol": "root_factors",
+    "problem": "Luogu P5668 【模板】N 次剩余",
+    "url": "https://www.luogu.com.cn/problem/P5668",
+    "classification": "Explicit Luogu template tag; general modulus complete task solved by composed branches, and each named API directly invoked.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB",
+    "adapter": "T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。",
+    "usage": "example-194",
+    "ac": "https://www.luogu.com.cn/record/300024458",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "All-submission speed rank unverified. Full interfaces above judge bounds, signed/uint64 extremes and automatic modulus overload are local-only; Library Checker kth_root_mod remains separate.",
+    "local_evidence": [
+      "verification/nth-roots-usages-normal.json",
+      "verification/nth-roots-usages-sanitizer.json",
+      "verification/nth-roots-online.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P5668"
+    ]
+  },
+  {
+    "symbol": "CoprimePairs",
+    "problem": "Luogu P2522 [HAOI2011] Problem b",
+    "url": "https://www.luogu.com.cn/problem/P2522",
+    "classification": "HAOI contest application; not a standalone template task",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "1<=queries,k<=50000;1<=a<=b<=50000;1<=c<=d<=50000",
+    "usage": "example-195",
+    "tested_api": [
+      "constructor",
+      "rectangle",
+      "count (core tests)"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-submission ranking pending; application coverage only",
+    "local_evidence": [
+      "verification/coprime-pairs-core.json",
+      "verification/coprime-pairs-usage-normal.json",
+      "verification/coprime-pairs-usage-sanitizer.json"
+    ]
   }
 ]

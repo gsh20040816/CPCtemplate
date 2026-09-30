@@ -51,7 +51,7 @@ def records():
             assert snippet.splitlines().count(row['page_break_before']) == 1, 'Usage page boundary must be unique'
         for symbol in row.get('also_covers', []):
             assert symbol != row['symbol'] and symbol in row['requires']
-            assert re.search(r'\b' + re.escape(symbol) + r'\s*\(', snippet), 'Joint example must explicitly call the extra template'
+            assert re.search(r'\b' + re.escape(symbol) + r'\s*(?:::\s*[A-Za-z_]\w*\s*)?\(', snippet), 'Joint example must explicitly call the extra template'
         row['snippet'] = snippet
         row['snippet_file'] = 'docs/usage/' + row['id'] + '.cpp'
         row['program'] = '#include <bits/stdc++.h>\nusing namespace std;\n' + expand(prefix, source.parent, set()) + snippet

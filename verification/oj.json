@@ -1865,5 +1865,34 @@
       "vertices"
     ],
     "note": "C++20 O2; exact bundled source pasted via Firefox.9 tests AC; slowest single test5ms, header aggregate38ms. Vertex sequence only; edge_ids, invalid instances and alternate starts/modes covered locally. Global speed rank unverified."
+  },
+  {
+    "problem": "Luogu P5668",
+    "style": "compact",
+    "record": "https://www.luogu.com.cn/record/300024458",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 172,
+    "total_time_ms": 372,
+    "memory": "5.19MB",
+    "source_driver": "verify/luogu/P5668.compact.cpp",
+    "submitted_source": "verification/submitted/P5668.compact.cpp",
+    "submitted_sha256": "f4c564b63ca2e355446ac4ef2be8cef370d50b3dfbf76991244008c167c20248",
+    "date": "2026-09-30",
+    "account": "GSH_gsh",
+    "algorithm": "CompositeRoots",
+    "also_invokes": [
+      "root_factors",
+      "KthResidue",
+      "PrimePowerRoots"
+    ],
+    "tested_api": [
+      "root_factors",
+      "KthResidue.solve/first/ratio/count",
+      "PrimePowerRoots.solve/get/count/lifts",
+      "CompositeRoots.solve: factor-list overload/total/get"
+    ],
+    "note": "12 tests AC in C++20 O2. Native Firefox upload of exact printed usage194 expanded source (23116 bytes). Header total372ms, max single172ms, peak5.19MB. Source-tab opening and initial lines visually confirmed; no claim of downloaded-source hash comparison. Automatic-modulus overload, invalid input and full core uint64/signed bounds are not covered by this judge. All-submission speed rank unverified.",
+    "usage": "example-194"
   }
 ]

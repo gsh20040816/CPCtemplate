@@ -2,6 +2,11 @@
 
 以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/ 与 oj.json 对照生成。
 
+- `verify/aoj/CGL_1_A.compact.cpp`
+- `verify/aoj/CGL_2_A.compact.cpp`
+- `verify/aoj/CGL_2_C.compact.cpp`
+- `verify/aoj/CGL_2_D.compact.cpp`
+- `verify/aoj/CGL_3_A.compact.cpp`
 - `verify/aoj/CGL_3_C.compact.cpp`
 - `verify/aoj/CGL_7_D.compact.cpp`
 - `verify/aoj/CGL_7_E.compact.cpp`
@@ -10,6 +15,7 @@
 - `verify/aoj/CGL_7_H.compact.cpp`
 - `verify/aoj/CGL_7_I.compact.cpp`
 - `verify/aoj/GRL_3_A.removal.compact.cpp`
+- `verify/atcoder/abc293_e.compact.cpp`
 - `verify/cses/1160.compact.cpp`
 - `verify/cses/1750.compact.cpp`
 - `verify/examples/ac_shortest.compact.cpp`
@@ -30,8 +36,11 @@
 - `verify/library_checker/closest_pair.compact.cpp`
 - `verify/library_checker/convolution_mod.compact.cpp`
 - `verify/library_checker/counting_primes.compact.cpp`
+- `verify/library_checker/counting_spanning_tree_directed.compact.cpp`
+- `verify/library_checker/counting_spanning_tree_undirected.compact.cpp`
 - `verify/library_checker/division_of_polynomials.compact.cpp`
 - `verify/library_checker/dominatortree.compact.cpp`
+- `verify/library_checker/double_ended_priority_queue.compact.cpp`
 - `verify/library_checker/enumerate_palindromes.compact.cpp`
 - `verify/library_checker/enumerate_triangles.compact.cpp`
 - `verify/library_checker/exp_of_formal_power_series.compact.cpp`
@@ -76,6 +85,7 @@
 - `verify/library_checker/system_of_linear_equations_mod_2.compact.cpp`
 - `verify/library_checker/two_sat.compact.cpp`
 - `verify/library_checker/zalgorithm.compact.cpp`
+- `verify/loj/115.compact.cpp`
 - `verify/luogu/CF1100F.compact.cpp`
 - `verify/luogu/CF118E.compact.cpp`
 - `verify/luogu/CF379F.compact.cpp`

@@ -2358,5 +2358,45 @@
     "requires": [
       "power_sum"
     ]
+  },
+  {
+    "id": "example-194",
+    "symbol": "CompositeRoots",
+    "also_covers": [
+      "root_factors",
+      "KthResidue",
+      "PrimePowerRoots"
+    ],
+    "problem": "Luogu P5668 【模板】N 次剩余",
+    "url": "https://www.luogu.com.cn/problem/P5668",
+    "summary": "T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。",
+    "driver": "verify/luogu/P5668.compact.cpp",
+    "requires": [
+      "Mod64",
+      "Prime64",
+      "PollardRho",
+      "DiscreteLog",
+      "extended_gcd",
+      "linear_congruence",
+      "mod_inverse",
+      "KthResidue",
+      "PrimePowerRoots",
+      "root_factors",
+      "CompositeRoots"
+    ],
+    "page_break_before": "        else"
+  },
+  {
+    "id": "example-195",
+    "symbol": "CoprimePairs",
+    "problem": "Luogu P2522 [HAOI2011] Problem b",
+    "url": "https://www.luogu.com.cn/problem/P2522",
+    "kind": "application",
+    "summary": "给出最多50000组闭区间[a,b]、[c,d]和k，统计gcd(x,y)=k的数对，所有端点及k在1..50000。只初始化一次CoprimePairs(50000)，每组调用rectangle(a,b,c,d,k)，返回long long。它先除以k，再用四个互质前缀容斥；k超过区间端点时零前缀自动处理。一般调用count(A,B)须预处理到min(A,B)，本题固定50000即可。此为比赛应用题，不计独立模板题覆盖。",
+    "driver": "verify/luogu/P2522.compact.cpp",
+    "requires": [
+      "LinearSieve",
+      "CoprimePairs"
+    ]
   }
 ]

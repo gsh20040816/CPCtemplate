@@ -49,6 +49,14 @@ for row in rows:
                  current_sha256=digest(current), submitted_sha256=digest(archived),
                  exact_bundle_match=current == archived)
     entry['format_only_bundle_match'] = current != archived and normalize(current.decode()) == normalize(archived.decode())
+    if row.get('usage'):
+        from usage_examples import records
+        usage = next(r for r in records() if r['id'] == row['usage'])
+        assert usage['driver'] == row['source_driver']
+        entry['printed_usage'] = row['usage']
+        entry['current_printed_program_sha256'] = usage['program_sha256']
+        entry['exact_printed_program_match'] = usage['program'].encode() == archived
+        entry['printed_program_scope'] = 'Exact printed context may differ from the ordinary bundle prefix; compare each separately.'
     name = None
     note = None
     if row['problem'] == 'Luogu P3376':

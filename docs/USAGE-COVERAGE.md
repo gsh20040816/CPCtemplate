@@ -47,7 +47,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ModInt | 待补 | pending_example |
 | Binomial | 待补 | pending_example |
 | PrimitiveRoot | [example-48](usage/example-48.cpp) | locally_checked_example |
-| CoprimePairs | 待补 | pending_example |
+| CoprimePairs | [example-195（应用补充）](usage/example-195.cpp) | locally_checked_application |
 | floor_moments | [example-157](usage/example-157.cpp) | locally_checked_example |
 | power_sum | [example-193（应用补充）](usage/example-193.cpp) | locally_checked_application |
 | divisor_sum_power | [example-191](usage/example-191.cpp) | locally_checked_example |
@@ -57,10 +57,10 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Lucas | [example-40](usage/example-40.cpp) | locally_checked_example |
 | ExLucas | [example-41](usage/example-41.cpp) | locally_checked_example |
 | mod_sqrt | [example-42](usage/example-42.cpp) | locally_checked_example |
-| KthResidue | 待补 | pending_example |
-| PrimePowerRoots | 待补 | pending_example |
-| root_factors | 待补 | pending_example |
-| CompositeRoots | 待补 | pending_example |
+| KthResidue | [example-194](usage/example-194.cpp) | locally_checked_example |
+| PrimePowerRoots | [example-194](usage/example-194.cpp) | locally_checked_example |
+| root_factors | [example-194](usage/example-194.cpp) | locally_checked_example |
+| CompositeRoots | [example-194](usage/example-194.cpp) | locally_checked_example |
 | Lagrange | [example-17](usage/example-17.cpp) | locally_checked_example |
 | ComplexFFT | 待补 | pending_example |
 | convolution_fft | [example-121](usage/example-121.cpp) | locally_checked_example |

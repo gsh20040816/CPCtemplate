@@ -856,6 +856,8 @@ solve(a,k,p,g) 求 x\textasciicircum{}k$\equiv$a (mod p)；p 必须是 2 到 1e1
 
 \lstinputlisting[firstline=5,lastline=26]{../src/compact/kth_residue.hpp}
 
+联合使用示例见第~\pageref{usage-example-194}~页（Luogu P5668 【模板】N 次剩余），其中直接调用本模板。
+
 \Needspace{368pt}
 
 \subsection{素数幂模高次剩余：含非互素被开方数}\label{compact-PrimePowerRoots}\index{PrimePowerRoots}
@@ -876,6 +878,8 @@ solve(a,k,p,e,g) 求 x\textasciicircum{}k$\equiv$a (mod p\textasciicircum{}e)。
 
 \lstinputlisting[firstline=51,lastline=84,firstnumber=47]{../src/compact/prime_power_roots.hpp}
 
+联合使用示例见第~\pageref{usage-example-194}~页（Luogu P5668 【模板】N 次剩余），其中直接调用本模板。
+
 \Needspace{474pt}
 
 \subsection{合数求根准备：分解模数与素数幂原根}\label{compact-root_factors}\index{root\_factors}
@@ -883,6 +887,8 @@ solve(a,k,p,e,g) 求 x\textasciicircum{}k$\equiv$a (mod p\textasciicircum{}e)。
 root\_factors(M,rho) 为 1$\le$M$\le$1e12 生成完整的 (p,e,g) 列表，可直接传入 CompositeRoots。rho 是可复用的 PollardRho 对象。按素数递增返回；p=2 时 g=0，其余 g 为模 p\textasciicircum{}e 的最小正原根。先分解 M，再分解各个欧拉函数值，逐个检查原根候选的阶。M=1 返回空列表。分解使用随机重试；原根搜索耗时取决于候选数，不包含 BSGS。
 
 \lstinputlisting[firstline=5,lastline=40]{../src/compact/root_factors.hpp}
+
+联合使用示例见第~\pageref{usage-example-194}~页（Luogu P5668 【模板】N 次剩余），其中直接调用本模板。
 
 \Needspace{470pt}
 
@@ -898,6 +904,28 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=32,lastline=62,firstnumber=28]{../src/compact/composite_roots.hpp}
 
+\Needspace{671pt}
+
+\subsection*{模板题使用：Luogu P5668 【模板】N 次剩余}
+
+\label{usage-example-194}
+
+题意：T$\le$100，每组按n,m,k读入，求x\textasciicircum{}n$\equiv$k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1$\le$n$\le$10\textasciicircum{}9、0$\le$k<m$\le$10\textasciicircum{}9；所有组总解数$\le$10\textasciicircum{}6，每个素数幂上的根数亦$\le$10\textasciicircum{}6。root\_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。
+
+所需模板：Mod64、Prime64、PollardRho、DiscreteLog、extended\_gcd、linear\_congruence、mod\_inverse、KthResidue、PrimePowerRoots、root\_factors、CompositeRoots。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5668}
+
+\lstinputlisting[lastline=40]{usage/example-194.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=41,firstnumber=41]{usage/example-194.cpp}
+
+\newpage
+
 \Needspace{476pt}
 
 \section{莫比乌斯反演}
@@ -907,6 +935,20 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 构造 CoprimePairs(n) 预处理 mu 前缀和，0$\le$n<INT\_MAX，O(n) 时间与空间；依赖 LinearSieve。count(a,b) 求 [1,a]×[1,b] 的互质数对，a,b 为非负 int，要求 min(a,b)$\le$n，任一为 0 返回 0。rectangle(a,b,c,d,k) 求 [a,b]×[c,d] 中 gcd(x,y)=k 的数对，要求 1$\le$a$\le$b、1$\le$c$\le$d、k$\ge$1，min(b/k,d/k)$\le$n；闭区间容斥。返回 long long，中间分块累加用 int128。单次前缀查询 O($\sqrt{\vphantom x}$a+$\sqrt{\vphantom x}$b)，额外空间 O(1)。sum 为 mu 前缀和，只读。
 
 \lstinputlisting[firstline=5,lastline=35]{../src/compact/coprime_pairs.hpp}
+
+\Needspace{354pt}
+
+\subsection*{应用题补充：Luogu P2522 [HAOI2011] Problem b}
+
+\label{usage-example-195}
+
+题意：给出最多50000组闭区间[a,b]、[c,d]和k，统计gcd(x,y)=k的数对，所有端点及k在1..50000。只初始化一次CoprimePairs(50000)，每组调用rectangle(a,b,c,d,k)，返回long long。它先除以k，再用四个互质前缀容斥；k超过区间端点时零前缀自动处理。一般调用count(A,B)须预处理到min(A,B)，本题固定50000即可。此为比赛应用题，不计独立模板题覆盖。
+
+所需模板：LinearSieve、CoprimePairs。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2522}
+
+\lstinputlisting{usage/example-195.cpp}
 
 \Needspace{636pt}
 

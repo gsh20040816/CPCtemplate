@@ -158,6 +158,11 @@
 | `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 待编写驱动/提交 | 待核验 |
 | `pheap` | [Library Checker Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | 0<=N<=500000; 1<=Q<=500000; -1e9<=x<=1e9; deletion on nonempty multiset | 待编写驱动/提交 | 待核验 |
 | `divisor_sum_power` | [Luogu P1593 因子和](https://www.luogu.com.cn/problem/P1593) | 1<=a<=50000000; 0<=b<=50000000; modulus9901 | 待编写驱动/提交 | 待核验 |
+| `CompositeRoots` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
+| `KthResidue` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
+| `PrimePowerRoots` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
+| `root_factors` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
+| `CoprimePairs` | [Luogu P2522 [HAOI2011] Problem b](https://www.luogu.com.cn/problem/P2522) | 1<=queries,k<=50000;1<=a<=b<=50000;1<=c<=d<=50000 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1460,6 +1465,54 @@ Independent divisor-sum template task; Luogu statement and bounds checked. No co
 Online AC and all-submission ranking unresolved. Independent generated local cases do not constitute official judge data or online acceptance.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P1593)
+
+### Luogu P5668 【模板】N 次剩余 / CompositeRoots
+
+Explicit Luogu template tag; general modulus complete task solved by composed branches, and each named API directly invoked.
+
+T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。
+
+All-submission speed rank unverified. Full interfaces above judge bounds, signed/uint64 extremes and automatic modulus overload are local-only; Library Checker kth_root_mod remains separate.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5668)
+
+### Luogu P5668 【模板】N 次剩余 / KthResidue
+
+Explicit Luogu template tag; general modulus complete task solved by composed branches, and each named API directly invoked.
+
+T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。
+
+All-submission speed rank unverified. Full interfaces above judge bounds, signed/uint64 extremes and automatic modulus overload are local-only; Library Checker kth_root_mod remains separate.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5668)
+
+### Luogu P5668 【模板】N 次剩余 / PrimePowerRoots
+
+Explicit Luogu template tag; general modulus complete task solved by composed branches, and each named API directly invoked.
+
+T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。
+
+All-submission speed rank unverified. Full interfaces above judge bounds, signed/uint64 extremes and automatic modulus overload are local-only; Library Checker kth_root_mod remains separate.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5668)
+
+### Luogu P5668 【模板】N 次剩余 / root_factors
+
+Explicit Luogu template tag; general modulus complete task solved by composed branches, and each named API directly invoked.
+
+T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。
+
+All-submission speed rank unverified. Full interfaces above judge bounds, signed/uint64 extremes and automatic modulus overload are local-only; Library Checker kth_root_mod remains separate.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5668)
+
+### Luogu P2522 [HAOI2011] Problem b / CoprimePairs
+
+HAOI contest application; not a standalone template task
+
+
+
+Online submission and all-submission ranking pending; application coverage only
 
 ## 榜单口径
 
