@@ -4407,6 +4407,24 @@ mixed\_euler\_orientation(n,edges,start,finish) 返回可空的定向边序列�
 
 \lstinputlisting[firstline=38,lastline=69,firstnumber=30]{../src/compact/mixed_euler.hpp}
 
+\Needspace{200pt}
+
+\subsection*{接口用法演示：混合欧拉路径：定向与走法（自定义协议）}
+
+演示约定：自定义接口演示，非OJ题目。首行T；每组mode n m start finish，再读m条u v type。点号1..n，type=1固定方向、0可反转。C输入端点0 0求回路；A也输入0 0，由mixed\_euler\_trail选择端点；P指定两个正端点，相等时是指定起点回路。optional有值空数组是合法空方案。返回方向须按原边顺序加入DirectedEuler，再run(start,false)恢复连续走法。成功输出YES、VERTICES及EDGES证书，原边号由内部0-based加一；无解输出NO。零边C/A输出点1，P s s输出点s，不同正端点无解。非空图忽略无关孤立点，指定端点须在有边部分。1$\le$T$\le$10000、1$\le$n$\le$200、0$\le$m$\le$800仅为演示边界。定向采用Dinic一般上界，任意端点最多求两次；欧拉恢复O(n+m)，DFS深度可达m+1。不保证所有定向中的全局字典序最小。
+
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-mixed_euler_orientation]{mixed\_euler\_orientation}（第~\pageref{compact-mixed_euler_orientation}~页，\ref{compact-mixed_euler_orientation}~节）、\hyperref[compact-mixed_euler_trail]{mixed\_euler\_trail}（第~\pageref{compact-mixed_euler_trail}~页，\ref{compact-mixed_euler_trail}~节）、\hyperref[compact-DirectedEuler]{DirectedEuler}（第~\pageref{compact-DirectedEuler}~页，\ref{compact-DirectedEuler}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/mixed_euler.hpp}
+
+\newpage
+
+\subsection*{混合欧拉路径：定向与走法（自定义协议）：使用代码}
+
+\label{usage-example-206}
+
+\lstinputlisting{usage/example-206.cpp}
+
 \Needspace{353pt}
 
 \section{任意起终点的混合欧拉路径}\label{compact-mixed_euler_trail}\index{mixed\_euler\_trail}
@@ -4416,6 +4434,8 @@ mixed\_euler\_orientation(n,edges,start,finish) 返回可空的定向边序列�
 mixed\_euler\_trail(n,edges) 返回任意可行欧拉路径的定向边序列，格式同上一节。忽略边原方向统计度数，自环计 2；若奇度点为 0 个，请求回路；若恰有 2 个，尝试这两个端点的两种顺序；否则无解。最多两次定向求解。返回方向可交给 DirectedEuler 自动选择起点，恢复顶点与原边编号序列。枚举所有可反转边方向、全部固定端点及自由端点对拍；逐边检查固定边不变和连续走法，另有 10 万点长流量路径测试。POJ1637 双驱动本地验证，仅检查回路存在性；完整方向和开放路径依靠本地证据，在线待补。
 
 \lstinputlisting[firstline=73,lastline=95]{../src/compact/mixed_euler.hpp}
+
+联合使用示例见第~\pageref{usage-example-206}~页（混合欧拉路径：定向与走法（自定义协议）），其中直接调用本模板。
 
 \Needspace{180pt}
 

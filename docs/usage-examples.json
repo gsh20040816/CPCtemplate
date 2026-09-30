@@ -2531,5 +2531,24 @@
     "also_covers": [
       "prefix_lcs"
     ]
+  },
+  {
+    "id": "example-206",
+    "symbol": "mixed_euler_orientation",
+    "problem": "混合欧拉路径：定向与走法（自定义协议）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/mixed_euler.hpp",
+    "kind": "api",
+    "summary": "自定义接口演示，非OJ题目。首行T；每组mode n m start finish，再读m条u v type。点号1..n，type=1固定方向、0可反转。C输入端点0 0求回路；A也输入0 0，由mixed_euler_trail选择端点；P指定两个正端点，相等时是指定起点回路。optional有值空数组是合法空方案。返回方向须按原边顺序加入DirectedEuler，再run(start,false)恢复连续走法。成功输出YES、VERTICES及EDGES证书，原边号由内部0-based加一；无解输出NO。零边C/A输出点1，P s s输出点s，不同正端点无解。非空图忽略无关孤立点，指定端点须在有边部分。1≤T≤10000、1≤n≤200、0≤m≤800仅为演示边界。定向采用Dinic一般上界，任意端点最多求两次；欧拉恢复O(n+m)，DFS深度可达m+1。不保证所有定向中的全局字典序最小。",
+    "driver": "docs/usage-drivers/mixed-euler-demo.cpp",
+    "requires": [
+      "Dinic",
+      "mixed_euler_orientation",
+      "mixed_euler_trail",
+      "DirectedEuler"
+    ],
+    "also_covers": [
+      "mixed_euler_trail"
+    ],
+    "listing_new_page": true
   }
 ]

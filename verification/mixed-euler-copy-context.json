@@ -1,0 +1,40 @@
+{
+  "scope": "Only named required templates plus exact printed main; two central batches contain13 independently certified cases per mode. No OJ or full-suite claim.",
+  "requires": [
+    "Dinic",
+    "mixed_euler_orientation",
+    "mixed_euler_trail",
+    "DirectedEuler"
+  ],
+  "program_sha256": "5d90753257632feeb5a1abf184837162ec39e6a32882de895a1f4e18d68fa5e5",
+  "checks": [
+    {
+      "mode": "normal",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-O2",
+        "build/mixed-euler-demo/copied.cpp",
+        "-o",
+        "build/mixed-euler-demo/copied-normal"
+      ],
+      "batches": 2,
+      "status": "PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "build/mixed-euler-demo/copied.cpp",
+        "-o",
+        "build/mixed-euler-demo/copied-sanitizer"
+      ],
+      "batches": 2,
+      "status": "PASS"
+    }
+  ]
+}

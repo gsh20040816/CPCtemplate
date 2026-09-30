@@ -1,0 +1,86 @@
+{
+  "mode": "normal",
+  "passed": true,
+  "timestamp_utc": "2026-09-30T18:00:25.595036+00:00",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "bundle_command": [
+    "python3",
+    "tools/bundle.py",
+    "docs/usage-drivers/mixed-euler-demo.cpp",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/build/mixed-euler-demo/normal/mixed-euler-demo.cpp"
+  ],
+  "compile_command": [
+    "/usr/bin/g++",
+    "-std=c++20",
+    "-O2",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/build/mixed-euler-demo/normal/mixed-euler-demo.cpp",
+    "-o",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/build/mixed-euler-demo/normal/mixed-euler-demo"
+  ],
+  "source_sha256": {
+    "docs/usage-drivers/mixed-euler-demo.cpp": "511a5ef2aba60ecbfd8431eaa66035134d71d66922ae2c0969fa359fbba2ded4",
+    "src/compact/mixed_euler.hpp": "5184276d05a58271c73203649d8c6f42a7175ce1dc78775a73ea2f3eb5955c88",
+    "src/compact/directed_euler.hpp": "32af4fef5ab3fb473b7424433b777d7b92825236f4b05cf8aa49db15b16db5b2",
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "tests/mixed_euler_demo.py": "e399f1e420fa339a7a4db5d8102ccfbea99eece3a77a68cd373865e0294e9707",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+    "tools/bundle.py": "ee9532fd12664c3f9fc8d87903ec533771c50fd5dfa40e4c6b42e0bdd929fda7"
+  },
+  "bundle_sha256": "10270282b36501600eb59f7f224c37198963e7036f23cdd15242f3745d098f03",
+  "executable_sha256": "cddeb2608d926df71728bdecb1fd9badf67475a403818c3390c418ff945cda62",
+  "groups": [
+    {
+      "group": "exhaustive",
+      "cases": 2970,
+      "successes": 1266,
+      "elapsed_seconds": 0.015404,
+      "input_sha256": "60c6f609fe42715b079c8f392f04f35aec8714e4631c6246df27297d9f595933",
+      "output_sha256": "76b27f11da79a905a8a49320c73176343674dfe4e9247cfafea6e16bd5d27624"
+    },
+    {
+      "group": "randomized",
+      "cases": 4306,
+      "successes": 539,
+      "elapsed_seconds": 0.015531,
+      "input_sha256": "efd81a979d334bcd14a6a76a4d898ba373e41d42292850aa9fa2efd0a4b9eb93",
+      "output_sha256": "c483e78374f60a903cfa02efb481efd30d140729f45db981ff42e427e18f57ea"
+    },
+    {
+      "group": "boundary",
+      "cases": 130,
+      "successes": 21,
+      "elapsed_seconds": 0.003668,
+      "input_sha256": "5db980fb5343083656708a6fb73f244345c8d206676e0e1a674d5557114f3ccc",
+      "output_sha256": "1a1e04892311e1d8a6c54fe46d164ebe29c87f2badaae114dc0519ee565920aa"
+    },
+    {
+      "group": "scale",
+      "cases": 19,
+      "successes": 14,
+      "elapsed_seconds": 0.007238,
+      "input_sha256": "70a9620f9e8269b091a14674f381d616aa967267d74ec01549b46225adf363bc",
+      "output_sha256": "10fa5223d3ae52bca0296cc9c86f833c74476d37f068a980d869674d4c859b47"
+    },
+    {
+      "group": "reset",
+      "cases": 10000,
+      "successes": 5000,
+      "elapsed_seconds": 0.025951,
+      "input_sha256": "f732512f27f4087a67121540470b0faed7452a68380cc6d6216bf6aa76d35253",
+      "output_sha256": "3927b70541344ba3c8ef417ab9be9f79d326bdea3de24baaae2a1975aa6851b1"
+    }
+  ],
+  "total_cases": 17425,
+  "mode_counts": {
+    "C": 3250,
+    "A": 3250,
+    "P": 10925
+  },
+  "checker_corruptions_rejected": 9,
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "scope": "Local bounded synthetic API driver only. Independent exhaustive orientation and weak-connectivity/degree oracle on small graphs; explicit witnesses or obstructions at n<=200, m<=800. Full walk and original edge-ID certificates. No OJ submission, online AC, global lexicographic minimum, or full-suite claim. LeakSanitizer disabled; recursive implementations unchanged."
+}

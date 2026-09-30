@@ -268,6 +268,7 @@ cases['example-205'] = [
     ('0 0\n\n', {'exact_text': ''}),
     ('1 0\na\n', {'exact_text': ''})
 ]
+cases['example-206'] = [('5\nC 3 2 0 0\n1 2 1\n1 2 0\nA 3 1 0 0\n2 1 1\nP 3 2 2 2\n1 2 1\n1 2 0\nP 3 0 3 3\nP 3 0 1 2\n', {'mixed_euler_demo': True}), ('8\nC 4 4 0 0\n1 2 1\n2 1 1\n3 4 0\n3 4 0\nP 4 2 1 1\n2 3 1\n2 3 0\nC 3 2 0 0\n3 3 0\n3 3 1\nA 2 1 0 0\n1 2 0\nA 2 1 0 0\n1 2 1\nP 2 1 1 2\n2 1 1\nC 3 0 0 0\nA 3 0 0 0\n', {'mixed_euler_demo': True})]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

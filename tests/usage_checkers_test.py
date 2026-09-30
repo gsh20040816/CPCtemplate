@@ -19,6 +19,20 @@ controls = [
     ('example-24', '', '1\n3 0\n0 0\n', {'a': [[1, 1]], 'b': [3], 'nullity': 1}),
     ('example-4', '', '1\n3 1 2\n', [(1, 2)])
 ]
+mixed = '1\nC 3 2 0 0\n1 2 1\n1 2 0\n'
+marker = {'mixed_euler_demo': True}
+for bad in ('NO\n', 'YES\nVERTICES 3 2 1 2\nEDGES 2 1 2\n',
+            'YES\nVERTICES 3 1 2 1\nEDGES 2 1 1\n',
+            'YES\nVERTICES 3 1 2 1\nEDGES 1 1\n'):
+    controls.append(('example-206', mixed, bad, marker))
+controls.append(('example-206', mixed.replace('C 3 2 0 0', 'P 3 2 2 2'),
+                 'YES\nVERTICES 3 1 2 1\nEDGES 2 1 2\n', marker))
+check_output('example-206', 'control', mixed,
+             'YES\nVERTICES 3 1 2 1\nEDGES 2 1 2\n', marker)
+free = '1\nA 2 1 0 0\n1 2 0\n'
+check_output('example-206', 'control', free, 'YES\nVERTICES 2 1 2\nEDGES 1 1\n', marker)
+check_output('example-206', 'control', free, 'YES\nVERTICES 2 2 1\nEDGES 1 1\n', marker)
+
 for example, data, output, expected in controls:
     try:
         check_output(example, 'negative-control', data, output, expected)
@@ -32,4 +46,4 @@ check_output('example-96', 'positive-control', '', '1 1 2 2\n', {'odd_partition'
 check_output('example-134', 'positive-control', '', '1 0\n', {'closest_cases': [[(0,0),(0,0)]]})
 check_output('example-143', 'positive-control', '', '1\n11\n11\n', {'xor_system': (['11'], '0')})
 check_output('example-143', 'positive-control', '', '-1\n', {'xor_system': (['0'], '1')})
-print('Usage checkers: 16 invalid certificates rejected; valid matching, XOR solution spaces and required blank line accepted')
+print('Usage checkers: 16 invalid certificates rejected; valid matching, XOR solution spaces, mixed-Euler walks and required blank line accepted')

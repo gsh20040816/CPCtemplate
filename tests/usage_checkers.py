@@ -158,6 +158,9 @@ def check_output(example_id, mode, data, stdout, expected):
         assert len(actual) == len(expected['values'])
         assert all(math.isfinite(x) and abs(x - y) <= expected['atol']
                    for x, y in zip(actual, expected['values'])), (example_id, mode, actual, expected)
+    elif isinstance(expected, dict) and 'mixed_euler_demo' in expected:
+        from mixed_euler_demo import check_output as check_mixed_euler_demo
+        check_mixed_euler_demo(data, stdout)
     elif isinstance(expected, dict):
         lines = [list(map(int, line.split())) for line in stdout.splitlines()]
         dim = expected['nullity']

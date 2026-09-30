@@ -646,3 +646,9 @@ build/rectangle-union-wide
 python3 tests/graph_printed_usages.py
 
 python3 tests/static_suffix_demo.py
+
+if [[ "${SANITIZE:-0}" == 1 ]]; then
+    python3 tests/mixed_euler_demo.py --mode sanitizer
+else
+    python3 tests/mixed_euler_demo.py --mode normal
+fi
