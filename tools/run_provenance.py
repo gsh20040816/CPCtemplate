@@ -16,7 +16,7 @@ SCHEMA = 'cpc-test-run-v1'
 COMMAND = ['bash', 'tools/test.sh']
 HEADER = b'CPC_RUN_BEGIN '
 FOOTER = b'CPC_RUN_END '
-ENV_KEYS = ('CXX', 'SANITIZE', 'CPC_SANITIZE', 'CPC_BASELINE_STAGED',
+ENV_KEYS = ('CXX', 'SANITIZE', 'CPC_SANITIZE', 'CPC_BASELINE_STAGED', 'CPC_TEST_STACK_KIB',
             'ASAN_OPTIONS', 'UBSAN_OPTIONS', 'LSAN_OPTIONS', 'PATH', 'PYTHONPATH',
             'CPATH', 'CPLUS_INCLUDE_PATH', 'LIBRARY_PATH', 'LD_LIBRARY_PATH',
             'DYLD_LIBRARY_PATH', 'CXXFLAGS', 'CPPFLAGS', 'LDFLAGS')
@@ -75,8 +75,47 @@ def stage_inputs(root, stage, archive):
         tar.extractall(stage, filter='data')
 
 
+def linux_stack_plan(env):
+    if platform.system() != 'Linux':
+        return None
+    import resource
+    requested = env.get('CPC_TEST_STACK_KIB', '524288')
+    if not re.fullmatch(r'[1-9][0-9]{0,9}', requested):
+        raise ValueError('CPC_TEST_STACK_KIB must be a positive integer of at most 10 digits')
+    soft, hard = resource.getrlimit(resource.RLIMIT_STACK)
+    def kib(value):
+        return 'unlimited' if value == resource.RLIM_INFINITY else value // 1024
+    return {'requested_kib': int(requested),
+            'request_source': 'environment' if 'CPC_TEST_STACK_KIB' in env else 'default',
+            'inherited_soft_kib': kib(soft), 'inherited_hard_kib': kib(hard),
+            'planned_soft_kib': int(requested) if hard == resource.RLIM_INFINITY else min(int(requested), hard // 1024)}
+
+
+def stack_observation(log):
+    matches = re.findall(rb'^CPC_TEST_STACK requested_kib=([0-9]+) actual_soft_kib=([0-9]+) hard_kib=([0-9]+|unlimited)$', log, re.MULTILINE)
+    if len(matches) != 1:
+        return None
+    requested, actual, hard = matches[0]
+    return {'requested_kib': int(requested), 'actual_soft_kib': int(actual),
+            'hard_kib': 'unlimited' if hard == b'unlimited' else int(hard)}
+
+
+def valid_stack(metadata, observation):
+    plan = metadata['linux_stack']
+    if plan is None:
+        return observation is None and metadata['system'] != 'Linux'
+    return (metadata['system'] == 'Linux' and
+            metadata['environment']['CPC_TEST_STACK_KIB'] == str(plan['requested_kib']) and
+            observation == {'requested_kib': plan['requested_kib'],
+                            'actual_soft_kib': plan['planned_soft_kib'],
+                            'hard_kib': plan['inherited_hard_kib']})
+
+
 def execution_environment(environ):
     env = dict(environ)
+    stack = linux_stack_plan(env)
+    if stack is not None:
+        env['CPC_TEST_STACK_KIB'] = str(stack['requested_kib'])
     mode = env.get('SANITIZE', '0')
     if mode not in ('0', '1'):
         raise ValueError('SANITIZE must be 0 or 1')
@@ -96,6 +135,7 @@ def execution_environment(environ):
                      'version': subprocess.check_output([env['CXX'], '--version'], env=env, text=True).strip(),
                      'target': subprocess.check_output([env['CXX'], '-dumpmachine'], env=env, text=True).strip()},
         'environment': {key: env.get(key) for key in ENV_KEYS},
+        'linux_stack': stack,
     }
     return env, 'sanitizer' if mode == '1' else 'normal', metadata
 
@@ -133,6 +173,9 @@ def validate_receipt(root, path, mode, source, baseline):
     if receipt['log']['path'] != 'output.log':
         raise ValueError(f'{path}: invalid log name')
     log = (path.parent / 'output.log').read_bytes()
+    observation = stack_observation(log)
+    if end['linux_stack_actual'] != observation or not valid_stack(metadata, observation):
+        raise ValueError(f'{path}: missing or inconsistent actual stack limit')
     if not clean_diagnostics(log):
         raise ValueError(f'{path}: sanitizer diagnostic in log')
     if receipt['log']['sha256'] != digest(log):

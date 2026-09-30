@@ -38,6 +38,28 @@ fallback to old text logs. Both runs must match the current inputs exactly. A so
 test, tool, driver, or documentation change requires rerunning both modes. Run the
 two modes against a stable checkout; concurrent edits deliberately invalidate them.
 
+## Recursive-test stack on Linux
+
+Linux suite children request a 524288 KiB (512 MiB) soft stack limit by default,
+matching the existing macOS recursive-test stack allocation. Override for this
+invocation with `CPC_TEST_STACK_KIB=<positive-integer>` (at most ten digits). The
+requested soft value is capped at the inherited hard limit; the hard limit is
+never changed. This affects only the suite shell and its child processes, not
+system settings or the invoking parent's resource limits. If the hard limit is too
+small for a recursive test, that run can still fail and cannot be certified.
+
+The receipt distinguishes an environment-supplied request from the default and
+records inherited soft/hard limits and the planned capped soft limit. The suite
+logs the actual soft/hard limits after adjustment in `CPC_TEST_STACK`; capture and
+aggregation require that observation to match the plan. The actual observation is
+also retained in the receipt's end record. Both the shell change and provenance
+helpers are source-bound, so pre-change receipts cannot certify this change.
+
+A focused Linux check reproduced the 200000-node lowlink test's SIGSEGV with an
+8192 KiB stack; the same normal binary and its ASan/UBSan counterpart passed with
+524288 KiB. The latter used `ASAN_OPTIONS=detect_leaks=0`. This is a local diagnosis
+of stack exhaustion for that test, not a full-suite result or an algorithm rewrite.
+
 ## Binding and metadata
 
 - Input SHA256 maps cover every regular file under `src/`, `tests/`, `tools/`,
@@ -91,7 +113,7 @@ python3 tests/verification_provenance.py
 
 This runs small synthetic suites through the real capture code, tests valid pairing
 and stale/changed/failed evidence rejection, verifies environment metadata and
-historical-file preservation, and runs only the real basic-scope Python preflight
+historical-file preservation, Linux stack validation/capping, and runs only the real basic-scope Python preflight
 in a staged copy. It does **not** run the full C++ algorithm suite or produce a
 current-source full-suite manifest.
 

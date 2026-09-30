@@ -4,6 +4,23 @@ cd "$(dirname "$0")/.."
 if [[ "${CPC_BASELINE_STAGED:-0}" != 1 ]]; then
     exec python3 tools/test_baseline.py
 fi
+# CPC_STACK_BEGIN: per-test-process soft limit, never change the hard limit.
+if [[ "$(uname -s)" == Linux ]]; then
+    export CPC_TEST_STACK_KIB="${CPC_TEST_STACK_KIB:-524288}"
+    if [[ ! "$CPC_TEST_STACK_KIB" =~ ^[1-9][0-9]{0,9}$ ]]; then
+        echo "Invalid CPC_TEST_STACK_KIB: expected a positive integer of at most 10 digits" >&2
+        exit 2
+    fi
+    stack_hard="$(ulimit -Hs)"
+    stack_target="$CPC_TEST_STACK_KIB"
+    if [[ "$stack_hard" != unlimited ]] && (( stack_target > stack_hard )); then
+        stack_target="$stack_hard"
+    fi
+    ulimit -Ss "$stack_target"
+    printf 'CPC_TEST_STACK requested_kib=%s actual_soft_kib=%s hard_kib=%s\n' \
+        "$CPC_TEST_STACK_KIB" "$(ulimit -Ss)" "$(ulimit -Hs)"
+fi
+# CPC_STACK_END
 mkdir -p build
 if [[ -z "${CXX:-}" ]]; then
     if command -v g++-16 >/dev/null 2>&1; then CXX=g++-16; else CXX=g++; fi

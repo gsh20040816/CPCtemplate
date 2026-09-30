@@ -10,7 +10,7 @@ import uuid
 
 from run_provenance import (BASELINE, COMMAND, SCHEMA, HEADER, FOOTER, baseline_archive,
                             baseline_hashes, canonical, clean_diagnostics, digest, execution_environment,
-                            snapshot, stage_inputs)
+                            snapshot, stage_inputs, stack_observation, valid_stack)
 
 
 def run(root):
@@ -48,7 +48,9 @@ def run(root):
                    'executed_after_sha256': snapshot(stage),
                    'compiler_after_sha256': digest(Path(env['CXX']).read_bytes())}
             log.flush()
-            passed = (clean_diagnostics((output / 'output.log').read_bytes()) and returncode == 0 and end['source_after_sha256'] == source and
+            body = (output / 'output.log').read_bytes()
+            end['linux_stack_actual'] = stack_observation(body)
+            passed = (valid_stack(metadata, end['linux_stack_actual']) and clean_diagnostics(body) and returncode == 0 and end['source_after_sha256'] == source and
                       end['executed_after_sha256'] == executed and
                       end['compiler_after_sha256'] == metadata['compiler']['sha256'])
             log.write(b'\n' + FOOTER + canonical(end) + b'\n')
@@ -59,7 +61,7 @@ def run(root):
         if passed:
             print('Vector library regression with pinned historical baseline PASS', flush=True)
         elif returncode == 0:
-            print('FAIL: source/compiler changed or sanitizer diagnostic during execution', file=sys.stderr)
+            print('FAIL: source/compiler/stack changed or sanitizer diagnostic during execution', file=sys.stderr)
         return 0 if passed else (returncode or 1)
 
 

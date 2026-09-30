@@ -44,6 +44,11 @@ class ProvenanceTests(unittest.TestCase):
         self.env, _, self.metadata = provenance.execution_environment(dict(os.environ, SANITIZE='0'))
 
     def run_fixture(self, mode='normal'):
+        script = self.root / 'tools/test.sh'
+        if 'CPC_STACK_BEGIN' not in script.read_text():
+            production = (ROOT / 'tools/test.sh').read_text()
+            prelude = production[production.index('# CPC_STACK_BEGIN'):production.index('# CPC_STACK_END') + len('# CPC_STACK_END')]
+            script.write_text('set -eu\n' + prelude + '\n' + script.read_text())
         env = dict(self.env, SANITIZE='1' if mode == 'sanitizer' else '0')
         with patch.dict(os.environ, env, clear=True), patch.object(test_baseline, 'baseline_archive', return_value=self.archive):
             status = test_baseline.run(self.root)
@@ -187,6 +192,38 @@ class ProvenanceTests(unittest.TestCase):
     def test_optimized_python_refused(self):
         with self.assertRaises(ValueError):
             provenance.execution_environment(dict(os.environ, PYTHONOPTIMIZE='1'))
+
+    @unittest.skipUnless(provenance.platform.system() == 'Linux', 'Linux stack policy')
+    def test_changed_actual_stack_receipt_rejected(self):
+        _, path = self.run_fixture()
+        self.tamper(path, lambda r: r['end']['linux_stack_actual'].update(actual_soft_kib=8192))
+
+    @unittest.skipUnless(provenance.platform.system() == 'Linux', 'Linux stack policy')
+    def test_stack_request_validation_and_default(self):
+        env = dict(os.environ)
+        env.pop('CPC_TEST_STACK_KIB', None)
+        self.assertEqual(provenance.linux_stack_plan(env)['requested_kib'], 524288)
+        self.assertEqual(provenance.linux_stack_plan(env)['request_source'], 'default')
+        for invalid in ('', '0', '-1', 'unlimited', '12.5', '01', '99999999999', '1; exit 0'):
+            with self.assertRaises(ValueError):
+                provenance.execution_environment(dict(env, CPC_TEST_STACK_KIB=invalid))
+        plan = provenance.linux_stack_plan(dict(env, CPC_TEST_STACK_KIB='65536'))
+        self.assertEqual(plan['requested_kib'], 65536)
+        self.assertEqual(plan['request_source'], 'environment')
+
+    @unittest.skipUnless(provenance.platform.system() == 'Linux', 'Linux stack policy')
+    def test_stack_shell_caps_soft_limit_preserving_hard(self):
+        import resource
+        production = (ROOT / 'tools/test.sh').read_text()
+        prelude = production[production.index('# CPC_STACK_BEGIN'):production.index('# CPC_STACK_END')]
+        def bounded_child():
+            resource.setrlimit(resource.RLIMIT_STACK, (4 * 1024 * 1024, 16 * 1024 * 1024))
+        result = subprocess.run(['bash', '-euc', prelude], env=dict(os.environ, CPC_TEST_STACK_KIB='524288'),
+                                preexec_fn=bounded_child, capture_output=True, check=True)
+        self.assertEqual(provenance.stack_observation(result.stdout),
+                         {'requested_kib': 524288, 'actual_soft_kib': 16384, 'hard_kib': 16384})
+        result = subprocess.run(['bash', '-euc', prelude], env=dict(os.environ, CPC_TEST_STACK_KIB='0'), capture_output=True)
+        self.assertNotEqual(result.returncode, 0)
 
     def test_real_basic_scope_preflight_in_stage(self):
         # Real source/docs preflight only; never invokes tools/test.sh or a C++ suite.
