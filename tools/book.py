@@ -704,13 +704,15 @@ for style in ['compact']:
                 if usage.get('listing_new_page'):
                     space = 200
                 body.append('\\Needspace{' + str(round(space)) + 'pt}')
-                body.append('\\subsection*{' + ('模板题使用：' if usage.get('kind', 'template') == 'template' else '应用题补充：') + esc(usage['problem']) + '}')
+                kind = usage.get('kind', 'template')
+                heading = {'template': '模板题使用：', 'application': '应用题补充：', 'api': '接口用法演示：'}[kind]
+                body.append('\\subsection*{' + heading + esc(usage['problem']) + '}')
                 if not usage.get('listing_new_page'):
                     body.append('\\label{usage-' + usage['id'] + '}')
-                body.append('题意：' + esc(usage['summary']))
+                body.append(('演示约定：' if kind == 'api' else '题意：') + esc(usage['summary']))
                 from template_dependencies import references
                 body.append('所需模板：' + references(usage['requires']) + '。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。')
-                body.append('题目：\\url{' + usage['url'] + '}')
+                body.append(('来源：' if kind == 'api' else '题目：') + '\\url{' + usage['url'] + '}')
                 if usage.get('listing_new_page'):
                     body.append('\\newpage')
                     body.append('\\subsection*{' + esc(usage['problem']) + '：使用代码}')

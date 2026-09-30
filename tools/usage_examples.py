@@ -24,6 +24,7 @@ def expand(text, base, seen):
 def records():
     rows = json.loads((ROOT / 'docs/usage-examples.json').read_text())
     for row in rows:
+        assert row.get('kind', 'template') in {'template', 'application', 'api'}, 'Unknown usage kind: ' + row['id']
         source = ROOT / row['driver']
         text = source.read_text()
         m = re.search(r'(?m)^int main\(\)', text)
@@ -83,20 +84,22 @@ def generate():
         matches = [r for r in rows if r['symbol'] == symbol or symbol in r.get('also_covers', [])]
         verified = bool(matches) and all(proof.get(r['id'], {}).get('program_sha256') == r['program_sha256']
                     and proof[r['id']].get('modes') == ['normal', 'sanitizer'] for r in matches)
-        formal = any(r.get('kind', 'template') == 'template' for r in matches)
+        kinds = {r.get('kind', 'template') for r in matches}
+        checked = ('locally_checked_example' if 'template' in kinds else
+                   'locally_checked_application' if 'application' in kinds else 'locally_checked_api')
         coverage.append(dict(symbol=symbol, title=title, examples=[r['id'] for r in matches],
-                             status=('locally_checked_example' if formal else 'locally_checked_application') if verified else 'generated_unverified' if matches else 'pending_example'))
+                             status=checked if verified else 'generated_unverified' if matches else 'pending_example'))
     (ROOT / 'docs/usage-coverage.json').write_text(json.dumps(coverage, ensure_ascii=False, indent=2) + '\n')
     text = ['# 模板题使用示例覆盖', '',
             '每个条目需要最简题意、所需模板和使用代码；代码只含必要配置与 main 调用部分，不重复算法。',
             '示例与现有完整驱动共用源文件；模板依赖展开后的源码哈希改变时，原执行记录不再视为当前验证。示例执行通过不等于在线 AC。', '',
-            'locally_checked_example 表示至少有一份正式模板题用法；locally_checked_application 表示只有已验证的应用用法，仍不计正式模板题覆盖。generated_unverified 表示执行证据缺失或源码指纹已失配。', '',
+            'locally_checked_example 表示至少有一份正式模板题用法；locally_checked_application 表示没有正式模板题、但有已验证的应用用法；locally_checked_api 表示只有已验证的接口演示。后两者均不计正式模板题覆盖。generated_unverified 表示执行证据缺失或源码指纹已失配。', '',
             '| 模板 | 示例 | 状态 |', '|---|---|---|']
     kind_by_id = {r['id']: r.get('kind', 'template') for r in rows}
     for row in coverage:
         links = []
         for e in row['examples']:
-            label = e + ('（应用补充）' if kind_by_id[e] == 'application' else '')
+            label = e + {'template': '', 'application': '（应用补充）', 'api': '（接口演示）'}[kind_by_id[e]]
             links.append('[' + label + '](usage/' + e + '.cpp)')
         text.append(f"| {row['symbol']} | {', '.join(links) or '待补'} | {row['status']} |")
     (ROOT / 'docs/USAGE-COVERAGE.md').write_text('\n'.join(text) + '\n')

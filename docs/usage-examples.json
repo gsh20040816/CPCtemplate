@@ -2514,5 +2514,22 @@
       "odd_cycle_vertices"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-205",
+    "symbol": "SuffixLCP",
+    "problem": "静态后缀查询（自定义协议）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/suffix_lcp.hpp",
+    "kind": "api",
+    "summary": "自定义接口演示，非官方题目或OJ驱动。首行n q，次行恰为n个小写字母（n=0时保留空行）；0≤n,q≤200000仅为演示上限。操作0 x y输出s[x..n)、s[y..n)的LCP；1 l1 r1 l2 r2比较两个半开子串，输出-1/0/1；2 x y输出前缀s[0..x)、s[0..y)的最长公共后缀长度，LCS在此不是子序列。所有端点0..n，允许空区间；同一起点LCP为n-x，同一前缀LCS为x。反向结构必须从原串倒序构造。子串LCP取min(query(l1,l2),r1-l1,r2-l2)，子串公共后缀取min(prefix_lcs(reversed,r1,r2),r1-l1,r2-l2)。预处理O(n log n)时间/空间，各查询O(1)；字符串修改后重建。",
+    "driver": "docs/usage-drivers/static-suffix-demo.cpp",
+    "requires": [
+      "SuffixArray",
+      "SuffixLCP",
+      "prefix_lcs"
+    ],
+    "also_covers": [
+      "prefix_lcs"
+    ]
   }
 ]

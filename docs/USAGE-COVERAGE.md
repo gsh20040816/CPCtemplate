@@ -3,7 +3,7 @@
 每个条目需要最简题意、所需模板和使用代码；代码只含必要配置与 main 调用部分，不重复算法。
 示例与现有完整驱动共用源文件；模板依赖展开后的源码哈希改变时，原执行记录不再视为当前验证。示例执行通过不等于在线 AC。
 
-locally_checked_example 表示至少有一份正式模板题用法；locally_checked_application 表示只有已验证的应用用法，仍不计正式模板题覆盖。generated_unverified 表示执行证据缺失或源码指纹已失配。
+locally_checked_example 表示至少有一份正式模板题用法；locally_checked_application 表示没有正式模板题、但有已验证的应用用法；locally_checked_api 表示只有已验证的接口演示。后两者均不计正式模板题覆盖。generated_unverified 表示执行证据缺失或源码指纹已失配。
 
 | 模板 | 示例 | 状态 |
 |---|---|---|
@@ -138,8 +138,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | VirtualTree | [example-139（应用补充）](usage/example-139.cpp) | locally_checked_application |
 | PersistentArray | [example-11](usage/example-11.cpp) | locally_checked_example |
 | SupportHull | 待补 | pending_example |
-| SuffixLCP | 待补 | pending_example |
-| prefix_lcs | 待补 | pending_example |
+| SuffixLCP | [example-205（接口演示）](usage/example-205.cpp) | locally_checked_api |
+| prefix_lcs | [example-205（接口演示）](usage/example-205.cpp) | locally_checked_api |
 | square_counts | [example-186（应用补充）](usage/example-186.cpp) | locally_checked_application |
 | PositionBasis | [example-39（应用补充）](usage/example-39.cpp) | locally_checked_application |
 | basis_intersection | [example-178](usage/example-178.cpp) | locally_checked_example |

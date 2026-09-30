@@ -644,3 +644,5 @@ python3 tests/rectangle_union_application.py
 build/rectangle-union-wide
 
 python3 tests/graph_printed_usages.py
+
+python3 tests/static_suffix_demo.py
