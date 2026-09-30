@@ -104,7 +104,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Arborescence | [example-149](usage/example-149.cpp) | locally_checked_example |
 | StoerWagner | [example-150](usage/example-150.cpp) | locally_checked_example |
 | gomory_hu | [example-56](usage/example-56.cpp) | locally_checked_example |
-| cut_tree_values | 待补 | pending_example |
+| cut_tree_values | [example-56](usage/example-56.cpp) | locally_checked_example |
 | BoundedCirculation | [example-185](usage/example-185.cpp) | locally_checked_example |
 | IntegerHalfplanes | [example-125（应用补充）](usage/example-125.cpp) | locally_checked_application |
 | CirclePolygon | [example-153](usage/example-153.cpp) | locally_checked_example |
