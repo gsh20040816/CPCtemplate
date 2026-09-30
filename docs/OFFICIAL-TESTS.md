@@ -84,3 +84,7 @@ python3 tools/aoj_cases.py --usage example-181 --atol 1e-8 --sanitizer --report 
 文件字节数默认与header核对。AOJ个别header存在过期长度：例如CGL_7_F第4组标称输入9字节，但原始接口及JSON接口均返回相同的10字节内容。发生不一致时必须从第二接口核对完整输入与答案；报告保留声明/实际长度、第二接口地址及哈希。任何截断提示或双接口内容不一致都会中止，不写通过报告。报告同时记录当前程序、测试脚本、header、全部数据和实际输出指纹。
 
 这里调用的是本地数字比较器，不能称为“通过AOJ官方checker”。本地测试也不证明OJ时间限制或速度榜排名。当前几何复验的范围、条目和结果见[GEOMETRY-PRIMITIVES-USAGES.md](GEOMETRY-PRIMITIVES-USAGES.md)。
+
+## 打印用法的精确执行
+
+`tools/official_cases.py` 可加 `--usage example-187`，从用法记录生成精确打印程序，确认其驱动与传入driver相同，报告同时保存usage和program_sha256。可用于对用法与独立驱动展开时重复默认头文件的差异消除歧义；原有不带该参数的调用方式不变。本批无向/有向矩阵树分别使用example-187和example-188，全部22组官方生成数据双模式通过，证据见matrix-tree-usage-official与matrix-tree-directed-official报告。这仍是本地官方checker验证。

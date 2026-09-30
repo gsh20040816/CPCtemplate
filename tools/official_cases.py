@@ -23,6 +23,7 @@ ap.add_argument('driver', type=Path)
 ap.add_argument('report', type=Path)
 ap.add_argument('--sanitize', action='store_true')
 ap.add_argument('--timeout', type=float, default=30)
+ap.add_argument('--usage', help='Compile the exact registered printed program instead of the standalone bundle')
 args = ap.parse_args()
 up = args.checkout.resolve()
 matches = [p for p in up.rglob('info.toml') if p.parent.name == args.problem and p.relative_to(up).parts[0] != 'test']
@@ -34,7 +35,15 @@ assert not subprocess.check_output(['git','-C',str(up),'diff','HEAD','--'],text=
 work = root/'build/official-cases'/args.problem/('sanitized' if args.sanitize else 'normal')
 work.mkdir(parents=True, exist_ok=True)
 bundle = work/'main.cpp'
-subprocess.run(['python3',str(root/'tools/bundle.py'),str(args.driver),str(bundle)],check=True)
+if args.usage:
+    import sys
+    sys.path.insert(0, str(root / 'tools'))
+    from usage_examples import records
+    row = next(r for r in records() if r['id'] == args.usage)
+    assert (root / row['driver']).resolve() == args.driver.resolve(), 'Usage belongs to another driver'
+    bundle.write_text(row['program'])
+else:
+    subprocess.run(['python3',str(root/'tools/bundle.py'),str(args.driver),str(bundle)],check=True)
 cxx = os.environ.get('CXX') or shutil.which('g++-16') or 'g++'
 flags = ['-std=c++20','-O2']
 if args.sanitize: flags=['-std=c++20','-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer']
@@ -73,6 +82,10 @@ first=inputs[0];ans=folder/'out'/(first.stem+'.out')
 negative=subprocess.run([str(checker),str(first),str(wrong),str(ans)],capture_output=True,text=True,timeout=10)
 assert negative.returncode in (1, 2), (negative.returncode,negative.stderr)
 report=dict(problem=args.problem,scope='Local official generated tests only; not online AC or controlled OJ speed ranking',reference_commit=commit,reference_problem_path=str(folder.relative_to(up)),metadata_sha256=sha(matches[0]),checker_source_sha256=sha(folder/'checker.cpp'),checker_binary_sha256=sha(checker),driver=str(args.driver),bundle_sha256=sha(bundle),compiler=subprocess.check_output([cxx,'--version'],text=True).splitlines()[0],flags=flags,recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),negative_control='deliberately wrong output rejected',negative_control_exit_code=negative.returncode,negative_control_message=negative.stderr.strip(),cases=rows)
+if args.usage:
+    assert sha(bundle) == row['program_sha256']
+    report['usage'] = args.usage
+    report['program_sha256'] = row['program_sha256']
 args.report.parent.mkdir(parents=True,exist_ok=True)
 args.report.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(f'{args.problem}: {len(rows)} official local cases PASS; sanitizer={args.sanitize}; not online AC')

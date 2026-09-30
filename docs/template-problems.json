@@ -1719,7 +1719,20 @@
       "title": "任意正模数带权矩阵树",
       "source": "src/compact/matrix_tree_mod.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/counting_spanning_tree_undirected.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/counting_spanning_tree_undirected",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/counting_spanning_tree_directed.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/counting_spanning_tree_directed",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

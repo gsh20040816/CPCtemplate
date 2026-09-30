@@ -153,6 +153,9 @@
 | `line_intersection_real` | [AOJ CGL_2_C](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
 | `polygon_area2` | [AOJ CGL_3_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_A) | integer coordinates \|x\|,\|y\|<=10000; 3<=n<=100; simple CCW polygon | 待编写驱动/提交 | 待核验 |
 | `BoundedCirculation` | [LibreOJ 115](https://loj.ac/p/115) | 1<=n<=200; 1<=m<=10200; 1<=u,v<=n; 0<=lower<=upper<3000 | 待编写驱动/提交 | 待核验 |
+| `square_counts` | [Luogu P1117 [NOI2016] 优秀的拆分](https://www.luogu.com.cn/problem/P1117) | 1<=T<=10; lowercase strings, length<=30000 | 待编写驱动/提交 | 待核验 |
+| `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Undirected)](https://judge.yosupo.jp/problem/counting_spanning_tree_undirected) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 待编写驱动/提交 | 待核验 |
+| `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1407,6 +1410,34 @@ Read each directed edge once; solve a circulation without an artificial t-to-s e
 Online AC and all-submission ranking are pending. Local feasible certificates do not prove an online time bound.
 
 原始题面与参数：[来源 1](https://loj.ac/p/115)，[来源 2](https://api.loj.ac/api/problem/getProblem)
+
+### Luogu P1117 [NOI2016] 优秀的拆分 / square_counts
+
+NOI2016 competition application; does not satisfy the noncompetition template requirement.
+
+统计所有子串的非空AABB拆分，不同出现位置、不同A/B长度分别计数，允许A=B。T为1至10，每组小写串长度不超过30000。正向与反向SuffixLCP必须来自同一字符串；start[i]和finish[i]分别计开始/结束于字符i的AA。每个分界点贡献finish[i]*start[i+1]，以long long累加。此为NOI比赛应用题，尚未计入独立模板题覆盖。
+
+Online AC and all-submission ranking unresolved. Local evidence is distinct from online judge acceptance.
+
+### Library Checker Counting Spanning Trees (Undirected) / MatrixTreeMod
+
+Standalone Library Checker template; official statement and parameter metadata checked.
+
+无向多重图生成树计数，模998244353；点号0..n-1，1≤n≤500、0≤m≤500000，允许自环和重边。每条原边权重设1，自环不参与树，重边是不同选择。删去任意根的拉普拉斯行列，这里取根0；n=1的空树计1，断连计0。此接口也支持合数模数，复杂度O(n³ log mod)，本题固定质数亦可选更快的MatrixTree版本。
+
+Online AC and all-submission ranking unresolved. Local evidence is distinct from online judge acceptance.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_undirected/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_undirected/info.toml)
+
+### Library Checker Counting Spanning Trees (Directed) / MatrixTreeMod
+
+Standalone Library Checker template; official statement and parameter metadata checked.
+
+有向多重图生成树计数，模998244353，要求指定根r能到达所有点，使用away_from_root。n不超过500、m不超过500000，点号及根为0起；每条原边权1，自环忽略，重边分别计数。每个非根点恰有一个入边，根无入边；toward_root表示所有点到达根，不能替代。n=1计空树1，无外向生成树计0。
+
+Online AC and all-submission ranking unresolved. Local evidence is distinct from online judge acceptance.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_directed/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_directed/info.toml)
 
 ## 榜单口径
 

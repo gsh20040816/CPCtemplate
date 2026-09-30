@@ -3691,5 +3691,82 @@
       "verification/circulation-usages-normal.json",
       "verification/circulation-usages-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "square_counts",
+    "problem": "Luogu P1117 [NOI2016] 优秀的拆分",
+    "url": "https://www.luogu.com.cn/problem/P1117",
+    "classification": "NOI2016 competition application; does not satisfy the noncompetition template requirement.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "1<=T<=10; lowercase strings, length<=30000",
+    "adapter": "统计所有子串的非空AABB拆分，不同出现位置、不同A/B长度分别计数，允许A=B。T为1至10，每组小写串长度不超过30000。正向与反向SuffixLCP必须来自同一字符串；start[i]和finish[i]分别计开始/结束于字符i的AA。每个分界点贡献finish[i]*start[i+1]，以long long累加。此为NOI比赛应用题，尚未计入独立模板题覆盖。",
+    "usage": "example-186",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-submission ranking unresolved. Local evidence is distinct from online judge acceptance.",
+    "local_evidence": [
+      "verification/square-usages-normal.json",
+      "verification/square-usages-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "MatrixTreeMod",
+    "problem": "Library Checker Counting Spanning Trees (Undirected)",
+    "url": "https://judge.yosupo.jp/problem/counting_spanning_tree_undirected",
+    "classification": "Standalone Library Checker template; official statement and parameter metadata checked.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353",
+    "adapter": "无向多重图生成树计数，模998244353；点号0..n-1，1≤n≤500、0≤m≤500000，允许自环和重边。每条原边权重设1，自环不参与树，重边是不同选择。删去任意根的拉普拉斯行列，这里取根0；n=1的空树计1，断连计0。此接口也支持合数模数，复杂度O(n³ log mod)，本题固定质数亦可选更快的MatrixTree版本。",
+    "usage": "example-187",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-submission ranking unresolved. Local evidence is distinct from online judge acceptance.",
+    "local_evidence": [
+      "verification/matrix-tree-usage-official-normal.json",
+      "verification/matrix-tree-usage-official-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_undirected/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_undirected/info.toml"
+    ]
+  },
+  {
+    "symbol": "MatrixTreeMod",
+    "problem": "Library Checker Counting Spanning Trees (Directed)",
+    "url": "https://judge.yosupo.jp/problem/counting_spanning_tree_directed",
+    "classification": "Standalone Library Checker template; official statement and parameter metadata checked.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353",
+    "adapter": "有向多重图生成树计数，模998244353，要求指定根r能到达所有点，使用away_from_root。n不超过500、m不超过500000，点号及根为0起；每条原边权1，自环忽略，重边分别计数。每个非根点恰有一个入边，根无入边；toward_root表示所有点到达根，不能替代。n=1计空树1，无外向生成树计0。",
+    "usage": "example-188",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-submission ranking unresolved. Local evidence is distinct from online judge acceptance.",
+    "local_evidence": [
+      "verification/matrix-tree-directed-official-normal.json",
+      "verification/matrix-tree-directed-official-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_directed/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_directed/info.toml"
+    ],
+    "tested_api": [
+      "away_from_root"
+    ]
   }
 ]

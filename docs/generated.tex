@@ -178,6 +178,20 @@ square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long l
 
 \lstinputlisting[firstline=62,lastline=91]{../src/compact/suffix_lcp.hpp}
 
+\Needspace{422pt}
+
+\subsection*{应用题补充：Luogu P1117 [NOI2016] 优秀的拆分}
+
+\label{usage-example-186}
+
+题意：统计所有子串的非空AABB拆分，不同出现位置、不同A/B长度分别计数，允许A=B。T为1至10，每组小写串长度不超过30000。正向与反向SuffixLCP必须来自同一字符串；start[i]和finish[i]分别计开始/结束于字符i的AA。每个分界点贡献finish[i]*start[i+1]，以long long累加。此为NOI比赛应用题，尚未计入独立模板题覆盖。
+
+所需模板：SuffixArray、SuffixLCP、prefix\_lcs、square\_counts。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1117}
+
+\lstinputlisting{usage/example-186.cpp}
+
 \Needspace{330pt}
 
 \chapter{后缀自动机 (SAM)}
@@ -4400,6 +4414,34 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小非负余数。mod 为任意正 signed 64 位数，边权支持完整 signed 64 位。Kind 的 undirected、toward\_root、away\_from\_root 分别表示无向、内向和外向树；点号 0..n-1。自环忽略，重边按不同边计数，单点返回 1\%mod，mod=1 返回零。先在 128 位中构造模拉普拉斯余子式，再调用 determinant\_mod；O(n$^{3}$ log mod + m) 时间、O(n$^{2}$) 额外空间。不使用模逆元。已知模数是素数时一般优先使用 MatrixTree<mod>。
 
 \lstinputlisting[firstline=4,lastline=38]{../src/compact/matrix_tree_mod.hpp}
+
+\Needspace{383pt}
+
+\subsection*{模板题使用：Library Checker Counting Spanning Trees (Undirected)}
+
+\label{usage-example-187}
+
+题意：无向多重图生成树计数，模998244353；点号0..n-1，1$\le$n$\le$500、0$\le$m$\le$500000，允许自环和重边。每条原边权重设1，自环不参与树，重边是不同选择。删去任意根的拉普拉斯行列，这里取根0；n=1的空树计1，断连计0。此接口也支持合数模数，复杂度O(n$^{3}$ log mod)，本题固定质数亦可选更快的MatrixTree版本。
+
+所需模板：determinant\_mod、MatrixTreeMod。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/counting_spanning_tree_undirected}
+
+\lstinputlisting{usage/example-187.cpp}
+
+\Needspace{390pt}
+
+\subsection*{模板题使用：Library Checker Counting Spanning Trees (Directed)}
+
+\label{usage-example-188}
+
+题意：有向多重图生成树计数，模998244353，要求指定根r能到达所有点，使用away\_from\_root。n不超过500、m不超过500000，点号及根为0起；每条原边权1，自环忽略，重边分别计数。每个非根点恰有一个入边，根无入边；toward\_root表示所有点到达根，不能替代。n=1计空树1，无外向生成树计0。
+
+所需模板：determinant\_mod、MatrixTreeMod。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/counting_spanning_tree_directed}
+
+\lstinputlisting{usage/example-188.cpp}
 
 \newpage
 

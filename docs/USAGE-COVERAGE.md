@@ -77,7 +77,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | matrix_inverse_mod2 | [example-102](usage/example-102.cpp) | locally_checked_example |
 | determinant_mod | [example-77](usage/example-77.cpp) | locally_checked_example |
 | MatrixTree | [example-76](usage/example-76.cpp) | locally_checked_example |
-| MatrixTreeMod | 待补 | pending_example |
+| MatrixTreeMod | [example-187](usage/example-187.cpp), [example-188](usage/example-188.cpp) | locally_checked_example |
 | DuJiao | [example-85](usage/example-85.cpp), [example-86](usage/example-86.cpp) | locally_checked_example |
 | DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |
 | IntegerPlane | [example-126](usage/example-126.cpp) | locally_checked_example |
@@ -137,7 +137,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | SupportHull | 待补 | pending_example |
 | SuffixLCP | 待补 | pending_example |
 | prefix_lcs | 待补 | pending_example |
-| square_counts | 待补 | pending_example |
+| square_counts | [example-186（应用补充）](usage/example-186.cpp) | locally_checked_application |
 | PositionBasis | [example-39（应用补充）](usage/example-39.cpp) | locally_checked_application |
 | basis_intersection | [example-178](usage/example-178.cpp) | locally_checked_example |
 | basis_sum_intersection | [example-179](usage/example-179.cpp) | locally_checked_example |
