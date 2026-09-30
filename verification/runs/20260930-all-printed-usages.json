@@ -1,0 +1,9 @@
+{
+  "tested_commit": "6717e3b",
+  "command": "ASAN_OPTIONS=detect_leaks=0:abort_on_error=1 UBSAN_OPTIONS=halt_on_error=1:print_stacktrace=1 python3 tests/usage_examples.py",
+  "result": "Usage examples: 202 exact printed usage programs in normal and ASan/UBSan modes PASS; 202 current program records",
+  "proof_file": "verification/usage-examples.json",
+  "proof_sha256": "356480d6c65ee01a665d176abfd961eba1606445a488f33889e6b9cc01ee82a5",
+  "runner_sha256": "069d790d336676e8ff2f147e7b8ac056a3f7be3fb7e4b1e7ea6644cada98fa39",
+  "scope": "Exact printed programs executed with registered cases in both modes. Per-program hashes in proof; no OJ acceptance, universal proof or LeakSanitizer claim."
+}
