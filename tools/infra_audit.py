@@ -20,7 +20,8 @@ for page in reader.pages:
 checked=[]
 for row in rows:
     aux=(root/('build/pdf/volume-'+row['volume']+'.aux')).read_text()
-    match=re.search(r'\\newlabel\{compact-'+re.escape(row['symbol'])+r'\}\{\{[^}]*\}\{(\d+)\}\{.*?\}\{([^}]+)\}',aux)
+    target_label=row.get('target_label','compact-'+row['symbol'])
+    match=re.search(r'\\newlabel\{'+re.escape(target_label)+r'\}\{\{[^}]*\}\{(\d+)\}\{.*?\}\{([^}]+)\}',aux)
     assert match,row
     number,dest=int(match[1]),match[2]
     assert (row['file'],dest) in observed,(row,observed)

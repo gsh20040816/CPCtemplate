@@ -1545,13 +1545,13 @@
   },
   {
     "symbol": "pheap",
-    "problem": "Library Checker shortest_path",
+    "problem": "Library Checker Shortest Path",
     "url": "https://judge.yosupo.jp/problem/shortest_path",
-    "classification": "PBDS pairing-heap application: decrease-key shortest paths; does not cover join/split.",
+    "classification": "Standalone Library Checker template; official statement and parameters checked.",
     "statement_checked": true,
-    "checked_date": "2026-09-13",
-    "limits": "2<=N<=500000; 1<=M<=500000; simple directed graph; 0<=weight<=1e9; s!=t",
-    "adapter": "0-based Dijkstra; one live point_iterator per queued vertex, modify on strict improvement, pop invalidates that handle. long long distances; predecessor path output is checked by upstream checker.",
+    "checked_date": "2026-09-30",
+    "limits": "2<=N<=500000; 1<=M<=500000; simple directed graph; 0<=w<=1e9; s!=t",
+    "adapter": "非负权简单有向图，0起点号，n和m不超过500000，权≤10⁹，s≠t。输出最短距离和一条有序路径，无解输出-1。小根配对堆存(距离,点)，每个堆内点保存句柄；松弛时已入堆则modify降键，否则push。pop后置in=false，不再访问旧句柄。距离用long long，pre还原原边；零权边允许。这个用法展示push/top/pop/modify，不覆盖join/split。",
     "tested_api": [
       "push",
       "top",
@@ -1566,10 +1566,15 @@
       "rank": null,
       "total": null
     },
-    "remaining": "Online submission and all-submission ranking pending. Local evidence: 29 pinned official cases in normal/ASan+UBSan modes, plus 160 independent Floyd-Warshall graphs and simple-path certificates. join/swap/split are covered separately by container-level tests.",
+    "remaining": "Online AC and all-submission ranking unresolved; join/split covered only by container tests.",
     "statement_sources": [
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/shortest_path/task.md",
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/shortest_path/info.toml"
+    ],
+    "usage": "example-190",
+    "local_evidence": [
+      "verification/pheap-path-usage-official-normal.json",
+      "verification/pheap-path-usage-official-sanitizer.json"
     ]
   },
   {
@@ -3767,6 +3772,32 @@
     ],
     "tested_api": [
       "away_from_root"
+    ]
+  },
+  {
+    "symbol": "pheap",
+    "problem": "Library Checker Double-Ended Priority Queue",
+    "url": "https://judge.yosupo.jp/problem/double_ended_priority_queue",
+    "classification": "Standalone Library Checker template; official statement and parameters checked.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "0<=N<=500000; 1<=Q<=500000; -1e9<=x<=1e9; deletion on nonempty multiset",
+    "adapter": "多重集合支持插入和删除一个最小/最大值；0≤n≤500000、1≤q≤500000，值在[-10⁹,10⁹]，删除时保证非空。用两个大根配对堆分别保存(-值,id)/(值,id)，同次插入保存两份句柄；删除时先erase另一堆的句柄，再pop当前堆。id每次新插入都递增，重复值也可区分。删除后两份句柄失效，禁止再次使用。本题取负在int范围内；全int64值不能直接照搬取负。",
+    "usage": "example-189",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-submission ranking unresolved; join/split covered only by container tests.",
+    "local_evidence": [
+      "verification/pheap-double-official-normal.json",
+      "verification/pheap-double-official-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/double_ended_priority_queue/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/double_ended_priority_queue/info.toml"
     ]
   }
 ]

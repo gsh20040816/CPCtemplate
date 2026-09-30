@@ -2296,5 +2296,28 @@
       "determinant_mod",
       "MatrixTreeMod"
     ]
+  },
+  {
+    "id": "example-189",
+    "symbol": "pheap",
+    "problem": "Library Checker Double-Ended Priority Queue",
+    "url": "https://judge.yosupo.jp/problem/double_ended_priority_queue",
+    "summary": "多重集合支持插入和删除一个最小/最大值；0≤n≤500000、1≤q≤500000，值在[-10⁹,10⁹]，删除时保证非空。用两个大根配对堆分别保存(-值,id)/(值,id)，同次插入保存两份句柄；删除时先erase另一堆的句柄，再pop当前堆。id每次新插入都递增，重复值也可区分。删除后两份句柄失效，禁止再次使用。本题取负在int范围内；全int64值不能直接照搬取负。",
+    "driver": "verify/library_checker/double_ended_priority_queue.compact.cpp",
+    "requires": [
+      "pheap"
+    ]
+  },
+  {
+    "id": "example-190",
+    "symbol": "pheap",
+    "problem": "Library Checker Shortest Path",
+    "url": "https://judge.yosupo.jp/problem/shortest_path",
+    "summary": "非负权简单有向图，0起点号，n和m不超过500000，权≤10⁹，s≠t。输出最短距离和一条有序路径，无解输出-1。小根配对堆存(距离,点)，每个堆内点保存句柄；松弛时已入堆则modify降键，否则push。pop后置in=false，不再访问旧句柄。距离用long long，pre还原原边；零权边允许。这个用法展示push/top/pop/modify，不覆盖join/split。",
+    "driver": "verify/library_checker/shortest_path.compact.cpp",
+    "requires": [
+      "pheap"
+    ],
+    "page_break_before": "    if (d[t] == inf)"
   }
 ]

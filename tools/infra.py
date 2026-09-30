@@ -16,6 +16,10 @@ for title,symbol in links:
  v=owner[symbol];label='ext-'+v['id']+'-compact-'+symbol
  intro.append(escape(title)+' & '+escape(v['title'])+r'，第~\pageref{'+label+r'}~页\\')
  records.append(dict(symbol=symbol,volume=v['id'],file='xcpc-'+v['id']+'.pdf',label=label))
+for title, usage in [('PBDS 句柄删除：双端优先队列', 'example-189'), ('PBDS modify 降键：最短路与路径', 'example-190')]:
+ v=owner['pheap'];target='usage-'+usage;label='ext-'+v['id']+'-'+target
+ intro.append(escape(title)+' & '+escape(v['title'])+r'，第~\pageref{'+label+r'}~页\\')
+ records.append(dict(symbol='pheap',usage=usage,target_label=target,volume=v['id'],file='xcpc-'+v['id']+'.pdf',label=label))
 intro += [r'\bottomrule\end{longtable}',r'\backmatter\printindex',r'\end{document}']
 (root/'docs/infra.tex').write_text('\n\n'.join(intro)+'\n')
 (root/'docs/infra-links.json').write_text(json.dumps(records,ensure_ascii=False,indent=2)+'\n')

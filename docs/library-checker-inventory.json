@@ -1123,8 +1123,15 @@
           "sha256": "39dbf4d6607ba3f999d6a6bcda33e96d7fbaca2955308d9566b8d1e2b189b8c4"
         }
       },
-      "candidate_drivers": [],
-      "linked_statement_reviews": [],
+      "candidate_drivers": [
+        "verify/library_checker/double_ended_priority_queue.compact.cpp"
+      ],
+      "linked_statement_reviews": [
+        {
+          "symbol": "pheap",
+          "statement_checked": true
+        }
+      ],
       "online_ac": [],
       "status": "pending_statement_adapter_and_online_validation",
       "ranking": {
@@ -3313,8 +3320,15 @@
           "sha256": "10ab4a58ad8073fd5787ec7e8c116054724ae93f80d4a2f216334606dd956baa"
         }
       },
-      "candidate_drivers": [],
-      "linked_statement_reviews": [],
+      "candidate_drivers": [
+        "verify/library_checker/partition_function.compact.cpp"
+      ],
+      "linked_statement_reviews": [
+        {
+          "symbol": "Partitions",
+          "statement_checked": true
+        }
+      ],
       "online_ac": [],
       "status": "pending_statement_adapter_and_online_validation",
       "ranking": {
@@ -4532,8 +4546,15 @@
           "sha256": "27f0e9c4badef3eab108338dd83131da2a0fd1497277dfa061b6b082e6a4fe91"
         }
       },
-      "candidate_drivers": [],
-      "linked_statement_reviews": [],
+      "candidate_drivers": [
+        "verify/library_checker/counting_spanning_tree_directed.compact.cpp"
+      ],
+      "linked_statement_reviews": [
+        {
+          "symbol": "MatrixTreeMod",
+          "statement_checked": true
+        }
+      ],
       "online_ac": [],
       "status": "pending_statement_adapter_and_online_validation",
       "ranking": {
@@ -4577,8 +4598,15 @@
           "sha256": "9db7fd744e38aa76e5c33635eb34c8ba0b03a3dc4e04fb82f11dc91add6a02c2"
         }
       },
-      "candidate_drivers": [],
-      "linked_statement_reviews": [],
+      "candidate_drivers": [
+        "verify/library_checker/counting_spanning_tree_undirected.compact.cpp"
+      ],
+      "linked_statement_reviews": [
+        {
+          "symbol": "MatrixTreeMod",
+          "statement_checked": true
+        }
+      ],
       "online_ac": [],
       "status": "pending_statement_adapter_and_online_validation",
       "ranking": {
@@ -5444,11 +5472,16 @@
         }
       },
       "candidate_drivers": [
-        "verify/library_checker/scc.compact.cpp"
+        "verify/library_checker/scc.compact.cpp",
+        "verify/library_checker/scc.kosaraju.compact.cpp"
       ],
       "linked_statement_reviews": [
         {
           "symbol": "TarjanSCC",
+          "statement_checked": true
+        },
+        {
+          "symbol": "SCC",
           "statement_checked": true
         }
       ],
@@ -5869,7 +5902,16 @@
         "verify/library_checker/intersection_intersection.compact.cpp",
         "verify/library_checker/intersection_zassenhaus.compact.cpp"
       ],
-      "linked_statement_reviews": [],
+      "linked_statement_reviews": [
+        {
+          "symbol": "basis_intersection",
+          "statement_checked": true
+        },
+        {
+          "symbol": "basis_sum_intersection",
+          "statement_checked": true
+        }
+      ],
       "online_ac": [],
       "status": "pending_statement_adapter_and_online_validation",
       "ranking": {

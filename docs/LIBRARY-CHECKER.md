@@ -50,7 +50,7 @@
 | [Area of Union of Rectangles](https://judge.yosupo.jp/problem/area_of_union_of_rectangles) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Associative Array](https://judge.yosupo.jp/problem/associative_array) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [associative_array.cc.compact.cpp](../verify/library_checker/associative_array.cc.compact.cpp)<br>[associative_array.compact.cpp](../verify/library_checker/associative_array.compact.cpp) |
 | [Deque Operate All Composite](https://judge.yosupo.jp/problem/deque_operate_all_composite) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | Data Structure | 待逐题审题、适配与在线验证 | [double_ended_priority_queue.compact.cpp](../verify/library_checker/double_ended_priority_queue.compact.cpp) |
 | [Dynamic Point Rectangle Affine Rectangle Sum](https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Line Add Get Min](https://judge.yosupo.jp/problem/line_add_get_min) | Data Structure | 待逐题审题、适配与在线验证 | [line_add_get_min.compact.cpp](../verify/library_checker/line_add_get_min.compact.cpp) |
@@ -98,7 +98,7 @@
 | [Montmort Number](https://judge.yosupo.jp/problem/montmort_number_mod) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
 | [Number of Increasing Sequences Between Two Sequences](https://judge.yosupo.jp/problem/number_of_increasing_sequences_between_two_sequences) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
 | [Number of Subsequences ](https://judge.yosupo.jp/problem/number_of_subsequences) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
-| [Partition Function](https://judge.yosupo.jp/problem/partition_function) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
+| [Partition Function](https://judge.yosupo.jp/problem/partition_function) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | [partition_function.compact.cpp](../verify/library_checker/partition_function.compact.cpp) |
 | [$q$-Binomial Coefficient (Prime Mod)](https://judge.yosupo.jp/problem/q_binomial_coefficient_prime_mod) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
 | [$\#_p$ Subset Sum](https://judge.yosupo.jp/problem/sharp_p_subset_sum) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
 | [Stirling Number of the First Kind](https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
@@ -125,8 +125,8 @@
 | [Connected Components of Complement Graph](https://judge.yosupo.jp/problem/connected_components_of_complement_graph) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Counting $C _ 4$'s](https://judge.yosupo.jp/problem/counting_c4) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Counting Eulerian Circuits](https://judge.yosupo.jp/problem/counting_eulerian_circuits) | Graph | 待逐题审题、适配与在线验证 | — |
-| [Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) | Graph | 待逐题审题、适配与在线验证 | — |
-| [Counting Spanning Trees (Undirected)](https://judge.yosupo.jp/problem/counting_spanning_tree_undirected) | Graph | 待逐题审题、适配与在线验证 | — |
+| [Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) | Graph | 待逐题审题、适配与在线验证 | [counting_spanning_tree_directed.compact.cpp](../verify/library_checker/counting_spanning_tree_directed.compact.cpp) |
+| [Counting Spanning Trees (Undirected)](https://judge.yosupo.jp/problem/counting_spanning_tree_undirected) | Graph | 待逐题审题、适配与在线验证 | [counting_spanning_tree_undirected.compact.cpp](../verify/library_checker/counting_spanning_tree_undirected.compact.cpp) |
 | [Cycle Detection (Directed)](https://judge.yosupo.jp/problem/cycle_detection) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Cycle Detection (Undirected)](https://judge.yosupo.jp/problem/cycle_detection_undirected) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Directed MST](https://judge.yosupo.jp/problem/directedmst) | Graph | 待逐题审题、适配与在线验证 | — |
@@ -145,7 +145,7 @@
 | [Minimum Cost b-flow](https://judge.yosupo.jp/problem/min_cost_b_flow) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Minimum Diameter Spanning Tree](https://judge.yosupo.jp/problem/minimum_diameter_spanning_tree) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Minimum Spanning Tree](https://judge.yosupo.jp/problem/minimum_spanning_tree) | Graph | 待逐题审题、适配与在线验证 | — |
-| [Strongly Connected Components](https://judge.yosupo.jp/problem/scc) | Graph | 待逐题审题、适配与在线验证 | [scc.compact.cpp](../verify/library_checker/scc.compact.cpp) |
+| [Strongly Connected Components](https://judge.yosupo.jp/problem/scc) | Graph | 待逐题审题、适配与在线验证 | [scc.compact.cpp](../verify/library_checker/scc.compact.cpp)<br>[scc.kosaraju.compact.cpp](../verify/library_checker/scc.kosaraju.compact.cpp) |
 | [Shortest Path](https://judge.yosupo.jp/problem/shortest_path) | Graph | 待逐题审题、适配与在线验证 | [shortest_path.compact.cpp](../verify/library_checker/shortest_path.compact.cpp) |
 | [st-Numbering](https://judge.yosupo.jp/problem/st_numbering) | Graph | 待逐题审题、适配与在线验证 | — |
 | [Three-Edge-Connected Components](https://judge.yosupo.jp/problem/three_edge_connected_components) | Graph | 待逐题审题、适配与在线验证 | — |

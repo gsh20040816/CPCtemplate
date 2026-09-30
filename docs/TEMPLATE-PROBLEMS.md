@@ -63,7 +63,7 @@
 | `gp_map` | [Library Checker associative_array (cc_hash_table variant)](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; key/value in [0,10^18]. | 待编写驱动/提交 | 待核验 |
 | `Prime64` | [Library Checker primality_test](https://judge.yosupo.jp/problem/primality_test) | 1<=Q<=100000;1<=N<=10^18. | 待编写驱动/提交 | 待核验 |
 | `floor_sum` | [Library Checker sum_of_floor_of_linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | 1<=T<=100000;1<=N,M<=10^9;0<=A,B<M. | 待编写驱动/提交 | 待核验 |
-| `pheap` | [Library Checker shortest_path](https://judge.yosupo.jp/problem/shortest_path) | 2<=N<=500000; 1<=M<=500000; simple directed graph; 0<=weight<=1e9; s!=t | 待编写驱动/提交 | 待核验 |
+| `pheap` | [Library Checker Shortest Path](https://judge.yosupo.jp/problem/shortest_path) | 2<=N<=500000; 1<=M<=500000; simple directed graph; 0<=w<=1e9; s!=t | 待编写驱动/提交 | 待核验 |
 | `enumerate_triangles` | [Library Checker enumerate_triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | 1<=N,M<=100000; undirected simple graph; 0<=x<998244353 | 待编写驱动/提交 | 待核验 |
 | `z_function` | [Library Checker zalgorithm](https://judge.yosupo.jp/problem/zalgorithm) | 1<=N<=500000；非空小写字母串。 | 待编写驱动/提交 | 待核验 |
 | `manacher` | [Library Checker enumerate_palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | 1<=N<=500000；非空小写字母串。 | 待编写驱动/提交 | 待核验 |
@@ -156,6 +156,7 @@
 | `square_counts` | [Luogu P1117 [NOI2016] 优秀的拆分](https://www.luogu.com.cn/problem/P1117) | 1<=T<=10; lowercase strings, length<=30000 | 待编写驱动/提交 | 待核验 |
 | `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Undirected)](https://judge.yosupo.jp/problem/counting_spanning_tree_undirected) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 待编写驱动/提交 | 待核验 |
 | `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 待编写驱动/提交 | 待核验 |
+| `pheap` | [Library Checker Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | 0<=N<=500000; 1<=Q<=500000; -1e9<=x<=1e9; deletion on nonempty multiset | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -635,13 +636,13 @@ Call floor_sum and cast result to long long for output. Every summand is at most
 
 Online AC and all-AC ranking pending; official local checker does not confer an OJ performance verdict.
 
-### Library Checker shortest_path / pheap
+### Library Checker Shortest Path / pheap
 
-PBDS pairing-heap application: decrease-key shortest paths; does not cover join/split.
+Standalone Library Checker template; official statement and parameters checked.
 
-0-based Dijkstra; one live point_iterator per queued vertex, modify on strict improvement, pop invalidates that handle. long long distances; predecessor path output is checked by upstream checker.
+非负权简单有向图，0起点号，n和m不超过500000，权≤10⁹，s≠t。输出最短距离和一条有序路径，无解输出-1。小根配对堆存(距离,点)，每个堆内点保存句柄；松弛时已入堆则modify降键，否则push。pop后置in=false，不再访问旧句柄。距离用long long，pre还原原边；零权边允许。这个用法展示push/top/pop/modify，不覆盖join/split。
 
-Online submission and all-submission ranking pending. Local evidence: 29 pinned official cases in normal/ASan+UBSan modes, plus 160 independent Floyd-Warshall graphs and simple-path certificates. join/swap/split are covered separately by container-level tests.
+Online AC and all-submission ranking unresolved; join/split covered only by container tests.
 
 原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/shortest_path/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/shortest_path/info.toml)
 
@@ -1438,6 +1439,16 @@ Standalone Library Checker template; official statement and parameter metadata c
 Online AC and all-submission ranking unresolved. Local evidence is distinct from online judge acceptance.
 
 原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_directed/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/graph/counting_spanning_tree_directed/info.toml)
+
+### Library Checker Double-Ended Priority Queue / pheap
+
+Standalone Library Checker template; official statement and parameters checked.
+
+多重集合支持插入和删除一个最小/最大值；0≤n≤500000、1≤q≤500000，值在[-10⁹,10⁹]，删除时保证非空。用两个大根配对堆分别保存(-值,id)/(值,id)，同次插入保存两份句柄；删除时先erase另一堆的句柄，再pop当前堆。id每次新插入都递增，重复值也可区分。删除后两份句柄失效，禁止再次使用。本题取负在int范围内；全int64值不能直接照搬取负。
+
+Online AC and all-submission ranking unresolved; join/split covered only by container tests.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/double_ended_priority_queue/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/double_ended_priority_queue/info.toml)
 
 ## 榜单口径
 

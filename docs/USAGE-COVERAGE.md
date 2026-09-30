@@ -175,7 +175,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | mint | 待补 | pending_example |
 | batch_units | 待补 | pending_example |
 | convolution_i64 | [example-52](usage/example-52.cpp) | locally_checked_example |
-| pheap | 待补 | pending_example |
+| pheap | [example-189](usage/example-189.cpp), [example-190](usage/example-190.cpp) | locally_checked_example |
 | enumerate_triangles | [example-6](usage/example-6.cpp) | locally_checked_example |
 | LeftistHeap | [example-50](usage/example-50.cpp) | locally_checked_example |
 | Johnson | [example-74](usage/example-74.cpp) | locally_checked_example |

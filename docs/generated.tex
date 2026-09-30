@@ -2088,6 +2088,42 @@ b.join(a);
 b.erase(h);
 \end{lstlisting}
 
+\Needspace{654pt}
+
+\subsection*{模板题使用：Library Checker Double-Ended Priority Queue}
+
+\label{usage-example-189}
+
+题意：多重集合支持插入和删除一个最小/最大值；0$\le$n$\le$500000、1$\le$q$\le$500000，值在[-10$^{9}$,10$^{9}$]，删除时保证非空。用两个大根配对堆分别保存(-值,id)/(值,id)，同次插入保存两份句柄；删除时先erase另一堆的句柄，再pop当前堆。id每次新插入都递增，重复值也可区分。删除后两份句柄失效，禁止再次使用。本题取负在int范围内；全int64值不能直接照搬取负。
+
+所需模板：pheap。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/double_ended_priority_queue}
+
+\lstinputlisting{usage/example-189.cpp}
+
+\Needspace{666pt}
+
+\subsection*{模板题使用：Library Checker Shortest Path}
+
+\label{usage-example-190}
+
+题意：非负权简单有向图，0起点号，n和m不超过500000，权$\le$10$^{9}$，s$\ne$t。输出最短距离和一条有序路径，无解输出-1。小根配对堆存(距离,点)，每个堆内点保存句柄；松弛时已入堆则modify降键，否则push。pop后置in=false，不再访问旧句柄。距离用long long，pre还原原边；零权边允许。这个用法展示push/top/pop/modify，不覆盖join/split。
+
+所需模板：pheap。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/shortest_path}
+
+\lstinputlisting[lastline=42]{usage/example-190.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=43,firstnumber=43]{usage/example-190.cpp}
+
+\newpage
+
 \Needspace{555pt}
 
 \section{左偏树}
