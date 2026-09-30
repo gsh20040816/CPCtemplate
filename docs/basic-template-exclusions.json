@@ -1,0 +1,24 @@
+{
+  "approval": "https://github.com/gsh20040816/CPCtemplate/issues/2#issuecomment-5907178580",
+  "scope": "Exclude only these independent basic problem entries and submission plans. Preserve advanced algorithms, shared helpers, source coverage ledgers and historical verification evidence.",
+  "problems": [
+    {
+      "judge": "luogu",
+      "problem": "P1226",
+      "title": "快速幂",
+      "preserve": "ModInt, Mod64, NTT, primitive-root and other power dependencies"
+    },
+    {
+      "judge": "luogu",
+      "problem": "P1177",
+      "title": "排序",
+      "preserve": "std::sort calls and advanced sorting-dependent algorithms"
+    },
+    {
+      "judge": "luogu",
+      "problem": "P3374",
+      "title": "基础树状数组：单点加、区间和",
+      "preserve": "Fenwick kth and generic/composed uses, dynamic kth and multidimensional variants"
+    }
+  ]
+}

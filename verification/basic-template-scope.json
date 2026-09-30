@@ -1,0 +1,85 @@
+{
+  "base_commit": "5019177e5578377211b1ef11e313cbc84a78d653",
+  "scope": "Three exact standalone problem exclusions; zero existing source/driver/algorithm deletion; DSU and advanced dependencies retained. No new AC or full algorithm regression.",
+  "checks": [
+    {
+      "command": "python3 tests/basic_template_scope.py",
+      "returncode": 0,
+      "stdout": "Basic template scope: three exact exclusions, advanced dependencies, DSU and history scope preserved PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/template_dependencies.py",
+      "returncode": 0,
+      "stdout": "200 algorithms, 128 direct edges, 198 complete usages and six local transitive closures PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "source": "tests/dsu.cpp",
+      "mode": "optimized",
+      "returncode": 0,
+      "stdout": "User dsu label oracle, root direction, same/size/groups and 500000 unbalanced chain PASS\n",
+      "stderr": ""
+    },
+    {
+      "source": "tests/modint_composition.cpp",
+      "mode": "optimized",
+      "returncode": 0,
+      "stdout": "ModInt compound assignments, aliasing, Euclid inverse and Fenwick integer-residue oracle PASS\n",
+      "stderr": ""
+    }
+  ],
+  "sha256": {
+    "docs/basic-template-exclusions.json": "44add10c26f205e9b3955c5eea2d5491bf167a069f9d7a88c5c3edbbe29d0a56",
+    "tools/template_scope.py": "11bfedf2eada0300969a490de72541fd78d4f5dfd54e0b4c247c6822e992f7ef",
+    "tools/template_inventory.py": "487af00cc585f5cc21791122873676ca193094585b2529e89609beb335c3a990",
+    "tests/basic_template_scope.py": "e66562566ad7a854f491d9a36cc9d676924acb8ee24a84f5764640ed4ca660f0",
+    "docs/catalog.json": "d86515f19e14d82a14882cff0bfa9681a3d04382d23d575707b420c538d02439",
+    "docs/template-problems.json": "6197e437e61146328ee9b1de96af41d9a704007cbb810ce3636ca24c1a57df26",
+    "docs/usage-coverage.json": "aaf9e6b484dd7dea67c49bce8c89f718407aee70fd834af90102300cd09d646a",
+    "docs/ISSUE-2.md": "a1f263ea7113b041b1eeac2f70ff04ec832b714387a8b30d8392b1254bdbf439",
+    "tools/test.sh": "259b679b6218ed9823ab9c36be0c430939baa179d8156959ab013153a5fb89f3"
+  },
+  "pdf_validation": {
+    "build": "eight PDFs; no final warnings",
+    "reviewed_physical_pages": {
+      "xcpc-template": [
+        192,
+        193
+      ],
+      "xcpc-data-structures": [
+        18,
+        19
+      ],
+      "xcpc-graphs": [
+        172,
+        173
+      ],
+      "xcpc-mathematics": [
+        182,
+        183
+      ]
+    },
+    "findings": "All eight pages checked; no clipping, overlap or missing glyphs. Fenwick remains one complete printed code page.",
+    "unchanged_pdf_bytes_retained": [
+      "infra",
+      "xcpc-strings",
+      "xcpc-geometry",
+      "xcpc-misc"
+    ],
+    "cross_volume_links": 13,
+    "dependency_reference_groups": 976
+  },
+  "pdf_sha256": {
+    "output/pdf/xcpc-template.pdf": "6109e78d5645879ef1fe52a9fe9a54a5a6081b00bc1320ebe8ef017e1e64866d",
+    "output/pdf/xcpc-data-structures.pdf": "a271d5db688191e92c4855d2b77ca42a6e15e9f22a14c9017c7870ecfb556941",
+    "output/pdf/xcpc-graphs.pdf": "93a3b99108dda7a3b8af50b80c5571ddc95261bcfc83e8f4379a942d6fefab61",
+    "output/pdf/xcpc-mathematics.pdf": "4e9ed8fc7bc619f4e97057bacae436fdd5f4af678a14f0c54cd2deecc1130612"
+  }
+}
