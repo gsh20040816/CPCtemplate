@@ -17,6 +17,8 @@
 
 完整来源条目见 [coverage.csv](docs/coverage.csv)，来源见 [SOURCES.md](docs/SOURCES.md)。中国赛站的逐题需求与缺口另见 [赛题审计](docs/CONTESTS.md)。原始目录中的重复实现与旧版本须逐项注明替代关系，不能静默遗漏。
 
+数学配套知识补充见 [计数建模、生成函数、概率与博弈](docs/MATH-KNOWLEDGE-COMPLETION.md)：包含选型条件、推导、例子和误用反例，并与数学分册同源生成；知识补全不等同于新增算法或线上 AC。
+
 ## 码风
 
 - `src/compact/`：基于队伍实际提交，`vector`、小写短名、清晰分行；目录名不表示压缩代码。

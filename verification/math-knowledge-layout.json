@@ -1,0 +1,109 @@
+{
+  "scope": "Rendered repository PDFs, source and verification published together",
+  "reviewed_pages": {
+    "total_book": {
+      "printed": [
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509
+      ],
+      "physical": [
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521,
+        522
+      ]
+    },
+    "mathematics": {
+      "printed": [
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153
+      ],
+      "physical": [
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160
+      ]
+    }
+  },
+  "findings": "All 18 pages visually checked: no clipping, overlap, missing glyphs, broken formulas or orphan headings. Existing whitespace at section/chapter ends retained.",
+  "pdfs": {
+    "output/pdf/xcpc-template.pdf": "c2482ec64c85833999f8c8342a9a4a3449418c079912eeedb09f6758df5f9e6e",
+    "output/pdf/xcpc-mathematics.pdf": "9a0f1e17ae35740e2f0d2404866ef5438c7705bedb0e4c75fb916489b55d7829"
+  },
+  "validation": {
+    "build": "8 PDFs; final logs without warnings",
+    "existing_dependency_targets": 976,
+    "cross_volume_links": 13
+  },
+  "unchanged_pdf_checks": [
+    {
+      "file": "output/pdf/infra.pdf",
+      "unchanged_content_streams": true,
+      "unchanged_destinations": true,
+      "kept_original_bytes": true
+    },
+    {
+      "file": "output/pdf/xcpc-strings.pdf",
+      "unchanged_content_streams": true,
+      "unchanged_destinations": true,
+      "kept_original_bytes": true
+    },
+    {
+      "file": "output/pdf/xcpc-data-structures.pdf",
+      "unchanged_content_streams": false,
+      "unchanged_destinations": true,
+      "kept_original_bytes": true,
+      "identical_page_text": true,
+      "different_content_stream_pages": [
+        120
+      ]
+    },
+    {
+      "file": "output/pdf/xcpc-graphs.pdf",
+      "unchanged_content_streams": false,
+      "unchanged_destinations": true,
+      "kept_original_bytes": true,
+      "identical_page_text": true,
+      "different_content_stream_pages": [
+        164
+      ]
+    },
+    {
+      "file": "output/pdf/xcpc-geometry.pdf",
+      "unchanged_content_streams": true,
+      "unchanged_destinations": true,
+      "kept_original_bytes": true
+    },
+    {
+      "file": "output/pdf/xcpc-misc.pdf",
+      "unchanged_content_streams": true,
+      "unchanged_destinations": true,
+      "kept_original_bytes": true
+    }
+  ]
+}

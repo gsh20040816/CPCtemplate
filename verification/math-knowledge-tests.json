@@ -1,0 +1,45 @@
+{
+  "base_commit": "846c40185cd204a99e5ab5c0d9f901f98d99197c",
+  "scope": "Mathematical worked examples, actual existing C++ API integration, document routing and references. Not a full algorithm regression, sanitizer run, or online AC.",
+  "checks": [
+    {
+      "command": "python3 tests/math_knowledge_combinatorics.py",
+      "returncode": 0,
+      "stdout": "PASS: 9271 current C++ API cases; independent object enumeration and exact binomials\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_probability.py",
+      "returncode": 0,
+      "stdout": "PASS: exact probability examples; 1793 brute-force game positions; SG through 1000\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_integration.py",
+      "returncode": 0,
+      "stdout": "PASS: eight knowledge sections shared once; math-only routing; section/page references resolve\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/template_dependencies.py",
+      "returncode": 0,
+      "stdout": "200 algorithms, 128 direct edges, 198 complete usages and six local transitive closures PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "sha256": {
+    "docs/knowledge-combinatorics.tex": "b2258a2ab62ab919e8065c891024f23b92f7702000853dca53dcdcee74ead09f",
+    "docs/knowledge-probability-games.tex": "68fe432d1ceb5c886e14dcb7b13cacc02fd285f7d49dc57b29e33aa47d3100a2",
+    "docs/mathematics.tex": "a3aa2c47f2ef76668ea2c69a5151ed407f05b5e74f9c80de8cfb35721a7c8c06",
+    "tools/volumes.py": "057fa50c501806db7d52f97fc629761ec24dad8d2b85251622198479fd147e4c",
+    "tests/math_knowledge_combinatorics.py": "8b2738a04d4c49c234d6925dad997d7fd821f74cdfa21f15df22db56d7dcf406",
+    "tests/math_knowledge_probability.py": "36ecf9ff0039ad4534faaba9d3f934e0091a00d340d91c1234be7af72064f2df",
+    "tests/math_knowledge_integration.py": "e7093114547601f67d30f0e695e62637bc6c8495db986629c467d51fa503447b"
+  }
+}

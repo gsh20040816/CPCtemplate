@@ -17,7 +17,13 @@ for r in rows:
 by_name = {r['symbol']: r for r in rows}
 assert len(by_name) == len(rows)
 notes = {k: [] for k in groups}
-parts = re.split(r'(?=\\section\{)', (root / 'docs/mathematics.tex').read_text())[1:]
+knowledge_source = (root / 'docs/mathematics.tex').read_text()
+# Expand explicit shared knowledge sources before routing their sections.
+for source in ['knowledge-combinatorics.tex', 'knowledge-probability-games.tex']:
+    directive = r'\input{' + source + '}'
+    assert knowledge_source.count(directive) == 1, (source, 'missing/duplicate input')
+    knowledge_source = knowledge_source.replace(directive, (root / 'docs' / source).read_text())
+parts = re.split(r'(?=\\section\{)', knowledge_source)[1:]
 for part in parts:
     title = part.split('\n', 1)[0]
     if 'ACL 的组合约定' in title:
