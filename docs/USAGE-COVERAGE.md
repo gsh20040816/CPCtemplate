@@ -37,8 +37,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | crt_merge | [example-15](usage/example-15.cpp) | locally_checked_example |
 | floor_sum | [example-14](usage/example-14.cpp) | locally_checked_example |
 | linear_equation | [example-75](usage/example-75.cpp) | locally_checked_example |
-| linear_congruence | 待补 | pending_example |
-| segmented_primes | 待补 | pending_example |
+| linear_congruence | [example-207（应用补充）](usage/example-207.cpp) | locally_checked_application |
+| segmented_primes | [example-208（应用补充）](usage/example-208.cpp) | locally_checked_application |
 | batch_inverse | [example-197](usage/example-197.cpp) | locally_checked_example |
 | inverse_table | [example-196](usage/example-196.cpp) | locally_checked_example |
 | garner | 待补 | pending_example |

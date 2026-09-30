@@ -269,6 +269,24 @@ cases['example-205'] = [
     ('1 0\na\n', {'exact_text': ''})
 ]
 cases['example-206'] = [('5\nC 3 2 0 0\n1 2 1\n1 2 0\nA 3 1 0 0\n2 1 1\nP 3 2 2 2\n1 2 1\n1 2 0\nP 3 0 3 3\nP 3 0 1 2\n', {'mixed_euler_demo': True}), ('8\nC 4 4 0 0\n1 2 1\n2 1 1\n3 4 0\n3 4 0\nP 4 2 1 1\n2 3 1\n2 3 0\nC 3 2 0 0\n3 3 0\n3 3 1\nA 2 1 0 0\n1 2 0\nA 2 1 0 0\n1 2 1\nP 2 1 1 2\n2 1 1\nC 3 0 0 0\nA 3 0 0 0\n', {'mixed_euler_demo': True})]
+cases['example-207'] = [
+    ('1 2 3 4 5\n', {'exact_text': '4\n'}),
+    ('1 2 4 3 5\n', {'exact_text': '1\n'}),
+    ('1 5 3 1 10\n', {'exact_text': '2\n'}),
+    ('5 1 1 3 10\n', {'exact_text': '2\n'}),
+    ('1 2 3 1 10\n', {'exact_text': 'Impossible\n'}),
+    ('1 2 2000000000 2000000000 2100000000\n', {'exact_text': 'Impossible\n'}),
+    ('1 2 2000000000 2000000000 1\n', {'exact_text': '0\n'}),
+    ('2 1 2 1 2100000000\n', {'exact_text': '2099999999\n'}),
+    ('1 2 1 2 2100000000\n', {'exact_text': '2099999999\n'})
+]
+cases['example-208'] = [
+    ('2 17\n14 17\n', {'exact_text': '2,3 are closest, 7,11 are most distant.\nThere are no adjacent primes.\n'}),
+    ('2 7\n3 13\n1 2\n1 3\n2147483646 2147483647',
+     {'exact_text': '2,3 are closest, 3,5 are most distant.\n3,5 are closest, 7,11 are most distant.\nThere are no adjacent primes.\n2,3 are closest, 2,3 are most distant.\nThere are no adjacent primes.\n'}),
+    ('', {'exact_text': ''}),
+    ('\n \t\n', {'exact_text': ''})
+]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

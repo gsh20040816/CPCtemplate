@@ -1,0 +1,164 @@
+{
+  "mode": "sanitizer",
+  "passed": true,
+  "checked_at": "2026-09-30T18:20:30.514568+00:00",
+  "compiler": "/usr/bin/x86_64-linux-gnu-g++-14",
+  "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0",
+  "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "source_sha256": {
+    "docs/usage-examples.json": "8ee9eea67d0e2716e955793958b35ac0526aa3b2f29b3a694560a810cae23f15",
+    "docs/catalog.json": "2bf8e664631760398912a11a780a741c7234907656094413bd24f77f54d26dbe",
+    "tests/math_application_usages.py": "97eac32043e1582acbd21c9a9cbf35b4efacc6012680d5e895cca09756b55d02",
+    "tests/usage_examples.py": "1bc81269f85cda501b4703e74f8bcb725c8657067c62d041a3c711d4b4662432",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+    "tools/usage_examples.py": "8f4167849f20a8d049043bf4f447e0d558e6e95d22715e868967d43e0bfe00a4",
+    "verify/luogu/P1516.compact.cpp": "409455582e417b7aae9587f6fe0eb95c8bb58b2b34bd49d8dc10817a41cf6468",
+    "verify/poj/2689.compact.cpp": "701455bb90c50730ffe7f9f7695b0c97a762bb54cf63404af97e197a6827d008",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/linear_congruence.hpp": "89f1be3cb525be96efe781ce0391a85423541accc2dd0304ff21852be5a5a74f",
+    "src/compact/segmented_sieve.hpp": "5a9ebfe04f710b887ebd276a23512f47484a6fc5b1fd74aa00182c3403a75c5d"
+  },
+  "programs": [
+    {
+      "id": "example-207",
+      "driver": "verify/luogu/P1516.compact.cpp",
+      "kind": "application",
+      "program_sha256": "963204f1a90508fdfe7f427b0f975ab1aaf1067f326d4db0c6ad5c6894c907d0",
+      "cases_file": "build/math-application-usages/sanitizer/example-207.cases.jsonl",
+      "cases_sha256": "1cc9004f6ec29ecfe80d429c36e1e9d6b109103b2fc1745dc8ea64769860d793",
+      "invocations_per_program": 1404,
+      "datasets_per_program": 1404,
+      "groups": {
+        "exhaustive_L_1_to_6_xy_mn_1_to_4": 1152,
+        "small_L_full_range_positions_and_speeds": 160,
+        "fixed_sign_gcd_zero_and_statement_maxima": 12,
+        "planted_unique_time_and_swapped_frogs": 80
+      },
+      "datasets_by_group": {
+        "exhaustive_L_1_to_6_xy_mn_1_to_4": 1152,
+        "small_L_full_range_positions_and_speeds": 160,
+        "fixed_sign_gcd_zero_and_statement_maxima": 12,
+        "planted_unique_time_and_swapped_frogs": 80
+      },
+      "executions": [
+        {
+          "form": "registered",
+          "program_sha256": "963204f1a90508fdfe7f427b0f975ab1aaf1067f326d4db0c6ad5c6894c907d0",
+          "executable_sha256": "69f207acf1959720b8f428beb767ce1303aab46daa9299067846bcdb233bc89e",
+          "compile_command": [
+            "/usr/bin/x86_64-linux-gnu-g++-14",
+            "-std=c++20",
+            "-O1",
+            "-g",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "/workspace/scratch/5a21734ea066/CPCtemplate/build/math-application-usages/sanitizer/example-207-registered.cpp",
+            "-o",
+            "/workspace/scratch/5a21734ea066/CPCtemplate/build/math-application-usages/sanitizer/example-207-registered"
+          ],
+          "invocations": 1404,
+          "output_sha256": "49c504999fa16716700910adbc287b7e29537a43d3d88a1b3ae8e9c7ca589e6c",
+          "seconds": 8.909716
+        },
+        {
+          "form": "named_dependencies",
+          "program_sha256": "a584d48dc1766b4fa9e577e8a667749ae8cd270cd7b8c1e8fcbae378381c0d6a",
+          "executable_sha256": "554e9bf7bcf8857f7d87d5900c6282888a14ea07bc14ef9e3c6ed31db01782aa",
+          "compile_command": [
+            "/usr/bin/x86_64-linux-gnu-g++-14",
+            "-std=c++20",
+            "-O1",
+            "-g",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "/workspace/scratch/5a21734ea066/CPCtemplate/build/math-application-usages/sanitizer/example-207-named_dependencies.cpp",
+            "-o",
+            "/workspace/scratch/5a21734ea066/CPCtemplate/build/math-application-usages/sanitizer/example-207-named_dependencies"
+          ],
+          "invocations": 1404,
+          "output_sha256": "49c504999fa16716700910adbc287b7e29537a43d3d88a1b3ae8e9c7ca589e6c",
+          "seconds": 11.597553
+        }
+      ]
+    },
+    {
+      "id": "example-208",
+      "driver": "verify/poj/2689.compact.cpp",
+      "kind": "application",
+      "program_sha256": "e087f4d57a57b12383971c276b994aa4626da509d8b54e6da08c3ff90ca2f703",
+      "cases_file": "build/math-application-usages/sanitizer/example-208.cases.jsonl",
+      "cases_sha256": "4e406e2f38d037f4df3966ac35ab2393807322656a77c396a39b574c78f6f43a",
+      "invocations_per_program": 9,
+      "datasets_per_program": 1052,
+      "groups": {
+        "official_UVA_sample": 1,
+        "all_legal_intervals_inside_1_to_40": 1,
+        "extra_zero_one_singleton_contract": 1,
+        "prime_endpoints_empty_one_pair_and_first_ties": 1,
+        "prime_squares": 1,
+        "seeded_high_range_trial_division": 1,
+        "million_difference_then_small_EOF_reset": 1,
+        "empty_EOF": 1,
+        "whitespace_EOF": 1
+      },
+      "datasets_by_group": {
+        "official_UVA_sample": 2,
+        "all_legal_intervals_inside_1_to_40": 780,
+        "extra_zero_one_singleton_contract": 92,
+        "prime_endpoints_empty_one_pair_and_first_ties": 6,
+        "prime_squares": 7,
+        "seeded_high_range_trial_division": 160,
+        "million_difference_then_small_EOF_reset": 5,
+        "empty_EOF": 0,
+        "whitespace_EOF": 0
+      },
+      "executions": [
+        {
+          "form": "registered",
+          "program_sha256": "e087f4d57a57b12383971c276b994aa4626da509d8b54e6da08c3ff90ca2f703",
+          "executable_sha256": "ec6999ab0d558ea741ac74422e45e4723746557ea3c43209d2f530b57dece9b7",
+          "compile_command": [
+            "/usr/bin/x86_64-linux-gnu-g++-14",
+            "-std=c++20",
+            "-O1",
+            "-g",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "/workspace/scratch/5a21734ea066/CPCtemplate/build/math-application-usages/sanitizer/example-208-registered.cpp",
+            "-o",
+            "/workspace/scratch/5a21734ea066/CPCtemplate/build/math-application-usages/sanitizer/example-208-registered"
+          ],
+          "invocations": 9,
+          "output_sha256": "f0b093eb75af2a6cdf330254aa76ccc09b56d439bde36201e3edd9c31502b3ad",
+          "seconds": 0.155652
+        },
+        {
+          "form": "named_dependencies",
+          "program_sha256": "e190264b4898c698a8806fa57289a1c9dc1e22322e79f2d728160941ebbb6a82",
+          "executable_sha256": "a409db70cbbc21d96f86c275de7b1e9f6b67054119644a4eb7910b3d45231916",
+          "compile_command": [
+            "/usr/bin/x86_64-linux-gnu-g++-14",
+            "-std=c++20",
+            "-O1",
+            "-g",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "/workspace/scratch/5a21734ea066/CPCtemplate/build/math-application-usages/sanitizer/example-208-named_dependencies.cpp",
+            "-o",
+            "/workspace/scratch/5a21734ea066/CPCtemplate/build/math-application-usages/sanitizer/example-208-named_dependencies"
+          ],
+          "invocations": 9,
+          "output_sha256": "f0b093eb75af2a6cdf330254aa76ccc09b56d439bde36201e3edd9c31502b3ad",
+          "seconds": 0.44462
+        }
+      ]
+    }
+  ],
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "oracle": "Literal frog positions over all t in [0,L) for small L; large unique planted times modulo 2^30 and explicit boundary equations. Prime divisors and each candidate use exact trial division, not a sieve or probabilistic primality; adjacent pairs ranked with tuple keys.",
+  "scope": "Local exact printed programs and named dependency-only copies; selected full-range/full-width inputs. Extra zero/singleton prime inputs are separately labelled outside the reviewed UVA statement. POJ source unavailable. No full-suite, online AC, timing-rank or LeakSanitizer claim. Does not directly verify the returned frog period."
+}

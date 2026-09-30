@@ -2553,5 +2553,30 @@
       "mixed_euler_trail"
     ],
     "listing_new_page": true
+  },
+  {
+    "id": "example-207",
+    "symbol": "linear_congruence",
+    "problem": "Luogu P1516 [ZJOI2002] 青蛙的约会",
+    "url": "https://www.luogu.com.cn/problem/P1516",
+    "kind": "application",
+    "summary": "两只青蛙从x,y同向跳，每次前进m,n，圆周长L。相遇式为(m-n)*t+(x-y)≡0 (mod L)，故传linear_congruence(m-n,x-y,L)，不能把常数项误写为y-x。负速度差无需交换或另取负。返回{最小非负次数,最小正周期}；只输出第一项，无解输出Impossible，不能把周期当答案。x,y,m,n在1..2×10^9且x≠y，L在1..2.1×10^9；差值用long long。位置按L取模，初始重合可返回0，等速不重合则无解。单组输入，无多测或结束标记。",
+    "driver": "verify/luogu/P1516.compact.cpp",
+    "requires": [
+      "extended_gcd",
+      "linear_congruence"
+    ]
+  },
+  {
+    "id": "example-208",
+    "symbol": "segmented_primes",
+    "problem": "POJ 2689 / UVA 10140 Prime Distance",
+    "url": "https://onlinejudge.org/external/101/10140.pdf",
+    "kind": "application",
+    "summary": "读闭区间[L,U]至EOF，筛出递增素数，再比较相邻素数差；最近/最远均取最先出现的并列对，更新必须用严格<和>。不足两个素数输出There are no adjacent primes.，否则保留驱动的逗号、空格和句点格式。无0 0结束标记，每次调用重建筛。UVA官方同题限制1≤L<U≤2147483647、U-L≤1000000，所以闭区间容量是U-L+1≤1000001；核心另支持0和单点，0/1不为素数。倍数及末端递增用long long，避免INT_MAX溢出。POJ原站本次不可达；限制和样例仅据UVA官方PDF复核，不声称POJ限制或线上AC已复核。",
+    "driver": "verify/poj/2689.compact.cpp",
+    "requires": [
+      "segmented_primes"
+    ]
   }
 ]

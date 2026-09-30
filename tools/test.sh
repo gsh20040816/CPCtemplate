@@ -652,3 +652,9 @@ if [[ "${SANITIZE:-0}" == 1 ]]; then
 else
     python3 tests/mixed_euler_demo.py --mode normal
 fi
+
+if [[ "${SANITIZE:-0}" == 1 ]]; then
+    python3 tests/math_application_usages.py --mode sanitizer
+else
+    python3 tests/math_application_usages.py --mode normal
+fi

@@ -570,6 +570,20 @@ segmented\_primes(l,r) 返回闭区间内递增的全部素数，0$\le$l$\le$r$\
 
 \lstinputlisting[firstline=8,lastline=27]{../src/compact/segmented_sieve.hpp}
 
+\Needspace{532pt}
+
+\subsection*{应用题补充：POJ 2689 / UVA 10140 Prime Distance}
+
+\label{usage-example-208}
+
+题意：读闭区间[L,U]至EOF，筛出递增素数，再比较相邻素数差；最近/最远均取最先出现的并列对，更新必须用严格<和>。不足两个素数输出There are no adjacent primes.，否则保留驱动的逗号、空格和句点格式。无0 0结束标记，每次调用重建筛。UVA官方同题限制1$\le$L<U$\le$2147483647、U-L$\le$1000000，所以闭区间容量是U-L+1$\le$1000001；核心另支持0和单点，0/1不为素数。倍数及末端递增用long long，避免INT\_MAX溢出。POJ原站本次不可达；限制和样例仅据UVA官方PDF复核，不声称POJ限制或线上AC已复核。
+
+所需模板：\hyperref[compact-segmented_primes]{segmented\_primes}（第~\pageref{compact-segmented_primes}~页，\ref{compact-segmented_primes}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.org/external/101/10140.pdf}
+
+\lstinputlisting{usage/example-208.cpp}
+
 \Needspace{680pt}
 
 \section{分解质因数}
@@ -761,6 +775,20 @@ inverse\_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p �
 linear\_congruence(a,b,m) 求 a*x+b$\equiv$0 (mod m)，返回 \{最小非负解,最小正周期\}，无解返回 \{-1,-1\}。m 为正 long long，a、b 支持完整 long long。若 g=gcd(a,m) 整除 b，周期为 m/g；包括 a=0 和 m=1，所有整数均满足时返回 \{0,1\}。先归一化 a，并在 int128 中对 b 取相反数和乘法。依赖 extended\_gcd；递归时间、空间 O(log(m+1))。注意本接口的常数项是 +b，若题目写 a*x$\equiv$c，应传 -c；c 为 LLONG\_MIN 时须避免在 64 位中取负。
 
 \lstinputlisting[firstline=5,lastline=19]{../src/compact/linear_congruence.hpp}
+
+\Needspace{343pt}
+
+\subsection*{应用题补充：Luogu P1516 [ZJOI2002] 青蛙的约会}
+
+\label{usage-example-207}
+
+题意：两只青蛙从x,y同向跳，每次前进m,n，圆周长L。相遇式为(m-n)*t+(x-y)$\equiv$0 (mod L)，故传linear\_congruence(m-n,x-y,L)，不能把常数项误写为y-x。负速度差无需交换或另取负。返回\{最小非负次数,最小正周期\}；只输出第一项，无解输出Impossible，不能把周期当答案。x,y,m,n在1..2×10\textasciicircum{}9且x$\ne$y，L在1..2.1×10\textasciicircum{}9；差值用long long。位置按L取模，初始重合可返回0，等速不重合则无解。单组输入，无多测或结束标记。
+
+所需模板：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-linear_congruence]{linear\_congruence}（第~\pageref{compact-linear_congruence}~页，\ref{compact-linear_congruence}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1516}
+
+\lstinputlisting{usage/example-207.cpp}
 
 \Needspace{352pt}
 
