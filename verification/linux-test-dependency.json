@@ -1,0 +1,13 @@
+{
+  "scope": "Workspace-local header dependency for Linux regression; no system installation or setting changes. External dependency is not part of the algorithm source fingerprint.",
+  "package": "libboost1.83-dev",
+  "version": "1.83.0-4.2",
+  "distribution": "Debian trixie",
+  "package_filename": "pool/main/b/boost1.83/libboost1.83-dev_1.83.0-4.2_amd64.deb",
+  "sha256": "1f11fc6fb2ffe9378a0f0ebc8f2fd9223fb958b4a40bb9381c67a8857d947ca3",
+  "checksum_source": "Official Debian trixie package index, retained in ignored build/deps/debian-trixie-Packages.xz",
+  "include_path_relative_to_repository": "build/deps/boost-1.83/usr/include",
+  "environment_variable": "CPLUS_INCLUDE_PATH",
+  "smoke_test": "cpp_int, cpp_rational, boost::rational, cpp_dec_float_100 and Boost math constants compiled and executed successfully",
+  "limitations": "Header smoke check and package-index checksum verification; not a signature attestation or hermetic toolchain."
+}
