@@ -94,3 +94,5 @@ and stale/changed/failed evidence rejection, verifies environment metadata and
 historical-file preservation, and runs only the real basic-scope Python preflight
 in a staged copy. It does **not** run the full C++ algorithm suite or produce a
 current-source full-suite manifest.
+
+管线自身的负对照测试用 `python3 tests/verification_provenance.py` 在真实仓库单独执行，不嵌入暂存后的算法脚本：暂存区没有 Git 元数据，且故意失败的消毒器日志不能混入成功算法运行的日志。
