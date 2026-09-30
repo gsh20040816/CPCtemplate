@@ -632,6 +632,12 @@ for style in ['compact']:
                     if j:
                         body.append('\\newpage')
                     body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'BoundedMaxFlow':
+                split = next(i for i in range(start, end) if 'optional<ll> minimum(' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 最小净流与原边流量（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'segtree':
                 cuts = [start, next(i for i in range(start, end) if 'S prod(' in lines[i]), next(i for i in range(start, end) if 'template <class F> int min_left' in lines[i]), end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
@@ -649,6 +655,8 @@ for style in ['compact']:
                     if name in usage.get('also_covers', []):
                         body.append('联合使用示例见第~\\pageref{usage-' + usage['id'] + '}~页（' + esc(usage['problem']) + '），其中直接调用本模板。')
                     continue
+                if name == 'BoundedMaxFlow':
+                    body.append('\\newpage')
                 count = len(usage['snippet'].splitlines())
                 split_lines = 0
                 if usage.get('configuration_functions') and count > 48:
@@ -663,7 +671,8 @@ for style in ['compact']:
                 if not usage.get('listing_new_page'):
                     body.append('\\label{usage-' + usage['id'] + '}')
                 body.append('题意：' + esc(usage['summary']))
-                body.append('所需模板：' + esc('、'.join(usage['requires'])) + '。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。')
+                from template_dependencies import references
+                body.append('所需模板：' + references(usage['requires']) + '。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。')
                 body.append('题目：\\url{' + usage['url'] + '}')
                 if usage.get('listing_new_page'):
                     body.append('\\newpage')
@@ -680,7 +689,17 @@ for style in ['compact']:
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 assert {r['symbol'] for r in records} == {r[1] for r in cat}, 'Catalog contains an unprinted module'
 (root / 'build').mkdir(exist_ok=True)
+from template_dependencies import dependencies, references
+copy_dependencies = dependencies(records)
+for row in records:
+    deps = copy_dependencies[row['symbol']]
+    row['dependencies'] = deps
+    if deps:
+        marker = r'\index{' + row['symbol'].replace('_', r'\_') + '}'
+        assert row['latex'].count(marker) == 1, row['symbol']
+        row['latex'] = row['latex'].replace(marker, marker + '\n\n' + '代码依赖：' + references(deps) + '。抄写时一并准备；标准库类型不列入算法依赖。', 1)
 (root / 'build/book-sections.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')
+(root / 'docs/template-dependencies.json').write_text(json.dumps(copy_dependencies, ensure_ascii=False, indent=2) + '\n')
 from taxonomy_layout import render
 (root / 'docs/generated.tex').write_text(render(records, omnibus=True) + '\n')
 print('Generated source-linked book sections')

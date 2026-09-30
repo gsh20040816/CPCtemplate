@@ -1,0 +1,463 @@
+{
+  "templates": 200,
+  "direct_edges": 128,
+  "usages": 198,
+  "transitive_closure": {
+    "DivisionTree": [],
+    "SecondMST": [
+      "dsu"
+    ],
+    "GaussXor": [],
+    "WaveletMatrix": [],
+    "euler_power": [
+      "Mod64"
+    ],
+    "dag_path_determinant": [
+      "ModInt",
+      "det_prime"
+    ],
+    "prime_count": [],
+    "Min25": [
+      "ModInt"
+    ],
+    "GeneralSAM": [],
+    "SegmentLiChao": [],
+    "DominatorTree": [],
+    "Johnson": [],
+    "LeftistHeap": [],
+    "BiconnectedCore": [],
+    "block_cut_forest": [
+      "BiconnectedCore"
+    ],
+    "bridge_component_forest": [
+      "BiconnectedCore"
+    ],
+    "enumerate_triangles": [],
+    "RealPlane": [],
+    "line_projection": [
+      "RealPlane"
+    ],
+    "segment_distance_real": [
+      "RealPlane"
+    ],
+    "line_intersection_real": [
+      "RealPlane"
+    ],
+    "line_circle_intersections": [
+      "RealPlane",
+      "line_projection"
+    ],
+    "circle_intersections": [
+      "RealPlane"
+    ],
+    "circle_overlap_area": [
+      "RealPlane"
+    ],
+    "IntegerPlane": [],
+    "line_circle_i64": [
+      "IntegerPlane",
+      "RealPlane"
+    ],
+    "circle_intersections_i64": [
+      "IntegerPlane",
+      "RealPlane"
+    ],
+    "integer_hull": [
+      "IntegerPlane"
+    ],
+    "polygon_area2": [
+      "IntegerPlane"
+    ],
+    "polygon_contains": [
+      "IntegerPlane"
+    ],
+    "convex_contains_i64": [
+      "IntegerPlane",
+      "polygon_contains"
+    ],
+    "convex_diameter2": [
+      "IntegerPlane"
+    ],
+    "closest_pair_i64": [
+      "IntegerPlane"
+    ],
+    "minkowski_sum": [
+      "IntegerPlane",
+      "integer_hull"
+    ],
+    "pheap": [],
+    "batch_units": [],
+    "mint": [],
+    "lazy_segtree": [],
+    "segtree": [],
+    "rp": [],
+    "ost": [],
+    "gp_map": [],
+    "TarjanSCC": [],
+    "FunctionalGraph": [],
+    "odd_cycle_vertices": [
+      "BiconnectedCore",
+      "block_cut_forest"
+    ],
+    "removal_components": [
+      "BiconnectedCore"
+    ],
+    "EdgeCompression": [
+      "BiconnectedCore"
+    ],
+    "orient_edges": [
+      "Lowlink"
+    ],
+    "bridge_augmentation": [
+      "BiconnectedCore",
+      "bridge_component_forest"
+    ],
+    "dsu": [],
+    "RollbackDSU": [],
+    "Fenwick": [],
+    "LazySeg": [],
+    "XorBasis": [],
+    "ModifiedMo": [],
+    "PositionBasis": [],
+    "basis_intersection": [
+      "XorBasis"
+    ],
+    "basis_sum_intersection": [
+      "XorBasis"
+    ],
+    "AffineSegTree": [],
+    "Dinic": [],
+    "MinCostFlow": [],
+    "BoundedCirculation": [
+      "Dinic"
+    ],
+    "SpfaFlow": [],
+    "NegativeCostFlow": [
+      "MinCostFlow"
+    ],
+    "unit_flow_edges": [
+      "Dinic",
+      "TarjanSCC"
+    ],
+    "mincut_edges": [
+      "Dinic",
+      "TarjanSCC"
+    ],
+    "BoundedMaxFlow": [
+      "BoundedCirculation",
+      "Dinic"
+    ],
+    "maximum_closure": [
+      "Dinic"
+    ],
+    "Dijkstra": [],
+    "SCC": [],
+    "TwoSAT": [
+      "SCC"
+    ],
+    "BipartiteMatching": [],
+    "Lowlink": [],
+    "odd_induced_partition": [
+      "dsu"
+    ],
+    "matching_edges": [
+      "BipartiteMatching",
+      "TarjanSCC"
+    ],
+    "release_bfs": [],
+    "LexTwoSAT": [],
+    "DirectedEuler": [],
+    "word_chain": [
+      "DirectedEuler"
+    ],
+    "UndirectedEuler": [],
+    "mixed_euler_orientation": [
+      "Dinic"
+    ],
+    "mixed_euler_trail": [
+      "Dinic",
+      "mixed_euler_orientation"
+    ],
+    "XorWalk": [
+      "XorBasis"
+    ],
+    "HLD": [],
+    "OfflineLCA": [],
+    "EulerLCA": [],
+    "TreeDiameter": [],
+    "LiftingLCA": [],
+    "path_intersection": [],
+    "CentroidPairs": [],
+    "SubtreeColors": [],
+    "VirtualTree": [],
+    "prefix_function": [],
+    "kmp_match": [
+      "prefix_function"
+    ],
+    "z_function": [],
+    "manacher": [],
+    "minimum_rotation": [],
+    "AhoCorasick": [],
+    "SuffixArray": [],
+    "SuffixAutomaton": [],
+    "ac_shortest": [
+      "AhoCorasick"
+    ],
+    "SuffixLCP": [
+      "SuffixArray"
+    ],
+    "prefix_lcs": [
+      "SuffixArray",
+      "SuffixLCP"
+    ],
+    "square_counts": [
+      "SuffixArray",
+      "SuffixLCP",
+      "prefix_lcs"
+    ],
+    "PalindromicTree": [],
+    "Mod64": [],
+    "Prime64": [
+      "Mod64"
+    ],
+    "extended_gcd": [],
+    "mod_inverse": [
+      "extended_gcd"
+    ],
+    "crt_merge": [
+      "extended_gcd"
+    ],
+    "floor_sum": [],
+    "PollardRho": [
+      "Mod64",
+      "Prime64"
+    ],
+    "LinearSieve": [],
+    "ModInt": [],
+    "Binomial": [
+      "ModInt"
+    ],
+    "linear_equation": [
+      "extended_gcd"
+    ],
+    "linear_congruence": [
+      "extended_gcd"
+    ],
+    "segmented_primes": [],
+    "batch_inverse": [
+      "extended_gcd",
+      "mod_inverse"
+    ],
+    "inverse_table": [],
+    "garner": [
+      "extended_gcd",
+      "mod_inverse"
+    ],
+    "PrimitiveRoot": [
+      "Mod64"
+    ],
+    "CoprimePairs": [
+      "LinearSieve"
+    ],
+    "floor_moments": [
+      "ModInt"
+    ],
+    "power_sum": [],
+    "divisor_sum_power": [
+      "Mod64",
+      "PollardRho",
+      "Prime64",
+      "power_sum"
+    ],
+    "euler_phi": [
+      "Mod64",
+      "PollardRho",
+      "Prime64"
+    ],
+    "carmichael": [],
+    "Partitions": [],
+    "Lucas": [],
+    "ExLucas": [],
+    "mod_sqrt": [],
+    "KthResidue": [
+      "DiscreteLog",
+      "Mod64",
+      "extended_gcd",
+      "linear_congruence",
+      "mod_inverse"
+    ],
+    "PrimePowerRoots": [
+      "DiscreteLog",
+      "Mod64",
+      "extended_gcd",
+      "linear_congruence",
+      "mod_inverse"
+    ],
+    "root_factors": [
+      "Mod64",
+      "PollardRho",
+      "Prime64"
+    ],
+    "CompositeRoots": [
+      "DiscreteLog",
+      "Mod64",
+      "PollardRho",
+      "Prime64",
+      "PrimePowerRoots",
+      "extended_gcd",
+      "linear_congruence",
+      "mod_inverse",
+      "root_factors"
+    ],
+    "Lagrange": [],
+    "NttConvolution": [
+      "ModInt"
+    ],
+    "ComplexFFT": [],
+    "convolution_fft": [
+      "ComplexFFT"
+    ],
+    "convolution_mod_fft": [
+      "ComplexFFT"
+    ],
+    "convolution_i64": [
+      "ModInt",
+      "NttConvolution"
+    ],
+    "polynomial_shift": [
+      "ModInt",
+      "NttConvolution"
+    ],
+    "chirp_z": [
+      "ModInt",
+      "NttConvolution"
+    ],
+    "stirling_second_row": [
+      "ModInt",
+      "NttConvolution"
+    ],
+    "stirling_first_row": [
+      "ModInt",
+      "NttConvolution"
+    ],
+    "SetConvolution": [
+      "ModInt"
+    ],
+    "subset_convolution": [
+      "ModInt",
+      "SetConvolution"
+    ],
+    "FpsInverse": [
+      "ModInt",
+      "NttConvolution"
+    ],
+    "PolynomialDivision": [
+      "FpsInverse",
+      "ModInt",
+      "NttConvolution"
+    ],
+    "FpsSqrt": [
+      "FpsInverse",
+      "ModInt",
+      "NttConvolution",
+      "mod_sqrt"
+    ],
+    "FpsFunctions": [
+      "FpsInverse",
+      "ModInt",
+      "NttConvolution"
+    ],
+    "FpsPower": [
+      "FpsFunctions",
+      "FpsInverse",
+      "ModInt",
+      "NttConvolution"
+    ],
+    "GaussMod": [
+      "ModInt"
+    ],
+    "det_prime": [
+      "ModInt"
+    ],
+    "ModMatrix": [
+      "ModInt"
+    ],
+    "matrix_inverse": [
+      "ModInt"
+    ],
+    "matrix_inverse_mod2": [],
+    "DuJiao": [
+      "LinearSieve"
+    ],
+    "DiscreteLog": [
+      "Mod64",
+      "extended_gcd",
+      "mod_inverse"
+    ],
+    "determinant_mod": [],
+    "MatrixTree": [
+      "ModInt",
+      "det_prime"
+    ],
+    "MatrixTreeMod": [
+      "determinant_mod"
+    ],
+    "MaxPlusMatrix": [],
+    "LiChao": [],
+    "PersistentKth": [],
+    "PersistentArray": [],
+    "PersistentRange": [],
+    "TreePathKth": [],
+    "DynamicKth": [],
+    "PersistentDistinct": [],
+    "Hungarian": [],
+    "Arborescence": [],
+    "StoerWagner": [],
+    "gomory_hu": [
+      "Dinic"
+    ],
+    "cut_tree_values": [],
+    "WeightedMatching": [],
+    "IntegerHalfplanes": [],
+    "CirclePolygon": [
+      "RealPlane"
+    ],
+    "EnclosingCircle": [
+      "RealPlane"
+    ],
+    "CircleTangents": [
+      "RealPlane"
+    ],
+    "IntegerTangents": [
+      "IntegerPlane",
+      "RealPlane"
+    ],
+    "ClosestPair": [],
+    "IntegerGeometry3D": [],
+    "SupportHull": [],
+    "LinkCutTree": [],
+    "TreePathProducts": [
+      "ModInt"
+    ],
+    "OrderedTreap": [],
+    "SequenceTreap": [],
+    "OrderedSplay": [],
+    "ScapegoatTree": [],
+    "xor_hamming_pairs": [],
+    "MonotoneStackSeg": [],
+    "KDTreeSum": [],
+    "cdq_convolution": [
+      "ModInt",
+      "NttConvolution"
+    ],
+    "GcdSequenceTreap": [],
+    "Blossom": [],
+    "berlekamp_massey": [],
+    "recurrence_nth": [],
+    "BostanMori": [
+      "ModInt",
+      "NttConvolution"
+    ]
+  },
+  "scope": "Catalog identifiers in actual code, including inheritance; comments and strings excluded. Standard-library names and caller-supplied generic parameters are not catalog dependencies. All usage requires link to local sections; full transitive named dependencies included in six volumes."
+}
