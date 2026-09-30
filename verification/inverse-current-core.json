@@ -1,0 +1,94 @@
+[
+  {
+    "test": "tests/batch_inverse.cpp",
+    "mode": "normal",
+    "flags": [
+      "-O2"
+    ],
+    "test_sha256": "cd915d235458a845486a15ed41ee6fa842827b94b38c8ccd78e26c71fc6cc178",
+    "stdout": "Batch inverse independent exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS\n",
+    "new_online_ac": false
+  },
+  {
+    "test": "tests/batch_inverse.cpp",
+    "mode": "sanitizer",
+    "flags": [
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "test_sha256": "cd915d235458a845486a15ed41ee6fa842827b94b38c8ccd78e26c71fc6cc178",
+    "stdout": "Batch inverse independent exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS\n",
+    "new_online_ac": false
+  },
+  {
+    "test": "tests/inverse_table.cpp",
+    "mode": "normal",
+    "flags": [
+      "-O2"
+    ],
+    "test_sha256": "edba136afcbdbf6cd3644968204b15102b2711e18a3a4e587166cd7aceea1cec",
+    "stdout": "Inverse table independent prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS\n",
+    "new_online_ac": false
+  },
+  {
+    "test": "tests/inverse_table.cpp",
+    "mode": "sanitizer",
+    "flags": [
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "test_sha256": "edba136afcbdbf6cd3644968204b15102b2711e18a3a4e587166cd7aceea1cec",
+    "stdout": "Inverse table independent prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS\n",
+    "new_online_ac": false
+  },
+  {
+    "test": "tests/batch_units.cpp",
+    "mode": "normal",
+    "flags": [
+      "-O2"
+    ],
+    "test_sha256": "1833fc1699710835ef720684b4c26605e47444c126c3e920b79c893973fa98a8",
+    "stdout": "Generic batch units: exhaustive composite units/nonunits, empty input and independent product certificates PASS\n",
+    "new_online_ac": false
+  },
+  {
+    "test": "tests/batch_units.cpp",
+    "mode": "sanitizer",
+    "flags": [
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "test_sha256": "1833fc1699710835ef720684b4c26605e47444c126c3e920b79c893973fa98a8",
+    "stdout": "Generic batch units: exhaustive composite units/nonunits, empty input and independent product certificates PASS\n",
+    "new_online_ac": false
+  },
+  {
+    "test": "tests/dynamic_modint.cpp",
+    "mode": "normal",
+    "flags": [
+      "-O2"
+    ],
+    "test_sha256": "3560e93c58683e59f3d6c3e78000abcaf541cfcd9e5375d3ede93c322b4cf611",
+    "stdout": "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS\n",
+    "new_online_ac": false
+  },
+  {
+    "test": "tests/dynamic_modint.cpp",
+    "mode": "sanitizer",
+    "flags": [
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "test_sha256": "3560e93c58683e59f3d6c3e78000abcaf541cfcd9e5375d3ede93c322b4cf611",
+    "stdout": "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS\n",
+    "new_online_ac": false
+  }
+]

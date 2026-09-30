@@ -2398,5 +2398,50 @@
       "LinearSieve",
       "CoprimePairs"
     ]
+  },
+  {
+    "id": "example-196",
+    "symbol": "inverse_table",
+    "problem": "Luogu P3811 【模板】模意义下的乘法逆元",
+    "url": "https://www.luogu.com.cn/problem/P3811",
+    "summary": "输入1≤n≤3000000、n<p<20000528，p保证为素数，输出1..n各自的逆元，每项一行。inverse_table返回n+1项，0是占位且不输出。该递推要求素数，不能照搬到合数；一般数组使用batch_inverse。",
+    "driver": "verify/luogu/P3811.compact.cpp",
+    "requires": [
+      "inverse_table"
+    ]
+  },
+  {
+    "id": "example-197",
+    "symbol": "batch_inverse",
+    "problem": "Luogu P5431 【模板】模意义下的乘法逆元 2",
+    "url": "https://www.luogu.com.cn/problem/P5431",
+    "summary": "给定1≤n≤5000000、2≤k<p≤10^9、1≤a_i<p，p为素数，输出Σ(i=1..n)k^i/a_i模p。先批量求全部逆元再累乘权重，注意首项权重是k。完整抄写read与main；read仅适用于本题的非负十进制输入。move(a)避免输入副本，此后不再读取a。本题所有元素可逆；一般模数或零元素须检查nullopt。乘积在long long范围内，批量核心内部用int128保护一般模数。",
+    "driver": "verify/luogu/P5431.compact.cpp",
+    "requires": [
+      "extended_gcd",
+      "mod_inverse",
+      "batch_inverse"
+    ],
+    "utility_functions": [
+      "read"
+    ]
+  },
+  {
+    "id": "example-198",
+    "symbol": "mint",
+    "problem": "Luogu P5431 【模板】模意义下的乘法逆元 2",
+    "url": "https://www.luogu.com.cn/problem/P5431",
+    "summary": "输入1≤n≤5000000、2≤k<p≤10^9、1≤a_i<p且p为素数，求Σk^i/a_i模p。先设置mint的模数p，再构造数组；传move(a)调用batch_units，只求一次总积逆元。权重从1开始，每项先乘k再累加。read与main一起抄；move后不再读取a。更换同tag模数后旧对象失效，计算期间不能切换。核心支持合数单位，本题只覆盖素数；动态模数、构造、乘法及累加、v输出在此直接使用，合数求逆接口另由核心测试核验。",
+    "driver": "verify/luogu/P5431.mint.compact.cpp",
+    "requires": [
+      "mint",
+      "batch_units"
+    ],
+    "utility_functions": [
+      "read"
+    ],
+    "also_covers": [
+      "batch_units"
+    ]
   }
 ]

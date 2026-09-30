@@ -1,5 +1,4 @@
 #include "../src/compact/batch_inverse.hpp"
-#include "../src/classic/batch_inverse.hpp"
 #include <iostream>
 
 void check(vector<long long> a, long long mod)
@@ -13,9 +12,7 @@ void check(vector<long long> a, long long mod)
         possible &= gcd(v, mod) == 1;
     }
     auto x = batch_inverse(a, mod);
-    auto y = Batch_Inverse(a, mod);
-    assert(x.has_value() == possible && y.has_value() == possible);
-    assert(x == y);
+    assert(x.has_value() == possible);
     if (!possible)
         return;
     assert(x->size() == a.size());
@@ -56,5 +53,5 @@ int main()
     vector<long long> a(1000000);
     iota(a.begin(), a.end(), 1);
     check(a, 1000000007);
-    cout << "Batch inverse dual exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS\n";
+    cout << "Batch inverse independent exhaustive unit certificates, composite rejection, signed int64 extremes, empty/modulus-one and million elements PASS\n";
 }

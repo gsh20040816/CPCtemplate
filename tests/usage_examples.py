@@ -244,6 +244,9 @@ ap.add_argument('--only', nargs='+')
 args = ap.parse_args()
 rows = records()
 cases['example-195'] = [('4\n1 2 1 2 1\n1 2 1 2 2\n1 1 1 1 2\n49999 50000 49999 50000 50000\n', '3 1 0 1')]
+cases['example-196'] = [('5 7\n', '1 4 5 2 3'), ('1 2\n', '1')]
+cases['example-197'] = [('3 7 2\n1 2 3\n', '2'), ('1 3 2\n2\n', '1')]
+cases['example-198'] = cases['example-197']
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

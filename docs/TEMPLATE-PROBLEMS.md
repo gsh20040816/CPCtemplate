@@ -163,6 +163,10 @@
 | `PrimePowerRoots` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
 | `root_factors` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
 | `CoprimePairs` | [Luogu P2522 [HAOI2011] Problem b](https://www.luogu.com.cn/problem/P2522) | 1<=queries,k<=50000;1<=a<=b<=50000;1<=c<=d<=50000 | 待编写驱动/提交 | 待核验 |
+| `inverse_table` | [Luogu P3811](https://www.luogu.com.cn/problem/P3811) | 1<=n<=3000000;n<p<20000528;p prime | 待编写驱动/提交 | 待核验 |
+| `batch_inverse` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
+| `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
+| `batch_units` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1513,6 +1517,38 @@ HAOI contest application; not a standalone template task
 
 
 Online submission and all-submission ranking pending; application coverage only
+
+### Luogu P3811 / inverse_table
+
+Explicit standalone template problem; current printed source locally checked in both modes
+
+
+
+No current exact-source online AC or all-submission speed rank; historical snapshot differs from current expanded program
+
+### Luogu P5431 / batch_inverse
+
+Explicit standalone template problem; current printed source locally checked in both modes
+
+
+
+No current exact-source online AC or all-submission speed rank; historical snapshot differs from current expanded program
+
+### Luogu P5431 / mint
+
+Explicit standalone template problem; current printed source locally checked in both modes
+
+
+
+Dynamic mint combination has only local evidence; historical long long driver AC does not cover this variant
+
+### Luogu P5431 / batch_units
+
+Explicit standalone template problem; current printed source locally checked in both modes
+
+
+
+Dynamic mint combination has only local evidence; historical long long driver AC does not cover this variant
 
 ## 榜单口径
 

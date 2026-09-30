@@ -39,8 +39,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | linear_equation | [example-75](usage/example-75.cpp) | locally_checked_example |
 | linear_congruence | 待补 | pending_example |
 | segmented_primes | 待补 | pending_example |
-| batch_inverse | 待补 | pending_example |
-| inverse_table | 待补 | pending_example |
+| batch_inverse | [example-197](usage/example-197.cpp) | locally_checked_example |
+| inverse_table | [example-196](usage/example-196.cpp) | locally_checked_example |
 | garner | 待补 | pending_example |
 | PollardRho | [example-43](usage/example-43.cpp) | locally_checked_example |
 | LinearSieve | 待补 | pending_example |
@@ -172,8 +172,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | rp | [example-66](usage/example-66.cpp) | locally_checked_example |
 | segtree | [example-78](usage/example-78.cpp) | locally_checked_example |
 | lazy_segtree | [example-79](usage/example-79.cpp) | locally_checked_example |
-| mint | 待补 | pending_example |
-| batch_units | 待补 | pending_example |
+| mint | [example-198](usage/example-198.cpp) | locally_checked_example |
+| batch_units | [example-198](usage/example-198.cpp) | locally_checked_example |
 | convolution_i64 | [example-52](usage/example-52.cpp) | locally_checked_example |
 | pheap | [example-189](usage/example-189.cpp), [example-190](usage/example-190.cpp) | locally_checked_example |
 | enumerate_triangles | [example-6](usage/example-6.cpp) | locally_checked_example |

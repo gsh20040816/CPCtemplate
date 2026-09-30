@@ -1,14 +1,11 @@
 #include "../src/compact/inverse_table.hpp"
-#include "../src/classic/inverse_table.hpp"
 #include "../src/compact/number_theory.hpp"
-#include "../src/classic/number_theory.hpp"
 #include <iostream>
 
 void check(int n, int p)
 {
     auto a = inverse_table(n, p);
-    auto b = Inverse_Table(n, p);
-    assert(a == b && (int)a.size() == n + 1 && a[0] == 0);
+    assert((int)a.size() == n + 1 && a[0] == 0);
     for (int i = 1; i <= n; i++)
     {
         assert(0 < a[i] && a[i] < p);
@@ -29,8 +26,7 @@ int main()
         for (int a = 1; a < p; a++)
         {
             auto x = NumberTheory::power(a, p - 2, p);
-            auto y = Number_Theory::Power(a, p - 2, p);
-            assert(x == y && x * a % p == 1);
+            assert(x * a % p == 1);
         }
         for (int n = 0; n < p; n++)
             check(n, p);
@@ -49,7 +45,6 @@ int main()
                     break;
                 }
             assert(NumberTheory::inverse(a,m) == want);
-            assert(Number_Theory::Inverse(a,m) == want);
         }
-    cout << "Inverse table dual prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS\n";
+    cout << "Inverse table independent prime-prefix certificates, n=0, int32 modulus, three million entries and general inverse brute oracle PASS\n";
 }

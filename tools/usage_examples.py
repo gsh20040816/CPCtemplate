@@ -37,6 +37,14 @@ def records():
             config = text[start:m.start()]
             names = re.findall(r'(?m)^\w+\s+(\w+)\([^;{}]*\)\s*\n\{', config)
             assert names == row['configuration_functions'], 'Configuration callback list changed'
+        if row.get('utility_functions'):
+            assert not row.get('configuration_functions')
+            first = row['utility_functions'][0]
+            helper = re.search(r'(?m)^int ' + re.escape(first) + r'\(\)', text)
+            assert helper and helper.start() < m.start(), 'Utility helper must precede main'
+            start = helper.start()
+            names = re.findall(r'(?m)^int (\w+)\(\)\s*\n\{', text[start:m.start()])
+            assert names == row['utility_functions'], 'Utility helper list changed'
         prefix, snippet = text[:start], text[start:]
         assert all(not line.strip() or line.startswith('#include') or line.startswith('using namespace') or line.lstrip().startswith('//')
                    for line in prefix.splitlines()), 'Usage depends on non-include prefix: ' + row['id']
