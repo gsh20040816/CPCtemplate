@@ -606,3 +606,7 @@ build/division-core
 python3 tests/division_applications.py
 
 python3 tests/cut_applications.py
+
+"$CXX" "${flags[@]}" tests/persistent_ordered_treap.cpp -o build/persistent-ordered-treap
+build/persistent-ordered-treap
+python3 tests/persistent_treap_application.py

@@ -20,6 +20,7 @@ for row in json.loads((root / 'verification/pdf-volumes.json').read_text()):
         labels[label] = dict(section=number, printed_page=page, destination=dest)
     refs = Counter(re.findall(r'\\hyperref\[(compact-[^\]]+)\]', source))
     reader = PdfReader(file)
+    destinations = reader.named_destinations
     links = Counter()
     source_pages = {}
     for index, page in enumerate(reader.pages):
@@ -35,8 +36,8 @@ for row in json.loads((root / 'verification/pdf-volumes.json').read_text()):
         assert label in labels, (name, label)
         info = labels[label]
         dest = info['destination']
-        assert dest in reader.named_destinations, (name, label, dest)
-        actual = reader.get_destination_page_number(reader.named_destinations[dest])+1
+        assert dest in destinations, (name, label, dest)
+        actual = reader.get_destination_page_number(destinations[dest])+1
         expected = int(info['printed_page']) + row['offset']
         assert actual == expected, (name,label,actual,expected)
         # Each dependency is printed as name, page and section, all linked.

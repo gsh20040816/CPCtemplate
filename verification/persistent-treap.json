@@ -1,0 +1,223 @@
+{
+  "base_commit": "b01639f4adc73329bbbc9ed3c3d1bae33163b7c1",
+  "scope": "New persistent multiset core, historical-version adapter and exact printed use. Independent vector oracle and local stress only; no online AC, judge memory-limit claim, or full-library regression. LeakSanitizer disabled due ptrace limitation.",
+  "core_checks": [
+    {
+      "command": "build/persistent-treap-normal",
+      "mode": "optimized",
+      "returncode": 0,
+      "stdout": "Persistent ordered treap branching, exhaustive, immutable snapshots, extremes and allocation checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "build/persistent-treap-san",
+      "mode": "ASan/UBSan",
+      "returncode": 0,
+      "stdout": "Persistent ordered treap branching, exhaustive, immutable snapshots, extremes and allocation checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "build/persistent-treap-normal random 500000 reserve",
+      "mode": "optimized",
+      "returncode": 0,
+      "stdout": "random: operations=500000 nodes=11989642 node_bytes=32 capacity_bytes=416000032 seconds=0.807503\npeak_rss_kib=382208\n",
+      "stderr": ""
+    },
+    {
+      "command": "build/persistent-treap-normal sorted 500000",
+      "mode": "optimized",
+      "returncode": 0,
+      "stdout": "sorted: operations=500000 nodes=6890124 node_bytes=32 capacity_bytes=268435456 seconds=0.39501\npeak_rss_kib=270920\n",
+      "stderr": ""
+    },
+    {
+      "command": "build/persistent-treap-normal duplicates 500000",
+      "mode": "optimized",
+      "returncode": 0,
+      "stdout": "duplicates: operations=500000 nodes=500001 node_bytes=32 capacity_bytes=16777216 seconds=0.0271179\npeak_rss_kib=25244\n",
+      "stderr": ""
+    },
+    {
+      "command": "build/persistent-treap-normal random 500000",
+      "mode": "optimized",
+      "returncode": 0,
+      "stdout": "random: operations=500000 nodes=11989642 node_bytes=32 capacity_bytes=536870912 seconds=1.67128\npeak_rss_kib=533136\n",
+      "stderr": ""
+    }
+  ],
+  "application_checks": [
+    {
+      "status": "PASS",
+      "mode": "optimized",
+      "operations": 600000,
+      "queries": 366750,
+      "random_inputs": 100,
+      "maximum_input_operations": 500000,
+      "online_AC": false,
+      "leak_detection": "not tested"
+    },
+    {
+      "status": "PASS",
+      "mode": "ASan/UBSan",
+      "operations": 600000,
+      "queries": 366750,
+      "random_inputs": 100,
+      "maximum_input_operations": 500000,
+      "online_AC": false,
+      "leak_detection": "not tested"
+    }
+  ],
+  "integration_checks": [
+    {
+      "command": "python3 tests/basic_template_scope.py",
+      "returncode": 0,
+      "stdout": "Basic template scope: three exact exclusions, advanced dependencies, DSU and history scope preserved PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/template_dependencies.py",
+      "returncode": 0,
+      "stdout": "201 algorithms, 128 direct edges, 199 complete usages and six local transitive closures PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_integration.py",
+      "returncode": 0,
+      "stdout": "PASS: 15 knowledge sections shared once; math-only routing; section/page references resolve\n",
+      "stderr": ""
+    },
+    {
+      "command": "ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1 python3 tests/usage_examples.py --only example-199",
+      "returncode": 0,
+      "stdout": "Usage examples: 1 exact printed usage programs in normal and ASan/UBSan modes PASS; 199 current program records\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "sha256": {
+    "src/compact/persistent_ordered_treap.hpp": "2e24dbc81fb8627c279185266e9331896e0cf8f2bfa990266fa14a3ad1427001",
+    "tests/persistent_ordered_treap.cpp": "1f72093b3cf80b8ed6ab5a4c60c8e669e2238e5ad45053eb963c8082a398e874",
+    "tests/persistent_treap_application.py": "6140838e4949d583abcc6b0102cde570ed8868d91645c1d20de1ff83f44170e5",
+    "verify/luogu/P3835.compact.cpp": "127d4e04063b30a42a6bba2273c80ae2b4e1b5a6e9c7e5710e92bee39faad9fb",
+    "docs/usage/example-199.cpp": "e71e4702d5c6ac49e99158a1fb4778213214ebd20a6ddb014ec2074a6f087208",
+    "docs/PERSISTENT-TREAP.md": "f212db478b253c7c622cadbc38374fd50d2503e817072c100a1a5a5249317ed9"
+  },
+  "layout": {
+    "reviewed_pages": {
+      "total_book": {
+        "printed": [
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265
+        ],
+        "physical": [
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278
+        ]
+      },
+      "data_structures": {
+        "printed": [
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100
+        ],
+        "physical": [
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104
+        ]
+      }
+    },
+    "findings": "All 14 new/adjacent pages visually inspected. No clipping, missing glyphs or orphan headings. Source-linked code split into five contiguous method-boundary blocks, followed by whole usage on its own page.",
+    "source_line_spans": [
+      [
+        12,
+        39
+      ],
+      [
+        40,
+        78
+      ],
+      [
+        79,
+        120
+      ],
+      [
+        121,
+        169
+      ],
+      [
+        170,
+        203
+      ]
+    ],
+    "pdf_sha256": {
+      "output/pdf/xcpc-template.pdf": "93c051f5ea783acc8e2123a6a4c46c248bc4a81c66aa3a6c9e99451c29244ac7",
+      "output/pdf/xcpc-data-structures.pdf": "d43300daf9882de48c7200723421fa7e49861d32dddb08d095a466198ea2a7ed"
+    },
+    "build": "8 PDFs; final logs without warnings",
+    "cross_volume_links": 13,
+    "unchanged_pdfs": [
+      {
+        "file": "output/pdf/infra.pdf",
+        "identical_page_text": true,
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-strings.pdf",
+        "identical_page_text": true,
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-mathematics.pdf",
+        "identical_page_text": true,
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-graphs.pdf",
+        "identical_page_text": true,
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-geometry.pdf",
+        "identical_page_text": true,
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-misc.pdf",
+        "identical_page_text": true,
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      }
+    ],
+    "dependency_reference_groups": 978
+  },
+  "pdf_audit_optimization": "Cache named_destinations once per PDF; assertions and emitted report schema unchanged."
+}

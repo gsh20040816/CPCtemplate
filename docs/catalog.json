@@ -660,6 +660,12 @@
     "insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在；rank(x) 为严格小于 x 的元素数加一，x 不必存在；kth(k) 要求 1≤k≤size()。prev/next 为严格前驱/后继，不存在时返回 nullopt。支持重复值、LLONG_MIN 和 LLONG_MAX，分裂不使用 x-1。随机优先级下单次期望 O(log n)，并非确定性最坏界。节点池不回收已删除节点，空间按累计插入次数计算；可在构造时指定随机种子。"
   ],
   [
+    "persistent_ordered_treap",
+    "PersistentOrderedTreap",
+    "可持久化有序 Treap：分叉版本与顺序统计",
+    "版本0为空。insert(v,x)、erase(v,x)、copy(v)追加并返回新版本；删除不存在的值也追加相同集合的版本。size/less/rank/kth/prev/next均显式传版本且只读，不创建版本或树节点。重复值计数，rank为严格小于x的副本数加一；kth为1-based且要求合法，严格前后继缺失返回nullopt。支持long long全范围，不用x±1。随机优先级下期望O(log(d+1))，d为版本不同键数；copy摊还O(1)，没有最坏对数保证。递归复制更新路径，节点不回收，空间按全部历史分配节点与版本数计。节点/版本/各版副本数须小于INT_MAX；t、root及带节点编号的辅助函数属内部状态。当前常见64位布局每节点32字节；500000次随机不同键插入实测约1200万节点，不预留的vector扩容可能超过512MiB峰值。预留26*n+1仅是明确预算而非上界，先核对内存限制；重新构造清空全部版本。"
+  ],
+  [
     "treap",
     "SequenceTreap",
     "隐式 Treap：顺序反转、位翻转、加值与区间和",

@@ -4048,5 +4048,40 @@
       "verification/inverse-usages-normal.json",
       "verification/inverse-usages-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "PersistentOrderedTreap",
+    "problem": "Luogu P3835",
+    "title": "可持久化平衡树",
+    "url": "https://www.luogu.com.cn/problem/P3835",
+    "classification": "Standalone explicitly designated template problem, not a regional-contest application.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "1<=operations<=500000; |key|<=1e9; 0<=v_i<i. Rendered official text did not expose memory/time limits.",
+    "adapter": "Every operation creates version i; query calls copy(v). Missing erase is no-op; missing strict neighbors map optional to -2147483647/+2147483647. kth is valid.",
+    "implementation": "existing",
+    "source": "src/compact/persistent_ordered_treap.hpp",
+    "tested_api": [
+      "insert",
+      "erase",
+      "copy",
+      "size",
+      "less",
+      "rank",
+      "kth",
+      "prev",
+      "next"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Normal and ASan/UBSan local core and exact bundled driver tests; 500000-operation memory benchmark. Verify online memory/time limit, submit and check ranking separately. No new online AC.",
+    "driver": "verify/luogu/P3835.compact.cpp",
+    "local_reports": [
+      "verification/persistent-treap.json"
+    ]
   }
 ]

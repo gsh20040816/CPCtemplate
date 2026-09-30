@@ -121,6 +121,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | PersistentKth | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | PersistentRange | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
 | TreePathKth | 数据结构 → 可持久化数据结构 → 可持久化线段树 | application | 可持久化线段树的区间、树路径、数组和版本应用。 |
+| PersistentOrderedTreap | 数据结构 → 可持久化数据结构 → 可持久化平衡树 | direct | 历史版本可重集合；复制路径保留分叉版本，不包含可持久化序列操作。 |
 | DynamicKth | 数据结构 → 树套树 → 树状数组套权值线段树 | direct |  |
 | KDTreeSum | 数据结构 → K-D Tree | direct | 动态二维点权累加、闭矩形求和；不包含最近邻或删除坐标。 |
 | LinkCutTree | 数据结构 → 动态树 → Link Cut Tree | direct |  |

@@ -167,6 +167,7 @@
 | `batch_inverse` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
 | `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
 | `batch_units` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
+| `PersistentOrderedTreap` | [Luogu P3835](https://www.luogu.com.cn/problem/P3835) | 1<=operations<=500000; \|key\|<=1e9; 0<=v_i<i. Rendered official text did not expose memory/time limits. | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1549,6 +1550,14 @@ Explicit standalone template problem; current printed source locally checked in 
 
 
 Dynamic mint combination has only local evidence; historical long long driver AC does not cover this variant
+
+### Luogu P3835 / PersistentOrderedTreap
+
+Standalone explicitly designated template problem, not a regional-contest application.
+
+Every operation creates version i; query calls copy(v). Missing erase is no-op; missing strict neighbors map optional to -2147483647/+2147483647. kth is valid.
+
+Normal and ASan/UBSan local core and exact bundled driver tests; 500000-operation memory benchmark. Verify online memory/time limit, submit and check ranking separately. No new online AC.
 
 ## 榜单口径
 

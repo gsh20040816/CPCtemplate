@@ -2443,5 +2443,16 @@
     "also_covers": [
       "batch_units"
     ]
+  },
+  {
+    "id": "example-199",
+    "symbol": "PersistentOrderedTreap",
+    "problem": "Luogu P3835 【模板】可持久化平衡树",
+    "url": "https://www.luogu.com.cn/problem/P3835",
+    "summary": "维护可重整数集合的历史版本；每条插入、删除或排名/第k小/严格前后继查询都从指定旧版本生成版本i。删除缺失值忽略但仍产生版本；查询输出后copy(v)，避免版本编号错位。第k小保证合法；缺失前后继分别输出-2147483647、2147483647，仅由驱动映射optional。n≤500000、键绝对值≤10^9。reserve(26*n+1)是约32字节节点的预留预算，不是分配上界；最大n预留约397MiB，需先核对内存限制，不能将本地通过当作线上AC。",
+    "driver": "verify/luogu/P3835.compact.cpp",
+    "requires": [
+      "PersistentOrderedTreap"
+    ]
   }
 ]

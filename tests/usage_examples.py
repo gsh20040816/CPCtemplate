@@ -247,6 +247,7 @@ cases['example-195'] = [('4\n1 2 1 2 1\n1 2 1 2 2\n1 1 1 1 2\n49999 50000 49999 
 cases['example-196'] = [('5 7\n', '1 4 5 2 3'), ('1 2\n', '1')]
 cases['example-197'] = [('3 7 2\n1 2 3\n', '2'), ('1 3 2\n2\n', '1')]
 cases['example-198'] = cases['example-197']
+cases['example-199'] = [('15\n0 3 0\n0 5 0\n0 6 0\n0 1 5\n4 1 5\n5 2 5\n5 4 2\n6 3 6\n8 2 9\n9 5 5\n9 6 4\n4 1 -1000000000\n12 5 5\n5 3 6\n14 4 2\n', '1 -2147483647 2147483647 5 2 -2147483647 5 -1000000000 3 5')]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

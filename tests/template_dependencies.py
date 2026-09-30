@@ -12,7 +12,8 @@ assert code_tokens('struct Prime64 : Mod64 { string s = "/* Dinic */"; };') == {
 rows = json.loads((root / 'build/book-sections.json').read_text())
 deps = dependencies(rows)
 assert deps == json.loads((root / 'docs/template-dependencies.json').read_text())
-assert len(deps) == 200
+assert set(deps) == {row[1] for row in json.loads((root / 'docs/catalog.json').read_text())}
+assert deps['PersistentOrderedTreap'] == []
 assert deps['Prime64'] == ['Mod64']
 assert deps['mod_inverse'] == ['extended_gcd']
 assert deps['batch_inverse'] == ['mod_inverse']
@@ -48,4 +49,4 @@ for volume in volumes:
     assert refs <= labels
 report = dict(templates=len(rows),direct_edges=sum(map(len,deps.values())),usages=len(usages),transitive_closure=closures,scope='Catalog identifiers in actual code, including inheritance; comments and strings excluded. Standard-library names and caller-supplied generic parameters are not catalog dependencies. All usage requires link to local sections; full transitive named dependencies included in six volumes.')
 (root / 'verification/template-dependencies.json').write_text(json.dumps(report,indent=2)+'\n')
-print('200 algorithms, 128 direct edges, 198 complete usages and six local transitive closures PASS')
+print(f'{len(rows)} algorithms, {sum(map(len, deps.values()))} direct edges, {len(usages)} complete usages and six local transitive closures PASS')
