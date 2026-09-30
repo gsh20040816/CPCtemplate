@@ -11,6 +11,7 @@ fi
 export CXX
 export CPC_SANITIZE="${SANITIZE:-0}"
 python3 tests/basic_template_scope.py
+python3 tests/verification_provenance.py
 flags=(-std=c++20 -O2 -Wall -Wextra)
 if [[ "$(uname -s)" == Darwin ]]; then flags+=(-Wl,-stack_size,0x20000000); fi
 if [[ -d /opt/homebrew/include/boost ]]; then flags+=(-I/opt/homebrew/include); fi
