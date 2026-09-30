@@ -168,6 +168,7 @@
 | `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
 | `batch_units` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
 | `PersistentOrderedTreap` | [Luogu P3835](https://www.luogu.com.cn/problem/P3835) | 1<=operations<=500000; \|key\|<=1e9; 0<=v_i<i. Rendered official text did not expose memory/time limits. | 待编写驱动/提交 | 待核验 |
+| `SegmentBeats` | [Library Checker range_chmin_chmax_add_range_sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | N,Q<=200000; actual \|a_i\|<=1e12 throughout; \|update b\|<=2e12;0<=l<r<=N | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1558,6 +1559,16 @@ Standalone explicitly designated template problem, not a regional-contest applic
 Every operation creates version i; query calls copy(v). Missing erase is no-op; missing strict neighbors map optional to -2147483647/+2147483647. kth is valid.
 
 Normal and ASan/UBSan local core and exact bundled driver tests; 500000-operation memory benchmark. Verify online memory/time limit, submit and check ranking separately. No new online AC.
+
+### Library Checker range_chmin_chmax_add_range_sum / SegmentBeats
+
+Official standalone Library Checker data-structure task.
+
+Types 0/1/2/3 map to chmin/chmax/add/sum with zero-based half-open ranges. Internal int128 sums protect add-before-clip deferred children; public results fit signed64.
+
+Independent local vector/invariant oracle and copied driver pass normal and ASan/UBSan. Four official adversarial seeds additionally match the official reference. Online AC and ranking pending; no full 33-generator-suite claim.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/master/data_structure/range_chmin_chmax_add_range_sum/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/master/data_structure/range_chmin_chmax_add_range_sum/info.toml)，[来源 3](https://github.com/yosupo06/library-checker-problems/blob/master/data_structure/range_chmin_chmax_add_range_sum/verifier.cpp)
 
 ## 榜单口径
 

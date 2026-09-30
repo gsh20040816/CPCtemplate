@@ -4083,5 +4083,40 @@
     "local_reports": [
       "verification/persistent-treap.json"
     ]
+  },
+  {
+    "symbol": "SegmentBeats",
+    "problem": "Library Checker range_chmin_chmax_add_range_sum",
+    "title": "Range Chmin Chmax Add Range Sum",
+    "url": "https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum",
+    "classification": "Official standalone Library Checker data-structure task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "N,Q<=200000; actual |a_i|<=1e12 throughout; |update b|<=2e12;0<=l<r<=N",
+    "adapter": "Types 0/1/2/3 map to chmin/chmax/add/sum with zero-based half-open ranges. Internal int128 sums protect add-before-clip deferred children; public results fit signed64.",
+    "implementation": "existing",
+    "source": "src/compact/segment_beats.hpp",
+    "tested_api": [
+      "chmin",
+      "chmax",
+      "add",
+      "sum"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Independent local vector/invariant oracle and copied driver pass normal and ASan/UBSan. Four official adversarial seeds additionally match the official reference. Online AC and ranking pending; no full 33-generator-suite claim.",
+    "driver": "verify/library_checker/range_chmin_chmax_add_range_sum.compact.cpp",
+    "local_reports": [
+      "verification/segment-beats.json"
+    ],
+    "statement_sources": [
+      "https://github.com/yosupo06/library-checker-problems/blob/master/data_structure/range_chmin_chmax_add_range_sum/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/master/data_structure/range_chmin_chmax_add_range_sum/info.toml",
+      "https://github.com/yosupo06/library-checker-problems/blob/master/data_structure/range_chmin_chmax_add_range_sum/verifier.cpp"
+    ]
   }
 ]

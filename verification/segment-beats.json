@@ -1,0 +1,246 @@
+{
+  "base_commit": "dd4d5dc89030551601c16d1070c8691f5f662e5d",
+  "scope": "Independent vector/invariant tests and copied LC driver, plus supplemental agreement with the official reference on four adversarial seeds only. No online AC, leaderboard or complete official generator suite claim. LSan disabled.",
+  "checks": [
+    {
+      "command": "/usr/bin/g++ -std=c++20 -Wall -Wextra -O2 tests/segment_beats.cpp -o build/beats-core-normal && build/beats-core-normal",
+      "returncode": 0,
+      "stdout": "SegmentBeats PASS: exhaustive ternary arrays, 300000 random updates, sentinel-adjacent values, 2 maximum deferred-add stress cases\n",
+      "stderr": ""
+    },
+    {
+      "command": "CPC_SANITIZE=0 python3 tests/segment_beats_application.py",
+      "returncode": 0,
+      "stdout": "SegmentBeats full driver PASS: 160 vector-oracle inputs; 3 N=Q=200000 closed-form inputs\n",
+      "stderr": ""
+    },
+    {
+      "command": "/usr/bin/g++ -std=c++20 -Wall -Wextra -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -no-pie tests/segment_beats.cpp -o build/beats-core-sanitizer && build/beats-core-sanitizer",
+      "returncode": 0,
+      "stdout": "SegmentBeats PASS: exhaustive ternary arrays, 300000 random updates, sentinel-adjacent values, 2 maximum deferred-add stress cases\n",
+      "stderr": ""
+    },
+    {
+      "command": "CPC_SANITIZE=1 python3 tests/segment_beats_application.py",
+      "returncode": 0,
+      "stdout": "SegmentBeats full driver PASS: 160 vector-oracle inputs; 3 N=Q=200000 closed-form inputs\n",
+      "stderr": ""
+    }
+  ],
+  "official_adversarial": {
+    "source_sha256": {
+      "gen/issue_1369_log2.cpp": "63fc9d4564ca11e32c91b6785b204bdaeb75fb541608c2a27876cfce2a3d7dbb",
+      "reference.cpp": "fe866f2a2c1f43f20c8e353321fe8746cf8b7b856503f7759fc93958e0a55b9d",
+      "gen/random.h": "d0ae9470c3a04425e1ab8c39f376a0e707507659b8f5aa3ca06c5b47f193613c"
+    },
+    "upstream_repository": "https://github.com/yosupo06/library-checker-problems",
+    "generator_git_blob": "4984353431ca3db56b31bec4662f764d8d004d24",
+    "reference_git_blob": "1d3513e232434320910e3ee54a04b95f7efce97f",
+    "random_header_git_blob": "f97bca04db972ef2183a915e022687be821c2616",
+    "source_modifications": "none; local params.h defines N_AND_Q_MAX=200000",
+    "seeds": [
+      {
+        "seed": 0,
+        "header": "196697 200000",
+        "input_sha256": "47566a7b9ba63dc64770ad583a305aee7809af1064a6166e5ce3329b3d10faef",
+        "answer_sha256": "81d4aadacd9bf414e181206afe5e1c725b3f2e771d52fcaafd997c248cafce52",
+        "checks": [
+          {
+            "mode": "normal",
+            "returncode": 0,
+            "seconds": 0.3526058129973535
+          },
+          {
+            "mode": "san",
+            "returncode": 0,
+            "seconds": 2.0461693569995987
+          }
+        ]
+      },
+      {
+        "seed": 1,
+        "header": "197218 200000",
+        "input_sha256": "93f8a1806e44435903d5d2ab882f345113d8bf6382dc87982d7cdec5be03cd95",
+        "answer_sha256": "6da2226112cd90f9e239d8498cd081557b5eae9f32d600b26c12330f1316c0ac",
+        "checks": [
+          {
+            "mode": "normal",
+            "returncode": 0,
+            "seconds": 0.42123771700062207
+          },
+          {
+            "mode": "san",
+            "returncode": 0,
+            "seconds": 1.8017326439985482
+          }
+        ]
+      },
+      {
+        "seed": 2,
+        "header": "196697 200000",
+        "input_sha256": "5772b9f4be3f8463a72838c9f936fc030d17f9f3546c91861a306abeb214f152",
+        "answer_sha256": "e82c67ddcc9260f0274a94a618a80e6db0093becc5fab7c3c76ef7355399b2f7",
+        "checks": [
+          {
+            "mode": "normal",
+            "returncode": 0,
+            "seconds": 0.46633584200026235
+          },
+          {
+            "mode": "san",
+            "returncode": 0,
+            "seconds": 1.9967755239995313
+          }
+        ]
+      },
+      {
+        "seed": 3,
+        "header": "197218 200000",
+        "input_sha256": "7eabe75c8fd7b1bc85eeeee14d61910c24924b39fbfe1d8e0dd5d527bbc0d91b",
+        "answer_sha256": "2faaaa019455bd3cc01f941f0933d71775019dce54a0d569b664a8ac20dc7f7e",
+        "checks": [
+          {
+            "mode": "normal",
+            "returncode": 0,
+            "seconds": 0.4523529940015578
+          },
+          {
+            "mode": "san",
+            "returncode": 0,
+            "seconds": 2.0055159949988592
+          }
+        ]
+      }
+    ]
+  },
+  "sha256": {
+    "src/compact/segment_beats.hpp": "bc116ceb699bc793f20a4c0dfabbd1066a2f4ee40b3868404fec7426155c82cd",
+    "tests/segment_beats.cpp": "113854085c55be99fe42de2e396fbeddf269136da8e46632f3968a1c1ef5d7e5",
+    "tests/segment_beats_application.py": "9c4197c228f5206425ee015b970fbfefa1c16dc018afa5fdeee3fd5b390887cd",
+    "verify/library_checker/range_chmin_chmax_add_range_sum.compact.cpp": "48675f42167a2a7c2d9342c0b295800943be04c1611667f09a3f7ab42f46b3a6",
+    "docs/usage/example-200.cpp": "e88fef699e0ae10b1c61cf8f67fa89d6956bd295b24d8d650ba2a079db74f1d9",
+    "docs/SEGMENT-BEATS.md": "55c554da21008ce3ce8e4ca55c4f61bc29a8a0a7e6ef1da92c5a3fed9e4bd7ae"
+  },
+  "integration_checks": [
+    {
+      "command": "python3 tests/basic_template_scope.py",
+      "returncode": 0,
+      "stdout": "Basic template scope: three exact exclusions, advanced dependencies, DSU and history scope preserved PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/template_dependencies.py",
+      "returncode": 0,
+      "stdout": "202 algorithms, 128 direct edges, 200 complete usages and six local transitive closures PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_integration.py",
+      "returncode": 0,
+      "stdout": "PASS: 15 knowledge sections shared once; math-only routing; section/page references resolve\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "layout": {
+    "build": "8 PDFs; final logs without warnings",
+    "reviewed_physical_pages": {
+      "total_book": [
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227
+      ],
+      "data_structures": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "infra": [
+        7
+      ]
+    },
+    "findings": "All 15 affected/adjacent pages visually checked; no clipping, missing glyphs, overflow or orphan headings. Five contiguous method-boundary code chunks and one complete usage page. Infra page numbers synchronized.",
+    "source_line_spans": [
+      [
+        17,
+        37
+      ],
+      [
+        38,
+        68
+      ],
+      [
+        69,
+        106
+      ],
+      [
+        107,
+        153
+      ],
+      [
+        154,
+        188
+      ]
+    ],
+    "dependency_reference_groups": 980,
+    "cross_volume_links": 13,
+    "unchanged_pdf_checks": [
+      {
+        "file": "output/pdf/infra.pdf",
+        "different_text_pages": [
+          7
+        ],
+        "identical_destination_pages": true,
+        "kept_original_bytes": false
+      },
+      {
+        "file": "output/pdf/xcpc-strings.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-mathematics.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-graphs.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-geometry.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      },
+      {
+        "file": "output/pdf/xcpc-misc.pdf",
+        "different_text_pages": [],
+        "identical_destination_pages": true,
+        "kept_original_bytes": true
+      }
+    ],
+    "pdf_sha256": {
+      "output/pdf/xcpc-template.pdf": "6205091b9387609fe1176a33f91d3910b05949582de8f9da4f9ef189d682d29b",
+      "output/pdf/xcpc-data-structures.pdf": "d90e70fdc6495c09efbd3872ff11581290bf1a5bd2981073cba736d7fe78a70b",
+      "output/pdf/infra.pdf": "770b4923c7a3db72b94765963ed968121355e43277eb0a754b2c4354806b6c1c"
+    }
+  }
+}

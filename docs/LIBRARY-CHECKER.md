@@ -69,7 +69,7 @@
 | [Range Affine Point Get](https://judge.yosupo.jp/problem/range_affine_point_get) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Affine Range Sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | [range_affine_range_sum.compact.cpp](../verify/library_checker/range_affine_range_sum.compact.cpp) |
 | [Range Affine Range Sum (Large Array)](https://judge.yosupo.jp/problem/range_affine_range_sum_large_array) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Range Chmin Chmax Add Range Sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Range Chmin Chmax Add Range Sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | [range_chmin_chmax_add_range_sum.compact.cpp](../verify/library_checker/range_chmin_chmax_add_range_sum.compact.cpp) |
 | [Range Kth Smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | Data Structure | 待逐题审题、适配与在线验证 | [range_kth_smallest.division.compact.cpp](../verify/library_checker/range_kth_smallest.division.compact.cpp)<br>[range_kth_smallest.wavelet.compact.cpp](../verify/library_checker/range_kth_smallest.wavelet.compact.cpp) |
 | [Range Linear Add Range Min](https://judge.yosupo.jp/problem/range_linear_add_range_min) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Range Parallel Unionfind](https://judge.yosupo.jp/problem/range_parallel_unionfind) | Data Structure | 待逐题审题、适配与在线验证 | — |
@@ -282,3 +282,5 @@
 机器清单： [library-checker-inventory.json](library-checker-inventory.json)，包含参数、测试生成数量、题面/校验器摘要及固定版本链接。
 
 重建：`python3 tools/library_checker_inventory.py /path/to/clean/library-checker-problems`。更换上游版本时需审查增删；本工具不删除现有模板，也不自动迁移历史评测证据。
+
+本批已完成 Range Chmin Chmax Add Range Sum 的题面/校验器核对和本地适配，验证见 [Segment Tree Beats](SEGMENT-BEATS.md)；未新增在线 AC，仍保留在未完成线上验证的队列。

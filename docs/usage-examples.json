@@ -2454,5 +2454,16 @@
     "requires": [
       "PersistentOrderedTreap"
     ]
+  },
+  {
+    "id": "example-200",
+    "symbol": "SegmentBeats",
+    "problem": "Library Checker Range Chmin Chmax Add Range Sum",
+    "url": "https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum",
+    "summary": "维护数组，操作 0/1/2/3 分别为区间 chmin、chmax、加法、求和。全部使用 0-based 非空半开区间。N,Q≤200000；所有时刻元素绝对值≤10^12，修改参数绝对值≤2×10^12。因此延迟值满足本模板的范围要求，公开区间和也可用 long long 表示。输入区间不需要加减 1，按操作号调用对应方法。",
+    "driver": "verify/library_checker/range_chmin_chmax_add_range_sum.compact.cpp",
+    "requires": [
+      "SegmentBeats"
+    ]
   }
 ]

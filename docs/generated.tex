@@ -2628,6 +2628,56 @@ MonotoneStackSeg(a) 要求非空 long long 数组；add(l,r,delta) 对 0-based �
 
 \lstinputlisting{usage/example-89.cpp}
 
+\newpage
+
+\Needspace{680pt}
+
+\section{区间最值操作 \& 区间历史最值}
+
+\subsection{Segment Tree Beats：区间截断、加法与和}\label{compact-SegmentBeats}\index{SegmentBeats}
+
+SegmentBeats(a) 接受0-based数组，chmin/chmax/add(l,r,x)、sum(l,r)均用半开区间。空数组/空区间允许，空和为0，重新构造用于多测。维护最大/严格第二大/次数及最小对称项；阈值等于第二极值必须递归，先下传加法再按父极值截断。n$\le$(INT\_MAX-4)/4且内存可用；真实值、阈值、有限延迟极值、加法标记及先加后截断的中间值须严格在±2\textasciicircum{}60内，返回和须可用long long表示。内部和与差值乘次数用int128，避免尚未同步的孩子临时总和溢出；不能由最终值有界推断中间和安全。建树/空间O(n)，sum/add为O(log n)，单次chmin/chmax最坏O(n)，混合操作总摊还O((n+q)log$^{2}$(n+1))。sum会下传，不是const。内部辅助函数与t不得直接调用/改写；不维护历史最值。
+
+\lstinputlisting[firstline=17,lastline=37,firstnumber=1]{../src/compact/segment_beats.hpp}
+
+\newpage
+
+\noindent 极值合并与递归建树（接上页同一结构体）：
+
+\lstinputlisting[firstline=38,lastline=68,firstnumber=22]{../src/compact/segment_beats.hpp}
+
+\newpage
+
+\noindent 整段加法和单极值组截断（接上页同一结构体）：
+
+\lstinputlisting[firstline=69,lastline=106,firstnumber=53]{../src/compact/segment_beats.hpp}
+
+\newpage
+
+\noindent 标记下传与有条件递归更新（接上页同一结构体）：
+
+\lstinputlisting[firstline=107,lastline=153,firstnumber=91]{../src/compact/segment_beats.hpp}
+
+\newpage
+
+\noindent 公开修改与区间和查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=154,lastline=188,firstnumber=138]{../src/compact/segment_beats.hpp}
+
+\Needspace{481pt}
+
+\subsection*{模板题使用：Library Checker Range Chmin Chmax Add Range Sum}
+
+\label{usage-example-200}
+
+题意：维护数组，操作 0/1/2/3 分别为区间 chmin、chmax、加法、求和。全部使用 0-based 非空半开区间。N,Q$\le$200000；所有时刻元素绝对值$\le$10\textasciicircum{}12，修改参数绝对值$\le$2×10\textasciicircum{}12。因此延迟值满足本模板的范围要求，公开区间和也可用 long long 表示。输入区间不需要加减 1，按操作号调用对应方法。
+
+所需模板：\hyperref[compact-SegmentBeats]{SegmentBeats}（第~\pageref{compact-SegmentBeats}~页，\ref{compact-SegmentBeats}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum}
+
+\lstinputlisting{usage/example-200.cpp}
+
 \Needspace{680pt}
 
 \chapter{划分树}

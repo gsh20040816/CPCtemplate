@@ -610,3 +610,7 @@ python3 tests/cut_applications.py
 "$CXX" "${flags[@]}" tests/persistent_ordered_treap.cpp -o build/persistent-ordered-treap
 build/persistent-ordered-treap
 python3 tests/persistent_treap_application.py
+
+"$CXX" "${flags[@]}" tests/segment_beats.cpp -o build/segment-beats-unit
+build/segment-beats-unit
+python3 tests/segment_beats_application.py

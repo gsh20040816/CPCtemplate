@@ -133,6 +133,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | CentroidPairs | [example-137](usage/example-137.cpp) | locally_checked_example |
 | SubtreeColors | [example-138（应用补充）](usage/example-138.cpp) | locally_checked_application |
 | AffineSegTree | [example-12](usage/example-12.cpp) | locally_checked_example |
+| SegmentBeats | [example-200](usage/example-200.cpp) | locally_checked_example |
 | VirtualTree | [example-139（应用补充）](usage/example-139.cpp) | locally_checked_application |
 | PersistentArray | [example-11](usage/example-11.cpp) | locally_checked_example |
 | SupportHull | 待补 | pending_example |

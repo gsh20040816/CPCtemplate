@@ -107,6 +107,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | segtree | 数据结构 → 线段树 → 线段树基础 | direct |  |
 | LiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
 | SegmentLiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
+| SegmentBeats | 数据结构 → 线段树 → 区间最值操作 & 区间历史最值 | direct | 区间 chmin/chmax/add/sum；不含区间历史最值。 |
 | DivisionTree | 数据结构 → 划分树 | direct | 原序列按排序中位数稳定划分，重复中位值限额进入左半，递归查询静态区间顺序统计。 |
 | WaveletMatrix | 数据结构 → 划分树 | related | 小波矩阵使用逐位稳定划分和压位rank，解决静态区间顺序统计；在固定导航的划分树下按相关结构收录，不等同于原文划分树实现。 |
 | ost | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |

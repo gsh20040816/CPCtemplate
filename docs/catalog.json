@@ -756,6 +756,12 @@
     "AffineSegTree(a,mod) 传入非空 0-based 初值数组；查询与修改采用 1-based 非空闭区间。update(l,r,mul,add) 将区间元素 x 改为 mul*x+add；乘法用 (mul,0)，加法用 (1,add)，赋值用 (0,value)。query(l,r) 返回区间和。1≤mod≤INT_MAX，模数无需为素数，初值和修改参数允许 long long 全范围，入口统一归一化。旧标记 (m,b) 后应用新标记 (a,c)，复合为 (m*a,b*a+c)，乘法取模后再相加。建树 O(n)，单次 O(log n)，空间 O(n)。内部 build、apply 等函数不作为公共接口；动态版重建新对象。"
   ],
   [
+    "segment_beats",
+    "SegmentBeats",
+    "Segment Tree Beats：区间截断、加法与和",
+    "SegmentBeats(a) 接受0-based数组，chmin/chmax/add(l,r,x)、sum(l,r)均用半开区间。空数组/空区间允许，空和为0，重新构造用于多测。维护最大/严格第二大/次数及最小对称项；阈值等于第二极值必须递归，先下传加法再按父极值截断。n≤(INT_MAX-4)/4且内存可用；真实值、阈值、有限延迟极值、加法标记及先加后截断的中间值须严格在±2^60内，返回和须可用long long表示。内部和与差值乘次数用int128，避免尚未同步的孩子临时总和溢出；不能由最终值有界推断中间和安全。建树/空间O(n)，sum/add为O(log n)，单次chmin/chmax最坏O(n)，混合操作总摊还O((n+q)log²(n+1))。sum会下传，不是const。内部辅助函数与t不得直接调用/改写；不维护历史最值。"
+  ],
+  [
     "virtual_tree",
     "VirtualTree",
     "虚树：关键点压缩与路径信息",
