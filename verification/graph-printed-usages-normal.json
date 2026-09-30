@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "mode": "normal",
+  "completed_utc": "2026-09-30T17:29:55.219623+00:00",
+  "command": "CPC_SANITIZE=0 python3 tests/graph_printed_usages.py",
+  "compiler": {
+    "path": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0",
+    "target": "x86_64-linux-gnu"
+  },
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "compile_commands": {
+    "example-203": [
+      "/usr/bin/x86_64-linux-gnu-g++-14",
+      "-std=c++20",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/graph-printed-usages-normal/example-203.cpp",
+      "-o",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/graph-printed-usages-normal/example-203"
+    ],
+    "example-204": [
+      "/usr/bin/x86_64-linux-gnu-g++-14",
+      "-std=c++20",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/graph-printed-usages-normal/example-204.cpp",
+      "-o",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/graph-printed-usages-normal/example-204"
+    ]
+  },
+  "sanitizer_options": {
+    "ASAN_OPTIONS": ":detect_leaks=0",
+    "UBSAN_OPTIONS": ":halt_on_error=1"
+  },
+  "stack_bytes": {
+    "before": [
+      8388608,
+      -1
+    ],
+    "actual": [
+      536870912,
+      -1
+    ]
+  },
+  "exhaustive_conflict_sets": 1032,
+  "exhaustive_simple_hate_graphs": 1099,
+  "negative_output_controls": 8,
+  "programs": {
+    "example-203": {
+      "driver": "verify/hdu/1814.compact.cpp",
+      "program_sha256": "361bceaeec9a6022cc6cedf02685857b975ed17a7f5fd607cbcfc36541bf2439",
+      "snippet_sha256": "2b7de5641935f7482053d79fbd81719090fe58170907f446fd514b60ce96898c",
+      "kind": "application",
+      "invocations": 2,
+      "batches": [
+        {
+          "cases": 1235,
+          "scope": "All conflict subsets up to two variables, 200 seeded assignment oracles, 10000-variable rollback chain, contradiction then clean reconstruction; EOF termination",
+          "input_sha256": "168f7a5f37a8aa395d4370252217f9a1db192d908599a80be9037b15408e4253",
+          "output_sha256": "b1201fe06ef4d3d9908cd47e8862469f5fe0544a5b99cd631867d44c9e560e58"
+        },
+        {
+          "cases": 0,
+          "scope": "Immediate EOF",
+          "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    "example-204": {
+      "driver": "verify/poj/2942.compact.cpp",
+      "program_sha256": "a1b3964eea9b516fb7a612b0d2bdd9b68fbccbd3227f8f2fbbbb2c73f635b8c5",
+      "snippet_sha256": "2533306fd934f841195912d9a0d98bb36fb2ff21839a4556ca747b07e021f490",
+      "kind": "application",
+      "invocations": 5,
+      "batches": [
+        {
+          "cases": 1223,
+          "scope": "All simple hate graphs up to five vertices, 120 seeded circular-seating oracles, UVA official sample, normalization and articulation separation",
+          "input_sha256": "245c233e5cd3ac1d0d9e40128f2140effbb6d9d22a75e64ae0a70f974578f1c3",
+          "output_sha256": "1e59aa742b76976583f813dc5f5941a27b9df5cb4e4b1b8c4b0979e8a5133a34"
+        },
+        {
+          "cases": 6,
+          "scope": "Closed-form n=1000 complete/empty/bipartite/triangle-chain complement graphs; 1000000 repeated hate records; singleton reset (zero hate is a local extension)",
+          "input_sha256": "60283035d7cda27ef473647434897d397bb2c1f759a70f85cb80a79efe5cbf45",
+          "output_sha256": "276439ea689aea890c227824e51fee30e118b3844e791033a55e024773095047"
+        },
+        {
+          "cases": 0,
+          "scope": "Sentinel must stop before trailing test data",
+          "input_sha256": "b52bee97896a683a7897ac261b777353c551236d3066edc870f602a5a9058a91",
+          "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "cases": 0,
+          "scope": "Immediate EOF",
+          "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "cases": 1,
+          "scope": "EOF without sentinel is a driver extension",
+          "input_sha256": "f447e635ef60d86f4591ef150e99d027d79600a624955da19c447d2e7f957fc8",
+          "output_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      ]
+    }
+  },
+  "sha256": {
+    "docs/usage-examples.json": "c4c11d0c5ee90e0e052d4d898687fad2b8d3f67c211e21abb13e908b30de5005",
+    "tests/graph_printed_usages.py": "99a11c5fc8cc2f2489adbe3565ad6d0d8b08a669b100c7c30d0a72a193021be9",
+    "tests/usage_examples.py": "d7df01a29dacf03def549a13c0c6819c2cd88d8c3a0ae52460c968a40300e75e",
+    "tests/usage_checkers.py": "b6bd99c5e629920bd805a6f54bde795c8e85b621027f95813583738800db365c",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+    "tools/usage_examples.py": "1797c64e62ea62fd84ea8862dc370af8d5df75bfb15a7bf23607025575e35151",
+    "verify/hdu/1814.compact.cpp": "82217959c557b080207db55e53b98736ac10da0041b33d007f62fa2d94909917",
+    "verify/poj/2942.compact.cpp": "31ce692e8199d9c11b1bf1b448ef8383525a7688f5c5a69472b06052df48a359",
+    "src/compact/lex_two_sat.hpp": "b6ea717957659fc302dc7e52d77576b362bbc790d742280b96233dbf3928e30e",
+    "src/compact/odd_cycle_vertices.hpp": "f7d798c8a4ca10813f177650d93488eecb5b72370c5e2525d9fe4e8051969790",
+    "src/compact/block_cut_forest.hpp": "63ea04e066be16a04fd83559855db9814d3453e8b4995d49aee9138e5392a061",
+    "src/compact/biconnected_core.hpp": "3ab80f3d7f5098d9fbc344248624a0d045dce4cf72043931252ca9dbb09ce224"
+  },
+  "scope": "Exact registered printed programs, independent assignment/circular-seating oracles and closed-form scale cases. No algorithm or driver edits. ASan/UBSan only; LeakSanitizer disabled. Not a full-suite run, official-template classification, online AC, ranking or official HDU/POJ maximum-constraint claim."
+}

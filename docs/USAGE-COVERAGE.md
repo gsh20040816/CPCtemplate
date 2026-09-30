@@ -158,8 +158,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | word_chain | 待补 | pending_example |
 | mixed_euler_orientation | 待补 | pending_example |
 | mixed_euler_trail | 待补 | pending_example |
-| odd_cycle_vertices | 待补 | pending_example |
-| LexTwoSAT | 待补 | pending_example |
+| odd_cycle_vertices | [example-204（应用补充）](usage/example-204.cpp) | locally_checked_application |
+| LexTwoSAT | [example-203（应用补充）](usage/example-203.cpp) | locally_checked_application |
 | BostanMori | [example-49](usage/example-49.cpp) | locally_checked_example |
 | SetConvolution | [example-27](usage/example-27.cpp) | locally_checked_example |
 | subset_convolution | [example-51](usage/example-51.cpp) | locally_checked_example |

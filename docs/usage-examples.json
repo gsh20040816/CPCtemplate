@@ -2488,5 +2488,31 @@
     "requires": [
       "rectangle_union_area"
     ]
+  },
+  {
+    "id": "example-203",
+    "symbol": "LexTwoSAT",
+    "problem": "HDU 1814 Peaceful Commission",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=1814",
+    "summary": "每党两名候选人编号2x-1、2x，恰选一人且冲突双方不能同时入选，输出字典序最小代表序列。候选人u转为变量x=(u+1)/2，偶号对应值1；冲突(u,v)转为(x≠a) OR (y≠b)，即add(x,!a,y,!b)。变量与answer均为1-based；按党号输出2*x-1+answer[x]，每人一行。无解只输出NIE，不能读取失败后的answer。多组读至EOF，每组重新构造，无0 0结束标记。原站题面本次不可达，题意与格式依据现有驱动及独立枚举测试，不声称已复核官方限制或线上AC。",
+    "driver": "verify/hdu/1814.compact.cpp",
+    "requires": [
+      "LexTwoSAT"
+    ],
+    "kind": "application"
+  },
+  {
+    "id": "example-204",
+    "symbol": "odd_cycle_vertices",
+    "problem": "POJ 2942 Knights of the Round Table",
+    "url": "https://poj.org/problem?id=2942",
+    "summary": "互相憎恨的骑士不能相邻，合法圆桌至少3人且人数为奇数；求无法参加任何合法圆桌的人数。输入憎恨关系，顶点1..n；对u<v且不憎恨的二人建补图边，不能把憎恨边直接加入。每组新建矩阵和BiconnectedCore，先run再调用odd_cycle_vertices，统计odd[1..n]中的0，每组输出一行；0 0终止且不输出。函数只返回各点能否出现在某个简单奇环，不给圆桌座次；无合法圆桌时输出n，不是失败。POJ原站本次不可达；输入格式和样例另与同题UVA1364官方PDF核对，未据此声称POJ限制或线上AC已复核。",
+    "driver": "verify/poj/2942.compact.cpp",
+    "requires": [
+      "BiconnectedCore",
+      "block_cut_forest",
+      "odd_cycle_vertices"
+    ],
+    "kind": "application"
   }
 ]

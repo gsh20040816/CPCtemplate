@@ -4055,6 +4055,20 @@ bridge\_component\_forest(graph) 接收已 run 的 BiconnectedCore，返回按 1
 
 \lstinputlisting[firstline=27,lastline=69,firstnumber=23]{../src/compact/odd_cycle_vertices.hpp}
 
+\Needspace{524pt}
+
+\subsection*{应用题补充：POJ 2942 Knights of the Round Table}
+
+\label{usage-example-204}
+
+题意：互相憎恨的骑士不能相邻，合法圆桌至少3人且人数为奇数；求无法参加任何合法圆桌的人数。输入憎恨关系，顶点1..n；对u<v且不憎恨的二人建补图边，不能把憎恨边直接加入。每组新建矩阵和BiconnectedCore，先run再调用odd\_cycle\_vertices，统计odd[1..n]中的0，每组输出一行；0 0终止且不输出。函数只返回各点能否出现在某个简单奇环，不给圆桌座次；无合法圆桌时输出n，不是失败。POJ原站本次不可达；输入格式和样例另与同题UVA1364官方PDF核对，未据此声称POJ限制或线上AC已复核。
+
+所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-block_cut_forest]{block\_cut\_forest}（第~\pageref{compact-block_cut_forest}~页，\ref{compact-block_cut_forest}~节）、\hyperref[compact-odd_cycle_vertices]{odd\_cycle\_vertices}（第~\pageref{compact-odd_cycle_vertices}~页，\ref{compact-odd_cycle_vertices}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://poj.org/problem?id=2942}
+
+\lstinputlisting{usage/example-204.cpp}
+
 \Needspace{356pt}
 
 \subsection{边双缩点的大小与内部边数}\label{compact-EdgeCompression}\index{EdgeCompression}
@@ -4284,6 +4298,20 @@ TwoSAT(n)，变量 1..n；add(x,a,y,b) 添加 (x=a) 或 (y=b)，强制值写 add
 \newpage
 
 \lstinputlisting[firstline=32,lastline=67,firstnumber=26]{../src/compact/lex_two_sat.hpp}
+
+\Needspace{498pt}
+
+\subsection*{应用题补充：HDU 1814 Peaceful Commission}
+
+\label{usage-example-203}
+
+题意：每党两名候选人编号2x-1、2x，恰选一人且冲突双方不能同时入选，输出字典序最小代表序列。候选人u转为变量x=(u+1)/2，偶号对应值1；冲突(u,v)转为(x$\ne$a) OR (y$\ne$b)，即add(x,!a,y,!b)。变量与answer均为1-based；按党号输出2*x-1+answer[x]，每人一行。无解只输出NIE，不能读取失败后的answer。多组读至EOF，每组重新构造，无0 0结束标记。原站题面本次不可达，题意与格式依据现有驱动及独立枚举测试，不声称已复核官方限制或线上AC。
+
+所需模板：\hyperref[compact-LexTwoSAT]{LexTwoSAT}（第~\pageref{compact-LexTwoSAT}~页，\ref{compact-LexTwoSAT}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://acm.hdu.edu.cn/showproblem.php?pid=1814}
+
+\lstinputlisting{usage/example-203.cpp}
 
 \Needspace{558pt}
 

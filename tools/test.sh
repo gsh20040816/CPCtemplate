@@ -642,3 +642,5 @@ python3 tests/rectangle_union_application.py
 
 "$CXX" "${flags[@]}" tests/rectangle_union_wide.cpp -o build/rectangle-union-wide
 build/rectangle-union-wide
+
+python3 tests/graph_printed_usages.py
