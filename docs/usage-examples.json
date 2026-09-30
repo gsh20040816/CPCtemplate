@@ -2319,5 +2319,44 @@
       "pheap"
     ],
     "page_break_before": "    if (d[t] == inf)"
+  },
+  {
+    "id": "example-191",
+    "symbol": "divisor_sum_power",
+    "problem": "Luogu P1593 因子和",
+    "url": "https://www.luogu.com.cn/problem/P1593",
+    "summary": "给定1≤a≤50000000、0≤b≤50000000，求a^b的所有正约数之和模9901。只分解a，质因子重数e对应e*b+1项几何级数，无需构造a^b或求逆元。a=1或b=0输出1。PollardRho可复用；本题模数固定，但核心允许任意正uint64模数，长度以uint128计算。",
+    "driver": "verify/luogu/P1593.compact.cpp",
+    "requires": [
+      "Prime64",
+      "PollardRho",
+      "power_sum",
+      "divisor_sum_power"
+    ]
+  },
+  {
+    "id": "example-192",
+    "symbol": "carmichael",
+    "problem": "UVa 10006 Carmichael Numbers",
+    "url": "https://onlinejudge.org/external/100/10006.pdf",
+    "kind": "application",
+    "summary": "多组3≤n<65000，输入0结束，判定n是否为Carmichael数：必须为合数，并且对所有整数a满足a^n≡a(mod n)。这里先排除素数，再判断λ(n)是否整除n-1；等价性包含非互素底数，不要直接拿λ(n)给任意底数降幂。输出必须完全符合题面两种句式。该题只检查判定，不能替代λ(n)数值及最小性的接口测试，亦不计独立模板题覆盖。",
+    "driver": "verify/uva/10006.compact.cpp",
+    "requires": [
+      "Prime64",
+      "carmichael"
+    ]
+  },
+  {
+    "id": "example-193",
+    "symbol": "power_sum",
+    "problem": "AtCoder ABC293 E Geometric Progression",
+    "url": "https://atcoder.jp/contests/abc293/tasks/abc293_e",
+    "kind": "application",
+    "summary": "给定1≤A,M≤10^9、1≤X≤10^12，求Σ(i=0..X-1) A^i mod M。直接读取power_sum(A,X,M).second；M可能是合数，A-1不一定可逆，不能无条件使用几何级数除法。M=1输出0，A=1时结果X mod M。第一分量为A^X，本题不输出。此为比赛应用题，不计独立模板题覆盖。",
+    "driver": "verify/atcoder/abc293_e.compact.cpp",
+    "requires": [
+      "power_sum"
+    ]
   }
 ]

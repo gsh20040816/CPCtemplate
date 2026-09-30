@@ -49,10 +49,10 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | PrimitiveRoot | [example-48](usage/example-48.cpp) | locally_checked_example |
 | CoprimePairs | 待补 | pending_example |
 | floor_moments | [example-157](usage/example-157.cpp) | locally_checked_example |
-| power_sum | 待补 | pending_example |
-| divisor_sum_power | 待补 | pending_example |
+| power_sum | [example-193（应用补充）](usage/example-193.cpp) | locally_checked_application |
+| divisor_sum_power | [example-191](usage/example-191.cpp) | locally_checked_example |
 | euler_phi | [example-106](usage/example-106.cpp) | locally_checked_example |
-| carmichael | 待补 | pending_example |
+| carmichael | [example-192（应用补充）](usage/example-192.cpp) | locally_checked_application |
 | Partitions | [example-158](usage/example-158.cpp), [example-159（应用补充）](usage/example-159.cpp) | locally_checked_example |
 | Lucas | [example-40](usage/example-40.cpp) | locally_checked_example |
 | ExLucas | [example-41](usage/example-41.cpp) | locally_checked_example |

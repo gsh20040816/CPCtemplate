@@ -404,6 +404,20 @@ power\_sum(a,n,mod) 返回 \{a\textasciicircum{}n mod mod, $\sum$(i=0..n-1) a\te
 
 \lstinputlisting[firstline=5,lastline=17]{../src/compact/divisor_sum.hpp}
 
+\Needspace{292pt}
+
+\subsection*{应用题补充：AtCoder ABC293 E Geometric Progression}
+
+\label{usage-example-193}
+
+题意：给定1$\le$A,M$\le$10\textasciicircum{}9、1$\le$X$\le$10\textasciicircum{}12，求$\sum$(i=0..X-1) A\textasciicircum{}i mod M。直接读取power\_sum(A,X,M).second；M可能是合数，A-1不一定可逆，不能无条件使用几何级数除法。M=1输出0，A=1时结果X mod M。第一分量为A\textasciicircum{}X，本题不输出。此为比赛应用题，不计独立模板题覆盖。
+
+所需模板：power\_sum。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://atcoder.jp/contests/abc293/tasks/abc293_e}
+
+\lstinputlisting{usage/example-193.cpp}
+
 \newpage
 
 \Needspace{380pt}
@@ -420,7 +434,21 @@ power\_sum(a,n,mod) 返回 \{a\textasciicircum{}n mod mod, $\sum$(i=0..n-1) a\te
 
 \lstinputlisting[firstline=21,lastline=40]{../src/compact/divisor_sum.hpp}
 
-\Needspace{180pt}
+\Needspace{276pt}
+
+\subsection*{模板题使用：Luogu P1593 因子和}
+
+\label{usage-example-191}
+
+题意：给定1$\le$a$\le$50000000、0$\le$b$\le$50000000，求a\textasciicircum{}b的所有正约数之和模9901。只分解a，质因子重数e对应e*b+1项几何级数，无需构造a\textasciicircum{}b或求逆元。a=1或b=0输出1。PollardRho可复用；本题模数固定，但核心允许任意正uint64模数，长度以uint128计算。
+
+所需模板：Prime64、PollardRho、power\_sum、divisor\_sum\_power。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1593}
+
+\lstinputlisting{usage/example-191.cpp}
+
+\newpage
 
 \section{模算术简介}
 
@@ -585,6 +613,20 @@ euler\_power(a,b,m,phi) 求 a\textasciicircum{}b mod m，a、m 为 unsigned long
 carmichael(n) 返回 $\lambda$(n)，即使所有与 n 互素的 a 都满足 a 的 $\lambda$(n) 次幂模 n 为 1 的最小正指数；约定 $\lambda$(1)=1。要求 1$\le$n$\le$INT\_MAX。试除分解后将各素数幂的指数取 lcm，特别处理 2 的三次及以上幂。时间 O($\sqrt{\vphantom x}$n)，额外空间 O(1)；所有中间值不超过有符号 64 位范围，结果不超过 n。该指数只适用于可逆底数，不能据此直接对非互素底数的幂降指数。函数不依赖原根模块。
 
 \lstinputlisting[firstline=7,lastline=27]{../src/compact/carmichael.hpp}
+
+\Needspace{362pt}
+
+\subsection*{应用题补充：UVa 10006 Carmichael Numbers}
+
+\label{usage-example-192}
+
+题意：多组3$\le$n<65000，输入0结束，判定n是否为Carmichael数：必须为合数，并且对所有整数a满足a\textasciicircum{}n$\equiv$a(mod n)。这里先排除素数，再判断$\lambda$(n)是否整除n-1；等价性包含非互素底数，不要直接拿$\lambda$(n)给任意底数降幂。输出必须完全符合题面两种句式。该题只检查判定，不能替代$\lambda$(n)数值及最小性的接口测试，亦不计独立模板题覆盖。
+
+所需模板：Prime64、carmichael。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.org/external/100/10006.pdf}
+
+\lstinputlisting{usage/example-192.cpp}
 
 \Needspace{335pt}
 

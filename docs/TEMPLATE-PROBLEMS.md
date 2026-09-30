@@ -157,6 +157,7 @@
 | `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Undirected)](https://judge.yosupo.jp/problem/counting_spanning_tree_undirected) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 待编写驱动/提交 | 待核验 |
 | `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 待编写驱动/提交 | 待核验 |
 | `pheap` | [Library Checker Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | 0<=N<=500000; 1<=Q<=500000; -1e9<=x<=1e9; deletion on nonempty multiset | 待编写驱动/提交 | 待核验 |
+| `divisor_sum_power` | [Luogu P1593 因子和](https://www.luogu.com.cn/problem/P1593) | 1<=a<=50000000; 0<=b<=50000000; modulus9901 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1449,6 +1450,16 @@ Standalone Library Checker template; official statement and parameters checked.
 Online AC and all-submission ranking unresolved; join/split covered only by container tests.
 
 原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/double_ended_priority_queue/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/double_ended_priority_queue/info.toml)
+
+### Luogu P1593 因子和 / divisor_sum_power
+
+Independent divisor-sum template task; Luogu statement and bounds checked. No contest prefix in current title.
+
+给定1≤a≤50000000、0≤b≤50000000，求a^b的所有正约数之和模9901。只分解a，质因子重数e对应e*b+1项几何级数，无需构造a^b或求逆元。a=1或b=0输出1。PollardRho可复用；本题模数固定，但核心允许任意正uint64模数，长度以uint128计算。
+
+Online AC and all-submission ranking unresolved. Independent generated local cases do not constitute official judge data or online acceptance.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P1593)
 
 ## 榜单口径
 

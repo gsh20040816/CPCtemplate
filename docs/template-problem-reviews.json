@@ -3799,5 +3799,31 @@
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/double_ended_priority_queue/task.md",
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/double_ended_priority_queue/info.toml"
     ]
+  },
+  {
+    "symbol": "divisor_sum_power",
+    "problem": "Luogu P1593 因子和",
+    "url": "https://www.luogu.com.cn/problem/P1593",
+    "classification": "Independent divisor-sum template task; Luogu statement and bounds checked. No contest prefix in current title.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "1<=a<=50000000; 0<=b<=50000000; modulus9901",
+    "adapter": "给定1≤a≤50000000、0≤b≤50000000，求a^b的所有正约数之和模9901。只分解a，质因子重数e对应e*b+1项几何级数，无需构造a^b或求逆元。a=1或b=0输出1。PollardRho可复用；本题模数固定，但核心允许任意正uint64模数，长度以uint128计算。",
+    "usage": "example-191",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-submission ranking unresolved. Independent generated local cases do not constitute official judge data or online acceptance.",
+    "local_evidence": [
+      "verification/math-usages-normal.json",
+      "verification/math-usages-sanitizer.json",
+      "verification/math-current-core.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P1593"
+    ]
   }
 ]
