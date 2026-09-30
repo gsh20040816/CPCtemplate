@@ -10,7 +10,14 @@ lines=['# 已核对的模板题入口','',
 for r in rows:
     rank=r['ranking'];txt='待核验'
     if rank.get('rank') is not None:txt=f"{rank['rank']} out of {rank['total']}（{rank.get('scope','')}）"
-    ac=f"[记录]({r['ac']})" if r.get('ac') else ('待实现' if r.get('implementation') in ['missing','planned_extension'] else '待编写驱动/提交')
+    if r.get('ac'):
+        ac = f"[记录]({r['ac']})"
+    elif r.get('implementation') in ['missing', 'planned_extension']:
+        ac = '待实现'
+    elif r.get('driver') and (root / r['driver']).is_file():
+        ac = '待在线 AC'
+    else:
+        ac = '待编写驱动/提交'
     bound=r['limits'].replace('|','\\|')
     name=r['symbol']
     if r.get('api') and '::' not in r['api']:name+='::'+r['api']

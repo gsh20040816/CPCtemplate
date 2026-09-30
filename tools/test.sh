@@ -639,3 +639,6 @@ python3 tests/centroid_sum_application.py
 "$CXX" "${flags[@]}" tests/rectangle_union.cpp -o build/rectangle-union-unit
 build/rectangle-union-unit
 python3 tests/rectangle_union_application.py
+
+"$CXX" "${flags[@]}" tests/rectangle_union_wide.cpp -o build/rectangle-union-wide
+build/rectangle-union-wide

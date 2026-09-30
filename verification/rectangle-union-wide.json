@@ -1,0 +1,50 @@
+{
+  "scope": "Supplemental wide-gap signed-coordinate independent cell oracle. No algorithm changes; not full suite or OJ AC; LSan off.",
+  "checks": [
+    {
+      "mode": "normal",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "tests/rectangle_union_wide.cpp",
+        "-o",
+        "build/rectangle-union/wide-normal"
+      ],
+      "run": [
+        "build/rectangle-union/wide-normal"
+      ],
+      "returncode": 0,
+      "stdout": "Rectangle union wide coordinates: 6000 weighted-cell oracles and axis swaps PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "tests/rectangle_union_wide.cpp",
+        "-o",
+        "build/rectangle-union/wide-sanitizer"
+      ],
+      "run": [
+        "build/rectangle-union/wide-sanitizer"
+      ],
+      "returncode": 0,
+      "stdout": "Rectangle union wide coordinates: 6000 weighted-cell oracles and axis swaps PASS\n",
+      "stderr": ""
+    }
+  ],
+  "sha256": {
+    "src/compact/rectangle_union.hpp": "13eafa899f70ac08d005411b30f309f923ff4d51bdcbd0db0528f4f69f8cbc1b",
+    "tests/rectangle_union_wide.cpp": "5bd0f4a57a58528d040237755b46af874f016da0c3d89070ec58edbabbfb1bc0"
+  }
+}

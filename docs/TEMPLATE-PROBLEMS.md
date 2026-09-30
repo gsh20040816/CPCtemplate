@@ -19,7 +19,7 @@
 | `GeneralMultipointEvaluation` | [QOJ 622](https://qoj.ac/problem/622) | 1<=n,m<=1000000; output mod 998244353; 10s | 待实现 | 待核验 |
 | `SuffixArray::sa` | [QOJ 956](https://qoj.ac/problem/956) | 1<=n<=1000000; ASCII letters/digits; 3s; 128MB | 待编写驱动/提交 | 待核验 |
 | `PalindromicTree::add/occurrences` | [QOJ 801](https://qoj.ac/problem/801) | lowercase string length<=1000000; 1s; 2048MB | 待编写驱动/提交 | 待核验 |
-| `SuffixAutomaton::extend/counts` | [Luogu P3804](https://www.luogu.com.cn/problem/P3804) | 1<=\|S\|<=1000000; lowercase | 待编写驱动/提交 | 待核验 |
+| `SuffixAutomaton::extend/counts` | [Luogu P3804](https://www.luogu.com.cn/problem/P3804) | 1<=\|S\|<=1000000; lowercase | 待在线 AC | 待核验 |
 | `OrderedTreap` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000 | [记录](https://www.luogu.com.cn/record/297515150) | 待核验 |
 | `OrderedSplay` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000 | [记录](https://www.luogu.com.cn/record/297520192) | 待核验 |
 | `SequenceTreap` | [Luogu P3391](https://www.luogu.com.cn/problem/P3391) | 1<=n,m<=100000; 1<=l<=r<=n | [记录](https://www.luogu.com.cn/record/297520211) | 待核验 |
@@ -63,10 +63,10 @@
 | `gp_map` | [Library Checker associative_array (cc_hash_table variant)](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; key/value in [0,10^18]. | 待编写驱动/提交 | 待核验 |
 | `Prime64` | [Library Checker primality_test](https://judge.yosupo.jp/problem/primality_test) | 1<=Q<=100000;1<=N<=10^18. | 待编写驱动/提交 | 待核验 |
 | `floor_sum` | [Library Checker sum_of_floor_of_linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | 1<=T<=100000;1<=N,M<=10^9;0<=A,B<M. | 待编写驱动/提交 | 待核验 |
-| `pheap` | [Library Checker Shortest Path](https://judge.yosupo.jp/problem/shortest_path) | 2<=N<=500000; 1<=M<=500000; simple directed graph; 0<=w<=1e9; s!=t | 待编写驱动/提交 | 待核验 |
-| `enumerate_triangles` | [Library Checker enumerate_triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | 1<=N,M<=100000; undirected simple graph; 0<=x<998244353 | 待编写驱动/提交 | 待核验 |
-| `z_function` | [Library Checker zalgorithm](https://judge.yosupo.jp/problem/zalgorithm) | 1<=N<=500000；非空小写字母串。 | 待编写驱动/提交 | 待核验 |
-| `manacher` | [Library Checker enumerate_palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | 1<=N<=500000；非空小写字母串。 | 待编写驱动/提交 | 待核验 |
+| `pheap` | [Library Checker Shortest Path](https://judge.yosupo.jp/problem/shortest_path) | 2<=N<=500000; 1<=M<=500000; simple directed graph; 0<=w<=1e9; s!=t | 待在线 AC | 待核验 |
+| `enumerate_triangles` | [Library Checker enumerate_triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | 1<=N,M<=100000; undirected simple graph; 0<=x<998244353 | 待在线 AC | 待核验 |
+| `z_function` | [Library Checker zalgorithm](https://judge.yosupo.jp/problem/zalgorithm) | 1<=N<=500000；非空小写字母串。 | 待在线 AC | 待核验 |
+| `manacher` | [Library Checker enumerate_palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | 1<=N<=500000；非空小写字母串。 | 待在线 AC | 待核验 |
 | `matrix_inverse` | [Library Checker inverse_matrix](https://judge.yosupo.jp/problem/inverse_matrix) | 1<=N<=500, entries modulo998244353. | 待编写驱动/提交 | 待核验 |
 | `matrix_inverse_mod2` | [Library Checker inverse_matrix_mod_2](https://judge.yosupo.jp/problem/inverse_matrix_mod_2) | 1<=N<=4096, each row is a length-N binary string. | 待编写驱动/提交 | 待核验 |
 | `prime_count` | [Library Checker counting_primes](https://judge.yosupo.jp/problem/counting_primes) | 1<=N<=10^11; local extension also accepts N=0. | 待编写驱动/提交 | 待核验 |
@@ -93,11 +93,11 @@
 | `IntegerHalfplanes` | [Luogu P4196](https://www.luogu.com.cn/problem/P4196) | 2<=polygons<=10; 3<=vertices<=50 each; CCW; integer coordinates in [-1000,1000] | 待编写驱动/提交 | 待核验 |
 | `IntegerPlane` | [Library Checker sort_points_by_argument](https://judge.yosupo.jp/problem/sort_points_by_argument) | 1<=n<=200000; \|x\|,\|y\|<=10^9; order (-pi,pi], origin angle 0, equal angles arbitrary | 待编写驱动/提交 | 待核验 |
 | `SpfaFlow` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000, m<=50000; nonnegative integer capacity/cost<=1000; no self-loop; flow and minimum cost<=2^31-1; distinct source/sink required by API | 待编写驱动/提交 | 待核验 |
-| `BiconnectedCore` | [Library Checker biconnected_components](https://judge.yosupo.jp/problem/biconnected_components) | 1<=N<=500000; 0<=M<=500000; parallel edges allowed, no loops | 待编写驱动/提交 | 待核验 |
-| `BiconnectedCore` | [Library Checker two_edge_connected_components](https://judge.yosupo.jp/problem/two_edge_connected_components) | 1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed | 待编写驱动/提交 | 待核验 |
-| `manacher` | [Luogu P3805](https://www.luogu.com.cn/problem/P3805) | 1<=n<=11000000; lowercase English letters | 待编写驱动/提交 | 待核验 |
-| `SuffixArray` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase English letters | 待编写驱动/提交 | 待核验 |
-| `SuffixArray` | [Library Checker longest_common_substring](https://judge.yosupo.jp/problem/longest_common_substring) | 1<=\|S\|,\|T\|<=500000; lowercase | 待编写驱动/提交 | 待核验 |
+| `BiconnectedCore` | [Library Checker biconnected_components](https://judge.yosupo.jp/problem/biconnected_components) | 1<=N<=500000; 0<=M<=500000; parallel edges allowed, no loops | 待在线 AC | 待核验 |
+| `BiconnectedCore` | [Library Checker two_edge_connected_components](https://judge.yosupo.jp/problem/two_edge_connected_components) | 1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed | 待在线 AC | 待核验 |
+| `manacher` | [Luogu P3805](https://www.luogu.com.cn/problem/P3805) | 1<=n<=11000000; lowercase English letters | 待在线 AC | 待核验 |
+| `SuffixArray` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase English letters | 待在线 AC | 待核验 |
+| `SuffixArray` | [Library Checker longest_common_substring](https://judge.yosupo.jp/problem/longest_common_substring) | 1<=\|S\|,\|T\|<=500000; lowercase | 待在线 AC | 待核验 |
 | `GeneralSAM` | [Luogu P6139](https://www.luogu.com.cn/problem/P6139) | 1<=n<=400000; nonempty lowercase strings; total length<=1000000; 1s/512MB | 待编写驱动/提交 | 待核验 |
 | `unit_flow_edges` | [QOJ 10424 / NERC 2024 K](https://qoj.ac/problem/10424) | 1<=k<=n<=2000; sum(n)<=2000; two permutations and partial subsequences; 3s/1024MB | 待编写驱动/提交 | 待核验 |
 | `closest_pair_i64` | [Library Checker closest_pair](https://judge.yosupo.jp/problem/closest_pair) | T<=100000; 2<=N; sum(N)<=500000; integer \|x\|,\|y\|<=1e9 | 待编写驱动/提交 | 待核验 |
@@ -131,9 +131,9 @@
 | `removal_components` | [AOJ GRL_3_A](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en) | 连通无向简单图，按编号升序输出所有割点，N、M≤100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。 | 待编写驱动/提交 | 待核验 |
 | `removal_components` | [UVA 10765 Doves and Bombs](https://onlinejudge.org/external/107/10765.pdf) | 分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n≤10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。 | 待编写驱动/提交 | 待核验 |
 | `orient_edges` | [Codeforces 118E Bertown roads](https://codeforces.com/problemset/problem/118/E) | 给连通无向简单图，把每条边定向使整图强连通，无解输出0。n≤100000、m≤300000。先用Lowlink.run确认连通且无桥，再调用orient_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。 | 待编写驱动/提交 | 待核验 |
-| `block_cut_forest` | [Luogu P4630](https://www.luogu.com.cn/problem/P4630) | 无向简单图，可不连通，n≤100000、m≤200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。 | 待编写驱动/提交 | 待核验 |
-| `bridge_component_forest` | [Luogu P2860 (bridge forest)](https://www.luogu.com.cn/problem/P2860) | 连通无向图，n≤5000、m≤10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。 | 待编写驱动/提交 | 待核验 |
-| `bridge_augmentation` | [Luogu P2860 (construct augmentation)](https://www.luogu.com.cn/problem/P2860) | 同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。 | 待编写驱动/提交 | 待核验 |
+| `block_cut_forest` | [Luogu P4630](https://www.luogu.com.cn/problem/P4630) | 无向简单图，可不连通，n≤100000、m≤200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。 | 待在线 AC | 待核验 |
+| `bridge_component_forest` | [Luogu P2860 (bridge forest)](https://www.luogu.com.cn/problem/P2860) | 连通无向图，n≤5000、m≤10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。 | 待在线 AC | 待核验 |
+| `bridge_augmentation` | [Luogu P2860 (construct augmentation)](https://www.luogu.com.cn/problem/P2860) | 同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。 | 待在线 AC | 待核验 |
 | `SCC` | [QOJ 906 (Kosaraju)](https://qoj.ac/problem/906) | 给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。 | [记录](https://qoj.ac/submission/3061625) | 待核验 |
 | `BiconnectedCore` | [QOJ 999 (BiconnectedCore)](https://qoj.ac/problem/999) | 1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed | [记录](https://qoj.ac/submission/3061643) | 待核验 |
 | `path_intersection` | [Luogu P3398](https://www.luogu.com.cn/problem/P3398) | n,q<=100000; tree; 1-based vertices | [记录](https://www.luogu.com.cn/record/299972443) | 待核验 |
@@ -167,10 +167,10 @@
 | `batch_inverse` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
 | `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
 | `batch_units` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
-| `PersistentOrderedTreap` | [Luogu P3835](https://www.luogu.com.cn/problem/P3835) | 1<=operations<=500000; \|key\|<=1e9; 0<=v_i<i. Rendered official text did not expose memory/time limits. | 待编写驱动/提交 | 待核验 |
-| `SegmentBeats` | [Library Checker range_chmin_chmax_add_range_sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | N,Q<=200000; actual \|a_i\|<=1e12 throughout; \|update b\|<=2e12;0<=l<r<=N | 待编写驱动/提交 | 待核验 |
-| `CentroidSum` | [Luogu P6329](https://www.luogu.com.cn/problem/P6329) | 1<=n,m<=100000;1<=weights,newvalue<=10000;unit edges;0<=decoded k<=n-1 | 待编写驱动/提交 | 待核验 |
-| `rectangle_union_area` | [Library Checker area_of_union_of_rectangles](https://judge.yosupo.jp/problem/area_of_union_of_rectangles) | 1<=N<=500000;0<=l<r<=1e9;0<=d<u<=1e9 | 待编写驱动/提交 | 待核验 |
+| `PersistentOrderedTreap` | [Luogu P3835](https://www.luogu.com.cn/problem/P3835) | 1<=operations<=500000; \|key\|<=1e9; 0<=v_i<i. Rendered official text did not expose memory/time limits. | 待在线 AC | 待核验 |
+| `SegmentBeats` | [Library Checker range_chmin_chmax_add_range_sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | N,Q<=200000; actual \|a_i\|<=1e12 throughout; \|update b\|<=2e12;0<=l<r<=N | 待在线 AC | 待核验 |
+| `CentroidSum` | [Luogu P6329](https://www.luogu.com.cn/problem/P6329) | 1<=n,m<=100000;1<=weights,newvalue<=10000;unit edges;0<=decoded k<=n-1 | 待在线 AC | 待核验 |
+| `rectangle_union_area` | [Library Checker area_of_union_of_rectangles](https://judge.yosupo.jp/problem/area_of_union_of_rectangles) | 1<=N<=500000;0<=l<r<=1e9;0<=d<u<=1e9 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 

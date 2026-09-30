@@ -23,3 +23,5 @@ Library Checker 的 [Area of Union of Rectangles](https://judge.yosupo.jp/proble
 - 普通和 ASan/UBSan 的精确执行记录见 verification/rectangle-union.json；LeakSanitizer 关闭
 
 仅收录静态整数轴对齐矩形面积并，不含周长、浮点或动态更新。没有在线 AC、速度榜或官方全生成器通过记录。较早的整库通过记录对应其记录的源码，本次新增模块单独记录，不挪用旧记录。
+
+补充独立检查：`tests/rectangle_union_wide.cpp` 使用直接矩形成员判断与加权网格面积累加，不使用扫描线或线段树；覆盖 6000 组坐标横跨负正 10¹⁸、相邻整数和巨大不均匀间隙的随机矩形集合，并交换坐标轴验证。普通及 ASan/UBSan 记录在 `verification/rectangle-union-wide.json`。核心算法未改变。
