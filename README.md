@@ -19,6 +19,8 @@
 
 数学配套知识补充见 [计数建模、生成函数、概率与博弈](docs/MATH-KNOWLEDGE-COMPLETION.md)：包含选型条件、推导、例子和误用反例，并与数学分册同源生成；知识补全不等同于新增算法或线上 AC。
 
+后续补充见 [整除反演与对称计数](docs/MATH-COUNTING-MODELS.md)：GCD 建模、整除分块、Burnside/Pólya、固定库存与非可逆群阶除法。
+
 ## 码风
 
 - `src/compact/`：基于队伍实际提交，`vector`、小写短名、清晰分行；目录名不表示压缩代码。

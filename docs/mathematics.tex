@@ -1,26 +1,7 @@
 \chapter{数学速查：条件先于公式}
 \noindent 本附录保留历史评测证据；其中传统版 AC 为归档记录，当前只提供 vector 模板。
 
-\section{整除、卷积与筛法}\index{Dirichlet convolution}\index{Mobius inversion}
-对正整数定义狄利克雷卷积
-\[
-(f*g)(n)=\sum_{d\mid n}f(d)g(n/d).
-\]
-单位元为 $\varepsilon(n)=[n=1]$，常函数 $1(n)=1$，恒等函数 $\operatorname{id}(n)=n$。
-关键恒等式是 $\mu*1=\varepsilon$、$\varphi*1=\operatorname{id}$。
-若 $F(n)=\sum_{d\mid n}f(d)$，则 $f(n)=\sum_{d\mid n}\mu(d)F(n/d)$。
-\[
-\sum_{i=1}^{a}\sum_{j=1}^{b}[\gcd(i,j)=1]
-=\sum_{d=1}^{\min(a,b)}\mu(d)\lfloor a/d\rfloor\lfloor b/d\rfloor.
-\]
-整除分块：当左端点为 $l$、商为 $q=\lfloor n/l\rfloor$，右端点为 $r=\lfloor n/q\rfloor$。
-同时包含多个商时，取各自右端点的最小值。
-杜教筛由卷积恒等式获得
-\[
-M(n)=1-\sum_{l=2}^{n}M(\lfloor n/l\rfloor),\qquad
-\Phi(n)=\frac{n(n+1)}2-\sum_{l=2}^{n}\Phi(\lfloor n/l\rfloor),
-\]
-求和按等商区间合并；第二式求和中没有额外乘以 $l$。
+\input{knowledge-mobius.tex}
 
 \section{杜教筛：预筛与缓存都不可省略}\index{Du Jiao sieve}
 前节的两条卷积恒等式给出 \texttt{DuJiao} 的递推，见代码中的
@@ -680,14 +661,7 @@ C_n=\binom{2n}n-\binom{2n}{n+1}.
 \end{center}
 上表默认 $k\ge1$；$n=0$、$k=0$ 等边界应按原问题约定单独处理。
 
-\section{群作用计数}\index{Burnside}\index{Polya}
-有限群 $G$ 作用在有限集合 $X$ 上时，轨道数为
-\[
-|X/G|=\frac1{|G|}\sum_{g\in G}|\operatorname{Fix}(g)|.
-\]
-对位置置换的 $q$ 色染色，$|\operatorname{Fix}(g)|=q^{c(g)}$，其中 $c(g)$ 为循环数。
-环形项链只商去旋转；手链还商去反射，二者群不同，不能共用分母。
-模数整除 $|G|$ 时不能使用模逆元，须先在合适的整数模数下求和再做精确除法。
+\input{knowledge-orbits.tex}
 
 \section{生成函数与递推}\index{generating functions}\index{Berlekamp-Massey}
 普通生成函数 $A(x)=\sum a_nx^n$ 的乘法对应普通卷积。

@@ -19,7 +19,8 @@ assert len(by_name) == len(rows)
 notes = {k: [] for k in groups}
 knowledge_source = (root / 'docs/mathematics.tex').read_text()
 # Expand explicit shared knowledge sources before routing their sections.
-for source in ['knowledge-combinatorics.tex', 'knowledge-probability-games.tex']:
+for source in ['knowledge-combinatorics.tex', 'knowledge-probability-games.tex',
+               'knowledge-mobius.tex', 'knowledge-orbits.tex']:
     directive = r'\input{' + source + '}'
     assert knowledge_source.count(directive) == 1, (source, 'missing/duplicate input')
     knowledge_source = knowledge_source.replace(directive, (root / 'docs' / source).read_text())

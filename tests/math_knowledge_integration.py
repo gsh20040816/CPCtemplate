@@ -14,7 +14,8 @@ assert main.count(r'\input{mathematics.tex}') == 1
 volume = (ROOT / 'docs/volume-mathematics.tex').read_text()
 labels = set(re.findall(r'\\label\{([^}]+)\}', volume))
 knowledge_labels = []
-for filename in ('knowledge-combinatorics.tex', 'knowledge-probability-games.tex'):
+for filename in ('knowledge-combinatorics.tex', 'knowledge-probability-games.tex',
+                 'knowledge-mobius.tex', 'knowledge-orbits.tex'):
     assert math.count(r'\input{' + filename + '}') == 1, filename
     content = (ROOT / 'docs' / filename).read_text()
     # Routing may insert whitespace between sections and discard leading comments.
@@ -30,10 +31,11 @@ for filename in ('knowledge-combinatorics.tex', 'knowledge-probability-games.tex
             assert r'\ref{' + target + '}' in content, (target, 'missing section')
             assert r'\pageref{' + target + '}' in content, (target, 'missing page')
     assert r'\chapter{' not in content, filename
-assert len(knowledge_labels) == len(set(knowledge_labels)) == 8
+assert len(knowledge_labels) == len(set(knowledge_labels))
+assert len(knowledge_labels) == 15
 for label in knowledge_labels:
     assert volume.count(r'\label{' + label + '}') == 1, label
 for other in ('strings', 'data-structures', 'graphs', 'geometry', 'misc'):
     text = (ROOT / f'docs/volume-{other}.tex').read_text()
     assert not any(r'\label{' + label + '}' in text for label in knowledge_labels), other
-print('PASS: eight knowledge sections shared once; math-only routing; section/page references resolve')
+print(f'PASS: {len(knowledge_labels)} knowledge sections shared once; math-only routing; section/page references resolve')

@@ -1,0 +1,196 @@
+% 整除与反演建模；替代 mathematics.tex 原首节，不另建 chapter。
+\section{整除与反演：先辨认求和方向}\label{knowledge-mobius-model}
+\index{Dirichlet convolution}\index{Mobius inversion}\index{GCD 加权求和}
+以下数论函数定义在\textbf{正整数}上；数组下标 0 只是前缀和的占位。
+狄利克雷卷积、单位元与两条常用恒等式为
+\[
+(f*g)(n)=\sum_{d\mid n}f(d)g(n/d),\qquad
+\varepsilon(n)=[n=1],\quad \mathbf1(n)=1,\quad \operatorname{id}(n)=n.
+\]
+\[
+\mu*\mathbf1=\varepsilon,\qquad \varphi*\mathbf1=\operatorname{id}.
+\]
+本节按“难以直接统计的量、容易统计的整除条件、换序后的权重”推导，
+不要看到 GCD 就直接在原式前乘一个 $\mu$。
+
+\subsection{约数和与倍数和不能混用}
+\textbf{约数方向。}若 $F(n)=\sum_{d\mid n}f(d)$，则
+$f(n)=\sum_{d\mid n}\mu(d)F(n/d)$。这不要求 $f$ 积性；
+用卷积写成 $F=f*\mathbf1$，再卷积 $\mu$ 就消掉了 $\mathbf1$。
+积性只在后续选用筛法或拆质数幂时才需要。
+
+\textbf{倍数方向。}若 $E(k)$ 仅在 $1\le k\le V$ 非零，且
+$G(d)=\sum_{j\ge1,\,dj\le V}E(dj)$，则
+\[
+E(k)=\sum_{t=1}^{\lfloor V/k\rfloor}\mu(t)G(kt).
+\]
+代入 $G$ 后，每个 $E(ks)$ 的系数是 $\sum_{t\mid s}\mu(t)=[s=1]$。
+这里求的是 $k$ 的\emph{倍数}，不能改成 $k$ 的约数；有限支持保证换序合法，
+无限级数还须另外证明收敛，不能把竞赛里的有限证明直接外推。
+
+\textbf{例一：数组中互质的不同下标对。}
+正整数数组 $a_1,\ldots,a_n\le V$，统计 $i<j$ 且 $\gcd(a_i,a_j)=1$。
+令 $c_d=\#\{i:d\mid a_i\}$，则 $G(d)=\binom{c_d}{2}$ 统计 GCD 被 $d$ 整除的下标对，
+答案是 $E(1)=\sum_{d=1}^V\mu(d)\binom{c_d}{2}$。
+例如数组 $(2,3,4,6)$，非零相关项给出 $6-3-1=2$，恰为下标对应的 $(2,3),(3,4)$。
+重复值仍按下标区分：$(1,1,2)$ 的三个下标对都互质，答案为 3。
+既然已用 $\binom{c_d}{2}$ 排除了相同下标，就不能再减去一个“自配对数”。
+
+从频率表求所有 $c_d$，枚举 $d$ 的倍数，总时间
+$\sum_{d\le V}O(V/d)=O(V\log V)$、空间 $O(V)$；
+只求互质对，再筛出 $\mu$ 并线性累加即可。
+若要全部 $E(k)$，也可从大到小做
+$E(k)=G(k)-\sum_{j\ge2,\,kj\le V}E(kj)$，同为 $O(V\log V)$。
+数值 $V$ 太大时不能因为 $n$ 小就开长度 $V$ 的数组，须改为分解、枚举实际约数等其他方案。
+
+\subsection{GCD 权值先反演，再交换求和}
+设所求为 $S=\sum_{x=1}^A\sum_{y=1}^B w(\gcd(x,y))$。
+先定义 $h=\mu*w$，于是 $w=h*\mathbf1$；再将公共约数提到外层：
+\[
+S=\sum_{x=1}^A\sum_{y=1}^B\sum_{d\mid x,\,d\mid y}h(d)
+=\sum_{d=1}^{\min(A,B)}h(d)
+\left\lfloor\frac Ad\right\rfloor\left\lfloor\frac Bd\right\rfloor.
+\]
+这同时涵盖互质计数 $w(t)=[t=1]$、$h=\mu$，以及 GCD 总和 $w(t)=t$、$h=\varphi$。
+乘出来的是\textbf{卷积后的 $h(d)$}，一般不是 $\mu(d)w(d)$。
+
+\textbf{例二：$[1,3]\times[1,4]$ 的 GCD 总和。}
+按三行直接求得 $4+6+6=16$；按上式得到
+\[
+\varphi(1)\cdot3\cdot4+\varphi(2)\cdot1\cdot2
++\varphi(3)\cdot1\cdot1=12+2+2=16.
+\]
+若误用 $\mu(d)d$ 作系数，结果变成 $12-4-3=5$。
+已知 $h$ 的前缀和后可按第~\ref{knowledge-quotient-choice}~节分块；
+不知道前缀和如何高效取得时，“反演完了”还不等于算法已经足够快。
+基本反演恒等式参见
+\href{https://oi-wiki.org/math/number-theory/mobius/}{OI Wiki：莫比乌斯反演}。
+
+\section{GCD 计数：缩放、边界与对称性}\label{knowledge-gcd-domains}
+\index{互质数对}\index{无序数对}
+记 $C(A,B)$ 为 $[1,A]\times[1,B]$ 中的\textbf{有序}互质数对数，任一边为 0 时为 0。
+第~\ref{compact-CoprimePairs}~节（第~\pageref{compact-CoprimePairs}~页）的
+\texttt{CoprimePairs c(L)} 预筛至 $L$，\texttt{c.count(A,B)} 就是 $C(A,B)$；
+要求 $A,B$ 为非负 \texttt{int} 且 $\min(A,B)\le L$。
+它不包括坐标轴，不会自动去掉 $x=y$，也不会替题目把有序对变成无序对。
+
+\subsection{恰好等于 \texorpdfstring{$k$}{k}：先缩放整除对象，再做矩形容斥}
+当 $k\ge1$ 且 $x,y>0$，$\gcd(x,y)=k$ 等价于
+$x=ku,y=kv$ 且 $\gcd(u,v)=1$。
+对闭区间 $a\le x\le b$、$c\le y\le d$，其中 $a,c\ge1$，令
+\[
+A=\lfloor b/k\rfloor,\quad A_0=\lfloor(a-1)/k\rfloor,\qquad
+B=\lfloor d/k\rfloor,\quad B_0=\lfloor(c-1)/k\rfloor.
+\]
+答案为 $C(A,B)-C(A_0,B)-C(A,B_0)+C(A_0,B_0)$。
+$A_0$ 统计严格小于 $a$ 的 $k$ 的倍数；应\textbf{先减 1 再除}，
+一般不等于 $\lfloor a/k\rfloor-1$。当 $k>\min(b,d)$ 时答案自动为 0。
+
+\textbf{例三：$[3,8]\times[5,10]$ 内 GCD 恰为 2。}
+缩放后为 $[2,4]\times[3,5]$，前缀四项为
+$C(4,5)-C(1,5)-C(4,2)+C(1,2)=15-5-6+2=6$。
+原坐标中的六对是 $(4,6),(4,10),(6,8),(6,10),(8,6),(8,10)$。
+当前接口的完整调用可写为：
+% BEGIN mobius-rectangle-example
+\begin{lstlisting}
+int a = 3, b = 8, c = 5, d = 10, k = 2;
+CoprimePairs solver(min(b / k, d / k));
+long long answer = solver.rectangle(a, b, c, d, k); // 6
+\end{lstlisting}
+% END mobius-rectangle-example
+多测可一次预筛至所有查询的 $\max\min(b/k,d/k)$ 后复用。
+这里的 $a,b,c,d,k$ 是正 \texttt{int}，$a\le b,c\le d$；
+接口本身不是 64 位大端点版本，不能把大整数截断后传入。
+
+\subsection{去掉顺序之前，先检查交换是否仍在定义域内}
+\textbf{同一正整数区间 $I$。} 设 $T$ 为 $I\times I$ 中 GCD 为 $k$ 的有序对数，
+对角线上只有 $(k,k)$ 可能合法。令 $\delta=[k\in I]$，则
+\[
+\#\{x<y\}=\frac{T-\delta}{2},\qquad
+\#\{x\le y\}=\frac{T+\delta}{2}.
+\]
+只有定义域在交换 $x,y$ 后不变，才能将非对角线两两配对。
+例如 $C(5,5)=19$，互质的 $x<y$ 有 9 对、$x\le y$ 有 10 对。
+而 $C(2,3)=5$：其中 $(1,3),(2,3)$ 的交换不在矩形内，不能把 5 直接除以 2。
+若题目要求不同下标，即使两个值相同也可能是合法对象，应回到上一节的频率计数。
+
+\textbf{正方形可进一步化简。} 对 $n\ge1$，按较大的坐标 $y$ 分类，
+$x<y$ 且互质的数量为 $\sum_{y=2}^n\varphi(y)=\Phi(n)-1$，故
+\[
+C(n,n)=2\Phi(n)-1,\qquad \Phi(n)=\sum_{i=1}^n\varphi(i).
+\]
+例如 $\Phi(5)=10$，立即得到 19、9、10 三种计数。
+$n=0$ 单独返回 0，不能得到 $-1$。
+这个化简还能避免为一个正方形答案逐块查询莫比乌斯前缀和。
+
+\textbf{含零或负数时另外建模。} 正整数反演式不能直接包含 $\mu(0)$。
+按通常 $\gcd(0,y)=|y|$，若非负矩形包含坐标轴，GCD 为 $k>0$ 的轴上候选只有
+$(0,k),(k,0)$；分别判断是否落在范围内，再加到正整数部分。
+$(0,0)$ 的 GCD 通常定义为 0，题面另有约定时从其约定；负数需要处理绝对值与重数。
+
+\section{整除分块：前缀和来源决定算法}\label{knowledge-quotient-choice}
+\index{floor quotient grouping}\index{筛法选型}
+对 $H(t)=\sum_{i=1}^th(i)$、$H(0)=0$，设
+$q_A=\lfloor A/l\rfloor,q_B=\lfloor B/l\rfloor$。
+两个商同时不变的最大右端点为
+\[
+r=\min\!\left(\left\lfloor A/q_A\right\rfloor,
+                 \left\lfloor B/q_B\right\rfloor\right),
+\quad\text{整块贡献 }(H(r)-H(l-1))q_Aq_B.
+\]
+循环只到 $l\le\min(A,B)$，所以进入循环时两个商均非零；零边长直接得到空和。
+例如 $A=10,B=8,l=3$，只按 $B$ 得到 $r=4$，而 $\lfloor10/3\rfloor=3,\lfloor10/4\rfloor=2$，必须取 $r=3$。
+不应只按一边分块再假定另一边的商相同。
+
+单个 $n$ 的商至多 $O(\sqrt n)$ 种；双商分块的边界来自两组边界的并集，
+段数为 $O(\sqrt A+\sqrt B)$，同时不超过 $\min(A,B)$。
+\textbf{不能统一写成 $O(\sqrt{\min(A,B)})$：}
+当 $A=m,B=m^2$ 时，$B/d$ 在 $d=1,\ldots,m$ 的整数商两两不同，产生 $m$ 段。
+分块只减少求和段数；若每段都临时线性计算 $H(r)$，仍然可能很慢。
+
+\subsection{按数据与资源选前缀和}
+\begin{description}
+\item[上界可预筛，询问多：]
+第~\ref{compact-LinearSieve}~节（第~\pageref{compact-LinearSieve}~页）的
+\texttt{LinearSieve s(L)} 提供 \texttt{s.mu}、\texttt{s.phi}；
+再建前缀和为 $O(L)$ 时间、空间，分块中每次查表 $O(1)$。
+互质矩形直接使用 \texttt{CoprimePairs}；GCD 总和则用 $\varphi$ 的前缀和。
+筛上限需覆盖所查询的前缀下标，矩形只需短边。
+$\mu$ 的前缀可为负，不能用无符号类型；$\varphi$ 前缀不能沿用单项的 \texttt{int}。
+\item[只求少量巨大前缀：]
+第~\ref{compact-DuJiao}~节（第~\pageref{compact-DuJiao}~页）的
+\texttt{DuJiao s(B)} 支持 \texttt{s.mertens(n)} 与 \texttt{s.totient\_sum(n)}，
+分别返回有符号 64 位与 128 位精确整数，当前约定 $0\le n\le10^{11}$。
+$1\le B<\texttt{INT\_MAX}$ 且内存可用；构造参数是预筛上限，不是最大查询值。
+对单次最大参数 $N$，预筛加递归的常用期望时间界为
+$O(B+N/\sqrt B)$，选 $B$ 约 $N^{2/3}$ 得 $O(N^{2/3})$；哈希按期望常数计。
+这不是随便取一个很小 $B$ 就能保证快速。
+\end{description}
+
+\textbf{内存先于理论最优值。} 当前 \texttt{DuJiao} 两张长期前缀表各用 64 位，
+仅这部分就约 $16(B+1)$ 字节；构造时还同时存在 \texttt{LinearSieve} 的三张
+\texttt{int} 表与素数表，缓存另计（按常见 4 字节 \texttt{int}、8 字节 \texttt{long long}）。
+$N=10^{11}$ 时 $N^{2/3}$ 约为 $2.15\times10^7$，两张前缀表已约 345 MB，
+不能不看内存限制就照此开表。多组不同查询会新增缓存，不能直接承诺单次查询的空间界。
+重复参数可复用缓存；不要每查一次前缀就重新构造一个筛对象。
+
+\textbf{优先利用问题本身的化简。} 例如巨大正方形的互质有序对可以直接取
+\texttt{2 * s.totient\_sum(n) - 1}（$n\ge1$），全程保持 128 位。
+一般矩形可把 $H$ 换为 \texttt{mertens}，但各段前缀查询也会触发递归，
+不能把整个嵌套过程仅按外层 $O(\sqrt A+\sqrt B)$ 计时；
+没有额外分析时也不能直接套一个单前缀的 $O(N^{2/3})$ 总界。
+当前 \texttt{CoprimePairs} 不接受杜教筛对象，需自行写相应分块调用。
+
+\textbf{递推从哪来。} 对 $n\ge1$，再用 $\mu*\mathbf1=\varepsilon$ 与
+$\varphi*\mathbf1=\operatorname{id}$ 对 $1,\ldots,n$ 求和并交换次序，得到
+\[
+M(n)=1-\sum_{i=2}^{n}M(\lfloor n/i\rfloor),\qquad
+\Phi(n)=\frac{n(n+1)}2-\sum_{i=2}^{n}\Phi(\lfloor n/i\rfloor).
+\]
+其中 $M(n)=\sum_{i=1}^n\mu(i)$，两式均按等商段乘上段长，
+第二式没有额外的 $i$ 权重。递归只作用于小于 $n$ 的参数；前缀 0 为 0。
+这些结论及分块背景参见
+\href{https://oi-wiki.org/math/number-theory/sqrt-decomposition/}{OI Wiki：数论分块}、
+\href{https://next.oi-wiki.org/math/number-theory/du/}{OI Wiki：杜教筛}。
+涉及乘法时应\emph{先提升类型再乘}；模数下遇到负莫比乌斯和要归一化。
+这里只讲精确计数，若最后除以 2，先完成整数除法再取模，合数模数下不能擅自求 2 的逆元。

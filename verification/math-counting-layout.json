@@ -1,0 +1,219 @@
+{
+  "base_commit": "75ae0b36c41a1e81306f717ace95f9931f2a83f8",
+  "reviewed_pages": {
+    "total_book": {
+      "printed": [
+        492,
+        493,
+        494,
+        495,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508
+      ],
+      "physical": [
+        505,
+        506,
+        507,
+        508,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521
+      ]
+    },
+    "mathematics": {
+      "printed": [
+        136,
+        137,
+        138,
+        139,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152
+      ],
+      "physical": [
+        143,
+        144,
+        145,
+        146,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159
+      ]
+    }
+  },
+  "findings": "All 20 affected/adjacent pages visually inspected. No clipping, overlap, missing glyphs, broken formulas or orphan headings. The complete 38-line orbit example is kept on one page, with intentional preceding whitespace rather than a split else branch.",
+  "pdfs": {
+    "output/pdf/xcpc-template.pdf": "8aecb54599e7c420ebe7be0696d1f36f900e41299c6a742b92279726596abe5b",
+    "output/pdf/xcpc-mathematics.pdf": "3c1296071b65468e8de95f01daa02e9283ba27db58423ca9130141d57b6998a0"
+  },
+  "new_reference_targets": [
+    {
+      "pdf": "xcpc-template",
+      "label": "compact-Binomial",
+      "section": "13.1.1",
+      "printed_page": 123,
+      "physical_page": 136
+    },
+    {
+      "pdf": "xcpc-template",
+      "label": "compact-CoprimePairs",
+      "section": "11.17.1",
+      "printed_page": 74,
+      "physical_page": 87
+    },
+    {
+      "pdf": "xcpc-template",
+      "label": "compact-DuJiao",
+      "section": "11.18.1",
+      "printed_page": 76,
+      "physical_page": 89
+    },
+    {
+      "pdf": "xcpc-template",
+      "label": "compact-LinearSieve",
+      "section": "11.5.1",
+      "printed_page": 40,
+      "physical_page": 53
+    },
+    {
+      "pdf": "xcpc-template",
+      "label": "compact-Mod64",
+      "section": "10.1",
+      "printed_page": 30,
+      "physical_page": 43
+    },
+    {
+      "pdf": "xcpc-template",
+      "label": "knowledge-binomial-choice",
+      "section": "51.34",
+      "printed_page": 508,
+      "physical_page": 521
+    },
+    {
+      "pdf": "xcpc-template",
+      "label": "knowledge-quotient-choice",
+      "section": "51.3",
+      "printed_page": 493,
+      "physical_page": 506
+    },
+    {
+      "pdf": "xcpc-mathematics",
+      "label": "compact-Binomial",
+      "section": "4.1.1",
+      "printed_page": 94,
+      "physical_page": 101
+    },
+    {
+      "pdf": "xcpc-mathematics",
+      "label": "compact-CoprimePairs",
+      "section": "2.17.1",
+      "printed_page": 45,
+      "physical_page": 52
+    },
+    {
+      "pdf": "xcpc-mathematics",
+      "label": "compact-DuJiao",
+      "section": "2.18.1",
+      "printed_page": 47,
+      "physical_page": 54
+    },
+    {
+      "pdf": "xcpc-mathematics",
+      "label": "compact-LinearSieve",
+      "section": "2.5.1",
+      "printed_page": 11,
+      "physical_page": 18
+    },
+    {
+      "pdf": "xcpc-mathematics",
+      "label": "compact-Mod64",
+      "section": "1.1",
+      "printed_page": 1,
+      "physical_page": 8
+    },
+    {
+      "pdf": "xcpc-mathematics",
+      "label": "knowledge-binomial-choice",
+      "section": "8.34",
+      "printed_page": 152,
+      "physical_page": 159
+    },
+    {
+      "pdf": "xcpc-mathematics",
+      "label": "knowledge-quotient-choice",
+      "section": "8.3",
+      "printed_page": 137,
+      "physical_page": 144
+    }
+  ],
+  "validation": {
+    "build": "8 PDFs; final logs without warnings",
+    "cross_volume_links": 13,
+    "existing_dependency_targets": 976,
+    "physical_pages": {
+      "total_book": 563,
+      "mathematics": 191
+    }
+  },
+  "unchanged_pdf_checks": [
+    {
+      "file": "output/pdf/infra.pdf",
+      "identical_page_text": true,
+      "identical_named_destination_pages": true,
+      "different_content_stream_pages": [],
+      "kept_original_bytes": true
+    },
+    {
+      "file": "output/pdf/xcpc-strings.pdf",
+      "identical_page_text": true,
+      "identical_named_destination_pages": true,
+      "different_content_stream_pages": [],
+      "kept_original_bytes": true
+    },
+    {
+      "file": "output/pdf/xcpc-data-structures.pdf",
+      "identical_page_text": true,
+      "identical_named_destination_pages": true,
+      "different_content_stream_pages": [
+        120
+      ],
+      "kept_original_bytes": true
+    },
+    {
+      "file": "output/pdf/xcpc-graphs.pdf",
+      "identical_page_text": true,
+      "identical_named_destination_pages": true,
+      "different_content_stream_pages": [
+        164
+      ],
+      "kept_original_bytes": true
+    },
+    {
+      "file": "output/pdf/xcpc-geometry.pdf",
+      "identical_page_text": true,
+      "identical_named_destination_pages": true,
+      "different_content_stream_pages": [],
+      "kept_original_bytes": true
+    },
+    {
+      "file": "output/pdf/xcpc-misc.pdf",
+      "identical_page_text": true,
+      "identical_named_destination_pages": true,
+      "different_content_stream_pages": [],
+      "kept_original_bytes": true
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "base_commit": "75ae0b36c41a1e81306f717ace95f9931f2a83f8",
+  "scope": "New mathematical models and extracted printed C++ examples; existing knowledge tests, routing and dependency regression. Not a full algorithm regression or new online AC. LeakSanitizer disabled for ptrace compatibility; ASan/UBSan tested.",
+  "checks": [
+    {
+      "command": "python3 tests/math_knowledge_mobius.py",
+      "returncode": 0,
+      "stdout": "PASS (normal): 20561 current C++ API cases, including exact LaTeX listing\nPASS: 18874 independent Python formula/model cases\n  DuJiao identities: 1000\n  array gcd histogram coefficients: 9330\n  inversion sequences: 240\n  ordered/unordered conversions: 360\n  quotient partitions: 1681\n  skewed-rectangle partitions: 100\n  trial-factor base checks: 120\n  weighted gcd identities: 5043\n  zero-axis corrections: 1000\nFour DuJiao pre-sieve limits; repeated, zero and cache-cleared queries checked.\nLocal evidence only; no online AC, huge-N benchmark or new algorithm claim.\n",
+      "stderr": ""
+    },
+    {
+      "command": "SANITIZE=1 ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1 python3 tests/math_knowledge_mobius.py",
+      "returncode": 0,
+      "stdout": "PASS (ASan/UBSan): 20561 current C++ API cases, including exact LaTeX listing\nPASS: 18874 independent Python formula/model cases\n  DuJiao identities: 1000\n  array gcd histogram coefficients: 9330\n  inversion sequences: 240\n  ordered/unordered conversions: 360\n  quotient partitions: 1681\n  skewed-rectangle partitions: 100\n  trial-factor base checks: 120\n  weighted gcd identities: 5043\n  zero-axis corrections: 1000\nFour DuJiao pre-sieve limits; repeated, zero and cache-cleared queries checked.\nLocal evidence only; no online AC, huge-N benchmark or new algorithm claim.\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_orbits.py",
+      "returncode": 0,
+      "stdout": "PASS: 988 extracted C++ cases (optimized), including 128 wide cases\nPASS: 97738 labeled words per symmetry mode; 448 inventory orbits checks\nPASS: 3120 binary DP checks; 36 reflection cycle checks\nLimits: exhaustive n=1..8, k=0..4; inventory k<=3; extra n<=10000 and 64-bit k/M\nLocal knowledge-example tests only; no new OJ claim\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_orbits.py --sanitize",
+      "returncode": 0,
+      "stdout": "PASS: 988 extracted C++ cases (ASan/UBSan), including 128 wide cases\nPASS: 97738 labeled words per symmetry mode; 448 inventory orbits checks\nPASS: 3120 binary DP checks; 36 reflection cycle checks\nLimits: exhaustive n=1..8, k=0..4; inventory k<=3; extra n<=10000 and 64-bit k/M\nLocal knowledge-example tests only; no new OJ claim\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_combinatorics.py",
+      "returncode": 0,
+      "stdout": "PASS: 9271 current C++ API cases; independent object enumeration and exact binomials\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_probability.py",
+      "returncode": 0,
+      "stdout": "PASS: exact probability examples; 1793 brute-force game positions; SG through 1000\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/math_knowledge_integration.py",
+      "returncode": 0,
+      "stdout": "PASS: 15 knowledge sections shared once; math-only routing; section/page references resolve\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tests/template_dependencies.py",
+      "returncode": 0,
+      "stdout": "200 algorithms, 128 direct edges, 198 complete usages and six local transitive closures PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "sha256": {
+    "docs/knowledge-mobius.tex": "de27677fc6f0116fd0e360951119615b5636e3300cda76c0b1e788ebc607c1a4",
+    "docs/knowledge-orbits.tex": "7e6e9fd7a00b28a07b18cdc259a5ec30ecaf51c4557f2bd069573cee00a102c7",
+    "docs/mathematics.tex": "c1c3386cc38db47e15fe6f39e6fbeff7b2e063f2a4475d50bcee59dc9d41db8f",
+    "tools/volumes.py": "d07a68c2eb57b96f0fd8faabee5b04c2b03dcb5ca119e53520c20d1f779b9f23",
+    "tests/math_knowledge_mobius.py": "9c13dfd5e9fcb3bf2b3fd8ad9e42749497018c84d9422641ec126efe07262271",
+    "tests/math_knowledge_orbits.py": "36b9e568e3fd7f4c8d59e4e4cc04480c5bc6340d45901236f07459f16227e97a",
+    "tests/math_knowledge_integration.py": "8920e74a9825f95c4db5762ba86bf0cec12f25db357dea90b1dee9d99a7974b6"
+  }
+}
