@@ -4148,5 +4148,35 @@
     "local_reports": [
       "verification/centroid-sum.json"
     ]
+  },
+  {
+    "symbol": "rectangle_union_area",
+    "problem": "Library Checker area_of_union_of_rectangles",
+    "title": "Area of Union of Rectangles",
+    "url": "https://judge.yosupo.jp/problem/area_of_union_of_rectangles",
+    "classification": "Official standalone Library Checker task.",
+    "statement_checked": true,
+    "checked_date": "2026-09-30",
+    "limits": "1<=N<=500000;0<=l<r<=1e9;0<=d<u<=1e9",
+    "adapter": "Input order l,d,r,u. Exact int128 core area narrows safely to signed64 because all input lies in [0,1e9]^2.",
+    "implementation": "existing",
+    "source": "src/compact/rectangle_union.hpp",
+    "tested_api": [
+      "rectangle_union_area"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Local independent grid and maximum-scale tests; online AC and official generator suite pending.",
+    "driver": "verify/library_checker/area_of_union_of_rectangles.compact.cpp",
+    "local_reports": [
+      "verification/rectangle-union.json"
+    ],
+    "statement_sources": [
+      "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/area_of_union_of_rectangles/task.md"
+    ]
   }
 ]

@@ -210,3 +210,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | line_circle_i64 | [example-151](usage/example-151.cpp) | locally_checked_example |
 | circle_intersections_i64 | [example-152](usage/example-152.cpp) | locally_checked_example |
 | IntegerTangents | [example-156](usage/example-156.cpp) | locally_checked_example |
+| rectangle_union_area | [example-202](usage/example-202.cpp) | locally_checked_example |

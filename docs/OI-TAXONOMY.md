@@ -204,6 +204,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | convex_contains_i64 | 计算几何 → 凸包 | direct |  |
 | integer_hull | 计算几何 → 凸包 | direct |  |
 | minkowski_sum | 计算几何 → 凸包 | related | 固定导航没有独立 Minkowski 和条目，按凸包的相关应用归档。 |
+| rectangle_union_area | 计算几何 → 扫描线 | direct | 整数轴对齐矩形面积并；不含周长和动态更新。 |
 | convex_diameter2 | 计算几何 → 旋转卡壳 | direct |  |
 | IntegerHalfplanes | 计算几何 → 半平面交 | direct |  |
 | ClosestPair | 计算几何 → 平面最近点对 | direct |  |

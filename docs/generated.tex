@@ -5467,6 +5467,38 @@ minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返
 
 \lstinputlisting[firstline=21,lastline=53,firstnumber=16]{../src/compact/support_hull.hpp}
 
+\newpage
+
+\Needspace{680pt}
+
+\chapter{扫描线}
+
+\section{整数轴对齐矩形面积并}\label{compact-rectangle_union_area}\index{rectangle\_union\_area}
+
+调用 rectangle\_union\_area(rect)，每项按左、下、右、上存储四个 long long。端点有序，各坐标绝对值不超过 10$^{18}$；零面积矩形忽略，空集返回 0。返回精确 \_\_int128 面积；边界接触不增加面积，输入不变，多次调用独立。扫描线处理进出事件，纵向叶子代表相邻坐标间的半开区间。cover 仅记录整段覆盖次数，不下传；非零时取整段长度，为零时合并孩子。同横坐标事件间宽度为 0。时间 O(n log(n+1))、空间 O(n)，递归深度 O(log(n+1))；矩形数至多 268435454，且内存可用。题目坐标在 0 到 10$^{9}$，故驱动可将结果转 long long；一般输入不要直接窄化。不含周长、浮点或动态更新。
+
+\lstinputlisting[firstline=14,lastline=37]{../src/compact/rectangle_union.hpp}
+
+\newpage
+
+\noindent 覆盖长度维护与横向面积累加（接上页同一函数）：
+
+\lstinputlisting[firstline=38,lastline=61,firstnumber=25]{../src/compact/rectangle_union.hpp}
+
+\Needspace{307pt}
+
+\subsection*{模板题使用：Library Checker Area of Union of Rectangles}
+
+\label{usage-example-202}
+
+题意：输入N个轴对齐矩形，每行依次为l,d,r,u。1$\le$N$\le$500000，0$\le$l<r$\le$10\textasciicircum{}9，0$\le$d<u$\le$10\textasciicircum{}9。直接按左、下、右、上存储，计算并集面积；不是面积和。所有矩形都在边长10\textasciicircum{}9的正方形内，最终面积$\le$10\textasciicircum{}18，可把\_\_int128结果转成long long输出。
+
+所需模板：\hyperref[compact-rectangle_union_area]{rectangle\_union\_area}（第~\pageref{compact-rectangle_union_area}~页，\ref{compact-rectangle_union_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/area_of_union_of_rectangles}
+
+\lstinputlisting{usage/example-202.cpp}
+
 \Needspace{468pt}
 
 \chapter{旋转卡壳}

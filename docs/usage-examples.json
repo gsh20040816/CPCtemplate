@@ -2477,5 +2477,16 @@
       "Fenwick",
       "CentroidSum"
     ]
+  },
+  {
+    "id": "example-202",
+    "symbol": "rectangle_union_area",
+    "problem": "Library Checker Area of Union of Rectangles",
+    "url": "https://judge.yosupo.jp/problem/area_of_union_of_rectangles",
+    "summary": "输入N个轴对齐矩形，每行依次为l,d,r,u。1≤N≤500000，0≤l<r≤10^9，0≤d<u≤10^9。直接按左、下、右、上存储，计算并集面积；不是面积和。所有矩形都在边长10^9的正方形内，最终面积≤10^18，可把__int128结果转成long long输出。",
+    "driver": "verify/library_checker/area_of_union_of_rectangles.compact.cpp",
+    "requires": [
+      "rectangle_union_area"
+    ]
   }
 ]

@@ -28,6 +28,7 @@
 - `verify/examples/tree_path_products.compact.cpp`
 - `verify/examples/unit_flow_edges.compact.cpp`
 - `verify/hdu/1814.compact.cpp`
+- `verify/library_checker/area_of_union_of_rectangles.compact.cpp`
 - `verify/library_checker/assignment.compact.cpp`
 - `verify/library_checker/associative_array.cc.compact.cpp`
 - `verify/library_checker/biconnected_components.compact.cpp`

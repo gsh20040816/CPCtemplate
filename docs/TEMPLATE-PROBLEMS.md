@@ -170,6 +170,7 @@
 | `PersistentOrderedTreap` | [Luogu P3835](https://www.luogu.com.cn/problem/P3835) | 1<=operations<=500000; \|key\|<=1e9; 0<=v_i<i. Rendered official text did not expose memory/time limits. | 待编写驱动/提交 | 待核验 |
 | `SegmentBeats` | [Library Checker range_chmin_chmax_add_range_sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | N,Q<=200000; actual \|a_i\|<=1e12 throughout; \|update b\|<=2e12;0<=l<r<=N | 待编写驱动/提交 | 待核验 |
 | `CentroidSum` | [Luogu P6329](https://www.luogu.com.cn/problem/P6329) | 1<=n,m<=100000;1<=weights,newvalue<=10000;unit edges;0<=decoded k<=n-1 | 待编写驱动/提交 | 待核验 |
+| `rectangle_union_area` | [Library Checker area_of_union_of_rectangles](https://judge.yosupo.jp/problem/area_of_union_of_rectangles) | 1<=N<=500000;0<=l<r<=1e9;0<=d<u<=1e9 | 待编写驱动/提交 | 待核验 |
 
 ## 适配与证据范围
 
@@ -1578,6 +1579,16 @@ Explicitly designated standalone template in the official statement; original so
 Decode x and y/k with last query output before 1-based to 0-based conversion. Type0 queries update last; type1 assignments do not. Build once on connected fixed tree.
 
 BFS/weight-scan oracle, rebuild/signed core tests and independently XOR-encoded complete driver passed normal+ASan/UBSan; maximum-size topology tests provide256MiB stack. Online AC, target stack conditions and ranking pending.
+
+### Library Checker area_of_union_of_rectangles / rectangle_union_area
+
+Official standalone Library Checker task.
+
+Input order l,d,r,u. Exact int128 core area narrows safely to signed64 because all input lies in [0,1e9]^2.
+
+Local independent grid and maximum-scale tests; online AC and official generator suite pending.
+
+原始题面与参数：[来源 1](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/area_of_union_of_rectangles/task.md)
 
 ## 榜单口径
 

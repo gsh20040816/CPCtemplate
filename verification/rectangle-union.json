@@ -1,0 +1,230 @@
+{
+  "base_commit": "70f6c78dbc4796d06d29217941867f498cec803a",
+  "scope": "Targeted rectangle union core, driver and exact printed usage; not full library, official generator suite, LSan or online AC.",
+  "checks": [
+    {
+      "mode": "normal",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "tests/rectangle_union.cpp",
+        "-o",
+        "build/rectangle-union/unit-normal"
+      ],
+      "run": [
+        "build/rectangle-union/unit-normal"
+      ],
+      "case": 0,
+      "returncode": 0,
+      "stdout": "Rectangle union: 46656 exhaustive triples, 4000 grid oracles with permutations/translations, int128 extremes and three n=500000 families PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/rectangle-union/printed.cpp",
+        "-o",
+        "build/rectangle-union/printed-normal"
+      ],
+      "run": [
+        "build/rectangle-union/printed-normal"
+      ],
+      "case": 0,
+      "returncode": 0,
+      "stdout": "8\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/rectangle-union/printed.cpp",
+        "-o",
+        "build/rectangle-union/printed-normal"
+      ],
+      "run": [
+        "build/rectangle-union/printed-normal"
+      ],
+      "case": 1,
+      "returncode": 0,
+      "stdout": "1000000000000000000\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "command": [
+        "python3",
+        "tests/rectangle_union_application.py"
+      ],
+      "returncode": 0,
+      "stdout": "Rectangle union driver: 180 cell-oracle inputs and three N=500000 cases PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "tests/rectangle_union.cpp",
+        "-o",
+        "build/rectangle-union/unit-sanitizer"
+      ],
+      "run": [
+        "build/rectangle-union/unit-sanitizer"
+      ],
+      "case": 0,
+      "returncode": 0,
+      "stdout": "Rectangle union: 46656 exhaustive triples, 4000 grid oracles with permutations/translations, int128 extremes and three n=500000 families PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/rectangle-union/printed.cpp",
+        "-o",
+        "build/rectangle-union/printed-sanitizer"
+      ],
+      "run": [
+        "build/rectangle-union/printed-sanitizer"
+      ],
+      "case": 0,
+      "returncode": 0,
+      "stdout": "8\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "compile": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/rectangle-union/printed.cpp",
+        "-o",
+        "build/rectangle-union/printed-sanitizer"
+      ],
+      "run": [
+        "build/rectangle-union/printed-sanitizer"
+      ],
+      "case": 1,
+      "returncode": 0,
+      "stdout": "1000000000000000000\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "command": [
+        "python3",
+        "tests/rectangle_union_application.py"
+      ],
+      "returncode": 0,
+      "stdout": "Rectangle union driver: 180 cell-oracle inputs and three N=500000 cases PASS\n",
+      "stderr": ""
+    }
+  ],
+  "sha256": {
+    "src/compact/rectangle_union.hpp": "13eafa899f70ac08d005411b30f309f923ff4d51bdcbd0db0528f4f69f8cbc1b",
+    "tests/rectangle_union.cpp": "8b4989332b47fb90009aca858a6d86b0b773c7349c3a77622460a4f11eee275f",
+    "tests/rectangle_union_application.py": "85261f8429268c8c3cef3acc3e13e21f8e416c8bac51975c22742d847f43704c",
+    "verify/library_checker/area_of_union_of_rectangles.compact.cpp": "e61538c37302366e570f998cfcc1456d2c3d2b6a38b754d3c8383c540e722d64"
+  },
+  "pdf_review": {
+    "physical_pages": {
+      "output/pdf/xcpc-template.pdf": [
+        491,
+        492,
+        493,
+        494
+      ],
+      "output/pdf/xcpc-geometry.pdf": [
+        38,
+        39,
+        40,
+        41
+      ]
+    },
+    "finding": "Rendered and visually inspected all eight pages; readable whole usage, source continuity, no clipping or orphan heading. All eight final logs warning-free; 988 dependency groups and 13 infra external links checked.",
+    "restored_unaffected": [
+      {
+        "file": "output/pdf/xcpc-misc.pdf",
+        "restored_identical_text_and_destinations": true,
+        "pages": 12
+      },
+      {
+        "file": "output/pdf/xcpc-template.pdf",
+        "restored_identical_text_and_destinations": false,
+        "pages": 582
+      },
+      {
+        "file": "output/pdf/xcpc-strings.pdf",
+        "restored_identical_text_and_destinations": true,
+        "pages": 33
+      },
+      {
+        "file": "output/pdf/xcpc-data-structures.pdf",
+        "restored_identical_text_and_destinations": true,
+        "pages": 135
+      },
+      {
+        "file": "output/pdf/xcpc-graphs.pdf",
+        "restored_identical_text_and_destinations": true,
+        "pages": 182
+      },
+      {
+        "file": "output/pdf/xcpc-geometry.pdf",
+        "restored_identical_text_and_destinations": false,
+        "pages": 64
+      },
+      {
+        "file": "output/pdf/xcpc-mathematics.pdf",
+        "restored_identical_text_and_destinations": true,
+        "pages": 191
+      },
+      {
+        "file": "output/pdf/infra.pdf",
+        "restored_identical_text_and_destinations": true,
+        "pages": 8
+      }
+    ]
+  },
+  "pdf_sha256": {
+    "output/pdf/xcpc-misc.pdf": "65680995955f8b7fcee50e2d59bf870863317e71215def68394ccc3f8081e8dc",
+    "output/pdf/xcpc-template.pdf": "03f11bdc48dbd9d237124437b7f7e5360a65e7335e915cc7d4eb74fbe551eb89",
+    "output/pdf/xcpc-strings.pdf": "757ae46e1b964374786d4ffea0b57ad52410d48724be900e502aacda9ce116fc",
+    "output/pdf/xcpc-data-structures.pdf": "d90e70fdc6495c09efbd3872ff11581290bf1a5bd2981073cba736d7fe78a70b",
+    "output/pdf/xcpc-graphs.pdf": "4212f59b432985812acbed497795b0fb6a43ac933b1d627bd2f9b657a3ca47ab",
+    "output/pdf/xcpc-geometry.pdf": "bdee0bc9c22dbc20be9a4b1d64106f8e13f9008764de0beaad8d88b7f9546a0d",
+    "output/pdf/xcpc-mathematics.pdf": "4e9ed8fc7bc619f4e97057bacae436fdd5f4af678a14f0c54cd2deecc1130612",
+    "output/pdf/infra.pdf": "cf2fa1a585b6336ea4ebec26c733fb3a9879cbbbeb0acf3f174df4a5f7868ef4"
+  }
+}
