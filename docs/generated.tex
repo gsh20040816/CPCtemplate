@@ -410,6 +410,20 @@ minimum\_rotation(s) 返回字典序最小循环表示的起点（0-based），�
 
 \lstinputlisting[firstline=98,lastline=124]{../src/compact/string.hpp}
 
+\Needspace{299pt}
+
+\subsection*{模板题使用：Luogu P13270【模板】最小表示法}
+
+\label{usage-example-209}
+
+题意：给定长度 1..10\textasciicircum{}7 的小写字母字符串，输出所有循环位移中字典序最小的字符串。minimum\_rotation 返回 0-based 起点，使用 rotate 原地重排后输出；O(n) 时间，算法本体 O(1) 额外空间。
+
+所需模板：\hyperref[compact-minimum_rotation]{minimum\_rotation}（第~\pageref{compact-minimum_rotation}~页，\ref{compact-minimum_rotation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P13270}
+
+\lstinputlisting{usage/example-209.cpp}
+
 \part{数学}
 
 \Needspace{312pt}
@@ -1058,6 +1072,78 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 \lstinputlisting[firstline=41,firstnumber=41]{usage/example-194.cpp}
 
+\Needspace{180pt}
+
+\section{数论分块}
+
+\subsection{整除分块：前缀和来源决定算法}\label{knowledge-quotient-choice}
+\index{floor quotient grouping}\index{筛法选型}
+对 $H(t)=\sum_{i=1}^th(i)$、$H(0)=0$，设
+$q_A=\lfloor A/l\rfloor,q_B=\lfloor B/l\rfloor$。
+两个商同时不变的最大右端点为
+\[
+r=\min\!\left(\left\lfloor A/q_A\right\rfloor,
+                 \left\lfloor B/q_B\right\rfloor\right),
+\quad\text{整块贡献 }(H(r)-H(l-1))q_Aq_B.
+\]
+循环只到 $l\le\min(A,B)$，所以进入循环时两个商均非零；零边长直接得到空和。
+例如 $A=10,B=8,l=3$，只按 $B$ 得到 $r=4$，而 $\lfloor10/3\rfloor=3,\lfloor10/4\rfloor=2$，必须取 $r=3$。
+不应只按一边分块再假定另一边的商相同。
+
+单个 $n$ 的商至多 $O(\sqrt n)$ 种；双商分块的边界来自两组边界的并集，
+段数为 $O(\sqrt A+\sqrt B)$，同时不超过 $\min(A,B)$。
+\textbf{不能统一写成 $O(\sqrt{\min(A,B)})$：}
+当 $A=m,B=m^2$ 时，$B/d$ 在 $d=1,\ldots,m$ 的整数商两两不同，产生 $m$ 段。
+分块只减少求和段数；若每段都临时线性计算 $H(r)$，仍然可能很慢。
+
+\subsubsection{按数据与资源选前缀和}
+\begin{description}
+\item[上界可预筛，询问多：]
+第~\ref{compact-LinearSieve}~节（第~\pageref{compact-LinearSieve}~页）的
+\texttt{LinearSieve s(L)} 提供 \texttt{s.mu}、\texttt{s.phi}；
+再建前缀和为 $O(L)$ 时间、空间，分块中每次查表 $O(1)$。
+互质矩形直接使用 \texttt{CoprimePairs}；GCD 总和则用 $\varphi$ 的前缀和。
+筛上限需覆盖所查询的前缀下标，矩形只需短边。
+$\mu$ 的前缀可为负，不能用无符号类型；$\varphi$ 前缀不能沿用单项的 \texttt{int}。
+\item[只求少量巨大前缀：]
+第~\ref{compact-DuJiao}~节（第~\pageref{compact-DuJiao}~页）的
+\texttt{DuJiao s(B)} 支持 \texttt{s.mertens(n)} 与 \texttt{s.totient\_sum(n)}，
+分别返回有符号 64 位与 128 位精确整数，当前约定 $0\le n\le10^{11}$。
+$1\le B<\texttt{INT\_MAX}$ 且内存可用；构造参数是预筛上限，不是最大查询值。
+对单次最大参数 $N$，预筛加递归的常用期望时间界为
+$O(B+N/\sqrt B)$，选 $B$ 约 $N^{2/3}$ 得 $O(N^{2/3})$；哈希按期望常数计。
+这不是随便取一个很小 $B$ 就能保证快速。
+\end{description}
+
+\textbf{内存先于理论最优值。} 当前 \texttt{DuJiao} 两张长期前缀表各用 64 位，
+仅这部分就约 $16(B+1)$ 字节；构造时还同时存在 \texttt{LinearSieve} 的三张
+\texttt{int} 表与素数表，缓存另计（按常见 4 字节 \texttt{int}、8 字节 \texttt{long long}）。
+$N=10^{11}$ 时 $N^{2/3}$ 约为 $2.15\times10^7$，两张前缀表已约 345 MB，
+不能不看内存限制就照此开表。多组不同查询会新增缓存，不能直接承诺单次查询的空间界。
+重复参数可复用缓存；不要每查一次前缀就重新构造一个筛对象。
+
+\textbf{优先利用问题本身的化简。} 例如巨大正方形的互质有序对可以直接取
+\texttt{2 * s.totient\_sum(n) - 1}（$n\ge1$），全程保持 128 位。
+一般矩形可把 $H$ 换为 \texttt{mertens}，但各段前缀查询也会触发递归，
+不能把整个嵌套过程仅按外层 $O(\sqrt A+\sqrt B)$ 计时；
+没有额外分析时也不能直接套一个单前缀的 $O(N^{2/3})$ 总界。
+当前 \texttt{CoprimePairs} 不接受杜教筛对象，需自行写相应分块调用。
+
+\textbf{递推从哪来。} 对 $n\ge1$，再用 $\mu*\mathbf1=\varepsilon$ 与
+$\varphi*\mathbf1=\operatorname{id}$ 对 $1,\ldots,n$ 求和并交换次序，得到
+\[
+M(n)=1-\sum_{i=2}^{n}M(\lfloor n/i\rfloor),\qquad
+\Phi(n)=\frac{n(n+1)}2-\sum_{i=2}^{n}\Phi(\lfloor n/i\rfloor).
+\]
+其中 $M(n)=\sum_{i=1}^n\mu(i)$，两式均按等商段乘上段长，
+第二式没有额外的 $i$ 权重。递归只作用于小于 $n$ 的参数；前缀 0 为 0。
+这些结论及分块背景参见
+\href{https://oi-wiki.org/math/number-theory/sqrt-decomposition/}{OI Wiki：数论分块}、
+\href{https://next.oi-wiki.org/math/number-theory/du/}{OI Wiki：杜教筛}。
+涉及乘法时应\emph{先提升类型再乘}；模数下遇到负莫比乌斯和要归一化。
+这里只讲精确计数，若最后除以 2，先完成整数除法再取模，合数模数下不能擅自求 2 的逆元。
+
+
 \newpage
 
 \Needspace{476pt}
@@ -1085,6 +1171,139 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 题目：\url{https://www.luogu.com.cn/problem/P2522}
 
 \lstinputlisting{usage/example-195.cpp}
+
+\subsection{整除与反演：先辨认求和方向}\label{knowledge-mobius-model}
+\index{Dirichlet convolution}\index{Mobius inversion}\index{GCD 加权求和}
+以下数论函数定义在\textbf{正整数}上；数组下标 0 只是前缀和的占位。
+狄利克雷卷积、单位元与两条常用恒等式为
+\[
+(f*g)(n)=\sum_{d\mid n}f(d)g(n/d),\qquad
+\varepsilon(n)=[n=1],\quad \mathbf1(n)=1,\quad \operatorname{id}(n)=n.
+\]
+\[
+\mu*\mathbf1=\varepsilon,\qquad \varphi*\mathbf1=\operatorname{id}.
+\]
+本节按“难以直接统计的量、容易统计的整除条件、换序后的权重”推导，
+不要看到 GCD 就直接在原式前乘一个 $\mu$。
+
+\subsubsection{约数和与倍数和不能混用}
+\textbf{约数方向。}若 $F(n)=\sum_{d\mid n}f(d)$，则
+$f(n)=\sum_{d\mid n}\mu(d)F(n/d)$。这不要求 $f$ 积性；
+用卷积写成 $F=f*\mathbf1$，再卷积 $\mu$ 就消掉了 $\mathbf1$。
+积性只在后续选用筛法或拆质数幂时才需要。
+
+\textbf{倍数方向。}若 $E(k)$ 仅在 $1\le k\le V$ 非零，且
+$G(d)=\sum_{j\ge1,\,dj\le V}E(dj)$，则
+\[
+E(k)=\sum_{t=1}^{\lfloor V/k\rfloor}\mu(t)G(kt).
+\]
+代入 $G$ 后，每个 $E(ks)$ 的系数是 $\sum_{t\mid s}\mu(t)=[s=1]$。
+这里求的是 $k$ 的\emph{倍数}，不能改成 $k$ 的约数；有限支持保证换序合法，
+无限级数还须另外证明收敛，不能把竞赛里的有限证明直接外推。
+
+\textbf{例一：数组中互质的不同下标对。}
+正整数数组 $a_1,\ldots,a_n\le V$，统计 $i<j$ 且 $\gcd(a_i,a_j)=1$。
+令 $c_d=\#\{i:d\mid a_i\}$，则 $G(d)=\binom{c_d}{2}$ 统计 GCD 被 $d$ 整除的下标对，
+答案是 $E(1)=\sum_{d=1}^V\mu(d)\binom{c_d}{2}$。
+例如数组 $(2,3,4,6)$，非零相关项给出 $6-3-1=2$，恰为下标对应的 $(2,3),(3,4)$。
+重复值仍按下标区分：$(1,1,2)$ 的三个下标对都互质，答案为 3。
+既然已用 $\binom{c_d}{2}$ 排除了相同下标，就不能再减去一个“自配对数”。
+
+从频率表求所有 $c_d$，枚举 $d$ 的倍数，总时间
+$\sum_{d\le V}O(V/d)=O(V\log V)$、空间 $O(V)$；
+只求互质对，再筛出 $\mu$ 并线性累加即可。
+若要全部 $E(k)$，也可从大到小做
+$E(k)=G(k)-\sum_{j\ge2,\,kj\le V}E(kj)$，同为 $O(V\log V)$。
+数值 $V$ 太大时不能因为 $n$ 小就开长度 $V$ 的数组，须改为分解、枚举实际约数等其他方案。
+
+\subsubsection{GCD 权值先反演，再交换求和}
+设所求为 $S=\sum_{x=1}^A\sum_{y=1}^B w(\gcd(x,y))$。
+先定义 $h=\mu*w$，于是 $w=h*\mathbf1$；再将公共约数提到外层：
+\[
+S=\sum_{x=1}^A\sum_{y=1}^B\sum_{d\mid x,\,d\mid y}h(d)
+=\sum_{d=1}^{\min(A,B)}h(d)
+\left\lfloor\frac Ad\right\rfloor\left\lfloor\frac Bd\right\rfloor.
+\]
+这同时涵盖互质计数 $w(t)=[t=1]$、$h=\mu$，以及 GCD 总和 $w(t)=t$、$h=\varphi$。
+乘出来的是\textbf{卷积后的 $h(d)$}，一般不是 $\mu(d)w(d)$。
+
+\textbf{例二：$[1,3]\times[1,4]$ 的 GCD 总和。}
+按三行直接求得 $4+6+6=16$；按上式得到
+\[
+\varphi(1)\cdot3\cdot4+\varphi(2)\cdot1\cdot2
++\varphi(3)\cdot1\cdot1=12+2+2=16.
+\]
+若误用 $\mu(d)d$ 作系数，结果变成 $12-4-3=5$。
+已知 $h$ 的前缀和后可按第~\ref{knowledge-quotient-choice}~节分块；
+不知道前缀和如何高效取得时，“反演完了”还不等于算法已经足够快。
+基本反演恒等式参见
+\href{https://oi-wiki.org/math/number-theory/mobius/}{OI Wiki：莫比乌斯反演}。
+
+
+
+\subsection{GCD 计数：缩放、边界与对称性}\label{knowledge-gcd-domains}
+\index{互质数对}\index{无序数对}
+记 $C(A,B)$ 为 $[1,A]\times[1,B]$ 中的\textbf{有序}互质数对数，任一边为 0 时为 0。
+第~\ref{compact-CoprimePairs}~节（第~\pageref{compact-CoprimePairs}~页）的
+\texttt{CoprimePairs c(L)} 预筛至 $L$，\texttt{c.count(A,B)} 就是 $C(A,B)$；
+要求 $A,B$ 为非负 \texttt{int} 且 $\min(A,B)\le L$。
+它不包括坐标轴，不会自动去掉 $x=y$，也不会替题目把有序对变成无序对。
+
+\subsubsection{恰好等于 \texorpdfstring{$k$}{k}：先缩放整除对象，再做矩形容斥}
+当 $k\ge1$ 且 $x,y>0$，$\gcd(x,y)=k$ 等价于
+$x=ku,y=kv$ 且 $\gcd(u,v)=1$。
+对闭区间 $a\le x\le b$、$c\le y\le d$，其中 $a,c\ge1$，令
+\[
+A=\lfloor b/k\rfloor,\quad A_0=\lfloor(a-1)/k\rfloor,\qquad
+B=\lfloor d/k\rfloor,\quad B_0=\lfloor(c-1)/k\rfloor.
+\]
+答案为 $C(A,B)-C(A_0,B)-C(A,B_0)+C(A_0,B_0)$。
+$A_0$ 统计严格小于 $a$ 的 $k$ 的倍数；应\textbf{先减 1 再除}，
+一般不等于 $\lfloor a/k\rfloor-1$。当 $k>\min(b,d)$ 时答案自动为 0。
+
+\textbf{例三：$[3,8]\times[5,10]$ 内 GCD 恰为 2。}
+缩放后为 $[2,4]\times[3,5]$，前缀四项为
+$C(4,5)-C(1,5)-C(4,2)+C(1,2)=15-5-6+2=6$。
+原坐标中的六对是 $(4,6),(4,10),(6,8),(6,10),(8,6),(8,10)$。
+当前接口的完整调用可写为：
+% BEGIN mobius-rectangle-example
+\begin{lstlisting}
+int a = 3, b = 8, c = 5, d = 10, k = 2;
+CoprimePairs solver(min(b / k, d / k));
+long long answer = solver.rectangle(a, b, c, d, k); // 6
+\end{lstlisting}
+% END mobius-rectangle-example
+多测可一次预筛至所有查询的 $\max\min(b/k,d/k)$ 后复用。
+这里的 $a,b,c,d,k$ 是正 \texttt{int}，$a\le b,c\le d$；
+接口本身不是 64 位大端点版本，不能把大整数截断后传入。
+
+\subsubsection{去掉顺序之前，先检查交换是否仍在定义域内}
+\textbf{同一正整数区间 $I$。} 设 $T$ 为 $I\times I$ 中 GCD 为 $k$ 的有序对数，
+对角线上只有 $(k,k)$ 可能合法。令 $\delta=[k\in I]$，则
+\[
+\#\{x<y\}=\frac{T-\delta}{2},\qquad
+\#\{x\le y\}=\frac{T+\delta}{2}.
+\]
+只有定义域在交换 $x,y$ 后不变，才能将非对角线两两配对。
+例如 $C(5,5)=19$，互质的 $x<y$ 有 9 对、$x\le y$ 有 10 对。
+而 $C(2,3)=5$：其中 $(1,3),(2,3)$ 的交换不在矩形内，不能把 5 直接除以 2。
+若题目要求不同下标，即使两个值相同也可能是合法对象，应回到整除反演建模（第~\ref{knowledge-mobius-model}~节，第~\pageref{knowledge-mobius-model}~页）的频率计数。
+
+\textbf{正方形可进一步化简。} 对 $n\ge1$，按较大的坐标 $y$ 分类，
+$x<y$ 且互质的数量为 $\sum_{y=2}^n\varphi(y)=\Phi(n)-1$，故
+\[
+C(n,n)=2\Phi(n)-1,\qquad \Phi(n)=\sum_{i=1}^n\varphi(i).
+\]
+例如 $\Phi(5)=10$，立即得到 19、9、10 三种计数。
+$n=0$ 单独返回 0，不能得到 $-1$。
+这个化简还能避免为一个正方形答案逐块查询莫比乌斯前缀和。
+
+\textbf{含零或负数时另外建模。} 正整数反演式不能直接包含 $\mu(0)$。
+按通常 $\gcd(0,y)=|y|$，若非负矩形包含坐标轴，GCD 为 $k>0$ 的轴上候选只有
+$(0,k),(k,0)$；分别判断是否落在范围内，再加到正整数部分。
+$(0,0)$ 的 GCD 通常定义为 0，题面另有约定时从其约定；负数需要处理绝对值与重数。
+
+
 
 \Needspace{636pt}
 
@@ -1734,6 +1953,141 @@ polynomial\_shift<mod=998244353,primitive=3>(f,c) 返回 f(x+c) 的升幂系数�
 
 \lstinputlisting{usage/example-30.cpp}
 
+\Needspace{180pt}
+
+\section{符号化方法}
+
+\subsection{生成函数建模到模板：三个可核验例子}\label{knowledge-generating-examples}
+下面按“约束、因子、取系数、截断、算法”走完建模。
+记 $N$ 为所求最大次数、$L=N+1$ 为数组长度，$M(L)=O(L\log L)$ 为 NTT 乘法复杂度。
+第~\ref{compact-NttConvolution}~节（第~\pageref{compact-NttConvolution}~页）的 \texttt{NttConvolution<p,g>} 可指定素数与原根；
+\texttt{FpsInverse}（第~\ref{compact-FpsInverse}~节，第~\pageref{compact-FpsInverse}~页）、
+\texttt{FpsFunctions}（第~\ref{compact-FpsFunctions}~节，第~\pageref{compact-FpsFunctions}~页）、
+\texttt{FpsPower}（第~\ref{compact-FpsPower}~节，第~\pageref{compact-FpsPower}~页）
+当前固定为 $p=998244353$。
+这些 FPS 操作的长度参数 $n$ 表示\emph{项数}，求 $x^N$ 必须传 $N+1$。
+
+\subsubsection{例一：不同盒子、相同球、每盒有上下界（OGF 乘积）}
+盒子 $i$ 要求 $l_i\le a_i\le u_i$，总数 $\sum a_i=N$。
+令 $b_i=a_i-l_i$、$c_i=u_i-l_i$、$R=N-\sum l_i$。
+若有 $u_i<l_i$ 或 $R<0$，答案为 0；否则所求为
+\[
+[x^R]\prod_{i=1}^k(1+x+\cdots+x^{c_i}).
+\]
+各因子选一个次数，唯一对应一个盒子的数量，所以系数不乘球的排列数。
+例如容量为 $(2,3,1)$、下界均为 0、总数为 4，方案恰为
+\[
+(1,3,0),\ (2,2,0),\ (0,3,1),\ (1,2,1),\ (2,1,1),
+\]
+答案是 5。零容量的因子为 1，不应当删除这个盒子所携带的其他条件。
+
+\textbf{截断。}只保留 $0,\ldots,R$ 次，因为因子没有负次数，高次不会回流到低次。
+先把 $c_i$ 截至 $R$，每次乘法后仅当长度超过 $R+1$ 才截短；
+不要把较短中间多项式补零至 $R+1$，否则会增加分治卷积的时间。
+最终若数组尚无第 $R$ 项，该系数就是 0。
+小规模用有界背包的滑动窗口：
+\[
+d_i(s)=d_i(s-1)+d_{i-1}(s)-[s>c_i]d_{i-1}(s-c_i-1),
+\]
+以 $d_0(0)=1$、负下标为 0 初始化，时间 $O(k(R+1))$、空间 $O(R+1)$，
+只用加减，任意模数可用。不要为了出现乘积就立即写 NTT。
+
+\textbf{卷积与特殊结构。}因子较多且总次数适中时，
+分治调用 \texttt{NttConvolution<998244353>::multiply}；
+设截短后的总次数为 $D=\sum\min(c_i,R)$，常用上界
+$O(k+M(D+1)\log(k+1))$，每层截断通常还能减少工作。
+若所有 $c_i=c$，令 $P(x)=1+\cdots+x^{\min(c,R)}$，
+可用 \texttt{FpsPower::power(P,to\_string(k),R+1)}，时间 $O(M(R+1)+\log(k+1))$。
+当 $k\ge1$，另一条路线是容斥：
+\[
+\sum_{j=0}^{\min(k,\lfloor R/(c+1)\rfloor)}
+(-1)^j\binom kj\binom{R-j(c+1)+k-1}{k-1}.
+\]
+按组合数选型（第~\ref{knowledge-binomial-choice}~节，第~\pageref{knowledge-binomial-choice}~页）选择组合数接口，再比较项数与卷积成本。
+$k=0$ 单独返回 $[N=0]$，不向公式塞入 $k-1=-1$。
+
+\subsubsection{例二：步长 1、2 的有序序列（OGF 求逆）}
+一次操作占用长度 1 或 2，序列总长度为 $N$，允许空序列。
+一个操作的 OGF 为 $B(x)=x+x^2$；因为操作有先后，
+\[
+F(x)=\sum_{j\ge0}B(x)^j=\frac1{1-x-x^2},\qquad f_N=[x^N]F(x).
+\]
+$N=3$ 时有 $111,12,21$，$N=5$ 时为 8。
+求前 $N+1$ 项可调用
+\texttt{FpsInverse::inverse(\{1,-1,-1\},N+1)}
+（初始化为其 \texttt{Poly} 类型），常数项为 1，可求逆。
+若只处理这个二阶递推，$f_n=f_{n-1}+f_{n-2}$ 的 $O(N)$ 动态规划更快；
+这里只是演示可推广到一般步长计数的建模，FPS 不必优于特化算法。
+
+一般每个长度 $s\ge1$ 有 $b_s$ 种操作，则
+$B(x)=\sum b_sx^s$，仍取 $(1-B)^{-1}\bmod x^{N+1}$，
+时间 $O(M(N+1))$、空间 $O(N+1)$。
+若 $N$ 巨大且允许步长有固定最大值，可证明有界阶递推后改用远项算法，
+不应先分配长达 $N+1$ 的数组。
+
+\textbf{反例。}若每种长度只记录使用多少次而不区分先后，应改为
+$(1-x)^{-1}(1-x^2)^{-1}$，长度 3 的答案为 2。
+若允许一种长度为 0 的操作，任意插入它便有无限多序列，
+$B(0)=0$ 的条件被破坏；不能把一个本来不有限的计数问题交给求逆模板。
+
+\subsubsection{例三：不同元素分成单点与无序对（EGF 指数）}
+$n$ 个不同元素，每块大小为 1 或 2，块内与块间均无序。
+固定的一个单点集合只有 1 种结构，一个二元集合也只有 1 种，故块的 EGF 为
+\[
+B(x)=x+\frac{x^2}{2!},\qquad
+F(x)=\exp B(x),\qquad a_n=n![x^n]F(x).
+\]
+指数展开的 $B(x)^k/k!$ 先将标签分到 $k$ 个非空有序块，再去掉块的次序；
+这里各块不空且标签集不交，除以 $k!$ 有严格的计数依据。
+$n=4$ 时：全单点 1 种，一对加两单点有 $\binom42=6$ 种，
+两对有 3 种，总计 10；不是系数 $[x^4]F=5/12$ 本身。
+
+\textbf{落到当前接口。}在 $p=998244353$ 且 $N<p$ 下：
+\begin{lstlisting}
+using F = FpsFunctions;
+using Z = F::Z;
+F::Poly b(N + 1);
+if (N >= 1) b[1] = 1;
+if (N >= 2) b[2] = Z(2).inv();
+auto f = F::exp(b, N + 1);
+Binomial<998244353> comb(N);
+Z answer = f[N] * comb.fac[N];
+\end{lstlisting}
+数组存的是除过阶乘的系数，最后还原；本例建模与 FPS 共耗时 $O(M(N+1))$。
+若只求这一个模型，选出元素 1 的去向，还可独立得到
+$a_0=a_1=1$、$a_n=a_{n-1}+(n-1)a_{n-2}$，给出 $O(N)$ 的简单算法与核验。
+
+\textbf{增加块数条件。}恰好 $k$ 块改为
+$n![x^n]B(x)^k/k!$。可调用
+\texttt{FpsPower::power(b,to\_string(k),n+1)}，取第 $n$ 项后乘
+\texttt{comb.fac[n]} 与 \texttt{comb.ifac[k]}，表预处理至 $\max(n,k)<p$。
+先判 $k\le n\le2k$，不满足便为 0；空对象 $(n,k)=(0,0)$ 为 1。
+例如 $(n,k)=(4,2)$ 只有三种两两配对。
+若盒子本身带标号，就没有除以 $k!$ 的步骤；若盒子允许空，单盒因子还应添 1。
+
+\subsubsection{抄代码前的四项检查与本地证据}
+\begin{enumerate}
+\item \textbf{目标系数与长度：}求 $[x^N]$ 使用长度 $N+1$；常数项是否代表空方案；
+EGF 输入是否已乘逆阶乘，输出是否已乘阶乘。
+\item \textbf{代数前提：}逆元分母非零；FPS 的 $\log$ 要求首项 1，$\exp$ 要求首项 0；
+涉及阶乘和积分时不能跨过特征。整数有意义的计数，不保证其 EGF 在任意模数下可直接计算。
+\item \textbf{实际容量：}NTT 接口检查的是\emph{完整乘积}长度 $a.size()+b.size()-1$，
+不是最后保留的 $N+1$；“乘后截断”不会免掉中间数组。
+固定模数的最大 NTT 长度为 $2^{23}$，上述 FPS 取 $L\le2^{22}$ 是安全的保守长度条件。
+\texttt{FpsPower} 还显式检查这个半容量限制；不同 FPS 的局部乘积不能只凭最终次数估算。
+\item \textbf{先用极小样例数对象：}至少检查空对象、一个元素、两个元素，
+以及能区分“有序/无序”的第一个例子。错误模型也能被正确的卷积模板稳定算错。
+\end{enumerate}
+
+配套 \path{tests/math_knowledge_combinatorics.py} 用笛卡尔积枚举有界数量向量、
+显式枚举步长序列、枚举集合划分，独立核对三个例子的系数与边界；
+同时编译当前 C++ 接口并对照精确整数组合数。
+运行命令为 \texttt{python3 tests/math\_knowledge\_combinatorics.py}。
+这是本地建模与接口集成验证，不是新增在线评测 AC，也不取代各模板的完整回归。
+
+\label{end-combinatorics-supplement}
+
+
 \Needspace{541pt}
 
 \chapter{组合数学}
@@ -1751,6 +2105,101 @@ Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。
 \Needspace{220pt}
 
 \lstinputlisting[firstline=181,lastline=194,firstnumber=20]{../src/compact/number_theory.hpp}
+
+\subsection{计数建模：先确认哪些对象被区分}\label{knowledge-counting-model}
+\index{计数建模}\index{OGF}\index{EGF}
+写公式前，先用一句话说明：\textbf{一个方案是什么，什么变化会产生新方案？}
+“把 $n$ 个物品分成 $k$ 组”不足以选公式；物品是否带标号、组是否带标号、
+组内是否有序、组间是否有序、空组是否允许，分别决定不同问题。
+
+\subsubsection{五个判别问题与两个最小反例}
+\begin{enumerate}
+\item \textbf{物品可区分吗？}给定标签 $1,\ldots,n$，交换两个物品可能改变方案，
+属于带标号计数。相同球的方案只记录各类或各盒数量，不能再乘一个 $n!$。
+\item \textbf{容器可区分吗？}盒子 A、B 是不同位置，即使容量相同也不同。
+无标号盒子通常记录一个集合划分；空盒不形成新的块。
+\item \textbf{次序在哪里？}一组元素组成集合、线性排列、圆排列，分别是不同结构。
+例如固定 $s$ 个标签组成非空块时，集合只有 1 种，线性排列有 $s!$ 种，
+不区分起点的圆排列有 $(s-1)!$ 种。不能只看到“无序分组”就忽略组内次序。
+\item \textbf{哪些数量固定？}“恰好 $k$ 个非空组”与“至多 $k$ 个组”不同；
+如果块数也要统计，可用额外变量 $y$ 标记，每个块贡献一个 $y$。
+\item \textbf{空对象是否是一种方案？}通常空序列、空集合各有 1 种，所以常数项为 1。
+“至少一个块”则要减去 1。无物品且无盒时通常计 1，非空物品放入零盒计 0；
+题目另有定义时以题面为准。
+\end{enumerate}
+
+\textbf{不能机械除以盒子数的阶乘。}
+两个不同球放入两个有标号且允许空的盒子，有 $2^2=4$ 种；
+商去盒子标号后只有 $\{\{1,2\}\}$ 与 $\{\{1\},\{2\}\}$ 两种。
+这个例子恰巧等于 $4/2!$，却不是通用理由：三个盒子时有 $3^2=9$ 种，
+无标号且至多三块仍只有 2 种，而 $9/3!$ 甚至不是整数。
+原因是含空盒时不同方案的稳定子大小可能不同。
+若\emph{恰好 $k$ 个非空块}且只区分盒子标号，每个划分有恰好 $k!$ 个标号方式，才可除以 $k!$。
+
+\textbf{不能把“顺序不同”当成“类型数量不同”。}
+用长度 1、2 的砖铺长度 3 的一行，方案是 $111,12,21$，共 3 种；
+若只问凑出总重量 3 的多重集合，则 $12$ 与 $21$ 是同一种，共 2 种。
+前者是序列，后者是每种类型独立选择重数。
+
+\subsubsection{OGF、EGF 的选择来自乘法，而非题目用词}
+当独立部分只需把大小相加，且大小为 $i,j$ 的两个对象合并后恰有 $a_i b_j$ 种，
+使用 OGF 的普通卷积。若还须从 $i+j$ 个不同标签中选 $i$ 个分给第一部分，
+多出 $\binom{i+j}{i}$，使用 EGF 更自然。
+\[
+\text{OGF 数组： }A_i=a_i,\qquad
+\text{EGF 数组： }A_i=a_i/i!,\qquad a_n=n!A_n.
+\]
+\textbf{卷积模板始终计算普通数组卷积；它不会识别并补上 EGF 的阶乘。}
+题目出现标签不代表只能用 EGF，出现无序也不代表只能用 OGF；
+判断依据是当前分解方式如何分配标签与次序。
+一般非空带标号块的 EGF 记为 $B(x)$，则有序块序列是 $1/(1-B(x))$，
+无序块集合是 $\exp B(x)$；二者都要求 $B(0)=0$，使每个固定次数只有有限项贡献。
+本段组合解释参见 \href{https://next.oi-wiki.org/math/poly/egf/}{OI Wiki：指数生成函数}。
+
+
+
+\subsection{组合数选型：先看模数，再看下标与预算}\label{knowledge-binomial-choice}
+组合恒等式负责推导；本节负责把 $\binom nk$ 落到可运行的接口。
+先用有符号或更宽类型处理负下标、$k>n$ 与 $n+k$ 溢出，再调用模板。
+特别是 \texttt{Lucas::choose} 与 \texttt{ExLucas::choose} 接收无符号参数，
+不要把容斥里的负数直接转换后传入。
+
+\begin{description}
+\item[素数 $p$，所有查询 $n\le N<p$：]
+用第~\ref{compact-Binomial}~节（第~\pageref{compact-Binomial}~页）的 \texttt{Binomial<p> c(N)}，
+查询 \texttt{c.choose(n,k)}；排列数用 \texttt{c.permute(n,k)}。
+一次建表时间 $O(N+\log p)$、空间 $O(N)$，每次查询 $O(1)$。
+后续用 \texttt{c.init(M)} 显式扩表；每次真正扩表都做一次逆元快速幂，
+所以连续逐项扩表不能简单视作总共 $O(N)$。尽量一次扩至本批最大上界。
+此处 $p$ 是编译期模数，调用者保证素数；模板的断言不等于判素。
+\item[素数 $p$，$n$ 很大且 $p$ 足够小：]
+用第~\ref{compact-Lucas}~节（第~\pageref{compact-Lucas}~页）的 \texttt{Lucas c(p)}，
+再调用 \texttt{c.choose(n,k)}。
+完整预处理时间 $O(p+\log p)$、空间 $O(p)$，单次 $O(1+\log_p n)$。
+“下标大”不自动意味着适合此实现：$p=10^9+7$ 时，
+两张长度为 $p$ 的 \texttt{int} 表约需 8 GB，不能靠 Lucas 定理消除这笔开销。
+\item[合数 $m$，所有素数幂因子的表可以放下：]
+用第~\ref{compact-ExLucas}~节（第~\pageref{compact-ExLucas}~页）的 \texttt{ExLucas c(m)}，
+查询 \texttt{c.choose(n,k)}。它按 $m=\prod q_i$、$q_i=p_i^{e_i}$ 建表，
+不是只预处理至最大查询的 $n$。空间 $O(\sum q_i)$，
+建表时间可保守记为 $O(\sqrt m+\sum q_i+\sum\log q_i)$。
+当前 \texttt{unit} 的每一层还有一次快速幂，故单次可保守记为
+$O(\sum_i(1+\log_{p_i}(n+1))\log(n+2)+\sum_i\log q_i)$，
+不能误写成纯粹 $O(\log n)$。模数 1 返回 0。
+若某个 $q_i$ 很大，表就很大；ExLucas 不是任意 32 位合数的低内存黑盒。
+\end{description}
+
+\textbf{三者都不合适时不要硬套。}
+若 $n$ 小、模数任意，Pascal 递推只用加法，算到第 $n$ 行耗时 $O(n^2)$、
+滚动空间 $O(n)$；若只需 $k\le K$ 的列，可降至 $O(nK)$。
+若素数 $p$ 很大、$k'=\min(k,n-k)<p$ 很小，
+可将连续 $k'$ 个分子相乘，再乘 $(k'!)^{-1}$，耗时 $O(k'+\log p)$，
+即使 $n\ge p$ 也可用，因为分母仍是单位；这需要自行写短循环。
+合数模数下即便整数商存在，也不代表分母可逆，例如
+$\binom42=6\equiv2\pmod4$，而 $2!$ 在模 4 下没有逆元。
+不能把整数公式中的“除法”直接换成模逆元。
+
+
 
 \Needspace{383pt}
 
@@ -1839,6 +2288,229 @@ Partitions(N,mod) 求无序正整数分拆，0$\le$N<INT\_MAX、1$\le$mod$\le$IN
 题目：\url{https://www.luogu.com.cn/problem/P6189}
 
 \lstinputlisting{usage/example-159.cpp}
+
+\Needspace{180pt}
+
+\section{Pólya 计数}
+
+\subsection{群作用计数：先确定什么算同一个方案}\label{knowledge-orbits-model}
+\index{Burnside}\index{Polya}\index{群作用}
+把有标号的合法对象组成有限集合 $X$，把题目允许的等价变换组成有限群 $G$。
+作用必须把 $X$ 映回 $X$，恒等变换不改变对象，复合变换与逐次操作一致。
+一个轨道 $Gx=\{gx:g\in G\}$ 就是一个最终方案。
+先确定对象与变换，再计算；不能因为题目出现“圆环”就除以长度。
+
+\begin{itemize}
+\item \textbf{只允许改变起点：}长度 $n\ge1$ 的项链商去 $n$ 个旋转，群为 $C_n$。
+\item \textbf{还允许翻面：}手链商去旋转与反射；$n\ge3$ 时是阶 $2n$ 的二面体群。
+反射是否等价必须由题意决定，不能把项链答案再机械除以 2。
+\item \textbf{颜色仍有名字：}红、蓝互换通常是不同方案；若颜色也可重命名，
+作用已经改变，不能沿用本节的 $k$ 种具名颜色公式。
+\item \textbf{标记与约束也要保留：}指定位置、位置权值或障碍可能破坏旋转对称。
+只有保持整个合法对象集合的变换，才能直接在这个集合上使用 Burnside。
+\end{itemize}
+
+记稳定子 $G_x=\{g:gx=x\}$，不动点集 $\operatorname{Fix}_X(g)=\{x:gx=x\}$。
+轨道--稳定子公式与 Burnside 引理为
+\[
+|Gx|=\frac{|G|}{|G_x|},\qquad
+|X/G|=\frac1{|G|}\sum_{g\in G}|\operatorname{Fix}_X(g)|.
+\]
+证明只需双计数 $(g,x)$ 且 $gx=x$ 的配对：一个轨道贡献
+$\sum_{x\in Gx}|G_x|=|G|$，于是所有不动点数之和等于轨道数乘群阶。
+只有每个对象的稳定子都平凡时，才可直接用 $|X|/|G|$。
+例如 4 位二进制项链有 6 类，代表为
+$0000$、$1111$、$0001$、$0111$、$0011$、$0101$；
+轨道大小依次为 $1,1,4,4,4,2$，
+所以 $2^4/4=4$ 并非答案。
+理论说明可参见 \href{https://theory.stanford.edu/~blynn/polya/burnside.html}{Ben Lynn：Burnside's Lemma}。
+
+
+
+\subsection{项链与手链：从置换循环推公式}\label{knowledge-orbits-dihedral}
+位置暂用 $0,\ldots,n-1$，所有下标模 $n$，$n\ge1$、$k\ge1$。
+若位置置换 $g$ 有 $c(g)$ 个循环，不动染色在每个循环上必须同色，
+不同循环独立选色，故不动染色数为 $k^{c(g)}$。
+
+\textbf{旋转。}旋转 $t$ 步为 $i\mapsto i+t$，有 $\gcd(n,t)$ 个循环，
+每个循环长度为 $n/\gcd(n,t)$；约定 $\gcd(n,0)=n$。
+按循环长度 $d\mid n$ 归类，有 $\varphi(d)$ 个旋转，故旋转不动点总和与项链数为
+\[
+R(n,k)=\sum_{t=0}^{n-1}k^{\gcd(n,t)}
+      =\sum_{d\mid n}\varphi(d)k^{n/d},\qquad N(n,k)=R(n,k)/n.
+\]
+规模不大时逐个枚举 $t$ 最容易抄；规模大时分解 $n$，枚举约数并计算各自的
+$\varphi(d)$，减少求幂次数，别把 $O(n)$ 循环误当成约数枚举。
+
+\textbf{反射。}写成 $i\mapsto t-i$；单点循环满足 $2i\equiv t\pmod n$，
+其余位置组成二元循环。这直接给出奇偶分类：
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+长度与反射类型 & 个数 & 单点、二元循环数 & 每个反射的不动染色数\\
+\midrule
+$n$ 奇数 & $n$ & $1,\ (n-1)/2$ & $k^{(n+1)/2}$\\
+$n$ 偶数，穿过对顶点 & $n/2$ & $2,\ (n-2)/2$ & $k^{n/2+1}$\\
+$n$ 偶数，穿过对边中点 & $n/2$ & $0,\ n/2$ & $k^{n/2}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+于是手链数为
+\[
+B(n,k)=\frac{R(n,k)+F(n,k)}{2n},\qquad
+F(n,k)=\begin{cases}
+nk^{(n+1)/2},&n\text{ 奇数},\\
+\dfrac n2\bigl(k^{n/2+1}+k^{n/2}\bigr),&n\text{ 偶数}.
+\end{cases}
+\]
+循环分类亦可参见 \href{https://theory.stanford.edu/~blynn/polya/cycleindex.html}{Ben Lynn：The Cycle Index Polynomial}。
+
+\textbf{偶数例：6 个位置、2 色。}
+$R=2^6+2^3+2\cdot2^2+2\cdot2=84$，项链数为 $14$。
+反射贡献为 $3\cdot2^4+3\cdot2^3=72$，手链数为 $(84+72)/12=13$。
+\textbf{奇数例：5 个位置、3 色。}
+$R=3^5+4\cdot3=255$，项链数为 $51$；
+5 个反射各贡献 $3^3$，手链数为 $(255+135)/10=39$。
+
+\textbf{退化长度不能偷换分母。}
+$n=1$ 时答案均为 $k$；$n=2$ 时均为 $k(k+1)/2$，即选一个允许重复的无序颜色对。
+上述公式仍成立：把旋转与反射保留为 $2n$ 个形式群元素时，不同元素可能诱导同一位置置换，
+这是非忠实作用，重复置换必须连同权重保留。
+也可以把置换去重后对像群求平均，但分母必须同步改为不同置换的个数；
+不能分子去重而仍除以 $2n$。本节不定义空环 $n=0$；若 $n>0,k=0$，没有染色，答案为 0。
+
+
+
+\subsection{指定颜色库存：给每个循环分配整份颜色}\label{knowledge-orbits-inventory}
+设颜色 $1,\ldots,k$ 的数量为 $a_1,\ldots,a_k\ge0$，总和为 $n$。
+固定库存对位置置换不变，可以在这个合法子集上取轨道。
+若 $g$ 的循环长度依次为 $\ell_1,\ldots,\ell_c$，则
+\[
+|\operatorname{Fix}_{\boldsymbol a}(g)|=
+[x_1^{a_1}\cdots x_k^{a_k}]
+\prod_{j=1}^{c}\bigl(x_1^{\ell_j}+\cdots+x_k^{\ell_j}\bigr).
+\]
+每个因子给一个完整循环选颜色；各循环仍是不同的位置集合，即使长度相同也不能再除阶乘。
+把各个 $g$ 的系数相加，最后除以 $|G|$。
+这也是循环指标代换 $z_\ell\leftarrow\sum_i x_i^\ell$ 的含义，
+不必为了使用 P\'olya 再写通用群类。
+加权推导参见 \href{https://theory.stanford.edu/~blynn/polya/polya.html}{Ben Lynn：P\'olya's Inventory Theorem}。
+
+\textbf{等长旋转循环可直接化成多项式系数。}
+循环长度为 $d$ 时，若存在 $d\nmid a_i$，不动点数为 0；否则为
+\[
+\frac{(n/d)!}{\prod_i(a_i/d)!}.
+\]
+实际计算可依次选每种颜色所占的循环：从 $r=n/d$ 开始，累乘
+$\binom{r}{a_i/d}$ 后令 $r\leftarrow r-a_i/d$。
+小于素数模数的预处理范围内可用
+\texttt{Binomial<p> c(n)} 与 \texttt{c.choose(r,a[i]/d)}，
+见第~\ref{compact-Binomial}~节（第~\pageref{compact-Binomial}~页）。
+若随后需要在 $M|G|$ 下算总和，这个模数通常是合数，不能继续用素数阶乘逆元；
+按第~\ref{knowledge-binomial-choice}~节（第~\pageref{knowledge-binomial-choice}~页）选组合数算法，
+或使用以下只加法的 DP。
+
+\textbf{二色恰有 $r$ 个红色：}取 $[x^r]\prod_j(1+x^{\ell_j})$。
+初始化 $f_0(0)=1$，其他项为 0；加入一个长度 $\ell$ 的循环时
+\[
+f_{j+1}(s)=f_j(s)+[s\ge\ell]f_j(s-\ell),\qquad 0\le s\le r.
+\]
+可用一维数组从 $r$ 降序更新到 $\ell$，时间 $O(c(r+1))$、空间 $O(r+1)$；
+加法后取模，对任意正模数都适用。$r\notin[0,n]$ 时答案为 0。
+多色可维护前 $k-1$ 色的库存，最后一色由已处理总长度确定；
+任何一色超出库存就丢弃状态；状态数至多 $\prod_{i<k}(a_i+1)$，
+每个循环最多 $k$ 个转移，先估内存再选它。
+
+\textbf{例：6 个位置，3 红 3 蓝。}
+恒等旋转贡献 $\binom63=20$；旋转 2、4 步各有两个长度 3 的循环，各贡献 2；
+其他非恒等旋转贡献 0。项链数为 $(20+2+2)/6=4$。
+穿顶点反射的多项式为 $(1+x)^2(1+x^2)^2$，$x^3$ 系数为 4；
+穿边反射为 $(1+x^2)^3$，$x^3$ 系数为 0。
+手链数为 $(24+3\cdot4)/12=3$。
+
+\textbf{额外约束须重新数不动点。}
+“相邻位置异色”对旋转反射不变，Burnside 仍成立，但循环不能独立选色：
+应把每个循环缩成一个点，原相邻关系变成约束边；出现自环就无解，再数该约束图的染色。
+“位置 0 必须红色”则通常不对旋转封闭，不能在该子集上直接平均。
+若问题要求统计哪些完整轨道\emph{存在}满足条件的代表，须另建模，不能把存在性条件当成不变库存。
+
+
+
+\subsection{群阶不可逆：先提升模数，再作整数除法}\label{knowledge-orbits-modular}
+设不动点数总和为整数 $S$，群阶为 $h$，已知 $h\mid S$，目标是 $(S/h)\bmod M$，$M\ge1$。
+只有 $\gcd(h,M)=1$ 时，才能乘模逆元；仅检查 $M\nmid h$ 不够。
+通用办法是在模 $L=Mh$ 下算出标准余数 $s=S\bmod L$，然后做普通整数除法：
+\[
+S=qMh+s\quad\Longrightarrow\quad
+h\mid s,\qquad S/h\equiv s/h\pmod M,\qquad 0\le s/h<M.
+\]
+必须先合计所有项，再除以 $h$；每个不动点数通常不单独被 $h$ 整除。
+例如 4 位二进制项链，$S=24,h=4,M=8$：先模 8 得到 0 已丢失信息；
+先模 32 得到 24，再除以 4 才得到正确的 6。
+
+\Needspace{490pt}
+\textbf{可直接编译的无库存限制示例。}
+输入每行 \texttt{n k M flip}，\texttt{flip=0} 只计旋转，\texttt{flip=1} 还计反射，输出轨道数模 $M$。
+使用第~\ref{compact-Mod64}~节（第~\pageref{compact-Mod64}~页）的
+\texttt{Mod64::mul} 与 \texttt{Mod64::power}；赛时把下面的仓库 include 换为所抄的 \texttt{Mod64}。
+% BEGIN orbit-counting-example
+\begin{lstlisting}
+#include "src/compact/mod64.hpp"
+
+using ull = unsigned long long;
+using u128 = __uint128_t;
+
+ull color_orbits(int n, ull k, ull m, bool flip)
+{
+    assert(n >= 1 && m >= 1);
+    ull h = (flip ? 2ULL : 1ULL) * n;
+    u128 wide = u128(m) * h;
+    assert(wide <= numeric_limits<ull>::max());
+    ull mod = (ull)wide, sum = 0;
+    auto add = [&](ull count, ull cycles)
+    {
+        ull term = Mod64::mul(count, Mod64::power(k, cycles, mod), mod);
+        sum = (ull)((u128(sum) + term) % mod);
+    };
+    for (int t = 0; t < n; t++) add(1, gcd(n, t));
+    if (flip)
+    {
+        if (n & 1) add(n, n / 2 + 1);
+        else
+        {
+            add(n / 2, n / 2 + 1);
+            add(n / 2, n / 2);
+        }
+    }
+    assert(sum % h == 0);
+    return sum / h;
+}
+
+int main()
+{
+    int n, flip;
+    ull k, m;
+    while (cin >> n >> k >> m >> flip)
+        cout << color_orbits(n, k, m, flip != 0) << '\n';
+}
+\end{lstlisting}
+% END orbit-counting-example
+该示例要求 $1\le n\le\mathrm{INT\_MAX}$，$k$ 为无符号 64 位整数，
+$1\le M$ 且 $Mh\le2^{64}-1$；运行预算还须容纳 $O(n\log(n+1))$ 时间，额外空间 $O(1)$。
+没有跨测试状态，支持多测与 $M=1$。先转宽类型再算 $Mh$，加法也在 128 位中进行；
+单有安全模乘并不能防止模数乘积或求和溢出。
+若 $Mh>2^{64}-1$，本函数不适用；不可截断后再传给 \texttt{Mod64}。
+可改用多精度整数在 $Mh$ 下计算，或在预算允许时精确算出 $S$ 后整除；
+仅把模数类型改成 128 位，仍不能保证两个 128 位数的乘积不溢出。
+
+配套 \path{tests/math_knowledge_orbits.py} 从本节直接抽取 C++ 示例编译，
+对照小染色的规范轨道枚举；另用循环库存 DP 对照按库存分类的轨道，
+检查奇偶反射、$n=1,2$、零色、复合模数与 64 位边界。
+运行 \texttt{python3 tests/math\_knowledge\_orbits.py}，
+加 \texttt{--sanitize} 可在 AddressSanitizer/UndefinedBehaviorSanitizer 下运行同一批 C++ 案例。
+这是本地知识示例验证，不是新增 OJ AC，也不替代底层模板的完整回归。
+\label{end-orbits-supplement}
+
 
 \Needspace{461pt}
 
@@ -2121,6 +2793,218 @@ XorWalk(n) 建图，点号 1..n，边权为 unsigned long long，支持完整 64
 题目：\url{https://www.luogu.com.cn/problem/P4151}
 
 \lstinputlisting{usage/example-176.cpp}
+
+\Needspace{180pt}
+
+\chapter{概率论}
+
+\section{随机变量的数字特征}
+
+\subsection{期望选型：计数拆指标，等待拆尾和}\label{knowledge-expectation}\index{indicator variable}\index{tail sum}
+\textbf{先确定随机对象。} 均匀随机排列、逐步等概率转移和等概率选择最终方案是三种不同模型。
+例如从起点等概率走向 A 或 B，A 只有一个终点，B 有两个等概率终点：
+三个终点概率为 $1/2,1/4,1/4$，不是各 $1/3$。不能直接用路径条数代替路径概率。
+
+\textbf{计数型答案：给每个对象一个指示变量。}
+若 $X=\sum_{i=1}^m I_i$，其中 $I_i=[\text{事件 }A_i\text{ 发生}]$，则
+\[
+\mathbb E X=\sum_{i=1}^m\Pr(A_i).
+\]
+有限和的期望线性性不要求独立；一般实值变量应保证期望存在，避免相减两个无穷大。
+随机排列的不动点数为 $X=\sum_i[\pi(i)=i]$，每个位置固定的概率为 $1/n$，所以
+$n\ge1$ 时 $\mathbb E X=1$。这比先求全部不动点个数的分布容易。
+$n=2$ 时两个指示变量完全相同，恰好说明它们并不独立。
+
+线性性不能推广成 $\mathbb E(XY)=\mathbb E X\mathbb E Y$。
+令 $X=Y$ 为一次公平硬币正面的指示变量，则左边为 $1/2$、右边为 $1/4$。
+方差应写成
+\[
+\operatorname{Var}\!\left(\sum_iX_i\right)
+=\sum_i\operatorname{Var}(X_i)+2\sum_{i<j}\operatorname{Cov}(X_i,X_j).
+\]
+两两独立足以消去协方差；仅仅知道各自成功概率不足以计算方差。
+
+\textbf{等待时间或最大值：先问是否超过阈值。}
+非负整数随机变量逐点满足 $X=\sum_{k\ge1}[X\ge k]$，因此
+\[
+\mathbb E X=\sum_{k\ge1}\Pr(X\ge k)
+=\sum_{k\ge0}\Pr(X>k).
+\]
+非负项允许交换求和，结果也可能是 $+\infty$。两种写法的起点相差一。
+例如两个独立公平六面骰子的最大值 $M$ 满足
+$\Pr(M<k)=((k-1)/6)^2$，故
+\[
+\mathbb E M=\sum_{k=1}^{6}\left(1-\frac{(k-1)^2}{36}\right)
+=6-\frac{55}{36}=\frac{161}{36}.
+\]
+这里乘出平方用到了两个骰子独立；若两个骰子总是同点，期望就变成 $7/2$。
+
+\textbf{覆盖过程：按完成一件新事的阶段拆分。}
+每次独立均匀抽取 $n$ 种券，已有 $i$ 种时，下一张为新种类的概率为 $(n-i)/n$。
+含成功那次在内的等待时间期望是 $n/(n-i)$，收齐的期望为
+$n\sum_{j=1}^n1/j$。每次抽样方式必须保持不变；非均匀抽券时，“已见种类数”通常不是充分状态，
+因为尚缺哪几种会改变转移概率，不能直接套调和数。
+
+
+
+\subsection{条件期望：先定义状态，再解自环}\label{knowledge-probability-dp}\index{conditional expectation}
+状态必须保存决定未来分布所需的信息。若到达终点后不再花费，设终点 $t$ 的 $E_t=0$。
+一次转移从 $i$ 到 $j$ 的概率为 $p_{ij}$，本次费用为 $c_{ij}$，则第一步分析给出
+\[
+E_i=\sum_jp_{ij}(c_{ij}+E_j)=b_i+\sum_jp_{ij}E_j,
+\qquad b_i=\sum_jp_{ij}c_{ij}.
+\]
+每步统一花费 1 时才有 $b_i=1$；已经是终点时不能再多加一次。
+若目标是命中某个好终点的概率，则好终点边界为 1、坏终点为 0，非终点方程为
+$h_i=\sum_jp_{ij}h_j$，没有常数 1。
+若过程可能永不终止，命中概率是边界问题的最小非负解，不能把任意代数解当成概率。
+
+\textbf{只有自环时可以局部移项。} 若 $p_{ii}<1$，则
+\[
+E_i=\frac{b_i+\sum_{j\ne i}p_{ij}E_j}{1-p_{ii}}.
+\]
+其余边若指向已算出的状态，就按依赖顺序做 DP。不能在存在 $i\to j\to i$ 时只去掉自环后仍当 DAG。
+每次独立以概率 $q>0$ 成功，失败回到原状，每次花费 1，有
+$E=1+(1-q)E$，故 $E=1/q$。当 $q=0$ 时永不成功，不能继续做除法。
+若统计“成功前失败次数”，当前成功不计费用，结果才是 $(1-q)/q$。
+
+\textbf{小例：等到连续两个正面。} 公平硬币独立抛掷，状态 0 表示当前没有末尾正面，
+状态 1 表示末尾恰有一个正面，状态 2 表示已完成。第一步方程为
+\[
+E_0=1+\tfrac12E_0+\tfrac12E_1,\qquad
+E_1=1+\tfrac12E_0,\qquad E_2=0.
+\]
+解得 $E_0=6,E_1=4$。错误地把每两次抛掷作为成功率 $1/4$ 的独立尝试会得到 8，
+它只检查不重叠的分组，漏掉跨组的连续正面。反过来把所有相邻两次都当独立试验也不成立。
+
+\textbf{有环时检查吸收，再选择消元。}
+只保留起点可达、尚未吸收的状态，记它们之间的转移矩阵为 $Q$。
+有限期望向量满足 $(I-Q)E=b$；稠密直接消元的时间为 $O(s^3)$、空间为 $O(s^2)$，
+其中 $s$ 是非终点状态数。DAG、链、带状矩阵或可按强连通分量分块的问题应先利用结构，
+不必一律构建全局稠密矩阵。概率极小时实数消元可能病态；残差小也不保证答案相对误差小。
+
+对有限状态、固定转移概率的链，若每个可达非终点都有一条正概率路径通向吸收态，
+则存在统一的 $L$ 和 $\varepsilon>0$，使任何非终点在未来 $L$ 步内吸收的概率至少为 $\varepsilon$。
+由此 $\Pr(T>kL)\le(1-\varepsilon)^k$，所以几乎必然吸收且 $\mathbb E T\le L/\varepsilon<\infty$。
+等价的图判据是：可达区域中没有封闭的非吸收强连通分量。
+这里的边只取\emph{正概率}转移，且每步费用有界时累计费用也具有有限绝对期望。
+
+\textbf{两类反例不能混淆。} 以概率 $1/2$ 立即终止、以概率 $1/2$ 进入永久自环，
+有正概率永不吸收，停止时间期望为无穷大。
+另取正整数随机变量 $T$，令 $\Pr(T=k)=1/(k(k+1))$。
+概率和为 1，所以 $T$ 几乎必然有限；但 $\Pr(T\ge k)=1/k$，故 $\mathbb E T=\infty$。
+第二例说明无限状态或无限支撑下，“几乎必然终止”不足以推出有限期望，不能丢掉上述有限状态条件。
+
+
+
+\subsection{模概率：可逆的不只是输入分母}\label{knowledge-mod-probability}
+竞赛中的“概率对素数 $p$ 取模”不是一个介于 0 与 1 的数，而是有理数的代数表示。
+既约分数 $a/b$ 只有在 $p\nmid b$ 时，才能映射为 $a\,b^{-1}\pmod p$。
+模值不能比较大小、判定真实概率是否很小，也不能由模值为零断言真实概率为零。
+例如概率 $p/(p+1)>0$，其模值为零。
+
+\textbf{直接转模方程的充分条件：}
+每个转移概率和费用的分母均可逆，且 $I-Q$ 在模 $p$ 下可逆。
+实数下可逆不保证模下可逆；自环移项中的 $1-p_{ii}$ 也必须非零。
+例如每次以 $p/(p+1)$ 成功，期望为 $(p+1)/p$；
+原始转移概率的分母 $p+1$ 可逆，但期望的分母 $p$ 不可逆。
+模方程变成 $0\cdot E=1$，无解不是概率模型矛盾，而是所求期望没有该模表示。
+
+未约分表达式的分母不可逆，不代表最终答案一定不可表示。
+表达式 $p/p=1$ 应先在整数或有理数层面约分，不能调用逆元求 $0/0$。
+类似地，模线性系统奇异时，可能存在有理数层面的消去或约分，但不能从任意模特解恢复唯一的真实期望。
+合数模数 $m$ 下，分母须满足 $\gcd(b,m)=1$，且不能用费马小定理求逆。
+
+本库接口见第~\ref{compact-ModInt}~节（第~\pageref{compact-ModInt}~页）的 \texttt{ModInt<p>} 与
+第~\ref{compact-GaussMod}~节（第~\pageref{compact-GaussMod}~页）的 \texttt{GaussMod<p>::solve(a,n)}。
+前者的 \texttt{inv()} 用 $x^{p-2}$，要求素数模数及非零元素；
+后者接收 $s$ 行 $s+1$ 列增广矩阵，可填为 $[I-Q\mid b]$，显式传入变量数 $s$。
+先检查 \texttt{consistent}，再检查 \texttt{rank==s}，唯一解才读取 \texttt{particular}。
+这些接口不会替你证明吸收、期望有限或有理答案可取模。
+
+
+
+\Needspace{180pt}
+
+\chapter{博弈论}
+
+\section{公平组合游戏}
+
+\subsection{SG 的前提、递推与异或策略}\label{knowledge-sg}\index{Sprague-Grundy}\index{mex}
+先核对模型：双人轮流操作；双方在同一状态的合法操作完全相同（无偏游戏）；
+没有随机性与隐藏信息；不能行动者输（正常玩法）；状态图为有限 DAG。
+本节只在这些条件下使用普通 Sprague--Grundy 理论。“公平”在这里不表示胜率各半。
+
+令 $g(u)$ 是状态的 SG 值，$\operatorname{mex}$ 表示集合中未出现的最小非负整数，则
+\[
+g(u)=\operatorname{mex}\{g(v):u\to v\},\qquad
+\operatorname{mex}\varnothing=0.
+\]
+按逆拓扑顺序计算；若递归记忆化，栈深度仍可能等于最长路径长度。
+若有 $d$ 个后继，则 $g(u)\le d$，只需标记 $0,\ldots,d$，超过 $d$ 的后继值可以忽略。
+重复出现同一个后继值不影响 mex；用时间戳避免每个点都清空一张全局大表，
+可做到 $O(|V|+|E|)$ 时间和 $O(|V|+|E|)$ 空间（包含存图）。
+
+$g(u)=0$ 时所有后继非零；$g(u)>0$ 时一定存在后继值为零。
+由 DAG 上归纳，零状态恰为先手必败态。不过 SG 数值不是胜率，也不是距离终点的步数。
+若题目只问一个不可分解游戏的胜负，布尔递推“存在后继必败则必胜”已足够；
+需要组合多个游戏时才必须保留比输赢更多的信息。
+
+\textbf{异或只针对不交和。} 一步恰好选择一个子游戏走一步，其他子游戏的状态及合法操作不变，
+且总游戏不能走时才输。此时组合值为 $G=g_1\oplus\cdots\oplus g_k$。
+$G=0$ 时任意一步都把一个 $g_i$ 改为不同值，因此异或不再为零。
+$G\ne0$ 时，取 $G$ 最高为一位上也为一的某个 $g_i$，令 $h=g_i\oplus G<g_i$。
+mex 定义保证存在一步从该子状态走到 SG 值 $h$ 的后继，操作后整体异或为零。
+实际输出方案时枚举这个子游戏的合法后继寻找 $h$，不能只输出一个目标数字。
+
+如果一次允许同时改变两堆，或者一堆的操作会禁止另一堆的操作，就不是上述不交和。
+例如两堆各有一颗石子，允许取走任意一堆或同时取走两堆：
+把两堆当普通 Nim 会算出 $1\oplus1=0$，但先手同时取完立刻获胜。
+
+
+
+\subsection{减法游戏小例与三类失效边界}\label{knowledge-subtraction-game}
+一堆 $n$ 颗石子，每次可取 $S=\{1,3,4\}$ 中一种数量且不能取成负数。
+空堆无合法操作，故 $g(0)=0$，对 $n>0$ 有
+\[
+g(n)=\operatorname{mex}\{g(n-s):s\in S,\ s\le n\}.
+\]
+从 $n=0$ 到 $13$ 逐项得到
+\[
+\begin{array}{c|rrrrrrr|rrrrrrr}
+n&0&1&2&3&4&5&6&7&8&9&10&11&12&13\\\hline
+g(n)&0&1&0&1&2&3&2&0&1&0&1&2&3&2
+\end{array}
+\]
+例如 $g(4)=\operatorname{mex}\{g(3),g(1),g(0)\}=\operatorname{mex}\{1,0\}=2$，
+不是合法操作数 3。两堆 $(4,5)$ 的异或为 $2\oplus3=1$，从第二堆取一颗得到 $(4,4)$ 即可归零。
+两堆 $(1,1)$ 各自都是必胜态，但组合为必败态，不能把多个布尔“必胜”作逻辑或。
+
+表中前两段相等本身不是周期证明。本例先验证 $g(n+7)=g(n)$ 对 $0\le n\le3$ 成立，
+随后对 $n\ge4$，两边的后继都完整包含减 $1,3,4$；由更小下标的归纳假设，mex 集合相同，
+故周期 7 对所有 $n\ge0$ 成立。对一般有限减法集合，SG 值不超过 $|S|$，
+且从足够大的 $n$ 起只依赖前 $\max S$ 项，因此整个长度为 $\max S$ 的窗口重复后才保证后续周期。
+它只保证最终周期，不能仅凭几项重复猜出从零开始的周期或短周期。
+
+\begin{itemize}
+\item \textbf{反常玩法（mis\`ere）。} 最后行动者输时，普通 SG 的终点规则与异或结论不可直接搬用。
+只有一颗石子的 Nim 在正常玩法下先手赢，在反常玩法下先手输。
+反常 Nim 有专门结论，不意味着所有减法游戏都能“把最终答案取反”。
+\item \textbf{有环游戏（loopy）。} 单点自环将要求 $g=\operatorname{mex}\{g\}$，不存在这样的非负整数。
+允许无限行走时还可能有和局；必须按题目规定处理重复局面、步数上限和无限对局。
+若加入剩余步数后形成 DAG，可以在扩展状态上分析，不能把环当成已访问后直接返回零。
+\item \textbf{有偏游戏（partizan）。} 双方在相同局面可走步不同，不满足无偏性。
+仅一条“左方可走、右方不可走”的边，就不能用不带行动方信息的 mex 描述。
+可按完整状态做胜负搜索，但一般不能将各部分的普通 SG 值异或。
+\end{itemize}
+
+\noindent\textbf{本地知识例证。}
+\path{tests/math_knowledge_probability.py} 使用有理数精确运算检查指示变量、骰子尾和、
+连续正面方程及模分母反例，并以直接胜负递归核对小规模减法游戏不交和。
+它验证本节例子，不是通用概率求解器、SG 模板或在线评测 AC。
+
+\label{end-probability-games-supplement}
+
 
 \Needspace{180pt}
 
@@ -2433,6 +3317,20 @@ b.erase(h);
 保留频数第 k 小和泛型组合用途；P3374 基础单点加/区间和题不再独立收录或安排提交。add(x,v)、sum(x)、query(l,r)，下标 1..n，闭区间；kth(k) 要求所有频率非负且 k>0，超过总和返回 n+1。单次 O(log n)。 T 须能从 0 构造并支持 += 与减法；可直接使用 ModInt 维护模数下的区间和。kth 只适用于有序累计频数，不适用于取模后的区间和。
 
 \lstinputlisting[firstline=81,lastline=118]{../src/compact/data_structure.hpp}
+
+\Needspace{614pt}
+
+\subsection*{模板题使用：Luogu P3369}
+
+\label{usage-example-210}
+
+题意：维护可重集合的插入、删除一个、排名、第 k 小和严格前驱/后继。预读全部操作并离散化非第 k 小查询的值域；频数下标为 1-based，kth 的返回值减 1 后映射回原值。排名查询允许 x 不在集合中；第 k 小与前驱/后继按题目保证存在。n$\le$100000，|x|$\le$10000000；总复杂度 O(n log n)，空间 O(n)。
+
+所需模板：\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3369}
+
+\lstinputlisting{usage/example-210.cpp}
 
 \Needspace{180pt}
 

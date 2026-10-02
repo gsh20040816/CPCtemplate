@@ -9,7 +9,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 |---|---|---|
 | dsu | [example-7](usage/example-7.cpp) | locally_checked_example |
 | RollbackDSU | [example-84](usage/example-84.cpp) | locally_checked_example |
-| Fenwick | 待补 | pending_example |
+| Fenwick | [example-210](usage/example-210.cpp) | locally_checked_example |
 | LazySeg | 待补 | pending_example |
 | XorBasis | [example-36](usage/example-36.cpp) | locally_checked_example |
 | Dinic | [example-1](usage/example-1.cpp) | locally_checked_example |
@@ -26,7 +26,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | kmp_match | [example-91](usage/example-91.cpp) | locally_checked_example |
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
 | manacher | [example-23](usage/example-23.cpp), [example-129](usage/example-129.cpp) | locally_checked_example |
-| minimum_rotation | 待补 | pending_example |
+| minimum_rotation | [example-209](usage/example-209.cpp) | locally_checked_example |
 | AhoCorasick | [example-70](usage/example-70.cpp) | locally_checked_example |
 | SuffixArray | [example-19](usage/example-19.cpp), [example-131](usage/example-131.cpp) | locally_checked_example |
 | SuffixAutomaton | [example-71](usage/example-71.cpp), [example-130](usage/example-130.cpp) | locally_checked_example |

@@ -21,6 +21,8 @@
 
 后续补充见 [整除反演与对称计数](docs/MATH-COUNTING-MODELS.md)：GCD 建模、整除分块、Burnside/Pólya、固定库存与非可逆群阶除法。
 
+上述 15 节知识按固定 OI Wiki 导航纳入总册和数学册对应层级，映射与剩余旧附录范围见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)。
+
 ## 码风
 
 - `src/compact/`：基于队伍实际提交，`vector`、小写短名、清晰分行；目录名不表示压缩代码。
@@ -62,7 +64,11 @@ Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECK
 
 环境和标准库速查见 [Infra说明](docs/INFRA.md)，构建时另生成 `output/pdf/infra.pdf`，集中提供到算法分册的页码跳转。
 
+标准库实际使用点、复数、前缀和累加类型、tuple 引用、shuffle 和位操作的验证边界见 [Infra 补充审计](docs/INFRA-STL-AUDIT.md)。
+
 各模板的“最简题意＋使用代码”补齐进度见 [使用示例覆盖表](docs/USAGE-COVERAGE.md)，生成与执行检查方式见 [使用示例说明](docs/USAGE-EXAMPLES.md)。未补示例仍明确列出。
+
+最小表示法 [P13270 用法](docs/MINIMUM-ROTATION-USAGE.md)与保留的 Fenwick 第 k 小 [P3369 用法](docs/fenwick-selection.md)均有独立本地验证；不恢复已排除的基础树状数组题。
 
 压位小波矩阵的接口、来源范围和本地证据见 [WAVELET-MATRIX.md](docs/WAVELET-MATRIX.md)；模2压位消元、特解和零空间基见 [GAUSS-XOR.md](docs/GAUSS-XOR.md)。
 

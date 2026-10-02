@@ -4,17 +4,19 @@
 
 这是接口、分类与缺项审查，不把 ACL 的正确性或验证记录直接转移给本库。
 
+2026-10-02 以本库 `8b09b35` 核对当前组件路径与既有证据边界。此次仅修正文档和元数据，不重新运行算法、提交 OJ 或刷新排名。JSON 的 `local_snapshot_commit` / `local_source_sha256` 保留最初审查快照，明确是历史摘要；`historical_composition_probe` 保存最初失败记录，不能当作现版本失败。当前组合回归的已有证据另列。
+
 ## 分类和覆盖
 
 | ACL 模块 | 分类 | 当前状态 | 本库对应 |
 |---|---|---|---|
 | [dsu](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/dsu.hpp) | 数据结构 | 功能已有，按用户约定保留 | [data_structure.hpp](../src/compact/data_structure.hpp) |
 | [fenwicktree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/fenwicktree.hpp) | 数据结构 | 基础功能已有，组合约束不同 | [data_structure.hpp](../src/compact/data_structure.hpp)、[number_theory.hpp](../src/compact/number_theory.hpp) |
-| [segtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp) | 数据结构 | 已实现，本地验证 | [segtree.hpp](../src/compact/segtree.hpp) |
-| [lazysegtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/lazysegtree.hpp) | 数据结构 | 部分覆盖 | [affine_segment_tree.hpp](../src/compact/affine_segment_tree.hpp) |
-| [math](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp) | 数学 | 核心功能已有，范围需适配 | [number_theory.hpp](../src/compact/number_theory.hpp) |
-| [modint](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp) | 数学 | 部分覆盖 | [number_theory.hpp](../src/compact/number_theory.hpp) |
-| [convolution](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp) | 数学 | 模卷积与精确整数卷积已有，本地验证 | [convolution_i64.hpp](../src/compact/convolution_i64.hpp)、 [ntt_convolution.hpp](../src/compact/ntt_convolution.hpp)、[polynomial.hpp](../src/compact/polynomial.hpp) |
+| [segtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp) | 数据结构 | 已实现，函数复合与边界搜索有历史线上记录 | [segtree.hpp](../src/compact/segtree.hpp) |
+| [lazysegtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/lazysegtree.hpp) | 数据结构 | 通用递归实现已完成，本地验证通过 | [lazy_segtree.hpp](../src/compact/lazy_segtree.hpp) |
+| [math](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp) | 数学 | 核心功能已有，范围需适配 | [mod64.hpp](../src/compact/mod64.hpp)、[extended_gcd.hpp](../src/compact/extended_gcd.hpp)、[mod_inverse.hpp](../src/compact/mod_inverse.hpp)、[crt_merge.hpp](../src/compact/crt_merge.hpp)、[floor_sum.hpp](../src/compact/floor_sum.hpp) |
+| [modint](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp) | 数学 | 静态与动态实现已有，逆元契约仍有差异 | [number_theory.hpp](../src/compact/number_theory.hpp)、[dynamic_modint.hpp](../src/compact/dynamic_modint.hpp) |
+| [convolution](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp) | 数学 | 模卷积与精确整数卷积已有，本地验证 | [ntt_convolution.hpp](../src/compact/ntt_convolution.hpp)、[convolution_i64.hpp](../src/compact/convolution_i64.hpp) |
 | [maxflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/maxflow.hpp) | 图论 | 边状态接口已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
 | [mincostflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/mincostflow.hpp) | 图论 | 费用曲线已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
 | [scc](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/scc.hpp) | 图论 | 核心功能已有 | [tarjan.hpp](../src/compact/tarjan.hpp)、[graph.hpp](../src/compact/graph.hpp) |
@@ -67,7 +69,7 @@ ACL 为 0-based 点更新、半开区间和；本库为 1-based，另有仅适�
 
 已实现 [segtree.hpp](../src/compact/segtree.hpp)：任意结合运算与双侧单位元、点修改、半开区间查询和双向边界搜索。左右累积保留非交换顺序。独立字符串拼接与单调子串判定扫描、空树、非二次幂大小、50 万叶子均通过普通和 ASan/UBSan；函数复合完整驱动使用逐函数代入参考。
 
-Predecessor Problem 402089 已通过构造、set/get 和双向边界搜索（22 点，383 ms、184.02 MiB）。函数复合 402090 也已 AC（16 点，247 ms、26.82 MiB），覆盖构造/set/prod；all 与空区间仍只作本地验证。已有本地通过不代表在线验证完成，懒标记树的线上证据仍需单独补齐。
+历史 Predecessor Problem 402089 已通过构造、set/get 和双向边界搜索（22 点，383 ms、184.02 MiB）。函数复合 402090 也已 AC（16 点，247 ms、26.82 MiB），覆盖构造/set/prod；all 与空区间仍只作本地验证。历史 AC 按提交时源码和实际调用接口解释，不等于当前全部接口重新线上验证。懒标记树的线上证据仍需单独补齐。
 
 ### lazysegtree
 
@@ -77,15 +79,17 @@ Predecessor Problem 402089 已通过构造、set/get 和双向边界搜索（22 
 
 ### math
 
-power、inverse、crt、floor_sum 已存在。ACL crt 批量返回 pair，本库原位逐条合并；ACL floor_sum 的 n,m 范围到 2^32 且溢出取模2^64，本库说明范围较小并返回精确 int128，不能直接宣称契约完全相同。
+当前正文直接使用 [Mod64](../src/compact/mod64.hpp)、[extended_gcd](../src/compact/extended_gcd.hpp)、[mod_inverse](../src/compact/mod_inverse.hpp)、[crt_merge](../src/compact/crt_merge.hpp) 和 [floor_sum](../src/compact/floor_sum.hpp)；NumberTheory 仅为未重复打印的兼容入口。
 
-后续项：逐项核对 floor_sum 的边界范围及溢出语义。
+ACL crt 批量返回 pair；本库逐式原位合并，不可解返回 false，周期超过 signed64 时抛异常。mod_inverse 对不可逆元素返回 −1，不能照搬 ACL 的调用前提与失败处理。
+
+floor_sum 的[现有文档契约](mathematics.tex)为 `0<=n<=10^9`、`1<=m<=10^9`，a/b 支持 signed64，返回精确 int128。ACL 的 n/m 范围小于 2^32，并在结果溢出时取模 2^64；本库未承诺该完整范围和溢出语义。既有[独立测试](../tests/floor_sum.cpp)与官方本地数据不自动扩张范围，也不替代线上证据。
 
 ### modint
 
 当前 ModInt 支持固定模数算术，inv 按素数模数约定。ACL 静态合数模逆采用 inv_gcd，另有按 id 区分的动态模数类型；小类型及 unsigned 内部存储与溢出界不能只抄一半。
 
-动态 mint<tag> 已实现并本地验证，包含合数模数下的 try_inv 和 tag 隔离；线上模板题证据待补。静态 ModInt 仍为素数求逆约定。
+动态 [mint<tag>](../src/compact/dynamic_modint.hpp) 已实现并有普通及 ASan/UBSan 本地证据，支持 1..INT_MAX 运行时模数、合数单位元 try_inv 和 tag 隔离。修改同 tag 模数后须重建旧对象与缓存。P5431 与 batch_units 的[完整打印用法198](INVERSE-USAGES.md)已有本地验证，但动态版线上 AC 仍待补，不能转移原整数版 P5431 的历史 AC。静态 ModInt 仍位于 number_theory.hpp，inv 保留素数模数及非零元素前提，合数求逆没有扩展。
 
 ### convolution
 
@@ -97,7 +101,7 @@ power、inverse、crt、floor_sum 已存在。ACL crt 批量返回 pair，本库
 
 Dinic 已有加边、最大流、used 和 cut；ACL 以稳定逻辑边号公开 get_edge/edges/change_edge。现已补 get_edge/change_edge，修改正反残量对并维护 initial，明确全局守恒由调用方负责。
 
-割枚举与流证书、增容续算、整图清流缩容、自环/环流和 int64 上界通过本地普通及 ASan/UBSan。新方法尚未在线验证；既有最大流 AC 不验证它们。
+割枚举与流证书、增容续算、整图清流缩容、自环/环流和 int64 上界已有本地普通及 ASan/UBSan 证据。新方法尚未在线验证；既有最大流 AC 不验证它们。本库未提供 ACL 同名 edges() 批量接口，可保存 add 返回的原边 ID 后逐项调用 get_edge；不声称 API 完全相同。
 
 ### mincostflow
 
@@ -132,3 +136,7 @@ ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆�
 与 #1 的模板题清单对齐后，继续补齐通用懒标记树、slope、精确整数卷积与动态模数的独立线上证据。SA-IS 属于性能/复杂度替代，不把已验证的倍增后缀数组标为缺失。每项仍须独立题目、边界和性能验证。
 
 精确 signed64 卷积已补齐，契约、CRT 证明和验证边界见 [INTEGER-CONVOLUTION.md](INTEGER-CONVOLUTION.md)。线上 AC 与性能排名待验证。
+
+## 元数据一致性检查
+
+`python3 tests/acl_review_consistency.py` 核对 12 个公开模块的表格、状态、当前路径与固定 ACL 摘要，保留 6 个内部支持模块、历史本地快照及已知缺项。该检查只验证登记一致性，不执行 C++、重签历史证据或验证算法正确性。SA-IS、静态合数求逆、接口契约差异，以及未完成的线上验证和性能排名仍保留。

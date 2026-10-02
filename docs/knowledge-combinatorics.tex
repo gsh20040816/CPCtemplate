@@ -50,7 +50,7 @@
 本段组合解释参见 \href{https://next.oi-wiki.org/math/poly/egf/}{OI Wiki：指数生成函数}。
 
 \section{组合数选型：先看模数，再看下标与预算}\label{knowledge-binomial-choice}
-前面的恒等式负责推导；本节负责把 $\binom nk$ 落到可运行的接口。
+组合恒等式负责推导；本节负责把 $\binom nk$ 落到可运行的接口。
 先用有符号或更宽类型处理负下标、$k>n$ 与 $n+k$ 溢出，再调用模板。
 特别是 \texttt{Lucas::choose} 与 \texttt{ExLucas::choose} 接收无符号参数，
 不要把容斥里的负数直接转换后传入。
@@ -136,7 +136,7 @@ $O(k+M(D+1)\log(k+1))$，每层截断通常还能减少工作。
 \sum_{j=0}^{\min(k,\lfloor R/(c+1)\rfloor)}
 (-1)^j\binom kj\binom{R-j(c+1)+k-1}{k-1}.
 \]
-按上一节选择组合数接口，再比较项数与卷积成本。
+按组合数选型（第~\ref{knowledge-binomial-choice}~节，第~\pageref{knowledge-binomial-choice}~页）选择组合数接口，再比较项数与卷积成本。
 $k=0$ 单独返回 $[N=0]$，不向公式塞入 $k-1=-1$。
 
 \subsection{例二：步长 1、2 的有序序列（OGF 求逆）}

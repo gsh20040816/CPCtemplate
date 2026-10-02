@@ -28,10 +28,15 @@ fi
 export CXX
 export CPC_SANITIZE="${SANITIZE:-0}"
 python3 tests/basic_template_scope.py
+python3 tests/acl_review_consistency.py
+python3 tests/knowledge_taxonomy.py
+python3 tests/minimum_rotation_usage.py
 flags=(-std=c++20 -O2 -Wall -Wextra)
 if [[ "$(uname -s)" == Darwin ]]; then flags+=(-Wl,-stack_size,0x20000000); fi
 if [[ -d /opt/homebrew/include/boost ]]; then flags+=(-I/opt/homebrew/include); fi
 if [[ "${SANITIZE:-0}" == 1 ]]; then flags+=(-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer); fi
+"$CXX" "${flags[@]}" tests/fenwick-selection.cpp -o build/fenwick-selection-core
+build/fenwick-selection-core
 "$CXX" "${flags[@]}" tests/namespace_number_theory.cpp -o build/namespace-number
 build/namespace-number
 

@@ -239,6 +239,10 @@ cases['example-182'] = [('3\n0 0 1 0 0 1 1 1\n0 0 1 0 2 1 1 2\n-1 0 1 0 0 1 0 -1
 cases['example-183'] = [('3\n0 0 2 0 1 1 1 -1\n0 0 1 1 0 1 1 0\n0 0 1 1 1 0 0 1\n', {'values':[1,0,.5,.5,.5,.5], 'atol':1e-8}), ('1\n-9999 -9998 10000 10000 -9999 -9998 9999 9999\n', {'values':[-9999,-9998], 'atol':1e-8})]
 cases['example-184'] = [('3\n0 0\n2 2\n-1 1\n', {'exact_text':'2.0\n'}), ('4\n0 0\n1 1\n1 2\n0 2\n', {'exact_text':'1.5\n'}), ('6\n0 0\n3 0\n3 1\n1 1\n1 3\n0 3\n', {'exact_text':'5.0\n'})]
 cases['example-185'] = [('4 6\n1 2 1 2\n2 3 1 2\n3 4 1 2\n4 1 1 2\n1 3 1 2\n4 2 1 2\n', {'circulation': False}), ('4 6\n1 2 1 3\n2 3 1 3\n3 4 1 3\n4 1 1 3\n1 3 1 3\n4 2 1 3\n', {'circulation': True}), ('1 2\n1 1 3 7\n1 1 0 0\n', {'circulation': True}), ('2 3\n1 2 2 4\n1 2 1 5\n2 1 3 3\n', {'circulation': True}), ('2 1\n1 2 1 1\n', {'circulation': False})]
+cases['example-209'] = [['1\na\n', {'exact_text': 'a\n'}], ['1\nz\n', {'exact_text': 'z\n'}], ['4\nbaca\n', {'exact_text': 'abac\n'}], ['4\naaaa\n', {'exact_text': 'aaaa\n'}], ['8\nbabababa\n', {'exact_text': 'abababab\n'}], ['4\nzzaz\n', {'exact_text': 'azzz\n'}], ['7\ncabaaba\n', {'exact_text': 'aabacab\n'}], ['26\nzyxwvutsrqponmlkjihgfedcba\n', {'exact_text': 'azyxwvutsrqponmlkjihgfedcb\n'}]]
+
+cases['example-210'] = [['12\n1 5\n1 2\n1 5\n3 5\n4 3\n5 5\n6 2\n2 5\n3 6\n4 2\n2 2\n4 1\n', {'exact_text': '2\n5\n2\n5\n3\n5\n5\n'}], ['13\n1 -10000000\n1 0\n1 10000000\n3 -10000000\n3 10000000\n4 1\n4 3\n5 1\n6 -1\n2 0\n5 1\n6 -1\n3 0\n', {'exact_text': '1\n3\n-10000000\n10000000\n0\n0\n-10000000\n10000000\n2\n'}], ['9\n1 7\n1 7\n2 7\n4 1\n2 7\n3 7\n1 -3\n3 7\n4 1\n', {'exact_text': '7\n1\n2\n-3\n'}], ['3\n3 -10000000\n3 0\n3 10000000\n', {'exact_text': '1\n1\n1\n'}], ['1\n1 10000000\n', {'exact_text': ''}], ['6\n1 -9\n1 9\n5 0\n6 0\n3 0\n3 10\n', {'exact_text': '-9\n9\n2\n3\n'}]]
+
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()

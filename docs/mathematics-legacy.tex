@@ -1,7 +1,7 @@
 \chapter{数学速查：条件先于公式}
 \noindent 本附录保留历史评测证据；其中传统版 AC 为归档记录，当前只提供 vector 模板。
 
-\input{knowledge-mobius.tex}
+
 
 \section{杜教筛：预筛与缓存都不可省略}\index{Du Jiao sieve}
 整除反演建模（第~\ref{knowledge-mobius-model}~节，第~\pageref{knowledge-mobius-model}~页）的两条卷积恒等式给出 \texttt{DuJiao} 的递推，见代码中的
@@ -661,7 +661,7 @@ C_n=\binom{2n}n-\binom{2n}{n+1}.
 \end{center}
 上表默认 $k\ge1$；$n=0$、$k=0$ 等边界应按原问题约定单独处理。
 
-\input{knowledge-orbits.tex}
+
 
 \section{生成函数与递推}\index{generating functions}\index{Berlekamp-Massey}
 普通生成函数 $A(x)=\sum a_nx^n$ 的乘法对应普通卷积。
@@ -676,7 +676,7 @@ B_{\rm new}=B(2-AB)\pmod{x^{2m}},\qquad
 BM 从样本得到最短线性递推。要对未来项使用，必须另外证明序列确实具有不超过相应阶数的线性递推；
 少量数值吻合不是证明。矩阵转移、有限状态计数常可提供阶数上界。
 
-\input{knowledge-combinatorics.tex}
+
 
 \section{线性代数与生成树}\index{rank}\index{Matrix Tree theorem}
 域上的线性方程组一致时，解集为一个特解加零空间，零空间维数为未知数个数减秩。
@@ -709,7 +709,7 @@ POJ2947（同题 UVa1564）给出每位工人制造的产品类型和起止星�
 该应用验证覆盖分类及唯一解输出，不代替零空间基等其他接口的验证。
 来源：\url{https://onlinejudge.org/external/15/1564.pdf}；kuangbin 2.10.2。
 
-\input{knowledge-probability-games.tex}
+
 
 \section{数值算法与几何}\index{numerical stability}\index{Pick theorem}
 排序必须使用严格弱序；不能以“差小于 eps 则相等”定义通用排序比较器。

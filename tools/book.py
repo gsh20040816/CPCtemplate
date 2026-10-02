@@ -740,5 +740,7 @@ for row in records:
 (root / 'build/book-sections.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')
 (root / 'docs/template-dependencies.json').write_text(json.dumps(copy_dependencies, ensure_ascii=False, indent=2) + '\n')
 from taxonomy_layout import render
-(root / 'docs/generated.tex').write_text(render(records, omnibus=True) + '\n')
+from knowledge_layout import classified_fragments, legacy_knowledge
+(root / 'docs/generated.tex').write_text(render(records + classified_fragments(), omnibus=True) + '\n')
+(root / 'docs/mathematics-legacy.tex').write_text(legacy_knowledge())
 print('Generated source-linked book sections')

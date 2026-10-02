@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "reference_commit": "bc070e827180fbd75c2e27a16c1212f1d671d949",
+  "reference_source_sha256": "de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806",
+  "scope": {
+    "source_files": [
+      "docs/knowledge-combinatorics.tex",
+      "docs/knowledge-probability-games.tex",
+      "docs/knowledge-mobius.tex",
+      "docs/knowledge-orbits.tex"
+    ],
+    "classified_section_count": 15,
+    "legacy_source": "docs/mathematics.tex",
+    "legacy_sections_classified": false,
+    "classification_only": true,
+    "new_algorithm_coverage": false,
+    "new_oj_verification": false,
+    "note": "仅分类四份 knowledge 源文件的 15 个带标签节。mathematics.tex 的其余历史知识节尚未逐项分类，保留为附录；不代表 issue #5/#7 已全量完成。"
+  },
+  "entries": [
+    {
+      "label": "knowledge-counting-model",
+      "source": "docs/knowledge-combinatorics.tex",
+      "path": "math/combinatorics/combination.md",
+      "additional": [
+        "math/poly/symbolic-method.md",
+        "math/poly/ogf.md",
+        "math/poly/egf.md"
+      ],
+      "relation": "composite",
+      "note": "以可区分对象、容器与次序为主的计数建模；同时说明 OGF/EGF 的选型，不代表覆盖所有排列组合或生成函数内容。"
+    },
+    {
+      "label": "knowledge-binomial-choice",
+      "source": "docs/knowledge-combinatorics.tex",
+      "path": "math/combinatorics/combination.md",
+      "additional": [
+        "math/number-theory/lucas.md",
+        "math/number-theory/inverse.md"
+      ],
+      "relation": "composite",
+      "note": "组合数实现选型与资源边界为主；Lucas、扩展 Lucas 和模逆元条件另列关联页，不将选型说明计作新增实现。"
+    },
+    {
+      "label": "knowledge-generating-examples",
+      "source": "docs/knowledge-combinatorics.tex",
+      "path": "math/poly/symbolic-method.md",
+      "additional": [
+        "math/poly/ogf.md",
+        "math/poly/egf.md",
+        "math/poly/elementary-func.md",
+        "math/poly/newton.md"
+      ],
+      "relation": "composite",
+      "note": "三个例子按组合对象构造生成函数，涵盖 OGF 乘积、OGF 序列求逆和 EGF 集合指数；整节保留一次，不能归成仅 OGF 或仅 EGF。"
+    },
+    {
+      "label": "knowledge-expectation",
+      "source": "docs/knowledge-probability-games.tex",
+      "path": "math/probability/exp-var.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "指示变量、期望线性性、尾和与方差条件；主归随机变量的数字特征，仅登记现有知识内容。"
+    },
+    {
+      "label": "knowledge-probability-dp",
+      "source": "docs/knowledge-probability-games.tex",
+      "path": "math/probability/exp-var.md",
+      "additional": [
+        "math/probability/conditional-probability.md",
+        "math/numerical/gauss.md"
+      ],
+      "relation": "application",
+      "note": "期望的第一步分析与吸收状态应用；条件概率和高斯消元为关联工具，有限性条件仍保留在原文。"
+    },
+    {
+      "label": "knowledge-mod-probability",
+      "source": "docs/knowledge-probability-games.tex",
+      "path": "math/probability/exp-var.md",
+      "additional": [
+        "math/number-theory/mod-arithmetic.md",
+        "math/number-theory/inverse.md",
+        "math/numerical/gauss.md"
+      ],
+      "relation": "composite",
+      "note": "以概率与期望的有理数模表示为主线；跨越模逆元、模线性系统的可解性，固定导航没有独立模概率叶子，不自造分类。"
+    },
+    {
+      "label": "knowledge-sg",
+      "source": "docs/knowledge-probability-games.tex",
+      "path": "math/game-theory/impartial-game.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "有限无偏正常玩法的 SG 定义、不交和与异或策略；保留全部适用前提，不扩展为通用博弈算法覆盖。"
+    },
+    {
+      "label": "knowledge-subtraction-game",
+      "source": "docs/knowledge-probability-games.tex",
+      "path": "math/game-theory/impartial-game.md",
+      "additional": [
+        "math/game-theory/partizan-game.md"
+      ],
+      "relation": "application",
+      "note": "减法游戏是公平组合游戏的具体应用；反常、有环与有偏情形仅为误用边界，有偏游戏关联页不表示已完成其理论或实现。"
+    },
+    {
+      "label": "knowledge-mobius-model",
+      "source": "docs/knowledge-mobius.tex",
+      "path": "math/number-theory/mobius.md",
+      "additional": [
+        "math/number-theory/dirichlet.md"
+      ],
+      "relation": "composite",
+      "note": "莫比乌斯反演的约数、倍数方向及 GCD 加权建模为主；卷积恒等式对应狄利克雷卷积关联页。"
+    },
+    {
+      "label": "knowledge-gcd-domains",
+      "source": "docs/knowledge-mobius.tex",
+      "path": "math/number-theory/mobius.md",
+      "additional": [
+        "math/number-theory/gcd.md",
+        "math/number-theory/euler-totient.md",
+        "math/combinatorics/inclusion-exclusion-principle.md"
+      ],
+      "relation": "application",
+      "note": "互质矩形与 GCD 计数是反演应用；缩放、容斥、对称性及欧拉函数化简随原节保留。"
+    },
+    {
+      "label": "knowledge-quotient-choice",
+      "source": "docs/knowledge-mobius.tex",
+      "path": "math/number-theory/sqrt-decomposition.md",
+      "additional": [
+        "math/number-theory/sieve.md",
+        "math/number-theory/hyperbola.md"
+      ],
+      "relation": "composite",
+      "note": "双商整除分块为主；预筛与杜教筛是前缀和来源的选型，不能把外层分块复杂度当作整体复杂度。"
+    },
+    {
+      "label": "knowledge-orbits-model",
+      "source": "docs/knowledge-orbits.tex",
+      "path": "math/combinatorics/polya.md",
+      "additional": [
+        "math/algebra/group-theory.md"
+      ],
+      "relation": "direct",
+      "note": "轨道、稳定子与 Burnside 引理作为对称计数基础；群作用关联群论，不表示完整群论覆盖。"
+    },
+    {
+      "label": "knowledge-orbits-dihedral",
+      "source": "docs/knowledge-orbits.tex",
+      "path": "math/combinatorics/polya.md",
+      "additional": [],
+      "relation": "application",
+      "note": "项链与手链通过旋转、反射的循环分类计数；退化长度及非忠实作用边界随原节保留。"
+    },
+    {
+      "label": "knowledge-orbits-inventory",
+      "source": "docs/knowledge-orbits.tex",
+      "path": "math/combinatorics/polya.md",
+      "additional": [
+        "math/poly/ogf.md",
+        "math/combinatorics/combination.md"
+      ],
+      "relation": "application",
+      "note": "固定颜色库存对应 Pólya 的循环指标代换；系数提取及组合数为关联方法，不复制整节到其他叶子。"
+    },
+    {
+      "label": "knowledge-orbits-modular",
+      "source": "docs/knowledge-orbits.tex",
+      "path": "math/combinatorics/polya.md",
+      "additional": [
+        "math/number-theory/mod-arithmetic.md",
+        "math/number-theory/inverse.md"
+      ],
+      "relation": "application",
+      "note": "轨道数的群阶除法应用：不可逆时先提升模数再整除；模算术和逆元仅是关联条件，示例并非新增通用算法。"
+    }
+  ]
+}

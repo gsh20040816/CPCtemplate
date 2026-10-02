@@ -46,14 +46,16 @@
     {
       "module": "segtree",
       "category": "数据结构",
-      "status": "已实现，函数复合与边界搜索分别在线通过",
+      "status": "已实现，函数复合与边界搜索有历史线上记录",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp",
       "reference_sha256": "6b959283e1faeaa3de5b473eee5e774220eee60a89fe4b483ce26e652532dabb",
       "local": [
         "src/compact/segtree.hpp"
       ],
-      "notes": "通用 op/e、set/get/prod/all、max_right/min_left 已实现；非交换字符串与独立扫描、50万叶及 ASan/UBSan 通过。函数复合驱动在线待提交。 Predecessor Problem 402089 AC：构造/set/get/max_right/min_left，22 点；prod/all 不在该题范围。 函数复合 402090 AC：构造/set/prod；all 和空区间本地验证。",
-      "gaps": []
+      "notes": "通用 op/e、set/get/prod/all、max_right/min_left 已实现；非交换字符串与独立扫描、50万叶及 ASan/UBSan 已有本地证据。历史 Predecessor Problem 402089 AC 覆盖构造/set/get/max_right/min_left，22点；函数复合402090 AC覆盖构造/set/prod，16点。all和空区间只有本地证据；历史提交不等于当前全部接口重新线上验证。",
+      "gaps": [
+        "all与空区间没有独立线上证据；现版本精确源码与历史提交的关系须另查归档"
+      ]
     },
     {
       "module": "lazysegtree",
@@ -76,24 +78,29 @@
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp",
       "reference_sha256": "ddb92d513c1e0b1eb5bdb5479e6c697aa3b37da8a753cd9ec6102af27d389f68",
       "local": [
-        "src/compact/number_theory.hpp"
+        "src/compact/mod64.hpp",
+        "src/compact/extended_gcd.hpp",
+        "src/compact/mod_inverse.hpp",
+        "src/compact/crt_merge.hpp",
+        "src/compact/floor_sum.hpp"
       ],
-      "notes": "power、inverse、crt、floor_sum 已存在。ACL crt 批量返回 pair，本库原位逐条合并；ACL floor_sum 的 n,m 范围到 2^32 且溢出取模2^64，本库说明范围较小并返回精确 int128，不能直接宣称契约完全相同。",
+      "notes": "独立组件为 Mod64::power、extended_gcd、mod_inverse、crt_merge、floor_sum；number_theory.hpp 中的 NumberTheory 仅为兼容入口。ACL crt批量返回pair，本库逐式原位合并，周期超signed64时抛异常；mod_inverse不可逆返回-1。floor_sum文档契约为0<=n<=10^9、1<=m<=10^9、a/b为signed64，返回精确int128；ACL接受n/m<2^32并在溢出时取模2^64，不能宣称相同契约。",
       "gaps": [
-        "逐项核对 floor_sum 的边界范围及溢出语义"
+        "本库未承诺 ACL floor_sum 的完整 n/m<2^32 范围及模2^64溢出语义",
+        "独立组件的线上证据按实际调用范围核验，不由兼容入口历史记录自动转移"
       ]
     },
     {
       "module": "modint",
       "category": "数学",
-      "status": "部分覆盖",
+      "status": "静态与动态实现已有，逆元契约仍有差异",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp",
       "reference_sha256": "aef131053e67300be6def657f1ef1eb1c80ef2c92ffc8220d7be0cccab583318",
       "local": [
         "src/compact/number_theory.hpp",
         "src/compact/dynamic_modint.hpp"
       ],
-      "notes": "当前 ModInt 支持固定模数算术，inv 按素数模数约定。ACL 静态合数模逆采用 inv_gcd，另有按 id 区分的动态模数类型；小类型及 unsigned 内部存储与溢出界不能只抄一半。 动态 mint<tag> 已实现，含合数可逆元素的 try_inv；普通及 ASan/UBSan 本地验证通过。",
+      "notes": "静态 ModInt 位于number_theory.hpp，inv仍要求素数模数和非零元素；动态mint<tag>位于dynamic_modint.hpp，支持1..INT_MAX运行时模数、tag隔离及合数单位元try_inv。修改同tag模数后须重建旧对象和缓存。已存在普通/ASan/UBSan本地证据及P5431与batch_units的完整打印用法198，动态版线上AC仍待补；不把已有整数版P5431 AC转移给动态类型。",
       "gaps": [
         "动态模整数的独立模板题在线验证",
         "现有静态 ModInt 的合数求逆契约仍未扩展"
@@ -107,7 +114,6 @@
       "reference_sha256": "456e3d737ec2a73ca00ed3c1f12f26731b8cbefc1e81dec5a950ebf458a509d5",
       "local": [
         "src/compact/ntt_convolution.hpp",
-        "src/compact/polynomial.hpp",
         "src/compact/convolution_i64.hpp"
       ],
       "notes": "已有参数化素数模 NTT 卷积。ACL convolution_ll 返回有符号64位精确系数，采用三模重构并限制结果范围；单模卷积或把结果随意取模不能替代。 convolution_i64 已实现三模中心重构，支持 signed64 系数；结果长度不超过 2^24，真实结果须在 signed64 内。cpp_int 参考及 P3803 最大次数驱动普通/消毒器通过。",
@@ -124,9 +130,10 @@
       "local": [
         "src/compact/flow.hpp"
       ],
-      "notes": "Dinic 已有加边、最大流、used 和 cut；ACL 以稳定逻辑边号公开 get_edge/edges/change_edge。当前没有按容量与流量成对修改正反残量的受约束接口。 Dinic 已补 get_edge/change_edge，局部残量对正确维护；全局流量守恒仍为调用前提，本地割枚举和流证书验证通过。",
+      "notes": "Dinic已有add/flow/used/cut/get_edge/change_edge；本库原边ID为add返回的偶数残量边号，反边id^1，区别于ACL的逻辑边号。change_edge同时更新initial、正反残量，但全局守恒仍由调用方保证。割枚举和流证书已有本地证据，历史最大流AC不覆盖新边状态方法；未提供ACL同名edges()批量接口。",
       "gaps": [
-        "新边状态接口的在线验证"
+        "新边状态接口的在线验证",
+        "没有ACL同名edges()批量接口；可按原边ID逐项调用get_edge，不宣称API完全相同"
       ]
     },
     {
@@ -193,9 +200,8 @@
     "internal_type_traits"
   ],
   "composition_probe": "verification/probes/fenwick_modint.cpp",
-  "composition_probe_result": "compile_failure_observed",
-  "composition_probe_log": "verification/acl-fenwick-modint-probe.txt",
-  "note": "This audit does not confer new AC or claim identical API/complexity contracts. Missing implementations remain work items.",
+  "composition_probe_result": "fixed_local_regression_recorded",
+  "note": "This audit does not confer new AC or identical API/complexity contracts. Existing local evidence, historical online submissions and remaining implementation/validation gaps are separate.",
   "local_snapshot_commit": "af6432011d9cd3cb28357b56270ab4b232bbe2dc",
   "local_source_sha256": {
     "src/compact/affine_segment_tree.hpp": "b5ab4a1c217952e1fb976ca3e3f9937d8bd4ea80b5bf901c477f4291f30b620f",
@@ -208,5 +214,21 @@
     "src/compact/string.hpp": "6c3f647540c561b02e93bdd9a03e097cd2ad5518cdddc716fc9455585ff5fd02",
     "src/compact/suffix_lcp.hpp": "bd87d197c6ce07a1372909b60135fc7837250b2161edd06480de44480a48d504",
     "src/compact/tarjan.hpp": "89ae133d40c112b5f4aa016dac035a401dd872984bca7b390ad3d7accba45079"
+  },
+  "historical_composition_probe": {
+    "result": "compile_failure_observed",
+    "log": "verification/acl-fenwick-modint-probe.txt",
+    "note": "cc3b1c8时记录的失败；当前同路径程序已改成成功回归，不能将现文件误认为失败时原样源码。"
+  },
+  "composition_probe_evidence": [
+    "tests/modint_composition.cpp",
+    "verification/modint-composition-local.txt",
+    "verification/modint-composition-sanitizer.txt"
+  ],
+  "local_snapshot_scope": "Historical initial-review snapshot only. These hashes are not current source fingerprints or a new verification receipt.",
+  "metadata_review": {
+    "base_commit": "8b09b35bcce8ac794489efd8a715b5c40e2328dd",
+    "date": "2026-10-02",
+    "scope": "Current implementation paths, table/status consistency and existing evidence boundaries only; no algorithm run, new online AC or performance claim."
   }
 }

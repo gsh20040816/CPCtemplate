@@ -2578,5 +2578,29 @@
     "requires": [
       "segmented_primes"
     ]
+  },
+  {
+    "id": "example-209",
+    "symbol": "minimum_rotation",
+    "kind": "template",
+    "problem": "Luogu P13270【模板】最小表示法",
+    "url": "https://www.luogu.com.cn/problem/P13270",
+    "summary": "给定长度 1..10^7 的小写字母字符串，输出所有循环位移中字典序最小的字符串。minimum_rotation 返回 0-based 起点，使用 rotate 原地重排后输出；O(n) 时间，算法本体 O(1) 额外空间。",
+    "driver": "verify/luogu/P13270.compact.cpp",
+    "requires": [
+      "minimum_rotation"
+    ]
+  },
+  {
+    "id": "example-210",
+    "symbol": "Fenwick",
+    "kind": "template",
+    "problem": "Luogu P3369",
+    "url": "https://www.luogu.com.cn/problem/P3369",
+    "summary": "维护可重集合的插入、删除一个、排名、第 k 小和严格前驱/后继。预读全部操作并离散化非第 k 小查询的值域；频数下标为 1-based，kth 的返回值减 1 后映射回原值。排名查询允许 x 不在集合中；第 k 小与前驱/后继按题目保证存在。n≤100000，|x|≤10000000；总复杂度 O(n log n)，空间 O(n)。",
+    "driver": "verify/luogu/P3369.fenwick-selection.compact.cpp",
+    "requires": [
+      "Fenwick"
+    ]
   }
 ]

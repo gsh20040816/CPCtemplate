@@ -1,0 +1,95 @@
+{
+  "scope": "Local P13270 complete-driver and exact minimum_rotation byte API checks; no online submission or AC.",
+  "mode": "normal",
+  "status": "pass",
+  "driver": "verify/luogu/P13270.compact.cpp",
+  "problem_url": "https://www.luogu.com.cn/problem/P13270",
+  "official_bounds": "1 <= n <= 10000000; lowercase ASCII letters only",
+  "program_sha256": "6c088a6fa6420b5fff87c21c4ad78839697df21615a5bf34c7998defc4fd30c5",
+  "core_sha256": "0a8e441c99c5795af6d8b4e8789bfbcf44a7e6c202b7ea246b39cc5f107540da",
+  "core_test_program_sha256": "5a9beb33603acb17c2d40a37b9336c4e570eba6066e8456becb74cd5acee75d5",
+  "pasted_program_sha256": "5c33519d3939800ba70b9cfe54986f08309a502978d49a03a76a66e17c9a6ec2",
+  "input_sha256": {
+    "verify/luogu/P13270.compact.cpp": "5402fb566669b08cce9401a852a25f729d94763d25b1060fea49c2125d5f6248",
+    "src/compact/string.hpp": "b2d66016ede91178051e1467ec9111f5c05f4e2916fdc1419e2c0f1bbfbfdfe3",
+    "tests/minimum_rotation_usage.py": "cd2b339ce43da44b7c26c138869485b926f46d7a45582ee9515124c1e15f92a0",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+    "tools/usage_examples.py": "8f4167849f20a8d049043bf4f447e0d558e6e95d22715e868967d43e0bfe00a4"
+  },
+  "corpus_sha256": "fd1a3317f0fded183b47c2be6e4d821a044cde5d0be92165e556e51123592dc2",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "flags": [
+    "-std=c++20",
+    "-O2"
+  ],
+  "compile_commands": [
+    [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-O2",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/minimum-rotation-usage-normal/P13270.cpp",
+      "-o",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/minimum-rotation-usage-normal/P13270"
+    ],
+    [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-O2",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/minimum-rotation-usage-normal/pasted-usage.cpp",
+      "-o",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/minimum-rotation-usage-normal/pasted-usage"
+    ],
+    [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-O2",
+      "-fsigned-char",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/minimum-rotation-usage-normal/core-signed.cpp",
+      "-o",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/minimum-rotation-usage-normal/core-signed"
+    ],
+    [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-O2",
+      "-funsigned-char",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/minimum-rotation-usage-normal/core-unsigned.cpp",
+      "-o",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/minimum-rotation-usage-normal/core-unsigned"
+    ]
+  ],
+  "runtime_environment": {
+    "ASAN_OPTIONS": null,
+    "UBSAN_OPTIONS": null
+  },
+  "cases": {
+    "driver_fixed_legal": 8,
+    "pasted_usage_fixed_legal": 8,
+    "driver_random_rotation_oracle": 200,
+    "driver_long_common_prefix_oracle": 4,
+    "maximum_legal_all_equal": 1,
+    "maximum_legal_last_unique_minimum": 1,
+    "maximum_legal_periodic": 1,
+    "maximum_legal_long_equal_prefix": 1,
+    "core_empty_extension": 1,
+    "core_exhaustive_byte_rotation_oracle": 3279,
+    "core_byte_boundaries": 256,
+    "core_fixed_binary": 8,
+    "core_random_bytes": 400
+  },
+  "core_char_modes": [
+    "signed",
+    "unsigned"
+  ],
+  "core_case_runs": 7888,
+  "notes": [
+    "Independent oracle enumerates every rotation for all small cases.",
+    "Each maximum-size driver case uses an explicit structural expected string.",
+    "Every driver answer is compared byte-for-byte including the final newline.",
+    "The exact main also compiles/runs with only the named core and standard headers.",
+    "Empty and arbitrary byte strings are core-interface extensions, not legal P13270 inputs.",
+    "No vector<int> or negative-integer API is exposed or claimed.",
+    "LeakSanitizer may be disabled by ASAN_OPTIONS; ASan/UBSan results are recorded separately."
+  ]
+}

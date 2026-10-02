@@ -7,6 +7,8 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 rows = json.loads((root / 'build/book-sections.json').read_text())
 from taxonomy_layout import TAX, render
+from knowledge_layout import classified_fragments, legacy_knowledge
+mapped_knowledge = classified_fragments()
 # The top-level categories come from the pinned navigation, not source modules.
 groups = {'strings': ('字符串', ''),
           'mathematics': ('数学', ''), 'data-structures': ('数据结构', ''),
@@ -17,13 +19,7 @@ for r in rows:
 by_name = {r['symbol']: r for r in rows}
 assert len(by_name) == len(rows)
 notes = {k: [] for k in groups}
-knowledge_source = (root / 'docs/mathematics.tex').read_text()
-# Expand explicit shared knowledge sources before routing their sections.
-for source in ['knowledge-combinatorics.tex', 'knowledge-probability-games.tex',
-               'knowledge-mobius.tex', 'knowledge-orbits.tex']:
-    directive = r'\input{' + source + '}'
-    assert knowledge_source.count(directive) == 1, (source, 'missing/duplicate input')
-    knowledge_source = knowledge_source.replace(directive, (root / 'docs' / source).read_text())
+knowledge_source = legacy_knowledge()
 parts = re.split(r'(?=\\section\{)', knowledge_source)[1:]
 for part in parts:
     title = part.split('\n', 1)[0]
@@ -51,11 +47,12 @@ notes['geometry'].append((root / 'docs/geometry-notes.tex').read_text())
 manifest = []
 for key, (title, _) in groups.items():
     primary = [r for r in rows if r['volume'] == key]
+    classified = [r for r in mapped_knowledge if owner[r['taxonomy']['hierarchy'][0]] == key]
     included = {r['symbol'] for r in primary}
     knowledge = '\n'.join(notes[key])
     # Exact catalog identifiers conservatively include dependencies mentioned in
     # code/comments or interface notes; close transitively before emitting labels.
-    pending = knowledge + '\n' + '\n'.join(r['code'] + r['latex'] for r in primary)
+    pending = knowledge + '\n' + '\n'.join(r['code'] + r['latex'] for r in primary + classified)
     while True:
         tokens = set(re.findall(r'\b[A-Za-z_]\w*\b', pending))
         added = (tokens & by_name.keys()) - included
@@ -77,7 +74,7 @@ for key, (title, _) in groups.items():
             r'本册尚非全量完成稿；传统版评测仅为历史档案，当前只维护 vector 代码。', r'\mainmatter']
     def emit(entries):
         body.append(render(entries))
-    emit(primary)
+    emit(primary + classified)
     if knowledge.strip():
         body += [r'\chapter{配套知识与验证范围}', knowledge]
     if dependencies:

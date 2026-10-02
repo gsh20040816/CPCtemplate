@@ -14,9 +14,11 @@ def render(entries, omnibus=False):
     result = []
     previous = []
     root = None
-    ordered = sorted(enumerate(entries), key=lambda p:(TAX[p[1]['symbol']]['order'],p[0]))
+    def taxonomy(row):
+        return row['taxonomy'] if 'taxonomy' in row else TAX[row['symbol']]
+    ordered = sorted(enumerate(entries), key=lambda p:(taxonomy(p[1])['order'],p[0]))
     for _, row in ordered:
-        item = TAX[row['symbol']]
+        item = taxonomy(row)
         path = item['hierarchy']
         if path[0] != root:
             if omnibus and root == '计算几何':
@@ -30,7 +32,15 @@ def render(entries, omnibus=False):
         common = 0
         while common < min(len(previous), len(branch)) and previous[common] == branch[common]:
             common += 1
-        fragment = re.sub(r'\\section\{', lambda m:'\\'+LEVELS[len(branch)]+'{', row['latex'], count=1)
+        if row.get('knowledge'):
+            levels = LEVELS + ['paragraph', 'subparagraph']
+            def heading(match):
+                depth = len(match[1]) // 3
+                assert len(branch) + depth < len(levels)
+                return '\\' + levels[len(branch) + depth] + '{'
+            fragment = re.sub(r'\\((?:sub)*)section\{', heading, row['latex'])
+        else:
+            fragment = re.sub(r'\\section\{', lambda m:'\\'+LEVELS[len(branch)]+'{', row['latex'], count=1)
         # Reserve space before the new taxonomy headings, so a fragment's own
         # Needspace/newpage cannot strand those headings on the preceding page.
         prefix = re.match(r'(?:(?:\\Needspace\{[0-9]+pt\}|\\newpage)\s*)+', fragment)
