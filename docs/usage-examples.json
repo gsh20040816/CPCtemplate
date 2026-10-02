@@ -2706,5 +2706,18 @@
       "ModInt",
       "Binomial"
     ]
+  },
+  {
+    "id": "example-217",
+    "symbol": "word_chain",
+    "kind": "application",
+    "problem": "UVA 10441 Catenyms",
+    "url": "https://onlinejudge.org/external/104/10441.pdf",
+    "summary": "多组给出3..1000个互不相同的小写单词，长度1..20。每词恰用一次，后词首字母等于前词尾字母，输出字典序最小的点分隔词链；无解输出***。返回原输入的0-based编号，按编号取词输出，末尾不加点。单词排序不可换成按终点排序。重复词和空输入仅属更宽接口范围，不在本题范围内。",
+    "driver": "verify/poj/2337.compact.cpp",
+    "requires": [
+      "DirectedEuler",
+      "word_chain"
+    ]
   }
 ]

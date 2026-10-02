@@ -155,7 +155,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | path_intersection | [example-169（应用补充）](usage/example-169.cpp) | locally_checked_application |
 | DirectedEuler | [example-57](usage/example-57.cpp) | locally_checked_example |
 | UndirectedEuler | [example-177](usage/example-177.cpp) | locally_checked_example |
-| word_chain | 待补 | pending_example |
+| word_chain | [example-217（应用补充）](usage/example-217.cpp) | locally_checked_application |
 | mixed_euler_orientation | [example-206（接口演示）](usage/example-206.cpp) | locally_checked_api |
 | mixed_euler_trail | [example-206（接口演示）](usage/example-206.cpp) | locally_checked_api |
 | odd_cycle_vertices | [example-204（应用补充）](usage/example-204.cpp) | locally_checked_application |

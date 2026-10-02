@@ -34,6 +34,7 @@ python3 tests/ordered_splay_pagination.py
 python3 tests/joint_usage_references.py
 python3 tests/copy_prerequisite_order.py
 python3 tests/binomial_coefficient_application.py
+python3 tests/word_chain_distinct_application.py
 python3 tests/issue11_rollup.py
 python3 tests/minimum_rotation_usage.py
 flags=(-std=c++20 -O2 -Wall -Wextra)

@@ -1,0 +1,30 @@
+{
+  "problem": "UVA 10441 Catenyms",
+  "url": "https://onlinejudge.org/external/104/10441.pdf",
+  "retrieved": "2026-10-02",
+  "evidence": {
+    "title": "PDF page 1, line 0",
+    "input": "PDF page 1, lines 14\u201316: test-count prefix; 3 through 1000 distinct dictionary words; each word consists of 1 through 20 lowercase letters, one per line",
+    "output": "PDF page 1, lines 18\u201319: smallest lexicographic compound catenym using every dictionary word once; failure marker is ***",
+    "samples": "PDF page 1, lines 21\u201335; official-sample.in and official-sample.out"
+  },
+  "classification": "Contest application of directed Euler trail with word-order edge sorting; not a formal template problem",
+  "production_status": "Existing implementation inspected; not executed or changed during this read-only preparation",
+  "boundary_fixtures": [
+    {
+      "index": 1,
+      "kind": "1000 distinct length-20 self loops at a, reverse-sorted input",
+      "expected": "All words in ascending lexical order"
+    },
+    {
+      "index": 2,
+      "kind": "999 distinct length-20 self loops at a plus ab; ab sorts before every loop but must be last",
+      "expected": "Sorted self loops followed by ab"
+    },
+    {
+      "index": 3,
+      "kind": "500 distinct loops at a and 500 distinct loops at z",
+      "expected": "***; degrees balance but components are disconnected"
+    }
+  ]
+}

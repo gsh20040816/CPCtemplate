@@ -1,0 +1,173 @@
+{
+  "status": "passed",
+  "mode": "normal",
+  "seed": 1044120261002,
+  "scope": "Local official-domain full-driver evidence only; not online AC, speed ranking, broader API coverage, or leak detection",
+  "started_at_utc": "2026-10-02T12:47:08.633028+00:00",
+  "script_sha256": "4239d4957bee08ff9cb365853347ae0a180a57244425963021c5af4bd421f005",
+  "production_sources": {
+    "verify/poj/2337.compact.cpp": "2fb1a9477f0dcc88752868df7e4cfe38950ae2398b1508d1137bf57d85ebab04",
+    "src/compact/directed_euler.hpp": "32af4fef5ab3fb473b7424433b777d7b92825236f4b05cf8aa49db15b16db5b2",
+    "src/compact/word_chain.hpp": "de49ba4e7b05cf98844f5822a9d2ed473f20165b9e433cde983811a7ff51d54b",
+    "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76"
+  },
+  "fixture_sources": {
+    "official-sample.in": "0d3ef30e9b16ef266af1661bc92f38f9fc83595a410651ca78c66adcd504219c",
+    "official-sample.out": "246a636f8b4e625919ee60d518c3d42ded0166f0d91d89fffe55e0c384501163",
+    "distinct-boundary.in": "a4917614f48a79cfab6f82a72c416c7be01522dfdabceb6aab94b0a099f9ea12",
+    "distinct-boundary.out": "6e2d862bc9a4c2fd58b0e0c515e0e926c07172d115c95151a93203637f582779",
+    "contract.json": "38fe74457944febb230df9bcb57a5b9c5599d2e4044804d263da577e626a52fd"
+  },
+  "contract_sha256": "38fe74457944febb230df9bcb57a5b9c5599d2e4044804d263da577e626a52fd",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compiler_executable": "/usr/bin/x86_64-linux-gnu-g++-14",
+  "compiler_executable_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+  "flags": [
+    "-std=c++20",
+    "-O2"
+  ],
+  "fixture_process_invocations_per_form": 3,
+  "individual_cases_per_form": 1025,
+  "total_process_invocations": 9,
+  "total_case_executions": 3075,
+  "environment": {
+    "ASAN_OPTIONS": null,
+    "UBSAN_OPTIONS": null
+  },
+  "registered_form": {
+    "status": "passed",
+    "id": "example-217",
+    "program_sha256": "07db949628536b75393a24504488df9d975d5adfabb2fd62f07bfd0b01b8cb23",
+    "registration_details": {
+      "id": "example-217",
+      "symbol": "word_chain",
+      "kind": "application",
+      "problem": "UVA 10441 Catenyms",
+      "url": "https://onlinejudge.org/external/104/10441.pdf",
+      "summary": "\u591a\u7ec4\u7ed9\u51fa3..1000\u4e2a\u4e92\u4e0d\u76f8\u540c\u7684\u5c0f\u5199\u5355\u8bcd\uff0c\u957f\u5ea61..20\u3002\u6bcf\u8bcd\u6070\u7528\u4e00\u6b21\uff0c\u540e\u8bcd\u9996\u5b57\u6bcd\u7b49\u4e8e\u524d\u8bcd\u5c3e\u5b57\u6bcd\uff0c\u8f93\u51fa\u5b57\u5178\u5e8f\u6700\u5c0f\u7684\u70b9\u5206\u9694\u8bcd\u94fe\uff1b\u65e0\u89e3\u8f93\u51fa***\u3002\u8fd4\u56de\u539f\u8f93\u5165\u76840-based\u7f16\u53f7\uff0c\u6309\u7f16\u53f7\u53d6\u8bcd\u8f93\u51fa\uff0c\u672b\u5c3e\u4e0d\u52a0\u70b9\u3002\u5355\u8bcd\u6392\u5e8f\u4e0d\u53ef\u6362\u6210\u6309\u7ec8\u70b9\u6392\u5e8f\u3002\u91cd\u590d\u8bcd\u548c\u7a7a\u8f93\u5165\u4ec5\u5c5e\u66f4\u5bbd\u63a5\u53e3\u8303\u56f4\uff0c\u4e0d\u5728\u672c\u9898\u8303\u56f4\u5185\u3002",
+      "driver": "verify/poj/2337.compact.cpp",
+      "requires": [
+        "DirectedEuler",
+        "word_chain"
+      ],
+      "snippet_file": "docs/usage/example-217.cpp",
+      "program_sha256": "07db949628536b75393a24504488df9d975d5adfabb2fd62f07bfd0b01b8cb23"
+    },
+    "registration_sha256": "c6cd92e82abde7a1e2e955d70d0ed16f74e7fdabe534602822377b507f7805e6"
+  },
+  "small_cases": 1020,
+  "small_successes": 657,
+  "small_failures": 363,
+  "programs": {
+    "standalone": {
+      "source_sha256": "cfcc923da9aa14a19f3ddcb11b73f72510275aef42d819744968111a69195c3a",
+      "binary_sha256": "d0d251a20dd61dab3b251c7e571c327eccb879315ebd4e75bbdcc3942a64cfcb",
+      "fixtures": [
+        {
+          "label": "official-sample",
+          "cases": 2,
+          "input_sha256": "0d3ef30e9b16ef266af1661bc92f38f9fc83595a410651ca78c66adcd504219c",
+          "expected_sha256": "246a636f8b4e625919ee60d518c3d42ded0166f0d91d89fffe55e0c384501163",
+          "actual_sha256": "246a636f8b4e625919ee60d518c3d42ded0166f0d91d89fffe55e0c384501163",
+          "returncode": 0,
+          "stderr": "",
+          "wall_seconds": 0.00238
+        },
+        {
+          "label": "distinct-boundary",
+          "cases": 3,
+          "input_sha256": "a4917614f48a79cfab6f82a72c416c7be01522dfdabceb6aab94b0a099f9ea12",
+          "expected_sha256": "6e2d862bc9a4c2fd58b0e0c515e0e926c07172d115c95151a93203637f582779",
+          "actual_sha256": "6e2d862bc9a4c2fd58b0e0c515e0e926c07172d115c95151a93203637f582779",
+          "returncode": 0,
+          "stderr": "",
+          "wall_seconds": 0.002694
+        },
+        {
+          "label": "distinct-full-permutations",
+          "cases": 1020,
+          "input_sha256": "34c9f864091944fcc63c1b36c1bdcbcea2c698f0388b11aa12790339ad8474bd",
+          "expected_sha256": "96ae1f9f884f652474fa8156f14b1f1784fc5227e7e61908a3cb14bc9dd24c6d",
+          "actual_sha256": "96ae1f9f884f652474fa8156f14b1f1784fc5227e7e61908a3cb14bc9dd24c6d",
+          "returncode": 0,
+          "stderr": "",
+          "wall_seconds": 0.002837
+        }
+      ]
+    },
+    "minimal-copy": {
+      "source_sha256": "d6442a6285e94c3ae6fa7824a11cd49fecf1697c6004d4fa7fe8c667c4030e25",
+      "binary_sha256": "b8690800ff27829d586a627afec4c80128b3a8765b13863fa1dda716c5663be9",
+      "fixtures": [
+        {
+          "label": "official-sample",
+          "cases": 2,
+          "input_sha256": "0d3ef30e9b16ef266af1661bc92f38f9fc83595a410651ca78c66adcd504219c",
+          "expected_sha256": "246a636f8b4e625919ee60d518c3d42ded0166f0d91d89fffe55e0c384501163",
+          "actual_sha256": "246a636f8b4e625919ee60d518c3d42ded0166f0d91d89fffe55e0c384501163",
+          "returncode": 0,
+          "stderr": "",
+          "wall_seconds": 0.002169
+        },
+        {
+          "label": "distinct-boundary",
+          "cases": 3,
+          "input_sha256": "a4917614f48a79cfab6f82a72c416c7be01522dfdabceb6aab94b0a099f9ea12",
+          "expected_sha256": "6e2d862bc9a4c2fd58b0e0c515e0e926c07172d115c95151a93203637f582779",
+          "actual_sha256": "6e2d862bc9a4c2fd58b0e0c515e0e926c07172d115c95151a93203637f582779",
+          "returncode": 0,
+          "stderr": "",
+          "wall_seconds": 0.002456
+        },
+        {
+          "label": "distinct-full-permutations",
+          "cases": 1020,
+          "input_sha256": "34c9f864091944fcc63c1b36c1bdcbcea2c698f0388b11aa12790339ad8474bd",
+          "expected_sha256": "96ae1f9f884f652474fa8156f14b1f1784fc5227e7e61908a3cb14bc9dd24c6d",
+          "actual_sha256": "96ae1f9f884f652474fa8156f14b1f1784fc5227e7e61908a3cb14bc9dd24c6d",
+          "returncode": 0,
+          "stderr": "",
+          "wall_seconds": 0.003073
+        }
+      ]
+    },
+    "registered": {
+      "source_sha256": "07db949628536b75393a24504488df9d975d5adfabb2fd62f07bfd0b01b8cb23",
+      "binary_sha256": "34b6297e1184982436a29ad3841bc3aea0e257889a5330a7ac2c1b1dd136a8ee",
+      "fixtures": [
+        {
+          "label": "official-sample",
+          "cases": 2,
+          "input_sha256": "0d3ef30e9b16ef266af1661bc92f38f9fc83595a410651ca78c66adcd504219c",
+          "expected_sha256": "246a636f8b4e625919ee60d518c3d42ded0166f0d91d89fffe55e0c384501163",
+          "actual_sha256": "246a636f8b4e625919ee60d518c3d42ded0166f0d91d89fffe55e0c384501163",
+          "returncode": 0,
+          "stderr": "",
+          "wall_seconds": 0.002519
+        },
+        {
+          "label": "distinct-boundary",
+          "cases": 3,
+          "input_sha256": "a4917614f48a79cfab6f82a72c416c7be01522dfdabceb6aab94b0a099f9ea12",
+          "expected_sha256": "6e2d862bc9a4c2fd58b0e0c515e0e926c07172d115c95151a93203637f582779",
+          "actual_sha256": "6e2d862bc9a4c2fd58b0e0c515e0e926c07172d115c95151a93203637f582779",
+          "returncode": 0,
+          "stderr": "",
+          "wall_seconds": 0.009044
+        },
+        {
+          "label": "distinct-full-permutations",
+          "cases": 1020,
+          "input_sha256": "34c9f864091944fcc63c1b36c1bdcbcea2c698f0388b11aa12790339ad8474bd",
+          "expected_sha256": "96ae1f9f884f652474fa8156f14b1f1784fc5227e7e61908a3cb14bc9dd24c6d",
+          "actual_sha256": "96ae1f9f884f652474fa8156f14b1f1784fc5227e7e61908a3cb14bc9dd24c6d",
+          "returncode": 0,
+          "stderr": "",
+          "wall_seconds": 0.005374
+        }
+      ]
+    }
+  },
+  "finished_at_utc": "2026-10-02T12:47:14.654774+00:00"
+}

@@ -1,0 +1,6 @@
+{
+  "scope": "Initial canonical sanitizer attempt omitted required environment option; not an algorithm test pass",
+  "diagnostic": "==6==LeakSanitizer has encountered a fatal error.\n==6==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1\n==6==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)\n",
+  "diagnostic_sha256": "87d9a204a12098a57b4d855e48bdb90b6ede21d4714739fe19d0055611c3d450",
+  "resolution": "Reran canonical tests with ASAN_OPTIONS=detect_leaks=0:halt_on_error=1; no source modification. Leak detection not claimed."
+}

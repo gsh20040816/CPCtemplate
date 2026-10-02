@@ -5487,6 +5487,20 @@ word\_chain(words) 返回可空的编号序列（optional），有解时为原�
 
 \lstinputlisting[firstline=8,lastline=35]{../src/compact/word_chain.hpp}
 
+\Needspace{484pt}
+
+\subsection*{应用题补充：UVA 10441 Catenyms}
+
+\label{usage-example-217}
+
+题意：多组给出3..1000个互不相同的小写单词，长度1..20。每词恰用一次，后词首字母等于前词尾字母，输出字典序最小的点分隔词链；无解输出***。返回原输入的0-based编号，按编号取词输出，末尾不加点。单词排序不可换成按终点排序。重复词和空输入仅属更宽接口范围，不在本题范围内。
+
+所需模板：\hyperref[compact-DirectedEuler]{DirectedEuler}（第~\pageref{compact-DirectedEuler}~页，\ref{compact-DirectedEuler}~节）、\hyperref[compact-word_chain]{word\_\allowbreak{}chain}（第~\pageref{compact-word_chain}~页，\ref{compact-word_chain}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.org/external/104/10441.pdf}
+
+\lstinputlisting{usage/example-217.cpp}
+
 \Needspace{510pt}
 
 \section{无向图欧拉路与边方向}\label{compact-UndirectedEuler}\index{UndirectedEuler}
