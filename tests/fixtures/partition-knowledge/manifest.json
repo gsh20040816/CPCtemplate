@@ -1,0 +1,36 @@
+{
+  "base_commit": "084cb4494fc6f12d5936016ae4271153606b1cd8",
+  "original_sha256": "edf2e457ecdeeb0d867d5597898e70f5e294c4c169817e210f08950b53a61630",
+  "amendments": [
+    {
+      "start": 0,
+      "end": 2,
+      "old": "\\section{整数分拆：重数限制的差一问题}\\index{integer partitions}\\index{pentagonal number theorem}\n实现见第~\\pageref{compact-Partitions}~页。分拆不区分加数顺序，部分均为正整数。\n",
+      "new": "\\section{整数分拆：重数限制的差一问题}\\label{knowledge-partitions}\\index{integer partitions}\\index{pentagonal number theorem}\n实现见第~\\ref{compact-Partitions}~节（第~\\pageref{compact-Partitions}~页）。分拆不区分加数顺序，部分均为正整数。\n"
+    },
+    {
+      "start": 30,
+      "end": 31,
+      "old": "完整用法见第~\\pageref{usage-example-158}~页；固定官方11组数据的本地checker已通过。\n",
+      "new": "完整用法见第~\\ref{usage-example-158}~节（第~\\pageref{usage-example-158}~页）；固定官方11组数据的本地checker已通过。\n"
+    },
+    {
+      "start": 32,
+      "end": 33,
+      "old": "用法见第~\\pageref{usage-example-159}~页。它是比赛应用，不替代正式模板题。\n",
+      "new": "用法见第~\\ref{usage-example-159}~节（第~\\pageref{usage-example-159}~页）。它是比赛应用，不替代正式模板题。\n"
+    },
+    {
+      "start": 40,
+      "end": 40,
+      "old": "",
+      "new": "\\clearpage\n\\subsection{三个容易混淆的限制}\n令 $A_k(n)$ 为 $n$ 的分拆中每个部分不超过 $k$ 的个数。\nFerrers 图每行长度为一个部分；交换行列是自身的逆变换，交换最大部分与部分总数。\n因此 $A_k(n)$ 也等于\\emph{至多 $k$ 个部分}的分拆数，但两类分拆集合通常不同。\n其生成函数为 $\\prod_{i=1}^{k}(1-z^i)^{-1}$，可用部分大小 $1,\\ldots,k$ 的完全背包计算。\n"
+    },
+    {
+      "start": 41,
+      "end": 41,
+      "old": "",
+      "new": "恰好 $k$ 个正部分时，从每个部分减去 1，删除零，得到 $n-k$ 的至多 $k$ 部分分拆；\n反向用零补足到 $k$ 项，再每项加 1，故答案是 $A_k(n-k)$。\n若还要求这 $k$ 个部分互异，按非增序写为 $\\lambda_1>\\cdots>\\lambda_k$，\n减去阶梯 $(k,k-1,\\ldots,1)$，得到弱降非负序列，答案为\n\\[\nA_k\\!\\left(n-\\frac{k(k+1)}2\\right).\n\\]\n以上默认 $n,k\\ge0$，负目标和的答案为零；$A_0(0)=1$，$A_0(n)=0$（$n>0$）。\n计算阶梯和时须先扩宽乘法，int 范围的 $k$ 可写 \\texttt{1LL*k*(k+1LL)/2}。\n空分拆是恰好零个部分的唯一对象。\n\n这不同于本库 \\texttt{limited(n,k)}：它限制\\emph{每个值的出现次数}，不限制部分总数。\n例如 $n=5,k=2$：至多两部分有 $(5),(4,1),(3,2)$ 共3种；\n每部分不超过2也有3种，恰好两部分只有2种；重数限制的整数计数为5，\\texttt{limited(5,2)} 返回它对构造模数的余数。\n对于 $n=6,k=2$，恰好两部分有3种，其中互异的只有2种。\n不能只看题面出现“不超过 $k$”就调用同一个接口。\n\n\\subsection{重数限制与禁止倍数部分}\n设 $d=k+1\\ge1$，则\n\\[\n\\prod_{i\\ge1}\\frac{1-z^{di}}{1-z^i}\n=\\prod_{\\substack{i\\ge1\\\\d\\nmid i}}\\frac1{1-z^i}.\n\\]\n左边限制每个值至多出现 $k$ 次，右边只允许不被 $d$ 整除的部分，次数不限。\n等式来自消去分母中下标为 $d$ 倍数的因子。\n取 $z^n$ 系数时只涉及有限多个因子，故这是形式级数恒等式，不要求数值收敛。\n因此可用排除 $d$ 倍数面值的完全背包独立核对 \\texttt{limited}。\n$k=1$ 给出互异分拆数等于奇数部分分拆数；$k=0$ 则所有正部分被禁止，只剩空分拆。\n若 $k\\ge n$，重数限制不再生效。以上整数计数等式可对任意正模数取模，不需模逆元。\n生成函数与奇数/互异特例可参考\n\\href{https://ocw.mit.edu/courses/18-212-algebraic-combinatorics-spring-2019/resources/mit18_212s19_lec20/}{MIT 18.212 第20讲}；\n这里将消因子推导写成一般 $d$。原五边形数定理保留为引用定理，本节不展开 Franklin 对合证明。\n\n本节的 $A_k$、恰好部分数及阶梯变换是建模公式，不是新增的 \\texttt{Partitions} 成员函数。\n"
+    }
+  ]
+}

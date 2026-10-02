@@ -13,15 +13,16 @@
       "docs/knowledge-state-recurrence.tex",
       "docs/knowledge-inclusion.tex",
       "docs/knowledge-floor-sums.tex",
-      "docs/knowledge-matrix-tree.tex"
+      "docs/knowledge-matrix-tree.tex",
+      "docs/knowledge-partitions.tex"
     ],
-    "classified_section_count": 23,
+    "classified_section_count": 24,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类十份knowledge源文件的23个带标签节，含数学21节与图论矩阵树2节。保留历史验证范围，不计新增算法或OJ覆盖；历史附录仍未全部分类。"
+    "note": "仅分类十一份knowledge源文件的24个带标签节（数学22、图论2）。整数分拆补限制转换，既有历史记录保留；分类不新增算法或OJ覆盖，历史附录仍未全部分类。"
   },
   "entries": [
     {
@@ -271,6 +272,17 @@
       "relation": "direct",
       "page_break_before": true,
       "note": "既有矩阵树构造与接口边界；统一选边证明说明方向和任意正模数，历史在线记录不扩大。"
+    },
+    {
+      "label": "knowledge-partitions",
+      "source": "docs/knowledge-partitions.tex",
+      "path": "math/combinatorics/partition.md",
+      "additional": [
+        "math/poly/ogf.md"
+      ],
+      "relation": "direct",
+      "page_break_before": true,
+      "note": "保留既有五边形递推与重数边界，补共轭、部分数/大小/重数区别、平移/阶梯及禁止倍数恒等式；不增加成员函数或在线证据。"
     }
   ]
 }

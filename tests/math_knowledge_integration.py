@@ -55,7 +55,7 @@ for source in json.loads((ROOT / 'docs/knowledge-taxonomy.json').read_text())['s
             assert r'\pageref{' + target + '}' in content, (target, 'missing page')
     assert r'\chapter{' not in content, filename
 assert len(knowledge_labels) == len(set(knowledge_labels))
-assert len(knowledge_labels) == 23
+assert len(knowledge_labels) == 24
 for rendered in (omnibus, volumes['mathematics']):
     assert r'\newpage' + '\n\n' + r'\section{升幂引理}' in rendered, 'LTE page break must precede taxonomy heading'
     assert r'\newpage' + '\n\n' + r'\section{Lagrange 反演}' in rendered, 'Lagrange page break must precede taxonomy heading'

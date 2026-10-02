@@ -1,0 +1,81 @@
+\section{整数分拆：重数限制的差一问题}\label{knowledge-partitions}\index{integer partitions}\index{pentagonal number theorem}
+实现见第~\ref{compact-Partitions}~节（第~\pageref{compact-Partitions}~页）。分拆不区分加数顺序，部分均为正整数。
+无约束生成函数 $P(z)=\prod_{i\ge1}(1-z^i)^{-1}$，空分拆给出 $p(0)=1$。
+五边形数定理为
+\[
+\prod_{i\ge1}(1-z^i)=1+\sum_{j\ge1}(-1)^j
+\left(z^{j(3j-1)/2}+z^{j(3j+1)/2}\right).
+\]
+与 $P(z)$ 相乘后比较系数，得到 $p(n)$ 的递推，符号按 $+,+,-,-,+,+,\ldots$ 成对出现。
+每项只依赖更小的下标，每个 $n$ 有 $O(\sqrt n)$ 个非零偏移。
+实现先用 64 位累加，再归一化到模数范围；无需逆元，合数模数与模数 1 均可使用。
+
+每个正整数最多出现 $k$ 次的生成函数是
+\[
+\prod_{i\ge1}(1+z^i+\cdots+z^{ki})
+=P(z)\prod_{i\ge1}(1-z^{(k+1)i}).
+\]
+因此用已有 $p$ 表与放大 $k+1$ 倍的五边形偏移相乘，符号为 $-,-,+,+,\ldots$。
+本库 \texttt{limited(n,k)} 的上限包含 $k$；$k=0$ 时非零 $n$ 无解，$k=1$ 为互异分拆。
+kuangbin 的注释写“不超过 k 个”，但其 \texttt{solve(n,k)} 使用放大 $k$ 倍的公式，
+实际表示每种数少于 $k$ 次，对应本库 \texttt{limited(n,k-1)}（$k\ge1$）。
+HDU 原题页面本次无法读取，不能由这条注释推断原题措辞。
+
+两套实现以任意精度完全背包验证到 1000，以逐种部分、逐个重数枚举验证有界情况到 100，
+覆盖素数与合数模数、0/1 重数限制和大于总和的限制；另检查 $N=100000$ 的边界。
+普通与 ASan/UBSan 均通过，暂无在线 AC。
+
+
+\Needspace{9\baselineskip}
+Library Checker 的分拆函数要求输出 $p(0),\ldots,p(N)$，$N\le500000$，
+完整用法见第~\ref{usage-example-158}~节（第~\pageref{usage-example-158}~页）；固定官方11组数据的本地checker已通过。
+P6189 将非增跑步距离序列对应到无序分拆，模数不保证素数，
+用法见第~\ref{usage-example-159}~节（第~\pageref{usage-example-159}~页）。它是比赛应用，不替代正式模板题。
+额外独立参考将部分分成不超过 $B$ 与大于 $B$ 两组：前者完全背包，
+后者按恰好 $j$ 个部分维护 $g_j(s)=g_j(s-j)+g_{j-1}(s-B-1)$，再卷积。
+取 $B=\lfloor\sqrt N\rfloor$，时间 $O(N\sqrt N)$、滚动数组空间 $O(N)$，
+不复用被测的五边形数递推；覆盖 $N=10^5$ 的合数模数与模数1。
+这两份用法只调用构造和 $p$ 表，不代表 limited 接口已有正式题的线上验证。
+
+来源：kuangbin 2.11；\url{https://oi-wiki.org/math/combinatorics/partition/}。
+\clearpage
+\subsection{三个容易混淆的限制}
+令 $A_k(n)$ 为 $n$ 的分拆中每个部分不超过 $k$ 的个数。
+Ferrers 图每行长度为一个部分；交换行列是自身的逆变换，交换最大部分与部分总数。
+因此 $A_k(n)$ 也等于\emph{至多 $k$ 个部分}的分拆数，但两类分拆集合通常不同。
+其生成函数为 $\prod_{i=1}^{k}(1-z^i)^{-1}$，可用部分大小 $1,\ldots,k$ 的完全背包计算。
+
+恰好 $k$ 个正部分时，从每个部分减去 1，删除零，得到 $n-k$ 的至多 $k$ 部分分拆；
+反向用零补足到 $k$ 项，再每项加 1，故答案是 $A_k(n-k)$。
+若还要求这 $k$ 个部分互异，按非增序写为 $\lambda_1>\cdots>\lambda_k$，
+减去阶梯 $(k,k-1,\ldots,1)$，得到弱降非负序列，答案为
+\[
+A_k\!\left(n-\frac{k(k+1)}2\right).
+\]
+以上默认 $n,k\ge0$，负目标和的答案为零；$A_0(0)=1$，$A_0(n)=0$（$n>0$）。
+计算阶梯和时须先扩宽乘法，int 范围的 $k$ 可写 \texttt{1LL*k*(k+1LL)/2}。
+空分拆是恰好零个部分的唯一对象。
+
+这不同于本库 \texttt{limited(n,k)}：它限制\emph{每个值的出现次数}，不限制部分总数。
+例如 $n=5,k=2$：至多两部分有 $(5),(4,1),(3,2)$ 共3种；
+每部分不超过2也有3种，恰好两部分只有2种；重数限制的整数计数为5，\texttt{limited(5,2)} 返回它对构造模数的余数。
+对于 $n=6,k=2$，恰好两部分有3种，其中互异的只有2种。
+不能只看题面出现“不超过 $k$”就调用同一个接口。
+
+\subsection{重数限制与禁止倍数部分}
+设 $d=k+1\ge1$，则
+\[
+\prod_{i\ge1}\frac{1-z^{di}}{1-z^i}
+=\prod_{\substack{i\ge1\\d\nmid i}}\frac1{1-z^i}.
+\]
+左边限制每个值至多出现 $k$ 次，右边只允许不被 $d$ 整除的部分，次数不限。
+等式来自消去分母中下标为 $d$ 倍数的因子。
+取 $z^n$ 系数时只涉及有限多个因子，故这是形式级数恒等式，不要求数值收敛。
+因此可用排除 $d$ 倍数面值的完全背包独立核对 \texttt{limited}。
+$k=1$ 给出互异分拆数等于奇数部分分拆数；$k=0$ 则所有正部分被禁止，只剩空分拆。
+若 $k\ge n$，重数限制不再生效。以上整数计数等式可对任意正模数取模，不需模逆元。
+生成函数与奇数/互异特例可参考
+\href{https://ocw.mit.edu/courses/18-212-algebraic-combinatorics-spring-2019/resources/mit18_212s19_lec20/}{MIT 18.212 第20讲}；
+这里将消因子推导写成一般 $d$。原五边形数定理保留为引用定理，本节不展开 Franklin 对合证明。
+
+本节的 $A_k$、恰好部分数及阶梯变换是建模公式，不是新增的 \texttt{Partitions} 成员函数。
