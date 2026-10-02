@@ -1,0 +1,50 @@
+{
+  "tested_source_commit": "cd5bd7d50eb61f8c9740d999b7b286a795c8cbd9",
+  "source_inputs": 1276,
+  "algorithm_count": 207,
+  "usage_count": 227,
+  "component_classification": {
+    "formal_template": 154,
+    "application_only": 43,
+    "api_only": 7,
+    "pending": 3
+  },
+  "knowledge_sections": 18,
+  "knowledge_source_files": 7,
+  "full_suite": {
+    "normal_seconds": 1482.748187,
+    "sanitizer_seconds": 3379.146128,
+    "pinned_classic_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
+    "both_passed": true
+  },
+  "printed_programs": {
+    "program_count": 227,
+    "cases_per_mode": 625,
+    "total_executions": 1250,
+    "seconds": 1176.2573545159976,
+    "both_modes_passed": true
+  },
+  "minimal_copy_syntax": {
+    "standard_context": 221,
+    "explicit_gnu_headers": 6,
+    "unresolved": 0
+  },
+  "artifacts_sha256": {
+    "verification/runs/20261002-227-full-regression.json": "1b158009949dee75127c630caec218848488720ceaf1c366772992723c4b6c91",
+    "verification/runs/20261002-227-all-printed.json": "45e7912d94e047e1819fd62f54a347e272c47160eba68f1b08560c68730b6a7a",
+    "verification/runs/20261002-227-all-printed.log": "99fafd1a97eacb0b865330d02f435180164ff11e83760e9a44c5f7dccbe5eb84",
+    "verification/runs/20261002-227-copy-context.json": "960fdfcefefd86ab1885d139236dc17933cbf9021e763d2c7225a13efc7b0e12",
+    "verification/runs/20261002T185129.484638Z-normal-64c2ccfd/receipt.json": "56e3da3e346433f005638043df41029f1954722e34461076bacf198569bf65d8",
+    "verification/runs/20261002T185129.484638Z-normal-64c2ccfd/output.log": "43c7944782dc1967e956ce33f41baff49384c28dd6d6ec6a7692bc27e61c3a4b",
+    "verification/runs/20261002T191624.392156Z-sanitizer-98b1b6ce/receipt.json": "25ebb232cbc96d8e519e5f6fd7f805a3f6f2410b66f332ed0ceccedbdc0c3e00",
+    "verification/runs/20261002T191624.392156Z-sanitizer-98b1b6ce/output.log": "e75650bc329d049f3821a265e56269dc7510dd7be68bfb87d5004f7628c7c904"
+  },
+  "limitations": [
+    "Frozen source evidence only; no online AC or universal correctness proof",
+    "LSan off; interpolation-only ASan quarantine exception",
+    "Full process soft stack512MiB; nested EdgeCompression requests256MiB normal/1GiB sanitizer capped at unchanged hard limit",
+    "8MiB normal and256MiB ASan maximum-chain stack failures remain separately recorded",
+    "Default floating CGL_7_D/E judge precision mismatch remains",
+    "ComplexFFT P3803 judge time and platform assumptions remain conditional"
+  ]
+}
