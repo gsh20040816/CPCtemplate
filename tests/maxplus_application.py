@@ -9,9 +9,11 @@ import json
 import os
 from pathlib import Path
 import random
+import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 import traceback
 
@@ -137,18 +139,19 @@ def main():
     sys.path.insert(0, str(ROOT / 'tests'))
     sys.path.insert(0, str(ROOT / 'tools'))
     from compiler_config import CXX
-    from usage_examples import expand, records
+    from usage_examples import records
     san = args.sanitize or os.environ.get('SANITIZE') == '1' or os.environ.get('CPC_SANITIZE') == '1'
     mode = 'sanitizer' if san else 'normal'
-    out = ROOT / 'build/maxplus-next' / (mode + '-registered')
-    out.mkdir(parents=True, exist_ok=True)
+    build = ROOT / 'build/maxplus-next'
+    build.mkdir(parents=True, exist_ok=True)
+    out = Path(tempfile.mkdtemp(prefix=mode + '-minimal-', dir=build))
     path = args.report or out / 'report.json'
     path.parent.mkdir(parents=True, exist_ok=True)
     driver = args.driver.resolve()
     core = ROOT / 'src/compact/optimization.hpp'
     source = driver.read_text()
     snippet = source[source.index('int main()'):]
-    programs = {'direct': driver, 'expanded': expand(source, driver.parent, set())}
+    programs = {'direct': driver}
     tracked = [Path(__file__).resolve(), driver, core, ROOT/'tools/usage_examples.py', ROOT/'tests/compiler_config.py', ROOT/'docs/catalog.json']
     row = next(r for r in records() if r['id'] == args.usage)
     assert row['driver'] == str(driver.relative_to(ROOT)) and row['symbol'] == 'MaxPlusMatrix'
@@ -157,8 +160,23 @@ def main():
     printed = ROOT / row['snippet_file']
     assert printed.read_bytes() == snippet.encode(), 'Published body must match driver exactly'
     tracked += [ROOT/'docs/usage-examples.json', printed]
-    programs['printed'] = row['program']
+    # The registered expanded form intentionally includes the whole header.
+    # Runtime-test the printed body separately with only its declared component.
+    programs['expanded'] = row['program']
     assert sha(row['program'].encode()) == row['program_sha256']
+    matches = list(re.finditer(r'^struct MaxPlusMatrix\n\{.*?^\};', core.read_text(), re.M | re.S))
+    assert len(matches) == 1, 'Expected exactly one anchored outer MaxPlusMatrix definition'
+    component = matches[0].group()
+    assert re.findall(r'\b(?:struct|class)\s+(\w+)', component) == ['MaxPlusMatrix'], 'Extra component in minimal context'
+    assert '#include' not in component and 'int main' not in component
+    context = '#include <bits/stdc++.h>\nusing namespace std;\n\n' + component + '\n\n'
+    programs['printed'] = context + printed.read_text()
+    assert programs['printed'].removeprefix(context) == snippet
+    minimal_context = dict(component='MaxPlusMatrix', component_sha256=sha(component.encode()),
+                           context_sha256=sha(context.encode()), snippet_sha256=sha(printed.read_bytes()),
+                           program_sha256=sha(programs['printed'].encode()),
+                           other_component_definitions=[],
+                           scope='Only the anchored MaxPlusMatrix struct, standard headers and exact published snippet')
     registration = {k:v for k,v in row.items() if k not in ('program','snippet')}
     fixtures = [args.fixtures.resolve() / n for n in ('official-sample.in','official-sample.out','contract.json')]
     tracked += fixtures
@@ -189,6 +207,7 @@ def main():
     for c in all_cases:
         c['domain'] = 'api-extension' if c['violations'] else 'official'
     report = dict(status='running', mode=mode, seed=SEED, sources=before,
+                  build_directory=str(out.relative_to(ROOT)), minimal_context=minimal_context,
                   compiler=str(compiler), compiler_sha256=compiler_hash,
                   frontend=str(frontend), frontend_sha256=frontend_hash,
                   compiler_version=subprocess.check_output([CXX,'--version'],text=True), flags=flags,
@@ -196,7 +215,7 @@ def main():
                   registration=registration, cases_per_form=len(all_cases), official_cases_per_form=official,
                   api_extension_cases_per_form=len(all_cases)-official,
                   api_violation_counts=dict(collections.Counter(','.join(c['violations']) for c in all_cases if c['violations'])),
-                  scope='Local full-driver application correctness only. No online AC, official 1-second judge timing, full-toolchain, formal-template or leak-detection claim.',
+                  scope='Local direct, registered expanded, and exact printed body in MaxPlusMatrix-only context runtime correctness. No online AC, official 1-second judge timing, full-toolchain, formal-template or leak-detection claim.',
                   started_at=datetime.datetime.now(datetime.timezone.utc).isoformat(), forms={})
     def save():
         path.write_text(json.dumps(report,indent=2)+'\n')

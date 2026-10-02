@@ -1,0 +1,14 @@
+{
+  "title": "Static lower-hull support queries",
+  "classification": "custom-api-demonstration",
+  "usage_kind": "api",
+  "official_problem": null,
+  "bounds": {"n": [0, 2000], "q": [0, 200000], "coordinate_abs": 1000000000000000000, "direction_abs": 1000000000000000000, "b_max": 0},
+  "input": "n q; n point rows x y; q direction rows a b",
+  "output": "strict lower chain length and coordinates, then EMPTY or exact maximum a*x+b*y and lexicographically smallest maximizing coordinates for every query",
+  "empty": "Skip SupportHull::build",
+  "same_x": "Only lowest y retained",
+  "construction_oracle": "Exact full-set scan, lexicographically smallest coordinate on ties",
+  "complexity": "O(n^2) construction with O(n) storage/recursion; O(q log(max(2,n))) queries",
+  "sample_files": ["custom-sample.in", "custom-sample.out", "empty.in", "empty.out"]
+}

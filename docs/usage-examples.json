@@ -2816,5 +2816,18 @@
     "requires": [
       "IntegerGeometry3D"
     ]
+  },
+  {
+    "id": "example-226",
+    "symbol": "SupportHull",
+    "kind": "api",
+    "problem": "自定义静态下凸链支撑查询",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/support_hull.hpp",
+    "summary": "自定义协议，非OJ题：0≤n≤2000，0≤q≤200000；点和方向坐标绝对值≤10^18，查询b≤0。先输出严格下凸链长度及坐标，再输出max(a*x+b*y)及字典序最小的最大点；空集每次输出EMPTY。用最左/最右横坐标上的最低点和全点集精确扫描oracle调用build，再二分首个最大顶点；同x只留最低y，不承诺原下标或向上查询。扫描回调使构造O(n²)、存储/递归O(n)，查询O(q log(max(2,n)))；显式点云通常用普通单调链更合适，本例演示隐式点集的oracle适配。生成方向≤2×10^18，回调点积≤4×10^36、叉积≤8×10^36，以128位精确运算；不扩展到完整signed64域。",
+    "driver": "docs/usage-drivers/lower-support-demo.cpp",
+    "requires": [
+      "SupportHull"
+    ],
+    "page_break_before": "    while (q--)"
   }
 ]
