@@ -1,13 +1,13 @@
 # 配套数学知识的 OI Wiki 分类
 
-本表给七份知识源文件中的 **18 个带标签节** 登记显式分类。LTE、Lagrange反演与有限状态递推是新增知识正文，其余15节保持原内容；分类本身不新增算法、模板覆盖或 OJ 验证记录。
+本表给八份知识源文件中的 **19 个带标签节** 登记显式分类。LTE、Lagrange反演、有限状态递推与广义容斥是新增知识正文，其余15节保持原内容；分类本身不新增算法、模板覆盖或 OJ 验证记录。
 
 ## 固定来源与范围
 
 - 官方导航使用与算法分类相同的固定版本：[bc070e827180](https://github.com/OI-wiki/OI-wiki/blob/bc070e827180fbd75c2e27a16c1212f1d671d949/mkdocs.yml)
 - 本地来源为 [`references/oi-wiki-mkdocs.yml`](references/oi-wiki-mkdocs.yml)，SHA256：`de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806`
 - 路径、完整大中小分类名和先后顺序取自 [`oi-taxonomy.json`](oi-taxonomy.json) 的 `navigation`，不另造 OI Wiki 叶子
-- 分类数据为 [`knowledge-taxonomy.json`](knowledge-taxonomy.json)；源文件仍为 `knowledge-combinatorics.tex`、`knowledge-probability-games.tex`、`knowledge-mobius.tex`、`knowledge-orbits.tex`、`knowledge-lte.tex`、`knowledge-lagrange.tex`、`knowledge-state-recurrence.tex`
+- 分类数据为 [`knowledge-taxonomy.json`](knowledge-taxonomy.json)；源文件仍为 `knowledge-combinatorics.tex`、`knowledge-probability-games.tex`、`knowledge-mobius.tex`、`knowledge-orbits.tex`、`knowledge-lte.tex`、`knowledge-lagrange.tex`、`knowledge-state-recurrence.tex`、`knowledge-inclusion.tex`
 - **`mathematics.tex` 的其余历史知识节尚未逐项分类**，继续保留在附录；这些历史内容还混有其他分册的应用说明。本次不声称完成全部数学知识重排或 issue #5/#7 的全部范围
 - 导航来源是固定的 OI Wiki 官方仓库，不声称已核验 `oi-wiki.com` 与该导航相同，也不要求实时网站提供相同路径
 
@@ -50,3 +50,5 @@
 运行 `python3 tests/knowledge_taxonomy.py`。该检查独立解析固定导航源文件，验证快照哈希与生成导航一致、18 个知识标签恰好各映射一次、源路径和叶子路径有效、主归属均为数学的大中小三级，以及范围声明仍明确保留历史知识未分类的限制。负例检查覆盖重复、遗漏、错误源文件、未知叶子和擅自扩大范围；改标题而不改标签不会改变分类。
 
 这是分类数据检查，不是算法正确性、完整回归、线上 AC 或 PDF 视觉验收。数学例子与接口的原有验证仍见各知识源文件和 `tests/math_knowledge_*.py`。
+
+| `knowledge-inclusion-exact`<br>`docs/knowledge-inclusion.tex` | 数学 → 组合数学 → 容斥原理<br>`math/combinatorics/inclusion-exclusion-principle.md` | direct：交集和重数、恰好/至少反演、双向下标、空盒模型、现有模整数/组合数接口与边界；不新增算法或OJ覆盖。<br>关联：排列组合、斯特林数 |

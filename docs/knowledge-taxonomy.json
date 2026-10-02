@@ -10,15 +10,16 @@
       "docs/knowledge-orbits.tex",
       "docs/knowledge-lte.tex",
       "docs/knowledge-lagrange.tex",
-      "docs/knowledge-state-recurrence.tex"
+      "docs/knowledge-state-recurrence.tex",
+      "docs/knowledge-inclusion.tex"
     ],
-    "classified_section_count": 18,
+    "classified_section_count": 19,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类七份 knowledge 源文件的18个带标签节，其中LTE、Lagrange反演与有限状态递推为新增知识正文。该登记本身只做分类，不计新增算法或OJ覆盖。mathematics.tex的其余历史知识节尚未逐项分类，保留为附录；不代表issue #5/#7已全量完成。"
+    "note": "仅分类八份 knowledge 源文件的19个带标签节，其中LTE、Lagrange反演、有限状态递推与广义容斥为新增知识正文。该登记本身只做分类，不计新增算法或OJ覆盖。mathematics.tex的其余历史知识节尚未逐项分类，保留为附录；不代表issue #5/#7已全量完成。"
   },
   "entries": [
     {
@@ -215,6 +216,18 @@
       ],
       "relation": "composite",
       "note": "固定有限状态计数经Cayley–Hamilton得到标量递推阶数上界，再以前2d项恢复和求远项；包含模型、证明、接口成本及边界，不新增特征多项式或矩阵最小多项式实现覆盖。",
+      "page_break_before": true
+    },
+    {
+      "label": "knowledge-inclusion-exact",
+      "source": "docs/knowledge-inclusion.tex",
+      "path": "math/combinatorics/inclusion-exclusion-principle.md",
+      "additional": [
+        "math/combinatorics/combination.md",
+        "math/combinatorics/stirling.md"
+      ],
+      "relation": "direct",
+      "note": "交集和的重数统计、恰好/至少反演及证明、变换方向、空盒模型和现有ModInt/Binomial调用；不新增算法或官方模板题覆盖。",
       "page_break_before": true
     }
   ]

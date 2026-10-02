@@ -1,0 +1,570 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "mode": "ordinary",
+  "prototype": false,
+  "publication_eligible": true,
+  "evidence_kind": "installed source-bound local checks",
+  "started_at": "2026-10-02T20:21:31.272877+00:00",
+  "build_directory": "build/inclusion-knowledge-ordinary-as_o69cl",
+  "actual_runner": "tests/inclusion_knowledge.py",
+  "actual_tex": "docs/knowledge-inclusion.tex",
+  "source_sha256_before": {
+    "docs/catalog.json": "dc3cc4346925f9400418b38a56f1ced3b57afcf505470c8e2b680833edbb8113",
+    "docs/knowledge-inclusion.tex": "652bd37a7b1b2de048d95e6880dd3ee26b2d4869c7afd8b4e6d85bc72e7e1cc2",
+    "docs/knowledge-taxonomy.json": "b85c793466a83b49c18469e19335e2993925448d04962aba025cf2a62031ccb6",
+    "docs/oi-taxonomy.json": "32ef520ae1620ff19495960f94a337d94ab4557c8096e82c1a6af99d59bffc38",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+    "tests/inclusion_knowledge.py": "f58c063f190e21a2441bd5f7a41889346ae9948ea8fc55829b5c032512cfc028",
+    "tests/knowledge_taxonomy.py": "318f5f99bae12830d317e2f83669ddffb8df798e221b2bb6125bf37013e20389",
+    "tests/math_knowledge_integration.py": "4a6ce75215e31b0c9323dc55c8b0c395fd40f82d940947c011a00c5ef786f1b6",
+    "tools/test.sh": "5b0ed2e963c9ee219c71f91113ea019d64541d853643af6271ca2bec10606cf9"
+  },
+  "compiler_before": {
+    "driver": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "driver_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "frontend": "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus",
+    "frontend_sha256": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948"
+  },
+  "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "toolchain_scope": "Resolved compiler driver and cc1plus frontend only; not the complete toolchain or system headers",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "flags": [
+    "-std=c++20",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-O2"
+  ],
+  "pie": "Compiler default; no PIE overrides",
+  "quarantine": "ASan default; no quarantine overrides",
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "runs": [
+    {
+      "context": "minimal_components",
+      "mode": "ordinary",
+      "cases": 26983,
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "-I",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/src/compact",
+        "-MMD",
+        "-MF",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/inclusion-knowledge-ordinary-as_o69cl/minimal_components.d",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/inclusion-knowledge-ordinary-as_o69cl/minimal_components.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/inclusion-knowledge-ordinary-as_o69cl/minimal_components"
+      ],
+      "compile": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "actual_dependency_sha256": {
+        "build/inclusion-knowledge-ordinary-as_o69cl/minimal_components.cpp": "95e4aa69e793bcf5457e5016c96a4ba0b6354c689ff56a8f18886b71470c5239"
+      },
+      "dependency_file_sha256": "2c85db44eeac63e9606c066f8fe15ce0d7ee26f3715ccd648d01c4f75b9d3fdb",
+      "source_sha256": "95e4aa69e793bcf5457e5016c96a4ba0b6354c689ff56a8f18886b71470c5239",
+      "binary_sha256_before": "aa9f2df33e13c9a37070e4d070d037c37f1061ef792a2d992713f4a2bbc96847",
+      "elf_type": "DYN (Position-Independent Executable file)",
+      "exit_code": 0,
+      "stderr": "",
+      "actual_sha256": "c406fb648acb585abc31b7ddf6c7a37d4594f9eaf079a4a04a4838a847c904d5",
+      "seconds": 0.266446,
+      "binary_sha256_after": "aa9f2df33e13c9a37070e4d070d037c37f1061ef792a2d992713f4a2bbc96847",
+      "passed": true
+    },
+    {
+      "context": "full_header",
+      "mode": "ordinary",
+      "cases": 26983,
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "-I",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/src/compact",
+        "-MMD",
+        "-MF",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/inclusion-knowledge-ordinary-as_o69cl/full_header.d",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/inclusion-knowledge-ordinary-as_o69cl/full_header.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/inclusion-knowledge-ordinary-as_o69cl/full_header"
+      ],
+      "compile": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "actual_dependency_sha256": {
+        "build/inclusion-knowledge-ordinary-as_o69cl/full_header.cpp": "8fdbeb14395015a2bb73bd6b626f4b0a39e2242f5690ea120826aa08779ac86d",
+        "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+        "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+        "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+        "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+        "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+        "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+        "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872"
+      },
+      "dependency_file_sha256": "737a11340b507a96e6980b1828688d80ed78308d90654baf5ce11baaf6d157f2",
+      "source_sha256": "8fdbeb14395015a2bb73bd6b626f4b0a39e2242f5690ea120826aa08779ac86d",
+      "binary_sha256_before": "bc1095d2fd54afac241721a56b1f79489ffdbda44d51008fcd7280b84ee7a3bb",
+      "elf_type": "DYN (Position-Independent Executable file)",
+      "exit_code": 0,
+      "stderr": "",
+      "actual_sha256": "c406fb648acb585abc31b7ddf6c7a37d4594f9eaf079a4a04a4838a847c904d5",
+      "seconds": 0.274197,
+      "binary_sha256_after": "bc1095d2fd54afac241721a56b1f79489ffdbda44d51008fcd7280b84ee7a3bb",
+      "passed": true
+    }
+  ],
+  "scope": "Local mathematical and exact-interface checks only; no full regression, OJ/CI, LSan, layout, or modulus-scale factorial-table claim",
+  "integration": {
+    "catalog_entries": {
+      "ModInt": [
+        "number_theory",
+        "ModInt",
+        "\u9759\u6001\u6a21\u6574\u6570",
+        "\u6a21\u677f\u53c2\u6570\u5fc5\u987b\u4e3a\u4e0d\u8d85\u8fc7 INT_MAX \u7684\u7d20\u6570\u4e14\u22652\u3002\u52a0\u51cf\u4e58\u3001pow\u3001inv\u3001\u9664\u6cd5\uff1b\u6c42\u9006\u8981\u6c42\u975e\u96f6\uff0cpow \u6307\u6570\u975e\u8d1f\u3002\u590d\u6742\u5ea6\uff1a\u52a0\u51cf\u4e58 O(1)\uff0c\u5e42\u548c\u9006 O(log mod)\u3002 \u652f\u6301 +=\u3001-=\u3001*=\u3001/=\uff0c\u8fd4\u56de\u81ea\u8eab\u5f15\u7528\uff0c\u5141\u8bb8\u81ea\u8d4b\u503c\u548c\u94fe\u5f0f\u8fd0\u7b97\uff1b\u53ef\u4f5c\u4e3a Fenwick \u533a\u95f4\u548c\u7684\u503c\u7c7b\u578b\u3002\u590d\u5408\u9664\u6cd5\u6cbf\u7528\u975e\u96f6\u5143\u7d20\u3001\u7d20\u6570\u6a21\u6570\u524d\u63d0\u3002"
+      ],
+      "Binomial": [
+        "number_theory",
+        "Binomial",
+        "\u9636\u4e58\u7ec4\u5408\u6570",
+        "Binomial<prime>(n=0) \u9884\u5904\u7406 0..n\uff0c\u8981\u6c42 prime \u4e3a\u7d20\u6570\u4e14 0\u2264n<prime\u3002init(n) \u53ea\u6269\u5927\u5f53\u524d\u4e0a\u9650\uff0c\u8f83\u5c0f\u6216\u76f8\u540c\u7684 n \u4e0d\u6539\u53d8\u8868\uff1bchoose(n,k) \u8fd4\u56de C(n,k)\uff0cpermute(n,k) \u8fd4\u56de n!/(n-k)!\u3002\u67e5\u8be2\u524d\u663e\u5f0f\u9884\u5904\u7406\u5230 n\uff0c\u67e5\u8be2\u672c\u8eab\u4e0d\u6269\u8868\u3002n<0\u3001k<0 \u6216 k>n \u8fd4\u56de 0\uff0cC(0,0)=P(0,0)=1\u3002fac\u3001ifac \u4e3a\u53ef\u76f4\u63a5\u8bfb\u53d6\u7684\u9636\u4e58\u4e0e\u9006\u9636\u4e58\u8868\uff0c\u589e\u957f\u53ef\u80fd\u4f7f\u65e7\u5f15\u7528\u5931\u6548\u3002\u5355\u6b21\u67e5\u8be2 O(1)\uff1b\u4ece old \u6269\u5230 n \u65b0\u589e O(n-old+log prime) \u6b21\u57df\u8fd0\u7b97\uff0c\u91cd\u5206\u914d\u8fd8\u53ef\u80fd\u590d\u5236\u65e7\u8868\u3002\u9996\u6b21\u9884\u5904\u7406 O(n+log prime)\uff0c\u7a7a\u95f4 O(n)\u3002\u8d85\u8fc7\u6a21\u6570\u4e0d\u80fd\u4f7f\u7528\u9636\u4e58\u9664\u6cd5\uff1a\u5c0f\u7d20\u6570\u7528 Lucas\uff0c\u5c0f\u5408\u6570\u7528 exLucas\u3002"
+      ]
+    },
+    "observed_taxonomy_entries": [
+      {
+        "label": "knowledge-inclusion-exact",
+        "source": "docs/knowledge-inclusion.tex",
+        "path": "math/combinatorics/inclusion-exclusion-principle.md",
+        "additional": [
+          "math/combinatorics/combination.md",
+          "math/combinatorics/stirling.md"
+        ],
+        "relation": "direct",
+        "note": "\u4ea4\u96c6\u548c\u7684\u91cd\u6570\u7edf\u8ba1\u3001\u6070\u597d/\u81f3\u5c11\u53cd\u6f14\u53ca\u8bc1\u660e\u3001\u53d8\u6362\u65b9\u5411\u3001\u7a7a\u76d2\u6a21\u578b\u548c\u73b0\u6709ModInt/Binomial\u8c03\u7528\uff1b\u4e0d\u65b0\u589e\u7b97\u6cd5\u6216\u5b98\u65b9\u6a21\u677f\u9898\u8986\u76d6\u3002",
+        "page_break_before": true
+      }
+    ],
+    "enforced_installed_mapping": true,
+    "installed_integration_claim": true,
+    "note": "Checks this installed source mapping and component catalog entries, not whole-book generation/layout or the full taxonomy suite"
+  },
+  "snippet_sha256": "d40506d0c499e68b8562f69bd9c969df12b59fb677ebda2f51b88c4410831af6",
+  "copied_regions": [
+    {
+      "symbol": "ModInt",
+      "source": "src/compact/number_theory.hpp",
+      "start_byte": 2808,
+      "end_byte": 3759,
+      "sha256": "69456f46ba80d17246e84794269eb12032a313b1b2f7ae314f7a96b4d0a26ae3"
+    },
+    {
+      "symbol": "Binomial",
+      "source": "src/compact/number_theory.hpp",
+      "start_byte": 3760,
+      "end_byte": 4587,
+      "sha256": "09c2daa626bb9bb2c40876e1111d26fdcd4396c0f3565b5e9bd88ba9e9d4ebbd"
+    }
+  ],
+  "snippet_extraction": "Sole lstlisting copied byte-for-byte; wrapper only reads n,m,r and prints answer.v",
+  "context_sha256": {
+    "minimal_components": "95e4aa69e793bcf5457e5016c96a4ba0b6354c689ff56a8f18886b71470c5239",
+    "full_header": "8fdbeb14395015a2bb73bd6b626f4b0a39e2242f5690ea120826aa08779ac86d"
+  },
+  "incidence": {
+    "passed": true,
+    "exhaustive_assignments": 74963,
+    "per_dimension": {
+      "m=0, universe=0": 1,
+      "m=0, universe=1": 1,
+      "m=0, universe=2": 1,
+      "m=0, universe=3": 1,
+      "m=0, universe=4": 1,
+      "m=1, universe=0": 1,
+      "m=1, universe=1": 2,
+      "m=1, universe=2": 4,
+      "m=1, universe=3": 8,
+      "m=1, universe=4": 16,
+      "m=2, universe=0": 1,
+      "m=2, universe=1": 4,
+      "m=2, universe=2": 16,
+      "m=2, universe=3": 64,
+      "m=2, universe=4": 256,
+      "m=3, universe=0": 1,
+      "m=3, universe=1": 8,
+      "m=3, universe=2": 64,
+      "m=3, universe=3": 512,
+      "m=3, universe=4": 4096,
+      "m=4, universe=0": 1,
+      "m=4, universe=1": 16,
+      "m=4, universe=2": 256,
+      "m=4, universe=3": 4096,
+      "m=4, universe=4": 65536
+    },
+    "named_fixtures": {
+      "empty_universe_m8": {
+        "m": 8,
+        "assignment": [],
+        "intersection_sums": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "zero_properties": {
+        "m": 0,
+        "assignment": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "intersection_sums": [
+          6
+        ],
+        "exact_counts": [
+          6
+        ]
+      },
+      "all_repeated_equal_universe": {
+        "m": 8,
+        "assignment": [
+          255,
+          255,
+          255,
+          255,
+          255
+        ],
+        "intersection_sums": [
+          5,
+          40,
+          140,
+          280,
+          350,
+          280,
+          140,
+          40,
+          5
+        ],
+        "exact_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      },
+      "repeated_sets_with_outside": {
+        "m": 8,
+        "assignment": [
+          255,
+          255,
+          255,
+          0,
+          0
+        ],
+        "intersection_sums": [
+          5,
+          24,
+          84,
+          168,
+          210,
+          168,
+          84,
+          24,
+          3
+        ],
+        "exact_counts": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      "nested_chain": {
+        "m": 8,
+        "assignment": [
+          0,
+          1,
+          3,
+          7,
+          15,
+          31,
+          63,
+          127,
+          255
+        ],
+        "intersection_sums": [
+          9,
+          36,
+          84,
+          126,
+          126,
+          84,
+          36,
+          9,
+          1
+        ],
+        "exact_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "pairwise_disjoint_with_outside": {
+        "m": 8,
+        "assignment": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "intersection_sums": [
+          9,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_counts": [
+          1,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "equal_cardinality_unequal_pair_intersections": {
+        "m": 3,
+        "assignment": [
+          3,
+          3,
+          4,
+          4
+        ],
+        "intersection_sums": [
+          4,
+          6,
+          2,
+          0
+        ],
+        "exact_counts": [
+          0,
+          2,
+          2,
+          0
+        ]
+      },
+      "all_empty_sets": {
+        "m": 8,
+        "assignment": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "intersection_sums": [
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_counts": [
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "one_object_two_properties": {
+        "m": 2,
+        "assignment": [
+          3
+        ],
+        "intersection_sums": [
+          1,
+          2,
+          1
+        ],
+        "exact_counts": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    "signed_weighted_random_fixtures": 256,
+    "moduli": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      97,
+      998244353,
+      4,
+      6,
+      8,
+      9,
+      12,
+      1000
+    ],
+    "seconds": 7.933193,
+    "oracle": "Literal intersections of concrete sets versus direct per-object membership counts; addition-only Pascal coefficients for modular transforms; no modular division"
+  },
+  "ball_oracles": {
+    "passed": true,
+    "literal_mapping_models": 56,
+    "labelled_maps_enumerated": 458968,
+    "cases": 26983,
+    "groups": {
+      "literal_labelled_maps": 448,
+      "integer_occupied_dp": 25420,
+      "huge_n_transition_matrix": 891,
+      "practical_large_m_dp": 146,
+      "practical_large_m_huge_n_matrix": 36,
+      "practical_large_r_closed_count": 6,
+      "invalid_r_int_endpoints": 36
+    },
+    "huge_n": [
+      2147483647,
+      2147483648,
+      998244352,
+      998244353,
+      998244354,
+      1996488706,
+      4611686018427387904,
+      9223372036854775806,
+      9223372036854775807
+    ],
+    "largest_n": 9223372036854775807,
+    "largest_m": 100000,
+    "oracle": "Literal maps and integer occupied-count DP; independent modular transition-matrix exponentiation for huge n; bijection and one-doubleton closed counts for huge r; no modular inverse"
+  },
+  "generated_sha256_before": {
+    "build/inclusion-knowledge-ordinary-as_o69cl/minimal_components.cpp": "95e4aa69e793bcf5457e5016c96a4ba0b6354c689ff56a8f18886b71470c5239",
+    "build/inclusion-knowledge-ordinary-as_o69cl/full_header.cpp": "8fdbeb14395015a2bb73bd6b626f4b0a39e2242f5690ea120826aa08779ac86d",
+    "build/inclusion-knowledge-ordinary-as_o69cl/cases.jsonl": "17edfd881043441f6d2c5edc80200a5e0e49624aa07ca67c2393646b5b512efe",
+    "build/inclusion-knowledge-ordinary-as_o69cl/input.txt": "37809b54171fd7096615a3b8f216bf165b3ce6d95637e8a1ab88e32eb21e6f53",
+    "build/inclusion-knowledge-ordinary-as_o69cl/expected.txt": "c406fb648acb585abc31b7ddf6c7a37d4594f9eaf079a4a04a4838a847c904d5"
+  },
+  "fixture_sha256": "17edfd881043441f6d2c5edc80200a5e0e49624aa07ca67c2393646b5b512efe",
+  "input_sha256": "37809b54171fd7096615a3b8f216bf165b3ce6d95637e8a1ab88e32eb21e6f53",
+  "expected_sha256": "c406fb648acb585abc31b7ddf6c7a37d4594f9eaf079a4a04a4838a847c904d5",
+  "source_sha256_after": {
+    "docs/catalog.json": "dc3cc4346925f9400418b38a56f1ced3b57afcf505470c8e2b680833edbb8113",
+    "docs/knowledge-inclusion.tex": "652bd37a7b1b2de048d95e6880dd3ee26b2d4869c7afd8b4e6d85bc72e7e1cc2",
+    "docs/knowledge-taxonomy.json": "b85c793466a83b49c18469e19335e2993925448d04962aba025cf2a62031ccb6",
+    "docs/oi-taxonomy.json": "32ef520ae1620ff19495960f94a337d94ab4557c8096e82c1a6af99d59bffc38",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+    "tests/inclusion_knowledge.py": "f58c063f190e21a2441bd5f7a41889346ae9948ea8fc55829b5c032512cfc028",
+    "tests/knowledge_taxonomy.py": "318f5f99bae12830d317e2f83669ddffb8df798e221b2bb6125bf37013e20389",
+    "tests/math_knowledge_integration.py": "4a6ce75215e31b0c9323dc55c8b0c395fd40f82d940947c011a00c5ef786f1b6",
+    "tools/test.sh": "5b0ed2e963c9ee219c71f91113ea019d64541d853643af6271ca2bec10606cf9"
+  },
+  "compiler_after": {
+    "driver": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "driver_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "frontend": "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus",
+    "frontend_sha256": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948"
+  },
+  "sources_unchanged": true,
+  "compiler_unchanged": true,
+  "generated_sha256_after": {
+    "build/inclusion-knowledge-ordinary-as_o69cl/minimal_components.cpp": "95e4aa69e793bcf5457e5016c96a4ba0b6354c689ff56a8f18886b71470c5239",
+    "build/inclusion-knowledge-ordinary-as_o69cl/full_header.cpp": "8fdbeb14395015a2bb73bd6b626f4b0a39e2242f5690ea120826aa08779ac86d",
+    "build/inclusion-knowledge-ordinary-as_o69cl/cases.jsonl": "17edfd881043441f6d2c5edc80200a5e0e49624aa07ca67c2393646b5b512efe",
+    "build/inclusion-knowledge-ordinary-as_o69cl/input.txt": "37809b54171fd7096615a3b8f216bf165b3ce6d95637e8a1ab88e32eb21e6f53",
+    "build/inclusion-knowledge-ordinary-as_o69cl/expected.txt": "c406fb648acb585abc31b7ddf6c7a37d4594f9eaf079a4a04a4838a847c904d5"
+  },
+  "generated_unchanged": true,
+  "finished_at": "2026-10-02T20:21:42.814813+00:00",
+  "seconds": 11.542049
+}

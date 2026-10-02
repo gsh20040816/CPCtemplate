@@ -35,6 +35,7 @@ python3 tests/lagrange_knowledge.py
 python3 tests/lagrange_fps_usage.py
 python3 tests/state_recurrence_knowledge.py
 python3 tests/state_recurrence_snippet.py
+python3 tests/inclusion_knowledge.py
 python3 tests/complex_fft_usage.py
 python3 tests/maxplus_application.py
 python3 tests/tagged_gcd_demo.py
