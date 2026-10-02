@@ -2602,5 +2602,21 @@
     "requires": [
       "Fenwick"
     ]
+  },
+  {
+    "id": "example-211",
+    "symbol": "MultipointEvaluation",
+    "kind": "template",
+    "problem": "Library Checker Multipoint Evaluation",
+    "url": "https://judge.yosupo.jp/problem/multipoint_evaluation",
+    "summary": "给出 n 项升幂系数和 m 个任意横坐标，按输入顺序输出全部 f(x[i])，模 998244353。1≤n,m≤131072，系数和点均已取模，最高次系数非零；横坐标可以重复。构造一次乘积树后调用 evaluate；同一树可以继续求其他多项式的点值。",
+    "driver": "verify/library_checker/multipoint_evaluation.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "PolynomialDivision",
+      "MultipointEvaluation"
+    ]
   }
 ]

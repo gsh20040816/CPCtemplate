@@ -37,6 +37,11 @@ if [[ -d /opt/homebrew/include/boost ]]; then flags+=(-I/opt/homebrew/include); 
 if [[ "${SANITIZE:-0}" == 1 ]]; then flags+=(-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer); fi
 "$CXX" "${flags[@]}" tests/fenwick-selection.cpp -o build/fenwick-selection-core
 build/fenwick-selection-core
+"$CXX" "${flags[@]}" tests/multipoint_evaluation.cpp -o build/multipoint-evaluation-core
+for stage in small dense repeated sparse composition; do
+    build/multipoint-evaluation-core "$stage"
+done
+python3 tests/multipoint_evaluation_application.py
 "$CXX" "${flags[@]}" tests/namespace_number_theory.cpp -o build/namespace-number
 build/namespace-number
 

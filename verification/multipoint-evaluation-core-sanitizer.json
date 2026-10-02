@@ -1,0 +1,119 @@
+{
+  "status": "passed",
+  "mode": "sanitizer",
+  "started_at_utc": "2026-10-02T08:39:27.581357+00:00",
+  "completed_at_utc": "2026-10-02T08:42:15.634624+00:00",
+  "wall_seconds": 168.0509192239988,
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "compile_command": [
+    "g++",
+    "-std=c++20",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-Wall",
+    "-Wextra",
+    "-Wshadow",
+    "tests/multipoint_evaluation.cpp",
+    "-o",
+    "build/multipoint-evaluation/core-sanitizer"
+  ],
+  "stages": [
+    {
+      "stage": "small",
+      "wall_seconds": 10.130193424996833,
+      "command": [
+        "build/multipoint-evaluation/core-sanitizer",
+        "small"
+      ],
+      "returncode": 0,
+      "stdout": "Independent Horner: 9452 evaluations PASS\n",
+      "stdout_sha256": "ceccf56ef0cb3de0c4ad2fcba0423ad61e5dc9fcbdcf15cad3dd014a9f0e2903",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "dense",
+      "wall_seconds": 102.96339005399932,
+      "command": [
+        "build/multipoint-evaluation/core-sanitizer",
+        "dense"
+      ],
+      "returncode": 0,
+      "stdout": "Large dense: 131072 geometric/alternating closed forms and asymmetric degrees PASS\n",
+      "stdout_sha256": "a7f8ff6486a8df5e6c2d2654321cbfd5be39dee447daec1d848ba31b62d3e1db",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "repeated",
+      "wall_seconds": 29.062730267000006,
+      "command": [
+        "build/multipoint-evaluation/core-sanitizer",
+        "repeated"
+      ],
+      "returncode": 0,
+      "stdout": "Repeated points: 131072 equal points and dense polynomial PASS\n",
+      "stdout_sha256": "26be1ea73534216c496fa5e2019caab51b665fbb8ef5ff6c57b544e72a61b606",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "sparse",
+      "wall_seconds": 25.886765415998525,
+      "command": [
+        "build/multipoint-evaluation/core-sanitizer",
+        "sparse"
+      ],
+      "returncode": 0,
+      "stdout": "Sparse: odd unequal dimensions, high degree and trailing zeros PASS\n",
+      "stdout_sha256": "4b02ecc961cfc0d436133037069fad46094354a296634358d65f1aa4d6eb0194",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "composition",
+      "wall_seconds": 0.006117139997513732,
+      "command": [
+        "build/multipoint-evaluation/core-sanitizer",
+        "composition"
+      ],
+      "returncode": 0,
+      "stdout": "Shared translation unit: division, FPS and chirp_z PASS\n",
+      "stdout_sha256": "95c4b99bf271a132f43f03d2f4257c2a2350c22edd8cc559fa7d1afa55112263",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "environment_overrides": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1"
+  },
+  "source_sha256": {
+    "src/compact/chirp_z.hpp": "f789ce2e51b8bc8380f453a2915f0e41309010ff2224e8f7e4a3327ddace16d8",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/multipoint_evaluation.hpp": "fb70d767dd84c2b53f1e4714f1a2454270ef15b98c50d8f4e36f9629f89aa94c",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/multipoint_evaluation.cpp": "9e410047beda7e3199f9f2cb935daf9c7f2e5f4f5f8d844297224a63eef769ce",
+    "verify/library_checker/multipoint_evaluation.compact.cpp": "cbe6efe8b90481130ea520ebe356242c86d6cbb0047d467a3ceb68be70b6455b"
+  },
+  "binary_sha256": "91c0a20b4b12bc2a36ca9c97742b9c48b9a9d47aa8f3023adfda685277600714",
+  "returncode": 0,
+  "independent_oracles": [
+    "integer Horner",
+    "quadratic integer product construction",
+    "finite geometric sum with independent integer modular exponentiation",
+    "sparse monomial evaluation"
+  ],
+  "official_max_tested": {
+    "coefficients": 131072,
+    "points": 131072
+  },
+  "scope": "Core tests and shared translation-unit composition; not official-data acceptance, online AC, ranking, absolute capacity benchmark, interpolation or leak checking."
+}

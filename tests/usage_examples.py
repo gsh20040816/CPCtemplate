@@ -243,6 +243,8 @@ cases['example-209'] = [['1\na\n', {'exact_text': 'a\n'}], ['1\nz\n', {'exact_te
 
 cases['example-210'] = [['12\n1 5\n1 2\n1 5\n3 5\n4 3\n5 5\n6 2\n2 5\n3 6\n4 2\n2 2\n4 1\n', {'exact_text': '2\n5\n2\n5\n3\n5\n5\n'}], ['13\n1 -10000000\n1 0\n1 10000000\n3 -10000000\n3 10000000\n4 1\n4 3\n5 1\n6 -1\n2 0\n5 1\n6 -1\n3 0\n', {'exact_text': '1\n3\n-10000000\n10000000\n0\n0\n-10000000\n10000000\n2\n'}], ['9\n1 7\n1 7\n2 7\n4 1\n2 7\n3 7\n1 -3\n3 7\n4 1\n', {'exact_text': '7\n1\n2\n-3\n'}], ['3\n3 -10000000\n3 0\n3 10000000\n', {'exact_text': '1\n1\n1\n'}], ['1\n1 10000000\n', {'exact_text': ''}], ['6\n1 -9\n1 9\n5 0\n6 0\n3 0\n3 10\n', {'exact_text': '-9\n9\n2\n3\n'}]]
 
+cases['example-211'] = [['3 5\n1 2 3\n0 1 2 1 998244352\n', {'exact_text': '1 6 17 6 2\n'}], ['1 4\n7\n0 0 1 998244352\n', {'exact_text': '7 7 7 7\n'}], ['4 1\n5 0 0 2\n3\n', {'exact_text': '59\n'}], ['4 4\n0 0 0 1\n0 1 2 998244352\n', {'exact_text': '0 1 8 998244352\n'}]]
+
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()

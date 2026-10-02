@@ -171,6 +171,9 @@
 | `SegmentBeats` | [Library Checker range_chmin_chmax_add_range_sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | N,Q<=200000; actual \|a_i\|<=1e12 throughout; \|update b\|<=2e12;0<=l<r<=N | 待在线 AC | 待核验 |
 | `CentroidSum` | [Luogu P6329](https://www.luogu.com.cn/problem/P6329) | 1<=n,m<=100000;1<=weights,newvalue<=10000;unit edges;0<=decoded k<=n-1 | 待在线 AC | 待核验 |
 | `rectangle_union_area` | [Library Checker area_of_union_of_rectangles](https://judge.yosupo.jp/problem/area_of_union_of_rectangles) | 1<=N<=500000;0<=l<r<=1e9;0<=d<u<=1e9 | 待在线 AC | 待核验 |
+| `minimum_rotation` | [Luogu P13270](https://www.luogu.com.cn/problem/P13270) | 1<=n<=10000000; lowercase string; output minimum cyclic rotation | 待在线 AC | 待核验 |
+| `Fenwick` | [Luogu P3369 (compressed frequency selection)](https://www.luogu.com.cn/problem/P3369) | n<=100000; \|x\|<=10000000; valid kth and strict-neighbor requests | 待在线 AC | 待核验 |
+| `MultipointEvaluation` | [Library Checker multipoint_evaluation](https://judge.yosupo.jp/problem/multipoint_evaluation) | 1<=n,m<=131072; residues modulo998244353; highest coefficient nonzero; repeated points allowed | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1589,6 +1592,30 @@ Input order l,d,r,u. Exact int128 core area narrows safely to signed64 because a
 Local independent grid and maximum-scale tests; online AC and official generator suite pending.
 
 原始题面与参数：[来源 1](https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/area_of_union_of_rectangles/task.md)
+
+### Luogu P13270 / minimum_rotation
+
+Official standalone template problem; local checks are separate from online AC.
+
+
+
+Online submission and all-submissions ranking pending; exact local verification scope is in the linked reports.
+
+### Luogu P3369 (compressed frequency selection) / Fenwick
+
+Official standalone template problem; local checks are separate from online AC.
+
+
+
+Online submission and all-submissions ranking pending; exact local verification scope is in the linked reports.
+
+### Library Checker multipoint_evaluation / MultipointEvaluation
+
+Official standalone template problem; local checks are separate from online AC.
+
+
+
+Online submission and all-submissions ranking pending; exact local verification scope is in the linked reports.
 
 ## 榜单口径
 

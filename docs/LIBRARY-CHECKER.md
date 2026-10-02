@@ -47,7 +47,7 @@
 | [Convolution on the Multiplicative Monoid of $\mathbb{Z} / P\mathbb{Z}$](https://judge.yosupo.jp/problem/mul_modp_convolution) | Convolution | 待逐题审题、适配与在线验证 | — |
 | [Multidimensional Convolution (Truncated)](https://judge.yosupo.jp/problem/multivariate_convolution) | Convolution | 待逐题审题、适配与在线验证 | — |
 | [Multidimensional Convolution (Circular)](https://judge.yosupo.jp/problem/multivariate_convolution_cyclic) | Convolution | 待逐题审题、适配与在线验证 | — |
-| [Area of Union of Rectangles](https://judge.yosupo.jp/problem/area_of_union_of_rectangles) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Area of Union of Rectangles](https://judge.yosupo.jp/problem/area_of_union_of_rectangles) | Data Structure | 待逐题审题、适配与在线验证 | [area_of_union_of_rectangles.compact.cpp](../verify/library_checker/area_of_union_of_rectangles.compact.cpp) |
 | [Associative Array](https://judge.yosupo.jp/problem/associative_array) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [associative_array.cc.compact.cpp](../verify/library_checker/associative_array.cc.compact.cpp)<br>[associative_array.compact.cpp](../verify/library_checker/associative_array.compact.cpp) |
 | [Deque Operate All Composite](https://judge.yosupo.jp/problem/deque_operate_all_composite) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | Data Structure | 待逐题审题、适配与在线验证 | [double_ended_priority_queue.compact.cpp](../verify/library_checker/double_ended_priority_queue.compact.cpp) |
@@ -211,7 +211,7 @@
 | [Inv of Polynomials](https://judge.yosupo.jp/problem/inv_of_polynomials) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Log of Formal Power Series](https://judge.yosupo.jp/problem/log_of_formal_power_series) | Polynomial | 待逐题审题、适配与在线验证 | [log_of_formal_power_series.compact.cpp](../verify/library_checker/log_of_formal_power_series.compact.cpp) |
 | [Log of Formal Power Series (Sparse)](https://judge.yosupo.jp/problem/log_of_formal_power_series_sparse) | Polynomial | 待逐题审题、适配与在线验证 | — |
-| [Multipoint Evaluation](https://judge.yosupo.jp/problem/multipoint_evaluation) | Polynomial | 待逐题审题、适配与在线验证 | — |
+| [Multipoint Evaluation](https://judge.yosupo.jp/problem/multipoint_evaluation) | Polynomial | 待逐题审题、适配与在线验证 | [multipoint_evaluation.compact.cpp](../verify/library_checker/multipoint_evaluation.compact.cpp) |
 | [Multipoint Evaluation (Geometric Sequence)](https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence) | Polynomial | 待逐题审题、适配与在线验证 | [multipoint_evaluation_on_geometric_sequence.compact.cpp](../verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp) |
 | [Polynomial Interpolation](https://judge.yosupo.jp/problem/polynomial_interpolation) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Polynomial Interpolation (Geometric Sequence)](https://judge.yosupo.jp/problem/polynomial_interpolation_on_geometric_sequence) | Polynomial | 待逐题审题、适配与在线验证 | — |
@@ -282,5 +282,3 @@
 机器清单： [library-checker-inventory.json](library-checker-inventory.json)，包含参数、测试生成数量、题面/校验器摘要及固定版本链接。
 
 重建：`python3 tools/library_checker_inventory.py /path/to/clean/library-checker-problems`。更换上游版本时需审查增删；本工具不删除现有模板，也不自动迁移历史评测证据。
-
-本批已完成 Range Chmin Chmax Add Range Sum 的题面/校验器核对和本地适配，验证见 [Segment Tree Beats](SEGMENT-BEATS.md)；未新增在线 AC，仍保留在未完成线上验证的队列。

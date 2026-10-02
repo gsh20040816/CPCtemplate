@@ -4178,5 +4178,88 @@
     "statement_sources": [
       "https://raw.githubusercontent.com/yosupo06/library-checker-problems/master/data_structure/area_of_union_of_rectangles/task.md"
     ]
+  },
+  {
+    "symbol": "minimum_rotation",
+    "problem": "Luogu P13270",
+    "url": "https://www.luogu.com.cn/problem/P13270",
+    "classification": "Official standalone template problem; local checks are separate from online AC.",
+    "statement_checked": true,
+    "checked_date": "2026-10-02",
+    "limits": "1<=n<=10000000; lowercase string; output minimum cyclic rotation",
+    "implementation": "existing",
+    "source": "src/compact/string.hpp",
+    "tested_api": [
+      "minimum_rotation"
+    ],
+    "driver": "verify/luogu/P13270.compact.cpp",
+    "local_reports": [
+      "verification/minimum-rotation-usage-normal.json",
+      "verification/minimum-rotation-usage-sanitizer.json"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-submissions ranking pending; exact local verification scope is in the linked reports."
+  },
+  {
+    "symbol": "Fenwick",
+    "problem": "Luogu P3369 (compressed frequency selection)",
+    "url": "https://www.luogu.com.cn/problem/P3369",
+    "classification": "Official standalone template problem; local checks are separate from online AC.",
+    "statement_checked": true,
+    "checked_date": "2026-10-02",
+    "limits": "n<=100000; |x|<=10000000; valid kth and strict-neighbor requests",
+    "implementation": "existing",
+    "source": "src/compact/data_structure.hpp",
+    "tested_api": [
+      "add",
+      "sum",
+      "query",
+      "kth"
+    ],
+    "driver": "verify/luogu/P3369.fenwick-selection.compact.cpp",
+    "local_reports": [
+      "verification/fenwick-selection-regressions.json"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-submissions ranking pending; exact local verification scope is in the linked reports."
+  },
+  {
+    "symbol": "MultipointEvaluation",
+    "problem": "Library Checker multipoint_evaluation",
+    "url": "https://judge.yosupo.jp/problem/multipoint_evaluation",
+    "classification": "Official standalone template problem; local checks are separate from online AC.",
+    "statement_checked": true,
+    "checked_date": "2026-10-02",
+    "limits": "1<=n,m<=131072; residues modulo998244353; highest coefficient nonzero; repeated points allowed",
+    "implementation": "existing",
+    "source": "src/compact/multipoint_evaluation.hpp",
+    "tested_api": [
+      "constructor",
+      "evaluate"
+    ],
+    "driver": "verify/library_checker/multipoint_evaluation.compact.cpp",
+    "local_reports": [
+      "verification/multipoint-application-normal.json",
+      "verification/multipoint-application-sanitizer.json",
+      "verification/multipoint-official-usage-normal.json",
+      "verification/multipoint-official-usage-sanitizer.json"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and all-submissions ranking pending; exact local verification scope is in the linked reports."
   }
 ]

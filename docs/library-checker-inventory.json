@@ -989,7 +989,7 @@
         }
       ],
       "online_ac": [],
-      "status": "locally_verified_adapter_online_pending",
+      "status": "pending_statement_adapter_and_online_validation",
       "ranking": {
         "status": "not_checked",
         "rank": null,
@@ -8495,8 +8495,15 @@
           "sha256": "8d8152877091b4225fb42b8193370975430f5e49767cd0df347da4df227a117c"
         }
       },
-      "candidate_drivers": [],
-      "linked_statement_reviews": [],
+      "candidate_drivers": [
+        "verify/library_checker/multipoint_evaluation.compact.cpp"
+      ],
+      "linked_statement_reviews": [
+        {
+          "symbol": "MultipointEvaluation",
+          "statement_checked": true
+        }
+      ],
       "online_ac": [],
       "status": "pending_statement_adapter_and_online_validation",
       "ranking": {

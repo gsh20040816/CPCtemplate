@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "mode": "normal",
+  "started_at_utc": "2026-10-02T08:38:52.467073+00:00",
+  "completed_at_utc": "2026-10-02T08:39:22.496554+00:00",
+  "wall_seconds": 30.028786855000362,
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "compile_command": [
+    "g++",
+    "-std=c++20",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wshadow",
+    "tests/multipoint_evaluation.cpp",
+    "-o",
+    "build/multipoint-evaluation/core-normal"
+  ],
+  "stages": [
+    {
+      "stage": "all",
+      "wall_seconds": 30.02843206000034,
+      "command": [
+        "build/multipoint-evaluation/core-normal",
+        "all"
+      ],
+      "returncode": 0,
+      "stdout": "Independent Horner: 9452 evaluations PASS\nLarge dense: 131072 geometric/alternating closed forms and asymmetric degrees PASS\nRepeated points: 131072 equal points and dense polynomial PASS\nSparse: odd unequal dimensions, high degree and trailing zeros PASS\nShared translation unit: division, FPS and chirp_z PASS\n",
+      "stdout_sha256": "3d11b6d939eddf034616c991b0c8f0e497620aabffa5e55d6ca161aa34d78522",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "environment_overrides": {},
+  "source_sha256": {
+    "src/compact/chirp_z.hpp": "f789ce2e51b8bc8380f453a2915f0e41309010ff2224e8f7e4a3327ddace16d8",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/multipoint_evaluation.hpp": "fb70d767dd84c2b53f1e4714f1a2454270ef15b98c50d8f4e36f9629f89aa94c",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/multipoint_evaluation.cpp": "9e410047beda7e3199f9f2cb935daf9c7f2e5f4f5f8d844297224a63eef769ce",
+    "verify/library_checker/multipoint_evaluation.compact.cpp": "cbe6efe8b90481130ea520ebe356242c86d6cbb0047d467a3ceb68be70b6455b"
+  },
+  "binary_sha256": "3f1c80964f92fd0b4ace18c6050a0fb0b64650520e9d33c6eb8e146fc5c1334b",
+  "returncode": 0,
+  "independent_oracles": [
+    "integer Horner",
+    "quadratic integer product construction",
+    "finite geometric sum with independent integer modular exponentiation",
+    "sparse monomial evaluation"
+  ],
+  "official_max_tested": {
+    "coefficients": 131072,
+    "points": 131072
+  },
+  "scope": "Core tests and shared translation-unit composition; not official-data acceptance, online AC, ranking, absolute capacity benchmark, interpolation or leak checking."
+}

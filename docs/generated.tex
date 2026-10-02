@@ -1767,6 +1767,38 @@ PolynomialDivision::divide(a,b) 返回 pair<Poly,Poly>\{商,余式\}，模数固
 
 \lstinputlisting{usage/example-118.cpp}
 
+\Needspace{487pt}
+
+\section{多项式多点求值|快速插值}
+
+\subsection{任意点多项式多点求值}\label{compact-MultipointEvaluation}\index{MultipointEvaluation}
+
+代码依赖：\hyperref[compact-PolynomialDivision]{PolynomialDivision}（第~\pageref{compact-PolynomialDivision}~页，\ref{compact-PolynomialDivision}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+固定模数998244353，Poly为升幂系数vector<Z>。MultipointEvaluation(x)建立点集乘积树，evaluate(f)按输入点顺序返回f(x[i])；允许重复点、零点、空点集、空或尾零多项式，返回长度始终等于点数。构造复制点值，查询按值接收f，不改变树或调用者的左值，可多次复用；不再使用f时可move传入。系数个数n$\le$2\textasciicircum{}22，点数m<2\textasciicircum{}22，且内存可用；本地最大规模证据按报告列出，不表示已实测此绝对上限。每结点存首一多项式，查询将余式下传，叶值就是答案；仅求值，不包含快速插值。建树O(m log$^{2}$(m+1))，查询O(n log(n+1)+m log$^{2}$(m+1))，常驻空间O(m log(m+1))、含临时数组O(n+m log(m+1))，递归深度O(log(m+1))。依赖PolynomialDivision/FpsInverse/NTT及模整数。
+
+\lstinputlisting[firstline=4,lastline=29]{../src/compact/multipoint_evaluation.hpp}
+
+\newpage
+
+\noindent 余式下传与求值入口（接上页同一结构体）：
+
+\lstinputlisting[firstline=30,lastline=52,firstnumber=27]{../src/compact/multipoint_evaluation.hpp}
+
+\Needspace{435pt}
+
+\subsection*{模板题使用：Library Checker Multipoint Evaluation}
+
+\label{usage-example-211}
+
+题意：给出 n 项升幂系数和 m 个任意横坐标，按输入顺序输出全部 f(x[i])，模 998244353。1$\le$n,m$\le$131072，系数和点均已取模，最高次系数非零；横坐标可以重复。构造一次乘积树后调用 evaluate；同一树可以继续求其他多项式的点值。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-PolynomialDivision]{PolynomialDivision}（第~\pageref{compact-PolynomialDivision}~页，\ref{compact-PolynomialDivision}~节）、\hyperref[compact-MultipointEvaluation]{MultipointEvaluation}（第~\pageref{compact-MultipointEvaluation}~页，\ref{compact-MultipointEvaluation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/multipoint_evaluation}
+
+\lstinputlisting{usage/example-211.cpp}
+
 \Needspace{461pt}
 
 \section{多项式初等函数}

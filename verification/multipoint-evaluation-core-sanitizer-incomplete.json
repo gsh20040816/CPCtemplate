@@ -1,0 +1,48 @@
+{
+  "status": "incomplete_killed_execution",
+  "mode": "sanitizer",
+  "returncode": -9,
+  "signal": "SIGKILL",
+  "run_command": [
+    "build/multipoint-evaluation/core-sanitizer"
+  ],
+  "compile_flags": [
+    "-std=c++20",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-Wall",
+    "-Wextra",
+    "-Wshadow"
+  ],
+  "environment_overrides": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1"
+  },
+  "source_sha256": {
+    "src/compact/chirp_z.hpp": "f789ce2e51b8bc8380f453a2915f0e41309010ff2224e8f7e4a3327ddace16d8",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/multipoint_evaluation.hpp": "fb70d767dd84c2b53f1e4714f1a2454270ef15b98c50d8f4e36f9629f89aa94c",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/multipoint_evaluation.cpp": "2a2b9035314bfab946e147ebe0900934f7591467a0de36b015a72b7a5efe8128",
+    "verify/library_checker/multipoint_evaluation.compact.cpp": "cbe6efe8b90481130ea520ebe356242c86d6cbb0047d467a3ceb68be70b6455b"
+  },
+  "binary_sha256": "28c25cab7d0b8a4f80ec582a3157ab726636768595df712c5831d6946b113aa1",
+  "stdout": "",
+  "stderr": "",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "observed_result": "Process ended by signal 9 without ASan/UBSan diagnostic. No completed-check coverage can be inferred from buffered empty output. Cause unconfirmed; accessible shell limits did not cap CPU time or memory, and cgroup memory evidence was unavailable.",
+  "recovery": "Rerun unchanged corpus in separate small/dense/repeated/sparse/composition processes. Core and driver are unchanged. Test-only entry points split process lifetime; sparse PRNG stream remains identical.",
+  "scope": "Not a passing sanitizer run and not evidence of an algorithm failure or of OOM."
+}

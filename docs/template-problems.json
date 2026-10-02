@@ -1,4 +1,28 @@
 {
+  "excluded_basic_problems": {
+    "approval": "https://github.com/gsh20040816/CPCtemplate/issues/2#issuecomment-5907178580",
+    "scope": "Exclude only these independent basic problem entries and submission plans. Preserve advanced algorithms, shared helpers, source coverage ledgers and historical verification evidence.",
+    "problems": [
+      {
+        "judge": "luogu",
+        "problem": "P1226",
+        "title": "快速幂",
+        "preserve": "ModInt, Mod64, NTT, primitive-root and other power dependencies"
+      },
+      {
+        "judge": "luogu",
+        "problem": "P1177",
+        "title": "排序",
+        "preserve": "std::sort calls and advanced sorting-dependent algorithms"
+      },
+      {
+        "judge": "luogu",
+        "problem": "P3374",
+        "title": "基础树状数组：单点加、区间和",
+        "preserve": "Fenwick kth and generic/composed uses, dynamic kth and multidimensional variants"
+      }
+    ]
+  },
   "issue": "https://github.com/gsh20040816/CPCtemplate/issues/1",
   "note": "Candidates only. A template tag or an existing application AC does not prove a noncompetition template, complete API coverage, or a fastest-submission rank.",
   "qoj_tag_source": "https://qoj.ac/problems?tag=%E6%A8%A1%E6%9D%BF%E9%A2%98",
@@ -10,17 +34,17 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/luogu/P3377.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P3377",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
           "driver": "verify/luogu/P3367.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P3367",
           "existing_ac": [
             "https://www.luogu.com.cn/record/297668102"
           ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3377.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3377",
+          "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
@@ -60,7 +84,14 @@
       "title": "树状数组第 k 小与组合依赖",
       "source": "src/compact/data_structure.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3369.fenwick-selection.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3369",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -92,13 +123,13 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/library_checker/intersection_zassenhaus.compact.cpp",
+          "driver": "verify/library_checker/intersection_intersection.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/intersection_intersection.compact.cpp",
+          "driver": "verify/library_checker/intersection_zassenhaus.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
@@ -138,17 +169,17 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/luogu/P4126.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P4126",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
           "driver": "verify/luogu/P3376.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P3376",
           "existing_ac": [
             "https://www.luogu.com.cn/record/297501480"
           ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P4126.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4126",
+          "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
@@ -294,14 +325,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/poj/3648.compact.cpp",
-          "url": "",
+          "driver": "verify/library_checker/two_sat.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/two_sat",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/two_sat.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/two_sat",
+          "driver": "verify/poj/3648.compact.cpp",
+          "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -350,26 +381,26 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/poj/2117.compact.cpp",
-          "url": "",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
           "driver": "verify/uva/796.compact.cpp",
           "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/luogu/CF118E.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/CF118E",
+          "driver": "verify/poj/2117.compact.cpp",
+          "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
           "driver": "verify/luogu/P3388.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P3388",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/CF118E.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/CF118E",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -512,7 +543,14 @@
       "title": "最小循环表示",
       "source": "src/compact/string.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P13270.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P13270",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -640,14 +678,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/uva/10006.compact.cpp",
-          "url": "",
+          "driver": "verify/library_checker/primality_test.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/primality_test",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/primality_test.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/primality_test",
+          "driver": "verify/uva/10006.compact.cpp",
+          "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -894,18 +932,18 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/luogu/P5668.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P5668",
-          "existing_ac": [
-            "https://www.luogu.com.cn/record/300024458"
-          ],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
           "driver": "verify/luogu/P4718.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P4718",
           "existing_ac": [
             "https://www.luogu.com.cn/record/297569299"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P5668.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5668",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/300024458"
           ],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -941,32 +979,8 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/examples/tree_path_products.compact.cpp",
-          "url": "",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/examples/dag_path_determinant.compact.cpp",
-          "url": "",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
           "driver": "verify/library_checker/inverse_matrix.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/inverse_matrix",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/library_checker/sum_of_multiplicative_function.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/sum_of_multiplicative_function",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -977,8 +991,32 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
+          "driver": "verify/library_checker/sum_of_multiplicative_function.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/sum_of_multiplicative_function",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/library_checker/matrix_det.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/matrix_det",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/examples/dag_path_determinant.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/examples/tree_path_products.compact.cpp",
+          "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -991,14 +1029,14 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/luogu/P4721.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P4721",
+          "driver": "verify/luogu/P5325.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5325",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/luogu/P5325.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P5325",
+          "driver": "verify/luogu/P4721.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4721",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -1576,14 +1614,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/library_checker/log_of_formal_power_series.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/log_of_formal_power_series",
+          "driver": "verify/library_checker/exp_of_formal_power_series.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/exp_of_formal_power_series",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/exp_of_formal_power_series.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/exp_of_formal_power_series",
+          "driver": "verify/library_checker/log_of_formal_power_series.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/log_of_formal_power_series",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -1604,14 +1642,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/poj/2947.compact.cpp",
-          "url": "",
+          "driver": "verify/library_checker/system_of_linear_equations.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/system_of_linear_equations",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/system_of_linear_equations.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/system_of_linear_equations",
+          "driver": "verify/poj/2947.compact.cpp",
+          "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -1772,14 +1810,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/library_checker/counting_spanning_tree_undirected.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/counting_spanning_tree_undirected",
+          "driver": "verify/library_checker/counting_spanning_tree_directed.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/counting_spanning_tree_directed",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/counting_spanning_tree_directed.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/counting_spanning_tree_directed",
+          "driver": "verify/library_checker/counting_spanning_tree_undirected.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/counting_spanning_tree_undirected",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -1852,8 +1890,38 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/aoj/CGL_7_G.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_G",
+          "driver": "verify/library_checker/sort_points_by_argument.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/sort_points_by_argument",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/furthest_pair.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/furthest_pair",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/closest_pair.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/closest_pair",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/static_convex_hull.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/static_convex_hull",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/aoj/CGL_7_E.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_E",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/aoj/CGL_2_D.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -1870,50 +1938,20 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
+          "driver": "verify/aoj/CGL_7_G.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_G",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/aoj/CGL_3_C.compact.cpp",
           "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_C",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/aoj/CGL_2_D.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/aoj/CGL_7_E.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_E",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/library_checker/static_convex_hull.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/static_convex_hull",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/library_checker/furthest_pair.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/furthest_pair",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/library_checker/sort_points_by_argument.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/sort_points_by_argument",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/library_checker/closest_pair.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/closest_pair",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/luogu/P1452.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P1452",
+          "driver": "verify/luogu/P7883.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P7883",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -1924,8 +1962,8 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/luogu/P7883.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P7883",
+          "driver": "verify/luogu/P1452.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1452",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -1952,26 +1990,26 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/library_checker/static_convex_hull.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/static_convex_hull",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
           "driver": "verify/library_checker/furthest_pair.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/furthest_pair",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/luogu/P1452.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P1452",
+          "driver": "verify/library_checker/static_convex_hull.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/static_convex_hull",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
           "driver": "verify/luogu/P2742.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P2742",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P1452.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1452",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -2092,32 +2130,8 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/aoj/CGL_7_H.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_H",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/aoj/CGL_2_C.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/aoj/CGL_2_D.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/aoj/CGL_1_A.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_1_A",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/aoj/CGL_2_A.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_A",
+          "driver": "verify/aoj/CGL_7_I.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_I",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -2128,8 +2142,32 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/aoj/CGL_7_I.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_I",
+          "driver": "verify/aoj/CGL_2_A.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_A",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/aoj/CGL_2_D.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/aoj/CGL_2_C.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/aoj/CGL_7_H.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_H",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/aoj/CGL_1_A.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_1_A",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -2798,6 +2836,28 @@
       }
     },
     {
+      "symbol": "PersistentOrderedTreap",
+      "title": "可持久化有序 Treap：分叉版本与顺序统计",
+      "source": "src/compact/persistent_ordered_treap.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3835.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3835",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
       "symbol": "SequenceTreap",
       "title": "隐式 Treap：顺序反转、位翻转、加值与区间和",
       "source": "src/compact/treap.hpp",
@@ -3003,7 +3063,21 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/poj/2942.compact.cpp",
+          "driver": "verify/library_checker/two_edge_connected_components.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/two_edge_connected_components",
+          "existing_ac": [
+            "https://qoj.ac/submission/3061643"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/biconnected_components.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/biconnected_components",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/uva/10765.compact.cpp",
           "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
@@ -3015,36 +3089,16 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/uva/10765.compact.cpp",
+          "driver": "verify/poj/2942.compact.cpp",
           "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/biconnected_components.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/biconnected_components",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/library_checker/two_edge_connected_components.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/two_edge_connected_components",
+          "driver": "verify/luogu/P8435.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P8435",
           "existing_ac": [
-            "https://qoj.ac/submission/3061643"
-          ],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/luogu/P4630.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P4630",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/luogu/P8436.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P8436",
-          "existing_ac": [
-            "https://www.luogu.com.cn/record/297519028"
+            "https://www.luogu.com.cn/record/297517446"
           ],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -3061,10 +3115,16 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/luogu/P8435.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P8435",
+          "driver": "verify/luogu/P4630.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4630",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P8436.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P8436",
           "existing_ac": [
-            "https://www.luogu.com.cn/record/297517446"
+            "https://www.luogu.com.cn/record/297519028"
           ],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -3129,17 +3189,17 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/luogu/P3649.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P3649",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
           "driver": "verify/luogu/P5496.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P5496",
           "existing_ac": [
             "https://www.luogu.com.cn/record/297518043"
           ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3649.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3649",
+          "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
@@ -3177,6 +3237,28 @@
       }
     },
     {
+      "symbol": "CentroidSum",
+      "title": "动态点分树：点权赋值与距离球求和",
+      "source": "src/compact/centroid_sum.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P6329.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6329",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
       "symbol": "SubtreeColors",
       "title": "树上启发式合并：子树众数颜色和",
       "source": "src/compact/dsu_on_tree.hpp",
@@ -3205,19 +3287,41 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
+          "driver": "verify/luogu/P3384.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3384",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297520172"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/luogu/P3373.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P3373",
           "existing_ac": [
             "https://www.luogu.com.cn/record/297518952"
           ],
           "review": "candidate: audit full statement and exclude competition applications"
-        },
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "SegmentBeats",
+      "title": "Segment Tree Beats：区间截断、加法与和",
+      "source": "src/compact/segment_beats.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
         {
-          "driver": "verify/luogu/P3384.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P3384",
-          "existing_ac": [
-            "https://www.luogu.com.cn/record/297520172"
-          ],
+          "driver": "verify/library_checker/range_chmin_chmax_add_range_sum.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum",
+          "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
@@ -3379,13 +3483,13 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/library_checker/intersection_zassenhaus.compact.cpp",
+          "driver": "verify/library_checker/intersection_intersection.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/intersection_intersection.compact.cpp",
+          "driver": "verify/library_checker/intersection_zassenhaus.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
@@ -3451,14 +3555,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/aoj/GRL_3_A.removal.compact.cpp",
-          "url": "https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_A",
+          "driver": "verify/uva/10765.compact.cpp",
+          "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/uva/10765.compact.cpp",
-          "url": "",
+          "driver": "verify/aoj/GRL_3_A.removal.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/GRL_3_A",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -3582,17 +3686,17 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
+          "driver": "verify/luogu/P3379.euler.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3379",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/luogu/P3398.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P3398",
           "existing_ac": [
             "https://www.luogu.com.cn/record/299972443"
           ],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/luogu/P3379.euler.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P3379",
-          "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
@@ -3849,14 +3953,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/library_checker/bitwise_and_convolution.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/bitwise_and_convolution",
+          "driver": "verify/library_checker/bitwise_xor_convolution.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/bitwise_xor_convolution",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/bitwise_xor_convolution.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/bitwise_xor_convolution",
+          "driver": "verify/library_checker/bitwise_and_convolution.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/bitwise_and_convolution",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -4029,6 +4133,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
+          "driver": "verify/qoj/8237.compact.cpp",
+          "url": "https://qoj.ac/problem/8237",
+          "existing_ac": [
+            "https://qoj.ac/submission/2939916"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/cses/1160.compact.cpp",
           "url": "https://cses.fi/problemset/task/1160",
           "existing_ac": [],
@@ -4038,14 +4150,6 @@
           "driver": "verify/cses/1750.compact.cpp",
           "url": "https://cses.fi/problemset/task/1750",
           "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
-          "driver": "verify/qoj/8237.compact.cpp",
-          "url": "https://qoj.ac/problem/8237",
-          "existing_ac": [
-            "https://qoj.ac/submission/2939916"
-          ],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
@@ -4327,14 +4431,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/library_checker/shortest_path.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/shortest_path",
+          "driver": "verify/library_checker/double_ended_priority_queue.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/double_ended_priority_queue",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/double_ended_priority_queue.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/double_ended_priority_queue",
+          "driver": "verify/library_checker/shortest_path.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/shortest_path",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -4983,14 +5087,14 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/poj/1681.compact.cpp",
-          "url": "",
+          "driver": "verify/library_checker/system_of_linear_equations_mod_2.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/system_of_linear_equations_mod_2.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2",
+          "driver": "verify/poj/1681.compact.cpp",
+          "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -5121,82 +5225,38 @@
       }
     },
     {
-      "symbol": "PersistentOrderedTreap",
-      "title": "可持久化有序 Treap：分叉版本与顺序统计",
-      "source": "src/compact/persistent_ordered_treap.hpp",
-      "status": "locally_tested_template_driver",
-      "candidate_drivers": [
-        {
-          "driver": "verify/luogu/P3835.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P3835",
-          "existing_ac": [],
-          "review": "Official standalone template statement checked; local driver and core tested; online AC and memory/time limits pending"
-        }
-      ],
-      "qoj_tag_candidate": null,
-      "ranking": {
-        "status": "not_checked",
-        "rank": null,
-        "total": null,
-        "checked_at": null,
-        "scope": null
-      }
-    },
-    {
-      "symbol": "SegmentBeats",
-      "title": "Segment Tree Beats：区间截断、加法与和",
-      "source": "src/compact/segment_beats.hpp",
-      "status": "locally_tested_template_driver",
-      "candidate_drivers": [
-        {
-          "driver": "verify/library_checker/range_chmin_chmax_add_range_sum.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum",
-          "existing_ac": [],
-          "review": "Official statement/validator checked; local core and adapter validated; online AC pending"
-        }
-      ],
-      "qoj_tag_candidate": null,
-      "ranking": {
-        "status": "not_checked",
-        "rank": null,
-        "total": null,
-        "checked_at": null,
-        "scope": null
-      }
-    },
-    {
-      "symbol": "CentroidSum",
-      "title": "动态点分树：点权赋值与距离球求和",
-      "source": "src/compact/centroid_sum.hpp",
-      "status": "locally_tested_template_driver",
-      "candidate_drivers": [
-        {
-          "driver": "verify/luogu/P6329.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P6329",
-          "existing_ac": [],
-          "review": "Official designated template; current core and online-XOR driver locally verified; online AC pending"
-        }
-      ],
-      "qoj_tag_candidate": null,
-      "ranking": {
-        "status": "not_checked",
-        "rank": null,
-        "total": null,
-        "checked_at": null,
-        "scope": null
-      }
-    },
-    {
       "symbol": "rectangle_union_area",
       "title": "整数轴对齐矩形面积并",
       "source": "src/compact/rectangle_union.hpp",
-      "status": "locally_tested_template_driver",
+      "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
           "driver": "verify/library_checker/area_of_union_of_rectangles.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/area_of_union_of_rectangles",
           "existing_ac": [],
-          "review": "Official statement checked; local independent core and driver tests; online AC pending"
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "MultipointEvaluation",
+      "title": "任意点多项式多点求值",
+      "source": "src/compact/multipoint_evaluation.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/multipoint_evaluation.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/multipoint_evaluation",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
       "qoj_tag_candidate": null,
@@ -9086,29 +9146,5 @@
       "page": "200",
       "topic": "6.5.3 (3) 模板 2"
     }
-  ],
-  "excluded_basic_problems": {
-    "approval": "https://github.com/gsh20040816/CPCtemplate/issues/2#issuecomment-5907178580",
-    "scope": "Exclude only these independent basic problem entries and submission plans. Preserve advanced algorithms, shared helpers, source coverage ledgers and historical verification evidence.",
-    "problems": [
-      {
-        "judge": "luogu",
-        "problem": "P1226",
-        "title": "快速幂",
-        "preserve": "ModInt, Mod64, NTT, primitive-root and other power dependencies"
-      },
-      {
-        "judge": "luogu",
-        "problem": "P1177",
-        "title": "排序",
-        "preserve": "std::sort calls and advanced sorting-dependent algorithms"
-      },
-      {
-        "judge": "luogu",
-        "problem": "P3374",
-        "title": "基础树状数组：单点加、区间和",
-        "preserve": "Fenwick kth and generic/composed uses, dynamic kth and multidimensional variants"
-      }
-    ]
-  }
+  ]
 }
