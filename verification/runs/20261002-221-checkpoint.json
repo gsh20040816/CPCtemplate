@@ -1,0 +1,41 @@
+{
+  "tested_commit": "52d81d1fe89fb7a58d7a72082c8181cec0770d46",
+  "scope": "Three separately scoped frozen local checks. Not OJ acceptance, universal correctness, or LeakSanitizer certification. Known geometry judge-contract incompatibilities remain.",
+  "source_inputs": 1218,
+  "full_suite": {
+    "normal": "passed",
+    "sanitizer": "passed",
+    "manifest": "verification/runs/20261002-221-full-regression.json"
+  },
+  "printed_usages": {
+    "programs": 221,
+    "canonical_cases_per_mode": 604,
+    "total_executions": 1208,
+    "passed": true,
+    "report": "verification/runs/20261002-221-all-printed.json"
+  },
+  "copied_context": {
+    "registered": 221,
+    "standard_prelude_passed": 215,
+    "documented_gnu_headers_passed": 6,
+    "unresolved": 0,
+    "report": "verification/runs/20261002-221-copy-context.json"
+  },
+  "limits": [
+    "LeakSanitizer disabled due executor ptrace restriction",
+    "Interpolation core sanitizer stages explicitly use quarantine_size_mb=32 and thread_local_quarantine_size_kb=128; do not describe the whole suite as default quarantine",
+    "Compiler warnings retained in logs",
+    "No fresh online AC or speed ranking",
+    "Default floating CGL_7_D/CGL_7_E mappings remain incompatible; see verification/geometry-judge-contracts.json"
+  ],
+  "evidence_sha256": {
+    "verification/runs/20261002-221-full-regression.json": "1ff8b5c5254e62c8dbdf83bc7e2857d35ff29fea014b8b4c8656dc4f2bcbe7af",
+    "verification/runs/20261002-221-copy-context.json": "12e09842cae73a4e4938b0b891252f5f80c87434710ea1b24e03cdb551c5d9a0",
+    "verification/runs/20261002-221-all-printed.json": "2842c07e89e05c0d9bf0eb161ff29502b88c145faab27c01329c8642ceb33bb4",
+    "verification/runs/20261002-221-all-printed.log": "980a71f3887cf7c20e4f287d8c786049a7be65affbe2b15557f090dbb930d191",
+    "verification/runs/20261002T133844.687059Z-normal-dd09b552/receipt.json": "0b5b98b4ed1c5f6b2cc408b149c9edaec86be72220af4021414e83a25a2c2b51",
+    "verification/runs/20261002T133844.687059Z-normal-dd09b552/output.log": "ac2b2e8901b4f47bad76b84d2b0964a1f9224ad40d2dfb389af9557a2bae83b1",
+    "verification/runs/20261002T140321.303664Z-sanitizer-70e74de4/receipt.json": "1c333551490f9655585521ec115bee5951aa9d84464d31c776ddb4a1da758843",
+    "verification/runs/20261002T140321.303664Z-sanitizer-70e74de4/output.log": "ec6c64dc3903eef980b75e1de2f3454f08a591be91e6182b900fdb007d69d63e"
+  }
+}
