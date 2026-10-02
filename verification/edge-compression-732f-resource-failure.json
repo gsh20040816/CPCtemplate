@@ -1,0 +1,71 @@
+{
+  "status": "resource_failure_observed",
+  "classification": "ASan recursive stack resource failure, not an algorithm pass",
+  "source_report": "build/edge-compression-next/sanitizer-n5kztuog/report.json",
+  "source_report_sha256": "538ee857e25c9162fc1e2770c00c54ac04b16272883edeafcd6f3669899eb6ac",
+  "source_mode": "sanitizer",
+  "source_prototype": true,
+  "sources": {
+    "tests/edge_compression_application.py": "d418300b7bef81fce53aa7d2d4a049e70424b96c3ff3185f29d0e1c56ff950cc",
+    "verify/codeforces/732F.compact.cpp": "9a2150d255a5193957b13c97765610c450ceba7861d33dffbdca8ffe265cc1a7",
+    "src/compact/biconnected_core.hpp": "3ab80f3d7f5098d9fbc344248624a0d045dce4cf72043931252ca9dbb09ce224",
+    "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+    "src/compact/edge_components.hpp": "461c2a9b7e640a2a4564fdd37ec953ec5dc601d7f4665b6d0989791bc14feaed",
+    "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+    "tests/fixtures/edge-compression-732f/README.md": "42486de0f9a119257c11e499a35d2f3665a576f2612abffaa8a42676098002fb",
+    "tests/fixtures/edge-compression-732f/contract.json": "d9a09468345ecbe296f87cfec6831bd7a40158d3e75512589ee0e01677f21247",
+    "tests/fixtures/edge-compression-732f/sample.in": "9a1cbd7b30c2c480795663d925bd28f48f52a7fd4e2b5e9369ca78d5513811cc",
+    "tests/fixtures/edge-compression-732f/sample.out": "4446a40d1e4c26784fc924f0e014c64aa5612a3c5ac88097d1f6ec7df8cd9f97"
+  },
+  "compiler_binaries": {
+    "/usr/bin/x86_64-linux-gnu-g++-14": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948"
+  },
+  "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "flags": [
+    "-std=c++20",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer"
+  ],
+  "environment": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+    "CXX": null,
+    "CPATH": null,
+    "CPLUS_INCLUDE_PATH": null,
+    "LIBRARY_PATH": null,
+    "LD_LIBRARY_PATH": null
+  },
+  "compile_command": [
+    "/usr/bin/x86_64-linux-gnu-g++-14",
+    "-std=c++20",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/verify/codeforces/732F.compact.cpp",
+    "-o",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/build/edge-compression-next/sanitizer-n5kztuog/direct"
+  ],
+  "binary_sha256": "0b5148b210b8438cecd74ce4a1da506a6528fc05cad5a6a2651a03b39a79e55d",
+  "failed_case": {
+    "returncode": 1,
+    "wall_seconds": 0.70769046600617,
+    "peak_rss_kib": 408868,
+    "requested_soft_stack_bytes": 268435456,
+    "child_soft_stack_bytes": 268435456,
+    "unchanged_hard_stack_bytes": -1,
+    "label": "path",
+    "n": 400000,
+    "m": 399999,
+    "expected": 1,
+    "input_sha256": "cbb8c12b6f37c412fde93ced51e9244607eb6b3090f0ce46a76df3c188f4d9b7",
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr_sha256": "07d29b0ef291c08ad4158d55ce4f7af2c61782b834ae558eee15ac73a1fcc16f",
+  "stderr_excerpt": "AddressSanitizer:DEADLYSIGNAL\n=================================================================\n==990==ERROR: AddressSanitizer: stack-overflow on address 0x7ffdc23ace64 (pc 0x5650c5c83c30 bp 0x7ffdc23ad1e0 sp 0x7ffdc23acde0 T0)\n    #0 0x5650c5c83c30 in BiconnectedCore::dfs(int, int) /workspace/scratch/5a21734ea066/CPCtemplate/verify/codeforces/../../src/compact/biconnected_core.hpp:31\n    #1 0x5650c5c84a82 in BiconnectedCore::dfs(int, int) /workspace/scratch/5a21734ea066/CPCtemplate/verify/codeforces/../../src/compact/biconnected_core.hpp:42\n    #2 0x5650c5c84a82 in BiconnectedCore::dfs(int, int) /workspace/scratch/5a21734ea066/CPCtemplate/verify/codeforces/../../src/compact/biconnected_core.hpp:42\n    #3 0x5650c5c84a82 in BiconnectedCore::dfs(int, int) /workspace/scratch/5a21734ea066/CPCtemplate/verify/codeforces/../../src/compact/biconnected_core.hpp:42",
+  "explanation": "n=400000 path overflowed unchanged recursive BiconnectedCore::dfs with a 256 MiB child soft RLIMIT_STACK under -O1 AddressSanitizer/UndefinedBehaviorSanitizer. Hard limit remained unlimited (-1). Normal 8 MiB stack failure is recorded separately in the normal receipt. Subsequent 1 GiB instrumented tests do not erase this failure or establish a known judge stack."
+}

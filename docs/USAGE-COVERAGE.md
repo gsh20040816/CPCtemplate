@@ -146,7 +146,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | basis_sum_intersection | [example-179](usage/example-179.cpp) | locally_checked_example |
 | XorWalk | [example-176（应用补充）](usage/example-176.cpp) | locally_checked_application |
 | removal_components | [example-162](usage/example-162.cpp), [example-163（应用补充）](usage/example-163.cpp) | locally_checked_example |
-| EdgeCompression | 待补 | pending_example |
+| EdgeCompression | [example-227（应用补充）](usage/example-227.cpp) | locally_checked_application |
 | orient_edges | [example-164（应用补充）](usage/example-164.cpp) | locally_checked_application |
 | bridge_augmentation | [example-167（应用补充）](usage/example-167.cpp) | locally_checked_application |
 | OfflineLCA | [example-32](usage/example-32.cpp) | locally_checked_example |

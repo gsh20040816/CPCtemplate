@@ -5746,6 +5746,26 @@ bridge\_component\_forest(graph) 接收已 run 的 BiconnectedCore，返回按 1
 
 \lstinputlisting[firstline=7,lastline=29]{../src/compact/edge_components.hpp}
 
+\Needspace{533pt}
+
+\subsection*{应用题补充：Codeforces 732F Tourist Reform}
+
+\label{usage-example-227}
+
+题意：连通无向简单图，2$\le$n$\le$400000、1$\le$m$\le$400000，给每条边定向，使各点可达点数的最小值最大（含自身）。输出最优值和按原输入顺序的m条有向边。先求边双缩点，选size最大的块为根；orient\_edges定向块内边，再按edges中的原边编号把桥全部朝根定向。答案是最大块大小，不把缩点边端点顺序当成父子关系。O(n+m)时间/空间；保留递归核心，需足够大栈，局部8 MiB栈在最大链上溢出，评测栈未知。本题是应用，不是正式缩点模板题。
+
+所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-EdgeCompression]{EdgeCompression}（第~\pageref{compact-EdgeCompression}~页，\ref{compact-EdgeCompression}~节）、\hyperref[compact-Lowlink]{Lowlink}（第~\pageref{compact-Lowlink}~页，\ref{compact-Lowlink}~节）、\hyperref[compact-orient_edges]{orient\_\allowbreak{}edges}（第~\pageref{compact-orient_edges}~页，\ref{compact-orient_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/problemset/problem/732/F}
+
+\lstinputlisting[lastline=29]{usage/example-227.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=30,firstnumber=30]{usage/example-227.cpp}
+
 \Needspace{650pt}
 
 \subsection{无向边定向与强连通定向}\label{compact-orient_edges}\index{orient\_edges}

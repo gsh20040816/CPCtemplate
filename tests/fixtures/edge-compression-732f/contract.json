@@ -1,0 +1,13 @@
+{
+  "classification": "real-application-not-template-problem",
+  "official_source": "https://codeforces.com/problemset/problem/732/F",
+  "verified_at": "2026-10-02",
+  "official_domain": "Connected simple undirected graph; 1-based vertices; 2 <= n <= 400000; 1 <= m <= 400000; no loops or parallel edges",
+  "objective": "Maximize minimum reachable-vertex count, including the starting vertex",
+  "output": "Optimum followed by m directed endpoint pairs in original logical edge order; optimum orientation is nonunique",
+  "time_seconds": 4,
+  "memory_megabytes": 256,
+  "resource_precondition": "Existing recursive BiconnectedCore DFS/paint and orient_edges require sufficiently large process stack, potentially linear in n. A local 8 MiB path run failed by SIGSEGV. Normal tests request 256 MiB and instrumented sanitizer tests request 1 GiB child soft RLIMIT_STACK capped by the existing hard limit; a sanitizer 256 MiB path run also overflowed; this is test provisioning, not a proven universal requirement or known Codeforces judge stack. Published main does not change process limits. Local RSS and sanitizer overhead do not establish judge acceptance.",
+  "coverage": "Application uses EdgeCompression.size and .edges; .inside remains covered by the separate API tests",
+  "online_status": "No submission or online acceptance claimed"
+}

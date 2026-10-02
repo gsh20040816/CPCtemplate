@@ -4,6 +4,29 @@ import math
 
 
 def check_output(example_id, mode, data, stdout, expected):
+    if isinstance(expected, dict) and 'tourist_reform' in expected:
+        values = list(map(int, data.split()))
+        n, m = values[:2]
+        edges = list(zip(values[2::2], values[3::2]))
+        lines = [list(map(int, line.split())) for line in stdout.splitlines()]
+        optimum = expected['tourist_reform']
+        assert len(edges) == m and len(lines) == m + 1
+        assert lines[0] == [optimum]
+        graph = [[] for _ in range(n + 1)]
+        for line, (u, v) in zip(lines[1:], edges):
+            assert len(line) == 2 and tuple(line) in ((u, v), (v, u))
+            graph[line[0]].append(line[1])
+        counts = []
+        for start in range(1, n + 1):
+            seen, order = {start}, [start]
+            for u in order:
+                for v in graph[u]:
+                    if v not in seen:
+                        seen.add(v)
+                        order.append(v)
+            counts.append(len(seen))
+        assert min(counts) == optimum
+        return
     if isinstance(expected, dict) and 'circulation' in expected:
         values = list(map(int, data.split()))
         n, m = values[:2]

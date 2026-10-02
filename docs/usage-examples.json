@@ -2829,5 +2829,21 @@
       "SupportHull"
     ],
     "page_break_before": "    while (q--)"
+  },
+  {
+    "id": "example-227",
+    "symbol": "EdgeCompression",
+    "kind": "application",
+    "problem": "Codeforces 732F Tourist Reform",
+    "url": "https://codeforces.com/problemset/problem/732/F",
+    "summary": "连通无向简单图，2≤n≤400000、1≤m≤400000，给每条边定向，使各点可达点数的最小值最大（含自身）。输出最优值和按原输入顺序的m条有向边。先求边双缩点，选size最大的块为根；orient_edges定向块内边，再按edges中的原边编号把桥全部朝根定向。答案是最大块大小，不把缩点边端点顺序当成父子关系。O(n+m)时间/空间；保留递归核心，需足够大栈，局部8 MiB栈在最大链上溢出，评测栈未知。本题是应用，不是正式缩点模板题。",
+    "driver": "verify/codeforces/732F.compact.cpp",
+    "requires": [
+      "BiconnectedCore",
+      "EdgeCompression",
+      "Lowlink",
+      "orient_edges"
+    ],
+    "page_break_before": "    vector<int> parent(compressed.n + 1), order{root};"
   }
 ]
