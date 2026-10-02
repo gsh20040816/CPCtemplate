@@ -135,7 +135,7 @@ for style in ['compact']:
             if name == 'XorWalk':
                 split = next(i for i in range(start, end) if 'void add(' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
-            if name in ('SequenceTreap', 'AffineSequenceTreap', 'GcdSequenceTreap'):
+            if name in ('SequenceTreap', 'AffineSequenceTreap', 'GcdSequenceTreap', 'OrderedSplay'):
                 body.append('\\newpage')
                 estimate = 650
             if name in ('SubtreeColors', 'VirtualTree', 'CentroidPairs', 'WaveletMatrix', 'GaussXor', 'SecondMST', 'DivisionTree'):
@@ -298,6 +298,18 @@ for style in ['compact']:
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
                 captions = ['', '复制路径插入与旋转', '复制路径合并与删除',
                             '版本接口、大小与排名', '第 k 小与严格前驱后继']
+                for part in range(5):
+                    if part:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'OrderedSplay':
+                cuts = [start,
+                        next(i for i in range(start, end) if 'void splay(' in lines[i]),
+                        next(i for i in range(start, end) if 'void insert(' in lines[i]),
+                        next(i for i in range(start, end) if 'int rank(' in lines[i]),
+                        next(i for i in range(start, end) if 'optional<ll> prev(' in lines[i]), end]
+                captions = ['', '伸展与查找', '插入与删除', '排名与第 k 小', '严格前驱与后继']
                 for part in range(5):
                     if part:
                         body.append('\\newpage')

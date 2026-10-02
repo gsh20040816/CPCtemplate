@@ -1,0 +1,179 @@
+{
+  "checked_at_utc": "2026-10-02T11:46:09.873133+00:00",
+  "scope": "OrderedSplay core, usage page, and immediate neighbors in final main and data volumes; not a whole-book audit",
+  "result": "pass",
+  "source": {
+    "path": "src/compact/splay.hpp",
+    "sha256": "d81babceed51c498b6e89a5de9413730d6a01b6e7a010841a0b387e9dc05a9f7",
+    "unchanged_from_HEAD": true
+  },
+  "render_method": "pdftoppm -scale-to 1050 -png; visual inspection of every scoped page",
+  "renders_directory": "build/ordered-splay-final-audit",
+  "visual_checks": {
+    "five_whole_function_chunks": true,
+    "no_clipping_overlap_or_orphan_continuations": true,
+    "captions_readable_and_match_chunks": true,
+    "usage_and_neighbor_transitions_clean": true,
+    "font_settings_unchanged": true
+  },
+  "coverage_check": "Generated listing ranges partition source 7..210 exactly once; extracted numbered code confirms every nonblank source line once in each PDF. Boundary blank lines may be suppressed by listings.",
+  "pdfs": [
+    {
+      "path": "output/pdf/xcpc-data-structures.pdf",
+      "sha256": "ad0ed3bbebb33892aa3ac03733a4ce02840cfc923ab77c7a4773cb9933fec25a",
+      "total_pages": 143,
+      "core_physical_pages": [
+        84,
+        88
+      ],
+      "core_printed_pages": [
+        80,
+        84
+      ],
+      "source_ranges": [
+        [
+          7,
+          48
+        ],
+        [
+          49,
+          78
+        ],
+        [
+          79,
+          130
+        ],
+        [
+          131,
+          170
+        ],
+        [
+          171,
+          210
+        ]
+      ],
+      "visible_listing_ranges": [
+        [
+          1,
+          41
+        ],
+        [
+          43,
+          71
+        ],
+        [
+          73,
+          123
+        ],
+        [
+          125,
+          163
+        ],
+        [
+          165,
+          204
+        ]
+      ],
+      "usage_physical_page": 89,
+      "usage_printed_page": 85,
+      "neighbor_rendered_physical_pages": [
+        83,
+        90
+      ],
+      "every_nonblank_source_line_present_once": true,
+      "whole_function_pages": {
+        "splay": {
+          "physical": 85,
+          "printed": 81
+        },
+        "erase": {
+          "physical": 86,
+          "printed": 82
+        },
+        "kth": {
+          "physical": 87,
+          "printed": 83
+        }
+      }
+    },
+    {
+      "path": "output/pdf/xcpc-template.pdf",
+      "sha256": "31605347343ca17e3008b49813be4789c9ce101136eb8319985ba258b0ca198f",
+      "total_pages": 605,
+      "core_physical_pages": [
+        281,
+        285
+      ],
+      "core_printed_pages": [
+        267,
+        271
+      ],
+      "source_ranges": [
+        [
+          7,
+          48
+        ],
+        [
+          49,
+          78
+        ],
+        [
+          79,
+          130
+        ],
+        [
+          131,
+          170
+        ],
+        [
+          171,
+          210
+        ]
+      ],
+      "visible_listing_ranges": [
+        [
+          1,
+          41
+        ],
+        [
+          43,
+          71
+        ],
+        [
+          73,
+          123
+        ],
+        [
+          125,
+          163
+        ],
+        [
+          165,
+          204
+        ]
+      ],
+      "usage_physical_page": 286,
+      "usage_printed_page": 272,
+      "neighbor_rendered_physical_pages": [
+        280,
+        287
+      ],
+      "every_nonblank_source_line_present_once": true,
+      "whole_function_pages": {
+        "splay": {
+          "physical": 282,
+          "printed": 268
+        },
+        "erase": {
+          "physical": 283,
+          "printed": 269
+        },
+        "kth": {
+          "physical": 284,
+          "printed": 270
+        }
+      }
+    }
+  ],
+  "layout_diff": "tools/book.py adds OrderedSplay initial page placement and five source-sliced listings only; no src changes"
+}

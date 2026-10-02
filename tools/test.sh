@@ -30,6 +30,7 @@ export CPC_SANITIZE="${SANITIZE:-0}"
 python3 tests/basic_template_scope.py
 python3 tests/acl_review_consistency.py
 python3 tests/knowledge_taxonomy.py
+python3 tests/ordered_splay_pagination.py
 python3 tests/issue11_rollup.py
 python3 tests/minimum_rotation_usage.py
 flags=(-std=c++20 -O2 -Wall -Wextra)

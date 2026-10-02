@@ -4019,7 +4019,9 @@ build(v) 用数值与状态组成的序列替换当前内容。数值为无符�
 
 \lstinputlisting[firstline=142,lastline=195,firstnumber=133]{../src/compact/gcd_sequence.hpp}
 
-\Needspace{180pt}
+\newpage
+
+\Needspace{680pt}
 
 \section{Splay 树}
 
@@ -4027,7 +4029,31 @@ build(v) 用数值与状态组成的序列替换当前内容。数值为无符�
 
 insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不存在返回 nullopt。重复键计数存储；失败查询也伸展最后访问节点，单次均摊 O(log n)。不回收节点，空间按累计新建节点数计算。支持 long long 全范围；不包含序列 Splay、虚子树信息或矩阵动态 DP。
 
-\lstinputlisting[firstline=7,lastline=210]{../src/compact/splay.hpp}
+\lstinputlisting[firstline=7,lastline=48,firstnumber=1]{../src/compact/splay.hpp}
+
+\newpage
+
+\noindent 伸展与查找（接上页同一结构体）：
+
+\lstinputlisting[firstline=49,lastline=78,firstnumber=43]{../src/compact/splay.hpp}
+
+\newpage
+
+\noindent 插入与删除（接上页同一结构体）：
+
+\lstinputlisting[firstline=79,lastline=130,firstnumber=73]{../src/compact/splay.hpp}
+
+\newpage
+
+\noindent 排名与第 k 小（接上页同一结构体）：
+
+\lstinputlisting[firstline=131,lastline=170,firstnumber=125]{../src/compact/splay.hpp}
+
+\newpage
+
+\noindent 严格前驱与后继（接上页同一结构体）：
+
+\lstinputlisting[firstline=171,lastline=210,firstnumber=165]{../src/compact/splay.hpp}
 
 \Needspace{447pt}
 
