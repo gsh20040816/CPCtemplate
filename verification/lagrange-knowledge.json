@@ -1,0 +1,116 @@
+{
+  "exact_integer_divisibility_checks": 14592,
+  "identity_and_boundary_checks": 21504,
+  "labelled_rooted_tree_enumeration": [
+    {
+      "candidate_graphs": 1,
+      "connected_graphs": 1,
+      "egf_coefficient": "1",
+      "rooted_graphs": 1,
+      "vertices": 1
+    },
+    {
+      "candidate_graphs": 1,
+      "connected_graphs": 1,
+      "egf_coefficient": "1",
+      "rooted_graphs": 2,
+      "vertices": 2
+    },
+    {
+      "candidate_graphs": 3,
+      "connected_graphs": 3,
+      "egf_coefficient": "3/2",
+      "rooted_graphs": 9,
+      "vertices": 3
+    },
+    {
+      "candidate_graphs": 20,
+      "connected_graphs": 16,
+      "egf_coefficient": "8/3",
+      "rooted_graphs": 64,
+      "vertices": 4
+    },
+    {
+      "candidate_graphs": 210,
+      "connected_graphs": 125,
+      "egf_coefficient": "125/24",
+      "rooted_graphs": 625,
+      "vertices": 5
+    }
+  ],
+  "max_n": 12,
+  "modular_nonunit_example": {
+    "integer_numerator": 15,
+    "interpretation": "Integer division before reduction works; division by n inside this field is undefined.",
+    "inverse_n_exists": false,
+    "modulus": 3,
+    "n": 3,
+    "numerator_residue": 0,
+    "true_coefficient": 5,
+    "true_residue": 2
+  },
+  "nonmonomial_H": [
+    [
+      7,
+      -2,
+      3,
+      1
+    ],
+    [
+      -5,
+      0,
+      -1,
+      2,
+      1
+    ],
+    [
+      2,
+      1,
+      0,
+      -2,
+      0,
+      1
+    ]
+  ],
+  "ordered_full_d_ary_shapes": {
+    "2": {
+      "max_internal_nodes": 7,
+      "ogf": "T=x(1+T^d); x counts all vertices",
+      "shape_counts": [
+        1,
+        1,
+        2,
+        5,
+        14,
+        42,
+        132,
+        429
+      ]
+    },
+    "3": {
+      "max_internal_nodes": 5,
+      "ogf": "T=x(1+T^d); x counts all vertices",
+      "shape_counts": [
+        1,
+        1,
+        3,
+        12,
+        55,
+        273
+      ]
+    }
+  },
+  "phi_scope": "constant 1 or 2, degree <=3, remaining coefficients in {-1,0,1,2}",
+  "phi_zero_contract_rejections": 3,
+  "scope": "Exact characteristic-zero mathematical checks only; no C++ runtime, sanitizer, new algorithm or online-judge claim",
+  "sources_after": {
+    "docs/knowledge-lagrange.tex": "970c8d67b4c7c67a479bb7661d2c9b803b7cb613c113c3d977a8419959a87f79",
+    "tests/lagrange_knowledge.py": "d2af0df2d7524b0253bacaabf8a7bce1aa5d81dc00edf5eb4c85504c72eff600"
+  },
+  "sources_before": {
+    "docs/knowledge-lagrange.tex": "970c8d67b4c7c67a479bb7661d2c9b803b7cb613c113c3d977a8419959a87f79",
+    "tests/lagrange_knowledge.py": "d2af0df2d7524b0253bacaabf8a7bce1aa5d81dc00edf5eb4c85504c72eff600"
+  },
+  "status": "pass",
+  "unique_integer_phi_cases": 128
+}

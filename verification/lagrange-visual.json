@@ -1,0 +1,52 @@
+{
+  "scope": "Targeted actual image inspection of 9 pages; not whole-book visual certification",
+  "source_sha256": "970c8d67b4c7c67a479bb7661d2c9b803b7cb613c113c3d977a8419959a87f79",
+  "pdfs": [
+    {
+      "pdf": "output/pdf/xcpc-template.pdf",
+      "pdf_sha256": "cf9c2f39466de73b60e621ddbaead685aea5e1cd58c53e7bdf81d4358d1aa298",
+      "physical_pages_seen": [
+        154,
+        155,
+        156,
+        157
+      ],
+      "findings": "No clipping, overlap or dangling subsection heading observed; new two-page section, adjacent pages and index inspected; font settings unchanged",
+      "render_png_sha256": {
+        "build/lagrange-qa/final-main-154.png": "2d26b5531cb28969431fab47034f6ca334c79764d5d4374e332ac30d2a5a2512",
+        "build/lagrange-qa/final-main-155.png": "fb4e5a979dd0213a7815c1f1d3670dec57a75279bd6563a1c011df64d7199e08",
+        "build/lagrange-qa/final-main-156.png": "f839f075210afb4a4119fa6e5bd9f7b577f816fc832d071561495c35790c1c16",
+        "build/lagrange-qa/final-main-157.png": "0195052936b458eca78d860b5edf78b6606eae5638d1ae26552e6ac8883220d0"
+      }
+    },
+    {
+      "pdf": "output/pdf/xcpc-mathematics.pdf",
+      "pdf_sha256": "3aea64e5561c7e5ddf4748d0d2226c3621eb64b139ec0522401e3f6de4f285a3",
+      "physical_pages_seen": [
+        116,
+        117,
+        118,
+        119
+      ],
+      "findings": "No clipping, overlap or dangling subsection heading observed; new two-page section, adjacent pages and index inspected; font settings unchanged",
+      "render_png_sha256": {
+        "build/lagrange-qa/final-math-116.png": "a302a8f4cb7b082240c57219b48f118a5b0aa09c8f0d9cd26e0630f91a9ada98",
+        "build/lagrange-qa/final-math-117.png": "a40e9eaa682a515d3ca4834942ad29edb22a6bbd35dbe084bb16743209dc775d",
+        "build/lagrange-qa/final-math-118.png": "355882db81650e3ee437e06ca8f20b49c2987f3fa5dc851f56c6e6c0bcf5bb1a",
+        "build/lagrange-qa/final-math-119.png": "f7b376b5eccbad1a5bf24b5e5367236cea05f5c73a6634e020178bfe16529b25"
+      }
+    },
+    {
+      "pdf": "output/pdf/infra.pdf",
+      "pdf_sha256": "df88ac646b2b41e2dcac4f20d004330fc1e878362a33ac72a3e6e0145ab019cb",
+      "physical_pages_seen": [
+        10
+      ],
+      "findings": "No clipping, overlap or dangling subsection heading observed; new two-page section, adjacent pages and index inspected; font settings unchanged",
+      "render_png_sha256": {
+        "build/lagrange-qa/final-infra-10.png": "c566d01292a73fd15a1c53125950d005f3d2f04b8df752e87f66e23763fbaca1"
+      }
+    }
+  ],
+  "fix": "Inserted \\relax before aligned initial [x^n] to remove amsmath warning; formula unchanged"
+}

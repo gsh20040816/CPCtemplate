@@ -2324,6 +2324,156 @@ EGF 输入是否已乘逆阶乘，输出是否已乘阶乘。
 \label{end-combinatorics-supplement}
 
 
+\newpage
+
+\section{Lagrange 反演}
+
+\subsection{隐式生成函数与 Lagrange 反演}\label{knowledge-lagrange-inversion}
+\index{Lagrange inversion}\index{隐式生成函数}\index{形式留数}\index{复合逆}
+递归对象常给出 $T=x\Phi(T)$，而题目只问 $T$ 或 $H(T)$ 的某一项。
+Lagrange 反演把这个未知级数的系数，改写为已知级数 $\Phi$ 的整数幂系数；
+不一定要先求出整个 $T$。本节的“反演”是\textbf{复合逆}，
+与第~\ref{compact-Lagrange}~节（第~\pageref{compact-Lagrange}~页）的已知点值插值不同。
+
+\subsubsection{适用条件与取系数公式}
+先在 $\mathbb Q$ 或特征零域 $K$ 上讨论形式幂级数。
+设 $\Phi(t),H(t)\in K[[t]]$，$\Phi(0)\ne0$；若改用一般的 $\mathbb Q$-代数，
+要求 $\Phi(0)$ 是单位，即有乘法逆元。则
+\[
+T(x)=x\Phi(T(x)),\qquad T(0)=0
+\]
+唯一确定 $T\in xK[[x]]$：右侧的 $x^n$ 项只依赖 $T$ 的前 $n-1$ 次项，
+可从常数项起递推；其一次项为 $\Phi(0)$。
+令 $f(t)=t/\Phi(t)$，则 $f(T(x))=x$，且 $T(f(t))=t$。
+对 $n\ge1$，有
+\[
+\boxed{[x^n]H(T(x))=\frac1n[t^{n-1}]H'(t)\Phi(t)^n.}
+\]
+特别地，取 $H(t)=t^k$，在 $n\ge k\ge1$ 时得到
+\[
+\boxed{[x^n]T(x)^k=\frac{k}{n}[t^{n-k}]\Phi(t)^n.}
+\]
+\textbf{边界先分支：}$[x^0]H(T)=H(0)$；$T^0=1$，故 $[x^n]T^0=[n=0]$；
+$k\ge1$ 且 $0\le n<k$ 时为 0。不要把 $n=0$ 代进带 $1/n$ 的公式。
+这里每个固定次数只涉及有限次代数运算，\textbf{不要求级数具有解析收敛半径}。
+
+\subsubsection{形式留数证明}
+对只有有限个负次项的形式 Laurent 级数，记
+$\operatorname{Res}_t F=[t^{-1}]F$。
+形式导数没有 $t^{-1}$ 项，故 $\operatorname{Res}_t F'=0$。
+若 $g(0)=0$ 且 $g'(0)$ 可逆，换元公式为
+\[
+\operatorname{Res}_x F(x)=\operatorname{Res}_t F(g(t))g'(t).
+\]
+只需检查单项式 $F(x)=x^j$：$j\ne-1$ 时右边是
+$(g^{j+1})'/(j+1)$ 的留数，为 0；$j=-1$ 时，写 $g=tu$、$u(0)\ne0$，
+便有 $g'/g=t^{-1}+u'/u$，留数为 1。
+取 $g=f=t/\Phi(t)$，再用乘积求导，得到
+\[
+\begin{aligned}
+\relax [x^n]H(T(x))
+ &=\operatorname{Res}_t\frac{H(t)f'(t)}{f(t)^{n+1}}\\
+ &=\frac1n\operatorname{Res}_t\frac{H'(t)}{f(t)^n}
+ =\frac1n[t^{n-1}]H'(t)\Phi(t)^n.
+\end{aligned}
+\]
+中间等号来自 $\operatorname{Res}_t(H(t)f(t)^{-n})'=0$；
+它也清楚标出除以 $n$ 的位置。
+
+\subsubsection{模型一 按内部结点计数的满有序多叉树}
+固定整数 $d\ge2$，每个结点要么是叶子，要么恰有 $d$ 个\textbf{有序}孩子。
+用 $x$ 标记内部结点，叶子本身是大小 0 的一种树，故 OGF 满足
+\[
+A(x)=1+xA(x)^d.
+\]
+令 $T=A-1$，化为 $T=x(1+T)^d$。因此 $a_0=1$，而 $n\ge1$ 时
+\[
+a_n=[x^n]A=\frac1n\binom{dn}{n-1}
+=\frac1{(d-1)n+1}\binom{dn}{n}.
+\]
+$d=2$ 得到 $1,1,2,5,14,\ldots$；$d=3$ 得到 $1,1,3,12,55,\ldots$。
+有 $n$ 个内部结点时，共有 $dn+1$ 个结点、$(d-1)n+1$ 个叶子，
+所以这不是按所有结点计数。孩子位置有序；若把孩子改成无序集合，不能仍用 $A^d$。
+若先用 \texttt{Binomial<p> c(d*n)} 再求组合数，须确认 $dn<p$、表能放下，
+并在宽类型中计算 $dn$，最后检查选用的分母是否可逆。
+即使 $n<p$，也可能有 $dn\ge p$；此时回到第~\ref{knowledge-binomial-choice}~节
+（第~\pageref{knowledge-binomial-choice}~页）的组合数选型，不能越界调用阶乘表。
+
+\subsubsection{模型二 带标号有根树的 EGF}
+结点标签为 $1,\ldots,n$，根也是结构的一部分，根的孩子\textbf{没有先后顺序}。
+删除根后，剩下的是一组标签互不相交的非空有根树，因此
+\[
+T(x)=x\exp T(x),\qquad
+T(x)=\sum_{n\ge1}r_n\frac{x^n}{n!}.
+\]
+取 $\Phi(t)=e^t$，对 $n\ge1$ 有
+\[
+[x^n]T=\frac1n[t^{n-1}]e^{nt}
+=\frac{n^{n-1}}{n!},\qquad r_n=n!\,[x^n]T=n^{n-1}.
+\]
+$n=0$ 没有有根树，$n=1$ 有 1 棵；$r_2=2,r_3=9,r_4=64$。
+数组里的 $[x^3]T=3/2$ 不是树的数目 9，必须还原阶乘。
+这里计算的是“选定根也计入方案”的数目；若指定某个标签为根，$n\ge2$ 时为 $n^{n-2}$。
+也不能把隐式的 $\exp T$ 替换成已知的 $\exp x$。
+
+\subsubsection{落到现有接口及模数边界}
+\textbf{只求一个幂系数。}第~\ref{compact-FpsPower}~节
+（第~\pageref{compact-FpsPower}~页）的 \texttt{FpsPower::power}
+当前固定模数 $p=998244353$，只支持非负整数指数。
+下面采用简单充分范围：$1\le k\le n<p$、$L=n-k+1\le2^{22}$，且内存足够。
+把 $\Phi$ 的前 $L$ 项存入 \texttt{FpsPower::Poly phi}，可写
+\begin{lstlisting}
+using F = FpsPower;
+using Z = F::Z;
+int l = n - k + 1;
+auto q = F::power(phi, to_string(n), l);
+Z answer = Z(k) * Z(n).inv() * q[n - k];
+\end{lstlisting}
+长度参数是\textbf{项数}，故取 $t^{n-k}$ 要传 $n-k+1$；不能只传 $n-k$。
+短输入缺项按零处理，若真有非零项则必须提供。指数是完整非负十进制字符串，
+不要自行只传 $n\bmod p$。单次耗时 $O(L\log(L+1)+\log(n+1))$、额外空间 $O(L)$；
+对 $n=1,\ldots,N$ 分别取系数不能据此声称整体 $O(M(N))$，
+按此做法的通用上界为 $O(N^2\log(N+1))$，还未计输入构造。
+
+\textbf{辅助接口。}第~\ref{compact-FpsFunctions}~节
+（第~\pageref{compact-FpsFunctions}~页）提供 \texttt{derivative(a)}、
+\texttt{integral(a)}、\texttt{log(a,l)}、\texttt{exp(a,l)}；
+$\log$ 要求首项 1，$\exp$ 要求首项 0，积分分母须可逆。
+这些操作仍固定模数 $998244353$，$1\le l\le2^{22}$ 是保守安全长度界。
+它们可用于构造 $H'$ 或已知表达式的指数，\textbf{不是求解任意隐式方程的接口}。
+对一般 $H$，若长度 $n$ 满足上述容量界，先算 $q=\Phi^n\bmod t^n$，
+再取 $n^{-1}\sum_{i=1}^n iH_iq_{n-i}$，其中 $H_i=[t^i]H$。
+已知 $q$ 后只需 $O(n)$ 点积，不必计算 $H'q$ 的整段卷积。
+第~\ref{compact-Binomial}~节（第~\pageref{compact-Binomial}~页）的
+\texttt{Binomial<p> c(N)} 在素数 $p$、$N<p$ 下提供
+\texttt{c.choose(n,k)}、\texttt{c.fac[n]} 和 \texttt{c.ifac[n]}；
+先显式建表至所有查询的最大下标，再读取或还原 EGF 阶乘。
+
+\textbf{不要混淆两种逆。}$f^{\langle-1\rangle}$ 满足 $f(T)=x$，
+而第~\ref{compact-FpsInverse}~节（第~\pageref{compact-FpsInverse}~页）的
+\texttt{inverse} 求 $fB=1\pmod{x^L}$，
+要求 $f(0)\ne0$。这里 $f=t/\Phi(t)$ 的常数项恰为 0，不能交给乘法求逆模板。
+本节不新增通用 FPS 复合、复合逆或整段隐式解的实现覆盖。
+
+\textbf{整数除法不能随意改成模逆元。}在 $\mathbb F_p$ 中使用带 $1/n$ 的公式，
+至少要求 $p\nmid n$，且 $\Phi,H$ 的所需系数本来就在该域中有定义；
+EGF 的 $1/j!$ 也不能跨过 $j=p$。
+例如 $T=x(1+T)^2$、$n=p=3$，整数答案为
+\[
+[x^3]T=\frac13\binom62=5\equiv2\pmod3,
+\]
+但分子 $15$ 与分母 $3$ 先取模都为 0，不能用 $0^{-1}$；
+只保留分子模 3 也已经丢掉了除以 3 所需的信息。
+可改用无除法递推，或在能保证整除时保留足够整数/提升模数精度再除。
+这例也可改用等价式 $\binom63/4$，但必须重新检查分母 4 在模 3 下可逆。
+
+\textbf{来源。}定理、形式留数换元及两类树的公式核对
+\href{https://arxiv.org/abs/1609.05988}{Ira M. Gessel, \emph{Lagrange Inversion}}
+的定理 2.1.1、第 4.1 节、第 3.2--3.3 节；
+中文概念导航参见 \href{https://oi-wiki.org/math/poly/lagrange-inversion/}{OI Wiki：Lagrange 反演}。
+以上模型说明、接口对应和模 3 反例为本手册重新组织的推导，不将知识补充记作在线评测通过。
+
+
 \Needspace{541pt}
 
 \chapter{组合数学}

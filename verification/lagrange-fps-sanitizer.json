@@ -1,0 +1,113 @@
+{
+  "asan_options": "detect_leaks=0",
+  "asan_quarantine": "default",
+  "build_directory": "build/lagrange-fps-sanitizer-5vu1j6ly",
+  "case_count": 7098,
+  "compile_command": [
+    "/usr/bin/x86_64-linux-gnu-g++-14",
+    "-std=c++20",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-I",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/src/compact",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/build/lagrange-fps-sanitizer-5vu1j6ly/snippet.cpp",
+    "-o",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/build/lagrange-fps-sanitizer-5vu1j6ly/snippet"
+  ],
+  "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "generated_source_sha256": "8b880967b97dc840eafde0c3c2f52846964d78dbdd675f318087a2d4eaae0b12",
+  "groups": {
+    "large_upper_index_nonone_leading_scale_mapping": 1,
+    "large_upper_index_small_L_binomial_mapping": 1,
+    "long_truncation_binomial_mapping": 1,
+    "small_integer_fixed_point": 7040,
+    "small_rational_exp_fixed_point": 55
+  },
+  "input_sha256": "71476fc1660cebd2ee131c5508dd8afb1dc314c95f29b737404d022d5f3ec356",
+  "leak_sanitizer": "disabled",
+  "long_cases": [
+    {
+      "L": 65536,
+      "expected": 119372021,
+      "group": "long_truncation_binomial_mapping",
+      "k": 1,
+      "n": 65536,
+      "phi": [
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "L": 65,
+      "expected": 4225,
+      "group": "large_upper_index_small_L_binomial_mapping",
+      "k": 998244288,
+      "n": 998244352,
+      "phi": [
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "L": 65,
+      "expected": 487846692,
+      "group": "large_upper_index_nonone_leading_scale_mapping",
+      "k": 998244288,
+      "n": 998244352,
+      "phi": [
+        2,
+        1
+      ]
+    }
+  ],
+  "mode": "sanitizer",
+  "passed": true,
+  "pie": "compiler default; no disabling flags",
+  "precondition_rejections_not_sent_to_cpp": 7,
+  "scope": "Compile the sole documented Lagrange snippet against unchanged FpsPower.\n\nSmall cases use an independent characteristic-zero fixed-point oracle. Large\ncases check the existing API mapping against exact binomial coefficient\nidentities, not brute-force coefficients of a huge implicit series. No new\nalgorithm coverage or online-judge acceptance is claimed.\n",
+  "snippet_sha256": "d0d1e76330adbf4024ef87d1270883fd6a9d0594b11c567261d4885300115330",
+  "sources_after": {
+    "/usr/bin/x86_64-linux-gnu-g++-14": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948",
+    "docs/knowledge-lagrange.tex": "970c8d67b4c7c67a479bb7661d2c9b803b7cb613c113c3d977a8419959a87f79",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/fps_power.hpp": "b5678567b42bf77e7693544006efe7ebae53578be474fcc5203c6190e13fa759",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+    "tests/lagrange_fps_usage.py": "b8ae6adc33737fca5e687b261e847755a90b3e10520429c3978e483365709d20",
+    "tests/lagrange_knowledge.py": "d2af0df2d7524b0253bacaabf8a7bce1aa5d81dc00edf5eb4c85504c72eff600"
+  },
+  "sources_before": {
+    "/usr/bin/x86_64-linux-gnu-g++-14": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948",
+    "docs/knowledge-lagrange.tex": "970c8d67b4c7c67a479bb7661d2c9b803b7cb613c113c3d977a8419959a87f79",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/fps_power.hpp": "b5678567b42bf77e7693544006efe7ebae53578be474fcc5203c6190e13fa759",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+    "tests/lagrange_fps_usage.py": "b8ae6adc33737fca5e687b261e847755a90b3e10520429c3978e483365709d20",
+    "tests/lagrange_knowledge.py": "d2af0df2d7524b0253bacaabf8a7bce1aa5d81dc00edf5eb4c85504c72eff600"
+  },
+  "stderr": "",
+  "ubsan_options": "halt_on_error=1:print_stacktrace=1"
+}
