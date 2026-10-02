@@ -1,0 +1,43 @@
+{
+  "tested_source_commit": "4df4e2b5c1edbd146168b9cae6767ef05d67e2d6",
+  "source_inputs": 1289,
+  "algorithm_count": 208,
+  "usage_count": 228,
+  "knowledge_sections": 19,
+  "knowledge_source_files": 8,
+  "full_suite": {
+    "normal_seconds": 1532.248916,
+    "sanitizer_seconds": 3447.32563,
+    "pinned_classic_baseline": "1a9fa3e91d7dff58915341040be069611370054c",
+    "both_passed": true
+  },
+  "printed_programs": {
+    "program_count": 228,
+    "cases_per_mode": 628,
+    "total_executions": 1256,
+    "seconds": 1180.3439199210043,
+    "both_modes_passed": true
+  },
+  "minimal_copy_syntax": {
+    "standard_context": 222,
+    "explicit_gnu_headers": 6,
+    "unresolved": 0
+  },
+  "artifacts_sha256": {
+    "verification/runs/20261002-228-full-regression.json": "3f241975a114343823e5a3abd4141a7636291e379095fac674b625254ca4cb9f",
+    "verification/runs/20261002-228-all-printed.json": "5eb57378f21a90016edaae4d2e31482bff21d41c0297bc1c874dca5afbf4cadd",
+    "verification/runs/20261002-228-all-printed.log": "e6269d463984dd9e7c5f0c900c3211f195bcc7bc9427ddfe665459ea2494a46b",
+    "verification/runs/20261002-228-copy-context.json": "916a1bea7516ccbefdd149ea78d4caa0cdd9abb34374574441a41c719a0a6dbb",
+    "verification/runs/20261002T210808.268722Z-normal-34f9774f/receipt.json": "10b552b755a76b97c96272b8e094499f3c2e2c9fce90cd13ea67fa5f3efb97d0",
+    "verification/runs/20261002T210808.268722Z-normal-34f9774f/output.log": "30d2d04c32e78bedfdc043db3714e47cb994c45ffd29f4bd20382bf1ca64d0a7",
+    "verification/runs/20261002T213353.780667Z-sanitizer-f5e58bb0/receipt.json": "22b2c9ceb3777fed3c0da3f7043cebd614ed985a487b2e377f24341166db13c5",
+    "verification/runs/20261002T213353.780667Z-sanitizer-f5e58bb0/output.log": "5f6f455eb625a9992cfeed727771a738d4331be801a655a1a28882bd8c007dfa"
+  },
+  "limitations": [
+    "Frozen-source evidence only; no online AC, all-platform or universal correctness proof",
+    "LSan off; interpolation-only quarantine exception remains",
+    "Full-process soft stack512MiB; nested EdgeCompression256MiB normal/1GiB sanitizer capped at unchanged hard limit",
+    "RealPolarLess finite represented binary precision<=64 and normal floating environment, no prior-decimal or translated-coordinate exactness claim",
+    "Default floating CGL_7_D/E precision mismatch and ComplexFFT conditional timing/platform limits remain"
+  ]
+}
