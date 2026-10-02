@@ -4261,5 +4261,35 @@
       "total": null
     },
     "remaining": "Online submission and all-submissions ranking pending; exact local verification scope is in the linked reports."
+  },
+  {
+    "symbol": "polynomial_interpolation",
+    "problem": "Library Checker polynomial_interpolation",
+    "url": "https://judge.yosupo.jp/problem/polynomial_interpolation",
+    "classification": "Official standalone template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-10-02",
+    "limits": "1<=n<=131072; pairwise distinct canonical x; canonical y; output n coefficients modulo998244353 including high zeros",
+    "implementation": "existing",
+    "source": "src/compact/polynomial_interpolation.hpp",
+    "tested_api": [
+      "polynomial_interpolation"
+    ],
+    "driver": "verify/library_checker/polynomial_interpolation.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-submissions ranking pending. Invalid and empty API cases are separate from official driver input.",
+    "local_reports": [
+      "verification/polynomial-interpolation-core-normal.json",
+      "verification/polynomial-interpolation-core-sanitizer.json",
+      "verification/interpolation-application-usage-normal.json",
+      "verification/interpolation-application-usage-sanitizer.json",
+      "verification/interpolation-official-usage-normal.json",
+      "verification/interpolation-official-usage-sanitizer.json"
+    ]
   }
 ]

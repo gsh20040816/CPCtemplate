@@ -84,6 +84,6 @@ done
 
 固定 Library Checker 上游 `e64660561a995c357cdc61ddee1bde68b80528db` 的全部 11 组生成数据已由官方 checker 接受；原驱动和精确打印文本均执行普通与 ASan/UBSan。全部 22 份输入/答案文件与上游 hash.json 一致，错误输出负对照被 checker 拒绝。见 `verification/multipoint-official-provenance.json`、`multipoint-official*.json`。这里是本地官方数据及 checker 结果，不是线上 AC、OJ 限时或速度排名。
 
-中央精确使用示例检查也通过。当前本库为 205 算法、211 份用法；本条属于正式模板题用法，快速插值仍未实现，不能将整个 OI Wiki 联合页面记为完全覆盖。QOJ 622 的待确认输入边界与提交仍保持独立。
+中央精确使用示例检查也通过。本批求值功能发布时，本库为 205 算法、211 份用法；本条属于正式模板题用法，快速插值现有独立函数，见 [插值说明](POLYNOMIAL-INTERPOLATION.md)，其新增验证不由本求值报告代替。不能将整个 OI Wiki 联合页面自动记为完全覆盖。QOJ 622 的待确认输入边界与提交仍保持独立。
 
 本批数学册及总册重建，新核心在 build/eval 方法边界分两页、行号续接，完整 main 独立同页；前后相邻内容共 10 页实际渲染检查，原字号不变。其他六册经文本、注释和命名目的地比对后保留原 PDF 字节。八册最终日志无警告，1034 组依赖名称/页码/章节及 16 处跨册跳转通过；详情 `verification/multipoint-layout.json`。未重新执行整个仓库全量双模式回归，不扩大历史收据范围。

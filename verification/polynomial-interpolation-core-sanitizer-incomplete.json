@@ -1,0 +1,60 @@
+{
+  "status": "incomplete",
+  "mode": "sanitizer",
+  "recorded_at_utc": "2026-10-02T08:55:40.498159+00:00",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "source_sha256": {
+    "src/compact/chirp_z.hpp": "f789ce2e51b8bc8380f453a2915f0e41309010ff2224e8f7e4a3327ddace16d8",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/multipoint_evaluation.hpp": "fb70d767dd84c2b53f1e4714f1a2454270ef15b98c50d8f4e36f9629f89aa94c",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/polynomial_interpolation.hpp": "27712f7e66cdba8a334492a2f3f48bda14078a6e5dbb4b91168f33d754f782e2",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/polynomial_interpolation.cpp": "1a50f0effbc3805b9f4b319006eff5c1e83c6c098c580323f43797862afaf026",
+    "verify/library_checker/polynomial_interpolation.compact.cpp": "06375e367b8215136fa48fe17001a13b31b98f2745cfd138bbcf930315065040"
+  },
+  "binary_sha256": "6844d12721e8f09145231c74fa41164e53035b79e01470d4e2552817091d2c06",
+  "environment_overrides": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1"
+  },
+  "stages": [
+    {
+      "stage": "small",
+      "command": [
+        "build/polynomial-interpolation/core-sanitizer",
+        "small"
+      ],
+      "returncode": 0,
+      "wall_seconds": 5.041064992998145,
+      "stdout": "Small: 2126 coefficient recoveries, 800 independent Vandermonde systems, 256 explicit rejections PASS\n",
+      "stderr": "",
+      "stdout_sha256": "4c0269859e236813a67ff24973f57cfac6126645a4f1bdce731f78507e0bfef3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "dense",
+      "command": [
+        "build/polynomial-interpolation/core-sanitizer",
+        "dense"
+      ],
+      "returncode": -9,
+      "wall_seconds": 35.67723092500091,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "diagnosis": "Dense stage killed by signal 9 without ASan/UBSan output. Cause unconfirmed; cgroup memory counters unavailable in this executor. Small stage passed; later stages were not run.",
+  "scope": "Incomplete attempt, not a passing sanitizer result. The unchanged corpus will be retried with explicitly bounded ASan quarantine."
+}

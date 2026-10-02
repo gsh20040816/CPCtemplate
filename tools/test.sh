@@ -30,6 +30,7 @@ export CPC_SANITIZE="${SANITIZE:-0}"
 python3 tests/basic_template_scope.py
 python3 tests/acl_review_consistency.py
 python3 tests/knowledge_taxonomy.py
+python3 tests/issue11_rollup.py
 python3 tests/minimum_rotation_usage.py
 flags=(-std=c++20 -O2 -Wall -Wextra)
 if [[ "$(uname -s)" == Darwin ]]; then flags+=(-Wl,-stack_size,0x20000000); fi
@@ -42,6 +43,17 @@ for stage in small dense repeated sparse composition; do
     build/multipoint-evaluation-core "$stage"
 done
 python3 tests/multipoint_evaluation_application.py
+"$CXX" "${flags[@]}" tests/polynomial_interpolation.cpp -o build/polynomial-interpolation-core
+for stage in small dense alternating sparse zero constant composition; do
+    if [[ "${SANITIZE:-0}" == 1 ]]; then
+        interpolation_asan="${ASAN_OPTIONS:-detect_leaks=0:halt_on_error=1}:quarantine_size_mb=32:thread_local_quarantine_size_kb=128"
+        printf 'CPC_INTERPOLATION_ASAN_OPTIONS=%s stage=%s\n' "$interpolation_asan" "$stage"
+        ASAN_OPTIONS="$interpolation_asan" build/polynomial-interpolation-core "$stage"
+    else
+        build/polynomial-interpolation-core "$stage"
+    fi
+done
+python3 tests/polynomial_interpolation_application.py
 "$CXX" "${flags[@]}" tests/namespace_number_theory.cpp -o build/namespace-number
 build/namespace-number
 

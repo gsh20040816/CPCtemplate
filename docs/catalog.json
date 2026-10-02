@@ -1228,5 +1228,11 @@
     "MultipointEvaluation",
     "任意点多项式多点求值",
     "固定模数998244353，Poly为升幂系数vector<Z>。MultipointEvaluation(x)建立点集乘积树，evaluate(f)按输入点顺序返回f(x[i])；允许重复点、零点、空点集、空或尾零多项式，返回长度始终等于点数。构造复制点值，查询按值接收f，不改变树或调用者的左值，可多次复用；不再使用f时可move传入。系数个数n≤2^22，点数m<2^22，且内存可用；本地最大规模证据按报告列出，不表示已实测此绝对上限。每结点存首一多项式，查询将余式下传，叶值就是答案；仅求值，不包含快速插值。建树O(m log²(m+1))，查询O(n log(n+1)+m log²(m+1))，常驻空间O(m log(m+1))、含临时数组O(n+m log(m+1))，递归深度O(log(m+1))。依赖PolynomialDivision/FpsInverse/NTT及模整数。"
+  ],
+  [
+    "polynomial_interpolation",
+    "polynomial_interpolation",
+    "任意点多项式快速插值",
+    "polynomial_interpolation(x,y) 返回模998244353下次数<m的唯一插值多项式，升幂vector恰好m项并保留高次零。optional为空表示长度不符或归一化横坐标重复；两个空数组返回有值的空vector，不改输入。复用MultipointEvaluation乘积树及导数求值，按y/P'(x)递归合并；重复点只在独立求值接口合法。m≤2²²−1是既有除法/NTT的统一充分界，官方最大实测131072。时间O(m log²(m+1)+m log p)，p=998244353；单点逆元沿用模幂，不省略m log p项。总空间O(m log(m+1)+1)，递归O(log(m+1))。"
   ]
 ]

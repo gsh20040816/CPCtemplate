@@ -2618,5 +2618,22 @@
       "PolynomialDivision",
       "MultipointEvaluation"
     ]
+  },
+  {
+    "id": "example-212",
+    "symbol": "polynomial_interpolation",
+    "kind": "template",
+    "problem": "Library Checker Polynomial Interpolation",
+    "url": "https://judge.yosupo.jp/problem/polynomial_interpolation",
+    "summary": "给出 n 个互异横坐标及对应点值，输出唯一的次数小于 n 的多项式的 n 项升幂系数，模 998244353。1≤n≤131072，坐标与点值均已取模；先以乘积根多项式的导数求权重，再递归合并。接口返回 optional，长度不符或模意义重复横坐标返回空 optional，空输入返回有值的空向量；本题保证输入合法。",
+    "driver": "verify/library_checker/polynomial_interpolation.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "PolynomialDivision",
+      "MultipointEvaluation",
+      "polynomial_interpolation"
+    ]
   }
 ]

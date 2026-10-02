@@ -1799,6 +1799,30 @@ PolynomialDivision::divide(a,b) 返回 pair<Poly,Poly>\{商,余式\}，模数固
 
 \lstinputlisting{usage/example-211.cpp}
 
+\Needspace{443pt}
+
+\subsection{任意点多项式快速插值}\label{compact-polynomial_interpolation}\index{polynomial\_interpolation}
+
+代码依赖：\hyperref[compact-MultipointEvaluation]{MultipointEvaluation}（第~\pageref{compact-MultipointEvaluation}~页，\ref{compact-MultipointEvaluation}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+polynomial\_interpolation(x,y) 返回模998244353下次数<m的唯一插值多项式，升幂vector恰好m项并保留高次零。optional为空表示长度不符或归一化横坐标重复；两个空数组返回有值的空vector，不改输入。复用MultipointEvaluation乘积树及导数求值，按y/P'(x)递归合并；重复点只在独立求值接口合法。m$\le$2$^{22}$−1是既有除法/NTT的统一充分界，官方最大实测131072。时间O(m log$^{2}$(m+1)+m log p)，p=998244353；单点逆元沿用模幂，不省略m log p项。总空间O(m log(m+1)+1)，递归O(log(m+1))。
+
+\lstinputlisting[firstline=5,lastline=35]{../src/compact/polynomial_interpolation.hpp}
+
+\Needspace{457pt}
+
+\subsection*{模板题使用：Library Checker Polynomial Interpolation}
+
+\label{usage-example-212}
+
+题意：给出 n 个互异横坐标及对应点值，输出唯一的次数小于 n 的多项式的 n 项升幂系数，模 998244353。1$\le$n$\le$131072，坐标与点值均已取模；先以乘积根多项式的导数求权重，再递归合并。接口返回 optional，长度不符或模意义重复横坐标返回空 optional，空输入返回有值的空向量；本题保证输入合法。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-PolynomialDivision]{PolynomialDivision}（第~\pageref{compact-PolynomialDivision}~页，\ref{compact-PolynomialDivision}~节）、\hyperref[compact-MultipointEvaluation]{MultipointEvaluation}（第~\pageref{compact-MultipointEvaluation}~页，\ref{compact-MultipointEvaluation}~节）、\hyperref[compact-polynomial_interpolation]{polynomial\_interpolation}（第~\pageref{compact-polynomial_interpolation}~页，\ref{compact-polynomial_interpolation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/polynomial_interpolation}
+
+\lstinputlisting{usage/example-212.cpp}
+
 \Needspace{461pt}
 
 \section{多项式初等函数}

@@ -212,3 +212,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | IntegerTangents | [example-156](usage/example-156.cpp) | locally_checked_example |
 | rectangle_union_area | [example-202](usage/example-202.cpp) | locally_checked_example |
 | MultipointEvaluation | [example-211](usage/example-211.cpp) | locally_checked_example |
+| polynomial_interpolation | [example-212](usage/example-212.cpp) | locally_checked_example |

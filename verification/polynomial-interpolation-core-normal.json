@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "mode": "normal",
+  "started_at_utc": "2026-10-02T08:52:07.309427+00:00",
+  "completed_at_utc": "2026-10-02T08:52:39.716049+00:00",
+  "wall_seconds": 32.40591293099715,
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "compiler_path": "/usr/bin/g++",
+  "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+  "compile_command": [
+    "/usr/bin/g++",
+    "-std=c++20",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wshadow",
+    "tests/polynomial_interpolation.cpp",
+    "-o",
+    "build/polynomial-interpolation/core-normal"
+  ],
+  "compilation_returncode": 0,
+  "compilation_stderr": "",
+  "stages": [
+    {
+      "stage": "small",
+      "wall_seconds": 1.9166341530035425,
+      "command": [
+        "build/polynomial-interpolation/core-normal",
+        "small"
+      ],
+      "returncode": 0,
+      "stdout": "Small: 2126 coefficient recoveries, 800 independent Vandermonde systems, 256 explicit rejections PASS\n",
+      "stdout_sha256": "4c0269859e236813a67ff24973f57cfac6126645a4f1bdce731f78507e0bfef3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "dense",
+      "wall_seconds": 7.573590552001406,
+      "command": [
+        "build/polynomial-interpolation/core-normal",
+        "dense"
+      ],
+      "returncode": 0,
+      "stdout": "Large dense: 131072 points, independent geometric closed form PASS\n",
+      "stdout_sha256": "fa674a4be229fdcb20a00b14d38d899a479e1e6f6c400674f70bbf48d788a112",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "alternating",
+      "wall_seconds": 7.864220716001,
+      "command": [
+        "build/polynomial-interpolation/core-normal",
+        "alternating"
+      ],
+      "returncode": 0,
+      "stdout": "Large alternating: 131072 points, independent geometric closed form PASS\n",
+      "stdout_sha256": "8eb31803e974e886cd9b0c851f397a69dc437f2d8592480e456e3766559810b0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "sparse",
+      "wall_seconds": 3.8473348500010616,
+      "command": [
+        "build/polynomial-interpolation/core-normal",
+        "sparse"
+      ],
+      "returncode": 0,
+      "stdout": "Large sparse: 65537 points, independent high-degree monomial sum PASS\n",
+      "stdout_sha256": "2e7a5e34f2a1a5ebbbfb5548816b370a5edbcfa1517b9f39096fa40dc29964be",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "zero",
+      "wall_seconds": 3.455455663999601,
+      "command": [
+        "build/polynomial-interpolation/core-normal",
+        "zero"
+      ],
+      "returncode": 0,
+      "stdout": "Large zero: 65535 points, all high coefficient zeros preserved PASS\n",
+      "stdout_sha256": "075b40a43729b83b91469a1bd71e780a8f0a88d2c796a50b718e1248201ba7ee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "constant",
+      "wall_seconds": 7.7440137500016135,
+      "command": [
+        "build/polynomial-interpolation/core-normal",
+        "constant"
+      ],
+      "returncode": 0,
+      "stdout": "Large constant: 131072 points, all high coefficient zeros preserved PASS\n",
+      "stdout_sha256": "194f6d99d4f22185ffd08bb751590fea0b4dd2b2751fe36fff954db35ce9c93a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "composition",
+      "wall_seconds": 0.0027190349974262062,
+      "command": [
+        "build/polynomial-interpolation/core-normal",
+        "composition"
+      ],
+      "returncode": 0,
+      "stdout": "Composition: evaluation still permits duplicates; division, FPS and chirp_z coexist PASS\n",
+      "stdout_sha256": "f3c8f2bcfee28dcf9012d5326362b93089d08a9812ab7b755fcd2d7b19f7b198",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "environment_overrides": {},
+  "source_sha256": {
+    "src/compact/chirp_z.hpp": "f789ce2e51b8bc8380f453a2915f0e41309010ff2224e8f7e4a3327ddace16d8",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/multipoint_evaluation.hpp": "fb70d767dd84c2b53f1e4714f1a2454270ef15b98c50d8f4e36f9629f89aa94c",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/polynomial_interpolation.hpp": "27712f7e66cdba8a334492a2f3f48bda14078a6e5dbb4b91168f33d754f782e2",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/polynomial_interpolation.cpp": "1a50f0effbc3805b9f4b319006eff5c1e83c6c098c580323f43797862afaf026",
+    "verify/library_checker/polynomial_interpolation.compact.cpp": "06375e367b8215136fa48fe17001a13b31b98f2745cfd138bbcf930315065040"
+  },
+  "binary_sha256": "af54357b7d9a47e03d7c4f0e914002f80a5aa8ee6c18694e24527dd27411e4bc",
+  "returncode": 0,
+  "independent_oracles": [
+    "integer Vandermonde Gaussian elimination for arbitrary point values",
+    "generated coefficients with independent integer Horner samples",
+    "finite geometric sum with independent integer modular exponentiation",
+    "sparse monomial evaluation",
+    "explicit constant/zero coefficient arrays"
+  ],
+  "small_cases": {
+    "coefficient_recoveries": 2126,
+    "independent_vandermonde_systems": 800,
+    "explicit_rejections": 256
+  },
+  "official_max_tested": {
+    "points": 131072,
+    "coefficients": 131072,
+    "families": [
+      "all-one coefficients",
+      "alternating coefficients",
+      "constant with retained high zeros"
+    ]
+  },
+  "other_large_sizes": {
+    "sparse": 65537,
+    "zero": 65535
+  },
+  "scope": "Focused core contracts and shared translation-unit composition only. Same corpus split into fresh processes in both modes; not official-data acceptance, online AC, ranking, theoretical maximum capacity benchmark, full-repository regression or leak checking."
+}

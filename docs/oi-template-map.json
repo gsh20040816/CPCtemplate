@@ -1245,7 +1245,13 @@
     "MultipointEvaluation": {
       "primary": "math/poly/multipoint-eval-interpolation.md",
       "relation": "direct",
-      "note": "任意点求值；快速插值仍待补。",
+      "note": "任意点求值允许重复点；快速插值为另一个独立函数。",
+      "additional": []
+    },
+    "polynomial_interpolation": {
+      "primary": "math/poly/multipoint-eval-interpolation.md",
+      "relation": "direct",
+      "note": "任意互异点的快速系数插值；复用乘积树，根导数求值后递归合并。拒绝模意义重复点。",
       "additional": []
     }
   },

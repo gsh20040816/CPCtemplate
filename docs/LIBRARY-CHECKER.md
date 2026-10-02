@@ -213,7 +213,7 @@
 | [Log of Formal Power Series (Sparse)](https://judge.yosupo.jp/problem/log_of_formal_power_series_sparse) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Multipoint Evaluation](https://judge.yosupo.jp/problem/multipoint_evaluation) | Polynomial | 待逐题审题、适配与在线验证 | [multipoint_evaluation.compact.cpp](../verify/library_checker/multipoint_evaluation.compact.cpp) |
 | [Multipoint Evaluation (Geometric Sequence)](https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence) | Polynomial | 待逐题审题、适配与在线验证 | [multipoint_evaluation_on_geometric_sequence.compact.cpp](../verify/library_checker/multipoint_evaluation_on_geometric_sequence.compact.cpp) |
-| [Polynomial Interpolation](https://judge.yosupo.jp/problem/polynomial_interpolation) | Polynomial | 待逐题审题、适配与在线验证 | — |
+| [Polynomial Interpolation](https://judge.yosupo.jp/problem/polynomial_interpolation) | Polynomial | 待逐题审题、适配与在线验证 | [polynomial_interpolation.compact.cpp](../verify/library_checker/polynomial_interpolation.compact.cpp) |
 | [Polynomial Interpolation (Geometric Sequence)](https://judge.yosupo.jp/problem/polynomial_interpolation_on_geometric_sequence) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Polynomial Root Finding (Mod 998244353)](https://judge.yosupo.jp/problem/polynomial_root_finding) | Polynomial | 待逐题审题、适配与在线验证 | — |
 | [Polynomial Taylor Shift](https://judge.yosupo.jp/problem/polynomial_taylor_shift) | Polynomial | 待逐题审题、适配与在线验证 | [polynomial_taylor_shift.compact.cpp](../verify/library_checker/polynomial_taylor_shift.compact.cpp) |

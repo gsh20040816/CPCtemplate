@@ -245,6 +245,8 @@ cases['example-210'] = [['12\n1 5\n1 2\n1 5\n3 5\n4 3\n5 5\n6 2\n2 5\n3 6\n4 2\n
 
 cases['example-211'] = [['3 5\n1 2 3\n0 1 2 1 998244352\n', {'exact_text': '1 6 17 6 2\n'}], ['1 4\n7\n0 0 1 998244352\n', {'exact_text': '7 7 7 7\n'}], ['4 1\n5 0 0 2\n3\n', {'exact_text': '59\n'}], ['4 4\n0 0 0 1\n0 1 2 998244352\n', {'exact_text': '0 1 8 998244352\n'}]]
 
+cases['example-212'] = [['3\n0 1 2\n1 6 17\n', {'exact_text': '1 2 3\n'}], ['1\n998244352\n7\n', {'exact_text': '7\n'}], ['4\n0 1 2 998244352\n5 7 21 3\n', {'exact_text': '5 0 0 2\n'}], ['3\n2 0 1\n9 9 9\n', {'exact_text': '9 0 0\n'}], ['5\n3 0 998244352 2 1\n0 0 0 0 0\n', {'exact_text': '0 0 0 0 0\n'}]]
+
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 args = ap.parse_args()

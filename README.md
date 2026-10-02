@@ -19,7 +19,7 @@
 
 数学配套知识补充见 [计数建模、生成函数、概率与博弈](docs/MATH-KNOWLEDGE-COMPLETION.md)：包含选型条件、推导、例子和误用反例，并与数学分册同源生成；知识补全不等同于新增算法或线上 AC。
 
-任意点多项式求值的乘积树、重复点约定及独立验证见 [多点求值](docs/MULTIPOINT-EVALUATION.md)。快速插值仍为独立待补项。
+任意点多项式求值的乘积树、重复点约定及独立验证见 [多点求值](docs/MULTIPOINT-EVALUATION.md)。互异点的快速系数插值见 [快速插值](docs/POLYNOMIAL-INTERPOLATION.md)，两者的重复点约定不同。
 
 后续补充见 [整除反演与对称计数](docs/MATH-COUNTING-MODELS.md)：GCD 建模、整除分块、Burnside/Pólya、固定库存与非可逆群阶除法。
 

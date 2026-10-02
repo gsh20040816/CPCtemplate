@@ -174,6 +174,7 @@
 | `minimum_rotation` | [Luogu P13270](https://www.luogu.com.cn/problem/P13270) | 1<=n<=10000000; lowercase string; output minimum cyclic rotation | 待在线 AC | 待核验 |
 | `Fenwick` | [Luogu P3369 (compressed frequency selection)](https://www.luogu.com.cn/problem/P3369) | n<=100000; \|x\|<=10000000; valid kth and strict-neighbor requests | 待在线 AC | 待核验 |
 | `MultipointEvaluation` | [Library Checker multipoint_evaluation](https://judge.yosupo.jp/problem/multipoint_evaluation) | 1<=n,m<=131072; residues modulo998244353; highest coefficient nonzero; repeated points allowed | 待在线 AC | 待核验 |
+| `polynomial_interpolation` | [Library Checker polynomial_interpolation](https://judge.yosupo.jp/problem/polynomial_interpolation) | 1<=n<=131072; pairwise distinct canonical x; canonical y; output n coefficients modulo998244353 including high zeros | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1616,6 +1617,14 @@ Official standalone template problem; local checks are separate from online AC.
 
 
 Online submission and all-submissions ranking pending; exact local verification scope is in the linked reports.
+
+### Library Checker polynomial_interpolation / polynomial_interpolation
+
+Official standalone template problem.
+
+
+
+Online AC and all-submissions ranking pending. Invalid and empty API cases are separate from official driver input.
 
 ## 榜单口径
 

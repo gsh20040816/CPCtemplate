@@ -1,0 +1,102 @@
+{
+  "problem": "polynomial_interpolation",
+  "scope": "Provenance of all generated fixed-version local official cases, not an online submission or AC",
+  "repository": "https://github.com/yosupo06/library-checker-problems",
+  "reference_commit": "e64660561a995c357cdc61ddee1bde68b80528db",
+  "checkout": "build/library-checker-problems-multipoint",
+  "reference_tracked_files_unmodified": true,
+  "acquisition": "Reused previously verified anonymous public checkout pinned to the recorded commit; no credentials or network needed for this verification",
+  "generator_command": "python3 build/library-checker-problems-multipoint/generate.py -p polynomial_interpolation",
+  "generator_exit_code": 0,
+  "generator_log": "build/interpolation-upstream-generate.log",
+  "generator_log_sha256": "e66fc4602cf760f2737045a1e1fd687ed9dea9eb251b9fcc269de3027d38d8fd",
+  "source_sha256": {
+    "generate.py": "bb32bab1f5bf56d5449c0d22edabd32e722f36baa4c10ebc891c8b564e2d33c2",
+    "common/testlib.h": "8d6d68c9708ff3f8d094488506a8171802496bd1ae04942b31f2a47057564497",
+    "common/random.h": "d0ae9470c3a04425e1ab8c39f376a0e707507659b8f5aa3ca06c5b47f193613c",
+    "polynomial/polynomial_interpolation/info.toml": "5e225e21f1ea8d1bc1f7dcaf718b211cf8ab14bb180c098983e24d6ad7b2b16c",
+    "polynomial/polynomial_interpolation/hash.json": "d5d907b9a85c4a5fc33398b05c386acd5368adaa40e7a8ee39600fcfb2735cec",
+    "polynomial/polynomial_interpolation/checker.cpp": "6e9b1ffacf111a87c040efbccb5de2862f897c97d0618ba2dc106cc996c584ba",
+    "polynomial/polynomial_interpolation/verifier.cpp": "7d94fa82f5bd6fadf1c6b1a0dda8c511ef13547caabd50c9eef3c9d75e43f2de",
+    "polynomial/polynomial_interpolation/task.md": "d409784b8593a1904acc545eb050567aaf8f3094d980bf7408d62d057f864d54",
+    "polynomial/polynomial_interpolation/sol/correct.cpp": "618c5eaaee5b2d64d86f96527dfcca62b9dcdb1ddc606877d8441bbac53baa82",
+    "polynomial/polynomial_interpolation/gen/max_random.cpp": "5d5b45f1d0bb5c2598a8237308eb93e299f0e54791704874f0d84d3ea0d66caf",
+    "polynomial/polynomial_interpolation/gen/random.cpp": "669ac148632ff7fb361d95004c05ddaa18fe8a1369bea45789babcce2ae6e4dc",
+    "polynomial/polynomial_interpolation/gen/x_zero.cpp": "78cbc35bed00bf319298516bce61bad9a494760f12c9c9fc7af17b49acbbef90",
+    "polynomial/polynomial_interpolation/gen/1169_00.in": "01fa2df384d0e2d5a9a0f8a63c64935210f6c625ccfacd20dd5e8edab1234a64",
+    "polynomial/polynomial_interpolation/gen/example_00.in": "745a5014aa4ade554b909ed460261559945e0cb444366b1fc0711648895aaa3f",
+    "polynomial/polynomial_interpolation/gen/example_01.in": "8f0ebdb9a3d767b099c3e12776d35d390525a3f6b28090aea0cfd82c1bfcea72"
+  },
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "metadata_case_count": 9,
+  "pinned_manifest_matched_files": 18,
+  "official_statement_constraints": "1 <= N <= 131072; 0 <= x_i,y_i < 998244353; x_i pairwise distinct; output exactly N coefficients in increasing degree order",
+  "official_verifier_checked_all_inputs": true,
+  "official_verifier_binary_sha256": "2f965adb17b97e3758e2e36adf8076d3f38c3a46daf5a66066109483914fb663",
+  "cases": [
+    {
+      "case": "1169_00",
+      "input_sha256": "01fa2df384d0e2d5a9a0f8a63c64935210f6c625ccfacd20dd5e8edab1234a64",
+      "answer_sha256": "63e9513edcd96636e7a78d2dc432a9d971f3ca5de1d1bcb4c8ffd2bcac8dd7c2",
+      "pinned_hash_manifest_match": true,
+      "official_verifier_exit_code": 0
+    },
+    {
+      "case": "example_00",
+      "input_sha256": "745a5014aa4ade554b909ed460261559945e0cb444366b1fc0711648895aaa3f",
+      "answer_sha256": "e085ba5d29787095f6e2bad7b1309b2ae13208e58bea570c84c0dd651de681b9",
+      "pinned_hash_manifest_match": true,
+      "official_verifier_exit_code": 0
+    },
+    {
+      "case": "example_01",
+      "input_sha256": "8f0ebdb9a3d767b099c3e12776d35d390525a3f6b28090aea0cfd82c1bfcea72",
+      "answer_sha256": "de6aeb89b0d91519a443ac503ea9e652f130752e5ecc78cbcffc3e0f04e4bbf0",
+      "pinned_hash_manifest_match": true,
+      "official_verifier_exit_code": 0
+    },
+    {
+      "case": "max_random_00",
+      "input_sha256": "7362fa638f2b680748e1da459cc4a6b7d06573f9b8d43e761b07553f55e84566",
+      "answer_sha256": "1433597bd42ff9eeddd5c38448d1d4cf442534d74062ea4d95836fcdde00113a",
+      "pinned_hash_manifest_match": true,
+      "official_verifier_exit_code": 0
+    },
+    {
+      "case": "max_random_01",
+      "input_sha256": "6da0e9060d4d9fc986790d4688a2abb04e118dcd39f28e8def442b7d581c686c",
+      "answer_sha256": "c27090c2c240ae2ccc920a168f041e5cc27674a28ad927dcb423d4e1115ae461",
+      "pinned_hash_manifest_match": true,
+      "official_verifier_exit_code": 0
+    },
+    {
+      "case": "random_00",
+      "input_sha256": "798162e771cd0026e561e4a2df41c79feb1243d08a0b30aff32522f107330c10",
+      "answer_sha256": "2f9a8dec1a62dcee8a4241572aeaf26db939f8e1c21fcf0bdc9b233c2e06a754",
+      "pinned_hash_manifest_match": true,
+      "official_verifier_exit_code": 0
+    },
+    {
+      "case": "random_01",
+      "input_sha256": "3f277d067e254684f93b173a5405ca85656ebc3cc5a1fe926915aec58c4e40c5",
+      "answer_sha256": "a0b93bf865afafc2572c9aac67a4436783b61d7f6a8be134f9bc57d6733731e4",
+      "pinned_hash_manifest_match": true,
+      "official_verifier_exit_code": 0
+    },
+    {
+      "case": "random_02",
+      "input_sha256": "c1fa3c399be5c03fdc49f685a50d23d208454f0fdbc247b287e56716abced21f",
+      "answer_sha256": "307ad8b9e2da40a0319605e91126fe88b3eff1d9415a0069f64dd5ed858b92b6",
+      "pinned_hash_manifest_match": true,
+      "official_verifier_exit_code": 0
+    },
+    {
+      "case": "x_zero_00",
+      "input_sha256": "a70c2efb776b7654bcabff3582dc215da344650483826a59283834b2998e74a3",
+      "answer_sha256": "63d84105de9685f46d7ebaf80c864e0a1934a1c04a03ad407041f3736c7d5217",
+      "pinned_hash_manifest_match": true,
+      "official_verifier_exit_code": 0
+    }
+  ],
+  "recorded_at_utc": "2026-10-02T08:51:59.776340+00:00"
+}

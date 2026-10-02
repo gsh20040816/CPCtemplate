@@ -1,0 +1,121 @@
+{
+  "problem": "polynomial_interpolation",
+  "scope": "Local official generated tests only; not online AC or controlled OJ speed ranking",
+  "reference_commit": "e64660561a995c357cdc61ddee1bde68b80528db",
+  "reference_problem_path": "polynomial/polynomial_interpolation",
+  "metadata_sha256": "5e225e21f1ea8d1bc1f7dcaf718b211cf8ab14bb180c098983e24d6ad7b2b16c",
+  "checker_source_sha256": "6e9b1ffacf111a87c040efbccb5de2862f897c97d0618ba2dc106cc996c584ba",
+  "checker_binary_sha256": "9ecf0eff5d00d720381175a604cedeb2c9b20f4184da1f1adfeba8260f46af28",
+  "driver": "verify/library_checker/polynomial_interpolation.compact.cpp",
+  "bundle_sha256": "dcf4fe804f042f9f06f8693179fe544d9d88387f793a12289f3b7b2e9cf1e22c",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "flags": [
+    "-std=c++20",
+    "-O2"
+  ],
+  "recorded_at_utc": "2026-10-02T08:54:20.094818+00:00",
+  "negative_control": "deliberately wrong output rejected",
+  "negative_control_exit_code": 1,
+  "negative_control_message": "wrong answer 1st words differ - expected: '1', found: 'not-a-valid-answer'",
+  "cases": [
+    {
+      "case": "1169_00",
+      "input_sha256": "01fa2df384d0e2d5a9a0f8a63c64935210f6c625ccfacd20dd5e8edab1234a64",
+      "answer_sha256": "63e9513edcd96636e7a78d2dc432a9d971f3ca5de1d1bcb4c8ffd2bcac8dd7c2",
+      "output_sha256": "63e9513edcd96636e7a78d2dc432a9d971f3ca5de1d1bcb4c8ffd2bcac8dd7c2",
+      "elapsed_seconds": 0.0036,
+      "resident_bytes": null,
+      "checker_message": "ok 3 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "example_00",
+      "input_sha256": "745a5014aa4ade554b909ed460261559945e0cb444366b1fc0711648895aaa3f",
+      "answer_sha256": "e085ba5d29787095f6e2bad7b1309b2ae13208e58bea570c84c0dd651de681b9",
+      "output_sha256": "e085ba5d29787095f6e2bad7b1309b2ae13208e58bea570c84c0dd651de681b9",
+      "elapsed_seconds": 0.0035,
+      "resident_bytes": null,
+      "checker_message": "ok 5 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "example_01",
+      "input_sha256": "8f0ebdb9a3d767b099c3e12776d35d390525a3f6b28090aea0cfd82c1bfcea72",
+      "answer_sha256": "de6aeb89b0d91519a443ac503ea9e652f130752e5ecc78cbcffc3e0f04e4bbf0",
+      "output_sha256": "de6aeb89b0d91519a443ac503ea9e652f130752e5ecc78cbcffc3e0f04e4bbf0",
+      "elapsed_seconds": 0.0034,
+      "resident_bytes": null,
+      "checker_message": "ok \"10000000\"",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "max_random_00",
+      "input_sha256": "7362fa638f2b680748e1da459cc4a6b7d06573f9b8d43e761b07553f55e84566",
+      "answer_sha256": "1433597bd42ff9eeddd5c38448d1d4cf442534d74062ea4d95836fcdde00113a",
+      "output_sha256": "1433597bd42ff9eeddd5c38448d1d4cf442534d74062ea4d95836fcdde00113a",
+      "elapsed_seconds": 7.5864,
+      "resident_bytes": null,
+      "checker_message": "ok 131072 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "max_random_01",
+      "input_sha256": "6da0e9060d4d9fc986790d4688a2abb04e118dcd39f28e8def442b7d581c686c",
+      "answer_sha256": "c27090c2c240ae2ccc920a168f041e5cc27674a28ad927dcb423d4e1115ae461",
+      "output_sha256": "c27090c2c240ae2ccc920a168f041e5cc27674a28ad927dcb423d4e1115ae461",
+      "elapsed_seconds": 7.7917,
+      "resident_bytes": null,
+      "checker_message": "ok 131072 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_00",
+      "input_sha256": "798162e771cd0026e561e4a2df41c79feb1243d08a0b30aff32522f107330c10",
+      "answer_sha256": "2f9a8dec1a62dcee8a4241572aeaf26db939f8e1c21fcf0bdc9b233c2e06a754",
+      "output_sha256": "2f9a8dec1a62dcee8a4241572aeaf26db939f8e1c21fcf0bdc9b233c2e06a754",
+      "elapsed_seconds": 7.837,
+      "resident_bytes": null,
+      "checker_message": "ok 127669 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_01",
+      "input_sha256": "3f277d067e254684f93b173a5405ca85656ebc3cc5a1fe926915aec58c4e40c5",
+      "answer_sha256": "a0b93bf865afafc2572c9aac67a4436783b61d7f6a8be134f9bc57d6733731e4",
+      "output_sha256": "a0b93bf865afafc2572c9aac67a4436783b61d7f6a8be134f9bc57d6733731e4",
+      "elapsed_seconds": 5.8811,
+      "resident_bytes": null,
+      "checker_message": "ok 69830 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "random_02",
+      "input_sha256": "c1fa3c399be5c03fdc49f685a50d23d208454f0fdbc247b287e56716abced21f",
+      "answer_sha256": "307ad8b9e2da40a0319605e91126fe88b3eff1d9415a0069f64dd5ed858b92b6",
+      "output_sha256": "307ad8b9e2da40a0319605e91126fe88b3eff1d9415a0069f64dd5ed858b92b6",
+      "elapsed_seconds": 3.2775,
+      "resident_bytes": null,
+      "checker_message": "ok 53336 tokens",
+      "verdict": "local_checker_accepted"
+    },
+    {
+      "case": "x_zero_00",
+      "input_sha256": "a70c2efb776b7654bcabff3582dc215da344650483826a59283834b2998e74a3",
+      "answer_sha256": "63d84105de9685f46d7ebaf80c864e0a1934a1c04a03ad407041f3736c7d5217",
+      "output_sha256": "63d84105de9685f46d7ebaf80c864e0a1934a1c04a03ad407041f3736c7d5217",
+      "elapsed_seconds": 7.735,
+      "resident_bytes": null,
+      "checker_message": "ok 131072 tokens",
+      "verdict": "local_checker_accepted"
+    }
+  ],
+  "additional_numeric_negative_control": {
+    "scope": "actual upstream checker rejects same-length canonical integer output with one coefficient changed",
+    "case": "example_00",
+    "exit_code": 1,
+    "checker_message": "wrong answer 1st words differ - expected: '1', found: '2'",
+    "wrong_output_sha256": "c1c4ef24b0a0a8cb3bf8c2338463bd1b40e2ce67869ef324cc14dcb638cd08fb"
+  },
+  "sanitizer": false,
+  "leak_detection_claimed": false
+}
