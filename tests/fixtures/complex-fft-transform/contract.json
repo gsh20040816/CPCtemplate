@@ -1,0 +1,23 @@
+{
+  "problem": "P3803",
+  "title": "Polynomial multiplication (FFT)",
+  "source": "https://www.luogu.com.cn/problem/P3803",
+  "statement_language": "Chinese; the automatic English translation incorrectly excludes degree zero",
+  "reviewed_on": "2026-10-02",
+  "domain": {
+    "degrees": [0, 1000000],
+    "integer_coefficients": [0, 9],
+    "coefficient_order": "ascending powers",
+    "output_coefficients": "n + m + 1",
+    "maximum_padding": 2097152,
+    "maximum_coefficient": 81000081,
+    "maximum_l2_norm_product": 81000081
+  },
+  "floating_point_assumptions": [
+    "binary significand of at least 53 bits",
+    "IEEE nearest rounding",
+    "unit-root absolute error at most 8 * 2^-53",
+    "no fast-math"
+  ],
+  "scope": "Direct ComplexFFT entrypoint for the existing P3803 problem, not a new algorithm or online AC"
+}

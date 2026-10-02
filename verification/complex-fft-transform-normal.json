@@ -1,0 +1,203 @@
+{
+  "passed": true,
+  "mode": "normal",
+  "checked_at": "2026-10-02T15:54:33.723086+00:00",
+  "id": "example-222",
+  "component": "ComplexFFT",
+  "driver": "verify/luogu/P3803.transform.compact.cpp",
+  "before": {
+    "source_sha256": {
+      "verify/luogu/P3803.transform.compact.cpp": "950e2c680382da559400b57e6f41a9abea3cf4fd843767d7921697ef9299ca1b",
+      "src/compact/fft.hpp": "bf24df441d0d20e55b422077fc525761064bb913dfc7272c7e0ba884b94176be",
+      "tests/complex_fft_usage.py": "a86defe128dfb0d58a4e7baa57efecd68d1d1a5530b2b7438c20977221a57b14",
+      "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+      "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
+      "docs/usage/example-222.cpp": "7bad945fb59cf0ba8e9f81f6ba6d079f8c07278a9db308b29f1fbceb85e842a8",
+      "tests/fixtures/complex-fft-transform/contract.json": "2f0898df2c97d36bb3dd3ceebcc3fae63fa439d4de284ac2b545446268d2938c",
+      "tests/fixtures/complex-fft-transform/sample.in": "7051078cccaeddb7c609340b2d1833578e04ecc536c9bc9c611c6c62b37ded84",
+      "tests/fixtures/complex-fft-transform/sample.out": "52e774b730689e5c41242c1d2784a8b5bd6d7e8672e7d711b1f62eed2c1394b6"
+    },
+    "selected_registration": {
+      "id": "example-222",
+      "symbol": "ComplexFFT",
+      "kind": "template",
+      "problem": "Luogu P3803 \u3010\u6a21\u677f\u3011\u591a\u9879\u5f0f\u4e58\u6cd5\uff08FFT\uff09\u2014 \u76f4\u63a5\u53d8\u6362\u63a5\u53e3",
+      "url": "https://www.luogu.com.cn/problem/P3803",
+      "summary": "\u7ed9\u51fa\u6b21\u65700\u2264n,m\u22641000000\u3001\u7cfb\u6570\u5747\u4e3a0..9\u6574\u6570\u7684\u4e24\u4e2a\u591a\u9879\u5f0f\uff0c\u6309\u5347\u5e42\u8bfb\u5165\u5e76\u8f93\u51fa\u4e58\u79ef\u7684n+m+1\u9879\u3002\u8865\u96f6\u5230\u4e0d\u5c0f\u4e8en+m+1\u7684\u6700\u5c0f\u4e8c\u6b21\u5e42L\uff08\u81f3\u591a2^21\uff09\uff0c\u663e\u5f0f\u6784\u9020ComplexFFT\uff0c\u5206\u522b\u6b63\u53d8\u6362\u3001\u9010\u70b9\u76f8\u4e58\u3001\u9006\u53d8\u6362\u540ellroundl\u53d6\u6574\u3002\u4fdd\u7559\u672c\u8282\u7684\u4e8c\u8fdb\u5236\u81f3\u5c1153\u4f4d\u3001\u6700\u8fd1\u820d\u5165\u3001\u5355\u4f4d\u6839\u8bef\u5dee\u754c\u53ca\u7981\u7528fast-math\u524d\u63d0\uff1b\u672c\u9898\u8303\u6570\u4e58\u79ef\u81f3\u591a81000081\u3002\u65f6\u95f4O(L log L)\uff0c\u7a7a\u95f4O(L)\u3002\u8fd9\u662f\u5e95\u5c42\u53d8\u6362\u63a5\u53e3\u7684\u5b8c\u6574\u7528\u6cd5\uff0c\u5377\u79ef\u5305\u88c5\u5668\u548c\u7cbe\u786eCRT\u7528\u6cd5\u53e6\u5217\u3002",
+      "driver": "verify/luogu/P3803.transform.compact.cpp",
+      "requires": [
+        "ComplexFFT"
+      ]
+    },
+    "selected_catalog": [
+      "fft",
+      "ComplexFFT",
+      "\u590d\u6570 FFT\uff08\u53ef\u590d\u7528\u5355\u4f4d\u6839\uff09",
+      "ComplexFFT(n) \u9884\u8ba1\u7b97\u5355\u4f4d\u6839\uff0cn \u4e3a 1..2^22 \u7684\u4e8c\u6b21\u5e42\u3002transform(a,inverse=false) \u539f\u5730\u6b63\u53d8\u6362\uff0c\u6b63\u5411\u6307\u6570\u4e3a\u6b63\uff1binverse=true \u7528\u5171\u8f6d\u6839\u5e76\u9664\u4ee5 n\u3002a \u957f\u5ea6\u987b\u7b49\u4e8e n\uff1bC=complex<long double>\u3002\u6839\u76f4\u63a5\u7528\u89d2\u5ea6\u8ba1\u7b97\uff0c\u4e0d\u6cbf\u6574\u5c42\u8fde\u4e58\u3002\u5355\u6b21\u53d8\u6362 O(n log(n+1))\uff0c\u6839\u8868 O(n)\uff0c\u53ef\u590d\u7528\u3002\u6d6e\u70b9\u73af\u5883\u987b\u4e8c\u8fdb\u5236\u81f3\u5c11 53 \u4f4d\u3001\u6700\u8fd1\u820d\u5165\u3001\u7981\u7528 fast-math\uff1b\u6574\u6570\u5377\u79ef\u8fd8\u8981\u6c42\u5355\u4f4d\u6839\u7edd\u5bf9\u8bef\u5dee\u22648\u00d72^-53\uff0c\u672c\u673a\u5168\u6839\u5df2\u7528\u767e\u4f4d\u53c2\u8003\u6838\u9a8c\u3002\u53d8\u6362\u672c\u8eab\u662f\u8fd1\u4f3c\u503c\u3002"
+    ],
+    "compiler_executable": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "frontend_executable": "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus",
+    "frontend_sha256": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948"
+  },
+  "program_sha256": "cd4654e88cd85f9eca7668a9e5eb31196647b069a6fa8fe866eba39289636985",
+  "cases_file": "build/complex-fft-transform-lc3b8j2f/cases.json",
+  "cases_sha256": "2342ede797da927b9c7158c7c7764b45a49e9b8699d7f6f17012069115371a81",
+  "cases_per_program": 342,
+  "groups": {
+    "official_sample": 1,
+    "fixed_zero_constant_impulse_asymmetric": 7,
+    "exhaustive_short_binary": 196,
+    "padding_boundaries": 36,
+    "seeded_schoolbook": 100,
+    "maximum_all_nine": 1,
+    "maximum_sparse_periodic": 1
+  },
+  "executions": [
+    {
+      "form": "direct_driver",
+      "program_sha256": "950e2c680382da559400b57e6f41a9abea3cf4fd843767d7921697ef9299ca1b",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O2",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/verify/luogu/P3803.transform.compact.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-transform-lc3b8j2f/normal-direct_driver"
+      ],
+      "completed_cases": 342,
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "binary_sha256": "105879d98d6a0feb5c4c1964d1f4d5fccc7ceb17676940b6bdb1a1088ca1892c",
+      "stdout_sha256": "2706c689d906a8fbae03a7434e8de1a681455edbed128be05f0fe0154870effa",
+      "seconds": 4.636,
+      "maximum_case_seconds": {
+        "maximum_all_nine": 2.029,
+        "maximum_sparse_periodic": 1.919
+      }
+    },
+    {
+      "form": "expanded_registered",
+      "program_sha256": "cd4654e88cd85f9eca7668a9e5eb31196647b069a6fa8fe866eba39289636985",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O2",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-transform-lc3b8j2f/normal-expanded_registered.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-transform-lc3b8j2f/normal-expanded_registered"
+      ],
+      "completed_cases": 342,
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "binary_sha256": "c370c3addc7641dc1810d358361fc33b64d8045caf84e8b6bda0feb5251a47fb",
+      "stdout_sha256": "2706c689d906a8fbae03a7434e8de1a681455edbed128be05f0fe0154870effa",
+      "seconds": 4.376,
+      "maximum_case_seconds": {
+        "maximum_all_nine": 1.901,
+        "maximum_sparse_periodic": 1.833
+      }
+    },
+    {
+      "form": "printed_usage",
+      "program_sha256": "06b42e9fc27a2e1dea73160b7c10ef05264c1d9220079915ca9b052e06a89efc",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O2",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-transform-lc3b8j2f/normal-printed_usage.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-transform-lc3b8j2f/normal-printed_usage"
+      ],
+      "completed_cases": 342,
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "binary_sha256": "ddcc0729988d62a17092e708e90b160fa7221995d1ee27a3516cc1e3cb87f083",
+      "stdout_sha256": "2706c689d906a8fbae03a7434e8de1a681455edbed128be05f0fe0154870effa",
+      "seconds": 4.553,
+      "maximum_case_seconds": {
+        "maximum_all_nine": 1.925,
+        "maximum_sparse_periodic": 2.007
+      }
+    }
+  ],
+  "flags": [
+    "-std=c++20",
+    "-O2"
+  ],
+  "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "conditional_absolute_error_bound": "0.000006385873376106582524565051712308708756025201977413147422880649270406170567965519989753282046703",
+  "assumptions": [
+    "binary significand of at least 53 bits",
+    "IEEE nearest rounding",
+    "unit-root absolute error at most 8 * 2^-53",
+    "no fast-math"
+  ],
+  "scope": "Local exact-output tests of direct ComplexFFT usage only. No online AC, judge timing, universal floating-point guarantee, or LeakSanitizer claim.",
+  "oracle": "Integer schoolbook; maximum all-nine triangle; maximum sparse times periodic integer shifts. No FFT or wrapper oracle.",
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "pie": "Compiler default, no override",
+  "quarantine": "ASan default, no override",
+  "precision_probe": {
+    "stdout": "2 64 nearest\n",
+    "program_sha256": "badbbc921336e30e95fc395b32a71a92430dfe2fa40e28927d8f38211c81f6f4",
+    "binary_sha256": "137ede7ff9b62bf06df092689180422e6a061d5b87a55a491434e0797b37512d",
+    "compile_command": [
+      "/usr/bin/x86_64-linux-gnu-g++-14",
+      "-std=c++20",
+      "-O2",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-transform-lc3b8j2f/normal-precision.cpp",
+      "-o",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-transform-lc3b8j2f/normal-precision"
+    ]
+  },
+  "after": {
+    "source_sha256": {
+      "verify/luogu/P3803.transform.compact.cpp": "950e2c680382da559400b57e6f41a9abea3cf4fd843767d7921697ef9299ca1b",
+      "src/compact/fft.hpp": "bf24df441d0d20e55b422077fc525761064bb913dfc7272c7e0ba884b94176be",
+      "tests/complex_fft_usage.py": "a86defe128dfb0d58a4e7baa57efecd68d1d1a5530b2b7438c20977221a57b14",
+      "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+      "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
+      "docs/usage/example-222.cpp": "7bad945fb59cf0ba8e9f81f6ba6d079f8c07278a9db308b29f1fbceb85e842a8",
+      "tests/fixtures/complex-fft-transform/contract.json": "2f0898df2c97d36bb3dd3ceebcc3fae63fa439d4de284ac2b545446268d2938c",
+      "tests/fixtures/complex-fft-transform/sample.in": "7051078cccaeddb7c609340b2d1833578e04ecc536c9bc9c611c6c62b37ded84",
+      "tests/fixtures/complex-fft-transform/sample.out": "52e774b730689e5c41242c1d2784a8b5bd6d7e8672e7d711b1f62eed2c1394b6"
+    },
+    "selected_registration": {
+      "id": "example-222",
+      "symbol": "ComplexFFT",
+      "kind": "template",
+      "problem": "Luogu P3803 \u3010\u6a21\u677f\u3011\u591a\u9879\u5f0f\u4e58\u6cd5\uff08FFT\uff09\u2014 \u76f4\u63a5\u53d8\u6362\u63a5\u53e3",
+      "url": "https://www.luogu.com.cn/problem/P3803",
+      "summary": "\u7ed9\u51fa\u6b21\u65700\u2264n,m\u22641000000\u3001\u7cfb\u6570\u5747\u4e3a0..9\u6574\u6570\u7684\u4e24\u4e2a\u591a\u9879\u5f0f\uff0c\u6309\u5347\u5e42\u8bfb\u5165\u5e76\u8f93\u51fa\u4e58\u79ef\u7684n+m+1\u9879\u3002\u8865\u96f6\u5230\u4e0d\u5c0f\u4e8en+m+1\u7684\u6700\u5c0f\u4e8c\u6b21\u5e42L\uff08\u81f3\u591a2^21\uff09\uff0c\u663e\u5f0f\u6784\u9020ComplexFFT\uff0c\u5206\u522b\u6b63\u53d8\u6362\u3001\u9010\u70b9\u76f8\u4e58\u3001\u9006\u53d8\u6362\u540ellroundl\u53d6\u6574\u3002\u4fdd\u7559\u672c\u8282\u7684\u4e8c\u8fdb\u5236\u81f3\u5c1153\u4f4d\u3001\u6700\u8fd1\u820d\u5165\u3001\u5355\u4f4d\u6839\u8bef\u5dee\u754c\u53ca\u7981\u7528fast-math\u524d\u63d0\uff1b\u672c\u9898\u8303\u6570\u4e58\u79ef\u81f3\u591a81000081\u3002\u65f6\u95f4O(L log L)\uff0c\u7a7a\u95f4O(L)\u3002\u8fd9\u662f\u5e95\u5c42\u53d8\u6362\u63a5\u53e3\u7684\u5b8c\u6574\u7528\u6cd5\uff0c\u5377\u79ef\u5305\u88c5\u5668\u548c\u7cbe\u786eCRT\u7528\u6cd5\u53e6\u5217\u3002",
+      "driver": "verify/luogu/P3803.transform.compact.cpp",
+      "requires": [
+        "ComplexFFT"
+      ]
+    },
+    "selected_catalog": [
+      "fft",
+      "ComplexFFT",
+      "\u590d\u6570 FFT\uff08\u53ef\u590d\u7528\u5355\u4f4d\u6839\uff09",
+      "ComplexFFT(n) \u9884\u8ba1\u7b97\u5355\u4f4d\u6839\uff0cn \u4e3a 1..2^22 \u7684\u4e8c\u6b21\u5e42\u3002transform(a,inverse=false) \u539f\u5730\u6b63\u53d8\u6362\uff0c\u6b63\u5411\u6307\u6570\u4e3a\u6b63\uff1binverse=true \u7528\u5171\u8f6d\u6839\u5e76\u9664\u4ee5 n\u3002a \u957f\u5ea6\u987b\u7b49\u4e8e n\uff1bC=complex<long double>\u3002\u6839\u76f4\u63a5\u7528\u89d2\u5ea6\u8ba1\u7b97\uff0c\u4e0d\u6cbf\u6574\u5c42\u8fde\u4e58\u3002\u5355\u6b21\u53d8\u6362 O(n log(n+1))\uff0c\u6839\u8868 O(n)\uff0c\u53ef\u590d\u7528\u3002\u6d6e\u70b9\u73af\u5883\u987b\u4e8c\u8fdb\u5236\u81f3\u5c11 53 \u4f4d\u3001\u6700\u8fd1\u820d\u5165\u3001\u7981\u7528 fast-math\uff1b\u6574\u6570\u5377\u79ef\u8fd8\u8981\u6c42\u5355\u4f4d\u6839\u7edd\u5bf9\u8bef\u5dee\u22648\u00d72^-53\uff0c\u672c\u673a\u5168\u6839\u5df2\u7528\u767e\u4f4d\u53c2\u8003\u6838\u9a8c\u3002\u53d8\u6362\u672c\u8eab\u662f\u8fd1\u4f3c\u503c\u3002"
+    ],
+    "compiler_executable": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "frontend_executable": "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus",
+    "frontend_sha256": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948"
+  },
+  "source_unchanged": true
+}

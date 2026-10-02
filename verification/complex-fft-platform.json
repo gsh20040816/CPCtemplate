@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-02T15:55:14.476699+00:00",
+  "scope": "Current Linux platform numerical premises for unchanged ComplexFFT and P3803 convolution use; no online submission or universal platform claim",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "before": {
+    "sources": {
+      "src/compact/fft.hpp": "bf24df441d0d20e55b422077fc525761064bb913dfc7272c7e0ba884b94176be",
+      "src/compact/convolution_fft.hpp": "543c693a75c3f06790729307599a453d8407ef722198ec606730743b93912ccf",
+      "tests/fft_roots.cpp": "e9d73b2454e868fbf9a57af123e306b3132938f46054134858eb2c7494f3d139",
+      "tests/fft_error_bound.py": "9308d205e4563f345863396d4bd850b868e44938d5d74389ef1c4f20b838c466"
+    },
+    "compiler_driver": {
+      "path": "/usr/bin/x86_64-linux-gnu-g++-14",
+      "sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d"
+    },
+    "compiler_frontend": {
+      "path": "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus",
+      "sha256": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948"
+    },
+    "boost_headers_count": 15177,
+    "boost_headers_manifest_sha256": "f621988113ef6ee2f9992d8fd7c608638ea0c078931bf469f4f8a54e4fbefee6"
+  },
+  "after": {
+    "sources": {
+      "src/compact/fft.hpp": "bf24df441d0d20e55b422077fc525761064bb913dfc7272c7e0ba884b94176be",
+      "src/compact/convolution_fft.hpp": "543c693a75c3f06790729307599a453d8407ef722198ec606730743b93912ccf",
+      "tests/fft_roots.cpp": "e9d73b2454e868fbf9a57af123e306b3132938f46054134858eb2c7494f3d139",
+      "tests/fft_error_bound.py": "9308d205e4563f345863396d4bd850b868e44938d5d74389ef1c4f20b838c466"
+    },
+    "compiler_driver": {
+      "path": "/usr/bin/x86_64-linux-gnu-g++-14",
+      "sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d"
+    },
+    "compiler_frontend": {
+      "path": "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus",
+      "sha256": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948"
+    },
+    "boost_headers_count": 15177,
+    "boost_headers_manifest_sha256": "f621988113ef6ee2f9992d8fd7c608638ea0c078931bf469f4f8a54e4fbefee6"
+  },
+  "inputs_unchanged": true,
+  "runs": [
+    {
+      "command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:54:12.459634+00:00",
+      "finished_at_utc": "2026-10-02T15:54:12.461450+00:00",
+      "exit_code": 0,
+      "stdout": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uname",
+        "-a"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:54:12.461528+00:00",
+      "finished_at_utc": "2026-10-02T15:54:12.463039+00:00",
+      "exit_code": 0,
+      "stdout": "Linux 261d35d95da2 6.18.44 #1 SMP Sat Sep 26 20:02:31 UTC 2026 x86_64 GNU/Linux\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O2",
+        "-I/workspace/scratch/5a21734ea066/CPCtemplate/build/deps/boost-1.83/usr/include",
+        "tests/fft_roots.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/roots-normal"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:54:12.463251+00:00",
+      "finished_at_utc": "2026-10-02T15:54:16.873746+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/roots-normal"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:54:16.873814+00:00",
+      "finished_at_utc": "2026-10-02T15:54:24.966991+00:00",
+      "exit_code": 0,
+      "stdout": "FFT roots: all 2097152 dyadic roots checked against 100-digit independent recurrence; max error / 2^-53 = 0.00165993; long double digits = 64 PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O2",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/environment.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/environment-normal"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:54:24.967113+00:00",
+      "finished_at_utc": "2026-10-02T15:54:25.368134+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/environment-normal"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:54:25.368201+00:00",
+      "finished_at_utc": "2026-10-02T15:54:25.370227+00:00",
+      "exit_code": 0,
+      "stdout": "radix=2 digits=64 fegetround=0 FE_TONEAREST=0 fast_math=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-I/workspace/scratch/5a21734ea066/CPCtemplate/build/deps/boost-1.83/usr/include",
+        "tests/fft_roots.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/roots-sanitizer"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:54:25.370309+00:00",
+      "finished_at_utc": "2026-10-02T15:54:34.041912+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "env",
+        "ASAN_OPTIONS=detect_leaks=0",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/roots-sanitizer"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:54:34.041981+00:00",
+      "finished_at_utc": "2026-10-02T15:55:12.996453+00:00",
+      "exit_code": 0,
+      "stdout": "FFT roots: all 2097152 dyadic roots checked against 100-digit independent recurrence; max error / 2^-53 = 0.00165993; long double digits = 64 PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/environment.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/environment-sanitizer"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:55:12.996577+00:00",
+      "finished_at_utc": "2026-10-02T15:55:13.403933+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "env",
+        "ASAN_OPTIONS=detect_leaks=0",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/complex-fft-assessment/environment-sanitizer"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:55:13.404004+00:00",
+      "finished_at_utc": "2026-10-02T15:55:13.408836+00:00",
+      "exit_code": 0,
+      "stdout": "radix=2 digits=64 fegetround=0 FE_TONEAREST=0 fast_math=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/fft_error_bound.py"
+      ],
+      "cwd": "/workspace/scratch/5a21734ea066/CPCtemplate",
+      "started_at_utc": "2026-10-02T15:55:13.408871+00:00",
+      "finished_at_utc": "2026-10-02T15:55:13.422089+00:00",
+      "exit_code": 0,
+      "stdout": "integer: worst-case absolute error < 0.166; evaluated 0.165160452979 PASS\nmodular limb: worst-case absolute error < 0.079; evaluated 0.078377309125 PASS\n",
+      "stderr": ""
+    }
+  ],
+  "root_grid": {
+    "transform_size": 4194304,
+    "roots_checked_per_mode": 2097152,
+    "reference": "100-digit Boost independent high-precision recurrence",
+    "unit_root_absolute_error_limit": "8 * 2^-53"
+  },
+  "p3803": {
+    "official_source": "https://www.luogu.com.cn/problem/P3803",
+    "degree_range": [
+      0,
+      1000000
+    ],
+    "coefficient_range": [
+      0,
+      9
+    ],
+    "max_transform_size": 2097152,
+    "norm_product_upper_bound": 81000081,
+    "conditional_absolute_error_bound": "0.000006385873376106582524565051712308708756025201977413147422880649270406170567965519989753282046703",
+    "rounding": "llroundl; bound < 0.5",
+    "bound_formula": "S*((1+u)^(3*l)*(1+sqrt(5)*u)^(3*l+1)*(1+8*u)^(3*l)-1), S=81000081, l=21, u=2^-53; Decimal precision=100",
+    "mapping": "Direct-core driver must zero-pad to a power of two at least n+m+1, forward-transform two vectors, multiply frequency values pointwise, inverse-transform, then llroundl real parts. This is exactly the arithmetic sequence covered by the existing convolution proof."
+  },
+  "conditions": [
+    "Binary significand >= 53 bits",
+    "Nearest rounding (separate probe observed FE_TONEAREST at process start)",
+    "No fast-math flags; separate probe confirms __FAST_MATH__ undefined",
+    "No overflow or underflow affecting numerical proof",
+    "Unit roots bounded by 8*2^-53; complete dyadic maximum grid tested here"
+  ],
+  "limitations": [
+    "Finite high-precision reference checks provide platform evidence, not a universal C++ libm guarantee",
+    "Rounding probe is separate from root-test process; does not instrument every operation",
+    "ASan/UBSan results are local and do not establish judge acceptance or timing",
+    "Leak detection disabled for sanitizer runs via ASAN_OPTIONS=detect_leaks=0 because initial attempt failed with LeakSanitizer ptrace incompatibility; not a full leak check",
+    "This report does not replace historical Darwin evidence",
+    "P3803 constants from official Chinese statement, checked 2026-10-02; English auto-translation differs at minimum degree"
+  ],
+  "proof_reference": "https://www.daemonology.net/papers/fft.pdf Theorem 5.1",
+  "probe": {
+    "path": "build/complex-fft-assessment/environment.cpp",
+    "sha256": "c15a4bd0a91838bc5cb34d48a601a52987dd2e4749e97e7a4ae72e4f44060fb9"
+  },
+  "capture_script_sha256": "cf66274cd117416996435c89b84982491a66a7284dbb91687d324ccf5e8a9cb0",
+  "artifacts": {
+    "build/complex-fft-assessment/roots-normal": {
+      "sha256": "07932324d628487dea3707c411cac741017e64f630259c4ee6a5f48b499fbea2"
+    },
+    "build/complex-fft-assessment/roots-sanitizer": {
+      "sha256": "7f818b311cadca5f6532d1a5aa9a175eca3398d8aace2736633ef3e3c0cdf4be"
+    },
+    "build/complex-fft-assessment/environment-normal": {
+      "sha256": "2bc174b0dddf93e9fcd9facb25e81b9f6a428865c641c8a588660a2e044245a6"
+    },
+    "build/complex-fft-assessment/environment-sanitizer": {
+      "sha256": "0d5554822c5e2946c63ec23c3b84833b4a66a8ec3fb269cdfcd16dae2aef6d80"
+    },
+    "build/complex-fft-assessment/boost-headers.json": {
+      "sha256": "e2db0f65b959573650b32d4d9557afe83ac63524aa920b313fd831cbcb66ab0b"
+    },
+    "build/complex-fft-assessment/capture.log": {
+      "sha256": "4101f10ded11c4cc8e45c86912e7caeb8177f80b5845cdbe51b4befd5cfe1677"
+    },
+    "build/complex-fft-assessment/first-attempt-lsan.log": {
+      "sha256": "21de8ddaa991e5d626bc9b6be1b43df59d669a7da2a8e9e12ce8952d78006ee3"
+    }
+  },
+  "initial_sanitizer_failure": {
+    "status": "LeakSanitizer runtime incompatibility, not a passing sanitizer run",
+    "log": "build/complex-fft-assessment/first-attempt-lsan.log",
+    "diagnostic": "LeakSanitizer does not work under ptrace (strace, gdb, etc)",
+    "resolution": "Both normal and sanitizer observations fully recaptured with fresh before/after snapshots; sanitizer leak detection explicitly disabled."
+  }
+}

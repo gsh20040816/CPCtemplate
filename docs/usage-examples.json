@@ -2768,5 +2768,17 @@
     "requires": [
       "extended_gcd"
     ]
+  },
+  {
+    "id": "example-222",
+    "symbol": "ComplexFFT",
+    "kind": "template",
+    "problem": "Luogu P3803 【模板】多项式乘法（FFT）— 直接变换接口",
+    "url": "https://www.luogu.com.cn/problem/P3803",
+    "summary": "给出次数0≤n,m≤1000000、系数均为0..9整数的两个多项式，按升幂读入并输出乘积的n+m+1项。补零到不小于n+m+1的最小二次幂L（至多2^21），显式构造ComplexFFT，分别正变换、逐点相乘、逆变换后llroundl取整。保留本节的二进制至少53位、最近舍入、单位根误差界及禁用fast-math前提；本题范数乘积至多81000081。时间O(L log L)，空间O(L)。这是底层变换接口的完整用法，卷积包装器和精确CRT用法另列。",
+    "driver": "verify/luogu/P3803.transform.compact.cpp",
+    "requires": [
+      "ComplexFFT"
+    ]
   }
 ]
