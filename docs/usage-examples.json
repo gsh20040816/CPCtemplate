@@ -2744,5 +2744,29 @@
       "mod_inverse"
     ],
     "id": "example-219"
+  },
+  {
+    "id": "example-220",
+    "symbol": "LazySeg",
+    "kind": "template",
+    "problem": "Luogu P3372 【模板】线段树 1",
+    "url": "https://www.luogu.com.cn/problem/P3372",
+    "summary": "给出长度 n 的正整数序列与 m 次操作，1≤n,m≤100000，支持闭区间加正整数 k 与闭区间求和；任意时刻全序列之和不超过 2×10^18。LazySeg(n) 零初始化后用 n 次单点 add(i,i,a) 装入初值；修改调用 add(l,r,k)，询问调用 query(l,r)。初始化 O(n log n)，每次操作 O(log n)，空间 O(n)；初值、增量、区间和均用 long long。",
+    "driver": "verify/luogu/P3372.compact.cpp",
+    "requires": [
+      "LazySeg"
+    ]
+  },
+  {
+    "id": "example-221",
+    "symbol": "extended_gcd",
+    "kind": "template",
+    "problem": "AOJ NTL_1_E Extended Euclid Algorithm",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E",
+    "summary": "给出正整数 1≤a,b≤10^9，求 ax+by=gcd(a,b)，先最小化 |x|+|y|，仅在并列最小时取 x≤y。直接调用 extended_gcd；该正整数范围内递归所得解已满足最小性，a=b 时返回 (0,1)。系数用 __int128_t 接收，输出转 long long 安全；不应对所有答案强行要求 x≤y。时间、递归空间均 O(log(min(a,b)+1))。",
+    "driver": "verify/aoj/NTL_1_E.compact.cpp",
+    "requires": [
+      "extended_gcd"
+    ]
   }
 ]

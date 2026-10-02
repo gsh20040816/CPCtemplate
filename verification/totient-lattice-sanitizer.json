@@ -1,7 +1,7 @@
 {
   "passed": true,
   "mode": "sanitizer",
-  "started_at": "2026-10-02T13:06:51.727739+00:00",
+  "started_at": "2026-10-02T13:33:58.152484+00:00",
   "compiler": "/usr/bin/x86_64-linux-gnu-g++-14",
   "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
   "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
@@ -15,7 +15,7 @@
     "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
     "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
     "tests/fixtures/totient-lattice/contract.json": "b1fd3cf357f18879e98862e7dc52293434e31ebd1843d637c8bf5cf709b65fa3",
-    "tests/totient_lattice_application.py": "4dbdec7c53e3af05bec538498353f2230565085c2d6456f327ed640d59f997b6",
+    "tests/totient_lattice_application.py": "211fe26ce806f87dbda2179ffd682907c0ec9bfe67dfa26265637e6dc4b3bcba",
     "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
     "verify/luogu/P2158.compact.cpp": "31bbb6cb25a58008836f3f68e56f70ba76380646f62bc727a7240586f641088e"
   },
@@ -37,8 +37,8 @@
   },
   "selected_registration_sha256": "4f1c927bf7c970b7aa390b09429d94e99d493b8dda3e82c1d9ce257465046a20",
   "fixture_sha256": {
-    "build/totient-lattice-final-20261002/cases.jsonl": "50e87759ab386db8bcedb16ee70a9cfaf7c0988d7a6524c533d3c22e3e62278a",
-    "build/totient-lattice-final-20261002/phi-reference.txt": "fb9b0f1d58d26d3f687a6861b0e478f0afb346002c81c5fd19381fc35a929b27"
+    "build/totient-lattice-portable-final/cases.jsonl": "50e87759ab386db8bcedb16ee70a9cfaf7c0988d7a6524c533d3c22e3e62278a",
+    "build/totient-lattice-portable-final/phi-reference.txt": "fb9b0f1d58d26d3f687a6861b0e478f0afb346002c81c5fd19381fc35a929b27"
   },
   "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
   "flags": [
@@ -92,9 +92,9 @@
         "-g",
         "-fsanitize=address,undefined",
         "-fno-omit-frame-pointer",
-        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-final-20261002/sanitizer/registered.cpp",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-portable-final/sanitizer/registered.cpp",
         "-o",
-        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-final-20261002/sanitizer/registered"
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-portable-final/sanitizer/registered"
       ],
       "cases": [
         {
@@ -2253,9 +2253,9 @@
         "stdout": "",
         "stderr": ""
       },
-      "binary_sha256": "3d58f5d064c9e620db4b399c8b247d06d7b86ef68e842edd36885823f8e48570",
+      "binary_sha256": "b9bdbe477737394e5e2ac9846640b2b5814af000c3e657e036b83466648fc4b7",
       "passed": true,
-      "seconds": 1.066959
+      "seconds": 1.059543
     },
     {
       "form": "standalone",
@@ -2269,9 +2269,9 @@
         "-g",
         "-fsanitize=address,undefined",
         "-fno-omit-frame-pointer",
-        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-final-20261002/sanitizer/standalone.cpp",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-portable-final/sanitizer/standalone.cpp",
         "-o",
-        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-final-20261002/sanitizer/standalone"
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-portable-final/sanitizer/standalone"
       ],
       "cases": [
         {
@@ -4430,9 +4430,9 @@
         "stdout": "",
         "stderr": ""
       },
-      "binary_sha256": "fc9713ae0e7455acc7942c8ca39dec397e18ecafd16f439326425b8588d5d1f8",
+      "binary_sha256": "d44f07b2dc88c93fa51df6bfe9cda8c14866d734c6184d30636bcc2a983bbb20",
       "passed": true,
-      "seconds": 1.090228
+      "seconds": 0.996425
     },
     {
       "form": "minimal-copy",
@@ -4446,9 +4446,9 @@
         "-g",
         "-fsanitize=address,undefined",
         "-fno-omit-frame-pointer",
-        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-final-20261002/sanitizer/minimal-copy.cpp",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-portable-final/sanitizer/minimal-copy.cpp",
         "-o",
-        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-final-20261002/sanitizer/minimal-copy"
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-portable-final/sanitizer/minimal-copy"
       ],
       "cases": [
         {
@@ -6607,9 +6607,9 @@
         "stdout": "",
         "stderr": ""
       },
-      "binary_sha256": "ac0dee534d2892793d73be051b04a6ef7341155c151afad4cbd1d6fbb1f451e1",
+      "binary_sha256": "22f00068e140bef773ec7b8211537869253d9c4f9f44564371d51a1ea5d15891",
       "passed": true,
-      "seconds": 1.115892
+      "seconds": 1.086113
     }
   ],
   "phi_harness": {
@@ -6624,9 +6624,9 @@
       "-g",
       "-fsanitize=address,undefined",
       "-fno-omit-frame-pointer",
-      "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-final-20261002/sanitizer/phi-check.cpp",
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-portable-final/sanitizer/phi-check.cpp",
       "-o",
-      "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-final-20261002/sanitizer/phi-check"
+      "/workspace/scratch/5a21734ea066/CPCtemplate/build/totient-lattice-portable-final/sanitizer/phi-check"
     ],
     "cases": [
       {
@@ -6645,9 +6645,9 @@
       "stdout": "",
       "stderr": ""
     },
-    "binary_sha256": "b1b729649a32927185575b3ea337d42efa55f2149303d2126d07f8a3b8263c5b",
+    "binary_sha256": "b231c46d4c9209a0003b2793db333a3ec2a56782e934c03714e8ec0e51e0d4d4",
     "passed": true,
-    "seconds": 0.010173
+    "seconds": 0.008683
   },
   "after_checks": {
     "source_sha256": {
@@ -6660,17 +6660,17 @@
       "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
       "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
       "tests/fixtures/totient-lattice/contract.json": "b1fd3cf357f18879e98862e7dc52293434e31ebd1843d637c8bf5cf709b65fa3",
-      "tests/totient_lattice_application.py": "4dbdec7c53e3af05bec538498353f2230565085c2d6456f327ed640d59f997b6",
+      "tests/totient_lattice_application.py": "211fe26ce806f87dbda2179ffd682907c0ec9bfe67dfa26265637e6dc4b3bcba",
       "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
       "verify/luogu/P2158.compact.cpp": "31bbb6cb25a58008836f3f68e56f70ba76380646f62bc727a7240586f641088e"
     },
     "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
     "selected_registration_sha256": "4f1c927bf7c970b7aa390b09429d94e99d493b8dda3e82c1d9ce257465046a20",
     "fixture_sha256": {
-      "build/totient-lattice-final-20261002/cases.jsonl": "50e87759ab386db8bcedb16ee70a9cfaf7c0988d7a6524c533d3c22e3e62278a",
-      "build/totient-lattice-final-20261002/phi-reference.txt": "fb9b0f1d58d26d3f687a6861b0e478f0afb346002c81c5fd19381fc35a929b27"
+      "build/totient-lattice-portable-final/cases.jsonl": "50e87759ab386db8bcedb16ee70a9cfaf7c0988d7a6524c533d3c22e3e62278a",
+      "build/totient-lattice-portable-final/phi-reference.txt": "fb9b0f1d58d26d3f687a6861b0e478f0afb346002c81c5fd19381fc35a929b27"
     }
   },
   "provenance_unchanged": true,
-  "finished_at": "2026-10-02T13:07:02.455800+00:00"
+  "finished_at": "2026-10-02T13:34:08.882556+00:00"
 }

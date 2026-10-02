@@ -1,0 +1,25 @@
+{
+  "pid": "NTL_1_E",
+  "title": "Extended Euclid Algorithm",
+  "source": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E",
+  "reviewed_on": "2026-10-02",
+  "samples": [
+    [
+      "4 12",
+      "1 0"
+    ],
+    [
+      "3 8",
+      "3 -1"
+    ]
+  ],
+  "domain": {
+    "minimum_a": 1,
+    "maximum_a": 1000000000,
+    "minimum_b": 1,
+    "maximum_b": 1000000000,
+    "identity": "a*x+b*y=gcd(a,b)",
+    "primary": "minimum abs(x)+abs(y)",
+    "secondary": "x<=y among tied minima only"
+  }
+}

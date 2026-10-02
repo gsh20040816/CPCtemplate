@@ -106,6 +106,7 @@ def main():
     parser.add_argument('--mode', choices=('normal', 'sanitizer', 'both'), default=default)
     parser.add_argument('--output', type=Path, help='New, previously nonexistent directory under build/')
     args = parser.parse_args()
+    (ROOT / 'build').mkdir(exist_ok=True)
     modes = ('normal', 'sanitizer') if args.mode == 'both' else (args.mode,)
     if args.output:
         out = args.output.resolve()

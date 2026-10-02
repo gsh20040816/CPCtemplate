@@ -1,0 +1,83 @@
+{
+  "scope": "Two legal integer-input counterexamples only; default tolerance-aware API may merge near tangencies. Not an API violation, global geometry validation, sanitizer test or online AC.",
+  "checked_at": "2026-10-02T13:33:09.628747+00:00",
+  "long_double_mantissa_bits": 64,
+  "source_sha256": {
+    "src/compact/circle_intersections.hpp": "a98394587b21fe6fcaa5f22fe21d51e7c2a507bd8e5a17b58cf750afda23c188",
+    "src/compact/line_circle_intersections.hpp": "4b77639f10f4ae5ccec100dc6e708b8eb0543ef93618bb9c35f0ef58f0bb0a8a",
+    "src/compact/line_projection.hpp": "7ac9e8b077893d9e7cedb8e5ce4adbe6d24f5de21ce413c1d28a673c9dfd7e53",
+    "src/compact/real_plane.hpp": "86dcffd9e63c636e6504083935d4a7657effe15832290dd39c20c931546d03c2",
+    "tools/check_geometry_judge_contracts.py": "c9666025f648d267b536d7cfb4f2d5a32c1664ef95d4356586090a9b0aab0eeb"
+  },
+  "source_unchanged": true,
+  "compiler": "/usr/bin/x86_64-linux-gnu-g++-14",
+  "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+  "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "command": [
+    "/usr/bin/x86_64-linux-gnu-g++-14",
+    "-std=c++20",
+    "-O2",
+    "-I",
+    "/workspace/scratch/5a21734ea066/CPCtemplate",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/build/geometry-contract-published-portable/probe.cpp",
+    "-o",
+    "/workspace/scratch/5a21734ea066/CPCtemplate/build/geometry-contract-published-portable/probe"
+  ],
+  "probe_sha256": "aba1727b4085cb7c1a1c2dc942ba93ef74c74ba613e440c9e3473a22a4823afb",
+  "binary_sha256": "7b0f6ad295934d95449150598932f830d57fdf97ba0790ef18f31f7910798c33",
+  "stdout_sha256": "fb121e4e03cbb242247008799982e52434b2fb2b839c2f6f02ea72176e8a0288",
+  "cases": [
+    {
+      "problem": "CGL_7_D",
+      "source": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D",
+      "exact_positive_discriminant": 1,
+      "expected_intersections": 2,
+      "actual_kind": 1,
+      "actual_point_count": 1,
+      "actual_points": [
+        [
+          "9797.00000731458878622248676038",
+          "395.999819037729436171924035648"
+        ]
+      ],
+      "reference_points": [
+        [
+          "9797",
+          "396"
+        ],
+        [
+          "9797.000014629177573221493817466831291928912168451502865908367948613407",
+          "395.9996380754588723633121481412186655972715993410703532893902578467989"
+        ]
+      ],
+      "max_coordinate_error_after_ordering_and_tangent_duplication": "0.000180962270563828075964352",
+      "compatible_with_judge_tolerance": false
+    },
+    {
+      "problem": "CGL_7_E",
+      "source": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E",
+      "exact_positive_discriminant": 39999,
+      "expected_intersections": 2,
+      "actual_kind": 1,
+      "actual_point_count": 1,
+      "actual_points": [
+        [
+          "9999.9999499849979995858006987",
+          "1.00010000499899969991259018887"
+        ]
+      ],
+      "reference_points": [
+        [
+          "9999.999948984810482478412009411401148097912102723096985371578024461807",
+          "1.010100879985698358317895399920168976884871753243269591333406395485491"
+        ],
+        [
+          "9999.999950985185517321628002590198931886083096636871021030342231550991",
+          "0.9900991300123010416021006008800710551167279266607176080267216429196289"
+        ]
+      ],
+      "max_coordinate_error_after_ordering_and_tangent_duplication": "0.010000874986698658405305211050168976884871753243269591333406395485491",
+      "compatible_with_judge_tolerance": false
+    }
+  ]
+}

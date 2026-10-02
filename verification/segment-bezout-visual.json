@@ -1,0 +1,186 @@
+{
+  "status": "pass",
+  "scope": "Targeted final PDF visual QA only: two added usage main() blocks, owning core listings, two geometry contract warnings, and infra jump-index page. Not a whole-book visual review.",
+  "reviewed_utc": "2026-10-02T13:35:04.579977+00:00",
+  "method": "Aux label destination mapped with pypdf named_destinations/get_destination_page_number; actual PNG inspection at 110 dpi; final engine logs read independently.",
+  "pdfs": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "7826f69d7c8e988f47785518cdb773411fec7507236ba5133da1f2fea0764793",
+      "visually_inspected_physical_pages": [
+        61,
+        232,
+        233,
+        505,
+        506
+      ],
+      "render_paths": [
+        "build/segment-bezout-visual/xcpc-template-61.png",
+        "build/segment-bezout-visual/xcpc-template-232.png",
+        "build/segment-bezout-visual/xcpc-template-233.png",
+        "build/segment-bezout-visual/xcpc-template-505.png",
+        "build/segment-bezout-visual/xcpc-template-506.png"
+      ],
+      "destinations": [
+        {
+          "label": "usage-example-220",
+          "aux_printed_page": "219",
+          "aux_destination": "subsection*.104",
+          "physical_page": 233
+        },
+        {
+          "label": "usage-example-221",
+          "aux_printed_page": "47",
+          "aux_destination": "subsection*.27",
+          "physical_page": 61
+        },
+        {
+          "label": "compact-LazySeg",
+          "aux_printed_page": "218",
+          "aux_destination": "subsection.23.1.3",
+          "physical_page": 232
+        },
+        {
+          "label": "compact-extended_gcd",
+          "aux_printed_page": "47",
+          "aux_destination": "subsection.11.7.1",
+          "physical_page": 61
+        },
+        {
+          "label": "compact-line_circle_intersections",
+          "aux_printed_page": "491",
+          "aux_destination": "section.43.4",
+          "physical_page": 505
+        },
+        {
+          "label": "compact-circle_intersections",
+          "aux_printed_page": "492",
+          "aux_destination": "section.43.5",
+          "physical_page": 506
+        }
+      ],
+      "font_families_identical_to_HEAD": true
+    },
+    "output/pdf/xcpc-data-structures.pdf": {
+      "sha256": "f14606300c7525fb5e9c7dabaff66fa7229a48fe2c4bde6a7e6de7bf0c531bfb",
+      "visually_inspected_physical_pages": [
+        30,
+        31
+      ],
+      "render_paths": [
+        "build/segment-bezout-visual/xcpc-data-structures-30.png",
+        "build/segment-bezout-visual/xcpc-data-structures-31.png"
+      ],
+      "destinations": [
+        {
+          "label": "usage-example-220",
+          "aux_printed_page": "27",
+          "aux_destination": "subsection*.13",
+          "physical_page": 31
+        },
+        {
+          "label": "compact-LazySeg",
+          "aux_printed_page": "26",
+          "aux_destination": "subsection.5.1.3",
+          "physical_page": 30
+        }
+      ],
+      "font_families_identical_to_HEAD": true
+    },
+    "output/pdf/xcpc-mathematics.pdf": {
+      "sha256": "58242b46507a2ea313f405dd5e8933dcfbf10d8e0a1998656e28f65d67aa4f97",
+      "visually_inspected_physical_pages": [
+        23
+      ],
+      "render_paths": [
+        "build/segment-bezout-visual/xcpc-mathematics-23.png"
+      ],
+      "destinations": [
+        {
+          "label": "usage-example-221",
+          "aux_printed_page": "16",
+          "aux_destination": "subsection*.10",
+          "physical_page": 23
+        },
+        {
+          "label": "compact-extended_gcd",
+          "aux_printed_page": "16",
+          "aux_destination": "subsection.2.7.1",
+          "physical_page": 23
+        }
+      ],
+      "font_families_identical_to_HEAD": true
+    },
+    "output/pdf/xcpc-geometry.pdf": {
+      "sha256": "e41630662595793403fb12926d764a41a80ee84b188e9a3877cbc8f0c5d74814",
+      "visually_inspected_physical_pages": [
+        10,
+        11
+      ],
+      "render_paths": [
+        "build/segment-bezout-visual/xcpc-geometry-10.png",
+        "build/segment-bezout-visual/xcpc-geometry-11.png"
+      ],
+      "destinations": [
+        {
+          "label": "compact-line_circle_intersections",
+          "aux_printed_page": "6",
+          "aux_destination": "section.1.4",
+          "physical_page": 10
+        },
+        {
+          "label": "compact-circle_intersections",
+          "aux_printed_page": "7",
+          "aux_destination": "section.1.5",
+          "physical_page": 11
+        }
+      ],
+      "font_families_identical_to_HEAD": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "df88ac646b2b41e2dcac4f20d004330fc1e878362a33ac72a3e6e0145ab019cb",
+      "visually_inspected_physical_pages": [
+        10
+      ],
+      "render_paths": [
+        "build/segment-bezout-visual/infra-10.png"
+      ],
+      "destinations": [],
+      "font_families_identical_to_HEAD": true
+    }
+  },
+  "findings": [
+    "P3372 main() has all 27 numbered lines through closing brace in main physical 233 and data physical 31; LazySeg all 50 numbered lines on preceding target page.",
+    "NTL_1_E main() has all 9 numbered lines through closing brace; extended_gcd core has all 13 lines on same page in both editions.",
+    "Long bounds and complexity text are visible and within margins, including 2×10^18, |x|+|y|, tie-only x≤y, int128 receiving and safe long long output.",
+    "Both geometry warnings are fully visible above intact 22-line / 36-line listings, explicitly identifying AOJ CGL_7_D / CGL_7_E and near-tangent coordinate-error limits.",
+    "No clipping, overlap, missing glyphs, or swallowed prose/listing content found on inspected pages. Existing CJK text extraction is imperfect, so visual glyph inspection was used.",
+    "Target listings end on the inspected pages. The unrelated AffineSegTree starts below P3372 and continues normally; that unrelated continuation was not part of this review.",
+    "Infra physical page 10 has a clean 16-entry cross-volume jump table, with visible labels and no overlap."
+  ],
+  "source_integrity": {
+    "changed_core_src_files": [],
+    "changed_font_layout_source_files": []
+  },
+  "log_checks": {
+    "main": {
+      "warning_matches": [],
+      "sha256": "08bea037e0f11b16e56a0e0651d516b55b886139a98734f409ccfb004c1b6a54"
+    },
+    "volume-data-structures": {
+      "warning_matches": [],
+      "sha256": "a59b8e80035045128101066764d4e09ebeb4ce938c9c3911cc0a23864e121233"
+    },
+    "volume-mathematics": {
+      "warning_matches": [],
+      "sha256": "bf49e745e33c20da7a1528bec08ff1a2654a0f534003ae00bf3b97df575ac621"
+    },
+    "volume-geometry": {
+      "warning_matches": [],
+      "sha256": "1adc70b9ff7f0526e3d6ce4678fe14a38d3ad77484a073bdb83985db9aa478ce"
+    },
+    "infra": {
+      "warning_matches": [],
+      "sha256": "1f01b802455a7aaccba3574931fc9b9b0bb85c616b71da4ead18103f01455adc"
+    }
+  }
+}

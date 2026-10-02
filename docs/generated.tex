@@ -650,6 +650,20 @@ extended\_gcd(a,b,x,y) 约定0$\le$a,b$\le$2\textasciicircum{}63，参数和输�
 
 \lstinputlisting[firstline=7,lastline=20]{../src/compact/extended_gcd.hpp}
 
+\Needspace{302pt}
+
+\subsection*{模板题使用：AOJ NTL\_1\_E Extended Euclid Algorithm}
+
+\label{usage-example-221}
+
+题意：给出正整数 1$\le$a,b$\le$10\textasciicircum{}9，求 ax+by=gcd(a,b)，先最小化 |x|+|y|，仅在并列最小时取 x$\le$y。直接调用 extended\_gcd；该正整数范围内递归所得解已满足最小性，a=b 时返回 (0,1)。系数用 \_\_int128\_t 接收，输出转 long long 安全；不应对所有答案强行要求 x$\le$y。时间、递归空间均 O(log(min(a,b)+1))。
+
+所需模板：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E}
+
+\lstinputlisting{usage/example-221.cpp}
+
 \Needspace{312pt}
 
 \subsection{二元一次不定方程}\label{compact-linear_equation}\index{linear\_equation}
@@ -3648,6 +3662,20 @@ segtree<S,op,e>(a) 从 0-based vector 构建，或 segtree(n) 初始化为单位
 
 \lstinputlisting[firstline=119,lastline=169]{../src/compact/data_structure.hpp}
 
+\Needspace{505pt}
+
+\subsection*{模板题使用：Luogu P3372 【模板】线段树 1}
+
+\label{usage-example-220}
+
+题意：给出长度 n 的正整数序列与 m 次操作，1$\le$n,m$\le$100000，支持闭区间加正整数 k 与闭区间求和；任意时刻全序列之和不超过 2×10\textasciicircum{}18。LazySeg(n) 零初始化后用 n 次单点 add(i,i,a) 装入初值；修改调用 add(l,r,k)，询问调用 query(l,r)。初始化 O(n log n)，每次操作 O(log n)，空间 O(n)；初值、增量、区间和均用 long long。
+
+所需模板：\hyperref[compact-LazySeg]{LazySeg}（第~\pageref{compact-LazySeg}~页，\ref{compact-LazySeg}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3372}
+
+\lstinputlisting{usage/example-220.cpp}
+
 \subsection{线段树：区间乘、加、赋值与模意义求和}\label{compact-AffineSegTree}\index{AffineSegTree}
 
 AffineSegTree(a,mod) 传入非空 0-based 初值数组；查询与修改采用 1-based 非空闭区间。update(l,r,mul,add) 将区间元素 x 改为 mul*x+add；乘法用 (mul,0)，加法用 (1,add)，赋值用 (0,value)。query(l,r) 返回区间和。1$\le$mod$\le$INT\_MAX，模数无需为素数，初值和修改参数允许 long long 全范围，入口统一归一化。旧标记 (m,b) 后应用新标记 (a,c)，复合为 (m*a,b*a+c)，乘法取模后再相加。建树 O(n)，单次 O(log n)，空间 O(n)。内部 build、apply 等函数不作为公共接口；动态版重建新对象。
@@ -6425,17 +6453,17 @@ line\_intersection\_real(a,b,c,d,eps=1e-12L) 返回 RealPlane::Result；eps 必�
 
 代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_projection]{line\_\allowbreak{}projection}（第~\pageref{compact-line_projection}~页，\ref{compact-line_projection}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-line\_circle\_intersections(a,b,c,eps=1e-12L) 返回 Result；c 为 RealPlane::Circle，半径非负，eps 为正。a=b 返回 degenerate；按投影点到圆心的距离和半径的相对阈值区分 none、one、two。点圆允许；只有正半径同心圆才涉及无限交点，本函数不会返回 infinite。依赖 line\_projection，O(1)。输入有限且尺度适当，接近相切时按容差归类。
+line\_circle\_intersections(a,b,c,eps=1e-12L) 返回 Result；c 为 RealPlane::Circle，半径非负，eps 为正。a=b 返回 degenerate；按投影点到圆心的距离和半径的相对阈值区分 none、one、two。点圆允许；只有正半径同心圆才涉及无限交点，本函数不会返回 infinite。依赖 line\_projection，O(1)。输入有限且尺度适当，接近相切时按容差归类。 默认容差不能直接满足 AOJ CGL\_7\_D 的所有合法输入；近切时归并交点可能超出坐标误差限。
 
 \lstinputlisting[firstline=5,lastline=27]{../src/compact/line_circle_intersections.hpp}
 
-\Needspace{481pt}
+\Needspace{490pt}
 
 \section{浮点两圆交点}\label{compact-circle_intersections}\index{circle\_intersections}
 
 代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-circle\_intersections(a,b,eps=1e-12L) 返回 Result；半径非负，eps 为正。两个完全相同的正半径圆返回 infinite；同位置两个点圆返回 one；同心不同半径返回 none。其余用距离和半径的相对阈值分类，点圆单独处理，接近相切可返回 one。输入有限且尺度适当，O(1) 时间空间；返回的有限交点仍受浮点构造误差影响。
+circle\_intersections(a,b,eps=1e-12L) 返回 Result；半径非负，eps 为正。两个完全相同的正半径圆返回 infinite；同位置两个点圆返回 one；同心不同半径返回 none。其余用距离和半径的相对阈值分类，点圆单独处理，接近相切可返回 one。输入有限且尺度适当，O(1) 时间空间；返回的有限交点仍受浮点构造误差影响。 默认容差不能直接满足 AOJ CGL\_7\_E 的所有合法输入；近切时归并交点可能超出坐标误差限。
 
 \lstinputlisting[firstline=5,lastline=41]{../src/compact/circle_intersections.hpp}
 

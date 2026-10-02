@@ -1,0 +1,162 @@
+{
+  "passed": true,
+  "mode": "normal",
+  "checked_at": "2026-10-02T13:29:08.890311+00:00",
+  "kind": "template",
+  "id": "example-221",
+  "component": "extended_gcd",
+  "dependency_only": [],
+  "statement_source": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E",
+  "before": {
+    "source_sha256": {
+      "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+      "tests/bezout_minimum_usage.py": "c07b9916a90cd06d5b35cff509c7c240da978a40850c29e3dcdbe88ad9d98f1a",
+      "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+      "tests/fixtures/bezout-minimum/contract.json": "d2175d3f90e4eefeda08e96f10bb49a9502085e06a0e449761b29eaa848c65a6",
+      "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
+      "verify/aoj/NTL_1_E.compact.cpp": "8c81b1b5075d406be7d5520c6455b2fc8bec656766bee6bc06bdc897a450eaa2"
+    },
+    "selected_registration": {
+      "id": "example-221",
+      "symbol": "extended_gcd",
+      "kind": "template",
+      "problem": "AOJ NTL_1_E Extended Euclid Algorithm",
+      "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E",
+      "summary": "\u7ed9\u51fa\u6b63\u6574\u6570 1\u2264a,b\u226410^9\uff0c\u6c42 ax+by=gcd(a,b)\uff0c\u5148\u6700\u5c0f\u5316 |x|+|y|\uff0c\u4ec5\u5728\u5e76\u5217\u6700\u5c0f\u65f6\u53d6 x\u2264y\u3002\u76f4\u63a5\u8c03\u7528 extended_gcd\uff1b\u8be5\u6b63\u6574\u6570\u8303\u56f4\u5185\u9012\u5f52\u6240\u5f97\u89e3\u5df2\u6ee1\u8db3\u6700\u5c0f\u6027\uff0ca=b \u65f6\u8fd4\u56de (0,1)\u3002\u7cfb\u6570\u7528 __int128_t \u63a5\u6536\uff0c\u8f93\u51fa\u8f6c long long \u5b89\u5168\uff1b\u4e0d\u5e94\u5bf9\u6240\u6709\u7b54\u6848\u5f3a\u884c\u8981\u6c42 x\u2264y\u3002\u65f6\u95f4\u3001\u9012\u5f52\u7a7a\u95f4\u5747 O(log(min(a,b)+1))\u3002",
+      "driver": "verify/aoj/NTL_1_E.compact.cpp",
+      "requires": [
+        "extended_gcd"
+      ]
+    },
+    "selected_registration_sha256": "0b12ead66d326567dea72feb8011a84d5b0b43d4f0ac8e5103e1e77fd5c8ae6b",
+    "compiler_executable": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d"
+  },
+  "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "program_sha256": "870e65beff3c134715be5e2ef3fcdb69947095ea1ff49306edcb26f3bbeb04ff",
+  "cases_file": "build/bezout-next/bezout-minimum-usage-zyq8w9ne/cases.jsonl",
+  "cases_sha256": "f9ea6b0fc03d7b5124ee73630c97faf2dc15c3db1a6918f269d14247a298d6d3",
+  "cases_per_program": 1431,
+  "groups": {
+    "official_sample": 2,
+    "signed_coefficient_enumeration_1_to_25": 625,
+    "equal_inputs_tie": 8,
+    "divisible_inputs": 28,
+    "divisible_reversed": 28,
+    "near_statement_maxima": 256,
+    "seeded_full_range": 200,
+    "seeded_reversed": 200,
+    "consecutive_fibonacci": 42,
+    "consecutive_fibonacci_reversed": 42
+  },
+  "copied_regions": [
+    {
+      "symbol": "extended_gcd",
+      "path": "src/compact/extended_gcd.hpp",
+      "region_sha256": "98878a4baee60e405a72e3cf8d46daae0c4ab7e5d0e3d94e235acd56bebfd232"
+    }
+  ],
+  "executions": [
+    {
+      "form": "complete_driver",
+      "program_sha256": "8c81b1b5075d406be7d5520c6455b2fc8bec656766bee6bc06bdc897a450eaa2",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O2",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/verify/aoj/NTL_1_E.compact.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/bezout-next/bezout-minimum-usage-zyq8w9ne/normal-complete_driver"
+      ],
+      "source": "verify/aoj/NTL_1_E.compact.cpp",
+      "completed_cases": 1431,
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "executable_sha256": "b7ba6c302e858e5812c1f84d7509873fbfcc9488a7c092df921b0b31f675df99",
+      "stdout_sha256": "fdb4ec6de8b5e0ac5a83fce76ba102a513779fcec2671ac36e724b4fd6deefc2",
+      "seconds": 2.184
+    },
+    {
+      "form": "registered_program",
+      "program_sha256": "870e65beff3c134715be5e2ef3fcdb69947095ea1ff49306edcb26f3bbeb04ff",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O2",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/bezout-next/bezout-minimum-usage-zyq8w9ne/normal-registered_program.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/bezout-next/bezout-minimum-usage-zyq8w9ne/normal-registered_program"
+      ],
+      "source": "build/bezout-next/bezout-minimum-usage-zyq8w9ne/normal-registered_program.cpp",
+      "completed_cases": 1431,
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "executable_sha256": "cba23130ea91ea3231c99e1f8ee9bcdab977c07390dfa86f642e074585f22d4a",
+      "stdout_sha256": "fdb4ec6de8b5e0ac5a83fce76ba102a513779fcec2671ac36e724b4fd6deefc2",
+      "seconds": 2.233
+    },
+    {
+      "form": "minimal_copy",
+      "program_sha256": "2012e6dd7e3b05fbceea41b17d855958f107fcd74bb02eb896685e0f3b868f78",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O2",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/bezout-next/bezout-minimum-usage-zyq8w9ne/normal-minimal_copy.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/bezout-next/bezout-minimum-usage-zyq8w9ne/normal-minimal_copy"
+      ],
+      "source": "build/bezout-next/bezout-minimum-usage-zyq8w9ne/normal-minimal_copy.cpp",
+      "completed_cases": 1431,
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "executable_sha256": "8635e91caf894e793f3e38712e64c1cbacc6af564876ecb96447c8ce87770552",
+      "stdout_sha256": "fdb4ec6de8b5e0ac5a83fce76ba102a513779fcec2671ac36e724b4fd6deefc2",
+      "seconds": 2.168
+    }
+  ],
+  "oracle": "Signed coefficient enumeration for 1<=a,b<=25; independent modular-inverse solution family with exact convex endpoint minimization and tie handling for large cases; both official samples exactly.",
+  "scope": "Only valid AOJ NTL_1_E inputs: positive a,b<=1e9. No signed/zero-input, online AC, full-suite, performance or LeakSanitizer claim.",
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "pie": "Compiler default, no override",
+  "quarantine": "ASan default, no override",
+  "after": {
+    "source_sha256": {
+      "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+      "tests/bezout_minimum_usage.py": "c07b9916a90cd06d5b35cff509c7c240da978a40850c29e3dcdbe88ad9d98f1a",
+      "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+      "tests/fixtures/bezout-minimum/contract.json": "d2175d3f90e4eefeda08e96f10bb49a9502085e06a0e449761b29eaa848c65a6",
+      "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
+      "verify/aoj/NTL_1_E.compact.cpp": "8c81b1b5075d406be7d5520c6455b2fc8bec656766bee6bc06bdc897a450eaa2"
+    },
+    "selected_registration": {
+      "id": "example-221",
+      "symbol": "extended_gcd",
+      "kind": "template",
+      "problem": "AOJ NTL_1_E Extended Euclid Algorithm",
+      "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E",
+      "summary": "\u7ed9\u51fa\u6b63\u6574\u6570 1\u2264a,b\u226410^9\uff0c\u6c42 ax+by=gcd(a,b)\uff0c\u5148\u6700\u5c0f\u5316 |x|+|y|\uff0c\u4ec5\u5728\u5e76\u5217\u6700\u5c0f\u65f6\u53d6 x\u2264y\u3002\u76f4\u63a5\u8c03\u7528 extended_gcd\uff1b\u8be5\u6b63\u6574\u6570\u8303\u56f4\u5185\u9012\u5f52\u6240\u5f97\u89e3\u5df2\u6ee1\u8db3\u6700\u5c0f\u6027\uff0ca=b \u65f6\u8fd4\u56de (0,1)\u3002\u7cfb\u6570\u7528 __int128_t \u63a5\u6536\uff0c\u8f93\u51fa\u8f6c long long \u5b89\u5168\uff1b\u4e0d\u5e94\u5bf9\u6240\u6709\u7b54\u6848\u5f3a\u884c\u8981\u6c42 x\u2264y\u3002\u65f6\u95f4\u3001\u9012\u5f52\u7a7a\u95f4\u5747 O(log(min(a,b)+1))\u3002",
+      "driver": "verify/aoj/NTL_1_E.compact.cpp",
+      "requires": [
+        "extended_gcd"
+      ]
+    },
+    "selected_registration_sha256": "0b12ead66d326567dea72feb8011a84d5b0b43d4f0ac8e5103e1e77fd5c8ae6b",
+    "compiler_executable": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d"
+  },
+  "source_unchanged": true
+}

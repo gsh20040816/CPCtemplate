@@ -10,7 +10,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | dsu | [example-7](usage/example-7.cpp) | locally_checked_example |
 | RollbackDSU | [example-84](usage/example-84.cpp) | locally_checked_example |
 | Fenwick | [example-210](usage/example-210.cpp) | locally_checked_example |
-| LazySeg | 待补 | pending_example |
+| LazySeg | [example-220](usage/example-220.cpp) | locally_checked_example |
 | XorBasis | [example-36](usage/example-36.cpp) | locally_checked_example |
 | Dinic | [example-1](usage/example-1.cpp) | locally_checked_example |
 | maximum_closure | [example-148（应用补充）](usage/example-148.cpp) | locally_checked_application |
@@ -32,7 +32,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | SuffixAutomaton | [example-71](usage/example-71.cpp), [example-130](usage/example-130.cpp) | locally_checked_example |
 | Mod64 | 待补 | pending_example |
 | Prime64 | [example-13](usage/example-13.cpp) | locally_checked_example |
-| extended_gcd | 待补 | pending_example |
+| extended_gcd | [example-221](usage/example-221.cpp) | locally_checked_example |
 | mod_inverse | [example-219（应用补充）](usage/example-219.cpp) | locally_checked_application |
 | crt_merge | [example-15](usage/example-15.cpp) | locally_checked_example |
 | floor_sum | [example-14](usage/example-14.cpp) | locally_checked_example |
