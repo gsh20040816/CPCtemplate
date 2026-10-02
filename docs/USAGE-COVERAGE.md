@@ -33,7 +33,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Mod64 | 待补 | pending_example |
 | Prime64 | [example-13](usage/example-13.cpp) | locally_checked_example |
 | extended_gcd | 待补 | pending_example |
-| mod_inverse | 待补 | pending_example |
+| mod_inverse | [example-219（应用补充）](usage/example-219.cpp) | locally_checked_application |
 | crt_merge | [example-15](usage/example-15.cpp) | locally_checked_example |
 | floor_sum | [example-14](usage/example-14.cpp) | locally_checked_example |
 | linear_equation | [example-75](usage/example-75.cpp) | locally_checked_example |
@@ -43,7 +43,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | inverse_table | [example-196](usage/example-196.cpp) | locally_checked_example |
 | garner | [example-213](usage/example-213.cpp) | locally_checked_example |
 | PollardRho | [example-43](usage/example-43.cpp) | locally_checked_example |
-| LinearSieve | 待补 | pending_example |
+| LinearSieve | [example-218（应用补充）](usage/example-218.cpp) | locally_checked_application |
 | ModInt | [example-216（应用补充）](usage/example-216.cpp) | locally_checked_application |
 | Binomial | [example-216（应用补充）](usage/example-216.cpp) | locally_checked_application |
 | PrimitiveRoot | [example-48](usage/example-48.cpp) | locally_checked_example |

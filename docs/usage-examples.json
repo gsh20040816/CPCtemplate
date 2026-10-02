@@ -2719,5 +2719,30 @@
       "DirectedEuler",
       "word_chain"
     ]
+  },
+  {
+    "id": "example-218",
+    "symbol": "LinearSieve",
+    "kind": "application",
+    "problem": "Luogu P2158 [SDOI2008] 仪仗队",
+    "url": "https://www.luogu.com.cn/problem/P2158",
+    "summary": "从方阵一角看可见格点，观察者所在原点不计；1≤N≤40000。坐标范围0..N−1，可见当且仅当两坐标互素。N=1输出0；其余用1+2倍phi[1..N−1]之和，注意phi(1)=1。先筛到N−1，再累加phi；时间、空间均O(N)，答案用long long。",
+    "driver": "verify/luogu/P2158.compact.cpp",
+    "requires": [
+      "LinearSieve"
+    ]
+  },
+  {
+    "symbol": "mod_inverse",
+    "kind": "application",
+    "problem": "Luogu P1082 [NOIP 2012 提高组] 同余方程",
+    "url": "https://www.luogu.com.cn/problem/P1082",
+    "summary": "给出 2≤a,b≤2000000000，保证 ax≡1 (mod b) 有解，求最小正整数 x。直接调用 mod_inverse(a,b)；保证有解等价于 gcd(a,b)=1，且 b≥2，因此归一化结果位于 [1,b−1]，正好是最小正解。b 不必为素数，a 可以大于 b，不能改用费马小定理的幂公式。",
+    "driver": "verify/luogu/P1082.compact.cpp",
+    "requires": [
+      "extended_gcd",
+      "mod_inverse"
+    ],
+    "id": "example-219"
   }
 ]

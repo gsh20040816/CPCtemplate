@@ -301,6 +301,8 @@ cases['example-214'] = [('3 10\n1 2 3\n3 0 3 2 1\n3 0 3 3 4\n2 0 3\n4 0 1\n0 1 9
 cases['example-215'] = [('2 2 4\n1 1\n1 2\n2 2\n2 1\n..\n..\n', {'exact_text': '14\n'}), ('1 2 2\n1 1\n1 2\n..\n', {'exact_text': '1\n'}), ('1 3 3\n1 1\n1 2\n1 3\n...\n', {'exact_text': '13\n'}), ('1 1 1\n1 1\n.\n', {'exact_text': '0\n'}), ('2 3 1\n1 1\n.#.\n.#.\n', {'exact_text': '1\n'})]
 cases['example-216'] = [('1 1 3 1 2\n', {'exact_text': '3\n'}), ('0 0 0 0 0\n', {'exact_text': '1\n'}), ('0 5 3 0 3\n', {'exact_text': '125\n'}), ('0 5 3 1 2\n', {'exact_text': '0\n'}), ('10007 10008 1000 0 1000\n', {'exact_text': '1\n'}), ('1000000 0 1 1 0\n', {'exact_text': '9307\n'})]
 cases['example-217'] = [('2\n6\naloha\narachnid\ndog\ngopher\nrat\ntiger\n3\noak\nmaple\nelm\n', {'exact_text': 'aloha.arachnid.dog.gopher.rat.tiger\n***\n'}), ('3\n3\na\naa\naba\n3\naab\naza\nba\n3\naa\nbb\ncc\n', {'exact_text': 'a.aa.aba\naab.ba.aza\n***\n'})]
+cases['example-218'] = [('1\n', {'exact_text': '0\n'}), ('2\n', {'exact_text': '3\n'}), ('3\n', {'exact_text': '5\n'}), ('4\n', {'exact_text': '9\n'}), ('40000\n', {'exact_text': '972659433\n'})]
+cases['example-219'] = [('3 10\n', {'exact_text': '7\n'}), ('2 1999999999\n', {'exact_text': '1000000000\n'}), ('1999999999 2000000000\n', {'exact_text': '1999999999\n'}), ('2000000000 1999999999\n', {'exact_text': '1\n'})]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

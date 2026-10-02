@@ -1,0 +1,179 @@
+{
+  "passed": true,
+  "mode": "sanitizer",
+  "checked_at": "2026-10-02T13:07:09.137407+00:00",
+  "kind": "application",
+  "id": "example-219",
+  "component": "mod_inverse",
+  "dependency_only": [
+    "extended_gcd"
+  ],
+  "statement_source": "https://www.luogu.com.cn/problem/P1082",
+  "before": {
+    "source_sha256": {
+      "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+      "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+      "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+      "tests/fixtures/mod-inverse/contract.json": "7721d41f1ec4915522adf0fd96ab39fda30df0b84d32edcf86d83686b82ffb27",
+      "tests/mod_inverse_application.py": "398dc048c877caffd825eb185acfe182b6893f090c73a74c1898d9084fa14584",
+      "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
+      "verify/luogu/P1082.compact.cpp": "577b762be7007f6336b5c7a793a3bff54b42a0d4f14240d25d1fcb2100f6ce3a"
+    },
+    "selected_registration": {
+      "symbol": "mod_inverse",
+      "kind": "application",
+      "problem": "Luogu P1082 [NOIP 2012 \u63d0\u9ad8\u7ec4] \u540c\u4f59\u65b9\u7a0b",
+      "url": "https://www.luogu.com.cn/problem/P1082",
+      "summary": "\u7ed9\u51fa 2\u2264a,b\u22642000000000\uff0c\u4fdd\u8bc1 ax\u22611 (mod b) \u6709\u89e3\uff0c\u6c42\u6700\u5c0f\u6b63\u6574\u6570 x\u3002\u76f4\u63a5\u8c03\u7528 mod_inverse(a,b)\uff1b\u4fdd\u8bc1\u6709\u89e3\u7b49\u4ef7\u4e8e gcd(a,b)=1\uff0c\u4e14 b\u22652\uff0c\u56e0\u6b64\u5f52\u4e00\u5316\u7ed3\u679c\u4f4d\u4e8e [1,b\u22121]\uff0c\u6b63\u597d\u662f\u6700\u5c0f\u6b63\u89e3\u3002b \u4e0d\u5fc5\u4e3a\u7d20\u6570\uff0ca \u53ef\u4ee5\u5927\u4e8e b\uff0c\u4e0d\u80fd\u6539\u7528\u8d39\u9a6c\u5c0f\u5b9a\u7406\u7684\u5e42\u516c\u5f0f\u3002",
+      "driver": "verify/luogu/P1082.compact.cpp",
+      "requires": [
+        "extended_gcd",
+        "mod_inverse"
+      ],
+      "id": "example-219"
+    },
+    "selected_registration_sha256": "398ba1d58285fff29c18ad92c29e40cf16cb3cc5496548e2786fefb50c650663",
+    "compiler_executable": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d"
+  },
+  "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "program_sha256": "277762cf8077ae0678aa780019d68dec0c5e5081b871b8c10e47d2a945344544",
+  "cases_file": "build/mod-inverse-application-vdkc_wdz/cases.jsonl",
+  "cases_sha256": "a55e667f96b78d3bf74c753a93b24451649899ddc88cce73b589a9155c7ae8d5",
+  "cases_per_program": 1408,
+  "groups": {
+    "official_sample": 1,
+    "exhaustive_coprime_2_to_40": 900,
+    "composite_moduli_and_a_greater_than_b": 57,
+    "a_mod_b_is_one": 6,
+    "near_statement_maxima": 158,
+    "seeded_full_range": 200,
+    "consecutive_fibonacci": 86
+  },
+  "copied_regions": [
+    {
+      "symbol": "extended_gcd",
+      "path": "src/compact/extended_gcd.hpp",
+      "region_sha256": "98878a4baee60e405a72e3cf8d46daae0c4ab7e5d0e3d94e235acd56bebfd232"
+    },
+    {
+      "symbol": "mod_inverse",
+      "path": "src/compact/mod_inverse.hpp",
+      "region_sha256": "32e2f8ef339925821904738ee2e3af5918f8ea9e85b27e4b21a5f9cdcbb19a65"
+    }
+  ],
+  "executions": [
+    {
+      "form": "complete_driver",
+      "program_sha256": "577b762be7007f6336b5c7a793a3bff54b42a0d4f14240d25d1fcb2100f6ce3a",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/verify/luogu/P1082.compact.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/mod-inverse-application-vdkc_wdz/sanitizer-complete_driver"
+      ],
+      "source": "verify/luogu/P1082.compact.cpp",
+      "completed_cases": 1408,
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "executable_sha256": "62ae9aab4bc63d60004e436e41be9eb0a7884dbf4a578d1a64d24667d77d18ae",
+      "stdout_sha256": "18c1a8c7424edb1bc46ffefbe987b3ebdc42fdb9347d66d483d4bde9ab210c25",
+      "seconds": 5.367
+    },
+    {
+      "form": "registered_program",
+      "program_sha256": "277762cf8077ae0678aa780019d68dec0c5e5081b871b8c10e47d2a945344544",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/mod-inverse-application-vdkc_wdz/sanitizer-registered_program.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/mod-inverse-application-vdkc_wdz/sanitizer-registered_program"
+      ],
+      "source": "build/mod-inverse-application-vdkc_wdz/sanitizer-registered_program.cpp",
+      "completed_cases": 1408,
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "executable_sha256": "5bce011bd7831023ae32f1be719aa4a444f54bdfcd3baafae136f03ea6b2f702",
+      "stdout_sha256": "18c1a8c7424edb1bc46ffefbe987b3ebdc42fdb9347d66d483d4bde9ab210c25",
+      "seconds": 5.277
+    },
+    {
+      "form": "minimal_copy",
+      "program_sha256": "45b60afd7889639432a7ea03f0cc44ee6fa4fd9bd6b1690836fcf5329a82be38",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/mod-inverse-application-vdkc_wdz/sanitizer-minimal_copy.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/mod-inverse-application-vdkc_wdz/sanitizer-minimal_copy"
+      ],
+      "source": "build/mod-inverse-application-vdkc_wdz/sanitizer-minimal_copy.cpp",
+      "completed_cases": 1408,
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "executable_sha256": "1bfed97dd8ed94f2694b82558e8d99fd987bc333ecca0758c886e27eae97d80e",
+      "stdout_sha256": "18c1a8c7424edb1bc46ffefbe987b3ebdc42fdb9347d66d483d4bde9ab210c25",
+      "seconds": 4.9
+    }
+  ],
+  "oracle": "Exhaustive inverse candidate enumeration for 2<=a,b<=40; Python pow(a,-1,b) for larger cases; official sample exactly.",
+  "scope": "Only valid P1082 inputs: 2<=a,b<=2e9, gcd(a,b)=1. No nonunits, negative a, modulus 1, online AC, full-suite, performance or LeakSanitizer claim.",
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "pie": "Compiler default, no override",
+  "quarantine": "ASan default, no override",
+  "after": {
+    "source_sha256": {
+      "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+      "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+      "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+      "tests/fixtures/mod-inverse/contract.json": "7721d41f1ec4915522adf0fd96ab39fda30df0b84d32edcf86d83686b82ffb27",
+      "tests/mod_inverse_application.py": "398dc048c877caffd825eb185acfe182b6893f090c73a74c1898d9084fa14584",
+      "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
+      "verify/luogu/P1082.compact.cpp": "577b762be7007f6336b5c7a793a3bff54b42a0d4f14240d25d1fcb2100f6ce3a"
+    },
+    "selected_registration": {
+      "symbol": "mod_inverse",
+      "kind": "application",
+      "problem": "Luogu P1082 [NOIP 2012 \u63d0\u9ad8\u7ec4] \u540c\u4f59\u65b9\u7a0b",
+      "url": "https://www.luogu.com.cn/problem/P1082",
+      "summary": "\u7ed9\u51fa 2\u2264a,b\u22642000000000\uff0c\u4fdd\u8bc1 ax\u22611 (mod b) \u6709\u89e3\uff0c\u6c42\u6700\u5c0f\u6b63\u6574\u6570 x\u3002\u76f4\u63a5\u8c03\u7528 mod_inverse(a,b)\uff1b\u4fdd\u8bc1\u6709\u89e3\u7b49\u4ef7\u4e8e gcd(a,b)=1\uff0c\u4e14 b\u22652\uff0c\u56e0\u6b64\u5f52\u4e00\u5316\u7ed3\u679c\u4f4d\u4e8e [1,b\u22121]\uff0c\u6b63\u597d\u662f\u6700\u5c0f\u6b63\u89e3\u3002b \u4e0d\u5fc5\u4e3a\u7d20\u6570\uff0ca \u53ef\u4ee5\u5927\u4e8e b\uff0c\u4e0d\u80fd\u6539\u7528\u8d39\u9a6c\u5c0f\u5b9a\u7406\u7684\u5e42\u516c\u5f0f\u3002",
+      "driver": "verify/luogu/P1082.compact.cpp",
+      "requires": [
+        "extended_gcd",
+        "mod_inverse"
+      ],
+      "id": "example-219"
+    },
+    "selected_registration_sha256": "398ba1d58285fff29c18ad92c29e40cf16cb3cc5496548e2786fefb50c650663",
+    "compiler_executable": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d"
+  },
+  "source_unchanged": true
+}

@@ -578,6 +578,20 @@ euler\_phi(n) 使用试除，O($\sqrt{\vphantom x}$n) 时间、O(1) 额外空间
 
 \lstinputlisting[firstline=90,lastline=123]{../src/compact/number_theory.hpp}
 
+\Needspace{360pt}
+
+\subsection*{应用题补充：Luogu P2158 [SDOI2008] 仪仗队}
+
+\label{usage-example-218}
+
+题意：从方阵一角看可见格点，观察者所在原点不计；1$\le$N$\le$40000。坐标范围0..N−1，可见当且仅当两坐标互素。N=1输出0；其余用1+2倍phi[1..N−1]之和，注意phi(1)=1。先筛到N−1，再累加phi；时间、空间均O(N)，答案用long long。
+
+所需模板：\hyperref[compact-LinearSieve]{LinearSieve}（第~\pageref{compact-LinearSieve}~页，\ref{compact-LinearSieve}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2158}
+
+\lstinputlisting{usage/example-218.cpp}
+
 \Needspace{307pt}
 
 \subsection{区间筛素数}\label{compact-segmented_primes}\index{segmented\_primes}
@@ -731,6 +745,20 @@ batch\_units(a) 返回 optional<vector<Z>>，保持输入顺序；任一元素�
 mod\_inverse(a,m) 支持完整 long long a 和正 long long m，将 a 规范化后用 extended\_gcd 求逆。不可逆返回-1，可逆返回0..m-1内的代表；模数1返回0。允许合数模数，不使用费马小定理。O(log m) 时间与递归空间。
 
 \lstinputlisting[firstline=6,lastline=16]{../src/compact/mod_inverse.hpp}
+
+\Needspace{268pt}
+
+\subsection*{应用题补充：Luogu P1082 [NOIP 2012 提高组] 同余方程}
+
+\label{usage-example-219}
+
+题意：给出 2$\le$a,b$\le$2000000000，保证 ax$\equiv$1 (mod b) 有解，求最小正整数 x。直接调用 mod\_inverse(a,b)；保证有解等价于 gcd(a,b)=1，且 b$\ge$2，因此归一化结果位于 [1,b−1]，正好是最小正解。b 不必为素数，a 可以大于 b，不能改用费马小定理的幂公式。
+
+所需模板：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-mod_inverse]{mod\_\allowbreak{}inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1082}
+
+\lstinputlisting{usage/example-219.cpp}
 
 \Needspace{344pt}
 
