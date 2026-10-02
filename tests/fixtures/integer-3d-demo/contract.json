@@ -1,0 +1,28 @@
+{
+  "kind": "api",
+  "symbol": "IntegerGeometry3D",
+  "origin": "Custom API demonstration, not an official problem or judge sample",
+  "domain": {
+    "q": [
+      0,
+      200000
+    ],
+    "coordinate": [
+      -1000000000,
+      1000000000
+    ],
+    "degeneracies": "all permitted"
+  },
+  "query": "Four points a,b,c,d; each point has x,y,z integer coordinates",
+  "output": [
+    "exact signed decimal orient(a,b,c,d)",
+    "collinear(a,b,c) as 0 or 1",
+    "on_segment(d,a,b) as 0 or 1"
+  ],
+  "semantics": "Orientation is signed sixfold tetrahedron volume; no integer rounding. Zero means affine dependence and does not guarantee that a,b,c define a unique plane. Segment is closed; a=b is a singleton.",
+  "arithmetic": "For |coordinates|<=B=1e9, differences <=2B, cross components <=8B^2, dot of point differences <=12B^2, orientation and partial sums <=48B^3. No guarantee for arbitrary Vector values, repeated compositions or full signed-64 coordinates. Compare orientation signs against zero, never by multiplying orientations.",
+  "custom_sample": {
+    "input": "6\n0 0 0 1 0 0 0 1 0 0 0 1\n0 0 0 0 1 0 1 0 0 0 0 1\n0 0 0 2 0 0 0 2 0 1 0 0\n3 4 5 3 4 5 3 4 5 3 4 5\n0 0 0 1 0 0 2 0 0 3 0 0\n-1000000000 -1000000000 -1000000000 1000000000 -1000000000 -1000000000 -1000000000 1000000000 -1000000000 -1000000000 -1000000000 1000000000\n",
+    "output": "1 0 0\n-1 0 0\n0 0 1\n0 1 1\n0 1 0\n8000000000000000000000000000 0 0\n"
+  }
+}

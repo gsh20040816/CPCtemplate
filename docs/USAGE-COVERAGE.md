@@ -113,7 +113,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ClosestPair | [example-60](usage/example-60.cpp) | locally_checked_example |
 | closest_pair_i64 | [example-62](usage/example-62.cpp), [example-134](usage/example-134.cpp) | locally_checked_example |
 | minkowski_sum | [example-136（应用补充）](usage/example-136.cpp) | locally_checked_application |
-| IntegerGeometry3D | 待补 | pending_example |
+| IntegerGeometry3D | [example-225（接口演示）](usage/example-225.cpp) | locally_checked_api |
 | LinkCutTree | [example-45](usage/example-45.cpp) | locally_checked_example |
 | TreePathProducts | [example-108（应用补充）](usage/example-108.cpp) | locally_checked_application |
 | OrderedTreap | [example-8](usage/example-8.cpp) | locally_checked_example |

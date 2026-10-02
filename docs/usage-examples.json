@@ -2804,5 +2804,17 @@
     "requires": [
       "GcdSequenceTreap"
     ]
+  },
+  {
+    "id": "example-225",
+    "symbol": "IntegerGeometry3D",
+    "kind": "api",
+    "problem": "自定义整数三维谓词",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/geometry_extra.hpp",
+    "summary": "自定义协议，非OJ题：0≤Q≤200000，每次给a,b,c,d四个整数点，各坐标绝对值≤10^9。输出orient(a,b,c,d)、collinear(a,b,c)、on_segment(d,a,b)，后两项为0/1。第一项是有向六倍体积，用128位整数精确输出，不能整除6后冒充体积；为0也不保证前三点确定唯一平面。允许重复点、退化和闭线段端点。此点域的安全界不扩展到任意Vector参数或反复组合运算。",
+    "driver": "docs/usage-drivers/integer-3d-demo.cpp",
+    "requires": [
+      "IntegerGeometry3D"
+    ]
   }
 ]

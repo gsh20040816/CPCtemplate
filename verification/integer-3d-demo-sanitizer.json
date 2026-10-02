@@ -1,0 +1,635 @@
+{
+  "passed": true,
+  "mode": "sanitizer",
+  "id": "example-225",
+  "kind": "api",
+  "component": "IntegerGeometry3D",
+  "scope": "Custom API protocol; finite local checks, no official problem, online AC or full-suite claim",
+  "created": "2026-10-02T17:58:58.933411+00:00",
+  "modes": [
+    "sanitizer"
+  ],
+  "executions": [
+    {
+      "mode": "sanitizer",
+      "form": "printer_only",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/integer-3d-next/run-m99hmt79/sanitizer-printer_only.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/integer-3d-next/run-m99hmt79/sanitizer-printer_only"
+      ],
+      "completed_cases": 1,
+      "cases": [
+        {
+          "name": "printer-only-int128-boundaries",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "expected_sha256": "df80fbdc9c1b05ffeda9daf30acfc8079fdb361e1ebdb542d576ec9fd82e5876",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printer_only-000.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printer_only-000.stderr",
+          "stdout_sha256": "df80fbdc9c1b05ffeda9daf30acfc8079fdb361e1ebdb542d576ec9fd82e5876",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": "build/integer-3d-next/run-m99hmt79/sanitizer-printer_only.cpp",
+      "source_sha256": "f214af2a13ff4af9c38425a4e281b09a216a164d1a2aaecab2e85552de564ebb",
+      "sanitizer_options": {
+        "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+        "LSAN_OPTIONS": null
+      },
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "binary_sha256": "e49a854c1c28d5a318cc97868a287687787577f6dc6f9a94d390afa61627a7d4",
+      "stdout_sha256": "c4fce0a960af0614a7fe391bdbf86f17059994e2d340e4827432a9842eeed790"
+    },
+    {
+      "mode": "sanitizer",
+      "form": "complete_driver",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/docs/usage-drivers/integer-3d-demo.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver"
+      ],
+      "completed_cases": 7,
+      "cases": [
+        {
+          "name": "custom-sample",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "f3154357ef9ac73db20b6d87bf353677305300aa14c9f5976987cff0e2f53ca9",
+          "expected_sha256": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-000.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-000.stderr",
+          "stdout_sha256": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "zero-queries",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-001.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-001.stderr",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "exhaustive-unit-cube",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "3456032020e62e8fa53e8eeb4aed36ec8e67f18f5c7c3f167457063d4bf0f6b6",
+          "expected_sha256": "fe54e887c6bd8357b8dfbd34e2a7d1c33d0c6e7c700beca418bc08ea90720bb1",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-002.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-002.stderr",
+          "stdout_sha256": "fe54e887c6bd8357b8dfbd34e2a7d1c33d0c6e7c700beca418bc08ea90720bb1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "exhaustive-extreme-cube",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "8807410e59be27546f05c8f187c7d07e99aff903b330d6016882d41984288ff0",
+          "expected_sha256": "d857fe0ed753700e107df2286bda6a258237e5c37cd70b23d58cedfd639ad95d",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-003.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-003.stderr",
+          "stdout_sha256": "d857fe0ed753700e107df2286bda6a258237e5c37cd70b23d58cedfd639ad95d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "degenerate-endpoint-near-singular-permutations",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "d5b7f1e76768f6155f0fe3b440cd4b5dc3b1362cfcb363351a8ffd2d42535bc7",
+          "expected_sha256": "e328d47ca335d7307ded0c184d4a86e2e10267912a9534350d9021a5e2ff4587",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-004.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-004.stderr",
+          "stdout_sha256": "e328d47ca335d7307ded0c184d4a86e2e10267912a9534350d9021a5e2ff4587",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "seeded-random-and-duplicates",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "ccd5391266dfa1ca650c526eb3b8ab3ab73364926bde31ffd2253647c4903017",
+          "expected_sha256": "b9274183d49ac8267567121f55023cf3e3009a3226844395479eb34a47830d79",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-005.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-005.stderr",
+          "stdout_sha256": "b9274183d49ac8267567121f55023cf3e3009a3226844395479eb34a47830d79",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "maximum-q-repeated-exact-pool",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "ba0a5c5cdc9a213041f3d5c2ab8fd69d8f68a06825523b9139169f49b13fab14",
+          "expected_sha256": "656575c3d33e0f31f77109ca75b5d8e460471c5a1712fe04eb7f95bd50f2e35f",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-006.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-complete_driver-006.stderr",
+          "stdout_sha256": "656575c3d33e0f31f77109ca75b5d8e460471c5a1712fe04eb7f95bd50f2e35f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": "docs/usage-drivers/integer-3d-demo.cpp",
+      "source_sha256": "c318b641d503e983506ab424c6cfdc1fd573d86a3da9d9a5c0919219b8ce43ad",
+      "sanitizer_options": {
+        "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+        "LSAN_OPTIONS": null
+      },
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "binary_sha256": "df63535c64ddeb4783b3e38b1fd48fac7a2f3ce1200843bc029e04f7325eecab",
+      "stdout_sha256": "62565a1b8c0f059ce97a2443dbd0de87f228ef29a582cb6fbb5fec31962e5334"
+    },
+    {
+      "mode": "sanitizer",
+      "form": "registered_program",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/integer-3d-next/run-m99hmt79/sanitizer-registered_program.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/integer-3d-next/run-m99hmt79/sanitizer-registered_program"
+      ],
+      "completed_cases": 7,
+      "cases": [
+        {
+          "name": "custom-sample",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "f3154357ef9ac73db20b6d87bf353677305300aa14c9f5976987cff0e2f53ca9",
+          "expected_sha256": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-000.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-000.stderr",
+          "stdout_sha256": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "zero-queries",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-001.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-001.stderr",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "exhaustive-unit-cube",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "3456032020e62e8fa53e8eeb4aed36ec8e67f18f5c7c3f167457063d4bf0f6b6",
+          "expected_sha256": "fe54e887c6bd8357b8dfbd34e2a7d1c33d0c6e7c700beca418bc08ea90720bb1",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-002.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-002.stderr",
+          "stdout_sha256": "fe54e887c6bd8357b8dfbd34e2a7d1c33d0c6e7c700beca418bc08ea90720bb1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "exhaustive-extreme-cube",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "8807410e59be27546f05c8f187c7d07e99aff903b330d6016882d41984288ff0",
+          "expected_sha256": "d857fe0ed753700e107df2286bda6a258237e5c37cd70b23d58cedfd639ad95d",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-003.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-003.stderr",
+          "stdout_sha256": "d857fe0ed753700e107df2286bda6a258237e5c37cd70b23d58cedfd639ad95d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "degenerate-endpoint-near-singular-permutations",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "d5b7f1e76768f6155f0fe3b440cd4b5dc3b1362cfcb363351a8ffd2d42535bc7",
+          "expected_sha256": "e328d47ca335d7307ded0c184d4a86e2e10267912a9534350d9021a5e2ff4587",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-004.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-004.stderr",
+          "stdout_sha256": "e328d47ca335d7307ded0c184d4a86e2e10267912a9534350d9021a5e2ff4587",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "seeded-random-and-duplicates",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "ccd5391266dfa1ca650c526eb3b8ab3ab73364926bde31ffd2253647c4903017",
+          "expected_sha256": "b9274183d49ac8267567121f55023cf3e3009a3226844395479eb34a47830d79",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-005.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-005.stderr",
+          "stdout_sha256": "b9274183d49ac8267567121f55023cf3e3009a3226844395479eb34a47830d79",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "maximum-q-repeated-exact-pool",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "ba0a5c5cdc9a213041f3d5c2ab8fd69d8f68a06825523b9139169f49b13fab14",
+          "expected_sha256": "656575c3d33e0f31f77109ca75b5d8e460471c5a1712fe04eb7f95bd50f2e35f",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-006.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program-006.stderr",
+          "stdout_sha256": "656575c3d33e0f31f77109ca75b5d8e460471c5a1712fe04eb7f95bd50f2e35f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": "build/integer-3d-next/run-m99hmt79/sanitizer-registered_program.cpp",
+      "source_sha256": "68a09bf079d25ab39af05f117b7e93041617cadf04ed90258c6493daeb533868",
+      "sanitizer_options": {
+        "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+        "LSAN_OPTIONS": null
+      },
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "binary_sha256": "e9c462cb59e19ad6838673d40937caa2e135f0fab99e3b7da8cb38ae48827d8c",
+      "stdout_sha256": "62565a1b8c0f059ce97a2443dbd0de87f228ef29a582cb6fbb5fec31962e5334"
+    },
+    {
+      "mode": "sanitizer",
+      "form": "printed_copy",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy"
+      ],
+      "completed_cases": 7,
+      "cases": [
+        {
+          "name": "custom-sample",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "f3154357ef9ac73db20b6d87bf353677305300aa14c9f5976987cff0e2f53ca9",
+          "expected_sha256": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-000.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-000.stderr",
+          "stdout_sha256": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "zero-queries",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-001.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-001.stderr",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "exhaustive-unit-cube",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "3456032020e62e8fa53e8eeb4aed36ec8e67f18f5c7c3f167457063d4bf0f6b6",
+          "expected_sha256": "fe54e887c6bd8357b8dfbd34e2a7d1c33d0c6e7c700beca418bc08ea90720bb1",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-002.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-002.stderr",
+          "stdout_sha256": "fe54e887c6bd8357b8dfbd34e2a7d1c33d0c6e7c700beca418bc08ea90720bb1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "exhaustive-extreme-cube",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "8807410e59be27546f05c8f187c7d07e99aff903b330d6016882d41984288ff0",
+          "expected_sha256": "d857fe0ed753700e107df2286bda6a258237e5c37cd70b23d58cedfd639ad95d",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-003.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-003.stderr",
+          "stdout_sha256": "d857fe0ed753700e107df2286bda6a258237e5c37cd70b23d58cedfd639ad95d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "degenerate-endpoint-near-singular-permutations",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "d5b7f1e76768f6155f0fe3b440cd4b5dc3b1362cfcb363351a8ffd2d42535bc7",
+          "expected_sha256": "e328d47ca335d7307ded0c184d4a86e2e10267912a9534350d9021a5e2ff4587",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-004.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-004.stderr",
+          "stdout_sha256": "e328d47ca335d7307ded0c184d4a86e2e10267912a9534350d9021a5e2ff4587",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "seeded-random-and-duplicates",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "ccd5391266dfa1ca650c526eb3b8ab3ab73364926bde31ffd2253647c4903017",
+          "expected_sha256": "b9274183d49ac8267567121f55023cf3e3009a3226844395479eb34a47830d79",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-005.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-005.stderr",
+          "stdout_sha256": "b9274183d49ac8267567121f55023cf3e3009a3226844395479eb34a47830d79",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "maximum-q-repeated-exact-pool",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "ba0a5c5cdc9a213041f3d5c2ab8fd69d8f68a06825523b9139169f49b13fab14",
+          "expected_sha256": "656575c3d33e0f31f77109ca75b5d8e460471c5a1712fe04eb7f95bd50f2e35f",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-006.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy-006.stderr",
+          "stdout_sha256": "656575c3d33e0f31f77109ca75b5d8e460471c5a1712fe04eb7f95bd50f2e35f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": "build/integer-3d-next/run-m99hmt79/sanitizer-printed_copy.cpp",
+      "source_sha256": "da84299e0ee8ad9696ff403a9c7e4cdcce183ee77b4429b34b312c485c63f86a",
+      "sanitizer_options": {
+        "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+        "LSAN_OPTIONS": null
+      },
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "binary_sha256": "67963af19b2cf3cbb8713b11a67b76fb04046aa1b6d9726b4f0d7ec864c95719",
+      "stdout_sha256": "62565a1b8c0f059ce97a2443dbd0de87f228ef29a582cb6fbb5fec31962e5334"
+    },
+    {
+      "mode": "sanitizer",
+      "form": "separate_core",
+      "compile_command": [
+        "/usr/bin/x86_64-linux-gnu-g++-14",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-fno-omit-frame-pointer",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/tests/integer_3d_demo_core.cpp",
+        "-o",
+        "/workspace/scratch/5a21734ea066/CPCtemplate/build/integer-3d-next/run-m99hmt79/sanitizer-separate_core"
+      ],
+      "completed_cases": 7,
+      "cases": [
+        {
+          "name": "custom-sample",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "f3154357ef9ac73db20b6d87bf353677305300aa14c9f5976987cff0e2f53ca9",
+          "expected_sha256": "c8625a6d1d77403c06db2a106fb8bb03351c99c5a6ffce7a80c55d3e88abe42a",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-000.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-000.stderr",
+          "stdout_sha256": "c8625a6d1d77403c06db2a106fb8bb03351c99c5a6ffce7a80c55d3e88abe42a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "zero-queries",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-001.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-001.stderr",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "exhaustive-unit-cube",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "3456032020e62e8fa53e8eeb4aed36ec8e67f18f5c7c3f167457063d4bf0f6b6",
+          "expected_sha256": "c888e75c9729146b5190cf40c6615cd0509b89329513c999e1374f1384e3eb44",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-002.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-002.stderr",
+          "stdout_sha256": "c888e75c9729146b5190cf40c6615cd0509b89329513c999e1374f1384e3eb44",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "exhaustive-extreme-cube",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "8807410e59be27546f05c8f187c7d07e99aff903b330d6016882d41984288ff0",
+          "expected_sha256": "c2940c347ffae048dd76da96e9473b4afd41023cc3332105a4858925f7c4a62d",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-003.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-003.stderr",
+          "stdout_sha256": "c2940c347ffae048dd76da96e9473b4afd41023cc3332105a4858925f7c4a62d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "degenerate-endpoint-near-singular-permutations",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "d5b7f1e76768f6155f0fe3b440cd4b5dc3b1362cfcb363351a8ffd2d42535bc7",
+          "expected_sha256": "8782b48a55986d1a84f6fc0f6f35095d7c5ba856229c5f858eaf380e080b4b77",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-004.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-004.stderr",
+          "stdout_sha256": "8782b48a55986d1a84f6fc0f6f35095d7c5ba856229c5f858eaf380e080b4b77",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "seeded-random-and-duplicates",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "ccd5391266dfa1ca650c526eb3b8ab3ab73364926bde31ffd2253647c4903017",
+          "expected_sha256": "83baade297c661092a58b99e088d4c616a0a37f4798a69425eb5e22a4ad41dcf",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-005.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-005.stderr",
+          "stdout_sha256": "83baade297c661092a58b99e088d4c616a0a37f4798a69425eb5e22a4ad41dcf",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "maximum-q-repeated-exact-pool",
+          "passed": true,
+          "returncode": 0,
+          "input_sha256": "ba0a5c5cdc9a213041f3d5c2ab8fd69d8f68a06825523b9139169f49b13fab14",
+          "expected_sha256": "21beb3bb90847ef52e91345c61e83c5c2c98ca1122e3f13ea967285ebb00fcc8",
+          "stdout_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-006.stdout",
+          "stderr_file": "build/integer-3d-next/run-m99hmt79/sanitizer-separate_core-006.stderr",
+          "stdout_sha256": "21beb3bb90847ef52e91345c61e83c5c2c98ca1122e3f13ea967285ebb00fcc8",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "source": "tests/integer_3d_demo_core.cpp",
+      "source_sha256": "aaed42f808f6702c52609ebaa0698a728fedd73992ff1c3523b666e158d89137",
+      "sanitizer_options": {
+        "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+        "LSAN_OPTIONS": null
+      },
+      "compile": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "binary_sha256": "5dbd8615c2052d336b4336b34895e990fa461778b137e17c80ba1e3aa8691188",
+      "stdout_sha256": "44a6b5dbc9f6eb9085516e82d93d1dc5f71879e99c20a17959afe816a535954a"
+    }
+  ],
+  "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "pie": "compiler default",
+  "quarantine": "ASan default",
+  "oracle": "Python arbitrary-precision 4x4 permutation determinant, pairwise minors, coordinate-box segment; primitive polarization dot and minors; cached exact maximum-Q pool",
+  "before": {
+    "source_sha256": {
+      "docs/usage/example-225.cpp": "9ea93c367ba8e5393f34ad718aad5b596b86dcd26d4184ea233e6863fbeb749a",
+      "docs/usage-drivers/integer-3d-demo.cpp": "c318b641d503e983506ab424c6cfdc1fd573d86a3da9d9a5c0919219b8ce43ad",
+      "src/compact/closest_pair_i64.hpp": "c6288422363e7a50d2b0e63be083498b086530258664a0b63a732fa73539c5d1",
+      "src/compact/convex_contains_i64.hpp": "15960cd889907514c6d723704984023a23757c7a0c7ae8ddd0c80692a5236612",
+      "src/compact/convex_diameter2.hpp": "efc6712df07016a5e82db1a512e9a4bdf776bb240e58b37ed2947d81ca8f957f",
+      "src/compact/geometry_extra.hpp": "4c5bcc4c0a8818d40fb5eda60e5a701fcc09c134b032558c2f869ab0ef7a69f4",
+      "src/compact/integer_geometry.hpp": "144d171b3139b4b8d84f7e47678ccb4c5ce343d4daab7f8753333ed53e0fa041",
+      "src/compact/integer_hull.hpp": "93009007e660a92fd56d424a280b93ff016f311667b9d67e24c63951ca157630",
+      "src/compact/integer_plane.hpp": "019023dc3d1f4de34aaa376613d131be8991d55624a9591e3d09f07d1862a482",
+      "src/compact/minkowski_sum.hpp": "6bf059f8dcdb5e4e348c8ca91b8ef2148d2f586b5ddd079ee0e38efedbfd55b4",
+      "src/compact/polygon_area2.hpp": "5aaa1196bbe9937293fbaa943f38f724f76ba3b8c4c8f41cf05719923ad9ff03",
+      "src/compact/polygon_contains.hpp": "73f9cba056bdcdc340b6870e249b2a7551989dcef270bfc3716608e17781c457",
+      "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+      "tests/fixtures/integer-3d-demo/README.md": "07447326e620bd0df1be298437d196e4f43d31bbce538fd2959729bbd589eee4",
+      "tests/fixtures/integer-3d-demo/contract.json": "ab90c5bfbe8382362ab0f3b55c45ba0150d0dd61f788ce1bf219d04a4a15e45f",
+      "tests/fixtures/integer-3d-demo/sample.in": "f3154357ef9ac73db20b6d87bf353677305300aa14c9f5976987cff0e2f53ca9",
+      "tests/fixtures/integer-3d-demo/sample.out": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+      "tests/integer_3d_demo.py": "d6afc22274278d7a12e77b9cf3b44deb44557bb72ee598c28994939d0e0ef7d4",
+      "tests/integer_3d_demo_core.cpp": "aaed42f808f6702c52609ebaa0698a728fedd73992ff1c3523b666e158d89137",
+      "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338"
+    },
+    "selected_metadata": {
+      "registration": {
+        "id": "example-225",
+        "symbol": "IntegerGeometry3D",
+        "kind": "api",
+        "problem": "\u81ea\u5b9a\u4e49\u6574\u6570\u4e09\u7ef4\u8c13\u8bcd",
+        "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/geometry_extra.hpp",
+        "summary": "\u81ea\u5b9a\u4e49\u534f\u8bae\uff0c\u975eOJ\u9898\uff1a0\u2264Q\u2264200000\uff0c\u6bcf\u6b21\u7ed9a,b,c,d\u56db\u4e2a\u6574\u6570\u70b9\uff0c\u5404\u5750\u6807\u7edd\u5bf9\u503c\u226410^9\u3002\u8f93\u51faorient(a,b,c,d)\u3001collinear(a,b,c)\u3001on_segment(d,a,b)\uff0c\u540e\u4e24\u9879\u4e3a0/1\u3002\u7b2c\u4e00\u9879\u662f\u6709\u5411\u516d\u500d\u4f53\u79ef\uff0c\u7528128\u4f4d\u6574\u6570\u7cbe\u786e\u8f93\u51fa\uff0c\u4e0d\u80fd\u6574\u96646\u540e\u5192\u5145\u4f53\u79ef\uff1b\u4e3a0\u4e5f\u4e0d\u4fdd\u8bc1\u524d\u4e09\u70b9\u786e\u5b9a\u552f\u4e00\u5e73\u9762\u3002\u5141\u8bb8\u91cd\u590d\u70b9\u3001\u9000\u5316\u548c\u95ed\u7ebf\u6bb5\u7aef\u70b9\u3002\u6b64\u70b9\u57df\u7684\u5b89\u5168\u754c\u4e0d\u6269\u5c55\u5230\u4efb\u610fVector\u53c2\u6570\u6216\u53cd\u590d\u7ec4\u5408\u8fd0\u7b97\u3002",
+        "driver": "docs/usage-drivers/integer-3d-demo.cpp",
+        "requires": [
+          "IntegerGeometry3D"
+        ]
+      },
+      "catalog": [
+        "geometry_extra",
+        "IntegerGeometry3D",
+        "\u6574\u6570\u4e09\u7ef4\u5171\u7ebf\u3001\u5171\u9762\u4e0e\u65b9\u5411",
+        "\u5750\u6807\u7edd\u5bf9\u503c\u226410\u2079\uff1borient(a,b,c,d) \u4e3a\u6709\u5411\u516d\u500d\u56db\u9762\u4f53\u4f53\u79ef\uff0c0 \u8868\u793a\u5171\u9762\uff1bcollinear \u5224\u4e09\u70b9\u5171\u7ebf\uff0con_segment \u652f\u6301\u9000\u5316\u7ebf\u6bb5\u3002int128 \u7cbe\u786e\u5224\u5b9a\uff0c\u4e0d\u5305\u542b\u4e09\u7ef4\u51f8\u5305\u6784\u9020\u3002"
+      ]
+    },
+    "selected_metadata_sha256": "4cc4dde78fd3ad3fbfa5cefe43b715c0ca57b4ff9221b14fca8ba01c90b26331",
+    "compiler_executable": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "frontend_executable": "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus",
+    "frontend_sha256": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948"
+  },
+  "program_sha256": "68a09bf079d25ab39af05f117b7e93041617cadf04ed90258c6493daeb533868",
+  "printed_snippet_sha256": "9ea93c367ba8e5393f34ad718aad5b596b86dcd26d4184ea233e6863fbeb749a",
+  "printed_context": {
+    "symbol": "IntegerGeometry3D",
+    "path": "src/compact/geometry_extra.hpp",
+    "source_sha256": "4c5bcc4c0a8818d40fb5eda60e5a701fcc09c134b032558c2f869ab0ef7a69f4",
+    "context_sha256": "9aab0299d1559f90421469ac71dd1edcc8feaa18787c0497f4577110ca136c47"
+  },
+  "cases_file": "build/integer-3d-next/run-m99hmt79/cases.jsonl",
+  "cases_sha256": "b2aed25d7fbfef0ad3a7ea0b9380161617616fd61370bca55fd6587cc1749c38",
+  "case_count_per_form": 7,
+  "queries_per_form": 215542,
+  "maximum_q": 200000,
+  "domain": {
+    "q": [
+      0,
+      200000
+    ],
+    "coordinate": [
+      -1000000000,
+      1000000000
+    ],
+    "degeneracies": "all permitted"
+  },
+  "after": {
+    "source_sha256": {
+      "docs/usage/example-225.cpp": "9ea93c367ba8e5393f34ad718aad5b596b86dcd26d4184ea233e6863fbeb749a",
+      "docs/usage-drivers/integer-3d-demo.cpp": "c318b641d503e983506ab424c6cfdc1fd573d86a3da9d9a5c0919219b8ce43ad",
+      "src/compact/closest_pair_i64.hpp": "c6288422363e7a50d2b0e63be083498b086530258664a0b63a732fa73539c5d1",
+      "src/compact/convex_contains_i64.hpp": "15960cd889907514c6d723704984023a23757c7a0c7ae8ddd0c80692a5236612",
+      "src/compact/convex_diameter2.hpp": "efc6712df07016a5e82db1a512e9a4bdf776bb240e58b37ed2947d81ca8f957f",
+      "src/compact/geometry_extra.hpp": "4c5bcc4c0a8818d40fb5eda60e5a701fcc09c134b032558c2f869ab0ef7a69f4",
+      "src/compact/integer_geometry.hpp": "144d171b3139b4b8d84f7e47678ccb4c5ce343d4daab7f8753333ed53e0fa041",
+      "src/compact/integer_hull.hpp": "93009007e660a92fd56d424a280b93ff016f311667b9d67e24c63951ca157630",
+      "src/compact/integer_plane.hpp": "019023dc3d1f4de34aaa376613d131be8991d55624a9591e3d09f07d1862a482",
+      "src/compact/minkowski_sum.hpp": "6bf059f8dcdb5e4e348c8ca91b8ef2148d2f586b5ddd079ee0e38efedbfd55b4",
+      "src/compact/polygon_area2.hpp": "5aaa1196bbe9937293fbaa943f38f724f76ba3b8c4c8f41cf05719923ad9ff03",
+      "src/compact/polygon_contains.hpp": "73f9cba056bdcdc340b6870e249b2a7551989dcef270bfc3716608e17781c457",
+      "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
+      "tests/fixtures/integer-3d-demo/README.md": "07447326e620bd0df1be298437d196e4f43d31bbce538fd2959729bbd589eee4",
+      "tests/fixtures/integer-3d-demo/contract.json": "ab90c5bfbe8382362ab0f3b55c45ba0150d0dd61f788ce1bf219d04a4a15e45f",
+      "tests/fixtures/integer-3d-demo/sample.in": "f3154357ef9ac73db20b6d87bf353677305300aa14c9f5976987cff0e2f53ca9",
+      "tests/fixtures/integer-3d-demo/sample.out": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+      "tests/integer_3d_demo.py": "d6afc22274278d7a12e77b9cf3b44deb44557bb72ee598c28994939d0e0ef7d4",
+      "tests/integer_3d_demo_core.cpp": "aaed42f808f6702c52609ebaa0698a728fedd73992ff1c3523b666e158d89137",
+      "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338"
+    },
+    "selected_metadata": {
+      "registration": {
+        "id": "example-225",
+        "symbol": "IntegerGeometry3D",
+        "kind": "api",
+        "problem": "\u81ea\u5b9a\u4e49\u6574\u6570\u4e09\u7ef4\u8c13\u8bcd",
+        "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/geometry_extra.hpp",
+        "summary": "\u81ea\u5b9a\u4e49\u534f\u8bae\uff0c\u975eOJ\u9898\uff1a0\u2264Q\u2264200000\uff0c\u6bcf\u6b21\u7ed9a,b,c,d\u56db\u4e2a\u6574\u6570\u70b9\uff0c\u5404\u5750\u6807\u7edd\u5bf9\u503c\u226410^9\u3002\u8f93\u51faorient(a,b,c,d)\u3001collinear(a,b,c)\u3001on_segment(d,a,b)\uff0c\u540e\u4e24\u9879\u4e3a0/1\u3002\u7b2c\u4e00\u9879\u662f\u6709\u5411\u516d\u500d\u4f53\u79ef\uff0c\u7528128\u4f4d\u6574\u6570\u7cbe\u786e\u8f93\u51fa\uff0c\u4e0d\u80fd\u6574\u96646\u540e\u5192\u5145\u4f53\u79ef\uff1b\u4e3a0\u4e5f\u4e0d\u4fdd\u8bc1\u524d\u4e09\u70b9\u786e\u5b9a\u552f\u4e00\u5e73\u9762\u3002\u5141\u8bb8\u91cd\u590d\u70b9\u3001\u9000\u5316\u548c\u95ed\u7ebf\u6bb5\u7aef\u70b9\u3002\u6b64\u70b9\u57df\u7684\u5b89\u5168\u754c\u4e0d\u6269\u5c55\u5230\u4efb\u610fVector\u53c2\u6570\u6216\u53cd\u590d\u7ec4\u5408\u8fd0\u7b97\u3002",
+        "driver": "docs/usage-drivers/integer-3d-demo.cpp",
+        "requires": [
+          "IntegerGeometry3D"
+        ]
+      },
+      "catalog": [
+        "geometry_extra",
+        "IntegerGeometry3D",
+        "\u6574\u6570\u4e09\u7ef4\u5171\u7ebf\u3001\u5171\u9762\u4e0e\u65b9\u5411",
+        "\u5750\u6807\u7edd\u5bf9\u503c\u226410\u2079\uff1borient(a,b,c,d) \u4e3a\u6709\u5411\u516d\u500d\u56db\u9762\u4f53\u4f53\u79ef\uff0c0 \u8868\u793a\u5171\u9762\uff1bcollinear \u5224\u4e09\u70b9\u5171\u7ebf\uff0con_segment \u652f\u6301\u9000\u5316\u7ebf\u6bb5\u3002int128 \u7cbe\u786e\u5224\u5b9a\uff0c\u4e0d\u5305\u542b\u4e09\u7ef4\u51f8\u5305\u6784\u9020\u3002"
+      ]
+    },
+    "selected_metadata_sha256": "4cc4dde78fd3ad3fbfa5cefe43b715c0ca57b4ff9221b14fca8ba01c90b26331",
+    "compiler_executable": "/usr/bin/x86_64-linux-gnu-g++-14",
+    "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+    "frontend_executable": "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus",
+    "frontend_sha256": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948"
+  },
+  "source_unchanged": true
+}
