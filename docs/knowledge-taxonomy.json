@@ -9,15 +9,16 @@
       "docs/knowledge-mobius.tex",
       "docs/knowledge-orbits.tex",
       "docs/knowledge-lte.tex",
-      "docs/knowledge-lagrange.tex"
+      "docs/knowledge-lagrange.tex",
+      "docs/knowledge-state-recurrence.tex"
     ],
-    "classified_section_count": 17,
+    "classified_section_count": 18,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类六份 knowledge 源文件的17个带标签节，其中LTE与Lagrange反演为新增知识正文。该登记本身只做分类，不计新增算法或OJ覆盖。mathematics.tex的其余历史知识节尚未逐项分类，保留为附录；不代表issue #5/#7已全量完成。"
+    "note": "仅分类七份 knowledge 源文件的18个带标签节，其中LTE、Lagrange反演与有限状态递推为新增知识正文。该登记本身只做分类，不计新增算法或OJ覆盖。mathematics.tex的其余历史知识节尚未逐项分类，保留为附录；不代表issue #5/#7已全量完成。"
   },
   "entries": [
     {
@@ -201,6 +202,19 @@
       ],
       "relation": "direct",
       "note": "隐式生成函数的Lagrange反演、形式留数证明、两类树的计数模型及模数条件；只补知识，不新增通用FPS复合或复合逆实现覆盖。",
+      "page_break_before": true
+    },
+    {
+      "label": "knowledge-state-recurrence",
+      "source": "docs/knowledge-state-recurrence.tex",
+      "path": "math/linear-algebra/char-poly.md",
+      "additional": [
+        "math/berlekamp-massey.md",
+        "math/poly/linear-recurrence.md",
+        "math/linear-algebra/matrix.md"
+      ],
+      "relation": "composite",
+      "note": "固定有限状态计数经Cayley–Hamilton得到标量递推阶数上界，再以前2d项恢复和求远项；包含模型、证明、接口成本及边界，不新增特征多项式或矩阵最小多项式实现覆盖。",
       "page_break_before": true
     }
   ]

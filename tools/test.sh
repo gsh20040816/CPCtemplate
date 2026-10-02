@@ -33,6 +33,8 @@ python3 tests/knowledge_taxonomy.py
 python3 tests/lte_knowledge.py
 python3 tests/lagrange_knowledge.py
 python3 tests/lagrange_fps_usage.py
+python3 tests/state_recurrence_knowledge.py
+python3 tests/state_recurrence_snippet.py
 python3 tests/ordered_splay_pagination.py
 python3 tests/joint_usage_references.py
 python3 tests/copy_prerequisite_order.py
