@@ -22,6 +22,7 @@ SOURCE_FILES = (
     'docs/knowledge-lagrange.tex',
     'docs/knowledge-state-recurrence.tex',
     'docs/knowledge-inclusion.tex',
+    'docs/knowledge-floor-sums.tex',
 )
 SECTION = re.compile(r'(?m)(?=^\\section\{)')
 LABEL = re.compile(r'\\label\{(knowledge-[^}]+)\}')
@@ -64,7 +65,7 @@ def source_sections(sources):
             # from its title or incidental references in the body.
             assert LABEL.search(fragment.split('\n', 1)[0]), (source, label)
             sections[label] = source
-    assert len(sections) == 19, ('bounded knowledge section count', len(sections))
+    assert len(sections) == 21, ('bounded knowledge section count', len(sections))
     return sections
 
 
@@ -75,7 +76,7 @@ def validate(data, taxonomy, sources):
     scope = data['scope']
     assert len(scope['source_files']) == len(set(scope['source_files']))
     assert set(scope['source_files']) == set(SOURCE_FILES) == set(sources)
-    assert scope['classified_section_count'] == 19
+    assert scope['classified_section_count'] == 21
     assert scope['legacy_source'] == 'docs/mathematics.tex'
     assert scope['legacy_sections_classified'] is False
     assert scope['classification_only'] is True
@@ -127,8 +128,8 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
                          self.data['reference_source_sha256'])
         self.assertEqual(pinned_navigation(source.read_text()), self.taxonomy['navigation'])
 
-    def test_all_nineteen_sections_have_one_known_primary_leaf(self):
-        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 19)
+    def test_all_registered_sections_have_one_known_primary_leaf(self):
+        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 21)
         observed = {path.relative_to(ROOT).as_posix()
                     for path in (ROOT / 'docs').glob('knowledge-*.tex')}
         self.assertEqual(observed, set(SOURCE_FILES), 'new source needs explicit classification')

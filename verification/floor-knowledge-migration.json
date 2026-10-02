@@ -1,0 +1,39 @@
+{
+  "scope": "One-time lossless extraction of two historical sections, except seven explicit label/link/domain substitutions; no algorithm or OJ claim",
+  "original_base_commit": "4df4e2b5c1edbd146168b9cae6767ef05d67e2d6",
+  "original_math_source_sha256": "5a6d804fa953183bab095617a97e285cf25cbb32b896739365d6cb430c4496fd",
+  "migrated_math_source_sha256": "4f6c06322e65bd7250f934d9f7f89347b1ef2c1e7fbe3726fe58c9e40a0857e9",
+  "original_sections_sha256": "f9a73d81abc9616183657243d5a61db42623bac0b7625912333613c28f627c15",
+  "new_knowledge_source_sha256": "06ffe4994cd8b6853aab16db072d7e450270cb10ba71fedad24523211356a60d",
+  "unchanged_remainder_sha256": "cdafc2a83d02283955c41d403781cd6cfae4274c9923bdd5fe9a1d610a723677",
+  "substitutions": [
+    {
+      "old": "\\section{类欧几里德：有符号整除求和}",
+      "new": "\\section{类欧几里德：有符号整除求和}\\label{knowledge-floor-sum}"
+    },
+    {
+      "old": "\\texttt{floor\\_sum(n,m,a,b)} 返回",
+      "new": "接口见第~\\ref{compact-floor_sum}~节（第~\\pageref{compact-floor_sum}~页）。\n\\texttt{floor\\_sum(n,m,a,b)} 返回"
+    },
+    {
+      "old": "\\section{类欧几里德的三个求和量}",
+      "new": "\\section{类欧几里德的三个求和量}\\label{knowledge-floor-moments}"
+    },
+    {
+      "old": "实现见第~\\pageref{compact-floor_moments}~页。令",
+      "new": "实现见第~\\ref{compact-floor_moments}~节（第~\\pageref{compact-floor_moments}~页）。令"
+    },
+    {
+      "old": "结果固定模 $998244353$，不要更换模数却保留 2、6 的逆元常数。",
+      "new": "范围为 $0\\le n\\le1000000001$、$1\\le m\\le10^9$，$a,b$ 支持完整有符号64位。\n空和 $n=0$ 直接返回 $(0,0,0)$；下述含 $n-1$ 的高度递推只在 $n\\ge1$ 时使用。\n结果固定模 $998244353$，不要更换模数却保留 2、6 的逆元常数。"
+    },
+    {
+      "old": "完整输入输出见第~\\pageref{usage-example-157}~页；",
+      "new": "P5170 完整输入输出见第~\\ref{usage-example-157}~节（第~\\pageref{usage-example-157}~页）；"
+    },
+    {
+      "old": "第一结果另与独立接口 \\texttt{floor\\_sum} 交叉核对。",
+      "new": "仅在两个接口的共同范围 $n\\le10^9$ 内，第一结果另与独立接口 \\texttt{floor\\_sum} 交叉核对。"
+    }
+  ]
+}

@@ -11,15 +11,16 @@
       "docs/knowledge-lte.tex",
       "docs/knowledge-lagrange.tex",
       "docs/knowledge-state-recurrence.tex",
-      "docs/knowledge-inclusion.tex"
+      "docs/knowledge-inclusion.tex",
+      "docs/knowledge-floor-sums.tex"
     ],
-    "classified_section_count": 19,
+    "classified_section_count": 21,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类八份 knowledge 源文件的19个带标签节，其中LTE、Lagrange反演、有限状态递推与广义容斥为新增知识正文。该登记本身只做分类，不计新增算法或OJ覆盖。mathematics.tex的其余历史知识节尚未逐项分类，保留为附录；不代表issue #5/#7已全量完成。"
+    "note": "仅分类九份knowledge源文件的21个带标签节；其中类欧几里德两节从原附录迁移，保留既有推导与历史验证描述并补清引用/边界。分类本身不计新增算法或OJ覆盖；mathematics.tex的其余历史知识节仍未逐项分类，不代表issue #5/#7全量完成。"
   },
   "entries": [
     {
@@ -228,6 +229,24 @@
       ],
       "relation": "direct",
       "note": "交集和的重数统计、恰好/至少反演及证明、变换方向、空盒模型和现有ModInt/Binomial调用；不新增算法或官方模板题覆盖。",
+      "page_break_before": true
+    },
+    {
+      "label": "knowledge-floor-sum",
+      "source": "docs/knowledge-floor-sums.tex",
+      "path": "math/number-theory/euclidean.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "有符号规范化、格点交换及基本floor_sum范围；从原附录迁移，不新增实现或验证范围。",
+      "page_break_before": true
+    },
+    {
+      "label": "knowledge-floor-moments",
+      "source": "docs/knowledge-floor-sums.tex",
+      "path": "math/number-theory/euclidean.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "三个整除矩的归一化与高度递推、空和及P5170索引约定；原历史验证保留，不扩展到任意高次矩。",
       "page_break_before": true
     }
   ]
