@@ -7,15 +7,16 @@
       "docs/knowledge-combinatorics.tex",
       "docs/knowledge-probability-games.tex",
       "docs/knowledge-mobius.tex",
-      "docs/knowledge-orbits.tex"
+      "docs/knowledge-orbits.tex",
+      "docs/knowledge-lte.tex"
     ],
-    "classified_section_count": 15,
+    "classified_section_count": 16,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类四份 knowledge 源文件的 15 个带标签节。mathematics.tex 的其余历史知识节尚未逐项分类，保留为附录；不代表 issue #5/#7 已全量完成。"
+    "note": "仅分类五份 knowledge 源文件的16个带标签节，其中LTE为新增知识正文。该登记本身只做分类，不计新增算法或OJ覆盖。mathematics.tex的其余历史知识节尚未逐项分类，保留为附录；不代表issue #5/#7已全量完成。"
   },
   "entries": [
     {
@@ -175,6 +176,15 @@
       ],
       "relation": "application",
       "note": "轨道数的群阶除法应用：不可逆时先提升模数再整除；模算术和逆元仅是关联条件，示例并非新增通用算法。"
+    },
+    {
+      "label": "knowledge-lte",
+      "source": "docs/knowledge-lte.tex",
+      "path": "math/number-theory/lift-the-exponent.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "整数素因子赋值、奇素数与2的LTE条件、约公因子、证明和整除应用；不代表完整p进数理论或新增算法实现。",
+      "page_break_before": true
     }
   ]
 }

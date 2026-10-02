@@ -26,6 +26,10 @@ def classified_fragments():
     for entry in mapping['entries']:
         source, fragment = fragments[entry['label']]
         assert source == entry['source']
+        page_break = entry.get('page_break_before', False)
+        assert isinstance(page_break, bool), (entry['label'], 'invalid page break')
+        if page_break:
+            fragment = '\\newpage\n' + fragment
         item = dict(nav[entry['path']], relation='direct', note=entry['note'])
         rows.append(dict(symbol=entry['label'], latex=fragment, code='',
                          taxonomy=item, knowledge=True))

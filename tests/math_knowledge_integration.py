@@ -23,7 +23,7 @@ volume = (ROOT / 'docs/volume-mathematics.tex').read_text()
 labels = set(re.findall(r'\\label\{([^}]+)\}', volume))
 knowledge_labels = []
 for filename in ('knowledge-combinatorics.tex', 'knowledge-probability-games.tex',
-                 'knowledge-mobius.tex', 'knowledge-orbits.tex'):
+                 'knowledge-mobius.tex', 'knowledge-orbits.tex', 'knowledge-lte.tex'):
     assert math.count(r'\input{' + filename + '}') == 1, filename
     content = (ROOT / 'docs' / filename).read_text()
     # Only heading levels change; all authored mathematical text is preserved.
@@ -47,7 +47,9 @@ for filename in ('knowledge-combinatorics.tex', 'knowledge-probability-games.tex
             assert r'\pageref{' + target + '}' in content, (target, 'missing page')
     assert r'\chapter{' not in content, filename
 assert len(knowledge_labels) == len(set(knowledge_labels))
-assert len(knowledge_labels) == 15
+assert len(knowledge_labels) == 16
+for rendered in (omnibus, volume):
+    assert r'\newpage' + '\n\n' + r'\section{升幂引理}' in rendered, 'LTE page break must precede taxonomy heading'
 for label in knowledge_labels:
     assert volume.count(r'\label{' + label + '}') == 1, label
     assert omnibus.count(r'\label{' + label + '}') == 1, label

@@ -1,0 +1,85 @@
+{
+  "scope": "Finite exact-integer checks; mathematical proof and hypotheses are in the knowledge text. No C++ runtime, sanitizer or online AC claim.",
+  "passed": true,
+  "checked_at": "2026-10-02T12:58:41.626887+00:00",
+  "domains": {
+    "a_b": [
+      1,
+      24
+    ],
+    "n": [
+      1,
+      18
+    ],
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43
+    ],
+    "arithmetic_x_y": [
+      1,
+      64
+    ]
+  },
+  "checks": {
+    "two_adic_odd_sum": 1296,
+    "two_adic_even_sum": 1296,
+    "unequal_common_factor_difference_and_sum": 21960,
+    "odd_prime_odd_sum": 4842,
+    "equal_common_factor_difference_and_sum": 117144,
+    "two_adic_odd_difference": 1188,
+    "two_adic_even_difference": 1188,
+    "odd_prime_difference": 5796,
+    "valuation_arithmetic": 57344,
+    "zero_rejected": 1,
+    "minimum_exponent_examples": 17,
+    "documented_seven_power_divisibility": 144
+  },
+  "hypothesis_counterexamples": [
+    {
+      "reason": "documented nonunit p=3,a=6,b=3,n=2",
+      "actual": 3,
+      "invalid_formula": 1
+    },
+    {
+      "reason": "nonunit a,b: p=3,a=6,b=3,n=3",
+      "actual": 3,
+      "invalid_formula": 2
+    },
+    {
+      "reason": "p does not divide difference: p=3,a=2,b=1,n=2",
+      "actual": 1,
+      "invalid_formula": 0
+    },
+    {
+      "reason": "odd-prime formula used at2: a=3,b=1,n=2",
+      "actual": 3,
+      "invalid_formula": 2
+    },
+    {
+      "reason": "even exponent used in odd-prime sum: p=3,a=2,b=1,n=2",
+      "actual": 0,
+      "invalid_formula": 1
+    },
+    {
+      "reason": "composite base9: a=28,b=1,n=3",
+      "actual": 2,
+      "invalid_formula": 1
+    }
+  ],
+  "sources": {
+    "tests/lte_knowledge.py": "4a6bf765219eed2a420eda566c48e981f9fa00d0181a3110178ea8578553823a",
+    "docs/knowledge-lte.tex": "8198524b77b0453d961db06a0bbf830d56ac12ec5deb47d0c7e5f8b411ede691"
+  }
+}
