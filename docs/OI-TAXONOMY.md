@@ -114,6 +114,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | WaveletMatrix | 数据结构 → 划分树 | related | 小波矩阵使用逐位稳定划分和压位rank，解决静态区间顺序统计；在固定导航的划分树下按相关结构收录，不等同于原文划分树实现。 |
 | ost | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
 | rp | 数据结构 → 二叉搜索树 & 平衡树 → 二叉搜索树 & 平衡树 | application | 按用户 issue #8 明确要求放在平衡树板块，覆盖之前的默认 OI Wiki 归属。 |
+| AffineSequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct | 动态隐式Treap，模意义仿射修改与区间和；既有整数SequenceTreap不变 |
 | GcdSequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | OrderedTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | SequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |

@@ -3945,11 +3945,79 @@ insert(k,value) 在前 k 个元素后插入，0$\le$k$\le$size()；区间接口 
 
 \lstinputlisting{usage/example-109.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\subsection{动态仿射序列：插删、翻转与区间和}\label{compact-AffineSequenceTreap}\index{AffineSequenceTreap}
+
+代码依赖：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+AffineSequenceTreap<mod>，默认模数998244353，正int模数也可为1或合数，不做除法。insert(k,x)在前k项后插入；erase、reverse、affine、query均用1-based非空闭区间，affine(l,r,b,c)令值变为b*x+c，乘数0合法。query返回ModInt，values递归导出序列；二者会改变内部标记或树形，不保证并发读。新标记复合为(b*mul,b*add+c)，不能颠倒；顺序反转与统一仿射可交换。沿用递归split/merge，逐项构造期望O(N log(N+1))，操作期望O(log(n+1))、最坏O(n)，values为O(n)。固定种子可复现但无对抗最坏保证。删除不回收，空间按累计插入计；节点索引、大小须在int内。可reserve但不影响正确性；辅助函数及节点数组仅供内部使用。
+
+\lstinputlisting[firstline=9,lastline=44,firstnumber=1]{../src/compact/affine_sequence.hpp}
+
+\newpage
+
+\noindent 反转、仿射下传与递归分裂（接上页同一结构体）：
+
+\lstinputlisting[firstline=45,lastline=91,firstnumber=37]{../src/compact/affine_sequence.hpp}
+
+\newpage
+
+\noindent 合并、插入与删除（接上页同一结构体）：
+
+\lstinputlisting[firstline=92,lastline=132,firstnumber=84]{../src/compact/affine_sequence.hpp}
+
+\newpage
+
+\noindent 区间操作与递归输出（接上页同一结构体）：
+
+\lstinputlisting[firstline=133,lastline=173,firstnumber=125]{../src/compact/affine_sequence.hpp}
+
+\Needspace{624pt}
+
+\subsection*{模板题使用：Library Checker Dynamic Sequence Range Affine Range Sum}
+
+\label{usage-example-214}
+
+题意：维护模998244353的动态序列，支持按位置插入、删除单项、顺序翻转、仿射修改和区间和。初始长度与操作数各至多500000，乘数可以为0。题目区间为0-based半开，转成模板的闭区间[l+1,r]；插入位置不偏移，删除位置加1。预留N+Q+1个节点，删除不回收。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-AffineSequenceTreap]{AffineSequenceTreap}（第~\pageref{compact-AffineSequenceTreap}~页，\ref{compact-AffineSequenceTreap}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum}
+
+\lstinputlisting{usage/example-214.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{650pt}
+
 \subsection{状态序列 Treap：分组区间 GCD}\label{compact-GcdSequenceTreap}\index{GcdSequenceTreap}
 
 build(v) 用数值与状态组成的序列替换当前内容。数值为无符号 64 位，状态为 0 或 1。insert(k,value,tag) 在前 k 项后插入。erase(l,r)、query(l,r,tag) 使用 1-based 非空闭区间；set(k,value) 修改值，toggle(k) 翻转状态。query 返回选中状态的 GCD，无对应元素为 nullopt，实际全零则返回 0。回收删除节点，空间按峰值长度计算。建树 O(n) 次 GCD，随机优先级下单次期望 O(log n) 次 GCD；删除另需 O(删除长度) 回收。一次 GCD 为 O(log U)。覆盖 kuangbin 3.7 的序列操作，尚无该原题 OJ 记录。建树后的聚合与删除节点回收均使用递归遍历；笛卡尔树的构造单调栈保留。
 
-\lstinputlisting[firstline=10,lastline=195]{../src/compact/gcd_sequence.hpp}
+\lstinputlisting[firstline=10,lastline=53,firstnumber=1]{../src/compact/gcd_sequence.hpp}
+
+\newpage
+
+\noindent 聚合与递归分裂合并（接上页同一结构体）：
+
+\lstinputlisting[firstline=54,lastline=101,firstnumber=45]{../src/compact/gcd_sequence.hpp}
+
+\newpage
+
+\noindent 构建、重算与节点回收（接上页同一结构体）：
+
+\lstinputlisting[firstline=102,lastline=141,firstnumber=93]{../src/compact/gcd_sequence.hpp}
+
+\newpage
+
+\noindent 插删、单点修改与分组查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=142,lastline=195,firstnumber=133]{../src/compact/gcd_sequence.hpp}
 
 \Needspace{180pt}
 

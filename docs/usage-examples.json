@@ -2654,5 +2654,18 @@
     "configuration_functions": [
       "conv"
     ]
+  },
+  {
+    "id": "example-214",
+    "symbol": "AffineSequenceTreap",
+    "kind": "template",
+    "problem": "Library Checker Dynamic Sequence Range Affine Range Sum",
+    "url": "https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum",
+    "summary": "维护模998244353的动态序列，支持按位置插入、删除单项、顺序翻转、仿射修改和区间和。初始长度与操作数各至多500000，乘数可以为0。题目区间为0-based半开，转成模板的闭区间[l+1,r]；插入位置不偏移，删除位置加1。预留N+Q+1个节点，删除不回收。",
+    "driver": "verify/library_checker/dynamic_sequence_range_affine_range_sum.compact.cpp",
+    "requires": [
+      "ModInt",
+      "AffineSequenceTreap"
+    ]
   }
 ]

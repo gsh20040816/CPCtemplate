@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "mode": "normal-small",
+  "started_utc": "2026-10-02T10:25:28.066098+00:00",
+  "source_sha256_before": {
+    "src/compact/affine_sequence.hpp": "0c86c83d16e2060692b8e9701637bbcc26d2e1322651a96586bd0d5831979195",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/affine_sequence_oracle.cpp": "f73e4b9829960387db3d81b221443dfeb83a74d56372ae0079822070d1b68fd9",
+    "tests/run_affine_sequence_oracle.py": "10d105bb07c27707419f71beb62b62ed3e6c9e396687d0a1d4f928158ba9b88a",
+    "verify/library_checker/dynamic_sequence_range_affine_range_sum.compact.cpp": "9c31e752a8602320923efd574664070d7012fde9a029cd69e6a6a1583da46555"
+  },
+  "compile_command": [
+    "c++",
+    "-std=c++20",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-O2",
+    "/workspace/scratch/5a21734ea066/affine-sequence-next/tests/affine_sequence_oracle.cpp",
+    "-o",
+    "/workspace/scratch/5a21734ea066/affine-sequence-next/build/affine_sequence_oracle-normal-small"
+  ],
+  "compiler_version": "c++ (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compiler_executable_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
+  "sanitizer_environment": {
+    "SANITIZE": null,
+    "CPC_SANITIZE": null,
+    "ASAN_OPTIONS": null,
+    "UBSAN_OPTIONS": null
+  },
+  "scope": "core template oracle only; driver hash recorded but driver not exercised by this test",
+  "large_case": null,
+  "compile": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "binary_sha256": "b7edc96d6a9d86f99247e361c8f8f08a3f082ec789499ba7759161a63dd08b20",
+  "run_command": [
+    "/workspace/scratch/5a21734ea066/affine-sequence-next/build/affine_sequence_oracle-normal-small"
+  ],
+  "run": {
+    "returncode": 0,
+    "stdout": "PASS affine sequence independent oracle; checks=14799496\n",
+    "stderr": ""
+  },
+  "source_sha256_after": {
+    "src/compact/affine_sequence.hpp": "0c86c83d16e2060692b8e9701637bbcc26d2e1322651a96586bd0d5831979195",
+    "src/compact/crt_merge.hpp": "3219cb1a1b6404c9d8d0d4da5de034b3d600056487f1a9487a086f35c604266f",
+    "src/compact/extended_gcd.hpp": "effd053ce4a689821feb886fbb916a75c4625bd6bb1b8da6236f127b750c9b08",
+    "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
+    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "tests/affine_sequence_oracle.cpp": "f73e4b9829960387db3d81b221443dfeb83a74d56372ae0079822070d1b68fd9",
+    "tests/run_affine_sequence_oracle.py": "10d105bb07c27707419f71beb62b62ed3e6c9e396687d0a1d4f928158ba9b88a",
+    "verify/library_checker/dynamic_sequence_range_affine_range_sum.compact.cpp": "9c31e752a8602320923efd574664070d7012fde9a029cd69e6a6a1583da46555"
+  },
+  "elapsed_seconds": 6.128,
+  "finished_utc": "2026-10-02T10:25:34.199248+00:00"
+}

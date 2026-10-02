@@ -1,0 +1,58 @@
+{
+  "status": "pass",
+  "recorded_at_utc": "2026-10-02T10:56:40.013404+00:00",
+  "usage": "example-214",
+  "symbol": "AffineSequenceTreap",
+  "program_sha256": "5649996fb1cfcfeae1eb056eb6e813ea6f34a3782e8ef71362824521762d1577",
+  "printed_program_verification": "Recomputed tools.usage_examples.records() registration for example-214 and checked exact UTF-8 bytes equal frozen extracted program; read-only records() invocation",
+  "reference_commit": "e64660561a995c357cdc61ddee1bde68b80528db",
+  "problem": "data_structure/dynamic_sequence_range_affine_range_sum",
+  "official_problem_url": "https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum",
+  "source_hashes": {
+    "tools/check_affine_official.py": "ac49eb9fdc78f97bc0678338ab5b7435ab6f1b555fa9722db4ce5cda9cf9b96a",
+    "tools/usage_examples.py": "8f4167849f20a8d049043bf4f447e0d558e6e95d22715e868967d43e0bfe00a4",
+    "tools/bundle.py": "ee9532fd12664c3f9fc8d87903ec533771c50fd5dfa40e4c6b42e0bdd929fda7",
+    "docs/usage-examples.json": "07884de8211e957d6d7d2feeb29408820bfb0841cf02d70ba837e760e4450c65",
+    "src/compact/affine_sequence.hpp": "0c86c83d16e2060692b8e9701637bbcc26d2e1322651a96586bd0d5831979195",
+    "verify/library_checker/dynamic_sequence_range_affine_range_sum.compact.cpp": "9c31e752a8602320923efd574664070d7012fde9a029cd69e6a6a1583da46555",
+    "build/affine-sequence-printed.cpp": "5649996fb1cfcfeae1eb056eb6e813ea6f34a3782e8ef71362824521762d1577"
+  },
+  "normal_receipt": "affine-sequence-official-printed-normal.json",
+  "sanitizer_receipt": "affine-sequence-official-printed-sanitizer.json",
+  "scope": "Exact current registered printed program checked against local pinned generated official corpus; not online judge AC",
+  "measurement_caveat": "Shared-host launch-inclusive wall and wait4 RSS, including launcher memory floor; not controlled OJ speed rankings or algorithm-only memory",
+  "completed_at_utc": "2026-10-02T10:57:59.019419+00:00",
+  "final_source_hashes_unchanged": true,
+  "results": {
+    "normal": {
+      "case_count": 33,
+      "report_sha256": "3a1afe36866263c406a78026122ed7e73ca22ede0239aa94d24556cef7fddba0",
+      "log_sha256": "38a2cea17871cdd5468277dab061f6ed64d6d2fc26c5942b809fb66782a7eae0",
+      "candidate_wall_launch_inclusive_seconds_sum": 27.745876,
+      "candidate_wall_launch_inclusive_seconds_max": 3.428429,
+      "candidate_rss_launch_inclusive_bytes_max": 49676288,
+      "sanitizer_environment": {
+        "ASAN_OPTIONS": null,
+        "UBSAN_OPTIONS": null,
+        "LSAN_OPTIONS": null
+      },
+      "negative_control_exit_code": 1,
+      "negative_control_message": "wrong answer 1st words differ - expected: '1110', found: '1111'"
+    },
+    "sanitizer": {
+      "case_count": 33,
+      "report_sha256": "c67cd0526a932f72108315ab8b8c332121fc30bb892d54d325229f16b1a653f0",
+      "log_sha256": "15929af151d1311f355aa04e6a92374c741b7279deab58cc964f2902dcb30463",
+      "candidate_wall_launch_inclusive_seconds_sum": 85.896242,
+      "candidate_wall_launch_inclusive_seconds_max": 10.694332,
+      "candidate_rss_launch_inclusive_bytes_max": 60952576,
+      "sanitizer_environment": {
+        "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1:abort_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+        "LSAN_OPTIONS": null
+      },
+      "negative_control_exit_code": 1,
+      "negative_control_message": "wrong answer 1st words differ - expected: '1110', found: '1111'"
+    }
+  }
+}

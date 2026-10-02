@@ -176,6 +176,7 @@
 | `MultipointEvaluation` | [Library Checker multipoint_evaluation](https://judge.yosupo.jp/problem/multipoint_evaluation) | 1<=n,m<=131072; residues modulo998244353; highest coefficient nonzero; repeated points allowed | 待在线 AC | 待核验 |
 | `polynomial_interpolation` | [Library Checker polynomial_interpolation](https://judge.yosupo.jp/problem/polynomial_interpolation) | 1<=n<=131072; pairwise distinct canonical x; canonical y; output n coefficients modulo998244353 including high zeros | 待在线 AC | 待核验 |
 | `garner` | [Library Checker convolution_mod_1000000007 (three-NTT composition)](https://judge.yosupo.jp/problem/convolution_mod_1000000007) | 1<=n,m<=524288; canonical residues modulo1000000007; output n+m-1 coefficients; true nonnegative integer coefficients strictly below the three-prime product | 待在线 AC | 待核验 |
+| `AffineSequenceTreap` | [Library Checker Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) | 1<=N,Q<=500000; modulus998244353; canonical inputs; multiplier0 allowed; nonempty half-open query/update intervals | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1634,6 +1635,14 @@ Official convolution template problem composed from three existing NTT instantia
 
 
 Online AC and all-submissions ranking pending; generic arbitrary-modulus Garner evidence remains separate from this fixed-prime composition.
+
+### Library Checker Dynamic Sequence Range Affine Range Sum / AffineSequenceTreap
+
+Official dynamic sequence template combining position insertion/deletion, reversal, affine updates and range sums; not application-only or static-segment-tree coverage.
+
+
+
+Online AC and ranking pending; generic positive-modulus and export/copy/reset extensions are independent local tests, not extra official requirements.
 
 ## 榜单口径
 

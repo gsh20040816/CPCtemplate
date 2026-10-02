@@ -52,7 +52,7 @@
 | [Deque Operate All Composite](https://judge.yosupo.jp/problem/deque_operate_all_composite) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | Data Structure | 待逐题审题、适配与在线验证 | [double_ended_priority_queue.compact.cpp](../verify/library_checker/double_ended_priority_queue.compact.cpp) |
 | [Dynamic Point Rectangle Affine Rectangle Sum](https://judge.yosupo.jp/problem/dynamic_point_set_rectangle_affine_rectangle_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | [dynamic_sequence_range_affine_range_sum.compact.cpp](../verify/library_checker/dynamic_sequence_range_affine_range_sum.compact.cpp) |
 | [Line Add Get Min](https://judge.yosupo.jp/problem/line_add_get_min) | Data Structure | 待逐题审题、适配与在线验证 | [line_add_get_min.compact.cpp](../verify/library_checker/line_add_get_min.compact.cpp) |
 | [Ordered Set](https://judge.yosupo.jp/problem/ordered_set) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [ordered_set.compact.cpp](../verify/library_checker/ordered_set.compact.cpp) |
 | [Persistent Queue](https://judge.yosupo.jp/problem/persistent_queue) | Data Structure | 已有本库 Library Checker AC，接口范围仍须核对 | [persistent_queue.compact.cpp](../verify/library_checker/persistent_queue.compact.cpp) |

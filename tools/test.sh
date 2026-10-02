@@ -54,6 +54,9 @@ for stage in small dense alternating sparse zero constant composition; do
     fi
 done
 python3 tests/polynomial_interpolation_application.py
+python3 tests/run_affine_sequence_oracle.py
+python3 tests/run_affine_sequence_oracle.py --max
+python3 tests/affine_sequence_application.py
 if [[ "${SANITIZE:-0}" == 1 ]]; then
     python3 tests/garner_convolution.py --sanitize
 else

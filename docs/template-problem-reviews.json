@@ -4313,5 +4313,32 @@
       "total": null
     },
     "remaining": "Online AC and all-submissions ranking pending; generic arbitrary-modulus Garner evidence remains separate from this fixed-prime composition."
+  },
+  {
+    "symbol": "AffineSequenceTreap",
+    "problem": "Library Checker Dynamic Sequence Range Affine Range Sum",
+    "url": "https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum",
+    "classification": "Official dynamic sequence template combining position insertion/deletion, reversal, affine updates and range sums; not application-only or static-segment-tree coverage.",
+    "statement_checked": true,
+    "checked_date": "2026-10-02",
+    "limits": "1<=N,Q<=500000; modulus998244353; canonical inputs; multiplier0 allowed; nonempty half-open query/update intervals",
+    "implementation": "new",
+    "source": "src/compact/affine_sequence.hpp",
+    "tested_api": [
+      "insert",
+      "erase (single-element official scope; range erasure independently tested)",
+      "reverse",
+      "affine",
+      "query"
+    ],
+    "usage": "example-214",
+    "driver": "verify/library_checker/dynamic_sequence_range_affine_range_sum.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending; generic positive-modulus and export/copy/reset extensions are independent local tests, not extra official requirements."
   }
 ]

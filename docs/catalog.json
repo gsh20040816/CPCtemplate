@@ -1234,5 +1234,11 @@
     "polynomial_interpolation",
     "任意点多项式快速插值",
     "polynomial_interpolation(x,y) 返回模998244353下次数<m的唯一插值多项式，升幂vector恰好m项并保留高次零。optional为空表示长度不符或归一化横坐标重复；两个空数组返回有值的空vector，不改输入。复用MultipointEvaluation乘积树及导数求值，按y/P'(x)递归合并；重复点只在独立求值接口合法。m≤2²²−1是既有除法/NTT的统一充分界，官方最大实测131072。时间O(m log²(m+1)+m log p)，p=998244353；单点逆元沿用模幂，不省略m log p项。总空间O(m log(m+1)+1)，递归O(log(m+1))。"
+  ],
+  [
+    "affine_sequence",
+    "AffineSequenceTreap",
+    "动态仿射序列：插删、翻转与区间和",
+    "AffineSequenceTreap<mod>，默认模数998244353，正int模数也可为1或合数，不做除法。insert(k,x)在前k项后插入；erase、reverse、affine、query均用1-based非空闭区间，affine(l,r,b,c)令值变为b*x+c，乘数0合法。query返回ModInt，values递归导出序列；二者会改变内部标记或树形，不保证并发读。新标记复合为(b*mul,b*add+c)，不能颠倒；顺序反转与统一仿射可交换。沿用递归split/merge，逐项构造期望O(N log(N+1))，操作期望O(log(n+1))、最坏O(n)，values为O(n)。固定种子可复现但无对抗最坏保证。删除不回收，空间按累计插入计；节点索引、大小须在int内。可reserve但不影响正确性；辅助函数及节点数组仅供内部使用。"
   ]
 ]
