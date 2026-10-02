@@ -29,6 +29,7 @@
     "summary": "每个子句是两个文字的或，判断是否可满足并输出一组赋值。输入为 DIMACS：首行 p cnf n m，正数表示变量，负数表示取反，每个子句末尾为 0。",
     "driver": "verify/library_checker/two_sat.compact.cpp",
     "requires": [
+      "SCC",
       "TwoSAT"
     ]
   },
@@ -543,6 +544,9 @@
     "summary": "多组求 a^x 与 b 模 p 同余的最小非负整数 x，a 与 p 不必互质。输入顺序为 a、p、b，调用顺序为 solve(a,b,p)；返回 -1 时输出 No Solution，三个 0 结束输入。",
     "driver": "verify/luogu/P4195.compact.cpp",
     "requires": [
+      "Mod64",
+      "extended_gcd",
+      "mod_inverse",
       "DiscreteLog"
     ]
   },
@@ -1272,9 +1276,11 @@
     "summary": "输入顺序为底数 a、模数 m、指数 b；b 最多 20000001 位，以字符串读入。先用试除法计算 φ(m)，再做扩展欧拉降幂；题目 m≤10^8，不能把输入顺序写成 a,b,m。",
     "driver": "verify/luogu/P5091.compact.cpp",
     "requires": [
+      "Mod64",
+      "Prime64",
+      "PollardRho",
       "euler_phi",
-      "euler_power",
-      "Mod64"
+      "euler_power"
     ]
   },
   {
@@ -1561,6 +1567,7 @@
     "summary": "n 个布尔变量，m 个 (x=a) 或 (y=b) 子句，输出任意满足全部子句的赋值或 IMPOSSIBLE。变量号 1..n；n,m≤10^6。同一变量的重复文字照常 add，成功后才读取 ans。",
     "driver": "verify/luogu/P4782.compact.cpp",
     "requires": [
+      "SCC",
       "TwoSAT"
     ]
   },
@@ -1660,6 +1667,7 @@
       "IntegerPlane",
       "integer_hull",
       "minkowski_sum",
+      "polygon_contains",
       "convex_contains_i64"
     ],
     "also_covers": [
@@ -2039,6 +2047,7 @@
     "driver": "verify/luogu/P2860.compact.cpp",
     "requires": [
       "BiconnectedCore",
+      "bridge_component_forest",
       "bridge_augmentation"
     ],
     "kind": "application"
@@ -2149,8 +2158,8 @@
     "summary": "无向连通带权图，求1到n可重复经过点边的最大异或和；n≤50000，m≤100000，权值≤10^18，允许重边、自环。点号保留1-based，build(1)后query(1,n)。题目保证连通才可直接解引用；通用图先检查optional。此题验证行走，不能改成简单路径。O((n+m)·64)，DFS递归。",
     "driver": "verify/luogu/P4151.compact.cpp",
     "requires": [
-      "XorWalk",
-      "XorBasis"
+      "XorBasis",
+      "XorWalk"
     ],
     "kind": "application"
   },
@@ -2173,8 +2182,8 @@
     "summary": "多组给两个F2向量空间的基，输出交空间的一组基。T≤100000，n,m≤30，输入独立且小于2^30。把输入插入两个XorBasis，调用求交，输出rank和a中的非零主元；答案不唯一，不能逐字比较不同实现输出。模板本身支持64位和相关生成元，属于题外扩展。零维输出0。",
     "driver": "verify/library_checker/intersection_intersection.compact.cpp",
     "requires": [
-      "basis_intersection",
-      "XorBasis"
+      "XorBasis",
+      "basis_intersection"
     ]
   },
   {
@@ -2185,8 +2194,8 @@
     "summary": "同一线性空间求交题，约束与前例相同。Zassenhaus返回{和空间,交空间}，本题仅输出second的rank和非零主元，不能据此声称first也获线上验证。和空间由独立本地测试检查。两部分均为独立生成元；无需对输入枚举全部异或值。",
     "driver": "verify/library_checker/intersection_zassenhaus.compact.cpp",
     "requires": [
-      "basis_sum_intersection",
-      "XorBasis"
+      "XorBasis",
+      "basis_sum_intersection"
     ]
   },
   {
@@ -2331,6 +2340,7 @@
     "summary": "给定1≤a≤50000000、0≤b≤50000000，求a^b的所有正约数之和模9901。只分解a，质因子重数e对应e*b+1项几何级数，无需构造a^b或求逆元。a=1或b=0输出1。PollardRho可复用；本题模数固定，但核心允许任意正uint64模数，长度以uint128计算。",
     "driver": "verify/luogu/P1593.compact.cpp",
     "requires": [
+      "Mod64",
       "Prime64",
       "PollardRho",
       "power_sum",
@@ -2346,6 +2356,7 @@
     "summary": "多组3≤n<65000，输入0结束，判定n是否为Carmichael数：必须为合数，并且对所有整数a满足a^n≡a(mod n)。这里先排除素数，再判断λ(n)是否整除n-1；等价性包含非互素底数，不要直接拿λ(n)给任意底数降幂。输出必须完全符合题面两种句式。该题只检查判定，不能替代λ(n)数值及最小性的接口测试，亦不计独立模板题覆盖。",
     "driver": "verify/uva/10006.compact.cpp",
     "requires": [
+      "Mod64",
       "Prime64",
       "carmichael"
     ]
@@ -2378,10 +2389,10 @@
       "Mod64",
       "Prime64",
       "PollardRho",
-      "DiscreteLog",
       "extended_gcd",
-      "linear_congruence",
       "mod_inverse",
+      "DiscreteLog",
+      "linear_congruence",
       "KthResidue",
       "PrimePowerRoots",
       "root_factors",
@@ -2678,6 +2689,22 @@
     "driver": "verify/qoj/8236.compact.cpp",
     "requires": [
       "release_bfs"
+    ]
+  },
+  {
+    "id": "example-216",
+    "symbol": "Binomial",
+    "also_covers": [
+      "ModInt"
+    ],
+    "kind": "application",
+    "problem": "Luogu P1313 计算系数",
+    "url": "https://www.luogu.com.cn/problem/P1313",
+    "summary": "求 (by+ax) 的 k 次方中指定项的系数，模 10007。x、y 的指数分别为 n、m，均非负且 n+m=k。k 至多1000，a、b 均为不超过1000000的非负数。组合 C(k,n) 与两个幂即可。模数为素数且 k 小于模数，满足阶乘逆元前提；零次幂按空乘积为1。",
+    "driver": "verify/luogu/P1313.compact.cpp",
+    "requires": [
+      "ModInt",
+      "Binomial"
     ]
   }
 ]

@@ -21,6 +21,14 @@ def expand(text, base, seen):
             result.append(line)
     return '\n'.join(result) + '\n'
 
+def explicitly_calls(symbol, snippet):
+    # Mentions inside comments/strings and type aliases are not direct use.
+    trivia = r'//[^\n]*|/\*.*?\*/|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\''
+    code = re.sub(trivia, ' ', snippet, flags=re.S)
+    pattern = r'\b' + re.escape(symbol) + r'\s*(?:<[^<>;\n]+>\s*)?(?:::\s*[A-Za-z_]\w*\s*)?\('
+    return re.search(pattern, code) is not None
+
+
 def records():
     rows = json.loads((ROOT / 'docs/usage-examples.json').read_text())
     for row in rows:
@@ -60,7 +68,7 @@ def records():
             assert snippet.splitlines().count(row['page_break_before']) == 1, 'Usage page boundary must be unique'
         for symbol in row.get('also_covers', []):
             assert symbol != row['symbol'] and symbol in row['requires']
-            assert re.search(r'\b' + re.escape(symbol) + r'\s*(?:::\s*[A-Za-z_]\w*\s*)?\(', snippet), 'Joint example must explicitly call the extra template'
+            assert explicitly_calls(symbol, snippet), 'Joint example must explicitly call the extra template'
         row['snippet'] = snippet
         row['snippet_file'] = 'docs/usage/' + row['id'] + '.cpp'
         row['program'] = '#include <bits/stdc++.h>\nusing namespace std;\n' + expand(prefix, source.parent, set()) + snippet

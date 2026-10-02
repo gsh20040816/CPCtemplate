@@ -1,0 +1,252 @@
+{
+  "scope": "Repair usage-page flat copy prerequisites using already documented dependency DAG; no algorithm or driver changes",
+  "before_registry_sha256": "b54f79bb9724b01b40a9d4aea5d9a77acfebfcfc58df1cfa38ea3648b10bb95f",
+  "after_registry_sha256": "fa1351a1099617d52c4ff7d9c14e012e173c3d62fa507689278e2e442b72f7f0",
+  "changes": [
+    {
+      "id": "example-3",
+      "symbol": "TwoSAT",
+      "before": [
+        "TwoSAT"
+      ],
+      "after": [
+        "SCC",
+        "TwoSAT"
+      ],
+      "missing_from_flat_list": [
+        "SCC"
+      ],
+      "prerequisites_after_dependents": []
+    },
+    {
+      "id": "example-47",
+      "symbol": "DiscreteLog",
+      "before": [
+        "DiscreteLog"
+      ],
+      "after": [
+        "Mod64",
+        "extended_gcd",
+        "mod_inverse",
+        "DiscreteLog"
+      ],
+      "missing_from_flat_list": [
+        "Mod64",
+        "extended_gcd",
+        "mod_inverse"
+      ],
+      "prerequisites_after_dependents": []
+    },
+    {
+      "id": "example-106",
+      "symbol": "euler_power",
+      "before": [
+        "euler_phi",
+        "euler_power",
+        "Mod64"
+      ],
+      "after": [
+        "Mod64",
+        "Prime64",
+        "PollardRho",
+        "euler_phi",
+        "euler_power"
+      ],
+      "missing_from_flat_list": [
+        "PollardRho",
+        "Prime64"
+      ],
+      "prerequisites_after_dependents": [
+        [
+          "euler_power",
+          "Mod64"
+        ]
+      ]
+    },
+    {
+      "id": "example-128",
+      "symbol": "TwoSAT",
+      "before": [
+        "TwoSAT"
+      ],
+      "after": [
+        "SCC",
+        "TwoSAT"
+      ],
+      "missing_from_flat_list": [
+        "SCC"
+      ],
+      "prerequisites_after_dependents": []
+    },
+    {
+      "id": "example-136",
+      "symbol": "minkowski_sum",
+      "before": [
+        "IntegerPlane",
+        "integer_hull",
+        "minkowski_sum",
+        "convex_contains_i64"
+      ],
+      "after": [
+        "IntegerPlane",
+        "integer_hull",
+        "minkowski_sum",
+        "polygon_contains",
+        "convex_contains_i64"
+      ],
+      "missing_from_flat_list": [
+        "polygon_contains"
+      ],
+      "prerequisites_after_dependents": []
+    },
+    {
+      "id": "example-167",
+      "symbol": "bridge_augmentation",
+      "before": [
+        "BiconnectedCore",
+        "bridge_augmentation"
+      ],
+      "after": [
+        "BiconnectedCore",
+        "bridge_component_forest",
+        "bridge_augmentation"
+      ],
+      "missing_from_flat_list": [
+        "bridge_component_forest"
+      ],
+      "prerequisites_after_dependents": []
+    },
+    {
+      "id": "example-176",
+      "symbol": "XorWalk",
+      "before": [
+        "XorWalk",
+        "XorBasis"
+      ],
+      "after": [
+        "XorBasis",
+        "XorWalk"
+      ],
+      "missing_from_flat_list": [],
+      "prerequisites_after_dependents": [
+        [
+          "XorWalk",
+          "XorBasis"
+        ]
+      ]
+    },
+    {
+      "id": "example-178",
+      "symbol": "basis_intersection",
+      "before": [
+        "basis_intersection",
+        "XorBasis"
+      ],
+      "after": [
+        "XorBasis",
+        "basis_intersection"
+      ],
+      "missing_from_flat_list": [],
+      "prerequisites_after_dependents": [
+        [
+          "basis_intersection",
+          "XorBasis"
+        ]
+      ]
+    },
+    {
+      "id": "example-179",
+      "symbol": "basis_sum_intersection",
+      "before": [
+        "basis_sum_intersection",
+        "XorBasis"
+      ],
+      "after": [
+        "XorBasis",
+        "basis_sum_intersection"
+      ],
+      "missing_from_flat_list": [],
+      "prerequisites_after_dependents": [
+        [
+          "basis_sum_intersection",
+          "XorBasis"
+        ]
+      ]
+    },
+    {
+      "id": "example-191",
+      "symbol": "divisor_sum_power",
+      "before": [
+        "Prime64",
+        "PollardRho",
+        "power_sum",
+        "divisor_sum_power"
+      ],
+      "after": [
+        "Mod64",
+        "Prime64",
+        "PollardRho",
+        "power_sum",
+        "divisor_sum_power"
+      ],
+      "missing_from_flat_list": [
+        "Mod64"
+      ],
+      "prerequisites_after_dependents": []
+    },
+    {
+      "id": "example-192",
+      "symbol": "carmichael",
+      "before": [
+        "Prime64",
+        "carmichael"
+      ],
+      "after": [
+        "Mod64",
+        "Prime64",
+        "carmichael"
+      ],
+      "missing_from_flat_list": [
+        "Mod64"
+      ],
+      "prerequisites_after_dependents": []
+    },
+    {
+      "id": "example-194",
+      "symbol": "CompositeRoots",
+      "before": [
+        "Mod64",
+        "Prime64",
+        "PollardRho",
+        "DiscreteLog",
+        "extended_gcd",
+        "linear_congruence",
+        "mod_inverse",
+        "KthResidue",
+        "PrimePowerRoots",
+        "root_factors",
+        "CompositeRoots"
+      ],
+      "after": [
+        "Mod64",
+        "Prime64",
+        "PollardRho",
+        "extended_gcd",
+        "mod_inverse",
+        "DiscreteLog",
+        "linear_congruence",
+        "KthResidue",
+        "PrimePowerRoots",
+        "root_factors",
+        "CompositeRoots"
+      ],
+      "missing_from_flat_list": [],
+      "prerequisites_after_dependents": [
+        [
+          "DiscreteLog",
+          "mod_inverse"
+        ]
+      ]
+    }
+  ]
+}

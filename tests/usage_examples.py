@@ -299,6 +299,7 @@ cases['example-208'] = [
 ]
 cases['example-214'] = [('3 10\n1 2 3\n3 0 3 2 1\n3 0 3 3 4\n2 0 3\n4 0 1\n0 1 9\n1 2\n3 0 3 0 7\n4 0 3\n3 1 3 5 1\n4 0 3\n', {'exact_text': '25\n21\n79\n'}), ('1 9\n0\n1 0\n0 0 998244352\n4 0 1\n3 0 1 998244352 998244352\n4 0 1\n2 0 1\n0 0 1\n0 2 2\n4 0 3\n', {'exact_text': '998244352\n0\n3\n'}), ('2 8\n5 5\n3 0 2 0 0\n1 0\n1 0\n0 0 3\n0 1 4\n2 0 2\n4 0 1\n4 1 2\n', {'exact_text': '4\n3\n'}), ('4 5\n998244352 998244352 998244352 998244352\n3 0 4 998244352 998244352\n4 0 4\n3 0 4 0 998244352\n3 0 4 2 3\n4 0 4\n', {'exact_text': '0\n4\n'})]
 cases['example-215'] = [('2 2 4\n1 1\n1 2\n2 2\n2 1\n..\n..\n', {'exact_text': '14\n'}), ('1 2 2\n1 1\n1 2\n..\n', {'exact_text': '1\n'}), ('1 3 3\n1 1\n1 2\n1 3\n...\n', {'exact_text': '13\n'}), ('1 1 1\n1 1\n.\n', {'exact_text': '0\n'}), ('2 3 1\n1 1\n.#.\n.#.\n', {'exact_text': '1\n'})]
+cases['example-216'] = [('1 1 3 1 2\n', {'exact_text': '3\n'}), ('0 0 0 0 0\n', {'exact_text': '1\n'}), ('0 5 3 0 3\n', {'exact_text': '125\n'}), ('0 5 3 1 2\n', {'exact_text': '0\n'}), ('10007 10008 1000 0 1000\n', {'exact_text': '1\n'}), ('1000000 0 1 1 0\n', {'exact_text': '9307\n'})]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

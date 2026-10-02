@@ -23,3 +23,9 @@ kind 只允许 template、application、api；省略时默认为 template，拼�
 自定义接口驱动放在 docs/usage-drivers/，不进入 verify/ 的 OJ 驱动候选队列。首次静态后缀示例见 [静态后缀查询接口演示](STATIC-SUFFIX-DEMO.md)；其独立随机与最大演示规模测试仅写 build/ 报告，不生成在线提交或 AC 记录。
 
 需要快速输入的完整用法可以登记 utility_functions（当前为 read），从同一驱动取出函数正文并与main一起打印、编译；这些函数是抄写所需的输入工具，不是算法定义。它与 configuration_functions 分开登记，防止遗漏输入依赖。批量逆元示例用 move(a) 将数组传入按值接口，传入后不再读取a；普通左值调用则保留原数组但产生副本。
+
+## 真正按页抄写的检查
+
+展开整个头文件能掩盖所需组件清单缺项。现在另用 `tools/audit_copy_context.py` 仅拼接列出的源码片段和打印 main，做独立语法编译审计；不把它称为运行正确性、sanitizer或线上AC。`tests/copy_prerequisite_order.py` 还检查每份requires清单递归闭合、先依赖后使用且不重复。GNU扩展仍须包含相应条目明确注明的头文件。
+
+2026-10-02修正了12份清单的遗漏或先后顺序，未改算法或驱动；旧的完整头文件执行记录不能替代这种抄写检查。联合使用引用由分册生成器追溯到主条目，保证依赖附录中的页码也能解析。详细范围和结果见 [抄写上下文审计](COPY-CONTEXT-AUDIT.md)。

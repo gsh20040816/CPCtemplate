@@ -16,7 +16,7 @@ prefix\_function(s) 返回每个前缀的最长真 border 长度，0-based；空
 
 \section{KMP 匹配}\label{compact-kmp_match}\index{kmp\_match}
 
-代码依赖：\hyperref[compact-prefix_function]{prefix\_function}（第~\pageref{compact-prefix_function}~页，\ref{compact-prefix_function}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-prefix_function]{prefix\_\allowbreak{}function}（第~\pageref{compact-prefix_function}~页，\ref{compact-prefix_function}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 kmp\_match(s,t) 返回非空模式串 t 在 s 中的所有起点（0-based），允许重叠。需要同章前缀函数。O(|s|+|t|)。
 
@@ -30,7 +30,7 @@ kmp\_match(s,t) 返回非空模式串 t 在 s 中的所有起点（0-based），
 
 题意：求模式串 t 在文本 s 中所有出现的位置，包含重叠匹配；模板返回 0-based 位置，输出加 1。最后一行直接输出 prefix\_function(t)，它是模式串各前缀的最长真 border 长度。题目输入为非空大写串，函数按字符相等比较，不限于小写。
 
-所需模板：\hyperref[compact-prefix_function]{prefix\_function}（第~\pageref{compact-prefix_function}~页，\ref{compact-prefix_function}~节）、\hyperref[compact-kmp_match]{kmp\_match}（第~\pageref{compact-kmp_match}~页，\ref{compact-kmp_match}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-prefix_function]{prefix\_\allowbreak{}function}（第~\pageref{compact-prefix_function}~页，\ref{compact-prefix_function}~节）、\hyperref[compact-kmp_match]{kmp\_\allowbreak{}match}（第~\pageref{compact-kmp_match}~页，\ref{compact-kmp_match}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P3375}
 
@@ -54,7 +54,7 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 题意：给非空字符串，对每个起点求其后缀与原串的最长公共前缀长度。直接输出 Z 数组，z[0] 等于串长。
 
-所需模板：\hyperref[compact-z_function]{z\_function}（第~\pageref{compact-z_function}~页，\ref{compact-z_function}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-z_function]{z\_\allowbreak{}function}（第~\pageref{compact-z_function}~页，\ref{compact-z_function}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/zalgorithm}
 
@@ -102,7 +102,7 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 题意：输入模式数、各个非空小写模式串及文本，逐位置输出以该位置结尾的最短模式长度，无匹配输出 0。先登记终止节点与长度，再 build 和传播。示例对应附件 min\_len 变体，只作本地接口演示，不是 OJ 提交记录。
 
-所需模板：\hyperref[compact-AhoCorasick]{AhoCorasick}（第~\pageref{compact-AhoCorasick}~页，\ref{compact-AhoCorasick}~节）、\hyperref[compact-ac_shortest]{ac\_shortest}（第~\pageref{compact-ac_shortest}~页，\ref{compact-ac_shortest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-AhoCorasick]{AhoCorasick}（第~\pageref{compact-AhoCorasick}~页，\ref{compact-AhoCorasick}~节）、\hyperref[compact-ac_shortest]{ac\_\allowbreak{}shortest}（第~\pageref{compact-ac_shortest}~页，\ref{compact-ac_shortest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://oi-wiki.org/string/ac-automaton/}
 
@@ -176,7 +176,7 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 演示约定：自定义接口演示，非官方题目或OJ驱动。首行n q，次行恰为n个小写字母（n=0时保留空行）；0$\le$n,q$\le$200000仅为演示上限。操作0 x y输出s[x..n)、s[y..n)的LCP；1 l1 r1 l2 r2比较两个半开子串，输出-1/0/1；2 x y输出前缀s[0..x)、s[0..y)的最长公共后缀长度，LCS在此不是子序列。所有端点0..n，允许空区间；同一起点LCP为n-x，同一前缀LCS为x。反向结构必须从原串倒序构造。子串LCP取min(query(l1,l2),r1-l1,r2-l2)，子串公共后缀取min(prefix\_lcs(reversed,r1,r2),r1-l1,r2-l2)。预处理O(n log n)时间/空间，各查询O(1)；字符串修改后重建。
 
-所需模板：\hyperref[compact-SuffixArray]{SuffixArray}（第~\pageref{compact-SuffixArray}~页，\ref{compact-SuffixArray}~节）、\hyperref[compact-SuffixLCP]{SuffixLCP}（第~\pageref{compact-SuffixLCP}~页，\ref{compact-SuffixLCP}~节）、\hyperref[compact-prefix_lcs]{prefix\_lcs}（第~\pageref{compact-prefix_lcs}~页，\ref{compact-prefix_lcs}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-SuffixArray]{SuffixArray}（第~\pageref{compact-SuffixArray}~页，\ref{compact-SuffixArray}~节）、\hyperref[compact-SuffixLCP]{SuffixLCP}（第~\pageref{compact-SuffixLCP}~页，\ref{compact-SuffixLCP}~节）、\hyperref[compact-prefix_lcs]{prefix\_\allowbreak{}lcs}（第~\pageref{compact-prefix_lcs}~页，\ref{compact-prefix_lcs}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/suffix_lcp.hpp}
 
@@ -198,7 +198,7 @@ prefix\_lcs(reversed,x,y) 返回原序列 s[0..x) 与 s[0..y) 的最长公共后
 
 \subsection{重复子串 AA 的起止位置计数}\label{compact-square_counts}\index{square\_counts}
 
-代码依赖：\hyperref[compact-SuffixLCP]{SuffixLCP}（第~\pageref{compact-SuffixLCP}~页，\ref{compact-SuffixLCP}~节）、\hyperref[compact-prefix_lcs]{prefix\_lcs}（第~\pageref{compact-prefix_lcs}~页，\ref{compact-prefix_lcs}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-SuffixLCP]{SuffixLCP}（第~\pageref{compact-SuffixLCP}~页，\ref{compact-SuffixLCP}~节）、\hyperref[compact-prefix_lcs]{prefix\_\allowbreak{}lcs}（第~\pageref{compact-prefix_lcs}~页，\ref{compact-prefix_lcs}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long long 数组，start[i]/finish[i] 为开始/结束于位置 i 的非空 AA 型子串个数；结束位置是最后一个字符下标，均 0-based。两对象必须分别对应同一原序列及其反序列，长度相同，允许空序列。枚举半长 len，并以其整数倍 i 为锚点；向左匹配截断为 len-1，向右截断为 len，由 LCP/LCS 得出合法起点连续区间，差分累计。左侧不能放宽到 len，否则相邻锚点会重复计数。预处理查询器后，此函数 O(n log n) 时间、O(n) 额外空间。不同出现位置、不同半长分别计数；不要求 A 为最小周期。P1117 的 AABB 拆分数为所有分界点 finish[i]*start[i+1] 之和，累加类型需按题目范围选择，函数本身只返回起止计数。
 
@@ -212,7 +212,7 @@ square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long l
 
 题意：统计所有子串的非空AABB拆分，不同出现位置、不同A/B长度分别计数，允许A=B。T为1至10，每组小写串长度不超过30000。正向与反向SuffixLCP必须来自同一字符串；start[i]和finish[i]分别计开始/结束于字符i的AA。每个分界点贡献finish[i]*start[i+1]，以long long累加。此为NOI比赛应用题，尚未计入独立模板题覆盖。
 
-所需模板：\hyperref[compact-SuffixArray]{SuffixArray}（第~\pageref{compact-SuffixArray}~页，\ref{compact-SuffixArray}~节）、\hyperref[compact-SuffixLCP]{SuffixLCP}（第~\pageref{compact-SuffixLCP}~页，\ref{compact-SuffixLCP}~节）、\hyperref[compact-prefix_lcs]{prefix\_lcs}（第~\pageref{compact-prefix_lcs}~页，\ref{compact-prefix_lcs}~节）、\hyperref[compact-square_counts]{square\_counts}（第~\pageref{compact-square_counts}~页，\ref{compact-square_counts}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-SuffixArray]{SuffixArray}（第~\pageref{compact-SuffixArray}~页，\ref{compact-SuffixArray}~节）、\hyperref[compact-SuffixLCP]{SuffixLCP}（第~\pageref{compact-SuffixLCP}~页，\ref{compact-SuffixLCP}~节）、\hyperref[compact-prefix_lcs]{prefix\_\allowbreak{}lcs}（第~\pageref{compact-prefix_lcs}~页，\ref{compact-prefix_lcs}~节）、\hyperref[compact-square_counts]{square\_\allowbreak{}counts}（第~\pageref{compact-square_counts}~页，\ref{compact-square_counts}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P1117}
 
@@ -418,7 +418,7 @@ minimum\_rotation(s) 返回字典序最小循环表示的起点（0-based），�
 
 题意：给定长度 1..10\textasciicircum{}7 的小写字母字符串，输出所有循环位移中字典序最小的字符串。minimum\_rotation 返回 0-based 起点，使用 rotate 原地重排后输出；O(n) 时间，算法本体 O(1) 额外空间。
 
-所需模板：\hyperref[compact-minimum_rotation]{minimum\_rotation}（第~\pageref{compact-minimum_rotation}~页，\ref{compact-minimum_rotation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-minimum_rotation]{minimum\_\allowbreak{}rotation}（第~\pageref{compact-minimum_rotation}~页，\ref{compact-minimum_rotation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P13270}
 
@@ -452,7 +452,7 @@ power\_sum(a,n,mod) 返回 \{a\textasciicircum{}n mod mod, $\sum$(i=0..n-1) a\te
 
 题意：给定1$\le$A,M$\le$10\textasciicircum{}9、1$\le$X$\le$10\textasciicircum{}12，求$\sum$(i=0..X-1) A\textasciicircum{}i mod M。直接读取power\_sum(A,X,M).second；M可能是合数，A-1不一定可逆，不能无条件使用几何级数除法。M=1输出0，A=1时结果X mod M。第一分量为A\textasciicircum{}X，本题不输出。此为比赛应用题，不计独立模板题覆盖。
 
-所需模板：\hyperref[compact-power_sum]{power\_sum}（第~\pageref{compact-power_sum}~页，\ref{compact-power_sum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-power_sum]{power\_\allowbreak{}sum}（第~\pageref{compact-power_sum}~页，\ref{compact-power_sum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://atcoder.jp/contests/abc293/tasks/abc293_e}
 
@@ -470,7 +470,7 @@ power\_sum(a,n,mod) 返回 \{a\textasciicircum{}n mod mod, $\sum$(i=0..n-1) a\te
 
 \subsection{幂的约数和}\label{compact-divisor_sum_power}\index{divisor\_sum\_power}
 
-代码依赖：\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-power_sum]{power\_sum}（第~\pageref{compact-power_sum}~页，\ref{compact-power_sum}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-power_sum]{power\_\allowbreak{}sum}（第~\pageref{compact-power_sum}~页，\ref{compact-power_sum}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 传入 a、b、mod 和可复用的 PollardRho 分解器 solver，返回 a\textasciicircum{}b 的正约数和取模。a、b、mod 均为 unsigned long long，a$\ge$1、mod$\ge$1。a=1 或 b=0 时结果为 1\%mod。依赖 power\_sum 与分解器；重数 e 对应 e*b+1 项，长度用 uint128。时间由分解及每个不同质因子的 O(log(e*b+2)) 求和组成。
 
@@ -484,7 +484,7 @@ power\_sum(a,n,mod) 返回 \{a\textasciicircum{}n mod mod, $\sum$(i=0..n-1) a\te
 
 题意：给定1$\le$a$\le$50000000、0$\le$b$\le$50000000，求a\textasciicircum{}b的所有正约数之和模9901。只分解a，质因子重数e对应e*b+1项几何级数，无需构造a\textasciicircum{}b或求逆元。a=1或b=0输出1。PollardRho可复用；本题模数固定，但核心允许任意正uint64模数，长度以uint128计算。
 
-所需模板：\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-power_sum]{power\_sum}（第~\pageref{compact-power_sum}~页，\ref{compact-power_sum}~节）、\hyperref[compact-divisor_sum_power]{divisor\_sum\_power}（第~\pageref{compact-divisor_sum_power}~页，\ref{compact-divisor_sum_power}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-power_sum]{power\_\allowbreak{}sum}（第~\pageref{compact-power_sum}~页，\ref{compact-power_sum}~节）、\hyperref[compact-divisor_sum_power]{divisor\_\allowbreak{}sum\_\allowbreak{}power}（第~\pageref{compact-divisor_sum_power}~页，\ref{compact-divisor_sum_power}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P1593}
 
@@ -512,7 +512,7 @@ mint<tag> 按 tag 独立保存运行时模数，默认 998244353。先 set\_mod(
 
 题意：输入1$\le$n$\le$5000000、2$\le$k<p$\le$10\textasciicircum{}9、1$\le$a\_i<p且p为素数，求$\sum$k\textasciicircum{}i/a\_i模p。先设置mint的模数p，再构造数组；传move(a)调用batch\_units，只求一次总积逆元。权重从1开始，每项先乘k再累加。read与main一起抄；move后不再读取a。更换同tag模数后旧对象失效，计算期间不能切换。核心支持合数单位，本题只覆盖素数；动态模数、构造、乘法及累加、v输出在此直接使用，合数求逆接口另由核心测试核验。
 
-所需模板：\hyperref[compact-mint]{mint}（第~\pageref{compact-mint}~页，\ref{compact-mint}~节）、\hyperref[compact-batch_units]{batch\_units}（第~\pageref{compact-batch_units}~页，\ref{compact-batch_units}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-mint]{mint}（第~\pageref{compact-mint}~页，\ref{compact-mint}~节）、\hyperref[compact-batch_units]{batch\_\allowbreak{}units}（第~\pageref{compact-batch_units}~页，\ref{compact-batch_units}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5431}
 
@@ -525,6 +525,8 @@ mint<tag> 按 tag 独立保存运行时模数，默认 998244353。先 set\_mod(
 模板参数必须为不超过 INT\_MAX 的素数且$\ge$2。加减乘、pow、inv、除法；求逆要求非零，pow 指数非负。复杂度：加减乘 O(1)，幂和逆 O(log mod)。 支持 +=、-=、*=、/=，返回自身引用，允许自赋值和链式运算；可作为 Fenwick 区间和的值类型。复合除法沿用非零元素、素数模数前提。
 
 \lstinputlisting[firstline=124,lastline=161]{../src/compact/number_theory.hpp}
+
+联合使用示例见第~\pageref{usage-example-216}~页（Luogu P1313 计算系数），其中直接调用本模板。
 
 \Needspace{494pt}
 
@@ -592,7 +594,7 @@ segmented\_primes(l,r) 返回闭区间内递增的全部素数，0$\le$l$\le$r$\
 
 题意：读闭区间[L,U]至EOF，筛出递增素数，再比较相邻素数差；最近/最远均取最先出现的并列对，更新必须用严格<和>。不足两个素数输出There are no adjacent primes.，否则保留驱动的逗号、空格和句点格式。无0 0结束标记，每次调用重建筛。UVA官方同题限制1$\le$L<U$\le$2147483647、U-L$\le$1000000，所以闭区间容量是U-L+1$\le$1000001；核心另支持0和单点，0/1不为素数。倍数及末端递增用long long，避免INT\_MAX溢出。POJ原站本次不可达；限制和样例仅据UVA官方PDF复核，不声称POJ限制或线上AC已复核。
 
-所需模板：\hyperref[compact-segmented_primes]{segmented\_primes}（第~\pageref{compact-segmented_primes}~页，\ref{compact-segmented_primes}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-segmented_primes]{segmented\_\allowbreak{}primes}（第~\pageref{compact-segmented_primes}~页，\ref{compact-segmented_primes}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://onlinejudge.org/external/101/10140.pdf}
 
@@ -638,7 +640,7 @@ extended\_gcd(a,b,x,y) 约定0$\le$a,b$\le$2\textasciicircum{}63，参数和输�
 
 \subsection{二元一次不定方程}\label{compact-linear_equation}\index{linear\_equation}
 
-代码依赖：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 linear\_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解。a、b、c 支持完整 long long，x、y 必须为 int128。无解返回 false 且 x=y=0；a=b=c=0 返回 true、x=y=0，此时所有整数对都是解。其他有解情况，令 g=gcd(|a|,|b|)，通解为 (x+(b/g)t,y-(a/g)t)。依赖 extended\_gcd；只需抄递归 exgcd 与本函数。时间、递归空间 O(log M)，其中 M=max(|a|,|b|)+2；不承诺特解最小或为正。
 
@@ -652,7 +654,7 @@ linear\_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解。a、b、c 支持
 
 题意：解 ax+by=c，题目 a、b、c 均为正数。无整数解输出 -1；有正整数解则输出数量及 x、y 的最小/最大值，否则输出 x、y 各自的最小正值，它们不一定构成同一组解。正整数不含 0。
 
-所需模板：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-linear_equation]{linear\_equation}（第~\pageref{compact-linear_equation}~页，\ref{compact-linear_equation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-linear_equation]{linear\_\allowbreak{}equation}（第~\pageref{compact-linear_equation}~页，\ref{compact-linear_equation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5656}
 
@@ -678,7 +680,7 @@ euler\_power(a,b,m,phi) 求 a\textasciicircum{}b mod m，a、m 为 unsigned long
 
 题意：输入顺序为底数 a、模数 m、指数 b；b 最多 20000001 位，以字符串读入。先用试除法计算 $\varphi$(m)，再做扩展欧拉降幂；题目 m$\le$10\textasciicircum{}8，不能把输入顺序写成 a,b,m。
 
-所需模板：\hyperref[compact-euler_phi]{euler\_phi}（第~\pageref{compact-euler_phi}~页，\ref{compact-euler_phi}~节）、\hyperref[compact-euler_power]{euler\_power}（第~\pageref{compact-euler_power}~页，\ref{compact-euler_power}~节）、\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-euler_phi]{euler\_\allowbreak{}phi}（第~\pageref{compact-euler_phi}~页，\ref{compact-euler_phi}~节）、\hyperref[compact-euler_power]{euler\_\allowbreak{}power}（第~\pageref{compact-euler_power}~页，\ref{compact-euler_power}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5091}
 
@@ -702,7 +704,7 @@ carmichael(n) 返回 $\lambda$(n)，即使所有与 n 互素的 a 都满足 a �
 
 题意：多组3$\le$n<65000，输入0结束，判定n是否为Carmichael数：必须为合数，并且对所有整数a满足a\textasciicircum{}n$\equiv$a(mod n)。这里先排除素数，再判断$\lambda$(n)是否整除n-1；等价性包含非互素底数，不要直接拿$\lambda$(n)给任意底数降幂。输出必须完全符合题面两种句式。该题只检查判定，不能替代$\lambda$(n)数值及最小性的接口测试，亦不计独立模板题覆盖。
 
-所需模板：\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-carmichael]{carmichael}（第~\pageref{compact-carmichael}~页，\ref{compact-carmichael}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-carmichael]{carmichael}（第~\pageref{compact-carmichael}~页，\ref{compact-carmichael}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://onlinejudge.org/external/100/10006.pdf}
 
@@ -724,7 +726,7 @@ batch\_units(a) 返回 optional<vector<Z>>，保持输入顺序；任一元素�
 
 \subsection{任意正模数的单个逆元}\label{compact-mod_inverse}\index{mod\_inverse}
 
-代码依赖：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 mod\_inverse(a,m) 支持完整 long long a 和正 long long m，将 a 规范化后用 extended\_gcd 求逆。不可逆返回-1，可逆返回0..m-1内的代表；模数1返回0。允许合数模数，不使用费马小定理。O(log m) 时间与递归空间。
 
@@ -734,7 +736,7 @@ mod\_inverse(a,m) 支持完整 long long a 和正 long long m，将 a 规范化�
 
 \subsection{任意数组的批量逆元}\label{compact-batch_inverse}\index{batch\_inverse}
 
-代码依赖：\hyperref[compact-mod_inverse]{mod\_inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-mod_inverse]{mod\_\allowbreak{}inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 batch\_inverse(a,mod) 返回与 a 同序的逆元向量。要求 mod 为正 long long，每个输入可为完整 long long；只要某一项与 mod 不互素，整个结果返回 nullopt，不输出部分逆元。空输入返回有效的空向量；模数 1 约定返回全零，与单个逆元接口一致。模数可以是合数。函数按值接收数组并归一化；不再需要原数组时传 move(a) 可避免输入副本。依赖 mod\_inverse 和 extended\_gcd。仅求一次逆元，时间 O(n+log mod)，空间 O(n)；128 位中间乘法防止溢出。
 
@@ -748,7 +750,7 @@ batch\_inverse(a,mod) 返回与 a 同序的逆元向量。要求 mod 为正 long
 
 题意：给定1$\le$n$\le$5000000、2$\le$k<p$\le$10\textasciicircum{}9、1$\le$a\_i<p，p为素数，输出$\sum$(i=1..n)k\textasciicircum{}i/a\_i模p。先批量求全部逆元再累乘权重，注意首项权重是k。完整抄写read与main；read仅适用于本题的非负十进制输入。move(a)避免输入副本，此后不再读取a。本题所有元素可逆；一般模数或零元素须检查nullopt。乘积在long long范围内，批量核心内部用int128保护一般模数。
 
-所需模板：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-mod_inverse]{mod\_inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-batch_inverse]{batch\_inverse}（第~\pageref{compact-batch_inverse}~页，\ref{compact-batch_inverse}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-mod_inverse]{mod\_\allowbreak{}inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-batch_inverse]{batch\_\allowbreak{}inverse}（第~\pageref{compact-batch_inverse}~页，\ref{compact-batch_inverse}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5431}
 
@@ -770,7 +772,7 @@ inverse\_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p �
 
 题意：输入1$\le$n$\le$3000000、n<p<20000528，p保证为素数，输出1..n各自的逆元，每项一行。inverse\_table返回n+1项，0是占位且不输出。该递推要求素数，不能照搬到合数；一般数组使用batch\_inverse。
 
-所需模板：\hyperref[compact-inverse_table]{inverse\_table}（第~\pageref{compact-inverse_table}~页，\ref{compact-inverse_table}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-inverse_table]{inverse\_\allowbreak{}table}（第~\pageref{compact-inverse_table}~页，\ref{compact-inverse_table}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P3811}
 
@@ -784,7 +786,7 @@ inverse\_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p �
 
 \subsection{线性同余方程}\label{compact-linear_congruence}\index{linear\_congruence}
 
-代码依赖：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 linear\_congruence(a,b,m) 求 a*x+b$\equiv$0 (mod m)，返回 \{最小非负解,最小正周期\}，无解返回 \{-1,-1\}。m 为正 long long，a、b 支持完整 long long。若 g=gcd(a,m) 整除 b，周期为 m/g；包括 a=0 和 m=1，所有整数均满足时返回 \{0,1\}。先归一化 a，并在 int128 中对 b 取相反数和乘法。依赖 extended\_gcd；递归时间、空间 O(log(m+1))。注意本接口的常数项是 +b，若题目写 a*x$\equiv$c，应传 -c；c 为 LLONG\_MIN 时须避免在 64 位中取负。
 
@@ -798,7 +800,7 @@ linear\_congruence(a,b,m) 求 a*x+b$\equiv$0 (mod m)，返回 \{最小非负解,
 
 题意：两只青蛙从x,y同向跳，每次前进m,n，圆周长L。相遇式为(m-n)*t+(x-y)$\equiv$0 (mod L)，故传linear\_congruence(m-n,x-y,L)，不能把常数项误写为y-x。负速度差无需交换或另取负。返回\{最小非负次数,最小正周期\}；只输出第一项，无解输出Impossible，不能把周期当答案。x,y,m,n在1..2×10\textasciicircum{}9且x$\ne$y，L在1..2.1×10\textasciicircum{}9；差值用long long。位置按L取模，初始重合可返回0，等速不重合则无解。单组输入，无多测或结束标记。
 
-所需模板：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-linear_congruence]{linear\_congruence}（第~\pageref{compact-linear_congruence}~页，\ref{compact-linear_congruence}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-linear_congruence]{linear\_\allowbreak{}congruence}（第~\pageref{compact-linear_congruence}~页，\ref{compact-linear_congruence}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P1516}
 
@@ -810,7 +812,7 @@ linear\_congruence(a,b,m) 求 a*x+b$\equiv$0 (mod m)，返回 \{最小非负解,
 
 \subsection{广义 CRT：逐项合并同余}\label{compact-crt_merge}\index{crt\_merge}
 
-代码依赖：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 crt\_merge(r,m,b,n) 合并 x$\equiv$r (mod m) 与 x$\equiv$b (mod n)，m,n>0，r、m须为不同变量。从r=0、m=1开始逐项合并；成功后r为最小非负解、m为最小正周期。余数支持完整long long。无解返回false；有解但新周期超过LLONG\_MAX抛overflow\_error。两种失败都会先规范化r，m不变，失败后不能视为完整解。依赖 extended\_gcd，中间量用int128；O(log min(m,n)) 时间与递归空间。
 
@@ -824,7 +826,7 @@ crt\_merge(r,m,b,n) 合并 x$\equiv$r (mod m) 与 x$\equiv$b (mod n)，m,n>0，r
 
 题意：求同时满足多个同余式的最小非负整数，模数可以不互质。每行按模数、余数输入，逐式合并；合并后模数须在 long long 范围内。
 
-所需模板：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-crt_merge]{crt\_merge}（第~\pageref{compact-crt_merge}~页，\ref{compact-crt_merge}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-crt_merge]{crt\_\allowbreak{}merge}（第~\pageref{compact-crt_merge}~页，\ref{compact-crt_merge}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4777}
 
@@ -834,7 +836,7 @@ crt\_merge(r,m,b,n) 合并 x$\equiv$r (mod m) 与 x$\equiv$b (mod n)，m,n>0，r
 
 \subsection{Garner：大周期 CRT 与混合进制}\label{compact-garner}\index{garner}
 
-代码依赖：\hyperref[compact-mod_inverse]{mod\_inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-mod_inverse]{mod\_\allowbreak{}inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garner(b,moduli,target) 返回最小非负 CRT 解对 target 的余数。两个输入向量等长，长度可为 0；模数为正且两两互素，允许模数 1，余数支持完整 long long 范围。target 为正 long long，与输入模数无需互素。输入不互素时抛 invalid\_argument，即使方程有解也不适用；此时用扩展 CRT。空输入的规范解取 0。算法从不构造模数乘积，中间运算使用 int128。k 个模数耗时 O(k$^{2}$+k log M)，空间 O(k)；M 为最大输入模数。依赖 mod\_inverse 和 extended\_gcd。
 
@@ -854,7 +856,7 @@ garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garn
 
 题意：给出长度 n、m 的升幂系数，输出模 1000000007 的卷积，共 n+m−1 项。两数组长度均为 1 到 524288；输入系数非负且小于目标模数。分别在 167772161、469762049、1224736769 下做 NTT，再逐项调用既有 garner。真实非负系数不超过 524288 乘以 1000000006 的平方，严格小于三素数乘积。因此 CRT 最小非负代表就是原整数系数，最后对目标模数取余；仅有模数互素并不足够。输入通过 ModInt 构造器归一化。三模数公共变换容量为 2\textasciicircum{}24，本题至多需 2\textasciicircum{}20；无系数界时不能直接套用。
 
-所需模板：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-mod_inverse]{mod\_inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-garner]{garner}（第~\pageref{compact-garner}~页，\ref{compact-garner}~节）、\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-mod_inverse]{mod\_\allowbreak{}inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-garner]{garner}（第~\pageref{compact-garner}~页，\ref{compact-garner}~节）、\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/convolution_mod_1000000007}
 
@@ -930,7 +932,7 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 题意：多组求 x*x 与 N 模 p 同余的全部解，题目保证 p 为奇素数。mod\_sqrt 返回升序且去重的根，空数组表示无解并输出 Hola!。
 
-所需模板：\hyperref[compact-mod_sqrt]{mod\_sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-mod_sqrt]{mod\_\allowbreak{}sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5491}
 
@@ -980,7 +982,7 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 \subsection{扩展 BSGS}\label{compact-DiscreteLog}\index{DiscreteLog}
 
-代码依赖：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-mod_inverse]{mod\_inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-mod_inverse]{mod\_\allowbreak{}inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 依赖 number\_theory.hpp 的求逆与快速幂。solve(a,b,m) 返回最小 x$\ge$0 使 a\textasciicircum{}x$\equiv$b (mod m)，无解返回 -1；1$\le$m$\le$10$^{12}$，a、b 可为完整 long long 范围，入口归一化，约定 0\textasciicircum{}0=1。先剥离 gcd 并逐次检查较小指数，再在互质剩余问题上 BSGS。baby 表对同余幂保留最小指数 j，按递增大步 i 检查区间，因此首个命中即最小解。单次期望时间 O($\sqrt{\vphantom x}$m+log m)，空间 O($\sqrt{\vphantom x}$m)，哈希表先 reserve；基于 unordered\_map 的界为期望界。每次调用独立建表；底数 1 及零指数解直接返回。
 
@@ -994,7 +996,7 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 题意：多组求 a\textasciicircum{}x 与 b 模 p 同余的最小非负整数 x，a 与 p 不必互质。输入顺序为 a、p、b，调用顺序为 solve(a,b,p)；返回 -1 时输出 No Solution，三个 0 结束输入。
 
-所需模板：\hyperref[compact-DiscreteLog]{DiscreteLog}（第~\pageref{compact-DiscreteLog}~页，\ref{compact-DiscreteLog}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-mod_inverse]{mod\_\allowbreak{}inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-DiscreteLog]{DiscreteLog}（第~\pageref{compact-DiscreteLog}~页，\ref{compact-DiscreteLog}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4195}
 
@@ -1006,7 +1008,7 @@ mod\_sqrt(n,p) 返回 vector<long long>，按升序列出全部不同根；无�
 
 \subsection{素数模高次剩余：全部根的紧凑表示}\label{compact-KthResidue}\index{KthResidue}
 
-代码依赖：\hyperref[compact-DiscreteLog]{DiscreteLog}（第~\pageref{compact-DiscreteLog}~页，\ref{compact-DiscreteLog}~节）、\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-linear_congruence]{linear\_congruence}（第~\pageref{compact-linear_congruence}~页，\ref{compact-linear_congruence}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-DiscreteLog]{DiscreteLog}（第~\pageref{compact-DiscreteLog}~页，\ref{compact-DiscreteLog}~节）、\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-linear_congruence]{linear\_\allowbreak{}congruence}（第~\pageref{compact-linear_congruence}~页，\ref{compact-linear_congruence}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 solve(a,k,p,g) 求 x\textasciicircum{}k$\equiv$a (mod p)；p 必须是 2 到 1e12 的素数，g 是模 p 原根，k 为正 unsigned long long，a 支持完整 signed long long。无解返回 nullopt；否则得到 first、ratio、count，全部解为 first*ratio\textasciicircum{}i mod p，0$\le$i<count，无重复；first 不保证最小。a$\equiv$0 时仅有根 0，返回 \{0,1,1\}。枚举时每次乘 ratio，乘法先转 int128；无需展开全部根即可读取解数。给定原根后，期望 O($\sqrt{\vphantom x}$p) 时间与空间，依赖 DiscreteLog、linear\_congruence 及模快速幂。不验证 p 的素性或 g 的阶；合数模数不在此接口范围内。
 
@@ -1018,7 +1020,7 @@ solve(a,k,p,g) 求 x\textasciicircum{}k$\equiv$a (mod p)；p 必须是 2 到 1e1
 
 \subsection{素数幂模高次剩余：含非互素被开方数}\label{compact-PrimePowerRoots}\index{PrimePowerRoots}
 
-代码依赖：\hyperref[compact-DiscreteLog]{DiscreteLog}（第~\pageref{compact-DiscreteLog}~页，\ref{compact-DiscreteLog}~节）、\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-linear_congruence]{linear\_congruence}（第~\pageref{compact-linear_congruence}~页，\ref{compact-linear_congruence}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-DiscreteLog]{DiscreteLog}（第~\pageref{compact-DiscreteLog}~页，\ref{compact-DiscreteLog}~节）、\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-linear_congruence]{linear\_\allowbreak{}congruence}（第~\pageref{compact-linear_congruence}~页，\ref{compact-linear_congruence}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 solve(a,k,p,e,g) 求 x\textasciicircum{}k$\equiv$a (mod p\textasciicircum{}e)。p 是素数，e$\ge$1，p\textasciicircum{}e$\le$1e12，k 为正 unsigned long long；a 为 signed long long。奇素数须提供模 p\textasciicircum{}e 的原根 g；p=2 时不使用 g。无解返回 nullopt，否则 size() 返回解数，get(i,j,lift) 返回指定根，范围是 count[0]、count[1]、lifts，全部组合无重复且无遗漏。字段 first、ratio[2]、step 描述乘法根族与加法提升；step*lifts=p\textasciicircum{}e。原根与素性由调用者保证。期望 O($\sqrt{\vphantom x}$(p\textasciicircum{}e)) 时间和空间；单次 get 为 O(log(p\textasciicircum{}e))，不强制展开全部根。依赖离散对数、线性同余及模幂。
 
@@ -1054,7 +1056,7 @@ root\_factors(M,rho) 为 1$\le$M$\le$1e12 生成完整的 (p,e,g) 列表，可�
 
 \subsection{一般合数模高次剩余：CRT 组合与按索引取根}\label{compact-CompositeRoots}\index{CompositeRoots}
 
-代码依赖：\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-PrimePowerRoots]{PrimePowerRoots}（第~\pageref{compact-PrimePowerRoots}~页，\ref{compact-PrimePowerRoots}~节）、\hyperref[compact-mod_inverse]{mod\_inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-root_factors]{root\_factors}（第~\pageref{compact-root_factors}~页，\ref{compact-root_factors}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-PrimePowerRoots]{PrimePowerRoots}（第~\pageref{compact-PrimePowerRoots}~页，\ref{compact-PrimePowerRoots}~节）、\hyperref[compact-mod_inverse]{mod\_\allowbreak{}inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-root_factors]{root\_\allowbreak{}factors}（第~\pageref{compact-root_factors}~页，\ref{compact-root_factors}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整且素数互异的 (p,e,g) 列表，M 为所有 p\textasciicircum{}e 的乘积，M$\le$1e12，k 为正 unsigned long long，a 为 signed long long。奇素数的 g 是模 p\textasciicircum{}e 原根；p=2 时填 0。无解返回 nullopt，否则 mod=M、total 为解数，get(index) 在 0$\le$index<total 上取出每个根恰好一次，不按数值排序。空因子列表表示模 1，唯一标准代表为 0。依赖 PrimePowerRoots 和模逆元；列表接口不做分解；重载 solve(a,k,M,rho) 自动分解并寻找原根，rho 为 PollardRho。重复同模数宜复用因子列表。预处理的主要成本是各素数幂的 BSGS；get 为 O(F log M)，F 为不同素因子数。无需展开全部根，parts 和 weight 保存局部根族及 CRT 系数。
 
@@ -1074,7 +1076,7 @@ solve(a,k,factors) 求 x\textasciicircum{}k$\equiv$a (mod M)，factors 是完整
 
 题意：T$\le$100，每组按n,m,k读入，求x\textasciicircum{}n$\equiv$k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1$\le$n$\le$10\textasciicircum{}9、0$\le$k<m$\le$10\textasciicircum{}9；所有组总解数$\le$10\textasciicircum{}6，每个素数幂上的根数亦$\le$10\textasciicircum{}6。root\_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。
 
-所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-DiscreteLog]{DiscreteLog}（第~\pageref{compact-DiscreteLog}~页，\ref{compact-DiscreteLog}~节）、\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-linear_congruence]{linear\_congruence}（第~\pageref{compact-linear_congruence}~页，\ref{compact-linear_congruence}~节）、\hyperref[compact-mod_inverse]{mod\_inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-KthResidue]{KthResidue}（第~\pageref{compact-KthResidue}~页，\ref{compact-KthResidue}~节）、\hyperref[compact-PrimePowerRoots]{PrimePowerRoots}（第~\pageref{compact-PrimePowerRoots}~页，\ref{compact-PrimePowerRoots}~节）、\hyperref[compact-root_factors]{root\_factors}（第~\pageref{compact-root_factors}~页，\ref{compact-root_factors}~节）、\hyperref[compact-CompositeRoots]{CompositeRoots}（第~\pageref{compact-CompositeRoots}~页，\ref{compact-CompositeRoots}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-extended_gcd]{extended\_\allowbreak{}gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-mod_inverse]{mod\_\allowbreak{}inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-DiscreteLog]{DiscreteLog}（第~\pageref{compact-DiscreteLog}~页，\ref{compact-DiscreteLog}~节）、\hyperref[compact-linear_congruence]{linear\_\allowbreak{}congruence}（第~\pageref{compact-linear_congruence}~页，\ref{compact-linear_congruence}~节）、\hyperref[compact-KthResidue]{KthResidue}（第~\pageref{compact-KthResidue}~页，\ref{compact-KthResidue}~节）、\hyperref[compact-PrimePowerRoots]{PrimePowerRoots}（第~\pageref{compact-PrimePowerRoots}~页，\ref{compact-PrimePowerRoots}~节）、\hyperref[compact-root_factors]{root\_\allowbreak{}factors}（第~\pageref{compact-root_factors}~页，\ref{compact-root_factors}~节）、\hyperref[compact-CompositeRoots]{CompositeRoots}（第~\pageref{compact-CompositeRoots}~页，\ref{compact-CompositeRoots}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5668}
 
@@ -1377,7 +1379,7 @@ prime\_count(n) 返回不大于 n 的素数个数，精确 long long，不取模
 
 题意：输入 n，输出不大于 n 的素数个数，不取模。题目 n$\le$10\textasciicircum{}11。
 
-所需模板：\hyperref[compact-prime_count]{prime\_count}（第~\pageref{compact-prime_count}~页，\ref{compact-prime_count}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-prime_count]{prime\_\allowbreak{}count}（第~\pageref{compact-prime_count}~页，\ref{compact-prime_count}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/counting_primes}
 
@@ -1447,7 +1449,7 @@ floor\_sum(n,m,a,b) 返回 i=0..n-1 的 floor((ai+b)/m) 之和，结果为 int12
 
 题意：求 i=0..n-1 的 floor((a*i+b)/m) 之和。此题有 0$\le$a,b<m，因此结果可转为 long long 输出；更一般的有符号输入不能照搬该转换。
 
-所需模板：\hyperref[compact-floor_sum]{floor\_sum}（第~\pageref{compact-floor_sum}~页，\ref{compact-floor_sum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-floor_sum]{floor\_\allowbreak{}sum}（第~\pageref{compact-floor_sum}~页，\ref{compact-floor_sum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/sum_of_floor_of_linear}
 
@@ -1471,7 +1473,7 @@ floor\_moments(n,m,a,b) 对 i=0..n-1，令 y\_i=floor((a*i+b)/m)，返回 \{$\su
 
 题意：求i=0..n的整除和、整除值平方和、i乘整除值之和，模998244353。t至10$^{5}$，n/a/b/c至10$^{9}$且c>0。核心参数顺序(n+1,c,a,b)，返回顺序是和/带权和/平方和；本题输出索引0、2、1，不能只核对第一项。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-floor_moments]{floor\_moments}（第~\pageref{compact-floor_moments}~页，\ref{compact-floor_moments}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-floor_moments]{floor\_\allowbreak{}moments}（第~\pageref{compact-floor_moments}~页，\ref{compact-floor_moments}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5170}
 
@@ -1515,7 +1517,7 @@ convolution\_fft(a,b) 接受 vector<int>，返回 vector<long long>，空输入�
 
 题意：输入两个多项式的次数与升幂系数，输出整数乘积。次数最多一百万，系数 0..9，满足本浮点入口的范数限制；输出用 long long。此处实际调用复数 FFT，原精确整数卷积入口另行保留。
 
-所需模板：\hyperref[compact-ComplexFFT]{ComplexFFT}（第~\pageref{compact-ComplexFFT}~页，\ref{compact-ComplexFFT}~节）、\hyperref[compact-convolution_fft]{convolution\_fft}（第~\pageref{compact-convolution_fft}~页，\ref{compact-convolution_fft}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ComplexFFT]{ComplexFFT}（第~\pageref{compact-ComplexFFT}~页，\ref{compact-ComplexFFT}~节）、\hyperref[compact-convolution_fft]{convolution\_\allowbreak{}fft}（第~\pageref{compact-convolution_fft}~页，\ref{compact-convolution_fft}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P3803}
 
@@ -1539,7 +1541,7 @@ convolution\_mod\_fft(a,b,mod) 接受 vector<int>，返回 [0,mod) 系数；1$\l
 
 题意：输入两个多项式的次数、任意模数与升幂系数，输出模乘积。题目次数不超过十万、模数最多 1000000009；函数会先归一化再拆系数，不要求模数支持 NTT。这里使用三块浮点 FFT，并遵守其单位根与舍入前提。
 
-所需模板：\hyperref[compact-ComplexFFT]{ComplexFFT}（第~\pageref{compact-ComplexFFT}~页，\ref{compact-ComplexFFT}~节）、\hyperref[compact-convolution_mod_fft]{convolution\_mod\_fft}（第~\pageref{compact-convolution_mod_fft}~页，\ref{compact-convolution_mod_fft}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ComplexFFT]{ComplexFFT}（第~\pageref{compact-ComplexFFT}~页，\ref{compact-ComplexFFT}~节）、\hyperref[compact-convolution_mod_fft]{convolution\_\allowbreak{}mod\_\allowbreak{}fft}（第~\pageref{compact-convolution_mod_fft}~页，\ref{compact-convolution_mod_fft}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4245}
 
@@ -1567,7 +1569,7 @@ cdq\_convolution<mod=998244353,primitive=3>(kernel,initial) 求 f[i]=initial[i]+
 
 题意：输入 g[1..n-1]，计算 f[0]=1、f[i]=$\sum$(j=1..i)f[i-j]g[j]，模 998244353。kernel[0] 留零，initial 仅第零项为 1；调用的是真正 CDQ 分治卷积，依赖 NTT 与模整数。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-cdq_convolution]{cdq\_convolution}（第~\pageref{compact-cdq_convolution}~页，\ref{compact-cdq_convolution}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-cdq_convolution]{cdq\_\allowbreak{}convolution}（第~\pageref{compact-cdq_convolution}~页，\ref{compact-cdq_convolution}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4721}
 
@@ -1623,7 +1625,7 @@ convolution\_i64(a,b) 返回 signed64 整数卷积，空输入返回空。非空
 
 题意：求两个整数多项式的乘积，系数按升幂输入。首行 n、m 是次数，系数个数分别为 n+1、m+1；输出精确整数，不能取模。本题系数在 0..9，满足 signed64 结果范围。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-convolution_i64]{convolution\_i64}（第~\pageref{compact-convolution_i64}~页，\ref{compact-convolution_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-convolution_i64]{convolution\_\allowbreak{}i64}（第~\pageref{compact-convolution_i64}~页，\ref{compact-convolution_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P3803}
 
@@ -1679,7 +1681,7 @@ subset\_convolution<mod=998244353>(a,b) 返回 c[s]=$\sum$ a[t]b[s xor t]，求�
 
 题意：把下标看作集合，求 c[s]=$\sum$ a[t]*b[s\t]，t 遍历 s 的子集，两部分不相交。输入首项为集合大小 m，数组长度 2\textasciicircum{}m；本题模数为 1000000009。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-SetConvolution]{SetConvolution}（第~\pageref{compact-SetConvolution}~页，\ref{compact-SetConvolution}~节）、\hyperref[compact-subset_convolution]{subset\_convolution}（第~\pageref{compact-subset_convolution}~页，\ref{compact-subset_convolution}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-SetConvolution]{SetConvolution}（第~\pageref{compact-SetConvolution}~页，\ref{compact-SetConvolution}~节）、\hyperref[compact-subset_convolution]{subset\_\allowbreak{}convolution}（第~\pageref{compact-subset_convolution}~页，\ref{compact-subset_convolution}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P6097}
 
@@ -1711,7 +1713,7 @@ chirp\_z(f,a,r,m) 返回 f(a*r\textasciicircum{}i)，i=0..m-1；f 为升幂系�
 
 题意：给多项式 f 的升幂系数及 a、r，依次输出 f(a*r\textasciicircum{}i)，i=0..m-1，模 998244353。r=0 时首项仍为 f(a)，后续各项为 f(0)。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-chirp_z]{chirp\_z}（第~\pageref{compact-chirp_z}~页，\ref{compact-chirp_z}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-chirp_z]{chirp\_\allowbreak{}z}（第~\pageref{compact-chirp_z}~页，\ref{compact-chirp_z}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence}
 
@@ -1831,7 +1833,7 @@ polynomial\_interpolation(x,y) 返回模998244353下次数<m的唯一插值多�
 
 题意：给出 n 个互异横坐标及对应点值，输出唯一的次数小于 n 的多项式的 n 项升幂系数，模 998244353。1$\le$n$\le$131072，坐标与点值均已取模；先以乘积根多项式的导数求权重，再递归合并。接口返回 optional，长度不符或模意义重复横坐标返回空 optional，空输入返回有值的空向量；本题保证输入合法。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-PolynomialDivision]{PolynomialDivision}（第~\pageref{compact-PolynomialDivision}~页，\ref{compact-PolynomialDivision}~节）、\hyperref[compact-MultipointEvaluation]{MultipointEvaluation}（第~\pageref{compact-MultipointEvaluation}~页，\ref{compact-MultipointEvaluation}~节）、\hyperref[compact-polynomial_interpolation]{polynomial\_interpolation}（第~\pageref{compact-polynomial_interpolation}~页，\ref{compact-polynomial_interpolation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-PolynomialDivision]{PolynomialDivision}（第~\pageref{compact-PolynomialDivision}~页，\ref{compact-PolynomialDivision}~节）、\hyperref[compact-MultipointEvaluation]{MultipointEvaluation}（第~\pageref{compact-MultipointEvaluation}~页，\ref{compact-MultipointEvaluation}~节）、\hyperref[compact-polynomial_interpolation]{polynomial\_\allowbreak{}interpolation}（第~\pageref{compact-polynomial_interpolation}~页，\ref{compact-polynomial_interpolation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/polynomial_interpolation}
 
@@ -1843,7 +1845,7 @@ polynomial\_interpolation(x,y) 返回模998244353下次数<m的唯一插值多�
 
 \subsection{形式幂级数开根（含前导零与无解）}\label{compact-FpsSqrt}\index{FpsSqrt}
 
-代码依赖：\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-mod_sqrt]{mod\_sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-mod_sqrt]{mod\_\allowbreak{}sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回 nullopt；有解返回恰好 n 项，n=0 返回有值的空 vector。要求 0$\le$n$\le$2$^{22}$、a.size() 在 int 范围内；仅看输入前 n 项，不足补零。全零返回全零；首个非零项次数 k 为奇数或该系数为非二次剩余时无解。否则提出 x\textasciicircum{}k，首项选两个模平方根中较小者，Newton 迭代 b←(b+a/b)/2；最后乘 x\textasciicircum{}(k/2)，未被条件确定的末 k/2 项取零。这只是确定地返回一个解，不枚举全部根。依赖 mod\_sqrt、FpsInverse 与 NttConvolution。时间 O(n log(n+1)) 加一次标量开根的期望 O(log mod)，额外空间 O(n)。P5205 保证 a[0]=1，得到常数项为 1 的根。
 
@@ -1857,7 +1859,7 @@ FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回
 
 题意：输入 n 项、保证 a[0]=1，输出平方根的前 n 项，首项取较小的 1。通用接口也可用于无解输入，须先检查 optional。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-mod_sqrt]{mod\_sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）、\hyperref[compact-FpsSqrt]{FpsSqrt}（第~\pageref{compact-FpsSqrt}~页，\ref{compact-FpsSqrt}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-mod_sqrt]{mod\_\allowbreak{}sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）、\hyperref[compact-FpsSqrt]{FpsSqrt}（第~\pageref{compact-FpsSqrt}~页，\ref{compact-FpsSqrt}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5205}
 
@@ -1871,7 +1873,7 @@ FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回
 
 题意：输入任意常数项的 n 项级数；没有平方根输出 -1，否则输出 n 项。接口处理前导零、非二次剩余和全零级数，检查 optional 后才能读取结果。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-mod_sqrt]{mod\_sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）、\hyperref[compact-FpsSqrt]{FpsSqrt}（第~\pageref{compact-FpsSqrt}~页，\ref{compact-FpsSqrt}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-mod_sqrt]{mod\_\allowbreak{}sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）、\hyperref[compact-FpsSqrt]{FpsSqrt}（第~\pageref{compact-FpsSqrt}~页，\ref{compact-FpsSqrt}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/sqrt_of_formal_power_series}
 
@@ -1961,7 +1963,7 @@ recurrence\_nth(init,c,n,p) 使用 0-based 下标，n 为 unsigned long long。i
 
 题意：给出n个初值，恢复唯一的最短递推并求第m项，n$\le$10000、n<m$\le$10$^{9}$、阶数$\le$5000，模998244353。BM返回c[j-1]乘a[i-j]，首行仅输出系数、不带阶数；裁取恰好c.size()个初值后调用recurrence\_nth。全零序列空递推仍输出空首行和第二行0。复杂度O(nk+k$^{2}$log m)，O(n+k)空间。
 
-所需模板：\hyperref[compact-berlekamp_massey]{berlekamp\_massey}（第~\pageref{compact-berlekamp_massey}~页，\ref{compact-berlekamp_massey}~节）、\hyperref[compact-recurrence_nth]{recurrence\_nth}（第~\pageref{compact-recurrence_nth}~页，\ref{compact-recurrence_nth}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-berlekamp_massey]{berlekamp\_\allowbreak{}massey}（第~\pageref{compact-berlekamp_massey}~页，\ref{compact-berlekamp_massey}~节）、\hyperref[compact-recurrence_nth]{recurrence\_\allowbreak{}nth}（第~\pageref{compact-recurrence_nth}~页，\ref{compact-recurrence_nth}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5487}
 
@@ -2017,7 +2019,7 @@ polynomial\_shift<mod=998244353,primitive=3>(f,c) 返回 f(x+c) 的升幂系数�
 
 题意：给多项式 f 的 n 个升幂系数和常数 c，输出 f(x+c) 的 n 个升幂系数，模 998244353。平移方向为加 c，c=0 时原样返回。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-polynomial_shift]{polynomial\_shift}（第~\pageref{compact-polynomial_shift}~页，\ref{compact-polynomial_shift}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-polynomial_shift]{polynomial\_\allowbreak{}shift}（第~\pageref{compact-polynomial_shift}~页，\ref{compact-polynomial_shift}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/polynomial_taylor_shift}
 
@@ -2176,6 +2178,20 @@ Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。
 
 \lstinputlisting[firstline=181,lastline=194,firstnumber=20]{../src/compact/number_theory.hpp}
 
+\Needspace{307pt}
+
+\subsection*{应用题补充：Luogu P1313 计算系数}
+
+\label{usage-example-216}
+
+题意：求 (by+ax) 的 k 次方中指定项的系数，模 10007。x、y 的指数分别为 n、m，均非负且 n+m=k。k 至多1000，a、b 均为不超过1000000的非负数。组合 C(k,n) 与两个幂即可。模数为素数且 k 小于模数，满足阶乘逆元前提；零次幂按空乘积为1。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-Binomial]{Binomial}（第~\pageref{compact-Binomial}~页，\ref{compact-Binomial}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1313}
+
+\lstinputlisting{usage/example-216.cpp}
+
 \subsection{计数建模：先确认哪些对象被区分}\label{knowledge-counting-model}
 \index{计数建模}\index{OGF}\index{EGF}
 写公式前，先用一句话说明：\textbf{一个方案是什么，什么变化会产生新方案？}
@@ -2291,7 +2307,7 @@ stirling\_second\_row<mod,primitive>(n,m) 返回 S(n,0..m)，默认 mod=99824435
 
 题意：输出第二类斯特林数 S(n,0..n)，即把 n 个不同元素分成各个数目的非空无标号集合的方案数。本题模数为 167772161，须显式传模板参数。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-stirling_second_row]{stirling\_second\_row}（第~\pageref{compact-stirling_second_row}~页，\ref{compact-stirling_second_row}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-stirling_second_row]{stirling\_\allowbreak{}second\_\allowbreak{}row}（第~\pageref{compact-stirling_second_row}~页，\ref{compact-stirling_second_row}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5395}
 
@@ -2315,7 +2331,7 @@ stirling\_first\_row<mod,primitive>(n) 返回无符号 c(n,0..n)，默认模 998
 
 题意：输出无符号第一类斯特林数 c(n,0..n)，即 n 元排列按循环个数计数。本题模数为 167772161，须显式传模板参数；无需乘交替符号。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-stirling_first_row]{stirling\_first\_row}（第~\pageref{compact-stirling_first_row}~页，\ref{compact-stirling_first_row}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-stirling_first_row]{stirling\_\allowbreak{}first\_\allowbreak{}row}（第~\pageref{compact-stirling_first_row}~页，\ref{compact-stirling_first_row}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P5408}
 
@@ -2630,7 +2646,7 @@ matrix\_inverse<mod>(a) 返回 optional 方阵；a 为 n×n 的 ModInt<mod> 矩�
 
 题意：给定 n 阶方阵，求模 1000000007 的逆矩阵；不可逆输出 No Solution。输入按行读取，输出按行给出逆矩阵，不对原矩阵进行覆盖。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-matrix_inverse]{matrix\_inverse}（第~\pageref{compact-matrix_inverse}~页，\ref{compact-matrix_inverse}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-matrix_inverse]{matrix\_\allowbreak{}inverse}（第~\pageref{compact-matrix_inverse}~页，\ref{compact-matrix_inverse}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4783}
 
@@ -2644,7 +2660,7 @@ matrix\_inverse<mod>(a) 返回 optional 方阵；a 为 n×n 的 ModInt<mod> 矩�
 
 题意：给定 n 阶方阵，求模 998244353 的逆矩阵；不可逆输出 -1。输入按行读取，输出按行给出逆矩阵，不对原矩阵进行覆盖。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-matrix_inverse]{matrix\_inverse}（第~\pageref{compact-matrix_inverse}~页，\ref{compact-matrix_inverse}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-matrix_inverse]{matrix\_\allowbreak{}inverse}（第~\pageref{compact-matrix_inverse}~页，\ref{compact-matrix_inverse}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/inverse_matrix}
 
@@ -2668,7 +2684,7 @@ matrix\_inverse\_mod2(a) 接收 n 行长度 n 的 01 字符串，返回 optional
 
 题意：输入 n 阶模 2 方阵，每行是无空格的 01 字符串。求逆矩阵，按同样形式逐行输出；奇异则输出 -1。
 
-所需模板：\hyperref[compact-matrix_inverse_mod2]{matrix\_inverse\_mod2}（第~\pageref{compact-matrix_inverse_mod2}~页，\ref{compact-matrix_inverse_mod2}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-matrix_inverse_mod2]{matrix\_\allowbreak{}inverse\_\allowbreak{}mod2}（第~\pageref{compact-matrix_inverse_mod2}~页，\ref{compact-matrix_inverse_mod2}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/inverse_matrix_mod_2}
 
@@ -2704,7 +2720,7 @@ det\_prime<p>(a) 输入 n×n 方阵，返回行列式模 p；p 必须是素数�
 
 题意：求方阵行列式，模 998244353。输入元素已取模；函数按值接收矩阵，示例用 move 交出矩阵避免额外复制。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_\allowbreak{}prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/matrix_det}
 
@@ -2726,7 +2742,7 @@ determinant\_mod(a,mod) 返回 det(a) 的最小非负余数。a 为 long long �
 
 题意：给方阵和模数，求行列式的最小非负余数，模数可以为合数。函数无需模逆元，按值接收矩阵，示例用 move 交出数据。0 阶方阵的行列式为 1，再对模数取余。
 
-所需模板：\hyperref[compact-determinant_mod]{determinant\_mod}（第~\pageref{compact-determinant_mod}~页，\ref{compact-determinant_mod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-determinant_mod]{determinant\_\allowbreak{}mod}（第~\pageref{compact-determinant_mod}~页，\ref{compact-determinant_mod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod}
 
@@ -2806,7 +2822,7 @@ basis\_intersection(a,b) 返回 span(a) 与 span(b) 的交空间的一组独立�
 
 题意：多组给两个F2向量空间的基，输出交空间的一组基。T$\le$100000，n,m$\le$30，输入独立且小于2\textasciicircum{}30。把输入插入两个XorBasis，调用求交，输出rank和a中的非零主元；答案不唯一，不能逐字比较不同实现输出。模板本身支持64位和相关生成元，属于题外扩展。零维输出0。
 
-所需模板：\hyperref[compact-basis_intersection]{basis\_intersection}（第~\pageref{compact-basis_intersection}~页，\ref{compact-basis_intersection}~节）、\hyperref[compact-XorBasis]{XorBasis}（第~\pageref{compact-XorBasis}~页，\ref{compact-XorBasis}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-XorBasis]{XorBasis}（第~\pageref{compact-XorBasis}~页，\ref{compact-XorBasis}~节）、\hyperref[compact-basis_intersection]{basis\_\allowbreak{}intersection}（第~\pageref{compact-basis_intersection}~页，\ref{compact-basis_intersection}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces}
 
@@ -2830,7 +2846,7 @@ basis\_sum\_intersection(a,b) 返回和空间基、交空间基这一对结果�
 
 题意：同一线性空间求交题，约束与前例相同。Zassenhaus返回\{和空间,交空间\}，本题仅输出second的rank和非零主元，不能据此声称first也获线上验证。和空间由独立本地测试检查。两部分均为独立生成元；无需对输入枚举全部异或值。
 
-所需模板：\hyperref[compact-basis_sum_intersection]{basis\_sum\_intersection}（第~\pageref{compact-basis_sum_intersection}~页，\ref{compact-basis_sum_intersection}~节）、\hyperref[compact-XorBasis]{XorBasis}（第~\pageref{compact-XorBasis}~页，\ref{compact-XorBasis}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-XorBasis]{XorBasis}（第~\pageref{compact-XorBasis}~页，\ref{compact-XorBasis}~节）、\hyperref[compact-basis_sum_intersection]{basis\_\allowbreak{}sum\_\allowbreak{}intersection}（第~\pageref{compact-basis_sum_intersection}~页，\ref{compact-basis_sum_intersection}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces}
 
@@ -2858,7 +2874,7 @@ XorWalk(n) 建图，点号 1..n，边权为 unsigned long long，支持完整 64
 
 题意：无向连通带权图，求1到n可重复经过点边的最大异或和；n$\le$50000，m$\le$100000，权值$\le$10\textasciicircum{}18，允许重边、自环。点号保留1-based，build(1)后query(1,n)。题目保证连通才可直接解引用；通用图先检查optional。此题验证行走，不能改成简单路径。O((n+m)·64)，DFS递归。
 
-所需模板：\hyperref[compact-XorWalk]{XorWalk}（第~\pageref{compact-XorWalk}~页，\ref{compact-XorWalk}~节）、\hyperref[compact-XorBasis]{XorBasis}（第~\pageref{compact-XorBasis}~页，\ref{compact-XorBasis}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-XorBasis]{XorBasis}（第~\pageref{compact-XorBasis}~页，\ref{compact-XorBasis}~节）、\hyperref[compact-XorWalk]{XorWalk}（第~\pageref{compact-XorWalk}~页，\ref{compact-XorWalk}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4151}
 
@@ -3198,7 +3214,7 @@ berlekamp\_massey(s,p) 要求 p 为素数，2$\le$p$\le$INT\_MAX，输入均在 
 
 题意：给模 998244353 下的有限序列，求最短线性递推。c[0] 乘前一项，输出阶数及系数；空序列或全零序列可以是 0 阶。递推只保证对已给序列成立，不能仅凭前缀推定未知后续。
 
-所需模板：\hyperref[compact-berlekamp_massey]{berlekamp\_massey}（第~\pageref{compact-berlekamp_massey}~页，\ref{compact-berlekamp_massey}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-berlekamp_massey]{berlekamp\_\allowbreak{}massey}（第~\pageref{compact-berlekamp_massey}~页，\ref{compact-berlekamp_massey}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/find_linear_recurrence}
 
@@ -3228,7 +3244,7 @@ GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp。gp\_map<K,V> 为
 
 题意：维护整数键值映射，修改为覆盖赋值，查询不存在的键输出 0。gp\_map 用 operator[] 写入，用 find 查询，避免查询插入新键。所需条目中包含 hash64。
 
-所需模板：\hyperref[compact-gp_map]{gp\_map}（第~\pageref{compact-gp_map}~页，\ref{compact-gp_map}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-gp_map]{gp\_\allowbreak{}map}（第~\pageref{compact-gp_map}~页，\ref{compact-gp_map}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/associative_array}
 
@@ -3242,7 +3258,7 @@ GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp。gp\_map<K,V> 为
 
 题意：同一关联数组题的 cc\_map 用法：覆盖赋值，查询不存在的键输出 0。cc\_map 与 hash64 均在 gp\_map 条目中；本例独立执行验证，不借用 gp\_map 的运行结果。
 
-所需模板：\hyperref[compact-gp_map]{gp\_map}（第~\pageref{compact-gp_map}~页，\ref{compact-gp_map}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-gp_map]{gp\_\allowbreak{}map}（第~\pageref{compact-gp_map}~页，\ref{compact-gp_map}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/associative_array}
 
@@ -3434,7 +3450,7 @@ b.erase(h);
 
 题意：对数组区间施加 x→b*x+c，并查询区间和。S 保存和与长度；空单位元长度 0，单个元素长度 1。composition(f,g) 表示先 g 后 f，mapping 按长度累加常数项。区间为 0-based 半开，模 998244353。
 
-所需模板：\hyperref[compact-lazy_segtree]{lazy\_segtree}（第~\pageref{compact-lazy_segtree}~页，\ref{compact-lazy_segtree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-lazy_segtree]{lazy\_\allowbreak{}segtree}（第~\pageref{compact-lazy_segtree}~页，\ref{compact-lazy_segtree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/range_affine_range_sum}
 
@@ -4483,7 +4499,7 @@ odd\_induced\_partition(n,edges) 接收 0..n-1 的无向简单图，禁止自环
 
 题意：输入无向简单图，点号减 1 后调用；输出同组顶点的诱导子图全部为奇度的顶点分组，无解输出 -1。组号本身无唯一答案，验证时按原图所有同组边计算度数。本例是本地接口演示，链接为存在性定理来源，不是 OJ 记录。
 
-所需模板：\hyperref[compact-dsu]{dsu}（第~\pageref{compact-dsu}~页，\ref{compact-dsu}~节）、\hyperref[compact-odd_induced_partition]{odd\_induced\_partition}（第~\pageref{compact-odd_induced_partition}~页，\ref{compact-odd_induced_partition}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-dsu]{dsu}（第~\pageref{compact-dsu}~页，\ref{compact-dsu}~节）、\hyperref[compact-odd_induced_partition]{odd\_\allowbreak{}induced\_\allowbreak{}partition}（第~\pageref{compact-odd_induced_partition}~页，\ref{compact-odd_induced_partition}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://people.maths.ox.ac.uk/scott/Papers/odds2.pdf}
 
@@ -4629,7 +4645,7 @@ path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径�
 
 题意：树上两条路径是否有公共顶点，n,q$\le$100000。点号1..n，EulerLCA的depth与lca必须来自同一根，depth是边数而非带权距离。vertices非零输出Y，否则N；此题只使用是否相交，交集端点和顶点数另由本地路径点集验证。EulerLCA预处理O(n log n)，每次查询O(1)，DFS递归。
 
-所需模板：\hyperref[compact-EulerLCA]{EulerLCA}（第~\pageref{compact-EulerLCA}~页，\ref{compact-EulerLCA}~节）、\hyperref[compact-path_intersection]{path\_intersection}（第~\pageref{compact-path_intersection}~页，\ref{compact-path_intersection}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-EulerLCA]{EulerLCA}（第~\pageref{compact-EulerLCA}~页，\ref{compact-EulerLCA}~节）、\hyperref[compact-path_intersection]{path\_\allowbreak{}intersection}（第~\pageref{compact-path_intersection}~页，\ref{compact-path_intersection}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P3398}
 
@@ -4885,7 +4901,7 @@ release\_bfs(open,source,neighbors) 返回各点最早到达时间，不可达�
 
 题意：蛇可移动或缩尾，求蛇头到各格最少步数的平方和，模2\textasciicircum{}64。初始身体按0-based i（不含头）设open=k-i，尾格为1；源点时间0，障碍不连边。n,m至多3000，k至多min(nm,100000)。不可达不计，使用unsigned long long自然回绕；这是比赛应用，不是独立模板题。
 
-所需模板：\hyperref[compact-release_bfs]{release\_bfs}（第~\pageref{compact-release_bfs}~页，\ref{compact-release_bfs}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-release_bfs]{release\_\allowbreak{}bfs}（第~\pageref{compact-release_bfs}~页，\ref{compact-release_bfs}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://codeforces.com/gym/104976/attachments/download/24253/hangzhou(en).pdf}
 
@@ -5155,7 +5171,7 @@ bridge\_component\_forest(graph) 接收已 run 的 BiconnectedCore，返回按 1
 
 题意：连通无向图，n$\le$5000、m$\le$10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。
 
-所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-bridge_component_forest]{bridge\_component\_forest}（第~\pageref{compact-bridge_component_forest}~页，\ref{compact-bridge_component_forest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-bridge_component_forest]{bridge\_\allowbreak{}component\_\allowbreak{}forest}（第~\pageref{compact-bridge_component_forest}~页，\ref{compact-bridge_component_forest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P2860}
 
@@ -5165,7 +5181,7 @@ bridge\_component\_forest(graph) 接收已 run 的 BiconnectedCore，返回按 1
 
 \subsection{属于简单奇环的全部顶点}\label{compact-odd_cycle_vertices}\index{odd\_cycle\_vertices}
 
-代码依赖：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-block_cut_forest]{block\_cut\_forest}（第~\pageref{compact-block_cut_forest}~页，\ref{compact-block_cut_forest}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-block_cut_forest]{block\_\allowbreak{}cut\_\allowbreak{}forest}（第~\pageref{compact-block_cut_forest}~页，\ref{compact-block_cut_forest}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 先对 BiconnectedCore 调用 run，再调用 odd\_cycle\_vertices(graph)，返回 answer[1..n]，值为 1 表示该点属于某个长度至少为 3 的简单奇环，answer[0]=0。允许重边、断开图及空图；自环不计入这里的奇环。某点双非二分当且仅当其中存在奇环，此时该点双每个顶点都属于某个奇环；答案为所有非二分点双的顶点并集。通过圆方森林把每条非自环边分到唯一点双：两端中森林深度较大者的父方点即该块，同深时二者父方点相同。随后只对块内边染色，避免在每个块中重复扫描割点的全部邻边。两次 DFS 均递归，分解后额外 O(n+m) 时间和空间。可重排 blocks，不能改变分解内容。六点以内所有简单图枚举奇环对拍，另有重边/自环、长链、星形和大奇环测试；POJ2942 补图驱动本地验证，在线待补。依赖 biconnected.hpp。
 
@@ -5183,7 +5199,7 @@ bridge\_component\_forest(graph) 接收已 run 的 BiconnectedCore，返回按 1
 
 题意：互相憎恨的骑士不能相邻，合法圆桌至少3人且人数为奇数；求无法参加任何合法圆桌的人数。输入憎恨关系，顶点1..n；对u<v且不憎恨的二人建补图边，不能把憎恨边直接加入。每组新建矩阵和BiconnectedCore，先run再调用odd\_cycle\_vertices，统计odd[1..n]中的0，每组输出一行；0 0终止且不输出。函数只返回各点能否出现在某个简单奇环，不给圆桌座次；无合法圆桌时输出n，不是失败。POJ原站本次不可达；输入格式和样例另与同题UVA1364官方PDF核对，未据此声称POJ限制或线上AC已复核。
 
-所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-block_cut_forest]{block\_cut\_forest}（第~\pageref{compact-block_cut_forest}~页，\ref{compact-block_cut_forest}~节）、\hyperref[compact-odd_cycle_vertices]{odd\_cycle\_vertices}（第~\pageref{compact-odd_cycle_vertices}~页，\ref{compact-odd_cycle_vertices}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-block_cut_forest]{block\_\allowbreak{}cut\_\allowbreak{}forest}（第~\pageref{compact-block_cut_forest}~页，\ref{compact-block_cut_forest}~节）、\hyperref[compact-odd_cycle_vertices]{odd\_\allowbreak{}cycle\_\allowbreak{}vertices}（第~\pageref{compact-odd_cycle_vertices}~页，\ref{compact-odd_cycle_vertices}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://poj.org/problem?id=2942}
 
@@ -5217,7 +5233,7 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 题意：给连通无向简单图，把每条边定向使整图强连通，无解输出0。n$\le$100000、m$\le$300000。先用Lowlink.run确认连通且无桥，再调用orient\_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。
 
-所需模板：\hyperref[compact-Lowlink]{Lowlink}（第~\pageref{compact-Lowlink}~页，\ref{compact-Lowlink}~节）、\hyperref[compact-orient_edges]{orient\_edges}（第~\pageref{compact-orient_edges}~页，\ref{compact-orient_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Lowlink]{Lowlink}（第~\pageref{compact-Lowlink}~页，\ref{compact-Lowlink}~节）、\hyperref[compact-orient_edges]{orient\_\allowbreak{}edges}（第~\pageref{compact-orient_edges}~页，\ref{compact-orient_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://codeforces.com/problemset/problem/118/E}
 
@@ -5243,7 +5259,7 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 题意：连通无向简单图，按编号升序输出所有割点，N、M$\le$100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。
 
-所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-removal_components]{removal\_components}（第~\pageref{compact-removal_components}~页，\ref{compact-removal_components}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-removal_components]{removal\_\allowbreak{}components}（第~\pageref{compact-removal_components}~页，\ref{compact-removal_components}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en}
 
@@ -5257,7 +5273,7 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 题意：分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n$\le$10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。
 
-所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-removal_components]{removal\_components}（第~\pageref{compact-removal_components}~页，\ref{compact-removal_components}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-removal_components]{removal\_\allowbreak{}components}（第~\pageref{compact-removal_components}~页，\ref{compact-removal_components}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://onlinejudge.org/external/107/10765.pdf}
 
@@ -5267,7 +5283,7 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 \subsection{连通无向图最少加边方案}\label{compact-bridge_augmentation}\index{bridge\_augmentation}
 
-代码依赖：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-bridge_component_forest]{bridge\_component\_forest}（第~\pageref{compact-bridge_component_forest}~页，\ref{compact-bridge_component_forest}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-bridge_component_forest]{bridge\_\allowbreak{}component\_\allowbreak{}forest}（第~\pageref{compact-bridge_component_forest}~页，\ref{compact-bridge_component_forest}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 先对非空连通无向图调用 BiconnectedCore.run()，再调用 bridge\_augmentation(graph)。返回原图点号构成的新增边列表，不修改原图。允许新增重边，不产生自环；不适用于非连通图。已无桥时返回空列表。桥树有 L 个叶子时最少加 (L+1)/2 条边（整数除法）。递归 DFS 顺序收集叶子，奇数时复制首叶，前后半段配对。每条桥一侧的叶子是循环连续区间，半周配对必跨过该割，故所有桥被消除；每个叶子至少需要一个新边端点，得到同样的下界。分解后本函数 O(n+m) 时间与空间。依赖 bridge\_component\_forest.hpp。P2860 的 vector 用法已通过普通及 ASan/UBSan 本地验证；新增方案以逐边删除连通性及小图最优解枚举独立核验，该应用尚无本库在线 AC。
 
@@ -5281,7 +5297,7 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 题意：同题的构造接口：连通非空图run后调用bridge\_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。
 
-所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-bridge_augmentation]{bridge\_augmentation}（第~\pageref{compact-bridge_augmentation}~页，\ref{compact-bridge_augmentation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-bridge_component_forest]{bridge\_\allowbreak{}component\_\allowbreak{}forest}（第~\pageref{compact-bridge_component_forest}~页，\ref{compact-bridge_component_forest}~节）、\hyperref[compact-bridge_augmentation]{bridge\_\allowbreak{}augmentation}（第~\pageref{compact-bridge_augmentation}~页，\ref{compact-bridge_augmentation}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P2860}
 
@@ -5331,7 +5347,7 @@ block\_cut\_forest(graph) 接收已经 run 的 BiconnectedCore，返回 1-based 
 
 题意：无向简单图，可不连通，n$\le$100000、m$\le$200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。
 
-所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-block_cut_forest]{block\_cut\_forest}（第~\pageref{compact-block_cut_forest}~页，\ref{compact-block_cut_forest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-BiconnectedCore]{BiconnectedCore}（第~\pageref{compact-BiconnectedCore}~页，\ref{compact-BiconnectedCore}~节）、\hyperref[compact-block_cut_forest]{block\_\allowbreak{}cut\_\allowbreak{}forest}（第~\pageref{compact-block_cut_forest}~页，\ref{compact-block_cut_forest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4630}
 
@@ -5361,7 +5377,7 @@ enumerate\_triangles(n,edges,visit) 使用 0..n-1 点号；edges 须为无向简
 
 题意：给简单无向图的每个点一个权值，求所有三角形三个点权乘积之和，模 998244353。点号 0..n-1。
 
-所需模板：\hyperref[compact-enumerate_triangles]{enumerate\_triangles}（第~\pageref{compact-enumerate_triangles}~页，\ref{compact-enumerate_triangles}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-enumerate_triangles]{enumerate\_\allowbreak{}triangles}（第~\pageref{compact-enumerate_triangles}~页，\ref{compact-enumerate_triangles}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/enumerate_triangles}
 
@@ -5387,7 +5403,7 @@ TwoSAT(n)，变量 1..n；add(x,a,y,b) 添加 (x=a) 或 (y=b)，强制值写 add
 
 题意：每个子句是两个文字的或，判断是否可满足并输出一组赋值。输入为 DIMACS：首行 p cnf n m，正数表示变量，负数表示取反，每个子句末尾为 0。
 
-所需模板：\hyperref[compact-TwoSAT]{TwoSAT}（第~\pageref{compact-TwoSAT}~页，\ref{compact-TwoSAT}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-SCC]{SCC}（第~\pageref{compact-SCC}~页，\ref{compact-SCC}~节）、\hyperref[compact-TwoSAT]{TwoSAT}（第~\pageref{compact-TwoSAT}~页，\ref{compact-TwoSAT}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/two_sat}
 
@@ -5401,7 +5417,7 @@ TwoSAT(n)，变量 1..n；add(x,a,y,b) 添加 (x=a) 或 (y=b)，强制值写 add
 
 题意：n 个布尔变量，m 个 (x=a) 或 (y=b) 子句，输出任意满足全部子句的赋值或 IMPOSSIBLE。变量号 1..n；n,m$\le$10\textasciicircum{}6。同一变量的重复文字照常 add，成功后才读取 ans。
 
-所需模板：\hyperref[compact-TwoSAT]{TwoSAT}（第~\pageref{compact-TwoSAT}~页，\ref{compact-TwoSAT}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-SCC]{SCC}（第~\pageref{compact-SCC}~页，\ref{compact-SCC}~节）、\hyperref[compact-TwoSAT]{TwoSAT}（第~\pageref{compact-TwoSAT}~页，\ref{compact-TwoSAT}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4782}
 
@@ -5517,7 +5533,7 @@ mixed\_euler\_orientation(n,edges,start,finish) 返回可空的定向边序列�
 
 演示约定：自定义接口演示，非OJ题目。首行T；每组mode n m start finish，再读m条u v type。点号1..n，type=1固定方向、0可反转。C输入端点0 0求回路；A也输入0 0，由mixed\_euler\_trail选择端点；P指定两个正端点，相等时是指定起点回路。optional有值空数组是合法空方案。返回方向须按原边顺序加入DirectedEuler，再run(start,false)恢复连续走法。成功输出YES、VERTICES及EDGES证书，原边号由内部0-based加一；无解输出NO。零边C/A输出点1，P s s输出点s，不同正端点无解。非空图忽略无关孤立点，指定端点须在有边部分。1$\le$T$\le$10000、1$\le$n$\le$200、0$\le$m$\le$800仅为演示边界。定向采用Dinic一般上界，任意端点最多求两次；欧拉恢复O(n+m)，DFS深度可达m+1。不保证所有定向中的全局字典序最小。
 
-所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-mixed_euler_orientation]{mixed\_euler\_orientation}（第~\pageref{compact-mixed_euler_orientation}~页，\ref{compact-mixed_euler_orientation}~节）、\hyperref[compact-mixed_euler_trail]{mixed\_euler\_trail}（第~\pageref{compact-mixed_euler_trail}~页，\ref{compact-mixed_euler_trail}~节）、\hyperref[compact-DirectedEuler]{DirectedEuler}（第~\pageref{compact-DirectedEuler}~页，\ref{compact-DirectedEuler}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-mixed_euler_orientation]{mixed\_\allowbreak{}euler\_\allowbreak{}orientation}（第~\pageref{compact-mixed_euler_orientation}~页，\ref{compact-mixed_euler_orientation}~节）、\hyperref[compact-mixed_euler_trail]{mixed\_\allowbreak{}euler\_\allowbreak{}trail}（第~\pageref{compact-mixed_euler_trail}~页，\ref{compact-mixed_euler_trail}~节）、\hyperref[compact-DirectedEuler]{DirectedEuler}（第~\pageref{compact-DirectedEuler}~页，\ref{compact-DirectedEuler}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/mixed_euler.hpp}
 
@@ -5533,7 +5549,7 @@ mixed\_euler\_orientation(n,edges,start,finish) 返回可空的定向边序列�
 
 \section{任意起终点的混合欧拉路径}\label{compact-mixed_euler_trail}\index{mixed\_euler\_trail}
 
-代码依赖：\hyperref[compact-mixed_euler_orientation]{mixed\_euler\_orientation}（第~\pageref{compact-mixed_euler_orientation}~页，\ref{compact-mixed_euler_orientation}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-mixed_euler_orientation]{mixed\_\allowbreak{}euler\_\allowbreak{}orientation}（第~\pageref{compact-mixed_euler_orientation}~页，\ref{compact-mixed_euler_orientation}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 mixed\_euler\_trail(n,edges) 返回任意可行欧拉路径的定向边序列，格式同上一节。忽略边原方向统计度数，自环计 2；若奇度点为 0 个，请求回路；若恰有 2 个，尝试这两个端点的两种顺序；否则无解。最多两次定向求解。返回方向可交给 DirectedEuler 自动选择起点，恢复顶点与原边编号序列。枚举所有可反转边方向、全部固定端点及自由端点对拍；逐边检查固定边不变和连续走法，另有 10 万点长流量路径测试。POJ1637 双驱动本地验证，仅检查回路存在性；完整方向和开放路径依靠本地证据，在线待补。
 
@@ -5593,7 +5609,7 @@ unit\_flow\_edges(g,ids) 在完整普通最大流的残量图上，查询每条�
 
 题意：输入 n、m、s、t、q，随后 m 条有向容量边和 q 个原边序号；被询问边容量须为 1。先输出最大流值，再输出 Y（所有方案取 1）、N（没有方案取 1）、?（两种都可能）。用 add 返回值保存残量边号。本地示例对应附件 2.14 的分类内核，不代替原比赛题的排列约束建图。
 
-所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-unit_flow_edges]{unit\_flow\_edges}（第~\pageref{compact-unit_flow_edges}~页，\ref{compact-unit_flow_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-unit_flow_edges]{unit\_\allowbreak{}flow\_\allowbreak{}edges}（第~\pageref{compact-unit_flow_edges}~页，\ref{compact-unit_flow_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://github.com/gsh20040816/CPCtemplate/issues/11}
 
@@ -5607,7 +5623,7 @@ unit\_flow\_edges(g,ids) 在完整普通最大流的残量图上，查询每条�
 
 题意：两套排列各给出同一k元素集合的部分子序列，-1表示未知；输出每个元素必选Y、必不选N或可选?，无解输出Inconsistent。已知元素切分两侧容量组，每个元素对应一条单位边；最大流必须等于k，再作残量SCC分类。n及所有测试的n之和至2000。比赛应用，不计作独立模板题覆盖。
 
-所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-unit_flow_edges]{unit\_flow\_edges}（第~\pageref{compact-unit_flow_edges}~页，\ref{compact-unit_flow_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-unit_flow_edges]{unit\_\allowbreak{}flow\_\allowbreak{}edges}（第~\pageref{compact-unit_flow_edges}~页，\ref{compact-unit_flow_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://qoj.ac/problem/10424}
 
@@ -5639,7 +5655,7 @@ mincut\_edges(g,s,t) 只读分析 Dinic 已经完整求出的普通 s→t 最大
 
 题意：求每条正容量有向边是否出现在至少一个/每一个最小割中。先不设额外限制地跑完最大流，再按原边输入顺序输出两项布尔值。容量用 long long；平行道路分别加边。此题源自 AHOI，作为应用补充单列。
 
-所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-mincut_edges]{mincut\_edges}（第~\pageref{compact-mincut_edges}~页，\ref{compact-mincut_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-mincut_edges]{mincut\_\allowbreak{}edges}（第~\pageref{compact-mincut_edges}~页，\ref{compact-mincut_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4126}
 
@@ -5663,7 +5679,7 @@ maximum\_closure(weight,dependencies) 返回 (最大权值,选中点列表)，we
 
 题意：选实验获得收益，配置仪器支付费用，输出最优实验/仪器编号和净收益。m、n至50，单项费用为正且小于2$^{31}$，累计用long long。逐行读取变长依赖，istringstream兼容CRLF；实验i依赖仪器m+j。应用用法，不计非比赛模板覆盖。
 
-所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-maximum_closure]{maximum\_closure}（第~\pageref{compact-maximum_closure}~页，\ref{compact-maximum_closure}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-maximum_closure]{maximum\_\allowbreak{}closure}（第~\pageref{compact-maximum_closure}~页，\ref{compact-maximum_closure}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P2762}
 
@@ -5687,7 +5703,7 @@ gomory\_hu(n,edges) 返回 n-1 条 (u,v,容量) 树边；n$\ge$1，原图点号 
 
 题意：给无向图，多次询问不同两点的最小割。点号为 0..n，因此建树传 n+1。再预处理所有点对的答案，查询矩阵额外占 O(n\textasciicircum{}2) 时间和空间。
 
-所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-gomory_hu]{gomory\_hu}（第~\pageref{compact-gomory_hu}~页，\ref{compact-gomory_hu}~节）、\hyperref[compact-cut_tree_values]{cut\_tree\_values}（第~\pageref{compact-cut_tree_values}~页，\ref{compact-cut_tree_values}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-gomory_hu]{gomory\_\allowbreak{}hu}（第~\pageref{compact-gomory_hu}~页，\ref{compact-gomory_hu}~节）、\hyperref[compact-cut_tree_values]{cut\_\allowbreak{}tree\_\allowbreak{}values}（第~\pageref{compact-cut_tree_values}~页，\ref{compact-cut_tree_values}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4897}
 
@@ -5947,7 +5963,7 @@ matching\_edges(n,m,edges) 接收左右两侧点号各为 1..n、1..m 的边表�
 
 题意：输入左右点数、边数及 1-based 边表，输出最大匹配大小，再按原边顺序输出可行/必选标记。非完备匹配和平行边都允许；本例演示接口，不是 OJ 提交记录。
 
-所需模板：\hyperref[compact-BipartiteMatching]{BipartiteMatching}（第~\pageref{compact-BipartiteMatching}~页，\ref{compact-BipartiteMatching}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-matching_edges]{matching\_edges}（第~\pageref{compact-matching_edges}~页，\ref{compact-matching_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-BipartiteMatching]{BipartiteMatching}（第~\pageref{compact-BipartiteMatching}~页，\ref{compact-BipartiteMatching}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-matching_edges]{matching\_\allowbreak{}edges}（第~\pageref{compact-matching_edges}~页，\ref{compact-matching_edges}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://oi-wiki.org/graph/graph-matching/bigraph-match/}
 
@@ -6027,7 +6043,7 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 
 \section{带权矩阵树：无向树与内外向树形图}\label{compact-MatrixTree}\index{MatrixTree}
 
-代码依赖：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_\allowbreak{}prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 声明 MatrixTree<mod>，调用 count(n, edges, root, kind) 返回所有合法树的边权乘积之和，mod 必须是素数。Edge=(u,v,Z)，点号 0..n-1，n$\ge$1；Kind::undirected 为无向生成树，toward\_root 为每点沿边能到根，away\_from\_root 为根沿边能到每点。后两种使用输入边方向，不能混淆。重边按不同边计数，自环忽略；单点答案 1。支持模意义下的零权和负权，结果 0 不一定表示不存在树。无向图删除哪个根行列均可；有向图 root 决定答案。依赖 det\_prime 的素数模行列式，O(n$^{3}$+m) 时间、O(n$^{2}$) 额外空间。
 
@@ -6041,7 +6057,7 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 
 题意：求所有生成树边权乘积之和，模 1000000007。type=0 为无向图，type=1 为以输入点 1 为根的外向树；输入点号减 1 后根为 0。重边分别计数，自环不贡献。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）、\hyperref[compact-MatrixTree]{MatrixTree}（第~\pageref{compact-MatrixTree}~页，\ref{compact-MatrixTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_\allowbreak{}prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）、\hyperref[compact-MatrixTree]{MatrixTree}（第~\pageref{compact-MatrixTree}~页，\ref{compact-MatrixTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P6178}
 
@@ -6051,7 +6067,7 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 
 \section{任意正模数带权矩阵树}\label{compact-MatrixTreeMod}\index{MatrixTreeMod}
 
-代码依赖：\hyperref[compact-determinant_mod]{determinant\_mod}（第~\pageref{compact-determinant_mod}~页，\ref{compact-determinant_mod}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-determinant_mod]{determinant\_\allowbreak{}mod}（第~\pageref{compact-determinant_mod}~页，\ref{compact-determinant_mod}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小非负余数。mod 为任意正 signed 64 位数，边权支持完整 signed 64 位。Kind 的 undirected、toward\_root、away\_from\_root 分别表示无向、内向和外向树；点号 0..n-1。自环忽略，重边按不同边计数，单点返回 1\%mod，mod=1 返回零。先在 128 位中构造模拉普拉斯余子式，再调用 determinant\_mod；O(n$^{3}$ log mod + m) 时间、O(n$^{2}$) 额外空间。不使用模逆元。已知模数是素数时一般优先使用 MatrixTree<mod>。
 
@@ -6065,7 +6081,7 @@ count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小
 
 题意：无向多重图生成树计数，模998244353；点号0..n-1，1$\le$n$\le$500、0$\le$m$\le$500000，允许自环和重边。每条原边权重设1，自环不参与树，重边是不同选择。删去任意根的拉普拉斯行列，这里取根0；n=1的空树计1，断连计0。此接口也支持合数模数，复杂度O(n$^{3}$ log mod)，本题固定质数亦可选更快的MatrixTree版本。
 
-所需模板：\hyperref[compact-determinant_mod]{determinant\_mod}（第~\pageref{compact-determinant_mod}~页，\ref{compact-determinant_mod}~节）、\hyperref[compact-MatrixTreeMod]{MatrixTreeMod}（第~\pageref{compact-MatrixTreeMod}~页，\ref{compact-MatrixTreeMod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-determinant_mod]{determinant\_\allowbreak{}mod}（第~\pageref{compact-determinant_mod}~页，\ref{compact-determinant_mod}~节）、\hyperref[compact-MatrixTreeMod]{MatrixTreeMod}（第~\pageref{compact-MatrixTreeMod}~页，\ref{compact-MatrixTreeMod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/counting_spanning_tree_undirected}
 
@@ -6079,7 +6095,7 @@ count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小
 
 题意：有向多重图生成树计数，模998244353，要求指定根r能到达所有点，使用away\_from\_root。n不超过500、m不超过500000，点号及根为0起；每条原边权1，自环忽略，重边分别计数。每个非根点恰有一个入边，根无入边；toward\_root表示所有点到达根，不能替代。n=1计空树1，无外向生成树计0。
 
-所需模板：\hyperref[compact-determinant_mod]{determinant\_mod}（第~\pageref{compact-determinant_mod}~页，\ref{compact-determinant_mod}~节）、\hyperref[compact-MatrixTreeMod]{MatrixTreeMod}（第~\pageref{compact-MatrixTreeMod}~页，\ref{compact-MatrixTreeMod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-determinant_mod]{determinant\_\allowbreak{}mod}（第~\pageref{compact-determinant_mod}~页，\ref{compact-determinant_mod}~节）、\hyperref[compact-MatrixTreeMod]{MatrixTreeMod}（第~\pageref{compact-MatrixTreeMod}~页，\ref{compact-MatrixTreeMod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/counting_spanning_tree_directed}
 
@@ -6093,7 +6109,7 @@ count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小
 
 \section{LGV：DAG 路径权值行列式}\label{compact-dag_path_determinant}\index{dag\_path\_determinant}
 
-代码依赖：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_\allowbreak{}prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 dag\_path\_determinant<mod>(g,sources,sinks) 返回路径权值矩阵的行列式，mod 必须为素数。g[u] 的项为 (v,ModInt<mod> 权值)，点号 0..n-1；两个端点序列等长 k，各自不能重复，但可相互重叠。允许重边、零权、负权；长度为 0 的路径权为 1。整张图有环则返回 nullopt，空端点族在 DAG 上返回 1。由 LGV，它是顶点不交路径族按汇点排列带符号的权值和；只有能证明非恒等排列均不可能时，才是对应配对的普通计数。顺序不能随意排序，模结果为 0 也不能据此断言不存在路径族。时间 O((k+1)(n+m)+k$^{3}$+k log mod)，额外空间 O(n+k$^{2}$)，依赖 det\_prime 和 ModInt。
 
@@ -6111,7 +6127,7 @@ dag\_path\_determinant<mod>(g,sources,sinks) 返回路径权值矩阵的行列�
 
 题意：输入 n,m,k、m 条有向带权边、k 个起点和 k 个终点，均为 0-based。输出模 998244353 的带符号路径族权值和，整图有环输出 CYCLE。端点顺序原样保留，不能把负号当作错误去掉。
 
-所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）、\hyperref[compact-dag_path_determinant]{dag\_path\_determinant}（第~\pageref{compact-dag_path_determinant}~页，\ref{compact-dag_path_determinant}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-det_prime]{det\_\allowbreak{}prime}（第~\pageref{compact-det_prime}~页，\ref{compact-det_prime}~节）、\hyperref[compact-dag_path_determinant]{dag\_\allowbreak{}path\_\allowbreak{}determinant}（第~\pageref{compact-dag_path_determinant}~页，\ref{compact-dag_path_determinant}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://github.com/gsh20040816/CPCtemplate/issues/11}
 
@@ -6209,7 +6225,7 @@ line\_projection(p,a,b) 返回 p 在过 a、b 直线上的正交投影；若 a=b
 
 题意：固定直线两端点，对每个点输出其在无限直线上的投影。题目保证两端点不同，整数坐标绝对值不超过10000，q不超过1000；投影可在线段外。接口参数为(p,a,b)，不截断到线段；a=b时模板返回a属于额外边界。
 
-所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_projection]{line\_projection}（第~\pageref{compact-line_projection}~页，\ref{compact-line_projection}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_projection]{line\_\allowbreak{}projection}（第~\pageref{compact-line_projection}~页，\ref{compact-line_projection}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_1_A}
 
@@ -6233,7 +6249,7 @@ line\_intersection\_real(a,b,c,d,eps=1e-12L) 返回 RealPlane::Result；eps 必�
 
 题意：输出两条线段的唯一交点；题目保证非平行且相交，q不超过1000，整数坐标绝对值不超过10000，因此可直接取one结果。模板计算支撑直线交点，不自动检查交点在线段内；一般输入须先检查kind。整数方向叉积非零时绝对值至少1，大于本题范围下默认相对阈值。
 
-所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_intersection_real]{line\_intersection\_real}（第~\pageref{compact-line_intersection_real}~页，\ref{compact-line_intersection_real}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_intersection_real]{line\_\allowbreak{}intersection\_\allowbreak{}real}（第~\pageref{compact-line_intersection_real}~页，\ref{compact-line_intersection_real}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C}
 
@@ -6243,7 +6259,7 @@ line\_intersection\_real(a,b,c,d,eps=1e-12L) 返回 RealPlane::Result；eps 必�
 
 \section{浮点直线与圆交点}\label{compact-line_circle_intersections}\index{line\_circle\_intersections}
 
-代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_projection]{line\_projection}（第~\pageref{compact-line_projection}~页，\ref{compact-line_projection}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_projection]{line\_\allowbreak{}projection}（第~\pageref{compact-line_projection}~页，\ref{compact-line_projection}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 line\_circle\_intersections(a,b,c,eps=1e-12L) 返回 Result；c 为 RealPlane::Circle，半径非负，eps 为正。a=b 返回 degenerate；按投影点到圆心的距离和半径的相对阈值区分 none、one、two。点圆允许；只有正半径同心圆才涉及无限交点，本函数不会返回 infinite。依赖 line\_projection，O(1)。输入有限且尺度适当，接近相切时按容差归类。
 
@@ -6277,7 +6293,7 @@ circle\_overlap\_area(a,b) 返回 long double 面积，半径非负。分离或�
 
 题意：两个圆的公共面积，整数坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$。覆盖相离、内含、同心与部分相交；输出面积的绝对误差须小于1e-6。
 
-所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_overlap_area]{circle\_overlap\_area}（第~\pageref{compact-circle_overlap_area}~页，\ref{compact-circle_overlap_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_overlap_area]{circle\_\allowbreak{}overlap\_\allowbreak{}area}（第~\pageref{compact-circle_overlap_area}~页，\ref{compact-circle_overlap_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I}
 
@@ -6331,7 +6347,7 @@ line\_circle\_i64(a,b,o,r)：a、b定直线，o为圆心。依赖IntegerPlane::P
 
 题意：整数圆心/半径及直线，坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$，q$\le$1000。题目保证直线非退化且至少一个交点；精确分类后构造坐标，按x/y字典序输出，相切点复制一次。绝对误差要求小于1e-6。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_circle_i64]{line\_circle\_i64}（第~\pageref{compact-line_circle_i64}~页，\ref{compact-line_circle_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_circle_i64]{line\_\allowbreak{}circle\_\allowbreak{}i64}（第~\pageref{compact-line_circle_i64}~页，\ref{compact-line_circle_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D}
 
@@ -6355,7 +6371,7 @@ circle\_intersections\_i64(a,r,b,s)：a、b为圆心。依赖IntegerPlane::Point
 
 题意：整数圆心/半径，坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$；不同圆心且至少一个交点。按x/y字典序输出，相切点复制一次；不使用eps排序。绝对误差要求小于1e-6。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_intersections_i64]{circle\_intersections\_i64}（第~\pageref{compact-circle_intersections_i64}~页，\ref{compact-circle_intersections_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_intersections_i64]{circle\_\allowbreak{}intersections\_\allowbreak{}i64}（第~\pageref{compact-circle_intersections_i64}~页，\ref{compact-circle_intersections_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E}
 
@@ -6379,7 +6395,7 @@ polygon\_area2(p) 返回 \_\_int128\_t 的有向面积两倍；逆时针为正�
 
 题意：给出逆时针简单多边形，3至100点，整数坐标绝对值不超过10000，输出面积并保留一位小数。无需凸包，凹多边形也适用。接口返回有向二倍面积，逆时针为正；取绝对值后按奇偶精确打印.0或.5。本题范围允许将半面积转为long long；一般int128结果不可任意缩窄。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-polygon_area2]{polygon\_area2}（第~\pageref{compact-polygon_area2}~页，\ref{compact-polygon_area2}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-polygon_area2]{polygon\_\allowbreak{}area2}（第~\pageref{compact-polygon_area2}~页，\ref{compact-polygon_area2}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_A}
 
@@ -6403,7 +6419,7 @@ polygon\_contains(p,q) 返回 0 外部、1 边界、2 内部，输入简单多�
 
 题意：给定简单多边形和查询点，逐个输出0外部、1边界、2内部；允许凹多边形，按题目给出的逆时针边界顺序读入，不要求重建凸包。n至100、q至1000，坐标绝对值至10000；核心也接受反向边界。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-polygon_contains]{polygon\_contains}（第~\pageref{compact-polygon_contains}~页，\ref{compact-polygon_contains}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-polygon_contains]{polygon\_\allowbreak{}contains}（第~\pageref{compact-polygon_contains}~页，\ref{compact-polygon_contains}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_C}
 
@@ -6531,7 +6547,7 @@ segment\_distance\_real(p,a,b) 返回点 p 到闭线段 ab 的 long double 距�
 
 题意：求两条闭线段间距离，q不超过1000，整数坐标绝对值不超过10000。先用IntegerPlane精确判相交（含接触和共线重叠），相交输出0；否则取四个端点到另一线段距离的最小值。单点距离接口参数为(p,a,b)。题目线段非退化，点线段属于额外接口边界。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-segment_distance_real]{segment\_distance\_real}（第~\pageref{compact-segment_distance_real}~页，\ref{compact-segment_distance_real}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-segment_distance_real]{segment\_\allowbreak{}distance\_\allowbreak{}real}（第~\pageref{compact-segment_distance_real}~页，\ref{compact-segment_distance_real}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D}
 
@@ -6557,7 +6573,7 @@ integer\_hull(points) 按值接收 IntegerPlane::Point 序列，输出严格逆�
 
 题意：多组求整数点集的凸包，去重并去掉边上非顶点。输出顶点数及逆时针顶点，不重复首点；空集输出 0，共线时仅保留两端。传 move 交出点集，避免按值传参时额外复制。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_\allowbreak{}hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/static_convex_hull}
 
@@ -6571,7 +6587,7 @@ integer\_hull(points) 按值接收 IntegerPlane::Point 序列，输出严格逆�
 
 题意：求围住所有点的最短围栏长度。坐标绝对值$\le$10$^{6}$、最多两位小数；按字符串读成放大 100 倍的整数，精确求凸包，最后才开方并除以 100。全共线时周长为两端距离的两倍，全部重合为 0。USACO 来源作为应用补充。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_\allowbreak{}hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P2742}
 
@@ -6581,7 +6597,7 @@ integer\_hull(points) 按值接收 IntegerPlane::Point 序列，输出严格逆�
 
 \section{点在整数凸包内（二分）}\label{compact-convex_contains_i64}\index{convex\_contains\_i64}
 
-代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-polygon_contains]{polygon\_contains}（第~\pageref{compact-polygon_contains}~页，\ref{compact-polygon_contains}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-polygon_contains]{polygon\_\allowbreak{}contains}（第~\pageref{compact-polygon_contains}~页，\ref{compact-polygon_contains}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 convex\_contains\_i64(p,q) 返回 0 外部、1 边界、2 内部。要求严格逆时针凸包，无共线边内点、不重复首点，例如 integer\_hull 的输出；允许循环旋转起点。空集、单点、线段转用 polygon\_contains。坐标范围同 IntegerPlane，O(log n) 时间、O(1) 空间。
 
@@ -6595,7 +6611,7 @@ convex\_contains\_i64(p,q) 返回 0 外部、1 边界、2 内部。要求严格�
 
 \section{凸多边形 Minkowski 和}\label{compact-minkowski_sum}\index{minkowski\_sum}
 
-代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_\allowbreak{}hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返回空集，点和线段允许作为退化凸包。
 
@@ -6619,7 +6635,7 @@ minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返
 
 题意：两组点各自凸包为领地；每次将第二组平移d，问两领地是否相交，接触边界也输出1。先构造A+(-B)，再判断d是否在其闭包内。n、m、q各至10万，坐标和平移量绝对值至10$^{8}$。比赛应用，不计正式模板题覆盖。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）、\hyperref[compact-minkowski_sum]{minkowski\_sum}（第~\pageref{compact-minkowski_sum}~页，\ref{compact-minkowski_sum}~节）、\hyperref[compact-convex_contains_i64]{convex\_contains\_i64}（第~\pageref{compact-convex_contains_i64}~页，\ref{compact-convex_contains_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_\allowbreak{}hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）、\hyperref[compact-minkowski_sum]{minkowski\_\allowbreak{}sum}（第~\pageref{compact-minkowski_sum}~页，\ref{compact-minkowski_sum}~节）、\hyperref[compact-polygon_contains]{polygon\_\allowbreak{}contains}（第~\pageref{compact-polygon_contains}~页，\ref{compact-polygon_contains}~节）、\hyperref[compact-convex_contains_i64]{convex\_\allowbreak{}contains\_\allowbreak{}i64}（第~\pageref{compact-convex_contains_i64}~页，\ref{compact-convex_contains_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4557}
 
@@ -6663,7 +6679,7 @@ minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返
 
 题意：输入N个轴对齐矩形，每行依次为l,d,r,u。1$\le$N$\le$500000，0$\le$l<r$\le$10\textasciicircum{}9，0$\le$d<u$\le$10\textasciicircum{}9。直接按左、下、右、上存储，计算并集面积；不是面积和。所有矩形都在边长10\textasciicircum{}9的正方形内，最终面积$\le$10\textasciicircum{}18，可把\_\_int128结果转成long long输出。
 
-所需模板：\hyperref[compact-rectangle_union_area]{rectangle\_union\_area}（第~\pageref{compact-rectangle_union_area}~页，\ref{compact-rectangle_union_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-rectangle_union_area]{rectangle\_\allowbreak{}union\_\allowbreak{}area}（第~\pageref{compact-rectangle_union_area}~页，\ref{compact-rectangle_union_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/area_of_union_of_rectangles}
 
@@ -6689,7 +6705,7 @@ convex\_diameter2(p,endpoints=nullptr) 返回最远两点距离平方，类型 \
 
 题意：多组求距离最远的两个不同输入点编号。先建凸包，端点接口返回凸包下标，再按坐标映射回输入下标。题目保证至少两点；若凸包只剩一个点，所有坐标相同，输出 0、1。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）、\hyperref[compact-convex_diameter2]{convex\_diameter2}（第~\pageref{compact-convex_diameter2}~页，\ref{compact-convex_diameter2}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_\allowbreak{}hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）、\hyperref[compact-convex_diameter2]{convex\_\allowbreak{}diameter2}（第~\pageref{compact-convex_diameter2}~页，\ref{compact-convex_diameter2}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/furthest_pair}
 
@@ -6703,7 +6719,7 @@ convex\_diameter2(p,endpoints=nullptr) 返回最远两点距离平方，类型 \
 
 题意：求最多 5 万个点的最远距离平方，坐标绝对值$\le$10$^{4}$。先求严格凸包再旋转卡壳；本题答案$\le$8×10$^{8}$，可转 long long 输出，不能照搬到通用万亿坐标。USACO 来源作为应用补充；返回端点的正式示例见 Library Checker furthest\_pair。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）、\hyperref[compact-convex_diameter2]{convex\_diameter2}（第~\pageref{compact-convex_diameter2}~页，\ref{compact-convex_diameter2}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_\allowbreak{}hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）、\hyperref[compact-convex_diameter2]{convex\_\allowbreak{}diameter2}（第~\pageref{compact-convex_diameter2}~页，\ref{compact-convex_diameter2}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P1452}
 
@@ -6771,7 +6787,7 @@ closest\_pair\_i64(points, endpoints=nullptr) 返回 optional<\_\_int128\_t> 的
 
 题意：求整数点集最近距离的平方，全程不取平方根。题目保证至少两点，坐标绝对值不超过 10\textasciicircum{}7，平方距离不超过 8×10\textasciicircum{}14，可将 int128 转为 long long；模板完整范围内不能无条件照搬转换。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-closest_pair_i64]{closest\_pair\_i64}（第~\pageref{compact-closest_pair_i64}~页，\ref{compact-closest_pair_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-closest_pair_i64]{closest\_\allowbreak{}pair\_\allowbreak{}i64}（第~\pageref{compact-closest_pair_i64}~页，\ref{compact-closest_pair_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P7883}
 
@@ -6785,7 +6801,7 @@ closest\_pair\_i64(points, endpoints=nullptr) 返回 optional<\_\_int128\_t> 的
 
 题意：多组整数点集，输出一对不同的原输入0-based下标，使欧氏距离最小；最优解任选，重复坐标仍须返回不同下标。每组至少2点，总点数至50万，坐标绝对值至10$^{9}$。直接传入端点指针，无需开方或重建坐标到编号的映射。
 
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-closest_pair_i64]{closest\_pair\_i64}（第~\pageref{compact-closest_pair_i64}~页，\ref{compact-closest_pair_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-closest_pair_i64]{closest\_\allowbreak{}pair\_\allowbreak{}i64}（第~\pageref{compact-closest_pair_i64}~页，\ref{compact-closest_pair_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/closest_pair}
 
@@ -6923,7 +6939,7 @@ xor\_hamming\_pairs(a,queries,k,bits=14) 按查询输入顺序返回 long long �
 
 题意：统计每个区间内异或值恰有 k 个 1 的无序下标对。输入 1-based 闭区间 [l,r]，只将 l 减一转为 0-based 半开区间；k 可以大于 14，此时全零。k=0 统计相等值的不同下标，不计自身。
 
-所需模板：\hyperref[compact-xor_hamming_pairs]{xor\_hamming\_pairs}（第~\pageref{compact-xor_hamming_pairs}~页，\ref{compact-xor_hamming_pairs}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-xor_hamming_pairs]{xor\_\allowbreak{}hamming\_\allowbreak{}pairs}（第~\pageref{compact-xor_hamming_pairs}~页，\ref{compact-xor_hamming_pairs}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4887}
 

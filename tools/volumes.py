@@ -17,6 +17,7 @@ owner = {title: key for key, (title, _) in groups.items()}
 for r in rows:
     r['volume'] = owner[TAX[r['symbol']]['hierarchy'][0]]
 by_name = {r['symbol']: r for r in rows}
+usage_owner = {r['id']: r['symbol'] for r in json.loads((root / 'docs/usage-examples.json').read_text())}
 assert len(by_name) == len(rows)
 notes = {k: [] for k in groups}
 knowledge_source = legacy_knowledge()
@@ -55,7 +56,13 @@ for key, (title, _) in groups.items():
     pending = knowledge + '\n' + '\n'.join(r['code'] + r['latex'] for r in primary + classified)
     while True:
         tokens = set(re.findall(r'\b[A-Za-z_]\w*\b', pending))
-        added = (tokens & by_name.keys()) - included
+        # Joint-use references can point to a primary owner absent from code tokens.
+        # Include that owner in the appendix so copied dependency pages keep valid links.
+        usage_refs = set(re.findall(r'\\(?:page)?ref\{usage-([^}]+)\}', pending))
+        usage_refs.update(re.findall(r'\\hyperref\[usage-([^\]]+)\]', pending))
+        assert usage_refs <= usage_owner.keys(), (key, usage_refs - usage_owner.keys())
+        referenced = {usage_owner[u] for u in usage_refs}
+        added = ((tokens & by_name.keys()) | referenced) - included
         if not added:
             break
         included.update(added)

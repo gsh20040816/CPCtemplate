@@ -22,7 +22,7 @@ def dependencies(entries):
 
 def reference(symbol):
     label = 'compact-' + symbol
-    title = symbol.replace('_', r'\_')
+    title = symbol.replace('_', r'\_\allowbreak{}')
     return r'\hyperref[' + label + ']{' + title + r'}（第~\pageref{' + label + r'}~页，\ref{' + label + r'}~节）'
 
 

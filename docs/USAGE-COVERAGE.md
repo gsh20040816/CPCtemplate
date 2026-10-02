@@ -44,8 +44,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | garner | [example-213](usage/example-213.cpp) | locally_checked_example |
 | PollardRho | [example-43](usage/example-43.cpp) | locally_checked_example |
 | LinearSieve | 待补 | pending_example |
-| ModInt | 待补 | pending_example |
-| Binomial | 待补 | pending_example |
+| ModInt | [example-216（应用补充）](usage/example-216.cpp) | locally_checked_application |
+| Binomial | [example-216（应用补充）](usage/example-216.cpp) | locally_checked_application |
 | PrimitiveRoot | [example-48](usage/example-48.cpp) | locally_checked_example |
 | CoprimePairs | [example-195（应用补充）](usage/example-195.cpp) | locally_checked_application |
 | floor_moments | [example-157](usage/example-157.cpp) | locally_checked_example |
