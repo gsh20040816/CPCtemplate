@@ -168,7 +168,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | PersistentRange | [example-174（应用补充）](usage/example-174.cpp), [example-175（应用补充）](usage/example-175.cpp) | locally_checked_application |
 | TreeDiameter | [example-170（应用补充）](usage/example-170.cpp) | locally_checked_application |
 | FunctionalGraph | [example-171](usage/example-171.cpp), [example-172](usage/example-172.cpp), [example-173（应用补充）](usage/example-173.cpp) | locally_checked_example |
-| release_bfs | 待补 | pending_example |
+| release_bfs | [example-215（应用补充）](usage/example-215.cpp) | locally_checked_application |
 | ModifiedMo | [example-168](usage/example-168.cpp) | locally_checked_example |
 | gp_map | [example-68](usage/example-68.cpp), [example-69](usage/example-69.cpp) | locally_checked_example |
 | ost | [example-67](usage/example-67.cpp) | locally_checked_example |

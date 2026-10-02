@@ -2667,5 +2667,17 @@
       "ModInt",
       "AffineSequenceTreap"
     ]
+  },
+  {
+    "id": "example-215",
+    "symbol": "release_bfs",
+    "kind": "application",
+    "problem": "QOJ 8236 / ICPC 2023 Hangzhou G — Snake Move",
+    "url": "https://codeforces.com/gym/104976/attachments/download/24253/hangzhou(en).pdf",
+    "summary": "蛇可移动或缩尾，求蛇头到各格最少步数的平方和，模2^64。初始身体按0-based i（不含头）设open=k-i，尾格为1；源点时间0，障碍不连边。n,m至多3000，k至多min(nm,100000)。不可达不计，使用unsigned long long自然回绕；这是比赛应用，不是独立模板题。",
+    "driver": "verify/qoj/8236.compact.cpp",
+    "requires": [
+      "release_bfs"
+    ]
   }
 ]

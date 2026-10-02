@@ -1,0 +1,44 @@
+{
+  "checked_at_utc": "2026-10-02T11:17:05Z",
+  "scope": "Archived source identity and freshly reread official statement, not current OJ acceptance",
+  "statement_url": "https://codeforces.com/gym/104976/attachments/download/24253/hangzhou(en).pdf",
+  "statement_physical_pages": [
+    11,
+    12
+  ],
+  "limits": {
+    "n_max": 3000,
+    "m_max": 3000,
+    "k_max": 100000,
+    "also_k_at_most_cells": true,
+    "answer_modulus": "2^64"
+  },
+  "archived_record": "https://qoj.ac/submission/2940150",
+  "archived_verdict_date": "2026-09-12",
+  "archived_source": "verification/submitted/QOJ8236.compact.cpp",
+  "archived_sha256": "91de6fd65382a1099d1b1c8b98f301bd4045c1d5a1fad279ccf756c7e658b7cc",
+  "current_driver": "verify/qoj/8236.compact.cpp",
+  "current_bundle_sha256": "47a31d534ec7d7ad5ab11ca023e0cb730c16f18ab20e69ab5874b40fecb11d20",
+  "byte_identical": false,
+  "only_three_exact_whitespace_changes": true,
+  "formatting_changes": [
+    {
+      "before": "        while (time <= last && time <= limit && pending[time].empty())\n            time++;",
+      "after": "        while (time <= last && time <= limit && pending[time].empty()) time++;"
+    },
+    {
+      "before": "                      if (dist[v] != -1)\n                          return;",
+      "after": "                      if (dist[v] != -1) return;"
+    },
+    {
+      "before": "        if (d >= 0)\n            answer += 1ULL * d * d;",
+      "after": "        if (d >= 0) answer += 1ULL * d * d;"
+    }
+  ],
+  "current_oj_rechecked": false,
+  "new_online_submission": false,
+  "browser_status": "QOJ Cloudflare verification persisted after one reload; no further site attempts",
+  "statement_pdf_sha256": "70fc1d8cd15e69b3be3a6b13060df2d852786737b46dc03cd0d5ce30e52afcc0",
+  "statement_pdf_pages": 22,
+  "local_pdf_note": "Poppler emitted recoverable syntax warnings; physical page11 rendered and visually checked against official statement. Source bytes were not modified."
+}

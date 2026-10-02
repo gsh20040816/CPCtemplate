@@ -4851,6 +4851,20 @@ release\_bfs(open,source,neighbors) 返回各点最早到达时间，不可达�
 
 \lstinputlisting[firstline=9,lastline=51]{../src/compact/release_bfs.hpp}
 
+\Needspace{663pt}
+
+\subsection*{应用题补充：QOJ 8236 / ICPC 2023 Hangzhou G — Snake Move}
+
+\label{usage-example-215}
+
+题意：蛇可移动或缩尾，求蛇头到各格最少步数的平方和，模2\textasciicircum{}64。初始身体按0-based i（不含头）设open=k-i，尾格为1；源点时间0，障碍不连边。n,m至多3000，k至多min(nm,100000)。不可达不计，使用unsigned long long自然回绕；这是比赛应用，不是独立模板题。
+
+所需模板：\hyperref[compact-release_bfs]{release\_bfs}（第~\pageref{compact-release_bfs}~页，\ref{compact-release_bfs}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/gym/104976/attachments/download/24253/hangzhou(en).pdf}
+
+\lstinputlisting{usage/example-215.cpp}
+
 \Needspace{680pt}
 
 \chapter{生成树问题}
