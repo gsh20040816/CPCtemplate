@@ -1,0 +1,42 @@
+{
+  "tested_commit": "53c19b28a2f50a9819ee24a51eb6c9c85d96d170",
+  "scope": "Three separately scoped frozen local checks. Not OJ acceptance, universal correctness, or LeakSanitizer certification. Known geometry judge-contract incompatibilities remain.",
+  "source_inputs": 1234,
+  "full_suite": {
+    "normal": "passed",
+    "sanitizer": "passed",
+    "manifest": "verification/runs/20261002-222-full-regression.json"
+  },
+  "printed_usages": {
+    "programs": 222,
+    "canonical_cases_per_mode": 608,
+    "total_executions": 1216,
+    "passed": true,
+    "report": "verification/runs/20261002-222-all-printed.json"
+  },
+  "copied_context": {
+    "registered": 222,
+    "standard_prelude_passed": 216,
+    "documented_gnu_headers_passed": 6,
+    "unresolved": 0,
+    "report": "verification/runs/20261002-222-copy-context.json"
+  },
+  "limits": [
+    "LeakSanitizer disabled due executor ptrace restriction",
+    "Interpolation core sanitizer stages explicitly use quarantine_size_mb=32 and thread_local_quarantine_size_kb=128; do not describe the whole suite as default quarantine",
+    "Compiler warnings retained in logs",
+    "No fresh online AC or speed ranking",
+    "Default floating CGL_7_D/CGL_7_E mappings remain incompatible; see verification/geometry-judge-contracts.json",
+    "Direct ComplexFFT P3803 maximum local wall times approach the official 2-second limit; online acceptance and judge timing remain unverified"
+  ],
+  "evidence_sha256": {
+    "verification/runs/20261002-222-full-regression.json": "7b69a4c79a4539ddd806cf87057a8713bba66dbdf621d1e11f7ec041dc8dff9d",
+    "verification/runs/20261002-222-copy-context.json": "f0e6dfcfda3e12dfa4b919e82c709abb75b997a00f8fd69767836ccff4b66174",
+    "verification/runs/20261002-222-all-printed.json": "7343c765b98112333cda634c11f63dd3b4324c1d461dcee9908a7136f1dedb95",
+    "verification/runs/20261002-222-all-printed.log": "341ff16c3816891412ccde9fe69831cf970b58c78b447410709d51fa191703d6",
+    "verification/runs/20261002T160237.659005Z-normal-17ece017/receipt.json": "8e66439ef4ba548bd09dcb51c915e6fe94c11f87e0e2ba7bc610fd651d58d688",
+    "verification/runs/20261002T160237.659005Z-normal-17ece017/output.log": "2f2b9a8672078ba1fc6c480591b3e877993918a67242278db5e0e752516190cb",
+    "verification/runs/20261002T162723.620613Z-sanitizer-0072f8f0/receipt.json": "8ba30fc4b696aadef11bb1d82ce52c6ba8d271963d3a9584e3728d55d224de0f",
+    "verification/runs/20261002T162723.620613Z-sanitizer-0072f8f0/output.log": "6f7c816fa751f9885aca70fce77e013db7514fe16b53aedd14d8d718d5e6bcd0"
+  }
+}
