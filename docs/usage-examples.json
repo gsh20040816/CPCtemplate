@@ -2780,5 +2780,29 @@
     "requires": [
       "ComplexFFT"
     ]
+  },
+  {
+    "id": "example-223",
+    "symbol": "MaxPlusMatrix",
+    "kind": "application",
+    "problem": "CSES 1724 Graph Paths II",
+    "url": "https://cses.fi/problemset/task/1724",
+    "summary": "有向图求从1到n恰好经过k条边的最小费用，不可达输出-1。1≤n≤100，1≤m≤n(n−1)，1≤k,c≤10^9。邻接矩阵初始全为不可达，不能设成单位阵；边u→v存-c，重边取最大值，再调用power(k)。先判不可达哨兵，再把结果取负输出；有限答案至多10^18。中间值含最后一次平方也满足本模板128位范围。时间O(n^3 log(k+1))、空间O(n^2)；这是负权转换应用，不是max-plus正式模板题。",
+    "driver": "verify/cses/1724.compact.cpp",
+    "requires": [
+      "MaxPlusMatrix"
+    ]
+  },
+  {
+    "id": "example-224",
+    "symbol": "GcdSequenceTreap",
+    "kind": "api",
+    "problem": "自定义带标签 GCD 序列操作",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/gcd_sequence.hpp",
+    "summary": "自定义协议，非OJ题；n≤200000、q≤100000均可为0，是本演示约定。先读n组(value,tag)，值为非负unsigned long long，标签0或1。I k v t在前k项后插入；E l r删1-based闭区间；S k v改单值；T k翻单标签；Q l r t查询该标签GCD，无该标签输出NONE，全零输出0。位置必须合法，可删空再插入，不支持翻转或负值。",
+    "driver": "docs/usage-drivers/tagged-gcd-demo.cpp",
+    "requires": [
+      "GcdSequenceTreap"
+    ]
   }
 ]

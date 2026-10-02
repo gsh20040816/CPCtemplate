@@ -1,0 +1,43 @@
+{
+  "kind": "api",
+  "symbol": "GcdSequenceTreap",
+  "origin": "custom API demonstration; not official ZOJ or another online judge",
+  "domain": {
+    "n": [
+      0,
+      200000
+    ],
+    "q": [
+      0,
+      100000
+    ],
+    "peak_live_max": 300000,
+    "value": "unsigned long long decimal, 0..18446744073709551615 on tested toolchain",
+    "tag": [
+      0,
+      1
+    ],
+    "bounds_status": "chosen protocol envelope, not official or measured hard limits"
+  },
+  "commands": {
+    "I k v t": "insert after k entries (0 <= k <= size)",
+    "E l r": "erase valid nonempty 1-based inclusive range",
+    "S k v": "set value at valid 1-based k; preserve tag",
+    "T k": "toggle single tag at valid 1-based k",
+    "Q l r t": "GCD of entries with tag t in valid nonempty 1-based inclusive range; NONE iff no such entries"
+  },
+  "preconditions": "All input valid; no signed values, reversal or malformed-input recovery",
+  "custom_sample": {
+    "input": "3 12\n0 0\n12 1\n18 1\nQ 1 3 1\nQ 1 1 0\nQ 1 1 1\nI 0 24 1\nT 2\nS 3 30\nQ 1 4 1\nE 2 3\nQ 1 2 1\nE 1 2\nI 0 18446744073709551615 0\nQ 1 1 0\n",
+    "output": "6\n0\nNONE\n6\n6\n18446744073709551615\n"
+  },
+  "counts": {
+    "core_cases_per_mode": 1,
+    "core_build_calls": 7,
+    "core_recycling_rounds": 128,
+    "core_query_assertions": 523,
+    "driver_cases_per_form": 134,
+    "operations_per_form": 399572,
+    "queries_per_form": 83267
+  }
+}

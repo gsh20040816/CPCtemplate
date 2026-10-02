@@ -1,0 +1,13 @@
+{
+  "problem": "CSES 1724 Graph Paths II",
+  "url": "https://cses.fi/problemset/task/1724",
+  "reviewed_on": "2026-10-02",
+  "classification": "application",
+  "n": [1, 100], "m": "1..n*(n-1)", "k": [1, 1000000000],
+  "cost": [1, 1000000000], "vertices": "1..n",
+  "goal": "Minimum total cost from 1 to n using exactly k directed edges; -1 if impossible",
+  "loops_and_parallel_edges": "Neither is prohibited by the statement; preserve actual loops and minimize parallel costs",
+  "sample_answer": 27, "time_limit_seconds": 1, "memory_limit_MB": 512,
+  "API_extensions": "n=1, m=0, m>n*(n-1), k=0 are never counted as official-domain cases",
+  "safety": "Final unused square has at most 2^30 edges: magnitude <=2^30*10^9 <2^119; sentinel is -2^120; finite requested answer <=10^18"
+}

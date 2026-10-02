@@ -3028,6 +3028,20 @@ a[i][j] 为转移收益，不存在的边为 neg；power(k) 求恰好 k 步的�
 
 \lstinputlisting[firstline=6,lastline=40]{../src/compact/optimization.hpp}
 
+\Needspace{452pt}
+
+\subsection*{应用题补充：CSES 1724 Graph Paths II}
+
+\label{usage-example-223}
+
+题意：有向图求从1到n恰好经过k条边的最小费用，不可达输出-1。1$\le$n$\le$100，1$\le$m$\le$n(n−1)，1$\le$k,c$\le$10\textasciicircum{}9。邻接矩阵初始全为不可达，不能设成单位阵；边u→v存-c，重边取最大值，再调用power(k)。先判不可达哨兵，再把结果取负输出；有限答案至多10\textasciicircum{}18。中间值含最后一次平方也满足本模板128位范围。时间O(n\textasciicircum{}3 log(k+1))、空间O(n\textasciicircum{}2)；这是负权转换应用，不是max-plus正式模板题。
+
+所需模板：\hyperref[compact-MaxPlusMatrix]{MaxPlusMatrix}（第~\pageref{compact-MaxPlusMatrix}~页，\ref{compact-MaxPlusMatrix}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://cses.fi/problemset/task/1724}
+
+\lstinputlisting{usage/example-223.cpp}
+
 \Needspace{406pt}
 
 \section{行列式}
@@ -4537,6 +4551,20 @@ build(v) 用数值与状态组成的序列替换当前内容。数值为无符�
 \noindent 插删、单点修改与分组查询（接上页同一结构体）：
 
 \lstinputlisting[firstline=142,lastline=195,firstnumber=133]{../src/compact/gcd_sequence.hpp}
+
+\Needspace{680pt}
+
+\subsection*{接口用法演示：自定义带标签 GCD 序列操作}
+
+\label{usage-example-224}
+
+演示约定：自定义协议，非OJ题；n$\le$200000、q$\le$100000均可为0，是本演示约定。先读n组(value,tag)，值为非负unsigned long long，标签0或1。I k v t在前k项后插入；E l r删1-based闭区间；S k v改单值；T k翻单标签；Q l r t查询该标签GCD，无该标签输出NONE，全零输出0。位置必须合法，可删空再插入，不支持翻转或负值。
+
+所需模板：\hyperref[compact-GcdSequenceTreap]{GcdSequenceTreap}（第~\pageref{compact-GcdSequenceTreap}~页，\ref{compact-GcdSequenceTreap}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/gcd_sequence.hpp}
+
+\lstinputlisting{usage/example-224.cpp}
 
 \newpage
 

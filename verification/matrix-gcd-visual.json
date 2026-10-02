@@ -1,0 +1,69 @@
+{
+  "scope": "Targeted actual visual check of 13 physical pages, not full-book visual certification",
+  "pdfs": [
+    {
+      "pdf": "output/pdf/xcpc-template.pdf",
+      "pdf_sha256": "a17bda568eeacaf068dc4c2df814ecae74261b5f007f14350f0f71e353827f2b",
+      "physical_pages_seen": [
+        176,
+        177,
+        178,
+        292,
+        293,
+        294
+      ],
+      "findings": "Actual images checked; complete application/demo listings, adjacent sections and index; no clipping/overlap; fonts unchanged",
+      "render_png_sha256": {
+        "build/matrix-gcd-final-qa/main-176.png": "909b0c2f64e6b90bfe19331c23b385e259d2a4b1ae0f9dec99b137babc9143c9",
+        "build/matrix-gcd-final-qa/main-177.png": "d89c7eb940e8d8b4e607349aa92ef98d6853d09889407534f64be945dfbf92db",
+        "build/matrix-gcd-final-qa/main-178.png": "c232d0c843a0eaff70b7e98c76c937af0835078da769f6ebd28cf375254f9b0f",
+        "build/matrix-gcd-final-qa/main-292.png": "336c415a118a480a333588f95d4169f281c82482b4e8262c2c518079108fc658",
+        "build/matrix-gcd-final-qa/main-293.png": "71eff28f8bd4ea1515ed56eabd574fe714d3e1286aa5cec3e3b00dc58b54ffce",
+        "build/matrix-gcd-final-qa/main-294.png": "a9894f2d02db12cc093410eb8cb11d6de932de5dab892c7849016b290a690881"
+      }
+    },
+    {
+      "pdf": "output/pdf/xcpc-mathematics.pdf",
+      "pdf_sha256": "cde2ca09d552a833371d8c46145a355126fc9339069355d978a2dfc4f103cdc2",
+      "physical_pages_seen": [
+        139,
+        140,
+        141
+      ],
+      "findings": "Actual images checked; complete application/demo listings, adjacent sections and index; no clipping/overlap; fonts unchanged",
+      "render_png_sha256": {
+        "build/matrix-gcd-final-qa/math-139.png": "7af96b830c7482c8e3f9036b3dcb1163aa89a762303262f1801b0baee245d03b",
+        "build/matrix-gcd-final-qa/math-140.png": "3ad0c497928098e6ac5e9d39e6abc91a6daa830e2b7210b8bb1ebfa040c0467c",
+        "build/matrix-gcd-final-qa/math-141.png": "33cfc82d22572def95af595c5db220953b7044bc112448dcc1c7428fa5399d10"
+      }
+    },
+    {
+      "pdf": "output/pdf/xcpc-data-structures.pdf",
+      "pdf_sha256": "6153a24093c767f60d30b2f5870d8fe96b4d1437bbbc1dc3426b2a813ccd1746",
+      "physical_pages_seen": [
+        84,
+        85,
+        86
+      ],
+      "findings": "Actual images checked; complete application/demo listings, adjacent sections and index; no clipping/overlap; fonts unchanged",
+      "render_png_sha256": {
+        "build/matrix-gcd-final-qa/data-084.png": "538f12085f855d1b8ede417ac1cf70af15c988aa4e09735847991301e8d8d340",
+        "build/matrix-gcd-final-qa/data-085.png": "ed715f9dfc5e7a4d4788c0ebe964e6c826600a97b3cf565915486cd33591c644",
+        "build/matrix-gcd-final-qa/data-086.png": "df2f0e316bdafb54d0fbea447c4bbf65c9034abd36369c7194de91cc5672f6f5"
+      }
+    },
+    {
+      "pdf": "output/pdf/infra.pdf",
+      "pdf_sha256": "485896aa32bb874a9618fe7cbad81540172474bca8107c3ae1b9ddcc3542be0e",
+      "physical_pages_seen": [
+        10
+      ],
+      "findings": "Actual images checked; complete application/demo listings, adjacent sections and index; no clipping/overlap; fonts unchanged",
+      "render_png_sha256": {
+        "build/matrix-gcd-final-qa/infra-10.png": "fbef28e006fc5c131d5daf54d541714c6d71ed906a1ba9b38685c09d0e4bcc7b"
+      }
+    }
+  ],
+  "layout_fix": "Shortened only example-224 summary to keep bottom listing frame on same page; final bound execution reports rerun after metadata change",
+  "unchanged_render_rechecks": "Final main pages176,177,178,292 are byte-identical PNG renders to images already inspected before summary edit"
+}

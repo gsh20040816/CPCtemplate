@@ -36,6 +36,8 @@ python3 tests/lagrange_fps_usage.py
 python3 tests/state_recurrence_knowledge.py
 python3 tests/state_recurrence_snippet.py
 python3 tests/complex_fft_usage.py
+python3 tests/maxplus_application.py
+python3 tests/tagged_gcd_demo.py
 python3 tests/ordered_splay_pagination.py
 python3 tests/joint_usage_references.py
 python3 tests/copy_prerequisite_order.py
