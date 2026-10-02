@@ -23,6 +23,7 @@ SOURCE_FILES = (
     'docs/knowledge-state-recurrence.tex',
     'docs/knowledge-inclusion.tex',
     'docs/knowledge-floor-sums.tex',
+    'docs/knowledge-matrix-tree.tex',
 )
 SECTION = re.compile(r'(?m)(?=^\\section\{)')
 LABEL = re.compile(r'\\label\{(knowledge-[^}]+)\}')
@@ -65,7 +66,7 @@ def source_sections(sources):
             # from its title or incidental references in the body.
             assert LABEL.search(fragment.split('\n', 1)[0]), (source, label)
             sections[label] = source
-    assert len(sections) == 21, ('bounded knowledge section count', len(sections))
+    assert len(sections) == 23, ('bounded knowledge section count', len(sections))
     return sections
 
 
@@ -76,7 +77,7 @@ def validate(data, taxonomy, sources):
     scope = data['scope']
     assert len(scope['source_files']) == len(set(scope['source_files']))
     assert set(scope['source_files']) == set(SOURCE_FILES) == set(sources)
-    assert scope['classified_section_count'] == 21
+    assert scope['classified_section_count'] == 23
     assert scope['legacy_source'] == 'docs/mathematics.tex'
     assert scope['legacy_sections_classified'] is False
     assert scope['classification_only'] is True
@@ -96,7 +97,11 @@ def validate(data, taxonomy, sources):
         assert sections[label] == source, (label, 'label belongs to a different source')
         assert path in by_path, (label, 'unknown primary leaf', path)
         hierarchy = by_path[path]['hierarchy']
-        assert len(hierarchy) == 3 and hierarchy[0] == '数学', (label, hierarchy)
+        graph_labels = {'knowledge-matrix-tree-weighted', 'knowledge-matrix-tree-mod'}
+        if label in graph_labels:
+            assert path == 'graph/matrix-tree.md' and hierarchy == ['图论', '矩阵树定理'], (label, hierarchy)
+        else:
+            assert len(hierarchy) == 3 and hierarchy[0] == '数学', (label, hierarchy)
         assert isinstance(entry.get('page_break_before', False), bool)
         assert entry['relation'] in ('direct', 'application', 'composite')
         assert entry['note'].strip(), (label, 'classification rationale missing')
@@ -129,7 +134,7 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
         self.assertEqual(pinned_navigation(source.read_text()), self.taxonomy['navigation'])
 
     def test_all_registered_sections_have_one_known_primary_leaf(self):
-        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 21)
+        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 23)
         observed = {path.relative_to(ROOT).as_posix()
                     for path in (ROOT / 'docs').glob('knowledge-*.tex')}
         self.assertEqual(observed, set(SOURCE_FILES), 'new source needs explicit classification')
@@ -138,6 +143,10 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
             self.assertEqual(legacy.count(r'\input{' + Path(source).name + '}'), 1)
         self.assertTrue(SECTION.search(legacy), 'legacy unclassified sections still exist')
         self.assertFalse(LABEL.search(legacy), 'legacy source is outside this bounded map')
+
+    def test_graph_exception_is_bound_to_matrix_tree_labels(self):
+        self.reject(lambda data: data['entries'][0].update(path='graph/matrix-tree.md'))
+        self.reject(lambda data: data['entries'][-1].update(path='math/number-theory/euclidean.md'))
 
     def test_duplicate_and_missing_labels_are_rejected(self):
         self.reject(lambda data: data['entries'].append(copy.deepcopy(data['entries'][0])))

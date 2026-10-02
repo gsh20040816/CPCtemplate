@@ -45,14 +45,14 @@ def main():
         assert sequence[index:index + 2] == labels
         assert all(sequence.count(label) == 1 for label in labels)
     legacy = (root / 'docs/mathematics-legacy.tex').read_text()
-    assert len(re.findall(r'^\\section\{', legacy, re.M)) == 75
+    assert len(re.findall(r'^\\section\{', legacy, re.M)) == 73
     assert not any(label in legacy for label in labels)
     audit = (root / 'docs/KNOWLEDGE-TAXONOMY.md').read_text()
     count = mapping['scope']['classified_section_count']
     assert f'**{count} 个带标签节**' in audit
     assert f'{count} 个知识标签' in audit
     print('Floor knowledge migration: two sections preserved except seven explicit amendments; '
-          'unique adjacent routing, links, 75 legacy sections and prose counts PASS')
+          'unique adjacent routing, links, 73 legacy sections and prose counts PASS')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,66 @@
+{
+  "base_commit": "5b55ff42492d1856e37236c7babe3e18103cc228",
+  "original_sections_sha256": [
+    "2f0fdde30cad3f234d70e7e6941a1bac4099987c204a7e047c5117896e8733ab",
+    "9ad58488f76cc1aa0d22efb3ee6e7f1b923a96ec01cc4a522a1d8c15b5262544"
+  ],
+  "labels": [
+    "knowledge-matrix-tree-weighted",
+    "knowledge-matrix-tree-mod"
+  ],
+  "primary": "graph/matrix-tree.md",
+  "explicit_line_amendments": [
+    [
+      {
+        "start_line_zero_based": 0,
+        "end_line_exclusive": 2,
+        "original": "\\section{带权矩阵树定理与方向约定}\n实现见第~\\pageref{compact-MatrixTree}~页。\n",
+        "replacement": "\\section{带权矩阵树定理与方向约定}\\label{knowledge-matrix-tree-weighted}\n实现见第~\\ref{compact-MatrixTree}~节（第~\\pageref{compact-MatrixTree}~页）。\n"
+      },
+      {
+        "start_line_zero_based": 17,
+        "end_line_exclusive": 19,
+        "original": "\\href{https://www.luogu.com.cn/problem/P6178}{P6178} 指定的是以 1 为根的外向树，\n驱动把点号减一，并选择 \\texttt{away\\_from\\_root}。\n",
+        "replacement": "\\href{https://www.luogu.com.cn/problem/P6178}{P6178} 的有向模式（type=1）指定以 1 为根的外向树；type=0 为无向图，\n完整用法见第~\\ref{usage-example-76}~节（第~\\pageref{usage-example-76}~页）；驱动把点号减一，有向模式选择 \\texttt{away\\_from\\_root}。\n"
+      },
+      {
+        "start_line_zero_based": 22,
+        "end_line_exclusive": 22,
+        "original": "",
+        "replacement": "\\subsection{为什么这个余子式恰好计数}\n先证内向情形。删去根 $r$ 的坐标，令 $e_r=0$，其他 $e_i$ 为单位行向量。\n余子式第 $i$ 行是 $\\sum_{i\\to j}w_{ij}(e_i-e_j)$。\n按行的多线性展开，每项从每个非根点恰选一条出边，权为所选边权之积。\n若这些边含有有向环，环上向量 $e_i-e_j$ 相加为零，该项行列式为零。\n若无环，有限图中每条路径只能在没有出边的根终止。\n按到根距离从小到大，同时重排行列，得到对角全为 1 的三角矩阵，行列式为 1。\n因此只有内向生成树保留下来，每棵树的权恰计一次。\n\n自环的向量为零；重边在展开时是不同选择；单点对应空行列式与空乘积 1。\n无向边替换成权相同的两条反向弧，每棵无向生成树恰有一种朝根定向；\n有向边全部反转则把外向树变成内向树。\n整个论证是整数系数多项式恒等式，没有除法，故允许负权、零权及任意正模数。\n素数限制来自消元实现，不来自矩阵树定理本身。\n\n证明依据行列式多线性与有向树的出度刻画，参见\n\\href{https://ocw.mit.edu/courses/18-212-algebraic-combinatorics-spring-2019/resources/mit18_212s19_lec29/}{MIT 18.212 第29讲}；\n这里直接按选边后的环与根路径给出主余子式的证明，不扩展为任意非主余子式公式。\n\n\\subsection{既有接口与验证记录}\n"
+      },
+      {
+        "start_line_zero_based": 35,
+        "end_line_exclusive": 35,
+        "original": "",
+        "replacement": "\n\\clearpage\n"
+      }
+    ],
+    [
+      {
+        "start_line_zero_based": 0,
+        "end_line_exclusive": 2,
+        "original": "\\section{任意正模数的矩阵树计数}\n实现见第~\\pageref{compact-MatrixTreeMod}~页。\n",
+        "replacement": "\\section{任意正模数的矩阵树计数}\\label{knowledge-matrix-tree-mod}\n实现见第~\\ref{compact-MatrixTreeMod}~节（第~\\pageref{compact-MatrixTreeMod}~页）。\n"
+      },
+      {
+        "start_line_zero_based": 4,
+        "end_line_exclusive": 5,
+        "original": "本节沿用无向、内向与外向三种构造，但使用欧几里得行列式消元。\n",
+        "replacement": "本节沿用第~\\ref{knowledge-matrix-tree-weighted}~节（第~\\pageref{knowledge-matrix-tree-weighted}~页）的三种构造，但使用欧几里得行列式消元。\n"
+      },
+      {
+        "start_line_zero_based": 6,
+        "end_line_exclusive": 7,
+        "original": "\\texttt{MatrixTreeMod::count}。\n",
+        "replacement": "\\texttt{MatrixTreeMod::count}。行列式实现见第~\\ref{compact-determinant_mod}~节（第~\\pageref{compact-determinant_mod}~页），时间 $O(n^3\\log(m+1)+|E|)$、空间 $O(n^2)$；此处 $m$ 为模数。\n"
+      },
+      {
+        "start_line_zero_based": 19,
+        "end_line_exclusive": 20,
+        "original": "\n",
+        "replacement": ""
+      }
+    ]
+  ]
+}

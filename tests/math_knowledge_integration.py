@@ -4,6 +4,7 @@
 Run after tools/book.py and tools/volumes.py. This is a document integration
 check, not a PDF visual inspection or an algorithm correctness certificate.
 """
+import json
 import re
 import sys
 from pathlib import Path
@@ -19,11 +20,18 @@ mapped = {row['symbol']: row for row in classified_fragments()}
 omnibus = (ROOT / 'docs/generated.tex').read_text()
 legacy = (ROOT / 'docs/mathematics-legacy.tex').read_text()
 assert legacy == legacy_knowledge()
-volume = (ROOT / 'docs/volume-mathematics.tex').read_text()
-labels = set(re.findall(r'\\label\{([^}]+)\}', volume))
+volumes = {key: (ROOT / f'docs/volume-{key}.tex').read_text() for key in
+           ('strings', 'mathematics', 'data-structures', 'graphs', 'geometry', 'misc')}
+owner = {'数学': 'mathematics', '图论': 'graphs'}
+volume = volumes['mathematics']
 knowledge_labels = []
-for filename in ('knowledge-combinatorics.tex', 'knowledge-probability-games.tex',
-                 'knowledge-mobius.tex', 'knowledge-orbits.tex', 'knowledge-lte.tex', 'knowledge-lagrange.tex', 'knowledge-state-recurrence.tex', 'knowledge-inclusion.tex', 'knowledge-floor-sums.tex'):
+for source in json.loads((ROOT / 'docs/knowledge-taxonomy.json').read_text())['scope']['source_files']:
+    filename = Path(source).name
+    file_rows = [row for row in mapped.values() if row['symbol'] in re.findall(r'\\label\{(knowledge-[^}]+)\}', (ROOT / source).read_text())]
+    owners = {owner[row['taxonomy']['hierarchy'][0]] for row in file_rows}
+    assert len(owners) == 1, filename
+    volume = volumes[next(iter(owners))]
+    labels = set(re.findall(r'\\label\{([^}]+)\}', volume))
     assert math.count(r'\input{' + filename + '}') == 1, filename
     content = (ROOT / 'docs' / filename).read_text()
     # Only heading levels change; all authored mathematical text is preserved.
@@ -47,16 +55,15 @@ for filename in ('knowledge-combinatorics.tex', 'knowledge-probability-games.tex
             assert r'\pageref{' + target + '}' in content, (target, 'missing page')
     assert r'\chapter{' not in content, filename
 assert len(knowledge_labels) == len(set(knowledge_labels))
-assert len(knowledge_labels) == 21
-for rendered in (omnibus, volume):
+assert len(knowledge_labels) == 23
+for rendered in (omnibus, volumes['mathematics']):
     assert r'\newpage' + '\n\n' + r'\section{升幂引理}' in rendered, 'LTE page break must precede taxonomy heading'
     assert r'\newpage' + '\n\n' + r'\section{Lagrange 反演}' in rendered, 'Lagrange page break must precede taxonomy heading'
     assert r'\newpage' + '\n\n' + r'\section{特征多项式}' in rendered, 'State recurrence page break must precede taxonomy heading'
 for label in knowledge_labels:
-    assert volume.count(r'\label{' + label + '}') == 1, label
+    expected = owner[mapped[label]['taxonomy']['hierarchy'][0]]
+    for key, text in volumes.items():
+        assert text.count(r'\label{' + label + '}') == (1 if key == expected else 0), (label, key)
     assert omnibus.count(r'\label{' + label + '}') == 1, label
     assert r'\label{' + label + '}' not in legacy, label
-for other in ('strings', 'data-structures', 'graphs', 'geometry', 'misc'):
-    text = (ROOT / f'docs/volume-{other}.tex').read_text()
-    assert not any(r'\label{' + label + '}' in text for label in knowledge_labels), other
-print(f'PASS: {len(knowledge_labels)} knowledge sections classified once in both books; authored text preserved; references resolve')
+print(f'PASS: {len(knowledge_labels)} knowledge sections once in omnibus and owning volume; authored text and references preserved')

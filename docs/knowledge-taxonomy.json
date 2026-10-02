@@ -12,15 +12,16 @@
       "docs/knowledge-lagrange.tex",
       "docs/knowledge-state-recurrence.tex",
       "docs/knowledge-inclusion.tex",
-      "docs/knowledge-floor-sums.tex"
+      "docs/knowledge-floor-sums.tex",
+      "docs/knowledge-matrix-tree.tex"
     ],
-    "classified_section_count": 21,
+    "classified_section_count": 23,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类九份knowledge源文件的21个带标签节；其中类欧几里德两节从原附录迁移，保留既有推导与历史验证描述并补清引用/边界。分类本身不计新增算法或OJ覆盖；mathematics.tex的其余历史知识节仍未逐项分类，不代表issue #5/#7全量完成。"
+    "note": "仅分类十份knowledge源文件的23个带标签节，含数学21节与图论矩阵树2节。保留历史验证范围，不计新增算法或OJ覆盖；历史附录仍未全部分类。"
   },
   "entries": [
     {
@@ -248,6 +249,28 @@
       "relation": "direct",
       "note": "三个整除矩的归一化与高度递推、空和及P5170索引约定；原历史验证保留，不扩展到任意高次矩。",
       "page_break_before": true
+    },
+    {
+      "label": "knowledge-matrix-tree-weighted",
+      "source": "docs/knowledge-matrix-tree.tex",
+      "path": "graph/matrix-tree.md",
+      "additional": [
+        "math/linear-algebra/determinant.md"
+      ],
+      "relation": "direct",
+      "page_break_before": true,
+      "note": "既有矩阵树构造与接口边界；统一选边证明说明方向和任意正模数，历史在线记录不扩大。"
+    },
+    {
+      "label": "knowledge-matrix-tree-mod",
+      "source": "docs/knowledge-matrix-tree.tex",
+      "path": "graph/matrix-tree.md",
+      "additional": [
+        "math/linear-algebra/determinant.md"
+      ],
+      "relation": "direct",
+      "page_break_before": true,
+      "note": "既有矩阵树构造与接口边界；统一选边证明说明方向和任意正模数，历史在线记录不扩大。"
     }
   ]
 }

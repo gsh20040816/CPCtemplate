@@ -31,6 +31,7 @@ python3 tests/basic_template_scope.py
 python3 tests/acl_review_consistency.py
 python3 tests/knowledge_taxonomy.py
 python3 tests/floor_knowledge_migration.py
+python3 tests/matrix_tree_knowledge.py
 python3 tests/lte_knowledge.py
 python3 tests/lagrange_knowledge.py
 python3 tests/lagrange_fps_usage.py

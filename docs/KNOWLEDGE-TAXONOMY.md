@@ -1,13 +1,13 @@
-# 配套数学知识的 OI Wiki 分类
+# 配套知识的 OI Wiki 分类
 
-本表给九份知识源文件中的 **21 个带标签节** 登记显式分类。LTE、Lagrange反演、有限状态递推与广义容斥是新增知识正文，另有两节类欧几里德内容从旧附录迁移；其余15节保持原内容；分类本身不新增算法、模板覆盖或 OJ 验证记录。
+本表给十份知识源文件中的 **23 个带标签节** 登记显式分类。LTE、Lagrange反演、有限状态递推与广义容斥是新增知识正文，另有两节类欧几里德与两节矩阵树内容从旧附录迁移，矩阵树补充统一证明；其余15节保持原内容；分类本身不新增算法、模板覆盖或 OJ 验证记录。
 
 ## 固定来源与范围
 
 - 官方导航使用与算法分类相同的固定版本：[bc070e827180](https://github.com/OI-wiki/OI-wiki/blob/bc070e827180fbd75c2e27a16c1212f1d671d949/mkdocs.yml)
 - 本地来源为 [`references/oi-wiki-mkdocs.yml`](references/oi-wiki-mkdocs.yml)，SHA256：`de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806`
 - 路径、完整大中小分类名和先后顺序取自 [`oi-taxonomy.json`](oi-taxonomy.json) 的 `navigation`，不另造 OI Wiki 叶子
-- 分类数据为 [`knowledge-taxonomy.json`](knowledge-taxonomy.json)；源文件仍为 `knowledge-combinatorics.tex`、`knowledge-probability-games.tex`、`knowledge-mobius.tex`、`knowledge-orbits.tex`、`knowledge-lte.tex`、`knowledge-lagrange.tex`、`knowledge-state-recurrence.tex`、`knowledge-inclusion.tex`、`knowledge-floor-sums.tex`
+- 分类数据为 [`knowledge-taxonomy.json`](knowledge-taxonomy.json)；源文件仍为 `knowledge-combinatorics.tex`、`knowledge-probability-games.tex`、`knowledge-mobius.tex`、`knowledge-orbits.tex`、`knowledge-lte.tex`、`knowledge-lagrange.tex`、`knowledge-state-recurrence.tex`、`knowledge-inclusion.tex`、`knowledge-floor-sums.tex`、`knowledge-matrix-tree.tex`
 - **`mathematics.tex` 的其余历史知识节尚未逐项分类**，继续保留在附录；这些历史内容还混有其他分册的应用说明。本次不声称完成全部数学知识重排或 issue #5/#7 的全部范围
 - 导航来源是固定的 OI Wiki 官方仓库，不声称已核验 `oi-wiki.com` 与该导航相同，也不要求实时网站提供相同路径
 
@@ -17,7 +17,7 @@
 
 `page_break_before` 可选布尔值只控制知识节前换页，并在分类标题之前执行，避免标题落在上一页。标题只用于显示，既不用于分类，也不用于定位。读取源文件后以节内的精确标签配对；大、中、小标题与排序从固定导航路径查询。多个知识节可以属于同一叶子；同叶子内按清单顺序保留。跨主题的整节不拆散、不重复，并保留其公式、列表、例子、代码、标签与交叉引用。
 
-总册和数学分册使用同一份分类数据，把知识节并入对应叶子。生成历史附录时仅跳过这些已登记源文件的原有输入，避免重复；原始 `mathematics.tex` 与已登记知识源文件继续保留。知识不是算法目录条目，不能加入算法覆盖或评测统计。
+总册和对应所属分册使用同一份分类数据，把知识节并入对应叶子。生成历史附录时仅跳过这些已登记源文件的原有输入，避免重复；原始 `mathematics.tex` 与已登记知识源文件继续保留。知识不是算法目录条目，不能加入算法覆盖或评测统计。
 
 ## 逐节归属
 
@@ -45,13 +45,16 @@
 
 | `knowledge-state-recurrence`<br>`docs/knowledge-state-recurrence.tex` | 数学 → 线性代数 → 特征多项式<br>`math/linear-algebra/char-poly.md` | composite：固定有限状态模型经Cayley–Hamilton证明递推阶数，再恢复指定标量序列与求远项；不新增特征多项式或矩阵最小多项式实现。<br>关联：BM、常系数齐次线性递推、矩阵 |
 
-## 本地检查
-
-运行 `python3 tests/knowledge_taxonomy.py`。该检查独立解析固定导航源文件，验证快照哈希与生成导航一致、21 个知识标签恰好各映射一次、源路径和叶子路径有效、主归属均为数学的大中小三级，以及范围声明仍明确保留历史知识未分类的限制。负例检查覆盖重复、遗漏、错误源文件、未知叶子和擅自扩大范围；改标题而不改标签不会改变分类。
-
-这是分类数据检查，不是算法正确性、完整回归、线上 AC 或 PDF 视觉验收。数学例子与接口的原有验证仍见各知识源文件和 `tests/math_knowledge_*.py`。
-
 | `knowledge-inclusion-exact`<br>`docs/knowledge-inclusion.tex` | 数学 → 组合数学 → 容斥原理<br>`math/combinatorics/inclusion-exclusion-principle.md` | direct：交集和重数、恰好/至少反演、双向下标、空盒模型、现有模整数/组合数接口与边界；不新增算法或OJ覆盖。<br>关联：排列组合、斯特林数 |
 
 | `knowledge-floor-sum`<br>`docs/knowledge-floor-sums.tex` | 数学 → 数论 → 类欧几里德算法<br>`math/number-theory/euclidean.md` | direct：迁移既有有符号规范化和格点交换推导，补全实现节号/页号；不新增算法或OJ覆盖。 |
 | `knowledge-floor-moments`<br>`docs/knowledge-floor-sums.tex` | 数学 → 数论 → 类欧几里德算法<br>`math/number-theory/euclidean.md` | direct：迁移三个矩的归一化、高度递推与历史验证；明确空和及与基本floor_sum共同范围，不扩大任意高次矩范围。 |
+
+| `knowledge-matrix-tree-weighted`<br>`docs/knowledge-matrix-tree.tex` | 图论 → 矩阵树定理<br>`graph/matrix-tree.md` | direct：带权构造、根方向与按行展开的统一证明；关联行列式，不扩展历史在线范围。 |
+| `knowledge-matrix-tree-mod`<br>`docs/knowledge-matrix-tree.tex` | 图论 → 矩阵树定理<br>`graph/matrix-tree.md` | direct：任意正模数接口及溢出边界；定理无除法，消元实现仍须正确选择。 |
+
+## 本地检查
+
+运行 `python3 tests/knowledge_taxonomy.py`。该检查独立解析固定导航源文件，验证快照哈希与生成导航一致、23 个知识标签恰好各映射一次、源路径和叶子路径有效、主归属遵从固定导航：数学21节为三级，矩阵树2节为图论的既定二级叶子，以及范围声明仍明确保留历史知识未分类的限制。负例检查覆盖重复、遗漏、错误源文件、未知叶子和擅自扩大范围；改标题而不改标签不会改变分类。
+
+这是分类数据检查，不是算法正确性、完整回归、线上 AC 或 PDF 视觉验收。数学例子与接口的原有验证仍见各知识源文件和 `tests/math_knowledge_*.py`。
