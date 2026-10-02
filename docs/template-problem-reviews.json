@@ -4291,5 +4291,27 @@
       "verification/interpolation-official-usage-normal.json",
       "verification/interpolation-official-usage-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "garner",
+    "problem": "Library Checker convolution_mod_1000000007 (three-NTT composition)",
+    "url": "https://judge.yosupo.jp/problem/convolution_mod_1000000007",
+    "classification": "Official convolution template problem composed from three existing NTT instantiations and Garner; not a standalone CRT task.",
+    "statement_checked": true,
+    "checked_date": "2026-10-02",
+    "limits": "1<=n,m<=524288; canonical residues modulo1000000007; output n+m-1 coefficients; true nonnegative integer coefficients strictly below the three-prime product",
+    "implementation": "existing",
+    "source": "src/compact/garner.hpp",
+    "tested_api": [
+      "garner with fixed three source primes and target1000000007"
+    ],
+    "driver": "verify/library_checker/convolution_mod_1000000007.garner.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and all-submissions ranking pending; generic arbitrary-modulus Garner evidence remains separate from this fixed-prime composition."
   }
 ]

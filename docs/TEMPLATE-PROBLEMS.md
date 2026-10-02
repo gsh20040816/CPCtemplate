@@ -175,6 +175,7 @@
 | `Fenwick` | [Luogu P3369 (compressed frequency selection)](https://www.luogu.com.cn/problem/P3369) | n<=100000; \|x\|<=10000000; valid kth and strict-neighbor requests | 待在线 AC | 待核验 |
 | `MultipointEvaluation` | [Library Checker multipoint_evaluation](https://judge.yosupo.jp/problem/multipoint_evaluation) | 1<=n,m<=131072; residues modulo998244353; highest coefficient nonzero; repeated points allowed | 待在线 AC | 待核验 |
 | `polynomial_interpolation` | [Library Checker polynomial_interpolation](https://judge.yosupo.jp/problem/polynomial_interpolation) | 1<=n<=131072; pairwise distinct canonical x; canonical y; output n coefficients modulo998244353 including high zeros | 待在线 AC | 待核验 |
+| `garner` | [Library Checker convolution_mod_1000000007 (three-NTT composition)](https://judge.yosupo.jp/problem/convolution_mod_1000000007) | 1<=n,m<=524288; canonical residues modulo1000000007; output n+m-1 coefficients; true nonnegative integer coefficients strictly below the three-prime product | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1625,6 +1626,14 @@ Official standalone template problem.
 
 
 Online AC and all-submissions ranking pending. Invalid and empty API cases are separate from official driver input.
+
+### Library Checker convolution_mod_1000000007 (three-NTT composition) / garner
+
+Official convolution template problem composed from three existing NTT instantiations and Garner; not a standalone CRT task.
+
+
+
+Online AC and all-submissions ranking pending; generic arbitrary-modulus Garner evidence remains separate from this fixed-prime composition.
 
 ## 榜单口径
 

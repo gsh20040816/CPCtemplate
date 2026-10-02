@@ -1,0 +1,36 @@
+{
+  "scope": "Usage-only registration proof and independent local tests; not online AC",
+  "recorded_at_utc": "2026-10-02T09:25:57.034882+00:00",
+  "base_commit": "891ef75",
+  "official_pin": "e64660561a995c357cdc61ddee1bde68b80528db",
+  "official_source_sha256": {
+    "task.md": "21b80090da477de5ac3bde7b56d115f23e08e2d139361e2d909b2a19e515899c",
+    "info.toml": "f87921eead543ecfdb3aeaf6c78a98c73a60e06c65f27482961da55683641171",
+    "verifier.cpp": "4f8b62839ae06ebb4cf389e0c229c66c873e0c512afdb7ce18a04584c0b44b07"
+  },
+  "official_problem": "convolution_mod_1000000007",
+  "example": "example-213",
+  "algorithm_count_delta": 0,
+  "all_compact_header_files_unchanged": true,
+  "unchanged_compact_header_count": 177,
+  "driver_sha256": "52245de113363726e927354661debbca78947538d44858fdfd83fb8820b67a72",
+  "proofs": {
+    "verification/garner-convolution-normal.json": {
+      "sha256": "6840953daac017186185c6dd448c6220274dea5e12c34eaf5d57912555930aa5",
+      "convolution_cases": 426,
+      "generic_garner_cases": 428
+    },
+    "verification/garner-convolution-sanitizer.json": {
+      "sha256": "7492326b22037378b42dd249124db60b4c585e985a801944df8a72e7eba21434",
+      "convolution_cases": 426,
+      "generic_garner_cases": 428
+    }
+  },
+  "coefficient_bound": "524288006291456018874368",
+  "three_prime_product": "96525171769480128904560641",
+  "common_transform_cap": 16777216,
+  "maximum_official_transform": 1048576,
+  "lsan_excluded": true,
+  "default_quarantine_passed": true,
+  "bounded_quarantine_used": false
+}

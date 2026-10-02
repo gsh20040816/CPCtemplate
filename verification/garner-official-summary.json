@@ -1,0 +1,97 @@
+{
+  "schema": "cpc-garner-official-summary-v1",
+  "problem": "convolution_mod_1000000007",
+  "usage": "example-213",
+  "status": "passed",
+  "scope": "Local execution of the exact printed usage against all pinned official cases; not an online submission, OJ acceptance, or controlled speed ranking",
+  "reference_commit": "e64660561a995c357cdc61ddee1bde68b80528db",
+  "reference_tracked_files_unmodified": true,
+  "driver": "verify/library_checker/convolution_mod_1000000007.garner.compact.cpp",
+  "driver_sha256": "52245de113363726e927354661debbca78947538d44858fdfd83fb8820b67a72",
+  "program_sha256": "537fb4d5e97fc8c6d1c2893397e12a89d7b09c5178cf87706bb0709eb99f948c",
+  "helper": "tools/garner_official_check.py",
+  "helper_sha256": "29e2c62037cfdf1a42f518a442fbe28bb3d9c542d9e8f4fb67441498515276fe",
+  "corpus": {
+    "cases": 48,
+    "official_input_validations": 48,
+    "pinned_input_answer_hash_matches": 96,
+    "max_n": 524288,
+    "max_m": 524288,
+    "full_524288_by_524288_cases": 17,
+    "generation_note": "Initial upstream generate.py invocation created all 48 cases and exited 0. The reproducible preparation step reran upstream generation and received an authenticated cache hit; its current log records that later invocation."
+  },
+  "normal": {
+    "accepted_cases": 48,
+    "flags": [
+      "-std=c++20",
+      "-O2"
+    ],
+    "slowest_case": "all_same_03",
+    "max_local_elapsed_seconds": 1.427266,
+    "max_child_lifetime_resident_bytes": 26861568
+  },
+  "sanitizer": {
+    "accepted_cases": 48,
+    "flags": [
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "slowest_case": "fft_killer_08",
+    "max_local_elapsed_seconds": 4.217434,
+    "max_child_lifetime_resident_bytes": 254877696,
+    "environment": {
+      "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+      "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+    },
+    "quarantine_profile": "default",
+    "leak_sanitizer": "Explicitly excluded with detect_leaks=0",
+    "diagnostics": 0,
+    "bounded_profile_retry_used": false
+  },
+  "candidate_attempts": {
+    "normal": 1,
+    "sanitizer": 1,
+    "failed": 0
+  },
+  "preparation_helper_failure": {
+    "count": 1,
+    "receipt": "verification/garner-official-preparation-attempts.json",
+    "explanation": "Python buffered readline followed by seek(0) did not rewind underlying descriptor passed to subprocess; corrected by using a fresh input handle for verifier",
+    "candidate_executed_during_failure": false
+  },
+  "official_checker_negative_control": {
+    "normal": {
+      "description": "Deliberately wrong output rejected by actual official checker",
+      "exit_code": 1,
+      "message": "wrong answer 1st words differ - expected: '1', found: 'not-a-valid-answer'"
+    },
+    "sanitizer": {
+      "description": "Deliberately wrong output rejected by actual official checker",
+      "exit_code": 1,
+      "message": "wrong answer 1st words differ - expected: '1', found: 'not-a-valid-answer'"
+    }
+  },
+  "per_case_timeout_seconds": 180,
+  "official_normal_time_limit_seconds": 10.0,
+  "measurement_notes": [
+    "Timing is local monotonic wall time including process launch and up to 5 ms wait polling; CPU time is recorded separately per case",
+    "Resident bytes in detailed receipts are wait4 child-lifetime ru_maxrss, including inherited/pre-exec Python launcher memory; they are not an isolated candidate-only RSS measurement",
+    "RSS is per individual child process, not a cumulative peak over prior children. No OJ memory, time-limit pass, or speed-ranking claim is made"
+  ],
+  "receipts": {
+    "verification/garner-official-provenance.json": "7619630bab732f03c3f14fee17b8254f46949662dbb5f9cc470848f002a5165d",
+    "verification/garner-official-usage-normal.json": "5df94b73e311c2ad09aa6048f214a84d387b96d035553e6acb8205f5094b8d8b",
+    "verification/garner-official-usage-sanitizer.json": "aecd11b0abc15dc1c134657ac40ed190bb030da1aa1b86a54bfb2cadb9b3258a",
+    "verification/garner-official-preparation-attempts.json": "935cb5803affc7bf5da59247d50fa81f905eeb81297dc5e34f2adeb734033d93"
+  },
+  "reproduction_commands": [
+    "python3 tools/garner_official_check.py prepare",
+    "python3 tools/garner_official_check.py normal --timeout 180 --attempt rerun",
+    "python3 tools/garner_official_check.py sanitizer --timeout 180 --profile default --attempt rerun"
+  ],
+  "reproduction_note": "Choose a fresh unique --attempt suffix for subsequent repeats; existing attempt receipts and work directories are deliberately not overwritten",
+  "recorded_at_utc": "2026-10-02T09:26:13.890096+00:00"
+}

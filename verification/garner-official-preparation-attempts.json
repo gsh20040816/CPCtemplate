@@ -1,0 +1,9 @@
+{
+  "scope": "Preparation helper implementation error; no candidate program executed",
+  "attempt": "initial_prepare_read_ahead",
+  "case": "all_same_00",
+  "exit_code": 3,
+  "stderr": "FAIL Unexpected character ' ', but '\n' expected (stdin, line 1)\n",
+  "cause": "Python buffered readline followed by seek(0) did not rewind underlying descriptor passed to subprocess; corrected by using a fresh input handle for verifier",
+  "recorded_at_utc": "2026-10-02T09:19:05.524755+00:00"
+}

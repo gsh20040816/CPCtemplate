@@ -41,7 +41,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | segmented_primes | [example-208（应用补充）](usage/example-208.cpp) | locally_checked_application |
 | batch_inverse | [example-197](usage/example-197.cpp) | locally_checked_example |
 | inverse_table | [example-196](usage/example-196.cpp) | locally_checked_example |
-| garner | 待补 | pending_example |
+| garner | [example-213](usage/example-213.cpp) | locally_checked_example |
 | PollardRho | [example-43](usage/example-43.cpp) | locally_checked_example |
 | LinearSieve | 待补 | pending_example |
 | ModInt | 待补 | pending_example |

@@ -846,6 +846,20 @@ garner\_digits(b,moduli) 返回按输入顺序排列的混合进制各位；garn
 
 \lstinputlisting[firstline=32,lastline=43,firstnumber=28]{../src/compact/garner.hpp}
 
+\Needspace{552pt}
+
+\subsection*{模板题使用：Library Checker Convolution (Mod 1,000,000,007)}
+
+\label{usage-example-213}
+
+题意：给出长度 n、m 的升幂系数，输出模 1000000007 的卷积，共 n+m−1 项。两数组长度均为 1 到 524288；输入系数非负且小于目标模数。分别在 167772161、469762049、1224736769 下做 NTT，再逐项调用既有 garner。真实非负系数不超过 524288 乘以 1000000006 的平方，严格小于三素数乘积。因此 CRT 最小非负代表就是原整数系数，最后对目标模数取余；仅有模数互素并不足够。输入通过 ModInt 构造器归一化。三模数公共变换容量为 2\textasciicircum{}24，本题至多需 2\textasciicircum{}20；无系数界时不能直接套用。
+
+所需模板：\hyperref[compact-extended_gcd]{extended\_gcd}（第~\pageref{compact-extended_gcd}~页，\ref{compact-extended_gcd}~节）、\hyperref[compact-mod_inverse]{mod\_inverse}（第~\pageref{compact-mod_inverse}~页，\ref{compact-mod_inverse}~节）、\hyperref[compact-garner]{garner}（第~\pageref{compact-garner}~页，\ref{compact-garner}~节）、\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/convolution_mod_1000000007}
+
+\lstinputlisting{usage/example-213.cpp}
+
 \Needspace{568pt}
 
 \section{卢卡斯定理}

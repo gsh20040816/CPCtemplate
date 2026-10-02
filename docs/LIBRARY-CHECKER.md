@@ -35,7 +35,7 @@
 | [Bitwise And Convolution](https://judge.yosupo.jp/problem/bitwise_and_convolution) | Convolution | 待逐题审题、适配与在线验证 | [bitwise_and_convolution.compact.cpp](../verify/library_checker/bitwise_and_convolution.compact.cpp) |
 | [Bitwise Xor Convolution](https://judge.yosupo.jp/problem/bitwise_xor_convolution) | Convolution | 待逐题审题、适配与在线验证 | [bitwise_xor_convolution.compact.cpp](../verify/library_checker/bitwise_xor_convolution.compact.cpp) |
 | [Convolution](https://judge.yosupo.jp/problem/convolution_mod) | Convolution | 待逐题审题、适配与在线验证 | [convolution_mod.compact.cpp](../verify/library_checker/convolution_mod.compact.cpp) |
-| [Convolution (Mod 1,000,000,007)](https://judge.yosupo.jp/problem/convolution_mod_1000000007) | Convolution | 待逐题审题、适配与在线验证 | — |
+| [Convolution (Mod 1,000,000,007)](https://judge.yosupo.jp/problem/convolution_mod_1000000007) | Convolution | 待逐题审题、适配与在线验证 | [convolution_mod_1000000007.garner.compact.cpp](../verify/library_checker/convolution_mod_1000000007.garner.compact.cpp) |
 | [Convolution (Mod 2^64)](https://judge.yosupo.jp/problem/convolution_mod_2_64) | Convolution | 待逐题审题、适配与在线验证 | — |
 | [Convolution (Large)](https://judge.yosupo.jp/problem/convolution_mod_large) | Convolution | 待逐题审题、适配与在线验证 | — |
 | [Gcd Convolution](https://judge.yosupo.jp/problem/gcd_convolution) | Convolution | 待逐题审题、适配与在线验证 | — |

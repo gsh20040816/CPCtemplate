@@ -2635,5 +2635,24 @@
       "MultipointEvaluation",
       "polynomial_interpolation"
     ]
+  },
+  {
+    "id": "example-213",
+    "symbol": "garner",
+    "kind": "template",
+    "problem": "Library Checker Convolution (Mod 1,000,000,007)",
+    "url": "https://judge.yosupo.jp/problem/convolution_mod_1000000007",
+    "summary": "给出长度 n、m 的升幂系数，输出模 1000000007 的卷积，共 n+m−1 项。两数组长度均为 1 到 524288；输入系数非负且小于目标模数。分别在 167772161、469762049、1224736769 下做 NTT，再逐项调用既有 garner。真实非负系数不超过 524288 乘以 1000000006 的平方，严格小于三素数乘积。因此 CRT 最小非负代表就是原整数系数，最后对目标模数取余；仅有模数互素并不足够。输入通过 ModInt 构造器归一化。三模数公共变换容量为 2^24，本题至多需 2^20；无系数界时不能直接套用。",
+    "driver": "verify/library_checker/convolution_mod_1000000007.garner.compact.cpp",
+    "requires": [
+      "extended_gcd",
+      "mod_inverse",
+      "garner",
+      "ModInt",
+      "NttConvolution"
+    ],
+    "configuration_functions": [
+      "conv"
+    ]
   }
 ]

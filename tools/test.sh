@@ -54,6 +54,11 @@ for stage in small dense alternating sparse zero constant composition; do
     fi
 done
 python3 tests/polynomial_interpolation_application.py
+if [[ "${SANITIZE:-0}" == 1 ]]; then
+    python3 tests/garner_convolution.py --sanitize
+else
+    python3 tests/garner_convolution.py
+fi
 "$CXX" "${flags[@]}" tests/namespace_number_theory.cpp -o build/namespace-number
 build/namespace-number
 
