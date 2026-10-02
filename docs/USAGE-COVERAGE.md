@@ -87,6 +87,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | convex_contains_i64 | [example-136（应用补充）](usage/example-136.cpp) | locally_checked_application |
 | convex_diameter2 | [example-65](usage/example-65.cpp), [example-124（应用补充）](usage/example-124.cpp) | locally_checked_example |
 | RealPlane | [example-180](usage/example-180.cpp) | locally_checked_example |
+| RealPolarLess | [example-228（接口演示）](usage/example-228.cpp) | locally_checked_api |
 | line_projection | [example-181](usage/example-181.cpp) | locally_checked_example |
 | segment_distance_real | [example-182](usage/example-182.cpp) | locally_checked_example |
 | line_intersection_real | [example-183](usage/example-183.cpp) | locally_checked_example |

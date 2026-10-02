@@ -192,6 +192,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | IntegerPlane | 计算几何 → 二维计算几何基础 | direct |  |
 | IntegerTangents | 计算几何 → 二维计算几何基础 | direct | 整数公切线：精确分类及第一圆切点排序，坐标浮点构造。 |
 | RealPlane | 计算几何 → 二维计算几何基础 | direct |  |
+| RealPolarLess | 计算几何 → 二维计算几何基础 | direct | 对已存储的有限二进制浮点向量精确比较极角；尾数≤64位，原点/同向约定明确，不替代一般稳健几何构造。 |
 | circle_intersections | 计算几何 → 二维计算几何基础 | direct |  |
 | circle_intersections_i64 | 计算几何 → 二维计算几何基础 | direct | 整数输入的精确判别式变体，坐标构造仍为浮点。 |
 | circle_overlap_area | 计算几何 → 二维计算几何基础 | direct |  |

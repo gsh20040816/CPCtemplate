@@ -2845,5 +2845,18 @@
       "orient_edges"
     ],
     "page_break_before": "    vector<int> parent(compressed.n + 1), order{root};"
+  },
+  {
+    "id": "example-228",
+    "symbol": "RealPolarLess",
+    "kind": "api",
+    "problem": "自定义有限浮点向量极角排序",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/real_polar.hpp",
+    "summary": "自定义协议，非OJ题：0≤n≤200000，接着读n对坐标，须成功转换为有限long double；读入失败、n越界或非有限值返回1，不作额外词法或EOF校验。输出1-based原编号：原点最前，正x轴起逆时针[0,2π)，同向按长度，完全相同的数值再按原编号。±0视为相同。比较的是转换后的二进制值，不是舍入前十进制实数；沿用本节尾数≤64位及正常浮点环境条件。std::sort共O(n log(n+1))次比较，向量存储O(n)。",
+    "driver": "docs/usage-drivers/real-polar-demo.cpp",
+    "requires": [
+      "RealPlane",
+      "RealPolarLess"
+    ]
   }
 ]

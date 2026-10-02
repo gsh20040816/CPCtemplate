@@ -40,6 +40,7 @@ python3 tests/complex_fft_usage.py
 python3 tests/maxplus_application.py
 python3 tests/tagged_gcd_demo.py
 python3 tests/integer_3d_demo.py
+python3 tests/real_polar_order.py
 python3 tests/support_hull_demo.py
 python3 tests/edge_compression_application.py
 python3 tests/ordered_splay_pagination.py

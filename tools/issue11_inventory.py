@@ -100,9 +100,9 @@ def render_inventory(data):
              f"{summary['main_topic_heading_count']} 个主要主题和 {summary['variant_heading_count']} 个变体组成。"
              f"其中 {summary['parent_heading_count']} 行有子项，{summary['leaf_count']} 行是最末级条目（叶项）；"
              '主题有变体时只数最末级变体，不能把父项与子项相加当作独立实现数。', '',
-             f"当前 {summary['reviewed_leaf_count']} 个叶项已有正文核对记录，"
+             f"原登记中 {summary['reviewed_leaf_count']} 个叶项已有正文核对记录，"
              f"{summary['locally_verified_leaf_count']} 个叶项的原状态登记了契约内的本地验证；"
-             f"{len(summary['partial_leaf_sections'])} 个叶项仍为部分覆盖，"
+             f"{len(summary['partial_leaf_sections'])} 个叶项标记为部分覆盖，"
              f"{len(summary['pending_content_leaf_sections'])} 个叶项待正文核对。"
              '本地验证数量不是全功能完成数量，更不是线上 AC 数量。', '',
              f"原状态中有 {summary['explicit_online_pending_leaf_count']} 个叶项显式带 `online_pending`；"
@@ -122,15 +122,16 @@ def render_inventory(data):
     partial_leaves = '、'.join(summary['partial_leaf_sections']) or '无'
     lines += ['', f'父项原登记待正文核对：{pending_parents}。其子项汇总与原父项状态分开读取；'
               '若子项均已有审阅记录，不能再把父项的旧登记解释为整章尚未审阅，也不能反过来抹掉线上或契约范围缺口。',
-              f'最末级部分覆盖项：{partial_leaves}。全部父项（含主题下变体）的计算结果见 JSON 的 `hierarchy_summary.parents`。', '',
+              f'原登记最末级部分覆盖项：{partial_leaves}。全部父项（含主题下变体）的计算结果见 JSON 的 `hierarchy_summary.parents`。', '',
               '## 全部原始目录项', '',
               '| 节号 | 标题 | 原目录页 | PDF 实际页 | 状态 |', '|---|---|---:|---:|---|']
     for row in rows:
         lines.append(f"| {row['section']} | {row['title']} | {row['toc_page']} | "
                      f"{row['physical_page']} | {row['status']} |")
     lines += ['', '## 仍须保留的范围限制', '',
-              '- 6.5.2 浮点极角排序仍缺稳健谓词、数值契约及验证；整数比较器不替代这个变体。'
-              '因此 6.5 和第 6 章不能记为全覆盖。见 [几何核对](GEOMETRY-ATTACHMENT.md)。',
+              '- 6.5.2 的历史部分覆盖状态与 review 保留。后续 RealPolarLess 补入了有限二进制、尾数不超过64位的精确极角比较，'
+              '契约、独立验证及与原 double 代码的起点/原点/同向约定差异见 [浮点极角排序](REAL-POLAR-SORT.md)。'
+              '这不使历史汇总或第6章变成全功能/全平台覆盖，也不扩展到调用前坐标差或其他浮点几何谓词。',
               '- 6.1 的定点凸包只覆盖约定小数位输入；6.4 的整数有界半平面交不提供通用浮点半平面交、无界分类。'
               '这类接口范围限制不会仅因叶项登记本地验证而消失。见 [几何核对](GEOMETRY-ATTACHMENT.md)。',
               '- 4.2.2 爱莲说、4.3.1 牛客变体仍保留原题外部身份/线上验证限制；6.5.1 没有明确 Seoul 原题或完整应用。'

@@ -480,6 +480,12 @@
     "R 为 long double；Point 支持向量加减、数乘和数除（除数非零）。dot/cross/norm/perp 为基本运算，norm 使用 hypotl；Circle 保存圆心和非负半径。Kind 为 none、one、two、infinite、degenerate；Result 同时保存类别与有限交点。输入须有限，尺度须使后续平方、乘积不溢出或下溢；排序不使用 epsilon。具体容差与退化约定见各函数。"
   ],
   [
+    "real_polar",
+    "RealPolarLess",
+    "有限二进制浮点极角精确排序",
+    "RealPolarLess{}(a,b) 沿用RealPlane::Point存储，输入为实际已存入的有限二进制long double，尾数≤64位且uint128可用；禁fast-math及FTZ/DAZ。原点最前，正x轴起逆时针[0,2π)，同向按长度递增，同点及±0等价，满足严格弱序。用frexp/ldexp拆尾数并以uint128精确比较乘积，不做浮点叉乘、不用epsilon。每次O(1)，无分配。十进制输入先舍入；不修复调用前的坐标差，不替代其他浮点几何谓词。product/cross_sign是有限输入下的内部辅助。"
+  ],
+  [
     "line_projection",
     "line_projection",
     "点在直线上的投影",
