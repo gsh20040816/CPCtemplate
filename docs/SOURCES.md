@@ -331,3 +331,9 @@ tests/edge_components.cpp 通过逐条删边的全对可达性判断桥，删除
 ## Issue 11 用户补充附件
 
 [补充算法 PDF](https://github.com/user-attachments/files/32176902/default.pdf) 共 201 页；来源哈希、全部目录项及实际 PDF 起始页登记在 [附件清单](ISSUE-11.md) / issue11-inventory.json。所有主题及变体纳入 coverage.csv。相同名称仅登记候选，不据此宣称已覆盖；首批新增三元环见 TRIANGLES.md。双连通分类拆分仍按 #7 继续。
+
+## 曼哈顿最小生成树：补充单文件参考
+
+[KACTL ManhattanMST.h（固定版本）](https://github.com/kth-competitive-programming/kactl/blob/27faa89f9b47e5fa4578eadea6122b59da544052/content/geometry/ManhattanMST.h)，CC0，chilli / Takanori MAEHARA，提供四轮 map 扫描的实现参考。当前使用 signed128 中间量和返回总权、普通 dsu 的局部按大小调用，以及闭锥平局的独立说明。只登记该文件，不把 KACTL 全库加入已完成范围。
+
+正式题锁定 Library Checker `e64660561a995c357cdc61ddee1bde68b80528db` 的 `geo/manhattanmst`，本地检查官方样例、校验器与不同的 Fenwick 参考解；无新增线上 AC。算法合同和可审计的闭边界证明见 [MANHATTAN-MST.md](MANHATTAN-MST.md)。kuangbin 4.19 原页仍未完成直接核验，不因替代组件存在而改成已审阅。

@@ -29,6 +29,7 @@ SOURCE_FILES = (
     'docs/knowledge-ballot.tex',
     'docs/knowledge-diophantine.tex',
     'docs/knowledge-integration.tex',
+    'docs/knowledge-manhattan-mst.tex',
 )
 SECTION = re.compile(r'(?m)(?=^\\section\{)')
 LABEL = re.compile(r'\\label\{(knowledge-[^}]+)\}')
@@ -71,7 +72,7 @@ def source_sections(sources):
             # from its title or incidental references in the body.
             assert LABEL.search(fragment.split('\n', 1)[0]), (source, label)
             sections[label] = source
-    assert len(sections) == 28, ('bounded knowledge section count', len(sections))
+    assert len(sections) == 29, ('bounded knowledge section count', len(sections))
     return sections
 
 
@@ -82,7 +83,7 @@ def validate(data, taxonomy, sources):
     scope = data['scope']
     assert len(scope['source_files']) == len(set(scope['source_files']))
     assert set(scope['source_files']) == set(SOURCE_FILES) == set(sources)
-    assert scope['classified_section_count'] == 28
+    assert scope['classified_section_count'] == 29
     assert scope['legacy_source'] == 'docs/mathematics.tex'
     assert scope['legacy_sections_classified'] is False
     assert scope['classification_only'] is True
@@ -105,6 +106,8 @@ def validate(data, taxonomy, sources):
         graph_labels = {'knowledge-matrix-tree-weighted', 'knowledge-matrix-tree-mod'}
         if label in graph_labels:
             assert path == 'graph/matrix-tree.md' and hierarchy == ['图论', '矩阵树定理'], (label, hierarchy)
+        elif label == 'knowledge-manhattan-mst':
+            assert path == 'graph/mst.md' and hierarchy == ['图论', '生成树问题', '最小生成树'], (label, hierarchy)
         else:
             assert len(hierarchy) == 3 and hierarchy[0] == '数学', (label, hierarchy)
         assert isinstance(entry.get('page_break_before', False), bool)
@@ -139,7 +142,7 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
         self.assertEqual(pinned_navigation(source.read_text()), self.taxonomy['navigation'])
 
     def test_all_registered_sections_have_one_known_primary_leaf(self):
-        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 28)
+        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 29)
         observed = {path.relative_to(ROOT).as_posix()
                     for path in (ROOT / 'docs').glob('knowledge-*.tex')}
         self.assertEqual(observed, set(SOURCE_FILES), 'new source needs explicit classification')
@@ -165,8 +168,9 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
             self.assertIn(f'{relation} {count}', text)
         self.assertIn('不是模板题用法、算法完成度或线上AC计数', text)
 
-    def test_graph_exception_is_bound_to_matrix_tree_labels(self):
+    def test_graph_exceptions_are_bound_to_explicit_labels(self):
         self.reject(lambda data: data['entries'][0].update(path='graph/matrix-tree.md'))
+        self.reject(lambda data: next(row for row in data['entries'] if row['label'] == 'knowledge-manhattan-mst').update(path='graph/matrix-tree.md'))
         self.reject(lambda data: next(row for row in data['entries'] if row['label'] == 'knowledge-matrix-tree-mod').update(path='math/number-theory/euclidean.md'))
 
     def test_duplicate_and_missing_labels_are_rejected(self):

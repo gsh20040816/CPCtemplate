@@ -4,6 +4,29 @@ import math
 
 
 def check_output(example_id, mode, data, stdout, expected):
+    if isinstance(expected, dict) and 'manhattan_mst' in expected:
+        values = list(map(int, data.split()))
+        n = values[0]
+        assert n >= 1 and len(values) == 1 + 2 * n
+        points = list(zip(values[1::2], values[2::2]))
+        output = list(map(int, stdout.split()))
+        assert len(output) == 1 + 2 * (n - 1)
+        parent = list(range(n))
+        def root(x):
+            while parent[x] != x:
+                parent[x] = parent[parent[x]]
+                x = parent[x]
+            return x
+        cost = 0
+        for u, v in zip(output[1::2], output[2::2]):
+            assert 0 <= u < n and 0 <= v < n
+            a, b = root(u), root(v)
+            assert a != b
+            parent[a] = b
+            cost += abs(points[u][0] - points[v][0]) + abs(points[u][1] - points[v][1])
+        assert len({root(i) for i in range(n)}) == 1
+        assert output[0] == cost == expected['manhattan_mst']
+        return
     if isinstance(expected, dict) and 'tourist_reform' in expected:
         values = list(map(int, data.split()))
         n, m = values[:2]

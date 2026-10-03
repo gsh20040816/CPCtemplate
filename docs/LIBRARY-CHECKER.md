@@ -112,7 +112,7 @@
 | [Count Points in Triangles](https://judge.yosupo.jp/problem/count_points_in_triangle) | Geometry | 待逐题审题、适配与在线验证 | — |
 | [Euclidean MST](https://judge.yosupo.jp/problem/euclidean_mst) | Geometry | 待逐题审题、适配与在线验证 | — |
 | [Furthest Pair of Points](https://judge.yosupo.jp/problem/furthest_pair) | Geometry | 待逐题审题、适配与在线验证 | [furthest_pair.compact.cpp](../verify/library_checker/furthest_pair.compact.cpp) |
-| [Manhattan MST](https://judge.yosupo.jp/problem/manhattanmst) | Geometry | 待逐题审题、适配与在线验证 | — |
+| [Manhattan MST](https://judge.yosupo.jp/problem/manhattanmst) | Geometry | 待逐题审题、适配与在线验证 | [manhattanmst.compact.cpp](../verify/library_checker/manhattanmst.compact.cpp) |
 | [Sort Points by Argument](https://judge.yosupo.jp/problem/sort_points_by_argument) | Geometry | 待逐题审题、适配与在线验证 | [sort_points_by_argument.compact.cpp](../verify/library_checker/sort_points_by_argument.compact.cpp) |
 | [Static Convex Hull](https://judge.yosupo.jp/problem/static_convex_hull) | Geometry | 待逐题审题、适配与在线验证 | [static_convex_hull.compact.cpp](../verify/library_checker/static_convex_hull.compact.cpp) |
 | [Assignment Problem](https://judge.yosupo.jp/problem/assignment) | Graph | 待逐题审题、适配与在线验证 | [assignment.compact.cpp](../verify/library_checker/assignment.compact.cpp) |

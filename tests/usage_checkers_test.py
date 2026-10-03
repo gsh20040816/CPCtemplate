@@ -33,6 +33,17 @@ free = '1\nA 2 1 0 0\n1 2 0\n'
 check_output('example-206', 'control', free, 'YES\nVERTICES 2 1 2\nEDGES 1 1\n', marker)
 check_output('example-206', 'control', free, 'YES\nVERTICES 2 2 1\nEDGES 1 1\n', marker)
 
+square = '4\n0 0\n1 0\n0 1\n1 1\n'
+for valid in ('3\n0 1\n1 3\n3 2\n', '3\n0 2\n2 3\n3 1\n'):
+    check_output('example-236', 'positive-control', square, valid, {'manhattan_mst': 3})
+for invalid in ('4\n0 1\n1 3\n3 2\n', '4\n0 1\n0 3\n0 2\n',
+                '3\n0 1\n0 1\n2 3\n', '3\n0 0\n1 3\n3 2\n',
+                '3\n0 4\n1 3\n3 2\n', '3\n0 1\n1 3\n',
+                '3\n0 1\n1 3\n3 2\n0 2\n'):
+    controls.append(('example-236', square, invalid, {'manhattan_mst': 3}))
+check_output('example-236', 'positive-control', '1\n0 0\n', '0\n', {'manhattan_mst': 0})
+check_output('example-236', 'positive-control', '2\n7 8\n7 8\n', '0\n0 1\n', {'manhattan_mst': 0})
+
 for example, data, output, expected in controls:
     try:
         check_output(example, 'negative-control', data, output, expected)
@@ -46,4 +57,4 @@ check_output('example-96', 'positive-control', '', '1 1 2 2\n', {'odd_partition'
 check_output('example-134', 'positive-control', '', '1 0\n', {'closest_cases': [[(0,0),(0,0)]]})
 check_output('example-143', 'positive-control', '', '1\n11\n11\n', {'xor_system': (['11'], '0')})
 check_output('example-143', 'positive-control', '', '-1\n', {'xor_system': (['0'], '1')})
-print('Usage checkers: 16 invalid certificates rejected; valid matching, XOR solution spaces, mixed-Euler walks and required blank line accepted')
+print(f'Usage checkers: {len(controls)} invalid certificates rejected; alternative MST trees and existing valid certificates accepted')

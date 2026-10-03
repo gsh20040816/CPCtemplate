@@ -1264,5 +1264,11 @@
     "AdaptiveSimpson",
     "有工作上限的自适应Simpson积分",
     "integrate(f,a,b,eps,depth=20,limit=100000)，long double绝对容差eps>0，有限端点，0≤depth≤60、limit≥0。返回value、error估计、evaluations与met；met仅指局部估计条件满足，不是实际精度保证。反向区间变号，零长度不调用f；预算/深度/中点停滞/非有限计算会停止且met=false。正常有限样本下保留粗或修正估计；无初始估计时value为NaN；不可把失败值当答案。f须返回确定值，异常原样传播，不能启用fast-math。复用样本，O(求值数)次固定字长运算、O(depth+1)栈；需numeric的midpoint、cmath、limits、utility。"
+  ],
+  [
+    "manhattan_mst",
+    "ManhattanMST",
+    "曼哈顿最小生成树",
+    "Point为pair<long long,long long>，坐标支持完整有符号64位，点数须≤INT_MAX且内存可分配。candidates(points)给出最多4n条(weight,u,v)候选，允许重复边；solve(points)返回精确128位weight与原下标边对edges。空/单点返回0且无边，重合点仍为不同顶点；同权最优树不唯一。先转128位再变换/加减，输入不变。四方向扫描与Kruskal为O(n log(n+1))、O(n)空间；调用处选较大dsu根在前，不改变普通dsu语义。候选保证只针对无约束完整L1图，不能直接删禁边后声称仍含受限MST。"
   ]
 ]

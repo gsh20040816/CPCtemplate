@@ -45,6 +45,8 @@ python3 tests/gauss_real.py
 python3 tests/mod64_usage.py
 python3 tests/diophantine_knowledge.py
 python3 tests/adaptive_simpson.py
+python3 tests/manhattan_mst.py
+python3 tests/manhattan_mst_application.py
 python3 tests/lte_knowledge.py
 python3 tests/lagrange_knowledge.py
 python3 tests/lagrange_fps_usage.py

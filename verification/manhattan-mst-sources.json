@@ -1,0 +1,37 @@
+{
+  "kactl": {
+    "commit": "27faa89f9b47e5fa4578eadea6122b59da544052",
+    "path": "content/geometry/ManhattanMST.h",
+    "blob_sha1": "6c54d6d2efdb898881badd5a8fab6e85423e31ae",
+    "sha256": "70280043a89e31d2d8743794914f4dc521e7aa21287cb4972069b51bd7127f11",
+    "url": "https://github.com/kth-competitive-programming/kactl/blob/27faa89f9b47e5fa4578eadea6122b59da544052/content/geometry/ManhattanMST.h",
+    "license": "CC0",
+    "scope": "single-file four-sweep map formulation, not whole-library coverage"
+  },
+  "library_checker": {
+    "commit": "e64660561a995c357cdc61ddee1bde68b80528db",
+    "task": "geo/manhattanmst",
+    "source_sha256": {
+      "checker.cpp": "07bab548aa921061c37329e7cc25da657156fcf52041d6cfcbbdc7bdcd72cdac",
+      "gen/enclosed.cpp": "49d573df5a0ce21a592a0873fe55df76c5bc09977c6f2c3f1b68cdd506665c09",
+      "gen/example_00.in": "190989b0603bab61d847d241f2910dcc87d887df7870c9a544b68e9483ecc6c3",
+      "gen/many_cluster.cpp": "9688c1a0d26027920ce2d1a9ef442b6dd45ade05efda30e42e5f2617b3d9aec6",
+      "gen/max_random.cpp": "705af39988de522839cb5d3705de7e56f9ed3e5d8dfbe3f4936516d7c2118b18",
+      "gen/random.cpp": "9aaf00afc8dc2a15acc8bd9fbdac05c07e098971a385eb8c2857bd91eb5130ed",
+      "gen/small.cpp": "b9ad45eaf49a0f74ba0e37ec717bba8b56aeb7488f3259d07984a6075c3cff00",
+      "hash.json": "ba9942221032326f191da8a1fdac62c4f52c33fac297d9953f2185288f974a86",
+      "info.toml": "310d3c6e510f5efaa3e577135886c7aa8bf8a6b471b3a5aadb2dfc312c4be0d7",
+      "sol/correct.cpp": "128a6aa2d19ddf337824b9e6e0b49db88095138a24e65432eef90b75417e5ff3",
+      "sol/naive.cpp": "e1fdff60f1a0e7b4b638a62c17bc72836b60ef7822e457d9ccd076199adee3eb",
+      "task.md": "486b7728e7f576c03df4c16134f091192d8ce1682ea183829089afd09115b9d4",
+      "verifier.cpp": "03f255beb29377d7bcea356ca8215809f33743c2aac23052bfa9549f9244cf2c"
+    },
+    "online_ac": false
+  },
+  "paper": {
+    "doi": "10.1016/S0020-0190(01)00232-0",
+    "url": "https://users.ece.northwestern.edu/~haizhou/publications/zhou02ipl.pdf",
+    "caution": "strict half-open octant lemma is not used for closed sweep; separate tie-safe proof"
+  },
+  "kuangbin_original_pdf_reviewed": false
+}

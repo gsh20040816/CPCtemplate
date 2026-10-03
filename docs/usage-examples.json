@@ -2952,5 +2952,18 @@
     "requires": [
       "AdaptiveSimpson"
     ]
+  },
+  {
+    "id": "example-236",
+    "symbol": "ManhattanMST",
+    "kind": "template",
+    "problem": "Library Checker Manhattan MST",
+    "url": "https://judge.yosupo.jp/problem/manhattanmst",
+    "summary": "1≤N≤200000，N个点的坐标0..10^9，可重合且每个输入位置仍是不同顶点。完整图边权为曼哈顿距离；输出最小总权及N−1条0-based原编号边，任意最优树均可。结果weight为128位；本题粗上界2e9 乘以 N−1，严格小于4e14，所以此驱动才可转long long打印。N=1输出0、不输出边；库的空输入和有符号64位坐标另属API扩展。",
+    "driver": "verify/library_checker/manhattanmst.compact.cpp",
+    "requires": [
+      "dsu",
+      "ManhattanMST"
+    ]
   }
 ]

@@ -179,6 +179,7 @@
 | `AffineSequenceTreap` | [Library Checker Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) | 1<=N,Q<=500000; modulus998244353; canonical inputs; multiplier0 allowed; nonempty half-open query/update intervals | 待在线 AC | 待核验 |
 | `HLD` | [Library Checker Vertex Set Path Composite](https://judge.yosupo.jp/problem/vertex_set_path_composite) | 1<=N,Q<=200000; modulus998244353; 1<=a,c<mod and 0<=b,d,x<mod; zero-based vertices; connected tree | 待在线 AC | 待核验 |
 | `PotentialDSU` | [Library Checker Unionfind with Potential](https://judge.yosupo.jp/problem/unionfind_with_potential) | 1<=N,Q<=200000; modulus998244353; zero-based vertices; 0<=x<mod; accepted relation a[u]-a[v]=x | 待在线 AC | 待核验 |
+| `ManhattanMST` | [Library Checker Manhattan MST](https://judge.yosupo.jp/problem/manhattanmst) | 1<=N<=200000; coordinates0..1e9; original zero-based endpoint indices; n-1 acyclic edges and optimal total | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1665,6 +1666,16 @@ Official additive modular potential union-find template.
 Online AC and ranking pending. Integer, composite-modulus and modulus-one structural tests are separate local API extensions.
 
 原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/info.toml)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/task.md)，[来源 3](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/checker.cpp)，[来源 4](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/verifier.cpp)
+
+### Library Checker Manhattan MST / ManhattanMST
+
+Official complete L1 metric MST with tree certificate; duplicate vertices permitted.
+
+
+
+Online AC and ranking pending. Empty input and full signed64 coordinates are separate local API extensions.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/geo/manhattanmst/info.toml)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/geo/manhattanmst/task.md)，[来源 3](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/geo/manhattanmst/checker.cpp)，[来源 4](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/geo/manhattanmst/verifier.cpp)
 
 ## 榜单口径
 

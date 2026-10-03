@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 149，application 55，composite 0，related 7。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 150，application 55，composite 0，related 7。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -149,6 +149,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Dijkstra | 图论 → 最短路问题 → 最短路 | direct |  |
 | Johnson | 图论 → 最短路问题 → 最短路 | direct |  |
 | release_bfs | 图论 → 最短路问题 → 最短路 | application | 开放时间松弛的单位边特例。 |
+| ManhattanMST | 图论 → 生成树问题 → 最小生成树 | direct | 曼哈顿完全图的四方向几何候选边与最小生成树证书；不是恢复基础Kruskal题，不扩张为欧氏或受限边图。 |
 | SecondMST | 图论 → 生成树问题 → 最小生成树 | direct | Kruskal与树上两个不同最大边权，支持严格/非严格次小树及原边编号换边方案；不表示整页其他MST扩展已覆盖。 |
 | Arborescence | 图论 → 生成树问题 → 最小树形图 | direct |  |
 | FunctionalGraph | 图论 → 连通性相关 → 强连通分量 | related | 函数图包含尾链与环分解，导航无独立页；需正文定位，不应等同一般 SCC 算法。 |

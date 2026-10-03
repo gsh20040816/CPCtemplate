@@ -4437,5 +4437,47 @@
         "sha256": "9641112622b21a1aace288d002df4a94f1d65a8d0705815fc95b989d30d3e8e6"
       }
     }
+  },
+  {
+    "symbol": "ManhattanMST",
+    "problem": "Library Checker Manhattan MST",
+    "url": "https://judge.yosupo.jp/problem/manhattanmst",
+    "classification": "Official complete L1 metric MST with tree certificate; duplicate vertices permitted.",
+    "statement_checked": true,
+    "checked_date": "2026-10-03",
+    "limits": "1<=N<=200000; coordinates0..1e9; original zero-based endpoint indices; n-1 acyclic edges and optimal total",
+    "implementation": "new",
+    "source": "src/compact/manhattan_mst.hpp",
+    "tested_api": [
+      "solve (weight and tree)",
+      "candidates (small cut-minimum certificate locally)"
+    ],
+    "usage": "example-236",
+    "driver": "verify/library_checker/manhattanmst.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending. Empty input and full signed64 coordinates are separate local API extensions.",
+    "statement_sources": {
+      "info.toml": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/geo/manhattanmst/info.toml",
+        "sha256": "310d3c6e510f5efaa3e577135886c7aa8bf8a6b471b3a5aadb2dfc312c4be0d7"
+      },
+      "task.md": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/geo/manhattanmst/task.md",
+        "sha256": "486b7728e7f576c03df4c16134f091192d8ce1682ea183829089afd09115b9d4"
+      },
+      "checker.cpp": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/geo/manhattanmst/checker.cpp",
+        "sha256": "07bab548aa921061c37329e7cc25da657156fcf52041d6cfcbbdc7bdcd72cdac"
+      },
+      "verifier.cpp": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/geo/manhattanmst/verifier.cpp",
+        "sha256": "03f255beb29377d7bcea356ca8215809f33743c2aac23052bfa9549f9244cf2c"
+      }
+    }
   }
 ]
