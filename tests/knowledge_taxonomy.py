@@ -146,6 +146,22 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
         self.assertTrue(SECTION.search(legacy), 'legacy unclassified sections still exist')
         self.assertFalse(LABEL.search(legacy), 'legacy source is outside this bounded map')
 
+    def test_readme_matches_current_knowledge_counts(self):
+        text = (ROOT / 'README.md').read_text()
+        count = len(self.data['entries'])
+        graph = sum(row['path'].startswith('graph/') for row in self.data['entries'])
+        expected = f'当前有 {count} 个分类知识节（数学 {count - graph}、图论 {graph}）'
+        self.assertIn(expected, text)
+        self.assertIn('不把这些节数当作完整知识体系的覆盖比例', text)
+
+    def test_public_code_relation_summary_matches_mapping(self):
+        text = (ROOT / 'docs/OI-TAXONOMY.md').read_text()
+        entries = self.taxonomy['templates'].values()
+        for relation in ('direct', 'application', 'composite', 'related'):
+            count = sum(row['relation'] == relation for row in entries)
+            self.assertIn(f'{relation} {count}', text)
+        self.assertIn('不是模板题用法、算法完成度或线上AC计数', text)
+
     def test_graph_exception_is_bound_to_matrix_tree_labels(self):
         self.reject(lambda data: data['entries'][0].update(path='graph/matrix-tree.md'))
         self.reject(lambda data: next(row for row in data['entries'] if row['label'] == 'knowledge-matrix-tree-mod').update(path='math/number-theory/euclidean.md'))
