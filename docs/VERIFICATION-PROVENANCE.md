@@ -62,7 +62,7 @@ of stack exhaustion for that test, not a full-suite result or an algorithm rewri
 
 ## Binding and metadata
 
-- Input SHA256 maps cover every regular file under `src/`, `tests/`, `tools/`,
+- Input SHA256 maps include the required top-level `README.md` and every regular file under `src/`, `tests/`, `tools/`,
   `verify/`, and `docs/`, excluding Python caches (`__pycache__`, `*.pyc`). Symlinks
   within that scope are rejected. This includes the test runner itself and the
   documentation/catalog consumed by the basic-scope preflight.
@@ -113,8 +113,18 @@ python3 tests/verification_provenance.py
 
 This runs small synthetic suites through the real capture code, tests valid pairing
 and stale/changed/failed evidence rejection, verifies environment metadata and
-historical-file preservation, Linux stack validation/capping, and runs only the real basic-scope Python preflight
-in a staged copy. It does **not** run the full C++ algorithm suite or produce a
+historical-file preservation, Linux stack validation/capping, and the real basic-scope,
+knowledge-taxonomy and report Python preflights in a staged copy. It does **not** run the full C++ algorithm suite or produce a
 current-source full-suite manifest.
 
 管线自身的负对照测试用 `python3 tests/verification_provenance.py` 在真实仓库单独执行，不嵌入暂存后的算法脚本：暂存区没有 Git 元数据，且故意失败的消毒器日志不能混入成功算法运行的日志。
+
+The README is copied into the staged workspace and bound before/after execution,
+including its knowledge-count assertions. Missing or symlinked README inputs are
+rejected; editing the origin or staged README invalidates the receipt. The bounded
+provenance tests now run basic scope, knowledge-taxonomy and report checks in a real
+staged copy. These preflights do not certify a full algorithm-suite pass.
+
+If a required input becomes missing, symlinked or unreadable during execution,
+post-state capture records a null map plus an explicit error, and retains a failed
+receipt/footer. Such evidence cannot be promoted to success by relabeling status.

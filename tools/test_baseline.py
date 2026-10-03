@@ -44,9 +44,20 @@ def run(root):
             process.stdout.close()
             returncode = process.wait()
             end = {'finished_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                   'returncode': returncode, 'source_after_sha256': snapshot(root),
-                   'executed_after_sha256': snapshot(stage),
-                   'compiler_after_sha256': digest(Path(env['CXX']).read_bytes())}
+                   'returncode': returncode}
+            # A required file can disappear during execution. Retain a failed
+            # receipt instead of losing the footer while collecting post-state.
+            for key, directory in [('source', root), ('executed', stage)]:
+                try:
+                    end[key + '_after_sha256'] = snapshot(directory)
+                except (OSError, ValueError) as error:
+                    end[key + '_after_sha256'] = None
+                    end[key + '_after_error'] = type(error).__name__ + ': ' + str(error)
+            try:
+                end['compiler_after_sha256'] = digest(Path(env['CXX']).read_bytes())
+            except OSError as error:
+                end['compiler_after_sha256'] = None
+                end['compiler_after_error'] = type(error).__name__ + ': ' + str(error)
             log.flush()
             body = (output / 'output.log').read_bytes()
             end['linux_stack_actual'] = stack_observation(body)

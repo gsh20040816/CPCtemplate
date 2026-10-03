@@ -12,6 +12,7 @@ import tarfile
 
 BASELINE = '1a9fa3e91d7dff58915341040be069611370054c'
 SOURCE_DIRS = ('src', 'tests', 'tools', 'verify', 'docs')
+SOURCE_FILES = ('README.md',)
 SCHEMA = 'cpc-test-run-v1'
 COMMAND = ['bash', 'tools/test.sh']
 HEADER = b'CPC_RUN_BEGIN '
@@ -36,6 +37,11 @@ def canonical(value):
 
 def snapshot(root, folders=SOURCE_DIRS):
     result = {}
+    for name in SOURCE_FILES:
+        path = root / name
+        if path.is_symlink() or not path.is_file():
+            raise ValueError(f'missing or symlinked input file: {path}')
+        result[name] = digest(path.read_bytes())
     for folder in folders:
         base = root / folder
         if not base.is_dir() or base.is_symlink():
@@ -63,6 +69,11 @@ def baseline_hashes(archive):
 
 
 def stage_inputs(root, stage, archive):
+    for name in SOURCE_FILES:
+        path = root / name
+        if path.is_symlink() or not path.is_file():
+            raise ValueError(f'missing or symlinked input file: {path}')
+        shutil.copyfile(path, stage / name)
     # Never recursively copy previous run receipts into the next run.
     for folder in (*SOURCE_DIRS, 'verification'):
         def ignore(directory, names):

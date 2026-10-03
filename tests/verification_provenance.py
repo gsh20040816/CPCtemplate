@@ -35,6 +35,7 @@ class ProvenanceTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         for directory in (*provenance.SOURCE_DIRS, 'verification'):
             (self.root / directory).mkdir()
+        (self.root / 'README.md').write_text('# Fixture overview\n')
         (self.root / 'src/current.hpp').write_text('// fixture source\n')
         (self.root / 'docs/required.json').write_text('{"fixture": true}\n')
         (self.root / 'tools/test.sh').write_text('set -eu\ntest -f docs/required.json\necho "bounded fixture PASS"\n')
@@ -73,6 +74,62 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(receipt['start']['metadata']['platform'], self.metadata['platform'])
         self.assertNotIn('HOME', receipt['start']['metadata']['environment'])
         self.assertEqual((self.root / 'verification/manifest.json').read_text(), '{"historical": true}\n')
+
+    def test_readme_is_copied_bound_and_required(self):
+        script = self.root / 'tools/test.sh'
+        script.write_text(script.read_text() + 'test -f README.md\n')
+        _, path = self.run_fixture()
+        receipt = self.validate(path)
+        readme = self.root / 'README.md'
+        original = readme.read_bytes()
+        self.assertEqual(receipt['start']['source_sha256']['README.md'], provenance.digest(original))
+        readme.write_text('changed overview\n')
+        with self.assertRaises(ValueError): self.validate(path)
+        readme.unlink()
+        with self.assertRaises(ValueError): provenance.snapshot(self.root)
+        readme.symlink_to(self.root / 'docs/required.json')
+        with self.assertRaises(ValueError): provenance.snapshot(self.root)
+        with tempfile.TemporaryDirectory() as temp:
+            with self.assertRaises(ValueError):
+                provenance.stage_inputs(self.root, Path(temp), self.archive)
+
+    def test_staged_readme_change_rejected(self):
+        (self.root / 'tools/test.sh').write_text('echo changed >> README.md\n')
+        status, path = self.run_fixture()
+        self.assertNotEqual(status, 0)
+        self.assertEqual((self.root / 'README.md').read_text(), '# Fixture overview\n')
+        with self.assertRaises(ValueError): self.validate(path)
+
+    def test_missing_staged_readme_retains_failed_receipt(self):
+        (self.root / 'tools/test.sh').write_text('rm README.md\n')
+        status, path = self.run_fixture()
+        self.assertNotEqual(status, 0)
+        receipt = json.loads(path.read_text())
+        self.assertEqual(receipt['status'], 'failed')
+        self.assertIsNone(receipt['end']['executed_after_sha256'])
+        self.assertIn('README.md', receipt['end']['executed_after_error'])
+        self.assertTrue((path.parent / 'output.log').read_bytes().endswith(
+            provenance.FOOTER + provenance.canonical(receipt['end']) + b'\n'))
+        self.tamper(path, lambda r: r.update(status='passed'))
+
+    def test_symlinked_staged_readme_retains_failed_receipt(self):
+        (self.root / 'tools/test.sh').write_text('rm README.md\nln -s docs/required.json README.md\n')
+        status, path = self.run_fixture()
+        self.assertNotEqual(status, 0)
+        receipt = json.loads(path.read_text())
+        self.assertEqual(receipt['status'], 'failed')
+        self.assertIsNone(receipt['end']['executed_after_sha256'])
+        self.assertIn('symlinked input file', receipt['end']['executed_after_error'])
+
+    def test_missing_origin_readme_retains_failed_receipt(self):
+        target = self.root / 'README.md'
+        (self.root / 'tools/test.sh').write_text(f'rm "{target}"\n')
+        status, path = self.run_fixture()
+        self.assertNotEqual(status, 0)
+        receipt = json.loads(path.read_text())
+        self.assertEqual(receipt['status'], 'failed')
+        self.assertIsNone(receipt['end']['source_after_sha256'])
+        self.assertIn('README.md', receipt['end']['source_after_error'])
 
     def test_valid_pair_aggregates_actual_metadata(self):
         _, normal = self.run_fixture()
@@ -230,9 +287,10 @@ class ProvenanceTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             stage = Path(temp)
             provenance.stage_inputs(ROOT, stage, provenance.baseline_archive(ROOT))
-            result = subprocess.run([sys.executable, 'tests/basic_template_scope.py'], cwd=stage, text=True, capture_output=True)
-            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-            self.assertIn('scope preserved PASS', result.stdout)
+            self.assertEqual((stage / 'README.md').read_bytes(), (ROOT / 'README.md').read_bytes())
+            for name in ['basic_template_scope.py', 'knowledge_taxonomy.py', 'template_report.py']:
+                result = subprocess.run([sys.executable, 'tests/' + name], cwd=stage, text=True, capture_output=True)
+                self.assertEqual(result.returncode, 0, name + '\n' + result.stdout + result.stderr)
 
 
 if __name__ == '__main__':
