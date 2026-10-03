@@ -28,6 +28,7 @@ fi
 export CXX
 export CPC_SANITIZE="${SANITIZE:-0}"
 python3 tests/basic_template_scope.py
+python3 tests/math_coverage_csv.py
 python3 tests/acl_review_consistency.py
 python3 tests/static_modint.py
 python3 tests/knowledge_taxonomy.py
