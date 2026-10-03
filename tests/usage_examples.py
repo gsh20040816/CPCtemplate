@@ -318,6 +318,7 @@ cases['example-231'] = [('4 5\n2 1\n3 4\n5 6\n7 8\n0 1\n1 2\n1 3\n1 2 3 1\n1 3 2
 cases['example-232'] = [('3 9\n1 0 1\n0 0 1 3\n1 0 1\n1 1 0\n0 0 1 4\n0 0 1 3\n0 1 2 5\n1 0 2\n0 2 2 1\n', '-1 1 3 998244350 0 1 1 8 0'), ('1 4\n1 0 0\n0 0 0 0\n0 0 0 7\n1 0 0\n', '0 1 0 0')]
 cases['example-233'] = [('2 2 0.000000000001\n0.5 -0.5 1\n-0.5 1 1\n', '1 2 6 4 0'), ('1 2 0.000000000001\n1 2 3\n', '1 1 3 0 1 -2 1'), ('2 1 0.000000000001\n1 1\n1 2\n', '0 1'), ('0 2 0.000000000001\n', '1 0 0 0 2 1 0 0 1')]
 cases['example-234'] = [('4\n0 0 1\n0 0 7\n18446744073709551615 18446744073709551615 18446744073709551615\n18446744073709551615 2 18446744073709551614\n', '0 0 0 1 0 0 2 1'), ('0\n', '')]
+cases['example-235'] = [('0 1 1e-10 20 100000\n', {'values': [0.7853981633974483], 'atol': 1e-9}), ('1 0 1e-10 20 100000\n', {'values': [-0.7853981633974483], 'atol': 1e-9}), ('2 2 1e-10 0 0\n', '0'), ('0 1 1e-15 0 3\n', 'FAILED')]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

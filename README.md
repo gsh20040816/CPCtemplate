@@ -23,7 +23,7 @@
 
 后续补充见 [整除反演与对称计数](docs/MATH-COUNTING-MODELS.md)：GCD 建模、整除分块、Burnside/Pólya、固定库存与非可逆群阶除法。
 
-当前有 27 个分类知识节（数学 25、图论 2），按固定 OI Wiki 导航纳入总册和所属分册；包括上述主题以及 LTE、Lagrange 反演、递推、容斥、类欧几里德、矩阵树、整数分拆、模运算条件、Catalan／投票反射建模和一次不定方程范围计数。映射与尚未分类的旧附录范围见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)，不把这些节数当作完整知识体系的覆盖比例。
+当前有 28 个分类知识节（数学 26、图论 2），按固定 OI Wiki 导航纳入总册和所属分册；包括上述主题以及 LTE、Lagrange 反演、递推、容斥、类欧几里德、矩阵树、整数分拆、模运算条件、Catalan／投票反射建模、一次不定方程范围计数和数值积分。映射与尚未分类的旧附录范围见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)，不把这些节数当作完整知识体系的覆盖比例。
 
 ## 码风
 
@@ -45,7 +45,7 @@ SANITIZE=1 tools/test.sh
 ```
 
 前两步生成文档集成检查所需的分册 TeX，不需要安装 LaTeX；新克隆后也要执行。
-需要 GCC、C++20 和 Boost（用于独立精确几何参考）。每份可提交代码与测试及打印代码同源。
+需要 GCC、C++20、Boost（独立精确几何参考）及 Python mpmath（高精度数值参考）。每份可提交代码与测试及打印代码同源。
 
 - [OJ 记录与实际受测接口](verification/oj.json)：保留原始提交源码和 SHA256，不把同文件未调用模块算作通过评测。
 - [当前源码与 AC 快照对照](verification/oj-source-audit.json)：完整文件相同或受测结构的排版归一化比对结果。
@@ -86,3 +86,5 @@ Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECK
 kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md](docs/HOPCROFT-SOURCE-AUDIT.md)。
 
 完整无符号64位模乘/模幂的保留组件见 [Mod64接口用法](docs/MOD64-USAGE.md)，不恢复已排除的基础快速幂题。
+
+自适应积分的资源上限、采样混叠及误差估计边界见 [Adaptive Simpson说明](docs/ADAPTIVE-SIMPSON.md)。

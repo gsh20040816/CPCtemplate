@@ -1,0 +1,45 @@
+\section{数值积分：局部估计、误差预算与采样盲区}\label{knowledge-adaptive-integration}
+\index{Simpson integration}\index{Richardson extrapolation}
+接口见第~\ref{compact-AdaptiveSimpson}~节（第~\pageref{compact-AdaptiveSimpson}~页），
+用法见第~\ref{usage-example-235}~节（第~\pageref{usage-example-235}~页）。
+先确认定积分存在，函数在闭区间采样点有定义，并分析间断、尖峰与振荡。
+端点奇异问题需要有依据的变量变换或其他适用算法，不能只靠不断减小 eps。
+
+令 $m=(a+b)/2$，单段 Simpson 取
+\[
+S(a,b)=\frac{b-a}{6}\bigl(f(a)+4f(m)+f(b)\bigr).
+\]
+它在精确算术下对至多三次多项式精确。若 $f\in C^4[a,b]$，有某个 $\xi\in(a,b)$ 满足
+\[
+\int_a^bf(x)\,dx-S(a,b)=-\frac{(b-a)^5}{2880}f^{(4)}(\xi).
+\]
+这是单段误差；等距复合 Simpson 的小步长为 $h$、小区间数为偶数时，整体误差形式是
+$-(b-a)h^4f^{(4)}(\xi)/180$，不能混用两个长度参数。
+
+设 $S_2=S(a,m)+S(m,b)$、$\delta=S_2-S(a,b)$。
+若已进入主导误差按四次步长缩放的渐近区间，则二分约把误差缩为原来的 $1/16$，
+由此得到指标 $E=|\delta|/15$ 与修正值 $S_2+\delta/15$。
+递归时把当前绝对误差预算各分一半，端点与中点采样直接传给孩子，只增加两个四分点样本。
+返回的 error 是叶指标之和，\texttt{met} 仅说明计算出的指标满足预算；它不是实际误差证书。
+浮点预算二分和求和也会舍入，本实现会再检查父区间的汇总指标不超预算。
+
+\paragraph{光滑也会漏采样}
+在 $[0,1]$ 上取
+\[
+f(x)=\bigl[x(x-\tfrac14)(x-\tfrac12)(x-\tfrac34)(x-1)\bigr]^2.
+\]
+初始五个采样点都得到0，故本接口返回0、指标0、\texttt{met=true}，
+但该非负光滑多项式在区间内部并非恒零，真实积分严格为正。
+因此“足够光滑”配合一次小差值仍不能给任意函数保证。
+已知尖峰、间断或频率应先用于分段；强制若干层只能降低某些漏采样风险，不能消灭它。
+
+\paragraph{有限资源与数值合同}
+eps 为正的绝对容差。depth=0 仍允许根的五点比较，只有继续细分被禁止；
+limit 是实际回调次数上限。需要继续细分时深度耗尽或容差下溢，以及所需求值预算不足、四分点与端点重合或非有限计算，都会令 \texttt{met=false}。
+失败 value 可能只是覆盖该区间的粗估计，初始估计不可用时为 NaN；不要直接打印失败值。
+零长度不调用函数，反向区间只反转积分值的符号。
+函数必须给出确定的采样值，异常直接传播；有限样本也可能在中间加法或乘法溢出时失败。
+
+参考：\url{https://dlmf.nist.gov/3.5#ii}；
+OI Wiki 固定版本 \texttt{math/numerical/integral.md} 与 WIDA jiangly 的 Simpson 文件。
+只补本有界自适应接口；不把目录中的等距复合实现、原应用函数或未读到的 kuangbin PDF 页视为完成。

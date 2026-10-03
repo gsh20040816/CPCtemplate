@@ -2940,5 +2940,17 @@
     "requires": [
       "Mod64"
     ]
+  },
+  {
+    "id": "example-235",
+    "symbol": "AdaptiveSimpson",
+    "kind": "api",
+    "problem": "有限区间积分（接口演示）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/adaptive_simpson.hpp",
+    "summary": "自定义协议，非OJ题：输入a b eps depth limit，对f(x)=1/(1+x*x)积分；a,b有限且绝对值≤100、有限eps>0、0≤depth≤60、0≤limit≤200000。估计条件满足时打印value，否则FAILED；这不是严格误差证书。反向区间变号；零长度返回0且不求值。depth=0仍允许根的5点比较，但不递归细分。示例避免奇点，任意函数仍可能发生采样混叠，须审查正则性并按已知间断分段。",
+    "driver": "verify/api/adaptive_simpson.compact.cpp",
+    "requires": [
+      "AdaptiveSimpson"
+    ]
   }
 ]

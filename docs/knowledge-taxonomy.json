@@ -17,15 +17,16 @@
       "docs/knowledge-partitions.tex",
       "docs/knowledge-modular-conditions.tex",
       "docs/knowledge-ballot.tex",
-      "docs/knowledge-diophantine.tex"
+      "docs/knowledge-diophantine.tex",
+      "docs/knowledge-integration.tex"
     ],
-    "classified_section_count": 27,
+    "classified_section_count": 28,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类十四份knowledge源文件的27个带标签节（数学25、图论2）。迁移一次不定方程并补有符号矩形约束的解数；分类不新增算法或OJ覆盖，历史附录仍未全部分类。"
+    "note": "仅分类十五份knowledge源文件的28个带标签节（数学26、图论2）。新增数值积分估计与采样盲区知识；分类不新增算法或OJ覆盖，历史附录仍未全部分类。"
   },
   "entries": [
     {
@@ -319,6 +320,15 @@
       "additional": [],
       "relation": "direct",
       "note": "保留裴蜀与P5656正解区间说明，补有符号矩形范围的参数交集、零系数与任意精度计数；不是新增算法或完整来源页认证。",
+      "page_break_before": true
+    },
+    {
+      "label": "knowledge-adaptive-integration",
+      "source": "docs/knowledge-integration.tex",
+      "path": "math/numerical/integral.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "自适应Simpson的误差主项、预算与光滑混叠反例；不声称严格精度或整个来源页全部实现。",
       "page_break_before": true
     }
   ]
