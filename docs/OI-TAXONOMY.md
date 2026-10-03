@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 150，application 55，composite 0，related 7。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 151，application 55，composite 0，related 7。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -220,5 +220,6 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | ClosestPair | 计算几何 → 平面最近点对 | direct |  |
 | closest_pair_i64 | 计算几何 → 平面最近点对 | direct |  |
 | EnclosingCircle | 计算几何 → 随机增量法 | application | 随机增量最小覆盖圆。 |
+| Dominance3D | 杂项 → 离线算法 → CDQ 分治 | direct | 静态无权三维弱偏序计数，CDQ按点对归并；不把卷积递推或整个CDQ页面当作已覆盖。 |
 | ModifiedMo | 杂项 → 离线算法 → 莫队算法 → 带修改莫队 | direct |  |
 | xor_hamming_pairs | 杂项 → 离线算法 → 莫队算法 → 莫队二次离线 | direct | 附件及 P4887 的异或 popcount 配对应用；不声称任意问题可直接代入。 |

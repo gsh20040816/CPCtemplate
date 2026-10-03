@@ -219,3 +219,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | GaussReal | [example-233（接口演示）](usage/example-233.cpp) | locally_checked_api |
 | AdaptiveSimpson | [example-235（接口演示）](usage/example-235.cpp) | locally_checked_api |
 | ManhattanMST | [example-236](usage/example-236.cpp) | locally_checked_example |
+| Dominance3D | [example-237](usage/example-237.cpp) | locally_checked_example |

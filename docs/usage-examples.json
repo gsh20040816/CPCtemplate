@@ -2965,5 +2965,18 @@
       "dsu",
       "ManhattanMST"
     ]
+  },
+  {
+    "id": "example-237",
+    "symbol": "Dominance3D",
+    "kind": "template",
+    "problem": "Luogu P3810 【模板】三维偏序 / 陌上花开",
+    "url": "https://www.luogu.com.cn/problem/P3810",
+    "summary": "1≤n≤100000，1≤三个坐标≤k≤200000。对每个输入点统计其他点三个坐标均≤自身的次数，输出次数为0..n−1的点数直方图。重复位置分别计数且各自排除自己。k只约束题面坐标，库内部压缩，无需外部初始化；空输入和signed64极值另属API扩展。",
+    "driver": "verify/luogu/P3810.compact.cpp",
+    "requires": [
+      "Fenwick",
+      "Dominance3D"
+    ]
   }
 ]

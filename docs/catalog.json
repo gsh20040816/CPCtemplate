@@ -1270,5 +1270,11 @@
     "ManhattanMST",
     "曼哈顿最小生成树",
     "Point为pair<long long,long long>，坐标支持完整有符号64位，点数须≤INT_MAX且内存可分配。candidates(points)给出最多4n条(weight,u,v)候选，允许重复边；solve(points)返回精确128位weight与原下标边对edges。空/单点返回0且无边，重合点仍为不同顶点；同权最优树不唯一。先转128位再变换/加减，输入不变。四方向扫描与Kruskal为O(n log(n+1))、O(n)空间；调用处选较大dsu根在前，不改变普通dsu语义。候选保证只针对无约束完整L1图，不能直接删禁边后声称仍含受限MST。"
+  ],
+  [
+    "dominance_3d",
+    "Dominance3D",
+    "静态三维偏序计数",
+    "count(points)返回每个原输入位置被其他点逐坐标≤的次数，重复坐标仍是不同点，排除自身。输入array<long long,3>，完整signed64坐标，空输入返回空；输入不变。内部按三维字典序合并重合点，压缩第三维，CDQ归并与Fenwick回滚。O(n log²(n+1))时间、O(n)空间、O(log(n+1))递归；n须≤INT_MAX/2且内存可分配，保证共享Fenwick的int步进不溢出。仅静态无权弱偏序，不含严格不等号、动态更新或CDQ递推。"
   ]
 ]
