@@ -9,26 +9,9 @@ circle_intersections(RealPlane::Circle a, RealPlane::Circle b, long double eps =
     using R = G::R;
     using Point = G::Point;
     using Kind = G::Kind;
-    assert(eps >= 0);
+    assert(eps > 0);
     assert(a.r >= 0 && b.r >= 0);
     Point v = b.o - a.o;
-    if (eps == 0)
-    {
-        R q = G::dot(v, v);
-        if (q == 0)
-        {
-            if (a.r != b.r) return {Kind::none, {}};
-            if (a.r == 0) return {Kind::one, {a.o}};
-            return {Kind::infinite, {}};
-        }
-        R k = q + a.r * a.r - b.r * b.r;
-        R d = 4 * a.r * a.r * q - k * k;
-        if (d < 0) return {Kind::none, {}};
-        Point h = a.o + v * (k / (2 * q));
-        if (d == 0) return {Kind::one, {h}};
-        Point w = G::perp(v) * (sqrtl(d) / (2 * q));
-        return {Kind::two, {h - w, h + w}};
-    }
     R d = G::norm(v);
     R tol = eps * max({d, a.r, b.r});
     // Infinite intersections require identical positive-radius circles.

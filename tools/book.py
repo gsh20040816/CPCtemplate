@@ -144,8 +144,11 @@ for style in ['compact']:
                 estimate = 650
             if name == 'polygon_contains':
                 estimate = 430
-            if name in ('line_intersection_real', 'line_circle_intersections'):
+            if name == 'line_intersection_real':
                 estimate = 460
+            if name in ('line_circle_intersections', 'circle_intersections'):
+                body.append('\\newpage')
+                estimate = 650
             if name == 'BiconnectedCore':
                 split = next(i for i in range(start, end) if 'void dfs(' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
@@ -649,6 +652,12 @@ for style in ['compact']:
                     if j:
                         body.append('\\newpage')
                     body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'circle_intersections':
+                split = next(i for i in range(start, end) if lines[i].strip() == 'R d = G::norm(v);')
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 默认正容差分支（接上页同一函数）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name in ('ModInt', 'mint'):
                 split = next(i for i in range(start, end) if 'optional<' + name + '> try_inv' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')

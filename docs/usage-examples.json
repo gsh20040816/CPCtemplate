@@ -2858,5 +2858,32 @@
       "RealPlane",
       "RealPolarLess"
     ]
+  },
+  {
+    "id": "example-229",
+    "symbol": "line_circle_intersections",
+    "kind": "template",
+    "problem": "AOJ CGL_7_D — 浮点接口无容差模式",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D",
+    "summary": "整数坐标绝对值≤10000、整数半径1..10000，保证交点存在；每条直线两端点不同，1≤q≤1000。直接调用浮点接口并显式传eps=0，不合并近切交点；仅在二进制long double尾数至少64位、正常最近舍入且禁用fast-math的平台采用此用法。此整数域的平方判别式精确，坐标仍为浮点构造；一般实数不继承精确分类保证。相切重复同一点，按普通(x,y)字典序输出，不能用epsilon排序；默认eps>0接口保持原近似语义。",
+    "driver": "verify/aoj/CGL_7_D.real.compact.cpp",
+    "requires": [
+      "RealPlane",
+      "line_projection",
+      "line_circle_intersections"
+    ]
+  },
+  {
+    "id": "example-230",
+    "symbol": "circle_intersections",
+    "kind": "template",
+    "problem": "AOJ CGL_7_E — 浮点接口无容差模式",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E",
+    "summary": "整数坐标绝对值≤10000、整数半径1..10000，保证交点存在；两圆圆心不同。直接调用浮点接口并显式传eps=0，不合并近切交点；仅在二进制long double尾数至少64位、正常最近舍入且禁用fast-math的平台采用此用法。此整数域的平方判别式精确，坐标仍为浮点构造；一般实数不继承精确分类保证。相切重复同一点，按普通(x,y)字典序输出，不能用epsilon排序；默认eps>0接口保持原近似语义。",
+    "driver": "verify/aoj/CGL_7_E.real.compact.cpp",
+    "requires": [
+      "RealPlane",
+      "circle_intersections"
+    ]
   }
 ]

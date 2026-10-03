@@ -520,6 +520,7 @@ build/integer-components
 
 "$CXX" "${flags[@]}" tests/real_components.cpp -o build/real-components
 build/real-components
+python3 tests/circle_zero_mode.py
 
 "$CXX" "${flags[@]}" tests/triangles.cpp -o build/triangles
 build/triangles

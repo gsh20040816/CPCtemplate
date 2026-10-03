@@ -7237,25 +7237,63 @@ line\_intersection\_real(a,b,c,d,eps=1e-12L) 返回 RealPlane::Result；eps 必�
 
 \lstinputlisting{usage/example-183.cpp}
 
-\Needspace{460pt}
+\newpage
+
+\Needspace{650pt}
 
 \section{浮点直线与圆交点}\label{compact-line_circle_intersections}\index{line\_circle\_intersections}
 
 代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_projection]{line\_\allowbreak{}projection}（第~\pageref{compact-line_projection}~页，\ref{compact-line_projection}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-line\_circle\_intersections(a,b,c,eps=1e-12L) 返回 Result；c 为 RealPlane::Circle，半径非负，eps 为正。a=b 返回 degenerate；按投影点到圆心的距离和半径的相对阈值区分 none、one、two。点圆允许；只有正半径同心圆才涉及无限交点，本函数不会返回 infinite。依赖 line\_projection，O(1)。输入有限且尺度适当，接近相切时按容差归类。 默认容差不能直接满足 AOJ CGL\_7\_D 的所有合法输入；近切时归并交点可能超出坐标误差限。
+line\_circle\_intersections(a,b,c,eps=1e-12L) 返回 Result；c 为 RealPlane::Circle，半径非负，eps 非负；以下相对阈值描述适用于 eps>0。a=b 返回 degenerate；按投影点到圆心的距离和半径的相对阈值区分 none、one、two。点圆允许；只有正半径同心圆才涉及无限交点，本函数不会返回 infinite。依赖 line\_projection，O(1)。输入有限且尺度适当，接近相切时按容差归类。 默认容差不能直接满足 AOJ CGL\_7\_D 的所有合法输入；近切时归并交点可能超出坐标误差限。 eps=0为显式无容差模式：直接计算平方判别式，不主动合并近切点；一般实数仍可能发生舍入误判、溢出或下溢。整数坐标绝对值$\le$10000、整数半径0..10000，二进制long double尾数$\ge$64位且正常最近舍入、禁用fast-math时，中间整数精确。交点坐标仍为浮点近似；其他输入不继承这一保证。
 
-\lstinputlisting[firstline=5,lastline=27]{../src/compact/line_circle_intersections.hpp}
+\lstinputlisting[firstline=5,lastline=39]{../src/compact/line_circle_intersections.hpp}
 
-\Needspace{490pt}
+\Needspace{510pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_D — 浮点接口无容差模式}
+
+\label{usage-example-229}
+
+题意：整数坐标绝对值$\le$10000、整数半径1..10000，保证交点存在；每条直线两端点不同，1$\le$q$\le$1000。直接调用浮点接口并显式传eps=0，不合并近切交点；仅在二进制long double尾数至少64位、正常最近舍入且禁用fast-math的平台采用此用法。此整数域的平方判别式精确，坐标仍为浮点构造；一般实数不继承精确分类保证。相切重复同一点，按普通(x,y)字典序输出，不能用epsilon排序；默认eps>0接口保持原近似语义。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_projection]{line\_\allowbreak{}projection}（第~\pageref{compact-line_projection}~页，\ref{compact-line_projection}~节）、\hyperref[compact-line_circle_intersections]{line\_\allowbreak{}circle\_\allowbreak{}intersections}（第~\pageref{compact-line_circle_intersections}~页，\ref{compact-line_circle_intersections}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D}
+
+\lstinputlisting{usage/example-229.cpp}
+
+\newpage
+
+\Needspace{650pt}
 
 \section{浮点两圆交点}\label{compact-circle_intersections}\index{circle\_intersections}
 
 代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-circle\_intersections(a,b,eps=1e-12L) 返回 Result；半径非负，eps 为正。两个完全相同的正半径圆返回 infinite；同位置两个点圆返回 one；同心不同半径返回 none。其余用距离和半径的相对阈值分类，点圆单独处理，接近相切可返回 one。输入有限且尺度适当，O(1) 时间空间；返回的有限交点仍受浮点构造误差影响。 默认容差不能直接满足 AOJ CGL\_7\_E 的所有合法输入；近切时归并交点可能超出坐标误差限。
+circle\_intersections(a,b,eps=1e-12L) 返回 Result；半径非负，eps 非负；以下相对阈值描述适用于 eps>0。两个完全相同的正半径圆返回 infinite；同位置两个点圆返回 one；同心不同半径返回 none。其余用距离和半径的相对阈值分类，点圆单独处理，接近相切可返回 one。输入有限且尺度适当，O(1) 时间空间；返回的有限交点仍受浮点构造误差影响。 默认容差不能直接满足 AOJ CGL\_7\_E 的所有合法输入；近切时归并交点可能超出坐标误差限。 eps=0为显式无容差模式：直接计算平方判别式，不主动合并近切点；一般实数仍可能发生舍入误判、溢出或下溢。整数坐标绝对值$\le$10000、整数半径0..10000，二进制long double尾数$\ge$64位且正常最近舍入、禁用fast-math时，中间整数精确。交点坐标仍为浮点近似；其他输入不继承这一保证。
 
-\lstinputlisting[firstline=5,lastline=41]{../src/compact/circle_intersections.hpp}
+\lstinputlisting[firstline=5,lastline=31]{../src/compact/circle_intersections.hpp}
+
+\newpage
+
+\noindent 默认正容差分支（接上页同一函数）：
+
+\lstinputlisting[firstline=32,lastline=58,firstnumber=28]{../src/compact/circle_intersections.hpp}
+
+\Needspace{429pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_E — 浮点接口无容差模式}
+
+\label{usage-example-230}
+
+题意：整数坐标绝对值$\le$10000、整数半径1..10000，保证交点存在；两圆圆心不同。直接调用浮点接口并显式传eps=0，不合并近切交点；仅在二进制long double尾数至少64位、正常最近舍入且禁用fast-math的平台采用此用法。此整数域的平方判别式精确，坐标仍为浮点构造；一般实数不继承精确分类保证。相切重复同一点，按普通(x,y)字典序输出，不能用epsilon排序；默认eps>0接口保持原近似语义。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_intersections]{circle\_\allowbreak{}intersections}（第~\pageref{compact-circle_intersections}~页，\ref{compact-circle_intersections}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E}
+
+\lstinputlisting{usage/example-230.cpp}
 
 \Needspace{335pt}
 

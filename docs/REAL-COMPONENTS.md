@@ -9,3 +9,9 @@ RealGeometry 作为未打印的兼容入口保留 eps 与旧方法。圆多边�
 验证包含 100 位圆面积/接触证书、退化点圆、尺度变化、圆多边形积分参考、最小覆盖圆支撑集枚举、普通几何与命名空间回归，另有新头文件直接调用的解析解测试。普通和 ASan/UBSan 均通过，证据见 verification/real-components.json。不宣称新在线 AC，也不把近似分类视为精确构造。
 
 双连通后续拆分见 BCC-COMPONENTS.md；当前分类映射已无 composite 条目，其他来源覆盖、验证与说明整理仍未完成。
+
+## 2026-10-03：两种圆交点接口增加显式无容差模式
+
+上文记录的是拆分时的历史正 eps 契约。现在只有 `line_circle_intersections` 和 `circle_intersections` 的自由函数允许 `eps=0`；原 `eps>0` 计算路径逐字保留并通过源码比较检查。`RealGeometry` 构造和其他自由函数的 eps 条件不变。
+
+零模式直接计算平方判别式，没有调用整数版。它不承诺任意实数的精确分类；AOJ 有界整数输入域、二进制至少64位尾数及正常浮点语义下的额外保证、独立验证和平台限制见 [CIRCLE-ZERO-MODE.md](CIRCLE-ZERO-MODE.md)。默认近切反例继续保留。

@@ -11,21 +11,9 @@ RealPlane::Result line_circle_intersections(RealPlane::Point a,
     using R = G::R;
     using Point = G::Point;
     using Kind = G::Kind;
-    assert(eps >= 0);
+    assert(eps > 0);
     assert(c.r >= 0);
     Point v = b - a;
-    if (eps == 0)
-    {
-        R q = G::dot(v, v);
-        if (q == 0) return {Kind::degenerate, {}};
-        R z = G::cross(v, a - c.o);
-        R d = c.r * c.r * q - z * z;
-        if (d < 0) return {Kind::none, {}};
-        Point h = c.o + G::perp(v) * (z / q);
-        if (d == 0) return {Kind::one, {h}};
-        Point w = v * (sqrtl(d) / q);
-        return {Kind::two, {h - w, h + w}};
-    }
     R len = G::norm(v);
     if (len == 0) return {Kind::degenerate, {}};
     Point h = line_projection(c.o, a, b);

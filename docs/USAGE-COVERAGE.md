@@ -91,8 +91,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | line_projection | [example-181](usage/example-181.cpp) | locally_checked_example |
 | segment_distance_real | [example-182](usage/example-182.cpp) | locally_checked_example |
 | line_intersection_real | [example-183](usage/example-183.cpp) | locally_checked_example |
-| line_circle_intersections | 待补 | pending_example |
-| circle_intersections | 待补 | pending_example |
+| line_circle_intersections | [example-229](usage/example-229.cpp) | locally_checked_example |
+| circle_intersections | [example-230](usage/example-230.cpp) | locally_checked_example |
 | circle_overlap_area | [example-154](usage/example-154.cpp) | locally_checked_example |
 | MaxPlusMatrix | [example-223（应用补充）](usage/example-223.cpp) | locally_checked_application |
 | LiChao | [example-89](usage/example-89.cpp) | locally_checked_example |
