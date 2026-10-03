@@ -1,172 +1,172 @@
 # 已核对的模板题入口
 
-本表记录已核对的题面或来源模型与适配约定；原题面不可访问的记录明确标注，不能视为题面核验完成。AC、接口覆盖与速度榜分别记录；空白项不表示完成。完整候选和上游缺项见 [候选清单](template-problems.json)，执行依据为 [issue #1](ISSUE-1.md)。
+本表记录已核对的题面或来源模型与适配约定；原题面不可访问的记录明确标注，不能视为题面核验完成。AC、接口覆盖与速度榜分别记录；历史 AC 不自动证明当前源码或未受测接口，空白项不表示完成。完整候选和上游缺项见 [候选清单](template-problems.json)，执行依据为 [issue #1](ISSUE-1.md)。
 
-| 算法 | 模板题 | 边界 | 当前 AC | 速度榜 |
+| 算法 | 模板题 | 边界 | 已登记 AC | 速度榜 |
 |---|---|---|---|---|
 | `ModifiedMo` | [Luogu P1903](https://www.luogu.com.cn/problem/P1903) | n,m<=133333; colors<=1000000 | [记录](https://www.luogu.com.cn/record/297653743) | 待核验 |
 | `TarjanSCC` | [QOJ 906](https://qoj.ac/problem/906) | 1<=N,M<=500000; directed multigraph; 0-based vertices | [记录](https://qoj.ac/submission/2940638) | 94 out of 143（CCF_NOI 当前可见的满分提交，按用时并列） |
-| `berlekamp_massey` | [QOJ 547](https://qoj.ac/problem/547) | 0<=n<=10000; modulus 998244353 | 待编写驱动/提交 | 待核验 |
-| `prefix_function` | [QOJ 464](https://qoj.ac/problem/464) | 1<=\|S\|<=2000000; lowercase; 0.5s | 待编写驱动/提交 | 待核验 |
-| `z_function` | [QOJ 786](https://qoj.ac/problem/786) | 1<=\|S\|<=2000000; lowercase; 0.5s | 待编写驱动/提交 | 待核验 |
-| `manacher` | [QOJ 787](https://qoj.ac/problem/787) | \|S\|<=1000000; 1s | 待编写驱动/提交 | 待核验 |
-| `TwoSAT` | [QOJ 997](https://qoj.ac/problem/997) | 1<=n<=100000; 1<=m<=500000; 1-based variables | 待编写驱动/提交 | 待核验 |
-| `NttConvolution::multiply` | [QOJ 618](https://qoj.ac/problem/618) | degrees n,m in [1,1000000]; modulus 998244353; 1s | 待编写驱动/提交 | 待核验 |
-| `Polynomial::multiply` | [QOJ 618](https://qoj.ac/problem/618) | degrees n,m<=1000000; modulus 998244353; 1s | 待编写驱动/提交 | 待核验 |
-| `Polynomial::inverse` | [QOJ 619](https://qoj.ac/problem/619) | 1<=n<=1000000; modulus 998244353; a[0]!=0; 1.5s | 待编写驱动/提交 | 待核验 |
-| `Polynomial::log` | [QOJ 620](https://qoj.ac/problem/620) | 1<=n<=1000000; modulus 998244353; a[0]=1; 1.5s | 待编写驱动/提交 | 待核验 |
-| `Polynomial::exp` | [QOJ 621](https://qoj.ac/problem/621) | 1<=n<=1000000; modulus 998244353; a[0]=0; 2.5s | 待编写驱动/提交 | 待核验 |
+| `berlekamp_massey` | [QOJ 547](https://qoj.ac/problem/547) | 0<=n<=10000; modulus 998244353 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `prefix_function` | [QOJ 464](https://qoj.ac/problem/464) | 1<=\|S\|<=2000000; lowercase; 0.5s | 驱动登记待核验；AC 待核验 | 待核验 |
+| `z_function` | [QOJ 786](https://qoj.ac/problem/786) | 1<=\|S\|<=2000000; lowercase; 0.5s | 驱动登记待核验；AC 待核验 | 待核验 |
+| `manacher` | [QOJ 787](https://qoj.ac/problem/787) | \|S\|<=1000000; 1s | 驱动登记待核验；AC 待核验 | 待核验 |
+| `TwoSAT` | [QOJ 997](https://qoj.ac/problem/997) | 1<=n<=100000; 1<=m<=500000; 1-based variables | 驱动登记待核验；AC 待核验 | 待核验 |
+| `NttConvolution::multiply` | [QOJ 618](https://qoj.ac/problem/618) | degrees n,m in [1,1000000]; modulus 998244353; 1s | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Polynomial::multiply` | [QOJ 618](https://qoj.ac/problem/618) | degrees n,m<=1000000; modulus 998244353; 1s | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Polynomial::inverse` | [QOJ 619](https://qoj.ac/problem/619) | 1<=n<=1000000; modulus 998244353; a[0]!=0; 1.5s | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Polynomial::log` | [QOJ 620](https://qoj.ac/problem/620) | 1<=n<=1000000; modulus 998244353; a[0]=1; 1.5s | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Polynomial::exp` | [QOJ 621](https://qoj.ac/problem/621) | 1<=n<=1000000; modulus 998244353; a[0]=0; 2.5s | 驱动登记待核验；AC 待核验 | 待核验 |
 | `GeneralMultipointEvaluation` | [QOJ 622](https://qoj.ac/problem/622) | 1<=n,m<=1000000; output mod 998244353; 10s | 待实现 | 待核验 |
-| `SuffixArray::sa` | [QOJ 956](https://qoj.ac/problem/956) | 1<=n<=1000000; ASCII letters/digits; 3s; 128MB | 待编写驱动/提交 | 待核验 |
-| `PalindromicTree::add/occurrences` | [QOJ 801](https://qoj.ac/problem/801) | lowercase string length<=1000000; 1s; 2048MB | 待编写驱动/提交 | 待核验 |
+| `SuffixArray::sa` | [QOJ 956](https://qoj.ac/problem/956) | 1<=n<=1000000; ASCII letters/digits; 3s; 128MB | 驱动登记待核验；AC 待核验 | 待核验 |
+| `PalindromicTree::add/occurrences` | [QOJ 801](https://qoj.ac/problem/801) | lowercase string length<=1000000; 1s; 2048MB | 驱动登记待核验；AC 待核验 | 待核验 |
 | `SuffixAutomaton::extend/counts` | [Luogu P3804](https://www.luogu.com.cn/problem/P3804) | 1<=\|S\|<=1000000; lowercase | 待在线 AC | 待核验 |
 | `OrderedTreap` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000 | [记录](https://www.luogu.com.cn/record/297515150) | 待核验 |
 | `OrderedSplay` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000 | [记录](https://www.luogu.com.cn/record/297520192) | 待核验 |
 | `SequenceTreap` | [Luogu P3391](https://www.luogu.com.cn/problem/P3391) | 1<=n,m<=100000; 1<=l<=r<=n | [记录](https://www.luogu.com.cn/record/297520211) | 待核验 |
-| `ost` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | operations<=100000; \|x\|<=10000000 | 待编写驱动/提交 | 待核验 |
+| `ost` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | operations<=100000; \|x\|<=10000000 | 驱动登记待核验；AC 待核验 | 待核验 |
 | `ost` | [Luogu P6136](https://www.luogu.com.cn/problem/P6136) | n<=100000; m<=1000000; values<2^30 | [记录](https://www.luogu.com.cn/record/297800993) | 待核验 |
 | `gp_map` | [Library Checker associative_array](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; 0<=key,value<=10^18; 5s | [记录](https://judge.yosupo.jp/submission/401867) | 956 out of 7334（All AC submissions, all users including anonymous, all languages, Dedup user unchecked. Not all verdicts and not per-user best.） |
 | `rp` | [Library Checker persistent_queue](https://judge.yosupo.jp/problem/persistent_queue) | Q<=500000; -1<=t_i<i; 0<=x<=10^9; 5s | [记录](https://judge.yosupo.jp/submission/401871) | 待核验 |
 | `dsu` | [Luogu P3367](https://www.luogu.com.cn/problem/P3367) | N<=200000; M<=1000000; 1-based task vertices | [记录](https://www.luogu.com.cn/record/297668102) | 待核验 |
-| `Lowlink::add/run/bridge` | [QOJ 995](https://qoj.ac/problem/995) | n<=100000; m<=500000; 1s; 1-based | 待编写驱动/提交 | 待核验 |
-| `Lowlink::add/run/cut` | [QOJ 996](https://qoj.ac/problem/996) | n<=20000; m<=100000; 0.5s; 1-based | 待编写驱动/提交 | 待核验 |
+| `Lowlink::add/run/bridge` | [QOJ 995](https://qoj.ac/problem/995) | n<=100000; m<=500000; 1s; 1-based | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Lowlink::add/run/cut` | [QOJ 996](https://qoj.ac/problem/996) | n<=20000; m<=100000; 0.5s; 1-based | 驱动登记待核验；AC 待核验 | 待核验 |
 | `Dinic::add/flow` | [Luogu P3376](https://www.luogu.com.cn/problem/P3376) | n<=200; m<=5000; 0<=capacity<2^31 | [记录](https://www.luogu.com.cn/record/297501480) | 待核验 |
-| `MinCostFlow::slope` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000; m<=50000; capacity,cost<=1000; result<=2^31-1 | 待编写驱动/提交 | 待核验 |
+| `MinCostFlow::slope` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000; m<=50000; capacity,cost<=1000; result<=2^31-1 | 驱动登记待核验；AC 待核验 | 待核验 |
 | `Biconnected::add/run/blocks` | [Luogu P8435](https://www.luogu.com.cn/problem/P8435) | n<=500000; m<=2000000 | [记录](https://www.luogu.com.cn/record/297517446) | 待核验 |
 | `Biconnected::add/run/bel` | [Luogu P8436](https://www.luogu.com.cn/problem/P8436) | n<=500000; m<=2000000; multigraph | [记录](https://www.luogu.com.cn/record/297519028) | 待核验 |
-| `BipartiteMatching::add/solve` | [Luogu P3386](https://www.luogu.com.cn/problem/P3386) | 1<=n,m<=500; edges<=50000; parallel edges allowed | 待编写驱动/提交 | 待核验 |
+| `BipartiteMatching::add/solve` | [Luogu P3386](https://www.luogu.com.cn/problem/P3386) | 1<=n,m<=500; edges<=50000; parallel edges allowed | 驱动登记待核验；AC 待核验 | 待核验 |
 | `WeightedMatching::add/solve/r` | [Luogu P6577](https://www.luogu.com.cn/problem/P6577) | n<=500; m<=n^2; -19980731<=weight<=19980731 | [记录](https://www.luogu.com.cn/record/297520123) | 待核验 |
 | `OfflineLCA::add/add_query/run/answer` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S; queries may have equal endpoints | [记录](https://www.luogu.com.cn/record/297521009) | 待核验 |
-| `EulerLCA::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 待编写驱动/提交 | 待核验 |
-| `LiftingLCA::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 待编写驱动/提交 | 待核验 |
-| `HLD::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 待编写驱动/提交 | 待核验 |
+| `EulerLCA::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 驱动登记待核验；AC 待核验 | 待核验 |
+| `LiftingLCA::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 驱动登记待核验；AC 待核验 | 待核验 |
+| `HLD::add/build/lca` | [Luogu P3379](https://www.luogu.com.cn/problem/P3379) | N,M<=500000; root S | 驱动登记待核验；AC 待核验 | 待核验 |
 | `HLD + AffineSegTree` | [Luogu P3384](https://www.luogu.com.cn/problem/P3384) | n,m<=100000; 1<=P<=2^30; int inputs | [记录](https://www.luogu.com.cn/record/297520172) | 待核验 |
 | `CentroidPairs::add/build/count_exact` | [Luogu P3806](https://www.luogu.com.cn/problem/P3806) | n<=10000; m<=100; 1<=k<=10^7; 1<=edge_weight<=10000 | [记录](https://www.luogu.com.cn/record/297519137) | 待核验 |
 | `PersistentKth::kth` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | n,m<=200000; 0<=a[i]<=10^9; valid l,r,k | [记录](https://www.luogu.com.cn/record/297520290) | 待核验 |
 | `ost` | [Library Checker ordered_set](https://judge.yosupo.jp/problem/ordered_set) | 0<=N<=500000; 1<=Q<=500000; sorted distinct initial keys; 0<=keys<=10^9; kth query x>=1 | [记录](https://judge.yosupo.jp/submission/401869) | 628 out of 1095（All AC submissions, all users and languages, Dedup user unchecked. Not non-AC verdicts or per-user best.） |
 | `segtree` | [Library Checker point_set_range_composite](https://judge.yosupo.jp/problem/point_set_range_composite) | N,Q<=500000; 0<=l<r<=N; coefficients mod998244353 with nonzero slopes | [记录](https://judge.yosupo.jp/submission/402090) | 454 out of 2914（All AC submissions, all users/languages, dedup disabled; excludes non-AC verdicts.） |
 | `segtree` | [Library Checker predecessor_problem](https://judge.yosupo.jp/problem/predecessor_problem) | 1<=N<=10000000;1<=Q<=1000000;0<=k<N;initial binary membership string | [记录](https://judge.yosupo.jp/submission/402089) | 687 out of 2582（All users and languages, AC only, user dedup disabled; not all verdicts.） |
-| `lazy_segtree` | [Library Checker range_affine_range_sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | N,Q<=500000; coefficients modulo998244353; nonzero multipliers;0<=l<r<=N | 待编写驱动/提交 | 待核验 |
-| `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | n<=5000000;2<=k<p<=10^9;prime p;1<=a_i<p | 待编写驱动/提交 | 待核验 |
-| `convolution_i64` | [Luogu P3803](https://www.luogu.com.cn/problem/P3803) | Degrees n,m<=1000000; coefficients 0..9; exact integer output. | 待编写驱动/提交 | 待核验 |
-| `TarjanSCC` | [Library Checker Strongly Connected Components](https://judge.yosupo.jp/problem/scc) | 1<=N,M<=500000; vertices 0..N-1; loops and parallel edges allowed. | 待编写驱动/提交 | 待核验 |
-| `TwoSAT` | [Library Checker 2 Sat](https://judge.yosupo.jp/problem/two_sat) | 1<=N,M<=500000; signed DIMACS literals in +/-1..N. | 待编写驱动/提交 | 待核验 |
-| `NttConvolution` | [Library Checker convolution_mod](https://judge.yosupo.jp/problem/convolution_mod) | 1<=N,M<=524288; coefficients in [0,998244353). | 待编写驱动/提交 | 待核验 |
-| `SetConvolution` | [Library Checker bitwise_and_convolution](https://judge.yosupo.jp/problem/bitwise_and_convolution) | Exponent 0<=N<=20; each array has 2^N residues modulo998244353. | 待编写驱动/提交 | 待核验 |
-| `SetConvolution` | [Library Checker bitwise_xor_convolution](https://judge.yosupo.jp/problem/bitwise_xor_convolution) | Exponent 0<=N<=20; each array has 2^N residues modulo998244353. | 待编写驱动/提交 | 待核验 |
-| `GaussMod` | [Library Checker system_of_linear_equations](https://judge.yosupo.jp/problem/system_of_linear_equations) | 1<=N,M<=500; all arithmetic in F_998244353. | 待编写驱动/提交 | 待核验 |
-| `det_prime` | [Library Checker matrix_det](https://judge.yosupo.jp/problem/matrix_det) | 1<=N<=500; square matrix with residues modulo998244353. | 待编写驱动/提交 | 待核验 |
-| `ModMatrix` | [Library Checker matrix_product](https://judge.yosupo.jp/problem/matrix_product) | 1<=N,M,K<=1024; N*M times M*K matrices over modulo998244353. | 待编写驱动/提交 | 待核验 |
-| `FpsInverse` | [Library Checker inv_of_formal_power_series](https://judge.yosupo.jp/problem/inv_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0 nonzero. | 待编写驱动/提交 | 待核验 |
-| `FpsFunctions` | [Library Checker log_of_formal_power_series](https://judge.yosupo.jp/problem/log_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=1. | 待编写驱动/提交 | 待核验 |
-| `FpsFunctions` | [Library Checker exp_of_formal_power_series](https://judge.yosupo.jp/problem/exp_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=0. | 待编写驱动/提交 | 待核验 |
-| `gp_map` | [Library Checker associative_array (cc_hash_table variant)](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; key/value in [0,10^18]. | 待编写驱动/提交 | 待核验 |
-| `Prime64` | [Library Checker primality_test](https://judge.yosupo.jp/problem/primality_test) | 1<=Q<=100000;1<=N<=10^18. | 待编写驱动/提交 | 待核验 |
-| `floor_sum` | [Library Checker sum_of_floor_of_linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | 1<=T<=100000;1<=N,M<=10^9;0<=A,B<M. | 待编写驱动/提交 | 待核验 |
+| `lazy_segtree` | [Library Checker range_affine_range_sum](https://judge.yosupo.jp/problem/range_affine_range_sum) | N,Q<=500000; coefficients modulo998244353; nonzero multipliers;0<=l<r<=N | 驱动登记待核验；AC 待核验 | 待核验 |
+| `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | n<=5000000;2<=k<p<=10^9;prime p;1<=a_i<p | 驱动登记待核验；AC 待核验 | 待核验 |
+| `convolution_i64` | [Luogu P3803](https://www.luogu.com.cn/problem/P3803) | Degrees n,m<=1000000; coefficients 0..9; exact integer output. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `TarjanSCC` | [Library Checker Strongly Connected Components](https://judge.yosupo.jp/problem/scc) | 1<=N,M<=500000; vertices 0..N-1; loops and parallel edges allowed. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `TwoSAT` | [Library Checker 2 Sat](https://judge.yosupo.jp/problem/two_sat) | 1<=N,M<=500000; signed DIMACS literals in +/-1..N. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `NttConvolution` | [Library Checker convolution_mod](https://judge.yosupo.jp/problem/convolution_mod) | 1<=N,M<=524288; coefficients in [0,998244353). | 驱动登记待核验；AC 待核验 | 待核验 |
+| `SetConvolution` | [Library Checker bitwise_and_convolution](https://judge.yosupo.jp/problem/bitwise_and_convolution) | Exponent 0<=N<=20; each array has 2^N residues modulo998244353. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `SetConvolution` | [Library Checker bitwise_xor_convolution](https://judge.yosupo.jp/problem/bitwise_xor_convolution) | Exponent 0<=N<=20; each array has 2^N residues modulo998244353. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `GaussMod` | [Library Checker system_of_linear_equations](https://judge.yosupo.jp/problem/system_of_linear_equations) | 1<=N,M<=500; all arithmetic in F_998244353. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `det_prime` | [Library Checker matrix_det](https://judge.yosupo.jp/problem/matrix_det) | 1<=N<=500; square matrix with residues modulo998244353. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `ModMatrix` | [Library Checker matrix_product](https://judge.yosupo.jp/problem/matrix_product) | 1<=N,M,K<=1024; N*M times M*K matrices over modulo998244353. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FpsInverse` | [Library Checker inv_of_formal_power_series](https://judge.yosupo.jp/problem/inv_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0 nonzero. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FpsFunctions` | [Library Checker log_of_formal_power_series](https://judge.yosupo.jp/problem/log_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=1. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FpsFunctions` | [Library Checker exp_of_formal_power_series](https://judge.yosupo.jp/problem/exp_of_formal_power_series) | 1<=N<=500000; coefficients modulo998244353; a0=0. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `gp_map` | [Library Checker associative_array (cc_hash_table variant)](https://judge.yosupo.jp/problem/associative_array) | Q<=1000000; key/value in [0,10^18]. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Prime64` | [Library Checker primality_test](https://judge.yosupo.jp/problem/primality_test) | 1<=Q<=100000;1<=N<=10^18. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `floor_sum` | [Library Checker sum_of_floor_of_linear](https://judge.yosupo.jp/problem/sum_of_floor_of_linear) | 1<=T<=100000;1<=N,M<=10^9;0<=A,B<M. | 驱动登记待核验；AC 待核验 | 待核验 |
 | `pheap` | [Library Checker Shortest Path](https://judge.yosupo.jp/problem/shortest_path) | 2<=N<=500000; 1<=M<=500000; simple directed graph; 0<=w<=1e9; s!=t | 待在线 AC | 待核验 |
 | `enumerate_triangles` | [Library Checker enumerate_triangles](https://judge.yosupo.jp/problem/enumerate_triangles) | 1<=N,M<=100000; undirected simple graph; 0<=x<998244353 | 待在线 AC | 待核验 |
 | `z_function` | [Library Checker zalgorithm](https://judge.yosupo.jp/problem/zalgorithm) | 1<=N<=500000；非空小写字母串。 | 待在线 AC | 待核验 |
 | `manacher` | [Library Checker enumerate_palindromes](https://judge.yosupo.jp/problem/enumerate_palindromes) | 1<=N<=500000；非空小写字母串。 | 待在线 AC | 待核验 |
-| `matrix_inverse` | [Library Checker inverse_matrix](https://judge.yosupo.jp/problem/inverse_matrix) | 1<=N<=500, entries modulo998244353. | 待编写驱动/提交 | 待核验 |
-| `matrix_inverse_mod2` | [Library Checker inverse_matrix_mod_2](https://judge.yosupo.jp/problem/inverse_matrix_mod_2) | 1<=N<=4096, each row is a length-N binary string. | 待编写驱动/提交 | 待核验 |
-| `prime_count` | [Library Checker counting_primes](https://judge.yosupo.jp/problem/counting_primes) | 1<=N<=10^11; local extension also accepts N=0. | 待编写驱动/提交 | 待核验 |
-| `Min25` | [Library Checker sum_of_multiplicative_function](https://judge.yosupo.jp/problem/sum_of_multiplicative_function) | N<=10^11; T<=10000, T>1 implies T sqrt(N)<=100000; modulus469762049 | 待编写驱动/提交 | 待核验 |
-| `euler_power` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 待编写驱动/提交 | 待核验 |
-| `euler_phi` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 待编写驱动/提交 | 待核验 |
-| `ScapegoatTree` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000; rank/predecessor/successor query key may be absent; kth and neighbors exist. | 待编写驱动/提交 | 待核验 |
-| `xor_hamming_pairs` | [Luogu P4887](https://www.luogu.com.cn/problem/P4887) | 1<=n,m<=100000; 0<=a_i,k<2^14. Note k may exceed 14. | 待编写驱动/提交 | 待核验 |
-| `MonotoneStackSeg` | [Luogu P12438 / CF1912G](https://www.luogu.com.cn/problem/P12438) | 1<=n,q<=200000; 1<=a_i<=1e9; each closed interval increases by one. | 待编写驱动/提交 | 待核验 |
-| `KDTreeSum` | [Luogu P4148](https://www.luogu.com.cn/problem/P4148) | N<=500000, at most 200000 operations, 20 MB memory, positive updates, XOR all arguments with last answer; answers fit int. | 待编写驱动/提交 | 待核验 |
-| `cdq_convolution` | [Luogu P4721](https://www.luogu.com.cn/problem/P4721) | 2<=n<=100000; recurrence modulo 998244353, f[0]=1. | 待编写驱动/提交 | 待核验 |
-| `PolynomialDivision` | [Luogu P4512](https://www.luogu.com.cn/problem/P4512) | 1<=m<=n<=100000; input degrees, fixed output lengths; mod 998244353 | 待编写驱动/提交 | 待核验 |
-| `FpsSqrt` | [Luogu P5205](https://www.luogu.com.cn/problem/P5205) | 1<=n<=100000; a[0]=1; smaller constant root | 待编写驱动/提交 | 待核验 |
-| `PolynomialDivision` | [Library Checker division_of_polynomials](https://judge.yosupo.jp/problem/division_of_polynomials) | 1<=N,M<=500000; normalized leading coefficients; zero polynomial output length 0 | 待编写驱动/提交 | 待核验 |
-| `FpsSqrt` | [Library Checker sqrt_of_formal_power_series](https://judge.yosupo.jp/problem/sqrt_of_formal_power_series) | 1<=N<=500000; arbitrary coefficients; output any root or -1 | 待编写驱动/提交 | 待核验 |
-| `FpsPower` | [Luogu P5245](https://www.luogu.com.cn/problem/P5245) | 1<n<=100000; 0<k<=10^100000; a[0]=1 | 待编写驱动/提交 | 待核验 |
-| `FpsPower` | [Luogu P5273](https://www.luogu.com.cn/problem/P5273) | 1<n<=100000; 0<=k<=10^100000; arbitrary coefficients | 待编写驱动/提交 | 待核验 |
-| `FpsPower` | [Library Checker pow_of_formal_power_series](https://judge.yosupo.jp/problem/pow_of_formal_power_series) | 1<=N<=500000; 0<=M<=10^18; arbitrary coefficients | 待编写驱动/提交 | 待核验 |
-| `BostanMori` | [Library Checker kth_term_of_linearly_recurrent_sequence](https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence) | 1<=d<=100000; 0<=k<=10^18; normalized coefficients and initial values modulo 998244353; input initial values before recurrence coefficients | 待编写驱动/提交 | 待核验 |
-| `convolution_fft` | [Luogu P3803](https://www.luogu.com.cn/problem/P3803) | 0<=n,m<=1000000; integer coefficients 0..9 | 待编写驱动/提交 | 待核验 |
-| `convolution_mod_fft` | [Luogu P4245](https://www.luogu.com.cn/problem/P4245) | 1<=n,m<=100000; coefficients 0..10^9; 2<=mod<=1000000009 | 待编写驱动/提交 | 待核验 |
-| `integer_hull` | [Luogu P2742](https://www.luogu.com.cn/problem/P2742) | 3<=n<=100000; \|coordinate\|<=1000000, at most two fractional decimal digits | 待编写驱动/提交 | 待核验 |
-| `convex_diameter2` | [Luogu P1452](https://www.luogu.com.cn/problem/P1452) | 2<=n<=50000 distinct points; \|coordinate\|<=10000 | 待编写驱动/提交 | 待核验 |
-| `IntegerHalfplanes` | [Luogu P4196](https://www.luogu.com.cn/problem/P4196) | 2<=polygons<=10; 3<=vertices<=50 each; CCW; integer coordinates in [-1000,1000] | 待编写驱动/提交 | 待核验 |
-| `IntegerPlane` | [Library Checker sort_points_by_argument](https://judge.yosupo.jp/problem/sort_points_by_argument) | 1<=n<=200000; \|x\|,\|y\|<=10^9; order (-pi,pi], origin angle 0, equal angles arbitrary | 待编写驱动/提交 | 待核验 |
-| `SpfaFlow` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000, m<=50000; nonnegative integer capacity/cost<=1000; no self-loop; flow and minimum cost<=2^31-1; distinct source/sink required by API | 待编写驱动/提交 | 待核验 |
+| `matrix_inverse` | [Library Checker inverse_matrix](https://judge.yosupo.jp/problem/inverse_matrix) | 1<=N<=500, entries modulo998244353. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `matrix_inverse_mod2` | [Library Checker inverse_matrix_mod_2](https://judge.yosupo.jp/problem/inverse_matrix_mod_2) | 1<=N<=4096, each row is a length-N binary string. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `prime_count` | [Library Checker counting_primes](https://judge.yosupo.jp/problem/counting_primes) | 1<=N<=10^11; local extension also accepts N=0. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Min25` | [Library Checker sum_of_multiplicative_function](https://judge.yosupo.jp/problem/sum_of_multiplicative_function) | N<=10^11; T<=10000, T>1 implies T sqrt(N)<=100000; modulus469762049 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `euler_power` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `euler_phi` | [Luogu P5091](https://www.luogu.com.cn/problem/P5091) | 1<=a<=1e9, 1<=m<=1e8, 1<=b<=10^20000000; input a,m,b. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `ScapegoatTree` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000; rank/predecessor/successor query key may be absent; kth and neighbors exist. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `xor_hamming_pairs` | [Luogu P4887](https://www.luogu.com.cn/problem/P4887) | 1<=n,m<=100000; 0<=a_i,k<2^14. Note k may exceed 14. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `MonotoneStackSeg` | [Luogu P12438 / CF1912G](https://www.luogu.com.cn/problem/P12438) | 1<=n,q<=200000; 1<=a_i<=1e9; each closed interval increases by one. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `KDTreeSum` | [Luogu P4148](https://www.luogu.com.cn/problem/P4148) | N<=500000, at most 200000 operations, 20 MB memory, positive updates, XOR all arguments with last answer; answers fit int. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `cdq_convolution` | [Luogu P4721](https://www.luogu.com.cn/problem/P4721) | 2<=n<=100000; recurrence modulo 998244353, f[0]=1. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `PolynomialDivision` | [Luogu P4512](https://www.luogu.com.cn/problem/P4512) | 1<=m<=n<=100000; input degrees, fixed output lengths; mod 998244353 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FpsSqrt` | [Luogu P5205](https://www.luogu.com.cn/problem/P5205) | 1<=n<=100000; a[0]=1; smaller constant root | 驱动登记待核验；AC 待核验 | 待核验 |
+| `PolynomialDivision` | [Library Checker division_of_polynomials](https://judge.yosupo.jp/problem/division_of_polynomials) | 1<=N,M<=500000; normalized leading coefficients; zero polynomial output length 0 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FpsSqrt` | [Library Checker sqrt_of_formal_power_series](https://judge.yosupo.jp/problem/sqrt_of_formal_power_series) | 1<=N<=500000; arbitrary coefficients; output any root or -1 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FpsPower` | [Luogu P5245](https://www.luogu.com.cn/problem/P5245) | 1<n<=100000; 0<k<=10^100000; a[0]=1 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FpsPower` | [Luogu P5273](https://www.luogu.com.cn/problem/P5273) | 1<n<=100000; 0<=k<=10^100000; arbitrary coefficients | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FpsPower` | [Library Checker pow_of_formal_power_series](https://judge.yosupo.jp/problem/pow_of_formal_power_series) | 1<=N<=500000; 0<=M<=10^18; arbitrary coefficients | 驱动登记待核验；AC 待核验 | 待核验 |
+| `BostanMori` | [Library Checker kth_term_of_linearly_recurrent_sequence](https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence) | 1<=d<=100000; 0<=k<=10^18; normalized coefficients and initial values modulo 998244353; input initial values before recurrence coefficients | 驱动登记待核验；AC 待核验 | 待核验 |
+| `convolution_fft` | [Luogu P3803](https://www.luogu.com.cn/problem/P3803) | 0<=n,m<=1000000; integer coefficients 0..9 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `convolution_mod_fft` | [Luogu P4245](https://www.luogu.com.cn/problem/P4245) | 1<=n,m<=100000; coefficients 0..10^9; 2<=mod<=1000000009 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `integer_hull` | [Luogu P2742](https://www.luogu.com.cn/problem/P2742) | 3<=n<=100000; \|coordinate\|<=1000000, at most two fractional decimal digits | 驱动登记待核验；AC 待核验 | 待核验 |
+| `convex_diameter2` | [Luogu P1452](https://www.luogu.com.cn/problem/P1452) | 2<=n<=50000 distinct points; \|coordinate\|<=10000 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `IntegerHalfplanes` | [Luogu P4196](https://www.luogu.com.cn/problem/P4196) | 2<=polygons<=10; 3<=vertices<=50 each; CCW; integer coordinates in [-1000,1000] | 驱动登记待核验；AC 待核验 | 待核验 |
+| `IntegerPlane` | [Library Checker sort_points_by_argument](https://judge.yosupo.jp/problem/sort_points_by_argument) | 1<=n<=200000; \|x\|,\|y\|<=10^9; order (-pi,pi], origin angle 0, equal angles arbitrary | 驱动登记待核验；AC 待核验 | 待核验 |
+| `SpfaFlow` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000, m<=50000; nonnegative integer capacity/cost<=1000; no self-loop; flow and minimum cost<=2^31-1; distinct source/sink required by API | 驱动登记待核验；AC 待核验 | 待核验 |
 | `BiconnectedCore` | [Library Checker biconnected_components](https://judge.yosupo.jp/problem/biconnected_components) | 1<=N<=500000; 0<=M<=500000; parallel edges allowed, no loops | 待在线 AC | 待核验 |
 | `BiconnectedCore` | [Library Checker two_edge_connected_components](https://judge.yosupo.jp/problem/two_edge_connected_components) | 1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed | 待在线 AC | 待核验 |
 | `manacher` | [Luogu P3805](https://www.luogu.com.cn/problem/P3805) | 1<=n<=11000000; lowercase English letters | 待在线 AC | 待核验 |
 | `SuffixArray` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase English letters | 待在线 AC | 待核验 |
 | `SuffixArray` | [Library Checker longest_common_substring](https://judge.yosupo.jp/problem/longest_common_substring) | 1<=\|S\|,\|T\|<=500000; lowercase | 待在线 AC | 待核验 |
-| `GeneralSAM` | [Luogu P6139](https://www.luogu.com.cn/problem/P6139) | 1<=n<=400000; nonempty lowercase strings; total length<=1000000; 1s/512MB | 待编写驱动/提交 | 待核验 |
-| `unit_flow_edges` | [QOJ 10424 / NERC 2024 K](https://qoj.ac/problem/10424) | 1<=k<=n<=2000; sum(n)<=2000; two permutations and partial subsequences; 3s/1024MB | 待编写驱动/提交 | 待核验 |
-| `closest_pair_i64` | [Library Checker closest_pair](https://judge.yosupo.jp/problem/closest_pair) | T<=100000; 2<=N; sum(N)<=500000; integer \|x\|,\|y\|<=1e9 | 待编写驱动/提交 | 待核验 |
-| `polygon_contains` | [AOJ CGL_3_C](https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_C) | 3<=n<=100; q<=1000; integer coordinates with absolute values<=10000; CCW simple polygon, not necessarily convex | 待编写驱动/提交 | 待核验 |
-| `minkowski_sum` | [Luogu P4557 [JSOI2018] 战争](https://www.luogu.com.cn/problem/P4557) | 3<=n,m<=100000; q<=100000; \|coordinates\| and \|translation\|<=1e8; each set noncollinear; all original points distinct | 待编写驱动/提交 | 待核验 |
-| `CentroidPairs` | [Luogu P3806](https://www.luogu.com.cn/problem/P3806) | n<=10000,m<=100,k<=1e7,positive edge weights<=10000 | 待编写驱动/提交 | 待核验 |
-| `SubtreeColors` | [Codeforces 600E](https://codeforces.com/problemset/problem/600/E) | n<=100000,1<=colors<=n,root=1 | 待编写驱动/提交 | 待核验 |
-| `VirtualTree` | [Luogu P2495 [SDOI2011] 消耗战](https://www.luogu.com.cn/problem/P2495) | n<=250000,queries<=500000,sum(keys)<=500000,1<=weights<=100000,keys exclude root1 | 待编写驱动/提交 | 待核验 |
-| `WaveletMatrix` | [Library Checker range_kth_smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | 静态数组，查询半开区间[l,r)内第k小，l/r/k均按题面0-based；直接调用kth。n、q至20万，值在0..10⁹。 | 待编写驱动/提交 | 待核验 |
-| `WaveletMatrix` | [Library Checker static_range_frequency](https://judge.yosupo.jp/problem/static_range_frequency) | 静态数组，统计半开区间[l,r)中x的出现次数；允许空数组、空查询区间、q=0和未出现的x。n、q至50万，值在0..10⁹。 | 待编写驱动/提交 | 待核验 |
-| `WaveletMatrix` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | 静态区间第k小；题目为1-based闭区间和1-based k，调用时转换成kth(l-1,r,k-1)。n、q至20万，题面值在0..10⁹；本程序采用小波矩阵，不建立历史版本。 | 待编写驱动/提交 | 待核验 |
-| `GaussXor` | [Library Checker system_of_linear_equations_mod_2](https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2) | 给定模2矩阵A和右端b，输出无解-1，或解空间维数、一个特解和全部零空间基。输出维数是变量数减系数秩，不是rank。输入每行是连续01字符，先把b追加到对应行；行列数各至4096。 | 待编写驱动/提交 | 待核验 |
-| `SecondMST` | [Luogu P4180](https://www.luogu.com.cn/problem/P4180) | n<=100000,m<=300000,w=0..1e9; self-loops allowed; strict second tree guaranteed. | 待编写驱动/提交 | 待核验 |
-| `GaussXor` | [POJ 1681](http://poj.org/problem?id=1681) | Locally tested n<=15,t<=20; w requires toggle, y does not; own cell and four neighbors; enumerate entire affine solution space to minimize presses. | 待编写驱动/提交 | 待核验 |
-| `DivisionTree` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | N/Q<=200000, values 0..1e9; kth(l-1,r,k-1) converts 1-based closed interval/rank. | 待编写驱动/提交 | 待核验 |
-| `DivisionTree` | [Library Checker range_kth_smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | N/Q<=200000, values 0..1e9; directly query half-open [l,r), 0-based k. | 待编写驱动/提交 | 待核验 |
-| `maximum_closure` | [Luogu P2762 太空飞行计划问题](https://www.luogu.com.cn/problem/P2762) | 选实验获得收益，配置仪器支付费用，输出最优实验/仪器编号和净收益。m、n至50，单项费用为正且小于2³¹，累计用long long。逐行读取变长依赖，istringstream兼容CRLF；实验i依赖仪器m+j。应用用法，不计非比赛模板覆盖。 | 待编写驱动/提交 | 待核验 |
-| `Arborescence` | [Luogu P4716](https://www.luogu.com.cn/problem/P4716) | 给定根的有向最小树形图费用，无解输出-1。n至100、m至10⁴、正权至10⁶；顶点和根从1-based转0-based。optional有值时才解引用，本题总费用可转long long；核心只返回费用，不恢复选边。 | 待编写驱动/提交 | 待核验 |
-| `StoerWagner` | [Luogu P5632](https://www.luogu.com.cn/problem/P5632) | 无向连通正权图的全局最小割，n至600、边权总和至10⁹；矩阵按无向边双向累加、自环忽略。核心返回费用与0-based割侧side，本题只输出费用。核心要求n≥2；单点没有非平凡割，驱动额外约定输出0。 | 待编写驱动/提交 | 待核验 |
-| `line_circle_i64` | [AOJ CGL_7_D](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D) | 整数圆心/半径及直线，坐标绝对值≤10⁴、半径1..10⁴，q≤1000。题目保证直线非退化且至少一个交点；精确分类后构造坐标，按x/y字典序输出，相切点复制一次。绝对误差要求小于1e-6。 | 待编写驱动/提交 | 待核验 |
-| `circle_intersections_i64` | [AOJ CGL_7_E](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E) | 整数圆心/半径，坐标绝对值≤10⁴、半径1..10⁴；不同圆心且至少一个交点。按x/y字典序输出，相切点复制一次；不使用eps排序。绝对误差要求小于1e-6。 | 待编写驱动/提交 | 待核验 |
-| `CirclePolygon` | [AOJ CGL_7_H](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_H) | 原点圆与逆时针简单多边形的公共面积，允许凹多边形。n为3..100，整数坐标绝对值≤100，半径1..100。直接传入顶点序列，不取凸包；绝对误差小于1e-5。 | 待编写驱动/提交 | 待核验 |
-| `circle_overlap_area` | [AOJ CGL_7_I](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I) | 两个圆的公共面积，整数坐标绝对值≤10⁴、半径1..10⁴。覆盖相离、内含、同心与部分相交；输出面积的绝对误差须小于1e-6。 | 待编写驱动/提交 | 待核验 |
-| `CircleTangents` | [AOJ CGL_7_F](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_F) | 过圆外整数点作切线，输出圆上的两个切点。坐标绝对值≤1000，半径1..1000，保证点严格在圆外。from_point把点作为第一圆，圆上切点在line.b；按x/y字典序输出，每行一个点，绝对误差小于1e-5。 | 待编写驱动/提交 | 待核验 |
-| `IntegerTangents` | [AOJ CGL_7_G](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G) | 不同整数圆的公切线，输出第一圆上的全部切点。坐标绝对值≤1000，半径1..1000；可能0..4条，同心不等圆需空输出。整数版已精确排序，直接顺序输出line.a，不再按舍入值排序；绝对误差小于1e-5。 | 待编写驱动/提交 | 待核验 |
-| `floor_moments` | [Luogu P5170](https://www.luogu.com.cn/problem/P5170) | 求i=0..n的整除和、整除值平方和、i乘整除值之和，模998244353。t至10⁵，n/a/b/c至10⁹且c>0。核心参数顺序(n+1,c,a,b)，返回顺序是和/带权和/平方和；本题输出索引0、2、1，不能只核对第一项。 | 待编写驱动/提交 | 待核验 |
-| `Partitions` | [Library Checker partition_function](https://judge.yosupo.jp/problem/partition_function) | 输出0..N的全部整数分拆数，模998244353，N≤500000。构造Partitions后直接读p；p[0]=1表示空分拆。五边形数递推O(N√N)时间、O(N)空间，不是有序拆分。此用法不调用limited。 | 待编写驱动/提交 | 待核验 |
-| `Partitions` | [Luogu P6189 [NOI Online #1 入门组] 跑步](https://www.luogu.com.cn/problem/P6189) | 正整数非增序列的总和为n，等价于n的无序分拆。n≤10⁵，1≤p<2³⁰且不保证素数；直接构造Partitions(n,p)，输出p[n]。这是比赛应用，单独记录，不替代正式模板题。 | 待编写驱动/提交 | 待核验 |
-| `recurrence_nth` | [Luogu P5487](https://www.luogu.com.cn/problem/P5487) | 给出n个初值，恢复唯一的最短递推并求第m项，n≤10000、n<m≤10⁹、阶数≤5000，模998244353。BM返回c[j-1]乘a[i-j]，首行仅输出系数、不带阶数；裁取恰好c.size()个初值后调用recurrence_nth。全零序列空递推仍输出空首行和第二行0。复杂度O(nk+k²log m)，O(n+k)空间。 | 待编写驱动/提交 | 待核验 |
-| `SCC` | [Library Checker scc (Kosaraju)](https://judge.yosupo.jp/problem/scc) | 给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。 | 待编写驱动/提交 | 待核验 |
-| `removal_components` | [AOJ GRL_3_A](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en) | 连通无向简单图，按编号升序输出所有割点，N、M≤100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。 | 待编写驱动/提交 | 待核验 |
-| `removal_components` | [UVA 10765 Doves and Bombs](https://onlinejudge.org/external/107/10765.pdf) | 分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n≤10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。 | 待编写驱动/提交 | 待核验 |
-| `orient_edges` | [Codeforces 118E Bertown roads](https://codeforces.com/problemset/problem/118/E) | 给连通无向简单图，把每条边定向使整图强连通，无解输出0。n≤100000、m≤300000。先用Lowlink.run确认连通且无桥，再调用orient_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。 | 待编写驱动/提交 | 待核验 |
+| `GeneralSAM` | [Luogu P6139](https://www.luogu.com.cn/problem/P6139) | 1<=n<=400000; nonempty lowercase strings; total length<=1000000; 1s/512MB | 待在线 AC | 待核验 |
+| `unit_flow_edges` | [QOJ 10424 / NERC 2024 K](https://qoj.ac/problem/10424) | 1<=k<=n<=2000; sum(n)<=2000; two permutations and partial subsequences; 3s/1024MB | 待在线 AC | 待核验 |
+| `closest_pair_i64` | [Library Checker closest_pair](https://judge.yosupo.jp/problem/closest_pair) | T<=100000; 2<=N; sum(N)<=500000; integer \|x\|,\|y\|<=1e9 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `polygon_contains` | [AOJ CGL_3_C](https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_C) | 3<=n<=100; q<=1000; integer coordinates with absolute values<=10000; CCW simple polygon, not necessarily convex | 驱动登记待核验；AC 待核验 | 待核验 |
+| `minkowski_sum` | [Luogu P4557 [JSOI2018] 战争](https://www.luogu.com.cn/problem/P4557) | 3<=n,m<=100000; q<=100000; \|coordinates\| and \|translation\|<=1e8; each set noncollinear; all original points distinct | 驱动登记待核验；AC 待核验 | 待核验 |
+| `CentroidPairs` | [Luogu P3806](https://www.luogu.com.cn/problem/P3806) | n<=10000,m<=100,k<=1e7,positive edge weights<=10000 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `SubtreeColors` | [Codeforces 600E](https://codeforces.com/problemset/problem/600/E) | n<=100000,1<=colors<=n,root=1 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `VirtualTree` | [Luogu P2495 [SDOI2011] 消耗战](https://www.luogu.com.cn/problem/P2495) | n<=250000,queries<=500000,sum(keys)<=500000,1<=weights<=100000,keys exclude root1 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `WaveletMatrix` | [Library Checker range_kth_smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | 静态数组，查询半开区间[l,r)内第k小，l/r/k均按题面0-based；直接调用kth。n、q至20万，值在0..10⁹。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `WaveletMatrix` | [Library Checker static_range_frequency](https://judge.yosupo.jp/problem/static_range_frequency) | 静态数组，统计半开区间[l,r)中x的出现次数；允许空数组、空查询区间、q=0和未出现的x。n、q至50万，值在0..10⁹。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `WaveletMatrix` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | 静态区间第k小；题目为1-based闭区间和1-based k，调用时转换成kth(l-1,r,k-1)。n、q至20万，题面值在0..10⁹；本程序采用小波矩阵，不建立历史版本。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `GaussXor` | [Library Checker system_of_linear_equations_mod_2](https://judge.yosupo.jp/problem/system_of_linear_equations_mod_2) | 给定模2矩阵A和右端b，输出无解-1，或解空间维数、一个特解和全部零空间基。输出维数是变量数减系数秩，不是rank。输入每行是连续01字符，先把b追加到对应行；行列数各至4096。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `SecondMST` | [Luogu P4180](https://www.luogu.com.cn/problem/P4180) | n<=100000,m<=300000,w=0..1e9; self-loops allowed; strict second tree guaranteed. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `GaussXor` | [POJ 1681](http://poj.org/problem?id=1681) | Locally tested n<=15,t<=20; w requires toggle, y does not; own cell and four neighbors; enumerate entire affine solution space to minimize presses. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `DivisionTree` | [Luogu P3834](https://www.luogu.com.cn/problem/P3834) | N/Q<=200000, values 0..1e9; kth(l-1,r,k-1) converts 1-based closed interval/rank. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `DivisionTree` | [Library Checker range_kth_smallest](https://judge.yosupo.jp/problem/range_kth_smallest) | N/Q<=200000, values 0..1e9; directly query half-open [l,r), 0-based k. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `maximum_closure` | [Luogu P2762 太空飞行计划问题](https://www.luogu.com.cn/problem/P2762) | 选实验获得收益，配置仪器支付费用，输出最优实验/仪器编号和净收益。m、n至50，单项费用为正且小于2³¹，累计用long long。逐行读取变长依赖，istringstream兼容CRLF；实验i依赖仪器m+j。应用用法，不计非比赛模板覆盖。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Arborescence` | [Luogu P4716](https://www.luogu.com.cn/problem/P4716) | 给定根的有向最小树形图费用，无解输出-1。n至100、m至10⁴、正权至10⁶；顶点和根从1-based转0-based。optional有值时才解引用，本题总费用可转long long；核心只返回费用，不恢复选边。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `StoerWagner` | [Luogu P5632](https://www.luogu.com.cn/problem/P5632) | 无向连通正权图的全局最小割，n至600、边权总和至10⁹；矩阵按无向边双向累加、自环忽略。核心返回费用与0-based割侧side，本题只输出费用。核心要求n≥2；单点没有非平凡割，驱动额外约定输出0。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `line_circle_i64` | [AOJ CGL_7_D](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D) | 整数圆心/半径及直线，坐标绝对值≤10⁴、半径1..10⁴，q≤1000。题目保证直线非退化且至少一个交点；精确分类后构造坐标，按x/y字典序输出，相切点复制一次。绝对误差要求小于1e-6。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `circle_intersections_i64` | [AOJ CGL_7_E](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E) | 整数圆心/半径，坐标绝对值≤10⁴、半径1..10⁴；不同圆心且至少一个交点。按x/y字典序输出，相切点复制一次；不使用eps排序。绝对误差要求小于1e-6。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `CirclePolygon` | [AOJ CGL_7_H](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_H) | 原点圆与逆时针简单多边形的公共面积，允许凹多边形。n为3..100，整数坐标绝对值≤100，半径1..100。直接传入顶点序列，不取凸包；绝对误差小于1e-5。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `circle_overlap_area` | [AOJ CGL_7_I](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I) | 两个圆的公共面积，整数坐标绝对值≤10⁴、半径1..10⁴。覆盖相离、内含、同心与部分相交；输出面积的绝对误差须小于1e-6。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `CircleTangents` | [AOJ CGL_7_F](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_F) | 过圆外整数点作切线，输出圆上的两个切点。坐标绝对值≤1000，半径1..1000，保证点严格在圆外。from_point把点作为第一圆，圆上切点在line.b；按x/y字典序输出，每行一个点，绝对误差小于1e-5。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `IntegerTangents` | [AOJ CGL_7_G](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G) | 不同整数圆的公切线，输出第一圆上的全部切点。坐标绝对值≤1000，半径1..1000；可能0..4条，同心不等圆需空输出。整数版已精确排序，直接顺序输出line.a，不再按舍入值排序；绝对误差小于1e-5。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `floor_moments` | [Luogu P5170](https://www.luogu.com.cn/problem/P5170) | 求i=0..n的整除和、整除值平方和、i乘整除值之和，模998244353。t至10⁵，n/a/b/c至10⁹且c>0。核心参数顺序(n+1,c,a,b)，返回顺序是和/带权和/平方和；本题输出索引0、2、1，不能只核对第一项。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Partitions` | [Library Checker partition_function](https://judge.yosupo.jp/problem/partition_function) | 输出0..N的全部整数分拆数，模998244353，N≤500000。构造Partitions后直接读p；p[0]=1表示空分拆。五边形数递推O(N√N)时间、O(N)空间，不是有序拆分。此用法不调用limited。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `Partitions` | [Luogu P6189 [NOI Online #1 入门组] 跑步](https://www.luogu.com.cn/problem/P6189) | 正整数非增序列的总和为n，等价于n的无序分拆。n≤10⁵，1≤p<2³⁰且不保证素数；直接构造Partitions(n,p)，输出p[n]。这是比赛应用，单独记录，不替代正式模板题。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `recurrence_nth` | [Luogu P5487](https://www.luogu.com.cn/problem/P5487) | 给出n个初值，恢复唯一的最短递推并求第m项，n≤10000、n<m≤10⁹、阶数≤5000，模998244353。BM返回c[j-1]乘a[i-j]，首行仅输出系数、不带阶数；裁取恰好c.size()个初值后调用recurrence_nth。全零序列空递推仍输出空首行和第二行0。复杂度O(nk+k²log m)，O(n+k)空间。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `SCC` | [Library Checker scc (Kosaraju)](https://judge.yosupo.jp/problem/scc) | 给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `removal_components` | [AOJ GRL_3_A](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en) | 连通无向简单图，按编号升序输出所有割点，N、M≤100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `removal_components` | [UVA 10765 Doves and Bombs](https://onlinejudge.org/external/107/10765.pdf) | 分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n≤10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `orient_edges` | [Codeforces 118E Bertown roads](https://codeforces.com/problemset/problem/118/E) | 给连通无向简单图，把每条边定向使整图强连通，无解输出0。n≤100000、m≤300000。先用Lowlink.run确认连通且无桥，再调用orient_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。 | 驱动登记待核验；AC 待核验 | 待核验 |
 | `block_cut_forest` | [Luogu P4630](https://www.luogu.com.cn/problem/P4630) | 无向简单图，可不连通，n≤100000、m≤200000；统计存在经过c的简单s-f路径的有序三元组(s,c,f)，三点互异。原点1..n权为-1，方点n+i+1权为blocks[i].size()，树路径权和就是可选c数。sz仅计原点，每棵树独立累计有序端点对，答案用long long。O(n+m)时间、空间，递归DFS。 | 待在线 AC | 待核验 |
 | `bridge_component_forest` | [Luogu P2860 (bridge forest)](https://www.luogu.com.cn/problem/P2860) | 连通无向图，n≤5000、m≤10000；允许已有重边及新增重边，求最少新增边使任意两点间有两条边不相交路径。run后边双缩点，编号1..cnt，邻接项为(边双号,原桥号)。度1点数为L，答案(L+1)/2；只剩一个边双时为0。该公式要求原图连通，不可对任意森林直接套用。O(n+m)时间、空间。 | 待在线 AC | 待核验 |
 | `bridge_augmentation` | [Luogu P2860 (construct augmentation)](https://www.luogu.com.cn/problem/P2860) | 同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。 | 待在线 AC | 待核验 |
 | `SCC` | [QOJ 906 (Kosaraju)](https://qoj.ac/problem/906) | 给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。 | [记录](https://qoj.ac/submission/3061625) | 待核验 |
 | `BiconnectedCore` | [QOJ 999 (BiconnectedCore)](https://qoj.ac/problem/999) | 1<=N<=200000; 1<=M<=200000; parallel edges and loops allowed | [记录](https://qoj.ac/submission/3061643) | 待核验 |
 | `path_intersection` | [Luogu P3398](https://www.luogu.com.cn/problem/P3398) | n,q<=100000; tree; 1-based vertices | [记录](https://www.luogu.com.cn/record/299972443) | 待核验 |
-| `TreeDiameter` | [Codeforces 379F](https://codeforces.com/problemset/problem/379/F) | q<=500000; final n=4+2q; two new leaves per operation | 待编写驱动/提交 | 待核验 |
-| `FunctionalGraph` | [CSES 1750](https://cses.fi/problemset/task/1750) | n,q<=200000; 0<=k<=1000000000 | 待编写驱动/提交 | 待核验 |
-| `FunctionalGraph` | [CSES 1160](https://cses.fi/problemset/task/1160) | n,q<=200000 | 待编写驱动/提交 | 待核验 |
+| `TreeDiameter` | [Codeforces 379F](https://codeforces.com/problemset/problem/379/F) | q<=500000; final n=4+2q; two new leaves per operation | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FunctionalGraph` | [CSES 1750](https://cses.fi/problemset/task/1750) | n,q<=200000; 0<=k<=1000000000 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `FunctionalGraph` | [CSES 1160](https://cses.fi/problemset/task/1160) | n,q<=200000 | 驱动登记待核验；AC 待核验 | 待核验 |
 | `FunctionalGraph` | [Luogu P2921](https://www.luogu.com.cn/problem/P2921) | n<=100000 | [记录](https://www.luogu.com.cn/record/299973954) | 待核验 |
-| `PersistentRange` | [SPOJ TTM / Luogu SP11470](https://www.luogu.com.cn/problem/SP11470) | n,m<=100000; abs(initial)<=1e9; abs(delta)<=10000 | 待编写驱动/提交 | 待核验 |
+| `PersistentRange` | [SPOJ TTM / Luogu SP11470](https://www.luogu.com.cn/problem/SP11470) | n,m<=100000; abs(initial)<=1e9; abs(delta)<=10000 | 驱动登记待核验；AC 待核验 | 待核验 |
 | `PersistentRange` | [QOJ 8240](https://qoj.ac/problem/8240) | n,q<=300000; colors1..n; online XOR endpoints | [记录](https://qoj.ac/submission/2939235) | 待核验 |
-| `XorWalk` | [Luogu P4151](https://www.luogu.com.cn/problem/P4151) | n<=50000;m<=100000;0<=w<=1e18;connected;loops/parallel edges | 待编写驱动/提交 | 待核验 |
+| `XorWalk` | [Luogu P4151](https://www.luogu.com.cn/problem/P4151) | n<=50000;m<=100000;0<=w<=1e18;connected;loops/parallel edges | 驱动登记待核验；AC 待核验 | 待核验 |
 | `UndirectedEuler` | [Luogu P2731](https://www.luogu.com.cn/problem/P2731) | 1<=m<=1024;vertex labels1..500;Euler trail exists | [记录](https://www.luogu.com.cn/record/299974727) | 待核验 |
-| `basis_intersection` | [LC Intersection of F2 Vector Spaces](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces) | T<=100000;n,m<=30;independent30-bit generators | 待编写驱动/提交 | 待核验 |
-| `basis_sum_intersection` | [LC Intersection / Zassenhaus](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces) | T<=100000;n,m<=30;independent30-bit generators | 待编写驱动/提交 | 待核验 |
-| `RealPlane` | [AOJ CGL_2_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_A) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
-| `line_projection` | [AOJ CGL_1_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_1_A) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
-| `segment_distance_real` | [AOJ CGL_2_D](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
-| `line_intersection_real` | [AOJ CGL_2_C](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 待编写驱动/提交 | 待核验 |
-| `polygon_area2` | [AOJ CGL_3_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_A) | integer coordinates \|x\|,\|y\|<=10000; 3<=n<=100; simple CCW polygon | 待编写驱动/提交 | 待核验 |
-| `BoundedCirculation` | [LibreOJ 115](https://loj.ac/p/115) | 1<=n<=200; 1<=m<=10200; 1<=u,v<=n; 0<=lower<=upper<3000 | 待编写驱动/提交 | 待核验 |
-| `square_counts` | [Luogu P1117 [NOI2016] 优秀的拆分](https://www.luogu.com.cn/problem/P1117) | 1<=T<=10; lowercase strings, length<=30000 | 待编写驱动/提交 | 待核验 |
-| `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Undirected)](https://judge.yosupo.jp/problem/counting_spanning_tree_undirected) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 待编写驱动/提交 | 待核验 |
-| `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 待编写驱动/提交 | 待核验 |
-| `pheap` | [Library Checker Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | 0<=N<=500000; 1<=Q<=500000; -1e9<=x<=1e9; deletion on nonempty multiset | 待编写驱动/提交 | 待核验 |
-| `divisor_sum_power` | [Luogu P1593 因子和](https://www.luogu.com.cn/problem/P1593) | 1<=a<=50000000; 0<=b<=50000000; modulus9901 | 待编写驱动/提交 | 待核验 |
+| `basis_intersection` | [LC Intersection of F2 Vector Spaces](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces) | T<=100000;n,m<=30;independent30-bit generators | 驱动登记待核验；AC 待核验 | 待核验 |
+| `basis_sum_intersection` | [LC Intersection / Zassenhaus](https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces) | T<=100000;n,m<=30;independent30-bit generators | 驱动登记待核验；AC 待核验 | 待核验 |
+| `RealPlane` | [AOJ CGL_2_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_A) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 驱动登记待核验；AC 待核验 | 待核验 |
+| `line_projection` | [AOJ CGL_1_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_1_A) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 驱动登记待核验；AC 待核验 | 待核验 |
+| `segment_distance_real` | [AOJ CGL_2_D](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_D) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 驱动登记待核验；AC 待核验 | 待核验 |
+| `line_intersection_real` | [AOJ CGL_2_C](https://onlinejudge.u-aizu.ac.jp/problems/CGL_2_C) | integer coordinates \|x\|,\|y\|<=10000; 1<=q<=1000; nondegenerate input lines/segments | 驱动登记待核验；AC 待核验 | 待核验 |
+| `polygon_area2` | [AOJ CGL_3_A](https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_A) | integer coordinates \|x\|,\|y\|<=10000; 3<=n<=100; simple CCW polygon | 驱动登记待核验；AC 待核验 | 待核验 |
+| `BoundedCirculation` | [LibreOJ 115](https://loj.ac/p/115) | 1<=n<=200; 1<=m<=10200; 1<=u,v<=n; 0<=lower<=upper<3000 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `square_counts` | [Luogu P1117 [NOI2016] 优秀的拆分](https://www.luogu.com.cn/problem/P1117) | 1<=T<=10; lowercase strings, length<=30000 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Undirected)](https://judge.yosupo.jp/problem/counting_spanning_tree_undirected) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `MatrixTreeMod` | [Library Checker Counting Spanning Trees (Directed)](https://judge.yosupo.jp/problem/counting_spanning_tree_directed) | 1<=N<=500; 0<=M<=500000; zero-based multigraph; modulus998244353 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `pheap` | [Library Checker Double-Ended Priority Queue](https://judge.yosupo.jp/problem/double_ended_priority_queue) | 0<=N<=500000; 1<=Q<=500000; -1e9<=x<=1e9; deletion on nonempty multiset | 驱动登记待核验；AC 待核验 | 待核验 |
+| `divisor_sum_power` | [Luogu P1593 因子和](https://www.luogu.com.cn/problem/P1593) | 1<=a<=50000000; 0<=b<=50000000; modulus9901 | 驱动登记待核验；AC 待核验 | 待核验 |
 | `CompositeRoots` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
 | `KthResidue` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
 | `PrimePowerRoots` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
 | `root_factors` | [Luogu P5668 【模板】N 次剩余](https://www.luogu.com.cn/problem/P5668) | T<=100;1<=n<=1e9;0<=k<m<=1e9;sum output roots<=1e6; each prime-power local root count<=1e6;2s;128MB | [记录](https://www.luogu.com.cn/record/300024458) | 待核验 |
-| `CoprimePairs` | [Luogu P2522 [HAOI2011] Problem b](https://www.luogu.com.cn/problem/P2522) | 1<=queries,k<=50000;1<=a<=b<=50000;1<=c<=d<=50000 | 待编写驱动/提交 | 待核验 |
-| `inverse_table` | [Luogu P3811](https://www.luogu.com.cn/problem/P3811) | 1<=n<=3000000;n<p<20000528;p prime | 待编写驱动/提交 | 待核验 |
-| `batch_inverse` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
-| `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
-| `batch_units` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 待编写驱动/提交 | 待核验 |
+| `CoprimePairs` | [Luogu P2522 [HAOI2011] Problem b](https://www.luogu.com.cn/problem/P2522) | 1<=queries,k<=50000;1<=a<=b<=50000;1<=c<=d<=50000 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `inverse_table` | [Luogu P3811](https://www.luogu.com.cn/problem/P3811) | 1<=n<=3000000;n<p<20000528;p prime | 驱动登记待核验；AC 待核验 | 待核验 |
+| `batch_inverse` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 驱动登记待核验；AC 待核验 | 待核验 |
+| `mint` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 驱动登记待核验；AC 待核验 | 待核验 |
+| `batch_units` | [Luogu P5431](https://www.luogu.com.cn/problem/P5431) | 1<=n<=5000000;2<=k<p<=1e9;1<=a_i<p;p prime | 驱动登记待核验；AC 待核验 | 待核验 |
 | `PersistentOrderedTreap` | [Luogu P3835](https://www.luogu.com.cn/problem/P3835) | 1<=operations<=500000; \|key\|<=1e9; 0<=v_i<i. Rendered official text did not expose memory/time limits. | 待在线 AC | 待核验 |
 | `SegmentBeats` | [Library Checker range_chmin_chmax_add_range_sum](https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum) | N,Q<=200000; actual \|a_i\|<=1e12 throughout; \|update b\|<=2e12;0<=l<r<=N | 待在线 AC | 待核验 |
 | `CentroidSum` | [Luogu P6329](https://www.luogu.com.cn/problem/P6329) | 1<=n,m<=100000;1<=weights,newvalue<=10000;unit edges;0<=decoded k<=n-1 | 待在线 AC | 待核验 |
@@ -177,6 +177,8 @@
 | `polynomial_interpolation` | [Library Checker polynomial_interpolation](https://judge.yosupo.jp/problem/polynomial_interpolation) | 1<=n<=131072; pairwise distinct canonical x; canonical y; output n coefficients modulo998244353 including high zeros | 待在线 AC | 待核验 |
 | `garner` | [Library Checker convolution_mod_1000000007 (three-NTT composition)](https://judge.yosupo.jp/problem/convolution_mod_1000000007) | 1<=n,m<=524288; canonical residues modulo1000000007; output n+m-1 coefficients; true nonnegative integer coefficients strictly below the three-prime product | 待在线 AC | 待核验 |
 | `AffineSequenceTreap` | [Library Checker Dynamic Sequence Range Affine Range Sum](https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum) | 1<=N,Q<=500000; modulus998244353; canonical inputs; multiplier0 allowed; nonempty half-open query/update intervals | 待在线 AC | 待核验 |
+| `HLD` | [Library Checker Vertex Set Path Composite](https://judge.yosupo.jp/problem/vertex_set_path_composite) | 1<=N,Q<=200000; modulus998244353; 1<=a,c<mod and 0<=b,d,x<mod; zero-based vertices; connected tree | 待在线 AC | 待核验 |
+| `PotentialDSU` | [Library Checker Unionfind with Potential](https://judge.yosupo.jp/problem/unionfind_with_potential) | 1<=N,Q<=200000; modulus998244353; zero-based vertices; 0<=x<mod; accepted relation a[u]-a[v]=x | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1643,6 +1645,26 @@ Official dynamic sequence template combining position insertion/deletion, revers
 
 
 Online AC and ranking pending; generic positive-modulus and export/copy/reset extensions are independent local tests, not extra official requirements.
+
+### Library Checker Vertex Set Path Composite / HLD
+
+Official static-tree point-function assignment and directed vertex-path composition template; not the dynamic-tree link/cut problem.
+
+
+
+Online AC and ranking pending. Edge mode, rerooting and zero-multiplier extensions are independent local scope. Recursive DFS on maximum chains requires a sufficiently large stack.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/tree/vertex_set_path_composite/info.toml)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/tree/vertex_set_path_composite/task.md)，[来源 3](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/tree/vertex_set_path_composite/checker.cpp)，[来源 4](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/tree/vertex_set_path_composite/verifier.cpp)
+
+### Library Checker Unionfind with Potential / PotentialDSU
+
+Official additive modular potential union-find template.
+
+
+
+Online AC and ranking pending. Integer, composite-modulus and modulus-one structural tests are separate local API extensions.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/info.toml)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/task.md)，[来源 3](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/checker.cpp)，[来源 4](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/verifier.cpp)
 
 ## 榜单口径
 

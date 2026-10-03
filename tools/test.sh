@@ -31,6 +31,7 @@ python3 tests/basic_template_scope.py
 python3 tests/acl_review_consistency.py
 python3 tests/static_modint.py
 python3 tests/knowledge_taxonomy.py
+python3 tests/template_report.py
 python3 tests/floor_knowledge_migration.py
 python3 tests/matrix_tree_knowledge.py
 python3 tests/partition_knowledge.py
