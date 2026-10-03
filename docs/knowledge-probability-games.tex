@@ -112,8 +112,9 @@ E_1=1+\tfrac12E_0,\qquad E_2=0.
 
 本库接口见第~\ref{compact-ModInt}~节（第~\pageref{compact-ModInt}~页）的 \texttt{ModInt<p>} 与
 第~\ref{compact-GaussMod}~节（第~\pageref{compact-GaussMod}~页）的 \texttt{GaussMod<p>::solve(a,n)}。
-前者的 \texttt{inv()} 用 $x^{p-2}$，要求素数模数及非零元素；
-后者接收 $s$ 行 $s+1$ 列增广矩阵，可填为 $[I-Q\mid b]$，显式传入变量数 $s$。
+前者的 \texttt{try\_inv()} 用欧几里得，允许合数模数的单位元，不可逆时返回空值；
+\texttt{inv()} 与除法仍要求分母可逆。后者仍要求 $p$ 为素数，不能随基础类型扩展而放宽；
+接收 $s$ 行 $s+1$ 列增广矩阵，可填为 $[I-Q\mid b]$，显式传入变量数 $s$。
 先检查 \texttt{consistent}，再检查 \texttt{rank==s}，唯一解才读取 \texttt{particular}。
 这些接口不会替你证明吸收、期望有限或有理答案可取模。
 

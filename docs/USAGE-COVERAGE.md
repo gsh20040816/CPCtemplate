@@ -41,45 +41,45 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | segmented_primes | [example-208（应用补充）](usage/example-208.cpp) | locally_checked_application |
 | batch_inverse | [example-197](usage/example-197.cpp) | locally_checked_example |
 | inverse_table | [example-196](usage/example-196.cpp) | locally_checked_example |
-| garner | [example-213](usage/example-213.cpp) | locally_checked_example |
-| PollardRho | [example-43](usage/example-43.cpp) | locally_checked_example |
-| LinearSieve | [example-218（应用补充）](usage/example-218.cpp) | locally_checked_application |
-| ModInt | [example-216（应用补充）](usage/example-216.cpp) | locally_checked_application |
-| Binomial | [example-216（应用补充）](usage/example-216.cpp) | locally_checked_application |
+| garner | [example-213](usage/example-213.cpp) | generated_unverified |
+| PollardRho | [example-43](usage/example-43.cpp) | generated_unverified |
+| LinearSieve | [example-218（应用补充）](usage/example-218.cpp) | generated_unverified |
+| ModInt | [example-216（应用补充）](usage/example-216.cpp) | generated_unverified |
+| Binomial | [example-216（应用补充）](usage/example-216.cpp) | generated_unverified |
 | PrimitiveRoot | [example-48](usage/example-48.cpp) | locally_checked_example |
-| CoprimePairs | [example-195（应用补充）](usage/example-195.cpp) | locally_checked_application |
-| floor_moments | [example-157](usage/example-157.cpp) | locally_checked_example |
-| power_sum | [example-193（应用补充）](usage/example-193.cpp) | locally_checked_application |
-| divisor_sum_power | [example-191](usage/example-191.cpp) | locally_checked_example |
-| euler_phi | [example-106](usage/example-106.cpp) | locally_checked_example |
+| CoprimePairs | [example-195（应用补充）](usage/example-195.cpp) | generated_unverified |
+| floor_moments | [example-157](usage/example-157.cpp) | generated_unverified |
+| power_sum | [example-193（应用补充）](usage/example-193.cpp) | generated_unverified |
+| divisor_sum_power | [example-191](usage/example-191.cpp) | generated_unverified |
+| euler_phi | [example-106](usage/example-106.cpp) | generated_unverified |
 | carmichael | [example-192（应用补充）](usage/example-192.cpp) | locally_checked_application |
 | Partitions | [example-158](usage/example-158.cpp), [example-159（应用补充）](usage/example-159.cpp) | locally_checked_example |
 | Lucas | [example-40](usage/example-40.cpp) | locally_checked_example |
 | ExLucas | [example-41](usage/example-41.cpp) | locally_checked_example |
 | mod_sqrt | [example-42](usage/example-42.cpp) | locally_checked_example |
-| KthResidue | [example-194](usage/example-194.cpp) | locally_checked_example |
-| PrimePowerRoots | [example-194](usage/example-194.cpp) | locally_checked_example |
-| root_factors | [example-194](usage/example-194.cpp) | locally_checked_example |
-| CompositeRoots | [example-194](usage/example-194.cpp) | locally_checked_example |
+| KthResidue | [example-194](usage/example-194.cpp) | generated_unverified |
+| PrimePowerRoots | [example-194](usage/example-194.cpp) | generated_unverified |
+| root_factors | [example-194](usage/example-194.cpp) | generated_unverified |
+| CompositeRoots | [example-194](usage/example-194.cpp) | generated_unverified |
 | Lagrange | [example-17](usage/example-17.cpp) | locally_checked_example |
 | ComplexFFT | [example-222](usage/example-222.cpp) | locally_checked_example |
 | convolution_fft | [example-121](usage/example-121.cpp) | locally_checked_example |
 | convolution_mod_fft | [example-122](usage/example-122.cpp) | locally_checked_example |
-| NttConvolution | [example-16](usage/example-16.cpp) | locally_checked_example |
-| stirling_second_row | [example-53](usage/example-53.cpp) | locally_checked_example |
-| stirling_first_row | [example-54](usage/example-54.cpp) | locally_checked_example |
-| FpsInverse | [example-18](usage/example-18.cpp) | locally_checked_example |
-| FpsFunctions | [example-28](usage/example-28.cpp), [example-29](usage/example-29.cpp) | locally_checked_example |
-| GaussMod | [example-24](usage/example-24.cpp) | locally_checked_example |
-| det_prime | [example-25](usage/example-25.cpp) | locally_checked_example |
-| ModMatrix | [example-26](usage/example-26.cpp) | locally_checked_example |
-| matrix_inverse | [example-100](usage/example-100.cpp), [example-101](usage/example-101.cpp) | locally_checked_example |
+| NttConvolution | [example-16](usage/example-16.cpp) | generated_unverified |
+| stirling_second_row | [example-53](usage/example-53.cpp) | generated_unverified |
+| stirling_first_row | [example-54](usage/example-54.cpp) | generated_unverified |
+| FpsInverse | [example-18](usage/example-18.cpp) | generated_unverified |
+| FpsFunctions | [example-28](usage/example-28.cpp), [example-29](usage/example-29.cpp) | generated_unverified |
+| GaussMod | [example-24](usage/example-24.cpp) | generated_unverified |
+| det_prime | [example-25](usage/example-25.cpp) | generated_unverified |
+| ModMatrix | [example-26](usage/example-26.cpp) | generated_unverified |
+| matrix_inverse | [example-100](usage/example-100.cpp), [example-101](usage/example-101.cpp) | generated_unverified |
 | matrix_inverse_mod2 | [example-102](usage/example-102.cpp) | locally_checked_example |
 | determinant_mod | [example-77](usage/example-77.cpp) | locally_checked_example |
-| MatrixTree | [example-76](usage/example-76.cpp) | locally_checked_example |
+| MatrixTree | [example-76](usage/example-76.cpp) | generated_unverified |
 | MatrixTreeMod | [example-187](usage/example-187.cpp), [example-188](usage/example-188.cpp) | locally_checked_example |
-| DuJiao | [example-85](usage/example-85.cpp), [example-86](usage/example-86.cpp) | locally_checked_example |
-| DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |
+| DuJiao | [example-85](usage/example-85.cpp), [example-86](usage/example-86.cpp) | generated_unverified |
+| DiscreteLog | [example-47](usage/example-47.cpp) | generated_unverified |
 | IntegerPlane | [example-126](usage/example-126.cpp) | locally_checked_example |
 | integer_hull | [example-64](usage/example-64.cpp), [example-123（应用补充）](usage/example-123.cpp) | locally_checked_example |
 | polygon_area2 | [example-184](usage/example-184.cpp) | locally_checked_example |
@@ -116,7 +116,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | minkowski_sum | [example-136（应用补充）](usage/example-136.cpp) | locally_checked_application |
 | IntegerGeometry3D | [example-225（接口演示）](usage/example-225.cpp) | locally_checked_api |
 | LinkCutTree | [example-45](usage/example-45.cpp) | locally_checked_example |
-| TreePathProducts | [example-108（应用补充）](usage/example-108.cpp) | locally_checked_application |
+| TreePathProducts | [example-108（应用补充）](usage/example-108.cpp) | generated_unverified |
 | OrderedTreap | [example-8](usage/example-8.cpp) | locally_checked_example |
 | PersistentOrderedTreap | [example-199](usage/example-199.cpp) | locally_checked_example |
 | SequenceTreap | [example-10](usage/example-10.cpp), [example-109（应用补充）](usage/example-109.cpp) | locally_checked_example |
@@ -161,11 +161,11 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | mixed_euler_trail | [example-206（接口演示）](usage/example-206.cpp) | locally_checked_api |
 | odd_cycle_vertices | [example-204（应用补充）](usage/example-204.cpp) | locally_checked_application |
 | LexTwoSAT | [example-203（应用补充）](usage/example-203.cpp) | locally_checked_application |
-| BostanMori | [example-49](usage/example-49.cpp) | locally_checked_example |
-| SetConvolution | [example-27](usage/example-27.cpp) | locally_checked_example |
-| subset_convolution | [example-51](usage/example-51.cpp) | locally_checked_example |
-| polynomial_shift | [example-30](usage/example-30.cpp) | locally_checked_example |
-| chirp_z | [example-31](usage/example-31.cpp) | locally_checked_example |
+| BostanMori | [example-49](usage/example-49.cpp) | generated_unverified |
+| SetConvolution | [example-27](usage/example-27.cpp) | generated_unverified |
+| subset_convolution | [example-51](usage/example-51.cpp) | generated_unverified |
+| polynomial_shift | [example-30](usage/example-30.cpp) | generated_unverified |
+| chirp_z | [example-31](usage/example-31.cpp) | generated_unverified |
 | PersistentRange | [example-174（应用补充）](usage/example-174.cpp), [example-175（应用补充）](usage/example-175.cpp) | locally_checked_application |
 | TreeDiameter | [example-170（应用补充）](usage/example-170.cpp) | locally_checked_application |
 | FunctionalGraph | [example-171](usage/example-171.cpp), [example-172](usage/example-172.cpp), [example-173（应用补充）](usage/example-173.cpp) | locally_checked_example |
@@ -178,7 +178,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | lazy_segtree | [example-79](usage/example-79.cpp) | locally_checked_example |
 | mint | [example-198](usage/example-198.cpp) | locally_checked_example |
 | batch_units | [example-198](usage/example-198.cpp) | locally_checked_example |
-| convolution_i64 | [example-52](usage/example-52.cpp) | locally_checked_example |
+| convolution_i64 | [example-52](usage/example-52.cpp) | generated_unverified |
 | pheap | [example-189](usage/example-189.cpp), [example-190](usage/example-190.cpp) | locally_checked_example |
 | enumerate_triangles | [example-6](usage/example-6.cpp) | locally_checked_example |
 | LeftistHeap | [example-50](usage/example-50.cpp) | locally_checked_example |
@@ -194,16 +194,16 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | unit_flow_edges | [example-97（应用补充）](usage/example-97.cpp), [example-133（应用补充）](usage/example-133.cpp) | locally_checked_application |
 | NegativeCostFlow | [example-98](usage/example-98.cpp) | locally_checked_example |
 | prime_count | [example-103](usage/example-103.cpp) | locally_checked_example |
-| Min25 | [example-104](usage/example-104.cpp), [example-105](usage/example-105.cpp) | locally_checked_example |
-| euler_power | [example-106](usage/example-106.cpp) | locally_checked_example |
-| dag_path_determinant | [example-107（应用补充）](usage/example-107.cpp) | locally_checked_application |
+| Min25 | [example-104](usage/example-104.cpp), [example-105](usage/example-105.cpp) | generated_unverified |
+| euler_power | [example-106](usage/example-106.cpp) | generated_unverified |
+| dag_path_determinant | [example-107（应用补充）](usage/example-107.cpp) | generated_unverified |
 | xor_hamming_pairs | [example-111](usage/example-111.cpp) | locally_checked_example |
 | MonotoneStackSeg | [example-112（应用补充）](usage/example-112.cpp), [example-113（应用补充）](usage/example-113.cpp) | locally_checked_application |
 | KDTreeSum | [example-114（应用补充）](usage/example-114.cpp) | locally_checked_application |
-| cdq_convolution | [example-115](usage/example-115.cpp) | locally_checked_example |
-| PolynomialDivision | [example-116](usage/example-116.cpp), [example-118](usage/example-118.cpp) | locally_checked_example |
-| FpsSqrt | [example-117](usage/example-117.cpp), [example-119](usage/example-119.cpp) | locally_checked_example |
-| FpsPower | [example-120](usage/example-120.cpp) | locally_checked_example |
+| cdq_convolution | [example-115](usage/example-115.cpp) | generated_unverified |
+| PolynomialDivision | [example-116](usage/example-116.cpp), [example-118](usage/example-118.cpp) | generated_unverified |
+| FpsSqrt | [example-117](usage/example-117.cpp), [example-119](usage/example-119.cpp) | generated_unverified |
+| FpsPower | [example-120](usage/example-120.cpp) | generated_unverified |
 | WaveletMatrix | [example-140](usage/example-140.cpp), [example-141](usage/example-141.cpp), [example-142](usage/example-142.cpp) | locally_checked_example |
 | GaussXor | [example-143](usage/example-143.cpp), [example-145（应用补充）](usage/example-145.cpp) | locally_checked_example |
 | SecondMST | [example-144（应用补充）](usage/example-144.cpp) | locally_checked_application |
@@ -212,6 +212,6 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | circle_intersections_i64 | [example-152](usage/example-152.cpp) | locally_checked_example |
 | IntegerTangents | [example-156](usage/example-156.cpp) | locally_checked_example |
 | rectangle_union_area | [example-202](usage/example-202.cpp) | locally_checked_example |
-| MultipointEvaluation | [example-211](usage/example-211.cpp) | locally_checked_example |
-| polynomial_interpolation | [example-212](usage/example-212.cpp) | locally_checked_example |
-| AffineSequenceTreap | [example-214](usage/example-214.cpp) | locally_checked_example |
+| MultipointEvaluation | [example-211](usage/example-211.cpp) | generated_unverified |
+| polynomial_interpolation | [example-212](usage/example-212.cpp) | generated_unverified |
+| AffineSequenceTreap | [example-214](usage/example-214.cpp) | generated_unverified |

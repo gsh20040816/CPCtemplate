@@ -93,17 +93,17 @@
     {
       "module": "modint",
       "category": "数学",
-      "status": "静态与动态实现已有，逆元契约仍有差异",
+      "status": "静态与动态实现已有，支持合数单位元求逆",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp",
       "reference_sha256": "aef131053e67300be6def657f1ef1eb1c80ef2c92ffc8220d7be0cccab583318",
       "local": [
         "src/compact/number_theory.hpp",
         "src/compact/dynamic_modint.hpp"
       ],
-      "notes": "静态 ModInt 位于number_theory.hpp，inv仍要求素数模数和非零元素；动态mint<tag>位于dynamic_modint.hpp，支持1..INT_MAX运行时模数、tag隔离及合数单位元try_inv。修改同tag模数后须重建旧对象和缓存。已存在普通/ASan/UBSan本地证据及P5431与batch_units的完整打印用法198，动态版线上AC仍待补；不把已有整数版P5431 AC转移给动态类型。",
+      "notes": "静态ModInt位于number_theory.hpp，支持1..INT_MAX编译期模数，try_inv对单位元返回optional、不可逆返回nullopt，mod=1返回0；inv及除法要求分母可逆。内部短欧几里得只用long long，不新增打印依赖。新静态扩展的本地回执见STATIC-MODINT-UNITS.md，旧素数实现或组合修复的线上/本地记录不自动转移。动态mint<tag>支持运行时模数、tag隔离和合数单位元try_inv；修改同tag模数须重建旧对象/缓存。P5431与batch_units用法198的本地证据保留，动态版线上AC仍待补。",
       "gaps": [
         "动态模整数的独立模板题在线验证",
-        "现有静态 ModInt 的合数求逆契约仍未扩展"
+        "静态求逆新实现的独立在线验证；不借用旧素数实现的历史记录"
       ]
     },
     {
@@ -230,5 +230,12 @@
     "base_commit": "8b09b35bcce8ac794489efd8a715b5c40e2328dd",
     "date": "2026-10-02",
     "scope": "Current implementation paths, table/status consistency and existing evidence boundaries only; no algorithm run, new online AC or performance claim."
+  },
+  "static_inverse_extension": {
+    "base_commit": "b9c83d5b0312b8cde6bfd7598339d0a1d77a6392",
+    "contract": "static_units_1_to_INT_MAX",
+    "test": "tests/static_modint.py",
+    "documentation": "docs/STATIC-MODINT-UNITS.md",
+    "new_online_verification": false
   }
 }

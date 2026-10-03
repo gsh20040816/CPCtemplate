@@ -225,7 +225,7 @@
     "number_theory",
     "ModInt",
     "静态模整数",
-    "模板参数必须为不超过 INT_MAX 的素数且≥2。加减乘、pow、inv、除法；求逆要求非零，pow 指数非负。复杂度：加减乘 O(1)，幂和逆 O(log mod)。 支持 +=、-=、*=、/=，返回自身引用，允许自赋值和链式运算；可作为 Fenwick 区间和的值类型。复合除法沿用非零元素、素数模数前提。"
+    "固定int模数1≤mod≤INT_MAX，可为合数。构造接受signed64并正规化，v保持0..mod-1；不要手动破坏正规化。加减乘O(1)，pow非负signed64指数、时间O(log(e+1))。try_inv用欧几里得求逆：gcd(v,mod)=1时返回optional值，否则nullopt；mod=1返回代表0。inv、/、/=要求分母可逆；断言开启时诊断违反前提，关闭断言不承诺拒绝非法除法。逆元O(log(mod+1))、额外空间O(1)，只用long long，不新增辅助模板依赖。+=、-=、*=、/=返回自身引用，支持自赋值与链式运算，可作为Fenwick区间和值类型。类型的扩展不放宽Binomial、NTT、高斯或FPS自身的素数等前提。"
   ],
   [
     "number_theory",

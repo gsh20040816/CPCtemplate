@@ -84,7 +84,7 @@ for path in audit['composition_probe_evidence']:
 for name, terms in {
     'lazysegtree': ['线上'],
     'math': ['2^32', '2^64'],
-    'modint': ['在线', '合数'],
+    'modint': ['在线'],
     'convolution': ['线上', '排名'],
     'maxflow': ['在线', 'edges()'],
     'mincostflow': ['线上'],
@@ -96,5 +96,15 @@ assert '函数复合驱动在线待提交' not in modules['segtree']['notes']
 assert '当前没有按容量' not in modules['maxflow']['notes']
 assert '本地验证通过' in modules['lazysegtree']['status']
 assert '静态与动态实现已有' in modules['modint']['status']
+
+
+# Static unit inversion is an implemented API extension, not new online evidence.
+static = audit['static_inverse_extension']
+assert static['contract'] == 'static_units_1_to_INT_MAX'
+assert static['new_online_verification'] is False
+assert (ROOT / static['test']).is_file()
+assert (ROOT / static['documentation']).is_file()
+assert 'try_inv' in modules['modint']['notes']
+assert '仍未扩展' not in ' '.join(modules['modint']['gaps'])
 
 print('PASS: 12 ACL module rows, current paths/statuses, fixed provenance and remaining gaps agree; metadata-only check')

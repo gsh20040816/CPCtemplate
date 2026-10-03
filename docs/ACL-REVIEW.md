@@ -15,7 +15,7 @@
 | [segtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp) | 数据结构 | 已实现，函数复合与边界搜索有历史线上记录 | [segtree.hpp](../src/compact/segtree.hpp) |
 | [lazysegtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/lazysegtree.hpp) | 数据结构 | 通用递归实现已完成，本地验证通过 | [lazy_segtree.hpp](../src/compact/lazy_segtree.hpp) |
 | [math](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp) | 数学 | 核心功能已有，范围需适配 | [mod64.hpp](../src/compact/mod64.hpp)、[extended_gcd.hpp](../src/compact/extended_gcd.hpp)、[mod_inverse.hpp](../src/compact/mod_inverse.hpp)、[crt_merge.hpp](../src/compact/crt_merge.hpp)、[floor_sum.hpp](../src/compact/floor_sum.hpp) |
-| [modint](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp) | 数学 | 静态与动态实现已有，逆元契约仍有差异 | [number_theory.hpp](../src/compact/number_theory.hpp)、[dynamic_modint.hpp](../src/compact/dynamic_modint.hpp) |
+| [modint](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp) | 数学 | 静态与动态实现已有，支持合数单位元求逆 | [number_theory.hpp](../src/compact/number_theory.hpp)、[dynamic_modint.hpp](../src/compact/dynamic_modint.hpp) |
 | [convolution](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp) | 数学 | 模卷积与精确整数卷积已有，本地验证 | [ntt_convolution.hpp](../src/compact/ntt_convolution.hpp)、[convolution_i64.hpp](../src/compact/convolution_i64.hpp) |
 | [maxflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/maxflow.hpp) | 图论 | 边状态接口已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
 | [mincostflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/mincostflow.hpp) | 图论 | 费用曲线已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
@@ -87,9 +87,9 @@ floor_sum 的[现有文档契约](mathematics.tex)为 `0<=n<=10^9`、`1<=m<=10^9
 
 ### modint
 
-当前 ModInt 支持固定模数算术，inv 按素数模数约定。ACL 静态合数模逆采用 inv_gcd，另有按 id 区分的动态模数类型；小类型及 unsigned 内部存储与溢出界不能只抄一半。
+当前 ModInt 支持1..INT_MAX固定模数，包括合数。try_inv对单位元返回optional值、不可逆返回nullopt；模1返回零代表。inv及除法要求分母可逆，关闭断言后不承诺拒绝非法调用。内部短欧几里得使用long long，不新增外部打印依赖；契约、界与验证见[STATIC-MODINT-UNITS.md](STATIC-MODINT-UNITS.md)。ACL静态合数模逆采用inv_gcd；不能只抄其unsigned内部算术而丢失溢出界。
 
-动态 [mint<tag>](../src/compact/dynamic_modint.hpp) 已实现并有普通及 ASan/UBSan 本地证据，支持 1..INT_MAX 运行时模数、合数单位元 try_inv 和 tag 隔离。修改同 tag 模数后须重建旧对象与缓存。P5431 与 batch_units 的[完整打印用法198](INVERSE-USAGES.md)已有本地验证，但动态版线上 AC 仍待补，不能转移原整数版 P5431 的历史 AC。静态 ModInt 仍位于 number_theory.hpp，inv 保留素数模数及非零元素前提，合数求逆没有扩展。
+动态 [mint<tag>](../src/compact/dynamic_modint.hpp) 已实现并有普通及 ASan/UBSan 本地证据，支持 1..INT_MAX 运行时模数、合数单位元 try_inv 和 tag 隔离。修改同 tag 模数后须重建旧对象与缓存。P5431 与 batch_units 的[完整打印用法198](INVERSE-USAGES.md)已有本地验证，但动态版线上 AC 仍待补，不能转移原整数版 P5431 的历史 AC。静态ModInt仍位于number_theory.hpp。本批扩展静态单位元求逆，未扩大Binomial、NTT、高斯或FPS的独立素数条件；新实现的线上证据仍待补。
 
 ### convolution
 
@@ -129,7 +129,7 @@ ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆�
 
 当前已添加 `+=`、`-=`、`*=`、`/=`，沿用二元运算，返回自身引用。[复现程序](../verification/probes/fenwick_modint.cpp) 已改为成功回归检查。[组合测试](../tests/modint_composition.cpp) 使用整数余数数组验证 Fenwick 的 add/sum/query，以扩展欧几里得验证除法，覆盖模数 2、998244353、2147483647、自赋值、链式运算、负输入和 signed64 边界。普通与 ASan/UBSan 日志在 verification/modint-composition-*.txt。
 
-这些新增运算符只有本地验证，未借用历史 OJ AC。静态素数求逆契约未变，动态 mint 已另行本地验证，但静态 ModInt 的合数求逆仍未扩展；模数和不适合 Fenwick 的 kth 顺序统计。
+上述组合修复发生时，静态求逆仍限于素数；这些历史日志保留原有输入和版本范围，不自动覆盖本批欧几里得扩展。当前扩展另跑相应验证，动态mint的既有证据也单独保留。模数和仍不适合Fenwick的kth顺序统计。
 
 ## 后续实施顺序
 
@@ -139,4 +139,4 @@ ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆�
 
 ## 元数据一致性检查
 
-`python3 tests/acl_review_consistency.py` 核对 12 个公开模块的表格、状态、当前路径与固定 ACL 摘要，保留 6 个内部支持模块、历史本地快照及已知缺项。该检查只验证登记一致性，不执行 C++、重签历史证据或验证算法正确性。SA-IS、静态合数求逆、接口契约差异，以及未完成的线上验证和性能排名仍保留。
+`python3 tests/acl_review_consistency.py` 核对 12 个公开模块的表格、状态、当前路径与固定 ACL 摘要，保留 6 个内部支持模块、历史本地快照及已知缺项。该检查只验证登记一致性，不执行 C++、重签历史证据或验证算法正确性。SA-IS、静态求逆新实现的线上证据、接口契约差异，以及其他未完成的线上验证和性能排名仍保留。

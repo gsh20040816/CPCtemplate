@@ -123,6 +123,7 @@ struct LinearSieve
 
 template <int mod> struct ModInt
 {
+    static_assert(mod >= 1);
     int v;
 
     ModInt(long long x = 0) : v((x % mod + mod) % mod) {}
@@ -142,11 +143,27 @@ template <int mod> struct ModInt
         return r;
     }
 
+    optional<ModInt> try_inv() const
+    {
+        long long a = v, b = mod, x = 1, y = 0;
+        while (b)
+        {
+            long long q = a / b;
+            a -= q * b;
+            swap(a, b);
+            x -= q * y;
+            swap(x, y);
+        }
+        if (a != 1) return nullopt;
+        return ModInt(x);
+    }
+
     ModInt inv() const
     {
-        assert(v);
-        return pow(mod - 2);
-    } // prime modulus
+        auto r = try_inv();
+        assert(r);
+        return *r;
+    } // requires an invertible residue
 
     ModInt operator/(ModInt b) const { return *this * b.inv(); }
 
