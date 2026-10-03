@@ -88,3 +88,5 @@ kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md
 完整无符号64位模乘/模幂的保留组件见 [Mod64接口用法](docs/MOD64-USAGE.md)，不恢复已排除的基础快速幂题。
 
 自适应积分的资源上限、采样混叠及误差估计边界见 [Adaptive Simpson说明](docs/ADAPTIVE-SIMPSON.md)。
+
+前缀可持久化01 Trie及P4735区间异或转化见 [接口、证明与容量约定](docs/PERSISTENT-XOR-TRIE.md)。

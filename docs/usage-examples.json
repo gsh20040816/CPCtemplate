@@ -2991,5 +2991,17 @@
       "IntegerPlane",
       "polygon_area2"
     ]
+  },
+  {
+    "id": "example-239",
+    "symbol": "PersistentXorTrie",
+    "kind": "application",
+    "problem": "Luogu P4735 最大异或和",
+    "url": "https://www.luogu.com.cn/problem/P4735",
+    "summary": "N,M≤300000，序列元素0..10^7；追加A x或查询Q l r x，1≤l≤r≤当前N。令S为前缀异或，答案为(S_N xor x)与S_[l−1,r−1]中一个数异或的最大值。先插S0，再插后续前缀，调用max_xor(l−1,r,S_N xor x)。前缀可能超过10^7但小于2^24；库储存24位，查询x按uint64_t读取并保留高位，题面未单列查询x上界。此为组合应用；最多600001个键，12字节节点平台数组负载约174MiB，不含进程开销，不声称通过OJ时间限制。",
+    "driver": "verify/luogu/P4735.compact.cpp",
+    "requires": [
+      "PersistentXorTrie"
+    ]
   }
 ]

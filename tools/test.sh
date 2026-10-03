@@ -48,6 +48,8 @@ python3 tests/pick_knowledge.py
 python3 tests/adaptive_simpson.py
 python3 tests/manhattan_mst.py
 python3 tests/manhattan_mst_application.py
+python3 tests/persistent_xor_trie.py
+python3 tests/persistent_xor_trie_application.py
 python3 tests/dominance_3d.py
 python3 tests/dominance_3d_application.py
 python3 tests/lte_knowledge.py

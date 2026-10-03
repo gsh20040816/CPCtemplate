@@ -1276,5 +1276,11 @@
     "Dominance3D",
     "静态三维偏序计数",
     "count(points)返回每个原输入位置被其他点逐坐标≤的次数，重复坐标仍是不同点，排除自身。输入array<long long,3>，完整signed64坐标，空输入返回空；输入不变。内部按三维字典序合并重合点，压缩第三维，CDQ归并与Fenwick回滚。O(n log²(n+1))时间、O(n)空间、O(log(n+1))递归；n须≤INT_MAX/2且内存可分配，保证共享Fenwick的int步进不溢出。仅静态无权弱偏序，不含严格不等号、动态更新或CDQ递推。"
+  ],
+  [
+    "persistent_xor_trie",
+    "PersistentXorTrie",
+    "前缀可持久化01字典树",
+    "PersistentXorTrie(bits,cap)，1≤bits≤64，0≤cap≤(INT_MAX−1)/(bits+1)，构造时预留最多cap个键。append(x)追加一个uint64_t原值，重复值按出现次数保留；满容量或x不满足位宽时返回false且逻辑状态不变。size()为键数；max_xor(l,r,x)从0-based半开区间[l,r)选择一个键y，返回最大x xor y，空区间nullopt。查询x允许完整uint64；不是子集异或、任意分支版本或字符串Trie。构造O(cap*bits)容量空间，追加/查询O(bits)；复制后首次追加为恢复预留空间可花O(size*bits)。append分配失败传播异常，逻辑内容不变；构造参数非法抛异常，查询下标是调用者前置条件，assert只作调试检查。内部成员只读；不要复用已移动对象。"
   ]
 ]
