@@ -15,15 +15,16 @@
       "docs/knowledge-floor-sums.tex",
       "docs/knowledge-matrix-tree.tex",
       "docs/knowledge-partitions.tex",
-      "docs/knowledge-modular-conditions.tex"
+      "docs/knowledge-modular-conditions.tex",
+      "docs/knowledge-ballot.tex"
     ],
-    "classified_section_count": 25,
+    "classified_section_count": 26,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类十二份knowledge源文件的25个带标签节（数学23、图论2）。模运算条件迁移后补非单位元同余、升模整除与大指数阈值；分类不新增算法或OJ覆盖，历史附录仍未全部分类。"
+    "note": "仅分类十三份knowledge源文件的26个带标签节（数学24、图论2）。新增前缀余额、Catalan与弱/严格投票反射建模；分类不新增算法或OJ覆盖，历史附录仍未全部分类。"
   },
   "entries": [
     {
@@ -299,6 +300,16 @@
       "relation": "composite",
       "page_break_before": true,
       "note": "模算术适用条件与整数商建模为主，关联逆元、同余、CRT、Lucas和指数阈值；不新增算法接口或线上验证。"
+    },
+    {
+      "label": "knowledge-ballot-reflection",
+      "source": "docs/knowledge-ballot.tex",
+      "path": "math/combinatorics/catalan.md",
+      "additional": [
+        "math/combinatorics/combination.md"
+      ],
+      "relation": "composite",
+      "note": "Catalan、弱/严格投票和带初始高度路径的反射双射与模组合数选型；不声称覆盖双边界、非单位步长或完整组合数学。"
     }
   ]
 }

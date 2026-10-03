@@ -35,6 +35,7 @@ python3 tests/floor_knowledge_migration.py
 python3 tests/matrix_tree_knowledge.py
 python3 tests/partition_knowledge.py
 python3 tests/modular_knowledge.py
+python3 tests/ballot_knowledge.py
 python3 tests/hld_ordered.py
 python3 tests/potential_dsu.py
 python3 tests/lte_knowledge.py
