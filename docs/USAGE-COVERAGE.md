@@ -216,3 +216,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | polynomial_interpolation | [example-212](usage/example-212.cpp) | locally_checked_example |
 | AffineSequenceTreap | [example-214](usage/example-214.cpp) | locally_checked_example |
 | PotentialDSU | [example-232](usage/example-232.cpp) | locally_checked_example |
+| GaussReal | [example-233（接口演示）](usage/example-233.cpp) | locally_checked_api |

@@ -2916,5 +2916,17 @@
       "PotentialDSU",
       "mint"
     ]
+  },
+  {
+    "id": "example-233",
+    "symbol": "GaussReal",
+    "kind": "api",
+    "problem": "实数线性系统（自定义数值协议）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/gauss_real.hpp",
+    "summary": "接口演示，非官方题目或线上AC。输入m n eps及m行各n+1个实数；0≤m,n≤100只是演示规模，输入和全部中间值有限，0<eps<1，需结合尺度/条件数选取。输出数值consistent与rank；相容时再输出一个特解、自由方向个数和逐行方向向量。行系数最大值归一化后进行阈值消元，原全零系数行的右端项保持原尺度。不可把结果当作精确无解/唯一解证书。例中的0.5 E0−0.5 E1=1、−0.5 E0+E1=1来自连续两个正面等待时间，得到E0=6,E1=4；概率模型有限性另行证明。",
+    "driver": "verify/api/real_linear_system.compact.cpp",
+    "requires": [
+      "GaussReal"
+    ]
   }
 ]

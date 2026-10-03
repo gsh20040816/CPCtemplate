@@ -3963,6 +3963,8 @@ E_1=1+\tfrac12E_0,\qquad E_2=0.
 有限期望向量满足 $(I-Q)E=b$；稠密直接消元的时间为 $O(s^3)$、空间为 $O(s^2)$，
 其中 $s$ 是非终点状态数。DAG、链、带状矩阵或可按强连通分量分块的问题应先利用结构，
 不必一律构建全局稠密矩阵。概率极小时实数消元可能病态；残差小也不保证答案相对误差小。
+实数接口见\hyperref[compact-GaussReal]{GaussReal}（第~\pageref{compact-GaussReal}~页，\ref{compact-GaussReal}~节）；
+其秩与一致性按显式阈值判定，不能代替精确可解性或下述吸收条件的证明。
 
 对有限状态、固定转移概率的链，若每个可达非终点都有一条正概率路径通向吸收态，
 则存在统一的 $L$ 和 $\varepsilon>0$，使任何非终点在未来 $L$ 步内吸收的概率至少为 $\varepsilon$。
@@ -4191,6 +4193,36 @@ GaussMod<p>::solve(a,n) 接收 m 行 n+1 列增广矩阵，p 必须是素数，n
 题目：\url{https://judge.yosupo.jp/problem/system_of_linear_equations}
 
 \lstinputlisting{usage/example-24.cpp}
+
+\newpage
+
+\Needspace{571pt}
+
+\subsection{实数高斯消元与数值解空间}\label{compact-GaussReal}\index{GaussReal}
+
+solve(a, n, eps)接收m×(n+1)增广矩阵，0$\le$n<INT\_MAX、m$\le$INT\_MAX，输入/中间值须有限可表示，0<eps<1。long double精度依平台；先按每行系数最大绝对值归一化（不含右端项），再部分选主元；绝对值$\le$eps的候选列在活动行中明确置零。对所有非零消元因子更新，不以eps跳过。返回consistent、rank、particular和kernel：均描述最终数值消元模型，不是原系统精确可解性/秩的证书；剩余右端项绝对值$\le$eps按零处理。原全零系数行保留原始右端尺度，n=0也用此约定。相容时自由变量取零给特解，kernel列出自由变量方向；任意大线性组合的原方程误差不受eps统一保证。非相容时两个解数组为空；输入按值传入不变。主消元通常O(mn min(m,n))时间，另有初始化；O(m(n+1)+n)工作空间，另有O(n(n−rank))解基输出。近阈值、病态或非有限过程不能当成数学无解；须结合原方程残差与问题条件判断。正常浮点语义，禁fast-math；assert仅调试诊断，非发布模式运行时校验。
+
+\lstinputlisting[firstline=11,lastline=46]{../src/compact/gauss_real.hpp}
+
+\newpage
+
+\noindent 主元消元与数值解空间（接上页同一 solve 函数）：
+
+\lstinputlisting[firstline=47,lastline=95,firstnumber=37]{../src/compact/gauss_real.hpp}
+
+\Needspace{464pt}
+
+\subsection*{接口用法演示：实数线性系统（自定义数值协议）}
+
+\label{usage-example-233}
+
+演示约定：接口演示，非官方题目或线上AC。输入m n eps及m行各n+1个实数；0$\le$m,n$\le$100只是演示规模，输入和全部中间值有限，0<eps<1，需结合尺度/条件数选取。输出数值consistent与rank；相容时再输出一个特解、自由方向个数和逐行方向向量。行系数最大值归一化后进行阈值消元，原全零系数行的右端项保持原尺度。不可把结果当作精确无解/唯一解证书。例中的0.5 E0−0.5 E1=1、−0.5 E0+E1=1来自连续两个正面等待时间，得到E0=6,E1=4；概率模型有限性另行证明。
+
+所需模板：\hyperref[compact-GaussReal]{GaussReal}（第~\pageref{compact-GaussReal}~页，\ref{compact-GaussReal}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/gauss_real.hpp}
+
+\lstinputlisting{usage/example-233.cpp}
 
 \Needspace{585pt}
 
