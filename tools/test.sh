@@ -40,6 +40,7 @@ python3 tests/ballot_knowledge.py
 python3 tests/hld_ordered.py
 python3 tests/potential_dsu.py
 python3 tests/gauss_real.py
+python3 tests/mod64_usage.py
 python3 tests/lte_knowledge.py
 python3 tests/lagrange_knowledge.py
 python3 tests/lagrange_fps_usage.py

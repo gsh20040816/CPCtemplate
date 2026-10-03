@@ -1,0 +1,10 @@
+# Mod64 direct API usage checkpoint
+
+- New example 234 directly calls the retained full-uint64 modular multiply and power APIs. Core implementation, exclusions, formal-candidate inventory and source-page ledger are unchanged. This is not P1226 or formal OJ credit.
+- Final ordinary and ASan/UBSan reports bind the same 1,349 current source inputs. Each mode runs six forms: direct driver, registered expansion and actual minimal copied component, each with assertions and NDEBUG.
+- Each form checks 36,210 exhaustive/boundary/fixed-seed random triples against Python arbitrary-precision multiplication and pow, plus a 200,000-query boundary batch and empty input. The small pow reference is also checked by repeated multiplication. Eleven malformed/precondition cases check exit 1 and any prior valid output prefix.
+- Three deliberate arithmetic/identity/exponent mutants are rejected. Their source, binary and mismatching-output hashes are retained; raw mutant output is not archived. Python optimization is explicitly rejected to keep oracle assertions enabled.
+- Only new example 234 was executed through the central usage harness in both modes; old 233 records and expanded-program hashes are unchanged. A fresh 234-example syntax/copy audit resolves 228 with standard headers and six with documented GNU headers, zero unresolved. Syntax checks are not algorithm proof.
+- Actual rendered total-book pages 47–49, mathematics 9–11, and infra 10 were inspected. Usage remains on one page; fonts unchanged. Five unrelated PDFs retain old bytes after text/destination/annotation checks. 1,175 dependency groups and 16 cross-volume jumps pass.
+- Status: 210 components / 234 examples; 157 formal-template, 43 application-only, 10 API-only, zero components without a direct usage example. This does not finish online evidence, source-page review or the knowledge system.
+- No online submission, AC, CI query, performance ranking or LeakSanitizer claim. The prior full-suite evidence at f79495b stays historical; this batch is targeted verification only.

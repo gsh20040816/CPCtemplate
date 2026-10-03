@@ -2928,5 +2928,17 @@
     "requires": [
       "GaussReal"
     ]
+  },
+  {
+    "id": "example-234",
+    "symbol": "Mod64",
+    "kind": "api",
+    "problem": "完整无符号64位模运算（接口演示）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/mod64.hpp",
+    "summary": "自定义协议，非OJ题：0≤q≤200000，随后q行a b m，无符号十进制0≤a,b≤2^64−1、1≤m≤2^64−1；每行输出a*b mod m及a^b mod m。用unsigned long long直接读写，不先转有符号类型；乘法前提升uint128。模1两项均0，零指数返回1 mod m（含0^0）；不要求素数或互质。读入失败、q越界或模0返回1，不作完整词法或EOF校验。须64位unsigned long long及uint128支持；不恢复已排除的P1226。",
+    "driver": "verify/api/mod64.compact.cpp",
+    "requires": [
+      "Mod64"
+    ]
   }
 ]

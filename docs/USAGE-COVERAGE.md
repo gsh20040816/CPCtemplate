@@ -30,7 +30,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | AhoCorasick | [example-70](usage/example-70.cpp) | locally_checked_example |
 | SuffixArray | [example-19](usage/example-19.cpp), [example-131](usage/example-131.cpp) | locally_checked_example |
 | SuffixAutomaton | [example-71](usage/example-71.cpp), [example-130](usage/example-130.cpp) | locally_checked_example |
-| Mod64 | 待补 | pending_example |
+| Mod64 | [example-234（接口演示）](usage/example-234.cpp) | locally_checked_api |
 | Prime64 | [example-13](usage/example-13.cpp) | locally_checked_example |
 | extended_gcd | [example-221](usage/example-221.cpp) | locally_checked_example |
 | mod_inverse | [example-219（应用补充）](usage/example-219.cpp) | locally_checked_application |

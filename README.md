@@ -68,7 +68,7 @@ Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECK
 
 标准库实际使用点、复数、前缀和累加类型、tuple 引用、shuffle 和位操作的验证边界见 [Infra 补充审计](docs/INFRA-STL-AUDIT.md)。
 
-各模板的“最简题意＋使用代码”补齐进度见 [使用示例覆盖表](docs/USAGE-COVERAGE.md)，生成与执行检查方式见 [使用示例说明](docs/USAGE-EXAMPLES.md)。未补示例仍明确列出。
+各模板的“最简题意＋使用代码”补齐进度见 [使用示例覆盖表](docs/USAGE-COVERAGE.md)，生成与执行检查方式见 [使用示例说明](docs/USAGE-EXAMPLES.md)。正式模板题、应用用法与接口演示分开标记，不以有示例代替线上验证。
 
 最小表示法 [P13270 用法](docs/MINIMUM-ROTATION-USAGE.md)与保留的 Fenwick 第 k 小 [P3369 用法](docs/fenwick-selection.md)均有独立本地验证；不恢复已排除的基础树状数组题。
 
@@ -81,3 +81,5 @@ Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECK
 闭合集选点、最小树形图和全局最小割的完整调用见 [CUT-APPLICATIONS.md](docs/CUT-APPLICATIONS.md)。
 
 kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md](docs/HOPCROFT-SOURCE-AUDIT.md)。
+
+完整无符号64位模乘/模幂的保留组件见 [Mod64接口用法](docs/MOD64-USAGE.md)，不恢复已排除的基础快速幂题。

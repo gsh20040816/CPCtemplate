@@ -20,7 +20,7 @@ kind 只允许 template、application、api；省略时默认为 template，拼�
 
 所有分类共用 id、symbol、problem、url、summary、driver、requires 字段。api 的 problem 是演示名称，url 是真实实现或协议来源，summary 必须明确自定义协议、输入边界及本地证据范围；正文使用“接口用法演示”“演示约定”“来源”，不得伪装成官方题目。requires 按可直接抄写的依赖顺序列出；also_covers 仅登记 main 中实际直接调用的附加模板，不把所有依赖都算成覆盖。
 
-自定义接口驱动放在 docs/usage-drivers/，不进入 verify/ 的 OJ 驱动候选队列。首次静态后缀示例见 [静态后缀查询接口演示](STATIC-SUFFIX-DEMO.md)；其独立随机与最大演示规模测试仅写 build/ 报告，不生成在线提交或 AC 记录。
+自定义接口驱动放在 docs/usage-drivers/ 或 verify/api/；两者均不进入正式 OJ 驱动候选队列，登记时必须标记 kind=api。首次静态后缀示例见 [静态后缀查询接口演示](STATIC-SUFFIX-DEMO.md)；其独立随机与最大演示规模测试仅写 build/ 报告，不生成在线提交或 AC 记录。
 
 需要快速输入的完整用法可以登记 utility_functions（当前为 read），从同一驱动取出函数正文并与main一起打印、编译；这些函数是抄写所需的输入工具，不是算法定义。它与 configuration_functions 分开登记，防止遗漏输入依赖。批量逆元示例用 move(a) 将数组传入按值接口，传入后不再读取a；普通左值调用则保留原数组但产生副本。
 

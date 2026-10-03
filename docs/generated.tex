@@ -436,6 +436,20 @@ Mod64::mul(a,b,m) 与 power(a,e,m)，a、b、e 支持完整 unsigned long long�
 
 \lstinputlisting[firstline=6,lastline=22]{../src/compact/mod64.hpp}
 
+\Needspace{363pt}
+
+\subsection*{接口用法演示：完整无符号64位模运算（接口演示）}
+
+\label{usage-example-234}
+
+演示约定：自定义协议，非OJ题：0$\le$q$\le$200000，随后q行a b m，无符号十进制0$\le$a,b$\le$2\textasciicircum{}64−1、1$\le$m$\le$2\textasciicircum{}64−1；每行输出a*b mod m及a\textasciicircum{}b mod m。用unsigned long long直接读写，不先转有符号类型；乘法前提升uint128。模1两项均0，零指数返回1 mod m（含0\textasciicircum{}0）；不要求素数或互质。读入失败、q越界或模0返回1，不作完整词法或EOF校验。须64位unsigned long long及uint128支持；不恢复已排除的P1226。
+
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/mod64.hpp}
+
+\lstinputlisting{usage/example-234.cpp}
+
 \Needspace{245pt}
 
 \section{模幂与几何级数同时求值}\label{compact-power_sum}\index{power\_sum}
