@@ -25,7 +25,7 @@ legacy = (ROOT / 'docs/mathematics-legacy.tex').read_text()
 assert legacy == legacy_knowledge()
 volumes = {key: (ROOT / f'docs/volume-{key}.tex').read_text() for key in
            ('strings', 'mathematics', 'data-structures', 'graphs', 'geometry', 'misc')}
-owner = {'数学': 'mathematics', '图论': 'graphs'}
+owner = {'数学': 'mathematics', '图论': 'graphs', '计算几何': 'geometry'}
 volume = volumes['mathematics']
 knowledge_labels = []
 for source in registration['scope']['source_files']:

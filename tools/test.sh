@@ -44,6 +44,7 @@ python3 tests/potential_dsu.py
 python3 tests/gauss_real.py
 python3 tests/mod64_usage.py
 python3 tests/diophantine_knowledge.py
+python3 tests/pick_knowledge.py
 python3 tests/adaptive_simpson.py
 python3 tests/manhattan_mst.py
 python3 tests/manhattan_mst_application.py

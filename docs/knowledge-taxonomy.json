@@ -19,15 +19,16 @@
       "docs/knowledge-ballot.tex",
       "docs/knowledge-diophantine.tex",
       "docs/knowledge-integration.tex",
-      "docs/knowledge-manhattan-mst.tex"
+      "docs/knowledge-manhattan-mst.tex",
+      "docs/knowledge-pick.tex"
     ],
-    "classified_section_count": 29,
+    "classified_section_count": 30,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类十五份knowledge源文件的28个带标签节（数学26、图论2）。新增数值积分估计与采样盲区知识；分类不新增算法或OJ覆盖，历史附录仍未全部分类。"
+    "note": "仅分类source_files中明确登记、各自有唯一标签的知识节，数量以classified_section_count与entries为准；分类本身不新增算法或OJ覆盖，混合历史附录仍未全部分类。"
   },
   "entries": [
     {
@@ -340,6 +341,15 @@
       "relation": "direct",
       "page_break_before": true,
       "note": "四向闭锥扫描、重复点零链与含平局的割最小边证明；仅无约束完整曼哈顿图，不声称整个来源页完成。"
+    },
+    {
+      "label": "knowledge-pick",
+      "source": "docs/knowledge-pick.tex",
+      "path": "geometry/pick.md",
+      "additional": [],
+      "relation": "direct",
+      "page_break_before": true,
+      "note": "从混合旧节迁出Pick与边界gcd，补本原三角形、相容剖分与Euler证明、孔洞和位宽合同；组合已有有向面积，不新增算法。"
     }
   ]
 }

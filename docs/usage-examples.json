@@ -2978,5 +2978,18 @@
       "Fenwick",
       "Dominance3D"
     ]
+  },
+  {
+    "id": "example-238",
+    "symbol": "polygon_area2",
+    "kind": "application",
+    "problem": "CSES 2193 Polygon Lattice Points",
+    "url": "https://cses.fi/problemset/task/2193",
+    "summary": "简单非退化整数多边形，无孔；3≤n≤100000，坐标绝对值≤10^9，按边界顺序给点，方向不限。输出严格内部与边界格点数。已有有向二倍面积取绝对值，边界用逐边gcd，Pick分子和输出用128位；输入已保证简单性，此程序不验证自交。仅组合应用，不新增面积算法覆盖。",
+    "driver": "verify/cses/2193.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "polygon_area2"
+    ]
   }
 ]

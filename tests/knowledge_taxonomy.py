@@ -30,6 +30,7 @@ SOURCE_FILES = (
     'docs/knowledge-diophantine.tex',
     'docs/knowledge-integration.tex',
     'docs/knowledge-manhattan-mst.tex',
+    'docs/knowledge-pick.tex',
 )
 SECTION = re.compile(r'(?m)(?=^\\section\{)')
 LABEL = re.compile(r'\\label\{(knowledge-[^}]+)\}')
@@ -72,7 +73,7 @@ def source_sections(sources):
             # from its title or incidental references in the body.
             assert LABEL.search(fragment.split('\n', 1)[0]), (source, label)
             sections[label] = source
-    assert len(sections) == 29, ('bounded knowledge section count', len(sections))
+    assert len(sections) == 30, ('bounded knowledge section count', len(sections))
     return sections
 
 
@@ -83,7 +84,7 @@ def validate(data, taxonomy, sources):
     scope = data['scope']
     assert len(scope['source_files']) == len(set(scope['source_files']))
     assert set(scope['source_files']) == set(SOURCE_FILES) == set(sources)
-    assert scope['classified_section_count'] == 29
+    assert scope['classified_section_count'] == 30
     assert scope['legacy_source'] == 'docs/mathematics.tex'
     assert scope['legacy_sections_classified'] is False
     assert scope['classification_only'] is True
@@ -108,6 +109,8 @@ def validate(data, taxonomy, sources):
             assert path == 'graph/matrix-tree.md' and hierarchy == ['图论', '矩阵树定理'], (label, hierarchy)
         elif label == 'knowledge-manhattan-mst':
             assert path == 'graph/mst.md' and hierarchy == ['图论', '生成树问题', '最小生成树'], (label, hierarchy)
+        elif label == 'knowledge-pick':
+            assert path == 'geometry/pick.md' and hierarchy == ['计算几何', 'Pick 定理'], (label, hierarchy)
         else:
             assert len(hierarchy) == 3 and hierarchy[0] == '数学', (label, hierarchy)
         assert isinstance(entry.get('page_break_before', False), bool)
@@ -142,7 +145,7 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
         self.assertEqual(pinned_navigation(source.read_text()), self.taxonomy['navigation'])
 
     def test_all_registered_sections_have_one_known_primary_leaf(self):
-        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 29)
+        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 30)
         observed = {path.relative_to(ROOT).as_posix()
                     for path in (ROOT / 'docs').glob('knowledge-*.tex')}
         self.assertEqual(observed, set(SOURCE_FILES), 'new source needs explicit classification')
@@ -155,8 +158,10 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
     def test_readme_matches_current_knowledge_counts(self):
         text = (ROOT / 'README.md').read_text()
         count = len(self.data['entries'])
+        math = sum(row['path'].startswith('math/') for row in self.data['entries'])
         graph = sum(row['path'].startswith('graph/') for row in self.data['entries'])
-        expected = f'当前有 {count} 个分类知识节（数学 {count - graph}、图论 {graph}）'
+        geometry = sum(row['path'].startswith('geometry/') for row in self.data['entries'])
+        expected = f'当前有 {count} 个分类知识节（数学 {math}、图论 {graph}、计算几何 {geometry}）'
         self.assertIn(expected, text)
         self.assertIn('不把这些节数当作完整知识体系的覆盖比例', text)
 
@@ -172,6 +177,10 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
         self.reject(lambda data: data['entries'][0].update(path='graph/matrix-tree.md'))
         self.reject(lambda data: next(row for row in data['entries'] if row['label'] == 'knowledge-manhattan-mst').update(path='graph/matrix-tree.md'))
         self.reject(lambda data: next(row for row in data['entries'] if row['label'] == 'knowledge-matrix-tree-mod').update(path='math/number-theory/euclidean.md'))
+
+    def test_pick_geometry_exception_is_explicit(self):
+        self.reject(lambda data: data['entries'][0].update(path='geometry/pick.md'))
+        self.reject(lambda data: next(row for row in data['entries'] if row['label']=='knowledge-pick').update(path='math/number-theory/euclidean.md'))
 
     def test_duplicate_and_missing_labels_are_rejected(self):
         self.reject(lambda data: data['entries'].append(copy.deepcopy(data['entries'][0])))

@@ -82,7 +82,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |
 | IntegerPlane | [example-126](usage/example-126.cpp) | locally_checked_example |
 | integer_hull | [example-64](usage/example-64.cpp), [example-123（应用补充）](usage/example-123.cpp) | locally_checked_example |
-| polygon_area2 | [example-184](usage/example-184.cpp) | locally_checked_example |
+| polygon_area2 | [example-184](usage/example-184.cpp), [example-238（应用补充）](usage/example-238.cpp) | locally_checked_example |
 | polygon_contains | [example-135](usage/example-135.cpp) | locally_checked_example |
 | convex_contains_i64 | [example-136（应用补充）](usage/example-136.cpp) | locally_checked_application |
 | convex_diameter2 | [example-65](usage/example-65.cpp), [example-124（应用补充）](usage/example-124.cpp) | locally_checked_example |
