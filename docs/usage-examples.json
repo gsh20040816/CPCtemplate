@@ -2903,5 +2903,18 @@
       "e"
     ],
     "page_break_before": "    while (q--)"
+  },
+  {
+    "id": "example-232",
+    "symbol": "PotentialDSU",
+    "kind": "template",
+    "problem": "Library Checker Unionfind with Potential",
+    "url": "https://judge.yosupo.jp/problem/unionfind_with_potential",
+    "summary": "未知序列a，1≤N,Q≤200000，模998244353。0 u v x尝试加入a[u]−a[v]=x；与此前已接受信息一致输出1，否则输出0并拒绝，不把矛盾边加入状态。1 u v查询a[u]−a[v]的规范模值，未连通输出−1；点号0-based，0≤x<mod。重复一致、自约束及零差值均有效。先设置模整数的模数再构造结构，存活期间不改变它；复用已有加减与相等比较，不需要乘法逆元。",
+    "driver": "verify/library_checker/unionfind_with_potential.compact.cpp",
+    "requires": [
+      "PotentialDSU",
+      "mint"
+    ]
   }
 ]

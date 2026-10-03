@@ -1246,5 +1246,11 @@
     "AffineSequenceTreap",
     "动态仿射序列：插删、翻转与区间和",
     "AffineSequenceTreap<mod>，默认模数998244353，正int模数也可为1或合数，不做除法。insert(k,x)在前k项后插入；erase、reverse、affine、query均用1-based非空闭区间，affine(l,r,b,c)令值变为b*x+c，乘数0合法。query返回ModInt，values递归导出序列；二者会改变内部标记或树形，不保证并发读。新标记复合为(b*mul,b*add+c)，不能颠倒；顺序反转与统一仿射可交换。沿用递归split/merge，逐项构造期望O(N log(N+1))，操作期望O(log(n+1))、最坏O(n)，values为O(n)。固定种子可复现但无对抗最坏保证。删除不回收，空间按累计插入计；节点索引、大小须在int内。可reserve但不影响正确性；辅助函数及节点数组仅供内部使用。"
+  ],
+  [
+    "potential_dsu",
+    "PotentialDSU",
+    "带势并查集与差值约束",
+    "PotentialDSU<T>(n)，n≥0，点号0..n−1。merge(u,v,w)尝试添加potential[u]−potential[v]=w，返回是否与已接受信息一致；重复一致约束也返回true，矛盾返回false，已有逻辑关系不变（仍可能路径压缩）。diff(u,v)返回optional<T>，未连通为nullopt，连通时为u−v；合法零/负值不是失败标志。find求根并压缩路径，size返回连通块大小。T须提供精确加法交换群的+、−、==及零T(0)，不是非交换群或浮点近似比较；整数须保证所有中间运算不溢出，动态模数不可在实例存活时改变。n点、每条输入差值绝对值≤W时，(2n+1)W≤LLONG_MAX是long long的一个保守充分条件。按大小合并，摊还O(α(n))次T运算、O(n)空间；递归find未压缩前深度O(log n)。fa/sz/d为内部状态，不直接改写。原普通并查集的指定根合并方向与bool语义不变。"
   ]
 ]

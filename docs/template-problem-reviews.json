@@ -4383,5 +4383,47 @@
         "sha256": "4ad2d3488db72fad5db1fdff0209de65629c59d75e4fc2aff138672edebffbd6"
       }
     }
+  },
+  {
+    "symbol": "PotentialDSU",
+    "problem": "Library Checker Unionfind with Potential",
+    "url": "https://judge.yosupo.jp/problem/unionfind_with_potential",
+    "classification": "Official additive modular potential union-find template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-03",
+    "limits": "1<=N,Q<=200000; modulus998244353; zero-based vertices; 0<=x<mod; accepted relation a[u]-a[v]=x",
+    "implementation": "new",
+    "source": "src/compact/potential_dsu.hpp",
+    "tested_api": [
+      "merge (accept consistency, including redundant constraints)",
+      "diff (optional u-v difference)"
+    ],
+    "usage": "example-232",
+    "driver": "verify/library_checker/unionfind_with_potential.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending. Integer, composite-modulus and modulus-one structural tests are separate local API extensions.",
+    "statement_sources": {
+      "info.toml": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/info.toml",
+        "sha256": "9afe1564279801e5312ac3862be6bbe7df9bea73d7e05f99517cb7222f6659a9"
+      },
+      "task.md": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/task.md",
+        "sha256": "20c5c1375acfb960615d12447298474c021287254e20f5f516683c86666b04e0"
+      },
+      "checker.cpp": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/checker.cpp",
+        "sha256": "95ff683028805bcefb2cbdc8bd41fdcc19b4d6d423ded84a074e46e589fadb84"
+      },
+      "verifier.cpp": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/unionfind_with_potential/verifier.cpp",
+        "sha256": "9641112622b21a1aace288d002df4a94f1d65a8d0705815fc95b989d30d3e8e6"
+      }
+    }
   }
 ]

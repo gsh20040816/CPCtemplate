@@ -4221,6 +4221,34 @@ RollbackDSU(n) 可使用 0..n（若题目 0-based 则不用 n）。find 不压�
 
 \lstinputlisting{usage/example-84.cpp}
 
+\Needspace{417pt}
+
+\subsection{带势并查集与差值约束}\label{compact-PotentialDSU}\index{PotentialDSU}
+
+PotentialDSU<T>(n)，n$\ge$0，点号0..n−1。merge(u,v,w)尝试添加potential[u]−potential[v]=w，返回是否与已接受信息一致；重复一致约束也返回true，矛盾返回false，已有逻辑关系不变（仍可能路径压缩）。diff(u,v)返回optional<T>，未连通为nullopt，连通时为u−v；合法零/负值不是失败标志。find求根并压缩路径，size返回连通块大小。T须提供精确加法交换群的+、−、==及零T(0)，不是非交换群或浮点近似比较；整数须保证所有中间运算不溢出，动态模数不可在实例存活时改变。n点、每条输入差值绝对值$\le$W时，(2n+1)W$\le$LLONG\_MAX是long long的一个保守充分条件。按大小合并，摊还O($\alpha$(n))次T运算、O(n)空间；递归find未压缩前深度O(log n)。fa/sz/d为内部状态，不直接改写。原普通并查集的指定根合并方向与bool语义不变。
+
+\lstinputlisting[firstline=10,lastline=31]{../src/compact/potential_dsu.hpp}
+
+\newpage
+
+\noindent 约束合并、差值查询与分量大小（接上页同一结构体）：
+
+\lstinputlisting[firstline=32,lastline=58,firstnumber=23]{../src/compact/potential_dsu.hpp}
+
+\Needspace{491pt}
+
+\subsection*{模板题使用：Library Checker Unionfind with Potential}
+
+\label{usage-example-232}
+
+题意：未知序列a，1$\le$N,Q$\le$200000，模998244353。0 u v x尝试加入a[u]−a[v]=x；与此前已接受信息一致输出1，否则输出0并拒绝，不把矛盾边加入状态。1 u v查询a[u]−a[v]的规范模值，未连通输出−1；点号0-based，0$\le$x<mod。重复一致、自约束及零差值均有效。先设置模整数的模数再构造结构，存活期间不改变它；复用已有加减与相等比较，不需要乘法逆元。
+
+所需模板：\hyperref[compact-PotentialDSU]{PotentialDSU}（第~\pageref{compact-PotentialDSU}~页，\ref{compact-PotentialDSU}~节）、\hyperref[compact-mint]{mint}（第~\pageref{compact-mint}~页，\ref{compact-mint}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/unionfind_with_potential}
+
+\lstinputlisting{usage/example-232.cpp}
+
 \Needspace{264pt}
 
 \chapter{堆}
