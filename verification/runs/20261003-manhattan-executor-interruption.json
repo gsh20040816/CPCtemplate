@@ -1,0 +1,26 @@
+{
+  "observed_at_utc": "2026-10-03T16:47:00Z",
+  "source_commit": "c4bd42fc19b44961dee98611d50b66d0ac49a318",
+  "event": "executor transport reported key change; recovered clean checkout initially at Sept30 snapshot8b09b35; active process/logs/receipts absent",
+  "ordinary_observation": {
+    "run_id": "20261003T154754.325238Z-normal-d1c4b7b9",
+    "status_observed_before_replacement": "passed",
+    "exit_code_observed": 0,
+    "ended_at_utc_to_second": "2026-10-03T16:15:28Z",
+    "log_sha256_observed": "44c615406788403ff5cbba84c0f967f7453213ebb07e17e2a0b9f92d02092ee9",
+    "artifact_available_after_replacement": false
+  },
+  "sanitizer_observation": {
+    "run_id": "20261003T161529.357723Z-sanitizer-4d9ce028",
+    "status_last_observed": "running",
+    "terminal_result": "unverified",
+    "artifact_available_after_replacement": false
+  },
+  "recovery": {
+    "method": "git fetch origin main; git merge --ff-only origin/main; regenerate book and volumes",
+    "verified_source_files": 1371,
+    "verified_selected_external_inputs": 15743,
+    "all_published_pdf_hashes_match": true
+  },
+  "scope": "Observation record only, not reconstructed run receipt or sanitizer completion certification. Both full modes will be rerun to obtain durable paired receipts; no algorithm failure diagnosed."
+}
