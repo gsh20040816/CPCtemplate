@@ -1,0 +1,36 @@
+{
+  "source_commit": "f341b631022cd4fc755bad88db153b25fcd23d7c",
+  "source_count": 1305,
+  "source_snapshot_sha256": "2dedfe75d54c1b5287e5f05f726cce2ee86e7f677323501a16000a47c301945b",
+  "compiler_frontend_path": "/usr/libexec/gcc/x86_64-linux-gnu/14/cc1plus",
+  "compiler_frontend_sha256": "3064a74d411cc6a72fa3d8d2ce47d72925a42807d89d60618d8467b0eb10c948",
+  "manifest": "verification/runs/20261003-knowledge24-full-regression.json",
+  "manifest_sha256": "6a31173e4ce1cf80189c91bce6cbb53f3ddef8946470ce5f5b18060b515d2dda",
+  "counts": {
+    "algorithms": 208,
+    "usages": 228,
+    "knowledge_sections": 24,
+    "knowledge_sources": 11
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "receipt": "verification/runs/20261002T234435.562428Z-normal-9cc9d594/receipt.json",
+      "receipt_sha256": "61ecf34380b5898fcb222a0e22e01f791e3ec2857a32f098a6f625ffc697dbd6",
+      "duration_seconds": 1480.475106,
+      "log_sha256": "41ae56d8df25abd58894f91eb882d3b2f9ca8f0147efa998a62011bc59f2144b"
+    },
+    {
+      "mode": "sanitizer",
+      "receipt": "verification/runs/20261003T003036.022633Z-sanitizer-f12fe7cd/receipt.json",
+      "receipt_sha256": "7ac7edb3af09a687e629856355a233d28ca36f64cddd9b80d001f4c437f99ddb",
+      "duration_seconds": 3389.363305,
+      "log_sha256": "436af5b52cf9dfa0ef9a2ec81c5fee513d723703e2734b0eb96838dce140c22c"
+    }
+  ],
+  "incomplete_attempts": [
+    "verification/runs/20261002T233003.898700Z-normal-9b55bda1/interruption.json",
+    "verification/runs/20261003T000932.595435Z-sanitizer-3985ff47/interruption.json"
+  ],
+  "scope": "Full tools/test.sh at frozen source; no new all-printed-program exhaustive execution, online AC, CI, LeakSanitizer or universal correctness claim"
+}
