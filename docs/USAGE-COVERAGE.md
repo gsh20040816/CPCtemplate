@@ -21,7 +21,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | TwoSAT | [example-3](usage/example-3.cpp), [example-128](usage/example-128.cpp) | locally_checked_example |
 | BipartiteMatching | [example-35](usage/example-35.cpp) | locally_checked_example |
 | Lowlink | [example-58](usage/example-58.cpp) | locally_checked_example |
-| HLD | [example-44](usage/example-44.cpp) | locally_checked_example |
+| HLD | [example-44](usage/example-44.cpp), [example-231](usage/example-231.cpp) | locally_checked_example |
 | prefix_function | [example-91](usage/example-91.cpp) | locally_checked_example |
 | kmp_match | [example-91](usage/example-91.cpp) | locally_checked_example |
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |

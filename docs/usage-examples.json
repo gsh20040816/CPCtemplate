@@ -2885,5 +2885,23 @@
       "RealPlane",
       "circle_intersections"
     ]
+  },
+  {
+    "id": "example-231",
+    "symbol": "HLD",
+    "kind": "template",
+    "problem": "Library Checker Vertex Set Path Composite",
+    "url": "https://judge.yosupo.jp/problem/vertex_set_path_composite",
+    "summary": "静态无向树，1≤N,Q≤200000。点函数f(x)=a*x+b，对998244353取模；题面1≤a,c<mod，0≤b,d,x<mod。0 p c d改单点函数，1 u v x按u到v（含两端点）依次代入。题目点号0-based，传HLD时加1；HLD闭区间[l,r]对应segtree半开[l−1,r)。S存正向与反向复合，不能把组合顺序反过来或用逆函数代替反向序列。点改O(log N)，路径O(log² N)，空间O(N)；保留递归DFS，最大链须足够大栈。",
+    "driver": "verify/library_checker/vertex_set_path_composite.compact.cpp",
+    "requires": [
+      "HLD",
+      "segtree"
+    ],
+    "configuration_functions": [
+      "op",
+      "e"
+    ],
+    "page_break_before": "    while (q--)"
   }
 ]

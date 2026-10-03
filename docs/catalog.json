@@ -87,7 +87,7 @@
     "tree",
     "HLD",
     "重链剖分与 LCA",
-    "add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn、rk。子树对应 [dfn[u],dfn[u]+siz[u]-1]。lca(u,v) 为 O(log n)，path(u,v,work,edge) 分解路径；work(l,r) 仅适用于可交换聚合，边权模式排除 LCA 位置。输入必须是连通无环树，建树 O(n)，两遍递归 DFS；支持改变根后重复 build，dfn 会重新编号。"
+    "add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn、rk。子树对应 [dfn[u],dfn[u]+siz[u]-1]。lca(u,v) 为 O(log n)，path(u,v,work,edge) 分解路径；work(l,r) 仅适用于可交换聚合，边权模式排除 LCA 位置。输入必须是连通无环树，建树 O(n)，两遍递归 DFS；支持改变根后重复 build，dfn 会重新编号。 path_ordered(u, v, work, edge) 的edge默认为false；按真实u到v顺序回调work(l, r, rev)：1-based闭区间l≤r，rev=true按r到l访问，否则按l到r。支持非交换聚合，O(log n)段与额外空间；结合线段树通常每次查询O(log² n)。edge=true仅删除LCA对应位置，仍须自行处理边算子的方向；不自动求逆。u=v时点模式一次单点回调，边模式无回调；改变根后须重建依赖dfn的结构。"
   ],
   [
     "string",

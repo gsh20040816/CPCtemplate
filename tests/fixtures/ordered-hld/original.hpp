@@ -88,30 +88,4 @@ struct HLD
         if (dep[u] > dep[v]) swap(u, v);
         if (dfn[u] + edge <= dfn[v]) work(dfn[u] + edge, dfn[v]);
     }
-
-    // Emit u-to-v order; reverse=true traverses the closed interval from r to l.
-    template <class F> void path_ordered(int u, int v, F work, bool edge = false) const
-    {
-        vector<pair<int, int>> down;
-        while (top[u] != top[v])
-        {
-            if (dep[top[u]] >= dep[top[v]])
-            {
-                work(dfn[top[u]], dfn[u], true);
-                u = fa[top[u]];
-            }
-            else
-            {
-                down.emplace_back(dfn[top[v]], dfn[v]);
-                v = fa[top[v]];
-            }
-        }
-        if (dep[u] >= dep[v])
-        {
-            if (dfn[v] + edge <= dfn[u]) work(dfn[v] + edge, dfn[u], true);
-        }
-        else if (dfn[u] + edge <= dfn[v]) work(dfn[u] + edge, dfn[v], false);
-        for (auto it = down.rbegin(); it != down.rend(); ++it)
-            work(it->first, it->second, false);
-    }
 };

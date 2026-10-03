@@ -4340,5 +4340,48 @@
       "total": null
     },
     "remaining": "Online AC and ranking pending; generic positive-modulus and export/copy/reset extensions are independent local tests, not extra official requirements."
+  },
+  {
+    "symbol": "HLD",
+    "problem": "Library Checker Vertex Set Path Composite",
+    "url": "https://judge.yosupo.jp/problem/vertex_set_path_composite",
+    "classification": "Official static-tree point-function assignment and directed vertex-path composition template; not the dynamic-tree link/cut problem.",
+    "statement_checked": true,
+    "checked_date": "2026-10-03",
+    "limits": "1<=N,Q<=200000; modulus998244353; 1<=a,c<mod and 0<=b,d,x<mod; zero-based vertices; connected tree",
+    "implementation": "extension",
+    "source": "src/compact/tree.hpp",
+    "tested_api": [
+      "build",
+      "path_ordered (official vertex mode)",
+      "segtree::set/prod with paired forward/reverse affine composition"
+    ],
+    "usage": "example-231",
+    "driver": "verify/library_checker/vertex_set_path_composite.compact.cpp",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending. Edge mode, rerooting and zero-multiplier extensions are independent local scope. Recursive DFS on maximum chains requires a sufficiently large stack.",
+    "statement_sources": {
+      "info.toml": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/tree/vertex_set_path_composite/info.toml",
+        "sha256": "e0c91174ea566c3952c91a0b26b58cd29b7805a6edd8fcb74a8d766972f4a644"
+      },
+      "task.md": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/tree/vertex_set_path_composite/task.md",
+        "sha256": "d1084168fa6073ab5d3922f12f426f036476ae3925c8ab809f918ba59da0890e"
+      },
+      "checker.cpp": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/tree/vertex_set_path_composite/checker.cpp",
+        "sha256": "6e9b1ffacf111a87c040efbccb5de2862f897c97d0618ba2dc106cc996c584ba"
+      },
+      "verifier.cpp": {
+        "url": "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/tree/vertex_set_path_composite/verifier.cpp",
+        "sha256": "4ad2d3488db72fad5db1fdff0209de65629c59d75e4fc2aff138672edebffbd6"
+      }
+    }
   }
 ]

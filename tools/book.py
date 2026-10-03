@@ -211,11 +211,14 @@ for style in ['compact']:
                 body.append('\\noindent 重算入口与拓扑编号（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'HLD':
-                split = next(i for i in range(start, end) if 'void dfs2(' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 链顶与序号、建树和路径接口（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+                cuts = [start,
+                        next(i for i in range(start, end) if 'void dfs2(' in lines[i]),
+                        next(i for i in range(start, end) if '// Emit u-to-v order;' in lines[i]), end]
+                for part in range(3):
+                    if part:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + ('重编号、LCA与可交换路径' if part == 1 else '按真实方向分解路径') + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'ModifiedMo':
                 split = next(i for i in range(start, end) if 'template <class Add' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
