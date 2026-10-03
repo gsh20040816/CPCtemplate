@@ -9,11 +9,15 @@ verify today's source. Do not relabel, refresh, or overwrite them to imply it do
 From the repository root, after completing all source and documentation changes:
 
 ```sh
+python3 tools/book.py
+python3 tools/volumes.py
 bash tools/test.sh
 SANITIZE=1 bash tools/test.sh
 ```
 
-Each command uses `tools/test_baseline.py`, stages the suite (including `docs/`),
+The first two commands generate the book/volume TeX needed by document integration checks, including ignored `docs/volume-*.tex`; they require Python, not LaTeX. Run them before either source-bound suite so generated files are included in the input snapshot. A prepared workspace pass alone does not establish clean-checkout reproducibility.
+
+Each test command uses `tools/test_baseline.py`, stages the suite (including `docs/`),
 overlays `src/classic` from the pinned commit
 `1a9fa3e91d7dff58915341040be069611370054c`, and executes `bash tools/test.sh`.
 It streams output and prints the unique receipt path at the end. The retained files

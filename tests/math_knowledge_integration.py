@@ -10,6 +10,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+if not __debug__:
+    raise RuntimeError('Document integration checks require Python assertions')
+registration = json.loads((ROOT / 'docs/knowledge-taxonomy.json').read_text())
 main = (ROOT / 'docs/main.tex').read_text()
 math = (ROOT / 'docs/mathematics.tex').read_text()
 assert main.count(r'\input{mathematics-legacy.tex}') == 1
@@ -25,7 +28,7 @@ volumes = {key: (ROOT / f'docs/volume-{key}.tex').read_text() for key in
 owner = {'数学': 'mathematics', '图论': 'graphs'}
 volume = volumes['mathematics']
 knowledge_labels = []
-for source in json.loads((ROOT / 'docs/knowledge-taxonomy.json').read_text())['scope']['source_files']:
+for source in registration['scope']['source_files']:
     filename = Path(source).name
     file_rows = [row for row in mapped.values() if row['symbol'] in re.findall(r'\\label\{(knowledge-[^}]+)\}', (ROOT / source).read_text())]
     owners = {owner[row['taxonomy']['hierarchy'][0]] for row in file_rows}
@@ -55,7 +58,8 @@ for source in json.loads((ROOT / 'docs/knowledge-taxonomy.json').read_text())['s
             assert r'\pageref{' + target + '}' in content, (target, 'missing page')
     assert r'\chapter{' not in content, filename
 assert len(knowledge_labels) == len(set(knowledge_labels))
-assert len(knowledge_labels) == 25
+assert set(knowledge_labels) == {row['label'] for row in registration['entries']}
+assert len(knowledge_labels) == registration['scope']['classified_section_count']
 for rendered in (omnibus, volumes['mathematics']):
     assert r'\newpage' + '\n\n' + r'\section{升幂引理}' in rendered, 'LTE page break must precede taxonomy heading'
     assert r'\newpage' + '\n\n' + r'\section{Lagrange 反演}' in rendered, 'Lagrange page break must precede taxonomy heading'

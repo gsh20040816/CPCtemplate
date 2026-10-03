@@ -31,6 +31,7 @@ python3 tests/basic_template_scope.py
 python3 tests/acl_review_consistency.py
 python3 tests/static_modint.py
 python3 tests/knowledge_taxonomy.py
+python3 tests/math_knowledge_integration.py
 python3 tests/template_report.py
 python3 tests/floor_knowledge_migration.py
 python3 tests/matrix_tree_knowledge.py
@@ -41,6 +42,7 @@ python3 tests/hld_ordered.py
 python3 tests/potential_dsu.py
 python3 tests/gauss_real.py
 python3 tests/mod64_usage.py
+python3 tests/diophantine_knowledge.py
 python3 tests/lte_knowledge.py
 python3 tests/lagrange_knowledge.py
 python3 tests/lagrange_fps_usage.py

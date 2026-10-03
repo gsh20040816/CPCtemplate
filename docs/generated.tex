@@ -811,6 +811,97 @@ linear\_equation(a,b,c,x,y) 求 ax+by=c 的任意整数特解。a、b、c 支持
 
 \lstinputlisting{usage/example-75.cpp}
 
+\newpage
+
+\subsection{一次不定方程：特解与正整数解范围}\label{knowledge-diophantine-bounds}\index{Bezout identity}\index{二元一次不定方程}
+实现见第~\ref{compact-linear_equation}~节（第~\pageref{compact-linear_equation}~页）。
+对不全为零的 $a,b$，令 $g=\gcd(|a|,|b|)>0$。
+递归扩展欧几里得先求 $|a|u+|b|v=g$；当且仅当 $g\mid c$ 时有整数解。
+把系数乘以 $c/g$，再恢复 $a,b$ 的符号，就得到 $ax_0+by_0=c$。
+两个特解相减，再利用 $a/g,b/g$ 互素，可知所有解恰为
+\[
+x=x_0+\frac bg t,\qquad y=y_0-\frac ag t,\qquad t\in\mathbb Z.
+\]
+若 $a=b=0$，则 $c=0$ 时所有整数对都是解，否则无解；此时不能使用除以 $g$ 的通解式。
+
+底层 \texttt{exgcd} 的本库调用约定为非负系数，上限 $2^{63}$；
+返回非负的 $g$，$(0,0)$ 约定返回 0。
+包装函数先转为 128 位再取相反数，因而可以处理 \texttt{LLONG\_MIN}。
+缩放后的特解也用 128 位保存；不要提前转回 \texttt{long long}。
+即使特解可表示，直接验证 $ax+by$ 的两个乘积仍可能超过 128 位，本地验证使用任意精度整数。
+
+对 P5656 的正系数 $a,b,c$，设 $d_x=b/g,d_y=a/g$，
+先将 $x_0$ 调整到 $x_{\min}\in[1,d_x]$，并计算与它配对的
+$y_{\max}=(c-ax_{\min})/b$。
+若 $y_{\max}>0$，正整数解个数为
+\[
+N=\left\lfloor\frac{y_{\max}-1}{d_y}\right\rfloor+1,
+\quad x_{\max}=x_{\min}+(N-1)d_x,
+\quad y_{\min}=y_{\max}-(N-1)d_y.
+\]
+否则不存在同时为正的解，但 $x$ 和 $y$ 仍各自有最小正值；
+分别按周期归一化即可，它们通常不是同一组解。正值归一化使用
+\texttt{(v \% d + d - 1) \% d + 1}，不要把余数 0 当作正整数。
+驱动中 $a,b,c\le10^9$，归一化后的乘积不超过 $10^{18}$，故该部分可用 64 位。
+
+双版本以小范围有符号输入穷举、任意精度等式证书、64 位端点和斐波那契递归链验证。
+完整 P5656 驱动另验证 200000 组输入，包含正解数量与四个极值、无解和无正解分支；
+普通与 ASan/UBSan 测试均通过，在线 AC 待补。
+
+来源：kuangbin 2.3；WIDA 数论打印稿的 exgcd 与不定方程例题。
+
+\url{https://oi-wiki.org/math/number-theory/bezouts/}。
+
+底层接口见第~\ref{compact-extended_gcd}~节（第~\pageref{compact-extended_gcd}~页）。
+
+\newpage
+\subsubsection{有符号矩形范围：把两维约束化成一个参数区间}
+现在允许 $a,b,c$ 为负或零，要求
+\[
+L_x\le x\le R_x,\qquad L_y\le y\le R_y.
+\]
+先处理空区间；任意一维下界大于上界，答案为0。
+若 $a=b=0$，$c\ne0$ 时无解；$c=0$ 时答案为
+$(R_x-L_x+1)(R_y-L_y+1)$，不能套用一维参数族。
+否则先检查 $g\mid c$，再取得上面的特解与步长
+$d_x=b/g$、$d_y=-a/g$。不要把负系数或负步长直接取绝对值而保留旧特解。
+
+对任一坐标 $z=z_0+dt$，条件 $L\le z\le R$ 给出：
+\[
+\begin{array}{c|c}
+ d>0 & \lceil(L-z_0)/d\rceil\le t\le\lfloor(R-z_0)/d\rfloor\\[2pt]
+ d<0,\ k=-d>0 & \lceil(z_0-R)/k\rceil\le t\le\lfloor(z_0-L)/k\rfloor\\[2pt]
+ d=0 & L\le z_0\le R\text{ 时不限制 }t\text{，否则无解}
+\end{array}
+\]
+例如 $6x-9y=3$，$x\in[-5,4],y\in[-1,5]$ 时，解恰为 $(2,1)$ 和 $(-1,-1)$。
+分别计算 $x,y$ 允许的区间，取交集 $[T_l,T_r]$；解数是
+$\max(0,T_r-T_l+1)$。不全为零的系数保证至少一个步长非零，
+有限矩形因此会给出有限参数区间；实现时用“尚无上下界”标记，不必猜一个足够大的哨兵。
+通解对整数 $t$ 是单射，且已包含全部整数解，所以交集计数没有遗漏或重复。
+若要实际列举答案，再依次代入这些整数 $t$，输出成本为 $O(\text{解数})$。
+
+这里的 floor/ceil 是数学取整，不能用 C++ 的负数向零截断替代。
+对正分母 $D$，令 C++ 商余为 $q=n/D,r=n\%D$，则
+\[
+\lfloor n/D\rfloor=q-[r<0],\qquad
+\lceil n/D\rceil=q+[r>0].
+\]
+例如 $-5/2$ 的 floor 是 $-3$、ceil 是 $-2$。
+不要使用只对非负数成立的 \texttt{(n+D-1)/D}，也不要在未证明安全时先计算 \texttt{-n}。
+参数平移 $x'_0=x_0+d_xs,y'_0=y_0+d_ys$ 只会把允许的 $t$ 整体平移 $-s$，答案不变；
+这是检查实现符号的一个独立不变量。
+
+范围运算比求一个特解要求更强的整数宽度：即使输入端点都是64位，差值和区间长度也未必能用64位保存。
+当两系数全零、矩形覆盖全部有符号64位坐标时，答案为 $2^{128}$，连无符号128位也放不下。
+本节通式按精确整数理解；实现前证明每一步范围，不能证明时使用任意精度整数。
+尤其不要用窄类型计算长度后才转宽，也不能在等式证书中先让 $ax,by$ 溢出再相消。
+求特解之后只需常数次整数运算；大整数版本的位复杂度取决于操作数长度，不能据此承诺固定字长常数耗时。
+
+本节的有界小整数矩形用逐点枚举核对，并检查方程同乘负一、交换变量、特解平移、零系数、无解与64位端点构造。
+这验证本地公式和建模，不新增模板、正式题覆盖或线上AC。
+
+
 \Needspace{402pt}
 
 \section{费马小定理 \& 欧拉定理}
