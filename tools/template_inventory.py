@@ -17,6 +17,7 @@ for file,name,title,contract in cat:
         text=driver.read_text()
         if not re.search(r'\b'+re.escape(name)+r'\b',text):continue
         rel=str(driver.relative_to(root));pid=driver.name.split('.')[0];judge=driver.relative_to(root / 'verify').parts[0]
+        if judge == 'api':continue  # Explicit API demonstrations are not formal-problem candidates.
         url={'luogu':f'https://www.luogu.com.cn/problem/{pid}','qoj':f'https://qoj.ac/problem/{pid}','cses':f'https://cses.fi/problemset/task/{pid}','library_checker':f'https://judge.yosupo.jp/problem/{pid}','aoj':f'https://onlinejudge.u-aizu.ac.jp/problems/{pid}','loj':f'https://loj.ac/p/{pid}'}.get(judge,'')
         explicit = re.search(r'^// (https://judge\.yosupo\.jp/problem/[A-Za-z0-9_]+)$', text, re.M)
         if judge == 'library_checker' and explicit: url = explicit[1]
@@ -25,6 +26,6 @@ for file,name,title,contract in cat:
     rows.append(dict(symbol=name,title=title,source=f'src/compact/{file}.hpp',status='needs_template_problem_review',candidate_drivers=candidates,qoj_tag_candidate=f'https://qoj.ac/problem/{qoj[name]}' if name in qoj else None,ranking=dict(status='not_checked',rank=None,total=None,checked_at=None,scope=None)))
 upstream=list(csv.DictReader((root/'docs/coverage.csv').open()))
 missing=[{k:r[k] for k in ['source','source_path','page','topic']} for r in upstream if r['status']=='pending']
-data=dict(excluded_basic_problems=policy,issue='https://github.com/gsh20040816/CPCtemplate/issues/1',note='Candidates only. A template tag or an existing application AC does not prove a noncompetition template, complete API coverage, or a fastest-submission rank.',qoj_tag_source='https://qoj.ac/problems?tag=%E6%A8%A1%E6%9D%BF%E9%A2%98',algorithms=rows,unresolved_upstream_topics=missing)
+data=dict(excluded_basic_problems=policy,issue='https://github.com/gsh20040816/CPCtemplate/issues/1',note='Candidates only; verify/api demonstrations are excluded from formal-problem candidates. A template tag or an existing application AC does not prove a noncompetition template, complete API coverage, or a fastest-submission rank.',qoj_tag_source='https://qoj.ac/problems?tag=%E6%A8%A1%E6%9D%BF%E9%A2%98',algorithms=rows,unresolved_upstream_topics=missing)
 (root/'docs/template-problems.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 print(len(rows),'implemented algorithm entries;',len(missing),'upstream topics still require deduplication and mapping')

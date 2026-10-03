@@ -45,7 +45,7 @@ assert len(json.loads((root / 'docs/usage-examples.json').read_text())) >= 198
 # A removed basic driver must not reappear merely because it mentions Fenwick.
 with tempfile.TemporaryDirectory() as tmp:
     fixture = Path(tmp)
-    for directory in ('tools', 'docs', 'verification', 'verify/luogu'):
+    for directory in ('tools', 'docs', 'verification', 'verify/luogu', 'verify/api'):
         (fixture / directory).mkdir(parents=True)
     for name in ('template_inventory.py', 'template_scope.py'):
         shutil.copyfile(root / 'tools' / name, fixture / 'tools' / name)
@@ -56,6 +56,7 @@ with tempfile.TemporaryDirectory() as tmp:
     (fixture / 'docs/coverage.csv').write_text(ledger)
     for problem in ('P1226', 'P1177', 'P3374', 'P33740', 'P2617', 'P3367'):
         (fixture / f'verify/luogu/{problem}.compact.cpp').write_text('Fenwick dsu;')
+    (fixture / 'verify/api/demo.compact.cpp').write_text('Fenwick dsu;')
     subprocess.run([sys.executable, str(fixture / 'tools/template_inventory.py')], check=True, capture_output=True)
     result = json.loads((fixture / 'docs/template-problems.json').read_text())
     for row in result['algorithms']:

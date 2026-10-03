@@ -88,7 +88,7 @@
 | [Static Rectangle Add Rectangle Sum](https://judge.yosupo.jp/problem/static_rectangle_add_rectangle_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Static RMQ](https://judge.yosupo.jp/problem/staticrmq) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Unionfind](https://judge.yosupo.jp/problem/unionfind) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Unionfind with Potential](https://judge.yosupo.jp/problem/unionfind_with_potential) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Unionfind with Potential](https://judge.yosupo.jp/problem/unionfind_with_potential) | Data Structure | 待逐题审题、适配与在线验证 | [unionfind_with_potential.compact.cpp](../verify/library_checker/unionfind_with_potential.compact.cpp) |
 | [Unionfind with Potential (Non-Commutative Group)](https://judge.yosupo.jp/problem/unionfind_with_potential_non_commutative_group) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Bell Number](https://judge.yosupo.jp/problem/bell_number) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
 | [Binomial Coefficient](https://judge.yosupo.jp/problem/binomial_coefficient) | Enumerative Combinatorics | 待逐题审题、适配与在线验证 | — |
@@ -260,7 +260,7 @@
 | [Vertex Add Range Contour Sum on Tree](https://judge.yosupo.jp/problem/vertex_add_range_contour_sum_on_tree) | Tree | 待逐题审题、适配与在线验证 | — |
 | [Vertex Add Subtree Sum](https://judge.yosupo.jp/problem/vertex_add_subtree_sum) | Tree | 待逐题审题、适配与在线验证 | — |
 | [Vertex Get Range Contour Add on Tree](https://judge.yosupo.jp/problem/vertex_get_range_contour_add_on_tree) | Tree | 待逐题审题、适配与在线验证 | — |
-| [Vertex Set Path Composite](https://judge.yosupo.jp/problem/vertex_set_path_composite) | Tree | 待逐题审题、适配与在线验证 | — |
+| [Vertex Set Path Composite](https://judge.yosupo.jp/problem/vertex_set_path_composite) | Tree | 待逐题审题、适配与在线验证 | [vertex_set_path_composite.compact.cpp](../verify/library_checker/vertex_set_path_composite.compact.cpp) |
 | [Aho Corasick](https://judge.yosupo.jp/problem/aho_corasick) | Unlisted | 待逐题审题、适配与在线验证；尚未列入分类 | — |
 | [Convolution ($\mathbb{F}_{2^{64}}$)](https://judge.yosupo.jp/problem/convolution_F_2_64) | Unlisted | 待逐题审题、适配与在线验证；尚未列入分类 | — |
 | [Deque](https://judge.yosupo.jp/problem/deque) | Unlisted | 待逐题审题、适配与在线验证；尚未列入分类 | — |

@@ -24,7 +24,7 @@
     ]
   },
   "issue": "https://github.com/gsh20040816/CPCtemplate/issues/1",
-  "note": "Candidates only. A template tag or an existing application AC does not prove a noncompetition template, complete API coverage, or a fastest-submission rank.",
+  "note": "Candidates only; verify/api demonstrations are excluded from formal-problem candidates. A template tag or an existing application AC does not prove a noncompetition template, complete API coverage, or a fastest-submission rank.",
   "qoj_tag_source": "https://qoj.ac/problems?tag=%E6%A8%A1%E6%9D%BF%E9%A2%98",
   "algorithms": [
     {
@@ -433,6 +433,12 @@
       "source": "src/compact/tree.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/vertex_set_path_composite.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/vertex_set_path_composite",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
         {
           "driver": "verify/luogu/P3384.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P3384",
@@ -2231,8 +2237,20 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
+          "driver": "verify/aoj/CGL_7_E.real.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_E",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/aoj/CGL_1_A.compact.cpp",
           "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_1_A",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/aoj/CGL_7_D.real.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_D",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -2332,7 +2350,14 @@
       "title": "浮点直线与圆交点",
       "source": "src/compact/line_circle_intersections.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/aoj/CGL_7_D.real.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_D",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -2347,7 +2372,14 @@
       "title": "浮点两圆交点",
       "source": "src/compact/circle_intersections.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/aoj/CGL_7_E.real.compact.cpp",
+          "url": "https://onlinejudge.u-aizu.ac.jp/problems/CGL_7_E",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -4425,6 +4457,12 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
+          "driver": "verify/library_checker/vertex_set_path_composite.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/vertex_set_path_composite",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/library_checker/point_set_range_composite.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/point_set_range_composite",
           "existing_ac": [
@@ -4470,6 +4508,12 @@
       "source": "src/compact/dynamic_modint.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/unionfind_with_potential.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/unionfind_with_potential",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
         {
           "driver": "verify/luogu/P5431.mint.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P5431",
@@ -5415,6 +5459,43 @@
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "PotentialDSU",
+      "title": "带势并查集与差值约束",
+      "source": "src/compact/potential_dsu.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/unionfind_with_potential.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/unionfind_with_potential",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "GaussReal",
+      "title": "实数高斯消元与数值解空间",
+      "source": "src/compact/gauss_real.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

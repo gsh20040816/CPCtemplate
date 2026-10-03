@@ -35,6 +35,13 @@ class ReportTests(unittest.TestCase):
                                               'info.toml':{'url':'https://example.org/limits'}}), expected)
         with self.assertRaises(ValueError): module.source_links(['task.md'])
 
+    def test_library_checker_driver_index_is_current(self):
+        inventory = json.loads((ROOT/'docs/library-checker-inventory.json').read_text())
+        indexed = {driver for row in inventory['problems'] for driver in row['candidate_drivers']}
+        current = {str(path.relative_to(ROOT)) for path in
+                   (ROOT/'verify/library_checker').rglob('*.compact.cpp')}
+        self.assertEqual(indexed, current)
+
     def test_current_generation_and_evidence_limits(self):
         reviews = json.loads((ROOT/'docs/template-problem-reviews.json').read_text())
         actual = (ROOT/'docs/TEMPLATE-PROBLEMS.md').read_text()
