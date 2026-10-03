@@ -405,7 +405,7 @@ def prepare_programs(root, source, out):
                b'while (std::cin >> n >> m >> r) {\n'+snippet+
                b'\nstd::cout << answer.v << "\\n";\n}\n}\n')
     programs = {
-        'minimal_components': b'#include <cassert>\n#include <vector>\n#include <iostream>\nusing namespace std;\n'+b'\n'.join(regions)+wrapper,
+        'minimal_components': b'#include <cassert>\n#include <vector>\n#include <iostream>\n#include <optional>\n#include <utility>\nusing namespace std;\n'+b'\n'.join(regions)+wrapper,
         'full_header': b'#include "number_theory.hpp"\n'+wrapper,
     }
     paths = {}

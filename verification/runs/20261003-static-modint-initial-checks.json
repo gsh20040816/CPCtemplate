@@ -1,0 +1,11 @@
+{
+  "source_commit": "cd7a9918e0b9771372332230f4bf1b45a93b17c3",
+  "printed_report": "verification/runs/20261003-static-modint-all-printed.json",
+  "printed_report_sha256": "8441642187ae2f33fa823aeb823d4e0d5cbb928a54b453489e5b8ca6a5c2a3f9",
+  "canonical_proof_archive": "verification/runs/20261003-static-modint-first-usage-proof.json",
+  "canonical_proof_sha256": "39590db4ceaa57b1343ece442efac19b980708441c8312a3e0aeb3f49b0e1d7c",
+  "full_normal_receipt": "verification/runs/20261003T021811.373969Z-normal-724e7305/receipt.json",
+  "full_normal_status": "failed",
+  "cause": "inclusion_knowledge.py minimal_components lacked optional; binomial_coefficient_application.py has the same standard-header omission. No numeric mismatch observed; full sanitizer was not started.",
+  "next_step": "Add optional and utility explicitly to both minimal preludes and rerun against a new source snapshot."
+}

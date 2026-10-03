@@ -30,7 +30,7 @@ from usage_examples import expand, records
 MOD = 10007
 DRIVER = 'verify/luogu/P1313.compact.cpp'
 DRIVER_SHA = '3d813d04128e6bc1b0ae54cd3f561b67ddfea5c5b6f7730e2b494312a100159e'
-PROGRAM_SHA = '2236ba2f0ec74e3a0c75b569284bdff0f17290eb5ed56a6ab73e7ef9d4edb359'
+PROGRAM_SHA = '966e0009c4da1f035bfeaebe805dae0725d34f70b94a994297f55af7cd8bafe3'
 
 
 def sha(data):
@@ -104,7 +104,7 @@ def minimal_program(row):
         if match:
             starts.append((i, match[1]))
     regions = []
-    code = ['#include <cassert>\n#include <iostream>\n#include <vector>\nusing namespace std;\n']
+    code = ['#include <cassert>\n#include <iostream>\n#include <vector>\n#include <optional>\n#include <utility>\nusing namespace std;\n']
     assert row['requires'] == ['ModInt', 'Binomial']
     for symbol in row['requires']:
         idx = next(i for i, item in enumerate(starts) if item[1] == symbol)

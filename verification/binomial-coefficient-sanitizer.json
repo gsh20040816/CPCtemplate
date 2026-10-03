@@ -1,7 +1,7 @@
 {
   "mode": "sanitizer",
   "passed": true,
-  "checked_at": "2026-10-02T12:19:22.930496+00:00",
+  "checked_at": "2026-10-03T02:44:39.957108+00:00",
   "compiler": "/usr/bin/x86_64-linux-gnu-g++-14",
   "compiler_version": "x86_64-linux-gnu-g++-14 (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
   "compiler_sha256": "6b3696e4dcb85e1c949c732a02befa50e3983ecf94ce7e8e58d9d503b954b79d",
@@ -12,9 +12,9 @@
     "src/compact/floor_sum.hpp": "05382441db2be29f261cf7eed469568dbde3e8867be92c941cb6f0d52708bd2f",
     "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
     "src/compact/mod_inverse.hpp": "c09505bd0381545e195279229ab4e59f0423f6e0eed51ffc50c661e023f1bb0b",
-    "src/compact/number_theory.hpp": "16eb2d5b5b67e2fb26b41836f5df268571e001ae7e75631be407054e83493425",
+    "src/compact/number_theory.hpp": "a34ca088e2b3fe2decceadfba4b59164a8ee6625ced23a3e1781e24590a1790a",
     "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
-    "tests/binomial_coefficient_application.py": "510d7671cad9d97e0fee3e075aa534ac5e4e07bef3cbee5cb28f4294a79d0fe2",
+    "tests/binomial_coefficient_application.py": "42b0f18e4cd63685e9a1921be61d643680b5c661b85ae912adacef97cd88b0fc",
     "tests/compiler_config.py": "66b6eeaac9ebb096d9a50d3b2674f6ae1e6e12f037523671e70b3ed7f467af76",
     "tools/usage_examples.py": "1914b1c8c2895c5dfaf1a8ccfa25037da7a40dc2f1ccade508ca0b78c0a87338",
     "verify/luogu/P1313.compact.cpp": "3d813d04128e6bc1b0ae54cd3f561b67ddfea5c5b6f7730e2b494312a100159e"
@@ -35,9 +35,9 @@
       "Binomial"
     ],
     "snippet_file": "docs/usage/example-216.cpp",
-    "program_sha256": "2236ba2f0ec74e3a0c75b569284bdff0f17290eb5ed56a6ab73e7ef9d4edb359"
+    "program_sha256": "966e0009c4da1f035bfeaebe805dae0725d34f70b94a994297f55af7cd8bafe3"
   },
-  "registration_sha256": "b471b0c2a0030f2c96d56d5f13179c5d225bbf5e209c155ee666746bdeb52777",
+  "registration_sha256": "d46def355053265bf81d75e1b3826b75b34d204e095adbe614d305ffbe093e9e",
   "fixtures": "build/binomial-coefficient/sanitizer/cases.jsonl",
   "fixtures_sha256": "2a172452bd00cd0b885c01d9ba06a36ee12b5762305e538dc56a102dc0352451",
   "invocations_per_form": 2657,
@@ -62,7 +62,7 @@
     {
       "form": "registered_expanded_context",
       "source": "build/binomial-coefficient/sanitizer/registered_expanded_context.cpp",
-      "program_sha256": "2236ba2f0ec74e3a0c75b569284bdff0f17290eb5ed56a6ab73e7ef9d4edb359",
+      "program_sha256": "966e0009c4da1f035bfeaebe805dae0725d34f70b94a994297f55af7cd8bafe3",
       "compile_command": [
         "/usr/bin/x86_64-linux-gnu-g++-14",
         "-std=c++20",
@@ -26662,14 +26662,14 @@
         "stdout": "",
         "stderr": ""
       },
-      "binary_sha256": "185b286b4525978b6de59102f452145201f195003bfd1cadc67bfc72358a408c",
+      "binary_sha256": "cc0c30f001ba51f66425a4f5a10e052335050d26004be544da105a17390393ae",
       "passed": true,
-      "seconds": 10.061526
+      "seconds": 8.839158
     },
     {
       "form": "standalone_expanded_driver",
       "source": "build/binomial-coefficient/sanitizer/standalone_expanded_driver.cpp",
-      "program_sha256": "0d83fac2ddde4754a36fa6e38fc05b0809989ab76d9906cfbab64c663ed6c8f9",
+      "program_sha256": "45c08afb15dee90f4e5ede546b0d5691211295803744e90279d7ec3e5b11d146",
       "compile_command": [
         "/usr/bin/x86_64-linux-gnu-g++-14",
         "-std=c++20",
@@ -53269,14 +53269,14 @@
         "stdout": "",
         "stderr": ""
       },
-      "binary_sha256": "8023f1c9e640b6575307c20be74f4b887c059ad117da87777d34cb3a920064c1",
+      "binary_sha256": "6eecd736e0fb5753e0ed950f9721c03101e048c54f3e03866f0d02929ff9b769",
       "passed": true,
-      "seconds": 9.880107
+      "seconds": 8.869557
     },
     {
       "form": "minimal_declared_regions",
       "source": "build/binomial-coefficient/sanitizer/minimal_declared_regions.cpp",
-      "program_sha256": "108c52f36a91be42a53d304d9434f968dad000977ba2040fd7bf9790274d0941",
+      "program_sha256": "905e73e929e2ee26ef194e8dff91d356e312c62fbe8aaf7c146e2d14cc09223e",
       "compile_command": [
         "/usr/bin/x86_64-linux-gnu-g++-14",
         "-std=c++20",
@@ -53297,14 +53297,14 @@
           "symbol": "ModInt",
           "path": "src/compact/number_theory.hpp",
           "start_line": 124,
-          "end_line": 161,
-          "region_sha256": "2aecb81c898a9b588de5a24d3d5e144bc8e81e01c4a6bae364a3f6bc79863049"
+          "end_line": 178,
+          "region_sha256": "156553e7acb484673dea92c22ee79973f6a206d3702e34feb15d74ad5e0aa614"
         },
         {
           "symbol": "Binomial",
           "path": "src/compact/number_theory.hpp",
-          "start_line": 162,
-          "end_line": 194,
+          "start_line": 179,
+          "end_line": 211,
           "region_sha256": "09c2daa626bb9bb2c40876e1111d26fdcd4396c0f3565b5e9bd88ba9e9d4ebbd"
         }
       ],
@@ -79885,10 +79885,10 @@
         "stdout": "",
         "stderr": ""
       },
-      "binary_sha256": "f30d6c85c7ba09cdfc10d2ccd149b09c3e1745f4dfae435a587e68ab65fd1263",
+      "binary_sha256": "53c674dee52b263daf3c491b866af4252c8365d7b26733c747ddf3ae0d663c64",
       "passed": true,
-      "seconds": 10.006184
+      "seconds": 8.805004
     }
   ],
-  "finished_at": "2026-10-02T12:19:58.967020+00:00"
+  "finished_at": "2026-10-03T02:45:12.373153+00:00"
 }
