@@ -1,0 +1,11 @@
+\section{模运算的适用条件}\index{CRT}\index{Euler theorem}\index{Lucas theorem}
+模逆元存在当且仅当 $\gcd(a,m)=1$。费马逆元 $a^{p-2}$ 仅适用于素数模数及 $a\not\equiv0$。
+对正模数 $m,n$，同余式 $x\equiv a\pmod m$、$x\equiv b\pmod n$ 可合并当且仅当
+$\gcd(m,n)\mid(b-a)$；新模数为 $\operatorname{lcm}(m,n)$。
+\[
+\binom nk\equiv\prod_i\binom{n_i}{k_i}\pmod p\quad(p\text{ 为素数，}n_i,k_i\text{ 是 }p\text{ 进制位}).
+\]
+Lucas 不能直接套在合数模数。阶乘与逆阶乘预处理要求上限小于模数；超过模数会出现阶乘为零。
+扩展欧拉降幂中，非互质情况不能直接将指数对 $\varphi(m)$ 取模；需要判断原指数是否达到足够阈值。
+大整数指数可以在读入时同时维护余数与是否超过阈值。
+

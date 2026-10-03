@@ -534,6 +534,109 @@ mint<tag> 按 tag 独立保存运行时模数，默认 998244353。先 set\_mod(
 
 联合使用示例见第~\pageref{usage-example-216}~页（Luogu P1313 计算系数），其中直接调用本模板。
 
+\newpage
+
+\subsection{模运算的适用条件}\label{knowledge-modular-conditions}\index{CRT}\index{Euler theorem}\index{Lucas theorem}
+模逆元存在当且仅当 $\gcd(a,m)=1$。费马逆元 $a^{p-2}$ 仅适用于素数模数及 $a\not\equiv0$。
+对正模数 $m,n$，同余式 $x\equiv a\pmod m$、$x\equiv b\pmod n$ 可合并当且仅当
+$\gcd(m,n)\mid(b-a)$；新模数为 $\operatorname{lcm}(m,n)$。
+\[
+\binom nk\equiv\prod_i\binom{n_i}{k_i}\pmod p\quad(p\text{ 为素数，}n_i,k_i\text{ 是 }p\text{ 进制位}).
+\]
+Lucas 不能直接套在合数模数。素数模数下，阶乘与逆阶乘预处理要求上限小于模数；达到模数会出现阶乘为零。
+扩展欧拉降幂中，非互质情况不能直接将指数对 $\varphi(m)$ 取模；需要判断原指数是否达到足够阈值。
+大整数指数可以在读入时同时维护余数与是否超过阈值。
+
+\subsubsection{除法与解同余式不是一回事}
+以下先设 $m\ge2$。把除以 $a$ 写成乘逆元，要求 $a$ 是单位元，即 $\gcd(a,m)=1$。
+若 $g=\gcd(a,m)>1$，并非所有含 $a$ 的同余式都无解：
+\[
+ax+b\equiv0\pmod m
+\quad\Longleftrightarrow\quad
+\frac ag x+\frac bg\equiv0\pmod{m/g}\qquad(g\mid b).
+\]
+$g\nmid b$ 时无解；否则约掉 $g$ 后系数与模数互质，在模 $m/g$ 下恰有一个解 $x_0$。
+原模 $m$ 的全部不同解为 $x_0+t(m/g)$，$0\le t<g$。
+约去公因子时模数也要除以 $g$，不能从 $2x\equiv2\pmod6$ 错误推出 $x\equiv1\pmod6$；
+实际是 $x\equiv1\pmod3$，在 $[0,6)$ 内有1、4两个解。
+而 $2x\equiv1\pmod6$ 无解，二者都不能用“除以2”统一处理。
+
+本库 \texttt{linear\_congruence(a,b,m)} 的符号约定就是 $ax+b\equiv0$，
+返回最小非负解和最小正周期；无解返回 $(-1,-1)$。
+例如 \texttt{linear\_congruence(2,-2,6)} 返回 $(1,3)$。
+若题面是 $ax\equiv c$，转换常数时不能在 signed64 中直接对最小负数取负；
+应先把右端规范化到 $[0,m)$ 再变号传入；只在128位中取负后直接窄化回 signed64 仍不安全。
+实现见第~\ref{compact-linear_congruence}~节（第~\pageref{compact-linear_congruence}~页）。
+
+单逆元 \texttt{mod\_inverse} 不可逆返回 $-1$，
+\texttt{ModInt::try\_inv} 不可逆返回 \texttt{nullopt}，不是同一种失败表示。
+\texttt{inv} 和除法仍以可逆为前提；关闭断言不意味着非法除法会被安全拒绝。
+分别见第~\ref{compact-mod_inverse}~节（第~\pageref{compact-mod_inverse}~页）和
+第~\ref{compact-ModInt}~节（第~\pageref{compact-ModInt}~页）。
+$m=1$ 在这些整数模接口中另按唯一剩余类处理：代表为0，逆元也返回0，同余式周期为1；
+不能因此把只适用于域的高斯、NTT、FPS或组合数条件推广到模1。
+
+\clearpage
+\subsubsection{知道整数可整除时，先升模数再整除}
+若已知整数 $X$ 被正整数 $d$ 整除，目标是 $(X/d)\bmod m$（$m\ge1$），
+即使 $\gcd(d,m)>1$，仍可先计算规范剩余 $r=X\bmod(md)$，使 $0\le r<md$。
+写成 $X=qmd+r$，可知 $d\mid r$，且
+\[
+\frac Xd=qm+\frac rd\equiv\frac rd\pmod m.
+\]
+这是整数整除，不是模逆元。负 $X$ 也成立，但须先规范化剩余，不能直接依赖 C++ 负余数。
+例如 $X=6,d=2,m=4$，正确答案是3；先取 $X\bmod m=2$ 再除以2会错误得到1。
+只知道 $X\bmod m$ 不足以恢复商：$X=2$ 与6同余模4，其除以2后的余数却不同。
+
+必须保证能计算 $md$ 并能在这个新模数下求出 $X$；先扩宽乘法、检查范围，
+乘模的中间乘积同样要安全，必要时用多精度。提升后的模数可能是合数，不能简单给素数模 Binomial、NTT或费马逆元更换参数。
+若所有生成 $X$ 的运算本来只有加法与乘法，可以在新模数下直接进行；含除法时要重新验证。
+轨道计数中的群阶整除应用见第~\ref{knowledge-orbits-modular}~节
+（第~\pageref{knowledge-orbits-modular}~页），不重复抄一套专门模板。
+
+\subsubsection{组合数的整数性不等于分母可逆}
+$p$ 为素数且预处理 $N<p$ 时，$N!$ 才能保证非零可逆，适用现有 \texttt{Binomial} 契约。
+仅有 $N<m$ 在合数模下不够，例如 $2!\bmod6=2$ 没有逆元。
+二项式系数作为整数始终存在，不代表阶乘比值可以逐项在任意模数下相除。
+大下标、素数模考虑 Lucas；合数模考虑素数幂分解、去除质因子后的单位部分和CRT，
+使用现有 exLucas 的条件与资源限制，不把素数模版直接套过去。
+接口和边界见第~\ref{compact-Binomial}~节（第~\pageref{compact-Binomial}~页）。
+同理，插值中的节点差、级数积分的分母以及模概率的分母，都须各自检查可逆性。
+
+\clearpage
+\subsubsection{大指数要同时保留余数和阈值信息}
+对于整数 $a\ge0$、非负整数指数 $b$ 与正模数 $m$，令 $\phi=\varphi(m)$。
+一个足够但不一定最小的安全降幂规则是
+\[
+a^b\equiv a^{e}\pmod m,\qquad
+e=\begin{cases}
+b,&b<\phi,\\
+b\bmod\phi+\phi,&b\ge\phi.
+\end{cases}
+\]
+约定零次幂为1，结果再对 $m$ 取模；$m=1$ 返回0。
+若 $\gcd(a,m)=1$，直接对 $\phi$ 取模也可；不互质时则需阈值。
+例如 $2^4\bmod8=0$，只将4对 $\varphi(8)=4$ 取模会得到 $2^0\bmod8=1$。
+反过来，对小指数无条件加 $\phi$ 也错：$2^1\bmod8=2$，而 $2^5\bmod8=0$。
+
+\paragraph{为什么这个阈值足够。}
+分解 $m=\prod p^k$。若 $p\nmid a$，欧拉定理给出周期 $\varphi(p^k)$，它整除 $\phi$。
+若 $p\mid a$，只要指数至少 $k$，幂就为0模 $p^k$；
+而 $\phi\ge\varphi(p^k)=p^{k-1}(p-1)\ge k$。
+因此 $b\ge\phi$ 时原指数和降幂后的指数在每个素数幂分量都一致，再由CRT合并。
+$b<\phi$ 时保留原指数，不需要讨论何时进入周期。
+
+十进制字符串可逐位维护 $b\bmod\phi$ 和饱和值 $\min(b,\phi)$，
+只需知道是否达到阈值，不必保存完整大整数；前导零不改变它们。
+现有 \texttt{euler\_power(a,b,m,phi)} 要求调用者传入\emph{真实的} $\varphi(m)$，
+其断言不能证明传入值就是欧拉函数。模数分解/求 $\phi$ 的成本需另算。降幂后的指数可能需要65位，不能用 unsigned64 暂存相加结果；本实现内部用128位。
+接口见第~\ref{compact-euler_power}~节（第~\pageref{compact-euler_power}~页）。
+本库基数/模数为 unsigned64，不能把负数直接窄化后当成数学上的规范取模。
+费马、欧拉与线性同余的基础背景可参见
+\href{https://ocw.mit.edu/courses/18-781-theory-of-numbers-spring-2012/resources/mit18_781s12_lec4/}{MIT 18.781 第4讲}；
+这里的非互质阈值和升模整除附有独立推导，不借用素数模API扩大适用范围。
+
+
 \Needspace{494pt}
 
 \section{素数}
@@ -2669,7 +2772,7 @@ Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。
 用第~\ref{compact-Binomial}~节（第~\pageref{compact-Binomial}~页）的 \texttt{Binomial<p> c(N)}，
 查询 \texttt{c.choose(n,k)}；排列数用 \texttt{c.permute(n,k)}。
 一次建表时间 $O(N+\log p)$、空间 $O(N)$，每次查询 $O(1)$。
-后续用 \texttt{c.init(M)} 显式扩表；每次真正扩表都做一次逆元快速幂，
+后续用 \texttt{c.init(M)} 显式扩表；每次真正扩表都做一次扩展欧几里得求逆，
 所以连续逐项扩表不能简单视作总共 $O(N)$。尽量一次扩至本批最大上界。
 此处 $p$ 是编译期模数，调用者保证素数；模板的断言不等于判素。
 \item[素数 $p$，$n$ 很大且 $p$ 足够小：]

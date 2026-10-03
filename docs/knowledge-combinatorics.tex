@@ -60,7 +60,7 @@
 用第~\ref{compact-Binomial}~节（第~\pageref{compact-Binomial}~页）的 \texttt{Binomial<p> c(N)}，
 查询 \texttt{c.choose(n,k)}；排列数用 \texttt{c.permute(n,k)}。
 一次建表时间 $O(N+\log p)$、空间 $O(N)$，每次查询 $O(1)$。
-后续用 \texttt{c.init(M)} 显式扩表；每次真正扩表都做一次逆元快速幂，
+后续用 \texttt{c.init(M)} 显式扩表；每次真正扩表都做一次扩展欧几里得求逆，
 所以连续逐项扩表不能简单视作总共 $O(N)$。尽量一次扩至本批最大上界。
 此处 $p$ 是编译期模数，调用者保证素数；模板的断言不等于判素。
 \item[素数 $p$，$n$ 很大且 $p$ 足够小：]

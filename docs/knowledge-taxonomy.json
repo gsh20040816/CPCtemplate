@@ -14,15 +14,16 @@
       "docs/knowledge-inclusion.tex",
       "docs/knowledge-floor-sums.tex",
       "docs/knowledge-matrix-tree.tex",
-      "docs/knowledge-partitions.tex"
+      "docs/knowledge-partitions.tex",
+      "docs/knowledge-modular-conditions.tex"
     ],
-    "classified_section_count": 24,
+    "classified_section_count": 25,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
     "new_algorithm_coverage": false,
     "new_oj_verification": false,
-    "note": "仅分类十一份knowledge源文件的24个带标签节（数学22、图论2）。整数分拆补限制转换，既有历史记录保留；分类不新增算法或OJ覆盖，历史附录仍未全部分类。"
+    "note": "仅分类十二份knowledge源文件的25个带标签节（数学23、图论2）。模运算条件迁移后补非单位元同余、升模整除与大指数阈值；分类不新增算法或OJ覆盖，历史附录仍未全部分类。"
   },
   "entries": [
     {
@@ -283,6 +284,21 @@
       "relation": "direct",
       "page_break_before": true,
       "note": "保留既有五边形递推与重数边界，补共轭、部分数/大小/重数区别、平移/阶梯及禁止倍数恒等式；不增加成员函数或在线证据。"
+    },
+    {
+      "label": "knowledge-modular-conditions",
+      "source": "docs/knowledge-modular-conditions.tex",
+      "path": "math/number-theory/mod-arithmetic.md",
+      "additional": [
+        "math/number-theory/inverse.md",
+        "math/number-theory/linear-equation.md",
+        "math/number-theory/crt.md",
+        "math/number-theory/lucas.md",
+        "math/number-theory/fermat.md"
+      ],
+      "relation": "composite",
+      "page_break_before": true,
+      "note": "模算术适用条件与整数商建模为主，关联逆元、同余、CRT、Lucas和指数阈值；不新增算法接口或线上验证。"
     }
   ]
 }

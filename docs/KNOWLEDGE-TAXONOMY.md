@@ -1,13 +1,13 @@
 # 配套知识的 OI Wiki 分类
 
-本表给十一份知识源文件中的 **24 个带标签节** 登记显式分类。LTE、Lagrange反演、有限状态递推与广义容斥是新增知识正文，另有两节类欧几里德与两节矩阵树及一节整数分拆内容从旧附录迁移，矩阵树补充统一证明、分拆补充限制转换；其余15节保留原主题，静态ModInt扩展时同步更新模概率节的接口前提；分类本身不新增算法、模板覆盖或 OJ 验证记录。
+本表给十二份知识源文件中的 **25 个带标签节** 登记显式分类。LTE、Lagrange反演、有限状态递推与广义容斥是新增知识正文，另有两节类欧几里德与两节矩阵树及一节整数分拆内容从旧附录迁移，矩阵树补充统一证明、分拆补充限制转换；另迁移一节模运算条件，补非单位元、升模整除与降幂阈值；其余15节保留原主题，静态ModInt扩展时同步更新模概率节的接口前提，并把组合数扩表的求逆实现说明同步为扩展欧几里得；分类本身不新增算法、模板覆盖或 OJ 验证记录。
 
 ## 固定来源与范围
 
 - 官方导航使用与算法分类相同的固定版本：[bc070e827180](https://github.com/OI-wiki/OI-wiki/blob/bc070e827180fbd75c2e27a16c1212f1d671d949/mkdocs.yml)
 - 本地来源为 [`references/oi-wiki-mkdocs.yml`](references/oi-wiki-mkdocs.yml)，SHA256：`de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806`
 - 路径、完整大中小分类名和先后顺序取自 [`oi-taxonomy.json`](oi-taxonomy.json) 的 `navigation`，不另造 OI Wiki 叶子
-- 分类数据为 [`knowledge-taxonomy.json`](knowledge-taxonomy.json)；源文件仍为 `knowledge-combinatorics.tex`、`knowledge-probability-games.tex`、`knowledge-mobius.tex`、`knowledge-orbits.tex`、`knowledge-lte.tex`、`knowledge-lagrange.tex`、`knowledge-state-recurrence.tex`、`knowledge-inclusion.tex`、`knowledge-floor-sums.tex`、`knowledge-matrix-tree.tex`、`knowledge-partitions.tex`
+- 分类数据为 [`knowledge-taxonomy.json`](knowledge-taxonomy.json)；源文件仍为 `knowledge-combinatorics.tex`、`knowledge-probability-games.tex`、`knowledge-mobius.tex`、`knowledge-orbits.tex`、`knowledge-lte.tex`、`knowledge-lagrange.tex`、`knowledge-state-recurrence.tex`、`knowledge-inclusion.tex`、`knowledge-floor-sums.tex`、`knowledge-matrix-tree.tex`、`knowledge-partitions.tex`、`knowledge-modular-conditions.tex`
 - **`mathematics.tex` 的其余历史知识节尚未逐项分类**，继续保留在附录；这些历史内容还混有其他分册的应用说明。本次不声称完成全部数学知识重排或 issue #5/#7 的全部范围
 - 导航来源是固定的 OI Wiki 官方仓库，不声称已核验 `oi-wiki.com` 与该导航相同，也不要求实时网站提供相同路径
 
@@ -55,8 +55,10 @@
 
 | `knowledge-partitions`<br>`docs/knowledge-partitions.tex` | 数学 → 组合数学 → 整数分拆<br>`math/combinatorics/partition.md` | direct：既有五边形递推、重数限制及历史记录；补共轭、恰好部分数、阶梯和禁止倍数转换，不新增接口。 |
 
+| `knowledge-modular-conditions`<br>`docs/knowledge-modular-conditions.tex` | 数学 → 数论 → 模算术简介<br>`math/number-theory/mod-arithmetic.md` | composite：模运算条件、非单位元同余、已知整除的升模方法与指数阈值；关联模逆元、线性同余、CRT、Lucas、费马/欧拉，不新增算法。 |
+
 ## 本地检查
 
-运行 `python3 tests/knowledge_taxonomy.py`。该检查独立解析固定导航源文件，验证快照哈希与生成导航一致、24 个知识标签恰好各映射一次、源路径和叶子路径有效、主归属遵从固定导航：数学22节为三级，矩阵树2节为图论的既定二级叶子，以及范围声明仍明确保留历史知识未分类的限制。负例检查覆盖重复、遗漏、错误源文件、未知叶子和擅自扩大范围；改标题而不改标签不会改变分类。
+运行 `python3 tests/knowledge_taxonomy.py`。该检查独立解析固定导航源文件，验证快照哈希与生成导航一致、25 个知识标签恰好各映射一次、源路径和叶子路径有效、主归属遵从固定导航：数学23节为三级，矩阵树2节为图论的既定二级叶子，以及范围声明仍明确保留历史知识未分类的限制。负例检查覆盖重复、遗漏、错误源文件、未知叶子和擅自扩大范围；改标题而不改标签不会改变分类。
 
 这是分类数据检查，不是算法正确性、完整回归、线上 AC 或 PDF 视觉验收。数学例子与接口的原有验证仍见各知识源文件和 `tests/math_knowledge_*.py`。
