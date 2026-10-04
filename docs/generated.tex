@@ -8428,9 +8428,41 @@ CSES2193 的正式限制更窄：$3\le n\le10^5$、坐标绝对值不超过 $10^
 参考：\url{https://oi-wiki.org/geometry/pick/}；\url{https://cses.fi/problemset/task/2193}。
 
 
-\Needspace{401pt}
+\newpage
+
+\Needspace{440pt}
 
 \chapter{凸包}
+
+\section{凸多边形外点的两条切线}\label{compact-convex_tangents_i64}\index{convex\_tangents\_i64}
+
+代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+p须为严格凸、逆时针的整数多边形，无重复末点或共线边界顶点；3$\le$n$\le$INT\_MAX/2，起始下标任意。所有顶点及q坐标绝对值$\le$10\textasciicircum{}12。返回optional<pair<int,int>>的原0-based下标(right,left)：对任意顶点v，cross(q,p[right],v)$\le$0，cross(q,p[left],v)$\ge$0。若切线贴整条边，选离q最近的端点。q在内部或边界时返回nullopt。O(log n)时间、O(1)额外空间，无预处理且输入不变；先扇形定位异态边，再二分可见边链两端。凸性、方向及数值范围均为前置条件，assert不验证整个多边形；n<3不在接口范围。散点先构造integer\_hull，若需原编号须另留映射。
+
+\lstinputlisting[firstline=5,lastline=27]{../src/compact/convex_tangents_i64.hpp}
+
+\newpage
+
+\noindent 选择异态种子边并二分可见边链（接上页同一函数）：
+
+\lstinputlisting[firstline=28,lastline=62,firstnumber=24]{../src/compact/convex_tangents_i64.hpp}
+
+\Needspace{410pt}
+
+\subsection*{接口用法演示：凸多边形外点切线（接口演示）}
+
+\label{usage-example-240}
+
+演示约定：自定义有效输入协议，非OJ题：输入n m，3$\le$n$\le$100000、0$\le$m$\le$100000；随后n个严格凸CCW顶点，再m个查询点，坐标绝对值均$\le$10\textasciicircum{}12。每个外点输出原0-based编号right left，整边相切选最近端点；内部或边界输出-1 -1。程序不验证凸性或方向，不接受重复末点；可从任意顶点开始列举。仅演示切线接口，不包含成都2025 I的旋转双指针计数。
+
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-convex_tangents_i64]{convex\_\allowbreak{}tangents\_\allowbreak{}i64}（第~\pageref{compact-convex_tangents_i64}~页，\ref{compact-convex_tangents_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/convex_tangents_i64.hpp}
+
+\lstinputlisting{usage/example-240.cpp}
+
+\Needspace{366pt}
 
 \section{整数凸包：单调链}\label{compact-integer_hull}\index{integer\_hull}
 

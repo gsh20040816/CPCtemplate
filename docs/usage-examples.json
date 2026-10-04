@@ -3003,5 +3003,18 @@
     "requires": [
       "PersistentXorTrie"
     ]
+  },
+  {
+    "id": "example-240",
+    "symbol": "convex_tangents_i64",
+    "kind": "api",
+    "problem": "凸多边形外点切线（接口演示）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/convex_tangents_i64.hpp",
+    "summary": "自定义有效输入协议，非OJ题：输入n m，3≤n≤100000、0≤m≤100000；随后n个严格凸CCW顶点，再m个查询点，坐标绝对值均≤10^12。每个外点输出原0-based编号right left，整边相切选最近端点；内部或边界输出-1 -1。程序不验证凸性或方向，不接受重复末点；可从任意顶点开始列举。仅演示切线接口，不包含成都2025 I的旋转双指针计数。",
+    "driver": "verify/api/convex_tangents.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "convex_tangents_i64"
+    ]
   }
 ]

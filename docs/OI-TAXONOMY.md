@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 152，application 55，composite 0，related 7。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 153，application 55，composite 0，related 7。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -213,6 +213,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | segment_distance_real | 计算几何 → 距离 | direct |  |
 | SupportHull | 计算几何 → 凸包 | application | 支撑点查询恢复下凸包。 |
 | convex_contains_i64 | 计算几何 → 凸包 | direct |  |
+| convex_tangents_i64 | 计算几何 → 凸包 | direct | 严格凸CCW整数多边形的外点两切线与最近接触端点；不包含圆切线、动态凸包或整道计数题。 |
 | integer_hull | 计算几何 → 凸包 | direct |  |
 | minkowski_sum | 计算几何 → 凸包 | related | 固定导航没有独立 Minkowski 和条目，按凸包的相关应用归档。 |
 | rectangle_union_area | 计算几何 → 扫描线 | direct | 整数轴对齐矩形面积并；不含周长和动态更新。 |

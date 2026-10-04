@@ -1282,5 +1282,11 @@
     "PersistentXorTrie",
     "前缀可持久化01字典树",
     "PersistentXorTrie(bits,cap)，1≤bits≤64，0≤cap≤(INT_MAX−1)/(bits+1)，构造时预留最多cap个键。append(x)追加一个uint64_t原值，重复值按出现次数保留；满容量或x不满足位宽时返回false且逻辑状态不变。size()为键数；max_xor(l,r,x)从0-based半开区间[l,r)选择一个键y，返回最大x xor y，空区间nullopt。查询x允许完整uint64；不是子集异或、任意分支版本或字符串Trie。构造O(cap*bits)容量空间，追加/查询O(bits)；复制后首次追加为恢复预留空间可花O(size*bits)。append分配失败传播异常，逻辑内容不变；构造参数非法抛异常，查询下标是调用者前置条件，assert只作调试检查。内部成员只读；不要复用已移动对象。"
+  ],
+  [
+    "convex_tangents_i64",
+    "convex_tangents_i64",
+    "凸多边形外点的两条切线",
+    "p须为严格凸、逆时针的整数多边形，无重复末点或共线边界顶点；3≤n≤INT_MAX/2，起始下标任意。所有顶点及q坐标绝对值≤10^12。返回optional<pair<int,int>>的原0-based下标(right,left)：对任意顶点v，cross(q,p[right],v)≤0，cross(q,p[left],v)≥0。若切线贴整条边，选离q最近的端点。q在内部或边界时返回nullopt。O(log n)时间、O(1)额外空间，无预处理且输入不变；先扇形定位异态边，再二分可见边链两端。凸性、方向及数值范围均为前置条件，assert不验证整个多边形；n<3不在接口范围。散点先构造integer_hull，若需原编号须另留映射。"
   ]
 ]

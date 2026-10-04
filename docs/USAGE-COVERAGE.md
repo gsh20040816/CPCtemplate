@@ -221,3 +221,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ManhattanMST | [example-236](usage/example-236.cpp) | locally_checked_example |
 | Dominance3D | [example-237](usage/example-237.cpp) | locally_checked_example |
 | PersistentXorTrie | [example-239（应用补充）](usage/example-239.cpp) | locally_checked_application |
+| convex_tangents_i64 | [example-240（接口演示）](usage/example-240.cpp) | locally_checked_api |
