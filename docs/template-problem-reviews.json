@@ -4525,5 +4525,31 @@
       "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/suffixarray/info.toml"
     ],
     "remaining": "Independent local oracle and closed-form checks are source-bound separately. No new online AC, official-data rerun or controlled ranking."
+  },
+  {
+    "symbol": "convex_tangents_i64",
+    "problem": "ICPC Chengdu 2025 I / Inside Triangle",
+    "url": "https://codeforces.com/gym/106161/problem/I",
+    "classification": "Competition application combining convex polygon tangents and cyclic admissible-edge counting; not a standalone template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-10-04",
+    "limits": "T<=1000; 3<=n,m<=300000; each sum<=500000; |coordinate|<=1e9; strict convex CCW polygons, Q strictly inside P, selected triangle contains Q non-strictly",
+    "driver": "verify/codeforces/106161I.compact.cpp",
+    "tested_api": [
+      "IntegerPlane::cross",
+      "convex_tangents_i64: exterior left contact"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "adapter": "Use monotone legal chord endpoints and prefix sums, divide cyclic contributions by three. O(n log m+n+m).",
+    "statement_sources": [
+      "https://codeforces.com/gym/106161/problem/I",
+      "https://contest.ucup.ac/download.php?id=2567&r=1&type=attachments"
+    ],
+    "remaining": "Independent local triple/half-plane oracle and maximum geometry certificates; online AC and controlled timing remain pending."
   }
 ]

@@ -44,7 +44,7 @@ n≤INT_MAX/2 使循环偏移、中点和 `end-start+n` 均可用 int；输入�
 
 example-240 是自定义有效输入协议的 API 演示：n m、多边形顶点、m 个查询；外点打印0-based的 right left，内部/边界打印 `-1 -1`。不是正式 OJ 题目，不验证输入的凸性和方向。
 
-成都2025 I 的官方题解使用切线界和额外的旋转双指针计数。本接口只补前者，不能据此宣布整题完成。
+成都2025 I 的官方题解使用切线界和额外的旋转双指针计数。本接口本身只提供切线；新增的完整计数应用及独立验证见 [INSIDE-TRIANGLE.md](INSIDE-TRIANGLE.md)，并不将接口证据直接等同于整题AC。
 
 算法是本库按扇形定位和可见边连续性推导的实现，并非声称逐字采用以下任一资料：
 - [KIT 计算几何习题课，切线二分](https://i11www.iti.kit.edu/_media/teaching/sommer2018/compgeom/psession1.pdf)，slides38–48提供对数时间切线背景

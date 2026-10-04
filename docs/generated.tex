@@ -8498,6 +8498,20 @@ p须为严格凸、逆时针的整数多边形，无重复末点或共线边界�
 
 \lstinputlisting{usage/example-240.cpp}
 
+\Needspace{638pt}
+
+\subsection*{应用题补充：ICPC Chengdu 2025 I / Inside Triangle}
+
+\label{usage-example-242}
+
+题意：多组严格嵌套的CCW凸多边形P、Q，分别3..300000顶点，坐标绝对值$\le$10\textasciicircum{}9；T$\le$1000且两种顶点总数分别$\le$500000。选P的3个不同顶点，使三角形非严格包含Q，贴边也计数。输入T，各组n、n个P点、m、m个Q点。复用左切线、合法弦端点的单调性和前缀和，累计每个起点贡献后除3；实际O(n log m+n+m)，不是官方线性旋转切线版本。
+
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-convex_tangents_i64]{convex\_\allowbreak{}tangents\_\allowbreak{}i64}（第~\pageref{compact-convex_tangents_i64}~页，\ref{compact-convex_tangents_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/gym/106161/problem/I}
+
+\lstinputlisting{usage/example-242.cpp}
+
 \Needspace{366pt}
 
 \section{整数凸包：单调链}\label{compact-integer_hull}\index{integer\_hull}

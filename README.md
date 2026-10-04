@@ -27,6 +27,8 @@
 
 线性诱导排序后缀数组见 [SA-IS](docs/SAIS.md)，与既有倍增版并列，保留相同 sa/rk/lcp 下标约定；不继承旧版线上成绩。
 
+成都2025 I 的完整三角形包含计数应用见 [Inside Triangle](docs/INSIDE-TRIANGLE.md)：包含贴边的精确判定与单调区间计数；本地应用验证不替代线上AC。
+
 ## 码风
 
 - `src/compact/`：基于队伍实际提交，`vector`、小写短名、清晰分行；目录名不表示压缩代码。

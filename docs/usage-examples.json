@@ -3027,5 +3027,18 @@
     "requires": [
       "SAIS"
     ]
+  },
+  {
+    "id": "example-242",
+    "symbol": "convex_tangents_i64",
+    "kind": "application",
+    "problem": "ICPC Chengdu 2025 I / Inside Triangle",
+    "url": "https://codeforces.com/gym/106161/problem/I",
+    "summary": "多组严格嵌套的CCW凸多边形P、Q，分别3..300000顶点，坐标绝对值≤10^9；T≤1000且两种顶点总数分别≤500000。选P的3个不同顶点，使三角形非严格包含Q，贴边也计数。输入T，各组n、n个P点、m、m个Q点。复用左切线、合法弦端点的单调性和前缀和，累计每个起点贡献后除3；实际O(n log m+n+m)，不是官方线性旋转切线版本。",
+    "driver": "verify/codeforces/106161I.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "convex_tangents_i64"
+    ]
   }
 ]
