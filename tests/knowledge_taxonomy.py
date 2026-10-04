@@ -31,6 +31,8 @@ SOURCE_FILES = (
     'docs/knowledge-integration.tex',
     'docs/knowledge-manhattan-mst.tex',
     'docs/knowledge-pick.tex',
+    'docs/knowledge-prufer.tex',
+    'docs/knowledge-valuations.tex',
 )
 SECTION = re.compile(r'(?m)(?=^\\section\{)')
 LABEL = re.compile(r'\\label\{(knowledge-[^}]+)\}')
@@ -73,7 +75,7 @@ def source_sections(sources):
             # from its title or incidental references in the body.
             assert LABEL.search(fragment.split('\n', 1)[0]), (source, label)
             sections[label] = source
-    assert len(sections) == 30, ('bounded knowledge section count', len(sections))
+    assert len(sections) == 32, ('bounded knowledge section count', len(sections))
     return sections
 
 
@@ -84,7 +86,7 @@ def validate(data, taxonomy, sources):
     scope = data['scope']
     assert len(scope['source_files']) == len(set(scope['source_files']))
     assert set(scope['source_files']) == set(SOURCE_FILES) == set(sources)
-    assert scope['classified_section_count'] == 30
+    assert scope['classified_section_count'] == 32
     assert scope['legacy_source'] == 'docs/mathematics.tex'
     assert scope['legacy_sections_classified'] is False
     assert scope['classification_only'] is True
@@ -109,6 +111,8 @@ def validate(data, taxonomy, sources):
             assert path == 'graph/matrix-tree.md' and hierarchy == ['图论', '矩阵树定理'], (label, hierarchy)
         elif label == 'knowledge-manhattan-mst':
             assert path == 'graph/mst.md' and hierarchy == ['图论', '生成树问题', '最小生成树'], (label, hierarchy)
+        elif label == 'knowledge-prufer':
+            assert path == 'graph/prufer.md' and hierarchy == ['图论', 'Prüfer 序列'], (label, hierarchy)
         elif label == 'knowledge-pick':
             assert path == 'geometry/pick.md' and hierarchy == ['计算几何', 'Pick 定理'], (label, hierarchy)
         else:
@@ -145,7 +149,7 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
         self.assertEqual(pinned_navigation(source.read_text()), self.taxonomy['navigation'])
 
     def test_all_registered_sections_have_one_known_primary_leaf(self):
-        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 30)
+        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 32)
         observed = {path.relative_to(ROOT).as_posix()
                     for path in (ROOT / 'docs').glob('knowledge-*.tex')}
         self.assertEqual(observed, set(SOURCE_FILES), 'new source needs explicit classification')

@@ -1,0 +1,71 @@
+\section{Legendre 赋值与 Kummer 进位判据}\label{knowledge-valuations}\index{Legendre formula}\index{Kummer theorem}
+设 $p$ 为\emph{素数}，$v_p(a)$ 表示正整数 $a$ 中质因子 $p$ 的指数。
+$n\ge0$ 时，Legendre 公式为
+\[
+ v_p(n!)=\sum_{j\ge1}\left\lfloor\frac n{p^j}\right\rfloor
+        =\frac{n-s_p(n)}{p-1},
+\]
+其中 $s_p(n)$ 是 $n$ 的 $p$ 进制数位和，$0!=1$ 给出赋值0。
+第一式把每个数的质因子逐层数：$p$ 的倍数贡献至少1个，$p^2$ 的倍数再贡献1个，依此类推。
+若 $n=\sum_i a_i p^i$，则交换有限求和得到
+\[
+ \sum_{j\ge1}\left\lfloor n/p^j\right\rfloor
+ =\sum_{i\ge1} a_i(1+p+\cdots+p^{i-1})
+ =\sum_i a_i\frac{p^i-1}{p-1}.
+\]
+素数条件不可省略：若把 $p$ 错设为4，$6!=720$ 能被 $4^2$ 整除，
+但 $\lfloor6/4\rfloor+\lfloor6/16\rfloor=1$，不是最高4次幂的指数。
+
+实现时反复执行 $n\gets\lfloor n/p\rfloor$ 并累加，直到 $n=0$，时间 $O(1+\log_p(n+1))$。
+避免逐次计算 $p^j$，后者可能在判断终止前就溢出。
+已有 \texttt{ExLucas::valuation(n,p)} 使用这种方式，见第~\ref{compact-ExLucas}~节
+（第~\pageref{compact-ExLucas}~页）；$n$ 是 unsigned64、$p$ 是正的 int 素数。
+该内部辅助函数不验证素数，尤其不能传入0或1。
+由于 $v_p(n!)\le n$，其 unsigned64 累加不会超出合法 $n$ 的范围。
+
+\subsection{组合数：逐位相加时进了几次位}
+对于 $0\le k\le n$，令 $h=n-k$，由阶乘比值的赋值相减可得
+\[
+ v_p\binom nk
+ =v_p(n!)-v_p(k!)-v_p(h!)
+ =\frac{s_p(k)+s_p(h)-s_p(n)}{p-1}.
+\]
+把 $k+h=n$ 按 $p$ 进制相加，记第 $i$ 位的输入进位为 $c_i$，$c_0=0$，则
+\[
+ k_i+h_i+c_i=n_i+p c_{i+1}.
+\]
+两数相加的 $c_i$ 只可能是0或1。对所有位求和，包含最终进位并在更高位补0，得到
+$s_p(k)+s_p(h)-s_p(n)=(p-1)\sum_{i\ge1}c_i$。
+所以赋值恰好是加法产生的进位次数，这就是 Kummer 定理。
+\emph{传播进位也要计数}：$1+7=8$ 的二进制加法有3次进位，对应 $\binom81=8$ 中的 $2^3$；
+不能只数原始两位都为1的位置。
+$k=0$ 或 $k=n$ 均无进位，对应组合数1。
+
+\clearpage
+\subsection{素数幂为零与 Lucas 的边界}
+对整数 $a\ge1$，
+\[
+ \binom nk\equiv0\pmod{p^a}
+ \quad\Longleftrightarrow\quad
+ v_p\binom nk\ge a.
+\]
+这是“至少 $a$ 次进位”，不是严格大于 $a$；例如 $\binom42=6$ 模2为0，模4不为0。
+若模数 $m=\prod_j p_j^{a_j}>1$，模 $m$ 为零须\emph{每个}素数幂分量都满足阈值，不能只命中一个。
+模1的结果恒为0，另行处理。
+
+零进位等价于每个数位都满足 $k_i\le n_i$：逐位相减无需借位，恰好能无进位相加回 $n$。
+这也解释了 Lucas 公式在素数模下何时非零，
+见第~\ref{compact-Lucas}~节（第~\pageref{compact-Lucas}~页）。
+但知道赋值只够判定可整除性，不足以恢复非零余数。
+例如 $\binom41=4$ 与 $\binom51=5$ 的 $v_3$ 都是0，模3余数却分别为1和2。
+\texttt{ExLucas::choose} 因此还需计算去除 $p$ 因子的单位部分、乘回 $p^v$，再通过 CRT 合并。
+这里不扩大其模数、预处理空间或参数类型的现有契约，也不能把不可逆阶乘直接相除。
+
+$k>n$ 时按组合数约定答案为0，必须先处理；0没有有限的上述赋值，
+不能做无符号 $n-k$ 或套用有限进位公式。负参数不在本节范围。
+阶乘赋值是逐项质因子计数，不是对指数差使用 LTE；
+相关选型见第~\ref{knowledge-lte}~节（第~\pageref{knowledge-lte}~页）。
+证明背景见
+\href{https://www3.nd.edu/~ajorza/courses/2022f-m40520/lectures.pdf}{Jorza 数论讲义中的 Legendre 与 Kummer 定理}；
+已有赋值算法的导航见
+\href{https://github.com/OI-wiki/OI-wiki/blob/bc070e827180fbd75c2e27a16c1212f1d671d949/docs/math/number-theory/factorial.md}{固定版本 OI Wiki 阶乘取模}。

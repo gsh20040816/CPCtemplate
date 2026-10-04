@@ -1240,6 +1240,83 @@ LTE 只能处理满足条件的局部因子，不能代替任意底数的乘法�
 （第~\pageref{compact-PrimePowerRoots}~页，\ref{compact-PrimePowerRoots}~节）。
 
 
+\newpage
+
+\section{阶乘取模}
+
+\subsection{Legendre 赋值与 Kummer 进位判据}\label{knowledge-valuations}\index{Legendre formula}\index{Kummer theorem}
+设 $p$ 为\emph{素数}，$v_p(a)$ 表示正整数 $a$ 中质因子 $p$ 的指数。
+$n\ge0$ 时，Legendre 公式为
+\[
+ v_p(n!)=\sum_{j\ge1}\left\lfloor\frac n{p^j}\right\rfloor
+        =\frac{n-s_p(n)}{p-1},
+\]
+其中 $s_p(n)$ 是 $n$ 的 $p$ 进制数位和，$0!=1$ 给出赋值0。
+第一式把每个数的质因子逐层数：$p$ 的倍数贡献至少1个，$p^2$ 的倍数再贡献1个，依此类推。
+若 $n=\sum_i a_i p^i$，则交换有限求和得到
+\[
+ \sum_{j\ge1}\left\lfloor n/p^j\right\rfloor
+ =\sum_{i\ge1} a_i(1+p+\cdots+p^{i-1})
+ =\sum_i a_i\frac{p^i-1}{p-1}.
+\]
+素数条件不可省略：若把 $p$ 错设为4，$6!=720$ 能被 $4^2$ 整除，
+但 $\lfloor6/4\rfloor+\lfloor6/16\rfloor=1$，不是最高4次幂的指数。
+
+实现时反复执行 $n\gets\lfloor n/p\rfloor$ 并累加，直到 $n=0$，时间 $O(1+\log_p(n+1))$。
+避免逐次计算 $p^j$，后者可能在判断终止前就溢出。
+已有 \texttt{ExLucas::valuation(n,p)} 使用这种方式，见第~\ref{compact-ExLucas}~节
+（第~\pageref{compact-ExLucas}~页）；$n$ 是 unsigned64、$p$ 是正的 int 素数。
+该内部辅助函数不验证素数，尤其不能传入0或1。
+由于 $v_p(n!)\le n$，其 unsigned64 累加不会超出合法 $n$ 的范围。
+
+\subsubsection{组合数：逐位相加时进了几次位}
+对于 $0\le k\le n$，令 $h=n-k$，由阶乘比值的赋值相减可得
+\[
+ v_p\binom nk
+ =v_p(n!)-v_p(k!)-v_p(h!)
+ =\frac{s_p(k)+s_p(h)-s_p(n)}{p-1}.
+\]
+把 $k+h=n$ 按 $p$ 进制相加，记第 $i$ 位的输入进位为 $c_i$，$c_0=0$，则
+\[
+ k_i+h_i+c_i=n_i+p c_{i+1}.
+\]
+两数相加的 $c_i$ 只可能是0或1。对所有位求和，包含最终进位并在更高位补0，得到
+$s_p(k)+s_p(h)-s_p(n)=(p-1)\sum_{i\ge1}c_i$。
+所以赋值恰好是加法产生的进位次数，这就是 Kummer 定理。
+\emph{传播进位也要计数}：$1+7=8$ 的二进制加法有3次进位，对应 $\binom81=8$ 中的 $2^3$；
+不能只数原始两位都为1的位置。
+$k=0$ 或 $k=n$ 均无进位，对应组合数1。
+
+\clearpage
+\subsubsection{素数幂为零与 Lucas 的边界}
+对整数 $a\ge1$，
+\[
+ \binom nk\equiv0\pmod{p^a}
+ \quad\Longleftrightarrow\quad
+ v_p\binom nk\ge a.
+\]
+这是“至少 $a$ 次进位”，不是严格大于 $a$；例如 $\binom42=6$ 模2为0，模4不为0。
+若模数 $m=\prod_j p_j^{a_j}>1$，模 $m$ 为零须\emph{每个}素数幂分量都满足阈值，不能只命中一个。
+模1的结果恒为0，另行处理。
+
+零进位等价于每个数位都满足 $k_i\le n_i$：逐位相减无需借位，恰好能无进位相加回 $n$。
+这也解释了 Lucas 公式在素数模下何时非零，
+见第~\ref{compact-Lucas}~节（第~\pageref{compact-Lucas}~页）。
+但知道赋值只够判定可整除性，不足以恢复非零余数。
+例如 $\binom41=4$ 与 $\binom51=5$ 的 $v_3$ 都是0，模3余数却分别为1和2。
+\texttt{ExLucas::choose} 因此还需计算去除 $p$ 因子的单位部分、乘回 $p^v$，再通过 CRT 合并。
+这里不扩大其模数、预处理空间或参数类型的现有契约，也不能把不可逆阶乘直接相除。
+
+$k>n$ 时按组合数约定答案为0，必须先处理；0没有有限的上述赋值，
+不能做无符号 $n-k$ 或套用有限进位公式。负参数不在本节范围。
+阶乘赋值是逐项质因子计数，不是对指数差使用 LTE；
+相关选型见第~\ref{knowledge-lte}~节（第~\pageref{knowledge-lte}~页）。
+证明背景见
+\href{https://www3.nd.edu/~ajorza/courses/2022f-m40520/lectures.pdf}{Jorza 数论讲义中的 Legendre 与 Kummer 定理}；
+已有赋值算法的导航见
+\href{https://github.com/OI-wiki/OI-wiki/blob/bc070e827180fbd75c2e27a16c1212f1d671d949/docs/math/number-theory/factorial.md}{固定版本 OI Wiki 阶乘取模}。
+
+
 \Needspace{568pt}
 
 \section{卢卡斯定理}
@@ -7488,6 +7565,93 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 题目：\url{https://judge.yosupo.jp/problem/general_matching}
 
 \lstinputlisting{usage/example-72.cpp}
+
+\Needspace{180pt}
+
+\chapter{Prüfer 序列}
+
+\section{Prüfer 双射与有标号树计数}\label{knowledge-prufer}\index{Prüfer sequence}\index{Cayley formula}
+本节的树是顶点标号固定为 $1,\ldots,n$ 的简单无向树，不把同构的不同标号树合并。
+先设 $n\ge2$。反复删除当前\textbf{最小标号叶子}，记录它唯一的邻点，直到剩两个点；
+得到长度 $n-2$、每项属于 $[n]$ 的 Prüfer 序列。
+$n=2$ 对应唯一空序列；$n=1$ 另有唯一空边树，度数为0，不代入含 $n-2$ 的公式。
+
+\subsection{双射为何成立}
+解码时保留所有尚未删去的标号。读下一项 $u$，
+取当前未删除且没有出现在\textbf{整个剩余序列}中的最小标号 $v$，连边 $uv$，
+删除 $v$ 并消耗这一项 $u$；最后连接剩下的两个标号。
+当前有 $t$ 个点、$t-2$ 个剩余序列项，所以至少两个标号没有出现，可选点总存在。
+$u$ 自己仍在序列中，故不会选出自环。每个被删点只连接到更晚删去的点，
+最终得到一棵连通的 $n-1$ 边树。
+
+关键不变式是：在当前剩余树中，标号 $i$ 在剩余序列里的出现次数等于 $d_i-1$。
+每个点最后一条关联边在它作为叶子被删除时移除，或在最后两点之间保留到结束；这一条不记录该点。
+此前每删除一个邻点，就记录一次它。
+每一步删除一个叶子，会同时使邻点的度数和出现次数减少1，因此不变式继续成立。
+反过来看解码得到的剩余树，每个活跃点有一条最终连接边，再加上剩余序列每次出现它时接来的边；
+其度数同样是剩余出现次数加1。
+所以未出现的活跃标号恰好是叶子；两边都取最小者，编码和解码逐步互为逆操作。
+特别地，原树满足
+\[
+ d_i=1+\#\{\text{序列中等于 }i\text{ 的项}\}.
+\]
+本节给出计数依据，不新增可调用的编码/解码 API。
+
+\subsection{Cayley、指定度数与叶子数}
+任意长度 $n-2$ 的序列都对应唯一树，故树总数为 $n^{n-2}$。
+给定整数度数 $d_1,\ldots,d_n$，若某个 $d_i<1$ 或 $\sum_i d_i\ne2n-2$，答案为0；
+否则各标号出现次数已确定，答案是多项式系数
+\[
+ \frac{(n-2)!}{\prod_{i=1}^n(d_i-1)!}.
+\]
+例如 $n=4$，度数 $(3,1,1,1)$ 给出唯一指定中心的星形树，
+度数 $(2,2,1,1)$ 则有2棵，而不是把两名度为2的顶点视作不可区分。
+
+叶子恰是没有出现的标号。恰有 $\ell$ 个叶子的树数为
+\[
+ \binom n\ell\,(n-\ell)!\,S(n-2,n-\ell),
+\]
+其中 $S$ 为第二类 Stirling 数：先选叶子，再把序列位置满射到其余标号。
+$n\ge3$ 时合法范围为 $2\le\ell\le n-1$；其他叶子数为0。
+$n=2,\ell=2$ 时用 $S(0,0)=1$ 得1。若把叶子定义为度数1，单点树没有叶子，仍单独处理。
+这里是整数计数恒等式；取模时不能无条件把阶乘分母换成逆元。
+素数模的预处理与下标限制见第~\ref{compact-Binomial}~节（第~\pageref{compact-Binomial}~页），
+一般模数条件见数学分册“模运算的适用条件”。
+有根标号树及其生成函数见数学分册“隐式生成函数与拉格朗日反演”，不重复另造树计数模板。
+
+\clearpage
+\subsection{加权 Cayley 与连接已有连通块}
+若完整图的边权有特殊乘积形式 $w_{ij}=x_i x_j$，则
+\[
+ \sum_T\prod_{ij\in T}w_{ij}
+ =\sum_T\prod_i x_i^{d(i)}
+ =\left(\prod_i x_i\right)\left(\sum_i x_i\right)^{n-2}.
+\]
+这里 $d(i)$ 表示点 $i$ 的度数。第二步利用出现次数恒等式，把每棵树变成公共因子 $\prod_i x_i$ 乘以其序列各项的权；
+对所有序列求和就是展开右侧的幂。
+证明没有除以任何 $x_i$，所以零权、负权以及任意正模数都可按多项式恒等式使用。
+$n=2$ 的零次幂是常数1，即使 $\sum_i x_i=0$ 也如此。
+这只适用于上述乘积边权；缺边图或一般边权应使用矩阵树定理，
+见第~\ref{knowledge-matrix-tree-weighted}~节（第~\pageref{knowledge-matrix-tree-weighted}~页）及第~\ref{compact-MatrixTreeMod}~节（第~\pageref{compact-MatrixTreeMod}~页）。
+代数权值和为零也可能来自抵消，不能据此断言没有树。
+
+设一个固定图有 $k\ge2$ 个连通块，大小为正整数 $s_1,\ldots,s_k$，总顶点数 $N=\sum_i s_i$。
+允许任选不同连通块的顶点对加边，使全图连通，且恰加 $k-1$ 条边。
+缩点后新增边必须组成树；一条块间边 $ij$ 有 $s_i s_j$ 种端点选择。
+因此不同\textbf{无序新增边集}的数量是
+\[
+ N^{k-2}\prod_{i=1}^k s_i.
+\]
+$k=1$ 时无需加边，答案为1，不计算负指数。原图的内部边固定，不计内部生成树选择。
+若禁止部分端点对、给每条新增边限制，或数加边的执行顺序，就不能直接使用此式。
+有标号树也不能简单除以 $n!$ 得到无标号树数，因为不同树的自同构数量不同。
+
+双射背景见
+\href{https://math.mit.edu/~rstan/algcomb/algcomb.pdf}{Stanley, Topics in Algebraic Combinatorics}，
+导航与基础公式见
+\href{https://github.com/OI-wiki/OI-wiki/blob/bc070e827180fbd75c2e27a16c1212f1d671d949/docs/graph/prufer.md}{固定版本 OI Wiki Prüfer 序列}。
+以上用最小叶子的一致约定推导；不将本节计数说明当作整个上游页面的实现覆盖。
+
 
 \Needspace{508pt}
 

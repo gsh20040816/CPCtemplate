@@ -20,9 +20,11 @@
       "docs/knowledge-diophantine.tex",
       "docs/knowledge-integration.tex",
       "docs/knowledge-manhattan-mst.tex",
-      "docs/knowledge-pick.tex"
+      "docs/knowledge-pick.tex",
+      "docs/knowledge-prufer.tex",
+      "docs/knowledge-valuations.tex"
     ],
-    "classified_section_count": 30,
+    "classified_section_count": 32,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -350,6 +352,28 @@
       "relation": "direct",
       "page_break_before": true,
       "note": "从混合旧节迁出Pick与边界gcd，补本原三角形、相容剖分与Euler证明、孔洞和位宽合同；组合已有有向面积，不新增算法。"
+    },
+    {
+      "label": "knowledge-prufer",
+      "source": "docs/knowledge-prufer.tex",
+      "path": "graph/prufer.md",
+      "additional": [
+        "graph/matrix-tree.md",
+        "math/combinatorics/stirling.md"
+      ],
+      "relation": "composite",
+      "note": "Prüfer双射支撑有标号树、度数、叶子、乘积权与连通块计数；知识说明，不新增编码解码API或声称整页实现。"
+    },
+    {
+      "label": "knowledge-valuations",
+      "source": "docs/knowledge-valuations.tex",
+      "path": "math/number-theory/factorial.md",
+      "additional": [
+        "math/number-theory/lucas.md"
+      ],
+      "relation": "composite",
+      "note": "Legendre阶乘赋值与数位和、Kummer进位判据及素数幂可整除性；解释已有ExLucas辅助逻辑，不新增算法范围。",
+      "page_break_before": true
     }
   ]
 }
