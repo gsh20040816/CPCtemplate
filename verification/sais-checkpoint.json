@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-10-04T08:00:27.033027+00:00",
+  "recorded_at_utc": "2026-10-04T08:11:54.633426+00:00",
   "scope": "Independent SA-IS alternate suffix array; no changes to doubling or SuffixLCP semantics; local formal suffixarray adapter checks, not new online AC.",
   "source_sha256": {
     "README.md": "ad749759ee841875d7affcd7d24c25820a016e4769c5f95fa606a6999fbba00a",
@@ -1152,7 +1152,7 @@
     "docs/sources.lock.json": "23b9264470ca84a355a7f2437c0303427c041f5d83ffb7332d6a8a54e261cecc",
     "docs/template-dependencies.json": "29f2e741e2f1b82fcbdf9670f2caba60f911aee0e86b1863ea507e870561b7d1",
     "docs/template-problem-reviews.json": "b1de7de20917d9acf7d5163da5bbc7caffb5077fd6cf9de2589d7b9369680336",
-    "docs/template-problems.json": "a638d1c123c1628bc06dc88c0de7b59b9ac519c12ef1448c92c7aa77a8117cc7",
+    "docs/template-problems.json": "e6b12556b40a296ab77359df81104152ea7cb1ac2227dab7e5a7ee841bdb9980",
     "docs/usage/example-1.cpp": "6fe7803f9e46e3d418bb954e54c958b2f859ad0b8ad570b602a29a3fec215b1c",
     "docs/usage/example-10.cpp": "3abaa0dea5be340bdf832d2a453d112be60ab0de2549e2c99529060c608469eb",
     "docs/usage/example-100.cpp": "d6d98c89c60ac842f94002b7e16e85500cd77eab09d8bb1c11661ef49a4d8f71",
@@ -1411,8 +1411,8 @@
     "docs/volumes.json": "d62724a3dc29906632fd9aeef4d9bcf2642dedc095f17571d39f64256acfb446"
   },
   "targeted_reports_sha256": {
-    "verification/sais-normal.json": "0b450e2a470bf40452eb7617a923beee8e6db7be0a66fa34877b6e6e95d8eacd",
-    "verification/sais-sanitizer.json": "b1a2009c2e03f1ea8263c83e09a42f37363722d0804cf1ba311e6450037f71f1"
+    "verification/sais-normal.json": "6f901a49af593f7e4b8426ac1f48f45dda92f82b0777590149507ffc73555e8e",
+    "verification/sais-sanitizer.json": "5619cfb035aeea58425a6ef2ec26a3e638d306f721fdc5c32826e65b46c6c1d3"
   },
   "counts": {
     "components": 216,
@@ -1701,5 +1701,13 @@
     "No new OJ AC, official-data rerun or performance ranking",
     "LeakSanitizer disabled",
     "Full regression not yet run on this snapshot"
+  ],
+  "full_run_history": [
+    {
+      "receipt": "verification/runs/20261004T080440.990060Z-normal-c3f47f79/receipt.json",
+      "status": "failed",
+      "reason": "Candidate inventory omitted new SAIS component; full test stopped at metadata check before C++ stages. Regenerated with tools/template_inventory.py; targeted normal and sanitizer rerun against updated source map.",
+      "log_sha256": "d02a0694de28a8da9eb5fd80855e6486a0fb0f8eb0bee20931dc8a85d6190ee5"
+    }
   ]
 }
