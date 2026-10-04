@@ -1288,5 +1288,11 @@
     "convex_tangents_i64",
     "凸多边形外点的两条切线",
     "p须为严格凸、逆时针的整数多边形，无重复末点或共线边界顶点；3≤n≤INT_MAX/2，起始下标任意。所有顶点及q坐标绝对值≤10^12。返回optional<pair<int,int>>的原0-based下标(right,left)：对任意顶点v，cross(q,p[right],v)≤0，cross(q,p[left],v)≥0。若切线贴整条边，选离q最近的端点。q在内部或边界时返回nullopt。O(log n)时间、O(1)额外空间，无预处理且输入不变；先扇形定位异态边，再二分可见边链两端。凸性、方向及数值范围均为前置条件，assert不验证整个多边形；n<3不在接口范围。散点先构造integer_hull，若需原编号须另留映射。"
+  ],
+  [
+    "sais",
+    "SAIS",
+    "线性后缀数组（SA-IS）",
+    "SAIS(s,alphabet)：整数符号0..alphabet-1，1≤alphabet<INT_MAX，长度n<INT_MAX；SAIS(string)按unsigned byte处理，支持零字节。sa/rk/lcp均长n，0-based；lcp[0]=0，其余为相邻后缀LCP。无需哨兵，空串结果为空。诱导排序时间/空间O(n+alphabet)，递归深度O(log n)；任意值离散化另需O(n log n)。保留倍增SuffixArray；SuffixLCP不直接接受本类型。"
   ]
 ]

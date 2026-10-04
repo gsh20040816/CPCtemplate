@@ -3016,5 +3016,16 @@
       "IntegerPlane",
       "convex_tangents_i64"
     ]
+  },
+  {
+    "id": "example-241",
+    "symbol": "SAIS",
+    "problem": "Library Checker suffixarray",
+    "url": "https://judge.yosupo.jp/problem/suffixarray",
+    "summary": "输入长度1..500000的小写字符串，按字典序输出所有非空后缀的0-based起点。独立SA-IS实现；无需附加哨兵，不继承倍增版本的线上记录。",
+    "driver": "verify/library_checker/suffixarray_sais.compact.cpp",
+    "requires": [
+      "SAIS"
+    ]
   }
 ]

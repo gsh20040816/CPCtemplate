@@ -4500,5 +4500,30 @@
     },
     "remaining": "Online AC and ranking pending. Signed64 and empty inputs are separate API extensions. Constructed local cases are not official samples; retrieved official text did not expose sample blocks.",
     "checked_date": "2026-10-03"
+  },
+  {
+    "symbol": "SAIS",
+    "problem": "Library Checker suffixarray",
+    "url": "https://judge.yosupo.jp/problem/suffixarray",
+    "classification": "Formal suffix-array task; independent induced-sorting implementation.",
+    "statement_checked": true,
+    "checked_date": "2026-10-04",
+    "limits": "1<=N<=500000; lowercase English letters; zero-based suffix starts",
+    "driver": "verify/library_checker/suffixarray_sais.compact.cpp",
+    "tested_api": [
+      "SAIS(string)",
+      "sa"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "statement_sources": [
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/suffixarray/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/suffixarray/info.toml"
+    ],
+    "remaining": "Independent local oracle and closed-form checks are source-bound separately. No new online AC, official-data rerun or controlled ranking."
   }
 ]

@@ -181,6 +181,7 @@
 | `PotentialDSU` | [Library Checker Unionfind with Potential](https://judge.yosupo.jp/problem/unionfind_with_potential) | 1<=N,Q<=200000; modulus998244353; zero-based vertices; 0<=x<mod; accepted relation a[u]-a[v]=x | 待在线 AC | 待核验 |
 | `ManhattanMST` | [Library Checker Manhattan MST](https://judge.yosupo.jp/problem/manhattanmst) | 1<=N<=200000; coordinates0..1e9; original zero-based endpoint indices; n-1 acyclic edges and optimal total | 待在线 AC | 待核验 |
 | `Dominance3D` | [Luogu P3810](https://www.luogu.com.cn/problem/P3810) | 1<=n<=100000; 1<=a,b,c<=k<=200000; weak comparisons and j!=i; duplicate occurrences retained | 待在线 AC | 待核验 |
+| `SAIS` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase English letters; zero-based suffix starts | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1685,6 +1686,16 @@ Official title and background explicitly identify a standalone 3D dominance temp
 
 
 Online AC and ranking pending. Signed64 and empty inputs are separate API extensions. Constructed local cases are not official samples; retrieved official text did not expose sample blocks.
+
+### Library Checker suffixarray / SAIS
+
+Formal suffix-array task; independent induced-sorting implementation.
+
+
+
+Independent local oracle and closed-form checks are source-bound separately. No new online AC, official-data rerun or controlled ranking.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/suffixarray/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/string/suffixarray/info.toml)
 
 ## 榜单口径
 

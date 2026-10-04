@@ -178,16 +178,17 @@
     {
       "module": "string",
       "category": "字符串",
-      "status": "功能已有，复杂度与表示有差异",
+      "status": "SA-IS与倍增并列，LCP表示不同",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/string.hpp",
       "reference_sha256": "e7ffe101a268208d63c17374e970f781a1a828feb6cc6010ead78c2a709cda86",
       "local": [
         "src/compact/string.hpp",
-        "src/compact/suffix_lcp.hpp"
+        "src/compact/suffix_lcp.hpp",
+        "src/compact/sais.hpp"
       ],
-      "notes": "后缀数组、LCP 和 Z 已有。ACL 用 SA-IS，本库用倍增；ACL LCP 长 n-1，本库长度 n 且首项0；两者 Z[0] 均取 n。SA-IS 是性能/复杂度上的未实现替代，不是后缀数组功能全缺。",
+      "notes": "后缀数组、LCP和Z已有；新增独立SAIS诱导排序，与倍增SuffixArray并列。整数已知字母表为O(n+alphabet)，离散化另计。ACL LCP长n-1，本库长n且首项0；两者Z[0]取n。旧倍增线上记录不迁移给新实现，SuffixLCP仍只直接接受SuffixArray。",
       "gaps": [
-        "SA-IS 线性后缀数组实现尚无"
+        "SA-IS新实现的独立线上AC与受控性能比较尚未完成；SuffixLCP不直接接受SAIS类型"
       ]
     }
   ],

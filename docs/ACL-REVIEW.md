@@ -21,7 +21,7 @@
 | [mincostflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/mincostflow.hpp) | 图论 | 费用曲线已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
 | [scc](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/scc.hpp) | 图论 | 核心功能已有 | [tarjan.hpp](../src/compact/tarjan.hpp)、[graph.hpp](../src/compact/graph.hpp) |
 | [twosat](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/twosat.hpp) | 图论 | 核心功能已有 | [graph.hpp](../src/compact/graph.hpp) |
-| [string](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/string.hpp) | 字符串 | 功能已有，复杂度与表示有差异 | [string.hpp](../src/compact/string.hpp)、[suffix_lcp.hpp](../src/compact/suffix_lcp.hpp) |
+| [string](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/string.hpp) | 字符串 | SA-IS与倍增并列，LCP表示不同 | [string.hpp](../src/compact/string.hpp)、[suffix_lcp.hpp](../src/compact/suffix_lcp.hpp)、[sais.hpp](../src/compact/sais.hpp) |
 
 ## 结构配合
 
@@ -119,9 +119,11 @@ ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆�
 
 ### string
 
-后缀数组、LCP 和 Z 已有。ACL 用 SA-IS，本库用倍增；ACL LCP 长 n-1，本库长度 n 且首项0；两者 Z[0] 均取 n。SA-IS 是性能/复杂度上的未实现替代，不是后缀数组功能全缺。
+后缀数组、LCP和Z已有；新增独立SAIS诱导排序，与倍增SuffixArray并列。整数已知字母表为O(n+alphabet)，离散化另计。ACL LCP长n-1，本库长n且首项0；两者Z[0]取n。旧倍增线上记录不迁移给新实现，SuffixLCP仍只直接接受SuffixArray。
 
-后续项：SA-IS 线性后缀数组实现尚无。
+接口、诱导排序与LMS命名证明见 [SAIS.md](SAIS.md)。固定ACL来源与旧本地快照保持历史含义，本轮实现另行验证。
+
+后续项：SA-IS新实现的独立线上AC与受控性能比较尚未完成；SuffixLCP不直接接受SAIS类型。
 
 ## 已修复的组合缺口
 
@@ -133,10 +135,10 @@ ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆�
 
 ## 后续实施顺序
 
-与 #1 的模板题清单对齐后，继续补齐通用懒标记树、slope、精确整数卷积与动态模数的独立线上证据。SA-IS 属于性能/复杂度替代，不把已验证的倍增后缀数组标为缺失。每项仍须独立题目、边界和性能验证。
+与 #1 的模板题清单对齐后，继续补齐通用懒标记树、slope、精确整数卷积与动态模数的独立线上证据。SA-IS 已作为性能/复杂度替代新增；其线上证据仍需单独完成，不把已验证的倍增后缀数组标为缺失。每项仍须独立题目、边界和性能验证。
 
 精确 signed64 卷积已补齐，契约、CRT 证明和验证边界见 [INTEGER-CONVOLUTION.md](INTEGER-CONVOLUTION.md)。线上 AC 与性能排名待验证。
 
 ## 元数据一致性检查
 
-`python3 tests/acl_review_consistency.py` 核对 12 个公开模块的表格、状态、当前路径与固定 ACL 摘要，保留 6 个内部支持模块、历史本地快照及已知缺项。该检查只验证登记一致性，不执行 C++、重签历史证据或验证算法正确性。SA-IS、静态求逆新实现的线上证据、接口契约差异，以及其他未完成的线上验证和性能排名仍保留。
+`python3 tests/acl_review_consistency.py` 核对 12 个公开模块的表格、状态、当前路径与固定 ACL 摘要，保留 6 个内部支持模块、历史本地快照及已知缺项。该检查只验证登记一致性，不执行 C++、重签历史证据或验证算法正确性。SA-IS及静态求逆新实现的线上证据、接口契约差异，以及其他未完成的线上验证和性能排名仍保留。
