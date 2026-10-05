@@ -183,6 +183,7 @@
 | `Dominance3D` | [Luogu P3810](https://www.luogu.com.cn/problem/P3810) | 1<=n<=100000; 1<=a,b,c<=k<=200000; weak comparisons and j!=i; duplicate occurrences retained | 待在线 AC | 待核验 |
 | `SAIS` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase English letters; zero-based suffix starts | 待在线 AC | 待核验 |
 | `convex_tangents_i64` | [ICPC Chengdu 2025 I / Inside Triangle](https://codeforces.com/gym/106161/problem/I) | T<=1000; 3<=n,m<=300000; each sum<=500000; \|coordinate\|<=1e9; strict convex CCW polygons, Q strictly inside P, selected triangle contains Q non-strictly | 待在线 AC | 待核验 |
+| `ExactCover` | [Luogu P4929 / 精确覆盖](https://www.luogu.com.cn/problem/P4929) | N,M<=500; total ones<=5000 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1707,6 +1708,16 @@ Use monotone legal chord endpoints and prefix sums, divide cyclic contributions 
 Independent local triple/half-plane oracle and maximum geometry certificates; online AC and controlled timing remain pending.
 
 原始题面与参数：[来源 1](https://codeforces.com/gym/106161/problem/I)，[来源 2](https://contest.ucup.ac/download.php?id=2567&r=1&type=attachments)
+
+### Luogu P4929 / 精确覆盖 / ExactCover
+
+Standalone exact-cover template problem; arbitrary feasible solution.
+
+
+
+Current-source local evidence is recorded separately; no online AC or ranking.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P4929)
 
 ## 榜单口径
 

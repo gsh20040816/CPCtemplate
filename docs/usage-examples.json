@@ -3040,5 +3040,16 @@
       "IntegerPlane",
       "convex_tangents_i64"
     ]
+  },
+  {
+    "id": "example-243",
+    "symbol": "ExactCover",
+    "problem": "Luogu P4929 / 精确覆盖",
+    "url": "https://www.luogu.com.cn/problem/P4929",
+    "summary": "读入N×M的01矩阵，N,M≤500且非零数≤5000；每列恰被选择行覆盖一次。稀疏建模后输出原1-based行号，任一可行解均可；无解输出No Solution!。",
+    "driver": "verify/luogu/P4929.compact.cpp",
+    "requires": [
+      "ExactCover"
+    ]
   }
 ]

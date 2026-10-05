@@ -29,6 +29,8 @@
 
 成都2025 I 的完整三角形包含计数应用见 [Inside Triangle](docs/INSIDE-TRIANGLE.md)：包含贴边的精确判定与单调区间计数；本地应用验证不替代线上AC。
 
+精确覆盖的稀疏建模、可重复求解及完整恢复见 [Dancing Links](docs/EXACT-COVER.md)，配套 P4929 完整用法。
+
 ## 码风
 
 - `src/compact/`：基于队伍实际提交，`vector`、小写短名、清晰分行；目录名不表示压缩代码。

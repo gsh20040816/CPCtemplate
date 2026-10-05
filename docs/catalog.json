@@ -1294,5 +1294,11 @@
     "SAIS",
     "线性后缀数组（SA-IS）",
     "SAIS(s,alphabet)：整数符号0..alphabet-1，1≤alphabet<INT_MAX，长度n<INT_MAX；SAIS(string)按unsigned byte处理，支持零字节。sa/rk/lcp均长n，0-based；lcp[0]=0，其余为相邻后缀LCP。无需哨兵，空串结果为空。诱导排序时间/空间O(n+alphabet)，递归深度O(log n)；任意值离散化另需O(n log n)。保留倍增SuffixArray；SuffixLCP不直接接受本类型。"
+  ],
+  [
+    "exact_cover",
+    "ExactCover",
+    "精确覆盖（Dancing Links）",
+    "ExactCover(m,rows)：列0..m-1，各稀疏行内列号互异、无需排序；行可重复或为空，保留原0-based行号。solve()返回optional<vector<int>>，无解为nullopt，m=0为有值的空解。只求任意首解，不保证最少行数。成功/失败均恢复链与列计数，可重复调用及复制；实现字段不可外改，移后源对象仅销毁或重新赋值。m和行数<INT_MAX，1+m+非零数≤INT_MAX。构造O(行数+m+非零数)，空间O(m+非零数)，递归深度≤m，搜索最坏指数。"
   ]
 ]

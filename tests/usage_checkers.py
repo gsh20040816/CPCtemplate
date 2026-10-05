@@ -4,6 +4,18 @@ import math
 
 
 def check_output(example_id, mode, data, stdout, expected):
+    if isinstance(expected, dict) and 'exact_cover' in expected:
+        values = list(map(int, data.split()))
+        n, m = values[:2]
+        assert len(values) == 2 + n * m
+        if stdout.strip() == 'No Solution!':
+            assert not expected['exact_cover']
+            return
+        assert expected['exact_cover']
+        ids = [int(x) - 1 for x in stdout.split()]
+        assert len(set(ids)) == len(ids) and all(0 <= i < n for i in ids)
+        assert all(sum(values[2 + i * m + c] for i in ids) == 1 for c in range(m))
+        return
     if isinstance(expected, dict) and 'manhattan_mst' in expected:
         values = list(map(int, data.split()))
         n = values[0]

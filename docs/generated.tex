@@ -1,3 +1,43 @@
+\part{搜索}
+
+\newpage
+
+\Needspace{392pt}
+
+\chapter{Dancing Links}
+
+\section{精确覆盖（Dancing Links）}\label{compact-ExactCover}\index{ExactCover}
+
+ExactCover(m,rows)：列0..m-1，各稀疏行内列号互异、无需排序；行可重复或为空，保留原0-based行号。solve()返回optional<vector<int>>，无解为nullopt，m=0为有值的空解。只求任意首解，不保证最少行数。成功/失败均恢复链与列计数，可重复调用及复制；实现字段不可外改，移后源对象仅销毁或重新赋值。m和行数<INT\_MAX，1+m+非零数$\le$INT\_MAX。构造O(行数+m+非零数)，空间O(m+非零数)，递归深度$\le$m，搜索最坏指数。
+
+\lstinputlisting[firstline=10,lastline=29,firstnumber=1]{../src/compact/exact_cover.hpp}
+
+\newpage
+
+\noindent 稀疏行建链与删除（接上页同一结构体）：
+
+\lstinputlisting[firstline=30,lastline=65,firstnumber=21]{../src/compact/exact_cover.hpp}
+
+\newpage
+
+\noindent 逆序恢复与搜索（接上页同一结构体）：
+
+\lstinputlisting[firstline=66,lastline=108,firstnumber=57]{../src/compact/exact_cover.hpp}
+
+\Needspace{410pt}
+
+\subsection*{模板题使用：Luogu P4929 / 精确覆盖}
+
+\label{usage-example-243}
+
+题意：读入N×M的01矩阵，N,M$\le$500且非零数$\le$5000；每列恰被选择行覆盖一次。稀疏建模后输出原1-based行号，任一可行解均可；无解输出No Solution!。
+
+所需模板：\hyperref[compact-ExactCover]{ExactCover}（第~\pageref{compact-ExactCover}~页，\ref{compact-ExactCover}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4929}
+
+\lstinputlisting{usage/example-243.cpp}
+
 \part{字符串}
 
 \Needspace{251pt}
