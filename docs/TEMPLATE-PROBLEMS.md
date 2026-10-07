@@ -200,6 +200,7 @@
 | `DynamicAC` | [Codeforces 710F / String Set Queries](https://codeforces.com/problemset/problem/710/F) | m<=300000,total lengths<=300000,nonempty lowercase; new string never added before, removal present; online, flush answer before next input; 3 seconds,768MiB. Local resource completion does not establish official acceptance. | 待在线 AC | 待核验 |
 | `KDNearest` | [Luogu P2093 / JZPFAR](https://www.luogu.com.cn/problem/P2093) | n≤100000，m≤10000，1≤k≤min(n,20)，互异二维点；点与查询坐标在[-10^9,10^9]。题面带随机分布条件，当前未核对时间/内存上限。 | 待在线 AC | 待核验 |
 | `KDRange` | [kuangbin 3.10 / 动态KD树源码模型](https://github.com/kuangbin/ACM-ICPC) | 接口坐标支持signed64；搬移演示n≤100000，W,H在1..10^9，非负系数/E≤10^9，中心绝对值≤10^9。为演示约束，不冒称原题约束。 | 待在线 AC | 待核验 |
+| `Chain3D` | [kuangbin 3.8.3 / HDU4742源码模型](https://acm.hdu.edu.cn/showproblem.php?pid=4742) | 接口n≤INT_MAX/2且内存可分配，坐标signed64，正int模数；源码模型模数2^30、非空输入。为接口约束，不冒称原题约束。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1888,6 +1889,14 @@ Online AC and rank pending; application does not close formal-template search.
 
 
 原题严格/非严格距离、完整协议、资源限制、在线AC与排名未核验；来源3.10保留partial。
+
+### kuangbin 3.8.3 / HDU4742源码模型 / Chain3D
+
+来源模型/API演示；原稿严格三维递增说明与弱偏序源码有差异，不冒称已核验的HDU4742题意或正式模板题。
+
+
+
+原题严格/非严格关系与重复点计数语义、资源限制、在线AC与排名未核验；来源3.8.3保留partial。
 
 ## 榜单口径
 

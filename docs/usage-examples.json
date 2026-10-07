@@ -3398,5 +3398,29 @@
     "requires": [
       "KDRange"
     ]
+  },
+  {
+    "id": "example-272",
+    "symbol": "Chain3D",
+    "kind": "api",
+    "problem": "三维最长链与原编号方案（接口演示）",
+    "url": "https://oi-wiki.org/misc/cdq-divide/",
+    "summary": "输入n,mod,strict及n个三维整数点。strict=1为三维都严格增加；strict=0为三维不减，重合点按原编号串联，不重复计算它们的排列。输出全局长度/模方案数、一条原编号路径，以及各原输入点的结尾长度/模方案数/前驱编号。空输入全局为0和1%mod，路径为空；mod=1时计数0也能恢复路径。",
+    "driver": "verify/api/chain_3d.compact.cpp",
+    "requires": [
+      "Chain3D"
+    ]
+  },
+  {
+    "id": "example-273",
+    "symbol": "Chain3D",
+    "kind": "api",
+    "problem": "三维弱链计数（kuangbin HDU4742源码模型）",
+    "url": "https://github.com/kuangbin/ACM-ICPC",
+    "summary": "输入T组，每组给n≥1和n个三维整数点，输出按三维弱偏序及重合点固定顺序得到的最长链长度、方案数模2^30。这是原稿源码的闭边界模型；其文字描述却写三个严格小于，原HDU4742题面/约束/协议尚未核验，不视为正式模板题或已完成OJ适配。",
+    "driver": "verify/api/chain3d_source.compact.cpp",
+    "requires": [
+      "Chain3D"
+    ]
   }
 ]

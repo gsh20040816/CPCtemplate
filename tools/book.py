@@ -24,6 +24,7 @@ chapters['sam_documents'] = 'SAM文档频率'
 chapters['ac_weighted'] = '带权与动态AC'
 chapters['kd_nearest'] = '静态 K-D Tree 近邻'
 chapters['kd_range'] = '动态 K-D Tree 矩形取点'
+chapters['chain_3d'] = '三维最长链CDQ'
 chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
 chapters['potential_dsu'] = '带势并查集与差值约束'
@@ -94,7 +95,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange'):
+            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -620,6 +621,14 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 余式下传与求值入口（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'Chain3D':
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['        vector<int> order(', '        auto cdq =', '        cdq(cdq,']] + [end]
+                captions = ['', '坐标顺序、分组与状态合并', '先转移再右递归（同一构造函数内）', '汇总答案与路径恢复']
+                for part, (left, right) in enumerate(zip(cuts, cuts[1:])):
+                    if part:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(left + 1) + ',lastline=' + str(right) + ',firstnumber=' + str(left - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'KDRange':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['    bool less(', '    int build(', '    void take(']] + [end]
                 for part, (left, right) in enumerate(zip(cuts, cuts[1:])):

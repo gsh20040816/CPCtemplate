@@ -1,0 +1,61 @@
+{
+  "base": "592b664cf56d2a5cff60bca3aa56cb9f1b63e507",
+  "batch": "Strict/weak 3D longest chain, modular counts and original-ID path",
+  "counts": {
+    "components": 234,
+    "usages": 273,
+    "usage_status": {
+      "locally_checked_example": 167,
+      "locally_checked_application": 52,
+      "locally_checked_api": 15
+    },
+    "pending_upstream_topics": 610,
+    "partial_upstream_topics": 32
+  },
+  "small_cases_per_core_form": 15362,
+  "core_forms_per_mode": 4,
+  "complete_inputs_per_form": {
+    "example-272": 100,
+    "example-273": 96
+  },
+  "complete_forms_per_mode": 3,
+  "mutants_per_mode": 6,
+  "stress": "100000-point chain, antichain, identical points, duplicate layers and skewed equal-x groups; strict and weak, mod1 and2^30",
+  "unaffected": {
+    "base": "592b664cf56d2a5cff60bca3aa56cb9f1b63e507",
+    "unchanged_old_components": 233,
+    "unchanged_old_core_files": 197,
+    "old_expanded_programs_unchanged": 271,
+    "new_usages": [
+      "example-272",
+      "example-273"
+    ],
+    "files": {
+      "src/compact/chain_3d.hpp": "d102b3e9c90f0d3d6974e8b726940be4af770bb07d53245a54a4d7ae1a938439",
+      "tests/chain_3d_probe.cpp": "cc0ee08d949c63290a099e76567d890191ae3bd4d726f2db3bb896d4d9f46f37",
+      "tests/chain_3d.py": "44b84320aa46106d0e1e44a1bb91c22d237eebf24a94482ea1f3879655566c58",
+      "verify/api/chain_3d.compact.cpp": "e9889efbda3be3282884f1722e34920402b9005b25c767a0ef226038e81272c5",
+      "verify/api/chain3d_source.compact.cpp": "50ff58b929a30d35db4fa4961b2bbe4a27605080cd4f97e35d62190fd76fb64f"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "040f28d56e68c8ddb499f7b868e6ddfc830dbab75ce2b5cf0720dca5840e4953",
+      "pages": 756,
+      "page_change": 5,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-misc.pdf": {
+      "sha256": "0d14cbcfa913c12869e5245818d21fc1c1a68d042b36135634a47cfa805418fb",
+      "pages": 37,
+      "page_change": 5,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global target stays active. kuangbin3.8.3 partial: strict/non-strict conflict in source, original HDU4742 statement/resources unverified. No new online AC/rank or full-library rerun; no CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/chain-3d-normal.json",
+    "verification/chain-3d-sanitizer.json"
+  ],
+  "documentation_after_runtime": "Source ledger/reviews and pagination finalized after execution. Runtime sources match recorded fingerprints; unchanged233 old components/271 expanded programs. New usages are API only; formal coverage remains167."
+}
