@@ -397,6 +397,9 @@ cases['example-305'] = [('4 3 5\n1 2 5\n1 3 9\n2 3 3\n1 2\n2 1\n1 3\n1 4\n3 2\n'
 cases['example-306'] = [('3 2 3\n1 2 -9223372036854775808\n2 3 -9223372036854775808\n1 3\n3 1\n2 2\n','-18446744073709551616 2 0 1 INF 0 0'), ('2 1 1\n2 2 -1\n1 1\n','NEGATIVE CYCLE')]
 cases['example-307'] = [('3 3\n1 2 1\n2 3 1\n1 3 2\n3\n','2 1 2')]
 cases['example-308'] = [('4 2 1\n1 2 9223372036854775807\n2 3 9223372036854775807\n','3 18446744073709551614 2 0 1 0 0 9223372036854775807 1 0 18446744073709551614 2 0 1 INF')]
+cases['example-309'] = [('3 0\n', '5'), ('1 0\n', '1')]
+cases['example-310'] = [('2 2 1\n1 1\n', '3 1 2 2 1 2'), ('0 2 0\n', '2 0 2 1 2')]
+cases['example-311'] = [('3\n..o\no.o\n...\n', '2 1 1 1 2')]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

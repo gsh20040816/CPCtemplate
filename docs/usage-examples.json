@@ -3865,5 +3865,45 @@
       "ShortestPathTree"
     ],
     "page_break_before": "    cout << reached << ' ';"
+  },
+  {
+    "id": "example-309",
+    "symbol": "independent_set",
+    "kind": "application",
+    "problem": "Luogu P3355 / 骑士共存问题",
+    "url": "https://www.luogu.com.cn/problem/P3355",
+    "summary": "n×n棋盘有障碍，求互不攻击骑士的最大数量。n≤200；可用格按(x+y)奇偶分成两侧并单独编号，只从奇色连向八个合法骑士落点。障碍不参与编号，输出两侧独立集大小之和。",
+    "driver": "verify/luogu/P3355.compact.cpp",
+    "requires": [
+      "BipartiteMatching",
+      "independent_set"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-310",
+    "symbol": "independent_set",
+    "kind": "api",
+    "problem": "二分图最大独立集原点方案（接口演示）",
+    "url": "https://oi-wiki.org/graph/graph-matching/bigraph-match/",
+    "summary": "输入左点数n、右点数m、边数e及左右各自1-based边端点，允许空侧、孤立点和重边。首行输出最优大小，后两行分别输出“左侧数量 左点号列表”和“右侧数量 右点号列表”。两侧同号是不同点。",
+    "driver": "verify/api/independent_set.compact.cpp",
+    "requires": [
+      "BipartiteMatching",
+      "independent_set"
+    ]
+  },
+  {
+    "id": "example-311",
+    "symbol": "BipartiteMatching",
+    "kind": "application",
+    "problem": "CSES 1709 / Coin Grid",
+    "url": "https://cses.fi/problemset/task/1709/",
+    "summary": "n≤100的方阵中o为硬币，每次清空一行或一列，输出最少操作数及方案。行列作为二分图两侧，硬币为边；solve后cover给出最小点覆盖，左点输出1 行号，右点输出2 列号。",
+    "driver": "verify/cses/1709.compact.cpp",
+    "requires": [
+      "BipartiteMatching"
+    ],
+    "start_new_page": true
   }
 ]

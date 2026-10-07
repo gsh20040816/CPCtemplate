@@ -1,0 +1,60 @@
+{
+  "base": "e4a282c27f2dd6ffee5de9fccc54886074f61b84",
+  "batch": "Bipartite maximum independent set and minimum cover witnesses; knight and coin-grid applications",
+  "counts": {
+    "components": 246,
+    "usages": 311,
+    "usage_status": {
+      "locally_checked_example": 172,
+      "locally_checked_application": 58,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 585,
+    "partial_upstream_topics": 32
+  },
+  "unaffected": {
+    "base": "e4a282c27f2dd6ffee5de9fccc54886074f61b84",
+    "unchanged_old_components": 245,
+    "unchanged_old_core_files": 209,
+    "old_expanded_programs_unchanged": 308,
+    "new_usages": [
+      "example-309",
+      "example-310",
+      "example-311"
+    ],
+    "files": {
+      "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+      "src/compact/independent_set.hpp": "4885955618cdb29afb905b2485f065ebf2b1ee9a6a9aa7e067627d579fbbb9d9",
+      "tests/independent_set_probe.cpp": "4113eb7cd5f88f7a5da6dfc1ec4b0472e9c03d1c4fb53440b3231426b1e41ea6",
+      "tests/independent_set.py": "375142787b8b09dfde0f025cade23e4e5af78ffda86aa0ea7182b6a53d062210",
+      "verify/luogu/P3355.compact.cpp": "40f7c1a8b72a4f925763eb87fb28f999f9ab60d95ea3449b939dd4bde6e526cd",
+      "verify/api/independent_set.compact.cpp": "fccfdedd0501b2fa22375b8e76702fb7c457a0ae77d5f133ad6afd4cf8aae59b",
+      "verify/cses/1709.compact.cpp": "75e7f936f12848378406197b3b5e04ce745661f3f9102ee0e20d4429965382a8"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "5953851874ec18fd490895b68ed4b78a36350dab961771fc9b5459821d417add",
+      "pages": 835,
+      "page_change": 3,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-graphs.pdf": {
+      "sha256": "22de742a55c21bc974247bd293d76832e25077fc5bb1981c29fe6042a7b605bc",
+      "pages": 264,
+      "page_change": 3,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "5f04ece302d793aa36b465eac03c2e02c82b21f6eec965b6c64214707d4a7590",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global goal active. P3355/CSES1709 applications and independent-set API only; no new online AC/rank/resource-pass. No CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/independent-set-normal.json",
+    "verification/independent-set-sanitizer.json"
+  ]
+}

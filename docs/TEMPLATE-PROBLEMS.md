@@ -225,6 +225,8 @@
 | `Floyd` | [AOJ GRL_1_C](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C&lang=en) | 1≤n≤100;0≤m≤9900;\|w\|≤20000000;0-based有向边;无自环重边;整图任意负环只输出NEGATIVE CYCLE。 | 待在线 AC | 待核验 |
 | `Floyd` | [CSES1672](https://cses.fi/problemset/task/1672/) | 1≤n≤500;1≤m≤n²;1≤q≤100000;1≤w≤10^9;双向道路。 | 待在线 AC | 待核验 |
 | `ShortestPathTree` | [Codeforces 545E / Paths and Trees](https://codeforces.com/problemset/problem/545/E) | 1≤n≤300000;0≤m≤300000;1≤w≤10^9;连通无向无自环重边；指定源点，输出最小总边权及1-based原边编号。 | 待在线 AC | 待核验 |
+| `independent_set` | [Luogu P3355 / 骑士共存问题](https://www.luogu.com.cn/problem/P3355) | 1≤n≤200，0≤障碍数<n²；输出最大互不攻击骑士数。 | 待在线 AC | 待核验 |
+| `BipartiteMatching` | [CSES 1709 / Coin Grid](https://cses.fi/problemset/task/1709/) | 1≤n≤100；输出最少清空行列次数及1 行号/2 列号。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2119,6 +2121,22 @@ Library of Graph Algorithms正式全源最短路题。
 
 
 正权应用及额外零权接口均两种模式本地核验；未取得在线AC、排名与在线资源通过。
+
+### Luogu P3355 / 骑士共存问题 / independent_set
+
+应用：二分图独立集/点覆盖建模，不计正式非比赛模板题。
+
+
+
+完整应用及额外原点方案接口均两种模式本地核验；未取得在线AC、排名与在线资源通过。
+
+### CSES 1709 / Coin Grid / BipartiteMatching
+
+应用：二分图独立集/点覆盖建模，不计正式非比赛模板题。
+
+
+
+完整应用及额外原点方案接口均两种模式本地核验；未取得在线AC、排名与在线资源通过。
 
 ## 榜单口径
 

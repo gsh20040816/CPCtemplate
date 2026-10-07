@@ -9086,6 +9086,22 @@ solve(w)，n$\ge$2；w 为 n×n 对称非负权矩阵，重边先累加，主对
 
 \lstinputlisting{usage/example-35.cpp}
 
+\newpage
+
+\Needspace{400pt}
+
+\subsection*{应用题补充：CSES 1709 / Coin Grid}
+
+\label{usage-example-311}
+
+题意：n$\le$100的方阵中o为硬币，每次清空一行或一列，输出最少操作数及方案。行列作为二分图两侧，硬币为边；solve后cover给出最小点覆盖，左点输出1 行号，右点输出2 列号。
+
+所需模板：\hyperref[compact-BipartiteMatching]{BipartiteMatching}（第~\pageref{compact-BipartiteMatching}~页，\ref{compact-BipartiteMatching}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://cses.fi/problemset/task/1709/}
+
+\lstinputlisting{usage/example-311.cpp}
+
 \Needspace{590pt}
 
 \subsection{二分图最大匹配的可行边与必选边}\label{compact-matching_edges}\index{matching\_edges}
@@ -9109,6 +9125,50 @@ matching\_edges(n,m,edges) 接收左右两侧点号各为 1..n、1..m 的边表�
 题目：\url{https://oi-wiki.org/graph/graph-matching/bigraph-match/}
 
 \lstinputlisting{usage/example-95.cpp}
+
+\Needspace{338pt}
+
+\subsection{二分图最大独立集方案}\label{compact-independent_set}\index{independent\_set}
+
+代码依赖：\hyperref[compact-BipartiteMatching]{BipartiteMatching}（第~\pageref{compact-BipartiteMatching}~页，\ref{compact-BipartiteMatching}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+independent\_set(g)接收已建好的BipartiteMatching，内部调用solve再取最小点覆盖的补集，返回左右两侧的原点号列表，分别从1计、升序排列。允许空侧、孤立点、重边与断开图；返回一种最大基数独立集，不保证字典序或最大权。只适用于已知左右划分的二分图，不能直接输入一般图或同侧边。
+
+调用会更新g的匹配与搜索状态，保留合法旧匹配并继续增广；调用后可立即读g.cover()。允许继续add后再次调用，不可删除边或手改匹配。n,m非负且小于INT\_MAX，内存足够。最大独立集大小等于n+m减最大匹配数；只求数量可直接使用该式，求和时先转long long。
+
+依赖BipartiteMatching；总时间O((V+E)$\sqrt{\vphantom x}$(V+1))，V=n+m，额外时间与空间O(V)。HK增广保持递归，深度最坏O(V)。骑士攻击使格子黑白染色反转，故可应用此函数；障碍格不要建成孤立点。
+
+\lstinputlisting[firstline=5,lastline=23]{../src/compact/independent_set.hpp}
+
+\newpage
+
+\Needspace{553pt}
+
+\subsection*{应用题补充：Luogu P3355 / 骑士共存问题}
+
+\label{usage-example-309}
+
+题意：n×n棋盘有障碍，求互不攻击骑士的最大数量。n$\le$200；可用格按(x+y)奇偶分成两侧并单独编号，只从奇色连向八个合法骑士落点。障碍不参与编号，输出两侧独立集大小之和。
+
+所需模板：\hyperref[compact-BipartiteMatching]{BipartiteMatching}（第~\pageref{compact-BipartiteMatching}~页，\ref{compact-BipartiteMatching}~节）、\hyperref[compact-independent_set]{independent\_\allowbreak{}set}（第~\pageref{compact-independent_set}~页，\ref{compact-independent_set}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3355}
+
+\lstinputlisting{usage/example-309.cpp}
+
+\Needspace{413pt}
+
+\subsection*{接口用法演示：二分图最大独立集原点方案（接口演示）}
+
+\label{usage-example-310}
+
+演示约定：输入左点数n、右点数m、边数e及左右各自1-based边端点，允许空侧、孤立点和重边。首行输出最优大小，后两行分别输出“左侧数量 左点号列表”和“右侧数量 右点号列表”。两侧同号是不同点。
+
+所需模板：\hyperref[compact-BipartiteMatching]{BipartiteMatching}（第~\pageref{compact-BipartiteMatching}~页，\ref{compact-BipartiteMatching}~节）、\hyperref[compact-independent_set]{independent\_\allowbreak{}set}（第~\pageref{compact-independent_set}~页，\ref{compact-independent_set}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/graph-matching/bigraph-match/}
+
+\lstinputlisting{usage/example-310.cpp}
 
 \Needspace{180pt}
 

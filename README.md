@@ -118,3 +118,5 @@ DAG最长路、原边方案与重复运行约定见 [DAG-LONGEST](docs/DAG-LONGE
 Floyd全源最短路、负环提前退出与路径约定见 [FLOYD](docs/FLOYD.md)。
 
 最小总边权最短路树、零权块与原边方案见 [SHORTEST-PATH-TREE](docs/SHORTEST-PATH-TREE.md)。
+
+二分图最大独立集、最小点覆盖方案与棋盘应用见 [BIPARTITE-INDEPENDENT-SET](docs/BIPARTITE-INDEPENDENT-SET.md)。

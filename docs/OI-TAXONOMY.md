@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 173，application 61，composite 2，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 173，application 62，composite 2，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -215,6 +215,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | BoundedMaxFlow | 图论 → 网络流 → 上下界网络流 | direct |  |
 | StoerWagner | 图论 → 网络流 → Stoer–Wagner 算法 | direct |  |
 | BipartiteMatching | 图论 → 图的匹配 → 二分图最大匹配 | direct |  |
+| independent_set | 图论 → 图的匹配 → 二分图最大匹配 | application | 最小点覆盖取补集构造二分图最大独立集，复用HK。 |
 | matching_edges | 图论 → 图的匹配 → 二分图最大匹配 | direct |  |
 | Hungarian | 图论 → 图的匹配 → 二分图最大权匹配 | direct |  |
 | WeightedMatching | 图论 → 图的匹配 → 二分图最大权匹配 | direct |  |
