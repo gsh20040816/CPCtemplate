@@ -160,3 +160,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 自适应 Simpson 的 [kuangbin 来源核验](docs/SIMPSON-SOURCE-AUDIT.md)已覆盖原稿13行，保留光滑函数漏采样反例；数值估计满足不代表严格误差保证。
 
 [动态森林路径加与最大值](docs/DYNAMIC-PATH-MAX.md)提供独立DynamicPathMax与来源协议用法328，区分直接边删除和换根后的父边删除；完整原稿与新实现均有本地BFS对照证据。
+
+[浮点高斯消元来源审计](docs/GAUSS-REAL-SOURCE-AUDIT.md)记录原稿“有解/无解”注释在奇异、矩形和缩放系统上的反例，并与现有GaussReal的数值合同区分。
