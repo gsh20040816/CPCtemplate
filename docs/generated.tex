@@ -9210,6 +9210,44 @@ NegativeCostFlow(n)，点号 1..n；add(u,v,cap,cost) 返回从 0 开始的原�
 
 \lstinputlisting{usage/example-98.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\subsection{zkw最小费用最大流}\label{compact-ZkwFlow}\index{ZkwFlow}
+
+ZkwFlow(n)，点号1..n，s$\ne$t。add(u,v,cap,cost)返回偶数原边编号，used(id)查询原边流量；flow(s,t,limit)返回本次新增流量及int128费用，默认limit=LLONG\_MAX，重复调用保持同源汇。允许重边、自环、零容量和负费用，但调用前残量图不得含负环；全图Bellman-Ford建立可行势并检查不可达负环，失败抛invalid\_argument且不改流量，limit=0仍检查。容量非负、cost$\ne$LLONG\_MIN，总流$\le$LLONG\_MAX，$\sum$(cap×|cost|)<2\textasciicircum{}120。递归沿零约化费用边增广，失败后按可达集最小跨边松弛量调势。实际增广A次，O((A+1)V(V+E))，空间O(V+E)、递归深度O(V)，不保证快于势能Dijkstra或SPFA。init/dfs/relabel为内部方法；e/g可读，任意改动须维持成对残量与全局最小费用可行流。无负环前提下加边后续流也须重新满足此条件。返回顺序为流量、费用，与kuangbin原稿相反。
+
+\lstinputlisting[firstline=6,lastline=42,firstnumber=1]{../src/compact/zkw_flow.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体：
+
+\lstinputlisting[firstline=43,lastline=78,firstnumber=38]{../src/compact/zkw_flow.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体：
+
+\lstinputlisting[firstline=79,lastline=112,firstnumber=74]{../src/compact/zkw_flow.hpp}
+
+\newpage
+
+\Needspace{379pt}
+
+\subsection*{模板题使用：Luogu P3381}
+
+\label{usage-example-322}
+
+题意：有向网络，输入n,m,s,t和每条边的起终点、容量、单位费用，输出最大流及其最小费用。点号1..n，s$\ne$t；n$\le$5000、m$\le$50000、容量/费用均0..1000且无自环，题面保证流量和费用$\le$2\textasciicircum{}31−1，因此此驱动可将int128费用转换输出。负边、续流与used由独立本地测试覆盖，不把它们算作本题验证范围。
+
+所需模板：\hyperref[compact-ZkwFlow]{ZkwFlow}（第~\pageref{compact-ZkwFlow}~页，\ref{compact-ZkwFlow}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3381}
+
+\lstinputlisting{usage/example-322.cpp}
+
 \Needspace{598pt}
 
 \section{上下界网络流}

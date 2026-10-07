@@ -1504,5 +1504,11 @@
     "Isap",
     "递归ISAP最大流",
     "Isap(n)，点号1..n；add(u,v,cap)返回偶数原边编号，used(id)读取流量；flow(s,t,limit)返回本次新增流，默认LLONG_MAX，重复调用保持相同源汇。cut(s)返回残量可达点集，只有求尽后才是最小割。容量非负，总最大流≤LLONG_MAX，允许自环、重边与反向原边；重建对象从零重算。e[id]含from/to/cap/initial，其中cap是残量容量；e/g可读，任意改动须维护全局可行流。反向残量BFS初始化距离，当前弧、重标号和gap剪枝，DFS保持递归，最坏O(V²E)，空间O(V+E)、递归深度O(V)。bfs/dfs为内部方法，不能用其临时标签代替cut。与Dinic为独立备选，不承诺更快；两个方向有容量时分别add，逐边方案不压成有符号净流。"
+  ],
+  [
+    "zkw_flow",
+    "ZkwFlow",
+    "zkw最小费用最大流",
+    "ZkwFlow(n)，点号1..n，s≠t。add(u,v,cap,cost)返回偶数原边编号，used(id)查询原边流量；flow(s,t,limit)返回本次新增流量及int128费用，默认limit=LLONG_MAX，重复调用保持同源汇。允许重边、自环、零容量和负费用，但调用前残量图不得含负环；全图Bellman-Ford建立可行势并检查不可达负环，失败抛invalid_argument且不改流量，limit=0仍检查。容量非负、cost≠LLONG_MIN，总流≤LLONG_MAX，Σ(cap×|cost|)<2^120。递归沿零约化费用边增广，失败后按可达集最小跨边松弛量调势。实际增广A次，O((A+1)V(V+E))，空间O(V+E)、递归深度O(V)，不保证快于势能Dijkstra或SPFA。init/dfs/relabel为内部方法；e/g可读，任意改动须维持成对残量与全局最小费用可行流。无负环前提下加边后续流也须重新满足此条件。返回顺序为流量、费用，与kuangbin原稿相反。"
   ]
 ]

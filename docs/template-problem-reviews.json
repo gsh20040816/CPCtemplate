@@ -5849,5 +5849,27 @@
     },
     "remaining": "新ISAP实现尚无在线AC或速度榜。限流、used、cut由独立本地割枚举验证，不把该题入口当作全部接口覆盖。",
     "driver": "verify/luogu/P3376-isap.compact.cpp"
+  },
+  {
+    "symbol": "ZkwFlow",
+    "problem": "Luogu P3381",
+    "url": "https://www.luogu.com.cn/problem/P3381",
+    "classification": "Official standalone minimum-cost maximum-flow template; recursive zero-reduced-cost augmentation and cut relabeling variant, tested independently.",
+    "statement_checked": true,
+    "checked_date": "2026-10-08",
+    "limits": "n<=5000, m<=50000; nonnegative integer capacity/cost<=1000; no self-loop; flow and minimum cost<=2^31-1; distinct source/sink required by API",
+    "tested_api": [
+      "add",
+      "flow"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and ranking pending. used, limits, continuation, negative edges and global negative-cycle rejection have independent local tests, beyond P3381 scope.",
+    "source": "src/compact/zkw_flow.hpp",
+    "driver": "verify/luogu/P3381.zkw.compact.cpp"
   }
 ]

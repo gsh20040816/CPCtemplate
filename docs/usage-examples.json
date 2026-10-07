@@ -4038,5 +4038,17 @@
       "Isap"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-322",
+    "symbol": "ZkwFlow",
+    "problem": "Luogu P3381",
+    "url": "https://www.luogu.com.cn/problem/P3381",
+    "summary": "有向网络，输入n,m,s,t和每条边的起终点、容量、单位费用，输出最大流及其最小费用。点号1..n，s≠t；n≤5000、m≤50000、容量/费用均0..1000且无自环，题面保证流量和费用≤2^31−1，因此此驱动可将int128费用转换输出。负边、续流与used由独立本地测试覆盖，不把它们算作本题验证范围。",
+    "driver": "verify/luogu/P3381.zkw.compact.cpp",
+    "requires": [
+      "ZkwFlow"
+    ],
+    "start_new_page": true
   }
 ]

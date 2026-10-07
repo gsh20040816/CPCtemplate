@@ -142,3 +142,5 @@ kuangbin SPFA费用流的残量接口、负环前提与int边界见 [SPFA-FLOW-S
 两种矩阵SAP的重复调用、反对称净流和原稿边界见 [MATRIX-SAP-SOURCE-AUDIT](docs/MATRIX-SAP-SOURCE-AUDIT.md)。
 
 kuangbin Dinic的瓶颈/点数边界及最大流父节范围见 [DINIC-SOURCE-AUDIT](docs/DINIC-SOURCE-AUDIT.md)。
+
+zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FLOW.md)。
