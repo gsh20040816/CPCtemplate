@@ -7218,6 +7218,62 @@ CentroidNearest(n)，n$\ge$1，点号0..n-1；先add(u,v,w=1)建固定连通树�
 
 \lstinputlisting{usage/example-245.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\subsection{动态点分树：有符号边权活动点直径与端点}\label{compact-CentroidDiameter}\index{CentroidDiameter}
+
+CentroidDiameter(n)，固定连通无向树、0-based点号，n>0且2n不溢出int。add(u,v,w)仅在首次build前；允许负边权，所有简单路径权值和必须能用long long表示。build()递归分解并清空活动集，可反复重建；set(u,on)幂等启停点。query()返回optional<tuple<long long,int,int>>，内容为最大距离与任意一对达到最优值的活动端点，允许两端相同，所以非空集答案至少0；空集nullopt。各重心按不同分支取最大距离，只合并跨分支真实路径，不能套用非负权直径端点摘要；并列不承诺最小编号。空集预处理O(n log n)、set O(log$^{2}$ n)、query O(1)，空间O(n log n)；逐点激活全树O(n log$^{2}$ n)。支持值拷贝；active只读用于反色，其余字段与sum/size\_dfs/centroid/collect/decompose/candidate为内部状态。DFS保持递归，树输入合法性与足够栈空间由调用方保证。
+
+\lstinputlisting[firstline=13,lastline=51,firstnumber=1]{../src/compact/centroid_diameter.hpp}
+
+\newpage
+
+\noindent 递归分解与不同分支的距离（接上页同一结构体）：
+
+\lstinputlisting[firstline=52,lastline=98,firstnumber=40]{../src/compact/centroid_diameter.hpp}
+
+\newpage
+
+\noindent 清空重建与重心候选（接上页同一结构体）：
+
+\lstinputlisting[firstline=99,lastline=125,firstnumber=87]{../src/compact/centroid_diameter.hpp}
+
+\newpage
+
+\noindent 活动点设置与端点查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=126,lastline=165,firstnumber=114]{../src/compact/centroid_diameter.hpp}
+
+\Needspace{598pt}
+
+\subsection*{应用题补充：SPOJ QTREE4 / 有符号边权动态白点直径}
+
+\label{usage-example-284}
+
+题意：n,q$\le$100000，边权−1000..1000，初始全白；C u反色，A查白点对的最大距离，两端允许相同。无白点输出They have disappeared.。题目1-based，传入模板时减1；query()非空时取get<0>。固定树且允许负边，不能改用只支持非负权的TreeDiameter摘要。
+
+所需模板：\hyperref[compact-CentroidDiameter]{CentroidDiameter}（第~\pageref{compact-CentroidDiameter}~页，\ref{compact-CentroidDiameter}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.spoj.com/problems/QTREE4/}
+
+\lstinputlisting{usage/example-284.cpp}
+
+\Needspace{586pt}
+
+\subsection*{接口用法演示：活动点最大距离与端点方案（接口演示）}
+
+\label{usage-example-285}
+
+演示约定：输入n,q、n−1条0-based带权树边，初始全不活动。0 u on设置状态（重复设置不变）；1查询，空集输出−1，否则输出最大距离d及任意最优活动点u,v。允许负边和u=v，并列不指定点号；所有简单路径和须在signed64内。
+
+所需模板：\hyperref[compact-CentroidDiameter]{CentroidDiameter}（第~\pageref{compact-CentroidDiameter}~页，\ref{compact-CentroidDiameter}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/tree-divide/}
+
+\lstinputlisting{usage/example-285.cpp}
+
 \Needspace{426pt}
 
 \chapter{最短路问题}

@@ -208,6 +208,7 @@
 | `HLD + Fenwick` | [kuangbin3.3.1 / 路径点权增减与点查源码模型](https://github.com/kuangbin/ACM-ICPC) | 本库演示n,q≤50000、m=n−1、\|初值\|≤10^12、0≤增减量≤10^6；不是原OJ资源声明。 | 待在线 AC | 待核验 |
 | `HLD + segtree` | [SPOJ QTREE / Luogu SP375](https://www.spoj.com/problems/QTREE/) | t≤20,n≤10000,初始c≤1000000；官方文本未给q上界与修改值完整范围，同点查询未定义。 | 待在线 AC | 待核验 |
 | `LiftingLCA` | [SPOJ QTREE2 / Luogu SP913](https://www.spoj.com/problems/QTREE2/) | t≤25,n≤10000,c≤100000；KTH的k在路径点数内，每组后空行；读取的官方文本未给q上界。 | 待在线 AC | 待核验 |
+| `CentroidDiameter` | [SPOJ QTREE4 / 有符号边权动态白点直径](https://www.spoj.com/problems/QTREE4/) | n,q≤100000;−1000≤edge weight≤1000;initially all white;allow same endpoint;single test. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1964,6 +1965,16 @@ LCA两侧按深度差切分，k从1计且包含两端与LCA，距离使用独立
 在线AC、排名与评测机资源未核验；10万查询为本地压力规模。
 
 原始题面与参数：[来源 1](https://am.spoj.com/FHNW1907/problems/QTREE2/)，[来源 2](https://www.luogu.com.cn/problem/SP913)
+
+### SPOJ QTREE4 / 有符号边权动态白点直径 / CentroidDiameter
+
+固定树点反色与直径应用；保守按application登记，不新增正式模板题覆盖。
+
+首次build后逐点set全开，题目1-based转0-based；C反色/A查询；空集They have disappeared.，其余取距离。负边不能使用非负权端点摘要，跨分支候选为真实路径。源码EOF循环不是官方多测协议。
+
+在线AC、排名与评测机资源未核验；完整目标仍有来源缺口。
+
+原始题面与参数：[来源 1](https://www.spoj.com/problems/QTREE4/cstart%3D10)
 
 ## 榜单口径
 

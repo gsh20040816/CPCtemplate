@@ -1420,5 +1420,11 @@
     "StaticRMQ2D",
     "二维静态矩形最值与位置",
     "StaticRMQ2D<T,Cmp>(a,cmp)复制矩形矩阵；默认T=long long、less求最小，greater求最大。\n\nquery(x1,y1,x2,y2)查询0-based半开矩形[x1,x2)×[y1,y2)，返回最优元素的(row,col)；并列按行号再列号取最小，值读rmq.a[row][col]。要求0≤x1<x2≤n、0≤y1<y2≤m；空矩阵或零列可构造但不可查询，所有行必须等长。重新赋值新对象重建，不支持修改。\n\n比较器须稳定严格弱序、const可调用，支持有状态比较器和可复制元素，不接受NaN；不做元素算术，signed64极值合法。n,m及n*m≤INT_MAX/2且内存可分配；所有成员只读，better是内部辅助。四块ST查询O(1)，非空矩阵的预处理和空间O(nm log(n+1) log(m+1))（元素比较/复制O(1)时）。每个层对保存完整n*m个int位置，空间较大：305×305时仅st的int数据约28.7MiB，构造前需计算内存。"
+  ],
+  [
+    "centroid_diameter",
+    "CentroidDiameter",
+    "动态点分树：有符号边权活动点直径与端点",
+    "CentroidDiameter(n)，固定连通无向树、0-based点号，n>0且2n不溢出int。add(u,v,w)仅在首次build前；允许负边权，所有简单路径权值和必须能用long long表示。build()递归分解并清空活动集，可反复重建；set(u,on)幂等启停点。query()返回optional<tuple<long long,int,int>>，内容为最大距离与任意一对达到最优值的活动端点，允许两端相同，所以非空集答案至少0；空集nullopt。各重心按不同分支取最大距离，只合并跨分支真实路径，不能套用非负权直径端点摘要；并列不承诺最小编号。空集预处理O(n log n)、set O(log² n)、query O(1)，空间O(n log n)；逐点激活全树O(n log² n)。支持值拷贝；active只读用于反色，其余字段与sum/size_dfs/centroid/collect/decompose/candidate为内部状态。DFS保持递归，树输入合法性与足够栈空间由调用方保证。"
   ]
 ]

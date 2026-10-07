@@ -1,0 +1,68 @@
+{
+  "base": "717a81f1908b41e239c6734c791bd79bd4cfabe2",
+  "batch": "Signed-weight dynamic active tree diameter, endpoint certificate and QTREE4",
+  "counts": {
+    "components": 238,
+    "usages": 285,
+    "usage_status": {
+      "locally_checked_example": 168,
+      "locally_checked_application": 54,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 598,
+    "partial_upstream_topics": 32
+  },
+  "core_forms_per_mode": 4,
+  "small_cases_per_form": 6251,
+  "small_checks_per_form": 423395,
+  "all_checks_per_form": 1023398,
+  "large_shapes": "100000-node positive chain, negative chain, mixed star; insert all/delete all with answer/certificate after every operation",
+  "complete_forms_per_mode": 3,
+  "complete_inputs_per_form": {
+    "example-284": 74,
+    "example-285": 70
+  },
+  "mutants_per_mode": 6,
+  "unaffected": {
+    "base": "717a81f1908b41e239c6734c791bd79bd4cfabe2",
+    "unchanged_old_components": 237,
+    "unchanged_old_core_files": 201,
+    "old_expanded_programs_unchanged": 283,
+    "new_usages": [
+      "example-284",
+      "example-285"
+    ],
+    "files": {
+      "src/compact/centroid_diameter.hpp": "8ba083bff70d264c910c3b1e6bf04b1dc238cf466cde7abdb0c218618a11fe25",
+      "tests/centroid_diameter_probe.cpp": "3f1f7edeb73abf572b53124a78ab47b31b5bb01c91865d79eb01037389987e85",
+      "tests/centroid_diameter.py": "96240c1f091458aca1436f60614367a1f6357a700f55c818ecc4bcef849947e6",
+      "verify/spoj/QTREE4.compact.cpp": "6780d95a195f6efe4be81c18720fe2fdd90369f9105c5634286ffd3b4a240c2a",
+      "verify/api/centroid_diameter.compact.cpp": "04091559645add7360c44edce3fb2e702fbbcedae145b1caa264d31eec8e16a9"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "e21e70a548e2f7516a6fad3434e93a2e0c7d3852f7c0b380e0a3eea491699e77",
+      "pages": 780,
+      "page_change": 6,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-graphs.pdf": {
+      "sha256": "8201c10e6ccadb7c3676fe98c0277265ef46bd776d7823a39dbe959e1533159a",
+      "pages": 225,
+      "page_change": 6,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "732f46c219162e2f56e84a0eb966ea0119c68e97e2206a78bcdf96e9603186b6",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global goal active;no online AC/rank or full-library runtime rerun. QTREE4 is application,285 API;formal coverage unchanged168. kuangbin3.5.3 local-tested for fixed-tree behaviour,not generalized LCT topology coverage. No CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/centroid-diameter-normal.json",
+    "verification/centroid-diameter-sanitizer.json"
+  ]
+}

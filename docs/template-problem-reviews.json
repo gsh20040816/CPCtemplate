@@ -5302,5 +5302,37 @@
     "usage": "example-283",
     "adapter": "LCA两侧按深度差切分，k从1计且包含两端与LCA，距离使用独立根权值和而非h.distance边数。所有根距离、差值及答案要求可表示为long long。原kuangbin文字说第K条边长度，与官方题面及原query_kth源码不符，实际输出点号。",
     "remaining": "在线AC、排名与评测机资源未核验；10万查询为本地压力规模。"
+  },
+  {
+    "symbol": "CentroidDiameter",
+    "problem": "SPOJ QTREE4 / 有符号边权动态白点直径",
+    "url": "https://www.spoj.com/problems/QTREE4/",
+    "classification": "固定树点反色与直径应用；保守按application登记，不新增正式模板题覆盖。",
+    "statement_checked": true,
+    "statement_sources": [
+      "https://www.spoj.com/problems/QTREE4/cstart%3D10"
+    ],
+    "limits": "n,q≤100000;−1000≤edge weight≤1000;initially all white;allow same endpoint;single test.",
+    "driver": "verify/spoj/QTREE4.compact.cpp",
+    "usage": "example-284",
+    "adapter": "首次build后逐点set全开，题目1-based转0-based；C反色/A查询；空集They have disappeared.，其余取距离。负边不能使用非负权端点摘要，跨分支候选为真实路径。源码EOF循环不是官方多测协议。",
+    "tested_api": [
+      "add/build",
+      "set on/off and idempotence",
+      "query signed-weight distance and endpoint pair",
+      "rebuild/copy through core tests"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "在线AC、排名与评测机资源未核验；完整目标仍有来源缺口。",
+    "checked_date": "2026-10-07",
+    "local_evidence": [
+      "verification/centroid-diameter-normal.json",
+      "verification/centroid-diameter-sanitizer.json"
+    ]
   }
 ]
