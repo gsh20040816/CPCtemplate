@@ -238,3 +238,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | sam_lcs | [example-254（应用补充）](usage/example-254.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |
 | OnlineSAM | [example-256（接口演示）](usage/example-256.cpp), [example-258](usage/example-258.cpp) | locally_checked_example |
 | SAMDocuments | [example-259（应用补充）](usage/example-259.cpp), [example-260（接口演示）](usage/example-260.cpp) | locally_checked_application |
+| KDNearest | [example-267（接口演示）](usage/example-267.cpp), [example-268（应用补充）](usage/example-268.cpp) | locally_checked_application |

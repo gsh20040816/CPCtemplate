@@ -3338,5 +3338,29 @@
     "requires": [
       "AhoCorasick"
     ]
+  },
+  {
+    "id": "example-267",
+    "symbol": "KDNearest",
+    "kind": "api",
+    "problem": "多维最近／最远前k点（接口演示）",
+    "url": "https://oi-wiki.org/ds/kdt/",
+    "summary": "输入n,d,m（1≤d≤10），n个d维整数点，随后m组查询坐标、k、far。far=0查询最近k点，far=1查询最远k点；0≤k≤n。每行输出从优到劣的0-based输入编号，等距编号小者优先。其余维补0。固定维度时直接用KDNearest<d>以节省常数。",
+    "driver": "verify/api/kd_nearest.compact.cpp",
+    "requires": [
+      "KDNearest"
+    ]
+  },
+  {
+    "id": "example-268",
+    "symbol": "KDNearest",
+    "kind": "application",
+    "problem": "Luogu P2093 / JZPFAR",
+    "url": "https://www.luogu.com.cn/problem/P2093",
+    "summary": "给n个互异二维整数点，每次查询(px,py,k)的第k远点；等距时编号小者算更远。点和查询坐标绝对值至10^9，n至10^5，m至10^4，k至20且不超过n。原题有随机数据条件；本算法不承诺对任意输入次线性。输出1-based输入编号。",
+    "driver": "verify/luogu/P2093.compact.cpp",
+    "requires": [
+      "KDNearest"
+    ]
   }
 ]

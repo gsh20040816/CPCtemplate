@@ -623,8 +623,8 @@ kuangbin,ACM template (2018),97,3.6.2 静态区间第 k 大,local-tested,src/com
 kuangbin,ACM template (2018),98,3.6.3 树上路径点权第 k 大,local-tested,src/compact/tree_path_kth.hpp,"SPOJ COT semantics: kth smallest point value on tree path; recursive DFS, four-root frequencies and binary-lifting LCA; tests/tree_path_kth.cpp sorted path oracle, reroot and 200000-node chain; P2633 pending"
 kuangbin,ACM template (2018),102,3.6.4 动态第 k 大,local-tested,src/compact/dynamic_kth.hpp,"Fenwick of mutable frequency segment trees with offline value registration and recycling; dynamic kth smallest under point updates; tests/dynamic_kth.cpp sorted-slice oracle, ownership/free-list audit and reset; P2617 pending"
 kuangbin,ACM template (2018),105,3.7 Treap,local-tested,src/compact/gcd_sequence.hpp,tests/gcd_sequence.cpp; tagged sequence operations implemented; original ZOJ3765 OJ pending
-kuangbin,ACM template (2018),108,3.8 KD 树,pending,,
-kuangbin,ACM template (2018),108,3.8.1 HDU4347 K 近邻,pending,,
+kuangbin,ACM template (2018),108,3.8 KD 树,partial,src/compact/kd_nearest.hpp#KDNearest,3.8.1 nearest model locally checked; 3.8.2 CF44G and 3.8.3 HDU4742 remain unmapped; docs/KD-NEAREST.md
+kuangbin,ACM template (2018),108,3.8.1 HDU4347 K 近邻,local-tested,src/compact/kd_nearest.hpp#KDNearest,"tests/kd_nearest.py; exact 1/2/3/5/10D top-k source model, Python integer oracle, ties and full int32 extremes; original HDU statement unavailable, no judge constraints/protocol/online AC claim; docs/KD-NEAREST.md"
 kuangbin,ACM template (2018),111,3.8.2 CF44G,pending,,
 kuangbin,ACM template (2018),114,3.8.3 HDU4742,pending,,
 kuangbin,ACM template (2018),116,3.9 替罪羊树 (ScapeGoat Tree),pending,,

@@ -1,0 +1,53 @@
+{
+  "base": "0586442b29dd5b90de400d85332e67a199fa56d0",
+  "batch": "Static exact integer KD nearest/farthest and P2093",
+  "counts": {
+    "components": 232,
+    "usages": 268,
+    "usage_status": {
+      "locally_checked_example": 167,
+      "locally_checked_application": 52,
+      "locally_checked_api": 13
+    },
+    "pending_upstream_topics": 614,
+    "partial_upstream_topics": 30
+  },
+  "core_inputs_per_form": 156,
+  "core_forms_per_mode": 4,
+  "new_complete_inputs_per_form": {
+    "example-267": 156,
+    "example-268": 35
+  },
+  "complete_forms_per_mode": 3,
+  "mutants_per_mode": 2,
+  "stress": {
+    "n": 100000,
+    "m": 10000,
+    "k_max": 20,
+    "oracle": "Farthest ranks among first/last k of collinear points; no claim to original randomized distribution or worst-case runtime"
+  },
+  "unaffected": {
+    "components": 231,
+    "expanded_programs": 266
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "4de2d6c506b34b5dd95fe5beccce70cf9e7cae789c7ebf3e2f88e56e82792aff",
+      "pages": 744,
+      "page_change": 5,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-data-structures.pdf": {
+      "sha256": "621ea590a2c6a104574a1839a60c8ae7e7182cee007a6a04904f93080e25d4dc",
+      "pages": 181,
+      "page_change": 5,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Entire goal stays active: source gaps, contest/OI mathematics coverage and online verification/ranking. No new online AC or full-library rerun. No CI inspection or maintenance.",
+  "runtime_evidence": [
+    "verification/kd-nearest-normal.json",
+    "verification/kd-nearest-sanitizer.json"
+  ],
+  "documentation_after_runtime": "Catalog mapping, source audit notes and pagination finalized after runtime reports; source files in kd-nearest-copy.json match the tested runtime."
+}

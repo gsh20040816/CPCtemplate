@@ -1384,5 +1384,11 @@
     "SAMDocuments",
     "SAM文档频率与阈值后缀",
     "SAMDocuments(sam,s)接收已完成构建的GeneralSAM及同一批小写文档s；也兼容按该文档集完成的OnlineSAM或单文档SuffixAutomaton。允许空串和重复串，重复输入按不同文档计数。索引期间sam须存活且不变。cnt[u]是该状态任一非空代表串出现的文档数，cnt[0]=s.size()约定空串出现在每篇文档；不能把单串出现次数当文档数。lengths(k)要求k>=1，返回每个状态最长代表串中、出现于至少k篇文档的最长后缀长度，无非空解为0；k大于文档数全0。查询任意非空模式串时，从根转移成功后读取cnt，缺边返回0。L为文档总长，V为状态数，D为文档数：构造O((L+V)log(L+2)+D)，空间O(L+V+D)，每次lengths为O(V)。递归后缀链接树深度不超过最长文档长度加1；保留递归，不模拟开栈。L、D、V须小于INT_MAX，数组可分配；a/g/cnt视为只读。"
+  ],
+  [
+    "kd_nearest",
+    "KDNearest",
+    "静态 K-D Tree 最近与最远点",
+    "KDNearest<D>(points)，D>0，Point=array<int,D>，坐标为有符号32位整数，输入编号0..n-1且允许重合点。query(q,k,far=false)返回最近k个原编号；far=true改为最远k个。结果按距离优先、等距编号小者优先排列，0≤k≤n；k=0返回空，包含与查询重合的点，不自动排除自身。平方距离用128位整数精确计算。p保留输入顺序；p/a/root仅供读取，重建请重新赋值。递归中位数建树，平均O(Dn log(n+1))，空间O(Dn)；包围盒剪枝没有对任意数据的次线性保证，单次最坏O(Dn+n log(k+1))，额外O(k+log(n+1))空间。search/build/bound为内部辅助，不直接调用。"
   ]
 ]

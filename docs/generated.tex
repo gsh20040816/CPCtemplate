@@ -6390,6 +6390,56 @@ KDTreeSum<Coord=int>(reserve\_points=0) 初始为空；Coord 取 int 或 long lo
 
 \lstinputlisting{usage/example-114.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\section{静态 K-D Tree 最近与最远点}\label{compact-KDNearest}\index{KDNearest}
+
+KDNearest<D>(points)，D>0，Point=array<int,D>，坐标为有符号32位整数，输入编号0..n-1且允许重合点。query(q,k,far=false)返回最近k个原编号；far=true改为最远k个。结果按距离优先、等距编号小者优先排列，0$\le$k$\le$n；k=0返回空，包含与查询重合的点，不自动排除自身。平方距离用128位整数精确计算。p保留输入顺序；p/a/root仅供读取，重建请重新赋值。递归中位数建树，平均O(Dn log(n+1))，空间O(Dn)；包围盒剪枝没有对任意数据的次线性保证，单次最坏O(Dn+n log(k+1))，额外O(k+log(n+1))空间。search/build/bound为内部辅助，不直接调用。
+
+\lstinputlisting[firstline=11,lastline=35,firstnumber=1]{../src/compact/kd_nearest.hpp}
+
+\newpage
+
+\noindent 中位数建树与距离界（接上页同一结构体）：
+
+\lstinputlisting[firstline=36,lastline=87,firstnumber=26]{../src/compact/kd_nearest.hpp}
+
+\newpage
+
+\noindent 剪枝搜索与查询入口（接上页同一结构体）：
+
+\lstinputlisting[firstline=88,lastline=125,firstnumber=78]{../src/compact/kd_nearest.hpp}
+
+\Needspace{437pt}
+
+\subsection*{接口用法演示：多维最近／最远前k点（接口演示）}
+
+\label{usage-example-267}
+
+演示约定：输入n,d,m（1$\le$d$\le$10），n个d维整数点，随后m组查询坐标、k、far。far=0查询最近k点，far=1查询最远k点；0$\le$k$\le$n。每行输出从优到劣的0-based输入编号，等距编号小者优先。其余维补0。固定维度时直接用KDNearest<d>以节省常数。
+
+所需模板：\hyperref[compact-KDNearest]{KDNearest}（第~\pageref{compact-KDNearest}~页，\ref{compact-KDNearest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/ds/kdt/}
+
+\lstinputlisting{usage/example-267.cpp}
+
+\Needspace{400pt}
+
+\subsection*{应用题补充：Luogu P2093 / JZPFAR}
+
+\label{usage-example-268}
+
+题意：给n个互异二维整数点，每次查询(px,py,k)的第k远点；等距时编号小者算更远。点和查询坐标绝对值至10\textasciicircum{}9，n至10\textasciicircum{}5，m至10\textasciicircum{}4，k至20且不超过n。原题有随机数据条件；本算法不承诺对任意输入次线性。输出1-based输入编号。
+
+所需模板：\hyperref[compact-KDNearest]{KDNearest}（第~\pageref{compact-KDNearest}~页，\ref{compact-KDNearest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2093}
+
+\lstinputlisting{usage/example-268.cpp}
+
 \Needspace{180pt}
 
 \chapter{动态树}

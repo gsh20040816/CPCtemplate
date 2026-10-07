@@ -22,6 +22,7 @@ chapters['sam_queries'] = '后缀自动机查询'
 chapters['online_sam'] = '指定状态在线扩展SAM'
 chapters['sam_documents'] = 'SAM文档频率'
 chapters['ac_weighted'] = '带权与动态AC'
+chapters['kd_nearest'] = '静态 K-D Tree 近邻'
 chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
 chapters['potential_dsu'] = '带势并查集与差值约束'
@@ -92,7 +93,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum'):
+            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -618,6 +619,13 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 余式下传与求值入口（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'KDNearest':
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['    int build(', '    void search(']] + [end]
+                for part, (left, right) in enumerate(zip(cuts, cuts[1:])):
+                    if part:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + ('中位数建树与距离界' if part == 1 else '剪枝搜索与查询入口') + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(left + 1) + ',lastline=' + str(right) + ',firstnumber=' + str(left - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'chirp_z':
                 split = next((i for i in range(start, end) if 'power = 1;' == lines[i].strip()))
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')

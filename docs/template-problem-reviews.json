@@ -5025,5 +5025,33 @@
       "verification/ac-weighted-normal.json",
       "verification/ac-weighted-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "KDNearest",
+    "problem": "Luogu P2093 / JZPFAR",
+    "url": "https://www.luogu.com.cn/problem/P2093",
+    "classification": "国家集训队竞赛应用；并非独立正式模板题。只证明第k远点应用，不因此计入正式模板题覆盖。",
+    "statement_checked": true,
+    "limits": "n≤100000，m≤10000，1≤k≤min(n,20)，互异二维点；点与查询坐标在[-10^9,10^9]。题面带随机分布条件，当前未核对时间/内存上限。",
+    "tested_api": [
+      "constructor",
+      "query nearest",
+      "query farthest"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "等待在线提交、运行资源与榜单核验；原HDU4347题面不可访问，该来源只做源码模型核对。",
+    "checked_date": "2026-10-07",
+    "usage": "example-268",
+    "driver": "verify/luogu/P2093.compact.cpp",
+    "adapter": "原输入编号0-based；query(q,k,true).back()+1输出1-based第k远点。相同距离较小编号优先。核心还支持重合点、最近点和k=0；这些是API演示/本地测试范围，不是P2093题面范围。",
+    "local_evidence": [
+      "verification/kd-nearest-normal.json",
+      "verification/kd-nearest-sanitizer.json"
+    ]
   }
 ]

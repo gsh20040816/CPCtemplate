@@ -198,6 +198,7 @@
 | `GeneralSAM::TSUBSTR` | [CodeChef TSUBSTR / Substrings on a Tree](https://www.codechef.com/problems/TSUBSTR) | N<=250000,Q<=50000,K<=2^63-1,output<=800KB; original vertex letters generated randomly. API max_timelimit1s; memory limit unavailable; no online runtime claim. | 待在线 AC | 待核验 |
 | `AhoCorasick::presence` | [Luogu P3808 / AC自动机简单版](https://www.luogu.com.cn/problem/P3808) | Pattern count,total pattern length,text length<=1000000; nonempty lowercase strings. Current online time/memory acceptance unverified. | 待在线 AC | 待核验 |
 | `DynamicAC` | [Codeforces 710F / String Set Queries](https://codeforces.com/problemset/problem/710/F) | m<=300000,total lengths<=300000,nonempty lowercase; new string never added before, removal present; online, flush answer before next input; 3 seconds,768MiB. Local resource completion does not establish official acceptance. | 待在线 AC | 待核验 |
+| `KDNearest` | [Luogu P2093 / JZPFAR](https://www.luogu.com.cn/problem/P2093) | n≤100000，m≤10000，1≤k≤min(n,20)，互异二维点；点与查询坐标在[-10^9,10^9]。题面带随机分布条件，当前未核对时间/内存上限。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1870,6 +1871,14 @@ Competition application, not a formal noncontest template problem.
 Signed weights +1/-1 grouped by update count; each binary carry rebuilds a static owned ACWeighted. First boundary empty matches included; subtract sum[0] for original scan-only empty-pattern behavior.
 
 Online AC and rank pending; application does not close formal-template search.
+
+### Luogu P2093 / JZPFAR / KDNearest
+
+国家集训队竞赛应用；并非独立正式模板题。只证明第k远点应用，不因此计入正式模板题覆盖。
+
+原输入编号0-based；query(q,k,true).back()+1输出1-based第k远点。相同距离较小编号优先。核心还支持重合点、最近点和k=0；这些是API演示/本地测试范围，不是P2093题面范围。
+
+等待在线提交、运行资源与榜单核验；原HDU4347题面不可访问，该来源只做源码模型核对。
 
 ## 榜单口径
 
