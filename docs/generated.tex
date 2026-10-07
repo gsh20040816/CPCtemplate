@@ -5187,6 +5187,68 @@ b.erase(h);
 
 \Needspace{680pt}
 
+\chapter{ST 表}
+
+\section{位掩码静态区间最值与位置}\label{compact-StaticRMQ}\index{StaticRMQ}
+
+StaticRMQ<T,Cmp>(a,cmp)复制数组；默认T=long long、Cmp=less<T>求最小，greater<T>求最大，也可传有状态比较器。query(l,r)返回0-based半开区间[l,r)内最优元素的原编号，并列总取最左；值读rmq.a[编号]。要求0$\le$l<r$\le$n；空数组可构造但不可查询；重新赋值新对象重建，不支持修改。比较器必须是稳定的严格弱序、const可调用，元素类型可复制；浮点数据不能含NaN。
+
+单调栈位掩码处理块内区间，块间用ST表；块长为n的二进制位数（空数组取1），n$\le$INT\_MAX/2且内存可分配，32位掩码足够。在复制/比较/位操作O(1)的模型下，预处理O(n)、查询O(1)、空间O(n)。所有成员约定只读，better/small是内部辅助；small仅供非空同块区间。只比较元素，不做元素算术，signed64极值合法。
+
+\lstinputlisting[firstline=11,lastline=43]{../src/compact/static_rmq.hpp}
+
+\newpage
+
+\noindent 块间表构建、最优位置合并与查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=44,lastline=81,firstnumber=34]{../src/compact/static_rmq.hpp}
+
+\Needspace{341pt}
+
+\subsection*{模板题使用：Library Checker Static RMQ}
+
+\label{usage-example-276}
+
+题意：静态数组上查询0-based半开区间[l,r)最小值；n,q$\le$500000，值为0..10\textasciicircum{}9。模板返回最左最小值位置，通过rmq.a[位置]输出值。
+
+所需模板：\hyperref[compact-StaticRMQ]{StaticRMQ}（第~\pageref{compact-StaticRMQ}~页，\ref{compact-StaticRMQ}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/staticrmq}
+
+\lstinputlisting{usage/example-276.cpp}
+
+\Needspace{340pt}
+
+\subsection*{模板题使用：Luogu P3865 【模板】ST 表 \&\& RMQ 问题}
+
+\label{usage-example-277}
+
+题意：静态区间最大值；输入1-based闭区间[l,r]，转换为query(l-1,r)。用greater<int>选择最大值，再由返回位置读取值。
+
+所需模板：\hyperref[compact-StaticRMQ]{StaticRMQ}（第~\pageref{compact-StaticRMQ}~页，\ref{compact-StaticRMQ}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3865}
+
+\lstinputlisting{usage/example-277.cpp}
+
+\Needspace{349pt}
+
+\subsection*{接口用法演示：静态区间最左最小/最大位置（接口演示）}
+
+\label{usage-example-278}
+
+演示约定：输入n,q、signed64数组和q个非空0-based半开区间，分别输出最左最小与最左最大位置。允许重复值；n=0时要求q=0。
+
+所需模板：\hyperref[compact-StaticRMQ]{StaticRMQ}（第~\pageref{compact-StaticRMQ}~页，\ref{compact-StaticRMQ}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/ds/sparse-table/}
+
+\lstinputlisting{usage/example-278.cpp}
+
+\newpage
+
+\Needspace{680pt}
+
 \chapter{树状数组}
 
 \section{稀疏二维树状数组：点加与矩形和}\label{compact-Fenwick2D}\index{Fenwick2D}

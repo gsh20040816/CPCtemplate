@@ -327,7 +327,7 @@ WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,分数运算类,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,主席树（可持久化线段树）,local-tested,src/compact/optimization.hpp,PersistentKth / Persistent_Kth: tests/optimization.cpp and tests/dual.cpp; prefix frequency roots and interval kth; P3834 dual AC 297520290/297520299
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,KD Tree,local-tested,src/compact/kd_tree_sum.hpp#KDTreeSum,"WIDA fixed source 2D insert/dominance count; unit weights and INT_MIN closed prefix adapter usage269; duplicate multiplicity preserved, node-size meanings differ; tests/kd_range_sources.py normal/sanitizer; no online AC; docs/KD-DYNAMIC.md"
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,ST 表,pending,,
-WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,基于状压的线性 RMQ 算法,pending,,
+WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,基于状压的线性 RMQ 算法,local-tested,src/compact/static_rmq.hpp#StaticRMQ,"Fixed WIDA print/jiangly sources separately compiled against independent min/max scan. Adaptive log(n) block width, stable argmin/argmax and custom comparator covered; usages276/277 formal locally checked,278 API. No online AC/rank. docs/STATIC-RMQ.md"
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,pbds 扩展库实现平衡二叉树,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,vector 模拟实现平衡二叉树,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,线性基（高斯消元法）,local-tested,src/compact/data_structure.hpp#XorBasis,"64-bit unsigned basis: membership, affine maximum, nonempty minimum, distinct kth with uint128 rank, cached rebuild and multiset merge; exhaustive subsets and rank-64 boundaries; P3812 maximum-only driver local-tested, OJ pending"
@@ -529,7 +529,7 @@ WIDA,03 - jiangly模板收集/04 - 数据结构/03C - 线段树（SegmentTree+In
 WIDA,03 - jiangly模板收集/04 - 数据结构/03D - 线段树（SegmentTree+Info+Merge 初始赋值+单点修改+区间合并）.cpp,,03D - 线段树（SegmentTree+Info+Merge 初始赋值+单点修改+区间合并）,pending,,
 WIDA,03 - jiangly模板收集/04 - 数据结构/04 - 懒标记线段树（LazySegmentTree）.cpp,,04 - 懒标记线段树（LazySegmentTree）,pending,,
 WIDA,03 - jiangly模板收集/04 - 数据结构/05 - 高精度（BigInt）.cpp,,05 - 高精度（BigInt）,pending,,
-WIDA,03 - jiangly模板收集/04 - 数据结构/06 - 状压RMQ（RMQ）.cpp,,06 - 状压RMQ（RMQ）,pending,,
+WIDA,03 - jiangly模板收集/04 - 数据结构/06 - 状压RMQ（RMQ）.cpp,,06 - 状压RMQ（RMQ）,local-tested,src/compact/static_rmq.hpp#StaticRMQ,"Fixed WIDA print/jiangly sources separately compiled against independent min/max scan. Adaptive log(n) block width, stable argmin/argmax and custom comparator covered; usages276/277 formal locally checked,278 API. No online AC/rank. docs/STATIC-RMQ.md"
 WIDA,03 - jiangly模板收集/04 - 数据结构/07A - Splay.cpp,,07A - Splay,pending,,Pending sequence Splay plus persistent segment tree (JOI2023); ordinary multiset Splay is not equivalent
 WIDA,03 - jiangly模板收集/04 - 数据结构/07B - Splay.cpp,,07B - Splay,pending,,Pending dynamic min-plus matrix DP and virtual contributions; ordinary multiset Splay is not equivalent
 WIDA,03 - jiangly模板收集/04 - 数据结构/07C - Splay.cpp,,07C - Splay,pending,,Pending 27-bit path/subtree XOR aggregation; ordinary multiset Splay is not equivalent
@@ -600,8 +600,8 @@ kuangbin,ACM template (2018),51,2.18.1 HDU4656 卷积取模,pending,,
 kuangbin,ACM template (2018),54,2.19 其它公式,pending,,
 kuangbin,ACM template (2018),54,2.19.1 Polya,pending,,
 kuangbin,ACM template (2018),56,3.1 划分树,local-tested,src/compact/division_tree.hpp: DivisionTree,"docs/DIVISION-TREE.md; verification/division-tree.json; actual stable median partition, duplicate quota, signed64, recursive build/query; source kth-largest comment corrected to kth-smallest; 24 official cases in both modes; no online AC"
-kuangbin,ACM template (2018),57,3.2 RMQ,pending,,
-kuangbin,ACM template (2018),57,3.2.1 一维,pending,,
+kuangbin,ACM template (2018),57,3.2 RMQ,partial,src/compact/static_rmq.hpp#StaticRMQ,1D min/max/argmin/argmax locally covered;3.2.2 two-dimensional RMQ remains pending. docs/STATIC-RMQ.md
+kuangbin,ACM template (2018),57,3.2.1 一维,local-tested,src/compact/static_rmq.hpp#StaticRMQ,"Printed p57 1-based closed maximum query adapted by greater<int> and query(l-1,r); formal P3865 usage277, independent scan/segment-tree and max-shape input locally verified. No online verdict. docs/STATIC-RMQ.md"
 kuangbin,ACM template (2018),57,3.2.2 二维,pending,,
 kuangbin,ACM template (2018),59,3.3 树链剖分,pending,,
 kuangbin,ACM template (2018),59,3.3.1 点权,pending,,

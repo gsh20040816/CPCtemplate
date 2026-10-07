@@ -242,3 +242,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | KDRange | [example-270（接口演示）](usage/example-270.cpp), [example-271（接口演示）](usage/example-271.cpp) | locally_checked_api |
 | Chain3D | [example-272（接口演示）](usage/example-272.cpp), [example-273（接口演示）](usage/example-273.cpp) | locally_checked_api |
 | KDMin | [example-274（接口演示）](usage/example-274.cpp), [example-275（应用补充）](usage/example-275.cpp) | locally_checked_application |
+| StaticRMQ | [example-276](usage/example-276.cpp), [example-277](usage/example-277.cpp), [example-278（接口演示）](usage/example-278.cpp) | locally_checked_example |

@@ -86,7 +86,7 @@
 | [Static Range Mode Query](https://judge.yosupo.jp/problem/static_range_mode_query) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Static Range Sum](https://judge.yosupo.jp/problem/static_range_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Static Rectangle Add Rectangle Sum](https://judge.yosupo.jp/problem/static_rectangle_add_rectangle_sum) | Data Structure | 待逐题审题、适配与在线验证 | — |
-| [Static RMQ](https://judge.yosupo.jp/problem/staticrmq) | Data Structure | 待逐题审题、适配与在线验证 | — |
+| [Static RMQ](https://judge.yosupo.jp/problem/staticrmq) | Data Structure | 待逐题审题、适配与在线验证 | [staticrmq.compact.cpp](../verify/library_checker/staticrmq.compact.cpp) |
 | [Unionfind](https://judge.yosupo.jp/problem/unionfind) | Data Structure | 待逐题审题、适配与在线验证 | — |
 | [Unionfind with Potential](https://judge.yosupo.jp/problem/unionfind_with_potential) | Data Structure | 待逐题审题、适配与在线验证 | [unionfind_with_potential.compact.cpp](../verify/library_checker/unionfind_with_potential.compact.cpp) |
 | [Unionfind with Potential (Non-Commutative Group)](https://judge.yosupo.jp/problem/unionfind_with_potential_non_commutative_group) | Data Structure | 待逐题审题、适配与在线验证 | — |

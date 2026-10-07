@@ -6073,6 +6073,34 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "StaticRMQ",
+      "title": "位掩码静态区间最值与位置",
+      "source": "src/compact/static_rmq.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/staticrmq.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/staticrmq",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3865.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3865",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [
@@ -7676,12 +7704,6 @@
       "source": "WIDA",
       "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
       "page": "",
-      "topic": "基于状压的线性 RMQ 算法"
-    },
-    {
-      "source": "WIDA",
-      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
-      "page": "",
       "topic": "pbds 扩展库实现平衡二叉树"
     },
     {
@@ -8784,12 +8806,6 @@
     },
     {
       "source": "WIDA",
-      "source_path": "03 - jiangly模板收集/04 - 数据结构/06 - 状压RMQ（RMQ）.cpp",
-      "page": "",
-      "topic": "06 - 状压RMQ（RMQ）"
-    },
-    {
-      "source": "WIDA",
       "source_path": "03 - jiangly模板收集/04 - 数据结构/07A - Splay.cpp",
       "page": "",
       "topic": "07A - Splay"
@@ -8943,18 +8959,6 @@
       "source_path": "ACM template (2018)",
       "page": "54",
       "topic": "2.19.1 Polya"
-    },
-    {
-      "source": "kuangbin",
-      "source_path": "ACM template (2018)",
-      "page": "57",
-      "topic": "3.2 RMQ"
-    },
-    {
-      "source": "kuangbin",
-      "source_path": "ACM template (2018)",
-      "page": "57",
-      "topic": "3.2.1 一维"
     },
     {
       "source": "kuangbin",

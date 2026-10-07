@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 166，application 59，composite 1，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 166，application 59，composite 2，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -117,6 +117,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | dsu | 数据结构 → 并查集 → 并查集 | direct |  |
 | pheap | 数据结构 → 堆 → 配对堆 | application | GNU pairing_heap_tag 实现，按实际数据结构归堆；另在infra语言基础索引中登记。 |
 | LeftistHeap | 数据结构 → 堆 → 左偏树 | direct |  |
+| StaticRMQ | 数据结构 → ST 表 | composite | 块间ST表与块内单调栈位掩码组合；与专题RMQ相关，主分类保持数据结构。 |
 | Fenwick | 数据结构 → 树状数组 | direct |  |
 | Fenwick2D | 数据结构 → 树状数组 | direct | 稀疏预登记坐标，二维点加与半开矩形和；不是任意新坐标在线插入。 |
 | RectangleFenwick | 数据结构 → 树状数组 | direct | 稠密二维差分四矩，矩形加与矩形和；不是基础一维独立模板。 |

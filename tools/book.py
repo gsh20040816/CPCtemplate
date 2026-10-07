@@ -26,6 +26,7 @@ chapters['kd_nearest'] = '静态 K-D Tree 近邻'
 chapters['kd_range'] = '动态 K-D Tree 矩形取点'
 chapters['chain_3d'] = '三维最长链CDQ'
 chapters['kd_min'] = '静态 K-D Tree 矩形最小权'
+chapters['static_rmq'] = '位掩码静态RMQ'
 chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
 chapters['potential_dsu'] = '带势并查集与差值约束'
@@ -96,7 +97,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin'):
+            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -621,6 +622,12 @@ for style in ['compact']:
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\noindent 余式下传与求值入口（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'StaticRMQ':
+                split = next(i for i in range(start, end) if '        int m = st[0].size();' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 块间表构建、最优位置合并与查询（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'KDMin':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['    int build(', '    void erase(']] + [end]

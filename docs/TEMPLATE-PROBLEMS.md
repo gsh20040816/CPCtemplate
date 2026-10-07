@@ -202,6 +202,8 @@
 | `KDRange` | [kuangbin 3.10 / 动态KD树源码模型](https://github.com/kuangbin/ACM-ICPC) | 接口坐标支持signed64；搬移演示n≤100000，W,H在1..10^9，非负系数/E≤10^9，中心绝对值≤10^9。为演示约束，不冒称原题约束。 | 待在线 AC | 待核验 |
 | `Chain3D` | [kuangbin 3.8.3 / HDU4742源码模型](https://acm.hdu.edu.cn/showproblem.php?pid=4742) | 接口n≤INT_MAX/2且内存可分配，坐标signed64，正int模数；源码模型模数2^30、非空输入。为接口约束，不冒称原题约束。 | 待在线 AC | 待核验 |
 | `KDMin` | [Codeforces 44G Shooting Gallery](https://codeforces.com/problemset/problem/44/G) | n,m≤100000；坐标0..10^7，非退化矩形，z互异且在1..10^7；5秒/256MB为官方限制，不是实测通过声明。 | 待在线 AC | 待核验 |
+| `StaticRMQ` | [Library Checker Static RMQ](https://judge.yosupo.jp/problem/staticrmq) | n,q≤500000;0≤a_i≤10^9;0≤l<r≤n;official fixed source time limit5s, no judge resource pass claim. | 待在线 AC | 待核验 |
+| `StaticRMQ` | [Luogu P3865](https://www.luogu.com.cn/problem/P3865) | n≤100000;q≤2000000;0≤a_i≤10^9;1-based closed intervals;statement warns0.8s maximum-data limit, no judge resource pass claim. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1906,6 +1908,22 @@ Online AC and rank pending; application does not close formal-template search.
 
 
 在线AC、排名与评测机资源通过情况未核验；仅本地比赛应用。
+
+### Library Checker Static RMQ / StaticRMQ
+
+正式静态区间最值模板题。
+
+
+
+完整三种程序形式本地验证；在线AC、最快榜及评测机资源通过情况未核验。
+
+### Luogu P3865 / StaticRMQ
+
+正式静态区间最值模板题。
+
+
+
+完整三种程序形式本地验证；在线AC、最快榜及评测机资源通过情况未核验。
 
 ## 榜单口径
 

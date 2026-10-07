@@ -5143,5 +5143,59 @@
       "verification/kd-min-normal.json",
       "verification/kd-min-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "StaticRMQ",
+    "problem": "Library Checker Static RMQ",
+    "url": "https://judge.yosupo.jp/problem/staticrmq",
+    "classification": "正式静态区间最值模板题。",
+    "statement_checked": true,
+    "limits": "n,q≤500000;0≤a_i≤10^9;0≤l<r≤n;official fixed source time limit5s, no judge resource pass claim.",
+    "driver": "verify/library_checker/staticrmq.compact.cpp",
+    "usage": "example-276",
+    "tested_api": [
+      "constructor",
+      "query",
+      "readonly original array"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整三种程序形式本地验证；在线AC、最快榜及评测机资源通过情况未核验。",
+    "checked_date": "2026-10-07",
+    "local_evidence": [
+      "verification/static-rmq-normal.json",
+      "verification/static-rmq-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "StaticRMQ",
+    "problem": "Luogu P3865",
+    "url": "https://www.luogu.com.cn/problem/P3865",
+    "classification": "正式静态区间最值模板题。",
+    "statement_checked": true,
+    "limits": "n≤100000;q≤2000000;0≤a_i≤10^9;1-based closed intervals;statement warns0.8s maximum-data limit, no judge resource pass claim.",
+    "driver": "verify/luogu/P3865.compact.cpp",
+    "usage": "example-277",
+    "tested_api": [
+      "constructor",
+      "query",
+      "readonly original array"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整三种程序形式本地验证；在线AC、最快榜及评测机资源通过情况未核验。",
+    "checked_date": "2026-10-07",
+    "local_evidence": [
+      "verification/static-rmq-normal.json",
+      "verification/static-rmq-sanitizer.json"
+    ]
   }
 ]

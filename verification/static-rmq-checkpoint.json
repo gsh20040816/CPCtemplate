@@ -1,0 +1,72 @@
+{
+  "base": "7e6b6772aa4bac064a520c847450cc6919088ca6",
+  "batch": "Bitmask static RMQ with adaptive block width, stable argmin/argmax, source comparisons and formal min/max adapters",
+  "counts": {
+    "components": 236,
+    "usages": 278,
+    "usage_status": {
+      "locally_checked_example": 168,
+      "locally_checked_application": 53,
+      "locally_checked_api": 15
+    },
+    "pending_upstream_topics": 605,
+    "partial_upstream_topics": 33
+  },
+  "small_intervals_per_core_form": 3130463,
+  "large_queries_per_core_form": 1000000,
+  "source_forms_per_mode": 2,
+  "core_forms_per_mode": 4,
+  "complete_inputs_per_form": {
+    "example-276": 71,
+    "example-277": 71,
+    "example-278": 71
+  },
+  "complete_forms_per_mode": 3,
+  "mutants_per_mode": 5,
+  "stress": "500000 records,1000000 queries checked by independent segment tree; formal min500000 n/q, formal max100000 n and2000000 q; linear cell/comparison and constant query-comparison bounds",
+  "unaffected": {
+    "base": "7e6b6772aa4bac064a520c847450cc6919088ca6",
+    "unchanged_old_components": 235,
+    "unchanged_old_core_files": 199,
+    "old_expanded_programs_unchanged": 275,
+    "new_usages": [
+      "example-276",
+      "example-277",
+      "example-278"
+    ],
+    "files": {
+      "src/compact/static_rmq.hpp": "cb355bb284a29125ce70b6467d54a7256aa7a41731896199f8149421ed979873",
+      "tests/static_rmq_probe.cpp": "a313b51a13a3cd1895b485bb33e64d9607b1d56b943393cd34ed340eaea23b5e",
+      "tests/static_rmq.py": "29c33ea37669fa0b05fe626adfbe2ca2afa03342a10525c60d16cc13918deaa5",
+      "verify/api/static_rmq.compact.cpp": "e2de5ed9e228ef66ad70fc82c1dafcb5cf7137ad5d354d7acf6faa73be63dbbd",
+      "verify/library_checker/staticrmq.compact.cpp": "bc1a0d563d0399302c94b683b35b26f4e8d9404abe8c0b430a61be7791e44275",
+      "verify/luogu/P3865.compact.cpp": "f2e18322cb7ec962f6fe60efc02ece954dd23ba7e1fffd628361f62778241535"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "5f827bdcd45376f47e1c604de79522456c94411eea87fe54d2ed569cb2093bd9",
+      "pages": 765,
+      "page_change": 4,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-data-structures.pdf": {
+      "sha256": "8589a8ac9074e71a0754658361c3c3849c57847a68d68fc7ad6ba79be6161946",
+      "pages": 197,
+      "page_change": 4,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "eb05ff2ed61851e7c68f69de8dae4305b58e78c313be8415ed192c2f1e947938",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global target stays active. Two WIDA sources and kuangbin3.2.1 locally checked;kuangbin3.2 partial due2D RMQ remaining. Formal statements checked, no online AC/rank/resource-pass or full-library rerun; no CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/static-rmq-normal.json",
+    "verification/static-rmq-sanitizer.json"
+  ],
+  "documentation_after_runtime": "Source ledger/reviews and pagination finalized after execution. Runtime sources match recorded fingerprints; unchanged235 old components/275 expanded programs. Two formal usages and one API; formal component coverage rises to168."
+}

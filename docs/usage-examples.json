@@ -3446,5 +3446,41 @@
     "requires": [
       "KDMin"
     ]
+  },
+  {
+    "id": "example-276",
+    "symbol": "StaticRMQ",
+    "kind": "template",
+    "problem": "Library Checker Static RMQ",
+    "url": "https://judge.yosupo.jp/problem/staticrmq",
+    "summary": "静态数组上查询0-based半开区间[l,r)最小值；n,q≤500000，值为0..10^9。模板返回最左最小值位置，通过rmq.a[位置]输出值。",
+    "driver": "verify/library_checker/staticrmq.compact.cpp",
+    "requires": [
+      "StaticRMQ"
+    ]
+  },
+  {
+    "id": "example-277",
+    "symbol": "StaticRMQ",
+    "kind": "template",
+    "problem": "Luogu P3865 【模板】ST 表 && RMQ 问题",
+    "url": "https://www.luogu.com.cn/problem/P3865",
+    "summary": "静态区间最大值；输入1-based闭区间[l,r]，转换为query(l-1,r)。用greater<int>选择最大值，再由返回位置读取值。",
+    "driver": "verify/luogu/P3865.compact.cpp",
+    "requires": [
+      "StaticRMQ"
+    ]
+  },
+  {
+    "id": "example-278",
+    "symbol": "StaticRMQ",
+    "kind": "api",
+    "problem": "静态区间最左最小/最大位置（接口演示）",
+    "url": "https://oi-wiki.org/ds/sparse-table/",
+    "summary": "输入n,q、signed64数组和q个非空0-based半开区间，分别输出最左最小与最左最大位置。允许重复值；n=0时要求q=0。",
+    "driver": "verify/api/static_rmq.compact.cpp",
+    "requires": [
+      "StaticRMQ"
+    ]
   }
 ]
