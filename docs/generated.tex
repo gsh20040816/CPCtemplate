@@ -566,6 +566,26 @@ sam\_lcs(sam,t)接收已有单串SuffixAutomaton或已build的GeneralSAM及小�
 
 \lstinputlisting{usage/example-257.cpp}
 
+\Needspace{571pt}
+
+\subsection*{应用题补充：CodeChef TSUBSTR / Substrings on a Tree}
+
+\label{usage-example-261}
+
+题意：给以1为根的无向树及每个顶点的小写字母，求所有祖先到后代路径串中不同串的数量，包含空串；每次按给定26字母排列求第k小，不足输出-1，k=1输出空行。N至250000、Q至50000，k至2\textasciicircum{}63-1，总输出不超过800KB，原题字母随机。根顶点字母也必须登记；重复标签路径由Trie合并。先按树做BFS登记，再构建SAM，不展开根叶字符串。
+
+所需模板：\hyperref[compact-GeneralSAM]{GeneralSAM}（第~\pageref{compact-GeneralSAM}~页，\ref{compact-GeneralSAM}~节）、\hyperref[compact-SAMLex]{SAMLex}（第~\pageref{compact-SAMLex}~页，\ref{compact-SAMLex}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.codechef.com/problems/TSUBSTR}
+
+\lstinputlisting[lastline=34]{usage/example-261.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=35,firstnumber=35]{usage/example-261.cpp}
+
 \Needspace{595pt}
 
 \noindent 相关应用：指定状态在线扩展；任意插入顺序不保证Trie节点数线性复杂度。
@@ -609,6 +629,54 @@ OnlineSAM()以0为根；extend(p,c)给状态p代表的最长串末尾接字符0<
 题目：\url{https://www.luogu.com.cn/problem/P6139}
 
 \lstinputlisting{usage/example-258.cpp}
+
+\section{SAM文档频率与阈值后缀}\label{compact-SAMDocuments}\index{SAMDocuments}
+
+代码依赖：\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+SAMDocuments(sam,s)接收已完成构建的GeneralSAM及同一批小写文档s；也兼容按该文档集完成的OnlineSAM或单文档SuffixAutomaton。允许空串和重复串，重复输入按不同文档计数。索引期间sam须存活且不变。cnt[u]是该状态任一非空代表串出现的文档数，cnt[0]=s.size()约定空串出现在每篇文档；不能把单串出现次数当文档数。lengths(k)要求k>=1，返回每个状态最长代表串中、出现于至少k篇文档的最长后缀长度，无非空解为0；k大于文档数全0。查询任意非空模式串时，从根转移成功后读取cnt，缺边返回0。L为文档总长，V为状态数，D为文档数：构造O((L+V)log(L+2)+D)，空间O(L+V+D)，每次lengths为O(V)。递归后缀链接树深度不超过最长文档长度加1；保留递归，不模拟开栈。L、D、V须小于INT\_MAX，数组可分配；a/g/cnt视为只读。
+
+\lstinputlisting[firstline=9,lastline=15,firstnumber=1]{../src/compact/sam_documents.hpp}
+
+\newpage
+
+\noindent 文档标记与子树去重（接上页同一结构体）：
+
+\lstinputlisting[firstline=16,lastline=53,firstnumber=8]{../src/compact/sam_documents.hpp}
+
+\newpage
+
+\noindent 阈值后缀长度（接上页同一结构体）：
+
+\lstinputlisting[firstline=54,lastline=71,firstnumber=46]{../src/compact/sam_documents.hpp}
+
+\Needspace{492pt}
+
+\subsection*{应用题补充：Codeforces 204E / Little Elephant and Strings}
+
+\label{usage-example-259}
+
+题意：给n篇非空小写文档和k，分别求每篇中出现于至少k篇文档的子串区间个数；重复文档分别计数，区间重复出现也分别计数。n、k及总长度至100000，k允许大于n。先统计文档频率，再按每个前缀累加合格最长后缀长度；答案用long long。比赛应用，不登记为非比赛模板题。
+
+所需模板：\hyperref[compact-GeneralSAM]{GeneralSAM}（第~\pageref{compact-GeneralSAM}~页，\ref{compact-GeneralSAM}~节）、\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）、\hyperref[compact-SAMDocuments]{SAMDocuments}（第~\pageref{compact-SAMDocuments}~页，\ref{compact-SAMDocuments}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/problemset/problem/204/E}
+
+\lstinputlisting{usage/example-259.cpp}
+
+\Needspace{483pt}
+
+\subsection*{接口用法演示：子串文档频率 / API示例}
+
+\label{usage-example-260}
+
+演示约定：输入n,q、n篇非空小写文档和q个非空小写模式串，输出每个模式出现于多少篇输入文档；同一文档内重复出现只算一次，相同输入文档分别计数。走转移失败立即返回0。本例n可为0；核心另支持空文档，空串频率为cnt[0]。
+
+所需模板：\hyperref[compact-GeneralSAM]{GeneralSAM}（第~\pageref{compact-GeneralSAM}~页，\ref{compact-GeneralSAM}~节）、\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）、\hyperref[compact-SAMDocuments]{SAMDocuments}（第~\pageref{compact-SAMDocuments}~页，\ref{compact-SAMDocuments}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate}
+
+\lstinputlisting{usage/example-260.cpp}
 
 \Needspace{491pt}
 

@@ -1,0 +1,84 @@
+{
+  "base": "4147a69531004711a506e2eb7f4fff6457c142f0",
+  "batch": "Document-frequency SAM, CF204E and official TSUBSTR application",
+  "core_cases_per_form": 9816,
+  "core_checks_per_form": 3075111,
+  "complete_inputs_per_form": {
+    "example-259": 731,
+    "example-260": 182,
+    "example-261": 207
+  },
+  "semantic_mutants_per_mode": {
+    "core": 7,
+    "tsubstr_driver": 5
+  },
+  "new_usage_programs_retested": 3,
+  "current_counts": {
+    "components": 229,
+    "usages": 261,
+    "usage_status": {
+      "locally_checked_example": 167,
+      "locally_checked_application": 50,
+      "locally_checked_api": 12
+    },
+    "pending_upstream_topics": 621,
+    "partial_upstream_topics": 29
+  },
+  "source_rows": {
+    "audited": 2,
+    "local_tested": 2
+  },
+  "runtime_source_sha256": {
+    "src/compact/sam_documents.hpp": "9e3c54ebf690d37eb4445464ffca88cbcc669d62e99f45437e002aea6a2f7768",
+    "src/compact/general_sam.hpp": "c7e4e8656f34c6cba34a1fb72ac7875ba0ca00f572d037cff9cdaa68ea026d2e",
+    "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
+    "src/compact/online_sam.hpp": "725311b02a6d5d587153eb8fead6461036fca9833d34c69990f20f9f73467b88",
+    "src/compact/string.hpp": "44f284e4927a8315f7c54d4a01ff2c8ada00572c865ce0e39ec3077870254e03",
+    "src/compact/sam_queries.hpp": "bbba7836d604e01dda28b930aae95bc87043528fe6ce2400290868edcee179ef",
+    "tests/sam_documents.py": "8cac1f8ea76e027c3dbf7d6ac31c764cccf9b0674ac941719103556c3e086856",
+    "tests/sam_documents_probe.cpp": "613abcd9a0faeea8de0500c17bcd694bbb21e99bb4536ce282a2b4bf376b27ab",
+    "verify/luogu/CF204E.compact.cpp": "ff23650b3e3bca369217b55519a26d7f801156b60f461986de82683eda56434c",
+    "verify/api/sam_documents.compact.cpp": "7230f35afc5ff7c80a342c1f5df9ac6f1dbce7389c0b936326d685db65de55ad",
+    "docs/usage/example-259.cpp": "b8fbcfd5ffdc6115638e0a83bb305325940d5d3f22478fd4cd3ab040fe6f1882",
+    "docs/usage/example-260.cpp": "1230352af90a2a7a8bf6d70b5bea0ac6e88e583ca639c82e512e7a4ce4a69151",
+    "tests/tsubstr.py": "4e13ca5361cb0faa96aad5c78a31652ee1f67169fc755e8158faf8cfaa56147d",
+    "verify/codechef/TSUBSTR.compact.cpp": "64aa05bcba3746ced9552b61257b28b5cb46eb736fbf37e748a05b829f95647e",
+    "docs/usage/example-261.cpp": "b4e3b872a9bbf9242fc98fcc9b30cd2e1bc29cf87a5e46972f53f355c55484b5",
+    "tests/usage_examples.py": "2adb85d737065c429071df58c29e2cd5733b4e2501d6fae065f9ac72f7dfc3b4"
+  },
+  "report_sha256": {
+    "verification/sam-documents-copy.json": "43c3d32a1e1df227b5431f18b533ad333131dd48d67f166f0756ad2a6a1ba45e",
+    "verification/sam-documents-layout.json": "ec6ebe7f8c068af2d3712d335257701c2d831525c018ac9c4e831d19da605588",
+    "verification/sam-documents-normal.json": "4972a4032991dbae2e751a36da12a78bc013a3a5b605e138178686a3608a23a5",
+    "verification/sam-documents-sanitizer.json": "18ffc5488118053cde07e8a3044314af413711891f16ea6bf1a8f4926cd6db04",
+    "verification/sam-documents-sources.json": "ecbddcc359faa7211fea3931684e9de73416dff3da8cbd238afe454794ae4f0e",
+    "verification/tsubstr-normal.json": "494673cba8faa5c045b530be23a37fe7c8ed4ef8f371f4baf13f7d3fb43baec4",
+    "verification/tsubstr-sanitizer.json": "79c1905f2c359a0e47d2df1a375a63a22d8bcc1fd1b7c9139385d9ef71b53537"
+  },
+  "documentation_after_runtime": "Core/probes/drivers/snippets remain hash-identical. TSUBSTR registration followed completed document-frequency runners; final usage registration is checked against TSUBSTR snapshots. Later changes only documentation, CodeChef candidate URL mapping, runner registration and PDF pagination. All228 old components and258 old expanded programs unchanged; no full-library rerun claim.",
+  "remaining": "Global source ledger621 pending/29 partial; recent Chinese contest survey, OI mathematics, online AC/rank and issue coverage remain incomplete. Browser unlock request unresolved. Original judge runtime/memory acceptance not claimed.",
+  "issue_check": "Fetched comments since2026-10-07T11:34:12Z; only prior completion and our start comments, no new human steering.",
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "589c40b0793c5e7a2064969793aed1fdbaf511c667ea1ed19766edf5a02ac4f8",
+      "font_set_preserved": true,
+      "page_change": 7,
+      "pages": 731,
+      "bytes_changed": true
+    },
+    "output/pdf/xcpc-strings.pdf": {
+      "sha256": "5b83837a70f13049ba537e05935c212ec41799b98e6577fe1ccb46f5210db2ee",
+      "font_set_preserved": true,
+      "page_change": 17,
+      "pages": 69,
+      "bytes_changed": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "9462c44359c97d9c02d895adf1ce5a065465a06cabb99d097675f18569d8817e",
+      "font_set_preserved": true,
+      "page_change": 0,
+      "pages": 12,
+      "bytes_changed": false
+    }
+  }
+}

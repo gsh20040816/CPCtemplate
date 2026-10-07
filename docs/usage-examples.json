@@ -3234,5 +3234,47 @@
     "requires": [
       "OnlineSAM"
     ]
+  },
+  {
+    "id": "example-259",
+    "symbol": "SAMDocuments",
+    "kind": "application",
+    "problem": "Codeforces 204E / Little Elephant and Strings",
+    "url": "https://codeforces.com/problemset/problem/204/E",
+    "summary": "给n篇非空小写文档和k，分别求每篇中出现于至少k篇文档的子串区间个数；重复文档分别计数，区间重复出现也分别计数。n、k及总长度至100000，k允许大于n。先统计文档频率，再按每个前缀累加合格最长后缀长度；答案用long long。比赛应用，不登记为非比赛模板题。",
+    "driver": "verify/luogu/CF204E.compact.cpp",
+    "requires": [
+      "GeneralSAM",
+      "Fenwick",
+      "SAMDocuments"
+    ]
+  },
+  {
+    "id": "example-260",
+    "symbol": "SAMDocuments",
+    "kind": "api",
+    "problem": "子串文档频率 / API示例",
+    "url": "https://github.com/gsh20040816/CPCtemplate",
+    "summary": "输入n,q、n篇非空小写文档和q个非空小写模式串，输出每个模式出现于多少篇输入文档；同一文档内重复出现只算一次，相同输入文档分别计数。走转移失败立即返回0。本例n可为0；核心另支持空文档，空串频率为cnt[0]。",
+    "driver": "verify/api/sam_documents.compact.cpp",
+    "requires": [
+      "GeneralSAM",
+      "Fenwick",
+      "SAMDocuments"
+    ]
+  },
+  {
+    "id": "example-261",
+    "symbol": "GeneralSAM",
+    "kind": "application",
+    "problem": "CodeChef TSUBSTR / Substrings on a Tree",
+    "url": "https://www.codechef.com/problems/TSUBSTR",
+    "summary": "给以1为根的无向树及每个顶点的小写字母，求所有祖先到后代路径串中不同串的数量，包含空串；每次按给定26字母排列求第k小，不足输出-1，k=1输出空行。N至250000、Q至50000，k至2^63-1，总输出不超过800KB，原题字母随机。根顶点字母也必须登记；重复标签路径由Trie合并。先按树做BFS登记，再构建SAM，不展开根叶字符串。",
+    "driver": "verify/codechef/TSUBSTR.compact.cpp",
+    "requires": [
+      "GeneralSAM",
+      "SAMLex"
+    ],
+    "page_break_before": "    sam.build();"
   }
 ]

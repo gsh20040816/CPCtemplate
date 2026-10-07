@@ -257,6 +257,9 @@ cases['example-255'] = [('2\nab\nbc\nabcdefghijklmnopqrstuvwxyz 3 zzbcab\n','b 2
 cases['example-256'] = [('4\n0 a\n1 b\n0 b\n3 a\n','1 3 3 4'),('0\n','')]
 cases['example-257'] = [('2 4\n0 a\n1 b\nabcdefghijklmnopqrstuvwxyz 1\nabcdefghijklmnopqrstuvwxyz 2\nabcdefghijklmnopqrstuvwxyz 4\nabcdefghijklmnopqrstuvwxyz 5\n', {'exact_text':'4\n\na\nb\n-1\n'})]
 cases['example-258'] = [('4\naa\nab\nbac\ncaa\n','10 10'),('2\nab\nb\n','3 4')]
+cases['example-259'] = [('3 1\nabc\na\nab\n','6 1 3'), ('2 3\naaaa\naaaa\n','0 0')]
+cases['example-260'] = [('3 4\naaaa\naaaa\nb\na\naa\nb\nab\n','2 2 1 0'), ('0 1\na\n','0')]
+cases['example-261'] = [('8 4\nabcbbaca\n1 2\n2 3\n1 4\n4 5\n4 6\n4 7\n1 8\nabcdefghijklmnopqrstuvwxyz 5\nabcdefghijklmnopqrstuvwxyz 1\nbcadefghijklmnopqrstuvwxyz 5\nabcdefghijklmnopqrstuvwxyz 100\n','12 aba ba -1')]
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')

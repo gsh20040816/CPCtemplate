@@ -18,7 +18,7 @@ for file,name,title,contract in cat:
         if not re.search(r'\b'+re.escape(name)+r'\b',text):continue
         rel=str(driver.relative_to(root));pid=driver.name.split('.')[0];judge=driver.relative_to(root / 'verify').parts[0]
         if judge == 'api':continue  # Explicit API demonstrations are not formal-problem candidates.
-        url={'luogu':f'https://www.luogu.com.cn/problem/{pid}','qoj':f'https://qoj.ac/problem/{pid}','cses':f'https://cses.fi/problemset/task/{pid}','library_checker':f'https://judge.yosupo.jp/problem/{pid}','aoj':f'https://onlinejudge.u-aizu.ac.jp/problems/{pid}','loj':f'https://loj.ac/p/{pid}'}.get(judge,'')
+        url={'codechef':f'https://www.codechef.com/problems/{pid}','luogu':f'https://www.luogu.com.cn/problem/{pid}','qoj':f'https://qoj.ac/problem/{pid}','cses':f'https://cses.fi/problemset/task/{pid}','library_checker':f'https://judge.yosupo.jp/problem/{pid}','aoj':f'https://onlinejudge.u-aizu.ac.jp/problems/{pid}','loj':f'https://loj.ac/p/{pid}'}.get(judge,'')
         explicit = re.search(r'^// (https://judge\.yosupo\.jp/problem/[A-Za-z0-9_]+)$', text, re.M)
         if judge == 'library_checker' and explicit: url = explicit[1]
         cf = re.search(r'^// (https://codeforces\.com/gym/[0-9]+/problem/[A-Z][0-9]*)$', text, re.M)

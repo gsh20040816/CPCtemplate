@@ -1391,6 +1391,14 @@
       "relation": "related",
       "note": "指定状态在线扩展；任意插入顺序不保证Trie节点数线性复杂度。",
       "additional": []
+    },
+    "SAMDocuments": {
+      "primary": "string/general-sam.md",
+      "relation": "composite",
+      "note": "后缀链接树按文档去重，复用树状数组统计子树颜色；阈值后缀用于多串应用。",
+      "additional": [
+        "ds/fenwick.md"
+      ]
     }
   },
   "reference_source_sha256": "de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806"

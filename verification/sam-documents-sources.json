@@ -1,0 +1,56 @@
+{
+  "rows": [
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "15",
+      "topic": "1.6 后缀自动机",
+      "status": "local-tested",
+      "compact": "OnlineSAM,GeneralSAM,SAMLex,sam_lcs,SAMDocuments",
+      "verification": "sam-documents audit: CF204E per-document frequencies/occurrence-interval answers and TSUBSTR vertex-labelled tree/custom-alphabet/empty-string ranking now have complete application drivers and independent local oracles. Official Codeforces statement and CodeChef public problem API checked. Earlier basic construction/query coverage retained. Local-tested does not imply online AC/rank or original resource-limit acceptance. See docs/SAM-DOCUMENTS.md."
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "16",
+      "topic": "1.6.2 例题",
+      "status": "local-tested",
+      "compact": "OnlineSAM,GeneralSAM,SAMLex,sam_lcs,SAMDocuments",
+      "verification": "sam-documents audit: CF204E per-document frequencies/occurrence-interval answers and TSUBSTR vertex-labelled tree/custom-alphabet/empty-string ranking now have complete application drivers and independent local oracles. Official Codeforces statement and CodeChef public problem API checked. Earlier basic construction/query coverage retained. Local-tested does not imply online AC/rank or original resource-limit acceptance. See docs/SAM-DOCUMENTS.md."
+    }
+  ],
+  "kuangbin_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "kuangbin_printed_pages": "16-23: two applications, TSUBSTR and CF204E",
+  "cf204e": {
+    "url": "https://codeforces.com/problemset/problem/204/E",
+    "checked_date": "2026-10-07",
+    "n_max": 100000,
+    "k_max": 100000,
+    "total_length_max": 100000,
+    "time_seconds": 3,
+    "memory_mb": 256,
+    "samples": [
+      "6 1 3",
+      "1 0 9 9 21 30 0"
+    ],
+    "model": "Count occurrence intervals in each document, whose substring occurs in at least k document positions in the input array; duplicate documents count separately."
+  },
+  "tsubstr": {
+    "url": "https://www.codechef.com/problems/TSUBSTR",
+    "api": "https://www.codechef.com/api/contests/PRACTICE/problems/TSUBSTR",
+    "api_sha256": "6c6c0a62ad94b91b25ea2fd7970bdf6105253dd46729fc320d4fc8e26643fe87",
+    "editorial": "https://discuss.codechef.com/t/tsubstr-editorial/861",
+    "tester": "https://www.codechef.com/download/Solutions/2012/April/Tester/TSUBSTR.c",
+    "tester_sha256": "31dba9134e2d6636ee269b52912c884f7cd3877f785e14465a884b4608dd9425",
+    "checked_date": "2026-10-07",
+    "n_max": 250000,
+    "q_max": 50000,
+    "k_max": 9223372036854775807,
+    "output_bound": "800KB",
+    "random_letters_promise": true,
+    "api_max_timelimit": 1,
+    "memory_limit": "not supplied in inspected API response",
+    "model": "Root is vertex1; concatenate vertex labels on ancestor-descendant paths. Distinct strings include empty; each query supplies a permutation alphabet and1-based rank. Single test case; edges undirected/unordered. Official sample exact output:12,aba,empty line,ba,-1."
+  },
+  "scope": "Two previously partial kuangbin SAM rows now locally covered, combining this batch with prior constructors and queries. No online AC/rank inherited from source code."
+}

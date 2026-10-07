@@ -4900,5 +4900,70 @@
     "statement_sources": [
       "https://www.luogu.com.cn/problem/P6139"
     ]
+  },
+  {
+    "symbol": "SAMDocuments",
+    "problem": "Codeforces 204E / Little Elephant and Strings",
+    "url": "https://codeforces.com/problemset/problem/204/E",
+    "classification": "Contest application, not a standalone non-contest template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "n,k<=100000; total nonempty lowercase input length<=100000. Official page3s/256MB; this batch does not claim online acceptance or machine-equivalent timing.",
+    "adapter": "Same document multiset builds GeneralSAM and SAMDocuments; sum threshold-qualified suffix lengths over each original prefix, using64-bit answers.",
+    "implementation": "existing",
+    "source": "src/compact/sam_documents.hpp",
+    "tested_api": [
+      "SAMDocuments",
+      "SAMDocuments::lengths"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC, original judge resource acceptance and rank unverified.",
+    "driver": "verify/luogu/CF204E.compact.cpp",
+    "local_reports": [
+      "verification/sam-documents-normal.json",
+      "verification/sam-documents-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://codeforces.com/problemset/problem/204/E"
+    ]
+  },
+  {
+    "symbol": "GeneralSAM::TSUBSTR",
+    "problem": "CodeChef TSUBSTR / Substrings on a Tree",
+    "url": "https://www.codechef.com/problems/TSUBSTR",
+    "classification": "Contest application combining direct Trie construction and lexicographic SAM queries.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "N<=250000,Q<=50000,K<=2^63-1,output<=800KB; original vertex letters generated randomly. API max_timelimit1s; memory limit unavailable; no online runtime claim.",
+    "adapter": "Root vertex1 contributes its letter. BFS registers vertex paths into a merged Trie; batch build, distinct()+1, empty first, SAMLex kth(k-1,alphabet).",
+    "implementation": "existing",
+    "source": "verify/codechef/TSUBSTR.compact.cpp",
+    "tested_api": [
+      "GeneralSAM::add(int,int)",
+      "GeneralSAM::build",
+      "SAMLex::kth"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and original judge time/memory acceptance pending.",
+    "driver": "verify/codechef/TSUBSTR.compact.cpp",
+    "local_reports": [
+      "verification/tsubstr-normal.json",
+      "verification/tsubstr-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.codechef.com/api/contests/PRACTICE/problems/TSUBSTR",
+      "https://discuss.codechef.com/t/tsubstr-editorial/861",
+      "https://www.codechef.com/download/Solutions/2012/April/Tester/TSUBSTR.c"
+    ]
   }
 ]

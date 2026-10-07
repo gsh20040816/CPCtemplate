@@ -750,3 +750,6 @@ python3 tests/sequence_matching.py
 python3 tests/sam_queries.py
 
 python3 tests/sam_build.py
+
+python3 tests/sam_documents.py
+python3 tests/tsubstr.py

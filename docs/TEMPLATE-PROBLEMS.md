@@ -194,6 +194,8 @@
 | `SAMLex` | [Luogu P3975 / 弦论](https://www.luogu.com.cn/problem/P3975) | n1..500000, t0/1, k1..1e9; lowercase input. Live time/memory limits unverified. | 待在线 AC | 待核验 |
 | `sam_lcs` | [SPOJ LCS / 最长公共子串](https://www.luogu.com.cn/problem/SP1811) | Exactly two lines, at most250000 lowercase letters each. getline additionally handles empty lines and CRLF. Live time/memory limits unverified. | 待在线 AC | 待核验 |
 | `OnlineSAM` | [Luogu P6139 / 在线扩展版本](https://www.luogu.com.cn/problem/P6139) | At most400000 nonempty lowercase strings, total length<=1000000; live time/memory limits unverified. | 待在线 AC | 待核验 |
+| `SAMDocuments` | [Codeforces 204E / Little Elephant and Strings](https://codeforces.com/problemset/problem/204/E) | n,k<=100000; total nonempty lowercase input length<=100000. Official page3s/256MB; this batch does not claim online acceptance or machine-equivalent timing. | 待在线 AC | 待核验 |
+| `GeneralSAM::TSUBSTR` | [CodeChef TSUBSTR / Substrings on a Tree](https://www.codechef.com/problems/TSUBSTR) | N<=250000,Q<=50000,K<=2^63-1,output<=800KB; original vertex letters generated randomly. API max_timelimit1s; memory limit unavailable; no online runtime claim. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1828,6 +1830,26 @@ Reset parent to root for each document, print incremental distinct count and act
 168 inputs per full program form in normal+ASan/UBSan, including documented official samples and maximum-size sets. No new online AC or speed rank; arbitrary-parent complexity is explicitly not linear.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P6139)
+
+### Codeforces 204E / Little Elephant and Strings / SAMDocuments
+
+Contest application, not a standalone non-contest template problem.
+
+Same document multiset builds GeneralSAM and SAMDocuments; sum threshold-qualified suffix lengths over each original prefix, using64-bit answers.
+
+Online AC, original judge resource acceptance and rank unverified.
+
+原始题面与参数：[来源 1](https://codeforces.com/problemset/problem/204/E)
+
+### CodeChef TSUBSTR / Substrings on a Tree / GeneralSAM::TSUBSTR
+
+Contest application combining direct Trie construction and lexicographic SAM queries.
+
+Root vertex1 contributes its letter. BFS registers vertex paths into a merged Trie; batch build, distinct()+1, empty first, SAMLex kth(k-1,alphabet).
+
+Online AC and original judge time/memory acceptance pending.
+
+原始题面与参数：[来源 1](https://www.codechef.com/api/contests/PRACTICE/problems/TSUBSTR)，[来源 2](https://discuss.codechef.com/t/tsubstr-editorial/861)，[来源 3](https://www.codechef.com/download/Solutions/2012/April/Tester/TSUBSTR.c)
 
 ## 榜单口径
 

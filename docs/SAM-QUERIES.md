@@ -1,5 +1,7 @@
 # 后缀自动机的字典序查询与最长公共子串
 
+后续文档频率、CF204E及正式TSUBSTR应用见 `docs/SAM-DOCUMENTS.md`；下文缺口描述保留为历史批次范围，以新文档与coverage.csv为准。
+
 后续指定状态在线扩展与直接Trie边接口见 `docs/SAM-BUILD.md`；本文件中未提供接口的说法属于此前批次，当前范围以新文档和coverage.csv为准。
 
 新增SAMLex与sam_lcs，复用现有单串SuffixAutomaton或已build的GeneralSAM。两组件为泛型，没有固定算法依赖；用法中必须先抄选定的自动机实现。单串与广义SAM源码均未修改。本批不提供任意父状态在线扩展，也不宣称所有上游SAM例题已完成。

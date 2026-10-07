@@ -1,5 +1,7 @@
 # 指定状态在线扩展与直接Trie建图
 
+后续文档频率、CF204E及正式TSUBSTR应用见 `docs/SAM-DOCUMENTS.md`；下文缺口描述保留为历史批次范围，以新文档与coverage.csv为准。
+
 本批新增OnlineSAM，并给GeneralSAM添加build之前的add(p,c)。两者都只使用vector，沿用a/go/link/len的数据布局，可以复用上一批SAMLex与sam_lcs。原单串SuffixAutomaton保持原样。
 
 ## 在线扩展的约定
