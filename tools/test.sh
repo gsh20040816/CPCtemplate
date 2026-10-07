@@ -744,3 +744,5 @@ if [[ "${SANITIZE:-0}" == 1 ]]; then
 else
     python3 tests/math_application_usages.py --mode normal
 fi
+
+python3 tests/sequence_matching.py

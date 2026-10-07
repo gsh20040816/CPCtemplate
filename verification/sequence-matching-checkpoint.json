@@ -1,0 +1,76 @@
+{
+  "base": "916eb251106f2fbc4c879f8ba9b0efa06fc72c54",
+  "bundle_head_already_ancestor": "765416e512703cf046959b69ecf94e02bb262827",
+  "batch": "Order-isomorphic KMP and generic integer Manacher",
+  "core_cases_per_form": 166689,
+  "core_checks_per_form": 4333369,
+  "old_string_regression_cases_per_form": 20928,
+  "old_string_regression_checks_per_form": 9209759,
+  "complete_inputs_per_form": {
+    "P6080": 206,
+    "P5410": 155
+  },
+  "semantic_mutants_per_mode": {
+    "sequence": 7,
+    "old_string_regression": 7
+  },
+  "affected_usage_programs_retested": 16,
+  "current_counts": {
+    "components": 225,
+    "usages": 252,
+    "usage_status": {
+      "locally_checked_example": 166,
+      "locally_checked_application": 47,
+      "locally_checked_api": 12
+    },
+    "pending_upstream_topics": 626
+  },
+  "source_rows": {
+    "audited": 2,
+    "local_tested": 1,
+    "partial": 1
+  },
+  "runtime_source_sha256": {
+    "src/compact/order_match.hpp": "7ac90f71f46d14dbc128d79e193af5975d02793bf9e9bcb2eab6488c8b53ad2a",
+    "src/compact/string.hpp": "44f284e4927a8315f7c54d4a01ff2c8ada00572c865ce0e39ec3077870254e03",
+    "src/compact/exkmp.hpp": "cdacaf46dc58202b0826c9f7598bc0d75869a5ff68e730246df859a0bb1fbbc6",
+    "tests/sequence_matching.py": "f83ffdd3aa74720c4a644e7109b77c89871991ea5b27c6c526e923e6836e1b33",
+    "tests/sequence_matching_probe.cpp": "33d069aa1ab7364b1653b5962eb00afa90094d2aa97f141ce5a18a69a48abac5",
+    "tests/string_prefix.py": "3204309b4b6f50579a7e7e8cbbf46f4c71bcd98c6206170f650fd8ecb5af38fd",
+    "tests/string_prefix_probe.cpp": "392d4adf1fb6ade504a6fa4d196abcaf323a3141e42e76b9e752e3c7c882b7d2",
+    "tests/usage_examples.py": "5a86eb4e6ea924ae29f2f4cc04563dbdec5c5aa557d7d47a5b6615678ccb8df7",
+    "verify/luogu/P6080.compact.cpp": "fda7615fd35faab0a4d874d3fcb535fa4b1506fe6c69ffc153d7476af19254e8",
+    "verify/api/integer_palindromes.compact.cpp": "c90c7bdfd3b9291a144fc96e816535b9892457b8020f7b4ce4b9ec5b5db5269a",
+    "docs/usage/example-251.cpp": "7df37ef1c34938387a947db86383d810b48e3faa6962f6c2bb0554be7ea077bb",
+    "docs/usage/example-252.cpp": "795cabee9d5ab4f2a0a685859f40c58865de2aab4ec0342aa548a4f52a4e17bd"
+  },
+  "report_sha256": {
+    "verification/sequence-flip.json": "29eca9ca9c1125465e5a8d37bdaa872a1ddb541a8bc28d526de7ddc2e4667e67",
+    "verification/sequence-matching-copy.json": "09d04cb29e3713d0a7373c0f68c2af067499e68d3d272c52b85f57b3d3169034",
+    "verification/sequence-matching-layout.json": "21517eb24c6e405dcfb713b8e13c08a733c645a7a66e2ece7e8ee1021b2da3a8",
+    "verification/sequence-matching-normal.json": "a8e36fec866ff8a96e62893c8ef013a0dd96103530706bc6ce11f45c0dc1dbff",
+    "verification/sequence-matching-sanitizer.json": "bf25b9f5c48d23acdb415d883f3c025d11fec180faca8a19fbfd8d8e32fb8028",
+    "verification/sequence-matching-sources.json": "625989d590273f0235a721473236a83daa0187053cf4c61661f00283e5c20a00",
+    "verification/sequence-string-regression-normal.json": "005d1ff55d678f44b80eb67456bc6f23c549b841db3edc9bcc2b1dff830aadc0",
+    "verification/sequence-string-regression-sanitizer.json": "2f38bb5b5eb0630b1459e75d0cf7620a67e073e8d4a151f04e041fd18eec657c"
+  },
+  "documentation_after_runtime": "Runtime sources and snippets remain hash-identical. Later edits only added provenance/coverage prose, source links, local runner registration and regenerated books. No full-library regression claim.",
+  "remaining": "kuangbin optimized failure-table output still unexposed; upstream626 pending rows and other partials remain. Online AC/rank and live judge limits pending. Browser unlock request remains unresolved.",
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "c155fa541a7ed51b4e7b029941e06524be9dbb800d5033d85a37e8d116d53f5a",
+      "font_set_preserved": true,
+      "page_change": 3
+    },
+    "output/pdf/xcpc-strings.pdf": {
+      "sha256": "803cd16cc42fb720419362cd949d2bc61d6cb73d2db9ef63b84d6c2af6e73e70",
+      "font_set_preserved": true,
+      "page_change": 3
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "9462c44359c97d9c02d895adf1ce5a065465a06cabb99d097675f18569d8817e",
+      "font_set_preserved": true,
+      "page_change": 0
+    }
+  }
+}

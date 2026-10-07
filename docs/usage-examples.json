@@ -3131,5 +3131,29 @@
       "z_function",
       "exkmp"
     ]
+  },
+  {
+    "id": "example-251",
+    "symbol": "order_match",
+    "kind": "application",
+    "problem": "Luogu P6080 / Cow Patterns",
+    "url": "https://www.luogu.com.cn/problem/P6080",
+    "summary": "N≤100000、K≤25000、S≤25，值在1..S；输出匹配的个数与升序1-based起点，逐行输出。保持相等和严格大小关系，允许重叠；S无需用于算法。应用补充，未在线AC。",
+    "driver": "verify/luogu/P6080.compact.cpp",
+    "requires": [
+      "order_match"
+    ]
+  },
+  {
+    "id": "example-252",
+    "symbol": "manacher",
+    "kind": "api",
+    "problem": "整数序列回文半径 / API示例",
+    "url": "https://github.com/gsh20040816/CPCtemplate",
+    "summary": "输入n及n个signed64整数，输出两行odd/even半径，均0-based；odd含中心，even中心在i之前。n=0输出两空行。接口示例，不对应正式模板题或线上AC。",
+    "driver": "verify/api/integer_palindromes.compact.cpp",
+    "requires": [
+      "manacher"
+    ]
   }
 ]

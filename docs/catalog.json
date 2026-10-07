@@ -111,7 +111,7 @@
     "string",
     "manacher",
     "Manacher 回文半径",
-    "manacher(s) 返回 odd/even，下标从0开始。odd[i] 包含中心，闭区间 [i-odd[i]+1,i+odd[i]-1]，长度2*odd[i]-1；even[i] 的中心在i前，区间 [i-even[i],i+even[i]-1]，长度2*even[i]，零半径为空。空串合法，支持任意字节（含零），按字节而非Unicode字素比较；int索引要求n<2^30。最长回文取上述长度最大值；全部odd/even以long long求和得到回文出现总数。O(n)时间和空间，边界显式检查，无需选择哨兵字符。"
+    "manacher(s) 返回 odd/even，下标从0开始。odd[i] 包含中心，闭区间 [i-odd[i]+1,i+odd[i]-1]，长度2*odd[i]-1；even[i] 的中心在i前，区间 [i-even[i],i+even[i]-1]，长度2*even[i]，零半径为空。空串合法，支持任意字节（含零），按字节而非Unicode字素比较；int索引要求n<2^30。最长回文取上述长度最大值；全部odd/even以long long求和得到回文出现总数。O(n)时间和空间，边界显式检查，无需选择哨兵字符。 输入为string、vector<int>或vector<long long>对象，支持空序列和任意整数；泛型S需size()、随机下标及O(1)相等比较。字符串字面量请显式写string(\"abc\")。输入不拷贝，输出移动返回。"
   ],
   [
     "string",
@@ -1342,5 +1342,11 @@
     "exkmp",
     "两串扩展KMP",
     "exkmp(s,t)返回{z,p}：z为模式t的Z数组，z[0]=|t|；p[i]是文本后缀s[i..]与t的LCP长度，均0-based。空串合法，t空时p全0，s空时p为空。任意字节相等比较，含零字节与高位字节；不拼接分隔符、不拷贝输入。需要z_function。两串长度均须<INT_MAX；O(|s|+|t|)时间，两个输出vector共O(|s|+|t|)空间，返回时移动缓冲区。维护右端最远的匹配区间[l,r)，区间内利用模式自身Z值再向右扩展。P5410的1-based权值乘法应先提升到long long。"
+  ],
+  [
+    "order_match",
+    "order_match",
+    "顺序同构匹配",
+    "order_match(s,t)接收vector<long long>，t非空；返回所有0-based起点，含重叠。匹配要求任意两位置的大小及相等关系一致，数值本身可不同。支持完整signed64，仅比较不作差；输入不变，长度均<INT_MAX。模式预处理记录之前的相等、前驱和后继位置，再用相对下标检查KMP扩展。O(|t|log(|t|+1)+|s|)时间，O(|t|+答案数)空间。P6080为应用题，不作为正式模板题覆盖。"
   ]
 ]

@@ -25,7 +25,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | prefix_function | [example-91](usage/example-91.cpp) | locally_checked_example |
 | kmp_match | [example-91](usage/example-91.cpp) | locally_checked_example |
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
-| manacher | [example-23](usage/example-23.cpp), [example-129](usage/example-129.cpp) | locally_checked_example |
+| manacher | [example-23](usage/example-23.cpp), [example-129](usage/example-129.cpp), [example-252（接口演示）](usage/example-252.cpp) | locally_checked_example |
 | minimum_rotation | [example-209](usage/example-209.cpp) | locally_checked_example |
 | AhoCorasick | [example-70](usage/example-70.cpp) | locally_checked_example |
 | SuffixArray | [example-19](usage/example-19.cpp), [example-131](usage/example-131.cpp) | locally_checked_example |
@@ -231,3 +231,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | PersistentDSU | [example-248](usage/example-248.cpp) | locally_checked_example |
 | MergeSplitTree | [example-249](usage/example-249.cpp) | locally_checked_example |
 | exkmp | [example-250](usage/example-250.cpp) | locally_checked_example |
+| order_match | [example-251（应用补充）](usage/example-251.cpp) | locally_checked_application |

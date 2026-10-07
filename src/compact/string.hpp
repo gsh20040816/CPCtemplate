@@ -63,7 +63,8 @@ vector<int> z_function(const string &s)
 
 // BEGIN manacher
 // odd[i] includes the center; even[i] is centered before i.
-pair<vector<int>, vector<int>> manacher(const string &s)
+template <class S>
+pair<vector<int>, vector<int>> manacher(const S &s)
 {
     int n = (int)s.size();
     vector<int> odd(n), even(n);
@@ -89,7 +90,7 @@ pair<vector<int>, vector<int>> manacher(const string &s)
             r = i + k;
         }
     }
-    return {odd, even};
+    return {move(odd), move(even)};
 }
 
 // END manacher

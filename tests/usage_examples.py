@@ -251,6 +251,8 @@ cases['example-213'] = [['4 5\n1 2 3 4\n5 6 7 8 9\n', {'exact_text': '5 16 34 60
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
+cases['example-251'] = [('9 6 10\n5 6 2 10 10 7 3 2 9\n1 4 4 3 2 1\n', '1 3'), ('4 2 2\n1 1 1 1\n2 2\n', '3 1 2 3')]
+cases['example-252'] = [('4\n9223372036854775807 -9223372036854775808 -9223372036854775808 9223372036854775807\n', '1 1 1 1 0 0 2 0'), ('0\n', '')]
 args = ap.parse_args()
 rows = records()
 cases['example-195'] = [('4\n1 2 1 2 1\n1 2 1 2 2\n1 1 1 1 2\n49999 50000 49999 50000 50000\n', '3 1 0 1')]

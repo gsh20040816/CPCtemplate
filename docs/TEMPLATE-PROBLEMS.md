@@ -190,6 +190,7 @@
 | `PersistentDSU` | [Luogu P3402](https://www.luogu.com.cn/problem/P3402) | n<=100000,m<=200000; 1-based vertices and historical operation versions including0. | 待在线 AC | 待核验 |
 | `MergeSplitTree` | [Luogu P5494](https://www.luogu.com.cn/problem/P5494) | n,m<=200000; ai<=m; published k<=200000 and valid value coordinates. | 待在线 AC | 待核验 |
 | `exkmp` | [Luogu P5410 / 扩展 KMP](https://www.luogu.com.cn/problem/P5410) | Both lowercase strings length1..20000000. XOR checksums use1-based indices and LCP+1. | 待在线 AC | 待核验 |
+| `order_match` | [Luogu P6080 / Cow Patterns](https://www.luogu.com.cn/problem/P6080) | N1..100000; K1..25000; S1..25; values1..S. Live time/memory limits unverified. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1784,6 +1785,16 @@ Return pattern Z and cross-text LCP arrays; z[0]=pattern length, no concatenatio
 Four core forms and three complete driver forms passed normal+ASan/UBSan, including two20-million-character strings. Online AC and rankings pending; no whole-library runtime claim.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5410)
+
+### Luogu P6080 / Cow Patterns / order_match
+
+Competition application; not a formal standalone template problem.
+
+Preserve all equality and strict order relations; output count and ascending1-based starts, including overlap.
+
+206 inputs in each of three complete program forms, normal+ASan/UBSan. Online AC/rank pending; not formal-template coverage.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P6080)
 
 ## 榜单口径
 
