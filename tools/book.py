@@ -1053,7 +1053,10 @@ for style in ['compact']:
                 body.append(('演示约定：' if kind == 'api' else '题意：') + esc(usage['summary']))
                 from template_dependencies import references
                 body.append('所需模板：' + references(usage['requires']) + '。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。')
-                body.append(('来源：' if kind == 'api' else '题目：') + '\\url{' + usage['url'] + '}')
+                link = '\\url{' + usage['url'] + '}'
+                if usage.get('url_label'):
+                    link = '\\href{' + usage['url'] + '}{' + esc(usage['url_label']) + '}'
+                body.append(('来源：' if kind == 'api' else '题目：') + link)
                 if usage.get('listing_new_page'):
                     body.append('\\newpage')
                     body.append('\\subsection*{' + esc(usage['problem']) + '：使用代码}')

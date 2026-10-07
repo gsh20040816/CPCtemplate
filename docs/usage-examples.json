@@ -3983,5 +3983,32 @@
       "Prim"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-318",
+    "symbol": "Dinic",
+    "kind": "api",
+    "problem": "右侧容量二分图匹配与方案（接口演示）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/CAPACITATED-MATCHING-SOURCE-AUDIT.md",
+    "summary": "输入n,m,e，m个非负long long右容量，再输入e条左右各自0-based的可配对边。每个左点最多使用一次；输出最大配对数和对应(u,v)。支持空侧、零容量、重边，单容量可达LLONG_MAX；总流至多n，无需累加容量。保存add边号，用used还原方案。一次性建图求解，不把flow的新增量误作重跑总量。",
+    "driver": "verify/api/capacitated_matching.compact.cpp",
+    "requires": [
+      "Dinic"
+    ],
+    "start_new_page": true,
+    "url_label": "容量匹配来源与接口核验"
+  },
+  {
+    "id": "example-319",
+    "symbol": "Dinic",
+    "kind": "application",
+    "problem": "Luogu P2763 / 试题库问题",
+    "url": "https://www.luogu.com.cn/problem/P2763",
+    "summary": "k种题型、n道题，给出每类需求和各题可属类别；每题最多选一次，输出恰好满足各类需求的方案，或No Solution!。2≤k≤20，k≤n≤1000；不是独立匹配模板题。题号/类别均1-based；源到题容量1，题到类容量1，类到汇为需求，满流即各类满足。need逐项截到n+1再累加，超过n的需求必无解，可避免超大容量求和溢出。",
+    "driver": "verify/luogu/P2763.compact.cpp",
+    "requires": [
+      "Dinic"
+    ],
+    "start_new_page": true
   }
 ]

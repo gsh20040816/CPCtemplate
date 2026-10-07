@@ -230,6 +230,7 @@
 | `DenseDijkstra` | [AOJ ALDS1_12_B / Single Source Shortest Path](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_B&lang=en) | 1≤n≤100，m≤10000，0≤w≤100000；0-based邻接行格式，源0可达全部点。 | 待在线 AC | 待核验 |
 | `Kruskal` | [Luogu P3366 / 最小生成树](https://www.luogu.com.cn/problem/P3366) | 1≤n≤5000，1≤m≤200000，1≤w≤10000；1-based无向图，断连输出orz。 | 待在线 AC | 待核验 |
 | `Prim` | [AOJ ALDS1_12_A / Minimum Spanning Tree](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_A&lang=en) | 1≤n≤100，矩阵对称；-1缺边，费用0..2000，保证连通。 | 待在线 AC | 待核验 |
+| `Dinic` | [Luogu P2763 / 试题库问题](https://www.luogu.com.cn/problem/P2763) | 2≤k≤20，k≤n≤1000；题面需求为正整数，各题可属于多个类别。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2164,6 +2165,14 @@ Library of Graph Algorithms正式全源最短路题。
 
 
 正式模板题和宽整数父点森林接口均两种模式本地核验；无新增在线AC/排名/资源通过。
+
+### Luogu P2763 / 试题库问题 / Dinic
+
+容量分配应用：每道题最多使用一次，恰好满足各类需求；不是正式匹配模板题。
+
+源到题容量1、题到类容量1、类到汇为需求。最大流达到总需求时，每个类到汇边必饱和，由used按类恢复题号。need每项截到n+1后累加：若总需求≤n仍精确，否则必超过n、无解，避免超大容量求和溢出。
+
+应用驱动和最大容量匹配API在普通与ASan/UBSan下本地核验；没有新增在线AC或速度排名。
 
 ## 榜单口径
 

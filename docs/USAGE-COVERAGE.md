@@ -12,7 +12,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Fenwick | [example-210](usage/example-210.cpp) | locally_checked_example |
 | LazySeg | [example-220](usage/example-220.cpp) | locally_checked_example |
 | XorBasis | [example-36](usage/example-36.cpp) | locally_checked_example |
-| Dinic | [example-1](usage/example-1.cpp) | locally_checked_example |
+| Dinic | [example-1](usage/example-1.cpp), [example-318（接口演示）](usage/example-318.cpp), [example-319（应用补充）](usage/example-319.cpp) | locally_checked_example |
 | maximum_closure | [example-148（应用补充）](usage/example-148.cpp) | locally_checked_application |
 | MinCostFlow | [example-55](usage/example-55.cpp) | locally_checked_example |
 | SpfaFlow | [example-127](usage/example-127.cpp) | locally_checked_example |

@@ -8888,6 +8888,38 @@ Dinic(n)，点号 1..n；add(u,v,c) 返回偶数原边编号；flow(s,t,limit) �
 
 \lstinputlisting{usage/example-1.cpp}
 
+\newpage
+
+\Needspace{522pt}
+
+\subsection*{接口用法演示：右侧容量二分图匹配与方案（接口演示）}
+
+\label{usage-example-318}
+
+演示约定：输入n,m,e，m个非负long long右容量，再输入e条左右各自0-based的可配对边。每个左点最多使用一次；输出最大配对数和对应(u,v)。支持空侧、零容量、重边，单容量可达LLONG\_MAX；总流至多n，无需累加容量。保存add边号，用used还原方案。一次性建图求解，不把flow的新增量误作重跑总量。
+
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\href{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/CAPACITATED-MATCHING-SOURCE-AUDIT.md}{容量匹配来源与接口核验}
+
+\lstinputlisting{usage/example-318.cpp}
+
+\newpage
+
+\Needspace{680pt}
+
+\subsection*{应用题补充：Luogu P2763 / 试题库问题}
+
+\label{usage-example-319}
+
+题意：k种题型、n道题，给出每类需求和各题可属类别；每题最多选一次，输出恰好满足各类需求的方案，或No Solution!。2$\le$k$\le$20，k$\le$n$\le$1000；不是独立匹配模板题。题号/类别均1-based；源到题容量1，题到类容量1，类到汇为需求，满流即各类满足。need逐项截到n+1再累加，超过n的需求必无解，可避免超大容量求和溢出。
+
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2763}
+
+\lstinputlisting{usage/example-319.cpp}
+
 \Needspace{317pt}
 
 \subsection{最大流中单位容量边的可行性与必选性}\label{compact-unit_flow_edges}\index{unit\_flow\_edges}
