@@ -126,3 +126,5 @@ Floyd全源最短路、负环提前退出与路径约定见 [FLOYD](docs/FLOYD.m
 Kruskal生成森林、原边方案及三份来源差异见 [KRUSKAL](docs/KRUSKAL.md)。
 
 矩阵Prim、父点森林及两份来源核对见 [PRIM](docs/PRIM.md)。
+
+无权二分图匹配的五份原实现、重跑语义与独立验证见 [MATCHING-SOURCE-AUDIT](docs/MATCHING-SOURCE-AUDIT.md)。
