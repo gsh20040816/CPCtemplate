@@ -6152,6 +6152,84 @@ insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不�
 
 \Needspace{650pt}
 
+\subsection{可合并 Splay：固定编号与集合顺序统计}\label{compact-MergeSplay}\index{MergeSplay}
+
+MergeSplay(v)为0-based元素建立独立单点集合，v为vector<long long>，允许空数组，元素数<INT\_MAX且内存足够。merge(u,v)合并两个元素所在集合，已经同集合返回false，否则true；same(u,v)判同集合。set(id,val)改该元素的值而不改编号或集合；value(id)读值，size(id)查集合大小。rank(id)是集合内按(值,原编号)排序的1-based名次；kth(id,k)返回所在集合第k小的原编号optional<int>，k为long long，非法时nullopt，读值用value(*ans)。重复值保留独立元素，signed64极值只比较不加减。
+
+初建O(n)、空间O(n)，始终仅n+1个节点槽；无独立插删、分裂或删除元素接口。合并递归遍历较小集合，将原节点逐个插入较大集合，不用显式栈；递归深度最坏O(n)。从n个单点集合出发，全部成功合并的总成本O(n log$^{2}$(n+1))，其余操作除value外均摊O(log(n+1))，value为O(1)，单次非合并操作最坏O(n)；合并复杂度按前述总界计。节点池与辅助函数内部使用；公开查询会伸展树，根不稳定但原编号稳定。支持独立值拷贝，重建用新对象赋值。
+
+\lstinputlisting[firstline=9,lastline=39,firstnumber=1]{../src/compact/merge_splay.hpp}
+
+\newpage
+
+\noindent 旋转、伸展与固定编号（接上页同一结构体）：
+
+\lstinputlisting[firstline=40,lastline=75,firstnumber=32]{../src/compact/merge_splay.hpp}
+
+\newpage
+
+\noindent 节点插入与小集合合并（接上页同一结构体）：
+
+\lstinputlisting[firstline=76,lastline=130,firstnumber=68]{../src/compact/merge_splay.hpp}
+
+\newpage
+
+\noindent 保持编号的改值、名次与第 k 小（接上页同一结构体）：
+
+\lstinputlisting[firstline=131,lastline=180,firstnumber=123]{../src/compact/merge_splay.hpp}
+
+\Needspace{625pt}
+
+\subsection*{应用题补充：UVA1479 / 可合并Splay与离线图查询}
+
+\label{usage-example-290}
+
+题意：D e删边、C x v改点权、Q x k查连通块第k大，非法k贡献0且计入均值；E结束组，0 0结束输入。读入C时保存旧值，最终图按未删除边合并，倒序将D还原为merge、C还原为set。kth返回元素编号，value取权值；第k大换算先转long long，避免INT\_MIN溢出。无需额外dsu和离散化；输出各组查询均值六位小数。
+
+所需模板：\hyperref[compact-MergeSplay]{MergeSplay}（第~\pageref{compact-MergeSplay}~页，\ref{compact-MergeSplay}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.org/external/14/1479.pdf}
+
+\lstinputlisting[lastline=39]{usage/example-290.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=40,firstnumber=40]{usage/example-290.cpp}
+
+\Needspace{509pt}
+
+\subsection*{应用题补充：Luogu P3224 / 永无乡}
+
+\label{usage-example-291}
+
+题意：n个岛的重要度为1..n排列，初始m条桥；B x y连桥，Q x k输出连通块中第k小重要度的岛编号，不存在输出−1。merge以元素原编号为入口，kth结果加1转换为题目编号；不能误输出重要度。n,m$\le$100000，q$\le$300000。
+
+所需模板：\hyperref[compact-MergeSplay]{MergeSplay}（第~\pageref{compact-MergeSplay}~页，\ref{compact-MergeSplay}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3224}
+
+\lstinputlisting{usage/example-291.cpp}
+
+\Needspace{470pt}
+
+\subsection*{接口用法演示：可合并有序集合与元素改值（接口演示）}
+
+\label{usage-example-292}
+
+演示约定：输入n,q及n个signed64值，初始各为单点集合，编号0-based。0 x y合并集合并输出是否改变；1 x v改值；2 x k输出第k小元素的原编号和值，非法k输出−1；3 x输出集合大小与x的1-based名次。并列按原编号升序；合并与修改之后编号仍有效。
+
+所需模板：\hyperref[compact-MergeSplay]{MergeSplay}（第~\pageref{compact-MergeSplay}~页，\ref{compact-MergeSplay}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/ds/splay/}
+
+\lstinputlisting{usage/example-292.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
 \subsection{区间翻转 Splay 与固定编号定位}\label{compact-SequenceSplay}\index{SequenceSplay}
 
 SequenceSplay(n)建立原编号0..n−1的序列，允许n=0，要求n$\le$INT\_MAX−3且内存足够。reverse(l,r)翻转当前0-based半开区间[l,r)，允许空区间；pos(id)返回原编号id的当前位置；at(k)返回当前位置k的原编号；order()按当前顺序返回全部原编号。值由调用方按原编号存储，重复值不会合并。
@@ -7443,6 +7521,80 @@ release\_bfs(open,source,neighbors) 返回各点最早到达时间，不可达�
 题目：\url{https://codeforces.com/gym/104976/attachments/download/24253/hangzhou(en).pdf}
 
 \lstinputlisting{usage/example-215.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
+\subsection{Bellman--Ford：负环影响与路径方案}\label{compact-BellmanFord}\index{BellmanFord}
+
+BellmanFord(n)，点号1..n，0<n<INT\_MAX。add(u,v,w)加有向边并返回0-based原边号，允许重边、自环和完整signed64边权，总边数$\le$INT\_MAX。run(s)返回是否不存在从s可达的负环；run(0)把全体点初值设0，等价于超级源点，用于查全图负环。每次run重置状态；add后旧结果失效，须重新run。
+
+运行后dis[v]==inf表示不可达；neg[v]为真表示从起点可达的负环能到达v，距离为负无穷（这时不可读取dis作为答案）；其他点的dis为有限int128最短距离。path(v)返回有限最短路的正向原边号；不可达、负无穷或空路径都返回空vector，须结合dis/neg判定。cycle为空表示无相关负环，否则是一个相关负环的正向原边号，可通过e[id].u/v/w还原顶点和权值。run(0)的有限距离是从任意起点出发的最小值，允许零边路径，不是某个固定单源距离。
+
+O(nm+n+m)时间、O(n+m)空间；path输出O(路径长)。inf=2\textasciicircum{}126，全过程int128累加，不能无条件转为long long。在给定n,m的int边界内，n轮最多nm次更新，标签对应游走至多nm条边，绝对值<2\textasciicircum{}125，不碰inf也不溢出。e/g/dis/pre/neg/cycle和ready只读，不手改。
+
+\lstinputlisting[firstline=9,lastline=41,firstnumber=1]{../src/compact/bellman_ford.hpp}
+
+\newpage
+
+\noindent run：逐轮松弛与负环种子（接上页同一结构体）：
+
+\lstinputlisting[firstline=42,lastline=70,firstnumber=34]{../src/compact/bellman_ford.hpp}
+
+\newpage
+
+\noindent 继续 run：恢复负环并传播；随后为 path（接上页同一结构体）：
+
+\lstinputlisting[firstline=71,lastline=112,firstnumber=63]{../src/compact/bellman_ford.hpp}
+
+\Needspace{419pt}
+
+\subsection*{模板题使用：AOJ GRL\_1\_B / 含负边的单源最短路}
+
+\label{usage-example-293}
+
+题意：0-based有向图，n$\le$1000、m$\le$2000、边权绝对值$\le$10000。从r可达负环时输出NEGATIVE CYCLE，否则逐点输出距离，不可达输出INF。转成模板1-based编号；本题有限距离在signed64内，故可显式转long long输出。不可达位置的负环不影响此题判断。
+
+所需模板：\hyperref[compact-BellmanFord]{BellmanFord}（第~\pageref{compact-BellmanFord}~页，\ref{compact-BellmanFord}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B}
+
+\lstinputlisting{usage/example-293.cpp}
+
+\Needspace{420pt}
+
+\subsection*{应用题补充：CSES1197 / 输出全图负环}
+
+\label{usage-example-294}
+
+题意：n$\le$2500、m$\le$5000，查任意位置负环并输出一条闭合顶点序列。调用run(0)而不是run(1)；cycle存正向边号，先输出第一条边的起点，再逐边输出终点。无负环NO，有负环YES。原题输出顶点，模板保留边号以区分平行边。
+
+所需模板：\hyperref[compact-BellmanFord]{BellmanFord}（第~\pageref{compact-BellmanFord}~页，\ref{compact-BellmanFord}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://cses.fi/problemset/task/1197/}
+
+\lstinputlisting{usage/example-294.cpp}
+
+\Needspace{524pt}
+
+\subsection*{接口用法演示：有限路径、不可达与负无穷（接口演示）}
+
+\label{usage-example-295}
+
+演示约定：输入n,m,s和1-based边，边权signed64；s=0代表全体点为起点。逐点输出INF、−INF，或“int128距离 边数 正向原边号列表”；末行C 边数 负环边号列表。空有限路径与不可达不同，负无穷点不用当前dis作答案。边号按输入顺序从0计。
+
+所需模板：\hyperref[compact-BellmanFord]{BellmanFord}（第~\pageref{compact-BellmanFord}~页，\ref{compact-BellmanFord}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/shortest-path/}
+
+\lstinputlisting[lastline=31]{usage/example-295.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=32,firstnumber=32]{usage/example-295.cpp}
 
 \newpage
 

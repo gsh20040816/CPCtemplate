@@ -108,3 +108,5 @@ kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md
 可持久化并查集的版本语义，以及线段树合并／分裂的独占节点与回收约定见 [历史版本与集合所有权](docs/OWNERSHIP-TREES.md)；包含 P3402、P5494 完整用法，本地验证不等于在线 AC。
 
 两串扩展KMP及KMP/Z/Manacher的10项来源核对见 [接口、索引转换与剩余缺口](docs/STRING-PREFIX-AUDIT.md)。
+
+固定编号、集合合并与改值的 [可合并 Splay](docs/MERGE-SPLAY.md)，以及三态距离、原边路径和负环方案的 [Bellman–Ford](docs/BELLMAN-FORD.md)均附完整用法与独立本地验证记录。

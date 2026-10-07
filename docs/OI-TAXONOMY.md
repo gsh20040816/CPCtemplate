@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 169，application 59，composite 2，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 171，application 59，composite 2，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -139,6 +139,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | GcdSequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | OrderedTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | SequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
+| MergeSplay | 数据结构 → 二叉搜索树 & 平衡树 → Splay 树 | direct |  |
 | OrderedSplay | 数据结构 → 二叉搜索树 & 平衡树 → Splay 树 | direct |  |
 | SequenceSplay | 数据结构 → 二叉搜索树 & 平衡树 → Splay 树 | direct |  |
 | ScapegoatTree | 数据结构 → 二叉搜索树 & 平衡树 → 替罪羊树 | direct | 重复值计数、有效节点清理与递归重建 |
@@ -170,6 +171,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | CentroidDiameter | 图论 → 树上问题 → 动态树分治 | direct | 固定有符号边权树，动态启停点；不同重心分支组合直径与端点，非动态拓扑。 |
 | CentroidNearest | 图论 → 树上问题 → 动态树分治 | direct | 固定非负权树上的活动点增删与最近点查询，返回同距最小点号；非动态拓扑。 |
 | CentroidSum | 图论 → 树上问题 → 动态树分治 | direct | 固定单位边树上的点权修改和距离范围求和；不是动态拓扑。 |
+| BellmanFord | 图论 → 最短路问题 → 最短路 | direct |  |
 | Dijkstra | 图论 → 最短路问题 → 最短路 | direct |  |
 | Johnson | 图论 → 最短路问题 → 最短路 | direct |  |
 | release_bfs | 图论 → 最短路问题 → 最短路 | application | 开放时间松弛的单位边特例。 |

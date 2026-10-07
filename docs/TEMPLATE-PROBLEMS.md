@@ -212,6 +212,10 @@
 | `SequenceSplay` | [Luogu P3391 / Splay](https://www.luogu.com.cn/problem/P3391) | 1≤n,m≤100000;初始1..n;1-based闭区间翻转。 | 待在线 AC | 待核验 |
 | `SequenceSplay` | [Luogu P3165 / 排序机械臂](https://www.luogu.com.cn/problem/P3165) | n≤100000;高度≤10^7;相同高度按初始位置稳定排序。 | 待在线 AC | 待核验 |
 | `MergeSplitTree + dsu` | [UVA1479 / Graph and Queries](https://onlinejudge.org/external/14/1479.pdf) | n≤20000;m≤60000;Q≤200000且至少1;C≤200000;权值绝对值≤10^6;k为signed32;每边至多删一次。 | 待在线 AC | 待核验 |
+| `MergeSplay` | [UVA1479 / Graph and Queries / Splay](https://onlinejudge.org/external/14/1479.pdf) | n≤20000;m≤60000;Q≤200000,C≤200000;signed32 k;invalid contributes0 to mean. | 待在线 AC | 待核验 |
+| `MergeSplay` | [Luogu P3224 / 永无乡](https://www.luogu.com.cn/problem/P3224) | n,m≤100000;q≤300000;权值为1..n排列;查询返回顶点编号。 | 待在线 AC | 待核验 |
+| `BellmanFord` | [AOJ GRL_1_B / Single Source Shortest Path (Negative Edges)](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B) | n≤1000;m≤2000;权值绝对值≤10000;无重边自环；只报告源点可达负环。 | 待在线 AC | 待核验 |
+| `BellmanFord` | [CSES1197 / Cycle Finding](https://cses.fi/problemset/task/1197/) | n≤2500;m≤5000;权值绝对值≤10^9。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2002,6 +2006,38 @@ LCA两侧按深度差切分，k从1计且包含两端与LCA，距离使用独立
 
 
 完整程序本地普通/ASan/UBSan已验证；线上AC、所有提交速度排名、评测机资源通过情况尚未核验。
+
+### UVA1479 / Graph and Queries / Splay / MergeSplay
+
+竞赛应用；实际可合并Splay实现。
+
+
+
+普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。
+
+### Luogu P3224 / 永无乡 / MergeSplay
+
+竞赛应用，不计新增正式模板覆盖。
+
+
+
+普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。
+
+### AOJ GRL_1_B / Single Source Shortest Path (Negative Edges) / BellmanFord
+
+正式负边单源最短路模板题。
+
+
+
+普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。
+
+### CSES1197 / Cycle Finding / BellmanFord
+
+判全图负环及输出方案应用。
+
+
+
+普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。
 
 ## 榜单口径
 

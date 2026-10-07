@@ -1432,5 +1432,17 @@
     "SequenceSplay",
     "区间翻转 Splay 与固定编号定位",
     "SequenceSplay(n)建立原编号0..n−1的序列，允许n=0，要求n≤INT_MAX−3且内存足够。reverse(l,r)翻转当前0-based半开区间[l,r)，允许空区间；pos(id)返回原编号id的当前位置；at(k)返回当前位置k的原编号；order()按当前顺序返回全部原编号。值由调用方按原编号存储，重复值不会合并。\n\n初建O(n)，pos/at/reverse均摊O(log(n+1))、单次最坏O(n)，order为O(n)，空间O(n)；不含插入、删除和数值聚合。所有辅助函数与a/root/n约定内部只读，pos/at会伸展并改变树形。两哨兵不暴露给用户；节点编号不随旋转变化。build/祖先下传/遍历均递归，退化时深度O(n)，调用方保证栈空间。支持独立值拷贝；重置用新建对象赋值。"
+  ],
+  [
+    "merge_splay",
+    "MergeSplay",
+    "可合并 Splay：固定编号与集合顺序统计",
+    "MergeSplay(v)为0-based元素建立独立单点集合，v为vector<long long>，允许空数组，元素数<INT_MAX且内存足够。merge(u,v)合并两个元素所在集合，已经同集合返回false，否则true；same(u,v)判同集合。set(id,val)改该元素的值而不改编号或集合；value(id)读值，size(id)查集合大小。rank(id)是集合内按(值,原编号)排序的1-based名次；kth(id,k)返回所在集合第k小的原编号optional<int>，k为long long，非法时nullopt，读值用value(*ans)。重复值保留独立元素，signed64极值只比较不加减。\n\n初建O(n)、空间O(n)，始终仅n+1个节点槽；无独立插删、分裂或删除元素接口。合并递归遍历较小集合，将原节点逐个插入较大集合，不用显式栈；递归深度最坏O(n)。从n个单点集合出发，全部成功合并的总成本O(n log²(n+1))，其余操作除value外均摊O(log(n+1))，value为O(1)，单次非合并操作最坏O(n)；合并复杂度按前述总界计。节点池与辅助函数内部使用；公开查询会伸展树，根不稳定但原编号稳定。支持独立值拷贝，重建用新对象赋值。"
+  ],
+  [
+    "bellman_ford",
+    "BellmanFord",
+    "Bellman–Ford：负环影响与路径方案",
+    "BellmanFord(n)，点号1..n，0<n<INT_MAX。add(u,v,w)加有向边并返回0-based原边号，允许重边、自环和完整signed64边权，总边数≤INT_MAX。run(s)返回是否不存在从s可达的负环；run(0)把全体点初值设0，等价于超级源点，用于查全图负环。每次run重置状态；add后旧结果失效，须重新run。\n\n运行后dis[v]==inf表示不可达；neg[v]为真表示从起点可达的负环能到达v，距离为负无穷（这时不可读取dis作为答案）；其他点的dis为有限int128最短距离。path(v)返回有限最短路的正向原边号；不可达、负无穷或空路径都返回空vector，须结合dis/neg判定。cycle为空表示无相关负环，否则是一个相关负环的正向原边号，可通过e[id].u/v/w还原顶点和权值。run(0)的有限距离是从任意起点出发的最小值，允许零边路径，不是某个固定单源距离。\n\nO(nm+n+m)时间、O(n+m)空间；path输出O(路径长)。inf=2^126，全过程int128累加，不能无条件转为long long。在给定n,m的int边界内，n轮最多nm次更新，标签对应游走至多nm条边，绝对值<2^125，不碰inf也不溢出。e/g/dis/pre/neg/cycle和ready只读，不手改。"
   ]
 ]

@@ -246,3 +246,5 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | StaticRMQ2D | [example-279（接口演示）](usage/example-279.cpp), [example-280（接口演示）](usage/example-280.cpp) | locally_checked_api |
 | CentroidDiameter | [example-284（应用补充）](usage/example-284.cpp), [example-285（接口演示）](usage/example-285.cpp) | locally_checked_application |
 | SequenceSplay | [example-286](usage/example-286.cpp), [example-287（应用补充）](usage/example-287.cpp), [example-288（接口演示）](usage/example-288.cpp) | locally_checked_example |
+| MergeSplay | [example-290（应用补充）](usage/example-290.cpp), [example-291（应用补充）](usage/example-291.cpp), [example-292（接口演示）](usage/example-292.cpp) | locally_checked_application |
+| BellmanFord | [example-293](usage/example-293.cpp), [example-294（应用补充）](usage/example-294.cpp), [example-295（接口演示）](usage/example-295.cpp) | locally_checked_example |

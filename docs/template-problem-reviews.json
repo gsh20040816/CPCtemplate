@@ -5400,5 +5400,93 @@
       "verification/graph-queries-normal.json",
       "verification/graph-queries-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "MergeSplay",
+    "problem": "UVA1479 / Graph and Queries / Splay",
+    "url": "https://onlinejudge.org/external/14/1479.pdf",
+    "classification": "竞赛应用；实际可合并Splay实现。",
+    "statement_checked": true,
+    "limits": "n≤20000;m≤60000;Q≤200000,C≤200000;signed32 k;invalid contributes0 to mean.",
+    "driver": "verify/uva/1479.splay.compact.cpp",
+    "usage": "example-290",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/merge-splay-normal.json",
+      "verification/merge-splay-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "MergeSplay",
+    "problem": "Luogu P3224 / 永无乡",
+    "url": "https://www.luogu.com.cn/problem/P3224",
+    "classification": "竞赛应用，不计新增正式模板覆盖。",
+    "statement_checked": true,
+    "limits": "n,m≤100000;q≤300000;权值为1..n排列;查询返回顶点编号。",
+    "driver": "verify/luogu/P3224.compact.cpp",
+    "usage": "example-291",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/merge-splay-normal.json",
+      "verification/merge-splay-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "BellmanFord",
+    "problem": "AOJ GRL_1_B / Single Source Shortest Path (Negative Edges)",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B",
+    "classification": "正式负边单源最短路模板题。",
+    "statement_checked": true,
+    "limits": "n≤1000;m≤2000;权值绝对值≤10000;无重边自环；只报告源点可达负环。",
+    "driver": "verify/aoj/GRL_1_B.compact.cpp",
+    "usage": "example-293",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/bellman-ford-normal.json",
+      "verification/bellman-ford-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "BellmanFord",
+    "problem": "CSES1197 / Cycle Finding",
+    "url": "https://cses.fi/problemset/task/1197/",
+    "classification": "判全图负环及输出方案应用。",
+    "statement_checked": true,
+    "limits": "n≤2500;m≤5000;权值绝对值≤10^9。",
+    "driver": "verify/cses/1197.compact.cpp",
+    "usage": "example-294",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/bellman-ford-normal.json",
+      "verification/bellman-ford-sanitizer.json"
+    ]
   }
 ]
