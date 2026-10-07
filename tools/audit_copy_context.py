@@ -113,13 +113,14 @@ def compare_cache(entries, dependencies):
 
 
 def candidate(row, names, components, headers=()):
-    program = ''.join('#include <' + h + '>\n' for h in headers)
+    program = ''.join('#include <' + h + '>\n' for h in [*headers, *row.get('extra_headers', [])])
     # cassert follows ext/rope, matching the documented assertion workaround.
     program += PRELUDE + '\n\n'.join(components[n]['code'] for n in names)
     program += '\n\n' + row['snippet']
     return dict(id=row['id'], symbol=row['symbol'], driver=row['driver'],
                 original_requires=row['requires'], copied_components=names,
                 added_documented_gnu_headers=list(headers),
+                extra_headers=row.get('extra_headers', []),
                 snippet_sha256=digest(row['snippet'].encode()),
                 program_sha256=digest(program.encode()), program=program)
 

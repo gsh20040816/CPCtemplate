@@ -57,6 +57,9 @@ def records():
         prefix, snippet = text[:start], text[start:]
         assert all(not line.strip() or line.startswith('#include') or line.startswith('using namespace') or line.lstrip().startswith('//')
                    for line in prefix.splitlines()), 'Usage depends on non-include prefix: ' + row['id']
+        for header in row.get('extra_headers', []):
+            assert re.fullmatch(r'[A-Za-z0-9_./-]+', header) and '..' not in header
+            assert '#include <' + header + '>' in prefix.splitlines(), row['id']
         assert '#include' not in snippet
         # Explicitly registered local input records may contain fields, not methods.
         helpers = list(re.finditer(r'\bstruct\s+(\w+)\s*\{([^{}]*)\}\s*;', snippet))

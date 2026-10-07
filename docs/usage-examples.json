@@ -4138,5 +4138,55 @@
       "DynamicPathMax"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-329",
+    "symbol": "determinant_exact",
+    "kind": "api",
+    "problem": "精确整数行列式",
+    "url": "https://www.boost.org/doc/libs/release/libs/multiprecision/doc/html/boost_multiprecision/tut/ints/cpp_int.html",
+    "summary": "T组；每组n及n²个有符号十进制整数，输出精确行列式。n=0输出1。cpp_int为Boost任意精度有符号整数，输入与中间结果受可用内存和时间限制；此处为API用法，无线上AC声明。",
+    "driver": "verify/api/determinant_exact.compact.cpp",
+    "requires": [
+      "determinant_exact"
+    ],
+    "extra_headers": [
+      "boost/multiprecision/cpp_int.hpp"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-330",
+    "symbol": "MatrixTreeExact",
+    "kind": "api",
+    "problem": "带权矩阵树的精确整数答案",
+    "url": "https://oi-wiki.org/graph/matrix-tree/",
+    "summary": "T组；每组n,m,root,type及m条0-based边u,v,w。type=0无向、1朝根、2离根。权值为有符号十进制整数；输出各树权积之和。重边独立、自环忽略、单点为1；负权可抵消成0。仅API用法。",
+    "driver": "verify/api/matrix_tree_exact.compact.cpp",
+    "requires": [
+      "determinant_exact",
+      "MatrixTreeExact"
+    ],
+    "extra_headers": [
+      "boost/multiprecision/cpp_int.hpp"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-331",
+    "symbol": "MatrixTreeExact",
+    "kind": "api",
+    "problem": "不取模生成树计数（kuangbin来源模型）",
+    "url": "https://www.spoj.com/problems/HIGH/",
+    "summary": "T组；每组n,m及m条1-based无向边。按原稿布尔邻接语义去掉自环、合并重复和反向边，再输出精确树数。核心接口本身不合并重边。原稿标注SPOJ104，但完整官方题面及资源约束未核验，故仅登记来源模型/API，不声称正式题目或线上AC。",
+    "driver": "verify/api/kuangbin_tree_count.compact.cpp",
+    "requires": [
+      "determinant_exact",
+      "MatrixTreeExact"
+    ],
+    "extra_headers": [
+      "boost/multiprecision/cpp_int.hpp"
+    ],
+    "start_new_page": true
   }
 ]

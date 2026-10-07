@@ -8,6 +8,7 @@ volumes=json.loads((root/'docs/volumes.json').read_text())
 owner={s:v for v in volumes for s in v['entries']}
 links=[('PBDS 配对堆：修改、合并与句柄','pheap'),('PBDS 有序树：排名与第 k 小','ost'),('GNU rope：序列与版本共享','rp'),('gp/cc 哈希表：整数键映射','gp_map'),('优先队列的最短路应用','Dijkstra'),('vector 与下标：树状数组','Fenwick'),('扩容与下标：可持久化数组','PersistentArray'),('比较次序：后缀数组','SuffixArray'),('数值精度约定：浮点几何','RealPlane'),('移动大数组：NTT 卷积','NttConvolution')]
 links += [('complex 的平方模与共轭：FFT', 'ComplexFFT'), ('位宽与压位计数：小波矩阵', 'WaveletMatrix'), ('tie 与值比较：次小生成树', 'SecondMST')]
+links += [('精确整数行列式：Boost cpp_int', 'determinant_exact'), ('不取模的带权生成树计数', 'MatrixTreeExact')]
 intro=[r'\input{preamble.tex}']
 for v in volumes:
  intro.append(r'\externaldocument[ext-'+v['id']+'-]{../build/pdf/volume-'+v['id']+'}[xcpc-'+v['id']+'.pdf]')

@@ -3278,5 +3278,35 @@
     "cases_per_mode": 202,
     "driver": "verify/api/dynamic_path_max.compact.cpp",
     "scope": "Full source-model EOF protocol,200 random forests and2 directed boundary datasets; no official/online verification."
+  },
+  "example-329": {
+    "program_sha256": "f912e38afbd53943c0170654d69a908fd3baad4fbb567689599e5fa8272c690b",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 19894,
+    "driver": "verify/api/determinant_exact.compact.cpp",
+    "scope": "Permutation/subset oracle; header/NDEBUG/actual expanded/minimal copied forms. API/source model only; no online AC."
+  },
+  "example-330": {
+    "program_sha256": "efd7ab82f3bf4884632754ce773899396f3ae9152458bf1529e38c70dc197bd7",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 7994,
+    "driver": "verify/api/matrix_tree_exact.compact.cpp",
+    "scope": "Permutation/subset oracle; header/NDEBUG/actual expanded/minimal copied forms. API/source model only; no online AC."
+  },
+  "example-331": {
+    "program_sha256": "3782a6e2c695678ea3e9e5815eec57f8fe56f94b51463c9b00842419ae23c1bc",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 2198,
+    "driver": "verify/api/kuangbin_tree_count.compact.cpp",
+    "scope": "Permutation/subset oracle; header/NDEBUG/actual expanded/minimal copied forms. API/source model only; no online AC."
   }
 }

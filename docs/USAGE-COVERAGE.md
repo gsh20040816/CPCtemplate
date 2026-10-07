@@ -263,3 +263,5 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Isap | [example-321](usage/example-321.cpp) | locally_checked_example |
 | ZkwFlow | [example-322](usage/example-322.cpp) | locally_checked_example |
 | TreeMarket | [example-323（接口演示）](usage/example-323.cpp) | locally_checked_api |
+| determinant_exact | [example-329（接口演示）](usage/example-329.cpp) | locally_checked_api |
+| MatrixTreeExact | [example-330（接口演示）](usage/example-330.cpp), [example-331（接口演示）](usage/example-331.cpp) | locally_checked_api |

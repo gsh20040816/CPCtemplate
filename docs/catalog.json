@@ -1534,5 +1534,17 @@
     "TreeMarket",
     "树上新增市场的支配范围",
     "固定非负边权树，n≥1，点号0..n-1；add(u,v,w)，w为非负long long。solve(existing)返回各点新建市场后支配的顶点数，existing长度n、0/1表示原有市场；原有市场点返回0，不允许重复建。归属按(距离,市场点号)字典序，距离相同时编号小者胜；零边合法。无原有市场时各点答案n；全是市场时全0。可在同一树上换existing重复solve，每次重算。int128保存距离和比较阈值；最近市场多源Dijkstra，递归点分治总集合加、同分支减。O(n log² n)时间、O(n)辅助空间，递归深度最坏O(n)。返回完整方案计数，取max即最佳新增市场；内部字段和辅助方法不外改。不支持拓扑动态更新。"
+  ],
+  [
+    "determinant_exact",
+    "determinant_exact",
+    "精确整数行列式（Bareiss）",
+    "determinant_exact(a)按值接收n阶方阵，0≤n<INT_MAX，返回带符号行列式，空矩阵为1，不修改调用者矩阵。Z必须支持精确有符号整数四则运算，推荐Boost cpp_int；不是模整数或浮点类型。固定宽度仅在所有中间乘积、差和商均不溢出时可用。每轮选择非零主元并换行，分子必须先完整计算，再除以上一主元；由Sylvester恒等式保证整除。当前列无主元则返回0。O(n³)次大整数算术操作、O(n²)个整数对象；实际时间和位存储取决于中间数位数，不能视为机器字常数成本。"
+  ],
+  [
+    "matrix_tree_exact",
+    "MatrixTreeExact",
+    "精确整数带权生成树计数",
+    "MatrixTreeExact<Z>::count(n,edges,root,kind)，1≤n<INT_MAX、点号0..n-1；Edge为tuple<int,int,Z>。kind为undirected、toward_root或away_from_root，分别计无向生成树、朝根汇聚树、从根发散树。返回各树边权乘积之和；负权和零权合法，答案0可能是抵消。重边按独立选择计数，自环忽略；单点返回空树权1。无向结果与根无关，有向根必须指定。构造出度拉普拉斯，发散模式先反边，删根行列后调用determinant_exact。O(m+n³)次整数算术、O(n²)个整数工作对象，不含调用者边表；大整数位成本另计。Z要求同精确行列式。"
   ]
 ]

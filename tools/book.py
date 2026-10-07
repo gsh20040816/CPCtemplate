@@ -51,6 +51,8 @@ chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
 chapters['potential_dsu'] = '带势并查集与差值约束'
 chapters['gauss_real'] = '实数高斯消元'
+chapters['determinant_exact'] = '精确整数行列式'
+chapters['matrix_tree_exact'] = '精确整数生成树计数'
 chapters['adaptive_simpson'] = '自适应Simpson积分'
 body = []
 records = []
@@ -1091,9 +1093,13 @@ for style in ['compact']:
                 body.append(('演示约定：' if kind == 'api' else '题意：') + esc(usage['summary']))
                 from template_dependencies import references
                 body.append('所需模板：' + references(usage['requires']) + '。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。')
+                for header in usage.get('extra_headers', []):
+                    body.append('额外依赖（不属于标准头文件）：\\nolinkurl{' + header + '}，须由编译环境提供并显式包含。')
                 link = '\\url{' + usage['url'] + '}'
                 if usage.get('url_label'):
                     link = '\\href{' + usage['url'] + '}{' + esc(usage['url_label']) + '}'
+                if usage.get('extra_headers') and not usage.get('url_label'):
+                    link = '\\href{' + usage['url'] + '}{参考文档}'
                 body.append(('来源：' if kind == 'api' else '题目：') + link)
                 if usage.get('listing_new_page'):
                     body.append('\\newpage')

@@ -180,3 +180,13 @@ mt19937 与 mt19937\_64 用固定种子，并保持调用顺序、输入和库�
 \section{GNU 扩展与查询范围}
 \index{PBDS}\index{rope}
 PBDS 有序树、gp/cc 哈希表、配对堆以及 \texttt{\_\_gnu\_cxx::rope} 在所属知识点详细介绍，本册提供集中页码跳转。rope 不叫 std::rope；复制版本的内存成本和已知失败用法不因它是库容器而消失。
+
+
+\section{Boost 任意精度整数}
+\index{Boost}\index{cpp-int}
+\texttt{boost::multiprecision::cpp\_int} 是有符号任意精度整数，须显式包含
+\nolinkurl{boost/multiprecision/cpp_int.hpp}；它不属于 ISO C++ 标准库或 GNU 标准头文件，赛场必须提供 Boost。
+可使用十进制流输入输出，整数除法仍是截断除法，不会自动变成有理数，除数不能为零。
+Bareiss 消元依靠数学上的整除性质保存精确整数，矩阵树用它计算不取模答案；目录末有对应分册跳转。
+数值越大，运算和存储越贵，不应把任意精度操作视为机器字常数时间。
+Boost 使用表达式模板，需跨语句保存计算结果时写明确的 \texttt{cpp\_int} 类型，避免用 \texttt{auto} 保存依赖随后修改变量或临时量的表达式。

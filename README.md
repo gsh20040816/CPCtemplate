@@ -162,3 +162,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 [动态森林路径加与最大值](docs/DYNAMIC-PATH-MAX.md)提供独立DynamicPathMax与来源协议用法328，区分直接边删除和换根后的父边删除；完整原稿与新实现均有本地BFS对照证据。
 
 [浮点高斯消元来源审计](docs/GAUSS-REAL-SOURCE-AUDIT.md)记录原稿“有解/无解”注释在奇异、矩形和缩放系统上的反例，并与现有GaussReal的数值合同区分。
+
+[精确整数行列式与生成树计数](docs/EXACT-INTEGER.md)：Bareiss整除消元、三方向带权矩阵树，以及保留布尔邻接语义的kuangbin来源用法；大整数依赖与来源精度边界明确登记。

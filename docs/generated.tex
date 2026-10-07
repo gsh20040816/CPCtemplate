@@ -4250,6 +4250,32 @@ determinant\_mod(a,mod) 返回 det(a) 的最小非负余数。a 为 long long �
 
 \lstinputlisting{usage/example-77.cpp}
 
+\Needspace{483pt}
+
+\subsection{精确整数行列式（Bareiss）}\label{compact-determinant_exact}\index{determinant\_exact}
+
+determinant\_exact(a)按值接收n阶方阵，0$\le$n<INT\_MAX，返回带符号行列式，空矩阵为1，不修改调用者矩阵。Z必须支持精确有符号整数四则运算，推荐Boost cpp\_int；不是模整数或浮点类型。固定宽度仅在所有中间乘积、差和商均不溢出时可用。每轮选择非零主元并换行，分子必须先完整计算，再除以上一主元；由Sylvester恒等式保证整除。当前列无主元则返回0。O(n$^{3}$)次大整数算术操作、O(n$^{2}$)个整数对象；实际时间和位存储取决于中间数位数，不能视为机器字常数成本。
+
+\lstinputlisting[firstline=8,lastline=43]{../src/compact/determinant_exact.hpp}
+
+\newpage
+
+\Needspace{380pt}
+
+\subsection*{接口用法演示：精确整数行列式}
+
+\label{usage-example-329}
+
+演示约定：T组；每组n及n$^{2}$个有符号十进制整数，输出精确行列式。n=0输出1。cpp\_int为Boost任意精度有符号整数，输入与中间结果受可用内存和时间限制；此处为API用法，无线上AC声明。
+
+所需模板：\hyperref[compact-determinant_exact]{determinant\_\allowbreak{}exact}（第~\pageref{compact-determinant_exact}~页，\ref{compact-determinant_exact}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+额外依赖（不属于标准头文件）：\nolinkurl{boost/multiprecision/cpp_int.hpp}，须由编译环境提供并显式包含。
+
+来源：\href{https://www.boost.org/doc/libs/release/libs/multiprecision/doc/html/boost_multiprecision/tut/ints/cpp_int.html}{参考文档}
+
+\lstinputlisting{usage/example-329.cpp}
+
 \newpage
 
 \section{线性基}
@@ -9902,6 +9928,52 @@ count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小
 题目：\url{https://judge.yosupo.jp/problem/counting_spanning_tree_directed}
 
 \lstinputlisting{usage/example-188.cpp}
+
+\Needspace{526pt}
+
+\section{精确整数带权生成树计数}\label{compact-MatrixTreeExact}\index{MatrixTreeExact}
+
+代码依赖：\hyperref[compact-determinant_exact]{determinant\_\allowbreak{}exact}（第~\pageref{compact-determinant_exact}~页，\ref{compact-determinant_exact}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+MatrixTreeExact<Z>::count(n,edges,root,kind)，1$\le$n<INT\_MAX、点号0..n-1；Edge为tuple<int,int,Z>。kind为undirected、toward\_root或away\_from\_root，分别计无向生成树、朝根汇聚树、从根发散树。返回各树边权乘积之和；负权和零权合法，答案0可能是抵消。重边按独立选择计数，自环忽略；单点返回空树权1。无向结果与根无关，有向根必须指定。构造出度拉普拉斯，发散模式先反边，删根行列后调用determinant\_exact。O(m+n$^{3}$)次整数算术、O(n$^{2}$)个整数工作对象，不含调用者边表；大整数位成本另计。Z要求同精确行列式。
+
+\lstinputlisting[firstline=6,lastline=44]{../src/compact/matrix_tree_exact.hpp}
+
+\newpage
+
+\Needspace{438pt}
+
+\subsection*{接口用法演示：带权矩阵树的精确整数答案}
+
+\label{usage-example-330}
+
+演示约定：T组；每组n,m,root,type及m条0-based边u,v,w。type=0无向、1朝根、2离根。权值为有符号十进制整数；输出各树权积之和。重边独立、自环忽略、单点为1；负权可抵消成0。仅API用法。
+
+所需模板：\hyperref[compact-determinant_exact]{determinant\_\allowbreak{}exact}（第~\pageref{compact-determinant_exact}~页，\ref{compact-determinant_exact}~节）、\hyperref[compact-MatrixTreeExact]{MatrixTreeExact}（第~\pageref{compact-MatrixTreeExact}~页，\ref{compact-MatrixTreeExact}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+额外依赖（不属于标准头文件）：\nolinkurl{boost/multiprecision/cpp_int.hpp}，须由编译环境提供并显式包含。
+
+来源：\href{https://oi-wiki.org/graph/matrix-tree/}{参考文档}
+
+\lstinputlisting{usage/example-330.cpp}
+
+\newpage
+
+\Needspace{510pt}
+
+\subsection*{接口用法演示：不取模生成树计数（kuangbin来源模型）}
+
+\label{usage-example-331}
+
+演示约定：T组；每组n,m及m条1-based无向边。按原稿布尔邻接语义去掉自环、合并重复和反向边，再输出精确树数。核心接口本身不合并重边。原稿标注SPOJ104，但完整官方题面及资源约束未核验，故仅登记来源模型/API，不声称正式题目或线上AC。
+
+所需模板：\hyperref[compact-determinant_exact]{determinant\_\allowbreak{}exact}（第~\pageref{compact-determinant_exact}~页，\ref{compact-determinant_exact}~节）、\hyperref[compact-MatrixTreeExact]{MatrixTreeExact}（第~\pageref{compact-MatrixTreeExact}~页，\ref{compact-MatrixTreeExact}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+额外依赖（不属于标准头文件）：\nolinkurl{boost/multiprecision/cpp_int.hpp}，须由编译环境提供并显式包含。
+
+来源：\href{https://www.spoj.com/problems/HIGH/}{参考文档}
+
+\lstinputlisting{usage/example-331.cpp}
 
 \newpage
 

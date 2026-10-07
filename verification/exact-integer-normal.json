@@ -1,0 +1,406 @@
+{
+  "mode": "normal",
+  "seed": 20261008,
+  "snapshot": {
+    "src/compact/determinant_exact.hpp": "2f1876cdf77c2518abeba9bb2d39b115902ae893e5a2de4ec70f5414ff598a78",
+    "src/compact/matrix_tree_exact.hpp": "cc8703cbcd6a0e035a5c5f0da71020dbea58af012d7e5e98499e366e88c49ea4",
+    "tests/exact_integer.py": "68edb8c9aa3f37eef58bab5b7c8693252dd03655cd321b84410363fd63ce1054",
+    "verify/api/determinant_exact.compact.cpp": "0d4e926403e8290277684c3c5b32cf7b982f291b068305cb15ec479184814cf4",
+    "verify/api/matrix_tree_exact.compact.cpp": "e769ba36ab11ea9310a7e6265cc5565511b3152361ceabc4b32dbecd5cca0c72",
+    "verify/api/kuangbin_tree_count.compact.cpp": "3945aade523ef3acc8a8407f849aaedb4720b0a830c181ca2ee67d35b2d4ec44",
+    "tools/usage_examples.py": "2cd2c5f91b3a40d940dcc178c747f563d8744db15889b69feb16af92e90a26f6",
+    "tools/audit_copy_context.py": "a732de58424150b7297de0eeac22e427a4e3db332da3ed996bd5ba2c2cba7882",
+    "docs/usage-examples.json": "217728c0e4f8a46224e36222ce7ecb81b877b2abc8dce86596fc58a4ad608d37",
+    "tests/fixtures/exact_integer_sources/modular.inc": "9183129648d7f9200fd7db071db4f65a455a793760d761905f1f6b5fad4e5909",
+    "tests/fixtures/exact_integer_sources/floating.inc": "7fc80448204cd33664a840e0c9d0d0b30b3da5d152aedfa676e149013dbded54"
+  },
+  "results": [
+    {
+      "name": "determinant_exact",
+      "form": "header",
+      "cases": 19894,
+      "input_sha256": "4001ed95219d9fd30c0da94c5e9e5d24c1d06c06318bef1dee550e73b66aa9c0",
+      "output_sha256": "b0a460ee0f6bae9948059ac6c40c12a792be1bca5226e27a83912d0fb4b93ac8",
+      "source_sha256": "0d4e926403e8290277684c3c5b32cf7b982f291b068305cb15ec479184814cf4",
+      "binary_sha256": "19286c2ba5711346a50e33200d89c4967315d4c14f1085dfc5eabd710bcf128b",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/verify/api/determinant_exact.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/determinant_exact-header"
+      ],
+      "seconds": 0.436
+    },
+    {
+      "name": "determinant_exact",
+      "form": "ndebug",
+      "cases": 19894,
+      "input_sha256": "4001ed95219d9fd30c0da94c5e9e5d24c1d06c06318bef1dee550e73b66aa9c0",
+      "output_sha256": "b0a460ee0f6bae9948059ac6c40c12a792be1bca5226e27a83912d0fb4b93ac8",
+      "source_sha256": "0d4e926403e8290277684c3c5b32cf7b982f291b068305cb15ec479184814cf4",
+      "binary_sha256": "c65e066a5a0a193fc0661af35c82bcb1485c8f969c2ead986883785e93785a09",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "-DNDEBUG",
+        "/Users/gsh/Workspace/CPCtemplate/verify/api/determinant_exact.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/determinant_exact-ndebug"
+      ],
+      "seconds": 0.18
+    },
+    {
+      "name": "determinant_exact",
+      "form": "expanded",
+      "cases": 19894,
+      "input_sha256": "4001ed95219d9fd30c0da94c5e9e5d24c1d06c06318bef1dee550e73b66aa9c0",
+      "output_sha256": "b0a460ee0f6bae9948059ac6c40c12a792be1bca5226e27a83912d0fb4b93ac8",
+      "source_sha256": "f912e38afbd53943c0170654d69a908fd3baad4fbb567689599e5fa8272c690b",
+      "binary_sha256": "5663c8c10d1e98c7bede0b4d43fb16a4d6a4fa2a77798fc513dbdcf50314c5a2",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/determinant_exact-expanded.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/determinant_exact-expanded"
+      ],
+      "seconds": 0.265
+    },
+    {
+      "name": "determinant_exact",
+      "form": "copied",
+      "cases": 19894,
+      "input_sha256": "4001ed95219d9fd30c0da94c5e9e5d24c1d06c06318bef1dee550e73b66aa9c0",
+      "output_sha256": "b0a460ee0f6bae9948059ac6c40c12a792be1bca5226e27a83912d0fb4b93ac8",
+      "source_sha256": "f5332a3e3ff0c50d8226b05b342a4d7ce653f9156c72c4f6dc3171d7c72b4af5",
+      "binary_sha256": "b43a67b6f2a25b7a8265c6e41ceb1e403b6420a2747e70688672a2c3e8fe3f12",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/determinant_exact-copied.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/determinant_exact-copied"
+      ],
+      "seconds": 0.246
+    },
+    {
+      "name": "matrix_tree_exact",
+      "form": "header",
+      "cases": 7994,
+      "input_sha256": "292708534870d00290dff6b2827ebf2d45c063cfbe6129d33fb9ce6bc9807dd7",
+      "output_sha256": "6b36048c143031e25608caa9138efb794ac5e53f34af6457d4f8fdfbb06c9eb6",
+      "source_sha256": "e769ba36ab11ea9310a7e6265cc5565511b3152361ceabc4b32dbecd5cca0c72",
+      "binary_sha256": "582bee756a64b7e610bac3ff9753a8a4cb270687a5d0eb608968b5cfa82370ac",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/verify/api/matrix_tree_exact.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/matrix_tree_exact-header"
+      ],
+      "seconds": 0.399
+    },
+    {
+      "name": "matrix_tree_exact",
+      "form": "ndebug",
+      "cases": 7994,
+      "input_sha256": "292708534870d00290dff6b2827ebf2d45c063cfbe6129d33fb9ce6bc9807dd7",
+      "output_sha256": "6b36048c143031e25608caa9138efb794ac5e53f34af6457d4f8fdfbb06c9eb6",
+      "source_sha256": "e769ba36ab11ea9310a7e6265cc5565511b3152361ceabc4b32dbecd5cca0c72",
+      "binary_sha256": "d114484d248fa0b9e2ccf9b7412a0f65d390cd542259d29e2e13856f628e773e",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "-DNDEBUG",
+        "/Users/gsh/Workspace/CPCtemplate/verify/api/matrix_tree_exact.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/matrix_tree_exact-ndebug"
+      ],
+      "seconds": 0.213
+    },
+    {
+      "name": "matrix_tree_exact",
+      "form": "expanded",
+      "cases": 7994,
+      "input_sha256": "292708534870d00290dff6b2827ebf2d45c063cfbe6129d33fb9ce6bc9807dd7",
+      "output_sha256": "6b36048c143031e25608caa9138efb794ac5e53f34af6457d4f8fdfbb06c9eb6",
+      "source_sha256": "efd7ab82f3bf4884632754ce773899396f3ae9152458bf1529e38c70dc197bd7",
+      "binary_sha256": "27549fe7825235e738e64eedf3ec3f2ff4d02be82937168a612432eaeebd5389",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/matrix_tree_exact-expanded.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/matrix_tree_exact-expanded"
+      ],
+      "seconds": 0.279
+    },
+    {
+      "name": "matrix_tree_exact",
+      "form": "copied",
+      "cases": 7994,
+      "input_sha256": "292708534870d00290dff6b2827ebf2d45c063cfbe6129d33fb9ce6bc9807dd7",
+      "output_sha256": "6b36048c143031e25608caa9138efb794ac5e53f34af6457d4f8fdfbb06c9eb6",
+      "source_sha256": "415a5e24017d4229423561e95c2f0c2ed10ebd22c6b4c47013781497ee86d7c5",
+      "binary_sha256": "67402248818071ee17e790099da6d1be4bc5ec716b296ffad5f9a91092c15b6e",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/matrix_tree_exact-copied.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/matrix_tree_exact-copied"
+      ],
+      "seconds": 0.272
+    },
+    {
+      "name": "kuangbin_tree_count",
+      "form": "header",
+      "cases": 2198,
+      "input_sha256": "95c69634d678741089533e0478594e9b34797feb2951640e4c4e678ac3f4b947",
+      "output_sha256": "1d419a173f714cd80a7f7ec4bd957485e39ce12a12935ace58611188c1110887",
+      "source_sha256": "3945aade523ef3acc8a8407f849aaedb4720b0a830c181ca2ee67d35b2d4ec44",
+      "binary_sha256": "0790f76301dec62e395fa57b0437c6981202ea695b7676643a4861513a3eedae",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/verify/api/kuangbin_tree_count.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/kuangbin_tree_count-header"
+      ],
+      "seconds": 0.235
+    },
+    {
+      "name": "kuangbin_tree_count",
+      "form": "ndebug",
+      "cases": 2198,
+      "input_sha256": "95c69634d678741089533e0478594e9b34797feb2951640e4c4e678ac3f4b947",
+      "output_sha256": "1d419a173f714cd80a7f7ec4bd957485e39ce12a12935ace58611188c1110887",
+      "source_sha256": "3945aade523ef3acc8a8407f849aaedb4720b0a830c181ca2ee67d35b2d4ec44",
+      "binary_sha256": "2f856f177cb0d95b92e0ef56ef89521d35fc5b4e0352da6d094b9f126fbfcddf",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "-DNDEBUG",
+        "/Users/gsh/Workspace/CPCtemplate/verify/api/kuangbin_tree_count.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/kuangbin_tree_count-ndebug"
+      ],
+      "seconds": 0.172
+    },
+    {
+      "name": "kuangbin_tree_count",
+      "form": "expanded",
+      "cases": 2198,
+      "input_sha256": "95c69634d678741089533e0478594e9b34797feb2951640e4c4e678ac3f4b947",
+      "output_sha256": "1d419a173f714cd80a7f7ec4bd957485e39ce12a12935ace58611188c1110887",
+      "source_sha256": "3782a6e2c695678ea3e9e5815eec57f8fe56f94b51463c9b00842419ae23c1bc",
+      "binary_sha256": "87d6cad535d5b1ecf7dd6b9889abdbc6e28681f3c743f2f8b36a4623ad9ce90e",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/kuangbin_tree_count-expanded.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/kuangbin_tree_count-expanded"
+      ],
+      "seconds": 0.233
+    },
+    {
+      "name": "kuangbin_tree_count",
+      "form": "copied",
+      "cases": 2198,
+      "input_sha256": "95c69634d678741089533e0478594e9b34797feb2951640e4c4e678ac3f4b947",
+      "output_sha256": "1d419a173f714cd80a7f7ec4bd957485e39ce12a12935ace58611188c1110887",
+      "source_sha256": "d7155625226185074f056909ca88480e09da95253fcd8a2c91f4af778ba0ad9c",
+      "binary_sha256": "e3a083a668caed50ef19812a13c96b64b1f123512d8bbaa5825133c177d85a39",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/kuangbin_tree_count-copied.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/kuangbin_tree_count-copied"
+      ],
+      "seconds": 0.233
+    }
+  ],
+  "source_results": [
+    {
+      "name": "source-floating",
+      "source_sha256": "efc0c72a43c2dcf1ab3a3206bc51f2108cafa564bbd1c29588a0fbba4af3b28b",
+      "input_sha256": "95c69634d678741089533e0478594e9b34797feb2951640e4c4e678ac3f4b947",
+      "binary_sha256": "d6dfe15c481d34650836296701a57eb585227898d00315046d959844d68a7a6a",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/source-floating.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/source-floating"
+      ],
+      "output_sha256": "1d419a173f714cd80a7f7ec4bd957485e39ce12a12935ace58611188c1110887",
+      "output_lines": 2198
+    },
+    {
+      "name": "source-floating-k25",
+      "source_sha256": "efc0c72a43c2dcf1ab3a3206bc51f2108cafa564bbd1c29588a0fbba4af3b28b",
+      "input_sha256": "e505f3e4c0f31a16da8b89a589f9be2566c1a0541921091d39f39c43b708d952",
+      "output": "142108547152018054615498460495872\n",
+      "binary_sha256": "2873c9e8e150f43566db16921a3ff0d44818165931de816953d466145c88ecaa",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/source-floating-k25.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/source-floating-k25"
+      ],
+      "exact_expected": "142108547152020037174224853515625",
+      "output_sha256": "5c0d8573456cbe4de41e7912a5b6b0b1d4ff00f0b19147e4e0e23537a2e99aff"
+    },
+    {
+      "name": "source-modular",
+      "source_sha256": "86010f2fc5c909a4da9023decac299def4eb983bf7c0fab760aff9f8f5e86df4",
+      "input_sha256": "95c69634d678741089533e0478594e9b34797feb2951640e4c4e678ac3f4b947",
+      "binary_sha256": "65d30b38788c2e1caa5ed5b8714ff1da719128a4aeaf61fdf2c4b9698646e2a9",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/source-modular.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/source-modular"
+      ],
+      "output_sha256": "0358f085f4c240e4cd0f2bf2a12bce5df6233762989b6679867300c9581396c8",
+      "output_lines": 2198
+    },
+    {
+      "name": "source-modular-theta",
+      "source_sha256": "86010f2fc5c909a4da9023decac299def4eb983bf7c0fab760aff9f8f5e86df4",
+      "input_sha256": "49dcf307d1ec661327f1abb3dc0e29b8fb4c36ad3c3cccf3bca96d7f90f43f88",
+      "output": "-1\n",
+      "binary_sha256": "b59137c87ac87de2d82eb6a2ccaecd3ba823c2a0baeb7dad4deafdf83c0cd728",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/source-modular-theta.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/source-modular-theta"
+      ],
+      "exact_expected": 10007,
+      "correct_residue": 0,
+      "output_sha256": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28"
+    }
+  ],
+  "mutants": [
+    {
+      "name": "mutant-swap-sign",
+      "source_sha256": "16f2f187f9ef0f71bf169bb61fc5d9ba0a6a4d53ae3f58b4e881fee025f4981e",
+      "input_sha256": "4001ed95219d9fd30c0da94c5e9e5d24c1d06c06318bef1dee550e73b66aa9c0",
+      "binary_sha256": "c7e15020d6ddbbd75ce8518f548dc90dcfa5734d96cd78cc42c4633c8f39089c",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-swap-sign.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-swap-sign"
+      ],
+      "first_mismatch": 31
+    },
+    {
+      "name": "mutant-denominator",
+      "source_sha256": "90daad984b80f8fa8dc637c252b1b000cf688d6a73d98b3328349ffb878e45c7",
+      "input_sha256": "4001ed95219d9fd30c0da94c5e9e5d24c1d06c06318bef1dee550e73b66aa9c0",
+      "binary_sha256": "92a0943aacc918bdea797e6ea3896be90b5a35a033fc13bc3266b526256be503",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-denominator.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-denominator"
+      ],
+      "first_mismatch": 115
+    },
+    {
+      "name": "mutant-early-zero",
+      "source_sha256": "d0ee49acda24f1c603a43d9308a0c3de94cf4ed0fdb9039feab429d3ee44b77c",
+      "input_sha256": "4001ed95219d9fd30c0da94c5e9e5d24c1d06c06318bef1dee550e73b66aa9c0",
+      "binary_sha256": "93d11078c15562d40a09c94f16f08ac6e6c3fa7625fd1185506b7c59a88fda55",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-early-zero.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-early-zero"
+      ],
+      "first_mismatch": 4
+    },
+    {
+      "name": "mutant-orientation",
+      "source_sha256": "4702ecac443237e9cb454d041dad738b430edf13f744ff6eeb6e6cf7a22de19b",
+      "input_sha256": "292708534870d00290dff6b2827ebf2d45c063cfbe6129d33fb9ce6bc9807dd7",
+      "binary_sha256": "3119fb83b0e1f1e31283e7f60cb4c58e9a1e40a4d1ad3dab700423cbb8550ea2",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-orientation.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-orientation"
+      ],
+      "first_mismatch": 5411
+    },
+    {
+      "name": "mutant-duplicate-source",
+      "source_sha256": "cf8cf026d809b111e27bd5829be0ae2c9e5c7508cd1442b1988e6e5399d45dc8",
+      "input_sha256": "95c69634d678741089533e0478594e9b34797feb2951640e4c4e678ac3f4b947",
+      "binary_sha256": "7f4179d9d9f180e12aa462c983f9ab83791172f310b72155c14439ddc50eed54",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++17",
+        "-O2",
+        "-I/opt/homebrew/include",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-duplicate-source.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/exact-integer/normal/mutant-duplicate-source"
+      ],
+      "first_mismatch": 1101
+    }
+  ],
+  "online_ac": false
+}
