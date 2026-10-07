@@ -1,0 +1,22 @@
+{
+  "scope": "Incremental copy evidence, not a new whole-library compile/runtime audit.",
+  "base_report": "verification/ownership-copy.json",
+  "base_report_sha256": "519f7d4607478284a290ed2370f1413685ab4c106c53be9a4cdf2c888045d337",
+  "unchanged_existing_core_regions": 223,
+  "unchanged_existing_usage_snippets": 249,
+  "new_example": "example-250",
+  "new_core": "exkmp",
+  "new_dependencies": [
+    "z_function"
+  ],
+  "new_normal_and_sanitizer_program_forms": [
+    "driver",
+    "bundle",
+    "minimal-copy"
+  ],
+  "reports": [
+    "verification/string-prefix-normal.json",
+    "verification/string-prefix-sanitizer.json"
+  ],
+  "inherited_limits": "Existing report has241 standard +6 GNU successes and precision rejections229/230. No new all-pass claim."
+}

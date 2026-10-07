@@ -189,6 +189,7 @@
 | `RectangleFenwick` | [Luogu P4514 / 上帝造题的七分钟](https://www.luogu.com.cn/problem/P4514) | 1<=n,m<=2048; at most200000 operations; \|delta\|<=500; final answers int32, intermediate arithmetic not guaranteed int32. | 待在线 AC | 待核验 |
 | `PersistentDSU` | [Luogu P3402](https://www.luogu.com.cn/problem/P3402) | n<=100000,m<=200000; 1-based vertices and historical operation versions including0. | 待在线 AC | 待核验 |
 | `MergeSplitTree` | [Luogu P5494](https://www.luogu.com.cn/problem/P5494) | n,m<=200000; ai<=m; published k<=200000 and valid value coordinates. | 待在线 AC | 待核验 |
+| `exkmp` | [Luogu P5410 / 扩展 KMP](https://www.luogu.com.cn/problem/P5410) | Both lowercase strings length1..20000000. XOR checksums use1-based indices and LCP+1. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1773,6 +1774,16 @@ External set1 becomes0; closed value interval[x,y] becomes[x-1,y); operation2 is
 Independent local oracles, ownership/history invariants and three complete driver forms passed normal+ASan/UBSan, including maximum-size inputs. Online AC and rankings pending; not a new whole-library runtime verification.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5494)
+
+### Luogu P5410 / 扩展 KMP / exkmp
+
+Explicit standalone template problem; live time/memory limits unverified.
+
+Return pattern Z and cross-text LCP arrays; z[0]=pattern length, no concatenation or separator. Cast product to long long before multiplication.
+
+Four core forms and three complete driver forms passed normal+ASan/UBSan, including two20-million-character strings. Online AC and rankings pending; no whole-library runtime claim.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5410)
 
 ## 榜单口径
 

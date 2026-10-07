@@ -1,0 +1,49 @@
+{
+  "base": "dfdf2e522b64f648fc7c45a5993477f02ddc5a3f",
+  "batch": "Cross-string extended KMP and10 upstream string-prefix/palindrome mappings",
+  "core_cases_per_form": 20928,
+  "core_checks_per_form": 9209759,
+  "complete_inputs_per_form": {
+    "P5410": 155
+  },
+  "semantic_mutants_per_mode": 7,
+  "compiler": "/opt/homebrew/bin/g++-16, GCC16.2, macOS arm64",
+  "current_counts": {
+    "components": 224,
+    "usages": 250,
+    "usage_status": {
+      "locally_checked_example": 166,
+      "locally_checked_application": 46,
+      "locally_checked_api": 12
+    },
+    "pending_upstream_topics": 626
+  },
+  "source_rows": {
+    "audited": 10,
+    "local_tested": 8,
+    "partial": 2
+  },
+  "source_sha256": {
+    "src/compact/string.hpp": "b2d66016ede91178051e1467ec9111f5c05f4e2916fdc1419e2c0f1bbfbfdfe3",
+    "src/compact/exkmp.hpp": "cdacaf46dc58202b0826c9f7598bc0d75869a5ff68e730246df859a0bb1fbbc6",
+    "tests/string_prefix.py": "3204309b4b6f50579a7e7e8cbbf46f4c71bcd98c6206170f650fd8ecb5af38fd",
+    "tests/string_prefix_probe.cpp": "392d4adf1fb6ade504a6fa4d196abcaf323a3141e42e76b9e752e3c7c882b7d2",
+    "tests/usage_examples.py": "b6cbd59c4cb0a53c2983a2d562a8652dddf386bf146ca7a664b9d4b14e181375",
+    "verify/luogu/P5410.compact.cpp": "52164e8e90cd8ea86a44cd2839e53a4b9f2e8ef3f5244b9f79420b194b91d817",
+    "docs/usage/example-250.cpp": "9e5e048febe53804ce57f96e02ef13e63f281e261aacb4e9d0a5473bbf836026",
+    "tools/book.py": "5055a457904d5c01064bddfe0ab244ef85b5d799b6498979dc1d8997838cc118",
+    "tools/test.sh": "3961552b5a926ecc0896201e3fcf72c655b72ad6cc032cdcefacf10d0c06d14c",
+    "docs/STRING-PREFIX-AUDIT.md": "af9ddcb88789a3c74d8bcecc42a135424577c76d842861ad6ea93646bef3179d",
+    "docs/coverage.csv": "15c811b241c393162aeb7eef518fa4a61a6ffb8478e3b8a0f6e648a75a059dc8"
+  },
+  "report_files": [
+    "verification/string-prefix-normal.json",
+    "verification/string-prefix-sanitizer.json",
+    "verification/string-prefix-sources.json",
+    "verification/string-prefix-layout.json",
+    "verification/string-prefix-copy.json"
+  ],
+  "documentation_after_runtime_tests": "Code/probes/runners/drivers/snippets unchanged; subsequent prose, source ledger, metadata and local runner registration not part of runtime snapshots.",
+  "layout": "11 pages inspected; both omnibus and strings grow1 page. Internal reference groups1232 and external jumps16 pass. Five unrelated PDFs restored after semantic equality.",
+  "remaining": "POJ3167 order-isomorphic matching and integer-vector Manacher missing; official resource limits, online AC and rankings pending; no whole-library completion/runtime or LeakSanitizer claim; no CI operations."
+}

@@ -230,3 +230,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | RectangleFenwick | [example-247](usage/example-247.cpp) | locally_checked_example |
 | PersistentDSU | [example-248](usage/example-248.cpp) | locally_checked_example |
 | MergeSplitTree | [example-249](usage/example-249.cpp) | locally_checked_example |
+| exkmp | [example-250](usage/example-250.cpp) | locally_checked_example |

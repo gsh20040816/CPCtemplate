@@ -4749,5 +4749,36 @@
     "statement_sources": [
       "https://www.luogu.com.cn/problem/P5494"
     ]
+  },
+  {
+    "symbol": "exkmp",
+    "problem": "Luogu P5410 / 扩展 KMP",
+    "url": "https://www.luogu.com.cn/problem/P5410",
+    "classification": "Explicit standalone template problem; live time/memory limits unverified.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "Both lowercase strings length1..20000000. XOR checksums use1-based indices and LCP+1.",
+    "adapter": "Return pattern Z and cross-text LCP arrays; z[0]=pattern length, no concatenation or separator. Cast product to long long before multiplication.",
+    "implementation": "existing",
+    "source": "src/compact/exkmp.hpp",
+    "tested_api": [
+      "exkmp",
+      "z_function"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Four core forms and three complete driver forms passed normal+ASan/UBSan, including two20-million-character strings. Online AC and rankings pending; no whole-library runtime claim.",
+    "driver": "verify/luogu/P5410.compact.cpp",
+    "local_reports": [
+      "verification/string-prefix-normal.json",
+      "verification/string-prefix-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P5410"
+    ]
   }
 ]

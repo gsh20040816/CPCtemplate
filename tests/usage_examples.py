@@ -328,6 +328,7 @@ cases['example-241'] = [('banana\n', '5 3 1 0 4 2'), ('a\n', '0'), ('aaaa\n', '3
 cases['example-242'] = [((root / 'tests/fixtures/inside-triangle/official.in').read_text(), '2 4 6'), ('1\n4\n-4 -4\n4 -4\n4 4\n-4 4\n3\n-2 -2\n2 -2\n0 0\n', '2')]
 cases['example-243'] = [('5 2\n0 0\n0 1\n0 0\n1 0\n0 1\n', {'exact_cover': True}), ('3 3\n1 1 0\n0 1 1\n1 0 1\n', {'exact_cover': False}), ('1 1\n1\n', {'exact_cover': True})]
 cases['example-246'] = [('1 3\n0 0 5\n1 0 0 1 1\n0 0 0 3\n1 0 0 1 1\n', '5\n8\n')]
+cases['example-250'] = [('aaaabaa\naaaaa\n', '6 21'), ('a\na\n', '2 2'), ('b\naaaa\n', '12 1')]
 cases['example-248'] = [('3 8\n1 1 2\n3 1 2\n2 0\n3 1 2\n1 2 3\n3 1 3\n2 1\n3 1 2\n', '1 0 0 1')]
 cases['example-249'] = [('3 9\n2 0 3\n3 1 1 3\n0 1 2 3\n4 1 3\n4 2 2\n2 1 4 2\n1 1 2\n3 1 2 3\n4 1 6\n4 1 7\n', '5 -1 3 7 2 3')]
 cases['example-247'] = [('X 3 4\nL 1 1 2 3 5\nk 2 2 3 4\nL 2 2 3 4 -2\nk 1 1 3 4\n', '10\n18\n')]

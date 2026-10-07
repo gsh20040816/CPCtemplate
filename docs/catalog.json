@@ -1336,5 +1336,11 @@
     "MergeSplitTree",
     "线段树合并与分裂",
     "MergeSplitTree(n)建空集合0，或传vector<long long>建初始重数；n>0，值域[0,n)。add(s,x,delta)点增减，结果重数非负；sum(s,l,r)查询半开值域；kth(s,k)按重数返回第k小的0-based值，不存在返回-1。split(s,l,r)移走区间并返回新集合号，空区间也创建集合；merge(dst,src)消耗不同的src，src变空后可重用。所有集合总量分别须≤LLONG_MAX，节点/集合索引须适合int。仅通过集合号操作，root/t/free只读，其余递归函数内部使用，禁止浅拷贝根。初始化O(n)，增减/分裂/查询O(log(n+1))；单次合并非O(log n)，遍历重叠节点并回收，总合并开销可摊到节点创建。完整对象值复制独立。"
+  ],
+  [
+    "exkmp",
+    "exkmp",
+    "两串扩展KMP",
+    "exkmp(s,t)返回{z,p}：z为模式t的Z数组，z[0]=|t|；p[i]是文本后缀s[i..]与t的LCP长度，均0-based。空串合法，t空时p全0，s空时p为空。任意字节相等比较，含零字节与高位字节；不拼接分隔符、不拷贝输入。需要z_function。两串长度均须<INT_MAX；O(|s|+|t|)时间，两个输出vector共O(|s|+|t|)空间，返回时移动缓冲区。维护右端最远的匹配区间[l,r)，区间内利用模式自身Z值再向右扩展。P5410的1-based权值乘法应先提升到long long。"
   ]
 ]

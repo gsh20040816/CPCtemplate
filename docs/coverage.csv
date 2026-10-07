@@ -54,7 +54,7 @@ WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/30 - ST 表.cpp,,30 -
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/31 - 线性基（高斯消元法）.cpp,,31 - 线性基（高斯消元法）,local-tested,src/compact/data_structure.hpp#XorBasis,"64-bit unsigned basis: membership, affine maximum, nonempty minimum, distinct kth with uint128 rank, cached rebuild and multiset merge; exhaustive subsets and rank-64 boundaries; P3812 maximum-only driver local-tested, OJ pending"
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/32 - 取模类.cpp,,32 - 取模类,pending,,
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/33 - 高精度大整数类.cpp,,33 - 高精度大整数类,pending,,
-WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/34 - KMP.cpp,,34 - KMP,pending,,
+WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/34 - KMP.cpp,,34 - KMP,local-tested,"prefix_function,kmp_match",string-prefix source audit; independent normal+ASan/UBSan; 0-based borders/overlapping locations; prefix-length indexing and min-period/repetition formulas explicitly adapted. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串双哈希++.cpp,,35 - 字符串双哈希++,pending,,
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串双哈希.cpp,,35 - 字符串双哈希,pending,,
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串哈希.cpp,,35 - 字符串哈希,pending,,
@@ -349,15 +349,15 @@ WIDA,02 - 打印稿模板汇总/09 - 动态规划.md,,数位 DP,pending,,
 WIDA,02 - 打印稿模板汇总/09 - 动态规划.md,,状压 DP,pending,,
 WIDA,02 - 打印稿模板汇总/09 - 动态规划.md,,常用例题,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,子串与子序列,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,字符串模式匹配算法 KMP,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,Z函数（扩展 KMP）,pending,,
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,字符串模式匹配算法 KMP,local-tested,"prefix_function,kmp_match",string-prefix source audit; independent normal+ASan/UBSan; 0-based borders/overlapping locations; prefix-length indexing and min-period/repetition formulas explicitly adapted. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,Z函数（扩展 KMP）,local-tested,z_function,string-prefix source audit; independent normal+ASan/UBSan; Same-string suffix LCP; z[0]=n; upstream optional zero tail slot omitted explicitly. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,最长公共子序列 LCS,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,小数据解,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,大数据解,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,字符串哈希,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,双哈希封装,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,前后缀去重,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,马拉车,pending,,
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,马拉车,local-tested,manacher,string-prefix source audit; independent normal+ASan/UBSan; String longest palindrome and transformed radii mapped to odd/even; no sentinel restrictions. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,字典树 trie,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,基础封装,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,01 字典树,pending,,
@@ -539,8 +539,8 @@ WIDA,03 - jiangly模板收集/04 - 数据结构/08C - 其他平衡树.cpp,,08C -
 WIDA,03 - jiangly模板收集/04 - 数据结构/08D - 其他平衡树.cpp,,08D - 其他平衡树,pending,,
 WIDA,03 - jiangly模板收集/04 - 数据结构/09 - 分数四则运算（Frac）.cpp,,09 - 分数四则运算（Frac）,pending,,
 WIDA,03 - jiangly模板收集/04 - 数据结构/10 - 线性基（Basis）.cpp,,10 - 线性基（Basis）,local-tested,src/compact/position_basis.hpp#PositionBasis,"Position-priority basis: threshold membership, affine maximum and rank; arbitrary nonnegative int tags and uint64 values. tests/position_basis.cpp independent threshold subset oracle; CF1100F dual driver local-tested at n=q=500000, OJ pending"
-WIDA,03 - jiangly模板收集/05 - 字符串/01A - 马拉车（Manacher）.cpp,,01A - 马拉车（Manacher）,pending,,
-WIDA,03 - jiangly模板收集/05 - 字符串/02 - Z函数.cpp,,02 - Z函数,pending,,
+WIDA,03 - jiangly模板收集/05 - 字符串/01A - 马拉车（Manacher）.cpp,,01A - 马拉车（Manacher）,partial,manacher,string-prefix source audit; independent normal+ASan/UBSan; String overload covered; vector<int> overload with unrestricted integer symbols remains missing. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
+WIDA,03 - jiangly模板收集/05 - 字符串/02 - Z函数.cpp,,02 - Z函数,local-tested,z_function,string-prefix source audit; independent normal+ASan/UBSan; Same-string suffix LCP; z[0]=n; upstream optional zero tail slot omitted explicitly. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
 WIDA,03 - jiangly模板收集/05 - 字符串/03A - 后缀数组（SuffixArray）.cpp,,03A - 后缀数组（SuffixArray）,local-tested,src/compact/string.hpp#SuffixArray,"Counting-sort doubling O(n log n+alphabet); byte and integer alphabets, no explicit sentinel; rk/lcp 0-based. tests/suffix_array.cpp exhaustive suffix/LCP oracle and million-character cases; P3809 prepared, OJ pending"
 WIDA,03 - jiangly模板收集/05 - 字符串/03B - 后缀数组（SA）.cpp,,03B - 后缀数组（SA）,local-tested,src/compact/string.hpp#SuffixArray;src/compact/suffix_lcp.hpp,"Counting-sort SA plus sparse-table LCP, substring comparison and reverse-prefix LCS; 0-based half-open endpoints; exhaustive byte/integer substring oracles and square-boundary application; P1117 driver local-tested, OJ pending"
 WIDA,03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp,,04A - 后缀自动机（SuffixAutomaton 旧版）,pending,,
@@ -552,10 +552,10 @@ WIDA,"03 - jiangly模板收集/05 - 字符串/06C - AC自动机（AhoCorasick, w
 WIDA,03 - jiangly模板收集/05 - 字符串/07 - 字符串哈希（随机底模例题）.cpp,,07 - 字符串哈希（随机底模例题）,pending,,
 WIDA,03 - jiangly模板收集/05 - 字符串/08 - 最长公共前缀 LCP（例题）.cpp,,08 - 最长公共前缀 LCP（例题）,pending,,
 WIDA,03 - jiangly模板收集/05 - 字符串/09B - 字典树 Trie.cpp,,09B - 字典树 Trie,pending,,
-WIDA,03 - jiangly模板收集/05 - 字符串/10 - 前缀函数（KMP）.cpp,,10 - 前缀函数（KMP）,pending,,
-kuangbin,ACM template (2018),5,1.1 KMP,pending,,
-kuangbin,ACM template (2018),8,1.2 e-KMP,pending,,
-kuangbin,ACM template (2018),8,1.3 Manacher,pending,,
+WIDA,03 - jiangly模板收集/05 - 字符串/10 - 前缀函数（KMP）.cpp,,10 - 前缀函数（KMP）,local-tested,"prefix_function,kmp_match",string-prefix source audit; independent normal+ASan/UBSan; 0-based borders/overlapping locations; prefix-length indexing and min-period/repetition formulas explicitly adapted. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
+kuangbin,ACM template (2018),5,1.1 KMP,partial,"prefix_function,kmp_match",string-prefix source audit; independent normal+ASan/UBSan; Ordinary overlapping matching covered; optimized failure-table output not exposed and POJ3167 order-isomorphic matching remains missing. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
+kuangbin,ACM template (2018),8,1.2 e-KMP,local-tested,"z_function,exkmp","string-prefix source audit; independent normal+ASan/UBSan; Pattern Z and LCP with each text suffix; direct non-concatenating two-string algorithm, empty inputs additionally defined. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md."
+kuangbin,ACM template (2018),8,1.3 Manacher,local-tested,manacher,string-prefix source audit; independent normal+ASan/UBSan; Longest palindrome and transformed radii mapped to odd/even; arbitrary-byte extension. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
 kuangbin,ACM template (2018),9,1.4 AC 自动机,pending,,
 kuangbin,ACM template (2018),11,1.5 后缀数组,partial,src/compact/string.hpp#SuffixArray,DA counting-sort doubling locally tested for byte and integer alphabets; DC3 pending
 kuangbin,ACM template (2018),11,1.5.1 DA,local-tested,src/compact/string.hpp#SuffixArray,"Counting-sort doubling O(n log n+alphabet); byte and integer alphabets, no explicit sentinel; rk/lcp 0-based. tests/suffix_array.cpp exhaustive suffix/LCP oracle and million-character cases; P3809 prepared, OJ pending"

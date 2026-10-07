@@ -3119,5 +3119,17 @@
     "requires": [
       "MergeSplitTree"
     ]
+  },
+  {
+    "id": "example-250",
+    "symbol": "exkmp",
+    "problem": "Luogu P5410 / 扩展 KMP",
+    "url": "https://www.luogu.com.cn/problem/P5410",
+    "summary": "输入小写串a、b，长度均1..20000000。求b的Z数组与b对a各后缀的LCP数组，各输出xor((i+1)*(长度+1))。z[0]=|b|；乘法先提升long long。直接求两串LCP，不拼接整串。",
+    "driver": "verify/luogu/P5410.compact.cpp",
+    "requires": [
+      "z_function",
+      "exkmp"
+    ]
   }
 ]

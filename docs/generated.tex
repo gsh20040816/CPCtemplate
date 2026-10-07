@@ -142,6 +142,30 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 \lstinputlisting{usage/example-22.cpp}
 
+\Needspace{312pt}
+
+\section{两串扩展KMP}\label{compact-exkmp}\index{exkmp}
+
+代码依赖：\hyperref[compact-z_function]{z\_\allowbreak{}function}（第~\pageref{compact-z_function}~页，\ref{compact-z_function}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+exkmp(s,t)返回\{z,p\}：z为模式t的Z数组，z[0]=|t|；p[i]是文本后缀s[i..]与t的LCP长度，均0-based。空串合法，t空时p全0，s空时p为空。任意字节相等比较，含零字节与高位字节；不拼接分隔符、不拷贝输入。需要z\_function。两串长度均须<INT\_MAX；O(|s|+|t|)时间，两个输出vector共O(|s|+|t|)空间，返回时移动缓冲区。维护右端最远的匹配区间[l,r)，区间内利用模式自身Z值再向右扩展。P5410的1-based权值乘法应先提升到long long。
+
+\lstinputlisting[firstline=10,lastline=28]{../src/compact/exkmp.hpp}
+
+\Needspace{329pt}
+
+\subsection*{模板题使用：Luogu P5410 / 扩展 KMP}
+
+\label{usage-example-250}
+
+题意：输入小写串a、b，长度均1..20000000。求b的Z数组与b对a各后缀的LCP数组，各输出xor((i+1)*(长度+1))。z[0]=|b|；乘法先提升long long。直接求两串LCP，不拼接整串。
+
+所需模板：\hyperref[compact-z_function]{z\_\allowbreak{}function}（第~\pageref{compact-z_function}~页，\ref{compact-z_function}~节）、\hyperref[compact-exkmp]{exkmp}（第~\pageref{compact-exkmp}~页，\ref{compact-exkmp}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5410}
+
+\lstinputlisting{usage/example-250.cpp}
+
 \Needspace{180pt}
 
 \chapter{AC 自动机}

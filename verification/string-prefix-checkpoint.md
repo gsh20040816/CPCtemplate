@@ -1,0 +1,13 @@
+# Cross-string Z and prefix-source audit — 2026-10-07
+
+Base: dfdf2e5. Added exkmp and P5410 usage250; independently audited10 pending WIDA/kuangbin KMP/Z/Manacher rows.8 rows now local-tested,2 partial. Full objective remains active.
+
+- exkmp returns pattern Z and LCP of the pattern with every text suffix, without concatenating input or a delimiter. Empty and arbitrary-byte strings are defined. Printed dependencies point to z_function. Both outputs use moved vectors.
+- Normal and ASan/UBSan each run header/copied × assert/NDEBUG: **20,928 cases /9,209,759 checks per form**, independently enumerating borders, periods, repeated units, palindrome substrings and cross-string LCP. Small exhaustive and random zero/high-byte inputs, overlap, all256 bytes, and million-character closed forms are included. Seven semantic mutants rejected per mode.
+- Three complete P5410 forms per mode each pass **155 inputs**:150 small direct-oracle cases, maximum equal/disjoint/periodic strings of length20million on both sides, plus short-text/long-pattern and inverse. Generated inputs are not official samples. Checksums use64-bit products. Actual judge time/memory limits, online AC and rankings unverified.
+- Existing source string.hpp unchanged. All final runtime headers/probes/runners/drivers/snippets match both reports. Subsequent source-mapping prose, ledger and test.sh registration are separately recorded; shell syntax checked.
+- Incremental copy evidence:223 existing core regions and249 usage snippets still equal the completed ownership copy audit; new core/driver/minimal standard-header forms execute under both modes. This is not a new whole-library compile/runtime audit; original precision guards229/230 remain untouched.
+- **11 physical pages inspected**, including complete exkmp/use250, adjacent sections, TOCs, indices and infra. Both omnibus and strings grow1 page. Fonts preserved; five unrelated PDFs restored after equal text/labels/destination pages/link actions/font sets, excluding coordinate equivalence.1232 internal reference groups and16 external jumps pass.
+- WIDA pinnedcfdb12db6792eb2303798541fb5c760ed2bc618b. Kuangbin2018 PDF snapshot hash retained. Ordinary KMP cannot close POJ3167 order matching; byte-string Manacher cannot close unrestricted vector<int> overload. Both gaps remain explicit. No GitHub CI operations.
+
+Current inventory: **224 components /250 usages**,166 formal locally covered,46 application-only,12 API-only;626 upstream rows remain pending mapping, in addition to partial rows. Mac unlock request remains pending; no online submission was attempted in this batch.
