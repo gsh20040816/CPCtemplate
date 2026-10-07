@@ -243,3 +243,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Chain3D | [example-272（接口演示）](usage/example-272.cpp), [example-273（接口演示）](usage/example-273.cpp) | locally_checked_api |
 | KDMin | [example-274（接口演示）](usage/example-274.cpp), [example-275（应用补充）](usage/example-275.cpp) | locally_checked_application |
 | StaticRMQ | [example-276](usage/example-276.cpp), [example-277](usage/example-277.cpp), [example-278（接口演示）](usage/example-278.cpp) | locally_checked_example |
+| StaticRMQ2D | [example-279（接口演示）](usage/example-279.cpp), [example-280（接口演示）](usage/example-280.cpp) | locally_checked_api |

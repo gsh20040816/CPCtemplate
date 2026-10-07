@@ -3482,5 +3482,29 @@
     "requires": [
       "StaticRMQ"
     ]
+  },
+  {
+    "id": "example-279",
+    "symbol": "StaticRMQ2D",
+    "kind": "api",
+    "problem": "二维矩形最小/最大位置（接口演示）",
+    "url": "https://oi-wiki.org/ds/sparse-table/",
+    "summary": "输入n,m,q、矩阵与q个0-based非空半开矩形，依次输出最小值的行列和最大值的行列；并列按行再列取最小。值支持signed64；空矩阵或零列时q必须为0。",
+    "driver": "verify/api/static_rmq_2d.compact.cpp",
+    "requires": [
+      "StaticRMQ2D"
+    ]
+  },
+  {
+    "id": "example-280",
+    "symbol": "StaticRMQ2D",
+    "kind": "api",
+    "problem": "矩形最大值是否出现在四角（kuangbin源码模型）",
+    "url": "https://github.com/kuangbin/ACM-ICPC",
+    "summary": "读到EOF，每组n,m、矩阵、q和q个1-based闭矩形端点，分别交换逆序的行/列端点。输出最大值与yes/no，表示四个角是否至少有一个等于最大值。演示n,m为1..305，值为signed64；不是已核验的原OJ协议、资源或正式模板题。",
+    "driver": "verify/api/rmq_corners.compact.cpp",
+    "requires": [
+      "StaticRMQ2D"
+    ]
   }
 ]

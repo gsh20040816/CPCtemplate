@@ -5197,5 +5197,33 @@
       "verification/static-rmq-normal.json",
       "verification/static-rmq-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "StaticRMQ2D",
+    "problem": "kuangbin3.2.2 / 矩形最大值与四角源码模型",
+    "url": "https://github.com/kuangbin/ACM-ICPC",
+    "classification": "来源模型/API演示；原稿此段未明确题号，不冒称HDU2888已核验题面或正式模板题。",
+    "statement_checked": false,
+    "limits": "演示矩阵n,m在1..305，元素signed64，询问1-based闭端点可逆序；为本库模型约束，不冒称原题资源。",
+    "driver": "verify/api/rmq_corners.compact.cpp",
+    "usage": "example-280",
+    "tested_api": [
+      "constructor",
+      "query half-open rectangle",
+      "min/max stable positions",
+      "readonly matrix"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "原OJ身份/题面/资源、正式模板题候选、在线AC与排名未核验。",
+    "checked_date": "2026-10-07",
+    "local_evidence": [
+      "verification/static-rmq-2d-normal.json",
+      "verification/static-rmq-2d-sanitizer.json"
+    ]
   }
 ]

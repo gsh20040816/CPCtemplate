@@ -600,9 +600,9 @@ kuangbin,ACM template (2018),51,2.18.1 HDU4656 卷积取模,pending,,
 kuangbin,ACM template (2018),54,2.19 其它公式,pending,,
 kuangbin,ACM template (2018),54,2.19.1 Polya,pending,,
 kuangbin,ACM template (2018),56,3.1 划分树,local-tested,src/compact/division_tree.hpp: DivisionTree,"docs/DIVISION-TREE.md; verification/division-tree.json; actual stable median partition, duplicate quota, signed64, recursive build/query; source kth-largest comment corrected to kth-smallest; 24 official cases in both modes; no online AC"
-kuangbin,ACM template (2018),57,3.2 RMQ,partial,src/compact/static_rmq.hpp#StaticRMQ,1D min/max/argmin/argmax locally covered;3.2.2 two-dimensional RMQ remains pending. docs/STATIC-RMQ.md
+kuangbin,ACM template (2018),57,3.2 RMQ,local-tested,src/compact/static_rmq.hpp#StaticRMQ;src/compact/static_rmq_2d.hpp#StaticRMQ2D,1D min/max and2D rectangle min/max with stable positions locally checked. Source closed endpoints and2D corners model explicitly adapted. Formal1D usages276/277;2D source/API279/280. No online AC/rank. docs/STATIC-RMQ.md;docs/STATIC-RMQ-2D.md
 kuangbin,ACM template (2018),57,3.2.1 一维,local-tested,src/compact/static_rmq.hpp#StaticRMQ,"Printed p57 1-based closed maximum query adapted by greater<int> and query(l-1,r); formal P3865 usage277, independent scan/segment-tree and max-shape input locally verified. No online verdict. docs/STATIC-RMQ.md"
-kuangbin,ACM template (2018),57,3.2.2 二维,pending,,
+kuangbin,ACM template (2018),57,3.2.2 二维,local-tested,src/compact/static_rmq_2d.hpp#StaticRMQ2D,"Printed57-58 2D maximum and corner-value source model covered by StaticRMQ2D/usage280; independent full rectangle scan, ties and reversed closed endpoints tested. Usage279 min/max positions; no original judge identification or online verdict claim. docs/STATIC-RMQ-2D.md"
 kuangbin,ACM template (2018),59,3.3 树链剖分,pending,,
 kuangbin,ACM template (2018),59,3.3.1 点权,pending,,
 kuangbin,ACM template (2018),61,3.3.2 边权,pending,,

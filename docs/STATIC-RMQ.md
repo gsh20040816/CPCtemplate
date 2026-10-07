@@ -25,7 +25,7 @@ WIDA两个固定来源都采用常量B=64、块内前后缀值与单调栈掩码
 ## 来源、正式用法与边界
 
 - WIDA固定commit `cfdb12db6792eb2303798541fb5c760ed2bc618b`，打印稿《08 - 数据结构.md》“基于状压的线性RMQ算法”和jiangly收集《06 - 状压RMQ（RMQ）.cpp》。两份源代码分别编译，用独立扫描答案核对最小/最大值，不冒用它们所列提交作为本库AC。
-- kuangbin 3.2.1，印刷页57：1-based闭区间最大值，转换为 `query(l-1,r)` 后读值；示例277覆盖这一模型。3.2.2二维RMQ仍未覆盖，父目录3.2保留partial。
+- kuangbin 3.2.1，印刷页57：1-based闭区间最大值，转换为 `query(l-1,r)` 后读值；示例277覆盖这一模型。3.2.2二维RMQ后续已由独立StaticRMQ2D补齐本地模型，详见[二维RMQ说明](STATIC-RMQ-2D.md)；不代表在线AC。
 - 用法276：[Library Checker Static RMQ](https://judge.yosupo.jp/problem/staticrmq)，官方题面仓库固定commit `e64660561a995c357cdc61ddee1bde68b80528db`；n,q≤500000、值0..10^9、0-based半开区间。此题直接输出最小值。
 - 用法277：[洛谷P3865](https://www.luogu.com.cn/problem/P3865)，正式静态区间最大值模板；n≤100000、q≤2000000、值0..10^9、1-based闭区间。题面提示最大数据0.8秒；本地最大形状测试不证明该评测机时限已通过。
 - 用法278演示signed64数组的最左最小/最大位置，包括空构造（q=0）。它是API演示，不单独计正式模板覆盖。

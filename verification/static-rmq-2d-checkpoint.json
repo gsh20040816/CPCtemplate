@@ -1,0 +1,68 @@
+{
+  "base": "434c4bc43fd1a5d3d73188fb68d76d2a395912dd",
+  "batch": "2D static RMQ with stable min/max positions and corners source model",
+  "counts": {
+    "components": 237,
+    "usages": 280,
+    "usage_status": {
+      "locally_checked_example": 168,
+      "locally_checked_application": 53,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 604,
+    "partial_upstream_topics": 32
+  },
+  "small_rectangles_per_core_form": 214228,
+  "large_queries_per_core_form": 200000,
+  "core_forms_per_mode": 4,
+  "complete_inputs_per_form": {
+    "example-279": 62,
+    "example-280": 61
+  },
+  "complete_forms_per_mode": 3,
+  "mutants_per_mode": 5,
+  "stress": "305x305 records;200000 analytic min/max position queries with stateful comparator;source-model305x305 and100000 queries;explicit81-layer storage count and constant query comparisons",
+  "unaffected": {
+    "base": "434c4bc43fd1a5d3d73188fb68d76d2a395912dd",
+    "unchanged_old_components": 236,
+    "unchanged_old_core_files": 200,
+    "old_expanded_programs_unchanged": 278,
+    "new_usages": [
+      "example-279",
+      "example-280"
+    ],
+    "files": {
+      "src/compact/static_rmq_2d.hpp": "6ae4eba4ad92f364e57c255f923c039d7221f2fa4afad853b13bd2e2c49df0ba",
+      "tests/static_rmq_2d_probe.cpp": "6297d4b1b3358c1e97540b3d0bca6c6ec153aaa844d87202dd1841b88da3fb9e",
+      "tests/static_rmq_2d.py": "68b54c9665d36a8d2d929acb2a07430e1e832619faef5fc7c73fadba0681c84d",
+      "verify/api/static_rmq_2d.compact.cpp": "50d321fe3e23a6bb8692ae644823c85bd72f6ca50a79e9cbdbd200662af248d8",
+      "verify/api/rmq_corners.compact.cpp": "478a927aef0ac54c27bcdd02c2ae1f0ebc6bcaa9a089ea64422059685ff9f5ae"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "715539c5947b4423eb449f9b8508cd83e82b929245ed2020c3b066b10ed18dd0",
+      "pages": 770,
+      "page_change": 5,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-data-structures.pdf": {
+      "sha256": "8afcb4b29844513943db8c1ea4700084a5633ffd4d497f548e852a9622a10ba4",
+      "pages": 201,
+      "page_change": 4,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "09aaa5a4a24c0b19b0e3ac501897f54e2866fe1a1f72cb03601a2895b3b67485",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global target stays active. kuangbin3.2.2 and parent3.2 locally checked;2D original judge identification/statement/resources and formal template candidate remain unverified. No online AC/rank or full-library rerun;no CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/static-rmq-2d-normal.json",
+    "verification/static-rmq-2d-sanitizer.json"
+  ],
+  "documentation_after_runtime": "Source ledger/reviews and pagination finalized after execution. Runtime sources match recorded fingerprints; unchanged236 old components/278 expanded programs. Both new usages are API/source model;formal component coverage remains168."
+}

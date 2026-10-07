@@ -5247,6 +5247,54 @@ StaticRMQ<T,Cmp>(a,cmp)复制数组；默认T=long long、Cmp=less<T>求最小�
 
 \newpage
 
+\Needspace{650pt}
+
+\section{二维静态矩形最值与位置}\label{compact-StaticRMQ2D}\index{StaticRMQ2D}
+
+StaticRMQ2D<T,Cmp>(a,cmp)复制矩形矩阵；默认T=long long、less求最小，greater求最大。
+
+query(x1,y1,x2,y2)查询0-based半开矩形[x1,x2)×[y1,y2)，返回最优元素的(row,col)；并列按行号再列号取最小，值读rmq.a[row][col]。要求0$\le$x1<x2$\le$n、0$\le$y1<y2$\le$m；空矩阵或零列可构造但不可查询，所有行必须等长。重新赋值新对象重建，不支持修改。
+
+比较器须稳定严格弱序、const可调用，支持有状态比较器和可复制元素，不接受NaN；不做元素算术，signed64极值合法。n,m及n*m$\le$INT\_MAX/2且内存可分配；所有成员只读，better是内部辅助。四块ST查询O(1)，非空矩阵的预处理和空间O(nm log(n+1) log(m+1))（元素比较/复制O(1)时）。每个层对保存完整n*m个int位置，空间较大：305×305时仅st的int数据约28.7MiB，构造前需计算内存。
+
+\lstinputlisting[firstline=12,lastline=31]{../src/compact/static_rmq_2d.hpp}
+
+\newpage
+
+\noindent 层表递推、位置比较与四块查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=32,lastline=80,firstnumber=21]{../src/compact/static_rmq_2d.hpp}
+
+\Needspace{409pt}
+
+\subsection*{接口用法演示：二维矩形最小/最大位置（接口演示）}
+
+\label{usage-example-279}
+
+演示约定：输入n,m,q、矩阵与q个0-based非空半开矩形，依次输出最小值的行列和最大值的行列；并列按行再列取最小。值支持signed64；空矩阵或零列时q必须为0。
+
+所需模板：\hyperref[compact-StaticRMQ2D]{StaticRMQ2D}（第~\pageref{compact-StaticRMQ2D}~页，\ref{compact-StaticRMQ2D}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/ds/sparse-table/}
+
+\lstinputlisting{usage/example-279.cpp}
+
+\Needspace{499pt}
+
+\subsection*{接口用法演示：矩形最大值是否出现在四角（kuangbin源码模型）}
+
+\label{usage-example-280}
+
+演示约定：读到EOF，每组n,m、矩阵、q和q个1-based闭矩形端点，分别交换逆序的行/列端点。输出最大值与yes/no，表示四个角是否至少有一个等于最大值。演示n,m为1..305，值为signed64；不是已核验的原OJ协议、资源或正式模板题。
+
+所需模板：\hyperref[compact-StaticRMQ2D]{StaticRMQ2D}（第~\pageref{compact-StaticRMQ2D}~页，\ref{compact-StaticRMQ2D}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/kuangbin/ACM-ICPC}
+
+\lstinputlisting{usage/example-280.cpp}
+
+\newpage
+
 \Needspace{680pt}
 
 \chapter{树状数组}

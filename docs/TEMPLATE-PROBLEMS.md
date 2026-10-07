@@ -204,6 +204,7 @@
 | `KDMin` | [Codeforces 44G Shooting Gallery](https://codeforces.com/problemset/problem/44/G) | n,m≤100000；坐标0..10^7，非退化矩形，z互异且在1..10^7；5秒/256MB为官方限制，不是实测通过声明。 | 待在线 AC | 待核验 |
 | `StaticRMQ` | [Library Checker Static RMQ](https://judge.yosupo.jp/problem/staticrmq) | n,q≤500000;0≤a_i≤10^9;0≤l<r≤n;official fixed source time limit5s, no judge resource pass claim. | 待在线 AC | 待核验 |
 | `StaticRMQ` | [Luogu P3865](https://www.luogu.com.cn/problem/P3865) | n≤100000;q≤2000000;0≤a_i≤10^9;1-based closed intervals;statement warns0.8s maximum-data limit, no judge resource pass claim. | 待在线 AC | 待核验 |
+| `StaticRMQ2D` | [kuangbin3.2.2 / 矩形最大值与四角源码模型](https://github.com/kuangbin/ACM-ICPC) | 演示矩阵n,m在1..305，元素signed64，询问1-based闭端点可逆序；为本库模型约束，不冒称原题资源。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1924,6 +1925,14 @@ Online AC and rank pending; application does not close formal-template search.
 
 
 完整三种程序形式本地验证；在线AC、最快榜及评测机资源通过情况未核验。
+
+### kuangbin3.2.2 / 矩形最大值与四角源码模型 / StaticRMQ2D
+
+来源模型/API演示；原稿此段未明确题号，不冒称HDU2888已核验题面或正式模板题。
+
+
+
+原OJ身份/题面/资源、正式模板题候选、在线AC与排名未核验。
 
 ## 榜单口径
 
