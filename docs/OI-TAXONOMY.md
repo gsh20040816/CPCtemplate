@@ -4,13 +4,14 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 155，application 55，composite 0，related 7。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 156，application 55，composite 0，related 7。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
 | 模板 | 上游完整层级 | 关系 | 处理说明 |
 | --- | --- | --- | --- |
 | ExactCover | 搜索 → Dancing Links | direct | 仅精确覆盖首解；不含重复覆盖、最少行数、解计数及可选列。 |
+| MinimumCover | 搜索 → Dancing Links | direct | 无权最少行重复覆盖及方案；不含带权、多重次数与解计数。 |
 | kmp_match | 字符串 → 前缀函数与 KMP 算法 | direct |  |
 | prefix_function | 字符串 → 前缀函数与 KMP 算法 | direct |  |
 | z_function | 字符串 → Z 函数（扩展 KMP） | direct |  |

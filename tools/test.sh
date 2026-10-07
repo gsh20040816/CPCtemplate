@@ -51,6 +51,7 @@ python3 tests/manhattan_mst.py
 python3 tests/manhattan_mst_application.py
 python3 tests/sais.py
 python3 tests/exact_cover.py
+python3 tests/minimum_cover.py
 python3 tests/convex_tangents.py
 python3 tests/inside_triangle.py
 python3 tests/persistent_xor_trie.py

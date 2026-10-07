@@ -224,3 +224,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | convex_tangents_i64 | [example-240（接口演示）](usage/example-240.cpp), [example-242（应用补充）](usage/example-242.cpp) | locally_checked_application |
 | SAIS | [example-241](usage/example-241.cpp) | locally_checked_example |
 | ExactCover | [example-243](usage/example-243.cpp) | locally_checked_example |
+| MinimumCover | [example-244（接口演示）](usage/example-244.cpp) | locally_checked_api |

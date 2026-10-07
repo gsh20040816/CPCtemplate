@@ -4,6 +4,20 @@ import math
 
 
 def check_output(example_id, mode, data, stdout, expected):
+    if isinstance(expected, dict) and 'minimum_cover' in expected:
+        values = iter(map(int, data.split()))
+        n, m = next(values), next(values)
+        rows = [[next(values) for _ in range(next(values))] for _ in range(n)]
+        output = list(map(int, stdout.split()))
+        want = expected['minimum_cover']
+        if want == -1:
+            assert output == [-1]
+            return
+        assert output and output[0] == want and len(output) == want + 1
+        ids = output[1:]
+        assert len(set(ids)) == len(ids) and all(0 <= i < n for i in ids)
+        assert {c for i in ids for c in rows[i]} == set(range(m))
+        return
     if isinstance(expected, dict) and 'exact_cover' in expected:
         values = list(map(int, data.split()))
         n, m = values[:2]

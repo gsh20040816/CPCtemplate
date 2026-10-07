@@ -327,6 +327,7 @@ cases['example-240'] = [('4 8\n0 0\n2 0\n2 2\n0 2\n4 1\n4 0\n-2 0\n0 -2\n1 1\n0 
 cases['example-241'] = [('banana\n', '5 3 1 0 4 2'), ('a\n', '0'), ('aaaa\n', '3 2 1 0')]
 cases['example-242'] = [((root / 'tests/fixtures/inside-triangle/official.in').read_text(), '2 4 6'), ('1\n4\n-4 -4\n4 -4\n4 4\n-4 4\n3\n-2 -2\n2 -2\n0 0\n', '2')]
 cases['example-243'] = [('5 2\n0 0\n0 1\n0 0\n1 0\n0 1\n', {'exact_cover': True}), ('3 3\n1 1 0\n0 1 1\n1 0 1\n', {'exact_cover': False}), ('1 1\n1\n', {'exact_cover': True})]
+cases['example-244'] = [('3 3\n2 0 1\n2 1 2\n2 0 2\n', {'minimum_cover': 2}), ('1 2\n1 0\n', {'minimum_cover': -1}), ('2 0\n0\n0\n', {'minimum_cover': 0}), ('4 3\n1 0\n1 1\n1 2\n3 0 1 2\n', {'minimum_cover': 1})]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

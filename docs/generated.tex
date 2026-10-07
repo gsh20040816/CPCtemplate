@@ -38,6 +38,48 @@ ExactCover(m,rows)：列0..m-1，各稀疏行内列号互异、无需排序；�
 
 \lstinputlisting{usage/example-243.cpp}
 
+\newpage
+
+\Needspace{445pt}
+
+\section{最少行重复覆盖（Dancing Links）}\label{compact-MinimumCover}\index{MinimumCover}
+
+MinimumCover(m, rows)，列号0..m-1，每行内部互异，允许空行/重复行。solve()返回最少行数的一组原0-based行号；nullopt无解，有值空向量表示m=0。每列至少一次，允许重叠；不含权值、覆盖次数或全解枚举。0$\le$m<INT\_MAX，行数<INT\_MAX，m+1+非零数$\le$INT\_MAX；前提由调用方保证。构造O(行数+m+非零数)，空间O(m+非零数)；递归搜索最坏指数、深度$\le$m，每状态O(m+非零数)。成功失败均恢复链，可重复求解或复制；重建用重新赋值。字段及辅助方法不作为可修改接口，移动后源对象只销毁或赋值。下界选取不能被同一行共同覆盖的列，至少还需同样多行；按最少候选列搜索，逆序恢复只改左右链。
+
+\lstinputlisting[firstline=11,lastline=37,firstnumber=1]{../src/compact/minimum_cover.hpp}
+
+\newpage
+
+\noindent 稀疏建链与删列（接上页同一结构体）：
+
+\lstinputlisting[firstline=38,lastline=73,firstnumber=28]{../src/compact/minimum_cover.hpp}
+
+\newpage
+
+\noindent 逆序恢复与可采纳下界（接上页同一结构体）：
+
+\lstinputlisting[firstline=74,lastline=99,firstnumber=64]{../src/compact/minimum_cover.hpp}
+
+\newpage
+
+\noindent 最优搜索与求解入口（接上页同一结构体）：
+
+\lstinputlisting[firstline=100,lastline=136,firstnumber=90]{../src/compact/minimum_cover.hpp}
+
+\Needspace{437pt}
+
+\subsection*{接口用法演示：最少行重复覆盖（本地接口示例）}
+
+\label{usage-example-244}
+
+演示约定：读入n个稀疏集合和m列；每行先给元素数，再给互异的0-based列号。输出最少选行数及原0-based行号，使每列至少出现一次；无解输出-1，m=0输出0与空方案。此为接口演示，不冒充线上模板题。
+
+所需模板：\hyperref[compact-MinimumCover]{MinimumCover}（第~\pageref{compact-MinimumCover}~页，\ref{compact-MinimumCover}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/search/dlx/}
+
+\lstinputlisting{usage/example-244.cpp}
+
 \part{字符串}
 
 \Needspace{251pt}

@@ -3051,5 +3051,17 @@
     "requires": [
       "ExactCover"
     ]
+  },
+  {
+    "id": "example-244",
+    "symbol": "MinimumCover",
+    "problem": "最少行重复覆盖（本地接口示例）",
+    "url": "https://oi-wiki.org/search/dlx/",
+    "summary": "读入n个稀疏集合和m列；每行先给元素数，再给互异的0-based列号。输出最少选行数及原0-based行号，使每列至少出现一次；无解输出-1，m=0输出0与空方案。此为接口演示，不冒充线上模板题。",
+    "driver": "docs/usage-drivers/minimum-cover-demo.cpp",
+    "requires": [
+      "MinimumCover"
+    ],
+    "kind": "api"
   }
 ]

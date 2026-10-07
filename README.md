@@ -98,3 +98,5 @@ kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md
 前缀可持久化01 Trie及P4735区间异或转化见 [接口、证明与容量约定](docs/PERSISTENT-XOR-TRIE.md)。
 
 严格凸多边形外点的两条切线、最近接触端点和可见边链证明见 [整数凸多边形切线](docs/CONVEX-POLYGON-TANGENTS.md)。
+
+无权最少行重复覆盖的方案接口、下界与恢复证明见 [MINIMUM-COVER.md](docs/MINIMUM-COVER.md)；用法为本地接口演示，未新增线上AC。

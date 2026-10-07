@@ -1,0 +1,58 @@
+{
+  "base_commit": "765416e512703cf046959b69ecf94e02bb262827",
+  "scope": "Bundle integrated and unweighted minimum repeated cover added. Targeted local normal/ASan+UBSan only, not a fresh full-suite run, LeakSanitizer or online AC.",
+  "source_sha256": {
+    "src/compact/minimum_cover.hpp": "0641ff9a8b6833c3e2b252f1da17837d7eb26678e2da04877be60f21ae3f9ba4",
+    "tests/minimum_cover.py": "524ec9f543092295b18520b95b7949427d8869c290932f0768331323e8490b1f",
+    "tests/minimum_cover_probe.cpp": "995d2e8f26063ef51775755c966c875625090ba37c24f2c943958f8dfaf9f0bb",
+    "docs/usage-drivers/minimum-cover-demo.cpp": "a571463a7b1ad9f9757caa14d74cc49f7fb5b7000a0a2c35c5a503a1e37320f1",
+    "tests/usage_checkers.py": "a91fb2407163f7d0d66fc4668f02e5750fde598a53549d1cc5b9345664f56c9e",
+    "tests/usage_examples.py": "70c97e5f81f71742986e564f26809f1d79e14be2ed45a403f922aef85f34fbe6",
+    "tools/book.py": "acc1689cd7a4fdd7b3c131fceeb4938d03eaa028ed4c4645543ba95805da7740",
+    "tools/test.sh": "f14d1bda0d2e39af0a711079d2c222aac154924b000e70636c72ac3ada1c87f2",
+    "docs/catalog.json": "e80e8ad6819706df3b3bf016321b032566d5bd419d4e5e4cefde9ed8277229e9",
+    "docs/MINIMUM-COVER.md": "7906b5126f5f2ad631b6975ee107479cfbfebf40c8f1c84ae1609cf0cb2fdf93",
+    "docs/usage-examples.json": "015542309324b95dc0bf344f8b5bceaabb0c023315ed5aaa6350196efc36baf7",
+    "verification/minimum-cover-normal.json": "3ac10e00c59d4907e822a88a0bed6f87b9a03a8104d28577705202d06fa5a720",
+    "verification/minimum-cover-sanitizer.json": "81d625569b95d05b2513d466c82ac6a6e6ece75307c5366a9724261ec449d5a8",
+    "verification/minimum-cover-copy.json": "2fa8c34e5fe1db1b7b1ba117994c5eba9df46c9932f4d6a2629e14f08832fe45",
+    "verification/minimum-cover-layout.json": "72bbd7545a5bb999ecbcb3a5cb0630d4ff73143408c4d328efe6856392ad2ebd",
+    "verification/bundle-import-20261007.json": "0e57884f04191ffc8babce48da43a54ef6b52f8ccf36f83d24d8d81fc166d718",
+    "verification/usage-examples.json": "fb0acbab1281f11591ebaf2e48435dcd6f71cc150b9dd89e81fe118b3b9c359e",
+    "verification/dependency-pdf-links.json": "d2684d2a77e7de39e80f18a8fba446321ccca4f35baaf96adaaa06a9b9ccfa79",
+    "verification/infra-links.json": "f6b5d95e080483c9e89c78287dd606944298c3e088e88311a981e3836fc53e58",
+    "docs/template-problems.json": "9540a40e0bc6c70e71c6acc629c69d5bc82b2bb37eb35c2fe3e48203576df297",
+    "docs/coverage.csv": "96ed8e1c21bdab3a6523bb1af86c2c05fb6a9286932179059d3c882787d52926"
+  },
+  "old_usage_records_unchanged": 243,
+  "components": 218,
+  "usages": 244,
+  "coverage": {
+    "locally_checked_example": 161,
+    "locally_checked_application": 45,
+    "locally_checked_api": 12
+  },
+  "core_per_form": {
+    "cases": 145021,
+    "residuals": 6463,
+    "checks": 13853977
+  },
+  "core_forms_per_mode": 4,
+  "semantic_mutants": 5,
+  "application_forms_per_mode": 3,
+  "application_inputs_per_form": 208,
+  "copy_audit": {
+    "standard": 236,
+    "explicit_gnu": 6,
+    "unsupported_platform": [
+      "example-229",
+      "example-230"
+    ],
+    "reason": "Documented long-double radix 2, digits >= 64 guards; Apple arm64 provides 53 digits. Assertions preserved, no unsupported success claim."
+  },
+  "pdf_reference_groups": 1216,
+  "infra_jumps": 16,
+  "unresolved_upstream_topics": 642,
+  "fresh_copy_before_solve": true,
+  "targeted_modes_identical_input_snapshot": true
+}

@@ -1,8 +1,21 @@
 {
-  "templates": 208,
-  "direct_edges": 133,
-  "usages": 228,
+  "templates": 218,
+  "direct_edges": 136,
+  "usages": 244,
   "transitive_closure": {
+    "ExactCover": [],
+    "MinimumCover": [],
+    "SAIS": [],
+    "convex_tangents_i64": [
+      "IntegerPlane"
+    ],
+    "PersistentXorTrie": [],
+    "Dominance3D": [
+      "Fenwick"
+    ],
+    "ManhattanMST": [
+      "dsu"
+    ],
     "MultipointEvaluation": [
       "FpsInverse",
       "ModInt",
@@ -482,7 +495,10 @@
     "BostanMori": [
       "ModInt",
       "NttConvolution"
-    ]
+    ],
+    "PotentialDSU": [],
+    "GaussReal": [],
+    "AdaptiveSimpson": []
   },
   "scope": "Catalog identifiers in actual code, including inheritance; comments and strings excluded. Standard-library names and caller-supplied generic parameters are not catalog dependencies. All usage requires link to local sections; full transitive named dependencies included in six volumes."
 }
