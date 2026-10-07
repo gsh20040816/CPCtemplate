@@ -1510,5 +1510,11 @@
     "ZkwFlow",
     "zkw最小费用最大流",
     "ZkwFlow(n)，点号1..n，s≠t。add(u,v,cap,cost)返回偶数原边编号，used(id)查询原边流量；flow(s,t,limit)返回本次新增流量及int128费用，默认limit=LLONG_MAX，重复调用保持同源汇。允许重边、自环、零容量和负费用，但调用前残量图不得含负环；全图Bellman-Ford建立可行势并检查不可达负环，失败抛invalid_argument且不改流量，limit=0仍检查。容量非负、cost≠LLONG_MIN，总流≤LLONG_MAX，Σ(cap×|cost|)<2^120。递归沿零约化费用边增广，失败后按可达集最小跨边松弛量调势。实际增广A次，O((A+1)V(V+E))，空间O(V+E)、递归深度O(V)，不保证快于势能Dijkstra或SPFA。init/dfs/relabel为内部方法；e/g可读，任意改动须维持成对残量与全局最小费用可行流。无负环前提下加边后续流也须重新满足此条件。返回顺序为流量、费用，与kuangbin原稿相反。"
+  ],
+  [
+    "tree_market",
+    "TreeMarket",
+    "树上新增市场的支配范围",
+    "固定非负边权树，n≥1，点号0..n-1；add(u,v,w)，w为非负long long。solve(existing)返回各点新建市场后支配的顶点数，existing长度n、0/1表示原有市场；原有市场点返回0，不允许重复建。归属按(距离,市场点号)字典序，距离相同时编号小者胜；零边合法。无原有市场时各点答案n；全是市场时全0。可在同一树上换existing重复solve，每次重算。int128保存距离和比较阈值；最近市场多源Dijkstra，递归点分治总集合加、同分支减。O(n log² n)时间、O(n)辅助空间，递归深度最坏O(n)。返回完整方案计数，取max即最佳新增市场；内部字段和辅助方法不外改。不支持拓扑动态更新。"
   ]
 ]

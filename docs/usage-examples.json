@@ -4050,5 +4050,18 @@
       "ZkwFlow"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-323",
+    "symbol": "TreeMarket",
+    "kind": "api",
+    "problem": "树上新增市场（来源模型接口演示）",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=5016",
+    "summary": "按kuangbin来源模型：每组输入n、n-1条1-based非负边权树边和n个0/1市场标记，读到EOF。新增市场只能选原来没有市场的点，按距离、市场编号字典序分配顶点，输出最多可支配的顶点数；无候选点输出0，无原有市场输出n。调用时点号减一，编号相对顺序保持。官方HDU5016题面和资源限制尚未核验，此处只是来源模型/API演示，不登记正式题目AC。",
+    "driver": "verify/api/tree_market.compact.cpp",
+    "requires": [
+      "TreeMarket"
+    ],
+    "start_new_page": true
   }
 ]

@@ -146,3 +146,5 @@ kuangbin Dinic的瓶颈/点数边界及最大流父节范围见 [DINIC-SOURCE-AU
 zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FLOW.md)。
 
 动态点分治HDU4918来源协议和整数边界见 [CENTROID-SUM-SOURCE-AUDIT](docs/CENTROID-SUM-SOURCE-AUDIT.md)。
+
+树上新增市场的距离/编号规则、点分治证明及来源边界见 [TREE-MARKET](docs/TREE-MARKET.md)。
