@@ -57,7 +57,7 @@
     "graph",
     "Dijkstra",
     "非负权最短路",
-    "add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。不可达用 LLONG_MAX；要求所有有限最短距离严格小于该哨兵，w≥0。O((V+E)log V)。"
+    "add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。不可达用 LLONG_MAX；要求所有有限最短距离严格小于该哨兵，w≥0。懒删除堆在多重边图中按O(n+m log(m+1))计，空间O(n+m)；简单图常写O((n+m)log(n+1))。"
   ],
   [
     "graph",
@@ -1474,5 +1474,11 @@
     "independent_set",
     "二分图最大独立集方案",
     "independent_set(g)接收已建好的BipartiteMatching，内部调用solve再取最小点覆盖的补集，返回左右两侧的原点号列表，分别从1计、升序排列。允许空侧、孤立点、重边与断开图；返回一种最大基数独立集，不保证字典序或最大权。只适用于已知左右划分的二分图，不能直接输入一般图或同侧边。\n\n调用会更新g的匹配与搜索状态，保留合法旧匹配并继续增广；调用后可立即读g.cover()。允许继续add后再次调用，不可删除边或手改匹配。n,m非负且小于INT_MAX，内存足够。最大独立集大小等于n+m减最大匹配数；只求数量可直接使用该式，求和时先转long long。\n\n依赖BipartiteMatching；总时间O((V+E)√(V+1))，V=n+m，额外时间与空间O(V)。HK增广保持递归，深度最坏O(V)。骑士攻击使格子黑白染色反转，故可应用此函数；障碍格不要建成孤立点。"
+  ],
+  [
+    "dense_dijkstra",
+    "DenseDijkstra",
+    "稠密图最短路：矩阵Dijkstra",
+    "DenseDijkstra(n)，1-based点号，0<n<INT_MAX；add(u,v,w)加入有向非负signed64边，矩阵合并重边取最小值，允许零权、自环。无向图分别加双向；不保存原边编号。cost[u][v]=−1表示无边，LLONG_MAX仍是合法边权。\n\nrun(s)每次从头求指定源点的最短距离，成功后valid=true；dis为int128，inf表示不可达。path(t)返回正向顶点列表，不可达为空，源点自身为{s}；pre为父点，根及不可达为−1。相同距离任选方案，不承诺字典序。add使旧结果失效，支持重复换源与独立值拷贝；cost/dis/pre/root/valid只读。\n\n构造时间和空间O(n²)，add为O(1)，run为O(n²)，不使用堆；path为O(路径长)。矩阵约8(n+1)²字节，另加O(n)的距离和辅助数组，按内存选择n；稀疏图优先堆Dijkstra。有限最短路径至多n−1条边，距离<2^94，int128及inf=2^126足够。每步选择未定点中距离最小者，只松弛未定点并严格改善，零权环不会形成父点环。"
   ]
 ]

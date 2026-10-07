@@ -227,6 +227,7 @@
 | `ShortestPathTree` | [Codeforces 545E / Paths and Trees](https://codeforces.com/problemset/problem/545/E) | 1≤n≤300000;0≤m≤300000;1≤w≤10^9;连通无向无自环重边；指定源点，输出最小总边权及1-based原边编号。 | 待在线 AC | 待核验 |
 | `independent_set` | [Luogu P3355 / 骑士共存问题](https://www.luogu.com.cn/problem/P3355) | 1≤n≤200，0≤障碍数<n²；输出最大互不攻击骑士数。 | 待在线 AC | 待核验 |
 | `BipartiteMatching` | [CSES 1709 / Coin Grid](https://cses.fi/problemset/task/1709/) | 1≤n≤100；输出最少清空行列次数及1 行号/2 列号。 | 待在线 AC | 待核验 |
+| `DenseDijkstra` | [AOJ ALDS1_12_B / Single Source Shortest Path](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_B&lang=en) | 1≤n≤100，m≤10000，0≤w≤100000；0-based邻接行格式，源0可达全部点。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2137,6 +2138,14 @@ Library of Graph Algorithms正式全源最短路题。
 
 
 完整应用及额外原点方案接口均两种模式本地核验；未取得在线AC、排名与在线资源通过。
+
+### AOJ ALDS1_12_B / Single Source Shortest Path / DenseDijkstra
+
+正式算法练习：单源非负最短路，非比赛应用。
+
+
+
+正式模板题与宽整数顶点路径接口均两种模式本地核验；未取得在线AC、排名与在线资源通过。
 
 ## 榜单口径
 

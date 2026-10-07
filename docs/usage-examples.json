@@ -3905,5 +3905,31 @@
       "BipartiteMatching"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-312",
+    "symbol": "DenseDijkstra",
+    "kind": "template",
+    "problem": "AOJ ALDS1_12_B / Single Source Shortest Path",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_B&lang=en",
+    "summary": "输入n和n行“0-based点号 出度 邻点 权值…”，求0到各点距离，按原点号顺序逐行输出“点号 距离”。n≤100，m≤10000，0≤w≤100000，题面保证从0全部可达，距离可转long long。",
+    "driver": "verify/aoj/ALDS1_12_B.compact.cpp",
+    "requires": [
+      "DenseDijkstra"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-313",
+    "symbol": "DenseDijkstra",
+    "kind": "api",
+    "problem": "矩阵Dijkstra距离与顶点路径（接口演示）",
+    "url": "https://oi-wiki.org/graph/shortest-path/",
+    "summary": "输入n,m,s及1-based有向非负signed64边，逐点输出INF或“int128距离 路径顶点数 正向顶点列表”。重边合并为最小权；源点路径有一个点，与不可达空路径不同。",
+    "driver": "verify/api/dense_dijkstra.compact.cpp",
+    "requires": [
+      "DenseDijkstra"
+    ],
+    "start_new_page": true
   }
 ]

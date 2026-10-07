@@ -253,3 +253,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Floyd | [example-304](usage/example-304.cpp), [example-305（应用补充）](usage/example-305.cpp), [example-306（接口演示）](usage/example-306.cpp) | locally_checked_example |
 | ShortestPathTree | [example-307（应用补充）](usage/example-307.cpp), [example-308（接口演示）](usage/example-308.cpp) | locally_checked_application |
 | independent_set | [example-309（应用补充）](usage/example-309.cpp), [example-310（接口演示）](usage/example-310.cpp) | locally_checked_application |
+| DenseDijkstra | [example-312](usage/example-312.cpp), [example-313（接口演示）](usage/example-313.cpp) | locally_checked_example |

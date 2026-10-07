@@ -1,0 +1,44 @@
+{
+  "wida_commit": "cfdb12db6792eb2303798541fb5c760ed2bc618b",
+  "wida_path": "02 - 打印稿模板汇总/03A - 图论.md",
+  "wida_file_sha256": "17afd86fc037d1bf87f93b116bffb5dda6aef6e474c8a90c441816acb5da896a",
+  "kuangbin_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "kuangbin_printed_pages": [
+    130,
+    131
+  ],
+  "kuangbin_physical_pages_visually_inspected": [
+    132,
+    133
+  ],
+  "fixtures": {
+    "tests/fixtures/dijkstra_sources/kuangbin-heap.inc": "9c78e3f333e749a2b35fce541fefdc95943015052819abd3b8a5c2603628b673",
+    "tests/fixtures/dijkstra_sources/wida-heap.inc": "31c57680f1bc3c0ebfd862f331cc4a61ba3a6dd6634d67ff23c0657744523acf",
+    "tests/fixtures/dijkstra_sources/kuangbin-dense.inc": "3be6cecd4a9e8658d7c2a9123d6303f360f3c4791202d6404d3081d6e6f243f3"
+  },
+  "normalization": "Remove PDF line numbers/page headers; normalize minus glyph; omit one wrapped comment continuation. No kuangbin statement/constant changes. WIDA int widened to long long in explicit test context, keeping code body; no claim about plain 32-bit int.",
+  "wida_reuse": {
+    "edges": [
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "calls": [
+      1,
+      2
+    ],
+    "actual_distances": [
+      0,
+      0
+    ],
+    "expected_second_source": [
+      "INF",
+      0
+    ],
+    "compiled_reproducer": "tests/dense_dijkstra_probe.cpp:wida"
+  },
+  "official_statement": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_B&lang=en",
+  "online_ac": null
+}

@@ -120,3 +120,5 @@ Floyd全源最短路、负环提前退出与路径约定见 [FLOYD](docs/FLOYD.m
 最小总边权最短路树、零权块与原边方案见 [SHORTEST-PATH-TREE](docs/SHORTEST-PATH-TREE.md)。
 
 二分图最大独立集、最小点覆盖方案与棋盘应用见 [BIPARTITE-INDEPENDENT-SET](docs/BIPARTITE-INDEPENDENT-SET.md)。
+
+稠密图矩阵最短路、堆复杂度与三份来源核对见 [DENSE-DIJKSTRA](docs/DENSE-DIJKSTRA.md)。

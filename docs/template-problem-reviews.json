@@ -5730,5 +5730,27 @@
       "verification/independent-set-normal.json",
       "verification/independent-set-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "DenseDijkstra",
+    "problem": "AOJ ALDS1_12_B / Single Source Shortest Path",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_B&lang=en",
+    "classification": "正式算法练习：单源非负最短路，非比赛应用。",
+    "statement_checked": true,
+    "limits": "1≤n≤100，m≤10000，0≤w≤100000；0-based邻接行格式，源0可达全部点。",
+    "driver": "verify/aoj/ALDS1_12_B.compact.cpp",
+    "usage": "example-312",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "正式模板题与宽整数顶点路径接口均两种模式本地核验；未取得在线AC、排名与在线资源通过。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/dense-dijkstra-normal.json",
+      "verification/dense-dijkstra-sanitizer.json"
+    ]
   }
 ]
