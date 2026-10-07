@@ -19,6 +19,7 @@ chapters = {'exact_cover': '精确覆盖', 'minimum_cover': '最少行重复覆�
 chapters['exkmp'] = '两串扩展KMP'
 chapters['order_match'] = '顺序同构匹配'
 chapters['sam_queries'] = '后缀自动机查询'
+chapters['online_sam'] = '指定状态在线扩展SAM'
 chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
 chapters['potential_dsu'] = '带势并查集与差值约束'
@@ -290,6 +291,12 @@ for style in ['compact']:
                         body.append('\\newpage')
                         body.append('\\noindent ' + ('类型与桶内诱导' if part == 1 else 'LMS命名与递归') + '（接上页同一结构体）：')
                     body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'OnlineSAM':
+                split = next(i for i in range(start, end) if '// Append c' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 指定状态在线扩展（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'PersistentXorTrie':
                 split = next(i for i in range(start, end) if 'bool append(' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')

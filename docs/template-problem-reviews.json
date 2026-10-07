@@ -4870,5 +4870,35 @@
     "statement_sources": [
       "https://www.luogu.com.cn/problem/SP1811"
     ]
+  },
+  {
+    "symbol": "OnlineSAM",
+    "problem": "Luogu P6139 / 在线扩展版本",
+    "url": "https://www.luogu.com.cn/problem/P6139",
+    "classification": "Formal generalized-SAM template problem; count endpos states including root, not minimized suffix-language DFA.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "At most400000 nonempty lowercase strings, total length<=1000000; live time/memory limits unverified.",
+    "adapter": "Reset parent to root for each document, print incremental distinct count and actual state count including root.",
+    "implementation": "existing",
+    "source": "src/compact/online_sam.hpp",
+    "tested_api": [
+      "OnlineSAM"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "168 inputs per full program form in normal+ASan/UBSan, including documented official samples and maximum-size sets. No new online AC or speed rank; arbitrary-parent complexity is explicitly not linear.",
+    "driver": "verify/luogu/online_sam/P6139.compact.cpp",
+    "local_reports": [
+      "verification/sam-build-normal.json",
+      "verification/sam-build-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P6139"
+    ]
   }
 ]

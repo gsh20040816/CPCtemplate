@@ -193,6 +193,7 @@
 | `order_match` | [Luogu P6080 / Cow Patterns](https://www.luogu.com.cn/problem/P6080) | N1..100000; K1..25000; S1..25; values1..S. Live time/memory limits unverified. | 待在线 AC | 待核验 |
 | `SAMLex` | [Luogu P3975 / 弦论](https://www.luogu.com.cn/problem/P3975) | n1..500000, t0/1, k1..1e9; lowercase input. Live time/memory limits unverified. | 待在线 AC | 待核验 |
 | `sam_lcs` | [SPOJ LCS / 最长公共子串](https://www.luogu.com.cn/problem/SP1811) | Exactly two lines, at most250000 lowercase letters each. getline additionally handles empty lines and CRLF. Live time/memory limits unverified. | 待在线 AC | 待核验 |
+| `OnlineSAM` | [Luogu P6139 / 在线扩展版本](https://www.luogu.com.cn/problem/P6139) | At most400000 nonempty lowercase strings, total length<=1000000; live time/memory limits unverified. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1817,6 +1818,16 @@ Build first string SAM, return the length from the earliest maximum substring in
 Local independent core oracles and three full forms in normal+ASan/UBSan; online AC/rank pending. No whole-library regression claim.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/SP1811)
+
+### Luogu P6139 / 在线扩展版本 / OnlineSAM
+
+Formal generalized-SAM template problem; count endpos states including root, not minimized suffix-language DFA.
+
+Reset parent to root for each document, print incremental distinct count and actual state count including root.
+
+168 inputs per full program form in normal+ASan/UBSan, including documented official samples and maximum-size sets. No new online AC or speed rank; arbitrary-parent complexity is explicitly not linear.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P6139)
 
 ## 榜单口径
 

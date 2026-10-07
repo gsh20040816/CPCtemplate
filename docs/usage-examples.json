@@ -3198,5 +3198,41 @@
       "SAMLex",
       "sam_lcs"
     ]
+  },
+  {
+    "id": "example-256",
+    "symbol": "OnlineSAM",
+    "kind": "api",
+    "problem": "在线分支扩展 / API示例",
+    "url": "https://github.com/gsh20040816/CPCtemplate",
+    "summary": "q次操作，每次给历史版本parent（0≤parent<i）和小写字符c；将该版本的完整串接c作为新版本，版本0为空。保存返回状态号，每次输出当前全部版本的不同非空子串并集大小。这是添加路径，不是持久化SAM：所有查询读取累计语言。",
+    "driver": "verify/api/online_sam.compact.cpp",
+    "requires": [
+      "OnlineSAM"
+    ]
+  },
+  {
+    "id": "example-257",
+    "symbol": "GeneralSAM",
+    "kind": "api",
+    "problem": "直接Trie建图与含空串排名 / API示例",
+    "url": "https://github.com/gsh20040816/CPCtemplate",
+    "summary": "输入n,q，再给n条parent,c（0≤parent<i），节点0为空根；重复同标签边可合并。一次BFS构建后输出含空串的不同子串数。每次输入字母序排列和1-based k，k=1输出空行，其余调用kth(k-1)，不足输出-1。自行约定的API演示，不冒充TSUBSTR官方驱动。",
+    "driver": "verify/api/trie_sam.compact.cpp",
+    "requires": [
+      "GeneralSAM",
+      "SAMLex"
+    ]
+  },
+  {
+    "id": "example-258",
+    "symbol": "OnlineSAM",
+    "problem": "Luogu P6139 / 在线扩展版本",
+    "url": "https://www.luogu.com.cn/problem/P6139",
+    "summary": "每个文档从根重新扩展，输出不同非空子串数和含根endpos状态数；题面最多40万串、总长至100万。与已有GeneralSAM相同的状态口径，不做后缀语言DFA最小化；本地验证，线上待补。任意父状态API的最坏复杂度不能据此称线性。",
+    "driver": "verify/luogu/online_sam/P6139.compact.cpp",
+    "requires": [
+      "OnlineSAM"
+    ]
   }
 ]

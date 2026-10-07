@@ -64,7 +64,16 @@ class ReportTests(unittest.TestCase):
             report = json.loads((ROOT/f'verification/{name}.json').read_text())
             for p,digest in report['files'].items():
                 if not p.startswith(('src/', 'verify/')): continue
-                self.assertEqual(hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),digest)
+                if name == 'general-sam-application':
+                    # The historical report remains immutable; construction was extended later.
+                    for mode in ['normal', 'sanitizer']:
+                        current = json.loads((ROOT/f'verification/sam-build-{mode}.json').read_text())
+                        self.assertTrue(current['passed'])
+                        self.assertEqual(current['source_before_sha256'], current['source_after_sha256'])
+                        self.assertEqual(hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),
+                                         current['source_after_sha256'][p])
+                else:
+                    self.assertEqual(hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),digest)
         known = next(r for r in reviews if r['symbol']=='unit_flow_edges')
         self.assertIn('not a standalone template',known['classification'])
 

@@ -502,27 +502,27 @@ sam\_lcs(sam,t)接收已有单串SuffixAutomaton或已build的GeneralSAM及小�
 
 联合使用示例见第~\pageref{usage-example-255}~页（广义SAM查询 / API示例），其中直接调用本模板。
 
-\Needspace{486pt}
+\Needspace{540pt}
 
 \chapter{广义后缀自动机}
 
 \section{广义后缀自动机：Trie BFS 构建}\label{compact-GeneralSAM}\index{GeneralSAM}
 
-先 add(s) 登记若干小写字符串，再 build() 原地将 Trie 变为广义 SAM；build 后禁止继续 add，可重复 build，重新收集串需新建对象。空串与重复串允许，distinct() 返回所有输入串中不同非空子串的总数，不包含跨串拼接。根为 0，a[v].go[c] 为转移、0 表示无边，link 为后缀链接、len 为最长代表串长度；从根沿字符转移可判定子串是否存在。a.size() 为按文档 endpos 等价类构造的状态数，不应直接称为后缀并集语言的最小 DFA 点数；ab、b 是两者不同的例子。P6139 官方样例一要求 endpos 点数10，后缀语言最小化仅7点；该题用 a.size()，勿再最小化。固定 26 字符，设累计输入长度 L、Trie 点数 K，登记总时间 O(L)，build 时间与空间 O(26K)，状态少于 2K；累计输入长度及 2K 须可由 int 表示。克隆只复制已处理转移，不能带入尚未 BFS 处理的 Trie 子边。此版不提供出现次数或各串所属标记。
+先 add(s) 登记若干小写字符串，再 build() 原地将 Trie 变为广义 SAM；build 后禁止继续 add，可重复 build，重新收集串需新建对象。空串与重复串允许，distinct() 返回所有输入串中不同非空子串的总数，不包含跨串拼接。根为 0，a[v].go[c] 为转移、0 表示无边，link 为后缀链接、len 为最长代表串长度；从根沿字符转移可判定子串是否存在。a.size() 为按文档 endpos 等价类构造的状态数，不应直接称为后缀并集语言的最小 DFA 点数；ab、b 是两者不同的例子。P6139 官方样例一要求 endpos 点数10，后缀语言最小化仅7点；该题用 a.size()，勿再最小化。固定 26 字符，设累计输入长度 L、Trie 点数 K，登记总时间 O(L)，build 时间与空间 O(26K)，状态少于 2K；累计输入长度及 2K 须可由 int 表示。克隆只复制已处理转移，不能带入尚未 BFS 处理的 Trie 子边。此版不提供出现次数或各串所属标记。 新增add(p,c)在build前按Trie边登记，0<=c<26，p为已有Trie节点；返回子节点号，重复边复用。单次均摊O(1)，避免把输入树展开成多条长串；add(s)复用此入口。原Trie编号在build后仍代表原根路径，但禁止继续add。
 
-\lstinputlisting[firstline=9,lastline=37,firstnumber=1]{../src/compact/general_sam.hpp}
+\lstinputlisting[firstline=9,lastline=40,firstnumber=1]{../src/compact/general_sam.hpp}
 
 \newpage
 
 \noindent BFS 构建（接上页同一结构体）：
 
-\lstinputlisting[firstline=38,lastline=84,firstnumber=30]{../src/compact/general_sam.hpp}
+\lstinputlisting[firstline=41,lastline=87,firstnumber=33]{../src/compact/general_sam.hpp}
 
 \newpage
 
 \noindent 不同子串计数（接上页同一结构体）：
 
-\lstinputlisting[firstline=85,lastline=92,firstnumber=77]{../src/compact/general_sam.hpp}
+\lstinputlisting[firstline=88,lastline=95,firstnumber=80]{../src/compact/general_sam.hpp}
 
 \Needspace{300pt}
 
@@ -551,6 +551,64 @@ sam\_lcs(sam,t)接收已有单串SuffixAutomaton或已build的GeneralSAM及小�
 题目：\url{https://www.luogu.com.cn/problem/P6139}
 
 \lstinputlisting{usage/example-132.cpp}
+
+\Needspace{528pt}
+
+\subsection*{接口用法演示：直接Trie建图与含空串排名 / API示例}
+
+\label{usage-example-257}
+
+演示约定：输入n,q，再给n条parent,c（0$\le$parent<i），节点0为空根；重复同标签边可合并。一次BFS构建后输出含空串的不同子串数。每次输入字母序排列和1-based k，k=1输出空行，其余调用kth(k-1)，不足输出-1。自行约定的API演示，不冒充TSUBSTR官方驱动。
+
+所需模板：\hyperref[compact-GeneralSAM]{GeneralSAM}（第~\pageref{compact-GeneralSAM}~页，\ref{compact-GeneralSAM}~节）、\hyperref[compact-SAMLex]{SAMLex}（第~\pageref{compact-SAMLex}~页，\ref{compact-SAMLex}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate}
+
+\lstinputlisting{usage/example-257.cpp}
+
+\Needspace{595pt}
+
+\noindent 相关应用：指定状态在线扩展；任意插入顺序不保证Trie节点数线性复杂度。
+
+\section{指定状态在线扩展SAM}\label{compact-OnlineSAM}\index{OnlineSAM}
+
+OnlineSAM()以0为根；extend(p,c)给状态p代表的最长串末尾接字符0<=c<26，返回该串的状态号，调用后立即可沿go判断已有子串。旧状态的len与编号保持，但link/go可变化；不可用短于len[p]的匹配串冒充该最长串。逐串输入时每串从p=0开始；重复路径允许。total为当前不同非空子串数，a含根，公开字段只读；不自动统计出现次数、文档频率或终态。一次至多增加2状态，需状态数和长度可用int索引，数组可分配。单次O(当前最大串长D+26)，Q次保守O(QD+26Q)，任意顺序可能平方级；已知整棵Trie优先GeneralSAM的BFS构造。空间O(26Q)，重置赋新对象。内部递归只进入已有转移分支，深度至多2；构建完成后可用SAMLex/sam\_lcs，继续扩展前先弃用旧查询索引。
+
+\lstinputlisting[firstline=7,lastline=17]{../src/compact/online_sam.hpp}
+
+\newpage
+
+\noindent 指定状态在线扩展（接上页同一结构体）：
+
+\lstinputlisting[firstline=18,lastline=51,firstnumber=12]{../src/compact/online_sam.hpp}
+
+\Needspace{366pt}
+
+\subsection*{接口用法演示：在线分支扩展 / API示例}
+
+\label{usage-example-256}
+
+演示约定：q次操作，每次给历史版本parent（0$\le$parent<i）和小写字符c；将该版本的完整串接c作为新版本，版本0为空。保存返回状态号，每次输出当前全部版本的不同非空子串并集大小。这是添加路径，不是持久化SAM：所有查询读取累计语言。
+
+所需模板：\hyperref[compact-OnlineSAM]{OnlineSAM}（第~\pageref{compact-OnlineSAM}~页，\ref{compact-OnlineSAM}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate}
+
+\lstinputlisting{usage/example-256.cpp}
+
+\Needspace{366pt}
+
+\subsection*{模板题使用：Luogu P6139 / 在线扩展版本}
+
+\label{usage-example-258}
+
+题意：每个文档从根重新扩展，输出不同非空子串数和含根endpos状态数；题面最多40万串、总长至100万。与已有GeneralSAM相同的状态口径，不做后缀语言DFA最小化；本地验证，线上待补。任意父状态API的最坏复杂度不能据此称线性。
+
+所需模板：\hyperref[compact-OnlineSAM]{OnlineSAM}（第~\pageref{compact-OnlineSAM}~页，\ref{compact-OnlineSAM}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6139}
+
+\lstinputlisting{usage/example-258.cpp}
 
 \Needspace{491pt}
 

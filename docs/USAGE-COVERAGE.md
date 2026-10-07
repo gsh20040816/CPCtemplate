@@ -185,7 +185,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Johnson | [example-74](usage/example-74.cpp) | locally_checked_example |
 | DominatorTree | [example-82](usage/example-82.cpp), [example-83](usage/example-83.cpp) | locally_checked_example |
 | SegmentLiChao | [example-87](usage/example-87.cpp), [example-88（应用补充）](usage/example-88.cpp) | locally_checked_example |
-| GeneralSAM | [example-90](usage/example-90.cpp), [example-132](usage/example-132.cpp) | locally_checked_example |
+| GeneralSAM | [example-90](usage/example-90.cpp), [example-132](usage/example-132.cpp), [example-257（接口演示）](usage/example-257.cpp) | locally_checked_example |
 | ac_shortest | [example-92（应用补充）](usage/example-92.cpp) | locally_checked_application |
 | BoundedMaxFlow | [example-93（应用补充）](usage/example-93.cpp), [example-99（应用补充）](usage/example-99.cpp) | locally_checked_application |
 | matching_edges | [example-95（应用补充）](usage/example-95.cpp) | locally_checked_application |
@@ -234,3 +234,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | order_match | [example-251（应用补充）](usage/example-251.cpp) | locally_checked_application |
 | SAMLex | [example-253（应用补充）](usage/example-253.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |
 | sam_lcs | [example-254（应用补充）](usage/example-254.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |
+| OnlineSAM | [example-256（接口演示）](usage/example-256.cpp), [example-258](usage/example-258.cpp) | locally_checked_example |

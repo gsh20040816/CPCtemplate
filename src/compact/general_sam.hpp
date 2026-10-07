@@ -17,22 +17,25 @@ struct GeneralSAM
     vector<Node> a{Node{}};
     bool ready = false;
 
+    // Trie step before build; repeated edges return the same node.
+    int add(int p, int c)
+    {
+        assert(!ready && 0 <= p && p < (int)a.size());
+        assert(0 <= c && c < 26);
+        if (!a[p].go[c])
+        {
+            int v = a.size();
+            a.push_back(Node{});
+            a[p].go[c] = v;
+        }
+        return a[p].go[c];
+    }
+
     void add(const string &s)
     {
         assert(!ready);
         int p = 0;
-        for (char ch : s)
-        {
-            int c = ch - 'a';
-            assert(0 <= c && c < 26);
-            if (!a[p].go[c])
-            {
-                int v = a.size();
-                a.push_back(Node{});
-                a[p].go[c] = v;
-            }
-            p = a[p].go[c];
-        }
+        for (char ch : s) p = add(p, ch - 'a');
     }
 
     void build()

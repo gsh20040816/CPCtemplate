@@ -1,0 +1,67 @@
+{
+  "upstream": [
+    {
+      "path": "03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/04A%20-%20%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88SuffixAutomaton%20%E6%97%A7%E7%89%88%EF%BC%89.cpp",
+      "sha256": "659a8773891a80b3df0fe997eb093e0fbcafbdbf3b525fea553ec4a3eedf34ae"
+    },
+    {
+      "path": "03 - jiangly模板收集/05 - 字符串/04B - 后缀自动机（SAM 新版）.cpp",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/04B%20-%20%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88SAM%20%E6%96%B0%E7%89%88%EF%BC%89.cpp",
+      "sha256": "d1bb3f7e4ebc0f3fc446b2263f6afcc44c3079e9f6a9af143fa88a03b8d0e61b"
+    }
+  ],
+  "commit": "cfdb12db6792eb2303798541fb5c760ed2bc618b",
+  "kuangbin_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "rows": [
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp",
+      "page": "",
+      "topic": "04A - 后缀自动机（SuffixAutomaton 旧版）",
+      "status": "local-tested",
+      "compact": "OnlineSAM",
+      "verification": "sam-build audit: arbitrary-parent online extension, existing-edge clones, reset and direct state access covered with independent per-operation substring/endpos classes. Root0 replaces upstream virtual0/root1; char offsets handled explicitly before extend. Worst arbitrary order is not linear in operation count; exact quadratic redirect witness tested. No online AC/rank. See docs/SAM-BUILD.md."
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/04B - 后缀自动机（SAM 新版）.cpp",
+      "page": "",
+      "topic": "04B - 后缀自动机（SAM 新版）",
+      "status": "local-tested",
+      "compact": "OnlineSAM",
+      "verification": "sam-build audit: arbitrary-parent online extension, existing-edge clones, reset and direct state access covered with independent per-operation substring/endpos classes. Root0 replaces upstream virtual0/root1; char offsets handled explicitly before extend. Worst arbitrary order is not linear in operation count; exact quadratic redirect witness tested. No online AC/rank. See docs/SAM-BUILD.md."
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "15",
+      "topic": "1.6 后缀自动机",
+      "status": "partial",
+      "compact": "OnlineSAM,GeneralSAM,SAMLex,sam_lcs",
+      "verification": "sam-build audit: arbitrary-parent append, direct Trie-edge batch build and empty-inclusive rank adapter locally checked. Basic construction covered; parent/example rows remain partial because CF204E document frequencies are missing and TSUBSTR official full input contract was unavailable. Do not equate API demo with official application verification. See docs/SAM-BUILD.md."
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "15",
+      "topic": "1.6.1 基本函数",
+      "status": "local-tested",
+      "compact": "OnlineSAM,GeneralSAM,SAMLex,sam_lcs",
+      "verification": "sam-build audit: arbitrary-parent append, direct Trie-edge batch build and empty-inclusive rank adapter locally checked. Basic construction covered; parent/example rows remain partial because CF204E document frequencies are missing and TSUBSTR official full input contract was unavailable. Do not equate API demo with official application verification. See docs/SAM-BUILD.md."
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "16",
+      "topic": "1.6.2 例题",
+      "status": "partial",
+      "compact": "OnlineSAM,GeneralSAM,SAMLex,sam_lcs",
+      "verification": "sam-build audit: arbitrary-parent append, direct Trie-edge batch build and empty-inclusive rank adapter locally checked. Basic construction covered; parent/example rows remain partial because CF204E document frequencies are missing and TSUBSTR official full input contract was unavailable. Do not equate API demo with official application verification. See docs/SAM-BUILD.md."
+    }
+  ],
+  "scope": "Functional replacement for two WIDA online constructors and kuangbin basic constructor. Three local-tested rows; two chapter/application rows remain partial.",
+  "remaining": "CF204E per-document frequency application; TSUBSTR full official contract/resource limits and online validation. Counts and state numbering conventions explicitly adapted in docs/SAM-BUILD.md.",
+  "online_complexity": "Exact redirection count n(n+1)/2 for2n+1 arbitrary-parent operations, measured at n200/400/800/1600; offline Trie BFS remains recommended when all edges are known.",
+  "oi_wiki": "https://oi-wiki.org/string/general-sam/"
+}

@@ -254,6 +254,10 @@ cases['example-254'] = [('ababc\nbabca\n','4'),('a\nz\n','0'), ('\nabc\n','0'), 
 
 cases['example-255'] = [('2\nab\nbc\nabcdefghijklmnopqrstuvwxyz 3 zzbcab\n','b 2 2'),('0\nabcdefghijklmnopqrstuvwxyz 1 abc\n','-1 0 0')]
 
+cases['example-256'] = [('4\n0 a\n1 b\n0 b\n3 a\n','1 3 3 4'),('0\n','')]
+cases['example-257'] = [('2 4\n0 a\n1 b\nabcdefghijklmnopqrstuvwxyz 1\nabcdefghijklmnopqrstuvwxyz 2\nabcdefghijklmnopqrstuvwxyz 4\nabcdefghijklmnopqrstuvwxyz 5\n', {'exact_text':'4\n\na\nb\n-1\n'})]
+cases['example-258'] = [('4\naa\nab\nbac\ncaa\n','10 10'),('2\nab\nb\n','3 4')]
+
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 cases['example-251'] = [('9 6 10\n5 6 2 10 10 7 3 2 9\n1 4 4 3 2 1\n', '1 3'), ('4 2 2\n1 1 1 1\n2 2\n', '3 1 2 3')]

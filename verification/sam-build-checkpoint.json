@@ -1,0 +1,82 @@
+{
+  "base": "ad25bb0c9b9d95da344e72328f8bb32a47f704d3",
+  "batch": "Arbitrary-parent online SAM and direct Trie-edge GeneralSAM construction",
+  "core_cases_per_form": 39609,
+  "core_checks_per_form": 3079185,
+  "complete_inputs_per_form": {
+    "example-256": 101,
+    "example-257": 101,
+    "example-258": 168,
+    "example-132": 168
+  },
+  "semantic_mutants_per_mode": 7,
+  "affected_usage_programs_retested": 6,
+  "current_counts": {
+    "components": 228,
+    "usages": 258,
+    "usage_status": {
+      "locally_checked_example": 167,
+      "locally_checked_application": 49,
+      "locally_checked_api": 12
+    },
+    "pending_upstream_topics": 621,
+    "partial_upstream_topics": 31
+  },
+  "source_rows": {
+    "audited": 5,
+    "local_tested": 3,
+    "partial": 2
+  },
+  "runtime_source_sha256": {
+    "src/compact/online_sam.hpp": "725311b02a6d5d587153eb8fead6461036fca9833d34c69990f20f9f73467b88",
+    "src/compact/general_sam.hpp": "c7e4e8656f34c6cba34a1fb72ac7875ba0ca00f572d037cff9cdaa68ea026d2e",
+    "src/compact/sam_queries.hpp": "bbba7836d604e01dda28b930aae95bc87043528fe6ce2400290868edcee179ef",
+    "tests/sam_build.py": "2bdf99cc964fec3697f1e632a4a2616519f416574ad066b403984d4a47aa8558",
+    "tests/sam_build_probe.cpp": "4bac14fbf03e6a494e865a5d8adc21995b826cd8fa426bf3274d8b9eb5f1e42d",
+    "tests/usage_examples.py": "2ad9e06a1a34317cb32309cdefcf45e736943761b0662fc1b63262f75e3efe2d",
+    "tests/general_sam.cpp": "80c6eee2297b95ed217a4fb0e9bf666c4e408f69213a561620148841a09ada8f",
+    "verify/api/online_sam.compact.cpp": "7246afd1a6f554091fe417a89e61a10ace2bef3dfc1c5f40f329691414ab12d4",
+    "verify/api/trie_sam.compact.cpp": "50650ea7f96a09b653a458b5685b1b37286e154912689dda31ddab5c854c02ef",
+    "verify/luogu/online_sam/P6139.compact.cpp": "22c04ef253b52934bfbfc3f8ebc1f9b16e7817694b9b434ad02d4e25df2d401b",
+    "verify/luogu/P6139.compact.cpp": "b746f179c4e0114a4687d89b29b0da0b897348b4143bb193330a84bbf81deb6f",
+    "docs/usage/example-256.cpp": "b3c011a36fcc35667c62dd683621ff05504b20558d8e937dfde9a161c0bc72c9",
+    "docs/usage/example-257.cpp": "a7a76150fa16f59bf9f03bd4fea9f6fa5b3a1b87c2e4b0d4838bfea9b89ef728",
+    "docs/usage/example-258.cpp": "fe067fa42ff6019e6e018b1589a2550b17c160723e55438d154f60ce8c153a1c"
+  },
+  "report_sha256": {
+    "verification/sam-build-copy.json": "6ffdf5ac53d9883389a52ea9603ec1dd48ca2c7d736d2d7a3f753fe289570d7e",
+    "verification/sam-build-general-regression.json": "3c658e715d9dffb749ac42732568c6ef5eb53d90801fc31e33b59818b2d0017a",
+    "verification/sam-build-layout.json": "9104285c48dc7f7361e69f2c387e87fdf6c102bcb842321d6eb0736f695452f8",
+    "verification/sam-build-normal.json": "76dfdde2d0527c3d9fd29f926e7406a0cb104915a8b6f908123aab53d07fe9ba",
+    "verification/sam-build-query-regression-normal.json": "08583e566f2295ff4dc8e055dc9e2cf67a15e7c1a4fad426c4b30dd55ebd23ec",
+    "verification/sam-build-query-regression-sanitizer.json": "c1b03a9d7769dff8a74d9f9718d7f050e1ca38d57e5b3dcab2f0b286686c8265",
+    "verification/sam-build-sanitizer.json": "418e6e50a4f227afed6f8653bc2125d2a45d9b6b26fb9a255430ebcc3bb3380b",
+    "verification/sam-build-sources.json": "d576f71277458167b29f049dd5a8550245791f9f660e1a4448e5a050051af133"
+  },
+  "documentation_after_runtime": "Runtime implementation/probe/driver/snippet sources remain hash-identical. Later edits updated documentation, registration, PDF pagination and report regression checks to use current construction evidence while preserving historical evidence. No full-library rerun claim.",
+  "remaining": "CF204E per-document frequency application; TSUBSTR official full contract, driver and online validation. Upstream621 pending and31 partial rows, recent Chinese contest survey and OI math gaps remain. No new online AC/rank. Browser unlock request unresolved.",
+  "issue_check": "Comments fetched since2026-10-07T11:08:31Z: only our batch start comments, no new human steering.",
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "6fe73b83ff716ddb337604d19aef8b4b52ce3899c940284206e047d3053d7485",
+      "font_set_preserved": true,
+      "page_change": 4,
+      "pages": 724,
+      "bytes_changed": true
+    },
+    "output/pdf/xcpc-strings.pdf": {
+      "sha256": "70188f96778e2e35966869cd5ded57e3fed400fb55e7c559f9182a39eb313a20",
+      "font_set_preserved": true,
+      "page_change": 4,
+      "pages": 52,
+      "bytes_changed": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "9462c44359c97d9c02d895adf1ce5a065465a06cabb99d097675f18569d8817e",
+      "font_set_preserved": true,
+      "page_change": 0,
+      "pages": 12,
+      "bytes_changed": false
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "scope": "Original GeneralSAM regression rerun after add(p,c) refactor; local only.",
+  "files": {
+    "src/compact/general_sam.hpp": "c7e4e8656f34c6cba34a1fb72ac7875ba0ca00f572d037cff9cdaa68ea026d2e",
+    "tests/general_sam.cpp": "80c6eee2297b95ed217a4fb0e9bf666c4e408f69213a561620148841a09ada8f"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "compile_command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O2",
+        "tests/general_sam.cpp",
+        "-o",
+        "build/sam-build-general-normal"
+      ],
+      "run_command": [
+        "build/sam-build-general-normal"
+      ],
+      "binary_sha256": "bda83c38a497cb9a50f3d5b1eb76d9f8339f1fe61c9883dab580922982ed4223",
+      "log_sha256": "42a66bb1c24ac365d048388081159879717abd84728e65faa74bdbe992d0ec61",
+      "output": "GeneralSAM: 3375 exhaustive triples, 2000 random sets and reversed order, independent substring/endpos classes and accepted paths; million-character chain and 400000 duplicate strings PASS\n",
+      "passed": true
+    },
+    {
+      "mode": "san",
+      "compile_command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "tests/general_sam.cpp",
+        "-o",
+        "build/sam-build-general-san"
+      ],
+      "run_command": [
+        "ASAN_OPTIONS=detect_leaks=0:halt_on_error=1",
+        "UBSAN_OPTIONS=halt_on_error=1",
+        "build/sam-build-general-san"
+      ],
+      "binary_sha256": "c82adc8dec3c02363f67b0bcca883ddec13ffdccefe74e4e117fdb6472749566",
+      "log_sha256": "42a66bb1c24ac365d048388081159879717abd84728e65faa74bdbe992d0ec61",
+      "output": "GeneralSAM: 3375 exhaustive triples, 2000 random sets and reversed order, independent substring/endpos classes and accepted paths; million-character chain and 400000 duplicate strings PASS\n",
+      "passed": true
+    }
+  ]
+}
