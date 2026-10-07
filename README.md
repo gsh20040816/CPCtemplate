@@ -154,3 +154,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 树边翻转、奇路径计数及树分治父节范围见 [TREE-PATH-PARITY](docs/TREE-PATH-PARITY.md)。
 
 按位置插删、区间等值计数及CF455D在线解码见 [序列替罪羊树](docs/SEQUENCE-SCAPEGOAT.md)，与按值排序的替罪羊树分开。
+
+带插入区间第k小的来源协议及不伸展Splay查询退化反例见 [树套树来源审计](docs/SEQUENCE-KTH-SOURCE-AUDIT.md)；新实现和手册仍待完成。
