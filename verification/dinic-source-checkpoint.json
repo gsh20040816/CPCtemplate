@@ -1,0 +1,139 @@
+{
+  "base": "0f03c7ca1888c8e453ebb5ef7ad5d5cb0cb61bbf",
+  "components": 251,
+  "usages": 321,
+  "pending": 562,
+  "partial": 31,
+  "source_mappings_updated": 2,
+  "pdf_source_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "physical_dinic_pages_visually_inspected": [
+    168,
+    169,
+    170
+  ],
+  "parent_headings": [
+    "4.16.1 SAP 邻接矩阵形式",
+    "4.16.2 SAP 邻接矩阵形式 2",
+    "4.16.3 ISAP 邻接表形式",
+    "4.16.4 ISAP+bfs 初始化 + 栈优化",
+    "4.16.5 dinic",
+    "4.16.6 最大流判断多解"
+  ],
+  "child_receipts": [
+    {
+      "receipt": "verification/matrix-sap-normal.json",
+      "sha256": "aab2d1dc8b8b29f7a507b3c48ef542d6aa5aa63dede2a10eb020e78d17ead44a",
+      "current_files": {
+        "src/compact/isap.hpp": "0a70bc7d612fee0931d3586daadcccc1c3def01342f21a01a24b44c0518831b7",
+        "tests/matrix_sap.cpp": "198701e92930064ceb388163324887afe2b16ea46a0334f86ce76c7a17dc5bf5",
+        "tests/matrix_sap.py": "6e2b08a746e5195ab94abd41799ef2fa28bdb9799d70a790cfeac5d9d18d2ecb",
+        "tests/fixtures/matrix_sap_sources/residual.inc": "5d8ec199cec37f570bbfc3a49ccf4aa695a764e316406ace08d87fc29c6dd8f3",
+        "tests/fixtures/matrix_sap_sources/current.inc": "d0c7152cf7f41651a4f602e8cd48562d2a2f4f717bb3310acb5870243f005241",
+        "tests/fixtures/matrix_sap_sources/preserved.inc": "453068a6bb4601033993336909242c1b1465254df37257d6804af74e117c1c33"
+      }
+    },
+    {
+      "receipt": "verification/matrix-sap-sanitizer.json",
+      "sha256": "c645fdf0dfdbf7461dd1f20023cf8a1dcd86c7144143fde5d4bf32cbcb45bc8e",
+      "current_files": {
+        "src/compact/isap.hpp": "0a70bc7d612fee0931d3586daadcccc1c3def01342f21a01a24b44c0518831b7",
+        "tests/matrix_sap.cpp": "198701e92930064ceb388163324887afe2b16ea46a0334f86ce76c7a17dc5bf5",
+        "tests/matrix_sap.py": "6e2b08a746e5195ab94abd41799ef2fa28bdb9799d70a790cfeac5d9d18d2ecb",
+        "tests/fixtures/matrix_sap_sources/residual.inc": "5d8ec199cec37f570bbfc3a49ccf4aa695a764e316406ace08d87fc29c6dd8f3",
+        "tests/fixtures/matrix_sap_sources/current.inc": "d0c7152cf7f41651a4f602e8cd48562d2a2f4f717bb3310acb5870243f005241",
+        "tests/fixtures/matrix_sap_sources/preserved.inc": "453068a6bb4601033993336909242c1b1465254df37257d6804af74e117c1c33"
+      }
+    },
+    {
+      "receipt": "verification/isap-normal.json",
+      "sha256": "abf6791946a2309e99852dadc86d0ebaf16591855dffe03b127aeef2cd56cea6",
+      "current_files": {
+        "src/compact/isap.hpp": "0a70bc7d612fee0931d3586daadcccc1c3def01342f21a01a24b44c0518831b7",
+        "tests/isap.cpp": "b3d9c4bb80c1ef2ae0b646a5feb172e3a43d16b7f4524018d7a7318bd88eaaa1",
+        "tests/isap.py": "c61fb68a7c8f45f333bdc9f6b19d6d9203293215784f2a6b99ce63e9e951b263",
+        "verify/luogu/P3376-isap.compact.cpp": "3f8540aa99c7db32849dcbd5bac29d3c632458064888f3b2b7784950bd467632",
+        "tests/fixtures/isap_sources/sap.inc": "e252260efe074dba1bf1320b6a38da59ef6b1a60660ee83c97d3593ed3350d23",
+        "tests/fixtures/isap_sources/bfs.inc": "4528088bfe07580a6cc5b6555128d457a9476ac3a253a11b7c77579e7feae9a6"
+      }
+    },
+    {
+      "receipt": "verification/isap-sanitizer.json",
+      "sha256": "93aab89215af5522d2db8596123c528a1db9130b7db99c8f69dd3fe7d808466a",
+      "current_files": {
+        "src/compact/isap.hpp": "0a70bc7d612fee0931d3586daadcccc1c3def01342f21a01a24b44c0518831b7",
+        "tests/isap.cpp": "b3d9c4bb80c1ef2ae0b646a5feb172e3a43d16b7f4524018d7a7318bd88eaaa1",
+        "tests/isap.py": "c61fb68a7c8f45f333bdc9f6b19d6d9203293215784f2a6b99ce63e9e951b263",
+        "verify/luogu/P3376-isap.compact.cpp": "3f8540aa99c7db32849dcbd5bac29d3c632458064888f3b2b7784950bd467632",
+        "tests/fixtures/isap_sources/sap.inc": "e252260efe074dba1bf1320b6a38da59ef6b1a60660ee83c97d3593ed3350d23",
+        "tests/fixtures/isap_sources/bfs.inc": "4528088bfe07580a6cc5b6555128d457a9476ac3a253a11b7c77579e7feae9a6"
+      }
+    },
+    {
+      "receipt": "verification/dinic-source-normal.json",
+      "sha256": "cd5f7f3b63a5c73c9803d8257da9d16ffc8bd7df46346ce8c3e622914927527f",
+      "current_files": {
+        "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+        "tests/dinic_source_audit.cpp": "8da849b77a819edee23a4eb213b170be1352380a63aa92ecd6ec25d757283b5a",
+        "tests/dinic_source_audit.py": "51942549d70d77887c280c7e1f740338908fd12b701c0ebb571b95257cc70e8f",
+        "tests/fixtures/dinic_sources/kuangbin.inc": "b8964a3b27bd14e011dcdb0d4c972da380cc97a3c3f40040275c3fe95ed09a77"
+      }
+    },
+    {
+      "receipt": "verification/dinic-source-sanitizer.json",
+      "sha256": "f7cf889bff714cad22cf2bf8fcb777892e09a48b52a404492ca30d69ddd2babe",
+      "current_files": {
+        "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+        "tests/dinic_source_audit.cpp": "8da849b77a819edee23a4eb213b170be1352380a63aa92ecd6ec25d757283b5a",
+        "tests/dinic_source_audit.py": "51942549d70d77887c280c7e1f740338908fd12b701c0ebb571b95257cc70e8f",
+        "tests/fixtures/dinic_sources/kuangbin.inc": "b8964a3b27bd14e011dcdb0d4c972da380cc97a3c3f40040275c3fe95ed09a77"
+      }
+    },
+    {
+      "receipt": "verification/flow-unique-normal.json",
+      "sha256": "c063af063bc30a4599f1998b197050b39bacdbd8c5827ddd867547a67de48119",
+      "current_files": {
+        "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+        "src/compact/tarjan.hpp": "61899731db759d931d805d476f659163f404b999e6eba368536a39e404fc5bf1",
+        "src/compact/flow_unique.hpp": "1fbd74e678dcdfa0259da49e2d3ba3a2d83c2e5764971cc026d9b974dbb7596c",
+        "tests/flow_unique.py": "064b14d5813bbd10cb8fcd34869f605b1f090f604978735073ff79ca7e87dd68",
+        "tests/flow_unique_probe.cpp": "5bb3b416055891b0e5b7480a37da8183f564af3d4666022204ef62a0ce3c219d",
+        "verify/api/flow_unique.compact.cpp": "47d6cb154e4df9f1cde9362001b4eb444e0ce0fe64ef65257e19997803af15f6",
+        "tests/fixtures/flow_unique_sources/kuangbin.inc": "4781e1788fe5b654b836594a2d9240c897cdf9d0c9fc44b5fbe411c7f3cd8730",
+        "tests/fixtures/flow_unique_sources/kuangbin-call.inc": "fe7094429be0fdbed17caa59baf1b78ca9fa897224ac5ce7b7c656a730fb32a6"
+      }
+    },
+    {
+      "receipt": "verification/flow-unique-sanitizer.json",
+      "sha256": "782734be628cdc2adef5a819579f8a25d2c92a21ac2d01672649ba9fc5714f08",
+      "current_files": {
+        "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+        "src/compact/tarjan.hpp": "61899731db759d931d805d476f659163f404b999e6eba368536a39e404fc5bf1",
+        "src/compact/flow_unique.hpp": "1fbd74e678dcdfa0259da49e2d3ba3a2d83c2e5764971cc026d9b974dbb7596c",
+        "tests/flow_unique.py": "064b14d5813bbd10cb8fcd34869f605b1f090f604978735073ff79ca7e87dd68",
+        "tests/flow_unique_probe.cpp": "5bb3b416055891b0e5b7480a37da8183f564af3d4666022204ef62a0ce3c219d",
+        "verify/api/flow_unique.compact.cpp": "47d6cb154e4df9f1cde9362001b4eb444e0ce0fe64ef65257e19997803af15f6",
+        "tests/fixtures/flow_unique_sources/kuangbin.inc": "4781e1788fe5b654b836594a2d9240c897cdf9d0c9fc44b5fbe411c7f3cd8730",
+        "tests/fixtures/flow_unique_sources/kuangbin-call.inc": "fe7094429be0fdbed17caa59baf1b78ca9fa897224ac5ce7b7c656a730fb32a6"
+      }
+    }
+  ],
+  "all_old_source_files_unchanged": 221,
+  "all_usage_programs_unchanged": 321,
+  "all_pdfs_byte_identical": {
+    "output/pdf/infra.pdf": "d9edcbf161ee816773db841f0fbe38747df2dca78b41ab47d1865a4cf8ca6a78",
+    "output/pdf/xcpc-misc.pdf": "0d14cbcfa913c12869e5245818d21fc1c1a68d042b36135634a47cfa805418fb",
+    "output/pdf/xcpc-mathematics.pdf": "1ebfd8e36da19dafda25d64d1f8159965a0a519047ae98cef54073978fa63530",
+    "output/pdf/xcpc-geometry.pdf": "aa954cd39b96280c32e81a248d2a95674561852efa196c6de53a68bf4430ffb7",
+    "output/pdf/xcpc-template.pdf": "7e268ff07d9c9565290ef0015c424ba0009a567c8c38b07eed26e5fd09a2172f",
+    "output/pdf/xcpc-strings.pdf": "0a70c1764048a682d7ad9dfbcde20a427bf891ddbecd01aba6d619fdf9d18b6d",
+    "output/pdf/xcpc-data-structures.pdf": "3972351fb6f9d40c4522a20f7e9f4b4fede993c83c1d76bb3682c1d37e82527b",
+    "output/pdf/xcpc-graphs.pdf": "16918d239135ee878862e37151db3beda76e7b374be71c1a533989be8bcd0166"
+  },
+  "files": {
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "tests/dinic_source_audit.cpp": "8da849b77a819edee23a4eb213b170be1352380a63aa92ecd6ec25d757283b5a",
+    "tests/dinic_source_audit.py": "51942549d70d77887c280c7e1f740338908fd12b701c0ebb571b95257cc70e8f",
+    "tests/fixtures/dinic_sources/kuangbin.inc": "b8964a3b27bd14e011dcdb0d4c972da380cc97a3c3f40040275c3fe95ed09a77"
+  },
+  "scope": "Original Dinic audit plus complete six-child maximum flow scope. Published recursive code unchanged; no new component/formal driver/AC/rank. Full goal active, no CI work."
+}
