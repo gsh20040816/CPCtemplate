@@ -684,7 +684,7 @@ kuangbin,ACM template (2018),188,4.21.2 无向图,local-tested,src/compact/undir
 kuangbin,ACM template (2018),189,4.21.3 混合图,local-tested,src/compact/mixed_euler.hpp,"tests/mixed_euler.cpp exhaustive orientation oracle, fixed/free endpoints and directed trail certificates; 100000-node reversal flow chain; POJ1637 dual parser/verdict drivers locally tested; online pending"
 kuangbin,ACM template (2018),192,4.22 树分治,pending,,
 kuangbin,ACM template (2018),192,4.22.1 点分治 -HDU5016,pending,,
-kuangbin,ACM template (2018),195,4.22.2 * 点分治 -HDU4918,pending,,
+kuangbin,ACM template (2018),195,4.22.2 * 点分治 -HDU4918,local-tested,src/compact/centroid_sum.hpp#CentroidSum,"docs/CENTROID-SUM-SOURCE-AUDIT.md; original 177-line EOF/assignment/radius protocol compiled vs independent BFS sums and unchanged recursive CentroidSum. Normal/sanitizer original+4 current forms; 326 small datasets, four 100000-node shapes; 3 mutants and 3 source integer overflows. Official HDU statement/resources and online AC/rank unverified; source-model mapping only."
 kuangbin,ACM template (2018),199,4.22.3 链分治 -HDU5039,pending,,
 kuangbin,ACM template (2018),205,5.1 Dancing Links,local-tested,src/compact/exact_cover.hpp: ExactCover; src/compact/minimum_cover.hpp: MinimumCover,"Both listed exact and minimum repeated-cover algorithms locally checked in their documented contracts; exact P4929 local driver, repeated-cover API demo; online AC and FZU1686 adaptation pending."
 kuangbin,ACM template (2018),205,5.1.1 精确覆盖,local-tested,src/compact/exact_cover.hpp: ExactCover,"tests/exact_cover.py; sparse exact cover, original row IDs, full restoration and repeated solve; P4929 local driver checks, online AC pending; repeated cover is a separate MinimumCover component"

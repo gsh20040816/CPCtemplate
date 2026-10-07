@@ -144,3 +144,5 @@ kuangbin SPFA费用流的残量接口、负环前提与int边界见 [SPFA-FLOW-S
 kuangbin Dinic的瓶颈/点数边界及最大流父节范围见 [DINIC-SOURCE-AUDIT](docs/DINIC-SOURCE-AUDIT.md)。
 
 zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FLOW.md)。
+
+动态点分治HDU4918来源协议和整数边界见 [CENTROID-SUM-SOURCE-AUDIT](docs/CENTROID-SUM-SOURCE-AUDIT.md)。
