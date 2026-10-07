@@ -138,3 +138,5 @@ kuangbin曼哈顿MST的完整原程序、第k大边和数值范围映射见 [MAN
 kuangbin SPFA费用流的残量接口、负环前提与int边界见 [SPFA-FLOW-SOURCE-AUDIT](docs/SPFA-FLOW-SOURCE-AUDIT.md)。
 
 递归ISAP、gap正确性及两份邻接表来源边界见 [ISAP](docs/ISAP.md)。
+
+两种矩阵SAP的重复调用、反对称净流和原稿边界见 [MATRIX-SAP-SOURCE-AUDIT](docs/MATRIX-SAP-SOURCE-AUDIT.md)。
