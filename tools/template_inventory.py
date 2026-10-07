@@ -23,6 +23,9 @@ for file,name,title,contract in cat:
         if judge == 'library_checker' and explicit: url = explicit[1]
         cf = re.search(r'^// (https://codeforces\.com/gym/[0-9]+/problem/[A-Z][0-9]*)$', text, re.M)
         if judge == 'codeforces' and cf: url = cf[1]
+        cf_problem = re.fullmatch(r'(\d+)([A-Z]\d*)', pid)
+        if judge == 'codeforces' and cf_problem and not cf:
+            url = f'https://codeforces.com/problemset/problem/{cf_problem[1]}/{cf_problem[2]}'
         ac=[r['record'] for r in records if r['style']=='compact' and r['source_driver']==rel and r['verdict']=='Accepted']
         candidates.append(dict(driver=rel,url=url,existing_ac=ac,review='candidate: audit full statement and exclude competition applications'))
     rows.append(dict(symbol=name,title=title,source=f'src/compact/{file}.hpp',status='needs_template_problem_review',candidate_drivers=candidates,qoj_tag_candidate=f'https://qoj.ac/problem/{qoj[name]}' if name in qoj else None,ranking=dict(status='not_checked',rank=None,total=None,checked_at=None,scope=None)))

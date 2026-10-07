@@ -1,0 +1,26 @@
+{
+  "checked_date": "2026-10-07",
+  "upstream": {
+    "path": "03 - jiangly模板收集/05 - 字符串/06A - AC自动机（AC 旧版）.cpp",
+    "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/06A%20-%20AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88AC%20%E6%97%A7%E7%89%88%EF%BC%89.cpp",
+    "sha256": "f7b083fd6a5e859e0102900bb5db5bdb6c3e9f0616ae6028c4d6d909234a14af"
+  },
+  "upstream_sha256": "f7b083fd6a5e859e0102900bb5db5bdb6c3e9f0616ae6028c4d6d909234a14af",
+  "rows": [
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/06A - AC自动机（AC 旧版）.cpp",
+      "page": "",
+      "topic": "06A - AC自动机（AC 旧版）",
+      "status": "local-tested",
+      "compact": "ACWeighted,DynamicAC",
+      "verification": "ac-weighted: signed static terminal/failure sums and O(text) aggregate queries; duplicate patterns, negative/zero weights, copies/reset verified. Empty patterns use all |text|+1 boundaries; subtract sum[0] to reproduce upstream scan-only empty behavior. Dynamic binary blocks supply complete online CF710F application with flushed incremental-input protocol. Normal+ASan/UBSan, independent literal/suffix oracles, maximum valid formal inputs. No online AC/rank. See docs/AC-WEIGHTED.md."
+    }
+  ],
+  "formal_problem": {
+    "url": "https://codeforces.com/problemset/problem/710/F",
+    "limits": "m<=300000,total lengths<=300000,nonempty lowercase; new string never added before, removal present; online, flush answer before next input; 3 seconds,768MiB. Local resource completion does not establish official acceptance."
+  },
+  "adapter": "Signed weights +1/-1 grouped by update count; each binary carry rebuilds a static owned ACWeighted. First boundary empty matches included; subtract sum[0] for original scan-only empty-pattern behavior.",
+  "remaining": "WIDA06B/06C integer input/depth contracts remain partial. Official online AC/rank and full global coverage pending."
+}

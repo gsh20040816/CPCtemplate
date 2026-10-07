@@ -3287,5 +3287,32 @@
     "requires": [
       "AhoCorasick"
     ]
+  },
+  {
+    "id": "example-263",
+    "symbol": "ACWeighted",
+    "kind": "api",
+    "problem": "静态带权多模式查询（接口演示）",
+    "url": "https://oi-wiki.org/string/ac-automaton/",
+    "summary": "输入n,q，随后n组带引号模式串及有符号权重，再读q个带引号文本。双引号允许表示空串。输出全部重叠匹配的权重和；空模式在每个边界匹配。",
+    "driver": "verify/ac_weighted_demo.cpp",
+    "requires": [
+      "AhoCorasick",
+      "ACWeighted"
+    ]
+  },
+  {
+    "id": "example-264",
+    "symbol": "DynamicAC",
+    "kind": "application",
+    "problem": "Codeforces 710F / String Set Queries",
+    "url": "https://codeforces.com/problemset/problem/710/F",
+    "summary": "在线维护字符串集合。1插入，2删除，3询问文本中所有集合模式的总出现次数。题目保证新增串从未加入、删除串存在；每次回答必须endl刷新后再读下一条，不能预读全部操作。用+1/-1更新权重。",
+    "driver": "verify/codeforces/710F.compact.cpp",
+    "requires": [
+      "AhoCorasick",
+      "ACWeighted",
+      "DynamicAC"
+    ]
   }
 ]

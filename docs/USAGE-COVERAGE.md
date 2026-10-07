@@ -187,6 +187,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | SegmentLiChao | [example-87](usage/example-87.cpp), [example-88（应用补充）](usage/example-88.cpp) | locally_checked_example |
 | GeneralSAM | [example-90](usage/example-90.cpp), [example-132](usage/example-132.cpp), [example-257（接口演示）](usage/example-257.cpp), [example-261（应用补充）](usage/example-261.cpp) | locally_checked_example |
 | ac_shortest | [example-92（应用补充）](usage/example-92.cpp) | locally_checked_application |
+| ACWeighted | [example-263（接口演示）](usage/example-263.cpp) | locally_checked_api |
+| DynamicAC | [example-264（应用补充）](usage/example-264.cpp) | locally_checked_application |
 | BoundedMaxFlow | [example-93（应用补充）](usage/example-93.cpp), [example-99（应用补充）](usage/example-99.cpp) | locally_checked_application |
 | matching_edges | [example-95（应用补充）](usage/example-95.cpp) | locally_checked_application |
 | mincut_edges | [example-94（应用补充）](usage/example-94.cpp) | locally_checked_application |

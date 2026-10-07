@@ -1,0 +1,67 @@
+{
+  "base": "f4e1d028f50e445e95ffcdb26c9459dd30f8e394",
+  "batch": "Weighted static AC and dynamic binary rebuilding; online CF710F application",
+  "core_cases_per_form": 25285,
+  "core_checks_per_form": 462270,
+  "complete_inputs_per_form": {
+    "example-263": 160,
+    "example-264": 126
+  },
+  "semantic_mutants_per_mode": 6,
+  "protocol_mutants_per_mode": 1,
+  "online_protocol": "Three complete CF710F forms in each mode; withhold next operation until flushed answer; missing-flush negative control must time out.",
+  "current_counts": {
+    "components": 231,
+    "usages": 264,
+    "usage_status": {
+      "locally_checked_example": 167,
+      "locally_checked_application": 51,
+      "locally_checked_api": 13
+    },
+    "pending_upstream_topics": 616,
+    "partial_upstream_topics": 31
+  },
+  "runtime_source_sha256": {
+    "src/compact/ac_weighted.hpp": "7b01d98b489d2b3a7bc28fe30aa117dcd8adcbd5f9b90cec9c73dbaa349097a0",
+    "src/compact/string.hpp": "44f284e4927a8315f7c54d4a01ff2c8ada00572c865ce0e39ec3077870254e03",
+    "tests/ac_weighted.py": "dc2f500aa812e4d441b7fe085358f4658b6d6016d722393792221793657fbb43",
+    "tests/ac_weighted_probe.cpp": "9d43b7ac11543ece205149f464cf97094628f2ad9b27ed0504599e0c5928fc38",
+    "tests/usage_examples.py": "1dce13b4c58c6b69830f5e5b9d0ea09ae1d8b3bec61356cd7d5d7fb2274c6931",
+    "verify/ac_weighted_demo.cpp": "b4a783adbe25999dc35ec547e9cfe6638b72387a740a7c630658ac8a48bf9efa",
+    "verify/codeforces/710F.compact.cpp": "a45df282c1fd12a63eb143d377114ea778585294adcfc88171507320fb123cab",
+    "docs/usage/example-263.cpp": "289e4a7d055a10bfd15ba7f3a48c64dbc961dbc9886d51acd5a25c06077138ea",
+    "docs/usage/example-264.cpp": "04eaf44bffe5bf7d9ca91c79afa116a518be92eadcfcaea29ecc5dbe0a38c822"
+  },
+  "documentation_after_runtime": "All229 prior source components and262 expanded usages unchanged. Runtime core/probes/drivers/snippets unchanged after runners. Later edits update source mapping/prose, problem inventory URL mapping/reviews, chapter registration and PDF outputs. No whole-library rerun or online AC/rank.",
+  "remaining": "Global source ledger616 pending/31 partial. WIDA06B/06C indexed input/depth remain; current empty-pattern weighted contract includes initial boundary with explicit original-query adapter. Recent contests/OI math and all outstanding issue requirements remain active.",
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "0662507d13f126698ed078937929ebfe1588d9a7d9c5f807a23d9a1a1cb9d66d",
+      "font_set_preserved": true,
+      "page_change": 4,
+      "pages": 736,
+      "bytes_changed": true
+    },
+    "output/pdf/xcpc-strings.pdf": {
+      "sha256": "21400e7f86e1546a2245e65f1b5475091b4af639dcaca89e4784cfefe5cb9a74",
+      "font_set_preserved": true,
+      "page_change": 4,
+      "pages": 74,
+      "bytes_changed": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "4376e52c2556780e7785ae61be106e5eb2b0510aa92142f8640eec9ba9d8e996",
+      "font_set_preserved": true,
+      "page_change": 0,
+      "pages": 12,
+      "bytes_changed": true
+    }
+  },
+  "report_sha256": {
+    "verification/ac-weighted-copy.json": "d78056bd9dadae3f158731f1f7fdc62332396b1f5b0816bd3e773166d9f5ece0",
+    "verification/ac-weighted-layout.json": "3d2aef7295ad18fa3096a646063fafbe35266e0757c5730b82e3fe47999be777",
+    "verification/ac-weighted-normal.json": "3b90e71ed461ee21fbdd29e1858dd33ac85145a870bea9be56a284dfe2e8e4ef",
+    "verification/ac-weighted-sanitizer.json": "f9f47184c821b3e60d871d2e1ce6234fcd614c9f142c2e5e5505e46bab978d96",
+    "verification/ac-weighted-sources.json": "5f4a4c72e239dfd209e702948250c0cccca7f1f7d5a4be72b8f08205f1a27259"
+  }
+}

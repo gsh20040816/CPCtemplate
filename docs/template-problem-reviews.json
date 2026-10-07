@@ -4997,5 +4997,33 @@
     "statement_sources": [
       "https://www.luogu.com.cn/problem/P3808"
     ]
+  },
+  {
+    "symbol": "DynamicAC",
+    "problem": "Codeforces 710F / String Set Queries",
+    "url": "https://codeforces.com/problemset/problem/710/F",
+    "classification": "Competition application, not a formal noncontest template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "m<=300000,total lengths<=300000,nonempty lowercase; new string never added before, removal present; online, flush answer before next input; 3 seconds,768MiB. Local resource completion does not establish official acceptance.",
+    "adapter": "Signed weights +1/-1 grouped by update count; each binary carry rebuilds a static owned ACWeighted. First boundary empty matches included; subtract sum[0] for original scan-only empty-pattern behavior.",
+    "implementation": "new",
+    "driver": "verify/codeforces/710F.compact.cpp",
+    "tested_api": [
+      "DynamicAC::add",
+      "DynamicAC::query",
+      "ACWeighted::query"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and rank pending; application does not close formal-template search.",
+    "local_reports": [
+      "verification/ac-weighted-normal.json",
+      "verification/ac-weighted-sanitizer.json"
+    ]
   }
 ]

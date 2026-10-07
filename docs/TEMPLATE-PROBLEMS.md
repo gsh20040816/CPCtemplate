@@ -197,6 +197,7 @@
 | `SAMDocuments` | [Codeforces 204E / Little Elephant and Strings](https://codeforces.com/problemset/problem/204/E) | n,k<=100000; total nonempty lowercase input length<=100000. Official page3s/256MB; this batch does not claim online acceptance or machine-equivalent timing. | 待在线 AC | 待核验 |
 | `GeneralSAM::TSUBSTR` | [CodeChef TSUBSTR / Substrings on a Tree](https://www.codechef.com/problems/TSUBSTR) | N<=250000,Q<=50000,K<=2^63-1,output<=800KB; original vertex letters generated randomly. API max_timelimit1s; memory limit unavailable; no online runtime claim. | 待在线 AC | 待核验 |
 | `AhoCorasick::presence` | [Luogu P3808 / AC自动机简单版](https://www.luogu.com.cn/problem/P3808) | Pattern count,total pattern length,text length<=1000000; nonempty lowercase strings. Current online time/memory acceptance unverified. | 待在线 AC | 待核验 |
+| `DynamicAC` | [Codeforces 710F / String Set Queries](https://codeforces.com/problemset/problem/710/F) | m<=300000,total lengths<=300000,nonempty lowercase; new string never added before, removal present; online, flush answer before next input; 3 seconds,768MiB. Local resource completion does not establish official acceptance. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1861,6 +1862,14 @@ Store one terminal per input ID; count(text), then count terminal entries whose 
 Online AC and rank pending; richer WIDA weighted/integer/depth/empty-pattern interfaces remain separate gaps.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P3808)
+
+### Codeforces 710F / String Set Queries / DynamicAC
+
+Competition application, not a formal noncontest template problem.
+
+Signed weights +1/-1 grouped by update count; each binary carry rebuilds a static owned ACWeighted. First boundary empty matches included; subtract sum[0] for original scan-only empty-pattern behavior.
+
+Online AC and rank pending; application does not close formal-template search.
 
 ## 榜单口径
 
