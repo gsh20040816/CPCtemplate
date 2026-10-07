@@ -6352,6 +6352,42 @@ CentroidPairs(n)，点号 1..n；add(u,v,w) 建树，允许森林但禁止环、
 
 \lstinputlisting{usage/example-201.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\subsection{动态点分树：最近活动点与点号方案}\label{compact-CentroidNearest}\index{CentroidNearest}
+
+CentroidNearest(n)，n$\ge$1，点号0..n-1；先add(u,v,w=1)建固定连通树，禁止环、重边、自环。边权非负，所有原树简单路径长度须能用long long表示。build()清空活动集，可在同一拓扑上重建，建树后不再add。set(u,on)启用或停用点，重复设置无影响；query(u)返回optional<pair<long long,int>>，即最近距离和同距离中最小点号，空集返回nullopt，距离LLONG\_MAX合法。active[u]只读，可用set(u,!active[u])翻转；其他成员均为内部数据，不直接修改。每个重心用set维护(距离,原点号)，删除时精确到点号。查询跳过溢出的重心绕路距离；最优点与查询点的某个公共重心在原路径上，因此仍能取得精确答案。构建O(n log n)，单次更新O(log$^{2}$ n)，查询O(log n)，空间O(n log n)。所有DFS递归，原树最大递归深度O(n)。不支持负边权或动态拓扑。
+
+\lstinputlisting[firstline=12,lastline=53,firstnumber=1]{../src/compact/centroid_nearest.hpp}
+
+\newpage
+
+\noindent 重心距离与递归分解（接上页同一结构体）：
+
+\lstinputlisting[firstline=54,lastline=74,firstnumber=43]{../src/compact/centroid_nearest.hpp}
+
+\newpage
+
+\noindent 清空重建、活动点增删与最近点查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=75,lastline=117,firstnumber=64]{../src/compact/centroid_nearest.hpp}
+
+\Needspace{517pt}
+
+\subsection*{应用题补充：SPOJ QTREE5 / Query on a tree V（Luogu SP2939）}
+
+\label{usage-example-245}
+
+题意：N,Q$\le$100000，单位边树点号1..N，初始全黑；先N和N-1条边，再Q条操作。0 u翻转黑白，1 u输出最近白点距离（可为自身），没有白点输出-1。内部转换为0-based，白点对应活动点。原站注明modified from ZJOI07，按应用用法收录；非独立非比赛模板题。
+
+所需模板：\hyperref[compact-CentroidNearest]{CentroidNearest}（第~\pageref{compact-CentroidNearest}~页，\ref{compact-CentroidNearest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.spoj.com/problems/QTREE5/}
+
+\lstinputlisting{usage/example-245.cpp}
+
 \Needspace{426pt}
 
 \chapter{最短路问题}

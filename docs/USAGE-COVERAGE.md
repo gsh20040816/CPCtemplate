@@ -225,3 +225,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | SAIS | [example-241](usage/example-241.cpp) | locally_checked_example |
 | ExactCover | [example-243](usage/example-243.cpp) | locally_checked_example |
 | MinimumCover | [example-244（接口演示）](usage/example-244.cpp) | locally_checked_api |
+| CentroidNearest | [example-245（应用补充）](usage/example-245.cpp) | locally_checked_application |

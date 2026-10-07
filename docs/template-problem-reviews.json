@@ -4575,5 +4575,40 @@
       "https://www.luogu.com.cn/problem/P4929"
     ],
     "remaining": "Current-source local evidence is recorded separately; no online AC or ranking."
+  },
+  {
+    "symbol": "CentroidNearest",
+    "problem": "SPOJ QTREE5 / Luogu SP2939",
+    "title": "Query on a tree V",
+    "url": "https://www.spoj.com/problems/QTREE5/",
+    "classification": "Competition-derived application: official resource says XunYunbo, modified from ZJOI07. Not counted as a standalone noncompetition template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "1<=N,Q<=100000; unit-edge connected tree; initially black; 0 toggles, 1 queries nearest white, no white outputs -1.",
+    "adapter": "Convert 1-based vertices to 0-based; white is active. Use returned distance only. Weighted distance and minimum-ID tie witness are separate core extensions.",
+    "implementation": "existing",
+    "source": "src/compact/centroid_nearest.hpp",
+    "tested_api": [
+      "add",
+      "build",
+      "set",
+      "query"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Normal and ASan/UBSan local oracle checks, original/copied assert/NDEBUG and three complete program forms pass. No new online AC or ranking; no whole-suite claim.",
+    "driver": "verify/luogu/SP2939.compact.cpp",
+    "local_reports": [
+      "verification/centroid-nearest-normal.json",
+      "verification/centroid-nearest-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.spoj.com/problems/QTREE5/",
+      "https://www.luogu.com.cn/problem/SP2939"
+    ]
   }
 ]

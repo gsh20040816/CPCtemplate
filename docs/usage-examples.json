@@ -3063,5 +3063,17 @@
       "MinimumCover"
     ],
     "kind": "api"
+  },
+  {
+    "id": "example-245",
+    "symbol": "CentroidNearest",
+    "kind": "application",
+    "problem": "SPOJ QTREE5 / Query on a tree V（Luogu SP2939）",
+    "url": "https://www.spoj.com/problems/QTREE5/",
+    "summary": "N,Q≤100000，单位边树点号1..N，初始全黑；先N和N-1条边，再Q条操作。0 u翻转黑白，1 u输出最近白点距离（可为自身），没有白点输出-1。内部转换为0-based，白点对应活动点。原站注明modified from ZJOI07，按应用用法收录；非独立非比赛模板题。",
+    "driver": "verify/luogu/SP2939.compact.cpp",
+    "requires": [
+      "CentroidNearest"
+    ]
   }
 ]

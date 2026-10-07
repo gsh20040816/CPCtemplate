@@ -1,0 +1,114 @@
+{
+  "base_commit": "d6caf14a0ec2d82028f8223cc50d782991d82f95",
+  "scope": "CentroidNearest addition and local integration only; not an online AC, whole-library sanitizer run, performance ranking or completion claim.",
+  "core_result": "PASS 4579 cases 7773800 checks",
+  "core_forms_per_mode": 4,
+  "complete_program_forms_per_mode": 3,
+  "inputs_per_complete_program": 184,
+  "semantic_mutants_per_mode": 6,
+  "stack": "Recursive DFS retained. Core pthread has256MiB stack; macOS driver linked with512MiB stack. Maximum tested n=q=100000.",
+  "compiler": "/opt/homebrew/bin/g++-16 (GCC16.2), macOS arm64",
+  "report_files": [
+    "verification/centroid-nearest-normal.json",
+    "verification/centroid-nearest-sanitizer.json",
+    "verification/centroid-nearest-copy.json",
+    "verification/centroid-nearest-layout.json"
+  ],
+  "copy_summary": "237 standard forms +6 documented GNU forms pass; 2 long double precision guard rejections (229/230) retained, no whole-audit-pass claim.",
+  "current_counts": {
+    "components": 219,
+    "usages": 245,
+    "usage_status": {
+      "locally_checked_example": 161,
+      "locally_checked_application": 46,
+      "locally_checked_api": 12
+    },
+    "pending_upstream_topics": 641
+  },
+  "source_sha256": {
+    "src/compact/centroid_nearest.hpp": "671ff721eeac9e0cd61756d53280eb69de8adcb2ca76102e6e0c5fc5c4be68da",
+    "tests/centroid_nearest.py": "173bb2bc67f3acc32c21b839cd5188b1c022c5fef4bd31c40a77a968cd69d852",
+    "tests/centroid_nearest_probe.cpp": "16ce120060eb0eab2cca1c9f09e27a9e1944bb037ed964f87e3f2fc122297799",
+    "verify/luogu/SP2939.compact.cpp": "79d671e53ad8b7adde999992fd2b5485053b4608e6a5966ad89d610d71637b61",
+    "docs/usage/example-245.cpp": "2b1a80e9986dea3a2cff49e00e21bfdfcc5c395388e0f3fefb786d5af402de8e",
+    "docs/CENTROID-NEAREST.md": "455d36591944691a2154539264783fdd05d8f9aa8e591bc6dd1bb8491c32d68b",
+    "docs/catalog.json": "c9313a237efb52f033f0e97cc7bf44f85d63ac5d23ac5739889073101210a215",
+    "docs/usage-examples.json": "2dc0cb04543cc73f814ab67ea0d087f75bcad5ad0af920a5237555c86cb83c48",
+    "tools/book.py": "c62a1b1b131e59aa3aa6cafd910536f4ef66f90c5f489e07bc8397cfd2599090",
+    "tools/test.sh": "92b670ea814ba3aa33d27e17672d18fb3871beb3d90294a28246bcc8cfff3f7b"
+  },
+  "integration_checks": [
+    {
+      "command": [
+        "python3",
+        "tests/template_dependencies.py"
+      ],
+      "exit_code": 0,
+      "stdout": "219 algorithms, 136 direct edges, 245 complete usages and six local transitive closures PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/copy_prerequisite_order.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Copy prerequisites: all 245 lists closed, ordered and unique; negative controls PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/joint_usage_references.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Joint uses: direct-call checks, owner closure, negative controls and unique primary categories PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/basic_template_scope.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Basic template scope: three exact exclusions, advanced dependencies, DSU and history scope preserved PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/template_report.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_ac_record_does_not_depend_on_driver_registration (__main__.ReportTests.test_ac_record_does_not_depend_on_driver_registration) ... ok\ntest_both_statement_source_shapes_use_urls (__main__.ReportTests.test_both_statement_source_shapes_use_urls) ... ok\ntest_current_generation_and_evidence_limits (__main__.ReportTests.test_current_generation_and_evidence_limits) ... ok\ntest_existing_driver_is_not_online_ac (__main__.ReportTests.test_existing_driver_is_not_online_ac) ... ok\ntest_library_checker_driver_index_is_current (__main__.ReportTests.test_library_checker_driver_index_is_current) ... ok\ntest_missing_and_planned_are_not_completed (__main__.ReportTests.test_missing_and_planned_are_not_completed) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/pdf_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: eight PDFs, final logs without warnings; Arabic page destinations contiguous\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "build/tools-env/bin/python",
+        "tools/dependency_pdf_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Final PDF dependency links: 1218 name/page/section groups resolve to actual local destinations\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "build/tools-env/bin/python",
+        "tools/infra_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Infra: 16 external PDF jumps resolve to named destinations and correct printed page labels\n",
+      "stderr": ""
+    }
+  ]
+}

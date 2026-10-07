@@ -184,6 +184,7 @@
 | `SAIS` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase English letters; zero-based suffix starts | 待在线 AC | 待核验 |
 | `convex_tangents_i64` | [ICPC Chengdu 2025 I / Inside Triangle](https://codeforces.com/gym/106161/problem/I) | T<=1000; 3<=n,m<=300000; each sum<=500000; \|coordinate\|<=1e9; strict convex CCW polygons, Q strictly inside P, selected triangle contains Q non-strictly | 待在线 AC | 待核验 |
 | `ExactCover` | [Luogu P4929 / 精确覆盖](https://www.luogu.com.cn/problem/P4929) | N,M<=500; total ones<=5000 | 待在线 AC | 待核验 |
+| `CentroidNearest` | [SPOJ QTREE5 / Luogu SP2939](https://www.spoj.com/problems/QTREE5/) | 1<=N,Q<=100000; unit-edge connected tree; initially black; 0 toggles, 1 queries nearest white, no white outputs -1. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1718,6 +1719,16 @@ Standalone exact-cover template problem; arbitrary feasible solution.
 Current-source local evidence is recorded separately; no online AC or ranking.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P4929)
+
+### SPOJ QTREE5 / Luogu SP2939 / CentroidNearest
+
+Competition-derived application: official resource says XunYunbo, modified from ZJOI07. Not counted as a standalone noncompetition template.
+
+Convert 1-based vertices to 0-based; white is active. Use returned distance only. Weighted distance and minimum-ID tie witness are separate core extensions.
+
+Normal and ASan/UBSan local oracle checks, original/copied assert/NDEBUG and three complete program forms pass. No new online AC or ranking; no whole-suite claim.
+
+原始题面与参数：[来源 1](https://www.spoj.com/problems/QTREE5/)，[来源 2](https://www.luogu.com.cn/problem/SP2939)
 
 ## 榜单口径
 
