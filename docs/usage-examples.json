@@ -4111,5 +4111,19 @@
       "SequenceScapegoat"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-327",
+    "symbol": "SequenceKth",
+    "kind": "api",
+    "problem": "带插入区间第k小（kuangbin BZOJ3065模型）",
+    "url": "https://www.lydsy.com/JudgeOnline/problem.php?id=3065",
+    "summary": "来源协议：EOF多组，每组n、初值、q及Q/M/I操作，值域0..100000。所有整数参数与上次查询答案异或；Q x y k查闭区间第k小，M x val修改第x项，I x val在第x项前插入（调用insert(x-1,val)）。仅Q更新lastans，解码后端点有序且合法。核心可用signed64，协议答案限定来源值域后转int。官方题面与资源限制未核验，只登记来源模型/API用法。",
+    "driver": "verify/api/sequence_kth.compact.cpp",
+    "requires": [
+      "ost",
+      "SequenceKth"
+    ],
+    "start_new_page": true
   }
 ]

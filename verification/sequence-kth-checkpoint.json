@@ -1,0 +1,120 @@
+{
+  "source_receipts": {
+    "verification/sequence-kth-source-normal.json": {
+      "sha256": "ac55e56543e09bea8e4e20e16d1f102ea82bbffb191310d4a0b3bc4bd97cd061",
+      "files": {
+        "tests/sequence_kth_source.py": "cbf362092596fd490196b8d226af82a30e21fad65119af4d96393138983a1af4",
+        "tests/sequence_kth_source_probe.cpp": "a7942ca1135acb26a65e518bd93427952f2ac8f47cb619c0aaa8dbfec6089f35",
+        "tests/fixtures/sequence_kth_sources/kuangbin.inc": "6ef4b72b840b2055fd2e837667720ffab0f14c49d78e4303f429543add18ab0f"
+      }
+    },
+    "verification/sequence-kth-source-sanitizer.json": {
+      "sha256": "5faffc2ad6391e3e7b082846619fe5d484700733032746ceb5b8382a56dda61d",
+      "files": {
+        "tests/sequence_kth_source.py": "cbf362092596fd490196b8d226af82a30e21fad65119af4d96393138983a1af4",
+        "tests/sequence_kth_source_probe.cpp": "a7942ca1135acb26a65e518bd93427952f2ac8f47cb619c0aaa8dbfec6089f35",
+        "tests/fixtures/sequence_kth_sources/kuangbin.inc": "6ef4b72b840b2055fd2e837667720ffab0f14c49d78e4303f429543add18ab0f"
+      }
+    }
+  },
+  "base": "48183a84874a0e2358debca7ec6dc969916a5abb",
+  "components": 255,
+  "registered_usages": 327,
+  "usage_status": {
+    "locally_checked_example": 177,
+    "locally_checked_application": 59,
+    "locally_checked_api": 19
+  },
+  "pending": 551,
+  "partial": 31,
+  "all_old_source_files_unchanged": 224,
+  "all_old_usage_programs_unchanged": 326,
+  "files": {
+    "src/compact/sequence_kth.hpp": "35ea9b52d901ef1c93c6718800113b78ce1e489be01c799953525e3217378d40",
+    "tests/sequence_kth.py": "8b3e4d9cef24278af4ace51fa74af3ef4fee48a5f4f33f6d2c6f8abb9863692a",
+    "tests/sequence_kth.cpp": "e8dac2a0edc8acda639efbf63d220892391504b1728863f9ef5dcfd976e30eed",
+    "verify/api/sequence_kth.compact.cpp": "dcb7b0f005774100f54d2152b4945719a3356e4d8ae9745f09e918a235f4f20c",
+    "src/compact/ordered_set.hpp": "7eb4f80fd21417854d844687e9dcbaa5f9e48b953525247f1157223a79410849"
+  },
+  "changed_pdfs": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "7efd441404b85fa8b0991bcd0c12297acfe99e0412f2c2d06132efe37df66b93",
+      "pages": 880,
+      "page_change": 5,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-data-structures.pdf": {
+      "sha256": "51cbaa8643e629370e86423fab8b5cff7f548986773886410d22b5f3bc52165a",
+      "pages": 229,
+      "page_change": 5,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "a66b77e977850133281bcc70612194d8edc5123b9eb23d8c18db0ae695364a3b",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "other_pdfs_byte_identical": {
+    "output/pdf/xcpc-misc.pdf": "0d14cbcfa913c12869e5245818d21fc1c1a68d042b36135634a47cfa805418fb",
+    "output/pdf/xcpc-mathematics.pdf": "1ebfd8e36da19dafda25d64d1f8159965a0a519047ae98cef54073978fa63530",
+    "output/pdf/xcpc-geometry.pdf": "aa954cd39b96280c32e81a248d2a95674561852efa196c6de53a68bf4430ffb7",
+    "output/pdf/xcpc-strings.pdf": "e5dbe56af1143d56fb60c1880df2a065b7f64ee9219498c9e581f6abcbdc45a9",
+    "output/pdf/xcpc-graphs.pdf": "8400ed9f66be59008c9a7c5d9c3812c0b3cf2abca12a07a772f9c511a758c5e3"
+  },
+  "source_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "source_printed_pages": [
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+  ],
+  "source_physical_pages": [
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131
+  ],
+  "printed_code_lines": 164,
+  "printed_code_chunks": 4,
+  "visual_review": {
+    "output/pdf/xcpc-template.pdf": {
+      "physical_pages": [
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418
+      ],
+      "total_pages": 880
+    },
+    "output/pdf/xcpc-data-structures.pdf": {
+      "physical_pages": [
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142
+      ],
+      "total_pages": 229
+    },
+    "output/pdf/infra.pdf": {
+      "physical_pages": [
+        10
+      ],
+      "total_pages": 12
+    }
+  },
+  "scope": "Complete BZOJ3065 source-model API327 locally verified, official statement/resources/online AC/rank remain unverified. Reuses ost with recursive outer rebuilding; full goal active."
+}

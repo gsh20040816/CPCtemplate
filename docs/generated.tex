@@ -6356,6 +6356,52 @@ SequenceSplay(n)建立原编号0..n−1的序列，允许n=0，要求n$\le$INT\_
 
 \Needspace{650pt}
 
+\subsection{在线序列：插入、修改与区间第k小}\label{compact-SequenceKth}\index{SequenceKth}
+
+代码依赖：\hyperref[compact-ost]{ost}（第~\pageref{compact-ost}~页，\ref{compact-ost}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+依赖ost（GNU PBDS，非ISO标准库），C++20。以vector<long long>构造，默认空序列。insert(k,x)在前k项后插入，0$\le$k$\le$size()；set(k,x)修改第k项。less(l,r,x)计严格小于x，末参true计$\le$x；kth(l,r,k)取第k小，区间和k均1-based且非空合法。支持重复值、完整signed64，midpoint避免二分溢出；不提供删除。稳定节点编号区分重复值，递归重量重建。秩/修改O(log$^{2}$(n+2))，kth最多64轮秩查询；构建O(n log$^{2}$(n+2))，插入保守均摊O(log$^{3}$(n+2))、单次最坏O(n log$^{2}$(n+2))。空间O(n log(n+2))，vector扩容可能复制内树并增大峰值；节点数小于INT\_MAX。a/root及带节点编号辅助方法内部使用，不外部改写。
+
+\lstinputlisting[firstline=6,lastline=36,firstnumber=1]{../src/compact/sequence_kth.hpp}
+
+\newpage
+
+\noindent 内树合并与递归重建（接上页同一结构体）：
+
+\lstinputlisting[firstline=37,lastline=81,firstnumber=32]{../src/compact/sequence_kth.hpp}
+
+\newpage
+
+\noindent 按位置插入与修改（接上页同一结构体）：
+
+\lstinputlisting[firstline=82,lastline=129,firstnumber=77]{../src/compact/sequence_kth.hpp}
+
+\newpage
+
+\noindent 区间秩与第k小查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=130,lastline=169,firstnumber=125]{../src/compact/sequence_kth.hpp}
+
+\newpage
+
+\Needspace{602pt}
+
+\subsection*{接口用法演示：带插入区间第k小（kuangbin BZOJ3065模型）}
+
+\label{usage-example-327}
+
+演示约定：来源协议：EOF多组，每组n、初值、q及Q/M/I操作，值域0..100000。所有整数参数与上次查询答案异或；Q x y k查闭区间第k小，M x val修改第x项，I x val在第x项前插入（调用insert(x-1,val)）。仅Q更新lastans，解码后端点有序且合法。核心可用signed64，协议答案限定来源值域后转int。官方题面与资源限制未核验，只登记来源模型/API用法。
+
+所需模板：\hyperref[compact-ost]{ost}（第~\pageref{compact-ost}~页，\ref{compact-ost}~节）、\hyperref[compact-SequenceKth]{SequenceKth}（第~\pageref{compact-SequenceKth}~页，\ref{compact-SequenceKth}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://www.lydsy.com/JudgeOnline/problem.php?id=3065}
+
+\lstinputlisting{usage/example-327.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
 \subsection{序列替罪羊树：按位置插删与区间等值计数}\label{compact-SequenceScapegoat}\index{SequenceScapegoat}
 
 以vector<long long>构造，默认空序列。insert(k,x)在前k项后插入，0$\le$k$\le$size()；erase(k)删除第k项并返回值；count(l,r,x)计1-based非空闭区间内等于x的项数；rotate(l,r)将区间末项移至开头。键支持long long全范围。递归按位置导航，墓碑过多或节点数失衡时重建，回收死节点并删除零频次。map频次表令查询O(log$^{2}$(n+2))，重建s点O(s log$^{2}$(s+2))，更新保守均摊O(log$^{3}$(N+2))、单次最坏O(N log$^{2}$(N+2))，N为历史最大长度；初建O(n log$^{2}$(n+2))。频次表总空间O(n log(n+2))，vector池O(N)，节点数须小于INT\_MAX。a/root/spare及带节点编号辅助函数均内部使用，不能外部改动。
