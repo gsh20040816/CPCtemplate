@@ -3097,5 +3097,27 @@
     "requires": [
       "RectangleFenwick"
     ]
+  },
+  {
+    "id": "example-248",
+    "symbol": "PersistentDSU",
+    "problem": "Luogu P3402 / 可持久化并查集",
+    "url": "https://www.luogu.com.cn/problem/P3402",
+    "summary": "n≤100000，m≤200000。1 a b合并；2 k回到第k次操作后的状态，可回到0；3 a b输出是否连通。每种操作均产生版本，操作号等于版本号，点号转0-based，无异或。",
+    "driver": "verify/luogu/P3402.compact.cpp",
+    "requires": [
+      "PersistentDSU"
+    ]
+  },
+  {
+    "id": "example-249",
+    "symbol": "MergeSplitTree",
+    "problem": "Luogu P5494 / 线段树分裂",
+    "url": "https://www.luogu.com.cn/problem/P5494",
+    "summary": "n,m≤200000，初始集合1含每种值1..n的重数ai≤m。0 p x y移走闭区间到新集合；1 p t合并并清空t，之后不再使用t；2 p x q增加x个值q；3 p x y查区间重数；4 p k查第k小，不存在-1。集合和值均转0-based，闭区间转[x-1,y)，重数用long long。",
+    "driver": "verify/luogu/P5494.compact.cpp",
+    "requires": [
+      "MergeSplitTree"
+    ]
   }
 ]

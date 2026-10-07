@@ -1,0 +1,95 @@
+{
+  "base": "2b71fa083627a3e535d63011c9e901e5eeb6627a",
+  "batch": "PersistentDSU and MergeSplitTree",
+  "core_cases_per_form": 421,
+  "core_checks_per_form": 38072166,
+  "complete_inputs_per_form": {
+    "P3402": 101,
+    "P5494": 102
+  },
+  "semantic_mutants_per_mode": 7,
+  "compiler": "/opt/homebrew/bin/g++-16 (GCC16.2), macOS arm64",
+  "report_files": [
+    "verification/ownership-normal.json",
+    "verification/ownership-sanitizer.json",
+    "verification/ownership-copy.json",
+    "verification/ownership-layout.json",
+    "verification/ownership-sources.json"
+  ],
+  "current_counts": {
+    "components": 223,
+    "usages": 249,
+    "usage_status": {
+      "locally_checked_example": 165,
+      "locally_checked_application": 46,
+      "locally_checked_api": 12
+    },
+    "pending_upstream_topics": 636
+  },
+  "source_sha256": {
+    "src/compact/persistent_dsu.hpp": "568e147f6e67f9ac5d730343823bad9e3273b84393b6f23d2f9dc4feb0692983",
+    "src/compact/merge_split_tree.hpp": "f888da1875f6c021a31467868524cee2466909b7f71ac7f4efca125d1316814f",
+    "tests/ownership.py": "3b8fe3c7f50324e69bcea4882d4c4572789ec671e9072ece54a07700cc4937ba",
+    "tests/ownership_probe.cpp": "9aa28050d3f669018dcb9173faaf2ca30de0b8c67fc07f62861fd23bffa4780b",
+    "tests/usage_examples.py": "9be1c856451df5e9d031f6b11c3aa1efaadea6cb88937cb4dfefa514dd330f45",
+    "verify/luogu/P3402.compact.cpp": "5830a67a205b053635b522a1b6be3f3125df11034a3f74bdfbfa13d6894e8e37",
+    "verify/luogu/P5494.compact.cpp": "3a29f2086286a1848c9464867960c5523c003aae8baa122a794af7b1a48eb7c7",
+    "docs/usage/example-248.cpp": "543e0f0899f00d6e38db278049fe22d2073924c7385d36604bb096ff6e58a5e0",
+    "docs/usage/example-249.cpp": "8e265e53567a232593d5146f2a0cc72ba286867a7cde2cf8a4450ffe5d65336f",
+    "tools/book.py": "e4bd63acb7e5ab928ce704a33287fb83330fbce2022d1bb963c90bedae416994",
+    "tools/test.sh": "d2499f27069ee6e0cc703e5f50b9c97e641efe51cb7fabff77d36b35b1a209fe",
+    "docs/OWNERSHIP-TREES.md": "1f2a42325c2ee3216e7425e995d76bfd9032cdae427b39de243f58f0aee69858"
+  },
+  "integration_checks": [
+    {
+      "command": [
+        "python3",
+        "tests/template_dependencies.py"
+      ],
+      "exit_code": 0,
+      "stdout": "223 algorithms, 136 direct edges, 249 complete usages and six local transitive closures PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/copy_prerequisite_order.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Copy prerequisites: all 249 lists closed, ordered and unique; negative controls PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/joint_usage_references.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Joint uses: direct-call checks, owner closure, negative controls and unique primary categories PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/basic_template_scope.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Basic template scope: three exact exclusions, advanced dependencies, DSU and history scope preserved PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/template_report.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_ac_record_does_not_depend_on_driver_registration (__main__.ReportTests.test_ac_record_does_not_depend_on_driver_registration) ... ok\ntest_both_statement_source_shapes_use_urls (__main__.ReportTests.test_both_statement_source_shapes_use_urls) ... ok\ntest_current_generation_and_evidence_limits (__main__.ReportTests.test_current_generation_and_evidence_limits) ... ok\ntest_existing_driver_is_not_online_ac (__main__.ReportTests.test_existing_driver_is_not_online_ac) ... ok\ntest_library_checker_driver_index_is_current (__main__.ReportTests.test_library_checker_driver_index_is_current) ... ok\ntest_missing_and_planned_are_not_completed (__main__.ReportTests.test_missing_and_planned_are_not_completed) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.008s\n\nOK\n"
+    }
+  ],
+  "copy_summary": "241 standard +6 documented GNU forms pass;229/230 retain original precision guard failures. The first copy attempt was discarded due to concurrent pagination edits; the completed repeated audit had unchanged inputs. Afterward only LaTeX split tokens changed; all223 extracted code regions and249 printed usage snippets were compared equal to that completed audit.",
+  "documentation_after_runtime_tests": "Runtime source/probe/runner/driver/snippet hashes verified equal to both reports. Subsequent documentation, inventory, PDF pagination and tools/test.sh runner registration are not represented as part of the earlier runtime snapshots.",
+  "printed_listing_spans_complete": true,
+  "online_status": "No online submission; previous Firefox Mac-lock blocker remains pending. Current judge time/memory limits, online AC and rankings unverified.",
+  "scope": "Two-component batch; not full-library completion, whole-library runtime verification or LeakSanitizer. No GitHub CI operations."
+}

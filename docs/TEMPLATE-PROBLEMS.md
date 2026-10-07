@@ -187,6 +187,8 @@
 | `CentroidNearest` | [SPOJ QTREE5 / Luogu SP2939](https://www.spoj.com/problems/QTREE5/) | 1<=N,Q<=100000; unit-edge connected tree; initially black; 0 toggles, 1 queries nearest white, no white outputs -1. | 待在线 AC | 待核验 |
 | `Fenwick2D` | [Library Checker point_add_rectangle_sum](https://judge.yosupo.jp/problem/point_add_rectangle_sum) | 1<=N,Q<=100000; coordinates and nonnegative weights <=1e9; nonempty half-open query rectangles. | 待在线 AC | 待核验 |
 | `RectangleFenwick` | [Luogu P4514 / 上帝造题的七分钟](https://www.luogu.com.cn/problem/P4514) | 1<=n,m<=2048; at most200000 operations; \|delta\|<=500; final answers int32, intermediate arithmetic not guaranteed int32. | 待在线 AC | 待核验 |
+| `PersistentDSU` | [Luogu P3402](https://www.luogu.com.cn/problem/P3402) | n<=100000,m<=200000; 1-based vertices and historical operation versions including0. | 待在线 AC | 待核验 |
+| `MergeSplitTree` | [Luogu P5494](https://www.luogu.com.cn/problem/P5494) | n,m<=200000; ai<=m; published k<=200000 and valid value coordinates. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1751,6 +1753,26 @@ Parse X then EOF-terminated L/k; convert 1-based closed coordinates to 0-based h
 Independent local core oracle and three complete driver forms passed normal+ASan/UBSan, including maximum-scale inputs. Online AC and rankings pending; no fresh whole-library runtime claim.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P4514)
+
+### Luogu P3402 / PersistentDSU
+
+Explicit standalone template statement; current judge time/memory limits unverified.
+
+Every operation appends a version, including query and rollback; vertex IDs become0-based. No XOR.
+
+Independent local oracles, ownership/history invariants and three complete driver forms passed normal+ASan/UBSan, including maximum-size inputs. Online AC and rankings pending; not a new whole-library runtime verification.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P3402)
+
+### Luogu P5494 / MergeSplitTree
+
+Explicit standalone template statement; current judge time/memory limits unverified.
+
+External set1 becomes0; closed value interval[x,y] becomes[x-1,y); operation2 is multiplicity then value; consumed source not reused in official driver inputs.
+
+Independent local oracles, ownership/history invariants and three complete driver forms passed normal+ASan/UBSan, including maximum-size inputs. Online AC and rankings pending; not a new whole-library runtime verification.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P5494)
 
 ## 榜单口径
 

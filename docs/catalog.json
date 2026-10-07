@@ -1324,5 +1324,17 @@
     "RectangleFenwick",
     "四矩二维树状数组：矩形加与矩形和",
     "RectangleFenwick<T>(n,m)，T默认long long，0≤n,m<2^30，初始化全0；稠密空间与构造O((n+1)(m+1))，需先确认可分配。add(l,d,r,u,v)给0-based半开矩形[l,r)×[d,u)加v；sum(l,d,r,u)查询同一区间，prefix(x,y)查询[0,x)×[0,y)。端点须在[0,n]×[0,m]，允许空矩形及零维矩阵。差分四角维护D、xD、yD、xyD四个矩，前缀和为xyS0-ySx-xSy+Sxy；每次操作O(log n log m)，实际存储每格4个T。单点操作令右上界各加1。T支持零值、加减、取负和乘int；包括-v、各坐标乘积及容斥在内的中间值均须可表示，仅最终答案可表示不够。内部bit与corner不供直接修改。重新赋值RectangleFenwick(n,m)清空；不支持稀疏大坐标自动压缩，因为区间加仍取决于真实格子数量。"
+  ],
+  [
+    "persistent_dsu",
+    "PersistentDSU",
+    "可持久化并查集",
+    "PersistentDSU(n)，n>0，点号0..n-1，版本0为单点集合。merge(ver,x,y)从任意版本合并并返回新版本号，已连通也创建版本；copy(ver)复制版本。find、same、size只读，不压缩路径；按大小合并，等大时第一根挂到第二根。区别于普通dsu的固定方向合并。稀疏可持久化线段树的叶子存父亲或负大小，空节点表示-1。初始化O(1)，copy均摊O(1)，其余O(log²(n+1))；成功合并增加O(log(n+1))节点。节点数/版本数须可用int索引。root、t只读，get/set内部函数勿直接调用；旧版本永不被改写。"
+  ],
+  [
+    "merge_split_tree",
+    "MergeSplitTree",
+    "线段树合并与分裂",
+    "MergeSplitTree(n)建空集合0，或传vector<long long>建初始重数；n>0，值域[0,n)。add(s,x,delta)点增减，结果重数非负；sum(s,l,r)查询半开值域；kth(s,k)按重数返回第k小的0-based值，不存在返回-1。split(s,l,r)移走区间并返回新集合号，空区间也创建集合；merge(dst,src)消耗不同的src，src变空后可重用。所有集合总量分别须≤LLONG_MAX，节点/集合索引须适合int。仅通过集合号操作，root/t/free只读，其余递归函数内部使用，禁止浅拷贝根。初始化O(n)，增减/分裂/查询O(log(n+1))；单次合并非O(log n)，遍历重叠节点并回收，总合并开销可摊到节点创建。完整对象值复制独立。"
   ]
 ]

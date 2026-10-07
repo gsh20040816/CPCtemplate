@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-07",
+  "classification": "Two independently implemented supplemental components; no kuangbin/WIDA coverage row closed by name matching.",
+  "sources": [
+    {
+      "url": "https://www.luogu.com.cn/problem/P3402",
+      "title": "可持久化并查集",
+      "checked": "Official displayed problem statement and input bounds read; every operation creates a historical state, including queries; rollback0 allowed; no XOR. n<=100000,m<=200000.",
+      "unverified": "Current judge time/memory limits, official samples, online AC and rankings."
+    },
+    {
+      "url": "https://www.luogu.com.cn/problem/P5494",
+      "title": "线段树分裂",
+      "checked": "Official displayed statement and bounds read; splitting moves closed value intervals into consecutive new IDs; consumed source not used again; op2 order is multiplicity then value; kth missing=-1. n,m<=200000, ai<=m, k<=200000. Maximum total requires64-bit.",
+      "unverified": "Current judge time/memory limits, official samples, online AC and rankings."
+    },
+    {
+      "url": "https://oi-wiki.org/ds/persistent-seg/",
+      "use": "Persistent DSU extension and taxonomy association; sparse negative-size leaf implementation independently written."
+    },
+    {
+      "url": "https://oi-wiki.org/ds/seg-merge-split/",
+      "use": "Value-domain merge/split background and taxonomy association; managed set IDs and recycling implementation independently written."
+    }
+  ],
+  "fixed_oi_taxonomy_reference": "bc070e827180fbd75c2e27a16c1212f1d671d949",
+  "scope": "The OI Wiki navigation mapping is pinned; current web readings are not represented as hashed immutable upstream source snapshots."
+}

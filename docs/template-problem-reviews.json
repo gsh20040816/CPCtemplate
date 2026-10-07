@@ -4679,5 +4679,75 @@
     "statement_sources": [
       "https://www.luogu.com.cn/problem/P4514"
     ]
+  },
+  {
+    "symbol": "PersistentDSU",
+    "problem": "Luogu P3402",
+    "url": "https://www.luogu.com.cn/problem/P3402",
+    "classification": "Explicit standalone template statement; current judge time/memory limits unverified.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "n<=100000,m<=200000; 1-based vertices and historical operation versions including0.",
+    "adapter": "Every operation appends a version, including query and rollback; vertex IDs become0-based. No XOR.",
+    "implementation": "existing",
+    "source": "src/compact/persistent_dsu.hpp",
+    "tested_api": [
+      "constructor",
+      "merge",
+      "copy",
+      "find",
+      "same",
+      "size"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Independent local oracles, ownership/history invariants and three complete driver forms passed normal+ASan/UBSan, including maximum-size inputs. Online AC and rankings pending; not a new whole-library runtime verification.",
+    "driver": "verify/luogu/P3402.compact.cpp",
+    "local_reports": [
+      "verification/ownership-normal.json",
+      "verification/ownership-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P3402"
+    ]
+  },
+  {
+    "symbol": "MergeSplitTree",
+    "problem": "Luogu P5494",
+    "url": "https://www.luogu.com.cn/problem/P5494",
+    "classification": "Explicit standalone template statement; current judge time/memory limits unverified.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "n,m<=200000; ai<=m; published k<=200000 and valid value coordinates.",
+    "adapter": "External set1 becomes0; closed value interval[x,y] becomes[x-1,y); operation2 is multiplicity then value; consumed source not reused in official driver inputs.",
+    "implementation": "existing",
+    "source": "src/compact/merge_split_tree.hpp",
+    "tested_api": [
+      "constructor",
+      "add",
+      "split",
+      "merge",
+      "sum",
+      "kth"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Independent local oracles, ownership/history invariants and three complete driver forms passed normal+ASan/UBSan, including maximum-size inputs. Online AC and rankings pending; not a new whole-library runtime verification.",
+    "driver": "verify/luogu/P5494.compact.cpp",
+    "local_reports": [
+      "verification/ownership-normal.json",
+      "verification/ownership-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P5494"
+    ]
   }
 ]

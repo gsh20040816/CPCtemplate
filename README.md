@@ -104,3 +104,5 @@ kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md
 活动点启用/停用后的最近距离与最小点号见 [动态点分树最近点](docs/CENTROID-NEAREST.md)；包含 QTREE5 完整应用，线上验证待补。
 
 稀疏坐标点加／矩形和，以及稠密矩形加／矩形和见 [二维Fenwick的接口与四矩证明](docs/FENWICK2D.md)。
+
+可持久化并查集的版本语义，以及线段树合并／分裂的独占节点与回收约定见 [历史版本与集合所有权](docs/OWNERSHIP-TREES.md)；包含 P3402、P5494 完整用法，本地验证不等于在线 AC。
