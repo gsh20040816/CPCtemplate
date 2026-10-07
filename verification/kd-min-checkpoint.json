@@ -1,0 +1,61 @@
+{
+  "base": "d570e707d745c0fe5c2507670f33675fa8fd84eb",
+  "batch": "Static rectangle minimum, deletion by original ID and CF44G chronological shooting application",
+  "counts": {
+    "components": 235,
+    "usages": 275,
+    "usage_status": {
+      "locally_checked_example": 167,
+      "locally_checked_application": 53,
+      "locally_checked_api": 15
+    },
+    "pending_upstream_topics": 609,
+    "partial_upstream_topics": 32
+  },
+  "rectangle_queries_per_core_form": 150000,
+  "core_forms_per_mode": 4,
+  "complete_inputs_per_form": {
+    "example-274": 60,
+    "example-275": 103
+  },
+  "complete_forms_per_mode": 3,
+  "mutants_per_mode": 5,
+  "stress": "100000 grid points and100000 identical points deleted by priority;100000 overlapping targets and100000 disjoint targets with100000 shots",
+  "unaffected": {
+    "base": "d570e707d745c0fe5c2507670f33675fa8fd84eb",
+    "unchanged_old_components": 234,
+    "unchanged_old_core_files": 198,
+    "old_expanded_programs_unchanged": 273,
+    "new_usages": [
+      "example-274",
+      "example-275"
+    ],
+    "files": {
+      "src/compact/kd_min.hpp": "034f3defc6dcc29933e494fd0dcdb57785654993ee4d80ccc9c85037d63d4576",
+      "tests/kd_min_probe.cpp": "743d308cda37207cfcfe7e935bebac911e86fb1901174f89f06aeef4d3382009",
+      "tests/kd_min.py": "4dc06f2584b6ec4cc569ffbbbe043320e31e61bbeec4ac81330fdbc4c9758aa4",
+      "verify/api/kd_min.compact.cpp": "dcde1b9db6bc87fe555c82455987b9598ebcf52572c98d383d8733f7a573d6d2",
+      "verify/codeforces/44G.compact.cpp": "7a0b42699c6498b0cc1d25b66038f8b0bf617e25565cd48cbf3ac5f5997e3f77"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "74cdd44c6e0da4a633446a62a39087fb1ac8dd9393acc7205a044ac7dc0b8090",
+      "pages": 761,
+      "page_change": 5,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-data-structures.pdf": {
+      "sha256": "1217a7e737495c85d5adb6b5900c6de466681aa071ac8d210db2a65cf0c5670f",
+      "pages": 193,
+      "page_change": 5,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global target stays active. kuangbin3.8.2 locally checked;3.8 remains partial because3.8.3 original semantics unverified. Official CF44G statement checked but no online AC/rank/resource-pass or full-library rerun; no CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/kd-min-normal.json",
+    "verification/kd-min-sanitizer.json"
+  ],
+  "documentation_after_runtime": "Source ledger/reviews and pagination finalized after execution. Runtime sources match recorded fingerprints; unchanged234 old components/273 expanded programs. New usages are one API and one competition application; formal coverage remains167."
+}

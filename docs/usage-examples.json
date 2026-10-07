@@ -3422,5 +3422,29 @@
     "requires": [
       "Chain3D"
     ]
+  },
+  {
+    "id": "example-274",
+    "symbol": "KDMin",
+    "kind": "api",
+    "problem": "矩形最小权与按编号删除（接口演示）",
+    "url": "https://oi-wiki.org/ds/kdt/",
+    "summary": "输入n,q和n条x,y,key记录；操作1 id删除0-based原编号，操作2 xl yl xr yr查询闭矩形内(key,编号)最小的活记录编号，无解输出-1。支持重复坐标/权、重复删除、反向矩形与空点集。",
+    "driver": "verify/api/kd_min.compact.cpp",
+    "requires": [
+      "KDMin"
+    ]
+  },
+  {
+    "id": "example-275",
+    "symbol": "KDMin",
+    "kind": "application",
+    "problem": "Codeforces 44G Shooting Gallery",
+    "url": "https://codeforces.com/problemset/problem/44/G",
+    "summary": "按顺序发射子弹，每发击碎最近尚存靶子，边界也算命中；输出每发击中的1-based靶子编号或0。n,m≤10^5，坐标0..10^7，矩形严格非退化，z互异且为1..10^7。把子弹时间作为key，按z从近到远处理靶子，查询靶面内最早未用子弹并删除。比赛应用，非正式模板题；本地验证不等于在线AC。",
+    "driver": "verify/codeforces/44G.compact.cpp",
+    "requires": [
+      "KDMin"
+    ]
   }
 ]

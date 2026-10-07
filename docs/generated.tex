@@ -6510,6 +6510,56 @@ KDRange(points=\{\})，Item含Point p=array<long long,2>和int id。add(\{\{x,y\
 
 \lstinputlisting{usage/example-271.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\section{静态二维矩形最小权与删点}\label{compact-KDMin}\index{KDMin}
+
+KDMin(points)批量建树；Item含二维signed64坐标p与signed64权key，原输入位置为0-based编号。query(low, high)查闭矩形内尚存记录，返回(key,编号)最小的原编号；空集或反向矩形返回-1。erase(id)删除该编号，重复删除无影响；相同坐标与权的记录彼此独立。p保留原序可只读访问，其他成员也是只读约定，内部build/pull不直接调用；不支持插入、改权或恢复。没有数值哨兵，坐标与权只比较，均支持完整signed64；n$\le$INT\_MAX且内存可分配。按nth\_element平均线性选择计，构建O(n log(n+1))，erase为O(log(n+1))，query保守最坏O(n)，空间O(n)，递归深度O(log(n+1))。包围盒保持建树时范围，删除后可能偏松但不会漏掉活点；best只汇总活点。
+
+\lstinputlisting[firstline=10,lastline=55,firstnumber=1]{../src/compact/kd_min.hpp}
+
+\newpage
+
+\noindent 中位数建树与固定包围盒（接上页同一结构体）：
+
+\lstinputlisting[firstline=56,lastline=83,firstnumber=47]{../src/compact/kd_min.hpp}
+
+\newpage
+
+\noindent 按编号删除与矩形查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=84,lastline=112,firstnumber=75]{../src/compact/kd_min.hpp}
+
+\Needspace{472pt}
+
+\subsection*{接口用法演示：矩形最小权与按编号删除（接口演示）}
+
+\label{usage-example-274}
+
+演示约定：输入n,q和n条x,y,key记录；操作1 id删除0-based原编号，操作2 xl yl xr yr查询闭矩形内(key,编号)最小的活记录编号，无解输出-1。支持重复坐标/权、重复删除、反向矩形与空点集。
+
+所需模板：\hyperref[compact-KDMin]{KDMin}（第~\pageref{compact-KDMin}~页，\ref{compact-KDMin}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/ds/kdt/}
+
+\lstinputlisting{usage/example-274.cpp}
+
+\Needspace{596pt}
+
+\subsection*{应用题补充：Codeforces 44G Shooting Gallery}
+
+\label{usage-example-275}
+
+题意：按顺序发射子弹，每发击碎最近尚存靶子，边界也算命中；输出每发击中的1-based靶子编号或0。n,m$\le$10\textasciicircum{}5，坐标0..10\textasciicircum{}7，矩形严格非退化，z互异且为1..10\textasciicircum{}7。把子弹时间作为key，按z从近到远处理靶子，查询靶面内最早未用子弹并删除。比赛应用，非正式模板题；本地验证不等于在线AC。
+
+所需模板：\hyperref[compact-KDMin]{KDMin}（第~\pageref{compact-KDMin}~页，\ref{compact-KDMin}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/problemset/problem/44/G}
+
+\lstinputlisting{usage/example-275.cpp}
+
 \Needspace{180pt}
 
 \chapter{动态树}

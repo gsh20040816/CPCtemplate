@@ -5116,5 +5116,32 @@
       "verification/chain-3d-normal.json",
       "verification/chain-3d-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "KDMin",
+    "problem": "Codeforces 44G Shooting Gallery",
+    "url": "https://codeforces.com/problemset/problem/44/G",
+    "classification": "比赛应用：离线靶子排序+矩形最早子弹查询/删除，不是正式模板题。",
+    "statement_checked": true,
+    "limits": "n,m≤100000；坐标0..10^7，非退化矩形，z互异且在1..10^7；5秒/256MB为官方限制，不是实测通过声明。",
+    "driver": "verify/codeforces/44G.compact.cpp",
+    "usage": "example-275",
+    "tested_api": [
+      "constructor",
+      "query closed rectangles",
+      "erase by original ID"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "在线AC、排名与评测机资源通过情况未核验；仅本地比赛应用。",
+    "checked_date": "2026-10-07",
+    "local_evidence": [
+      "verification/kd-min-normal.json",
+      "verification/kd-min-sanitizer.json"
+    ]
   }
 ]

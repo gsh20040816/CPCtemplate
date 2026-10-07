@@ -1402,5 +1402,11 @@
     "Chain3D",
     "三维最长链、计数与方案",
     "Chain3D(points, mod, strict=true)，坐标array<long long,3>，输入不变。\n\nmod为1..INT_MAX，n≤INT_MAX/2且内存可分配。\n\nstrict=true要求每一步三个坐标都严格增加；false为三坐标不减，并固定按(x,y,z,原输入编号)递增的规范顺序，重合点可依编号串联，不把相同坐标的排列重复计数。length/count为最长链长度/模方案数；空输入为0和1%mod。len/ways/parent按0-based原输入编号存每点结尾的最优状态与前驱，无前驱为-1；path()返回一条最长链原编号。并列时逐步选编号较小的前驱/终点，不保证整条路径字典序最小；计数为0模mod不表示无方案。CDQ左递归→转移→右递归，严格模式整组相同x不互转；y扫描、z压缩树状数组维护最大长度和同长计数。O(n log²(n+1))时间、O(n)空间、O(log(n+1))递归；坐标只比较，支持完整signed64。所有成员只读，重新赋值可重算。"
+  ],
+  [
+    "kd_min",
+    "KDMin",
+    "静态二维矩形最小权与删点",
+    "KDMin(points)批量建树；Item含二维signed64坐标p与signed64权key，原输入位置为0-based编号。query(low, high)查闭矩形内尚存记录，返回(key,编号)最小的原编号；空集或反向矩形返回-1。erase(id)删除该编号，重复删除无影响；相同坐标与权的记录彼此独立。p保留原序可只读访问，其他成员也是只读约定，内部build/pull不直接调用；不支持插入、改权或恢复。没有数值哨兵，坐标与权只比较，均支持完整signed64；n≤INT_MAX且内存可分配。按nth_element平均线性选择计，构建O(n log(n+1))，erase为O(log(n+1))，query保守最坏O(n)，空间O(n)，递归深度O(log(n+1))。包围盒保持建树时范围，删除后可能偏松但不会漏掉活点；best只汇总活点。"
   ]
 ]
