@@ -132,3 +132,5 @@ Kruskal生成森林、原边方案及三份来源差异见 [KRUSKAL](docs/KRUSKA
 右侧容量匹配的 Dinic 建图、方案还原及原稿数组边界核验见 [CAPACITATED-MATCHING-SOURCE-AUDIT](docs/CAPACITATED-MATCHING-SOURCE-AUDIT.md)。
 
 最大流边流量方案唯一性、独立环流及原稿漏判核验见 [FLOW-UNIQUE](docs/FLOW-UNIQUE.md)。
+
+kuangbin曼哈顿MST的完整原程序、第k大边和数值范围映射见 [MANHATTAN-SOURCE-AUDIT](docs/MANHATTAN-SOURCE-AUDIT.md)。

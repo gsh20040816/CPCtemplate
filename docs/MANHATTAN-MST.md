@@ -42,4 +42,4 @@
 - [官方任务源](https://github.com/yosupo06/library-checker-problems/tree/e64660561a995c357cdc61ddee1bde68b80528db/geo/manhattanmst)：题面、参数、校验器、不同 Fenwick 参考解、生成器共同锁定
 - Zhou–Shenoy–Nicholls, Efficient minimum spanning tree construction without Delaunay triangulation, 2002，[作者论文](https://users.ece.northwestern.edu/~haizhou/publications/zhou02ipl.pdf)，DOI 10.1016/S0020-0190(01)00232-0。原论文严格引理基于半开八分区，本说明单独处理闭边界平局
 
-kuangbin 4.19 是需求线索，未取得并逐页核验原 PDF 的事实不改变；不能仅因新增这个组件就把整页或全部来源审计标为完成。
+最初实现时kuangbin 4.19仅作为需求线索；后续已逐页核对原稿、编译完整Fenwick/Kruskal片段及main，并验证候选、输入变换和第k大边语义，见[来源核验](MANHATTAN-SOURCE-AUDIT.md)。POJ原题面与在线AC仍未核验；不由这一条推断其他来源完成。
