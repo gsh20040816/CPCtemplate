@@ -5819,5 +5819,35 @@
       "verification/capacitated-matching-usage-normal.json",
       "verification/capacitated-matching-usage-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "Isap",
+    "problem": "Luogu P3376",
+    "title": "网络最大流",
+    "url": "https://www.luogu.com.cn/problem/P3376",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-10-08",
+    "limits": "n<=200; m<=5000; 0<=capacity<2^31",
+    "adapter": "读入 n,m,s,t 与有向边，按容量加入后调用 flow(s,t)，使用库约定的不同源汇。总流量可能超过 32 位，需要 long long；不可达或零容量网络输出 0。默认最大流结果不单独验证 limit、used 或 cut。",
+    "implementation": "new",
+    "source": "src/compact/isap.hpp",
+    "api": "add/flow",
+    "candidate_api": [
+      "add",
+      "flow"
+    ],
+    "tested_api": [
+      "add",
+      "flow"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "新ISAP实现尚无在线AC或速度榜。限流、used、cut由独立本地割枚举验证，不把该题入口当作全部接口覆盖。",
+    "driver": "verify/luogu/P3376-isap.compact.cpp"
   }
 ]

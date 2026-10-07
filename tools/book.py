@@ -33,6 +33,7 @@ chapters['dag_longest'] = '有向无环图最长路'
 chapters['floyd'] = '全源最短路'
 chapters['shortest_path_tree'] = '最短路树与最小总边权'
 chapters['independent_set'] = '二分图独立集与覆盖方案'
+chapters['isap'] = '递归ISAP最大流'
 chapters['flow_unique'] = '最大流方案唯一性'
 chapters['prim'] = '矩阵最小生成森林'
 chapters['kruskal'] = '最小生成森林'
@@ -111,7 +112,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Prim', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D'):
+            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Prim', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D', 'Isap', 'flow_unique'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -953,8 +954,10 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 接上页同一结构体：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name in ('SpfaFlow', 'SuffixAutomaton'):
-                tokens = ['// Internal:', '// Returns additional'] if name == 'SpfaFlow' else ['void extend(', 'vector<long long> counts()']
+            elif name in ('SpfaFlow', 'SuffixAutomaton', 'Isap'):
+                tokens = (['void bfs(', '// Returns additional'] if name == 'Isap' else
+                          ['// Internal:', '// Returns additional'] if name == 'SpfaFlow' else
+                          ['void extend(', 'vector<long long> counts()'])
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
                     if j:

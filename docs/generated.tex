@@ -8964,7 +8964,47 @@ unit\_flow\_edges(g,ids) 在完整普通最大流的残量图上，查询每条�
 
 \lstinputlisting[firstline=30,firstnumber=30]{usage/example-133.cpp}
 
-\Needspace{306pt}
+\newpage
+
+\Needspace{650pt}
+
+\subsection{递归ISAP最大流}\label{compact-Isap}\index{Isap}
+
+Isap(n)，点号1..n；add(u,v,cap)返回偶数原边编号，used(id)读取流量；flow(s,t,limit)返回本次新增流，默认LLONG\_MAX，重复调用保持相同源汇。cut(s)返回残量可达点集，只有求尽后才是最小割。容量非负，总最大流$\le$LLONG\_MAX，允许自环、重边与反向原边；重建对象从零重算。e[id]含from/to/cap/initial，其中cap是残量容量；e/g可读，任意改动须维护全局可行流。反向残量BFS初始化距离，当前弧、重标号和gap剪枝，DFS保持递归，最坏O(V$^{2}$E)，空间O(V+E)、递归深度O(V)。bfs/dfs为内部方法，不能用其临时标签代替cut。与Dinic为独立备选，不承诺更快；两个方向有容量时分别add，逐边方案不压成有符号净流。
+
+\lstinputlisting[firstline=6,lastline=40,firstnumber=1]{../src/compact/isap.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体：
+
+\lstinputlisting[firstline=41,lastline=88,firstnumber=36]{../src/compact/isap.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体：
+
+\lstinputlisting[firstline=89,lastline=122,firstnumber=84]{../src/compact/isap.hpp}
+
+\newpage
+
+\Needspace{357pt}
+
+\subsection*{模板题使用：Luogu P3376}
+
+\label{usage-example-321}
+
+题意：给定n,m,s,t和1-based有向容量边，输出最大流。n$\le$200、m$\le$5000、0$\le$容量<2\textasciicircum{}31；s$\ne$t，重边逐条加入。总流可能超int，使用long long。这里只验证正式题目add/flow入口，限流、方案及cut另有独立本地核验。
+
+所需模板：\hyperref[compact-Isap]{Isap}（第~\pageref{compact-Isap}~页，\ref{compact-Isap}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3376}
+
+\lstinputlisting{usage/example-321.cpp}
+
+\newpage
+
+\Needspace{650pt}
 
 \subsection{最大流方案唯一性}\label{compact-flow_unique}\index{flow\_unique}
 

@@ -4026,5 +4026,17 @@
       "flow_unique"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-321",
+    "symbol": "Isap",
+    "problem": "Luogu P3376",
+    "url": "https://www.luogu.com.cn/problem/P3376",
+    "summary": "给定n,m,s,t和1-based有向容量边，输出最大流。n≤200、m≤5000、0≤容量<2^31；s≠t，重边逐条加入。总流可能超int，使用long long。这里只验证正式题目add/flow入口，限流、方案及cut另有独立本地核验。",
+    "driver": "verify/luogu/P3376-isap.compact.cpp",
+    "requires": [
+      "Isap"
+    ],
+    "start_new_page": true
   }
 ]

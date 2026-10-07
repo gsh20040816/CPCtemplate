@@ -257,3 +257,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Kruskal | [example-314](usage/example-314.cpp), [example-315（接口演示）](usage/example-315.cpp) | locally_checked_example |
 | Prim | [example-316](usage/example-316.cpp), [example-317（接口演示）](usage/example-317.cpp) | locally_checked_example |
 | flow_unique | [example-320（接口演示）](usage/example-320.cpp) | locally_checked_api |
+| Isap | [example-321](usage/example-321.cpp) | locally_checked_example |

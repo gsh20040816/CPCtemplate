@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 176，application 62，composite 3，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 177，application 62，composite 3，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -206,6 +206,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | mixed_euler_trail | 图论 → 欧拉图 | application | 有向、无向、混合和字典序应用，保留差异。 |
 | word_chain | 图论 → 欧拉图 | application | 有向、无向、混合和字典序应用，保留差异。 |
 | Dinic | 图论 → 网络流 → 最大流 | direct |  |
+| Isap | 图论 → 网络流 → 最大流 | direct |  |
 | flow_unique | 图论 → 网络流 → 最大流 | composite | 残量图SCC判定原边流量向量唯一性，含独立环流。 |
 | unit_flow_edges | 图论 → 网络流 → 最大流 | application | 固定最大流值下的单位边流量可行性，通过残量环与 SCC 分类；不是最小割边分类。 |
 | cut_tree_values | 图论 → 网络流 → 最小割 | application | 最小割的应用或查询；需在对应小节下保留本库名称。 |

@@ -663,8 +663,8 @@ kuangbin,ACM template (2018),159,4.15 生成树计数,partial,src/compact/matrix
 kuangbin,ACM template (2018),161,4.16 最大流,pending,,
 kuangbin,ACM template (2018),161,4.16.1 SAP 邻接矩阵形式,pending,,
 kuangbin,ACM template (2018),162,4.16.2 SAP 邻接矩阵形式 2,pending,,
-kuangbin,ACM template (2018),163,4.16.3 ISAP 邻接表形式,pending,,
-kuangbin,ACM template (2018),165,4.16.4 ISAP+bfs 初始化 + 栈优化,pending,,
+kuangbin,ACM template (2018),163,4.16.3 ISAP 邻接表形式,local-tested,src/compact/isap.hpp#Isap,"docs/ISAP.md; recursive vector ISAP preserves SAP labels/current arcs/gap and replaces source explicit path control per user. 73/92-line originals compiled; independent cut enumeration and signed rw mapping. Original BFS gap[-1] reproduced under UBSan, INF uninitialized inser static caveat explicit. Normal/sanitizer 4 core+4 P3376 usage forms; local only, no online AC/rank."
+kuangbin,ACM template (2018),165,4.16.4 ISAP+bfs 初始化 + 栈优化,local-tested,src/compact/isap.hpp#Isap,"docs/ISAP.md; recursive vector ISAP preserves SAP labels/current arcs/gap and replaces source explicit path control per user. 73/92-line originals compiled; independent cut enumeration and signed rw mapping. Original BFS gap[-1] reproduced under UBSan, INF uninitialized inser static caveat explicit. Normal/sanitizer 4 core+4 P3376 usage forms; local only, no online AC/rank."
 kuangbin,ACM template (2018),166,4.16.5 dinic,oj_ac_both,src/compact/flow.hpp#Dinic,verification/oj.json
 kuangbin,ACM template (2018),168,4.16.6 最大流判断多解,local-tested,src/compact/flow_unique.hpp#flow_unique,"docs/FLOW-UNIQUE.md; residual SCC internal original-edge cycle count, pair cancellation excluded. Independent enumeration of all optimum integer flows, loops/parallel/disconnected circulations; original sink-only/parent-vertex DFS misses reproduced. Normal+ASan/UBSan, API320 only, no online AC/rank or formal problem claim."
 kuangbin,ACM template (2018),169,4.17 最小费用最大流,pending,,
