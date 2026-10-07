@@ -102,3 +102,5 @@ kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md
 无权最少行重复覆盖的方案接口、下界与恢复证明见 [MINIMUM-COVER.md](docs/MINIMUM-COVER.md)；用法为本地接口演示，未新增线上AC。
 
 活动点启用/停用后的最近距离与最小点号见 [动态点分树最近点](docs/CENTROID-NEAREST.md)；包含 QTREE5 完整应用，线上验证待补。
+
+稀疏坐标点加／矩形和，以及稠密矩形加／矩形和见 [二维Fenwick的接口与四矩证明](docs/FENWICK2D.md)。

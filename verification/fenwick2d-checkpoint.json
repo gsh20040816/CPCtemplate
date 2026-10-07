@@ -1,0 +1,120 @@
+{
+  "base_commit": "d180cc6825d124d5673a28993629d716543d2b56",
+  "scope": "Two 2D Fenwick components and local integration only; not an online AC, new whole-library sanitizer run, ranking or completion claim.",
+  "core_result": "PASS 201 cases 2975246 checks",
+  "core_forms_per_mode": 4,
+  "complete_program_forms_per_problem_per_mode": 3,
+  "complete_input_counts": {
+    "point_add_rectangle_sum": 163,
+    "P4514": 162
+  },
+  "semantic_mutants_per_mode": 6,
+  "compiler": "/opt/homebrew/bin/g++-16 (GCC16.2), macOS arm64",
+  "report_files": [
+    "verification/fenwick2d-normal.json",
+    "verification/fenwick2d-sanitizer.json",
+    "verification/fenwick2d-copy.json",
+    "verification/fenwick2d-layout.json",
+    "verification/fenwick2d-sources.json"
+  ],
+  "copy_summary": "239 standard forms +6 explicit GNU forms pass; original precision-guard rejections229/230 remain. No whole-audit-pass claim.",
+  "current_counts": {
+    "components": 221,
+    "usages": 247,
+    "usage_status": {
+      "locally_checked_example": 163,
+      "locally_checked_application": 46,
+      "locally_checked_api": 12
+    },
+    "pending_upstream_topics": 636
+  },
+  "source_sha256": {
+    "src/compact/fenwick2d.hpp": "791f4f800a42792f309f350bea285ccf7619c60b26a3198caaebd1b4a76a0d1a",
+    "src/compact/rectangle_fenwick.hpp": "64b83289389b860f50e8eb8b87fb01b290012e486522aaa9827a62e9705e5f44",
+    "tests/fenwick2d.py": "b03c6aef17d6dd0853783037859ab038ddea8bcece7cea948f3d616cd992638d",
+    "tests/fenwick2d_probe.cpp": "fb84dfe7509a46ce60f243670b63414f390574d8c42d505507068fe65dec079f",
+    "verify/library_checker/point_add_rectangle_sum.compact.cpp": "09d3cf0d63d7095987ef358a67fd12a2c797062ec36bbe0724ac06997753b8ab",
+    "verify/luogu/P4514.compact.cpp": "e16427f0a300323bf0b4e0ba066f21231ea7b04524bdba1e6d9b7365e33f9f92",
+    "docs/usage/example-246.cpp": "cee43b58912665d54a113af260e73e220fe5d7205191165ebae040b9c899acf4",
+    "docs/usage/example-247.cpp": "58909688a4d37eff938f8d0f045260020caacf1ea816dc1dbd45caeac9cdf859",
+    "docs/usage-examples.json": "39c07ef932675530b406565be6e9ad992d87ba8852d196f7c607e8b5faf1097b",
+    "tools/book.py": "079f0a74c6facf275bbb2ad955eeb1d897f6586941303b37e24a3899310ff78d",
+    "tools/test.sh": "b95eee64f637644eca78a40e57c42cf6ac301d0fdd7b074f3e05a6cd073fbc5c"
+  },
+  "documentation_after_runtime_tests": "Only descriptions were refined after both runs: duplicate-input construction cost K log K + P log P, source review/coverage and generated pagination. Runtime source, runners, printed snippets and generator hash equality checked above.",
+  "online_status": "Firefox tool reports Mac locked; asked user to unlock, no browser state or credentials accessed. No online submission performed. P4514 current judge time/memory limits not verified; default dense storage at2048 square is about128MiB.",
+  "integration_checks": [
+    {
+      "command": [
+        "python3",
+        "tests/template_dependencies.py"
+      ],
+      "exit_code": 0,
+      "stdout": "221 algorithms, 136 direct edges, 247 complete usages and six local transitive closures PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/copy_prerequisite_order.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Copy prerequisites: all 247 lists closed, ordered and unique; negative controls PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/joint_usage_references.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Joint uses: direct-call checks, owner closure, negative controls and unique primary categories PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/basic_template_scope.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Basic template scope: three exact exclusions, advanced dependencies, DSU and history scope preserved PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/template_report.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_ac_record_does_not_depend_on_driver_registration (__main__.ReportTests.test_ac_record_does_not_depend_on_driver_registration) ... ok\ntest_both_statement_source_shapes_use_urls (__main__.ReportTests.test_both_statement_source_shapes_use_urls) ... ok\ntest_current_generation_and_evidence_limits (__main__.ReportTests.test_current_generation_and_evidence_limits) ... ok\ntest_existing_driver_is_not_online_ac (__main__.ReportTests.test_existing_driver_is_not_online_ac) ... ok\ntest_library_checker_driver_index_is_current (__main__.ReportTests.test_library_checker_driver_index_is_current) ... ok\ntest_missing_and_planned_are_not_completed (__main__.ReportTests.test_missing_and_planned_are_not_completed) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.008s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/pdf_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: eight PDFs, final logs without warnings; Arabic page destinations contiguous\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "build/tools-env/bin/python",
+        "tools/dependency_pdf_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Final PDF dependency links: 1222 name/page/section groups resolve to actual local destinations\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "build/tools-env/bin/python",
+        "tools/infra_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Infra: 16 external PDF jumps resolve to named destinations and correct printed page labels\n",
+      "stderr": ""
+    }
+  ]
+}

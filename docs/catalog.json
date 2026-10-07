@@ -1312,5 +1312,17 @@
     "CentroidNearest",
     "动态点分树：最近活动点与点号方案",
     "CentroidNearest(n)，n≥1，点号0..n-1；先add(u,v,w=1)建固定连通树，禁止环、重边、自环。边权非负，所有原树简单路径长度须能用long long表示。build()清空活动集，可在同一拓扑上重建，建树后不再add。set(u,on)启用或停用点，重复设置无影响；query(u)返回optional<pair<long long,int>>，即最近距离和同距离中最小点号，空集返回nullopt，距离LLONG_MAX合法。active[u]只读，可用set(u,!active[u])翻转；其他成员均为内部数据，不直接修改。每个重心用set维护(距离,原点号)，删除时精确到点号。查询跳过溢出的重心绕路距离；最优点与查询点的某个公共重心在原路径上，因此仍能取得精确答案。构建O(n log n)，单次更新O(log² n)，查询O(log n)，空间O(n log n)。所有DFS递归，原树最大递归深度O(n)。不支持负边权或动态拓扑。"
+  ],
+  [
+    "fenwick2d",
+    "Fenwick2D",
+    "稀疏二维树状数组：点加与矩形和",
+    "Fenwick2D<T>(points)，T默认long long；预登记所有将来更新的(x,y)，重复点自动去重，初始权值全0。add(x,y,v)在已登记点累加，删除可加负值；不是不预知坐标的在线数据结构。prefix(x,y)求横坐标<x且纵坐标<y的权和，sum(l,d,r,u)求[l,r)×[d,u)，允许空矩形；坐标、端点均为long long，不做端点±1。上界须可表示，因此不能用有限半开区间包含LLONG_MAX坐标。init(points)重新登记并清空权值，空点集合法。K为登记项数（含重复），P为不同点数且P<2^30：构造O(K log K+P log P)，构造峰值空间O(K+P log P)，更新与查询O(log² P)。按y有序分发到各横轴Fenwick节点，使内层坐标有序且去重。T支持零值、加减，所有节点和与容斥中间值均须可表示。内部字段只读，不提供未经登记的动态插入。"
+  ],
+  [
+    "rectangle_fenwick",
+    "RectangleFenwick",
+    "四矩二维树状数组：矩形加与矩形和",
+    "RectangleFenwick<T>(n,m)，T默认long long，0≤n,m<2^30，初始化全0；稠密空间与构造O((n+1)(m+1))，需先确认可分配。add(l,d,r,u,v)给0-based半开矩形[l,r)×[d,u)加v；sum(l,d,r,u)查询同一区间，prefix(x,y)查询[0,x)×[0,y)。端点须在[0,n]×[0,m]，允许空矩形及零维矩阵。差分四角维护D、xD、yD、xyD四个矩，前缀和为xyS0-ySx-xSy+Sxy；每次操作O(log n log m)，实际存储每格4个T。单点操作令右上界各加1。T支持零值、加减、取负和乘int；包括-v、各坐标乘积及容斥在内的中间值均须可表示，仅最终答案可表示不够。内部bit与corner不供直接修改。重新赋值RectangleFenwick(n,m)清空；不支持稀疏大坐标自动压缩，因为区间加仍取决于真实格子数量。"
   ]
 ]

@@ -226,3 +226,5 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ExactCover | [example-243](usage/example-243.cpp) | locally_checked_example |
 | MinimumCover | [example-244（接口演示）](usage/example-244.cpp) | locally_checked_api |
 | CentroidNearest | [example-245（应用补充）](usage/example-245.cpp) | locally_checked_application |
+| Fenwick2D | [example-246](usage/example-246.cpp) | locally_checked_example |
+| RectangleFenwick | [example-247](usage/example-247.cpp) | locally_checked_example |

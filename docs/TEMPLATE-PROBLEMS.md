@@ -185,6 +185,8 @@
 | `convex_tangents_i64` | [ICPC Chengdu 2025 I / Inside Triangle](https://codeforces.com/gym/106161/problem/I) | T<=1000; 3<=n,m<=300000; each sum<=500000; \|coordinate\|<=1e9; strict convex CCW polygons, Q strictly inside P, selected triangle contains Q non-strictly | 待在线 AC | 待核验 |
 | `ExactCover` | [Luogu P4929 / 精确覆盖](https://www.luogu.com.cn/problem/P4929) | N,M<=500; total ones<=5000 | 待在线 AC | 待核验 |
 | `CentroidNearest` | [SPOJ QTREE5 / Luogu SP2939](https://www.spoj.com/problems/QTREE5/) | 1<=N,Q<=100000; unit-edge connected tree; initially black; 0 toggles, 1 queries nearest white, no white outputs -1. | 待在线 AC | 待核验 |
+| `Fenwick2D` | [Library Checker point_add_rectangle_sum](https://judge.yosupo.jp/problem/point_add_rectangle_sum) | 1<=N,Q<=100000; coordinates and nonnegative weights <=1e9; nonempty half-open query rectangles. | 待在线 AC | 待核验 |
+| `RectangleFenwick` | [Luogu P4514 / 上帝造题的七分钟](https://www.luogu.com.cn/problem/P4514) | 1<=n,m<=2048; at most200000 operations; \|delta\|<=500; final answers int32, intermediate arithmetic not guaranteed int32. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1729,6 +1731,26 @@ Convert 1-based vertices to 0-based; white is active. Use returned distance only
 Normal and ASan/UBSan local oracle checks, original/copied assert/NDEBUG and three complete program forms pass. No new online AC or ranking; no whole-suite claim.
 
 原始题面与参数：[来源 1](https://www.spoj.com/problems/QTREE5/)，[来源 2](https://www.luogu.com.cn/problem/SP2939)
+
+### Library Checker point_add_rectangle_sum / Fenwick2D
+
+Official standalone Library Checker problem; pinned statement, verifier, metadata and example read.
+
+Preregister initial and all future type0 coordinates; replay operations in original order. Same-position weights accumulate. Signed/extreme-coordinate core extensions tested separately.
+
+Independent local core oracle and three complete driver forms passed normal+ASan/UBSan, including maximum-scale inputs. Online AC and rankings pending; no fresh whole-library runtime claim.
+
+原始题面与参数：[来源 1](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/point_add_rectangle_sum/task.md)，[来源 2](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/point_add_rectangle_sum/info.toml)，[来源 3](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/point_add_rectangle_sum/verifier.cpp)，[来源 4](https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/point_add_rectangle_sum/gen/example_00.in)
+
+### Luogu P4514 / 上帝造题的七分钟 / RectangleFenwick
+
+Direct rectangle update/query task. No competition attribution asserted; source background and final range note disagree, final note used.
+
+Parse X then EOF-terminated L/k; convert 1-based closed coordinates to 0-based half-open. long long internal arithmetic; conservative bound64*ops*maxdelta*n*m <2.7e16.
+
+Independent local core oracle and three complete driver forms passed normal+ASan/UBSan, including maximum-scale inputs. Online AC and rankings pending; no fresh whole-library runtime claim.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P4514)
 
 ## 榜单口径
 

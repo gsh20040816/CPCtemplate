@@ -3075,5 +3075,27 @@
     "requires": [
       "CentroidNearest"
     ]
+  },
+  {
+    "id": "example-246",
+    "symbol": "Fenwick2D",
+    "problem": "Library Checker point_add_rectangle_sum",
+    "url": "https://judge.yosupo.jp/problem/point_add_rectangle_sum",
+    "summary": "N,Q≤100000，初始N个带权平面点。0 x y w加入点权，重合点累加；1 l d r u查询[l,r)×[d,u)内总权。坐标和权值0..10^9，查询边界严格递增。先读完所有操作，预登记初始与未来增加点的坐标，再按原顺序执行；这不改变原题操作语义。",
+    "driver": "verify/library_checker/point_add_rectangle_sum.compact.cpp",
+    "requires": [
+      "Fenwick2D"
+    ]
+  },
+  {
+    "id": "example-247",
+    "symbol": "RectangleFenwick",
+    "problem": "Luogu P4514 / 上帝造题的七分钟",
+    "url": "https://www.luogu.com.cn/problem/P4514",
+    "summary": "输入X n m初始化零矩阵，n,m≤2048；读到EOF，L a b c d delta给1-based闭矩形加delta，k a b c d查询区域和（小写k）。至多200000操作，|delta|≤500；转换为[a-1,c)×[b-1,d)。最终答案在32位内，中间值未保证，使用long long。",
+    "driver": "verify/luogu/P4514.compact.cpp",
+    "requires": [
+      "RectangleFenwick"
+    ]
   }
 ]

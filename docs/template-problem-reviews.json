@@ -4610,5 +4610,74 @@
       "https://www.spoj.com/problems/QTREE5/",
       "https://www.luogu.com.cn/problem/SP2939"
     ]
+  },
+  {
+    "symbol": "Fenwick2D",
+    "problem": "Library Checker point_add_rectangle_sum",
+    "url": "https://judge.yosupo.jp/problem/point_add_rectangle_sum",
+    "classification": "Official standalone Library Checker problem; pinned statement, verifier, metadata and example read.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "1<=N,Q<=100000; coordinates and nonnegative weights <=1e9; nonempty half-open query rectangles.",
+    "adapter": "Preregister initial and all future type0 coordinates; replay operations in original order. Same-position weights accumulate. Signed/extreme-coordinate core extensions tested separately.",
+    "implementation": "existing",
+    "source": "src/compact/fenwick2d.hpp",
+    "tested_api": [
+      "constructor",
+      "add",
+      "prefix",
+      "sum"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Independent local core oracle and three complete driver forms passed normal+ASan/UBSan, including maximum-scale inputs. Online AC and rankings pending; no fresh whole-library runtime claim.",
+    "driver": "verify/library_checker/point_add_rectangle_sum.compact.cpp",
+    "local_reports": [
+      "verification/fenwick2d-normal.json",
+      "verification/fenwick2d-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/point_add_rectangle_sum/task.md",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/point_add_rectangle_sum/info.toml",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/point_add_rectangle_sum/verifier.cpp",
+      "https://github.com/yosupo06/library-checker-problems/blob/e64660561a995c357cdc61ddee1bde68b80528db/data_structure/point_add_rectangle_sum/gen/example_00.in"
+    ]
+  },
+  {
+    "symbol": "RectangleFenwick",
+    "problem": "Luogu P4514 / 上帝造题的七分钟",
+    "url": "https://www.luogu.com.cn/problem/P4514",
+    "classification": "Direct rectangle update/query task. No competition attribution asserted; source background and final range note disagree, final note used.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "1<=n,m<=2048; at most200000 operations; |delta|<=500; final answers int32, intermediate arithmetic not guaranteed int32.",
+    "adapter": "Parse X then EOF-terminated L/k; convert 1-based closed coordinates to 0-based half-open. long long internal arithmetic; conservative bound64*ops*maxdelta*n*m <2.7e16.",
+    "implementation": "existing",
+    "source": "src/compact/rectangle_fenwick.hpp",
+    "tested_api": [
+      "constructor",
+      "add",
+      "prefix",
+      "sum"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Independent local core oracle and three complete driver forms passed normal+ASan/UBSan, including maximum-scale inputs. Online AC and rankings pending; no fresh whole-library runtime claim.",
+    "driver": "verify/luogu/P4514.compact.cpp",
+    "local_reports": [
+      "verification/fenwick2d-normal.json",
+      "verification/fenwick2d-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P4514"
+    ]
   }
 ]

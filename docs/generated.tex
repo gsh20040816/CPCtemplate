@@ -4831,9 +4831,69 @@ b.erase(h);
 
 \lstinputlisting{usage/example-50.cpp}
 
-\Needspace{530pt}
+\newpage
+
+\Needspace{680pt}
 
 \chapter{树状数组}
+
+\section{稀疏二维树状数组：点加与矩形和}\label{compact-Fenwick2D}\index{Fenwick2D}
+
+Fenwick2D<T>(points)，T默认long long；预登记所有将来更新的(x,y)，重复点自动去重，初始权值全0。add(x,y,v)在已登记点累加，删除可加负值；不是不预知坐标的在线数据结构。prefix(x,y)求横坐标<x且纵坐标<y的权和，sum(l,d,r,u)求[l,r)×[d,u)，允许空矩形；坐标、端点均为long long，不做端点±1。上界须可表示，因此不能用有限半开区间包含LLONG\_MAX坐标。init(points)重新登记并清空权值，空点集合法。K为登记项数（含重复），P为不同点数且P<2\textasciicircum{}30：构造O(K log K+P log P)，构造峰值空间O(K+P log P)，更新与查询O(log$^{2}$ P)。按y有序分发到各横轴Fenwick节点，使内层坐标有序且去重。T支持零值、加减，所有节点和与容斥中间值均须可表示。内部字段只读，不提供未经登记的动态插入。
+
+\lstinputlisting[firstline=9,lastline=48]{../src/compact/fenwick2d.hpp}
+
+\newpage
+
+\noindent 更新与半开矩形求和（接上页同一结构体）：
+
+\lstinputlisting[firstline=49,lastline=79,firstnumber=41]{../src/compact/fenwick2d.hpp}
+
+\Needspace{502pt}
+
+\subsection*{模板题使用：Library Checker point\_add\_rectangle\_sum}
+
+\label{usage-example-246}
+
+题意：N,Q$\le$100000，初始N个带权平面点。0 x y w加入点权，重合点累加；1 l d r u查询[l,r)×[d,u)内总权。坐标和权值0..10\textasciicircum{}9，查询边界严格递增。先读完所有操作，预登记初始与未来增加点的坐标，再按原顺序执行；这不改变原题操作语义。
+
+所需模板：\hyperref[compact-Fenwick2D]{Fenwick2D}（第~\pageref{compact-Fenwick2D}~页，\ref{compact-Fenwick2D}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/point_add_rectangle_sum}
+
+\lstinputlisting{usage/example-246.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
+\section{四矩二维树状数组：矩形加与矩形和}\label{compact-RectangleFenwick}\index{RectangleFenwick}
+
+RectangleFenwick<T>(n,m)，T默认long long，0$\le$n,m<2\textasciicircum{}30，初始化全0；稠密空间与构造O((n+1)(m+1))，需先确认可分配。add(l,d,r,u,v)给0-based半开矩形[l,r)×[d,u)加v；sum(l,d,r,u)查询同一区间，prefix(x,y)查询[0,x)×[0,y)。端点须在[0,n]×[0,m]，允许空矩形及零维矩阵。差分四角维护D、xD、yD、xyD四个矩，前缀和为xyS0-ySx-xSy+Sxy；每次操作O(log n log m)，实际存储每格4个T。单点操作令右上界各加1。T支持零值、加减、取负和乘int；包括-v、各坐标乘积及容斥在内的中间值均须可表示，仅最终答案可表示不够。内部bit与corner不供直接修改。重新赋值RectangleFenwick(n,m)清空；不支持稀疏大坐标自动压缩，因为区间加仍取决于真实格子数量。
+
+\lstinputlisting[firstline=8,lastline=39]{../src/compact/rectangle_fenwick.hpp}
+
+\newpage
+
+\noindent 更新与半开矩形求和（接上页同一结构体）：
+
+\lstinputlisting[firstline=40,lastline=56,firstnumber=33]{../src/compact/rectangle_fenwick.hpp}
+
+\Needspace{422pt}
+
+\subsection*{模板题使用：Luogu P4514 / 上帝造题的七分钟}
+
+\label{usage-example-247}
+
+题意：输入X n m初始化零矩阵，n,m$\le$2048；读到EOF，L a b c d delta给1-based闭矩形加delta，k a b c d查询区域和（小写k）。至多200000操作，|delta|$\le$500；转换为[a-1,c)×[b-1,d)。最终答案在32位内，中间值未保证，使用long long。
+
+所需模板：\hyperref[compact-RectangleFenwick]{RectangleFenwick}（第~\pageref{compact-RectangleFenwick}~页，\ref{compact-RectangleFenwick}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4514}
+
+\lstinputlisting{usage/example-247.cpp}
+
+\Needspace{495pt}
 
 \section{树状数组第 k 小与组合依赖}\label{compact-Fenwick}\index{Fenwick}
 

@@ -5706,6 +5706,50 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "Fenwick2D",
+      "title": "稀疏二维树状数组：点加与矩形和",
+      "source": "src/compact/fenwick2d.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/point_add_rectangle_sum.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/point_add_rectangle_sum",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "RectangleFenwick",
+      "title": "四矩二维树状数组：矩形加与矩形和",
+      "source": "src/compact/rectangle_fenwick.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4514.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4514",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [
@@ -5894,18 +5938,6 @@
       "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 1D.cpp",
       "page": "",
       "topic": "25 - Fenwick 1D"
-    },
-    {
-      "source": "WIDA",
-      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 2D++.cpp",
-      "page": "",
-      "topic": "25 - Fenwick 2D++"
-    },
-    {
-      "source": "WIDA",
-      "source_path": "01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 2D.cpp",
-      "page": "",
-      "topic": "25 - Fenwick 2D"
     },
     {
       "source": "WIDA",
@@ -7238,24 +7270,6 @@
       "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
       "page": "",
       "topic": "排名扩展"
-    },
-    {
-      "source": "WIDA",
-      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
-      "page": "",
-      "topic": "二维树状数组"
-    },
-    {
-      "source": "WIDA",
-      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
-      "page": "",
-      "topic": "半动态矩阵和（单点修改）"
-    },
-    {
-      "source": "WIDA",
-      "source_path": "02 - 打印稿模板汇总/08 - 数据结构.md",
-      "page": "",
-      "topic": "动态矩阵和（区间修改）"
     },
     {
       "source": "WIDA",
