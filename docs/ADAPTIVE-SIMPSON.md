@@ -31,6 +31,6 @@
 
 - WIDA 锁定版本的 jiangly Simpson 文件使用 double、固定 EPS 与特定全局 integrand，重复计算样本，无资源/停滞状态。本实现保留标准估计与修正思想，改为独立 callable；没有移植原应用函数或继承原提交 AC
 - [OI Wiki 固定版本](https://github.com/OI-wiki/OI-wiki/blob/bc070e827180fbd75c2e27a16c1212f1d671d949/docs/math/numerical/integral.md)还介绍等距复合 Simpson，且自适应示例强制至少13层。本接口不实现这种最小深度策略，也不声称整页所有算法已完成。该页普通积分小节所示五次长度误差是单段公式，不要误套成任意步长的复合误差
-- kuangbin §2.15 的目录项仍待核对：当前没有读到与锁定 SHA256 相符的 PDF 页，不能据目录或同名算法标记原页完成
+- kuangbin §2.15 正文46页的13行完整原稿已按锁定PDF逐行核对，并与当前实现完成双模式数值对照。其可调用积分模型登记为local-tested；原稿无资源停止保护，也无严格误差保证。来源、调用计数及光滑函数漏采样反例见 [来源核验](SIMPSON-SOURCE-AUDIT.md)
 
 用法235是自定义 API 演示，对 `1/(1+x*x)` 积分；输出数值只表示估计检查通过，否则输出 FAILED。不是正式 OJ 驱动，不增加线上 AC。

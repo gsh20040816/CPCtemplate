@@ -156,3 +156,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 按位置插删、区间等值计数及CF455D在线解码见 [序列替罪羊树](docs/SEQUENCE-SCAPEGOAT.md)，与按值排序的替罪羊树分开。
 
 带插入区间第k小的来源协议及不伸展Splay查询退化反例见 [树套树来源审计](docs/SEQUENCE-KTH-SOURCE-AUDIT.md)；对应[SequenceKth实现](docs/SEQUENCE-KTH.md)和用法327已完成本地验证，官方题面及线上评测待核实。
+
+自适应 Simpson 的 [kuangbin 来源核验](docs/SIMPSON-SOURCE-AUDIT.md)已覆盖原稿13行，保留光滑函数漏采样反例；数值估计满足不代表严格误差保证。
