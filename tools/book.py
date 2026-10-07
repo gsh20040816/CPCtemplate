@@ -33,6 +33,7 @@ chapters['dag_longest'] = '有向无环图最长路'
 chapters['floyd'] = '全源最短路'
 chapters['shortest_path_tree'] = '最短路树与最小总边权'
 chapters['independent_set'] = '二分图独立集与覆盖方案'
+chapters['kruskal'] = '最小生成森林'
 chapters['dense_dijkstra'] = '稠密图矩阵最短路'
 chapters['spfa'] = '队列松弛与差分约束'
 chapters['bellman_ford'] = '负边最短路与负环方案'
@@ -108,7 +109,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D'):
+            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -446,10 +447,13 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 更新与半开矩形求和（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name in ('MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra'):
+            elif name in ('MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal'):
                 if name == 'MergeSplay':
                     tokens = ['void rotate(', 'int insert(', '// Change this element']
                     captions = ['', '旋转、伸展与固定编号', '节点插入与小集合合并', '保持编号的改值、名次与第 k 小']
+                elif name == 'Kruskal':
+                    tokens = ['    // Rebuild a minimum spanning forest']
+                    captions = ['', '边排序、合并与原边方案']
                 elif name == 'DenseDijkstra':
                     tokens = ['    void run(']
                     captions = ['', '矩阵扫描、松弛与路径输出']

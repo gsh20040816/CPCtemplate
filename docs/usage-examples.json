@@ -3931,5 +3931,32 @@
       "DenseDijkstra"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-314",
+    "symbol": "Kruskal",
+    "problem": "Luogu P3366 / 最小生成树",
+    "url": "https://www.luogu.com.cn/problem/P3366",
+    "summary": "无向图求最小生成树总权，不连通输出orz；n≤5000、m≤200000、边权1..10000，允许自环重边。输入1-based点号减一，run()!=1表示断连；本题总权可安全转long long。",
+    "driver": "verify/luogu/P3366.compact.cpp",
+    "requires": [
+      "dsu",
+      "Kruskal"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-315",
+    "symbol": "Kruskal",
+    "kind": "api",
+    "problem": "最小生成森林与原边方案（接口演示）",
+    "url": "https://oi-wiki.org/graph/mst/",
+    "summary": "输入n,m及0-based无向signed64边，输出连通块数、int128最小生成森林总权、选边数和0-based原边编号。支持空图、负权、自环重边与断连；方案按(权值,原编号)排序。接口演示，不计在线模板题。",
+    "driver": "verify/api/kruskal.compact.cpp",
+    "requires": [
+      "dsu",
+      "Kruskal"
+    ],
+    "start_new_page": true
   }
 ]

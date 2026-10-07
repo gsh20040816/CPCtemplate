@@ -1,0 +1,61 @@
+{
+  "base": "0e76fb2a5aee72dfd0e29e4f923294a3769cd421",
+  "batch": "Kruskal minimum spanning forest and three source mappings",
+  "counts": {
+    "components": 248,
+    "usages": 315,
+    "usage_status": {
+      "locally_checked_example": 174,
+      "locally_checked_application": 58,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 579,
+    "partial_upstream_topics": 32
+  },
+  "unaffected": {
+    "base": "0e76fb2a5aee72dfd0e29e4f923294a3769cd421",
+    "unchanged_old_components": 247,
+    "unchanged_old_core_files": 211,
+    "old_expanded_programs_unchanged": 313,
+    "new_usages": [
+      "example-314",
+      "example-315"
+    ],
+    "files": {
+      "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
+      "src/compact/kruskal.hpp": "3d661a7f71de092c542f6c5252b2f718d6813f13bc619be37a050ded3f39f41c",
+      "tests/kruskal_probe.cpp": "74463f24c221b0f8a5435acd00f60bb9249a62078ff4586101509163cb4899e4",
+      "tests/kruskal.py": "70b6b860535cbb5b02722c4822d1b36f1de77934ded3808eabb38d2d09e35a9a",
+      "verify/luogu/P3366.compact.cpp": "be67f194aa62e013bab331fdf3dd06c4e61a079b29c8637588d30f38f0720187",
+      "verify/api/kruskal.compact.cpp": "0dc35572c13b12c75a72db7b4b8cd2cf5031363efd8878709609b17f00f66580",
+      "tests/fixtures/kruskal_sources/kuangbin.inc": "1f8a7bf9e1f82cbb827025727317a0096a42bacc59a1b4ec87d5197ade68e23b",
+      "tests/fixtures/kruskal_sources/wida-print.inc": "be3cfdb2d497e66aa5cb034a040673e7d46bbedff50a80cc5c2c90619abaf6db",
+      "tests/fixtures/kruskal_sources/wida-online.inc": "b9028262cbd3f782343a0f682bf5a51e5da32f8b4bc947eed64db5edd4956d1d"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "71538b3a946725e8b698c34edb7c923bd42aae9051cf5a6dc669a543c36bbf0a",
+      "pages": 843,
+      "page_change": 4,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-graphs.pdf": {
+      "sha256": "381a8df2022c0a3c08b4c5ceaf41b60707f4322627212173f6c0e88690eea57d",
+      "pages": 272,
+      "page_change": 4,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "d9edcbf161ee816773db841f0fbe38747df2dca78b41ab47d1865a4cf8ca6a78",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global goal active. P3366 formal local template and signed128 forest edge-ID API; no new online AC/rank/resource-pass. No CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/kruskal-normal.json",
+    "verification/kruskal-sanitizer.json"
+  ]
+}
