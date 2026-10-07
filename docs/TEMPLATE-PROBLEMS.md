@@ -205,6 +205,9 @@
 | `StaticRMQ` | [Library Checker Static RMQ](https://judge.yosupo.jp/problem/staticrmq) | n,q≤500000;0≤a_i≤10^9;0≤l<r≤n;official fixed source time limit5s, no judge resource pass claim. | 待在线 AC | 待核验 |
 | `StaticRMQ` | [Luogu P3865](https://www.luogu.com.cn/problem/P3865) | n≤100000;q≤2000000;0≤a_i≤10^9;1-based closed intervals;statement warns0.8s maximum-data limit, no judge resource pass claim. | 待在线 AC | 待核验 |
 | `StaticRMQ2D` | [kuangbin3.2.2 / 矩形最大值与四角源码模型](https://github.com/kuangbin/ACM-ICPC) | 演示矩阵n,m在1..305，元素signed64，询问1-based闭端点可逆序；为本库模型约束，不冒称原题资源。 | 待在线 AC | 待核验 |
+| `HLD + Fenwick` | [kuangbin3.3.1 / 路径点权增减与点查源码模型](https://github.com/kuangbin/ACM-ICPC) | 本库演示n,q≤50000、m=n−1、\|初值\|≤10^12、0≤增减量≤10^6；不是原OJ资源声明。 | 待在线 AC | 待核验 |
+| `HLD + segtree` | [SPOJ QTREE / Luogu SP375](https://www.spoj.com/problems/QTREE/) | t≤20,n≤10000,初始c≤1000000；官方文本未给q上界与修改值完整范围，同点查询未定义。 | 待在线 AC | 待核验 |
+| `LiftingLCA` | [SPOJ QTREE2 / Luogu SP913](https://www.spoj.com/problems/QTREE2/) | t≤25,n≤10000,c≤100000；KTH的k在路径点数内，每组后空行；读取的官方文本未给q上界。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1933,6 +1936,34 @@ Online AC and rank pending; application does not close formal-template search.
 
 
 原OJ身份/题面/资源、正式模板题候选、在线AC与排名未核验。
+
+### kuangbin3.3.1 / 路径点权增减与点查源码模型 / HLD + Fenwick
+
+源码模型/API演示；未取得HDU3966原题面，不计正式模板题。
+
+EOF多组，I加/D减/Q点查；保存原值，Fenwick只记HLD闭区间的差分增量，r=n时add(n+1)为空操作。
+
+原HDU题面/资源及线上AC尚未核验。
+
+### SPOJ QTREE / Luogu SP375 / HLD + segtree
+
+树上路径查询应用，保守按application登记，不新增正式模板题覆盖。
+
+输入边号映射到较深端点，初始根位置放最低值；path(edge=true)排除LCA。最大值幺元为LLONG_MIN，不能用0替代；同点查询在本库扩展约定为0。CHANGE处理赋值而非累加，DONE区分测试组。
+
+在线AC、排名与评测机资源未核验；10万操作为本地压力规模，不冒称题面上限。
+
+原始题面与参数：[来源 1](https://www.spoj.com/problems/QTREE/cstart%3D40)，[来源 2](https://www.luogu.com.cn/problem/SP375)
+
+### SPOJ QTREE2 / Luogu SP913 / LiftingLCA
+
+固定树距离/路径点选择应用，按application登记，不新增正式模板题覆盖。
+
+LCA两侧按深度差切分，k从1计且包含两端与LCA，距离使用独立根权值和而非h.distance边数。所有根距离、差值及答案要求可表示为long long。原kuangbin文字说第K条边长度，与官方题面及原query_kth源码不符，实际输出点号。
+
+在线AC、排名与评测机资源未核验；10万查询为本地压力规模。
+
+原始题面与参数：[来源 1](https://am.spoj.com/FHNW1907/problems/QTREE2/)，[来源 2](https://www.luogu.com.cn/problem/SP913)
 
 ## 榜单口径
 

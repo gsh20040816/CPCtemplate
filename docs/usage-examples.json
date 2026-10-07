@@ -3506,5 +3506,48 @@
     "requires": [
       "StaticRMQ2D"
     ]
+  },
+  {
+    "id": "example-281",
+    "symbol": "HLD",
+    "kind": "api",
+    "problem": "路径点权增减与点查（kuangbin 3.3.1 源码模型）",
+    "url": "https://github.com/kuangbin/ACM-ICPC",
+    "summary": "读到EOF：n,m,q、n个初值、m条树边，要求m=n−1。I u v x/D u v x给路径所有点加/减x，Q u查点值。1-based，初值保留在a，Fenwick仅记录增量差分；HLD闭区间[l,r]在l加x、r+1减x，包含LCA与两端。演示n,q≤50000、|初值|≤10^12、0≤x≤10^6，全部中间值用long long。每次更新O(log² n)、点查O(log n)、空间O(n)。原HDU3966题面未核验。",
+    "driver": "verify/api/hld_path_add.compact.cpp",
+    "requires": [
+      "HLD",
+      "Fenwick"
+    ]
+  },
+  {
+    "id": "example-282",
+    "symbol": "HLD",
+    "kind": "application",
+    "problem": "SPOJ QTREE / 单边修改与路径最大边权",
+    "url": "https://www.spoj.com/problems/QTREE/",
+    "summary": "多测t≤20、n≤10000。输入边按1..n−1编号；CHANGE i x修改第i条边，QUERY u v查路径最大边权，DONE结束本组。把边存到较深端点的dfn−1；path的edge=true排除LCA，闭[l,r]转为segtree的半开[l−1,r)。空路径约定输出0，非空路径支持signed64负权及最小值；题面仅写c≤10^6，未写修改值下界。预处理O(n)、修改O(log n)、查询O(log² n)、空间O(n)，递归DFS。",
+    "driver": "verify/spoj/QTREE.compact.cpp",
+    "requires": [
+      "HLD",
+      "segtree"
+    ],
+    "configuration_functions": [
+      "op",
+      "e"
+    ]
+  },
+  {
+    "id": "example-283",
+    "symbol": "LiftingLCA",
+    "kind": "application",
+    "problem": "SPOJ QTREE2 / 路径距离与第k个点",
+    "url": "https://www.spoj.com/problems/QTREE2/",
+    "summary": "多测t≤25、n≤10000、边长c≤100000，DIST u v查距离，KTH u v k查从u到v的第k个点（1-based且合法），DONE结束，每组后空行。根距离d额外用递归DFS求出；切勿把h.distance的边数当权值和。令a、b为两端到LCA的边数，k≤a+1从u跳k−1，否则从v跳a+b+1−k。预处理O(n log n)、查询O(log n)、空间O(n log n)；本用法所有根距离、差和答案须在long long范围。",
+    "driver": "verify/spoj/QTREE2.compact.cpp",
+    "requires": [
+      "LiftingLCA"
+    ],
+    "listing_new_page": true
   }
 ]

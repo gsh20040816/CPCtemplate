@@ -1,0 +1,66 @@
+{
+  "base": "e6f1cf6b20113343fb075cc7238a7d7369122201",
+  "batch": "HLD vertex add/point query, QTREE edge set/path max, QTREE2 distance/kth vertex",
+  "counts": {
+    "components": 237,
+    "usages": 283,
+    "usage_status": {
+      "locally_checked_example": 168,
+      "locally_checked_application": 53,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 599,
+    "partial_upstream_topics": 32
+  },
+  "complete_forms_per_mode": 4,
+  "complete_inputs_per_form": {
+    "example-281": 70,
+    "example-282": 71,
+    "example-283": 71
+  },
+  "mutants_per_mode": 6,
+  "small": "All 146 labelled trees through n=5, all directed vertex pairs, every kth vertex, BFS independent path oracle, randomized edge orientation/order. 60 extra three-tree inputs per usage.",
+  "large": "281:50000-vertex chain/star,50000 operations. 282/283:10000-vertex chain/star,100000 operations; extra stress count, not claimed official q bound. Recursive DFS with explicitly configured local test stack.",
+  "unaffected": {
+    "base": "e6f1cf6b20113343fb075cc7238a7d7369122201",
+    "unchanged_components": 237,
+    "unchanged_core_files": 201,
+    "old_expanded_programs_unchanged": 280,
+    "new_usages": [
+      "example-281",
+      "example-282",
+      "example-283"
+    ],
+    "files": {
+      "tests/tree_path_usages.py": "aae6383526abe48a6c88ec6c668bbbbbc09e9b46eef9c913b160c3da70737d8d",
+      "verify/api/hld_path_add.compact.cpp": "b021ba8c1eaa6465abb78e92750343fedfde6b3a49513474b8949503805464cc",
+      "verify/spoj/QTREE.compact.cpp": "c8a73a375494f1b9ca2d5ac451cb5dbf933c917b41b28fae51415d9cae64354d",
+      "verify/spoj/QTREE2.compact.cpp": "3ccd2de6b1013a3a1126b0b8c60c820885d76a6def7507ac446d4763ffaef4c6"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "25014524e6503f25cccff5461bb16fcac6fd0838dc746ac250fead697e550b42",
+      "pages": 774,
+      "page_change": 4,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-graphs.pdf": {
+      "sha256": "ded2e3a27ddb9083bc92dda947031dc79eb0d889e68064fc8db718075f9bebae",
+      "pages": 219,
+      "page_change": 4,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "97d758283e127dec8c9c036bac400906325cd0b9dba67970ca7554a925438e78",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global goal active;599 upstream topics pending. Only local new usage regression;no online AC/rank or full-library runtime rerun. QTREE/QTREE2 are applications,281 is source model,formal component coverage unchanged168. No CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/tree-path-usages-normal.json",
+    "verification/tree-path-usages-sanitizer.json"
+  ]
+}

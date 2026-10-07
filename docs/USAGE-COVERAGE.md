@@ -21,7 +21,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | TwoSAT | [example-3](usage/example-3.cpp), [example-128](usage/example-128.cpp) | locally_checked_example |
 | BipartiteMatching | [example-35](usage/example-35.cpp) | locally_checked_example |
 | Lowlink | [example-58](usage/example-58.cpp) | locally_checked_example |
-| HLD | [example-44](usage/example-44.cpp), [example-231](usage/example-231.cpp) | locally_checked_example |
+| HLD | [example-44](usage/example-44.cpp), [example-231](usage/example-231.cpp), [example-281（接口演示）](usage/example-281.cpp), [example-282（应用补充）](usage/example-282.cpp) | locally_checked_example |
 | prefix_function | [example-91](usage/example-91.cpp) | locally_checked_example |
 | kmp_match | [example-91](usage/example-91.cpp) | locally_checked_example |
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
@@ -152,7 +152,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | bridge_augmentation | [example-167（应用补充）](usage/example-167.cpp) | locally_checked_application |
 | OfflineLCA | [example-32](usage/example-32.cpp) | locally_checked_example |
 | EulerLCA | [example-33](usage/example-33.cpp) | locally_checked_example |
-| LiftingLCA | [example-34](usage/example-34.cpp) | locally_checked_example |
+| LiftingLCA | [example-34](usage/example-34.cpp), [example-283（应用补充）](usage/example-283.cpp) | locally_checked_example |
 | path_intersection | [example-169（应用补充）](usage/example-169.cpp) | locally_checked_application |
 | DirectedEuler | [example-57](usage/example-57.cpp) | locally_checked_example |
 | UndirectedEuler | [example-177](usage/example-177.cpp) | locally_checked_example |

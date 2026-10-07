@@ -6904,6 +6904,24 @@ odd\_induced\_partition(n,edges) 接收 0..n-1 的无向简单图，禁止自环
 
 \lstinputlisting{usage/example-34.cpp}
 
+\Needspace{200pt}
+
+\subsection*{应用题补充：SPOJ QTREE2 / 路径距离与第k个点}
+
+题意：多测t$\le$25、n$\le$10000、边长c$\le$100000，DIST u v查距离，KTH u v k查从u到v的第k个点（1-based且合法），DONE结束，每组后空行。根距离d额外用递归DFS求出；切勿把h.distance的边数当权值和。令a、b为两端到LCA的边数，k$\le$a+1从u跳k−1，否则从v跳a+b+1−k。预处理O(n log n)、查询O(log n)、空间O(n log n)；本用法所有根距离、差和答案须在long long范围。
+
+所需模板：\hyperref[compact-LiftingLCA]{LiftingLCA}（第~\pageref{compact-LiftingLCA}~页，\ref{compact-LiftingLCA}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.spoj.com/problems/QTREE2/}
+
+\newpage
+
+\subsection*{SPOJ QTREE2 / 路径距离与第k个点：使用代码}
+
+\label{usage-example-283}
+
+\lstinputlisting{usage/example-283.cpp}
+
 \Needspace{429pt}
 
 \subsection{两条树路径的交集}\label{compact-path_intersection}\index{path\_intersection}
@@ -6981,6 +6999,40 @@ add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn�
 \noindent 继续处理操作（接上页同一 main）：
 
 \lstinputlisting[firstline=40,firstnumber=40]{usage/example-231.cpp}
+
+\Needspace{642pt}
+
+\subsection*{接口用法演示：路径点权增减与点查（kuangbin 3.3.1 源码模型）}
+
+\label{usage-example-281}
+
+演示约定：读到EOF：n,m,q、n个初值、m条树边，要求m=n−1。I u v x/D u v x给路径所有点加/减x，Q u查点值。1-based，初值保留在a，Fenwick仅记录增量差分；HLD闭区间[l,r]在l加x、r+1减x，包含LCA与两端。演示n,q$\le$50000、|初值|$\le$10\textasciicircum{}12、0$\le$x$\le$10\textasciicircum{}6，全部中间值用long long。每次更新O(log$^{2}$ n)、点查O(log n)、空间O(n)。原HDU3966题面未核验。
+
+所需模板：\hyperref[compact-HLD]{HLD}（第~\pageref{compact-HLD}~页，\ref{compact-HLD}~节）、\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/kuangbin/ACM-ICPC}
+
+\lstinputlisting{usage/example-281.cpp}
+
+\Needspace{325pt}
+
+\subsection*{应用题补充：SPOJ QTREE / 单边修改与路径最大边权}
+
+\label{usage-example-282}
+
+题意：多测t$\le$20、n$\le$10000。输入边按1..n−1编号；CHANGE i x修改第i条边，QUERY u v查路径最大边权，DONE结束本组。把边存到较深端点的dfn−1；path的edge=true排除LCA，闭[l,r]转为segtree的半开[l−1,r)。空路径约定输出0，非空路径支持signed64负权及最小值；题面仅写c$\le$10\textasciicircum{}6，未写修改值下界。预处理O(n)、修改O(log n)、查询O(log$^{2}$ n)、空间O(n)，递归DFS。
+
+所需模板：\hyperref[compact-HLD]{HLD}（第~\pageref{compact-HLD}~页，\ref{compact-HLD}~节）、\hyperref[compact-segtree]{segtree}（第~\pageref{compact-segtree}~页，\ref{compact-segtree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.spoj.com/problems/QTREE/}
+
+\lstinputlisting[lastline=10]{usage/example-282.cpp}
+
+\newpage
+
+\noindent 使用入口（接上页配置函数）：
+
+\lstinputlisting[firstline=11,firstnumber=11]{usage/example-282.cpp}
 
 \Needspace{680pt}
 
