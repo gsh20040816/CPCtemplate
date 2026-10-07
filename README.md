@@ -128,3 +128,5 @@ Kruskal生成森林、原边方案及三份来源差异见 [KRUSKAL](docs/KRUSKA
 矩阵Prim、父点森林及两份来源核对见 [PRIM](docs/PRIM.md)。
 
 无权二分图匹配的五份原实现、重跑语义与独立验证见 [MATCHING-SOURCE-AUDIT](docs/MATCHING-SOURCE-AUDIT.md)。
+
+右侧容量匹配的 Dinic 建图、方案还原及原稿数组边界核验见 [CAPACITATED-MATCHING-SOURCE-AUDIT](docs/CAPACITATED-MATCHING-SOURCE-AUDIT.md)。
