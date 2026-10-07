@@ -3765,5 +3765,42 @@
       "TarjanSCC"
     ],
     "page_break_before": "    t.run();"
+  },
+  {
+    "id": "example-301",
+    "symbol": "DagLongest",
+    "kind": "application",
+    "problem": "Luogu P1807 / 最长路",
+    "url": "https://www.luogu.com.cn/problem/P1807",
+    "summary": "有符号权DAG中求1到n的最长路，不可达输出−1。n≤1500，m≤50000，|w|≤100000，有限结果可转long long；负数也可能是合法答案，不能以dis<0判不可达。",
+    "driver": "verify/luogu/P1807.compact.cpp",
+    "requires": [
+      "DagLongest"
+    ]
+  },
+  {
+    "id": "example-302",
+    "symbol": "DagLongest",
+    "kind": "application",
+    "problem": "CSES 1680 / Longest Flight Route",
+    "url": "https://cses.fi/problemset/task/1680/",
+    "summary": "DAG中求从1到n经过城市数最多的路线；每条航线加权1，path返回原边号，依次输出边终点。不可达输出IMPOSSIBLE；城市数为边数+1。n≤100000，m≤200000。",
+    "driver": "verify/cses/1680.compact.cpp",
+    "requires": [
+      "DagLongest"
+    ]
+  },
+  {
+    "id": "example-303",
+    "symbol": "DagLongest",
+    "kind": "api",
+    "problem": "DAG最长距离、全图判环与原边路径（接口演示）",
+    "url": "https://oi-wiki.org/graph/topo/",
+    "summary": "输入n,m,s及signed64有向边；s=0允许任意起点。整图有环输出CYCLIC，否则逐点输出INF或“int128最长距离 边数 正向原边号”。INF表示不可达，负数距离有效，边号从0计。",
+    "driver": "verify/api/dag_longest.compact.cpp",
+    "requires": [
+      "DagLongest"
+    ],
+    "page_break_before": "    for (int u = 1; u <= n; u++)"
   }
 ]

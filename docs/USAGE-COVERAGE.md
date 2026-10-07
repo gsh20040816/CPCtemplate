@@ -249,3 +249,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | MergeSplay | [example-290（应用补充）](usage/example-290.cpp), [example-291（应用补充）](usage/example-291.cpp), [example-292（接口演示）](usage/example-292.cpp) | locally_checked_application |
 | BellmanFord | [example-293](usage/example-293.cpp), [example-294（应用补充）](usage/example-294.cpp), [example-295（接口演示）](usage/example-295.cpp) | locally_checked_example |
 | Spfa | [example-296](usage/example-296.cpp), [example-297](usage/example-297.cpp), [example-298（应用补充）](usage/example-298.cpp), [example-299（接口演示）](usage/example-299.cpp) | locally_checked_example |
+| DagLongest | [example-301（应用补充）](usage/example-301.cpp), [example-302（应用补充）](usage/example-302.cpp), [example-303（接口演示）](usage/example-303.cpp) | locally_checked_application |

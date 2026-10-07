@@ -1450,5 +1450,11 @@
     "Spfa",
     "SPFA：队列松弛、负环判定与有限路径",
     "Spfa(n)，点号1..n，0<n<INT_MAX。add(u,v,w)返回0-based原边号，允许重边、自环、完整signed64权值，边数≤INT_MAX；加边令valid=false。run(s)查从s可达的负环，s=0同时初始化所有点为0以查全图。返回false时valid=false，全部dis/pre均为未完成状态，不能读取为最短路或恢复路径；需要负环方案或逐点负无穷分类用BellmanFord。\n\nrun返回true时valid=true，dis[v]==inf为不可达，其余为int128最短距离；run(0)距离为任意起点出发的最小值，且本身就是全部约束x_v−x_u≤w的一个可行解。path(v)返回正向原边号；不可达与零边路径均为空，结合dis区分。每次run重置临时队列/标记/路径边数，支持反复改起点与对象复制。\n\nFIFO队列，最坏O(nm+n+m)时间，O(n+m)空间，不保证近线性；队列去重不等于永久访问标记。严格松弛后维护标签所代表游走的边数，达到n立即判负环。停止前标签最多n条边，绝对值≤n·2^63<2^94，int128与inf=2^126足够。不要无条件转long long；e/g/dis/pre/valid只读，其余按接口使用。"
+  ],
+  [
+    "dag_longest",
+    "DagLongest",
+    "DAG有符号权最长路与路径方案",
+    "DagLongest(n)，点号1..n，0<n<INT_MAX；add(u,v,w)返回0-based原边号，支持重边和完整signed64权值，边数≤INT_MAX。run(s)求指定起点的最长路；run(0)允许任意起点及零边路径。每次运行重建入度，返回false表示整张图存在环（包括与s不连通的环），此时全部dis/pre/ord结果无效；它不是一般图最长路求解器。\n\n成功时valid=true，ord为全图拓扑序，dis[v]==−inf为不可达，其余为int128最长距离；path(v)返回正向原边号，不可达和零边路径都为空，结合dis区分。并列任选一条，不承诺字典序。add使旧结果失效；支持重复改源点和独立对象复制。\n\nrun时间和空间O(n+m)，path为O(路径长)。拓扑处理必须包含不可达点，并正常消减其出边入度，但禁止用不可达哨兵参与加法。有限路径至多n−1边，绝对值<(n·2^63)<2^94，int128和inf=2^126足够，不能无条件转long long。e/g/dis/pre/ord/valid只读。拓扑序用vector作FIFO队列，与DFS改写为显式栈无关。"
   ]
 ]

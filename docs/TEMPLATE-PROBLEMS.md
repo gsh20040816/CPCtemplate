@@ -220,6 +220,8 @@
 | `Spfa` | [Luogu P5960 / 差分约束](https://www.luogu.com.cn/problem/P5960) | n,m≤5000;\|w\|≤10000;不等式两点不同;输出值需在int范围。 | 待在线 AC | 待核验 |
 | `Spfa` | [Luogu P1993 / 小K的农场](https://www.luogu.com.cn/problem/P1993) | n,m,c≤5000;三种关系对应≥、≤、相等。 | 待在线 AC | 待核验 |
 | `TarjanSCC` | [Luogu P3275 / 糖果](https://www.luogu.com.cn/problem/P3275) | n,k≤100000;五种关系；每个原顶点至少1；最小总量用64位。 | 待在线 AC | 待核验 |
+| `DagLongest` | [P1807](https://www.luogu.com.cn/problem/P1807) | 1≤n≤1500;0≤m≤50000;\|w\|≤100000;DAG;1到n不可达输出−1。 | 待在线 AC | 待核验 |
+| `DagLongest` | [CSES1680](https://cses.fi/problemset/task/1680/) | 2≤n≤100000;1≤m≤200000;DAG;输出任意最多城市路线或IMPOSSIBLE。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2074,6 +2076,22 @@ LCA两侧按深度差切分，k从1计且包含两端与LCA，距离使用独立
 
 
 普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。
+
+### P1807 / DagLongest
+
+应用题；尚未核验为正式非比赛模板题，不增加正式模板覆盖。
+
+
+
+两种模式完整程序及独立最优值/路径证书通过；在线AC、排名、资源限制通过尚未核验。
+
+### CSES1680 / DagLongest
+
+应用题；尚未核验为正式非比赛模板题，不增加正式模板覆盖。
+
+
+
+两种模式完整程序及独立最优值/路径证书通过；在线AC、排名、资源限制通过尚未核验。
 
 ## 榜单口径
 

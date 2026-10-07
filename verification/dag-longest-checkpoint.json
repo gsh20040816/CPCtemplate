@@ -1,0 +1,59 @@
+{
+  "base": "231ca118c5d7a6fcca3cca0ef1700981baf34839",
+  "batch": "Signed DAG longest paths, repeatable whole-graph topological validation and original-edge path witnesses",
+  "counts": {
+    "components": 243,
+    "usages": 303,
+    "usage_status": {
+      "locally_checked_example": 171,
+      "locally_checked_application": 56,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 589,
+    "partial_upstream_topics": 32
+  },
+  "unaffected": {
+    "base": "231ca118c5d7a6fcca3cca0ef1700981baf34839",
+    "unchanged_old_components": 242,
+    "unchanged_old_core_files": 206,
+    "old_expanded_programs_unchanged": 300,
+    "new_usages": [
+      "example-301",
+      "example-302",
+      "example-303"
+    ],
+    "files": {
+      "src/compact/dag_longest.hpp": "c5a9f9be27e7459d3a9fb7b9af611bfe6aa3fcc08df44fbdf9b200c46cf07c08",
+      "tests/dag_longest_probe.cpp": "70ca3af8dfb01bf13699755401e82c1d7ce095f90fc63fe41d4347f2628f837b",
+      "tests/dag_longest.py": "e19b3052cbf006860641fd76fce760e3ea6e8035927147cdc0d167a8876e576c",
+      "verify/luogu/P1807.compact.cpp": "b8ceab0867c552b0127c3a775536b8999e5eedb0523938af5216d03bdd283724",
+      "verify/cses/1680.compact.cpp": "8d9c23fa4c361e06bcca09b12f40baba36968d03f5c90f1241a69e29185b5b6e",
+      "verify/api/dag_longest.compact.cpp": "7d74993cbe1b04c69e6f53688f0524d497949d24b6e9df6dd7df21232d2405fe"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "018ac998af8d5bd26698eaf69043c3ffb25a31de4310accfacb2e5db9beb2abc",
+      "pages": 819,
+      "page_change": 6,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-graphs.pdf": {
+      "sha256": "c70316bdf1cda8085dd241cb4bfb54859fb285d6a78964d06cf5a0df5dde2d8a",
+      "pages": 247,
+      "page_change": 6,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "e1a7bc4c0f87f7f8b1c54329da01c947dc2f2e77c41a6ec0de717dfa87603e2f",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global goal active. Two applications and one API only, no new formal-template coverage or online AC/rank/resource-pass. No CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/dag-longest-normal.json",
+    "verification/dag-longest-sanitizer.json"
+  ]
+}

@@ -7444,6 +7444,82 @@ CentroidDiameter(n)，固定连通无向树、0-based点号，n>0且2n不溢出i
 
 \lstinputlisting{usage/example-285.cpp}
 
+\newpage
+
+\Needspace{680pt}
+
+\chapter{拓扑排序}
+
+\section{DAG有符号权最长路与路径方案}\label{compact-DagLongest}\index{DagLongest}
+
+DagLongest(n)，点号1..n，0<n<INT\_MAX；add(u,v,w)返回0-based原边号，支持重边和完整signed64权值，边数$\le$INT\_MAX。run(s)求指定起点的最长路；run(0)允许任意起点及零边路径。每次运行重建入度，返回false表示整张图存在环（包括与s不连通的环），此时全部dis/pre/ord结果无效；它不是一般图最长路求解器。
+
+成功时valid=true，ord为全图拓扑序，dis[v]==−inf为不可达，其余为int128最长距离；path(v)返回正向原边号，不可达和零边路径都为空，结合dis区分。并列任选一条，不承诺字典序。add使旧结果失效；支持重复改源点和独立对象复制。
+
+run时间和空间O(n+m)，path为O(路径长)。拓扑处理必须包含不可达点，并正常消减其出边入度，但禁止用不可达哨兵参与加法。有限路径至多n−1边，绝对值<(n·2\textasciicircum{}63)<2\textasciicircum{}94，int128和inf=2\textasciicircum{}126足够，不能无条件转long long。e/g/dis/pre/ord/valid只读。拓扑序用vector作FIFO队列，与DFS改写为显式栈无关。
+
+\lstinputlisting[firstline=8,lastline=39,firstnumber=1]{../src/compact/dag_longest.hpp}
+
+\newpage
+
+\noindent 全图拓扑序与最长路（接上页同一结构体）：
+
+\lstinputlisting[firstline=40,lastline=73,firstnumber=33]{../src/compact/dag_longest.hpp}
+
+\newpage
+
+\noindent 成功运行后的原边路径（接上页同一结构体）：
+
+\lstinputlisting[firstline=74,lastline=88,firstnumber=67]{../src/compact/dag_longest.hpp}
+
+\Needspace{368pt}
+
+\subsection*{应用题补充：Luogu P1807 / 最长路}
+
+\label{usage-example-301}
+
+题意：有符号权DAG中求1到n的最长路，不可达输出−1。n$\le$1500，m$\le$50000，|w|$\le$100000，有限结果可转long long；负数也可能是合法答案，不能以dis<0判不可达。
+
+所需模板：\hyperref[compact-DagLongest]{DagLongest}（第~\pageref{compact-DagLongest}~页，\ref{compact-DagLongest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1807}
+
+\lstinputlisting{usage/example-301.cpp}
+
+\Needspace{445pt}
+
+\subsection*{应用题补充：CSES 1680 / Longest Flight Route}
+
+\label{usage-example-302}
+
+题意：DAG中求从1到n经过城市数最多的路线；每条航线加权1，path返回原边号，依次输出边终点。不可达输出IMPOSSIBLE；城市数为边数+1。n$\le$100000，m$\le$200000。
+
+所需模板：\hyperref[compact-DagLongest]{DagLongest}（第~\pageref{compact-DagLongest}~页，\ref{compact-DagLongest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://cses.fi/problemset/task/1680/}
+
+\lstinputlisting{usage/example-302.cpp}
+
+\Needspace{557pt}
+
+\subsection*{接口用法演示：DAG最长距离、全图判环与原边路径（接口演示）}
+
+\label{usage-example-303}
+
+演示约定：输入n,m,s及signed64有向边；s=0允许任意起点。整图有环输出CYCLIC，否则逐点输出INF或“int128最长距离 边数 正向原边号”。INF表示不可达，负数距离有效，边号从0计。
+
+所需模板：\hyperref[compact-DagLongest]{DagLongest}（第~\pageref{compact-DagLongest}~页，\ref{compact-DagLongest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/topo/}
+
+\lstinputlisting[lastline=35]{usage/example-303.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=36,firstnumber=36]{usage/example-303.cpp}
+
 \Needspace{426pt}
 
 \chapter{最短路问题}
