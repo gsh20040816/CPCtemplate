@@ -65,7 +65,7 @@ void check(const vector<string> &patterns, const vector<string> &texts)
     {
         cases++;
         auto cnt = ac.count(text);
-        require(cnt[0] == (long long)text.size());
+        require(cnt[0] == (long long)text.size() + 1);
         for (auto &[s, u] : node)
         {
             if (!u) continue;

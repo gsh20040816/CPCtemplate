@@ -130,30 +130,37 @@ struct AhoCorasick
     struct Node
     {
         array<int, 26> go{};
-        int fail = 0;
+        int fail = 0, len = 0;
     };
 
     vector<Node> a{Node{}};
     vector<int> order;
     bool built = false;
 
-    int add(const string &s)
+    template <class S>
+    int add(const S &s, int offset)
     {
-        assert(!built && !s.empty());
+        assert(!built);
         int u = 0;
-        for (char ch : s)
+        for (auto ch : s)
         {
-            int c = ch - 'a';
+            long long c = (long long)ch - offset;
             assert(0 <= c && c < 26);
             if (!a[u].go[c])
             {
                 int v = (int)a.size();
                 a[u].go[c] = v;
                 a.push_back(Node{});
+                a[v].len = a[u].len + 1;
             }
             u = a[u].go[c];
         }
         return u;
+    }
+
+    int add(const string &s)
+    {
+        return add(s, 'a');
     }
 
     void build()
@@ -182,19 +189,28 @@ struct AhoCorasick
         }
     }
 
-    vector<long long> count(const string &s) const
+    template <class S>
+    vector<long long> count(const S &s, int offset) const
     {
         assert(built);
         vector<long long> ans(a.size());
+        ans[0] = 1;
         int u = 0;
-        for (char ch : s)
+        for (auto ch : s)
         {
-            u = a[u].go[ch - 'a'];
+            long long c = (long long)ch - offset;
+            assert(0 <= c && c < 26);
+            u = a[u].go[c];
             ++ans[u];
         }
         for (int i = (int)order.size() - 1; i >= 0; i--)
             ans[a[order[i]].fail] += ans[order[i]];
         return ans;
+    }
+
+    vector<long long> count(const string &s) const
+    {
+        return count(s, 'a');
     }
 };
 

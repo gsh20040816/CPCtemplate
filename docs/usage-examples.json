@@ -3314,5 +3314,29 @@
       "ACWeighted",
       "DynamicAC"
     ]
+  },
+  {
+    "id": "example-265",
+    "symbol": "AhoCorasick",
+    "kind": "api",
+    "problem": "整数序列AC与深度（接口演示）",
+    "url": "https://oi-wiki.org/string/ac-automaton/",
+    "summary": "输入n,q,offset，每条模式/查询给出长度和整数序列。各元素减offset必须为0..25，允许空序列。先输出各模式Trie深度，再逐查询输出各模式出现次数；空模式贡献文本长度+1。",
+    "driver": "verify/api/ac_indexed.compact.cpp",
+    "requires": [
+      "AhoCorasick"
+    ]
+  },
+  {
+    "id": "example-266",
+    "symbol": "AhoCorasick",
+    "kind": "api",
+    "problem": "自定义字符偏移AC（接口演示）",
+    "url": "https://oi-wiki.org/string/ac-automaton/",
+    "summary": "输入n,q及字母表起始字符offset，再输入n个模式串和q个文本，均用双引号包围以支持空串。字符减offset为0..25。逐查询输出所有模式的重叠出现次数；例如offset为A可处理大写字母。",
+    "driver": "verify/api/ac_offset.compact.cpp",
+    "requires": [
+      "AhoCorasick"
+    ]
   }
 ]

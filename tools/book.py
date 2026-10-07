@@ -61,6 +61,8 @@ for style in ['compact']:
                 if end and lines[end - 1].startswith('template'):
                     end -= 1
             estimate = sum((max(1, (len(line.expandtabs(4)) + 109) // 110) for line in lines[start:end])) * 10.2 + 70 + len(info) / 65 * 12
+            if name == 'ac_shortest':
+                estimate = max(estimate, 380)
             if name == 'HLD':
                 split = next(i for i in range(start, end) if 'void dfs2(' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12

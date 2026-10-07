@@ -196,15 +196,15 @@ exkmp(s,t)返回\{z,p\}：z为模式t的Z数组，z[0]=|t|；p[i]是文本后缀
 
 \section{AC 自动机出现次数}\label{compact-AhoCorasick}\index{AhoCorasick}
 
-字母表 a..z，add(s) 返回终止状态，要求模式非空；全部插入后 build()，只允许一次构建。count(text) 返回每个状态对应模式的出现次数，可重复查询；重复模式共享状态。构建 O(26N)，查询 O(|text|+N)。 根为0；a[u].go/fail和BFS顺序order可读，order不含根。count允许空文本，cnt[0]为文本长度，不是空串匹配次数。模式集合可空，文本也须为a..z；重置赋新对象。出现过的模式编号数按保存的每个终点分别判断cnt>0，见P3808用法。
+add(s)/count(s) 默认小写string；add(s,offset)/count(s,offset) 接受string或vector<int>，每个元素减offset须在0..25，同一自动机使用一致编码。字符串字面量请先转string再传双参数入口。add返回终态，支持空模式返回根0；count返回逐状态重叠出现次数，根恒为文本长度+1。全部插入后build一次，随后只读且可重复查询；重复模式共享状态。a[u].len为Trie深度，go/fail与order可读，order不含根。size用a.size()，重置赋新对象。构建O(26V+L)，查询O(|text|+V)，空间O(26V)。状态数、深度须在int内。非空旧用法不变；旧根计数语义需减1。出现过的模式编号数仍按每个终点分别判断cnt>0。
 
-\lstinputlisting[firstline=128,lastline=158]{../src/compact/string.hpp}
+\lstinputlisting[firstline=128,lastline=165]{../src/compact/string.hpp}
 
 \newpage
 
 \noindent 构建失败链接与统计出现次数（接上页同一结构体）：
 
-\lstinputlisting[firstline=159,lastline=200,firstnumber=32]{../src/compact/string.hpp}
+\lstinputlisting[firstline=166,lastline=216,firstnumber=39]{../src/compact/string.hpp}
 
 \Needspace{391pt}
 
@@ -234,7 +234,35 @@ exkmp(s,t)返回\{z,p\}：z为模式t的Z数组，z[0]=|t|；p[i]是文本后缀
 
 \lstinputlisting{usage/example-262.cpp}
 
-\Needspace{264pt}
+\Needspace{501pt}
+
+\subsection*{接口用法演示：整数序列AC与深度（接口演示）}
+
+\label{usage-example-265}
+
+演示约定：输入n,q,offset，每条模式/查询给出长度和整数序列。各元素减offset必须为0..25，允许空序列。先输出各模式Trie深度，再逐查询输出各模式出现次数；空模式贡献文本长度+1。
+
+所需模板：\hyperref[compact-AhoCorasick]{AhoCorasick}（第~\pageref{compact-AhoCorasick}~页，\ref{compact-AhoCorasick}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/string/ac-automaton/}
+
+\lstinputlisting{usage/example-265.cpp}
+
+\Needspace{448pt}
+
+\subsection*{接口用法演示：自定义字符偏移AC（接口演示）}
+
+\label{usage-example-266}
+
+演示约定：输入n,q及字母表起始字符offset，再输入n个模式串和q个文本，均用双引号包围以支持空串。字符减offset为0..25。逐查询输出所有模式的重叠出现次数；例如offset为A可处理大写字母。
+
+所需模板：\hyperref[compact-AhoCorasick]{AhoCorasick}（第~\pageref{compact-AhoCorasick}~页，\ref{compact-AhoCorasick}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/string/ac-automaton/}
+
+\lstinputlisting{usage/example-266.cpp}
+
+\Needspace{380pt}
 
 \section{AC 自动机最短后缀匹配长度}\label{compact-ac_shortest}\index{ac\_shortest}
 
@@ -352,11 +380,11 @@ SAIS(s,alphabet)：整数符号0..alphabet-1，1$\le$alphabet<INT\_MAX，长度n
 
 构造 SuffixArray(s) 支持任意字节串，按 unsigned char 的 0..255 数值比较，包含内嵌零字节；也可构造 SuffixArray(a,alphabet)，整数序列要求 0$\le$a[i]<alphabet、1$\le$alphabet<INT\_MAX。重新赋值 SuffixArray(a,alphabet) 可重建。长度须小于 INT\_MAX。sa[k] 为第 k 个非空后缀起点，rk[i] 为排名，全部 0-based；lcp[k] 为 sa[k-1] 与 sa[k] 的最长公共前缀，lcp[0]=0。空序列合法，三数组均为空。无需手动追加哨兵，也不输出空后缀。每轮按第二关键字已有顺序、第一关键字稳定计数排序，倍增 O(n log n+alphabet)，空间 O(n+alphabet)；字节串 alphabet=256。大整数先自行保序离散化，避免按最大原值开桶。Kasai 求 lcp 为 O(n)。不同起点 x,y 的 LCP 为 lcp[min(rk[x],rk[y])+1..max(rk[x],rk[y])] 的最小值；本结构不内建 RMQ，需要频繁查询时另接静态 RMQ。同一起点的 LCP 为 n-x。覆盖倍增构造，不替代 DC3/SA-IS。
 
-\lstinputlisting[firstline=201,lastline=231]{../src/compact/string.hpp}
+\lstinputlisting[firstline=217,lastline=247]{../src/compact/string.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=232,lastline=272,firstnumber=32]{../src/compact/string.hpp}
+\lstinputlisting[firstline=248,lastline=288,firstnumber=32]{../src/compact/string.hpp}
 
 \newpage
 
@@ -460,19 +488,19 @@ square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long l
 
 extend(c) 接收整数0..25，每次追加一个小写字符；last为整串状态，a[0]为根，根link=-1。a[u].len为状态最大长度，非根代表(len[link[u]],len[u]]且具有同一endpos集合。occ是原始种子：真实扩展为1、克隆为0，不能直接当出现次数。counts()按长度倒序汇总后返回副本，不改结构，重复查询及查询后继续追加安全；根计数为n，非空子串只看u>0。distinct()为不同非空子串数。重赋值SuffixAutomaton()清空；固定26字母表构建O(n)，counts/distinct为O(n)，空间O(26n)。如需前缀位置对应状态，在每次extend后保存last；本结构不输出广义SAM或最小DFA状态数。
 
-\lstinputlisting[firstline=273,lastline=284,firstnumber=1]{../src/compact/string.hpp}
+\lstinputlisting[firstline=289,lastline=300,firstnumber=1]{../src/compact/string.hpp}
 
 \newpage
 
 \noindent 接上页同一结构体：
 
-\lstinputlisting[firstline=285,lastline=322,firstnumber=13]{../src/compact/string.hpp}
+\lstinputlisting[firstline=301,lastline=338,firstnumber=13]{../src/compact/string.hpp}
 
 \newpage
 
 \noindent 接上页同一结构体：
 
-\lstinputlisting[firstline=323,lastline=345,firstnumber=51]{../src/compact/string.hpp}
+\lstinputlisting[firstline=339,lastline=361,firstnumber=51]{../src/compact/string.hpp}
 
 \Needspace{277pt}
 

@@ -757,3 +757,5 @@ python3 tests/tsubstr.py
 python3 tests/ac_source.py
 
 python3 tests/ac_weighted.py
+
+python3 tests/ac_indexed.py

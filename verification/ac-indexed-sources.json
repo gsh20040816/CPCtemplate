@@ -1,0 +1,37 @@
+{
+  "checked_date": "2026-10-07",
+  "upstream": [
+    {
+      "path": "03 - jiangly模板收集/05 - 字符串/06B - AC自动机（AhoCorasick, with vector 新版）.cpp",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/06B%20-%20AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88AhoCorasick%2C%20with%20vector%20%E6%96%B0%E7%89%88%EF%BC%89.cpp",
+      "sha256": "cf0089e4f4d32e412aaa0a785c184495af164f3273f114a8be832f8c150a5a2e"
+    },
+    {
+      "path": "03 - jiangly模板收集/05 - 字符串/06C - AC自动机（AhoCorasick, with string 新版）.cpp",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/06C%20-%20AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88AhoCorasick%2C%20with%20string%20%E6%96%B0%E7%89%88%EF%BC%89.cpp",
+      "sha256": "e484d8882bc1813ac97606f93cca3cc237d3c9a38a283b555b5123411be527d6"
+    }
+  ],
+  "rows": [
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/06B - AC自动机（AhoCorasick, with vector 新版）.cpp",
+      "page": "",
+      "topic": "06B - AC自动机（AhoCorasick, with vector 新版）",
+      "status": "local-tested",
+      "compact": "AhoCorasick",
+      "verification": "ac-indexed: explicit-offset string/vector<int> add/count, initialized Trie len, root/empty semantics, transitions/fail, reset and sizes verified. Root0 replaces virtual0/root1; read a[u].go/fail/len and a.size(); no imitation of uninitialized root len or ignored char offset in06B. Count root is now |text|+1, old scan count subtracts1. Four forms, extreme integer offsets/million chain, source+weighted regressions, all20 changed old expanded usages plus2 new APIs refreshed normal+ASan/UBSan. No new online AC/rank. See docs/AC-INDEXED.md."
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/06C - AC自动机（AhoCorasick, with string 新版）.cpp",
+      "page": "",
+      "topic": "06C - AC自动机（AhoCorasick, with string 新版）",
+      "status": "local-tested",
+      "compact": "AhoCorasick",
+      "verification": "ac-indexed: explicit-offset string/vector<int> add/count, initialized Trie len, root/empty semantics, transitions/fail, reset and sizes verified. Root0 replaces virtual0/root1; read a[u].go/fail/len and a.size(); no imitation of uninitialized root len or ignored char offset in06B. Count root is now |text|+1, old scan count subtracts1. Four forms, extreme integer offsets/million chain, source+weighted regressions, all20 changed old expanded usages plus2 new APIs refreshed normal+ASan/UBSan. No new online AC/rank. See docs/AC-INDEXED.md."
+    }
+  ],
+  "migration": "Only AhoCorasick core changed. Root count text length -> text length+1; nonempty pattern counts unchanged. Explicit integer/character offsets; Trie len initialized. Standard string wrappers remain.",
+  "scope": "Local source-interface verification; no online AC/rank. 06B root len and char offset defects deliberately fixed rather than emulated."
+}

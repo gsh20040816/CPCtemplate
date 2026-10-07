@@ -27,7 +27,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
 | manacher | [example-23](usage/example-23.cpp), [example-129](usage/example-129.cpp), [example-252（接口演示）](usage/example-252.cpp) | locally_checked_example |
 | minimum_rotation | [example-209](usage/example-209.cpp) | locally_checked_example |
-| AhoCorasick | [example-70](usage/example-70.cpp), [example-262](usage/example-262.cpp) | locally_checked_example |
+| AhoCorasick | [example-70](usage/example-70.cpp), [example-262](usage/example-262.cpp), [example-265（接口演示）](usage/example-265.cpp), [example-266（接口演示）](usage/example-266.cpp) | locally_checked_example |
 | SuffixArray | [example-19](usage/example-19.cpp), [example-131](usage/example-131.cpp) | locally_checked_example |
 | SuffixAutomaton | [example-71](usage/example-71.cpp), [example-130](usage/example-130.cpp) | locally_checked_example |
 | Mod64 | [example-234（接口演示）](usage/example-234.cpp) | locally_checked_api |

@@ -123,7 +123,7 @@
     "string",
     "AhoCorasick",
     "AC 自动机出现次数",
-    "字母表 a..z，add(s) 返回终止状态，要求模式非空；全部插入后 build()，只允许一次构建。count(text) 返回每个状态对应模式的出现次数，可重复查询；重复模式共享状态。构建 O(26N)，查询 O(|text|+N)。 根为0；a[u].go/fail和BFS顺序order可读，order不含根。count允许空文本，cnt[0]为文本长度，不是空串匹配次数。模式集合可空，文本也须为a..z；重置赋新对象。出现过的模式编号数按保存的每个终点分别判断cnt>0，见P3808用法。"
+    "add(s)/count(s) 默认小写string；add(s,offset)/count(s,offset) 接受string或vector<int>，每个元素减offset须在0..25，同一自动机使用一致编码。字符串字面量请先转string再传双参数入口。add返回终态，支持空模式返回根0；count返回逐状态重叠出现次数，根恒为文本长度+1。全部插入后build一次，随后只读且可重复查询；重复模式共享状态。a[u].len为Trie深度，go/fail与order可读，order不含根。size用a.size()，重置赋新对象。构建O(26V+L)，查询O(|text|+V)，空间O(26V)。状态数、深度须在int内。非空旧用法不变；旧根计数语义需减1。出现过的模式编号数仍按每个终点分别判断cnt>0。"
   ],
   [
     "string",

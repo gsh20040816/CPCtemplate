@@ -1,0 +1,75 @@
+{
+  "base": "efe47951841f8fa4d4d2c8cae265ab3d8a34e7e0",
+  "batch": "Unified AC indexed/offset inputs, depth and empty-pattern contract",
+  "core_cases_per_form": 17560,
+  "core_checks_per_form": 1282271,
+  "new_complete_inputs_per_form": {
+    "example-265": 160,
+    "example-266": 160
+  },
+  "semantic_mutants_per_mode": 4,
+  "regressions": "OriginalAC26770 cases/2692012 checks; weightedAC25285 cases/462270 checks per form, both modes; P5357/P3808 185 inputs each, weightedAPI160 andCF710F126 per full form. Missing-flush protocol control preserved. Shortest helper both modes. All22 affected/new expanded usages refreshed.",
+  "current_counts": {
+    "components": 231,
+    "usages": 266,
+    "usage_status": {
+      "locally_checked_example": 167,
+      "locally_checked_application": 51,
+      "locally_checked_api": 13
+    },
+    "pending_upstream_topics": 616,
+    "partial_upstream_topics": 29
+  },
+  "runtime_source_sha256": {
+    "src/compact/string.hpp": "be145d0bbbe033aae59174b130d391af9dfa5de32adb5c5dca4243b1d68e90f4",
+    "tests/usage_examples.py": "a4177295f6f6714121c4660c71803fe684ade44e2fcda3b2b8cbbfa9c471cb31",
+    "tests/ac_indexed.py": "7634683f7809ccd51c7319aea33b41a43c36e0ac2515e9f9bbc0b3bc2900b485",
+    "tests/ac_indexed_probe.cpp": "183d76ec06084a522628989c19d949c2902e5eef19d33aaa9c727927f0a26a5b",
+    "verify/api/ac_indexed.compact.cpp": "3bc4153ca143ed90daac551cef6be8c4a7a68972aa1c6025724fc3025f0607a7",
+    "verify/api/ac_offset.compact.cpp": "43e00ce858822794698218492569376ab3775fb2f136f99c6a7705b2b93b503e",
+    "docs/usage/example-265.cpp": "503280cde4898b5eef4949c49dae9586809763a70ec878cb8f728adde6d66f37",
+    "docs/usage/example-266.cpp": "1cc669a802a84a3e66ebb39e70095ecdd6ade9df3f14396b5fe8d9ea40c03a9a",
+    "tests/ac_source.py": "925ba5a7a13f7d8fd179b73266d76aba2d871e755019c40abaaa1b10a91104a8",
+    "tests/ac_source_probe.cpp": "9cb54c733b0baa182920e11e1d3c0e5fe0dd1abf3ba323e77ecb9fbeae7a4547",
+    "verify/luogu/P5357.compact.cpp": "dc99c6be4c075ddfc61962d1e3f65b012492365ab223c725a6118316c619adbb",
+    "verify/luogu/P3808.compact.cpp": "9cfbf1f2d8820065f3a650b02d5fab5e44a7dc5df6cfccd5867408f17609608f",
+    "tests/ac_weighted.py": "dc2f500aa812e4d441b7fe085358f4658b6d6016d722393792221793657fbb43",
+    "tests/ac_weighted_probe.cpp": "9d43b7ac11543ece205149f464cf97094628f2ad9b27ed0504599e0c5928fc38",
+    "src/compact/ac_weighted.hpp": "7b01d98b489d2b3a7bc28fe30aa117dcd8adcbd5f9b90cec9c73dbaa349097a0",
+    "verify/codeforces/710F.compact.cpp": "a45df282c1fd12a63eb143d377114ea778585294adcfc88171507320fb123cab",
+    "verify/ac_weighted_demo.cpp": "b4a783adbe25999dc35ec547e9cfe6638b72387a740a7c630658ac8a48bf9efa"
+  },
+  "documentation_after_runtime": "OnlyAC core changed,230 other cores unchanged. New minimal-copy harness fixed its missing iomanip include after prior regressions finished and reran in both modes. Relevant runtime sources match each final report; later documentation/pagination edits excluded. No whole-library rerun/online AC claim.",
+  "remaining": "Global source ledger616 pending/29 partial; broader contest/OI math coverage and online AC/rank/issue requirements remain active.",
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "1452506baadad94c071edb2b05a3400a19f0ad2dea3622baa33da1b373cce188",
+      "font_set_preserved": true,
+      "page_change": 3,
+      "pages": 739
+    },
+    "output/pdf/xcpc-strings.pdf": {
+      "sha256": "0a70c1764048a682d7ad9dfbcde20a427bf891ddbecd01aba6d619fdf9d18b6d",
+      "font_set_preserved": true,
+      "page_change": 3,
+      "pages": 77
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "f411301c105cf20b80ba8de683259bb95040b1ebc5cd4b874c74b01439b86be6",
+      "font_set_preserved": true,
+      "page_change": 0,
+      "pages": 12
+    }
+  },
+  "report_sha256": {
+    "verification/ac-indexed-copy.json": "83639ab1f76fe669d3f84bae9d6a3378699ae0792788e3aad96b2a26d692f16c",
+    "verification/ac-indexed-layout.json": "c564ea82ea8e63e10ff489acef7e5ed151bd4c8cd0bebace78995502f17a365a",
+    "verification/ac-indexed-normal.json": "1db85de3a63b67b849f2c9e7d9aab99b64ac0859d979f375a2ef4ed7f29b0f85",
+    "verification/ac-indexed-regression-source-normal.json": "51afba6c16b142a41359d545e62cf514efbc6cc13881c894492da54c57832b6a",
+    "verification/ac-indexed-regression-source-sanitizer.json": "e8775c37005ebb105044338b6ece527685fa4d79563942d236e9acd56cb69201",
+    "verification/ac-indexed-regression-weighted-normal.json": "244283b08b0d3ad6692ee91ef79c62abf4467dec57d4f70be264e5c3bc7b94ac",
+    "verification/ac-indexed-regression-weighted-sanitizer.json": "5e2bcadc31976f8840fc4601610c0fbcf9f82d31ccdc8065775bef07280fdbaf",
+    "verification/ac-indexed-sanitizer.json": "f44e04360860e66450e634fc094fbe898182fcb26c01755947e7270f87cacbfd",
+    "verification/ac-indexed-sources.json": "f80f5316baadb5a248abb100833ffe2da6adcf1435517af8193387ecbca805bb"
+  }
+}
