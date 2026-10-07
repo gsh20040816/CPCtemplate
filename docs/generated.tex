@@ -9754,6 +9754,78 @@ WeightedMatching(n,m)，两侧编号 1..n、1..m。add(x,y,w) 加边，重边保
 
 \lstinputlisting{usage/example-73.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\subsection{按匹配基数求最大权与顶标证书}\label{compact-AssignmentSpectrum}\index{AssignmentSpectrum}
+
+AssignmentSpectrum(n,m)，两侧0-based，n,m$\ge$0。add(x,y,w)接受完整signed64权，重边保留最大权，缺边不当零权。solve(limit=INT\_MAX)从空重算，返回k=min(limit,最大匹配数)，limit$\ge$0；best[j]为全图恰好j条边的最大权，0$\le$j$\le$k，best[0]=0。负增益也继续，best不必单调。l/r为最后k条的互逆方案，-1未匹配；要j条方案重新solve(j)。顶标lx,ly和level仅对最后基数有效：令$\alpha$=lx-level、$\beta$=ly，则$\alpha$,$\beta$非负，每条边$\alpha$+$\beta$+level$\ge$w，匹配边取等，未匹配点对应$\alpha$或$\beta$为0；sum($\alpha$)+sum($\beta$)+k*level等于best[k]。答案与顶标为int128；加边后须重新solve，其他成员只读。多源松弛始终从所有未匹配左点出发，故每个基数均全局最优。时间O((k+1)nm+n+m)、空间O(nm+n+m)，适合小侧或稠密图。
+
+\lstinputlisting[firstline=8,lastline=28,firstnumber=1]{../src/compact/assignment_spectrum.hpp}
+
+\newpage
+
+\noindent 重置状态与多源松弛（接上页同一结构体）：
+
+\lstinputlisting[firstline=29,lastline=64,firstnumber=22]{../src/compact/assignment_spectrum.hpp}
+
+\newpage
+
+\noindent 继续solve：调整顶标与翻转增广路径（接上页同一结构体）：
+
+\lstinputlisting[firstline=65,lastline=107,firstnumber=58]{../src/compact/assignment_spectrum.hpp}
+
+\newpage
+
+\Needspace{546pt}
+
+\subsection*{接口用法演示：按基数匹配与对偶证书}
+
+\label{usage-example-332}
+
+演示约定：输入n,m,e,limit与e条0-based边x,y,w，输出实际基数k、best[0..k]、左侧配对l（-1未匹配）、level、lx、ly。本演示限定两侧$\le$1000且|w|$\le$10\textasciicircum{}9，输出可安全转long long；核心支持全signed64输入及int128结果。证书仅对应最后基数；没有正式题目或线上AC声明。
+
+所需模板：\hyperref[compact-AssignmentSpectrum]{AssignmentSpectrum}（第~\pageref{compact-AssignmentSpectrum}~页，\ref{compact-AssignmentSpectrum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/hh2048/XCPC}
+
+\lstinputlisting{usage/example-332.cpp}
+
+\newpage
+
+\Needspace{411pt}
+
+\subsection*{应用题补充：AtCoder ABC247 G / Dream Team}
+
+\label{usage-example-333}
+
+题意：N$\le$30000，每人有1..150的大学A和学科B、1..10\textasciicircum{}9的强度C。选人须使A、B各不重复，输出最大人数k与每种人数1..k的最大总强度。同属性对保留最大权；答案$\le$150×10\textasciicircum{}9，可转long long。缺边不能填0，各基数答案可能下降。比赛应用，已核对官方题面与样例，尚无本项目线上AC或排名。
+
+所需模板：\hyperref[compact-AssignmentSpectrum]{AssignmentSpectrum}（第~\pageref{compact-AssignmentSpectrum}~页，\ref{compact-AssignmentSpectrum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://atcoder.jp/contests/abc247/tasks/abc247_g}
+
+\lstinputlisting{usage/example-333.cpp}
+
+\newpage
+
+\Needspace{421pt}
+
+\subsection*{模板题使用：Luogu P6577 / 二分图最大权完美匹配}
+
+\label{usage-example-334}
+
+题意：左右均n$\le$500点，m$\le$n$^{2}$，无重边，权值范围[-19980731,19980731]，保证完美匹配。输出最大总权及每个右点对应的左点编号；调用前点号减一，输出r加一。答案绝对值$\le$500×19980731，可转long long。该题只验证最终完美匹配，不能代替中间基数和顶标检查；新驱动尚无线上AC。
+
+所需模板：\hyperref[compact-AssignmentSpectrum]{AssignmentSpectrum}（第~\pageref{compact-AssignmentSpectrum}~页，\ref{compact-AssignmentSpectrum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6577}
+
+\lstinputlisting{usage/example-334.cpp}
+
+\newpage
+
 \Needspace{180pt}
 
 \section{一般图最大匹配}

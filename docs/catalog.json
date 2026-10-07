@@ -1546,5 +1546,11 @@
     "MatrixTreeExact",
     "精确整数带权生成树计数",
     "MatrixTreeExact<Z>::count(n,edges,root,kind)，1≤n<INT_MAX、点号0..n-1；Edge为tuple<int,int,Z>。kind为undirected、toward_root或away_from_root，分别计无向生成树、朝根汇聚树、从根发散树。返回各树边权乘积之和；负权和零权合法，答案0可能是抵消。重边按独立选择计数，自环忽略；单点返回空树权1。无向结果与根无关，有向根必须指定。构造出度拉普拉斯，发散模式先反边，删根行列后调用determinant_exact。O(m+n³)次整数算术、O(n²)个整数工作对象，不含调用者边表；大整数位成本另计。Z要求同精确行列式。"
+  ],
+  [
+    "assignment_spectrum",
+    "AssignmentSpectrum",
+    "按匹配基数求最大权与顶标证书",
+    "AssignmentSpectrum(n,m)，两侧0-based，n,m≥0。add(x,y,w)接受完整signed64权，重边保留最大权，缺边不当零权。solve(limit=INT_MAX)从空重算，返回k=min(limit,最大匹配数)，limit≥0；best[j]为全图恰好j条边的最大权，0≤j≤k，best[0]=0。负增益也继续，best不必单调。l/r为最后k条的互逆方案，-1未匹配；要j条方案重新solve(j)。顶标lx,ly和level仅对最后基数有效：令α=lx-level、β=ly，则α,β非负，每条边α+β+level≥w，匹配边取等，未匹配点对应α或β为0；sum(α)+sum(β)+k*level等于best[k]。答案与顶标为int128；加边后须重新solve，其他成员只读。多源松弛始终从所有未匹配左点出发，故每个基数均全局最优。时间O((k+1)nm+n+m)、空间O(nm+n+m)，适合小侧或稠密图。"
   ]
 ]

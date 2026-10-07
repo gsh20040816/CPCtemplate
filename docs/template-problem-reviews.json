@@ -5895,5 +5895,44 @@
     "source": "src/compact/sequence_scapegoat.hpp",
     "driver": "verify/codeforces/455D.compact.cpp",
     "adapter": "Use rotate(l,r) for a right cyclic shift by one and count(l,r,k) for frequency. Decode every parameter with the previous query answer before ordering endpoints; update lastans only after type2. Extra insert/erase and empty-sequence behavior are not tested by this contest problem."
+  },
+  {
+    "symbol": "AssignmentSpectrum",
+    "problem": "Luogu P6577",
+    "title": "二分图最大权完美匹配",
+    "url": "https://www.luogu.com.cn/problem/P6577",
+    "classification": "标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。",
+    "statement_checked": true,
+    "checked_date": "2026-10-08",
+    "limits": "n<=500; m<=n^2; -19980731<=weight<=19980731",
+    "adapter": "0-based建图，solve()后输出best[n]和r+1；题面保证完美匹配。较小基数与顶标证书另由API枚举测试验证。",
+    "implementation": "existing",
+    "source": "src/compact/assignment_spectrum.hpp",
+    "api": "add/solve/best/r",
+    "candidate_api": [
+      "add",
+      "solve",
+      "best",
+      "r"
+    ],
+    "tested_api": [
+      "add",
+      "solve() final cardinality",
+      "best[n]",
+      "r: right-to-left assignment"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "已核对官方题面并独立验证新驱动；线上AC与排名未核验，不能沿用WeightedMatching的AC。",
+    "driver": "verify/luogu/P6577.spectrum.compact.cpp",
+    "usage": "example-334",
+    "local_reports": [
+      "verification/assignment-spectrum-usage-normal.json",
+      "verification/assignment-spectrum-usage-sanitizer.json"
+    ]
   }
 ]

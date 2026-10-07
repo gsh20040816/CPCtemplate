@@ -4188,5 +4188,44 @@
       "boost/multiprecision/cpp_int.hpp"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-332",
+    "symbol": "AssignmentSpectrum",
+    "kind": "api",
+    "problem": "按基数匹配与对偶证书",
+    "url": "https://github.com/hh2048/XCPC",
+    "summary": "输入n,m,e,limit与e条0-based边x,y,w，输出实际基数k、best[0..k]、左侧配对l（-1未匹配）、level、lx、ly。本演示限定两侧≤1000且|w|≤10^9，输出可安全转long long；核心支持全signed64输入及int128结果。证书仅对应最后基数；没有正式题目或线上AC声明。",
+    "driver": "verify/api/assignment_spectrum.compact.cpp",
+    "requires": [
+      "AssignmentSpectrum"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-333",
+    "symbol": "AssignmentSpectrum",
+    "kind": "application",
+    "problem": "AtCoder ABC247 G / Dream Team",
+    "url": "https://atcoder.jp/contests/abc247/tasks/abc247_g",
+    "summary": "N≤30000，每人有1..150的大学A和学科B、1..10^9的强度C。选人须使A、B各不重复，输出最大人数k与每种人数1..k的最大总强度。同属性对保留最大权；答案≤150×10^9，可转long long。缺边不能填0，各基数答案可能下降。比赛应用，已核对官方题面与样例，尚无本项目线上AC或排名。",
+    "driver": "verify/atcoder/abc247_g.compact.cpp",
+    "requires": [
+      "AssignmentSpectrum"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-334",
+    "symbol": "AssignmentSpectrum",
+    "kind": "template",
+    "problem": "Luogu P6577 / 二分图最大权完美匹配",
+    "url": "https://www.luogu.com.cn/problem/P6577",
+    "summary": "左右均n≤500点，m≤n²，无重边，权值范围[-19980731,19980731]，保证完美匹配。输出最大总权及每个右点对应的左点编号；调用前点号减一，输出r加一。答案绝对值≤500×19980731，可转long long。该题只验证最终完美匹配，不能代替中间基数和顶标检查；新驱动尚无线上AC。",
+    "driver": "verify/luogu/P6577.spectrum.compact.cpp",
+    "requires": [
+      "AssignmentSpectrum"
+    ],
+    "start_new_page": true
   }
 ]

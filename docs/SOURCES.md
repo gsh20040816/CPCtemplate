@@ -112,7 +112,7 @@ P4779 与 P4782 提交驱动的输入输出分别核对 [洛谷 P4779](https://w
 
 [OI Wiki 带权二分图匹配](https://oi-wiki.org/graph/graph-matching/bigraph-weight-match/) 用于算法术语及功能交叉核对；[洛谷 P6577](https://www.luogu.com.cn/problem/P6577) 用于驱动协议，特别是题目要求按右点输出左点。本地 tests/weighted_matching.cpp 枚举小规模缺边图，以子集 DP 独立计算最优值，并核验两侧配对、真实边、总权、无解清空、重算和极值算术；另测 500×500 全等负权矩阵。
 
-WIDA 打印稿“匈牙利算法（KM算法）解”实际是无权最大基数匹配，映射到已有 Hopcroft–Karp。jiangly MaxAssignment 额外暴露 labels() 和每种匹配基数的 weights()，当前尚未提供，因此该条仍为 partial；不能把逐个处理左点的中间值当成任意 k 条匹配的最优权值。
+WIDA 打印稿“匈牙利算法（KM算法）解”实际是无权最大基数匹配，映射到已有 Hopcroft–Karp。jiangly MaxAssignment 额外暴露 labels() 和每种匹配基数的 weights()，现由独立 AssignmentSpectrum 覆盖，并扩展缺边、负权与指定基数。85244组基数/配对/证书检查与20522组完整上游输入对照通过，详见 ASSIGNMENT-SPECTRUM.md；不能把逐个处理左点的中间值当成任意 k 条匹配的最优权值。
 
 ## 合数模数的组合数（2026-09-12）
 

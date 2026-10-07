@@ -164,3 +164,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 [浮点高斯消元来源审计](docs/GAUSS-REAL-SOURCE-AUDIT.md)记录原稿“有解/无解”注释在奇异、矩形和缩放系统上的反例，并与现有GaussReal的数值合同区分。
 
 [精确整数行列式与生成树计数](docs/EXACT-INTEGER.md)：Bareiss整除消元、三方向带权矩阵树，以及保留布尔邻接语义的kuangbin来源用法；大整数依赖与来源精度边界明确登记。
+
+[按匹配基数最大权与顶标证书](docs/ASSIGNMENT-SPECTRUM.md)：多源增广覆盖全部可行基数，提供P6577独立模板题、ABC247G比赛应用与证书API用法，支持缺边和signed64负权。

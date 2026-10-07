@@ -234,6 +234,7 @@
 | `Isap::add/flow` | [Luogu P3376](https://www.luogu.com.cn/problem/P3376) | n<=200; m<=5000; 0<=capacity<2^31 | 待在线 AC | 待核验 |
 | `ZkwFlow` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000, m<=50000; nonnegative integer capacity/cost<=1000; no self-loop; flow and minimum cost<=2^31-1; distinct source/sink required by API | 待在线 AC | 待核验 |
 | `SequenceScapegoat` | [Codeforces 455D（比赛应用）](https://codeforces.com/problemset/problem/455/D) | n,q<=100000; initial values and encoded parameters in1..n; 4s/256MiB | 待在线 AC | 待核验 |
+| `AssignmentSpectrum::add/solve/best/r` | [Luogu P6577](https://www.luogu.com.cn/problem/P6577) | n<=500; m<=n^2; -19980731<=weight<=19980731 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2200,6 +2201,14 @@ Competition application: online interval cyclic shift and equal-value count. Not
 Use rotate(l,r) for a right cyclic shift by one and count(l,r,k) for frequency. Decode every parameter with the previous query answer before ordering endpoints; update lastans only after type2. Extra insert/erase and empty-sequence behavior are not tested by this contest problem.
 
 Find standalone template problem; online AC/ranking and actual judge resource pass pending. Arbitrary insert/erase, empty sequence and signed64 bounds tested independently.
+
+### Luogu P6577 / AssignmentSpectrum
+
+标准算法模板题；作为独立模板入口核对，不用区域赛应用代替该接口的验证。
+
+0-based建图，solve()后输出best[n]和r+1；题面保证完美匹配。较小基数与顶标证书另由API枚举测试验证。
+
+已核对官方题面并独立验证新驱动；线上AC与排名未核验，不能沿用WeightedMatching的AC。
 
 ## 榜单口径
 

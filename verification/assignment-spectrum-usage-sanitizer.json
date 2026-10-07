@@ -1,0 +1,262 @@
+{
+  "mode": "sanitizer",
+  "snapshot": {
+    "src/compact/assignment_spectrum.hpp": "db7301582a17f9c42d4298c45196a6dd45e553720ef3712bb1a5fea060480d5e",
+    "tests/assignment_spectrum_usage.py": "3801431cb1a87f33feca42259a9ef0d0457766634e1b9bc952a74c39aa906b25",
+    "tests/assignment_spectrum.py": "deeb3339849810edba67144055b4fd8b9270eb643cb8840f13bb1a952471825c",
+    "tools/usage_examples.py": "2cd2c5f91b3a40d940dcc178c747f563d8744db15889b69feb16af92e90a26f6",
+    "tools/audit_copy_context.py": "a732de58424150b7297de0eeac22e427a4e3db332da3ed996bd5ba2c2cba7882",
+    "docs/usage-examples.json": "9efbcefd4905f7a92fb1a8948b21ab305e0b1ccc070b163e73419b63ba4b7538",
+    "verify/api/assignment_spectrum.compact.cpp": "60717dc6afa2989f71845ea644aabc003365ee69c09729d14580fbf1a6ddd038",
+    "verify/atcoder/abc247_g.compact.cpp": "78a56359b0bedb3d7666eb1ba844040a5db5085e9965f202285005c28ea01c62",
+    "verify/luogu/P6577.spectrum.compact.cpp": "3d3c667892431e8cd48fb912b3b247a8733b25fe87e869d9a72917ac7448914f"
+  },
+  "programs": [
+    {
+      "id": "example-332",
+      "form": "header",
+      "cases": 100,
+      "program_sha256": "60717dc6afa2989f71845ea644aabc003365ee69c09729d14580fbf1a6ddd038",
+      "binary_sha256": "8856b60a4bbc69c90f1dc7716b7b255c3d8173b538a0b9a6d9fd6f0dc74222f5",
+      "input_sha256": "0c126c2327d8ba841d6a873ccc9a26e98c0499f6bf1642c89cb4224d3d4f4c8d",
+      "output_sha256": "2dfc7130e3ba268cf1d579f5fefec2c2bfeb9fcbcb8b7a514f5ceaee2c25c536",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "/Users/gsh/Workspace/CPCtemplate/verify/api/assignment_spectrum.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-332-header"
+      ]
+    },
+    {
+      "id": "example-332",
+      "form": "ndebug",
+      "cases": 100,
+      "program_sha256": "60717dc6afa2989f71845ea644aabc003365ee69c09729d14580fbf1a6ddd038",
+      "binary_sha256": "ec5fa9b5f636a74b73e1b17634c9bf97b53a6f98cc84ac09122f957ddffe72b4",
+      "input_sha256": "0c126c2327d8ba841d6a873ccc9a26e98c0499f6bf1642c89cb4224d3d4f4c8d",
+      "output_sha256": "2dfc7130e3ba268cf1d579f5fefec2c2bfeb9fcbcb8b7a514f5ceaee2c25c536",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "-DNDEBUG",
+        "/Users/gsh/Workspace/CPCtemplate/verify/api/assignment_spectrum.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-332-ndebug"
+      ]
+    },
+    {
+      "id": "example-332",
+      "form": "expanded",
+      "cases": 100,
+      "program_sha256": "3e4a1185ee7fee5690985ef7edc592d378c5e676fa97baeeae6c07b174e7d453",
+      "binary_sha256": "74331744574a5f368c457827e3c3c148709db3367665132d8e16dfe272469817",
+      "input_sha256": "0c126c2327d8ba841d6a873ccc9a26e98c0499f6bf1642c89cb4224d3d4f4c8d",
+      "output_sha256": "2dfc7130e3ba268cf1d579f5fefec2c2bfeb9fcbcb8b7a514f5ceaee2c25c536",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-332-expanded.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-332-expanded"
+      ]
+    },
+    {
+      "id": "example-332",
+      "form": "copied",
+      "cases": 100,
+      "program_sha256": "d84ee7b8e3a6bea15e644a7d090c3bf14a260a115204a7d832092beff87a75d4",
+      "binary_sha256": "3672980fe3b0ab1c3a81ad8d7aada8019fc2f1d8b64e5f04700c51cacced1ccc",
+      "input_sha256": "0c126c2327d8ba841d6a873ccc9a26e98c0499f6bf1642c89cb4224d3d4f4c8d",
+      "output_sha256": "2dfc7130e3ba268cf1d579f5fefec2c2bfeb9fcbcb8b7a514f5ceaee2c25c536",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-332-copied.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-332-copied"
+      ]
+    },
+    {
+      "id": "example-333",
+      "form": "header",
+      "cases": 103,
+      "program_sha256": "78a56359b0bedb3d7666eb1ba844040a5db5085e9965f202285005c28ea01c62",
+      "binary_sha256": "ebe5cbcfce44e557e15a1470cc0cd2a5fd94a6b9567b78c86dfedb2122defdea",
+      "input_sha256": "e8b5504b0760f5b49fb12d1fbc57044d3cd8ebe0474a3fcf5dbaa6b0e078b37c",
+      "output_sha256": "5565ddd4e96901bb802aecdd39b51fc760c40ccc379b06d2ccba59ae87844c23",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "/Users/gsh/Workspace/CPCtemplate/verify/atcoder/abc247_g.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-333-header"
+      ]
+    },
+    {
+      "id": "example-333",
+      "form": "ndebug",
+      "cases": 103,
+      "program_sha256": "78a56359b0bedb3d7666eb1ba844040a5db5085e9965f202285005c28ea01c62",
+      "binary_sha256": "d4e0273900cbfb34066cf9896c0e90e5e6d227c1b45d7542faaa7c97853c287b",
+      "input_sha256": "e8b5504b0760f5b49fb12d1fbc57044d3cd8ebe0474a3fcf5dbaa6b0e078b37c",
+      "output_sha256": "5565ddd4e96901bb802aecdd39b51fc760c40ccc379b06d2ccba59ae87844c23",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "-DNDEBUG",
+        "/Users/gsh/Workspace/CPCtemplate/verify/atcoder/abc247_g.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-333-ndebug"
+      ]
+    },
+    {
+      "id": "example-333",
+      "form": "expanded",
+      "cases": 103,
+      "program_sha256": "5ccf10ba2ffe0a0fc5c839845cca3818508eeae343cc6fa878f2eb5cbad70890",
+      "binary_sha256": "ab62433b3ea1bd952682cbfd012993993d2386199016c85ac2f49b886dd0a442",
+      "input_sha256": "e8b5504b0760f5b49fb12d1fbc57044d3cd8ebe0474a3fcf5dbaa6b0e078b37c",
+      "output_sha256": "5565ddd4e96901bb802aecdd39b51fc760c40ccc379b06d2ccba59ae87844c23",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-333-expanded.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-333-expanded"
+      ]
+    },
+    {
+      "id": "example-333",
+      "form": "copied",
+      "cases": 103,
+      "program_sha256": "88816b30cb6eac92f649d20ce98904d575f187a3f221293c6b608e066c73ab3f",
+      "binary_sha256": "2ad2f85ecf7bda1f7c23392e50fa8cd0b4a13646b9e78985521654dd0f537f9b",
+      "input_sha256": "e8b5504b0760f5b49fb12d1fbc57044d3cd8ebe0474a3fcf5dbaa6b0e078b37c",
+      "output_sha256": "5565ddd4e96901bb802aecdd39b51fc760c40ccc379b06d2ccba59ae87844c23",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-333-copied.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-333-copied"
+      ]
+    },
+    {
+      "id": "example-334",
+      "form": "header",
+      "cases": 101,
+      "program_sha256": "3d3c667892431e8cd48fb912b3b247a8733b25fe87e869d9a72917ac7448914f",
+      "binary_sha256": "43df6cd0428353317a758acb7eb43de8c859c9da9dbdeb4b199c4f4268e69e01",
+      "input_sha256": "53047835c1bcac70718f688dbf6618470d6df39d63ac273b733b40038ac30a28",
+      "output_sha256": "f17af76a36b595fbdbf522c5ced075e74bac8b6b30abef32fd1e9d8d86edcd23",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6577.spectrum.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-334-header"
+      ]
+    },
+    {
+      "id": "example-334",
+      "form": "ndebug",
+      "cases": 101,
+      "program_sha256": "3d3c667892431e8cd48fb912b3b247a8733b25fe87e869d9a72917ac7448914f",
+      "binary_sha256": "80ef76cf1c5e367ac4beda5925c587b5cc1f86660deb27b27fa2c2cc721172b9",
+      "input_sha256": "53047835c1bcac70718f688dbf6618470d6df39d63ac273b733b40038ac30a28",
+      "output_sha256": "f17af76a36b595fbdbf522c5ced075e74bac8b6b30abef32fd1e9d8d86edcd23",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "-DNDEBUG",
+        "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6577.spectrum.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-334-ndebug"
+      ]
+    },
+    {
+      "id": "example-334",
+      "form": "expanded",
+      "cases": 101,
+      "program_sha256": "195492c8a3fcfd21b59b26a02f8429b60a9bb5db4bfb7b85de66975b4bb2578e",
+      "binary_sha256": "e939b05d3f5f788d7906c96e39838d8169ce3036fa02520c41034d155444f1de",
+      "input_sha256": "53047835c1bcac70718f688dbf6618470d6df39d63ac273b733b40038ac30a28",
+      "output_sha256": "f17af76a36b595fbdbf522c5ced075e74bac8b6b30abef32fd1e9d8d86edcd23",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-334-expanded.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-334-expanded"
+      ]
+    },
+    {
+      "id": "example-334",
+      "form": "copied",
+      "cases": 101,
+      "program_sha256": "e0ccedb1306cc63e2e1d592704489c2feac6e6f506a4a83ca55f4ae51c340947",
+      "binary_sha256": "7c22f926986ab2d4fef8b186555f272d995e04db4311ef71defc950c8fecda67",
+      "input_sha256": "53047835c1bcac70718f688dbf6618470d6df39d63ac273b733b40038ac30a28",
+      "output_sha256": "f17af76a36b595fbdbf522c5ced075e74bac8b6b30abef32fd1e9d8d86edcd23",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-334-copied.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/usage-sanitizer/example-334-copied"
+      ]
+    }
+  ],
+  "official_source": "https://atcoder.jp/contests/abc247/tasks/abc247_g",
+  "official_samples": 2,
+  "online_ac": false
+}

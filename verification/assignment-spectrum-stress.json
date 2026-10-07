@@ -1,0 +1,86 @@
+{
+  "snapshot": {
+    "src/compact/assignment_spectrum.hpp": "db7301582a17f9c42d4298c45196a6dd45e553720ef3712bb1a5fea060480d5e",
+    "verify/luogu/P6577.spectrum.compact.cpp": "3d3c667892431e8cd48fb912b3b247a8733b25fe87e869d9a72917ac7448914f",
+    "tests/assignment_spectrum_stress.py": "1d9a8baf68857b0174aef1a4b79af36d1ee8617594db295c403b9d35483ece6e"
+  },
+  "results": [
+    {
+      "mode": "normal",
+      "kind": "equal",
+      "n": 500,
+      "edges": 250000,
+      "seconds": 0.634,
+      "input_sha256": "5c873206e26db672594a09ddfb2768012a6af95814fd146c425dabcf4c847ee9",
+      "output_sha256": "7be8e32e6648fa8888442d21f5de43fe5155170d02491f9239d2cc239844dec8",
+      "binary_sha256": "32f0a38204f92b4a7010708f7ed619e4ccda6681a7281d203aa2ae6f6fedf350",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6577.spectrum.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/stress/normal"
+      ]
+    },
+    {
+      "mode": "normal",
+      "kind": "separable",
+      "n": 500,
+      "edges": 250000,
+      "seconds": 0.237,
+      "input_sha256": "5782bc5fb5f0a8a200cdc95e215928638a07b238d2ae0b53e1dd80ebf73dc5c8",
+      "output_sha256": "925f4a6b34f3b11860c0d6b5f04a8447de23628346d22a7db6176ffaaf3fc9b6",
+      "binary_sha256": "32f0a38204f92b4a7010708f7ed619e4ccda6681a7281d203aa2ae6f6fedf350",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6577.spectrum.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/stress/normal"
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "kind": "equal",
+      "n": 500,
+      "edges": 250000,
+      "seconds": 2.07,
+      "input_sha256": "5c873206e26db672594a09ddfb2768012a6af95814fd146c425dabcf4c847ee9",
+      "output_sha256": "7be8e32e6648fa8888442d21f5de43fe5155170d02491f9239d2cc239844dec8",
+      "binary_sha256": "1e303f73aa3ee9a663429f5176b5c9bfb37a3df2f73194d26ac3c84bcffadad3",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6577.spectrum.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/stress/sanitizer"
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "kind": "separable",
+      "n": 500,
+      "edges": 250000,
+      "seconds": 1.983,
+      "input_sha256": "5782bc5fb5f0a8a200cdc95e215928638a07b238d2ae0b53e1dd80ebf73dc5c8",
+      "output_sha256": "925f4a6b34f3b11860c0d6b5f04a8447de23628346d22a7db6176ffaaf3fc9b6",
+      "binary_sha256": "1e303f73aa3ee9a663429f5176b5c9bfb37a3df2f73194d26ac3c84bcffadad3",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6577.spectrum.compact.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/assignment-spectrum/stress/sanitizer"
+      ]
+    }
+  ],
+  "scope": "Local dense tied weights only; wall time includes process/input/output, not OJ performance or ranking."
+}
