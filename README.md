@@ -168,3 +168,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 [按匹配基数最大权与顶标证书](docs/ASSIGNMENT-SPECTRUM.md)：多源增广覆盖全部可行基数，提供P6577独立模板题、ABC247G比赛应用与证书API用法，支持缺边和signed64负权。
 
 [斐波那契最小循环节](docs/FIBONACCI-PERIOD.md)：完整unsigned64模数、128位结果、逐层验证素数幂，附P4994模板用法与来源程序审计。
+
+[DAG支配树](docs/DAG-DOMINATOR.md)：拓扑序合并可达前驱LCA，附环检测、通用LT组合模板题及P2597食物网应用。

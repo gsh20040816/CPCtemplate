@@ -4275,5 +4275,45 @@
       "FibonacciPeriod"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-338",
+    "symbol": "DagDominator",
+    "kind": "api",
+    "problem": "DAG直接支配点与全图环检查",
+    "url": "https://oi-wiki.org/graph/dominator-tree/",
+    "summary": "输入n,m,root与m条1-based有向边。若任意分量有环，输出-1；否则输出每点idom，根指向自身，不可达为0。本例演示纯DAG接口，成功仅表示全图无环，不能说明每点都从root可达。",
+    "driver": "verify/api/dag_dominator.compact.cpp",
+    "requires": [
+      "DagDominator"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-339",
+    "symbol": "DagDominator",
+    "kind": "template",
+    "problem": "Library Checker dominatortree（DAG/LT组合）",
+    "url": "https://judge.yosupo.jp/problem/dominatortree",
+    "summary": "一般有向图指定起点求直接支配点，n,m≤200000，输入输出0-based；根指向自身，不可达输出-1。先调用DagDominator，若非DAG则把图移交DominatorTree求解。本用法验证两种算法组合，不能声称DAG算法单独支持有环图，既有LT线上记录不转移到新程序。",
+    "driver": "verify/library_checker/dominatortree.dag.compact.cpp",
+    "requires": [
+      "DagDominator",
+      "DominatorTree"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-340",
+    "symbol": "DagDominator",
+    "kind": "application",
+    "problem": "Luogu P2597 / ZJOI2012 灾难",
+    "url": "https://www.luogu.com.cn/problem/P2597",
+    "summary": "输入无环食物网，n≤65534，每行列出该生物的食物，0结束；食物向捕食者连边。为所有生产者添加虚拟根n+1，build后逆拓扑累加支配树子树大小。输出每种生物灭绝后额外灭绝的数量，不含自身。竞赛应用，不能替代独立模板题；尚无本项目线上AC。",
+    "driver": "verify/luogu/P2597.compact.cpp",
+    "requires": [
+      "DagDominator"
+    ],
+    "start_new_page": true
   }
 ]

@@ -236,6 +236,7 @@
 | `SequenceScapegoat` | [Codeforces 455D（比赛应用）](https://codeforces.com/problemset/problem/455/D) | n,q<=100000; initial values and encoded parameters in1..n; 4s/256MiB | 待在线 AC | 待核验 |
 | `AssignmentSpectrum::add/solve/best/r` | [Luogu P6577](https://www.luogu.com.cn/problem/P6577) | n<=500; m<=n^2; -19980731<=weight<=19980731 | 待在线 AC | 待核验 |
 | `FibonacciPeriod::period` | [Luogu P4994](https://www.luogu.com.cn/problem/P4994) | 2<=M<=706150 | 待在线 AC | 待核验 |
+| `DagDominator::build/idom` | [Library Checker dominatortree (DAG/LT composition)](https://judge.yosupo.jp/problem/dominatortree) | 1<=N<=200000;0<=M<=200000;0-based vertices | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2218,6 +2219,14 @@ Standalone exact Fibonacci-period task; title need not contain 模板. Full64 ex
 Single M; period <=6M fits unsigned64 output.
 
 No online submission or ranking verified. This bounded problem does not certify full64/128-bit extensions.
+
+### Library Checker dominatortree (DAG/LT composition) / DagDominator
+
+Standalone general dominator problem solved by explicit DAG/LT dispatch. The DAG component alone does not support cycles.
+
+0-based to1-based; if DAG fails use original LT with moved graph, then output idom-1.
+
+No new online submission or ranking. Pure DAG API and full composite program separately validated.
 
 ## 榜单口径
 

@@ -10277,6 +10277,72 @@ DominatorTree(n)，点号 1..n；add(u,v) 加有向边，允许重边、自环�
 
 \lstinputlisting{usage/example-83.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\section{DAG支配树：拓扑序与在线倍增LCA}\label{compact-DagDominator}\index{DagDominator}
+
+DagDominator(n)，1$\le$n<INT\_MAX，点号1..n；add(u,v)，允许重边。build(root)检查全图DAG并返回bool，任意分量有环（含自环）都返回false，同时清空idom/dep/up/order，不能使用半成品。成功后idom[root]=root，不可达点idom=dep=0；order为全图拓扑序。仅从可达前驱累积LCA，不可达前驱不能影响结果。lca(u,v)仅在成功build后对可达点使用，0可作空累积值，lca(0,v)=v。idom是直接支配点，可按逆order向父亲累加子树大小，跳过不可达点和根的自累加。可更换root重建；加边后旧结果失效，须重新build。g只通过add改动，结果数组只读。时间O((n+m)log(n+1))，空间O(nlog(n+1)+m)，入度须可由int表示。一般图请使用DominatorTree；多入口按题意添加虚拟根，不可擅自把所有无入度点当同一个入口。
+
+\lstinputlisting[firstline=6,lastline=43,firstnumber=1]{../src/compact/dag_dominator.hpp}
+
+\newpage
+
+\noindent 全图拓扑检查与逐点构建支配树（接上页同一结构体）：
+
+\lstinputlisting[firstline=44,lastline=84,firstnumber=39]{../src/compact/dag_dominator.hpp}
+
+\newpage
+
+\Needspace{414pt}
+
+\subsection*{接口用法演示：DAG直接支配点与全图环检查}
+
+\label{usage-example-338}
+
+演示约定：输入n,m,root与m条1-based有向边。若任意分量有环，输出-1；否则输出每点idom，根指向自身，不可达为0。本例演示纯DAG接口，成功仅表示全图无环，不能说明每点都从root可达。
+
+所需模板：\hyperref[compact-DagDominator]{DagDominator}（第~\pageref{compact-DagDominator}~页，\ref{compact-DagDominator}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/dominator-tree/}
+
+\lstinputlisting{usage/example-338.cpp}
+
+\newpage
+
+\Needspace{495pt}
+
+\subsection*{模板题使用：Library Checker dominatortree（DAG/LT组合）}
+
+\label{usage-example-339}
+
+题意：一般有向图指定起点求直接支配点，n,m$\le$200000，输入输出0-based；根指向自身，不可达输出-1。先调用DagDominator，若非DAG则把图移交DominatorTree求解。本用法验证两种算法组合，不能声称DAG算法单独支持有环图，既有LT线上记录不转移到新程序。
+
+所需模板：\hyperref[compact-DagDominator]{DagDominator}（第~\pageref{compact-DagDominator}~页，\ref{compact-DagDominator}~节）、\hyperref[compact-DominatorTree]{DominatorTree}（第~\pageref{compact-DominatorTree}~页，\ref{compact-DominatorTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/dominatortree}
+
+\lstinputlisting{usage/example-339.cpp}
+
+\newpage
+
+\Needspace{543pt}
+
+\subsection*{应用题补充：Luogu P2597 / ZJOI2012 灾难}
+
+\label{usage-example-340}
+
+题意：输入无环食物网，n$\le$65534，每行列出该生物的食物，0结束；食物向捕食者连边。为所有生产者添加虚拟根n+1，build后逆拓扑累加支配树子树大小。输出每种生物灭绝后额外灭绝的数量，不含自身。竞赛应用，不能替代独立模板题；尚无本项目线上AC。
+
+所需模板：\hyperref[compact-DagDominator]{DagDominator}（第~\pageref{compact-DagDominator}~页，\ref{compact-DagDominator}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2597}
+
+\lstinputlisting{usage/example-340.cpp}
+
+\newpage
+
 \part{计算几何}
 
 \Needspace{603pt}

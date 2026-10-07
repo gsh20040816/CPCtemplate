@@ -1,0 +1,102 @@
+{
+  "mode": "normal",
+  "core_cases": [
+    210251,
+    210251
+  ],
+  "programs": [
+    {
+      "id": "example-338",
+      "form": "header",
+      "cases": 153,
+      "program_sha256": "16b9e428bc7d3a13d0523e06a4ac903a75d62b57ad778baebef31544bef2d82a"
+    },
+    {
+      "id": "example-338",
+      "form": "ndebug",
+      "cases": 153,
+      "program_sha256": "16b9e428bc7d3a13d0523e06a4ac903a75d62b57ad778baebef31544bef2d82a"
+    },
+    {
+      "id": "example-338",
+      "form": "expanded",
+      "cases": 153,
+      "program_sha256": "131a9da0af8ccd6b2bc49b5b70b15ee77faf4dd7f1ae190feadd653b2d98f153"
+    },
+    {
+      "id": "example-338",
+      "form": "copied",
+      "cases": 153,
+      "program_sha256": "6c91f5b22b55e6a1b040c0c06fb6d0a4e7ff7181e282898d812cf7a08fd1934b"
+    },
+    {
+      "id": "example-339",
+      "form": "header",
+      "cases": 152,
+      "program_sha256": "52a4e47992ffd5f0d907a611d0f86a56b10a7ec37b2a3d6ecf35130050d5e7ac"
+    },
+    {
+      "id": "example-339",
+      "form": "ndebug",
+      "cases": 152,
+      "program_sha256": "52a4e47992ffd5f0d907a611d0f86a56b10a7ec37b2a3d6ecf35130050d5e7ac"
+    },
+    {
+      "id": "example-339",
+      "form": "expanded",
+      "cases": 152,
+      "program_sha256": "3466ec19f023084ef78d81345258ba80871420d65044a2da3786ca77237e6586"
+    },
+    {
+      "id": "example-339",
+      "form": "copied",
+      "cases": 152,
+      "program_sha256": "f526fdd06331dd895c96e57f81a54209cdaf320865120c2d7e04bac3bc867211"
+    },
+    {
+      "id": "example-340",
+      "form": "header",
+      "cases": 151,
+      "program_sha256": "fce74d82afd93435be267fa5fad1b891ffbbfacca3a98dd438665f61e9299bba"
+    },
+    {
+      "id": "example-340",
+      "form": "ndebug",
+      "cases": 151,
+      "program_sha256": "fce74d82afd93435be267fa5fad1b891ffbbfacca3a98dd438665f61e9299bba"
+    },
+    {
+      "id": "example-340",
+      "form": "expanded",
+      "cases": 151,
+      "program_sha256": "b8d7a158ff5e4c4b671f01de600117c50cca7e947acb6f3f83d01d5d81c00b3e"
+    },
+    {
+      "id": "example-340",
+      "form": "copied",
+      "cases": 151,
+      "program_sha256": "286814faf94fcee79257880ad810995eea522679360fbe9b3b82e0467d06a47b"
+    }
+  ],
+  "mutants": [
+    "last-predecessor",
+    "unreachable-predecessor",
+    "cycle-accepted",
+    "root-lost"
+  ],
+  "snapshot": {
+    "src/compact/dag_dominator.hpp": "865978e8c9e9e56a0567d0e0c9392800c5421efa9ddd84dfbdde7cbd5464a0a5",
+    "src/compact/dominator_tree.hpp": "2ecb17ac59056eda9de78749aec5a900a78fa1817642c1c7ec7fa5044b843726",
+    "tests/dag_dominator.cpp": "5a193546c0e026bd20bb9c9a90c335107193f381d5e76b1835ce9ee8880c4c69",
+    "tests/dag_dominator.py": "d4722191388a25e6518733d0260429cfe9197a4921cb0ee16fd7205d0f396927",
+    "docs/usage-examples.json": "6118ff564a17a422d78371df80974a04ca8a4d203e48efecd4e29b77d50c1040",
+    "docs/catalog.json": "4ef9b3e97bb1e9ff2f5a80c6416142648fe4099b9c414c5146d65131d90389dc",
+    "tools/usage_examples.py": "2cd2c5f91b3a40d940dcc178c747f563d8744db15889b69feb16af92e90a26f6",
+    "tools/audit_copy_context.py": "a732de58424150b7297de0eeac22e427a4e3db332da3ed996bd5ba2c2cba7882",
+    "verify/api/dag_dominator.compact.cpp": "16b9e428bc7d3a13d0523e06a4ac903a75d62b57ad778baebef31544bef2d82a",
+    "verify/library_checker/dominatortree.dag.compact.cpp": "52a4e47992ffd5f0d907a611d0f86a56b10a7ec37b2a3d6ecf35130050d5e7ac",
+    "verify/luogu/P2597.compact.cpp": "fce74d82afd93435be267fa5fad1b891ffbbfacca3a98dd438665f61e9299bba"
+  },
+  "oracle": "Vertex deletion reachability for dominators; transitive closure cycle detection; extinction fixed point for application.",
+  "online_ac": false
+}

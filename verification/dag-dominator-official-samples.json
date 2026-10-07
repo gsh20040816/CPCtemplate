@@ -1,0 +1,237 @@
+{
+  "scope": "Two official Library Checker sample inputs, both DAG; independently computed expected parents. General cyclic fallback tested by main suite, no online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "form": "header",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_00.in",
+      "input_sha256": "47dcc9476c8f2a2fabfe0dad921da25f1111402ecc159e999bdc6c9f359c2b58",
+      "expected": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "normal",
+      "form": "ndebug",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_00.in",
+      "input_sha256": "47dcc9476c8f2a2fabfe0dad921da25f1111402ecc159e999bdc6c9f359c2b58",
+      "expected": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "normal",
+      "form": "expanded",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_00.in",
+      "input_sha256": "47dcc9476c8f2a2fabfe0dad921da25f1111402ecc159e999bdc6c9f359c2b58",
+      "expected": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "normal",
+      "form": "copied",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_00.in",
+      "input_sha256": "47dcc9476c8f2a2fabfe0dad921da25f1111402ecc159e999bdc6c9f359c2b58",
+      "expected": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "normal",
+      "form": "header",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_01.in",
+      "input_sha256": "1905df3ce444f7f0edb8dabd0b3199692a7222aaf409b799e473925457602918",
+      "expected": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        3,
+        3,
+        -1
+      ]
+    },
+    {
+      "mode": "normal",
+      "form": "ndebug",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_01.in",
+      "input_sha256": "1905df3ce444f7f0edb8dabd0b3199692a7222aaf409b799e473925457602918",
+      "expected": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        3,
+        3,
+        -1
+      ]
+    },
+    {
+      "mode": "normal",
+      "form": "expanded",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_01.in",
+      "input_sha256": "1905df3ce444f7f0edb8dabd0b3199692a7222aaf409b799e473925457602918",
+      "expected": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        3,
+        3,
+        -1
+      ]
+    },
+    {
+      "mode": "normal",
+      "form": "copied",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_01.in",
+      "input_sha256": "1905df3ce444f7f0edb8dabd0b3199692a7222aaf409b799e473925457602918",
+      "expected": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        3,
+        3,
+        -1
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "form": "header",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_00.in",
+      "input_sha256": "47dcc9476c8f2a2fabfe0dad921da25f1111402ecc159e999bdc6c9f359c2b58",
+      "expected": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "form": "ndebug",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_00.in",
+      "input_sha256": "47dcc9476c8f2a2fabfe0dad921da25f1111402ecc159e999bdc6c9f359c2b58",
+      "expected": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "form": "expanded",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_00.in",
+      "input_sha256": "47dcc9476c8f2a2fabfe0dad921da25f1111402ecc159e999bdc6c9f359c2b58",
+      "expected": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "form": "copied",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_00.in",
+      "input_sha256": "47dcc9476c8f2a2fabfe0dad921da25f1111402ecc159e999bdc6c9f359c2b58",
+      "expected": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "form": "header",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_01.in",
+      "input_sha256": "1905df3ce444f7f0edb8dabd0b3199692a7222aaf409b799e473925457602918",
+      "expected": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        3,
+        3,
+        -1
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "form": "ndebug",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_01.in",
+      "input_sha256": "1905df3ce444f7f0edb8dabd0b3199692a7222aaf409b799e473925457602918",
+      "expected": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        3,
+        3,
+        -1
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "form": "expanded",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_01.in",
+      "input_sha256": "1905df3ce444f7f0edb8dabd0b3199692a7222aaf409b799e473925457602918",
+      "expected": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        3,
+        3,
+        -1
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "form": "copied",
+      "input_file": "build/library-checker-reference/graph/dominatortree/gen/example_01.in",
+      "input_sha256": "1905df3ce444f7f0edb8dabd0b3199692a7222aaf409b799e473925457602918",
+      "expected": [
+        4,
+        0,
+        4,
+        4,
+        4,
+        3,
+        3,
+        -1
+      ]
+    }
+  ]
+}

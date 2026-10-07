@@ -1558,5 +1558,11 @@
     "FibonacciPeriod",
     "斐波那契最小循环节（Pisano周期）",
     "period(m)返回精确最小正周期，1≤m≤2^64−1，m=1返回1；结果为unsigned int128，可能超过64位。fib(k,m)递归倍增返回(F_k,F_{k+1})模m，k为unsigned int128；is_period(k,m)检查k>0及完整状态(0,1%m)。prime_period(p)仅供素数p≥2。复用PollardRho分解m和素数候选的p±1；逐个除因子求素数最小周期，再逐层检查素数幂，不能无条件每层乘p。互素分量周期取lcm。总复杂度含随机整数分解，无确定的O(log m)保证；每次状态检查O(log k)次128位模运算，递归空间O(log k)，k≤128位。对象可重复使用，factorizer仅控制分解随机过程；π(m)≤6m，所有周期算术使用128位。"
+  ],
+  [
+    "dag_dominator",
+    "DagDominator",
+    "DAG支配树：拓扑序与在线倍增LCA",
+    "DagDominator(n)，1≤n<INT_MAX，点号1..n；add(u,v)，允许重边。build(root)检查全图DAG并返回bool，任意分量有环（含自环）都返回false，同时清空idom/dep/up/order，不能使用半成品。成功后idom[root]=root，不可达点idom=dep=0；order为全图拓扑序。仅从可达前驱累积LCA，不可达前驱不能影响结果。lca(u,v)仅在成功build后对可达点使用，0可作空累积值，lca(0,v)=v。idom是直接支配点，可按逆order向父亲累加子树大小，跳过不可达点和根的自累加。可更换root重建；加边后旧结果失效，须重新build。g只通过add改动，结果数组只读。时间O((n+m)log(n+1))，空间O(nlog(n+1)+m)，入度须可由int表示。一般图请使用DominatorTree；多入口按题意添加虚拟根，不可擅自把所有无入度点当同一个入口。"
   ]
 ]

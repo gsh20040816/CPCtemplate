@@ -5965,5 +5965,39 @@
       "verification/fibonacci-period-sanitizer.json"
     ],
     "adapter": "Single M; period <=6M fits unsigned64 output."
+  },
+  {
+    "symbol": "DagDominator",
+    "problem": "Library Checker dominatortree (DAG/LT composition)",
+    "url": "https://judge.yosupo.jp/problem/dominatortree",
+    "classification": "Standalone general dominator problem solved by explicit DAG/LT dispatch. The DAG component alone does not support cycles.",
+    "statement_checked": true,
+    "limits": "1<=N<=200000;0<=M<=200000;0-based vertices",
+    "tested_api": [
+      "build",
+      "idom",
+      "false return triggers LT fallback"
+    ],
+    "candidate_api": [
+      "build",
+      "idom"
+    ],
+    "api": "build/idom",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No new online submission or ranking. Pure DAG API and full composite program separately validated.",
+    "checked_date": "2026-10-08",
+    "source": "src/compact/dag_dominator.hpp",
+    "driver": "verify/library_checker/dominatortree.dag.compact.cpp",
+    "usage": "example-339",
+    "local_reports": [
+      "verification/dag-dominator-normal.json",
+      "verification/dag-dominator-sanitizer.json"
+    ],
+    "adapter": "0-based to1-based; if DAG fails use original LT with moved graph, then output idom-1."
   }
 ]
