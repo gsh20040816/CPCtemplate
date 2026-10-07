@@ -8036,6 +8036,58 @@ SecondMST(n)，n$\ge$1，点号0..n-1。add(u,v,w)返回0-based边号；允许�
 
 \Needspace{650pt}
 
+\subsection{稠密图 Prim 最小生成森林}\label{compact-Prim}\index{Prim}
+
+Prim(n)，0$\le$n$\le$INT\_MAX，点号0..n-1；add(u,v,w)自动加无向边，允许完整signed64权、零权、负权、自环，重边只保留最小权。不保存原边编号；cost为int128矩阵，inf=2\textasciicircum{}126表示缺边，−1和LLONG\_MAX均为合法边权。
+
+run()每次重建最小生成森林，返回原图连通块数。n>0时返回1表示MST，空图返回0。weight为int128总权；pre[v]为父点，根为−1，非根选边权为cost[pre[v]][v]。父点森林无环，支持断连和孤立点；同权任选，不承诺字典序。加边后须重新run，支持重复运行与独立复制；成员只读。
+
+构造和存储O(n$^{2}$)，add为O(1)，run为O(n$^{2}$)，矩阵约16n$^{2}$字节，按实际内存选择n；稀疏图优先Kruskal。每步选到已选点集的最轻边；所有剩余点均无跨边时开启新树，不把inf计入总权。只向未选点严格更新父点，负自环不入树。总权绝对值<2\textasciicircum{}94，可为−1或超出long long，不能用权值判断断连。
+
+\lstinputlisting[firstline=7,lastline=26,firstnumber=1]{../src/compact/prim.hpp}
+
+\newpage
+
+\noindent 矩阵扫描、割边松弛与父点森林（接上页同一结构体）：
+
+\lstinputlisting[firstline=27,lastline=60,firstnumber=21]{../src/compact/prim.hpp}
+
+\newpage
+
+\Needspace{363pt}
+
+\subsection*{模板题使用：AOJ ALDS1\_12\_A / Minimum Spanning Tree}
+
+\label{usage-example-316}
+
+题意：输入n及n×n对称邻接矩阵，−1表示缺边，其余为0..2000；n$\le$100且保证连通。只读取上三角的有效边，输出MST总权；本题可安全转long long。注意输入−1缺边是题目约定，Prim.add的−1是合法负权。
+
+所需模板：\hyperref[compact-Prim]{Prim}（第~\pageref{compact-Prim}~页，\ref{compact-Prim}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_A&lang=en}
+
+\lstinputlisting{usage/example-316.cpp}
+
+\newpage
+
+\Needspace{527pt}
+
+\subsection*{接口用法演示：矩阵 Prim 总权与父点森林（接口演示）}
+
+\label{usage-example-317}
+
+演示约定：输入n,m及0-based无向signed64边，输出连通块数、int128最小生成森林总权，以及pre[0..n-1]；根为−1，其余为父点。允许空图、断连、负权、自环和重边，重边合并为最小权；不输出原边编号。
+
+所需模板：\hyperref[compact-Prim]{Prim}（第~\pageref{compact-Prim}~页，\ref{compact-Prim}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/mst/}
+
+\lstinputlisting{usage/example-317.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
 \subsection{Kruskal 最小生成树与生成森林}\label{compact-Kruskal}\index{Kruskal}
 
 代码依赖：\hyperref[compact-dsu]{dsu}（第~\pageref{compact-dsu}~页，\ref{compact-dsu}~节）。抄写时一并准备；标准库类型不列入算法依赖。

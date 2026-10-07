@@ -404,6 +404,8 @@ cases['example-312'] = [('3\n2 0\n0 2 1 0 2 7\n1 1 2 2\n', '0 0 1 0 2 2')]
 cases['example-313'] = [('4 2 1\n1 2 9223372036854775807\n2 3 9223372036854775807\n', '0 1 1 9223372036854775807 2 1 2 18446744073709551614 3 1 2 3 INF')]
 cases['example-314'] = [('3 3\n1 2 3\n2 3 4\n1 3 9\n', '7'), ('2 1\n1 1 1\n', 'orz')]
 cases['example-315'] = [('4 2\n0 1 -9223372036854775808\n1 2 -9223372036854775808\n', '2 -18446744073709551616 2 0 1'), ('0 0\n', '0 0 0')]
+cases['example-316'] = [('3\n-1 0 5\n0 -1 2\n5 2 -1\n', '2'), ('1\n-1\n', '0')]
+cases['example-317'] = [('4 2\n0 1 -9223372036854775808\n1 2 -9223372036854775808\n', '2 -18446744073709551616 -1 0 1 -1'), ('0 0\n', '0 0')]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

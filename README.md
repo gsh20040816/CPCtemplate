@@ -124,3 +124,5 @@ Floyd全源最短路、负环提前退出与路径约定见 [FLOYD](docs/FLOYD.m
 稠密图矩阵最短路、堆复杂度与三份来源核对见 [DENSE-DIJKSTRA](docs/DENSE-DIJKSTRA.md)。
 
 Kruskal生成森林、原边方案及三份来源差异见 [KRUSKAL](docs/KRUSKAL.md)。
+
+矩阵Prim、父点森林及两份来源核对见 [PRIM](docs/PRIM.md)。

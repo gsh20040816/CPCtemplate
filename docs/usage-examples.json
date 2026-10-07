@@ -3958,5 +3958,30 @@
       "Kruskal"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-316",
+    "symbol": "Prim",
+    "problem": "AOJ ALDS1_12_A / Minimum Spanning Tree",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_A&lang=en",
+    "summary": "输入n及n×n对称邻接矩阵，−1表示缺边，其余为0..2000；n≤100且保证连通。只读取上三角的有效边，输出MST总权；本题可安全转long long。注意输入−1缺边是题目约定，Prim.add的−1是合法负权。",
+    "driver": "verify/aoj/ALDS1_12_A.compact.cpp",
+    "requires": [
+      "Prim"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-317",
+    "symbol": "Prim",
+    "kind": "api",
+    "problem": "矩阵 Prim 总权与父点森林（接口演示）",
+    "url": "https://oi-wiki.org/graph/mst/",
+    "summary": "输入n,m及0-based无向signed64边，输出连通块数、int128最小生成森林总权，以及pre[0..n-1]；根为−1，其余为父点。允许空图、断连、负权、自环和重边，重边合并为最小权；不输出原边编号。",
+    "driver": "verify/api/prim.compact.cpp",
+    "requires": [
+      "Prim"
+    ],
+    "start_new_page": true
   }
 ]

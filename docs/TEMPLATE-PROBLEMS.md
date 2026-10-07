@@ -229,6 +229,7 @@
 | `BipartiteMatching` | [CSES 1709 / Coin Grid](https://cses.fi/problemset/task/1709/) | 1≤n≤100；输出最少清空行列次数及1 行号/2 列号。 | 待在线 AC | 待核验 |
 | `DenseDijkstra` | [AOJ ALDS1_12_B / Single Source Shortest Path](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_B&lang=en) | 1≤n≤100，m≤10000，0≤w≤100000；0-based邻接行格式，源0可达全部点。 | 待在线 AC | 待核验 |
 | `Kruskal` | [Luogu P3366 / 最小生成树](https://www.luogu.com.cn/problem/P3366) | 1≤n≤5000，1≤m≤200000，1≤w≤10000；1-based无向图，断连输出orz。 | 待在线 AC | 待核验 |
+| `Prim` | [AOJ ALDS1_12_A / Minimum Spanning Tree](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_A&lang=en) | 1≤n≤100，矩阵对称；-1缺边，费用0..2000，保证连通。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2155,6 +2156,14 @@ Library of Graph Algorithms正式全源最短路题。
 
 
 正式模板题和宽整数生成森林方案接口均两种模式本地核验；无新增在线AC/排名/资源通过。
+
+### AOJ ALDS1_12_A / Minimum Spanning Tree / Prim
+
+正式算法练习：最小生成树，非比赛应用。
+
+
+
+正式模板题和宽整数父点森林接口均两种模式本地核验；无新增在线AC/排名/资源通过。
 
 ## 榜单口径
 

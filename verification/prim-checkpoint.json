@@ -1,0 +1,59 @@
+{
+  "base": "30018bd1af127c1c5a05e8efecd5eaa47ff8c9c1",
+  "batch": "Dense matrix Prim and two source mappings",
+  "counts": {
+    "components": 249,
+    "usages": 317,
+    "usage_status": {
+      "locally_checked_example": 175,
+      "locally_checked_application": 58,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 577,
+    "partial_upstream_topics": 32
+  },
+  "unaffected": {
+    "base": "30018bd1af127c1c5a05e8efecd5eaa47ff8c9c1",
+    "unchanged_old_components": 248,
+    "unchanged_old_core_files": 212,
+    "old_expanded_programs_unchanged": 315,
+    "new_usages": [
+      "example-316",
+      "example-317"
+    ],
+    "files": {
+      "src/compact/prim.hpp": "ad42e0a576ca2391c21c20b078c1432e55f4d712256439d716305b89552756b3",
+      "tests/prim_probe.cpp": "820dcd42f1eed9a29a160cea6e85ade9d4eb2a7aec582d9035d95800e2c5f9f5",
+      "tests/prim.py": "dc4c41edd267ee2a55868ffe8b27f83049c2c7ba2241cc614603795cd6fbc53c",
+      "verify/aoj/ALDS1_12_A.compact.cpp": "e51ad555f53be4f8924abf6cd656d20bf4bdf3034034188c8a9aaa91dee7c000",
+      "verify/api/prim.compact.cpp": "92f4fa23f7a888508f3077c0f846735f61f31d0ef50f33304f187d0eaf982547",
+      "tests/fixtures/prim_sources/kuangbin.inc": "0b4d2a0af8a5951df1aba9fd78a66c7912365cc49d28fab081c88bf61ead4a62",
+      "tests/fixtures/prim_sources/wida.inc": "f30ac06d03bbf35e355c2223459fb3e146a87881e902266f25c3850623495919"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "56f0155a56b1f3d34e27fd79e4994c541f179abd6a584539d73e742ec9cefc28",
+      "pages": 847,
+      "page_change": 4,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-graphs.pdf": {
+      "sha256": "0ed2c75c85b38a6dabe7ed5e7e3ae99a73d7806e1cdb904131a3e8663b8d0e2f",
+      "pages": 276,
+      "page_change": 4,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "d9edcbf161ee816773db841f0fbe38747df2dca78b41ab47d1865a4cf8ca6a78",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global goal active. AOJ316 formal local template and signed128 parent forest API; no new online AC/rank/resource-pass. No CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/prim-normal.json",
+    "verification/prim-sanitizer.json"
+  ]
+}

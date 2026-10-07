@@ -5774,5 +5774,27 @@
       "verification/kruskal-normal.json",
       "verification/kruskal-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "Prim",
+    "problem": "AOJ ALDS1_12_A / Minimum Spanning Tree",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_A&lang=en",
+    "classification": "正式算法练习：最小生成树，非比赛应用。",
+    "statement_checked": true,
+    "limits": "1≤n≤100，矩阵对称；-1缺边，费用0..2000，保证连通。",
+    "driver": "verify/aoj/ALDS1_12_A.compact.cpp",
+    "usage": "example-316",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "正式模板题和宽整数父点森林接口均两种模式本地核验；无新增在线AC/排名/资源通过。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/prim-normal.json",
+      "verification/prim-sanitizer.json"
+    ]
   }
 ]
