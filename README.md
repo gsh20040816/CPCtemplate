@@ -148,3 +148,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 动态点分治HDU4918来源协议和整数边界见 [CENTROID-SUM-SOURCE-AUDIT](docs/CENTROID-SUM-SOURCE-AUDIT.md)。
 
 树上新增市场的距离/编号规则、点分治证明及来源边界见 [TREE-MARKET](docs/TREE-MARKET.md)。
+
+树边翻转、奇路径计数及树分治父节范围见 [TREE-PATH-PARITY](docs/TREE-PATH-PARITY.md)。

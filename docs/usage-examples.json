@@ -4063,5 +4063,27 @@
       "TreeMarket"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-324",
+    "symbol": "HLD",
+    "kind": "api",
+    "problem": "树边翻转与奇路径计数（kuangbin HDU5039模型）",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=5039",
+    "summary": "来源协议：T组，每组n、n个不同名字、n-1条(名字,名字,0/1)边、q条操作；Q开头查询，其余操作接1-based输入边号并翻转该边。输出Case #k:及每次有向端点对数量，故答案2*zero*one；无向点对则不乘2。固定根1，根路径异或值不同的端点间为奇路径；翻边即翻较深端点整棵子树，HLD闭区间转lazy_segtree半开[dfn-1,dfn-1+siz)。树上预处理O(n)，名字map映射另计字符串比较和字典查询；改边O(log n)，查询O(1)，空间O(n)，DFS递归。官方HDU题面和限制未核验，只作来源模型/API用法。",
+    "driver": "verify/api/tree_path_parity.compact.cpp",
+    "requires": [
+      "HLD",
+      "lazy_segtree"
+    ],
+    "configuration_functions": [
+      "op",
+      "e",
+      "mapping",
+      "composition",
+      "id"
+    ],
+    "start_new_page": true,
+    "continuation_break_before": "        int q;"
   }
 ]

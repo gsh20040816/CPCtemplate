@@ -1074,7 +1074,18 @@ for style in ['compact']:
                     body.append('\\lstinputlisting[lastline=' + str(split_lines) + ']{' + listing + '}')
                     body.append('\\newpage')
                     body.append('\\noindent ' + ('继续处理操作（接上页同一 main）：' if usage.get('page_break_before') else '使用入口（接上页配置函数）：'))
-                    body.append('\\lstinputlisting[firstline=' + str(split_lines + 1) + ',firstnumber=' + str(split_lines + 1) + ']{' + listing + '}')
+                    if usage.get('continuation_break_before'):
+                        listing_lines = usage['snippet'].splitlines()
+                        boundary = usage['continuation_break_before']
+                        assert listing_lines.count(boundary) == 1
+                        second_split = listing_lines.index(boundary)
+                        assert split_lines < second_split < count
+                        body.append('\\lstinputlisting[firstline=' + str(split_lines + 1) + ',lastline=' + str(second_split) + ',firstnumber=' + str(split_lines + 1) + ']{' + listing + '}')
+                        body.append('\\newpage')
+                        body.append('\\noindent 继续处理操作（接上页同一 main）：')
+                        body.append('\\lstinputlisting[firstline=' + str(second_split + 1) + ',firstnumber=' + str(second_split + 1) + ']{' + listing + '}')
+                    else:
+                        body.append('\\lstinputlisting[firstline=' + str(split_lines + 1) + ',firstnumber=' + str(split_lines + 1) + ']{' + listing + '}')
                 else:
                     body.append('\\lstinputlisting{' + listing + '}')
             if name in ('AffineSequenceTreap', 'TarjanSCC'):

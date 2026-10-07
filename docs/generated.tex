@@ -7204,6 +7204,34 @@ add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn�
 
 \lstinputlisting[firstline=11,firstnumber=11]{usage/example-282.cpp}
 
+\newpage
+
+\Needspace{540pt}
+
+\subsection*{接口用法演示：树边翻转与奇路径计数（kuangbin HDU5039模型）}
+
+\label{usage-example-324}
+
+演示约定：来源协议：T组，每组n、n个不同名字、n-1条(名字,名字,0/1)边、q条操作；Q开头查询，其余操作接1-based输入边号并翻转该边。输出Case \#k:及每次有向端点对数量，故答案2*zero*one；无向点对则不乘2。固定根1，根路径异或值不同的端点间为奇路径；翻边即翻较深端点整棵子树，HLD闭区间转lazy\_segtree半开[dfn-1,dfn-1+siz)。树上预处理O(n)，名字map映射另计字符串比较和字典查询；改边O(log n)，查询O(1)，空间O(n)，DFS递归。官方HDU题面和限制未核验，只作来源模型/API用法。
+
+所需模板：\hyperref[compact-HLD]{HLD}（第~\pageref{compact-HLD}~页，\ref{compact-HLD}~节）、\hyperref[compact-lazy_segtree]{lazy\_\allowbreak{}segtree}（第~\pageref{compact-lazy_segtree}~页，\ref{compact-lazy_segtree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://acm.hdu.edu.cn/showproblem.php?pid=5039}
+
+\lstinputlisting[lastline=28]{usage/example-324.cpp}
+
+\newpage
+
+\noindent 使用入口（接上页配置函数）：
+
+\lstinputlisting[firstline=29,lastline=69,firstnumber=29]{usage/example-324.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=70,firstnumber=70]{usage/example-324.cpp}
+
 \Needspace{680pt}
 
 \section{树上启发式合并}
