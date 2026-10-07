@@ -134,3 +134,5 @@ Kruskal生成森林、原边方案及三份来源差异见 [KRUSKAL](docs/KRUSKA
 最大流边流量方案唯一性、独立环流及原稿漏判核验见 [FLOW-UNIQUE](docs/FLOW-UNIQUE.md)。
 
 kuangbin曼哈顿MST的完整原程序、第k大边和数值范围映射见 [MANHATTAN-SOURCE-AUDIT](docs/MANHATTAN-SOURCE-AUDIT.md)。
+
+kuangbin SPFA费用流的残量接口、负环前提与int边界见 [SPFA-FLOW-SOURCE-AUDIT](docs/SPFA-FLOW-SOURCE-AUDIT.md)。

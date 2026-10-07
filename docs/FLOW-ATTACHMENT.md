@@ -72,3 +72,5 @@ P3381 的 flow/slope/SPFA 三个完整驱动各做 200 组独立可行流量枚�
 以及 5000 点/50000 边的 1000 次增广、逆序长链和 50000 条正容量边的 DAG（拓扑最短路独立参考）；普通及 ASan/UBSan 全部通过。
 例子 127 原样展开后双模式通过，目录、用法和页码从源码生成。
 报告见 verification/flow-attachment.json。均为本地验证；没有新增线上 AC，也未给 SPFA 冒用旧势能版 AC。
+
+kuangbin 4.17.1的独立来源核验另见[SPFA-FLOW-SOURCE-AUDIT](SPFA-FLOW-SOURCE-AUDIT.md)；原78行片段已编译，说明INF哨兵、全局负环与整数范围差异，不改变上述当前接口合同。
