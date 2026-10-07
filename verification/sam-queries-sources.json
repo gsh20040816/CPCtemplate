@@ -1,0 +1,65 @@
+{
+  "upstream": [
+    {
+      "path": "03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/04A%20-%20%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88SuffixAutomaton%20%E6%97%A7%E7%89%88%EF%BC%89.cpp",
+      "sha256": "659a8773891a80b3df0fe997eb093e0fbcafbdbf3b525fea553ec4a3eedf34ae"
+    },
+    {
+      "path": "03 - jiangly模板收集/05 - 字符串/04B - 后缀自动机（SAM 新版）.cpp",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/04B%20-%20%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88SAM%20%E6%96%B0%E7%89%88%EF%BC%89.cpp",
+      "sha256": "d1bb3f7e4ebc0f3fc446b2263f6afcc44c3079e9f6a9af143fa88a03b8d0e61b"
+    }
+  ],
+  "commit": "cfdb12db6792eb2303798541fb5c760ed2bc618b",
+  "kuangbin_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "kuangbin_scope": "Printed pages15-22, sections1.6/1.6.1/1.6.2 in existing2018 snapshot; actual arbitrary-parent constructor and both TSUBSTR/CF204E examples read.",
+  "rows": [
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp",
+      "page": "",
+      "topic": "04A - 后缀自动机（SuffixAutomaton 旧版）",
+      "status": "partial",
+      "compact": "SuffixAutomaton,GeneralSAM",
+      "verification": "sam-queries audit: single-string and batch document-union languages verified; upstream extend(parent,c) permits arbitrary-state online expansion, which is not exposed by these two library interfaces. New query adapters do not establish full upstream interface equivalence. See docs/SAM-QUERIES.md."
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/04B - 后缀自动机（SAM 新版）.cpp",
+      "page": "",
+      "topic": "04B - 后缀自动机（SAM 新版）",
+      "status": "partial",
+      "compact": "SuffixAutomaton,GeneralSAM",
+      "verification": "sam-queries audit: single-string and batch document-union languages verified; upstream extend(parent,c) permits arbitrary-state online expansion, which is not exposed by these two library interfaces. New query adapters do not establish full upstream interface equivalence. See docs/SAM-QUERIES.md."
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "15",
+      "topic": "1.6 后缀自动机",
+      "status": "partial",
+      "compact": "SuffixAutomaton,GeneralSAM,SAMLex,sam_lcs",
+      "verification": "sam-queries audit: single-string SAM and batch generalized SAM; weighted/custom-alphabet kth nonempty substrings and two-string LCS checked. TSUBSTR includes empty string and direct Trie/tree construction; CF204E document-frequency counting remains unimplemented. Arbitrary-parent online extend is not exposed. See docs/SAM-QUERIES.md."
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "15",
+      "topic": "1.6.1 基本函数",
+      "status": "partial",
+      "compact": "SuffixAutomaton,GeneralSAM,SAMLex,sam_lcs",
+      "verification": "sam-queries audit: single-string SAM and batch generalized SAM; weighted/custom-alphabet kth nonempty substrings and two-string LCS checked. TSUBSTR includes empty string and direct Trie/tree construction; CF204E document-frequency counting remains unimplemented. Arbitrary-parent online extend is not exposed. See docs/SAM-QUERIES.md."
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "16",
+      "topic": "1.6.2 例题",
+      "status": "partial",
+      "compact": "SuffixAutomaton,GeneralSAM,SAMLex,sam_lcs",
+      "verification": "sam-queries audit: single-string SAM and batch generalized SAM; weighted/custom-alphabet kth nonempty substrings and two-string LCS checked. TSUBSTR includes empty string and direct Trie/tree construction; CF204E document-frequency counting remains unimplemented. Arbitrary-parent online extend is not exposed. See docs/SAM-QUERIES.md."
+    }
+  ],
+  "remaining": "All five rows remain partial; no unsupported whole-source replacement claim. TSUBSTR counts empty string, requires direct input-tree construction; CF204E per-document frequencies differ from substring occurrence counts."
+}

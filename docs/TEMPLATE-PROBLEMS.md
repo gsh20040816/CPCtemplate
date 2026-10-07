@@ -191,6 +191,8 @@
 | `MergeSplitTree` | [Luogu P5494](https://www.luogu.com.cn/problem/P5494) | n,m<=200000; ai<=m; published k<=200000 and valid value coordinates. | 待在线 AC | 待核验 |
 | `exkmp` | [Luogu P5410 / 扩展 KMP](https://www.luogu.com.cn/problem/P5410) | Both lowercase strings length1..20000000. XOR checksums use1-based indices and LCP+1. | 待在线 AC | 待核验 |
 | `order_match` | [Luogu P6080 / Cow Patterns](https://www.luogu.com.cn/problem/P6080) | N1..100000; K1..25000; S1..25; values1..S. Live time/memory limits unverified. | 待在线 AC | 待核验 |
+| `SAMLex` | [Luogu P3975 / 弦论](https://www.luogu.com.cn/problem/P3975) | n1..500000, t0/1, k1..1e9; lowercase input. Live time/memory limits unverified. | 待在线 AC | 待核验 |
+| `sam_lcs` | [SPOJ LCS / 最长公共子串](https://www.luogu.com.cn/problem/SP1811) | Exactly two lines, at most250000 lowercase letters each. getline additionally handles empty lines and CRLF. Live time/memory limits unverified. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1795,6 +1797,26 @@ Preserve all equality and strict order relations; output count and ascending1-ba
 206 inputs in each of three complete program forms, normal+ASan/UBSan. Online AC/rank pending; not formal-template coverage.
 
 原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P6080)
+
+### Luogu P3975 / 弦论 / SAMLex
+
+Application/direct-query usage; not counted as a verified formal template problem.
+
+Build single-string SAM; default unit weights deduplicate, counts weights retain occurrence multiplicities. Root excluded, insufficient rank prints-1.
+
+Local independent core oracles and three full forms in normal+ASan/UBSan; online AC/rank pending. No whole-library regression claim.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P3975)
+
+### SPOJ LCS / 最长公共子串 / sam_lcs
+
+Application/direct-query usage; not counted as a verified formal template problem.
+
+Build first string SAM, return the length from the earliest maximum substring in the second string.
+
+Local independent core oracles and three full forms in normal+ASan/UBSan; online AC/rank pending. No whole-library regression claim.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/SP1811)
 
 ## 榜单口径
 

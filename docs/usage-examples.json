@@ -3155,5 +3155,48 @@
     "requires": [
       "manacher"
     ]
+  },
+  {
+    "id": "example-253",
+    "symbol": "SAMLex",
+    "kind": "application",
+    "problem": "Luogu P3975 / 弦论",
+    "url": "https://www.luogu.com.cn/problem/P3975",
+    "summary": "小写串长至500000，t=0时相同子串只计一次，t=1按出现次数计；1≤k≤10^9。用counts作为状态权重，根权重由索引清零；不足输出-1。竞赛应用，不计正式模板题。",
+    "driver": "verify/luogu/P3975.compact.cpp",
+    "requires": [
+      "SuffixAutomaton",
+      "SAMLex"
+    ]
+  },
+  {
+    "id": "example-254",
+    "symbol": "sam_lcs",
+    "kind": "application",
+    "problem": "SPOJ LCS / 最长公共子串",
+    "url": "https://www.luogu.com.cn/problem/SP1811",
+    "summary": "两行小写字符串，各长≤250000，输出最长公共子串长度，无公共串输出0。getline保留空行，并兼容CRLF。返回位置属于第二个串，本用法只输出长度；线上AC和时间/内存限制待核验。",
+    "driver": "verify/luogu/SP1811.compact.cpp",
+    "requires": [
+      "SuffixAutomaton",
+      "sam_lcs"
+    ]
+  },
+  {
+    "id": "example-255",
+    "symbol": "SAMLex",
+    "also_covers": [
+      "sam_lcs"
+    ],
+    "kind": "api",
+    "problem": "广义SAM查询 / API示例",
+    "url": "https://github.com/gsh20040816/CPCtemplate",
+    "summary": "读n个非空小写文档，再读26字母排列、1-based k及非空查询文本t；输出文档子串并集的第k小串（不足-1），然后输出t与任一文档LCS在t内的起点和长度。不计文档重复次数，不求所有文档交集；示例n=0合法。",
+    "driver": "verify/api/general_sam_queries.compact.cpp",
+    "requires": [
+      "GeneralSAM",
+      "SAMLex",
+      "sam_lcs"
+    ]
   }
 ]

@@ -232,3 +232,5 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | MergeSplitTree | [example-249](usage/example-249.cpp) | locally_checked_example |
 | exkmp | [example-250](usage/example-250.cpp) | locally_checked_example |
 | order_match | [example-251（应用补充）](usage/example-251.cpp) | locally_checked_application |
+| SAMLex | [example-253（应用补充）](usage/example-253.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |
+| sam_lcs | [example-254（应用补充）](usage/example-254.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |

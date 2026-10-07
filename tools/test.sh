@@ -746,3 +746,5 @@ else
 fi
 
 python3 tests/sequence_matching.py
+
+python3 tests/sam_queries.py

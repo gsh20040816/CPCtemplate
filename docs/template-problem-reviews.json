@@ -4810,5 +4810,65 @@
     "statement_sources": [
       "https://www.luogu.com.cn/problem/P6080"
     ]
+  },
+  {
+    "symbol": "SAMLex",
+    "problem": "Luogu P3975 / 弦论",
+    "url": "https://www.luogu.com.cn/problem/P3975",
+    "classification": "Application/direct-query usage; not counted as a verified formal template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "n1..500000, t0/1, k1..1e9; lowercase input. Live time/memory limits unverified.",
+    "adapter": "Build single-string SAM; default unit weights deduplicate, counts weights retain occurrence multiplicities. Root excluded, insufficient rank prints-1.",
+    "implementation": "existing",
+    "source": "src/compact/sam_queries.hpp",
+    "tested_api": [
+      "SAMLex"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Local independent core oracles and three full forms in normal+ASan/UBSan; online AC/rank pending. No whole-library regression claim.",
+    "driver": "verify/luogu/P3975.compact.cpp",
+    "local_reports": [
+      "verification/sam-queries-normal.json",
+      "verification/sam-queries-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P3975"
+    ]
+  },
+  {
+    "symbol": "sam_lcs",
+    "problem": "SPOJ LCS / 最长公共子串",
+    "url": "https://www.luogu.com.cn/problem/SP1811",
+    "classification": "Application/direct-query usage; not counted as a verified formal template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "Exactly two lines, at most250000 lowercase letters each. getline additionally handles empty lines and CRLF. Live time/memory limits unverified.",
+    "adapter": "Build first string SAM, return the length from the earliest maximum substring in the second string.",
+    "implementation": "existing",
+    "source": "src/compact/sam_queries.hpp",
+    "tested_api": [
+      "sam_lcs"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Local independent core oracles and three full forms in normal+ASan/UBSan; online AC/rank pending. No whole-library regression claim.",
+    "driver": "verify/luogu/SP1811.compact.cpp",
+    "local_reports": [
+      "verification/sam-queries-normal.json",
+      "verification/sam-queries-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/SP1811"
+    ]
   }
 ]

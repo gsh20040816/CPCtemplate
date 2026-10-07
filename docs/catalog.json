@@ -1348,5 +1348,17 @@
     "order_match",
     "顺序同构匹配",
     "order_match(s,t)接收vector<long long>，t非空；返回所有0-based起点，含重叠。匹配要求任意两位置的大小及相等关系一致，数值本身可不同。支持完整signed64，仅比较不作差；输入不变，长度均<INT_MAX。模式预处理记录之前的相等、前驱和后继位置，再用相对下标检查KMP扩展。O(|t|log(|t|+1)+|s|)时间，O(|t|+答案数)空间。P6080为应用题，不作为正式模板题覆盖。"
+  ],
+  [
+    "sam_queries",
+    "SAMLex",
+    "SAM字典序子串查询",
+    "SAMLex(sam,w={})引用已建好的SuffixAutomaton或已build的GeneralSAM；索引使用期间sam必须存活且保持不变。默认每个非根状态权重1，得到不同子串；传单串sam.counts()按出现次数计数。自定义w长度为状态数、非负long long，每条到达该状态的串有w[u]份，根权重强制0。sum[u]为本状态及后续路径权重和，超过LLONG_MAX截断，仍正确支持所有1≤k≤LLONG_MAX。kth(k,alphabet)返回optional<string>，不足或k≤0为nullopt；默认a..z，alphabet必须是26字母的排列。短串先于其扩展，支持重复查询与自定义字母序。构建O(26V+L)，空间O(V+L)，L为最长串长；单次查询O(26×答案长度)，额外空间为答案。weight/sum只读，不支持扩展SAM后沿用旧索引。"
+  ],
+  [
+    "sam_queries",
+    "sam_lcs",
+    "SAM最长公共子串",
+    "sam_lcs(sam,t)接收已有单串SuffixAutomaton或已build的GeneralSAM及小写文本t，返回t中的{0-based起点,长度}；多解取t中最早起点，无公共非空串返回{0,0}。广义SAM时求t与任一已加入文档的最长公共子串，不是所有文档公共串。t可空，长度<INT_MAX；构建SAM的成本另计，查询O(|t|)、额外空间O(1)，输入与SAM不变。沿后缀链接回退并同步匹配长度，不返回源文档坐标；需实际串时用t.substr(start,length)。"
   ]
 ]

@@ -434,6 +434,74 @@ extend(c) 接收整数0..25，每次追加一个小写字符；last为整串状�
 
 \lstinputlisting{usage/example-130.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\section{SAM字典序子串查询}\label{compact-SAMLex}\index{SAMLex}
+
+SAMLex(sam,w=\{\})引用已建好的SuffixAutomaton或已build的GeneralSAM；索引使用期间sam必须存活且保持不变。默认每个非根状态权重1，得到不同子串；传单串sam.counts()按出现次数计数。自定义w长度为状态数、非负long long，每条到达该状态的串有w[u]份，根权重强制0。sum[u]为本状态及后续路径权重和，超过LLONG\_MAX截断，仍正确支持所有1$\le$k$\le$LLONG\_MAX。kth(k,alphabet)返回optional<string>，不足或k$\le$0为nullopt；默认a..z，alphabet必须是26字母的排列。短串先于其扩展，支持重复查询与自定义字母序。构建O(26V+L)，空间O(V+L)，L为最长串长；单次查询O(26×答案长度)，额外空间为答案。weight/sum只读，不支持扩展SAM后沿用旧索引。
+
+\lstinputlisting[firstline=12,lastline=38]{../src/compact/sam_queries.hpp}
+
+\newpage
+
+\noindent 字典序查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=39,lastline=63,firstnumber=28]{../src/compact/sam_queries.hpp}
+
+\Needspace{323pt}
+
+\subsection*{应用题补充：Luogu P3975 / 弦论}
+
+\label{usage-example-253}
+
+题意：小写串长至500000，t=0时相同子串只计一次，t=1按出现次数计；1$\le$k$\le$10\textasciicircum{}9。用counts作为状态权重，根权重由索引清零；不足输出-1。竞赛应用，不计正式模板题。
+
+所需模板：\hyperref[compact-SuffixAutomaton]{SuffixAutomaton}（第~\pageref{compact-SuffixAutomaton}~页，\ref{compact-SuffixAutomaton}~节）、\hyperref[compact-SAMLex]{SAMLex}（第~\pageref{compact-SAMLex}~页，\ref{compact-SAMLex}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3975}
+
+\lstinputlisting{usage/example-253.cpp}
+
+\Needspace{428pt}
+
+\subsection*{接口用法演示：广义SAM查询 / API示例}
+
+\label{usage-example-255}
+
+演示约定：读n个非空小写文档，再读26字母排列、1-based k及非空查询文本t；输出文档子串并集的第k小串（不足-1），然后输出t与任一文档LCS在t内的起点和长度。不计文档重复次数，不求所有文档交集；示例n=0合法。
+
+所需模板：\hyperref[compact-GeneralSAM]{GeneralSAM}（第~\pageref{compact-GeneralSAM}~页，\ref{compact-GeneralSAM}~节）、\hyperref[compact-SAMLex]{SAMLex}（第~\pageref{compact-SAMLex}~页，\ref{compact-SAMLex}~节）、\hyperref[compact-sam_lcs]{sam\_\allowbreak{}lcs}（第~\pageref{compact-sam_lcs}~页，\ref{compact-sam_lcs}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate}
+
+\lstinputlisting{usage/example-255.cpp}
+
+\Needspace{370pt}
+
+\section{SAM最长公共子串}\label{compact-sam_lcs}\index{sam\_lcs}
+
+sam\_lcs(sam,t)接收已有单串SuffixAutomaton或已build的GeneralSAM及小写文本t，返回t中的\{0-based起点,长度\}；多解取t中最早起点，无公共非空串返回\{0,0\}。广义SAM时求t与任一已加入文档的最长公共子串，不是所有文档公共串。t可空，长度<INT\_MAX；构建SAM的成本另计，查询O(|t|)、额外空间O(1)，输入与SAM不变。沿后缀链接回退并同步匹配长度，不返回源文档坐标；需实际串时用t.substr(start,length)。
+
+\lstinputlisting[firstline=67,lastline=91]{../src/compact/sam_queries.hpp}
+
+\Needspace{314pt}
+
+\subsection*{应用题补充：SPOJ LCS / 最长公共子串}
+
+\label{usage-example-254}
+
+题意：两行小写字符串，各长$\le$250000，输出最长公共子串长度，无公共串输出0。getline保留空行，并兼容CRLF。返回位置属于第二个串，本用法只输出长度；线上AC和时间/内存限制待核验。
+
+所需模板：\hyperref[compact-SuffixAutomaton]{SuffixAutomaton}（第~\pageref{compact-SuffixAutomaton}~页，\ref{compact-SuffixAutomaton}~节）、\hyperref[compact-sam_lcs]{sam\_\allowbreak{}lcs}（第~\pageref{compact-sam_lcs}~页，\ref{compact-sam_lcs}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/SP1811}
+
+\lstinputlisting{usage/example-254.cpp}
+
+联合使用示例见第~\pageref{usage-example-255}~页（广义SAM查询 / API示例），其中直接调用本模板。
+
 \Needspace{486pt}
 
 \chapter{广义后缀自动机}

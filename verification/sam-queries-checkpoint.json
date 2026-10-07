@@ -1,0 +1,72 @@
+{
+  "base": "516787b584ce5818f726fd1f437f3a200a8c1aad",
+  "batch": "Weighted/custom-alphabet SAM kth substring and longest common substring queries",
+  "core_cases_per_form": 2591,
+  "core_checks_per_form": 510427,
+  "complete_inputs_per_form": {
+    "P3975": 170,
+    "SP1811": 166,
+    "general_api": 100
+  },
+  "semantic_mutants_per_mode": 7,
+  "new_usage_programs_retested": 3,
+  "current_counts": {
+    "components": 227,
+    "usages": 255,
+    "usage_status": {
+      "locally_checked_example": 166,
+      "locally_checked_application": 49,
+      "locally_checked_api": 12
+    },
+    "pending_upstream_topics": 621,
+    "partial_upstream_topics": 34
+  },
+  "source_rows": {
+    "audited": 5,
+    "partial": 5
+  },
+  "runtime_source_sha256": {
+    "src/compact/sam_queries.hpp": "bbba7836d604e01dda28b930aae95bc87043528fe6ce2400290868edcee179ef",
+    "src/compact/string.hpp": "44f284e4927a8315f7c54d4a01ff2c8ada00572c865ce0e39ec3077870254e03",
+    "src/compact/general_sam.hpp": "aca4aa0897ce4650c923d32f34c3961a3f742840d147d1993198eaa38cf19aed",
+    "tests/sam_queries.py": "f62392a6102c2b12e9d6fc51ef70297645c8e114361fc4de07c0324b32687f60",
+    "tests/sam_queries_probe.cpp": "00ede51dab73cf1335239d892f96016867be5b16f3a1d01f99239578f4fb0067",
+    "tests/usage_examples.py": "ad3295c849ca1e0f915f786d2c19bd0acda3cebdb4da3084ba1ad576e2952d26",
+    "verify/luogu/P3975.compact.cpp": "3dbdb0953a5fa43ea49f585fccda2e133b5ef02ccb29f586cc6cb2295cfec7f8",
+    "verify/luogu/SP1811.compact.cpp": "5e1f450772b07c35daa7d7dc918e55f89d8a6688e8e7bf92654e7892b54b68aa",
+    "verify/api/general_sam_queries.compact.cpp": "3c79f04f6f23e0b2bfd3622ba0943f317cf593f9f024e937a0fc1b5acc43a16b",
+    "docs/usage/example-253.cpp": "7608da85672c9c8fcc4b94faa928025914136f6ea7cb462c0919808b4d3751ee",
+    "docs/usage/example-254.cpp": "13c962a39c40377311867e57440c227e70740f02fa2d6dc6cd08d086f2f196df",
+    "docs/usage/example-255.cpp": "b95db384797ad81a5ba55eb2f9c17bfa30ed0a5e82e21b7356e50e64625d7236"
+  },
+  "report_sha256": {
+    "verification/sam-queries-copy.json": "579cf1120c2c814eb70698b92e74996151a02ac7aa4599a9cda97434ed6e93bc",
+    "verification/sam-queries-layout.json": "772cdf9fe905351fe14f9e7c1de8b640ed542e5df20b7111b6fe95293eb2dfca",
+    "verification/sam-queries-normal.json": "af95e945e6de27ea6e36ffdbf1e05967b729e4c27657a3bd269a4c98c8cd2506",
+    "verification/sam-queries-sanitizer.json": "14644d3e52551cfd7034458caf1a923cf337ad0122e8caacc30f4f7ca11f0a7a",
+    "verification/sam-queries-sources.json": "6d988238f2234dff7958f43cb95fb70f8a7bea6bee4de28592430fa8f94e16c7"
+  },
+  "documentation_after_runtime": "Runtime sources and snippets remain hash-identical. Later edits only added provenance/coverage prose, problem review metadata, local runner registration and pagination. No full-library regression claim.",
+  "remaining": "Arbitrary-parent online SAM expansion; direct input-tree construction and empty-string convention for TSUBSTR; CF204E per-document frequency counting. Upstream621 pending rows and34 partials, recent Chinese contest survey and OI math gaps remain. Online AC/rank and live resource limits pending. Browser unlock request remains unresolved.",
+  "issue_check": "Fetched all issue comments since2026-10-07T10:20:00Z through10:58:43Z; only our batch start/completion comments, no new human steering.",
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "a50521ad932c37b0ff7592e55353f28c50215f67d38f206925368ba41766fb27",
+      "font_set_preserved": true,
+      "page_change": 5,
+      "bytes_changed": true
+    },
+    "output/pdf/xcpc-strings.pdf": {
+      "sha256": "f549ce41849063797b1fe080bc7de49298c318617a08b28721aa5e03dfe62d6b",
+      "font_set_preserved": true,
+      "page_change": 5,
+      "bytes_changed": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "9462c44359c97d9c02d895adf1ce5a065465a06cabb99d097675f18569d8817e",
+      "font_set_preserved": true,
+      "page_change": 0,
+      "bytes_changed": false
+    }
+  }
+}
