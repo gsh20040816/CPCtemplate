@@ -126,7 +126,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Blossom | [example-72](usage/example-72.cpp) | locally_checked_example |
 | berlekamp_massey | [example-81](usage/example-81.cpp), [example-160](usage/example-160.cpp) | locally_checked_example |
 | recurrence_nth | [example-160](usage/example-160.cpp) | locally_checked_example |
-| TarjanSCC | [example-2](usage/example-2.cpp) | locally_checked_example |
+| TarjanSCC | [example-2](usage/example-2.cpp), [example-300（应用补充）](usage/example-300.cpp) | locally_checked_example |
 | BiconnectedCore | [example-4](usage/example-4.cpp), [example-5](usage/example-5.cpp) | locally_checked_example |
 | block_cut_forest | [example-165（应用补充）](usage/example-165.cpp) | locally_checked_application |
 | bridge_component_forest | [example-166（应用补充）](usage/example-166.cpp) | locally_checked_application |
@@ -248,3 +248,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | SequenceSplay | [example-286](usage/example-286.cpp), [example-287（应用补充）](usage/example-287.cpp), [example-288（接口演示）](usage/example-288.cpp) | locally_checked_example |
 | MergeSplay | [example-290（应用补充）](usage/example-290.cpp), [example-291（应用补充）](usage/example-291.cpp), [example-292（接口演示）](usage/example-292.cpp) | locally_checked_application |
 | BellmanFord | [example-293](usage/example-293.cpp), [example-294（应用补充）](usage/example-294.cpp), [example-295（接口演示）](usage/example-295.cpp) | locally_checked_example |
+| Spfa | [example-296](usage/example-296.cpp), [example-297](usage/example-297.cpp), [example-298（应用补充）](usage/example-298.cpp), [example-299（接口演示）](usage/example-299.cpp) | locally_checked_example |

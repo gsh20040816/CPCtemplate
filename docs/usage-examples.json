@@ -3703,5 +3703,67 @@
       "BellmanFord"
     ],
     "page_break_before": "    for (int u = 1; u <= n; u++)"
+  },
+  {
+    "id": "example-296",
+    "symbol": "Spfa",
+    "kind": "template",
+    "problem": "Luogu P3385 / 从1可达的负环",
+    "url": "https://www.luogu.com.cn/problem/P3385",
+    "summary": "T组图，每条输入边权非负时加双向边，负数仅加u到v；run(1)只查从1可达的负环，有则YES，否则NO。m是输入记录数，不是最终边数；不可达部分的负环不影响本题。",
+    "driver": "verify/luogu/P3385.compact.cpp",
+    "requires": [
+      "Spfa"
+    ]
+  },
+  {
+    "id": "example-297",
+    "symbol": "Spfa",
+    "kind": "template",
+    "problem": "Luogu P5960 / 差分约束",
+    "url": "https://www.luogu.com.cn/problem/P5960",
+    "summary": "输入x_u−x_v≤w，加入v到u权w。run(0)覆盖全部约束；无解输出NO，否则直接输出dis[1..n]为任意可行解。n,m≤5000、|w|≤10000，有限解在int范围内；不必另建超级源点。",
+    "driver": "verify/luogu/P5960.compact.cpp",
+    "requires": [
+      "Spfa"
+    ]
+  },
+  {
+    "id": "example-298",
+    "symbol": "Spfa",
+    "kind": "application",
+    "problem": "Luogu P1993 / 小K的农场",
+    "url": "https://www.luogu.com.cn/problem/P1993",
+    "summary": "三类关系：1 a b c表示x_a−x_b≥c，加入a到b权−c；2表示≤c，加入b到a权c；3表示相等，加入双向0。run(0)成功输出Yes，否则No。解可整体平移到非负，不要额外加入上界。",
+    "driver": "verify/luogu/P1993.compact.cpp",
+    "requires": [
+      "Spfa"
+    ]
+  },
+  {
+    "id": "example-299",
+    "symbol": "Spfa",
+    "kind": "api",
+    "problem": "SPFA有限最短距离与路径（接口演示）",
+    "url": "https://oi-wiki.org/graph/shortest-path/",
+    "summary": "输入n,m,s和1-based有向边，权值signed64；s=0查全图。发现相关负环只输出NEGATIVE CYCLE；否则逐点输出INF或“int128距离 边数 正向原边号”。全图负环与指定起点可达负环必须区分。",
+    "driver": "verify/api/spfa.compact.cpp",
+    "requires": [
+      "Spfa"
+    ],
+    "page_break_before": "    for (int u = 1; u <= n; u++)"
+  },
+  {
+    "id": "example-300",
+    "symbol": "TarjanSCC",
+    "kind": "application",
+    "problem": "Luogu P3275 / 糖果",
+    "url": "https://www.luogu.com.cn/problem/P3275",
+    "summary": "每人至少1颗，五类关系转成x_v≥x_u+w，w只取0/1。强连通分量内出现权1边即无解−1；其余按Tarjan分量编号从大到小递推最长路，每分量初值1，按原顶点累加最小糖果总量。n,k≤100000，O(n+k)，总量用long long；不能把每分量只计一次。",
+    "driver": "verify/luogu/P3275.compact.cpp",
+    "requires": [
+      "TarjanSCC"
+    ],
+    "page_break_before": "    t.run();"
   }
 ]

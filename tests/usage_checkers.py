@@ -4,6 +4,19 @@ import math
 
 
 def check_output(example_id, mode, data, stdout, expected):
+    if isinstance(expected, dict) and 'difference_constraints' in expected:
+        tokens = list(map(int, data.split()))
+        n, m = tokens[:2]
+        assert len(tokens) == 2 + 3 * m
+        if not expected['difference_constraints']:
+            assert stdout.split() == ['NO']
+            return
+        values = list(map(int, stdout.split()))
+        assert len(values) == n and all(-(1 << 31) <= x < (1 << 31) for x in values)
+        for i in range(m):
+            u, v, w = tokens[2 + 3 * i:5 + 3 * i]
+            assert values[u - 1] - values[v - 1] <= w
+        return
     if isinstance(expected, dict) and 'minimum_cover' in expected:
         values = iter(map(int, data.split()))
         n, m = next(values), next(values)

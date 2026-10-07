@@ -29,6 +29,7 @@ chapters['kd_min'] = '静态 K-D Tree 矩形最小权'
 chapters['static_rmq'] = '位掩码静态RMQ'
 chapters['static_rmq_2d'] = '二维静态RMQ'
 chapters['merge_splay'] = '可合并伸展树'
+chapters['spfa'] = '队列松弛与差分约束'
 chapters['bellman_ford'] = '负边最短路与负环方案'
 chapters['sequence_splay'] = '区间翻转与固定编号定位'
 chapters['centroid_diameter'] = '有符号边权活动点直径'
@@ -102,7 +103,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D'):
+            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -440,10 +441,13 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 更新与半开矩形求和（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name in ('MergeSplay', 'BellmanFord'):
+            elif name in ('MergeSplay', 'BellmanFord', 'Spfa'):
                 if name == 'MergeSplay':
                     tokens = ['void rotate(', 'int insert(', '// Change this element']
                     captions = ['', '旋转、伸展与固定编号', '节点插入与小集合合并', '保持编号的改值、名次与第 k 小']
+                elif name == 'Spfa':
+                    tokens = ['// s=0 checks', '// Forward original-edge']
+                    captions = ['', 'FIFO队列与负环判定', '成功运行后的有限路径']
                 else:
                     tokens = ['// s=0 initializes', '        if (last != -1)']
                     captions = ['', 'run：逐轮松弛与负环种子', '继续 run：恢复负环并传播；随后为 path']
@@ -1037,7 +1041,7 @@ for style in ['compact']:
                     body.append('\\lstinputlisting[firstline=' + str(split_lines + 1) + ',firstnumber=' + str(split_lines + 1) + ']{' + listing + '}')
                 else:
                     body.append('\\lstinputlisting{' + listing + '}')
-            if name == 'AffineSequenceTreap':
+            if name in ('AffineSequenceTreap', 'TarjanSCC'):
                 body.append('\\newpage')
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 assert {r['symbol'] for r in records} == {r[1] for r in cat}, 'Catalog contains an unprinted module'

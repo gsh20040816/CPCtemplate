@@ -384,6 +384,11 @@ cases['example-292'] = [('3 8\n5 5 -1\n0 0 1\n2 1 2\n0 1 2\n3 0\n1 0 -9223372036
 cases['example-293'] = [('4 5 0\n0 1 2\n0 2 3\n1 2 -5\n1 3 1\n2 3 2\n', '0 2 -3 -1'), ('3 2 0\n1 2 -1\n2 1 0\n', '0 INF INF')]
 cases['example-294'] = [('1 1\n1 1 -1\n', 'YES 1 1'), ('2 1\n1 2 0\n', 'NO')]
 cases['example-295'] = [('4 2 1\n1 2 9223372036854775807\n2 3 9223372036854775807\n', '0 0 9223372036854775807 1 0 18446744073709551614 2 0 1 INF C 0'), ('2 2 0\n1 1 -1\n1 2 9223372036854775807\n', '-INF -INF C 1 0')]
+cases['example-296'] = [('3\n3 2\n2 3 -1\n3 2 0\n3 3\n1 2 0\n2 3 -1\n3 2 0\n1 1\n1 1 0\n', 'NO YES NO')]
+cases['example-297'] = [('3 3\n1 2 3\n2 3 -2\n1 3 1\n', {'difference_constraints': True}), ('3 2\n2 3 -1\n3 2 0\n', {'difference_constraints': False})]
+cases['example-298'] = [('2 2\n1 1 2 1\n2 1 2 1\n', 'Yes'), ('3 2\n1 2 3 1\n3 2 3\n', 'No')]
+cases['example-299'] = [('4 2 1\n1 2 9223372036854775807\n2 3 9223372036854775807\n', '0 0 9223372036854775807 1 0 18446744073709551614 2 0 1 INF'), ('2 1 0\n2 2 -1\n', 'NEGATIVE CYCLE')]
+cases['example-300'] = [('3 2\n2 1 2\n2 2 3\n', '6'), ('3 3\n1 1 2\n2 2 3\n5 3 1\n', '-1'), ('3 2\n1 1 2\n1 2 3\n', '3')]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

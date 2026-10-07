@@ -216,6 +216,10 @@
 | `MergeSplay` | [Luogu P3224 / 永无乡](https://www.luogu.com.cn/problem/P3224) | n,m≤100000;q≤300000;权值为1..n排列;查询返回顶点编号。 | 待在线 AC | 待核验 |
 | `BellmanFord` | [AOJ GRL_1_B / Single Source Shortest Path (Negative Edges)](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B) | n≤1000;m≤2000;权值绝对值≤10000;无重边自环；只报告源点可达负环。 | 待在线 AC | 待核验 |
 | `BellmanFord` | [CSES1197 / Cycle Finding](https://cses.fi/problemset/task/1197/) | n≤2500;m≤5000;权值绝对值≤10^9。 | 待在线 AC | 待核验 |
+| `Spfa` | [Luogu P3385 / 源点可达负环](https://www.luogu.com.cn/problem/P3385) | T≤10;n≤2000;m≤3000条输入记录;非负边双向;只检查从1可达。 | 待在线 AC | 待核验 |
+| `Spfa` | [Luogu P5960 / 差分约束](https://www.luogu.com.cn/problem/P5960) | n,m≤5000;\|w\|≤10000;不等式两点不同;输出值需在int范围。 | 待在线 AC | 待核验 |
+| `Spfa` | [Luogu P1993 / 小K的农场](https://www.luogu.com.cn/problem/P1993) | n,m,c≤5000;三种关系对应≥、≤、相等。 | 待在线 AC | 待核验 |
+| `TarjanSCC` | [Luogu P3275 / 糖果](https://www.luogu.com.cn/problem/P3275) | n,k≤100000;五种关系；每个原顶点至少1；最小总量用64位。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2034,6 +2038,38 @@ LCA两侧按深度差切分，k从1计且包含两端与LCA，距离使用独立
 ### CSES1197 / Cycle Finding / BellmanFord
 
 判全图负环及输出方案应用。
+
+
+
+普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。
+
+### Luogu P3385 / 源点可达负环 / Spfa
+
+正式负环模板题。
+
+
+
+普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。
+
+### Luogu P5960 / 差分约束 / Spfa
+
+正式差分约束模板题，输出任意可行解。
+
+
+
+普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。
+
+### Luogu P1993 / 小K的农场 / Spfa
+
+竞赛应用，不增加正式模板覆盖。
+
+
+
+普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。
+
+### Luogu P3275 / 糖果 / TarjanSCC
+
+0/1差分约束的最优分配应用；不是一般有符号DAG最长路模板。
 
 
 

@@ -7526,6 +7526,94 @@ release\_bfs(open,source,neighbors) 返回各点最早到达时间，不可达�
 
 \Needspace{650pt}
 
+\subsection{SPFA：队列松弛、负环判定与有限路径}\label{compact-Spfa}\index{Spfa}
+
+Spfa(n)，点号1..n，0<n<INT\_MAX。add(u,v,w)返回0-based原边号，允许重边、自环、完整signed64权值，边数$\le$INT\_MAX；加边令valid=false。run(s)查从s可达的负环，s=0同时初始化所有点为0以查全图。返回false时valid=false，全部dis/pre均为未完成状态，不能读取为最短路或恢复路径；需要负环方案或逐点负无穷分类用BellmanFord。
+
+run返回true时valid=true，dis[v]==inf为不可达，其余为int128最短距离；run(0)距离为任意起点出发的最小值，且本身就是全部约束x\_v−x\_u$\le$w的一个可行解。path(v)返回正向原边号；不可达与零边路径均为空，结合dis区分。每次run重置临时队列/标记/路径边数，支持反复改起点与对象复制。
+
+FIFO队列，最坏O(nm+n+m)时间，O(n+m)空间，不保证近线性；队列去重不等于永久访问标记。严格松弛后维护标签所代表游走的边数，达到n立即判负环。停止前标签最多n条边，绝对值$\le$n·2\textasciicircum{}63<2\textasciicircum{}94，int128与inf=2\textasciicircum{}126足够。不要无条件转long long；e/g/dis/pre/valid只读，其余按接口使用。
+
+\lstinputlisting[firstline=9,lastline=40,firstnumber=1]{../src/compact/spfa.hpp}
+
+\newpage
+
+\noindent FIFO队列与负环判定（接上页同一结构体）：
+
+\lstinputlisting[firstline=41,lastline=80,firstnumber=33]{../src/compact/spfa.hpp}
+
+\newpage
+
+\noindent 成功运行后的有限路径（接上页同一结构体）：
+
+\lstinputlisting[firstline=81,lastline=95,firstnumber=73]{../src/compact/spfa.hpp}
+
+\Needspace{398pt}
+
+\subsection*{模板题使用：Luogu P3385 / 从1可达的负环}
+
+\label{usage-example-296}
+
+题意：T组图，每条输入边权非负时加双向边，负数仅加u到v；run(1)只查从1可达的负环，有则YES，否则NO。m是输入记录数，不是最终边数；不可达部分的负环不影响本题。
+
+所需模板：\hyperref[compact-Spfa]{Spfa}（第~\pageref{compact-Spfa}~页，\ref{compact-Spfa}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3385}
+
+\lstinputlisting{usage/example-296.cpp}
+
+\Needspace{372pt}
+
+\subsection*{模板题使用：Luogu P5960 / 差分约束}
+
+\label{usage-example-297}
+
+题意：输入x\_u−x\_v$\le$w，加入v到u权w。run(0)覆盖全部约束；无解输出NO，否则直接输出dis[1..n]为任意可行解。n,m$\le$5000、|w|$\le$10000，有限解在int范围内；不必另建超级源点。
+
+所需模板：\hyperref[compact-Spfa]{Spfa}（第~\pageref{compact-Spfa}~页，\ref{compact-Spfa}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5960}
+
+\lstinputlisting{usage/example-297.cpp}
+
+\Needspace{414pt}
+
+\subsection*{应用题补充：Luogu P1993 / 小K的农场}
+
+\label{usage-example-298}
+
+题意：三类关系：1 a b c表示x\_a−x\_b$\ge$c，加入a到b权−c；2表示$\le$c，加入b到a权c；3表示相等，加入双向0。run(0)成功输出Yes，否则No。解可整体平移到非负，不要额外加入上界。
+
+所需模板：\hyperref[compact-Spfa]{Spfa}（第~\pageref{compact-Spfa}~页，\ref{compact-Spfa}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1993}
+
+\lstinputlisting{usage/example-298.cpp}
+
+\Needspace{561pt}
+
+\subsection*{接口用法演示：SPFA有限最短距离与路径（接口演示）}
+
+\label{usage-example-299}
+
+演示约定：输入n,m,s和1-based有向边，权值signed64；s=0查全图。发现相关负环只输出NEGATIVE CYCLE；否则逐点输出INF或“int128距离 边数 正向原边号”。全图负环与指定起点可达负环必须区分。
+
+所需模板：\hyperref[compact-Spfa]{Spfa}（第~\pageref{compact-Spfa}~页，\ref{compact-Spfa}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/shortest-path/}
+
+\lstinputlisting[lastline=35]{usage/example-299.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=36,firstnumber=36]{usage/example-299.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
 \subsection{Bellman--Ford：负环影响与路径方案}\label{compact-BellmanFord}\index{BellmanFord}
 
 BellmanFord(n)，点号1..n，0<n<INT\_MAX。add(u,v,w)加有向边并返回0-based原边号，允许重边、自环和完整signed64边权，总边数$\le$INT\_MAX。run(s)返回是否不存在从s可达的负环；run(0)把全体点初值设0，等价于超级源点，用于查全图负环。每次run重置状态；add后旧结果失效，须重新run。
@@ -7787,6 +7875,28 @@ TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u]
 题目：\url{https://judge.yosupo.jp/problem/scc}
 
 \lstinputlisting{usage/example-2.cpp}
+
+\Needspace{481pt}
+
+\subsection*{应用题补充：Luogu P3275 / 糖果}
+
+\label{usage-example-300}
+
+题意：每人至少1颗，五类关系转成x\_v$\ge$x\_u+w，w只取0/1。强连通分量内出现权1边即无解−1；其余按Tarjan分量编号从大到小递推最长路，每分量初值1，按原顶点累加最小糖果总量。n,k$\le$100000，O(n+k)，总量用long long；不能把每分量只计一次。
+
+所需模板：\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3275}
+
+\lstinputlisting[lastline=27]{usage/example-300.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=28,firstnumber=28]{usage/example-300.cpp}
+
+\newpage
 
 \noindent 相关应用：函数图包含尾链与环分解，导航无独立页；需正文定位，不应等同一般 SCC 算法。
 

@@ -110,3 +110,5 @@ kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md
 两串扩展KMP及KMP/Z/Manacher的10项来源核对见 [接口、索引转换与剩余缺口](docs/STRING-PREFIX-AUDIT.md)。
 
 固定编号、集合合并与改值的 [可合并 Splay](docs/MERGE-SPLAY.md)，以及三态距离、原边路径和负环方案的 [Bellman–Ford](docs/BELLMAN-FORD.md)均附完整用法与独立本地验证记录。
+
+队列 [SPFA 与差分约束](docs/SPFA-CONSTRAINTS.md)包含源点负环、全图可行解、三类不等式及递归 Tarjan 缩点后的最少糖果应用；明确区分一般负权图与0/1约束的复杂度。

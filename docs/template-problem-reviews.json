@@ -5488,5 +5488,93 @@
       "verification/bellman-ford-normal.json",
       "verification/bellman-ford-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "Spfa",
+    "problem": "Luogu P3385 / 源点可达负环",
+    "url": "https://www.luogu.com.cn/problem/P3385",
+    "classification": "正式负环模板题。",
+    "statement_checked": true,
+    "limits": "T≤10;n≤2000;m≤3000条输入记录;非负边双向;只检查从1可达。",
+    "driver": "verify/luogu/P3385.compact.cpp",
+    "usage": "example-296",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/spfa-normal.json",
+      "verification/spfa-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "Spfa",
+    "problem": "Luogu P5960 / 差分约束",
+    "url": "https://www.luogu.com.cn/problem/P5960",
+    "classification": "正式差分约束模板题，输出任意可行解。",
+    "statement_checked": true,
+    "limits": "n,m≤5000;|w|≤10000;不等式两点不同;输出值需在int范围。",
+    "driver": "verify/luogu/P5960.compact.cpp",
+    "usage": "example-297",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/spfa-normal.json",
+      "verification/spfa-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "Spfa",
+    "problem": "Luogu P1993 / 小K的农场",
+    "url": "https://www.luogu.com.cn/problem/P1993",
+    "classification": "竞赛应用，不增加正式模板覆盖。",
+    "statement_checked": true,
+    "limits": "n,m,c≤5000;三种关系对应≥、≤、相等。",
+    "driver": "verify/luogu/P1993.compact.cpp",
+    "usage": "example-298",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/spfa-normal.json",
+      "verification/spfa-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "TarjanSCC",
+    "problem": "Luogu P3275 / 糖果",
+    "url": "https://www.luogu.com.cn/problem/P3275",
+    "classification": "0/1差分约束的最优分配应用；不是一般有符号DAG最长路模板。",
+    "statement_checked": true,
+    "limits": "n,k≤100000;五种关系；每个原顶点至少1；最小总量用64位。",
+    "driver": "verify/luogu/P3275.compact.cpp",
+    "usage": "example-300",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "普通/ASan/UBSan完整程序已本地核验；在线AC、排名与评测资源通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/candy-constraints-normal.json",
+      "verification/candy-constraints-sanitizer.json"
+    ]
   }
 ]

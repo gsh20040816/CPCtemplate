@@ -1444,5 +1444,11 @@
     "BellmanFord",
     "Bellman–Ford：负环影响与路径方案",
     "BellmanFord(n)，点号1..n，0<n<INT_MAX。add(u,v,w)加有向边并返回0-based原边号，允许重边、自环和完整signed64边权，总边数≤INT_MAX。run(s)返回是否不存在从s可达的负环；run(0)把全体点初值设0，等价于超级源点，用于查全图负环。每次run重置状态；add后旧结果失效，须重新run。\n\n运行后dis[v]==inf表示不可达；neg[v]为真表示从起点可达的负环能到达v，距离为负无穷（这时不可读取dis作为答案）；其他点的dis为有限int128最短距离。path(v)返回有限最短路的正向原边号；不可达、负无穷或空路径都返回空vector，须结合dis/neg判定。cycle为空表示无相关负环，否则是一个相关负环的正向原边号，可通过e[id].u/v/w还原顶点和权值。run(0)的有限距离是从任意起点出发的最小值，允许零边路径，不是某个固定单源距离。\n\nO(nm+n+m)时间、O(n+m)空间；path输出O(路径长)。inf=2^126，全过程int128累加，不能无条件转为long long。在给定n,m的int边界内，n轮最多nm次更新，标签对应游走至多nm条边，绝对值<2^125，不碰inf也不溢出。e/g/dis/pre/neg/cycle和ready只读，不手改。"
+  ],
+  [
+    "spfa",
+    "Spfa",
+    "SPFA：队列松弛、负环判定与有限路径",
+    "Spfa(n)，点号1..n，0<n<INT_MAX。add(u,v,w)返回0-based原边号，允许重边、自环、完整signed64权值，边数≤INT_MAX；加边令valid=false。run(s)查从s可达的负环，s=0同时初始化所有点为0以查全图。返回false时valid=false，全部dis/pre均为未完成状态，不能读取为最短路或恢复路径；需要负环方案或逐点负无穷分类用BellmanFord。\n\nrun返回true时valid=true，dis[v]==inf为不可达，其余为int128最短距离；run(0)距离为任意起点出发的最小值，且本身就是全部约束x_v−x_u≤w的一个可行解。path(v)返回正向原边号；不可达与零边路径均为空，结合dis区分。每次run重置临时队列/标记/路径边数，支持反复改起点与对象复制。\n\nFIFO队列，最坏O(nm+n+m)时间，O(n+m)空间，不保证近线性；队列去重不等于永久访问标记。严格松弛后维护标签所代表游走的边数，达到n立即判负环。停止前标签最多n条边，绝对值≤n·2^63<2^94，int128与inf=2^126足够。不要无条件转long long；e/g/dis/pre/valid只读，其余按接口使用。"
   ]
 ]
