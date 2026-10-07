@@ -1426,5 +1426,11 @@
     "CentroidDiameter",
     "动态点分树：有符号边权活动点直径与端点",
     "CentroidDiameter(n)，固定连通无向树、0-based点号，n>0且2n不溢出int。add(u,v,w)仅在首次build前；允许负边权，所有简单路径权值和必须能用long long表示。build()递归分解并清空活动集，可反复重建；set(u,on)幂等启停点。query()返回optional<tuple<long long,int,int>>，内容为最大距离与任意一对达到最优值的活动端点，允许两端相同，所以非空集答案至少0；空集nullopt。各重心按不同分支取最大距离，只合并跨分支真实路径，不能套用非负权直径端点摘要；并列不承诺最小编号。空集预处理O(n log n)、set O(log² n)、query O(1)，空间O(n log n)；逐点激活全树O(n log² n)。支持值拷贝；active只读用于反色，其余字段与sum/size_dfs/centroid/collect/decompose/candidate为内部状态。DFS保持递归，树输入合法性与足够栈空间由调用方保证。"
+  ],
+  [
+    "sequence_splay",
+    "SequenceSplay",
+    "区间翻转 Splay 与固定编号定位",
+    "SequenceSplay(n)建立原编号0..n−1的序列，允许n=0，要求n≤INT_MAX−3且内存足够。reverse(l,r)翻转当前0-based半开区间[l,r)，允许空区间；pos(id)返回原编号id的当前位置；at(k)返回当前位置k的原编号；order()按当前顺序返回全部原编号。值由调用方按原编号存储，重复值不会合并。\n\n初建O(n)，pos/at/reverse均摊O(log(n+1))、单次最坏O(n)，order为O(n)，空间O(n)；不含插入、删除和数值聚合。所有辅助函数与a/root/n约定内部只读，pos/at会伸展并改变树形。两哨兵不暴露给用户；节点编号不随旋转变化。build/祖先下传/遍历均递归，退化时深度O(n)，调用方保证栈空间。支持独立值拷贝；重置用新建对象赋值。"
   ]
 ]

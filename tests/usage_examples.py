@@ -374,6 +374,10 @@ cases['example-282'] = [('1\n3\n1 2 1\n2 3 2\nQUERY 1 2\nCHANGE 1 3\nQUERY 1 2\n
 cases['example-283'] = [('1\n6\n1 2 1\n2 4 1\n2 5 2\n1 3 1\n3 6 2\nDIST 4 6\nKTH 4 6 4\nDONE\n', '5 3'), ('1\n1\nDIST 1 1\nKTH 1 1 1\nDONE\n', '0 1')]
 cases['example-284'] = [('3\n1 2 1\n1 3 1\n7\nA\nC 1\nA\nC 2\nA\nC 3\nA\n','2 2 0 They have disappeared.'), ('2\n1 2 -1000\n3\nA\nC 1\nA\n', '0 0')]
 cases['example-285'] = [('2 7\n0 1 5\n1\n0 0 1\n1\n0 1 1\n1\n0 0 0\n1\n','-1 0 0 0 5 0 1 0 1 1')]
+cases['example-286'] = [('5 3\n2 4\n1 5\n3 3\n', '5 2 3 4 1')]
+cases['example-287'] = [('6\n3 4 5 1 6 2\n', '4 6 4 5 6 6'), ('4\n2 1 2 1\n', '2 4 4 4')]
+cases['example-288'] = [('4 7\n0 0 4\n1 0\n2 0\n0 1 3\n1 1\n2 2\n3\n', '3 3 1 2 3 1 2 0'), ('0 2\n0 0 0\n3\n', '')]
+cases['example-289'] = [('3 3\n10 20 30\n1 2\n2 3\n1 3\nD 3\nQ 1 2\nQ 2 1\nD 2\nQ 3 2\nC 1 50\nQ 1 1\nE\n3 3\n10 20 20\n1 2\n2 3\n1 3\nQ 1 1\nQ 1 2\nQ 1 3\nE\n0 0\n', 'Case 1: 25.000000 Case 2: 16.666667'), ('1 0\n-1000000\nQ 1 -2147483648\nQ 1 2147483647\nQ 1 1\nC 1 1000000\nQ 1 1\nE\n0 0\n', 'Case 1: 0.000000')]
 assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}

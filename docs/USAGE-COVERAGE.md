@@ -231,7 +231,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Fenwick2D | [example-246](usage/example-246.cpp) | locally_checked_example |
 | RectangleFenwick | [example-247](usage/example-247.cpp) | locally_checked_example |
 | PersistentDSU | [example-248](usage/example-248.cpp) | locally_checked_example |
-| MergeSplitTree | [example-249](usage/example-249.cpp) | locally_checked_example |
+| MergeSplitTree | [example-249](usage/example-249.cpp), [example-289（应用补充）](usage/example-289.cpp) | locally_checked_example |
 | exkmp | [example-250](usage/example-250.cpp) | locally_checked_example |
 | order_match | [example-251（应用补充）](usage/example-251.cpp) | locally_checked_application |
 | SAMLex | [example-253（应用补充）](usage/example-253.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |
@@ -245,3 +245,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | StaticRMQ | [example-276](usage/example-276.cpp), [example-277](usage/example-277.cpp), [example-278（接口演示）](usage/example-278.cpp) | locally_checked_example |
 | StaticRMQ2D | [example-279（接口演示）](usage/example-279.cpp), [example-280（接口演示）](usage/example-280.cpp) | locally_checked_api |
 | CentroidDiameter | [example-284（应用补充）](usage/example-284.cpp), [example-285（接口演示）](usage/example-285.cpp) | locally_checked_application |
+| SequenceSplay | [example-286](usage/example-286.cpp), [example-287（应用补充）](usage/example-287.cpp), [example-288（接口演示）](usage/example-288.cpp) | locally_checked_example |

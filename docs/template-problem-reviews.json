@@ -5334,5 +5334,71 @@
       "verification/centroid-diameter-normal.json",
       "verification/centroid-diameter-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "SequenceSplay",
+    "problem": "Luogu P3391 / Splay",
+    "url": "https://www.luogu.com.cn/problem/P3391",
+    "classification": "正式区间翻转模板题。",
+    "statement_checked": true,
+    "limits": "1≤n,m≤100000;初始1..n;1-based闭区间翻转。",
+    "driver": "verify/luogu/P3391.splay.compact.cpp",
+    "usage": "example-286",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整程序本地普通/ASan/UBSan已验证；线上AC、所有提交速度排名、评测机资源通过情况尚未核验。",
+    "checked_date": "2026-10-07",
+    "local_evidence": [
+      "verification/sequence-splay-normal.json",
+      "verification/sequence-splay-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "SequenceSplay",
+    "problem": "Luogu P3165 / 排序机械臂",
+    "url": "https://www.luogu.com.cn/problem/P3165",
+    "classification": "竞赛应用，不计新增正式模板覆盖。",
+    "statement_checked": true,
+    "limits": "n≤100000;高度≤10^7;相同高度按初始位置稳定排序。",
+    "driver": "verify/luogu/P3165.compact.cpp",
+    "usage": "example-287",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整程序本地普通/ASan/UBSan已验证；线上AC、所有提交速度排名、评测机资源通过情况尚未核验。",
+    "checked_date": "2026-10-07",
+    "local_evidence": [
+      "verification/sequence-splay-normal.json",
+      "verification/sequence-splay-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "MergeSplitTree + dsu",
+    "problem": "UVA1479 / Graph and Queries",
+    "url": "https://onlinejudge.org/external/14/1479.pdf",
+    "classification": "竞赛应用，对应kuangbin3.4.2模型；不是Splay合并接口。",
+    "statement_checked": true,
+    "limits": "n≤20000;m≤60000;Q≤200000且至少1;C≤200000;权值绝对值≤10^6;k为signed32;每边至多删一次。",
+    "driver": "verify/uva/1479.compact.cpp",
+    "usage": "example-289",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "完整程序本地普通/ASan/UBSan已验证；线上AC、所有提交速度排名、评测机资源通过情况尚未核验。",
+    "checked_date": "2026-10-07",
+    "local_evidence": [
+      "verification/graph-queries-normal.json",
+      "verification/graph-queries-sanitizer.json"
+    ]
   }
 ]

@@ -209,6 +209,9 @@
 | `HLD + segtree` | [SPOJ QTREE / Luogu SP375](https://www.spoj.com/problems/QTREE/) | t≤20,n≤10000,初始c≤1000000；官方文本未给q上界与修改值完整范围，同点查询未定义。 | 待在线 AC | 待核验 |
 | `LiftingLCA` | [SPOJ QTREE2 / Luogu SP913](https://www.spoj.com/problems/QTREE2/) | t≤25,n≤10000,c≤100000；KTH的k在路径点数内，每组后空行；读取的官方文本未给q上界。 | 待在线 AC | 待核验 |
 | `CentroidDiameter` | [SPOJ QTREE4 / 有符号边权动态白点直径](https://www.spoj.com/problems/QTREE4/) | n,q≤100000;−1000≤edge weight≤1000;initially all white;allow same endpoint;single test. | 待在线 AC | 待核验 |
+| `SequenceSplay` | [Luogu P3391 / Splay](https://www.luogu.com.cn/problem/P3391) | 1≤n,m≤100000;初始1..n;1-based闭区间翻转。 | 待在线 AC | 待核验 |
+| `SequenceSplay` | [Luogu P3165 / 排序机械臂](https://www.luogu.com.cn/problem/P3165) | n≤100000;高度≤10^7;相同高度按初始位置稳定排序。 | 待在线 AC | 待核验 |
+| `MergeSplitTree + dsu` | [UVA1479 / Graph and Queries](https://onlinejudge.org/external/14/1479.pdf) | n≤20000;m≤60000;Q≤200000且至少1;C≤200000;权值绝对值≤10^6;k为signed32;每边至多删一次。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1975,6 +1978,30 @@ LCA两侧按深度差切分，k从1计且包含两端与LCA，距离使用独立
 在线AC、排名与评测机资源未核验；完整目标仍有来源缺口。
 
 原始题面与参数：[来源 1](https://www.spoj.com/problems/QTREE4/cstart%3D10)
+
+### Luogu P3391 / Splay / SequenceSplay
+
+正式区间翻转模板题。
+
+
+
+完整程序本地普通/ASan/UBSan已验证；线上AC、所有提交速度排名、评测机资源通过情况尚未核验。
+
+### Luogu P3165 / 排序机械臂 / SequenceSplay
+
+竞赛应用，不计新增正式模板覆盖。
+
+
+
+完整程序本地普通/ASan/UBSan已验证；线上AC、所有提交速度排名、评测机资源通过情况尚未核验。
+
+### UVA1479 / Graph and Queries / MergeSplitTree + dsu
+
+竞赛应用，对应kuangbin3.4.2模型；不是Splay合并接口。
+
+
+
+完整程序本地普通/ASan/UBSan已验证；线上AC、所有提交速度排名、评测机资源通过情况尚未核验。
 
 ## 榜单口径
 

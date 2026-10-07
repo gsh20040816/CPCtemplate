@@ -28,6 +28,7 @@ chapters['chain_3d'] = '三维最长链CDQ'
 chapters['kd_min'] = '静态 K-D Tree 矩形最小权'
 chapters['static_rmq'] = '位掩码静态RMQ'
 chapters['static_rmq_2d'] = '二维静态RMQ'
+chapters['sequence_splay'] = '区间翻转与固定编号定位'
 chapters['centroid_diameter'] = '有符号边权活动点直径'
 chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
@@ -99,7 +100,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D'):
+            if name in ('rectangle_union_area', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -437,6 +438,15 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 更新与半开矩形求和（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'SequenceSplay':
+                tokens = ['void flip(', '// Internal rank', 'void reverse(']
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
+                captions = ['', '翻转下传与伸展旋转', '位置和原编号互查', '区间翻转与完整顺序']
+                for part in range(4):
+                    if part:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'CentroidDiameter':
                 tokens = ['void size_dfs(', '// Fixed tree', 'void set(']
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]

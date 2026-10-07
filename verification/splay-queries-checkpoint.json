@@ -1,0 +1,81 @@
+{
+  "base": "d8d55c4ee20403dd38ce40a9480bb5de1f7753ec",
+  "batch": "Fixed-ID reversal Splay plus offline component kth graph-query application",
+  "counts": {
+    "components": 239,
+    "usages": 289,
+    "usage_status": {
+      "locally_checked_example": 169,
+      "locally_checked_application": 54,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 595,
+    "partial_upstream_topics": 34
+  },
+  "splay_core_forms_per_mode": 4,
+  "splay_small_cases_per_form": 204706,
+  "splay_small_checks_per_form": 9963716,
+  "splay_all_checks_per_form": 10663716,
+  "splay_complete_forms_per_mode": 3,
+  "splay_complete_inputs_per_form": {
+    "example-286": 83,
+    "example-287": 103,
+    "example-288": 70
+  },
+  "splay_mutants_per_mode": 6,
+  "graph_complete_forms_per_mode": 4,
+  "graph_complete_inputs_per_form": 104,
+  "graph_trace_inputs_per_mode": 104,
+  "graph_mutants_per_mode": 5,
+  "unaffected": {
+    "base": "d8d55c4ee20403dd38ce40a9480bb5de1f7753ec",
+    "unchanged_old_components": 238,
+    "unchanged_old_core_files": 202,
+    "old_expanded_programs_unchanged": 285,
+    "new_usages": [
+      "example-286",
+      "example-287",
+      "example-288",
+      "example-289"
+    ],
+    "files": {
+      "src/compact/sequence_splay.hpp": "a75459274b99c6a72a1de1146326aa202b8f0a34683d4866f8fcbeb2f3a490c6",
+      "tests/sequence_splay_probe.cpp": "86c4fac459224167aa1c8e3ddeca9e90144127b24e9bff97dc44970de0da596f",
+      "tests/sequence_splay.py": "cc0e67a7ee0c1587d5a2c23dd59b8a6b30cec18756842920c20c947d769332d2",
+      "verify/luogu/P3391.splay.compact.cpp": "a0224d07761a52e75110084265c702c3485c6d257355357a3a08f3b471479ab0",
+      "verify/luogu/P3165.compact.cpp": "29b786c18997f615ae2e42bd9165c867ff88d01295ffa80dde4f25c1cb68ca7d",
+      "verify/api/sequence_splay.compact.cpp": "92882a86560bb98b07e2f1b98b4c78b80ef244adc446b909dcff588a2afee2ee",
+      "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
+      "src/compact/merge_split_tree.hpp": "f888da1875f6c021a31467868524cee2466909b7f71ac7f4efca125d1316814f",
+      "tests/graph_queries.py": "d806a6ccdb9356657563e3db9578a9f435b618baba80b92329d8f315c8859ec4",
+      "verify/uva/1479.compact.cpp": "7b476109bf7e573aee099b765319d5cfb446dbbb2b98e0767c48dcb04eec3359"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "49293df734f91fbbd027c30165ceceb3541a3c9bf4322651b82f3cfbdb3e0c31",
+      "pages": 789,
+      "page_change": 9,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-data-structures.pdf": {
+      "sha256": "f03f3e091e4bebd0875f5624a2be279e0adcac1d959b9a8c3c2273e3cc58ae1a",
+      "pages": 210,
+      "page_change": 9,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "158c1d02d3c2b3bae386718a977a986350a16bd3c40a96f783952ef423f988f5",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global goal active. New applications and formal template locally checked only; no online AC/rank/full-library runtime claim. kuangbin3.4.1 source behavior locally covered;3.4.2 application behavior checked through frequency-tree alternative, but source mergeable Splay missing, so3.4.2 and parent3.4 stay partial. No original HDU resource pass. No CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/sequence-splay-normal.json",
+    "verification/sequence-splay-sanitizer.json",
+    "verification/graph-queries-normal.json",
+    "verification/graph-queries-sanitizer.json"
+  ]
+}

@@ -5599,6 +5599,26 @@ MergeSplitTree(n)建空集合0，或传vector<long long>建初始重数；n>0，
 
 \lstinputlisting{usage/example-249.cpp}
 
+\Needspace{644pt}
+
+\subsection*{应用题补充：UVA1479 / 删边改权与连通块第k大}
+
+\label{usage-example-289}
+
+题意：多组无向图；D e删边（每边至多一次），C x v改点权，Q x k查所在连通块第k大，非法k贡献0；E结束当前组，0 0结束输入，输出查询均值六位小数。先读完操作保存每次修改前的旧值，倒序处理；删边变合并，改权还原旧值。所有初值/新值离散化，重复权值按频数累计。split(0,0,0)连续创建空集合，编号对应顶点；合并根u,v时t.merge(u,v)与d.merge(u,v)顺序一致。k的换算先转long long，避免INT\_MIN溢出。
+
+所需模板：\hyperref[compact-MergeSplitTree]{MergeSplitTree}（第~\pageref{compact-MergeSplitTree}~页，\ref{compact-MergeSplitTree}~节）、\hyperref[compact-dsu]{dsu}（第~\pageref{compact-dsu}~页，\ref{compact-dsu}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://onlinejudge.org/external/14/1479.pdf}
+
+\lstinputlisting[lastline=39]{usage/example-289.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=40,firstnumber=40]{usage/example-289.cpp}
+
 \Needspace{473pt}
 
 \section{李超线段树}
@@ -6127,6 +6147,78 @@ insert/erase/rank/kth/prev/next 与有序 Treap 同义，严格前驱后继不�
 题目：\url{https://www.luogu.com.cn/problem/P3369}
 
 \lstinputlisting{usage/example-9.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
+\subsection{区间翻转 Splay 与固定编号定位}\label{compact-SequenceSplay}\index{SequenceSplay}
+
+SequenceSplay(n)建立原编号0..n−1的序列，允许n=0，要求n$\le$INT\_MAX−3且内存足够。reverse(l,r)翻转当前0-based半开区间[l,r)，允许空区间；pos(id)返回原编号id的当前位置；at(k)返回当前位置k的原编号；order()按当前顺序返回全部原编号。值由调用方按原编号存储，重复值不会合并。
+
+初建O(n)，pos/at/reverse均摊O(log(n+1))、单次最坏O(n)，order为O(n)，空间O(n)；不含插入、删除和数值聚合。所有辅助函数与a/root/n约定内部只读，pos/at会伸展并改变树形。两哨兵不暴露给用户；节点编号不随旋转变化。build/祖先下传/遍历均递归，退化时深度O(n)，调用方保证栈空间。支持独立值拷贝；重置用新建对象赋值。
+
+\lstinputlisting[firstline=8,lastline=41,firstnumber=1]{../src/compact/sequence_splay.hpp}
+
+\newpage
+
+\noindent 翻转下传与伸展旋转（接上页同一结构体）：
+
+\lstinputlisting[firstline=42,lastline=92,firstnumber=35]{../src/compact/sequence_splay.hpp}
+
+\newpage
+
+\noindent 位置和原编号互查（接上页同一结构体）：
+
+\lstinputlisting[firstline=93,lastline=128,firstnumber=86]{../src/compact/sequence_splay.hpp}
+
+\newpage
+
+\noindent 区间翻转与完整顺序（接上页同一结构体）：
+
+\lstinputlisting[firstline=129,lastline=156,firstnumber=122]{../src/compact/sequence_splay.hpp}
+
+\Needspace{353pt}
+
+\subsection*{模板题使用：Luogu P3391 / Splay 区间翻转}
+
+\label{usage-example-286}
+
+题意：初始序列1..n，m次翻转1-based闭区间[l,r]，输出最终序列；转为reverse(l−1,r)，order()中的原编号加1。n,m$\le$100000。
+
+所需模板：\hyperref[compact-SequenceSplay]{SequenceSplay}（第~\pageref{compact-SequenceSplay}~页，\ref{compact-SequenceSplay}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3391}
+
+\lstinputlisting{usage/example-286.cpp}
+
+\Needspace{412pt}
+
+\subsection*{应用题补充：Luogu P3165 / 排序机械臂}
+
+\label{usage-example-287}
+
+题意：按(值,原编号)排序确定稳定目标次序，第i步定位该元素当前0-based位置p，输出p+1，再翻转[i,p+1)。重复高度按原编号打破并列，不能按翻转后的次序重新判定。n$\le$100000；与kuangbin3.4.1的固定编号定位、反转操作模型对应。
+
+所需模板：\hyperref[compact-SequenceSplay]{SequenceSplay}（第~\pageref{compact-SequenceSplay}~页，\ref{compact-SequenceSplay}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3165}
+
+\lstinputlisting{usage/example-287.cpp}
+
+\Needspace{554pt}
+
+\subsection*{接口用法演示：原编号与当前位置互查（接口演示）}
+
+\label{usage-example-288}
+
+演示约定：输入n,q，初始编号0..n−1；0 l r翻转半开区间；1 id查原编号的当前位置；2 k查当前位置的原编号；3输出完整顺序。允许空序列与空翻转；空序列不允许pos/at。
+
+所需模板：\hyperref[compact-SequenceSplay]{SequenceSplay}（第~\pageref{compact-SequenceSplay}~页，\ref{compact-SequenceSplay}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/ds/splay/}
+
+\lstinputlisting{usage/example-288.cpp}
 
 \newpage
 
