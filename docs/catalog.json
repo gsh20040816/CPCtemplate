@@ -654,6 +654,12 @@
     "构造 LinkCutTree(n)，点号 1..n，初始权值为零。set(x,value) 修改点权；link(x,y) 仅在不同连通块之间连边并返回是否成功；cut(x,y) 只删除真实存在的边，否则返回 false。connected 查询连通性；query(x,y) 返回路径点权异或，要求两点连通，支持 x=y。make_root/find_root 维护与查询当前表示树根。每次操作均摊 O(log n)，O(n) 空间，splay 下传使用显式栈，支持长链。权值为 unsigned long long。仅维护路径异或，不包含虚子树聚合或动态直径。"
   ],
   [
+    "dynamic_path_max",
+    "DynamicPathMax",
+    "动态森林路径加与最大值",
+    "以0-based点权vector构造，点号1..n，初始无边，n<INT_MAX。link(x, y)只连接不同树；cut(x, y)仅删直接边；cut_parent(r, x)以r为根删除x的父边，r与x可不相邻。三者成功返回true，非法操作返回false。add(x, y, w)对路径全部点加w，不连通返回false；query(x, y)返回optional<long long>路径最大值，不连通为空，支持同点及负权。失败保持森林和点权，可改变辅助树。所有点权、最大值及累计懒加标记的64位加法均须不溢出。make_root与find_root改变或查询表示树根；其余方法及a属内部。操作均摊O(log n)，空间O(n)，递归下传辅助树路径，单次深度可达O(n)，需足够栈。不维护虚子树聚合。"
+  ],
+  [
     "tree_path_products",
     "TreePathProducts",
     "动态换根路径乘积总和",

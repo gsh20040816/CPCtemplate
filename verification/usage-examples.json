@@ -3268,5 +3268,15 @@
     "cases_per_mode": 202,
     "driver": "verify/api/sequence_kth.compact.cpp",
     "scope": "200 random source-protocol datasets plus two30000-element sources with1000 assignments and1000 insertions each; no official/online verification."
+  },
+  "example-328": {
+    "program_sha256": "6f0f914a52e829fe3cc363f90e68e38dccb3bb652293f346e422a02d18dd7f4d",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 202,
+    "driver": "verify/api/dynamic_path_max.compact.cpp",
+    "scope": "Full source-model EOF protocol,200 random forests and2 directed boundary datasets; no official/online verification."
   }
 }
