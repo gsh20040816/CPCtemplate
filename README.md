@@ -116,3 +116,5 @@ kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md
 DAG最长路、原边方案与重复运行约定见 [DAG-LONGEST](docs/DAG-LONGEST.md)。
 
 Floyd全源最短路、负环提前退出与路径约定见 [FLOYD](docs/FLOYD.md)。
+
+最小总边权最短路树、零权块与原边方案见 [SHORTEST-PATH-TREE](docs/SHORTEST-PATH-TREE.md)。

@@ -1,0 +1,57 @@
+{
+  "base": "9874c73377b657ab2c342bef06bc2febd8343dca",
+  "batch": "Minimum-total-weight undirected shortest-path tree, zero-weight components and original-edge witnesses",
+  "counts": {
+    "components": 245,
+    "usages": 308,
+    "usage_status": {
+      "locally_checked_example": 172,
+      "locally_checked_application": 57,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 586,
+    "partial_upstream_topics": 32
+  },
+  "unaffected": {
+    "base": "9874c73377b657ab2c342bef06bc2febd8343dca",
+    "unchanged_old_components": 244,
+    "unchanged_old_core_files": 208,
+    "old_expanded_programs_unchanged": 306,
+    "new_usages": [
+      "example-307",
+      "example-308"
+    ],
+    "files": {
+      "src/compact/shortest_path_tree.hpp": "9a8a7d7c8ae632bd935d44e51fe2daeecde2c3c2736ae3ad64b57e67be739c02",
+      "tests/shortest_path_tree_probe.cpp": "1c857f55d7307974df16cf94ef411455c547c6ac3dbc83705e13a45274304483",
+      "tests/shortest_path_tree.py": "e52b32a4a8057bcd7e2d8daefae425a4debe20ed578046fa780213818c7826dd",
+      "verify/codeforces/545E.compact.cpp": "8823aca957236ca6bf750dba898486990af77f8cdb4603ed4d612d31e0cf3914",
+      "verify/api/shortest_path_tree.compact.cpp": "d69d92aba41f66dd51399ec4882d99d0530c9ff92aa647a8321195f2a6d44ea2"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "9a4ad2ab1b55206e3be13369c9635284840b60b50aff2571aec2de2936f87fee",
+      "pages": 832,
+      "page_change": 6,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-graphs.pdf": {
+      "sha256": "860731091384e79940f7d7d8fbd791b54a574b85af035b0458598119d01d7274",
+      "pages": 261,
+      "page_change": 7,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "5f04ece302d793aa36b465eac03c2e02c82b21f6eec965b6c64214707d4a7590",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global goal active. CF545E application and zero-weight API only; no new online AC/rank/resource-pass. No CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/shortest-tree-normal.json",
+    "verification/shortest-tree-sanitizer.json"
+  ]
+}

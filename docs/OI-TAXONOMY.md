@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 173，application 60，composite 2，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 173，application 61，composite 2，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -176,6 +176,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Dijkstra | 图论 → 最短路问题 → 最短路 | direct |  |
 | Floyd | 图论 → 最短路问题 → 最短路 | direct | Floyd全源最短路；任意负环使全部结果无效，支持原边路径。 |
 | Johnson | 图论 → 最短路问题 → 最短路 | direct |  |
+| ShortestPathTree | 图论 → 最短路问题 → 最短路 | application | 无向非负权最小总边权最短路树；零权块先选树，再按紧边选最轻入口。 |
 | Spfa | 图论 → 最短路问题 → 最短路 | direct | FIFO队列SPFA；负环时结果整体无效。差分约束以run(0)覆盖全图。 |
 | release_bfs | 图论 → 最短路问题 → 最短路 | application | 开放时间松弛的单位边特例。 |
 | ManhattanMST | 图论 → 生成树问题 → 最小生成树 | direct | 曼哈顿完全图的四方向几何候选边与最小生成树证书；不是恢复基础Kruskal题，不扩张为欧氏或受限边图。 |

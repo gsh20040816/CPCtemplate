@@ -5664,5 +5664,27 @@
       "verification/floyd-normal.json",
       "verification/floyd-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "ShortestPathTree",
+    "problem": "Codeforces 545E / Paths and Trees",
+    "url": "https://codeforces.com/problemset/problem/545/E",
+    "classification": "竞赛应用：最小总边权最短路树，不计正式非比赛模板题。",
+    "statement_checked": true,
+    "limits": "1≤n≤300000;0≤m≤300000;1≤w≤10^9;连通无向无自环重边；指定源点，输出最小总边权及1-based原边编号。",
+    "driver": "verify/codeforces/545E.compact.cpp",
+    "usage": "example-307",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "正权应用及额外零权接口均两种模式本地核验；未取得在线AC、排名与在线资源通过。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/shortest-tree-normal.json",
+      "verification/shortest-tree-sanitizer.json"
+    ]
   }
 ]

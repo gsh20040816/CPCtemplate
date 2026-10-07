@@ -251,3 +251,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Spfa | [example-296](usage/example-296.cpp), [example-297](usage/example-297.cpp), [example-298（应用补充）](usage/example-298.cpp), [example-299（接口演示）](usage/example-299.cpp) | locally_checked_example |
 | DagLongest | [example-301（应用补充）](usage/example-301.cpp), [example-302（应用补充）](usage/example-302.cpp), [example-303（接口演示）](usage/example-303.cpp) | locally_checked_application |
 | Floyd | [example-304](usage/example-304.cpp), [example-305（应用补充）](usage/example-305.cpp), [example-306（接口演示）](usage/example-306.cpp) | locally_checked_example |
+| ShortestPathTree | [example-307（应用补充）](usage/example-307.cpp), [example-308（接口演示）](usage/example-308.cpp) | locally_checked_application |

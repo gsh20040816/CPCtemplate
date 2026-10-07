@@ -3840,5 +3840,30 @@
       "Floyd"
     ],
     "page_break_before": "    while (q--)"
+  },
+  {
+    "id": "example-307",
+    "symbol": "ShortestPathTree",
+    "kind": "application",
+    "problem": "Codeforces 545E / Paths and Trees",
+    "url": "https://codeforces.com/problemset/problem/545/E",
+    "summary": "连通无向正权图，给定源点，输出总边权最小的最短路树：先输出weight，再输出ids加1。n,m≤300000，w≤10^9，总树权可转long long。题面不含零权、自环和重边，额外接口范围另由API验证。",
+    "driver": "verify/codeforces/545E.compact.cpp",
+    "requires": [
+      "ShortestPathTree"
+    ]
+  },
+  {
+    "id": "example-308",
+    "symbol": "ShortestPathTree",
+    "kind": "api",
+    "problem": "零权最短路树、断开图与原边路径（接口演示）",
+    "url": "https://oi-wiki.org/graph/shortest-path/",
+    "summary": "输入n,m,s及无向非负signed64边，每条仅add一次。首行输出“可达点数 最小总边权 树边数 原边号”；随后逐点输出INF或“最短距离 路径边数 正向无向原边号”。所有权和用int128打印，原边号从0计。",
+    "driver": "verify/api/shortest_path_tree.compact.cpp",
+    "requires": [
+      "ShortestPathTree"
+    ],
+    "page_break_before": "    cout << reached << ' ';"
   }
 ]

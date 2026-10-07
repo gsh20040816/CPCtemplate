@@ -224,6 +224,7 @@
 | `DagLongest` | [CSES1680](https://cses.fi/problemset/task/1680/) | 2≤n≤100000;1≤m≤200000;DAG;输出任意最多城市路线或IMPOSSIBLE。 | 待在线 AC | 待核验 |
 | `Floyd` | [AOJ GRL_1_C](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C&lang=en) | 1≤n≤100;0≤m≤9900;\|w\|≤20000000;0-based有向边;无自环重边;整图任意负环只输出NEGATIVE CYCLE。 | 待在线 AC | 待核验 |
 | `Floyd` | [CSES1672](https://cses.fi/problemset/task/1672/) | 1≤n≤500;1≤m≤n²;1≤q≤100000;1≤w≤10^9;双向道路。 | 待在线 AC | 待核验 |
+| `ShortestPathTree` | [Codeforces 545E / Paths and Trees](https://codeforces.com/problemset/problem/545/E) | 1≤n≤300000;0≤m≤300000;1≤w≤10^9;连通无向无自环重边；指定源点，输出最小总边权及1-based原边编号。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2110,6 +2111,14 @@ Library of Graph Algorithms正式全源最短路题。
 
 
 两种模式完整程序及独立矩阵/原边路径证书通过；在线AC、排名、资源限制通过尚未核验。
+
+### Codeforces 545E / Paths and Trees / ShortestPathTree
+
+竞赛应用：最小总边权最短路树，不计正式非比赛模板题。
+
+
+
+正权应用及额外零权接口均两种模式本地核验；未取得在线AC、排名与在线资源通过。
 
 ## 榜单口径
 

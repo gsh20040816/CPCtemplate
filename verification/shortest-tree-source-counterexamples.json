@@ -1,0 +1,67 @@
+{
+  "wida_commit": "cfdb12db6792eb2303798541fb5c760ed2bc618b",
+  "wida_path": "02 - 打印稿模板汇总/03A - 图论.md",
+  "section": "最短路径树（SPT问题）",
+  "source_sha256": "17afd86fc037d1bf87f93b116bffb5dda6aef6e474c8a90c441816acb5da896a",
+  "method": "Python adaptation of source priority-pair queue, >= relaxation, endpoint-map overwrites and recursive predecessor DFS. Not a verbatim C++ source compilation.",
+  "cases": [
+    {
+      "name": "zero-triangle",
+      "n": 3,
+      "edges": [
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          3,
+          0
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "source": 1,
+      "source_selected_zero_based_edge_ids": [],
+      "source_reported_weight": 0,
+      "independent_shortest_distances": [
+        0,
+        0,
+        0
+      ],
+      "independent_optimal_spt_weight": 0,
+      "independent_tree_certificate_rejected": true
+    },
+    {
+      "name": "parallel-map-overwrite",
+      "n": 2,
+      "edges": [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "source": 1,
+      "source_selected_zero_based_edge_ids": [
+        1
+      ],
+      "source_reported_weight": 5,
+      "independent_shortest_distances": [
+        0,
+        1
+      ],
+      "independent_optimal_spt_weight": 1,
+      "independent_tree_certificate_rejected": true
+    }
+  ]
+}
