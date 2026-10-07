@@ -3248,5 +3248,15 @@
     "cases_per_mode": 980,
     "driver": "verify/api/interval_substring.compact.cpp",
     "scope": "973 small strings, 5 source-boundary strings, 2 dynamic-size strings. Source-model API only; no official HDU/online AC claim."
+  },
+  "example-326": {
+    "program_sha256": "434af8e2402510a841563e623f6e710599e63a868bb9f25044371029b524a427",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 198,
+    "driver": "verify/codeforces/455D.compact.cpp",
+    "scope": "195 small inputs including official samples; 3 inputs n=q=100000 with independent flat-list/closed-form answers. Competition application, not formal template; no online AC/resource pass claim."
   }
 }

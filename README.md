@@ -152,3 +152,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 树上新增市场的距离/编号规则、点分治证明及来源边界见 [TREE-MARKET](docs/TREE-MARKET.md)。
 
 树边翻转、奇路径计数及树分治父节范围见 [TREE-PATH-PARITY](docs/TREE-PATH-PARITY.md)。
+
+按位置插删、区间等值计数及CF455D在线解码见 [序列替罪羊树](docs/SEQUENCE-SCAPEGOAT.md)，与按值排序的替罪羊树分开。

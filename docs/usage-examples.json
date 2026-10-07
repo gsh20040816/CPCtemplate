@@ -4098,5 +4098,18 @@
       "SuffixAutomaton"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-326",
+    "symbol": "SequenceScapegoat",
+    "kind": "application",
+    "problem": "Codeforces 455D / Serega and Fun",
+    "url": "https://codeforces.com/problemset/problem/455/D",
+    "summary": "n,q≤100000，初值和原始参数均1..n。操作1把解码区间的末项移至开头，操作2计区间中等于解码k的项数。每个参数先用(v+lastans-1)%n+1解码，再交换逆序端点；lastans只在查询后更新。比赛应用，不代替独立模板题；插入/删除等额外接口另有独立测试，尚无线上AC或资源通过声明。",
+    "driver": "verify/codeforces/455D.compact.cpp",
+    "requires": [
+      "SequenceScapegoat"
+    ],
+    "start_new_page": true
   }
 ]

@@ -6352,6 +6352,56 @@ SequenceSplay(n)建立原编号0..n−1的序列，允许n=0，要求n$\le$INT\_
 
 \lstinputlisting{usage/example-110.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\subsection{序列替罪羊树：按位置插删与区间等值计数}\label{compact-SequenceScapegoat}\index{SequenceScapegoat}
+
+以vector<long long>构造，默认空序列。insert(k,x)在前k项后插入，0$\le$k$\le$size()；erase(k)删除第k项并返回值；count(l,r,x)计1-based非空闭区间内等于x的项数；rotate(l,r)将区间末项移至开头。键支持long long全范围。递归按位置导航，墓碑过多或节点数失衡时重建，回收死节点并删除零频次。map频次表令查询O(log$^{2}$(n+2))，重建s点O(s log$^{2}$(s+2))，更新保守均摊O(log$^{3}$(N+2))、单次最坏O(N log$^{2}$(N+2))，N为历史最大长度；初建O(n log$^{2}$(n+2))。频次表总空间O(n log(n+2))，vector池O(N)，节点数须小于INT\_MAX。a/root/spare及带节点编号辅助函数均内部使用，不能外部改动。
+
+\lstinputlisting[firstline=8,lastline=36,firstnumber=1]{../src/compact/sequence_scapegoat.hpp}
+
+\newpage
+
+\noindent 节点复用与频次维护（接上页同一结构体）：
+
+\lstinputlisting[firstline=37,lastline=80,firstnumber=30]{../src/compact/sequence_scapegoat.hpp}
+
+\newpage
+
+\noindent 递归收集、重建与平衡（接上页同一结构体）：
+
+\lstinputlisting[firstline=81,lastline=118,firstnumber=74]{../src/compact/sequence_scapegoat.hpp}
+
+\newpage
+
+\noindent 按位置插入与删除（接上页同一结构体）：
+
+\lstinputlisting[firstline=119,lastline=165,firstnumber=112]{../src/compact/sequence_scapegoat.hpp}
+
+\newpage
+
+\noindent 区间等值计数与右移（接上页同一结构体）：
+
+\lstinputlisting[firstline=166,lastline=199,firstnumber=159]{../src/compact/sequence_scapegoat.hpp}
+
+\newpage
+
+\Needspace{553pt}
+
+\subsection*{应用题补充：Codeforces 455D / Serega and Fun}
+
+\label{usage-example-326}
+
+题意：n,q$\le$100000，初值和原始参数均1..n。操作1把解码区间的末项移至开头，操作2计区间中等于解码k的项数。每个参数先用(v+lastans-1)\%n+1解码，再交换逆序端点；lastans只在查询后更新。比赛应用，不代替独立模板题；插入/删除等额外接口另有独立测试，尚无线上AC或资源通过声明。
+
+所需模板：\hyperref[compact-SequenceScapegoat]{SequenceScapegoat}（第~\pageref{compact-SequenceScapegoat}~页，\ref{compact-SequenceScapegoat}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/problemset/problem/455/D}
+
+\lstinputlisting{usage/example-326.cpp}
+
 \Needspace{180pt}
 
 \chapter{可持久化数据结构}

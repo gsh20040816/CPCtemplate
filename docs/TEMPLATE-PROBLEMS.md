@@ -233,6 +233,7 @@
 | `Dinic` | [Luogu P2763 / 试题库问题](https://www.luogu.com.cn/problem/P2763) | 2≤k≤20，k≤n≤1000；题面需求为正整数，各题可属于多个类别。 | 待在线 AC | 待核验 |
 | `Isap::add/flow` | [Luogu P3376](https://www.luogu.com.cn/problem/P3376) | n<=200; m<=5000; 0<=capacity<2^31 | 待在线 AC | 待核验 |
 | `ZkwFlow` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000, m<=50000; nonnegative integer capacity/cost<=1000; no self-loop; flow and minimum cost<=2^31-1; distinct source/sink required by API | 待在线 AC | 待核验 |
+| `SequenceScapegoat` | [Codeforces 455D（比赛应用）](https://codeforces.com/problemset/problem/455/D) | n,q<=100000; initial values and encoded parameters in1..n; 4s/256MiB | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2191,6 +2192,14 @@ Official standalone minimum-cost maximum-flow template; recursive zero-reduced-c
 
 
 Online AC and ranking pending. used, limits, continuation, negative edges and global negative-cycle rejection have independent local tests, beyond P3381 scope.
+
+### Codeforces 455D（比赛应用） / SequenceScapegoat
+
+Competition application: online interval cyclic shift and equal-value count. Not a standalone noncompetition template problem.
+
+Use rotate(l,r) for a right cyclic shift by one and count(l,r,k) for frequency. Decode every parameter with the previous query answer before ordering endpoints; update lastans only after type2. Extra insert/erase and empty-sequence behavior are not tested by this contest problem.
+
+Find standalone template problem; online AC/ranking and actual judge resource pass pending. Arbitrary insert/erase, empty sequence and signed64 bounds tested independently.
 
 ## 榜单口径
 

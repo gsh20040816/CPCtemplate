@@ -122,6 +122,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | SequenceTreap | [example-10](usage/example-10.cpp), [example-109（应用补充）](usage/example-109.cpp) | locally_checked_example |
 | OrderedSplay | [example-9](usage/example-9.cpp) | locally_checked_example |
 | ScapegoatTree | [example-110](usage/example-110.cpp) | locally_checked_example |
+| SequenceScapegoat | [example-326（应用补充）](usage/example-326.cpp) | locally_checked_application |
 | GcdSequenceTreap | [example-224（接口演示）](usage/example-224.cpp) | locally_checked_api |
 | Blossom | [example-72](usage/example-72.cpp) | locally_checked_example |
 | berlekamp_massey | [example-81](usage/example-81.cpp), [example-160](usage/example-160.cpp) | locally_checked_example |

@@ -5871,5 +5871,29 @@
     "remaining": "Online AC and ranking pending. used, limits, continuation, negative edges and global negative-cycle rejection have independent local tests, beyond P3381 scope.",
     "source": "src/compact/zkw_flow.hpp",
     "driver": "verify/luogu/P3381.zkw.compact.cpp"
+  },
+  {
+    "symbol": "SequenceScapegoat",
+    "problem": "Codeforces 455D（比赛应用）",
+    "url": "https://codeforces.com/problemset/problem/455/D",
+    "classification": "Competition application: online interval cyclic shift and equal-value count. Not a standalone noncompetition template problem.",
+    "statement_checked": true,
+    "checked_date": "2026-10-08",
+    "limits": "n,q<=100000; initial values and encoded parameters in1..n; 4s/256MiB",
+    "tested_api": [
+      "constructor",
+      "rotate",
+      "count"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Find standalone template problem; online AC/ranking and actual judge resource pass pending. Arbitrary insert/erase, empty sequence and signed64 bounds tested independently.",
+    "source": "src/compact/sequence_scapegoat.hpp",
+    "driver": "verify/codeforces/455D.compact.cpp",
+    "adapter": "Use rotate(l,r) for a right cyclic shift by one and count(l,r,k) for frequency. Decode every parameter with the previous query answer before ordering endpoints; update lastans only after type2. Extra insert/erase and empty-sequence behavior are not tested by this contest problem."
   }
 ]
