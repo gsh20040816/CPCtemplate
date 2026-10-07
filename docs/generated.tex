@@ -196,9 +196,15 @@ exkmp(s,t)返回\{z,p\}：z为模式t的Z数组，z[0]=|t|；p[i]是文本后缀
 
 \section{AC 自动机出现次数}\label{compact-AhoCorasick}\index{AhoCorasick}
 
-字母表 a..z，add(s) 返回终止状态，要求模式非空；全部插入后 build()，只允许一次构建。count(text) 返回每个状态对应模式的出现次数，可重复查询；重复模式共享状态。构建 O(26N)，查询 O(|text|+N)。
+字母表 a..z，add(s) 返回终止状态，要求模式非空；全部插入后 build()，只允许一次构建。count(text) 返回每个状态对应模式的出现次数，可重复查询；重复模式共享状态。构建 O(26N)，查询 O(|text|+N)。 根为0；a[u].go/fail和BFS顺序order可读，order不含根。count允许空文本，cnt[0]为文本长度，不是空串匹配次数。模式集合可空，文本也须为a..z；重置赋新对象。出现过的模式编号数按保存的每个终点分别判断cnt>0，见P3808用法。
 
-\lstinputlisting[firstline=128,lastline=200]{../src/compact/string.hpp}
+\lstinputlisting[firstline=128,lastline=158]{../src/compact/string.hpp}
+
+\newpage
+
+\noindent 构建失败链接与统计出现次数（接上页同一结构体）：
+
+\lstinputlisting[firstline=159,lastline=200,firstnumber=32]{../src/compact/string.hpp}
 
 \Needspace{391pt}
 
@@ -213,6 +219,20 @@ exkmp(s,t)返回\{z,p\}：z为模式t的Z数组，z[0]=|t|；p[i]是文本后缀
 题目：\url{https://www.luogu.com.cn/problem/P5357}
 
 \lstinputlisting{usage/example-70.cpp}
+
+\Needspace{422pt}
+
+\subsection*{模板题使用：Luogu P3808 / AC自动机简单版}
+
+\label{usage-example-262}
+
+题意：给非空小写模式串和文本，求出现过的模式编号数；两个相同字符串但编号不同要分别计数，同一编号多次出现只算一次。模式数、模式总长和文本长度均至1000000。保存每次add返回的终点，count后逐编号判断是否为正；不清空终态，因此可重复查询。
+
+所需模板：\hyperref[compact-AhoCorasick]{AhoCorasick}（第~\pageref{compact-AhoCorasick}~页，\ref{compact-AhoCorasick}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3808}
+
+\lstinputlisting{usage/example-262.cpp}
 
 \Needspace{264pt}
 

@@ -3276,5 +3276,16 @@
       "SAMLex"
     ],
     "page_break_before": "    sam.build();"
+  },
+  {
+    "id": "example-262",
+    "symbol": "AhoCorasick",
+    "problem": "Luogu P3808 / AC自动机简单版",
+    "url": "https://www.luogu.com.cn/problem/P3808",
+    "summary": "给非空小写模式串和文本，求出现过的模式编号数；两个相同字符串但编号不同要分别计数，同一编号多次出现只算一次。模式数、模式总长和文本长度均至1000000。保存每次add返回的终点，count后逐编号判断是否为正；不清空终态，因此可重复查询。",
+    "driver": "verify/luogu/P3808.compact.cpp",
+    "requires": [
+      "AhoCorasick"
+    ]
   }
 ]

@@ -196,6 +196,7 @@
 | `OnlineSAM` | [Luogu P6139 / 在线扩展版本](https://www.luogu.com.cn/problem/P6139) | At most400000 nonempty lowercase strings, total length<=1000000; live time/memory limits unverified. | 待在线 AC | 待核验 |
 | `SAMDocuments` | [Codeforces 204E / Little Elephant and Strings](https://codeforces.com/problemset/problem/204/E) | n,k<=100000; total nonempty lowercase input length<=100000. Official page3s/256MB; this batch does not claim online acceptance or machine-equivalent timing. | 待在线 AC | 待核验 |
 | `GeneralSAM::TSUBSTR` | [CodeChef TSUBSTR / Substrings on a Tree](https://www.codechef.com/problems/TSUBSTR) | N<=250000,Q<=50000,K<=2^63-1,output<=800KB; original vertex letters generated randomly. API max_timelimit1s; memory limit unavailable; no online runtime claim. | 待在线 AC | 待核验 |
+| `AhoCorasick::presence` | [Luogu P3808 / AC自动机简单版](https://www.luogu.com.cn/problem/P3808) | Pattern count,total pattern length,text length<=1000000; nonempty lowercase strings. Current online time/memory acceptance unverified. | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -1850,6 +1851,16 @@ Root vertex1 contributes its letter. BFS registers vertex paths into a merged Tr
 Online AC and original judge time/memory acceptance pending.
 
 原始题面与参数：[来源 1](https://www.codechef.com/api/contests/PRACTICE/problems/TSUBSTR)，[来源 2](https://discuss.codechef.com/t/tsubstr-editorial/861)，[来源 3](https://www.codechef.com/download/Solutions/2012/April/Tester/TSUBSTR.c)
+
+### Luogu P3808 / AC自动机简单版 / AhoCorasick::presence
+
+Formal multi-pattern presence-by-input-ID template problem; duplicate strings count separately.
+
+Store one terminal per input ID; count(text), then count terminal entries whose occurrence count is positive. Non-destructive repeated queries.
+
+Online AC and rank pending; richer WIDA weighted/integer/depth/empty-pattern interfaces remain separate gaps.
+
+原始题面与参数：[来源 1](https://www.luogu.com.cn/problem/P3808)
 
 ## 榜单口径
 

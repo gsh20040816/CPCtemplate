@@ -1,0 +1,81 @@
+{
+  "commit": "cfdb12db6792eb2303798541fb5c760ed2bc618b",
+  "upstream": [
+    {
+      "path": "02 - 打印稿模板汇总/10 - 串.md",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/02%20-%20%E6%89%93%E5%8D%B0%E7%A8%BF%E6%A8%A1%E6%9D%BF%E6%B1%87%E6%80%BB/10%20-%20%E4%B8%B2.md",
+      "sha256": "287ad013b3df3ad7f1b3b894f5d9e1bc680fc8ac6540011be0c927ee8e4b97c5"
+    },
+    {
+      "path": "03 - jiangly模板收集/05 - 字符串/06A - AC自动机（AC 旧版）.cpp",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/06A%20-%20AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88AC%20%E6%97%A7%E7%89%88%EF%BC%89.cpp",
+      "sha256": "f7b083fd6a5e859e0102900bb5db5bdb6c3e9f0616ae6028c4d6d909234a14af"
+    },
+    {
+      "path": "03 - jiangly模板收集/05 - 字符串/06B - AC自动机（AhoCorasick, with vector 新版）.cpp",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/06B%20-%20AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88AhoCorasick%2C%20with%20vector%20%E6%96%B0%E7%89%88%EF%BC%89.cpp",
+      "sha256": "cf0089e4f4d32e412aaa0a785c184495af164f3273f114a8be832f8c150a5a2e"
+    },
+    {
+      "path": "03 - jiangly模板收集/05 - 字符串/06C - AC自动机（AhoCorasick, with string 新版）.cpp",
+      "url": "https://raw.githubusercontent.com/hh2048/XCPC/cfdb12db6792eb2303798541fb5c760ed2bc618b/03%20-%20jiangly%E6%A8%A1%E6%9D%BF%E6%94%B6%E9%9B%86/05%20-%20%E5%AD%97%E7%AC%A6%E4%B8%B2/06C%20-%20AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88AhoCorasick%2C%20with%20string%20%E6%96%B0%E7%89%88%EF%BC%89.cpp",
+      "sha256": "e484d8882bc1813ac97606f93cca3cc237d3c9a38a283b555b5123411be527d6"
+    }
+  ],
+  "kuangbin_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "kuangbin_printed_pages": "9-11",
+  "rows": [
+    {
+      "source": "WIDA",
+      "source_path": "02 - 打印稿模板汇总/10 - 串.md",
+      "page": "",
+      "topic": "AC 自动机",
+      "status": "local-tested",
+      "compact": "AhoCorasick",
+      "verification": "ac-source audit: P3808 complete presence-by-pattern-ID adapter matches the source first-query result, duplicate input patterns counted separately; count per terminal >0, reset by new object. Current queries deliberately non-destructive; old consume-across-queries semantics require external seen flags. Independent transition/failure/count oracles and normal+ASan/UBSan maximal P3808/P5357 programs. Not online AC/rank; HDU2222 current statement/resources unavailable. See docs/AC-SOURCE-AUDIT.md."
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/06A - AC自动机（AC 旧版）.cpp",
+      "page": "",
+      "topic": "06A - AC自动机（AC 旧版）",
+      "status": "partial",
+      "compact": "AhoCorasick",
+      "verification": "ac-source audit: current trie/failure machine and per-pattern counts verified, but upstream weighted static automaton with signed pattern weights, propagated sums and O(text) aggregate query is not supplied as a prepared component/usage. Per-pattern counting is not identical interface or query complexity. Upstream pooled allocator unnecessary for vector ownership; weighted query extension remains. See docs/AC-SOURCE-AUDIT.md."
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/06B - AC自动机（AhoCorasick, with vector 新版）.cpp",
+      "page": "",
+      "topic": "06B - AC自动机（AhoCorasick, with vector 新版）",
+      "status": "partial",
+      "compact": "AhoCorasick",
+      "verification": "ac-source audit: string trie/failure transitions, terminal IDs, reset and state count are locally verified. Upstream exposes trie depths and accepts empty pattern paths, absent from current nonempty-pattern interface;06B additionally accepts vector<int>/custom offset strings. Root0 replaces virtual0/root1; depth and indexed alphabet extensions pending.06B root len is uninitialized and char next ignores offset in pinned source; do not reproduce these defects. See docs/AC-SOURCE-AUDIT.md."
+    },
+    {
+      "source": "WIDA",
+      "source_path": "03 - jiangly模板收集/05 - 字符串/06C - AC自动机（AhoCorasick, with string 新版）.cpp",
+      "page": "",
+      "topic": "06C - AC自动机（AhoCorasick, with string 新版）",
+      "status": "partial",
+      "compact": "AhoCorasick",
+      "verification": "ac-source audit: string trie/failure transitions, terminal IDs, reset and state count are locally verified. Upstream exposes trie depths and accepts empty pattern paths, absent from current nonempty-pattern interface;06B additionally accepts vector<int>/custom offset strings. Root0 replaces virtual0/root1; depth and indexed alphabet extensions pending.06B root len is uninitialized and char next ignores offset in pinned source; do not reproduce these defects. See docs/AC-SOURCE-AUDIT.md."
+    },
+    {
+      "source": "kuangbin",
+      "source_path": "ACM template (2018)",
+      "page": "9",
+      "topic": "1.4 AC 自动机",
+      "status": "local-tested",
+      "compact": "AhoCorasick",
+      "verification": "ac-source audit: P3808 complete presence-by-pattern-ID adapter matches the source first-query result, duplicate input patterns counted separately; count per terminal >0, reset by new object. Current queries deliberately non-destructive; old consume-across-queries semantics require external seen flags. Independent transition/failure/count oracles and normal+ASan/UBSan maximal P3808/P5357 programs. Not online AC/rank; HDU2222 current statement/resources unavailable. See docs/AC-SOURCE-AUDIT.md."
+    }
+  ],
+  "problem_sources": [
+    "https://www.luogu.com.cn/problem/P3808",
+    "https://www.luogu.com.cn/problem/P5357"
+  ],
+  "checked_date": "2026-10-07",
+  "scope": "Five actual AC source entries inspected. Two presence-by-ID algorithms locally matched through P3808; three richer interfaces remain partial. No inheritance of historical upstream AC or query semantics.",
+  "remaining": "Weighted aggregate query with O(text) per query; integer-sequence/custom-offset input; trie depth metadata and explicit empty-pattern semantics. Online AC/rank and HDU2222 original resource limits not verified."
+}

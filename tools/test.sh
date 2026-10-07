@@ -753,3 +753,5 @@ python3 tests/sam_build.py
 
 python3 tests/sam_documents.py
 python3 tests/tsubstr.py
+
+python3 tests/ac_source.py

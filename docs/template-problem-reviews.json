@@ -4965,5 +4965,37 @@
       "https://discuss.codechef.com/t/tsubstr-editorial/861",
       "https://www.codechef.com/download/Solutions/2012/April/Tester/TSUBSTR.c"
     ]
+  },
+  {
+    "symbol": "AhoCorasick::presence",
+    "problem": "Luogu P3808 / AC自动机简单版",
+    "url": "https://www.luogu.com.cn/problem/P3808",
+    "classification": "Formal multi-pattern presence-by-input-ID template problem; duplicate strings count separately.",
+    "statement_checked": true,
+    "checked_date": "2026-10-07",
+    "limits": "Pattern count,total pattern length,text length<=1000000; nonempty lowercase strings. Current online time/memory acceptance unverified.",
+    "adapter": "Store one terminal per input ID; count(text), then count terminal entries whose occurrence count is positive. Non-destructive repeated queries.",
+    "implementation": "existing",
+    "source": "verify/luogu/P3808.compact.cpp",
+    "tested_api": [
+      "AhoCorasick::add",
+      "AhoCorasick::build",
+      "AhoCorasick::count"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online AC and rank pending; richer WIDA weighted/integer/depth/empty-pattern interfaces remain separate gaps.",
+    "driver": "verify/luogu/P3808.compact.cpp",
+    "local_reports": [
+      "verification/ac-source-normal.json",
+      "verification/ac-source-sanitizer.json"
+    ],
+    "statement_sources": [
+      "https://www.luogu.com.cn/problem/P3808"
+    ]
   }
 ]

@@ -1,0 +1,70 @@
+{
+  "base": "cc77c693cd9780f536d9fd4c7df58981b8968a16",
+  "batch": "AC source equivalence audit and pattern-ID presence usage",
+  "core_cases_per_form": 26770,
+  "core_checks_per_form": 2692012,
+  "complete_inputs_per_form": {
+    "example-70": 185,
+    "example-262": 185
+  },
+  "semantic_mutants_per_mode": 5,
+  "new_usage_programs_retested": 1,
+  "current_counts": {
+    "components": 229,
+    "usages": 262,
+    "usage_status": {
+      "locally_checked_example": 167,
+      "locally_checked_application": 50,
+      "locally_checked_api": 12
+    },
+    "pending_upstream_topics": 616,
+    "partial_upstream_topics": 32
+  },
+  "source_rows": {
+    "audited": 5,
+    "local_tested": 2,
+    "partial": 3
+  },
+  "runtime_source_sha256": {
+    "src/compact/string.hpp": "44f284e4927a8315f7c54d4a01ff2c8ada00572c865ce0e39ec3077870254e03",
+    "tests/ac_source.py": "925ba5a7a13f7d8fd179b73266d76aba2d871e755019c40abaaa1b10a91104a8",
+    "tests/ac_source_probe.cpp": "e017dde98b26b07e60387180dfaaa9f04f097d6e449735ef240e3bf6f8011c71",
+    "tests/usage_examples.py": "92d7308b23556babbb199cdcd3026bf0fbc7e0a5ad674bbcebb800740f721d0c",
+    "verify/luogu/P5357.compact.cpp": "dc99c6be4c075ddfc61962d1e3f65b012492365ab223c725a6118316c619adbb",
+    "verify/luogu/P3808.compact.cpp": "9cfbf1f2d8820065f3a650b02d5fab5e44a7dc5df6cfccd5867408f17609608f",
+    "docs/usage/example-70.cpp": "1e4bcf5092b2b97d8e7d6f84d043dd6cd306e6ae87aa86b9b906035bacd7ac0f",
+    "docs/usage/example-262.cpp": "601836d09383bd772acb663019dbefd4b867f7cea5b1b8b429a512ebed4a61d1"
+  },
+  "documentation_after_runtime": "Existing229 algorithm components and261 old expanded usage programs remain unchanged. Later changes only source mapping/contract prose, problem review, runner registration, method-boundary pagination and PDF output. Five upstream AC interfaces audited, not equated by name. No whole-library rerun or online verdict claim.",
+  "remaining": "WIDA06A weighted aggregate query;06B integer/custom-offset input and06B/06C depth/empty-pattern contract. Global source ledger616 pending/32 partial, recent Chinese contest/OI math coverage and online AC/rank still incomplete.",
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "415afe7a302109152e4eef50ffd6ba978be529629065274eb3ad1b7486db0e9b",
+      "font_set_preserved": true,
+      "page_change": 1,
+      "pages": 732,
+      "bytes_changed": true
+    },
+    "output/pdf/xcpc-strings.pdf": {
+      "sha256": "ace9588b064c64ac3a64a44a1cd48ec861669106a2610173fd866e10d30790d9",
+      "font_set_preserved": true,
+      "page_change": 1,
+      "pages": 70,
+      "bytes_changed": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "f3b22401da75516de29c85dd2297344abdab988b834464d6e4f655b8d56a3704",
+      "font_set_preserved": true,
+      "page_change": 0,
+      "pages": 12,
+      "bytes_changed": true
+    }
+  },
+  "report_sha256": {
+    "verification/ac-source-copy.json": "1d8b9e48d0b6f07247aa9162307065e5e115cb28331daefec3572414b1f2e3af",
+    "verification/ac-source-layout.json": "4aef99a7c8e4059758af7c614731c34483d48832d8cb8249470d31da407e9b11",
+    "verification/ac-source-normal.json": "c83af1269edebd323ab4f75284a73aca8fae81a09ac10fd103f0852937318d0a",
+    "verification/ac-source-sanitizer.json": "08c881186e43fbda7dc95b5dfa460f66cdf89f61fbe9f6e943e57a4a4cabc685",
+    "verification/ac-source-sources.json": "0faf2db1d215e283f06de2638742fa5ed405637a5f0dd5e4dc7f3e7a9f885568"
+  }
+}

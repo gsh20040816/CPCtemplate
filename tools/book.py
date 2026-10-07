@@ -299,6 +299,12 @@ for style in ['compact']:
                         body.append('\\newpage')
                         body.append('\\noindent ' + ('文档标记与子树去重' if j == 1 else '阈值后缀长度') + '（接上页同一结构体）：')
                     body.append('\\lstinputlisting[firstline=' + str(cuts[j] + 1) + ',lastline=' + str(cuts[j + 1]) + ',firstnumber=' + str(cuts[j] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'AhoCorasick':
+                split = next(i for i in range(start, end) if 'void build()' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 构建失败链接与统计出现次数（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'OnlineSAM':
                 split = next(i for i in range(start, end) if '// Append c' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
