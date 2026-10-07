@@ -59,6 +59,8 @@ SANITIZE=1 tools/test.sh
 
 覆盖表中的 `pending` 表示对应项尚未完成迁移和验证；当前仍未达到完整覆盖要求。
 
+区间不同子串的完整来源审计见 [HDU4622 来源模型](docs/INTERVAL-SUBSTRING-SOURCE-AUDIT.md)：复现原稿负下标问题，并用现有 SAM 给出不依赖哈希碰撞的测试适配；手册用法尚待登记。
+
 ## LaTeX
 
 运行 `tools/build_pdf.sh`（需要 XeLaTeX、latexmk）。[当前 PDF](output/pdf/xcpc-template.pdf) 含 vector 版源码、目录、接口索引与数学速查；为建设稿。
