@@ -19,7 +19,7 @@ WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（无权�
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（有权图树上倍增解）.cpp,,04 - LCA（有权图树上倍增解）,pending,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（树链剖分解）.cpp,,04 - LCA（树链剖分解）,pending,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/05 - Djikstra.cpp,,05 - Djikstra,local-tested,src/compact/graph.hpp#Dijkstra,tests/graph_contracts.cpp; int128 Floyd distances and reconstructed paths for every source; nonnegative weights; finite shortest distances < LLONG_MAX; OJ pending
-WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/06 - Floyd.cpp,,06 - Floyd,pending,,
+WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/06 - Floyd.cpp,,06 - Floyd,local-tested,src/compact/floyd.hpp#Floyd,"docs/FLOYD.md; directed APSP with minimum parallel edges, unreachable guards, negative-pivot early exit, original-edge paths and repeated run/add/copy. Independent synchronous Bellman-Ford exhaustive n<=3 and both modes; formal AOJ304/application CSES305/API306. No online/rank/resource-pass claim."
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/07 - MST (Kruskal).cpp,,07 - MST (Kruskal),pending,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/08 - SCC (Tarjan).cpp,,08 - SCC (Tarjan),local-tested,src/compact/tarjan.hpp#TarjanSCC,Recursive Tarjan: cnt/bel and dag/Dag; sizes from bel histogram. 1-based IDs in reverse topological order; tests/tarjan.cpp exact reachability and repeated runs; QOJ906 AC 2940638 covers add/run/bel via topological partition output; dag and component-size derivation remain local evidence. See docs/GRAPH_COVERAGE_REVIEW.md
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（新版）.cpp,,09 - EDCC (Tarjan)（新版）,local-tested,src/compact/biconnected.hpp;src/compact/tarjan.hpp;src/compact/edge_components.hpp,"Bridge/block/SCC kernels plus edge-ID orientation and edge-compression sizes/internal-edge counts; loops counted once, parallel edges preserved. tests/edge_components.cpp independent deletion/reachability oracles; CF118E dual driver local-tested at N=100000 M=300000. Only prior P8435/P8436 partition APIs have OJ AC"
@@ -80,7 +80,7 @@ WIDA,02 - 打印稿模板汇总/03A - 图论.md,,单源最短路径（SSSP问题
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（正权稀疏图）动态数组存图+Djikstra算法,pending,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（负权图、判负环）Bellman-ford 算法,local-tested,src/compact/bellman_ford.hpp#BellmanFord,"docs/BELLMAN-FORD.md; unreachable guard/source-negative-infinity fixes; int128 labels, negative influence and edge witnesses. Formal AOJ293, CSES application294, API295; exhaustive n<=3 and 2500 vertices, both modes. No online/rank claim; SPFA separate."
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（负权图）SPFA 算法,local-tested,src/compact/spfa.hpp#Spfa,"docs/SPFA-CONSTRAINTS.md; FIFO queue/relaxed-walk length negative-cycle test, original-edge finite paths, full signed64. P3385 formal296/API299, exhaustive n<=3 every source and two runtime modes. WIDA output d[n] typo corrected; no online/rank claim."
-WIDA,02 - 打印稿模板汇总/03A - 图论.md,,多源汇最短路（APSP问题）,pending,,
+WIDA,02 - 打印稿模板汇总/03A - 图论.md,,多源汇最短路（APSP问题）,local-tested,src/compact/floyd.hpp#Floyd,"docs/FLOYD.md; directed APSP with minimum parallel edges, unreachable guards, negative-pivot early exit, original-edge paths and repeated run/add/copy. Independent synchronous Bellman-Ford exhaustive n<=3 and both modes; formal AOJ304/application CSES305/API306. No online/rank/resource-pass claim."
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,平面图最短路（对偶图）,pending,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,最小生成树（MST问题）,pending,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（稀疏图）Prim算法,pending,,

@@ -3802,5 +3802,43 @@
       "DagLongest"
     ],
     "page_break_before": "    for (int u = 1; u <= n; u++)"
+  },
+  {
+    "id": "example-304",
+    "symbol": "Floyd",
+    "kind": "template",
+    "problem": "AOJ GRL_1_C / All Pairs Shortest Path",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C&lang=en",
+    "summary": "0-based有向图输入转换为1-based；整图有负环输出NEGATIVE CYCLE，否则逐行输出距离矩阵，不可达为INF。n≤100、m≤9900、|w|≤20000000，有限结果可转long long。题面无自环重边，模板额外支持。",
+    "driver": "verify/aoj/GRL_1_C.compact.cpp",
+    "requires": [
+      "Floyd"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-305",
+    "symbol": "Floyd",
+    "kind": "application",
+    "problem": "CSES 1672 / Shortest Routes II",
+    "url": "https://cses.fi/problemset/task/1672/",
+    "summary": "无向正权图多次查询最短距离；每条道路加入双向边，重边保留最小值，不可达输出−1。n≤500、m≤n²、q≤100000、w≤10^9，有限结果用long long。",
+    "driver": "verify/cses/1672.compact.cpp",
+    "requires": [
+      "Floyd"
+    ]
+  },
+  {
+    "id": "example-306",
+    "symbol": "Floyd",
+    "kind": "api",
+    "problem": "Floyd全源距离与指定点对路径（接口演示）",
+    "url": "https://oi-wiki.org/graph/shortest-path/",
+    "summary": "输入n,m,q及signed64有向边，再输入q个点对。整图有负环只输出NEGATIVE CYCLE；否则每问输出INF或“int128距离 边数 正向原边号”，原边号从0计。同点零边路径与不可达分别处理。",
+    "driver": "verify/api/floyd.compact.cpp",
+    "requires": [
+      "Floyd"
+    ],
+    "page_break_before": "    while (q--)"
   }
 ]

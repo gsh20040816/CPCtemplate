@@ -7602,6 +7602,82 @@ release\_bfs(open,source,neighbors) 返回各点最早到达时间，不可达�
 
 \Needspace{650pt}
 
+\subsection{Floyd全源最短路与原边方案}\label{compact-Floyd}\index{Floyd}
+
+Floyd(n)，点号1..n，0<n<INT\_MAX；add(u,v,w)返回0-based原边号，有向边，允许重边、自环及完整signed64权值，边数$\le$INT\_MAX。无向图需分别加入双向边。run()重新建立矩阵；存在任何负环返回false，valid=false，全部结果不可读，不能只取未受负环影响的点对。
+
+成功时dis[u][v]==inf为不可达，其他为int128最短距离，dis[u][u]=0。path(u,v)返回正向原边号，并列任选；不可达和u=v均为空，结合dis区分。nxt为恢复路径的首条原边号矩阵，通常只需调用path；e/dis/nxt/valid只读。add清除valid，支持重复运行、加边后重跑与独立值拷贝。
+
+run时间O(n$^{3}$+m)，空间O(n$^{2}$+m)，path时间与输出空间O(路径长)。每次处理k之前检查dis[k][k]<0，立即拒绝，不能延后到所有松弛结束，否则负环下中间量可指数增长。通过的枢轴不含负环；有限标签取简单路径或闭合路径，拼接候选绝对值<2n·2\textasciicircum{}63<2\textasciicircum{}95，int128与inf=2\textasciicircum{}126足够。两段都有限才相加；不要无条件转long long。矩阵占用约20(n+1)$^{2}$字节，另计vector和原边表，n应按时间/内存选择。
+
+\lstinputlisting[firstline=7,lastline=36,firstnumber=1]{../src/compact/floyd.hpp}
+
+\newpage
+
+\noindent 矩阵初始化与Floyd松弛（接上页同一结构体）：
+
+\lstinputlisting[firstline=37,lastline=71,firstnumber=31]{../src/compact/floyd.hpp}
+
+\newpage
+
+\noindent 成功运行后的原边路径（接上页同一结构体）：
+
+\lstinputlisting[firstline=72,lastline=86,firstnumber=66]{../src/compact/floyd.hpp}
+
+\newpage
+
+\Needspace{510pt}
+
+\subsection*{模板题使用：AOJ GRL\_1\_C / All Pairs Shortest Path}
+
+\label{usage-example-304}
+
+题意：0-based有向图输入转换为1-based；整图有负环输出NEGATIVE CYCLE，否则逐行输出距离矩阵，不可达为INF。n$\le$100、m$\le$9900、|w|$\le$20000000，有限结果可转long long。题面无自环重边，模板额外支持。
+
+所需模板：\hyperref[compact-Floyd]{Floyd}（第~\pageref{compact-Floyd}~页，\ref{compact-Floyd}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C&lang=en}
+
+\lstinputlisting{usage/example-304.cpp}
+
+\Needspace{431pt}
+
+\subsection*{应用题补充：CSES 1672 / Shortest Routes II}
+
+\label{usage-example-305}
+
+题意：无向正权图多次查询最短距离；每条道路加入双向边，重边保留最小值，不可达输出−1。n$\le$500、m$\le$n$^{2}$、q$\le$100000、w$\le$10\textasciicircum{}9，有限结果用long long。
+
+所需模板：\hyperref[compact-Floyd]{Floyd}（第~\pageref{compact-Floyd}~页，\ref{compact-Floyd}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://cses.fi/problemset/task/1672/}
+
+\lstinputlisting{usage/example-305.cpp}
+
+\Needspace{559pt}
+
+\subsection*{接口用法演示：Floyd全源距离与指定点对路径（接口演示）}
+
+\label{usage-example-306}
+
+演示约定：输入n,m,q及signed64有向边，再输入q个点对。整图有负环只输出NEGATIVE CYCLE；否则每问输出INF或“int128距离 边数 正向原边号”，原边号从0计。同点零边路径与不可达分别处理。
+
+所需模板：\hyperref[compact-Floyd]{Floyd}（第~\pageref{compact-Floyd}~页，\ref{compact-Floyd}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/shortest-path/}
+
+\lstinputlisting[lastline=35]{usage/example-306.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=36,firstnumber=36]{usage/example-306.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
 \subsection{SPFA：队列松弛、负环判定与有限路径}\label{compact-Spfa}\index{Spfa}
 
 Spfa(n)，点号1..n，0<n<INT\_MAX。add(u,v,w)返回0-based原边号，允许重边、自环、完整signed64权值，边数$\le$INT\_MAX；加边令valid=false。run(s)查从s可达的负环，s=0同时初始化所有点为0以查全图。返回false时valid=false，全部dis/pre均为未完成状态，不能读取为最短路或恢复路径；需要负环方案或逐点负无穷分类用BellmanFord。

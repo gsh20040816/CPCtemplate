@@ -1,0 +1,59 @@
+{
+  "base": "c1a88588490e4a7858b911da941355fb52d775b4",
+  "batch": "Floyd all-pairs shortest paths, early negative-pivot rejection and original-edge path witnesses",
+  "counts": {
+    "components": 244,
+    "usages": 306,
+    "usage_status": {
+      "locally_checked_example": 172,
+      "locally_checked_application": 56,
+      "locally_checked_api": 16
+    },
+    "pending_upstream_topics": 587,
+    "partial_upstream_topics": 32
+  },
+  "unaffected": {
+    "base": "c1a88588490e4a7858b911da941355fb52d775b4",
+    "unchanged_old_components": 243,
+    "unchanged_old_core_files": 207,
+    "old_expanded_programs_unchanged": 303,
+    "new_usages": [
+      "example-304",
+      "example-305",
+      "example-306"
+    ],
+    "files": {
+      "src/compact/floyd.hpp": "39692b79994985c1eefcf6fae5c177988022562b589aeb8a276ae544fadda36d",
+      "tests/floyd_probe.cpp": "762fa7a19f02d478bb967a480834a087938a58e43f31deed9cfe7b06ffdab5a1",
+      "tests/floyd.py": "17a500152ceb7383860a148ad111b75a87c0a23ac7fe166dcef0833dfce5693a",
+      "verify/aoj/GRL_1_C.compact.cpp": "c92eaa33af7b08fc88354b7caf79939da910df256deed52956a154c66fa77731",
+      "verify/cses/1672.compact.cpp": "901d761a896308517ac10e5d389a41d46618651240b1f0dcc6a2932a5ad9f792",
+      "verify/api/floyd.compact.cpp": "9e77ceeca9b120c562d36c0b721a8617b0d7e062e43b76570e8f0723ba472384"
+    }
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "3fd2588b1bbf067c2b37d5753c6fdb9cbb54e5143babc83e7319936554799519",
+      "pages": 826,
+      "page_change": 7,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-graphs.pdf": {
+      "sha256": "a49e250bed4cc09c6910c0440ce67fcc9a7f2f2e9e6a7ca2418dae83813bc77c",
+      "pages": 254,
+      "page_change": 7,
+      "font_set_preserved": true
+    },
+    "output/pdf/infra.pdf": {
+      "sha256": "cd95b4ece889573673dc1ba2324550e2f7ff461afc6affab44fb4f0cd17eb97e",
+      "pages": 12,
+      "page_change": 0,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global goal active. Formal AOJ GRL_1_C, CSES1672 application and API; no new online AC/rank/resource-pass. No CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/floyd-normal.json",
+    "verification/floyd-sanitizer.json"
+  ]
+}

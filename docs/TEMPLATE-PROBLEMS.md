@@ -222,6 +222,8 @@
 | `TarjanSCC` | [Luogu P3275 / 糖果](https://www.luogu.com.cn/problem/P3275) | n,k≤100000;五种关系；每个原顶点至少1；最小总量用64位。 | 待在线 AC | 待核验 |
 | `DagLongest` | [P1807](https://www.luogu.com.cn/problem/P1807) | 1≤n≤1500;0≤m≤50000;\|w\|≤100000;DAG;1到n不可达输出−1。 | 待在线 AC | 待核验 |
 | `DagLongest` | [CSES1680](https://cses.fi/problemset/task/1680/) | 2≤n≤100000;1≤m≤200000;DAG;输出任意最多城市路线或IMPOSSIBLE。 | 待在线 AC | 待核验 |
+| `Floyd` | [AOJ GRL_1_C](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C&lang=en) | 1≤n≤100;0≤m≤9900;\|w\|≤20000000;0-based有向边;无自环重边;整图任意负环只输出NEGATIVE CYCLE。 | 待在线 AC | 待核验 |
+| `Floyd` | [CSES1672](https://cses.fi/problemset/task/1672/) | 1≤n≤500;1≤m≤n²;1≤q≤100000;1≤w≤10^9;双向道路。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2092,6 +2094,22 @@ LCA两侧按深度差切分，k从1计且包含两端与LCA，距离使用独立
 
 
 两种模式完整程序及独立最优值/路径证书通过；在线AC、排名、资源限制通过尚未核验。
+
+### AOJ GRL_1_C / Floyd
+
+Library of Graph Algorithms正式全源最短路题。
+
+
+
+两种模式完整程序及独立矩阵/原边路径证书通过；在线AC、排名、资源限制通过尚未核验。
+
+### CSES1672 / Floyd
+
+无向正权多查询应用，不计正式模板题。
+
+
+
+两种模式完整程序及独立矩阵/原边路径证书通过；在线AC、排名、资源限制通过尚未核验。
 
 ## 榜单口径
 

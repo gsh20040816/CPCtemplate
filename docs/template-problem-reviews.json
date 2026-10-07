@@ -5620,5 +5620,49 @@
       "verification/dag-longest-normal.json",
       "verification/dag-longest-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "Floyd",
+    "problem": "AOJ GRL_1_C",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C&lang=en",
+    "classification": "Library of Graph Algorithms正式全源最短路题。",
+    "statement_checked": true,
+    "limits": "1≤n≤100;0≤m≤9900;|w|≤20000000;0-based有向边;无自环重边;整图任意负环只输出NEGATIVE CYCLE。",
+    "driver": "verify/aoj/GRL_1_C.compact.cpp",
+    "usage": "example-304",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "两种模式完整程序及独立矩阵/原边路径证书通过；在线AC、排名、资源限制通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/floyd-normal.json",
+      "verification/floyd-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "Floyd",
+    "problem": "CSES1672",
+    "url": "https://cses.fi/problemset/task/1672/",
+    "classification": "无向正权多查询应用，不计正式模板题。",
+    "statement_checked": true,
+    "limits": "1≤n≤500;1≤m≤n²;1≤q≤100000;1≤w≤10^9;双向道路。",
+    "driver": "verify/cses/1672.compact.cpp",
+    "usage": "example-305",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "两种模式完整程序及独立矩阵/原边路径证书通过；在线AC、排名、资源限制通过尚未核验。",
+    "checked_date": "2026-10-08",
+    "local_evidence": [
+      "verification/floyd-normal.json",
+      "verification/floyd-sanitizer.json"
+    ]
   }
 ]
