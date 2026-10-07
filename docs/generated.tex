@@ -532,6 +532,22 @@ extend(c) 接收整数0..25，每次追加一个小写字符；last为整串状�
 
 \newpage
 
+\Needspace{591pt}
+
+\subsection*{接口用法演示：区间不同子串（kuangbin HDU4622模型）}
+
+\label{usage-example-325}
+
+演示约定：来源协议：T组，每组非空小写字母串s、q及q个1-based闭区间[l,r]，输出该区间内不同非空子串数量。每个左端点新建SAM，每次extend后累加新last的len减link.len；克隆只重分配旧子串，不另增贡献。固定26字母表，预处理O(n$^{2}$)，查询O(1)，答案表O(n$^{2}$)、临时SAM O(n)空间。不要在内层循环调用扫描所有状态的distinct()，也不能跨左端点复用旧SAM。当前为来源模型/API用法，官方题面、资源限制及线上AC未核验。
+
+所需模板：\hyperref[compact-SuffixAutomaton]{SuffixAutomaton}（第~\pageref{compact-SuffixAutomaton}~页，\ref{compact-SuffixAutomaton}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://acm.hdu.edu.cn/showproblem.php?pid=4622}
+
+\lstinputlisting{usage/example-325.cpp}
+
+\newpage
+
 \Needspace{650pt}
 
 \section{SAM字典序子串查询}\label{compact-SAMLex}\index{SAMLex}

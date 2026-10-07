@@ -1,20 +1,45 @@
 {
-  "base": "da998b4864b3bd4dbe5a75af75958985621c719e",
+  "base": "b496b3fef3c39d1af8cbc776e79d3a48cd9752ff",
+  "components": 253,
+  "registered_usages": 325,
+  "usage_status": {
+    "locally_checked_example": 177,
+    "locally_checked_application": 58,
+    "locally_checked_api": 18
+  },
+  "pending": 555,
+  "partial": 31,
+  "all_old_source_files_unchanged": 223,
+  "all_old_usage_programs_unchanged": 324,
   "files": {
     "src/compact/string.hpp": "be145d0bbbe033aae59174b130d391af9dfa5de32adb5c5dca4243b1d68e90f4",
-    "tests/interval_substring_source.py": "f7b14301006ea84342710608a2175472ef18f8dbe34c2ca324455e3967313433",
-    "tests/interval_substring_source_driver.cpp": "a2668e2d8b51533e18ec3851806ff25112c44a1406ad53a99ec919a4d8ec9d7f",
+    "tests/interval_substring_source.py": "41be964cfb869a903172d86729c83871a5a472a02cd6802ed66efcd599a93752",
+    "tests/interval_substring_source_driver.cpp": "ca2a7d98a4d57c28a5a957a08720979f3256622c3234c8d7b1cc7dbf4e33186c",
+    "verify/api/interval_substring.compact.cpp": "ea8715ca0b6cff1b122b7a72b2a592d3f10d3de4d5d00b905efc6002040fc9b7",
     "tests/fixtures/interval_substring_sources/kuangbin.inc": "15145b125d29d5a46dc00cbaf9de50cb0811612d5b4caf3c87aa0a51dedb8844"
   },
-  "unchanged": {
-    "src": 223,
-    "docs/usage": 324,
-    "output/pdf": 8
+  "changed_pdfs": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "f337224dd4de16606df2c71d4f9c9e73ff0b200b8aec1fb0f873468e5f866ae4",
+      "pages": 869,
+      "page_change": 1,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-strings.pdf": {
+      "sha256": "e5dbe56af1143d56fb60c1880df2a065b7f64ee9219498c9e581f6abcbdc45a9",
+      "pages": 78,
+      "page_change": 1,
+      "font_set_preserved": true
+    }
   },
-  "components": 253,
-  "registered_usages": 324,
-  "pending": 555,
-  "partial": 32,
+  "other_pdfs_byte_identical": {
+    "output/pdf/infra.pdf": "e17ddef7969a4702e62d38eecd8e3c44729e9c2157bff5fad2715fc88b58da76",
+    "output/pdf/xcpc-misc.pdf": "0d14cbcfa913c12869e5245818d21fc1c1a68d042b36135634a47cfa805418fb",
+    "output/pdf/xcpc-mathematics.pdf": "1ebfd8e36da19dafda25d64d1f8159965a0a519047ae98cef54073978fa63530",
+    "output/pdf/xcpc-geometry.pdf": "aa954cd39b96280c32e81a248d2a95674561852efa196c6de53a68bf4430ffb7",
+    "output/pdf/xcpc-data-structures.pdf": "3972351fb6f9d40c4522a20f7e9f4b4fede993c83c1d76bb3682c1d37e82527b",
+    "output/pdf/xcpc-graphs.pdf": "8400ed9f66be59008c9a7c5d9c3812c0b3cf2abca12a07a772f9c511a758c5e3"
+  },
   "source_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
   "source_printed_pages": [
     23,
@@ -24,6 +49,26 @@
     25,
     26
   ],
-  "visual_review": "Both rendered source pages inspected; 63 numbered lines, wrapped line54 restored.",
-  "scope": "Partial source audit; exact test adapter validated, handbook registration and official/online verification remain pending."
+  "printed_usage_lines": 34,
+  "visual_review": {
+    "output/pdf/xcpc-template.pdf": {
+      "physical_pages": [
+        60,
+        61,
+        62,
+        63
+      ],
+      "total_pages": 869
+    },
+    "output/pdf/xcpc-strings.pdf": {
+      "physical_pages": [
+        37,
+        38,
+        39,
+        40
+      ],
+      "total_pages": 78
+    }
+  },
+  "scope": "Source-model API325 only; exact SAM adapter. Full original source retains UB and minimal positive-row patch is recorded separately; no official HDU statement/resource/online AC/rank claim. Full goal active."
 }

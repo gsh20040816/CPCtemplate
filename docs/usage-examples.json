@@ -4085,5 +4085,18 @@
     ],
     "start_new_page": true,
     "continuation_break_before": "        int q;"
+  },
+  {
+    "id": "example-325",
+    "symbol": "SuffixAutomaton",
+    "kind": "api",
+    "problem": "区间不同子串（kuangbin HDU4622模型）",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4622",
+    "summary": "来源协议：T组，每组非空小写字母串s、q及q个1-based闭区间[l,r]，输出该区间内不同非空子串数量。每个左端点新建SAM，每次extend后累加新last的len减link.len；克隆只重分配旧子串，不另增贡献。固定26字母表，预处理O(n²)，查询O(1)，答案表O(n²)、临时SAM O(n)空间。不要在内层循环调用扫描所有状态的distinct()，也不能跨左端点复用旧SAM。当前为来源模型/API用法，官方题面、资源限制及线上AC未核验。",
+    "driver": "verify/api/interval_substring.compact.cpp",
+    "requires": [
+      "SuffixAutomaton"
+    ],
+    "start_new_page": true
   }
 ]

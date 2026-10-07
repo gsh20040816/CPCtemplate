@@ -13,6 +13,7 @@ from compiler_config import CXX
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 from run_provenance import snapshot
+from usage_examples import records
 
 
 def sha(data):
@@ -68,7 +69,7 @@ def main():
         '-std=c++20', '-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
     env = dict(os.environ, ASAN_OPTIONS='detect_leaks=0:halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1')
     report = dict(mode=mode, source_before_sha256=before, programs=[], mutants=[], expected_failures=[],
-                  scope='Local source-model audit only; handbook usage and online verification remain pending.')
+                  scope='Source-model API325; official statement and online verification remain pending.')
 
     def compile(name, text, extra=()):
         cpp = out / (name + '.cpp')
@@ -123,6 +124,13 @@ def main():
         for release in [False, True]:
             exe, entry = compile(name + ('-ndebug' if release else '-assert'), text, ['-DNDEBUG'] if release else [])
             forms.append((exe, entry, inputs + [('dynamic-size', extended)]))
+    row = next(r for r in records() if r['id'] == 'example-325')
+    sam = (ROOT / 'src/compact/string.hpp').read_text().split('struct SuffixAutomaton', 1)[1]
+    minimal = prelude + '#include <cassert>\nstruct SuffixAutomaton' + sam + row['snippet']
+    for name, text, extra in [('325-expanded', row['program'], []), ('325-minimal', minimal, []),
+                              ('325-minimal-ndebug', minimal, ['-DNDEBUG'])]:
+        exe, entry = compile(name, text, extra)
+        forms.append((exe, entry, inputs + [('dynamic-size', extended)]))
     for exe, entry, selected in forms:
         for name, (raw, want) in selected:
             p = run(exe, raw)

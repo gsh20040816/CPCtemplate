@@ -1,6 +1,6 @@
 # 区间不同子串：kuangbin 1.7 来源审计
 
-本节标题是“字符串 hash”，实际完整程序为 HDU4622 的区间不同非空子串计数。不能用通用滚动哈希或整串 `distinct()` 的验证代替这一应用。现有 `SuffixAutomaton` 不变，新增测试驱动 `tests/interval_substring_source_driver.cpp` 验证精确的等价模型。本轮只完成来源审计，尚未登记手册用法；覆盖状态为 partial，不新增组件、用法数量或线上成绩。
+本节标题是“字符串 hash”，实际完整程序为 HDU4622 的区间不同非空子串计数。不能用通用滚动哈希或整串 `distinct()` 的验证代替这一应用。现有 `SuffixAutomaton` 不变，完整驱动 `verify/api/interval_substring.compact.cpp` 验证精确的等价模型，登记为手册用法325。测试入口直接包含此驱动，避免另养一份实现。来源模型覆盖状态为 local-tested；不新增算法组件或线上成绩。
 
 ## 来源和协议
 
@@ -24,7 +24,7 @@ MAXN=2010，累加会读第n+1行，因此修正负下标后仍要求n≤2008。
 
 对每个左端点l，新建一个SAM，依次追加s[l],s[l+1],…；记录每次追加后的不同子串总数。新增状态u的贡献为 `len[u]-len[link[u]]`，累加后得到ans[l][r]。克隆状态只重分配旧状态的长度区间，不增加旧子串种类，因而不用每次扫描所有状态调用distinct()。
 
-固定26字母表，每个左端点的完整构建总计O(n)，所有左端点O(n²)；二维答案表O(n²)，单个SAM占O(n)，每次查询O(1)。答案用long long，表采用vector。必须在更换左端点时重新构建SAM；这不是对任意区间截取一个全局SAM的状态。测试驱动提供完整读写协议，但仍属测试资产，待完成手册登记、排版和正式题面核验。
+固定26字母表，每个左端点的完整构建总计O(n)，所有左端点O(n²)；二维答案表O(n²)，单个SAM占O(n)，每次查询O(1)。答案用long long，表采用vector。必须在更换左端点时重新构建SAM；这不是对任意区间截取一个全局SAM的状态。手册用法325提供完整读写协议；官方题面及线上核验仍待完成。
 
 ## 验证
 
@@ -32,6 +32,6 @@ MAXN=2010，累加会读第n+1行，因此修正负下标后仍要求n≤2008。
 
 大数据为长度2000的同字符、周期、随机26字母串，另有2008个同字符和随后的单字符，检查静态边界及多测清空。当前SAM另测2500长度周期串和单字符，不用越界数据运行来源程序。大数据答案由独立后缀排序计算，未使用受测SAM作为oracle。
 
-普通及ASan/UBSan模式下，修正边界的来源程序与当前头文件、完整展开版各自的assert/NDEBUG四种形式均通过。漏减link长度、覆盖累计值、左端点不清空SAM三个错误变体均被独立答案拒绝。消毒器关闭本环境的LeakSanitizer，不声明泄漏检测通过。
+普通及ASan/UBSan模式下，修正边界的来源程序与当前头文件、完整展开版各自的assert/NDEBUG四种形式，以及手册实际展开程序、最小抄写版及其NDEBUG版均通过。漏减link长度、覆盖累计值、左端点不清空SAM三个错误变体均被独立答案拒绝。消毒器关闭本环境的LeakSanitizer，不声明泄漏检测通过。
 
-收据见 `verification/interval-substring-source-{normal,sanitizer}.json`，源码绑定及原有文件不变检查见 `verification/interval-substring-source-checkpoint.json`。下一步是把已验证的适配登记为手册完整用法；在此之前不将此来源行标为local-tested或完整覆盖。
+收据见 `verification/interval-substring-source-{normal,sanitizer}.json`，源码绑定及原有文件不变检查见 `verification/interval-substring-source-checkpoint.json`。用法325已纳入总册及字符串册，按源码哈希绑定到双模式收据；local-tested只表示本地来源模型完整，不表示官方题面、资源限制或线上评测已经核验。

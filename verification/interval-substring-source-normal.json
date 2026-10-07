@@ -1,7 +1,7 @@
 {
   "mode": "normal",
   "source_before_sha256": {
-    "README.md": "a249d5aa08b2b6f1683bd6523d64db6e51d7992bcc5a6bfcaf73615fdce11602",
+    "README.md": "0a0c034c92699bf74d23a6e14589d80eb1832d55fc90478635ef98e6cef99c5b",
     "src/compact/.clang-format": "42d22aa54114f0c08d145ea3e6e7647cd773ffc05b9cd67177a605c34c01214c",
     "src/compact/ac_shortest.hpp": "82dc961b20dce742adfdf2340c3e40520f567432856a16dba6ad3c9679eadf33",
     "src/compact/ac_weighted.hpp": "7b01d98b489d2b3a7bc28fe30aa117dcd8adcbd5f9b90cec9c73dbaa349097a0",
@@ -401,6 +401,7 @@
     "tests/fixtures/integer-3d-demo/contract.json": "ab90c5bfbe8382362ab0f3b55c45ba0150d0dd61f788ce1bf219d04a4a15e45f",
     "tests/fixtures/integer-3d-demo/sample.in": "f3154357ef9ac73db20b6d87bf353677305300aa14c9f5976987cff0e2f53ca9",
     "tests/fixtures/integer-3d-demo/sample.out": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+    "tests/fixtures/interval_substring_sources/README.md": "97ef75b02e06c6359d9393c18d24392ff771e6dbb30c2848c1587c63ccb018d0",
     "tests/fixtures/interval_substring_sources/kuangbin.inc": "15145b125d29d5a46dc00cbaf9de50cb0811612d5b4caf3c87aa0a51dedb8844",
     "tests/fixtures/isap_sources/bfs.inc": "4528088bfe07580a6cc5b6555128d457a9476ac3a253a11b7c77579e7feae9a6",
     "tests/fixtures/isap_sources/sap.inc": "e252260efe074dba1bf1320b6a38da59ef6b1a60660ee83c97d3593ed3350d23",
@@ -527,8 +528,8 @@
     "tests/integer_tangents.cpp": "94897fa4219af9091a385959f5c2bc8df17c24078f2ac29d21a7c8a57fb93199",
     "tests/interpolation.cpp": "074d5e206dae94b30da5978a41564506ffbce8b09455fcb5dc812755524dc896",
     "tests/interpolation_application.py": "ffe05294fc4f815a7d3616feb02b8856d8c947ff855005ebe419beb0792a0834",
-    "tests/interval_substring_source.py": "f7b14301006ea84342710608a2175472ef18f8dbe34c2ca324455e3967313433",
-    "tests/interval_substring_source_driver.cpp": "a2668e2d8b51533e18ec3851806ff25112c44a1406ad53a99ec919a4d8ec9d7f",
+    "tests/interval_substring_source.py": "41be964cfb869a903172d86729c83871a5a472a02cd6802ed66efcd599a93752",
+    "tests/interval_substring_source_driver.cpp": "ca2a7d98a4d57c28a5a957a08720979f3256622c3234c8d7b1cc7dbf4e33186c",
     "tests/inverse_archive_audit.py": "ad9406e09d0879a20f20a7e67fe92ca4a2ad88f3c133851db745e9863bffe3c6",
     "tests/inverse_current.py": "4812d17febb41e63b2234709fcb3a0a55c3457016f37572674f62218281e412c",
     "tests/inverse_table.cpp": "edba136afcbdbf6cd3644968204b15102b2711e18a3a4e587166cd7aceea1cec",
@@ -901,6 +902,7 @@
     "verify/api/hld_path_add.compact.cpp": "b021ba8c1eaa6465abb78e92750343fedfde6b3a49513474b8949503805464cc",
     "verify/api/independent_set.compact.cpp": "fccfdedd0501b2fa22375b8e76702fb7c457a0ae77d5f133ad6afd4cf8aae59b",
     "verify/api/integer_palindromes.compact.cpp": "c90c7bdfd3b9291a144fc96e816535b9892457b8020f7b4ce4b9ec5b5db5269a",
+    "verify/api/interval_substring.compact.cpp": "ea8715ca0b6cff1b122b7a72b2a592d3f10d3de4d5d00b905efc6002040fc9b7",
     "verify/api/kd_dominance.compact.cpp": "a9c204f1e1ecb943cfcdfdc98537283b40e0aa596e85c95321eb5b549496e54d",
     "verify/api/kd_min.compact.cpp": "dcde1b9db6bc87fe555c82455987b9598ebcf52572c98d383d8733f7a573d6d2",
     "verify/api/kd_move.compact.cpp": "0e17015e87721b95c3e086f596777096045d65b95659b8653862dcda2ceeb09e",
@@ -1277,6 +1279,7 @@
     "docs/INTEGER-COMPONENTS.md": "557aea62dbde2dcb24254a4ca23f207f4361184768f9897da85cbedbf0ba4cd9",
     "docs/INTEGER-CONVOLUTION.md": "9117f05895c50930abf1b8e0c5af9f64cee105d3c38fe8e7861865cc1fb2a37d",
     "docs/INTEGER3D-API-DEMO.md": "ba5684cc1ad59083bcb26b63221c886a865bda9e9177c30cd6d7118ecb73dc5f",
+    "docs/INTERVAL-SUBSTRING-SOURCE-AUDIT.md": "671e061b766e84addff43243aed6f4b040f8a1ad50a8a450f7878c79544e7aa9",
     "docs/INVERSE-USAGES.md": "273920ab802ca66554a07df9a992cd5ee6cfb459c22b8513d5c4c7aad7df278a",
     "docs/ISAP.md": "50ef5ac17c5fc1ae5b063559a51fff0d08ae21a840844c8555f668fe7082a351",
     "docs/ISSUE-1.md": "6ab8b44c23a2acbc20ee4434de59040ebb401169e74a036d8104650b5e755e5e",
@@ -1399,7 +1402,7 @@
     "docs/classic.clang-format": "64eb90c541351e58cd1351a8d2d6aa73f1f2b20b40ba07ef412ad6d7cad47447",
     "docs/contest-coverage.csv": "1fad417f1f89ab364733c669171cc8f906e042001b9c211f1c824336210ef123",
     "docs/contest-sources.json": "2782bfbfeaf85ffea455c944f1be84fcb7e9632e7711b204bd4ad4ba65143200",
-    "docs/coverage.csv": "6a050a77411a3e099bb71cb812a1e139e49e925e2b059839c191c58c33cd4d2f",
+    "docs/coverage.csv": "d454bf91a32926c0e32483b4d1fa9656e4a71daa653101790d28c5785f8eefa2",
     "docs/fenwick-selection.md": "5b410e726a5082b697733c9b8db1d7f890e67da522f06f3773dd0e38f6538e79",
     "docs/generated.tex": "abe27cc5bacd5d34b0e0518c32b2ec9ab5ff97ebcbebdac33d6d41925c58f7de",
     "docs/geometry-notes.tex": "9a2db1baabed1b005f0c12b4e3eee3f49fce41f0426d5e8ac3a28cb3723eb828",
@@ -1773,7 +1776,7 @@
     "docs/usage-drivers/real-polar-demo.cpp": "73621677eda8c0eddbe3576f3f9305b04f27dfcfead270b8253fccbe234693d8",
     "docs/usage-drivers/static-suffix-demo.cpp": "a05d7fc1b4f5d0c5fddbdb7672cbdd032b99a49bb7d69bab25250bb299cb5ca9",
     "docs/usage-drivers/tagged-gcd-demo.cpp": "a7ec1af0da24ebb778d033b14a1e6dbf506e05a80b54e815ab51f2165757840f",
-    "docs/usage-examples.json": "55978430dbaeaa6a68cb0c4de33cc48ca30efbbb3c886230d8e2d9f7ccf584d4",
+    "docs/usage-examples.json": "e13870cc8a72a5c5a7fe0c4e535a483bec8e78e244eb11c6d87b049383cfcb89",
     "docs/volume-data-structures.tex": "1045a1669fb43bfef0c231f80cfe056dd4ad4db643ca08b45c0458690401ae4b",
     "docs/volume-geometry.tex": "3d89cd783292cdbdd8e66d4035016bbb291b949b11f3a600627b0a2d7e118f85",
     "docs/volume-graphs.tex": "b69873a5a4d31c933d79ef5a5b7304721a255e3099feb1642219038a43d193b0",
@@ -1791,9 +1794,9 @@
         "/opt/homebrew/bin/g++-16",
         "-std=c++20",
         "-O2",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/source-positive-rows.cpp",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/source-positive-rows.cpp",
         "-o",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/source-positive-rows"
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/source-positive-rows"
       ],
       "source_sha256": "04a2ca60276e668441b345bd0a397c2dca23cb5fa0726a199be0e1f4d0661ea4",
       "binary_sha256": "7cd9443887bd9ef9badd0dcf8409467072dc38ec2d6c4a441798291cc9dccae5",
@@ -1819,9 +1822,9 @@
         "/opt/homebrew/bin/g++-16",
         "-std=c++20",
         "-O2",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/header-assert.cpp",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/header-assert.cpp",
         "-o",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/header-assert"
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/header-assert"
       ],
       "source_sha256": "592bb444b9390baa44f0ba990a2099bff12b26fdac7b7e388381c760e09cf667",
       "binary_sha256": "c9c637bfe449cfd0f5f6f41a8a40d80b5260769f245d801b8ab7f1fe98512019",
@@ -1854,9 +1857,9 @@
         "-std=c++20",
         "-O2",
         "-DNDEBUG",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/header-ndebug.cpp",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/header-ndebug.cpp",
         "-o",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/header-ndebug"
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/header-ndebug"
       ],
       "source_sha256": "592bb444b9390baa44f0ba990a2099bff12b26fdac7b7e388381c760e09cf667",
       "binary_sha256": "6c058c059dffce96cb1f40102c264380d5ed629db49471bcd19f57b72640f96c",
@@ -1888,12 +1891,12 @@
         "/opt/homebrew/bin/g++-16",
         "-std=c++20",
         "-O2",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/copied-assert.cpp",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/copied-assert.cpp",
         "-o",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/copied-assert"
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/copied-assert"
       ],
-      "source_sha256": "4a74946eaf7dfa3ab28b20b219387855fc2065145c1783afb5a81dd4f6166b96",
-      "binary_sha256": "9ad1b2bda592e241a5f93fd5df8ef3b71a1a0c3908ef3a1e5a32583941c57cec",
+      "source_sha256": "eb882efc03a4fe812698c18be333b1465104f210f4c376ed1817fe9f60823a4b",
+      "binary_sha256": "bbc02c4bba44fdbd13c83e9f3b64f8dc69d72969500f7188817cc829cef45dc0",
       "compiler_stderr": "",
       "runs": [
         {
@@ -1923,12 +1926,115 @@
         "-std=c++20",
         "-O2",
         "-DNDEBUG",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/copied-ndebug.cpp",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/copied-ndebug.cpp",
         "-o",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/copied-ndebug"
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/copied-ndebug"
       ],
-      "source_sha256": "4a74946eaf7dfa3ab28b20b219387855fc2065145c1783afb5a81dd4f6166b96",
+      "source_sha256": "eb882efc03a4fe812698c18be333b1465104f210f4c376ed1817fe9f60823a4b",
       "binary_sha256": "7016e2fbd33c0c69c16123493dcee4b1f94942905346a8486485bace372acdfa",
+      "compiler_stderr": "",
+      "runs": [
+        {
+          "name": "small",
+          "input_sha256": "1bc43d95afcfac9000457c34086aa40d768225356701866db0a012b4bbda8ca5",
+          "output_sha256": "d51d0e4c24d05b6e578d7f4c462bacb816b96196fb025919c5edd923138970f1",
+          "queries": 38338
+        },
+        {
+          "name": "source-boundaries",
+          "input_sha256": "17a2ce50f7e21c228c51b068bcaab3a3ac2b74e99703fc993f6d2a20f06d9a22",
+          "output_sha256": "4bda5a64dbe58f3a5969f97d267af5794d4f1bcfbbd524a7820380e35d427d06",
+          "queries": 115
+        },
+        {
+          "name": "dynamic-size",
+          "input_sha256": "3bb66940079fa575a3d90bd613c572475dd6d18974446237aaf34782c25415c2",
+          "output_sha256": "ba6924107d89a1e8588ecef527ee9fcdb241dd5cd95483b2f74b18eb9751e636",
+          "queries": 46
+        }
+      ]
+    },
+    {
+      "name": "325-expanded",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/325-expanded.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/325-expanded"
+      ],
+      "source_sha256": "8bbe4c3e66d4bf6fbd65f564dafcf0b8a7eeff42708bce925f9d4d480edc7c17",
+      "binary_sha256": "d7a025904c2e8dc17eecae86bbbe6c4be9669147e5e3e29f493ab2ad538ee78f",
+      "compiler_stderr": "",
+      "runs": [
+        {
+          "name": "small",
+          "input_sha256": "1bc43d95afcfac9000457c34086aa40d768225356701866db0a012b4bbda8ca5",
+          "output_sha256": "d51d0e4c24d05b6e578d7f4c462bacb816b96196fb025919c5edd923138970f1",
+          "queries": 38338
+        },
+        {
+          "name": "source-boundaries",
+          "input_sha256": "17a2ce50f7e21c228c51b068bcaab3a3ac2b74e99703fc993f6d2a20f06d9a22",
+          "output_sha256": "4bda5a64dbe58f3a5969f97d267af5794d4f1bcfbbd524a7820380e35d427d06",
+          "queries": 115
+        },
+        {
+          "name": "dynamic-size",
+          "input_sha256": "3bb66940079fa575a3d90bd613c572475dd6d18974446237aaf34782c25415c2",
+          "output_sha256": "ba6924107d89a1e8588ecef527ee9fcdb241dd5cd95483b2f74b18eb9751e636",
+          "queries": 46
+        }
+      ]
+    },
+    {
+      "name": "325-minimal",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/325-minimal.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/325-minimal"
+      ],
+      "source_sha256": "7506af725be6738c192609c4b45d1b8a096797e73e090e714ae0e62dbcead840",
+      "binary_sha256": "1b78026e7240308c2e7f6f4d65ed0ea2503db6f36ff1df67a5ebe7f1e7f2ac58",
+      "compiler_stderr": "",
+      "runs": [
+        {
+          "name": "small",
+          "input_sha256": "1bc43d95afcfac9000457c34086aa40d768225356701866db0a012b4bbda8ca5",
+          "output_sha256": "d51d0e4c24d05b6e578d7f4c462bacb816b96196fb025919c5edd923138970f1",
+          "queries": 38338
+        },
+        {
+          "name": "source-boundaries",
+          "input_sha256": "17a2ce50f7e21c228c51b068bcaab3a3ac2b74e99703fc993f6d2a20f06d9a22",
+          "output_sha256": "4bda5a64dbe58f3a5969f97d267af5794d4f1bcfbbd524a7820380e35d427d06",
+          "queries": 115
+        },
+        {
+          "name": "dynamic-size",
+          "input_sha256": "3bb66940079fa575a3d90bd613c572475dd6d18974446237aaf34782c25415c2",
+          "output_sha256": "ba6924107d89a1e8588ecef527ee9fcdb241dd5cd95483b2f74b18eb9751e636",
+          "queries": 46
+        }
+      ]
+    },
+    {
+      "name": "325-minimal-ndebug",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O2",
+        "-DNDEBUG",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/325-minimal-ndebug.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/325-minimal-ndebug"
+      ],
+      "source_sha256": "7506af725be6738c192609c4b45d1b8a096797e73e090e714ae0e62dbcead840",
+      "binary_sha256": "e62ef552552f4d42956c6014b5980dee51d99dabb4505554580e8ac9aae7d41d",
       "compiler_stderr": "",
       "runs": [
         {
@@ -1960,11 +2066,11 @@
         "-std=c++20",
         "-O2",
         "-DNDEBUG",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/omit-link-length.cpp",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/omit-link-length.cpp",
         "-o",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/omit-link-length"
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/omit-link-length"
       ],
-      "source_sha256": "e458219f384b6dccaf7447457e42ca6feaea2a05cb86fd05065da15c1c142fd6",
+      "source_sha256": "a9cfd1c1e49ceda2a967881acd6bc6412e6a47011319a66c315c7cdb48aa686e",
       "binary_sha256": "26233515d43f52fb1dce7b1628e75fc079e9c2f5a70186e91e2f20f46a4adea3",
       "compiler_stderr": "",
       "runs": [],
@@ -1977,11 +2083,11 @@
         "-std=c++20",
         "-O2",
         "-DNDEBUG",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/overwrite-total.cpp",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/overwrite-total.cpp",
         "-o",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/overwrite-total"
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/overwrite-total"
       ],
-      "source_sha256": "ef0359581b8d2f108617d5bea00a9b67fda5892c98939d3b20769e9ae38e7c25",
+      "source_sha256": "3d632a2c39cf9effe76e2d4317aa5a1fce04a3f04f88852227e0b2ab4bee3dbe",
       "binary_sha256": "1d35ed22ccd7afc4398f1d4189542d06c201e2f93b14cc4b8c2831dccb11020c",
       "compiler_stderr": "",
       "runs": [],
@@ -1994,11 +2100,11 @@
         "-std=c++20",
         "-O2",
         "-DNDEBUG",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/omit-left-reset.cpp",
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/omit-left-reset.cpp",
         "-o",
-        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/omit-left-reset"
+        "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/omit-left-reset"
       ],
-      "source_sha256": "5006ab97e9884290c4e00d471cf80d22e47144b5defebb3e4c87168c38999475",
+      "source_sha256": "738363956e9446c7406635095f19512201f60e46f0507f6c52100285a8714770",
       "binary_sha256": "3a6d99ff9c08db928bac82511c2feb41a9b4680e39f97941b9b7b15218bd20e6",
       "compiler_stderr": "",
       "runs": [],
@@ -2006,16 +2112,16 @@
     }
   ],
   "expected_failures": [],
-  "scope": "Local source-model audit only; handbook usage and online verification remain pending.",
+  "scope": "Source-model API325; official statement and online verification remain pending.",
   "original_compiled_only": {
     "name": "original",
     "command": [
       "/opt/homebrew/bin/g++-16",
       "-std=c++20",
       "-O2",
-      "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/original.cpp",
+      "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/original.cpp",
       "-o",
-      "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-h0_z034j/original"
+      "/Users/gsh/Workspace/CPCtemplate/build/interval-substring-normal-vwab05ii/original"
     ],
     "source_sha256": "4bd0cf55a60db431bb23fe5110bca437f38aa280d682fbe520fa95b0879fae08",
     "binary_sha256": "58a7b543b09c894179944bd85b30c5bba6fd19b6b8401fc2f21e2a654103b6a6",
@@ -2023,7 +2129,7 @@
     "runs": []
   },
   "source_after_sha256": {
-    "README.md": "a249d5aa08b2b6f1683bd6523d64db6e51d7992bcc5a6bfcaf73615fdce11602",
+    "README.md": "0a0c034c92699bf74d23a6e14589d80eb1832d55fc90478635ef98e6cef99c5b",
     "src/compact/.clang-format": "42d22aa54114f0c08d145ea3e6e7647cd773ffc05b9cd67177a605c34c01214c",
     "src/compact/ac_shortest.hpp": "82dc961b20dce742adfdf2340c3e40520f567432856a16dba6ad3c9679eadf33",
     "src/compact/ac_weighted.hpp": "7b01d98b489d2b3a7bc28fe30aa117dcd8adcbd5f9b90cec9c73dbaa349097a0",
@@ -2423,6 +2529,7 @@
     "tests/fixtures/integer-3d-demo/contract.json": "ab90c5bfbe8382362ab0f3b55c45ba0150d0dd61f788ce1bf219d04a4a15e45f",
     "tests/fixtures/integer-3d-demo/sample.in": "f3154357ef9ac73db20b6d87bf353677305300aa14c9f5976987cff0e2f53ca9",
     "tests/fixtures/integer-3d-demo/sample.out": "e91254554e19814bd4a6804e4ecb58b4898856a391031c06c4e52b0bba3e3dcf",
+    "tests/fixtures/interval_substring_sources/README.md": "97ef75b02e06c6359d9393c18d24392ff771e6dbb30c2848c1587c63ccb018d0",
     "tests/fixtures/interval_substring_sources/kuangbin.inc": "15145b125d29d5a46dc00cbaf9de50cb0811612d5b4caf3c87aa0a51dedb8844",
     "tests/fixtures/isap_sources/bfs.inc": "4528088bfe07580a6cc5b6555128d457a9476ac3a253a11b7c77579e7feae9a6",
     "tests/fixtures/isap_sources/sap.inc": "e252260efe074dba1bf1320b6a38da59ef6b1a60660ee83c97d3593ed3350d23",
@@ -2549,8 +2656,8 @@
     "tests/integer_tangents.cpp": "94897fa4219af9091a385959f5c2bc8df17c24078f2ac29d21a7c8a57fb93199",
     "tests/interpolation.cpp": "074d5e206dae94b30da5978a41564506ffbce8b09455fcb5dc812755524dc896",
     "tests/interpolation_application.py": "ffe05294fc4f815a7d3616feb02b8856d8c947ff855005ebe419beb0792a0834",
-    "tests/interval_substring_source.py": "f7b14301006ea84342710608a2175472ef18f8dbe34c2ca324455e3967313433",
-    "tests/interval_substring_source_driver.cpp": "a2668e2d8b51533e18ec3851806ff25112c44a1406ad53a99ec919a4d8ec9d7f",
+    "tests/interval_substring_source.py": "41be964cfb869a903172d86729c83871a5a472a02cd6802ed66efcd599a93752",
+    "tests/interval_substring_source_driver.cpp": "ca2a7d98a4d57c28a5a957a08720979f3256622c3234c8d7b1cc7dbf4e33186c",
     "tests/inverse_archive_audit.py": "ad9406e09d0879a20f20a7e67fe92ca4a2ad88f3c133851db745e9863bffe3c6",
     "tests/inverse_current.py": "4812d17febb41e63b2234709fcb3a0a55c3457016f37572674f62218281e412c",
     "tests/inverse_table.cpp": "edba136afcbdbf6cd3644968204b15102b2711e18a3a4e587166cd7aceea1cec",
@@ -2923,6 +3030,7 @@
     "verify/api/hld_path_add.compact.cpp": "b021ba8c1eaa6465abb78e92750343fedfde6b3a49513474b8949503805464cc",
     "verify/api/independent_set.compact.cpp": "fccfdedd0501b2fa22375b8e76702fb7c457a0ae77d5f133ad6afd4cf8aae59b",
     "verify/api/integer_palindromes.compact.cpp": "c90c7bdfd3b9291a144fc96e816535b9892457b8020f7b4ce4b9ec5b5db5269a",
+    "verify/api/interval_substring.compact.cpp": "ea8715ca0b6cff1b122b7a72b2a592d3f10d3de4d5d00b905efc6002040fc9b7",
     "verify/api/kd_dominance.compact.cpp": "a9c204f1e1ecb943cfcdfdc98537283b40e0aa596e85c95321eb5b549496e54d",
     "verify/api/kd_min.compact.cpp": "dcde1b9db6bc87fe555c82455987b9598ebcf52572c98d383d8733f7a573d6d2",
     "verify/api/kd_move.compact.cpp": "0e17015e87721b95c3e086f596777096045d65b95659b8653862dcda2ceeb09e",
@@ -3299,6 +3407,7 @@
     "docs/INTEGER-COMPONENTS.md": "557aea62dbde2dcb24254a4ca23f207f4361184768f9897da85cbedbf0ba4cd9",
     "docs/INTEGER-CONVOLUTION.md": "9117f05895c50930abf1b8e0c5af9f64cee105d3c38fe8e7861865cc1fb2a37d",
     "docs/INTEGER3D-API-DEMO.md": "ba5684cc1ad59083bcb26b63221c886a865bda9e9177c30cd6d7118ecb73dc5f",
+    "docs/INTERVAL-SUBSTRING-SOURCE-AUDIT.md": "671e061b766e84addff43243aed6f4b040f8a1ad50a8a450f7878c79544e7aa9",
     "docs/INVERSE-USAGES.md": "273920ab802ca66554a07df9a992cd5ee6cfb459c22b8513d5c4c7aad7df278a",
     "docs/ISAP.md": "50ef5ac17c5fc1ae5b063559a51fff0d08ae21a840844c8555f668fe7082a351",
     "docs/ISSUE-1.md": "6ab8b44c23a2acbc20ee4434de59040ebb401169e74a036d8104650b5e755e5e",
@@ -3421,7 +3530,7 @@
     "docs/classic.clang-format": "64eb90c541351e58cd1351a8d2d6aa73f1f2b20b40ba07ef412ad6d7cad47447",
     "docs/contest-coverage.csv": "1fad417f1f89ab364733c669171cc8f906e042001b9c211f1c824336210ef123",
     "docs/contest-sources.json": "2782bfbfeaf85ffea455c944f1be84fcb7e9632e7711b204bd4ad4ba65143200",
-    "docs/coverage.csv": "6a050a77411a3e099bb71cb812a1e139e49e925e2b059839c191c58c33cd4d2f",
+    "docs/coverage.csv": "d454bf91a32926c0e32483b4d1fa9656e4a71daa653101790d28c5785f8eefa2",
     "docs/fenwick-selection.md": "5b410e726a5082b697733c9b8db1d7f890e67da522f06f3773dd0e38f6538e79",
     "docs/generated.tex": "abe27cc5bacd5d34b0e0518c32b2ec9ab5ff97ebcbebdac33d6d41925c58f7de",
     "docs/geometry-notes.tex": "9a2db1baabed1b005f0c12b4e3eee3f49fce41f0426d5e8ac3a28cb3723eb828",
@@ -3795,7 +3904,7 @@
     "docs/usage-drivers/real-polar-demo.cpp": "73621677eda8c0eddbe3576f3f9305b04f27dfcfead270b8253fccbe234693d8",
     "docs/usage-drivers/static-suffix-demo.cpp": "a05d7fc1b4f5d0c5fddbdb7672cbdd032b99a49bb7d69bab25250bb299cb5ca9",
     "docs/usage-drivers/tagged-gcd-demo.cpp": "a7ec1af0da24ebb778d033b14a1e6dbf506e05a80b54e815ab51f2165757840f",
-    "docs/usage-examples.json": "55978430dbaeaa6a68cb0c4de33cc48ca30efbbb3c886230d8e2d9f7ccf584d4",
+    "docs/usage-examples.json": "e13870cc8a72a5c5a7fe0c4e535a483bec8e78e244eb11c6d87b049383cfcb89",
     "docs/volume-data-structures.tex": "1045a1669fb43bfef0c231f80cfe056dd4ad4db643ca08b45c0458690401ae4b",
     "docs/volume-geometry.tex": "3d89cd783292cdbdd8e66d4035016bbb291b949b11f3a600627b0a2d7e118f85",
     "docs/volume-graphs.tex": "b69873a5a4d31c933d79ef5a5b7304721a255e3099feb1642219038a43d193b0",
