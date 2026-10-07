@@ -1890,7 +1890,7 @@
     "url": "https://www.luogu.com.cn/problem/P4148",
     "classification": "Online dynamic rectangle-sum application; no explicit official noncompetition template designation established, excluded from formal coverage.",
     "statement_checked": true,
-    "checked_date": "2026-09-29",
+    "checked_date": "2026-10-07",
     "limits": "N<=500000, at most 200000 operations, 20 MB memory, positive updates, XOR all arguments with last answer; answers fit int.",
     "tested_api": [
       "add",
@@ -1902,7 +1902,14 @@
       "rank": null,
       "total": null
     },
-    "remaining": "Online AC, actual judge memory/time and ranking pending; local normal/sanitizer and allocation records in verification/kd-tree-sum.json."
+    "remaining": "Online AC and judge resources/ranking remain unverified. Local source-specific audit and three full forms are recorded; 20 MB is the statement limit, not a measured pass.",
+    "driver": "verify/luogu/P4148.compact.cpp",
+    "usage": "example-114",
+    "local_evidence": [
+      "verification/kd-range-normal.json",
+      "verification/kd-range-sanitizer.json"
+    ],
+    "adapter": "原issue11 Query(x1,x2,y1,y2)参数顺序与当前query(x1,y1,x2,y2)不同。重复坐标合并权值；上次答案依次异或解码。WIDA偏序计数另用单位权与INT_MIN前缀矩形，不改变本题范围。"
   },
   {
     "symbol": "cdq_convolution",
@@ -5052,6 +5059,34 @@
     "local_evidence": [
       "verification/kd-nearest-normal.json",
       "verification/kd-nearest-sanitizer.json"
+    ]
+  },
+  {
+    "symbol": "KDRange",
+    "problem": "kuangbin 3.10 / 动态KD树源码模型",
+    "url": "https://github.com/kuangbin/ACM-ICPC",
+    "classification": "来源模型/API演示，非正式模板题也非已核验的UVALive6045题面。原文严格距离与代码闭区间有差异；本用法明确采用≤E。",
+    "statement_checked": false,
+    "limits": "接口坐标支持signed64；搬移演示n≤100000，W,H在1..10^9，非负系数/E≤10^9，中心绝对值≤10^9。为演示约束，不冒称原题约束。",
+    "driver": "verify/api/kd_move.compact.cpp",
+    "usage": "example-271",
+    "tested_api": [
+      "constructor",
+      "add",
+      "extract",
+      "slot recycling"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "原题严格/非严格距离、完整协议、资源限制、在线AC与排名未核验；来源3.10保留partial。",
+    "checked_date": "2026-10-07",
+    "local_evidence": [
+      "verification/kd-extract-normal.json",
+      "verification/kd-extract-sanitizer.json"
     ]
   }
 ]

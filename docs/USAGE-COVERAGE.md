@@ -201,7 +201,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | dag_path_determinant | [example-107（应用补充）](usage/example-107.cpp) | locally_checked_application |
 | xor_hamming_pairs | [example-111](usage/example-111.cpp) | locally_checked_example |
 | MonotoneStackSeg | [example-112（应用补充）](usage/example-112.cpp), [example-113（应用补充）](usage/example-113.cpp) | locally_checked_application |
-| KDTreeSum | [example-114（应用补充）](usage/example-114.cpp) | locally_checked_application |
+| KDTreeSum | [example-114（应用补充）](usage/example-114.cpp), [example-269（接口演示）](usage/example-269.cpp) | locally_checked_application |
 | cdq_convolution | [example-115](usage/example-115.cpp) | locally_checked_example |
 | PolynomialDivision | [example-116](usage/example-116.cpp), [example-118](usage/example-118.cpp) | locally_checked_example |
 | FpsSqrt | [example-117](usage/example-117.cpp), [example-119](usage/example-119.cpp) | locally_checked_example |
@@ -239,3 +239,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | OnlineSAM | [example-256（接口演示）](usage/example-256.cpp), [example-258](usage/example-258.cpp) | locally_checked_example |
 | SAMDocuments | [example-259（应用补充）](usage/example-259.cpp), [example-260（接口演示）](usage/example-260.cpp) | locally_checked_application |
 | KDNearest | [example-267（接口演示）](usage/example-267.cpp), [example-268（应用补充）](usage/example-268.cpp) | locally_checked_application |
+| KDRange | [example-270（接口演示）](usage/example-270.cpp), [example-271（接口演示）](usage/example-271.cpp) | locally_checked_api |

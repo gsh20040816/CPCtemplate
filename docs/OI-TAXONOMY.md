@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 163，application 59，composite 1，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 164，application 59，composite 1，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -149,6 +149,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | PersistentXorTrie | 数据结构 → 可持久化数据结构 → 可持久化字典树 | direct | 前缀追加版本的区间单值最大异或；不扩张为任意分支版本、普通字符串Trie或整个上游页面。 |
 | DynamicKth | 数据结构 → 树套树 → 树状数组套权值线段树 | direct |  |
 | KDNearest | 数据结构 → K-D Tree | direct | 静态整数近邻与远邻；动态范围和另见KDTreeSum。 |
+| KDRange | 数据结构 → K-D Tree | direct | 动态按编号记录插入、矩形取出与删除；坐标可移动后重新插入。 |
 | KDTreeSum | 数据结构 → K-D Tree | direct | 动态二维点权累加、闭矩形求和；不包含最近邻或删除坐标。 |
 | LinkCutTree | 数据结构 → 动态树 → Link Cut Tree | direct |  |
 | TreePathProducts | 数据结构 → 动态树 → Link Cut Tree | application | 固定树动态点权与任意根路径乘积总和，维护虚子树及双向信息 |

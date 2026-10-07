@@ -3362,5 +3362,41 @@
     "requires": [
       "KDNearest"
     ]
+  },
+  {
+    "id": "example-269",
+    "symbol": "KDTreeSum",
+    "kind": "api",
+    "problem": "动态二维偏序计数（WIDA接口适配）",
+    "url": "https://oi-wiki.org/ds/kdt/",
+    "summary": "输入操作数m。操作1 x y插入一个二维整数点，允许重复；操作2 x y统计已经插入且两坐标分别≤x、≤y的点数。每次插入权值1，查询从INT_MIN到(x,y)的闭矩形，边界坐标也计入，不对极小值减1。",
+    "driver": "verify/api/kd_dominance.compact.cpp",
+    "requires": [
+      "KDTreeSum"
+    ]
+  },
+  {
+    "id": "example-270",
+    "symbol": "KDRange",
+    "kind": "api",
+    "problem": "动态矩形取点与删除（接口演示）",
+    "url": "https://oi-wiki.org/ds/kdt/",
+    "summary": "输入n,m和n条(x,y,id)。操作1 x y id新增记录；操作2 x1 y1 x2 y2取出并删除闭矩形中的全部记录，输出数量和递增排序后的编号。允许坐标及编号重复，重复记录分别保留；空矩形输出0。坐标为完整有符号64位整数。",
+    "driver": "verify/api/kd_range.compact.cpp",
+    "requires": [
+      "KDRange"
+    ]
+  },
+  {
+    "id": "example-271",
+    "symbol": "KDRange",
+    "kind": "api",
+    "problem": "曼哈顿邻域同步搬移（kuangbin源码模型）",
+    "url": "https://github.com/kuangbin/ACM-ICPC",
+    "summary": "输入n,q,W,H及n个点；每次给X,Y,E,a,b,c,d,f,g，把操作开始时曼哈顿距离≤E的点同步改为((a*x+b*y+(id+1)*c)%W,(d*x+f*y+(id+1)*g)%H)。输入点在[0,W)×[0,H)，W,H为1..10^9，系数和E为0..10^9，中心坐标绝对值≤10^9，n≤10^5；编号为输入次序0-based。最后按原序输出坐标。使用(x+y,x-y)转闭矩形；128位乘加。只核对源码模型，不冒充UVALive6045原题协议；原文小于与源码闭边界存在差异，待原题确认。",
+    "driver": "verify/api/kd_move.compact.cpp",
+    "requires": [
+      "KDRange"
+    ]
   }
 ]

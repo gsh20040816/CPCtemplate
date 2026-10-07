@@ -76,7 +76,7 @@
 | `ScapegoatTree` | [Luogu P3369](https://www.luogu.com.cn/problem/P3369) | 1<=operations<=100000; \|x\|<=10000000; rank/predecessor/successor query key may be absent; kth and neighbors exist. | 驱动登记待核验；AC 待核验 | 待核验 |
 | `xor_hamming_pairs` | [Luogu P4887](https://www.luogu.com.cn/problem/P4887) | 1<=n,m<=100000; 0<=a_i,k<2^14. Note k may exceed 14. | 驱动登记待核验；AC 待核验 | 待核验 |
 | `MonotoneStackSeg` | [Luogu P12438 / CF1912G](https://www.luogu.com.cn/problem/P12438) | 1<=n,q<=200000; 1<=a_i<=1e9; each closed interval increases by one. | 驱动登记待核验；AC 待核验 | 待核验 |
-| `KDTreeSum` | [Luogu P4148](https://www.luogu.com.cn/problem/P4148) | N<=500000, at most 200000 operations, 20 MB memory, positive updates, XOR all arguments with last answer; answers fit int. | 驱动登记待核验；AC 待核验 | 待核验 |
+| `KDTreeSum` | [Luogu P4148](https://www.luogu.com.cn/problem/P4148) | N<=500000, at most 200000 operations, 20 MB memory, positive updates, XOR all arguments with last answer; answers fit int. | 待在线 AC | 待核验 |
 | `cdq_convolution` | [Luogu P4721](https://www.luogu.com.cn/problem/P4721) | 2<=n<=100000; recurrence modulo 998244353, f[0]=1. | 驱动登记待核验；AC 待核验 | 待核验 |
 | `PolynomialDivision` | [Luogu P4512](https://www.luogu.com.cn/problem/P4512) | 1<=m<=n<=100000; input degrees, fixed output lengths; mod 998244353 | 驱动登记待核验；AC 待核验 | 待核验 |
 | `FpsSqrt` | [Luogu P5205](https://www.luogu.com.cn/problem/P5205) | 1<=n<=100000; a[0]=1; smaller constant root | 驱动登记待核验；AC 待核验 | 待核验 |
@@ -199,6 +199,7 @@
 | `AhoCorasick::presence` | [Luogu P3808 / AC自动机简单版](https://www.luogu.com.cn/problem/P3808) | Pattern count,total pattern length,text length<=1000000; nonempty lowercase strings. Current online time/memory acceptance unverified. | 待在线 AC | 待核验 |
 | `DynamicAC` | [Codeforces 710F / String Set Queries](https://codeforces.com/problemset/problem/710/F) | m<=300000,total lengths<=300000,nonempty lowercase; new string never added before, removal present; online, flush answer before next input; 3 seconds,768MiB. Local resource completion does not establish official acceptance. | 待在线 AC | 待核验 |
 | `KDNearest` | [Luogu P2093 / JZPFAR](https://www.luogu.com.cn/problem/P2093) | n≤100000，m≤10000，1≤k≤min(n,20)，互异二维点；点与查询坐标在[-10^9,10^9]。题面带随机分布条件，当前未核对时间/内存上限。 | 待在线 AC | 待核验 |
+| `KDRange` | [kuangbin 3.10 / 动态KD树源码模型](https://github.com/kuangbin/ACM-ICPC) | 接口坐标支持signed64；搬移演示n≤100000，W,H在1..10^9，非负系数/E≤10^9，中心绝对值≤10^9。为演示约束，不冒称原题约束。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -794,9 +795,9 @@ Independent local validation in verification/monotone-stack-seg.json; online AC 
 
 Online dynamic rectangle-sum application; no explicit official noncompetition template designation established, excluded from formal coverage.
 
+原issue11 Query(x1,x2,y1,y2)参数顺序与当前query(x1,y1,x2,y2)不同。重复坐标合并权值；上次答案依次异或解码。WIDA偏序计数另用单位权与INT_MIN前缀矩形，不改变本题范围。
 
-
-Online AC, actual judge memory/time and ranking pending; local normal/sanitizer and allocation records in verification/kd-tree-sum.json.
+Online AC and judge resources/ranking remain unverified. Local source-specific audit and three full forms are recorded; 20 MB is the statement limit, not a measured pass.
 
 ### Luogu P4721 / cdq_convolution
 
@@ -1879,6 +1880,14 @@ Online AC and rank pending; application does not close formal-template search.
 原输入编号0-based；query(q,k,true).back()+1输出1-based第k远点。相同距离较小编号优先。核心还支持重合点、最近点和k=0；这些是API演示/本地测试范围，不是P2093题面范围。
 
 等待在线提交、运行资源与榜单核验；原HDU4347题面不可访问，该来源只做源码模型核对。
+
+### kuangbin 3.10 / 动态KD树源码模型 / KDRange
+
+来源模型/API演示，非正式模板题也非已核验的UVALive6045题面。原文严格距离与代码闭区间有差异；本用法明确采用≤E。
+
+
+
+原题严格/非严格距离、完整协议、资源限制、在线AC与排名未核验；来源3.10保留partial。
 
 ## 榜单口径
 

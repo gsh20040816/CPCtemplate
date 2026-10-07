@@ -1,0 +1,57 @@
+{
+  "base": "4eaca3c1f0d8c2bd0a7909edeefc84879aa452a8",
+  "batch": "Dynamic dominance, rectangle sum source audits and KDRange extraction/moves",
+  "counts": {
+    "components": 233,
+    "usages": 271,
+    "usage_status": {
+      "locally_checked_example": 167,
+      "locally_checked_application": 52,
+      "locally_checked_api": 14
+    },
+    "pending_upstream_topics": 611,
+    "partial_upstream_topics": 31
+  },
+  "core_forms_per_mode_per_core": 4,
+  "complete_inputs_per_form": {
+    "example-114": 62,
+    "example-269": 81,
+    "example-270": 80,
+    "example-271": 81
+  },
+  "complete_forms_per_mode": 3,
+  "mutants_per_mode": 6,
+  "stress": [
+    "KDTreeSum 200000-point grid and 200000 duplicate updates",
+    "P4148 200000 XOR operations and199999 distinct-point/INT_MAX-answer input",
+    "KDRange 40000 random operations,50000 moves of10000 live records,ten full recycle rounds",
+    "Source move model100000 points moved simultaneously"
+  ],
+  "unaffected": {
+    "byte_identical_cores": 231,
+    "token_equal_reformatted_cores": 1,
+    "old_expanded_programs_byte_identical": 267
+  },
+  "pdf": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "573e8eebb5f72854598ad454d982f355e259db10a358f7f0068d8a44eac68e8b",
+      "pages": 751,
+      "page_change": 7,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-data-structures.pdf": {
+      "sha256": "76c5806fe4e94a4df423161726e5ca2a824d1d2944d0f6a3c045170dc394c8ae",
+      "pages": 188,
+      "page_change": 7,
+      "font_set_preserved": true
+    }
+  },
+  "remaining": "Global target stays active. kuangbin3.10 partial: strict/non-strict boundary conflicts between prose and code; original UVALive6045 statement/protocol/resources not verified. No new online AC/rank or full-library rerun; no CI inspection/maintenance.",
+  "runtime_evidence": [
+    "verification/kd-range-normal.json",
+    "verification/kd-range-sanitizer.json",
+    "verification/kd-extract-normal.json",
+    "verification/kd-extract-sanitizer.json"
+  ],
+  "documentation_after_runtime": "Source-specific maps, notes and pagination finalized after execution; runtime source fingerprints in kd-dynamic-copy.json match compiled code. New usages are all API demonstrations; formal template coverage remains167."
+}

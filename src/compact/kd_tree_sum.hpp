@@ -66,7 +66,10 @@ template <class Coord = int> struct KDTreeSum
         nth_element(v.begin() + l,
                     v.begin() + m,
                     v.begin() + r,
-                    [&](int x, int y) { return less(a[x].point, a[y].point, axis); });
+                    [&](int x, int y)
+                    {
+                        return less(a[x].point, a[y].point, axis);
+                    });
         int p = v[m];
         a[p].child[0] = build(v, l, m, axis ^ 1);
         a[p].child[1] = build(v, m + 1, r, axis ^ 1);
@@ -100,7 +103,10 @@ template <class Coord = int> struct KDTreeSum
         return build(v, 0, v.size(), axis);
     }
 
-    void add(Coord x, Coord y, ll delta) { root = add(root, {x, y}, delta, 0); }
+    void add(Coord x, Coord y, ll delta)
+    {
+        root = add(root, {x, y}, delta, 0);
+    }
 
     ll query(int p, Point low, Point high) const
     {

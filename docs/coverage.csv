@@ -325,7 +325,7 @@ WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,普通莫队,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,带修改的莫队（带时间维度的莫队）,local-tested,src/compact/modified_mo.hpp,"tests/modified_mo.cpp independent snapshots, all ranges and times, forward/backward state invariants; P1903 complete driver and maximum constraints locally tested with ASan/UBSan; P1903 AC 297653743 (13 tests); leaderboard rank pending"
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,分数运算类,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,主席树（可持久化线段树）,local-tested,src/compact/optimization.hpp,PersistentKth / Persistent_Kth: tests/optimization.cpp and tests/dual.cpp; prefix frequency roots and interval kth; P3834 dual AC 297520290/297520299
-WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,KD Tree,pending,,
+WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,KD Tree,local-tested,src/compact/kd_tree_sum.hpp#KDTreeSum,"WIDA fixed source 2D insert/dominance count; unit weights and INT_MIN closed prefix adapter usage269; duplicate multiplicity preserved, node-size meanings differ; tests/kd_range_sources.py normal/sanitizer; no online AC; docs/KD-DYNAMIC.md"
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,ST 表,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,基于状压的线性 RMQ 算法,pending,,
 WIDA,02 - 打印稿模板汇总/08 - 数据结构.md,,pbds 扩展库实现平衡二叉树,pending,,
@@ -629,7 +629,7 @@ kuangbin,ACM template (2018),111,3.8.2 CF44G,pending,,
 kuangbin,ACM template (2018),114,3.8.3 HDU4742,pending,,
 kuangbin,ACM template (2018),116,3.9 替罪羊树 (ScapeGoat Tree),pending,,
 kuangbin,ACM template (2018),116,3.9.1 CF455D,pending,,
-kuangbin,ACM template (2018),120,3.10 动态 KD 树,pending,,
+kuangbin,ACM template (2018),120,3.10 动态 KD 树,partial,src/compact/kd_range.hpp#KDRange,"Insertion, rectangle extraction/deletion, slot reuse and simultaneous move source model locally checked; usages270/271 and tests/kd_extract.py. Source prose says <E but code uses <=E; original UVALive6045 statement, protocol/resources and online verdict still pending. docs/KD-DYNAMIC.md"
 kuangbin,ACM template (2018),123,3.11 树套树,pending,,
 kuangbin,ACM template (2018),123,3.11.1 替罪羊树套 splay,pending,,
 kuangbin,ACM template (2018),130,4.1 最短路,pending,,
@@ -772,7 +772,7 @@ issue11,https://github.com/user-attachments/files/32176902/default.pdf,113,4.4 4
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,113,4.4.1 (1) 洛谷模板,pending,,
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,117,4.5 5. 莫队二次离线,pending,,
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,120,4.6 6. 线段树维护单调栈,pending,,
-issue11,https://github.com/user-attachments/files/32176902/default.pdf,126,4.7 7. K-D Tree,pending,,
+issue11,https://github.com/user-attachments/files/32176902/default.pdf,126,4.7 7. K-D Tree,local-tested,src/compact/kd_tree_sum.hpp#KDTreeSum,"Source dynamic point-add closed rectangle sum; original Query(x1,x2,y1,y2) reordered to query(x1,y1,x2,y2); P4148 XOR driver usage114 plus independent map/invariant/extreme/rebuild tests; docs/KD-DYNAMIC.md; no new online AC/resource verdict"
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,130,5.1 1. 拉格朗日插值,pending,,
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,130,5.2 2. 多项式乘法 FFT,pending,,
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,131,5.3 3. 多项式乘法 NTT,pending,,

@@ -6368,13 +6368,13 @@ KDTreeSum<Coord=int>(reserve\_points=0) 初始为空；Coord 取 int 或 long lo
 
 \noindent 包围盒维护、递归收集与重建（接上页同一结构体）：
 
-\lstinputlisting[firstline=36,lastline=76,firstnumber=30]{../src/compact/kd_tree_sum.hpp}
+\lstinputlisting[firstline=36,lastline=79,firstnumber=30]{../src/compact/kd_tree_sum.hpp}
 
 \newpage
 
 \noindent 点权累加与闭矩形查询（接上页同一结构体）：
 
-\lstinputlisting[firstline=77,lastline=126,firstnumber=71]{../src/compact/kd_tree_sum.hpp}
+\lstinputlisting[firstline=80,lastline=132,firstnumber=74]{../src/compact/kd_tree_sum.hpp}
 
 \Needspace{521pt}
 
@@ -6389,6 +6389,20 @@ KDTreeSum<Coord=int>(reserve\_points=0) 初始为空；Coord 取 int 或 long lo
 题目：\url{https://www.luogu.com.cn/problem/P4148}
 
 \lstinputlisting{usage/example-114.cpp}
+
+\Needspace{339pt}
+
+\subsection*{接口用法演示：动态二维偏序计数（WIDA接口适配）}
+
+\label{usage-example-269}
+
+演示约定：输入操作数m。操作1 x y插入一个二维整数点，允许重复；操作2 x y统计已经插入且两坐标分别$\le$x、$\le$y的点数。每次插入权值1，查询从INT\_MIN到(x,y)的闭矩形，边界坐标也计入，不对极小值减1。
+
+所需模板：\hyperref[compact-KDTreeSum]{KDTreeSum}（第~\pageref{compact-KDTreeSum}~页，\ref{compact-KDTreeSum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/ds/kdt/}
+
+\lstinputlisting{usage/example-269.cpp}
 
 \newpage
 
@@ -6439,6 +6453,62 @@ KDNearest<D>(points)，D>0，Point=array<int,D>，坐标为有符号32位整数�
 题目：\url{https://www.luogu.com.cn/problem/P2093}
 
 \lstinputlisting{usage/example-268.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
+\section{动态 K-D Tree 矩形取点与删除}\label{compact-KDRange}\index{KDRange}
+
+KDRange(points=\{\})，Item含Point p=array<long long,2>和int id。add(\{\{x,y\},id\})新增一条记录；extract(low,high)取出并删除闭矩形内所有记录，返回vector<Item>且顺序不保证，空矩形返回空。允许坐标和id重复，每条插入独立计数；原编号由调用者提供，需要唯一编号时自行保证。返回后可改坐标再add；一次extract完成后再插入，避免同轮重复移动。a[root].alive为当前记录数，a/root/free只读；其余方法是内部辅助。坐标仅比较，支持完整有符号64位；活跃及物理节点数须小于INT\_MAX。递归维护物理节点3/4平衡，删除做标记，存活数少于物理数一半时清理根；重建回收槽位。树高O(log(n+1))，其中n为操作前后最大存活数；按nth\_element平均线性选择计，构建O(n log(n+1))，单次插入或取点保守上界O(n log$^{2}$(n+1))，查询可能扫描全部点，不能承诺对数；空间O(历史最大存活数)，空对象重新赋值可释放历史容量。
+
+\lstinputlisting[firstline=7,lastline=35,firstnumber=1]{../src/compact/kd_range.hpp}
+
+\newpage
+
+\noindent 节点复用与子树维护（接上页同一结构体）：
+
+\lstinputlisting[firstline=36,lastline=81,firstnumber=30]{../src/compact/kd_range.hpp}
+
+\newpage
+
+\noindent 建树、回收与插入（接上页同一结构体）：
+
+\lstinputlisting[firstline=82,lastline=130,firstnumber=76]{../src/compact/kd_range.hpp}
+
+\newpage
+
+\noindent 矩形取出与删除入口（接上页同一结构体）：
+
+\lstinputlisting[firstline=131,lastline=157,firstnumber=125]{../src/compact/kd_range.hpp}
+
+\Needspace{542pt}
+
+\subsection*{接口用法演示：动态矩形取点与删除（接口演示）}
+
+\label{usage-example-270}
+
+演示约定：输入n,m和n条(x,y,id)。操作1 x y id新增记录；操作2 x1 y1 x2 y2取出并删除闭矩形中的全部记录，输出数量和递增排序后的编号。允许坐标及编号重复，重复记录分别保留；空矩形输出0。坐标为完整有符号64位整数。
+
+所需模板：\hyperref[compact-KDRange]{KDRange}（第~\pageref{compact-KDRange}~页，\ref{compact-KDRange}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/ds/kdt/}
+
+\lstinputlisting{usage/example-270.cpp}
+
+\Needspace{599pt}
+
+\subsection*{接口用法演示：曼哈顿邻域同步搬移（kuangbin源码模型）}
+
+\label{usage-example-271}
+
+演示约定：输入n,q,W,H及n个点；每次给X,Y,E,a,b,c,d,f,g，把操作开始时曼哈顿距离$\le$E的点同步改为((a*x+b*y+(id+1)*c)\%W,(d*x+f*y+(id+1)*g)\%H)。输入点在[0,W)×[0,H)，W,H为1..10\textasciicircum{}9，系数和E为0..10\textasciicircum{}9，中心坐标绝对值$\le$10\textasciicircum{}9，n$\le$10\textasciicircum{}5；编号为输入次序0-based。最后按原序输出坐标。使用(x+y,x-y)转闭矩形；128位乘加。只核对源码模型，不冒充UVALive6045原题协议；原文小于与源码闭边界存在差异，待原题确认。
+
+所需模板：\hyperref[compact-KDRange]{KDRange}（第~\pageref{compact-KDRange}~页，\ref{compact-KDRange}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/kuangbin/ACM-ICPC}
+
+\lstinputlisting{usage/example-271.cpp}
 
 \Needspace{180pt}
 
