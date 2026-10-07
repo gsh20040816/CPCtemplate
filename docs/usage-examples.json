@@ -4010,5 +4010,21 @@
       "Dinic"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-320",
+    "symbol": "flow_unique",
+    "kind": "api",
+    "problem": "最大流方案唯一性（接口演示）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/FLOW-UNIQUE.md",
+    "url_label": "最大流唯一性的合同与证明",
+    "summary": "输入n,m,s,t及1-based有向边(u,v,非负long long容量)，先求最大流，再输出流值、UNIQUE或MULTIPLE，以及按输入顺序的各原边流量。包括所有独立环流，重边分别计量；不是最小割唯一性。s≠t，总最大流≤LLONG_MAX。仅接口示例，尚无在线判题记录。",
+    "driver": "verify/api/flow_unique.compact.cpp",
+    "requires": [
+      "Dinic",
+      "TarjanSCC",
+      "flow_unique"
+    ],
+    "start_new_page": true
   }
 ]

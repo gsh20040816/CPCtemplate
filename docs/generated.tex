@@ -8964,6 +8964,32 @@ unit\_flow\_edges(g,ids) 在完整普通最大流的残量图上，查询每条�
 
 \lstinputlisting[firstline=30,firstnumber=30]{usage/example-133.cpp}
 
+\Needspace{306pt}
+
+\subsection{最大流方案唯一性}\label{compact-flow_unique}\index{flow\_unique}
+
+代码依赖：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+flow\_unique(g)只读检查Dinic已求尽的可行最大流，其原边流量向量是否唯一；源汇不同，容量非负整数，最大流可由long long表示。允许重边、自环、零容量和不连通图，包含独立环流；与最小割唯一性不同。残量SCC内按原边对各计一次，正容量自环亦计一条；某分量内部原边数不少于顶点数即多解，否则唯一。正反残量同时存在的同一边不算两条，不把无效的往返抵消视为新方案。复杂度O(n+m)，空间O(n+m)，依赖Dinic、TarjanSCC，DFS保留递归。不修改g，代表方案仍由used读取；不返回第二个方案。须先求完流，不能拿尚未求完的网络当最大流结论。
+
+\lstinputlisting[firstline=6,lastline=23]{../src/compact/flow_unique.hpp}
+
+\newpage
+
+\Needspace{407pt}
+
+\subsection*{接口用法演示：最大流方案唯一性（接口演示）}
+
+\label{usage-example-320}
+
+演示约定：输入n,m,s,t及1-based有向边(u,v,非负long long容量)，先求最大流，再输出流值、UNIQUE或MULTIPLE，以及按输入顺序的各原边流量。包括所有独立环流，重边分别计量；不是最小割唯一性。s$\ne$t，总最大流$\le$LLONG\_MAX。仅接口示例，尚无在线判题记录。
+
+所需模板：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-flow_unique]{flow\_\allowbreak{}unique}（第~\pageref{compact-flow_unique}~页，\ref{compact-flow_unique}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\href{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/FLOW-UNIQUE.md}{最大流唯一性的合同与证明}
+
+\lstinputlisting{usage/example-320.cpp}
+
 \Needspace{350pt}
 
 \section{最小割}

@@ -1,0 +1,102 @@
+{
+  "base": "d1995c937503a8a2519e24f75b377bd6bc0c5eb1",
+  "components": 250,
+  "registered_usages": 320,
+  "usage_status": {
+    "locally_checked_example": 175,
+    "locally_checked_application": 58,
+    "locally_checked_api": 17
+  },
+  "pending": 569,
+  "partial": 31,
+  "all_old_source_files_unchanged": 219,
+  "all_old_usage_programs_unchanged": 319,
+  "files": {
+    "src/compact/flow_unique.hpp": "1fbd74e678dcdfa0259da49e2d3ba3a2d83c2e5764971cc026d9b974dbb7596c",
+    "src/compact/flow.hpp": "85131194f1bd4015d1b425f7f47bd39f92a497f177418ed4270aca8b36aa5f3a",
+    "src/compact/tarjan.hpp": "61899731db759d931d805d476f659163f404b999e6eba368536a39e404fc5bf1",
+    "tests/flow_unique.py": "064b14d5813bbd10cb8fcd34869f605b1f090f604978735073ff79ca7e87dd68",
+    "tests/flow_unique_probe.cpp": "5bb3b416055891b0e5b7480a37da8183f564af3d4666022204ef62a0ce3c219d",
+    "verify/api/flow_unique.compact.cpp": "47d6cb154e4df9f1cde9362001b4eb444e0ce0fe64ef65257e19997803af15f6",
+    "tests/fixtures/flow_unique_sources/kuangbin.inc": "4781e1788fe5b654b836594a2d9240c897cdf9d0c9fc44b5fbe411c7f3cd8730",
+    "tests/fixtures/flow_unique_sources/kuangbin-call.inc": "fe7094429be0fdbed17caa59baf1b78ca9fa897224ac5ce7b7c656a730fb32a6"
+  },
+  "changed_pdfs": {
+    "output/pdf/xcpc-template.pdf": {
+      "sha256": "1ab2d1038f542436ec91df033c152fe414cd5914914e08fc39d0f2a0ec452758",
+      "pages": 852,
+      "page_change": 2,
+      "font_set_preserved": true
+    },
+    "output/pdf/xcpc-graphs.pdf": {
+      "sha256": "3f0da4221163f062994caad473882d968ef56174af2af6a9f411ae55aca59e63",
+      "pages": 281,
+      "page_change": 2,
+      "font_set_preserved": true
+    }
+  },
+  "other_pdfs_byte_identical": {
+    "output/pdf/infra.pdf": "d9edcbf161ee816773db841f0fbe38747df2dca78b41ab47d1865a4cf8ca6a78",
+    "output/pdf/xcpc-misc.pdf": "0d14cbcfa913c12869e5245818d21fc1c1a68d042b36135634a47cfa805418fb",
+    "output/pdf/xcpc-mathematics.pdf": "1ebfd8e36da19dafda25d64d1f8159965a0a519047ae98cef54073978fa63530",
+    "output/pdf/xcpc-geometry.pdf": "aa954cd39b96280c32e81a248d2a95674561852efa196c6de53a68bf4430ffb7",
+    "output/pdf/xcpc-strings.pdf": "0a70c1764048a682d7ad9dfbcde20a427bf891ddbecd01aba6d619fdf9d18b6d",
+    "output/pdf/xcpc-data-structures.pdf": "3972351fb6f9d40c4522a20f7e9f4b4fede993c83c1d76bb3682c1d37e82527b"
+  },
+  "source": {
+    "pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+    "printed_page": 168,
+    "physical_page_visually_inspected": 170,
+    "normalization": "30 original code lines split into function and call fragments. PDF numbers/indentation removed, minus normalized; external array/edge declarations supplied only in probe."
+  },
+  "scope": "New O(V+E) residual-SCC flow-vector uniqueness, integer capacities including independent circulations. API320 local only, no new online AC/rank; full goal active.",
+  "visual_review": {
+    "pages": {
+      "output/pdf/xcpc-template.pdf": {
+        "physical_pages": [
+          11,
+          659,
+          660,
+          661,
+          662,
+          663,
+          847
+        ]
+      },
+      "output/pdf/xcpc-graphs.pdf": {
+        "physical_pages": [
+          3,
+          189,
+          190,
+          191,
+          192,
+          193,
+          279
+        ]
+      },
+      "output/pdf/infra.pdf": {
+        "physical_pages": [
+          10
+        ]
+      }
+    },
+    "observations": "Core and API each fit a complete page; TOC, index, adjacent flow/min-cut pages and infra cross-volume table inspected without clipping/overlap.",
+    "rendered_page_hashes": {
+      "build/flow-unique-layout/xcpc-graphs-190.png": "bff2a6a12ccbe1f79158587ffe994f2f4e60dc533af2049a0eacd888f64d2594",
+      "build/flow-unique-layout/xcpc-graphs-191.png": "355706f93195d8aca6018c4d02bc09c2fa9dcb96de55dfb8f456657d584e2f8a",
+      "build/flow-unique-layout/xcpc-graphs-193.png": "f6a08b6efb81fa4f232a698721dfd14c0bd9e500aed60e740bd9412acd377b77",
+      "build/flow-unique-layout/xcpc-graphs-192.png": "ba6921d0db8403b99eba3203d5392d720fe8c3baa2e706391eb3582e4967b4f0",
+      "build/flow-unique-layout/infra-10.png": "386d696720d1f297ceadead466b34a1b33eaca53df81f5c77084cfb778175924",
+      "build/flow-unique-layout/xcpc-graphs-3.png": "f392f73b0fc9770f568eddf612654e7ea9b0cb4953ce88158fb14144dbba0e6d",
+      "build/flow-unique-layout/xcpc-graphs-279.png": "7c310d58fa41d93bdb605d307b0d4415896bd0877a92bbed4270946efec8aea0",
+      "build/flow-unique-layout/xcpc-template-659.png": "5672d29b9fb7d492195aedbb20da1919115713df1459b255d7bf6c387998b3dd",
+      "build/flow-unique-layout/xcpc-graphs-189.png": "06864f708f53acc640e983670f345f40e6514cdd5cfd22022a4e42e7bb854db7",
+      "build/flow-unique-layout/xcpc-template-847.png": "c0e0314426a81661e4260f656760a284e7cb65aaae1a4cb324b29ba5d33a60a3",
+      "build/flow-unique-layout/xcpc-template-660.png": "beae53eb40f8c1f41e7ca5d95bc8395ec74beda1cd53b6e08b7b01232f22bf10",
+      "build/flow-unique-layout/xcpc-template-11.png": "a42d8e76ad450ac32e5a9dab716a5facaa40bae436c1eeda522fb47bd6ce73e7",
+      "build/flow-unique-layout/xcpc-template-661.png": "32bff443259c4df5864ac013c57020b4b25864d32c6d6aaa0bcf94a1530c276d",
+      "build/flow-unique-layout/xcpc-template-663.png": "475dcfce97ac09dfd88e8cdfb33b147d70baa7dc36c4b9f6e178961eeb4f4f0d",
+      "build/flow-unique-layout/xcpc-template-662.png": "b32b9dafc8437b020fee4fa37bc954ec932fb247dd88693a2eed607e093b1510"
+    }
+  }
+}
