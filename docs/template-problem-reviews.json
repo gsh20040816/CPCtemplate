@@ -5934,5 +5934,36 @@
       "verification/assignment-spectrum-usage-normal.json",
       "verification/assignment-spectrum-usage-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "FibonacciPeriod",
+    "problem": "Luogu P4994",
+    "url": "https://www.luogu.com.cn/problem/P4994",
+    "classification": "Standalone exact Fibonacci-period task; title need not contain 模板. Full64 extension independently checked.",
+    "statement_checked": true,
+    "limits": "2<=M<=706150",
+    "tested_api": [
+      "period"
+    ],
+    "candidate_api": [
+      "period"
+    ],
+    "api": "period",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No online submission or ranking verified. This bounded problem does not certify full64/128-bit extensions.",
+    "checked_date": "2026-10-08",
+    "source": "src/compact/fibonacci_period.hpp",
+    "driver": "verify/luogu/P4994.compact.cpp",
+    "usage": "example-335",
+    "local_reports": [
+      "verification/fibonacci-period-normal.json",
+      "verification/fibonacci-period-sanitizer.json"
+    ],
+    "adapter": "Single M; period <=6M fits unsigned64 output."
   }
 ]

@@ -235,6 +235,7 @@
 | `ZkwFlow` | [Luogu P3381](https://www.luogu.com.cn/problem/P3381) | n<=5000, m<=50000; nonnegative integer capacity/cost<=1000; no self-loop; flow and minimum cost<=2^31-1; distinct source/sink required by API | 待在线 AC | 待核验 |
 | `SequenceScapegoat` | [Codeforces 455D（比赛应用）](https://codeforces.com/problemset/problem/455/D) | n,q<=100000; initial values and encoded parameters in1..n; 4s/256MiB | 待在线 AC | 待核验 |
 | `AssignmentSpectrum::add/solve/best/r` | [Luogu P6577](https://www.luogu.com.cn/problem/P6577) | n<=500; m<=n^2; -19980731<=weight<=19980731 | 待在线 AC | 待核验 |
+| `FibonacciPeriod::period` | [Luogu P4994](https://www.luogu.com.cn/problem/P4994) | 2<=M<=706150 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2209,6 +2210,14 @@ Find standalone template problem; online AC/ranking and actual judge resource pa
 0-based建图，solve()后输出best[n]和r+1；题面保证完美匹配。较小基数与顶标证书另由API枚举测试验证。
 
 已核对官方题面并独立验证新驱动；线上AC与排名未核验，不能沿用WeightedMatching的AC。
+
+### Luogu P4994 / FibonacciPeriod
+
+Standalone exact Fibonacci-period task; title need not contain 模板. Full64 extension independently checked.
+
+Single M; period <=6M fits unsigned64 output.
+
+No online submission or ranking verified. This bounded problem does not certify full64/128-bit extensions.
 
 ## 榜单口径
 

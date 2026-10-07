@@ -266,3 +266,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | determinant_exact | [example-329（接口演示）](usage/example-329.cpp) | locally_checked_api |
 | MatrixTreeExact | [example-330（接口演示）](usage/example-330.cpp), [example-331（接口演示）](usage/example-331.cpp) | locally_checked_api |
 | AssignmentSpectrum | [example-332（接口演示）](usage/example-332.cpp), [example-333（应用补充）](usage/example-333.cpp), [example-334](usage/example-334.cpp) | locally_checked_example |
+| FibonacciPeriod | [example-335](usage/example-335.cpp), [example-336（接口演示）](usage/example-336.cpp), [example-337（接口演示）](usage/example-337.cpp) | locally_checked_example |

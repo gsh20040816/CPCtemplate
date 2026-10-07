@@ -1552,5 +1552,11 @@
     "AssignmentSpectrum",
     "按匹配基数求最大权与顶标证书",
     "AssignmentSpectrum(n,m)，两侧0-based，n,m≥0。add(x,y,w)接受完整signed64权，重边保留最大权，缺边不当零权。solve(limit=INT_MAX)从空重算，返回k=min(limit,最大匹配数)，limit≥0；best[j]为全图恰好j条边的最大权，0≤j≤k，best[0]=0。负增益也继续，best不必单调。l/r为最后k条的互逆方案，-1未匹配；要j条方案重新solve(j)。顶标lx,ly和level仅对最后基数有效：令α=lx-level、β=ly，则α,β非负，每条边α+β+level≥w，匹配边取等，未匹配点对应α或β为0；sum(α)+sum(β)+k*level等于best[k]。答案与顶标为int128；加边后须重新solve，其他成员只读。多源松弛始终从所有未匹配左点出发，故每个基数均全局最优。时间O((k+1)nm+n+m)、空间O(nm+n+m)，适合小侧或稠密图。"
+  ],
+  [
+    "fibonacci_period",
+    "FibonacciPeriod",
+    "斐波那契最小循环节（Pisano周期）",
+    "period(m)返回精确最小正周期，1≤m≤2^64−1，m=1返回1；结果为unsigned int128，可能超过64位。fib(k,m)递归倍增返回(F_k,F_{k+1})模m，k为unsigned int128；is_period(k,m)检查k>0及完整状态(0,1%m)。prime_period(p)仅供素数p≥2。复用PollardRho分解m和素数候选的p±1；逐个除因子求素数最小周期，再逐层检查素数幂，不能无条件每层乘p。互素分量周期取lcm。总复杂度含随机整数分解，无确定的O(log m)保证；每次状态检查O(log k)次128位模运算，递归空间O(log k)，k≤128位。对象可重复使用，factorizer仅控制分解随机过程；π(m)≤6m，所有周期算术使用128位。"
   ]
 ]

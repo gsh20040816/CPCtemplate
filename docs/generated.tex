@@ -3603,6 +3603,76 @@ if (0 <= r && r <= m && r <= n)
 本节不声称覆盖该来源页面的所有计数主题，也不计作新模板或在线评测通过。
 
 
+\newpage
+
+\Needspace{680pt}
+
+\section{斐波那契数列}
+
+\subsection{斐波那契最小循环节（Pisano周期）}\label{compact-FibonacciPeriod}\index{FibonacciPeriod}
+
+代码依赖：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+period(m)返回精确最小正周期，1$\le$m$\le$2\textasciicircum{}64−1，m=1返回1；结果为unsigned int128，可能超过64位。fib(k,m)递归倍增返回(F\_k,F\_\{k+1\})模m，k为unsigned int128；is\_period(k,m)检查k>0及完整状态(0,1\%m)。prime\_period(p)仅供素数p$\ge$2。复用PollardRho分解m和素数候选的p±1；逐个除因子求素数最小周期，再逐层检查素数幂，不能无条件每层乘p。互素分量周期取lcm。总复杂度含随机整数分解，无确定的O(log m)保证；每次状态检查O(log k)次128位模运算，递归空间O(log k)，k$\le$128位。对象可重复使用，factorizer仅控制分解随机过程；$\pi$(m)$\le$6m，所有周期算术使用128位。
+
+\lstinputlisting[firstline=4,lastline=27,firstnumber=1]{../src/compact/fibonacci_period.hpp}
+
+\newpage
+
+\noindent 素数候选缩减、素数幂逐层检查与互素lcm（接上页同一结构体）：
+
+\lstinputlisting[firstline=28,lastline=79,firstnumber=25]{../src/compact/fibonacci_period.hpp}
+
+\newpage
+
+\Needspace{264pt}
+
+\subsection*{模板题使用：Luogu P4994 / 终于结束的起点}
+
+\label{usage-example-335}
+
+题意：输入单个模数2$\le$M$\le$706150，输出最小n>0使F\_n=0、F\_(n+1)=1（模M）。$\pi$(M)$\le$6M，题目范围内可安全转unsigned long long。独立模板问题；题面与样例已核对，无本项目线上AC或排名。
+
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-FibonacciPeriod]{FibonacciPeriod}（第~\pageref{compact-FibonacciPeriod}~页，\ref{compact-FibonacciPeriod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4994}
+
+\lstinputlisting{usage/example-335.cpp}
+
+\newpage
+
+\Needspace{439pt}
+
+\subsection*{接口用法演示：完整64位模数与128位最小周期}
+
+\label{usage-example-336}
+
+演示约定：输入T与T个正unsigned64模数，逐行输出精确最小周期，使用128位十进制转换。包含m=1的约定；m=2*5\textasciicircum{}27时答案89406967163085937500超过64位。API演示，不是线上通过记录。
+
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-FibonacciPeriod]{FibonacciPeriod}（第~\pageref{compact-FibonacciPeriod}~页，\ref{compact-FibonacciPeriod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/math/combinatorics/fibonacci/}
+
+\lstinputlisting{usage/example-336.cpp}
+
+\newpage
+
+\Needspace{336pt}
+
+\subsection*{接口用法演示：kuangbin HDU3977来源程序协议}
+
+\label{usage-example-337}
+
+演示约定：按完整来源程序输入T及正int模数，输出Case \#k: 周期。来源初值(1,1)与标准(0,1)仅相差一次可逆转移，周期相同。原PDF的注释吞掉左括号、旧MSVC输出格式须显式兼容修改；官方题面不可访问，故仅归为来源协议API，不声称正式题目或AC。
+
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-Prime64]{Prime64}（第~\pageref{compact-Prime64}~页，\ref{compact-Prime64}~节）、\hyperref[compact-PollardRho]{PollardRho}（第~\pageref{compact-PollardRho}~页，\ref{compact-PollardRho}~节）、\hyperref[compact-FibonacciPeriod]{FibonacciPeriod}（第~\pageref{compact-FibonacciPeriod}~页，\ref{compact-FibonacciPeriod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://acm.hdu.edu.cn/showproblem.php?pid=3977}
+
+\lstinputlisting{usage/example-337.cpp}
+
+\newpage
+
 \Needspace{180pt}
 
 \section{卡特兰数}

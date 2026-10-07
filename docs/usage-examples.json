@@ -4227,5 +4227,53 @@
       "AssignmentSpectrum"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-335",
+    "symbol": "FibonacciPeriod",
+    "kind": "template",
+    "problem": "Luogu P4994 / 终于结束的起点",
+    "url": "https://www.luogu.com.cn/problem/P4994",
+    "summary": "输入单个模数2≤M≤706150，输出最小n>0使F_n=0、F_(n+1)=1（模M）。π(M)≤6M，题目范围内可安全转unsigned long long。独立模板问题；题面与样例已核对，无本项目线上AC或排名。",
+    "driver": "verify/luogu/P4994.compact.cpp",
+    "requires": [
+      "Mod64",
+      "Prime64",
+      "PollardRho",
+      "FibonacciPeriod"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-336",
+    "symbol": "FibonacciPeriod",
+    "kind": "api",
+    "problem": "完整64位模数与128位最小周期",
+    "url": "https://oi-wiki.org/math/combinatorics/fibonacci/",
+    "summary": "输入T与T个正unsigned64模数，逐行输出精确最小周期，使用128位十进制转换。包含m=1的约定；m=2*5^27时答案89406967163085937500超过64位。API演示，不是线上通过记录。",
+    "driver": "verify/api/fibonacci_period.compact.cpp",
+    "requires": [
+      "Mod64",
+      "Prime64",
+      "PollardRho",
+      "FibonacciPeriod"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-337",
+    "symbol": "FibonacciPeriod",
+    "kind": "api",
+    "problem": "kuangbin HDU3977来源程序协议",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=3977",
+    "summary": "按完整来源程序输入T及正int模数，输出Case #k: 周期。来源初值(1,1)与标准(0,1)仅相差一次可逆转移，周期相同。原PDF的注释吞掉左括号、旧MSVC输出格式须显式兼容修改；官方题面不可访问，故仅归为来源协议API，不声称正式题目或AC。",
+    "driver": "verify/api/fibonacci_period_hdu3977.compact.cpp",
+    "requires": [
+      "Mod64",
+      "Prime64",
+      "PollardRho",
+      "FibonacciPeriod"
+    ],
+    "start_new_page": true
   }
 ]
