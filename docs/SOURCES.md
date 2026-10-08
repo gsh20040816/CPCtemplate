@@ -347,3 +347,7 @@ issue #11 §3.2原根的123行完整来源（71–74页）已与既有PrimitiveR
 ### kuangbin DA完整最长回文应用
 
 完整121行原程序（印刷11–14页）与现有SuffixArray+SuffixLCP组合用法343对照，覆盖EOF多组输入、最靠左最长回文、空后缀查询、奇偶半径。原程序对照限定可打印ASCII、长度1..10004；新字节扩展及50万长度单独验证。11988组来源域与308组扩展在普通、NDEBUG、展开、抄写、ASan/UBSan下通过；四个故障变体检出。父§1.5现为local-tested，详见[DA-PALINDROME.md](DA-PALINDROME.md)，不是线上AC或竞赛题号认定。
+
+### kuangbin优化KMP失败表
+
+前47行kmp_pre/preKMP/KMP_Count完整核对，新增用法344复用prefix_function构造nextval并执行重叠匹配。末尾nextval[m]保留普通最长border，不把零终止符用于该判断。92868组来源域及812组零字节/百万长度扩展在四种新程序形式、ASan/UBSan下通过；四种故障变体检出。§1.1由partial改为local-tested，详见[KMP-NEXTVAL.md](KMP-NEXTVAL.md)，无新线上AC或速度排名。

@@ -4355,5 +4355,19 @@
       "SuffixLCP"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-344",
+    "symbol": "prefix_function",
+    "kind": "api",
+    "problem": "优化KMP失败表nextval与重叠匹配",
+    "url": "https://github.com/kuangbin/ACM-ICPC",
+    "summary": "多组直到EOF：输入文本长度n≥0、非空模式长度1≤m<INT_MAX，随后两串各自的0..255字节整数。每组输出nextval[0..m]、匹配数量、0-based起点三行。对i<m跳过下一个模式字符仍相同的失败状态；nextval[m]必须取普通最长border，保留重叠。无需尾零，支持零字节。O(n+m)时间，O(m+答案数)额外空间；来源接口演示，不是线上模板题。",
+    "driver": "verify/api/kmp_nextval.compact.cpp",
+    "requires": [
+      "prefix_function"
+    ],
+    "start_new_page": true,
+    "page_break_before": "        vector<int> positions;"
   }
 ]

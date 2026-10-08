@@ -1,6 +1,6 @@
 # KMP、Z、两串扩展KMP与Manacher的来源对应
 
-本文件记录916eb25批次的历史结果；后续顺序匹配与整数Manacher补全见 `docs/SEQUENCE-MATCHING.md`，当前状态以coverage.csv为准。
+本文件记录916eb25批次的历史结果；后续顺序匹配与整数Manacher补全见 `docs/SEQUENCE-MATCHING.md`，优化失败表的后续补齐见 `docs/KMP-NEXTVAL.md`；下文保留当时的覆盖边界，当前状态以coverage.csv为准。
 
 本次核对10个尚未映射的WIDA/kuangbin条目。核对依据是实际源代码和章节内容，而非标题相似；逐条范围记录在 `verification/string-prefix-sources.json`。其中8项标记为本地验证后的功能替代，2项保留部分覆盖。没有新增线上AC或速度排名。
 

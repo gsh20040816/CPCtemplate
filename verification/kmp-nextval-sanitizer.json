@@ -1,0 +1,51 @@
+{
+  "mode": "sanitizer",
+  "source_cases": 92868,
+  "extension_cases": 812,
+  "programs": [
+    {
+      "form": "source",
+      "source_cases": 92868,
+      "extension_cases": 0,
+      "source_sha256": "c78ce0806d541ccdc54622cc7f80e47320c24df21e3791c764342e2e08f5e04d"
+    },
+    {
+      "form": "header",
+      "source_cases": 92868,
+      "extension_cases": 812,
+      "source_sha256": "3e7c9e892b5cb2eee92ca45ee92b413e39325038d6dae0bd13a419af44058e8e"
+    },
+    {
+      "form": "ndebug",
+      "source_cases": 92868,
+      "extension_cases": 812,
+      "source_sha256": "3e7c9e892b5cb2eee92ca45ee92b413e39325038d6dae0bd13a419af44058e8e"
+    },
+    {
+      "form": "expanded",
+      "source_cases": 92868,
+      "extension_cases": 812,
+      "source_sha256": "2d89825908d166c585af0e2dbc384d136aefcb7020a08976ecf516cb3c2137ca"
+    },
+    {
+      "form": "copied",
+      "source_cases": 92868,
+      "extension_cases": 812,
+      "source_sha256": "55bce46260f261f9140693db440e00850c98714334aa7895694fae81f74193dc"
+    }
+  ],
+  "mutants": [],
+  "snapshot": {
+    "src/compact/string.hpp": "be145d0bbbe033aae59174b130d391af9dfa5de32adb5c5dca4243b1d68e90f4",
+    "verify/api/kmp_nextval.compact.cpp": "3e7c9e892b5cb2eee92ca45ee92b413e39325038d6dae0bd13a419af44058e8e",
+    "tests/kmp_nextval.py": "633e6df5f38902f8bc802ed922fa2c223f1d5ad644c9286ec8b2be179017d5a4",
+    "tests/fixtures/kmp_nextval_sources/kuangbin.cpp": "9a0c114fac13990f5d487c6d8a5c510de221438ff681d0f3afb09094526132f1",
+    "docs/catalog.json": "f4ae2dfe5f5cf4cca6ed852097b9d6948cba4fedb9baf2538b6cc212c4947dca",
+    "docs/usage-examples.json": "da1daf4a2a12dffffd529b3d52549db5b7af7308c6291b530514402c823a235d",
+    "tools/usage_examples.py": "2cd2c5f91b3a40d940dcc178c747f563d8744db15889b69feb16af92e90a26f6",
+    "tools/audit_copy_context.py": "a732de58424150b7297de0eeac22e427a4e3db332da3ed996bd5ba2c2cba7882"
+  },
+  "usage": "example-344",
+  "program_sha256": "2d89825908d166c585af0e2dbc384d136aefcb7020a08976ecf516cb3c2137ca",
+  "scope": "All optimized table entries and overlapping positions checked against enumerated borders/window equality. Original47-line fragment preKMP and KMP_Count in namespace; source domain nonzero bytes,m<=10009. New zero bytes and million-text/500000-pattern extensions separate. No online AC."
+}

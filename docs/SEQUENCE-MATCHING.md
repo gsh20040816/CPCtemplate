@@ -24,7 +24,7 @@
 
 WIDA固定提交cfdb12db6792eb2303798541fb5c760ed2bc618b的jiangly Manacher文件含string和vector<int>两个版本，现均可功能替代。其插分隔符半径r含中心：r[2i+1]=2*odd[i]，r[2i]=2*even[i]+1（i<n），最后r[2n]=1。本库直接返回两类半径，调用者按需要转换；没有把整个整数域强转为char。来源文件哈希和本次账本变更见verification/sequence-matching-sources.json。
 
-kuangbin §1.1已覆盖普通匹配与顺序匹配，但原稿优化失败表kmpNext仍未直接暴露，因此整章保持partial，不因应用补齐而宣称全章完成。
+kuangbin §1.1的优化失败表kmpNext已由后续[优化失败表用法344](KMP-NEXTVAL.md)补齐，末尾border和字节扩展有独立证据；结合本批普通/顺序匹配覆盖，整章现为local-tested，仍不是线上AC声明。
 
 ## 验证范围
 

@@ -3428,5 +3428,15 @@
     "cases_per_mode": 12296,
     "driver": "verify/source-model/da_palindrome.compact.cpp",
     "scope": "Complete original EOF source protocol and four current forms;11988 source-domain cases,308 new byte/large extensions;leftmost center-expansion oracle and closed-form stress;no online AC."
+  },
+  "example-344": {
+    "program_sha256": "2d89825908d166c585af0e2dbc384d136aefcb7020a08976ecf516cb3c2137ca",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 93680,
+    "driver": "verify/api/kmp_nextval.compact.cpp",
+    "scope": "92868 source-domain tables/counts and812 zero-byte/large extensions; four current forms, brute borders/windows,4 mutants. No online AC."
   }
 }
