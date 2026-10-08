@@ -51,6 +51,7 @@ chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
 chapters['potential_dsu'] = '带势并查集与差值约束'
 chapters['gauss_real'] = '实数高斯消元'
+chapters['time_connectivity'] = '离线动态连通性'
 chapters['real_space'] = '三维向量运算'
 chapters['line3'] = '三维直线与线段'
 chapters['plane3'] = '三维平面与求交'
@@ -127,7 +128,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('RealSpace', 'Line3', 'Plane3', 'rectangle_union_area', 'convolution_mod', 'DC3', 'DagDominator', 'FibonacciPeriod', 'AssignmentSpectrum', 'DynamicPathMax', 'SequenceKth', 'SequenceScapegoat', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Prim', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D', 'Isap', 'flow_unique', 'ZkwFlow', 'TreeMarket'):
+            if name in ('TimeConnectivity', 'RealSpace', 'Line3', 'Plane3', 'rectangle_union_area', 'convolution_mod', 'DC3', 'DagDominator', 'FibonacciPeriod', 'AssignmentSpectrum', 'DynamicPathMax', 'SequenceKth', 'SequenceScapegoat', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Prim', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D', 'Isap', 'flow_unique', 'ZkwFlow', 'TreeMarket'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -499,6 +500,12 @@ for style in ['compact']:
                         body.append('\\newpage')
                         body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
                     body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'TimeConnectivity':
+                cut = next(i for i in range(start, end) if lines[i] == 'private:')
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(cut) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 时间区间插入与回滚递归（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(cut + 1) + ',firstnumber=' + str(cut - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name in ('RealSpace', 'Line3', 'Plane3'):
                 token = {'RealSpace': '    static R dot(', 'Line3': '    R distance(', 'Plane3': '    // 1: one point;'}[name]
                 cut = next(i for i in range(start, end) if token in lines[i])
@@ -1136,6 +1143,8 @@ for style in ['compact']:
                 if name == 'BoundedMaxFlow' or usage.get('start_new_page'):
                     body.append('\\newpage')
                 count = len(usage['snippet'].splitlines())
+                if usage['id'] == 'example-353':
+                    usage = dict(usage, page_break_before='        vector<pair<int, int>> ask(q, {-1, -1});')
                 split_lines = 0
                 if usage.get('configuration_functions') and count > 48:
                     split_lines = usage['snippet'].splitlines().index('int main()')
@@ -1184,7 +1193,7 @@ for style in ['compact']:
                         body.append('\\lstinputlisting[firstline=' + str(split_lines + 1) + ',firstnumber=' + str(split_lines + 1) + ']{' + listing + '}')
                 else:
                     body.append('\\lstinputlisting{' + listing + '}')
-            if name in ('RealSpace', 'Line3', 'Plane3', 'AffineSequenceTreap', 'TarjanSCC', 'AssignmentSpectrum', 'FibonacciPeriod', 'DagDominator', 'DC3', 'convolution_mod'):
+            if name in ('TimeConnectivity', 'RealSpace', 'Line3', 'Plane3', 'AffineSequenceTreap', 'TarjanSCC', 'AssignmentSpectrum', 'FibonacciPeriod', 'DagDominator', 'DC3', 'convolution_mod'):
                 body.append('\\newpage')
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 assert {r['symbol'] for r in records} == {r[1] for r in cat}, 'Catalog contains an unprinted module'

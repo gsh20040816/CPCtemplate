@@ -74,6 +74,12 @@
           "url": "https://judge.yosupo.jp/problem/persistent_unionfind",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P2147.offline.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2147",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
       "qoj_tag_candidate": null,
@@ -6823,6 +6829,30 @@
       "source": "src/compact/plane3.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "TimeConnectivity",
+      "title": "时间线段树分治：离线动态连通性",
+      "source": "src/compact/time_connectivity.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P2147.offline.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2147",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/301882512"
+          ],
+          "review": "Checked forest contest application; separate offline implementation AC. General multigraph API not covered by this judge."
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",

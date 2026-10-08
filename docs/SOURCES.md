@@ -365,3 +365,7 @@ issue #11 §3.2原根的123行完整来源（71–74页）已与既有PrimitiveR
 ### kuangbin三维点线面
 
 §7.2完整188行、印刷238–242页核对；新增RealSpace/Line3/Plane3轻量组件与API用法348–351。原排序、闭线段判定、平面夹角、平面交线、零方向和I/O缺陷分别记录，4999组非退化来源对照及8014组独立有理数/四元数用法通过普通与ASan/UBSan。浮点容差模型不等同精确拓扑，未增加线上AC。见[REAL-SPACE.md](REAL-SPACE.md)。
+
+## 离线动态连通性（issue14）
+
+新增TimeConnectivity：独立实现时间区间分解和递归回滚遍历，复用本库RollbackDSU；没有将旧LCT提交或其他来源未审计条目标为完成。P2147官方题面和两份样例已核验，新离线实现单独AC；多重图初始边、计数删除、分量大小为独立API用法。接口、证明及证据范围见[TIME-CONNECTIVITY.md](TIME-CONNECTIVITY.md)。

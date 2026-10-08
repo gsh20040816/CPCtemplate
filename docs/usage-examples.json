@@ -4468,5 +4468,31 @@
       "Line3",
       "Plane3"
     ]
+  },
+  {
+    "id": "example-352",
+    "symbol": "TimeConnectivity",
+    "kind": "application",
+    "problem": "P2147 洞穴勘测（离线解法）",
+    "url": "https://www.luogu.com.cn/problem/P2147",
+    "summary": "初始无边，读Connect/Destroy/Query；合法增删且始终为森林。点号1..n；加边时刻a、删边时刻b配成[a,b)，结束未删边配到q。输出Yes/No。竞赛应用，不是任意多重图完整接口的正式模板题。",
+    "driver": "verify/luogu/P2147.offline.compact.cpp",
+    "requires": [
+      "RollbackDSU",
+      "TimeConnectivity"
+    ]
+  },
+  {
+    "id": "example-353",
+    "symbol": "TimeConnectivity",
+    "kind": "api",
+    "problem": "带初始边的多重图增删连通性（接口演示）",
+    "url": "",
+    "summary": "EOF多组n,m,q，初始m条无向边，再读q行 + u v / - u v / ? u v。点号1..n，允许重边和自环，删除须存在且只删一份；每次?输出连通性0/1及u的分量大小。计数从0到1开启生存区间，从1到0关闭；初始边从0开始。n>=1，m+q<=INT_MAX。",
+    "driver": "verify/api/time_connectivity.compact.cpp",
+    "requires": [
+      "RollbackDSU",
+      "TimeConnectivity"
+    ]
   }
 ]

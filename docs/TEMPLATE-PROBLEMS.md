@@ -239,6 +239,7 @@
 | `DagDominator::build/idom` | [Library Checker dominatortree (DAG/LT composition)](https://judge.yosupo.jp/problem/dominatortree) | 1<=N<=200000;0<=M<=200000;0-based vertices | 待在线 AC | 待核验 |
 | `DC3::constructor/sa` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase letters | 待在线 AC | 待核验 |
 | `convolution_mod::convolution_mod(a,b,mod)` | [Luogu P4245](https://www.luogu.com.cn/problem/P4245) | 1<=n,m<=100000 degrees;0<=coefficients<=1e9;2<=p<=1000000009 | [记录](https://www.luogu.com.cn/record/301858590) | 待核验 |
+| `TimeConnectivity::TimeConnectivity(n,q)` | [Luogu P2147](https://www.luogu.com.cn/problem/P2147) | n<=10000,q<=200000; initial empty forest, legal Connect/Destroy/Query; 1s/125MB as displayed. | [记录](https://www.luogu.com.cn/record/301882512) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2245,6 +2246,14 @@ Independent exact arbitrary-modulus polynomial multiplication template; FFT hist
 Read degrees and coefficients;output n+m+1 normalized residues.
 
 P4245 official domain AC100,20tests,C++20 O2;exact minimal copied source archived. Speed rank unverified;empty/signed-int/mod1/INT_MAX and2^24 capacity not covered by online result. See verification/convolution-mod-online.json.
+
+### Luogu P2147 / TimeConnectivity
+
+SDOI2008 forest connectivity contest application, not a standalone general multigraph template.
+
+Pair Connect/Destroy into half-open lifetimes, close remaining edges atq; query leaf DSU and print Yes/No.
+
+Forest contest application AC100,11tests; initial edges, cycles, parallel edges, component sizes and repeated run covered locally only. Ranking unverified.
 
 ## 榜单口径
 

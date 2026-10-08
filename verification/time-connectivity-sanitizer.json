@@ -1,0 +1,57 @@
+{
+  "mode": "sanitizer",
+  "compiler": "/opt/homebrew/bin/g++-16",
+  "flags": [
+    "-std=c++20",
+    "-O1",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-g"
+  ],
+  "source_sha256": {
+    "src/compact/time_connectivity.hpp": "1b6aa08be7f1d9f2e4df7dffcf7387637ea4056ecc2b018222aa03fc86c453f6",
+    "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
+    "tests/time_connectivity.cpp": "7e43848b62bc5ded4689677e06af95a84668e132dc49d1196faed9244c03f329",
+    "tests/time_connectivity.py": "06b3591ccbf56948ee648190cdc719c6b5725012a1f8835273277debd5d80774",
+    "docs/catalog.json": "c6665f48296cc687fc5927b9c0ddaa822a2afa98ff9e8da78fe1436e58b5d4f1",
+    "docs/usage-examples.json": "8a74826c1938417e88a576fee7c4c9b7ec5c08bd5dae9228527d25151990f550",
+    "verify/luogu/P2147.offline.compact.cpp": "0f3b7ea5500bad8f937585e5e65e4bb989b3650d134d8af849c066ecefa253a7",
+    "verify/api/time_connectivity.compact.cpp": "2ce7fd706e1a52bbaa594ddbe787a2a68044b198c3137b4c7a129e73578fd10b"
+  },
+  "core": {
+    "header": "4000 interval graphs; repeated run and add-after-run PASS",
+    "ndebug": "4000 interval graphs; repeated run and add-after-run PASS",
+    "copied": "4000 interval graphs; repeated run and add-after-run PASS"
+  },
+  "usages": {
+    "example-352": {
+      "program_sha256": "994c3b88ccb80432554ca921ca263a9ef7f07ff8e88d11affd23ddb1321e2780",
+      "copied_program_sha256": "89acd56cedba6dea6179df2dd069d03f64ba0cd2f83138e5547465343038f45a",
+      "forms": [
+        "header",
+        "ndebug",
+        "expanded",
+        "copied"
+      ],
+      "cases": 65
+    },
+    "example-353": {
+      "program_sha256": "34edd6178e46aedc5086fa31b6bceb595d40fe8c05f9d1a2d2a5150e86b1da62",
+      "copied_program_sha256": "d334a3d1988db1fc37623a8f5051717995d58b7611ebcbbd1f6dad080c1e6f39",
+      "forms": [
+        "header",
+        "ndebug",
+        "expanded",
+        "copied"
+      ],
+      "cases": 322
+    }
+  },
+  "mutants": {
+    "no_rollback": "need(false) detected",
+    "short_interval": "need(false) detected",
+    "close_at_one_copy": "output mismatch detected"
+  },
+  "passed": true,
+  "scope": "Independent BFS tests; P2147 forest domain, multigraph API and raw lifetimes separately checked. No online AC inferred."
+}

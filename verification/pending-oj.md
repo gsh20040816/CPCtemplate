@@ -75,6 +75,7 @@
 - `verify/api/spfa.compact.cpp`
 - `verify/api/static_rmq.compact.cpp`
 - `verify/api/static_rmq_2d.compact.cpp`
+- `verify/api/time_connectivity.compact.cpp`
 - `verify/api/tree_market.compact.cpp`
 - `verify/api/tree_path_parity.compact.cpp`
 - `verify/api/trie_sam.compact.cpp`

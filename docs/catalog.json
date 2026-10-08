@@ -1594,5 +1594,11 @@
     "Plane3",
     "三维平面投影与分类求交",
     "Plane3(p,normal) 要求非零法向量并单位化；through(a,b,c) 要求三点不共线；equation(n,h) 表示n点乘x=h。signed_distance保留法向符号，projection返回垂足。intersect(line,q,eps,ang) 返回1单点、0无交、-1整条非退化线在面上，退化线按点处理。intersect(plane,line,eps,ang) 返回1交线、0平行不同、-1重合。仅返回1时写输出参数；交线d为单位向量。eps为距离容差，ang为单位方向的正弦容差；默认1e-10和1e-12。近乎平行按容差分类，非精确拓扑判定；近乎平行求交误差会放大。公开p和单位n，勿破坏单位不变量。依赖RealSpace/Line3；O(1)。"
+  ],
+  [
+    "time_connectivity",
+    "TimeConnectivity",
+    "时间线段树分治：离线动态连通性",
+    "TimeConnectivity(n,q)，点号0..n（1-based图不使用0），时间0..q-1。add(l,r,u,v)登记边在半开区间[l,r)有效，允许空区间、重叠区间、重边和自环。run(visit)按时间递增调用visit(t,const RollbackDSU &d)，可用find判断连通、siz[find(u)]取分量大小；只在回调内读取，不保留引用，不在遍历中改图。每次run重新建并查集，可重复调用，也可在两次run间加区间。q=0不调用回调。n>=0且n<INT_MAX，0<=q<=INT_MAX/4，并须满足内存限制。K个非空区间：存储O(n+q+K log(q+1))；建区间O(K log(q+1))，遍历O(n+q+K log(q+1) log(n+2))，另加回调代价。依赖RollbackDSU，不做路径压缩；DFS保持递归。"
   ]
 ]

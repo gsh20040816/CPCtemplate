@@ -273,3 +273,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | RealSpace | [example-348（接口演示）](usage/example-348.cpp) | locally_checked_api |
 | Line3 | [example-349（接口演示）](usage/example-349.cpp) | locally_checked_api |
 | Plane3 | [example-350（接口演示）](usage/example-350.cpp), [example-351（接口演示）](usage/example-351.cpp) | locally_checked_api |
+| TimeConnectivity | [example-352（应用补充）](usage/example-352.cpp), [example-353（接口演示）](usage/example-353.cpp) | locally_checked_application |

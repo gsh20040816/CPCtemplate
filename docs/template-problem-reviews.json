@@ -6061,5 +6061,35 @@
       "verification/convolution-mod-sanitizer.json"
     ],
     "adapter": "Read degrees and coefficients;output n+m+1 normalized residues."
+  },
+  {
+    "symbol": "TimeConnectivity",
+    "problem": "Luogu P2147",
+    "url": "https://www.luogu.com.cn/problem/P2147",
+    "classification": "SDOI2008 forest connectivity contest application, not a standalone general multigraph template.",
+    "statement_checked": true,
+    "limits": "n<=10000,q<=200000; initial empty forest, legal Connect/Destroy/Query; 1s/125MB as displayed.",
+    "tested_api": [
+      "add",
+      "run",
+      "RollbackDSU.find"
+    ],
+    "api": "TimeConnectivity(n,q)",
+    "ac": "https://www.luogu.com.cn/record/301882512",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Forest contest application AC100,11tests; initial edges, cycles, parallel edges, component sizes and repeated run covered locally only. Ranking unverified.",
+    "checked_date": "2026-10-08",
+    "source": "src/compact/time_connectivity.hpp",
+    "driver": "verify/luogu/P2147.offline.compact.cpp",
+    "usage": "example-352",
+    "local_reports": [
+      "verification/time-connectivity-normal.json",
+      "verification/time-connectivity-sanitizer.json"
+    ],
+    "adapter": "Pair Connect/Destroy into half-open lifetimes, close remaining edges atq; query leaf DSU and print Yes/No."
   }
 ]
