@@ -355,3 +355,7 @@ issue #11 §3.2原根的123行完整来源（71–74页）已与既有PrimitiveR
 ### kuangbin HDU4656移位等比求值
 
 印刷51–54页说明、推导及119行完整程序核对，指数为2k。用法347组合精确卷积并独立处理c=0；原第30行模乘的signed64溢出由UBSan复现，只替换这一行后的完整来源程序另行测试。4509组Horner/大规模闭式与22组修正来源对照通过四种新程序形式及ASan/UBSan，四个故障变体检出。HDU正式题面/资源限制仍未确认，§2.18与子条目保持partial。详见[SHIFT-GEOMETRIC.md](SHIFT-GEOMETRIC.md)。
+
+### kuangbin素数章节
+
+三个完整17/16/58行片段与既有LinearSieve、segmented_primes及Prime Distance程序核对。独立试除覆盖百万范围表，210组EOF输出通过普通与ASan/UBSan；父§2.1从pending改为local-tested，无新增基础模板或线上AC。见[PRIME-SOURCE-AUDIT.md](PRIME-SOURCE-AUDIT.md)。

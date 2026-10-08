@@ -1,0 +1,43 @@
+{
+  "mode": "normal",
+  "compiler": "/opt/homebrew/bin/g++-16",
+  "flags": [
+    "-std=c++20",
+    "-O2"
+  ],
+  "source_sha256": {
+    "tests/prime_source_audit.py": "77a463b4e0687aedd8047123869693c72e259abbb8ceff5ea663403cf2f6358e",
+    "tests/prime_distance_application.py": "20176c6fcb0157efa8541718d457ca0846c015dc169842f1eec1cef9553898b3",
+    "src/compact/number_theory.hpp": "a34ca088e2b3fe2decceadfba4b59164a8ee6625ced23a3e1781e24590a1790a",
+    "src/compact/segmented_sieve.hpp": "5a9ebfe04f710b887ebd276a23512f47484a6fc5b1fd74aa00182c3403a75c5d",
+    "verify/poj/2689.compact.cpp": "701455bb90c50730ffe7f9f7695b0c97a762bb54cf63404af97e197a6827d008",
+    "tests/fixtures/prime_sources/distance.cpp": "1ccea04dc2b58aeff987f4d1f22d050888a7ba383a8464d535547901a4363ee0",
+    "tests/fixtures/prime_sources/list.cpp": "54cb271698541e332ac7d9099a0b8a75b6c825a3612e9e3a5dfc43be313df282",
+    "tests/fixtures/prime_sources/table.cpp": "d66c89d8eef9ed95fb5e4bd741b07f5e667b6b42d1bbb9115da12e3f308a7e3e"
+  },
+  "table_domain": [
+    0,
+    1000009
+  ],
+  "table_repetitions": 2,
+  "table_forms": [
+    "header",
+    "ndebug",
+    "copied"
+  ],
+  "list_domain": [
+    0,
+    10000
+  ],
+  "distance_cases": 210,
+  "distance_forms": [
+    "original-global-main",
+    "header",
+    "ndebug",
+    "expanded",
+    "copied"
+  ],
+  "oracle": "trial division for full tables; deterministic 32-bit Miller-Rabin for interval outputs",
+  "online_verdict": null,
+  "passed": true
+}
