@@ -1570,5 +1570,11 @@
     "DC3",
     "后缀数组：DC3线性构造",
     "DC3(string)按unsigned char比较全部字节（含0/255）；DC3(vector<int>,alphabet)要求每项在[0,alphabet)，1≤alphabet<INT_MAX−3，长度n<INT_MAX−3。空输入合法。sa为所有非空后缀的0-based起点，rk[sa[i]]=i；lcp[0]=0，lcp[i]为sa[i−1]与sa[i]的公共前缀长度。三数组均长n，空输入均为空，不含空后缀；输入不被改写，无需调用者补零或三倍数组。内部把符号加一，0只作哨兵；n mod3=1时补一个虚拟采样点，归并时跳过。稳定基数排序三元组、递归命名、排序余0类并合并；时间空间均O(n+alphabet)，仅alphabet=O(n)或固定字节集时称线性。稀疏大整数先保序离散化，其比较排序代价另计。递归深度O(log(n+1))，私有sort_suffixes要求正符号，用户只用构造及结果数组。与SuffixArray/SAIS接口约定一致，无线上性能优越性声明。"
+  ],
+  [
+    "convolution_mod",
+    "convolution_mod",
+    "三模NTT：精确任意模数卷积",
+    "convolution_mod(a,b,mod)接受vector<int>，1≤mod≤INT_MAX，支持负输入、合数和模数1。返回[0,mod)普通卷积；任一输入为空则返回空。非空结果长度≤2^24；先将输入归一化，再用三个固定NTT素数重构非负整数系数，int128中间值后取目标模数，无浮点误差及signed64真实系数限制。直接取非负CRT代表，不经signed64窄化。O(L log L)时间、O(L)空间，L为补齐二次幂；长度上限不是内存或时限承诺。参数按值传递，普通调用不改原数组，愿意移交数据时可move。依赖NttConvolution及ModInt，convolution_prime为内部三模辅助。"
   ]
 ]

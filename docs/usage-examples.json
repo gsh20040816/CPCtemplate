@@ -4369,5 +4369,35 @@
     ],
     "start_new_page": true,
     "page_break_before": "        vector<int> positions;"
+  },
+  {
+    "id": "example-345",
+    "symbol": "convolution_mod",
+    "kind": "template",
+    "problem": "Luogu P4245 任意模数多项式乘法（三模NTT）",
+    "url": "https://www.luogu.com.cn/problem/P4245",
+    "summary": "输入两多项式次数n,m≤100000和模数2≤p≤1000000009，系数0..10^9，输出n+m+1个模p系数。独立精确三模版本，不继承浮点版的提交记录。",
+    "driver": "verify/luogu/P4245.crt.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "convolution_mod"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-346",
+    "symbol": "convolution_mod",
+    "kind": "api",
+    "problem": "精确模卷积：空数组、负数和合数模",
+    "url": "https://www.luogu.com.cn/problem/P4245",
+    "summary": "多组直到EOF，输入两个数组长度n,m和1≤mod≤INT_MAX，再输入signed int系数。每组输出标准模数代表；任一数组为空输出空行，mod=1输出对应数量的0。非空结果长度≤2^24，实际还须满足内存限制。API扩展不属于P4245正式输入范围。",
+    "driver": "verify/api/convolution_mod.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "convolution_mod"
+    ],
+    "start_new_page": true
   }
 ]

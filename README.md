@@ -178,3 +178,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 [DA最长回文来源程序](docs/DA-PALINDROME.md)：完整复现EOF协议，组合后缀数组与LCP，核对空后缀、奇偶中心和最靠左答案。
 
 [KMP优化失败表](docs/KMP-NEXTVAL.md)：由前缀函数推导nextval，明确末尾border与重叠匹配，支持零字节并给出两页抄写用法。
+
+[精确任意模数卷积](docs/CONVOLUTION-MOD.md)：三模NTT与固定CRT重构，支持signed int系数、合数与模数1，附独立P4245驱动。

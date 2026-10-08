@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 185，application 62，composite 6，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 185，application 63，composite 6，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -78,6 +78,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | convolution_mod_fft | 数学 → 多项式与生成函数 → 快速傅里叶变换 | direct | 复数FFT及三块拆系数卷积；明确长度、范数与单位根精度前提，不能用随机通过代替最坏误差界。 |
 | NttConvolution | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | convolution_i64 | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
+| convolution_mod | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | SetConvolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |
 | subset_convolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |
 | chirp_z | 数学 → 多项式与生成函数 → Chirp Z 变换 | direct |  |

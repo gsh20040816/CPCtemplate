@@ -6030,5 +6030,36 @@
       "verification/dc3-sanitizer.json"
     ],
     "adapter": "Read lowercase token, no caller sentinel; output all nonempty suffix starting positions0-based."
+  },
+  {
+    "symbol": "convolution_mod",
+    "problem": "Luogu P4245",
+    "url": "https://www.luogu.com.cn/problem/P4245",
+    "classification": "Independent exact arbitrary-modulus polynomial multiplication template; FFT historical evidence not inherited.",
+    "statement_checked": true,
+    "limits": "1<=n,m<=100000 degrees;0<=coefficients<=1e9;2<=p<=1000000009",
+    "tested_api": [
+      "convolution_mod"
+    ],
+    "candidate_api": [
+      "convolution_mod"
+    ],
+    "api": "convolution_mod(a,b,mod)",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No online submission/ranking;empty/signed-int/mod1 API separately locally tested.",
+    "checked_date": "2026-10-08",
+    "source": "src/compact/convolution_mod.hpp",
+    "driver": "verify/luogu/P4245.crt.compact.cpp",
+    "usage": "example-345",
+    "local_reports": [
+      "verification/convolution-mod-normal.json",
+      "verification/convolution-mod-sanitizer.json"
+    ],
+    "adapter": "Read degrees and coefficients;output n+m+1 normalized residues."
   }
 ]
