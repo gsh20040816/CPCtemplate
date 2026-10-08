@@ -343,3 +343,7 @@ kuangbin §2.16 的151行完整来源（印刷47–49页）经转录与显式编
 issue #11附件印刷20页DAG支配树文字构造由DagDominator补充，保留不可达点与全图环检查的明确契约；该页无DAG来源代码，不伪造原程序对照。详见[DAG-DOMINATOR.md](DAG-DOMINATOR.md)。
 
 issue #11 §3.2原根的123行完整来源（71–74页）已与既有PrimitiveRoot/P6091用法对照，1806组正式范围内多测协议通过普通与消毒器验证。无算法修改、无新增线上记录，见[PRIMITIVE-ROOT-SOURCE.md](PRIMITIVE-ROOT-SOURCE.md)。
+
+### kuangbin DA完整最长回文应用
+
+完整121行原程序（印刷11–14页）与现有SuffixArray+SuffixLCP组合用法343对照，覆盖EOF多组输入、最靠左最长回文、空后缀查询、奇偶半径。原程序对照限定可打印ASCII、长度1..10004；新字节扩展及50万长度单独验证。11988组来源域与308组扩展在普通、NDEBUG、展开、抄写、ASan/UBSan下通过；四个故障变体检出。父§1.5现为local-tested，详见[DA-PALINDROME.md](DA-PALINDROME.md)，不是线上AC或竞赛题号认定。

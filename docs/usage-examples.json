@@ -4341,5 +4341,19 @@
       "DC3"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-343",
+    "symbol": "SuffixLCP",
+    "kind": "api",
+    "problem": "kuangbin DA来源模型：反串与LCP求最长回文",
+    "url": "https://github.com/kuangbin/ACM-ICPC",
+    "summary": "来源程序协议：读入非空字符串直到EOF，每组输出最靠左的最长回文子串。组合原串、独立分隔符与反串，通过奇偶中心的LCP求半径；i=0的偶中心查询空后缀，返回0。新实现按unsigned char加2，分隔符为1；长度须≤(INT_MAX−2)/2且满足内存限制。O(n log n)时间空间。此为来源应用协议演示，不是独立线上模板题或AC；仅需最长回文时优先用Manacher。",
+    "driver": "verify/source-model/da_palindrome.compact.cpp",
+    "requires": [
+      "SuffixArray",
+      "SuffixLCP"
+    ],
+    "start_new_page": true
   }
 ]

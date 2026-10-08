@@ -1,0 +1,71 @@
+{
+  "mode": "normal",
+  "source_lines": 121,
+  "source_cases": 11988,
+  "extension_cases": 308,
+  "programs": [
+    {
+      "form": "source",
+      "source_cases": 11988,
+      "extension_cases": 0,
+      "source_sha256": "24bdd56194826d5cba32b3fe80821ffb6734539a5ba4af1ccfca0ebb2718f58a"
+    },
+    {
+      "form": "header",
+      "source_cases": 11988,
+      "extension_cases": 308,
+      "source_sha256": "4b8bdc1930c740733dc88b984d7b3db7a9b3ba6a6d43f3a8c1c3063b38b7e660"
+    },
+    {
+      "form": "ndebug",
+      "source_cases": 11988,
+      "extension_cases": 308,
+      "source_sha256": "4b8bdc1930c740733dc88b984d7b3db7a9b3ba6a6d43f3a8c1c3063b38b7e660"
+    },
+    {
+      "form": "expanded",
+      "source_cases": 11988,
+      "extension_cases": 308,
+      "source_sha256": "ed050ddb031eeb4e757bf5c3ea84ff67759dd9ae2383bd315512a2add8f7d8dc"
+    },
+    {
+      "form": "copied",
+      "source_cases": 11988,
+      "extension_cases": 308,
+      "source_sha256": "a0f7c45cc15bee2d0993ed507756c030afa4b677449c6ed20c6b347b137594c2"
+    }
+  ],
+  "mutants": [
+    {
+      "name": "rightmost-tie",
+      "detected": true
+    },
+    {
+      "name": "odd-center-offset",
+      "detected": true
+    },
+    {
+      "name": "even-empty-suffix",
+      "detected": true
+    },
+    {
+      "name": "separator-collision",
+      "detected": true
+    }
+  ],
+  "snapshot": {
+    "src/compact/string.hpp": "be145d0bbbe033aae59174b130d391af9dfa5de32adb5c5dca4243b1d68e90f4",
+    "src/compact/suffix_lcp.hpp": "6055557be1d2f458b5aac09fbebccd2417ad1aee342be800db9329c7adec3891",
+    "verify/source-model/da_palindrome.compact.cpp": "4b8bdc1930c740733dc88b984d7b3db7a9b3ba6a6d43f3a8c1c3063b38b7e660",
+    "tests/da_palindrome_source.py": "b0b90f5f6413e73d108443ef16f2bceeee255e90318f55af31d0171cf7233a1c",
+    "tests/fixtures/da_palindrome_sources/kuangbin.cpp": "5ddc7faf5f264d82e8ec75e67c9302b3f9fac0879b6b45fbd2a8ee56716fa99a",
+    "docs/catalog.json": "f4ae2dfe5f5cf4cca6ed852097b9d6948cba4fedb9baf2538b6cc212c4947dca",
+    "docs/usage-examples.json": "df6ee389ebc95cb887aa6f4516f3e31d51995c3d062af134b0d9aea5a21f7403",
+    "tools/usage_examples.py": "2cd2c5f91b3a40d940dcc178c747f563d8744db15889b69feb16af92e90a26f6",
+    "tools/audit_copy_context.py": "a732de58424150b7297de0eeac22e427a4e3db332da3ed996bd5ba2c2cba7882"
+  },
+  "usage": "example-343",
+  "program_sha256": "ed050ddb031eeb4e757bf5c3ea84ff67759dd9ae2383bd315512a2add8f7d8dc",
+  "scope": "Complete original EOF token protocol and exact leftmost output; original domain printable ASCII length1..10004. New non-whitespace byte extension and500001 length tested separately. No online AC.",
+  "source_adaptations": "Minus glyphs normalized and PDF wrapped lines joined; full fragment included inside namespace with standard headers, original main called by wrapper. No algorithm edits."
+}

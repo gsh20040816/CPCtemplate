@@ -174,3 +174,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 [原根附件来源审计](docs/PRIMITIVE-ROOT-SOURCE.md)：完整123行程序与已有P6091用法对照，核对排序采样及空行协议，避免重复添加同功能模板。
 
 [DC3后缀数组](docs/DC3.md)：线性skew构造，明确零哨兵与虚拟采样点，提供独立后缀数组模板题和整数sa/rk/lcp用法。
+
+[DA最长回文来源程序](docs/DA-PALINDROME.md)：完整复现EOF协议，组合后缀数组与LCP，核对空后缀、奇偶中心和最靠左答案。

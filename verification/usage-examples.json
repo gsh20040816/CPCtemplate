@@ -3418,5 +3418,15 @@
     "cases_per_mode": 105,
     "driver": "verify/api/dc3.compact.cpp",
     "scope": "Header/NDEBUG/actual expanded/minimal copied; brute suffix/LCP oracle and closed-form max-size cases. Independent DC3 formal driver and integer API; no new online AC."
+  },
+  "example-343": {
+    "program_sha256": "ed050ddb031eeb4e757bf5c3ea84ff67759dd9ae2383bd315512a2add8f7d8dc",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 12296,
+    "driver": "verify/source-model/da_palindrome.compact.cpp",
+    "scope": "Complete original EOF source protocol and four current forms;11988 source-domain cases,308 new byte/large extensions;leftmost center-expansion oracle and closed-form stress;no online AC."
   }
 }

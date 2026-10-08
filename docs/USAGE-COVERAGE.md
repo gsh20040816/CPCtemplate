@@ -142,7 +142,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | VirtualTree | [example-139（应用补充）](usage/example-139.cpp) | locally_checked_application |
 | PersistentArray | [example-11](usage/example-11.cpp) | locally_checked_example |
 | SupportHull | [example-226（接口演示）](usage/example-226.cpp) | locally_checked_api |
-| SuffixLCP | [example-205（接口演示）](usage/example-205.cpp) | locally_checked_api |
+| SuffixLCP | [example-205（接口演示）](usage/example-205.cpp), [example-343（接口演示）](usage/example-343.cpp) | locally_checked_api |
 | prefix_lcs | [example-205（接口演示）](usage/example-205.cpp) | locally_checked_api |
 | square_counts | [example-186（应用补充）](usage/example-186.cpp) | locally_checked_application |
 | PositionBasis | [example-39（应用补充）](usage/example-39.cpp) | locally_checked_application |
