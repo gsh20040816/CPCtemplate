@@ -2812,6 +2812,28 @@ convolution\_mod(a,b,mod)接受vector<int>，1$\le$mod$\le$INT\_MAX，支持负�
 
 \newpage
 
+\Needspace{539pt}
+
+\subsection*{接口用法演示：kuangbin HDU4656来源模型：移位等比点求值}
+
+\label{usage-example-347}
+
+演示约定：多组直到EOF：输入系数个数1$\le$n$\le$100010及b,c,d，随后n个升幂系数；参数与系数均为signed int，按模1000003归一化。逐行输出F(b*c\textasciicircum{}(2k)+d)，k=0..n−1；c=0时约定0\textasciicircum{}0=1。两次精确卷积，O(n log n)时间、O(n)空间。来源应用模型，HDU官方协议/资源限制尚未独立核验，不是线上模板题或AC。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-convolution_mod]{convolution\_\allowbreak{}mod}（第~\pageref{compact-convolution_mod}~页，\ref{compact-convolution_mod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/kuangbin/ACM-ICPC}
+
+\lstinputlisting[lastline=31]{usage/example-347.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=32,firstnumber=32]{usage/example-347.cpp}
+
+\newpage
+
 \Needspace{647pt}
 
 \section{快速沃尔什变换}

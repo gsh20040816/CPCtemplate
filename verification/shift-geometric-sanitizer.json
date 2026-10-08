@@ -1,0 +1,61 @@
+{
+  "mode": "sanitizer",
+  "cases": 4509,
+  "source_cases": 22,
+  "programs": [
+    {
+      "form": "header",
+      "cases": 4509,
+      "source_cases": 22,
+      "source_sha256": "ff4b15a0933b5df4d0fd8d844b725c8008b9c73baf4933b91b50e8e5ac2dab66"
+    },
+    {
+      "form": "ndebug",
+      "cases": 4509,
+      "source_cases": 22,
+      "source_sha256": "ff4b15a0933b5df4d0fd8d844b725c8008b9c73baf4933b91b50e8e5ac2dab66"
+    },
+    {
+      "form": "expanded",
+      "cases": 4509,
+      "source_cases": 22,
+      "source_sha256": "ec3b2a1e5df6501b1f3c8a54f4a90c5d5dd286ba04fc305871e87236ebd3cd40"
+    },
+    {
+      "form": "copied",
+      "cases": 4509,
+      "source_cases": 22,
+      "source_sha256": "afd9adfc177368fa4090414d0fd4f1ba414fd3b95b5c90ae153c35478f21b1ff"
+    }
+  ],
+  "mutants": [],
+  "snapshot": {
+    "src/compact/convolution_mod.hpp": "f728e5cb594152bfcf8ed47b36ea60dabd68cb46e542dde763a4b6a73f409741",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "a34ca088e2b3fe2decceadfba4b59164a8ee6625ced23a3e1781e24590a1790a",
+    "verify/source-model/shift_geometric.compact.cpp": "ff4b15a0933b5df4d0fd8d844b725c8008b9c73baf4933b91b50e8e5ac2dab66",
+    "tests/shift_geometric.py": "db5a798530837fd5f988fbbfd5e57ce743cdff79cb22ded8b0a6847e8332db38",
+    "tests/fixtures/shift_geometric_sources/kuangbin.cpp": "e27896e17f04165d91f7e0e66e4da258ab2aeba300bb4c47bd18dd458e0da52a",
+    "docs/catalog.json": "8aacb109febf5db2c27e43c717080b19814ec034368c57b50ae687890823314d",
+    "docs/usage-examples.json": "40306ead65a376f974f5808e902f8d0363f487fd1b593de5c1e003dde487fbb4",
+    "tools/usage_examples.py": "2cd2c5f91b3a40d940dcc178c747f563d8744db15889b69feb16af92e90a26f6",
+    "tools/audit_copy_context.py": "a732de58424150b7297de0eeac22e427a4e3db332da3ed996bd5ba2c2cba7882"
+  },
+  "usage": "example-347",
+  "program_sha256": "ec3b2a1e5df6501b1f3c8a54f4a90c5d5dd286ba04fc305871e87236ebd3cd40",
+  "raw_source_signed_overflow": "/Users/gsh/Workspace/CPCtemplate/build/shift-geometric/sanitizer/raw.cpp:33:10: runtime error: signed integer overflow: 397550359381069386 * 100 cannot be represented in type 'long long int'\n",
+  "source_exact_mul_sha256": "8c786ed7aec728280c48a2cf43fb72bd5e7155ae0dfb268fac779a10958ec3d4",
+  "source_repair": "Only line30 modular multiplication replaced by exact int128; original raw source fails signed-overflow sanitizer.",
+  "zero_extension": {
+    "case": "n=2,b=3,c=0,d=4,a=[1,2]",
+    "source_output": [
+      9,
+      0
+    ],
+    "expected": [
+      15,
+      9
+    ]
+  },
+  "scope": "Complete119-line source protocol with disclosed mul repair;Horner oracle and sparse/dense max-size closed forms. Nonzero c source domain;zero and signed-int normalization are new extensions. Official HDU statement/resources and online verdict unverified."
+}

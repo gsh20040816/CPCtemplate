@@ -3458,5 +3458,15 @@
     "cases_per_mode": 163,
     "driver": "verify/api/convolution_mod.compact.cpp",
     "scope": "Header/NDEBUG/expanded/minimal copied;independent signed-product oracle and closed-form maximal P4245 cases;no online AC."
+  },
+  "example-347": {
+    "program_sha256": "ec3b2a1e5df6501b1f3c8a54f4a90c5d5dd286ba04fc305871e87236ebd3cd40",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 4531,
+    "driver": "verify/source-model/shift_geometric.compact.cpp",
+    "scope": "4509 independent Horner/sparse/dense cases plus22 complete source-model cases with disclosed exact-mul repair;raw source UBSan failure retained;c=0/signed-int extensions explicit;no online AC."
   }
 }

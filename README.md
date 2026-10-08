@@ -180,3 +180,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 [KMP优化失败表](docs/KMP-NEXTVAL.md)：由前缀函数推导nextval，明确末尾border与重叠匹配，支持零字节并给出两页抄写用法。
 
 [精确任意模数卷积](docs/CONVOLUTION-MOD.md)：三模NTT与固定CRT重构，支持signed int系数、合数与模数1，附独立P4245驱动。
+
+[移位等比点求值](docs/SHIFT-GEOMETRIC.md)：两次精确卷积组合，完整HDU4656来源程序审计，披露原模乘溢出及c=0扩展。

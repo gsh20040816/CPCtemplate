@@ -351,3 +351,7 @@ issue #11 §3.2原根的123行完整来源（71–74页）已与既有PrimitiveR
 ### kuangbin优化KMP失败表
 
 前47行kmp_pre/preKMP/KMP_Count完整核对，新增用法344复用prefix_function构造nextval并执行重叠匹配。末尾nextval[m]保留普通最长border，不把零终止符用于该判断。92868组来源域及812组零字节/百万长度扩展在四种新程序形式、ASan/UBSan下通过；四种故障变体检出。§1.1由partial改为local-tested，详见[KMP-NEXTVAL.md](KMP-NEXTVAL.md)，无新线上AC或速度排名。
+
+### kuangbin HDU4656移位等比求值
+
+印刷51–54页说明、推导及119行完整程序核对，指数为2k。用法347组合精确卷积并独立处理c=0；原第30行模乘的signed64溢出由UBSan复现，只替换这一行后的完整来源程序另行测试。4509组Horner/大规模闭式与22组修正来源对照通过四种新程序形式及ASan/UBSan，四个故障变体检出。HDU正式题面/资源限制仍未确认，§2.18与子条目保持partial。详见[SHIFT-GEOMETRIC.md](SHIFT-GEOMETRIC.md)。

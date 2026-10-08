@@ -4399,5 +4399,21 @@
       "convolution_mod"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-347",
+    "symbol": "convolution_mod",
+    "kind": "api",
+    "problem": "kuangbin HDU4656来源模型：移位等比点求值",
+    "url": "https://github.com/kuangbin/ACM-ICPC",
+    "summary": "多组直到EOF：输入系数个数1≤n≤100010及b,c,d，随后n个升幂系数；参数与系数均为signed int，按模1000003归一化。逐行输出F(b*c^(2k)+d)，k=0..n−1；c=0时约定0^0=1。两次精确卷积，O(n log n)时间、O(n)空间。来源应用模型，HDU官方协议/资源限制尚未独立核验，不是线上模板题或AC。",
+    "driver": "verify/source-model/shift_geometric.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "convolution_mod"
+    ],
+    "start_new_page": true,
+    "page_break_before": "        vector<Z> fact(n, 1), inv(n, 1);"
   }
 ]

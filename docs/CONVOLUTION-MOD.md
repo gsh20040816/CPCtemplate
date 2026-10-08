@@ -40,4 +40,4 @@
 
 `tests/convolution_mod.py`运行普通、NDEBUG、真实最小抄写核心和四种完整用法形式（头文件、NDEBUG、展开、抄写），普通及ASan/UBSan分别执行。正式驱动82例包括两组最大次数闭式输入，扩展驱动163例。三个有效故障变体破坏第三素数、CRT逆元和负数归一化，必须由错误结果而非崩溃检出；一个中心化等价变体明确记录为等价。报告位于`verification/convolution-mod-normal.json`和`verification/convolution-mod-sanitizer.json`。
 
-kuangbin §2.18还附有HDU4656的移位等比点求值完整应用。本次只提供后续可组合的精确卷积接口，尚未核对该完整主程序，HDU原站此次读取失败，相关来源条目继续pending，不因基础卷积封装完成而提前关闭。
+kuangbin §2.18还附有HDU4656的移位等比点求值完整应用。后续[移位等比求值审计](SHIFT-GEOMETRIC.md)已补齐两次卷积的完整来源模型，并披露原模乘溢出。HDU官方题面及资源限制仍未独立核验，相关来源条目现为partial，不等同于正式OJ验证。
