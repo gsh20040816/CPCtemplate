@@ -20,4 +20,4 @@
 
 区间程序用独立32位确定性 Miller–Rabin（底数2、7、61）生成210组完整预期输出，含上下端素数、无相邻素数、并列答案、低端百万跨度和终点INT_MAX的百万跨度。完整原程序和当前 header、NDEBUG、展开、抄写四种形式均匹配逐字输出。所有形式通过普通构建及 ASan/UBSan。
 
-报告见 `verification/prime-source-normal.json` 和 `verification/prime-source-sanitizer.json`，含来源与当前被测代码哈希。本批不修改算法，不重申全库正确性或线上资源通过；历史 `phi`、`mu` 等测试仍是独立证据。§2.2 合数分解不是该父项的子项，尚未因本次核对而更改状态。
+报告见 `verification/prime-source-normal.json` 和 `verification/prime-source-sanitizer.json`，含来源与当前被测代码哈希。本批不修改算法，不重申全库正确性或线上资源通过；历史 `phi`、`mu` 等测试仍是独立证据。§2.2 合数分解不是该父项的子项，另有[完整片段与缺陷审计](FACTOR-SOURCE-AUDIT.md)。

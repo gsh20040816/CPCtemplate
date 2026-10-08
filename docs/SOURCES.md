@@ -359,3 +359,5 @@ issue #11 §3.2原根的123行完整来源（71–74页）已与既有PrimitiveR
 ### kuangbin素数章节
 
 三个完整17/16/58行片段与既有LinearSieve、segmented_primes及Prime Distance程序核对。独立试除覆盖百万范围表，210组EOF输出通过普通与ASan/UBSan；父§2.1从pending改为local-tested，无新增基础模板或线上AC。见[PRIME-SOURCE-AUDIT.md](PRIME-SOURCE-AUDIT.md)。
+
+§2.2另完整核对37行合数分解片段：原稿在9973²读到素数表外标记1，分解循环无法正常退出；安全域10406组对照与7组替代接口uint64扩展通过普通及ASan/UBSan。复用PollardRho并按连续相同质因子分组，无新核心或线上AC，见[FACTOR-SOURCE-AUDIT.md](FACTOR-SOURCE-AUDIT.md)。

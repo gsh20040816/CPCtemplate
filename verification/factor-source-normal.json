@@ -1,0 +1,28 @@
+{
+  "mode": "normal",
+  "compiler": "/opt/homebrew/bin/g++-16",
+  "flags": [
+    "-std=c++20",
+    "-O2"
+  ],
+  "source_sha256": {
+    "tests/factor_source_audit.py": "b85c21cd1c06a856d4b2ca6871b8237347faa592094c15843b5378943dabe059",
+    "tests/fixtures/factor_source/kuangbin.cpp": "b4fd2e424e2d23fb7a2d31f22cde0445a5af1b326eb98052621d4bccafbeb1f3",
+    "src/compact/number_theory.hpp": "a34ca088e2b3fe2decceadfba4b59164a8ee6625ced23a3e1781e24590a1790a",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9"
+  },
+  "source_cases": 10406,
+  "source_safe_domain": "1 <= n < 9973^2",
+  "extension_cases": 7,
+  "forms": [
+    "original",
+    "header",
+    "ndebug",
+    "copied"
+  ],
+  "diagnostic": "Original getFactors(9973^2) exceeded 2s; next slot=1 gives a non-decreasing divide-by-one loop (eventually signed exponent overflow).",
+  "oracle": "independent trial division and prime/product certificates",
+  "online_verdict": null,
+  "passed": true
+}
