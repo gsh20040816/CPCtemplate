@@ -3468,5 +3468,45 @@
     "cases_per_mode": 4531,
     "driver": "verify/source-model/shift_geometric.compact.cpp",
     "scope": "4509 independent Horner/sparse/dense cases plus22 complete source-model cases with disclosed exact-mul repair;raw source UBSan failure retained;c=0/signed-int extensions explicit;no online AC."
+  },
+  "example-348": {
+    "program_sha256": "50a0fa0e53774abec666eb4a1878baed88ce136efb43723c23f7c1eb298c7cae",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 2002,
+    "driver": "verify/api/real_space.compact.cpp",
+    "scope": "Independent rational geometry/quaternion rotation and plane incidence certificates in four forms; numerical API only, no formal problem or online AC."
+  },
+  "example-349": {
+    "program_sha256": "7a08821b77200abdb1a381ac2a8f8d8063302825a691513eb57a7ec502fd453c",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 2005,
+    "driver": "verify/api/line3.compact.cpp",
+    "scope": "Independent rational geometry/quaternion rotation and plane incidence certificates in four forms; numerical API only, no formal problem or online AC."
+  },
+  "example-350": {
+    "program_sha256": "da014472ee1f8a4b9fc86762decad5138889c13771769c996a34e5703c6fcf57",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 2004,
+    "driver": "verify/api/plane_line3.compact.cpp",
+    "scope": "Independent rational geometry/quaternion rotation and plane incidence certificates in four forms; numerical API only, no formal problem or online AC."
+  },
+  "example-351": {
+    "program_sha256": "379cf034b7c2964c004cb3625c8d77fd0a12b15692fc2cf959a14dfe8dbba239",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 2003,
+    "driver": "verify/api/plane_plane3.compact.cpp",
+    "scope": "Independent rational geometry/quaternion rotation and plane incidence certificates in four forms; numerical API only, no formal problem or online AC."
   }
 }

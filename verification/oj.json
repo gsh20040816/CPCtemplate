@@ -1894,5 +1894,28 @@
     ],
     "note": "12 tests AC in C++20 O2. Native Firefox upload of exact printed usage194 expanded source (23116 bytes). Header total372ms, max single172ms, peak5.19MB. Source-tab opening and initial lines visually confirmed; no claim of downloaded-source hash comparison. Automatic-modulus overload, invalid input and full core uint64/signed bounds are not covered by this judge. All-submission speed rank unverified.",
     "usage": "example-194"
+  },
+  {
+    "problem": "Luogu P4245",
+    "style": "compact",
+    "record": "https://www.luogu.com.cn/record/301858590",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 254,
+    "total_time_ms": 2050,
+    "memory": "6.38MB",
+    "source_driver": "verify/luogu/P4245.crt.compact.cpp",
+    "submitted_source": "verification/submitted/P4245.crt.compact.cpp",
+    "submitted_sha256": "1b57a3d1b75de5ae5f3b5730762cc3fa4535bb619ed5bb14f47ae391c6df0dab",
+    "date": "2026-10-08",
+    "account": "GSH_gsh",
+    "algorithm": "convolution_mod",
+    "usage": "example-345",
+    "tested_api": [
+      "convolution_mod: official P4245 domain",
+      "ModInt",
+      "NttConvolution"
+    ],
+    "note": "C++20 O2; native Firefox upload of 5048-byte minimal copied source. All 20 tests AC. Header aggregate2.05s, slowest single254ms, peak6.38MB. Record visibly observed in authenticated Firefox; no downloaded-source byte comparison. Empty input, negative coefficients, mod1, INT_MAX and transform length2^24 are outside this judge evidence. No global speed-rank claim; historical floating FFT AC is separate."
   }
 ]

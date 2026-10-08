@@ -1576,5 +1576,23 @@
     "convolution_mod",
     "三模NTT：精确任意模数卷积",
     "convolution_mod(a,b,mod)接受vector<int>，1≤mod≤INT_MAX，支持负输入、合数和模数1。返回[0,mod)普通卷积；任一输入为空则返回空。非空结果长度≤2^24；先将输入归一化，再用三个固定NTT素数重构非负整数系数，int128中间值后取目标模数，无浮点误差及signed64真实系数限制。直接取非负CRT代表，不经signed64窄化。O(L log L)时间、O(L)空间，L为补齐二次幂；长度上限不是内存或时限承诺。参数按值传递，普通调用不改原数组，愿意移交数据时可move。依赖NttConvolution及ModInt，convolution_prime为内部三模辅助。"
+  ],
+  [
+    "real_space",
+    "RealSpace",
+    "实数三维向量与夹角",
+    "Point 为 long double 三坐标，支持加减、数乘/除和精确字典序；排序禁用 epsilon。dot、cross、norm 为点积、叉积、长度；unit 和 angle 要求非零向量，angle 返回0..π的有向向量夹角，弧度制。unit(a)*r 变换长度；点间距离为 norm(a-b)。有限输入且中间量不溢出/下溢，极端尺度须预缩放；浮点不是精确共面判定。O(1)时间空间。"
+  ],
+  [
+    "line3",
+    "Line3",
+    "三维直线投影、线段距离与绕轴旋转",
+    "Line3(p,d) 表示 p+t*d，注意第二参数是方向；through(a,b) 从两个端点构造。线段限制0≤t≤1。projection/segment_projection 返回最近点，distance/segment_distance 返回距离，on_segment(q,eps) 使用绝对距离容差。d=0 时这些操作按点p处理；rotate(q,rad) 必须d非零，绕p+t*d按右手法则旋转，角度单位弧度。公开p,d。依赖RealSpace；O(1)。近退化浮点运算须按输入尺度分析误差。"
+  ],
+  [
+    "plane3",
+    "Plane3",
+    "三维平面投影与分类求交",
+    "Plane3(p,normal) 要求非零法向量并单位化；through(a,b,c) 要求三点不共线；equation(n,h) 表示n点乘x=h。signed_distance保留法向符号，projection返回垂足。intersect(line,q,eps,ang) 返回1单点、0无交、-1整条非退化线在面上，退化线按点处理。intersect(plane,line,eps,ang) 返回1交线、0平行不同、-1重合。仅返回1时写输出参数；交线d为单位向量。eps为距离容差，ang为单位方向的正弦容差；默认1e-10和1e-12。近乎平行按容差分类，非精确拓扑判定；近乎平行求交误差会放大。公开p和单位n，勿破坏单位不变量。依赖RealSpace/Line3；O(1)。"
   ]
 ]

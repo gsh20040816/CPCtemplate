@@ -1,0 +1,83 @@
+{
+  "mode": "normal",
+  "compiler": "/opt/homebrew/bin/g++-16",
+  "flags": [
+    "-std=c++20",
+    "-O2"
+  ],
+  "source_sha256": {
+    "src/compact/real_space.hpp": "38e5a0b821eb8c3bbefaa0562bb9e1d9337ae006053027a372bd8cd4084ca740",
+    "src/compact/line3.hpp": "9c472f86868e1a4f59c3f601c763e7fe47777d8b0ab4f20e7f5a32599b08378e",
+    "src/compact/plane3.hpp": "cb55f85ad4d9f580be84de2f9abb817c6e8461e597c3be765dc9025c1491816e",
+    "tests/real_space.cpp": "9d138e14e7955cbadf0e6adc2961bac3e1fd92fdefa92778d5c46f7add10f539",
+    "tests/real_space.py": "e52636af97d96d7e33e225893ba413db2287b78d2e30af3acaf847fa667837ed",
+    "tests/fixtures/real_space_sources/kuangbin.cpp": "6c6efc16d78b666392e6964a93f62efbf50808a683ea0634adc0757df16d959c",
+    "docs/catalog.json": "dfda6eed806be1b4b68154e0a2a157f55241eb3accf839b3c99491fa06354bff",
+    "docs/usage-examples.json": "e666033b035af2b10658281741334fa6829fa880f808c06cb248e8b7483d070a",
+    "tools/audit_copy_context.py": "a732de58424150b7297de0eeac22e427a4e3db332da3ed996bd5ba2c2cba7882",
+    "tools/usage_examples.py": "2cd2c5f91b3a40d940dcc178c747f563d8744db15889b69feb16af92e90a26f6",
+    "verify/api/real_space.compact.cpp": "83d964e552a9c1a5c5c123e6ff2fb01658305375a68a9bac2771e25f7ca55252",
+    "verify/api/line3.compact.cpp": "b53bdfe32e0bf85f07f51ef4e6ed565622ce1cdc898476b1408930fc77412b8a",
+    "verify/api/plane_line3.compact.cpp": "ac7fe198058ea93fc2050b8e70bd59d8bc93ef1e83f4addbf4d52eb9f0d4d700",
+    "verify/api/plane_plane3.compact.cpp": "2e2d6c8644e2f84197278b5def156ea8aefaf4538a8bb1f29272a78651594464"
+  },
+  "core": {
+    "header": "4999 nondegenerate source comparisons; boundary and defect checks PASS",
+    "ndebug": "4999 nondegenerate source comparisons; boundary and defect checks PASS",
+    "copied": "4999 nondegenerate source comparisons; boundary and defect checks PASS"
+  },
+  "usages": {
+    "example-348": {
+      "program_sha256": "50a0fa0e53774abec666eb4a1878baed88ce136efb43723c23f7c1eb298c7cae",
+      "copied_program_sha256": "2a19966451c9505c7588e6aa924e93fb87f0da689159e9a615467b9387531e4d",
+      "cases": 2002,
+      "forms": [
+        "header",
+        "ndebug",
+        "expanded",
+        "copied"
+      ]
+    },
+    "example-349": {
+      "program_sha256": "7a08821b77200abdb1a381ac2a8f8d8063302825a691513eb57a7ec502fd453c",
+      "copied_program_sha256": "d9aa649b728ed74edc80e00ab622870920cb0ef7c313e3bf49f4f3230058d57f",
+      "cases": 2005,
+      "forms": [
+        "header",
+        "ndebug",
+        "expanded",
+        "copied"
+      ]
+    },
+    "example-350": {
+      "program_sha256": "da014472ee1f8a4b9fc86762decad5138889c13771769c996a34e5703c6fcf57",
+      "copied_program_sha256": "59b15fba6d9e58498c7bf28c4c37dcaa3f60fd97ec34cdb4dd699bd7d9755378",
+      "cases": 2004,
+      "forms": [
+        "header",
+        "ndebug",
+        "expanded",
+        "copied"
+      ]
+    },
+    "example-351": {
+      "program_sha256": "379cf034b7c2964c004cb3625c8d77fd0a12b15692fc2cf959a14dfe8dbba239",
+      "copied_program_sha256": "c7d35cf2b6bbbe2cf20eb8741ffae05f3b3184a1ad15bc49b6957db9b63b0e5d",
+      "cases": 2003,
+      "forms": [
+        "header",
+        "ndebug",
+        "expanded",
+        "copied"
+      ]
+    }
+  },
+  "mutants_detected": [
+    "unclamped-segment",
+    "reverse-rotation",
+    "unnormalized-plane",
+    "wrong-plane-intersection-sign"
+  ],
+  "passed": true,
+  "scope": "Finite, well-conditioned rational fixtures plus explicit tolerance boundary cases; numerical validation, not universal exact topology or online AC."
+}

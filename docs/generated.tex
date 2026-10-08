@@ -10957,6 +10957,120 @@ solve(a,r,b,s)：a、b为IntegerPlane::Point，所有坐标绝对值$\le$10$^{4}
 
 \lstinputlisting{usage/example-225.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\section{实数三维向量与夹角}\label{compact-RealSpace}\index{RealSpace}
+
+Point 为 long double 三坐标，支持加减、数乘/除和精确字典序；排序禁用 epsilon。dot、cross、norm 为点积、叉积、长度；unit 和 angle 要求非零向量，angle 返回0..$\pi$的有向向量夹角，弧度制。unit(a)*r 变换长度；点间距离为 norm(a-b)。有限输入且中间量不溢出/下溢，极端尺度须预缩放；浮点不是精确共面判定。O(1)时间空间。
+
+\lstinputlisting[firstline=8,lastline=41]{../src/compact/real_space.hpp}
+
+\newpage
+
+\noindent 继续三维运算（接上页同一结构体）：
+
+\lstinputlisting[firstline=42,firstnumber=35]{../src/compact/real_space.hpp}
+
+\Needspace{356pt}
+
+\subsection*{接口用法演示：三维向量运算（接口演示）}
+
+\label{usage-example-348}
+
+演示约定：EOF输入两个向量a,b，输出点积、叉积、两长度和0..$\pi$夹角；任一向量为零时夹角输出-1。不是正式OJ题。
+
+所需模板：\hyperref[compact-RealSpace]{RealSpace}（第~\pageref{compact-RealSpace}~页，\ref{compact-RealSpace}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{}
+
+\lstinputlisting{usage/example-348.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{650pt}
+
+\section{三维直线投影、线段距离与绕轴旋转}\label{compact-Line3}\index{Line3}
+
+代码依赖：\hyperref[compact-RealSpace]{RealSpace}（第~\pageref{compact-RealSpace}~页，\ref{compact-RealSpace}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+Line3(p,d) 表示 p+t*d，注意第二参数是方向；through(a,b) 从两个端点构造。线段限制0$\le$t$\le$1。projection/segment\_projection 返回最近点，distance/segment\_distance 返回距离，on\_segment(q,eps) 使用绝对距离容差。d=0 时这些操作按点p处理；rotate(q,rad) 必须d非零，绕p+t*d按右手法则旋转，角度单位弧度。公开p,d。依赖RealSpace；O(1)。近退化浮点运算须按输入尺度分析误差。
+
+\lstinputlisting[firstline=4,lastline=32]{../src/compact/line3.hpp}
+
+\newpage
+
+\noindent 继续三维运算（接上页同一结构体）：
+
+\lstinputlisting[firstline=33,firstnumber=30]{../src/compact/line3.hpp}
+
+\Needspace{453pt}
+
+\subsection*{接口用法演示：三维直线/线段投影与绕轴旋转（接口演示）}
+
+\label{usage-example-349}
+
+演示约定：EOF输入端点a,b、查询点q和弧度rad；输出直线/线段垂足、两距离、线段包含判定及绕a到b方向轴的旋转结果。a=b时按点计算距离和投影，旋转输出no axis。
+
+所需模板：\hyperref[compact-RealSpace]{RealSpace}（第~\pageref{compact-RealSpace}~页，\ref{compact-RealSpace}~节）、\hyperref[compact-Line3]{Line3}（第~\pageref{compact-Line3}~页，\ref{compact-Line3}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{}
+
+\lstinputlisting{usage/example-349.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{650pt}
+
+\section{三维平面投影与分类求交}\label{compact-Plane3}\index{Plane3}
+
+代码依赖：\hyperref[compact-Line3]{Line3}（第~\pageref{compact-Line3}~页，\ref{compact-Line3}~节）、\hyperref[compact-RealSpace]{RealSpace}（第~\pageref{compact-RealSpace}~页，\ref{compact-RealSpace}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+Plane3(p,normal) 要求非零法向量并单位化；through(a,b,c) 要求三点不共线；equation(n,h) 表示n点乘x=h。signed\_distance保留法向符号，projection返回垂足。intersect(line,q,eps,ang) 返回1单点、0无交、-1整条非退化线在面上，退化线按点处理。intersect(plane,line,eps,ang) 返回1交线、0平行不同、-1重合。仅返回1时写输出参数；交线d为单位向量。eps为距离容差，ang为单位方向的正弦容差；默认1e-10和1e-12。近乎平行按容差分类，非精确拓扑判定；近乎平行求交误差会放大。公开p和单位n，勿破坏单位不变量。依赖RealSpace/Line3；O(1)。
+
+\lstinputlisting[firstline=4,lastline=33]{../src/compact/plane3.hpp}
+
+\newpage
+
+\noindent 继续三维运算（接上页同一结构体）：
+
+\lstinputlisting[firstline=34,firstnumber=31]{../src/compact/plane3.hpp}
+
+\Needspace{413pt}
+
+\subsection*{接口用法演示：平面投影和线面求交（接口演示）}
+
+\label{usage-example-350}
+
+演示约定：EOF输入非零法向n、常数h、查询点q及直线端点a,b，平面为n点乘x=h。输出有符号距离、垂足和交点分类；仅type=1时输出单点。type=-1为整条非退化线在面上，type=0无交。
+
+所需模板：\hyperref[compact-RealSpace]{RealSpace}（第~\pageref{compact-RealSpace}~页，\ref{compact-RealSpace}~节）、\hyperref[compact-Line3]{Line3}（第~\pageref{compact-Line3}~页，\ref{compact-Line3}~节）、\hyperref[compact-Plane3]{Plane3}（第~\pageref{compact-Plane3}~页，\ref{compact-Plane3}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{}
+
+\lstinputlisting{usage/example-350.cpp}
+
+\Needspace{417pt}
+
+\subsection*{接口用法演示：两平面夹角与交线（接口演示）}
+
+\label{usage-example-351}
+
+演示约定：EOF输入两平面的非零法向a,b及常数h,k（顺序a,h,b,k），输出有向法向夹角及求交类型；type=1时输出交线上一点和单位方向；-1重合、0平行不同。无向平面夹角可取min(theta,$\pi$-theta)。
+
+所需模板：\hyperref[compact-RealSpace]{RealSpace}（第~\pageref{compact-RealSpace}~页，\ref{compact-RealSpace}~节）、\hyperref[compact-Line3]{Line3}（第~\pageref{compact-Line3}~页，\ref{compact-Line3}~节）、\hyperref[compact-Plane3]{Plane3}（第~\pageref{compact-Plane3}~页，\ref{compact-Plane3}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{}
+
+\lstinputlisting{usage/example-351.cpp}
+
+\newpage
+
 \Needspace{259pt}
 
 \chapter{距离}

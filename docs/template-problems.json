@@ -6766,8 +6766,10 @@
         {
           "driver": "verify/luogu/P4245.crt.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P4245",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/301858590"
+          ],
+          "review": "Official P4245 template statement and limits checked; exact three-prime implementation AC100 in C++20 O2,20tests. See docs/CONVOLUTION-MOD.md and verification/convolution-mod-online.json; broader API and ranking not covered."
         },
         {
           "driver": "verify/source-model/shift_geometric.compact.cpp",
@@ -6776,6 +6778,51 @@
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "RealSpace",
+      "title": "实数三维向量与夹角",
+      "source": "src/compact/real_space.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Line3",
+      "title": "三维直线投影、线段距离与绕轴旋转",
+      "source": "src/compact/line3.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Plane3",
+      "title": "三维平面投影与分类求交",
+      "source": "src/compact/plane3.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
@@ -9558,12 +9605,6 @@
       "source_path": "ACM template (2018)",
       "page": "213",
       "topic": "6.3.1 HDU 4285"
-    },
-    {
-      "source": "kuangbin",
-      "source_path": "ACM template (2018)",
-      "page": "238",
-      "topic": "7.2 三维几何"
     },
     {
       "source": "kuangbin",

@@ -353,3 +353,68 @@ $81B^4<2^{60}$。若 long double 为二进制且有效尾数至少64位，采用
 \texttt{eps=0} 仅取消主动归并。其他实数和更大尺度上，判别式仍可能消去、上溢或下溢，
 交点构造仍可能病态。默认接口的近切反例继续保留，不宣称已获得通用稳健浮点圆交点。
 \texttt{RealGeometry} 兼容构造仍要求正 eps，因为它同时服务其他几何函数。
+
+\clearpage
+\section{三维投影、旋转与平面求交的数值约定}
+三维向量见第~\pageref{compact-RealSpace}~页，
+直线与线段见第~\pageref{compact-Line3}~页，
+平面见第~\pageref{compact-Plane3}~页。
+四份接口用法分别是第~\pageref{usage-example-348}、\pageref{usage-example-349}、
+\pageref{usage-example-350}、\pageref{usage-example-351}~页；目前没有该完整接口的正式模板题AC。
+分类参考\href{https://oi-wiki.org/geometry/3d/}{OI Wiki三维计算几何基础}。
+
+\texttt{Line3(p,d)}的第二参数是方向，表示$p+td$；两个端点用
+\texttt{Line3::through(a,b)}构造。投影到无限直线时参数不截断，
+投影到线段时限制$0\le t\le1$。零方向按点$p$处理距离和投影，不能作旋转轴。
+向量排序使用精确字典序，禁止以epsilon作为排序的相等条件。
+
+对单位轴方向$u$和$v=q-p$，右手旋转为
+\[
+p+v\cos\theta+(u\times v)\sin\theta+u(u\cdot v)(1-\cos\theta).
+\]
+绕正$z$轴旋转$\pi/2$时，正$x$轴转到正$y$轴；角度单位是弧度。
+\texttt{angle(a,b)}返回非零向量的$[0,\pi]$夹角；无向平面夹角另取
+$\min(\theta,\pi-\theta)$。
+
+平面保存点$p$与单位法向$n$，方程为$n\cdot(x-p)=0$。
+\texttt{equation(n,h)}表示$n\cdot x=h$，
+一般式$Ax+By+Cz+D=0$应传$h=-D$。法向必须非零，三点构造必须不共线。
+有符号距离是$n\cdot(q-p)$，投影为$q-n[n\cdot(q-p)]$。
+负法向翻转距离符号，不改变投影。
+
+求交返回$1$表示单点或交线，$0$表示无交，$-1$表示整条线在面上或两平面重合；
+仅返回$1$时写输出参数。零方向线在面上时返回单点，不能返回整条线。
+两单位法向$n,m$非平行时，取$d=\operatorname{unit}(n\times m)$、$v=d\times n$，
+两平面公共点可以取
+\[
+q=p+v\frac{m\cdot(f.p-p)}{m\cdot v},\qquad\text{交线为 }q+td.
+\]
+分母不能随意取绝对值，交线点不要求最靠近原点。
+
+默认距离容差为$10^{-10}$，角度正弦容差为$10^{-12}$。
+线面按$|n\cdot u|$，面面按$|n\times m|$判近乎平行，再用代表点距离分类。
+这是一套数值规则，近乎平行的对象在精确意义上可能仍然相交；
+改变坐标尺度、代表点或容差可能改变阈值附近的分类。
+浮点求交不提供精确拓扑证书。需要精确共面谓词时使用
+第~\pageref{compact-IntegerGeometry3D}~页的整数版本并遵守其坐标界。
+
+\clearpage
+\subsection{原三维片段中需要避开的错误}
+kuangbin原188行逐页核对后，保留完整夹具以记录以下缺陷：
+\begin{itemize}
+\item 平面角写成$\arccos(n\cdot m)/(|n||m|)$，括号位置错误；
+法向$(2,0,0)$与$(0,2,0)$得到$\pi/8$而不是$\pi/2$。
+\item 交线分母取绝对值后丢失方向：$x=1$与$y=2$得到的点不在第二平面上。
+\item 闭线段的点积条件写成等于零，漏掉中点；零线段距离还出现$0/0$。
+\item epsilon字典序不满足传递性，不能用于\texttt{sort}；输出函数误用了\texttt{scanf}。
+\end{itemize}
+新实现不复刻原稿固定epsilon混用不同量纲的行为。坐标必须有限，所有中间量须避免
+溢出和下溢；\texttt{hypot}只改善长度计算，不能替整个算法保证任意尺度稳定。
+巨大平移与微小差值、近共线构造和近平行求交都可能放大误差，应先平移/缩放并按题意选容差。
+本机GNU16的\texttt{long double}尾数只有53位，不能假定它总比\texttt{double}更精确。
+
+测试包含4999组非退化直线来源对照、8014组完整接口数据，
+以有理数投影、四元数旋转和两平面关联条件作独立参考。
+普通、关闭断言、展开与抄写形式均运行，ASan/UBSan通过；
+漏截断、旋转方向、法向归一化、交线位移符号四种错误变体被检出。
+这些是数值验证证据，不是对所有实数输入正确分类或线上资源通过的保证。

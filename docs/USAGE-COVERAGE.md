@@ -270,3 +270,6 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | DagDominator | [example-338（接口演示）](usage/example-338.cpp), [example-339](usage/example-339.cpp), [example-340（应用补充）](usage/example-340.cpp) | locally_checked_example |
 | DC3 | [example-341](usage/example-341.cpp), [example-342（接口演示）](usage/example-342.cpp) | locally_checked_example |
 | convolution_mod | [example-345](usage/example-345.cpp), [example-346（接口演示）](usage/example-346.cpp), [example-347（接口演示）](usage/example-347.cpp) | locally_checked_example |
+| RealSpace | [example-348（接口演示）](usage/example-348.cpp) | locally_checked_api |
+| Line3 | [example-349（接口演示）](usage/example-349.cpp) | locally_checked_api |
+| Plane3 | [example-350（接口演示）](usage/example-350.cpp), [example-351（接口演示）](usage/example-351.cpp) | locally_checked_api |

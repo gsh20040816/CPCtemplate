@@ -238,7 +238,7 @@
 | `FibonacciPeriod::period` | [Luogu P4994](https://www.luogu.com.cn/problem/P4994) | 2<=M<=706150 | 待在线 AC | 待核验 |
 | `DagDominator::build/idom` | [Library Checker dominatortree (DAG/LT composition)](https://judge.yosupo.jp/problem/dominatortree) | 1<=N<=200000;0<=M<=200000;0-based vertices | 待在线 AC | 待核验 |
 | `DC3::constructor/sa` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase letters | 待在线 AC | 待核验 |
-| `convolution_mod::convolution_mod(a,b,mod)` | [Luogu P4245](https://www.luogu.com.cn/problem/P4245) | 1<=n,m<=100000 degrees;0<=coefficients<=1e9;2<=p<=1000000009 | 待在线 AC | 待核验 |
+| `convolution_mod::convolution_mod(a,b,mod)` | [Luogu P4245](https://www.luogu.com.cn/problem/P4245) | 1<=n,m<=100000 degrees;0<=coefficients<=1e9;2<=p<=1000000009 | [记录](https://www.luogu.com.cn/record/301858590) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2244,7 +2244,7 @@ Independent exact arbitrary-modulus polynomial multiplication template; FFT hist
 
 Read degrees and coefficients;output n+m+1 normalized residues.
 
-No online submission/ranking;empty/signed-int/mod1 API separately locally tested.
+P4245 official domain AC100,20tests,C++20 O2;exact minimal copied source archived. Speed rank unverified;empty/signed-int/mod1/INT_MAX and2^24 capacity not covered by online result. See verification/convolution-mod-online.json.
 
 ## 榜单口径
 

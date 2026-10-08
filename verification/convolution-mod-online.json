@@ -1,0 +1,60 @@
+{
+  "record": {
+    "problem": "Luogu P4245",
+    "style": "compact",
+    "record": "https://www.luogu.com.cn/record/301858590",
+    "verdict": "Accepted",
+    "score": 100,
+    "time_ms": 254,
+    "total_time_ms": 2050,
+    "memory": "6.38MB",
+    "source_driver": "verify/luogu/P4245.crt.compact.cpp",
+    "submitted_source": "verification/submitted/P4245.crt.compact.cpp",
+    "submitted_sha256": "1b57a3d1b75de5ae5f3b5730762cc3fa4535bb619ed5bb14f47ae391c6df0dab",
+    "date": "2026-10-08",
+    "account": "GSH_gsh",
+    "algorithm": "convolution_mod",
+    "usage": "example-345",
+    "tested_api": [
+      "convolution_mod: official P4245 domain",
+      "ModInt",
+      "NttConvolution"
+    ],
+    "note": "C++20 O2; native Firefox upload of 5048-byte minimal copied source. All 20 tests AC. Header aggregate2.05s, slowest single254ms, peak6.38MB. Record visibly observed in authenticated Firefox; no downloaded-source byte comparison. Empty input, negative coefficients, mod1, INT_MAX and transform length2^24 are outside this judge evidence. No global speed-rank claim; historical floating FFT AC is separate."
+  },
+  "observed_at": "2026-10-08",
+  "observation": "Native Firefox accessibility tree: R301858590, GSH_gsh UID86208, C++20 O2, Accepted100, all20AC; submitted time2026-10-08 09:55:11 as displayed.",
+  "test_times_ms": [
+    4,
+    5,
+    4,
+    4,
+    4,
+    9,
+    10,
+    11,
+    10,
+    16,
+    123,
+    119,
+    120,
+    123,
+    242,
+    250,
+    249,
+    245,
+    250,
+    254
+  ],
+  "official_sample_checked_locally": true,
+  "source_bytes": 5048,
+  "rank_verified": false,
+  "current_minimal_copied_program_sha256": "1b57a3d1b75de5ae5f3b5730762cc3fa4535bb619ed5bb14f47ae391c6df0dab",
+  "exact_minimal_copied_program_match": true,
+  "copied_components": [
+    "ModInt",
+    "NttConvolution",
+    "convolution_mod"
+  ],
+  "source_comparison_scope": "Current minimal printed component closure plus usage345 is byte-identical to the uploaded archive. Ordinary full-header bundle and expanded program include additional unused context, so their whole-file matches remain false."
+}

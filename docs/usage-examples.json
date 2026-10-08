@@ -4415,5 +4415,58 @@
     ],
     "start_new_page": true,
     "page_break_before": "        vector<Z> fact(n, 1), inv(n, 1);"
+  },
+  {
+    "id": "example-348",
+    "symbol": "RealSpace",
+    "kind": "api",
+    "problem": "三维向量运算（接口演示）",
+    "url": "",
+    "summary": "EOF输入两个向量a,b，输出点积、叉积、两长度和0..π夹角；任一向量为零时夹角输出-1。不是正式OJ题。",
+    "driver": "verify/api/real_space.compact.cpp",
+    "requires": [
+      "RealSpace"
+    ]
+  },
+  {
+    "id": "example-349",
+    "symbol": "Line3",
+    "kind": "api",
+    "problem": "三维直线/线段投影与绕轴旋转（接口演示）",
+    "url": "",
+    "summary": "EOF输入端点a,b、查询点q和弧度rad；输出直线/线段垂足、两距离、线段包含判定及绕a到b方向轴的旋转结果。a=b时按点计算距离和投影，旋转输出no axis。",
+    "driver": "verify/api/line3.compact.cpp",
+    "requires": [
+      "RealSpace",
+      "Line3"
+    ]
+  },
+  {
+    "id": "example-350",
+    "symbol": "Plane3",
+    "kind": "api",
+    "problem": "平面投影和线面求交（接口演示）",
+    "url": "",
+    "summary": "EOF输入非零法向n、常数h、查询点q及直线端点a,b，平面为n点乘x=h。输出有符号距离、垂足和交点分类；仅type=1时输出单点。type=-1为整条非退化线在面上，type=0无交。",
+    "driver": "verify/api/plane_line3.compact.cpp",
+    "requires": [
+      "RealSpace",
+      "Line3",
+      "Plane3"
+    ]
+  },
+  {
+    "id": "example-351",
+    "symbol": "Plane3",
+    "kind": "api",
+    "problem": "两平面夹角与交线（接口演示）",
+    "url": "",
+    "summary": "EOF输入两平面的非零法向a,b及常数h,k（顺序a,h,b,k），输出有向法向夹角及求交类型；type=1时输出交线上一点和单位方向；-1重合、0平行不同。无向平面夹角可取min(theta,π-theta)。",
+    "driver": "verify/api/plane_plane3.compact.cpp",
+    "requires": [
+      "RealSpace",
+      "Line3",
+      "Plane3"
+    ]
   }
 ]
