@@ -1,0 +1,57 @@
+{
+  "mode": "normal",
+  "cases": 1806,
+  "small_moduli": 599,
+  "large_moduli": [
+    999983,
+    999979,
+    1000000,
+    531441,
+    354294,
+    524288,
+    390625,
+    781250,
+    999999
+  ],
+  "source_lines": 123,
+  "programs": [
+    {
+      "form": "source",
+      "cases": 1806,
+      "source_sha256": "50089fb39ddcde00b6953a201903ce8c32c57776a643a4e602935d72361c6c7a"
+    },
+    {
+      "form": "header",
+      "cases": 1806,
+      "source_sha256": "a18eb9ebd870d288fccf5396385e97028d72d5fc58b9460369a7adf05e52c40e"
+    },
+    {
+      "form": "ndebug",
+      "cases": 1806,
+      "source_sha256": "a18eb9ebd870d288fccf5396385e97028d72d5fc58b9460369a7adf05e52c40e"
+    },
+    {
+      "form": "expanded",
+      "cases": 1806,
+      "source_sha256": "7da3c5292137610385815a1b045dbbc2daae5cd116eda8c81d7b97f47d6e027c"
+    },
+    {
+      "form": "copied",
+      "cases": 1806,
+      "source_sha256": "2fdafdbe6f5df6aee24f95598bc0a386491f046b4706e46f899efffa79d2ceb2"
+    }
+  ],
+  "snapshot": {
+    "src/compact/primitive_root.hpp": "7128aeceeeb02de5fbc37a0a34332cc83b874f2ff83746fef37d4b05d87f809a",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "tests/primitive_root_source.py": "66bb6b8c81478f164162730c91a88f474b8d99c786651c0a930d21ce44b4dafa",
+    "tests/fixtures/primitive_root_sources/issue11.cpp": "50089fb39ddcde00b6953a201903ce8c32c57776a643a4e602935d72361c6c7a",
+    "verify/luogu/P6091.compact.cpp": "a18eb9ebd870d288fccf5396385e97028d72d5fc58b9460369a7adf05e52c40e",
+    "tools/usage_examples.py": "2cd2c5f91b3a40d940dcc178c747f563d8744db15889b69feb16af92e90a26f6",
+    "tools/audit_copy_context.py": "a732de58424150b7297de0eeac22e427a4e3db332da3ed996bd5ba2c2cba7882"
+  },
+  "usage": "example-48",
+  "program_sha256": "7da3c5292137610385815a1b045dbbc2daae5cd116eda8c81d7b97f47d6e027c",
+  "source_adaptations": "None; original formatter verified by -Wformat=2 -Werror=format on LP64 GNU C++.",
+  "scope": "Complete original multi-test protocol; all roots counted and sorted sampling checked with required empty lines. No new online AC."
+}

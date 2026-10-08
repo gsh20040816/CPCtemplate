@@ -341,3 +341,5 @@ tests/edge_components.cpp 通过逐条删边的全对可达性判断桥，删除
 kuangbin §2.16 的151行完整来源（印刷47–49页）经转录与显式编译兼容修复对照，由 FibonacciPeriod 覆盖；OI Wiki斐波那契周期部分另按矩阵阶证明实现精确最小周期。原稿无条件素数幂提升不作为一般定理，详见 [FIBONACCI-PERIOD.md](FIBONACCI-PERIOD.md)。
 
 issue #11附件印刷20页DAG支配树文字构造由DagDominator补充，保留不可达点与全图环检查的明确契约；该页无DAG来源代码，不伪造原程序对照。详见[DAG-DOMINATOR.md](DAG-DOMINATOR.md)。
+
+issue #11 §3.2原根的123行完整来源（71–74页）已与既有PrimitiveRoot/P6091用法对照，1806组正式范围内多测协议通过普通与消毒器验证。无算法修改、无新增线上记录，见[PRIMITIVE-ROOT-SOURCE.md](PRIMITIVE-ROOT-SOURCE.md)。

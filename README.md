@@ -170,3 +170,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 [斐波那契最小循环节](docs/FIBONACCI-PERIOD.md)：完整unsigned64模数、128位结果、逐层验证素数幂，附P4994模板用法与来源程序审计。
 
 [DAG支配树](docs/DAG-DOMINATOR.md)：拓扑序合并可达前驱LCA，附环检测、通用LT组合模板题及P2597食物网应用。
+
+[原根附件来源审计](docs/PRIMITIVE-ROOT-SOURCE.md)：完整123行程序与已有P6091用法对照，核对排序采样及空行协议，避免重复添加同功能模板。
