@@ -6149,5 +6149,64 @@
       "verification/mo-sanitizer.json"
     ],
     "adapter": "Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed."
+  },
+  {
+    "symbol": "OverallKth",
+    "problem": "Luogu P2617",
+    "url": "https://www.luogu.com.cn/problem/P2617",
+    "classification": "Dynamic range kth application of overall binary search.",
+    "statement_checked": true,
+    "limits": "n,m<=100000;values0..1e9;5s/1GB displayed.",
+    "tested_api": [
+      "set",
+      "query",
+      "run"
+    ],
+    "api": "OverallKth",
+    "ac": "https://www.luogu.com.cn/record/301886868",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online source archived; extended API domains/repeated calls and large-tree tests remain local evidence. No speed ranking.",
+    "checked_date": "2026-10-08",
+    "source": "src/compact/overall_kth.hpp",
+    "driver": "verify/luogu/P2617.offline.compact.cpp",
+    "usage": "example-356",
+    "local_reports": [
+      "verification/overall-kth-isomorphism-normal.json",
+      "verification/overall-kth-isomorphism-sanitizer.json"
+    ],
+    "adapter": "Dynamic range kth application of overall binary search."
+  },
+  {
+    "symbol": "TreeIsomorphism",
+    "problem": "Luogu P5043",
+    "url": "https://www.luogu.com.cn/problem/P5043",
+    "classification": "Formal unrooted tree isomorphism template.",
+    "statement_checked": true,
+    "limits": "N,M<=50;1s/250MB displayed.",
+    "tested_api": [
+      "unrooted",
+      "rooted"
+    ],
+    "api": "TreeIsomorphism",
+    "ac": "https://www.luogu.com.cn/record/301887481",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online source archived; extended API domains/repeated calls and large-tree tests remain local evidence. No speed ranking.",
+    "checked_date": "2026-10-08",
+    "source": "src/compact/tree_isomorphism.hpp",
+    "driver": "verify/luogu/P5043.compact.cpp",
+    "usage": "example-357",
+    "local_reports": [
+      "verification/overall-kth-isomorphism-normal.json",
+      "verification/overall-kth-isomorphism-sanitizer.json"
+    ],
+    "adapter": "Formal unrooted tree isomorphism template."
   }
 ]

@@ -1612,5 +1612,17 @@
     "RollbackMo",
     "回滚莫队",
     "RollbackMo(n)，n>=0；add(l,r)登记0-based半开区间[l,r)，允许空区间，返回0-based查询ID。run(add,snapshot,rollback,ans,block=0)：add接收位置，snapshot返回当前快照，rollback恢复该祖先快照，ans接收查询ID。开始时统计必须为空；结束恢复初始快照。每次add都须可撤销，包含长期右段；不保留失效快照、不修改查询。只支持与插入次序无关的区间统计。默认B=max(1,n/sqrt(m))；m>0时调度与O(1)增删总计O(m log(m+1)+mB+n²/B+n)，空间O(m)加回调状态/历史O(n)。可重复run，n=0只允许空查询；无查询不调用回调。"
+  ],
+  [
+    "overall_kth",
+    "OverallKth",
+    "整体二分：动态区间第k小",
+    "OverallKth(a)读取0-based非空初始数组；后续位置用1..n。set(pos,value)登记单点赋值；query(l,r,k)登记闭区间第k小并返回0-based查询ID，1<=k<=r-l+1。run()按查询ID返回vector<long long>，答案对应登记查询时的状态，不是最后数组；可重复run，也可继续登记后重新run。支持完整long long值域，不做值的算术；同值修改跳过。依赖Fenwick<int>，递归值域分治，保持时间顺序并撤销贡献。n<=INT_MAX/2，事件数E=n+2U+Q<=INT_MAX（U为实际变值次数），另须满足内存限制。V为出现过的不同值数，时间O(E log(E+1)+E log(n+1) log(V+1))，空间O(n+E)。只读current/events/queries，不外部修改。"
+  ],
+  [
+    "tree_isomorphism",
+    "TreeIsomorphism",
+    "确定性有根与无根树同构",
+    "TreeIsomorphism iso；rooted(g,root)返回有根树编号，unrooted(g)返回无根树pair编号。g是0-based非空简单无向连通树，邻接表双向各存一次；root在0..n-1。递归DFS，不验证非法图。所有待比较的树必须共用同一个iso；编号依赖插入次序，不同对象或清空codes前后的编号不能直接比较。对子节点编号排序并用map精确驻留，无随机哈希碰撞。无根树取重心：单重心返回(code,0)，双重心分别以两点为根编码并排序。支持单点；不考虑点/边标签，也不返回顶点映射。codes只读，编号数须<INT_MAX，n<=INT_MAX。S为本次结束时驻留签名数，一次n点调用O(n log(n+1)+n log(S+1))，临时O(n)，跨调用累计存储至多O(T)，T为累计编码遍历的顶点数。"
   ]
 ]

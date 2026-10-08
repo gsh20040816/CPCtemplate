@@ -7988,6 +7988,42 @@ CentroidDiameter(n)，固定连通无向树、0-based点号，n>0且2n不溢出i
 
 \Needspace{680pt}
 
+\section{树哈希}
+
+\noindent 相关应用：Deterministic sorted-child interning and centroid rooting; exact alternative to randomized tree hashing.
+
+\subsection{确定性有根与无根树同构}\label{compact-TreeIsomorphism}\index{TreeIsomorphism}
+
+TreeIsomorphism iso；rooted(g,root)返回有根树编号，unrooted(g)返回无根树pair编号。g是0-based非空简单无向连通树，邻接表双向各存一次；root在0..n-1。递归DFS，不验证非法图。所有待比较的树必须共用同一个iso；编号依赖插入次序，不同对象或清空codes前后的编号不能直接比较。对子节点编号排序并用map精确驻留，无随机哈希碰撞。无根树取重心：单重心返回(code,0)，双重心分别以两点为根编码并排序。支持单点；不考虑点/边标签，也不返回顶点映射。codes只读，编号数须<INT\_MAX，n<=INT\_MAX。S为本次结束时驻留签名数，一次n点调用O(n log(n+1)+n log(S+1))，临时O(n)，跨调用累计存储至多O(T)，T为累计编码遍历的顶点数。
+
+\lstinputlisting[firstline=8,lastline=29,firstnumber=1]{../src/compact/tree_isomorphism.hpp}
+
+\newpage
+
+\noindent 继续求解（接上页同一结构体）：
+
+\lstinputlisting[firstline=30,lastline=56,firstnumber=23]{../src/compact/tree_isomorphism.hpp}
+
+\Needspace{462pt}
+
+\subsection*{模板题使用：P5043 【模板】树同构 / [BJOI2015] 树的同构}
+
+\label{usage-example-357}
+
+题意：M棵无根树，每棵N个点，1<=N,M<=50。输入N个父亲编号，0表示根；转换无向树后忽略输入根。输出与本树同构的最早树编号；所有树共用同一驻留表。
+
+所需模板：\hyperref[compact-TreeIsomorphism]{TreeIsomorphism}（第~\pageref{compact-TreeIsomorphism}~页，\ref{compact-TreeIsomorphism}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5043}
+
+\lstinputlisting{usage/example-357.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{680pt}
+
 \chapter{拓扑排序}
 
 \section{DAG有符号权最长路与路径方案}\label{compact-DagLongest}\index{DagLongest}
@@ -11709,6 +11745,48 @@ strict=true要求每一步三个坐标都严格增加；false为三坐标不减�
 来源：\url{https://github.com/kuangbin/ACM-ICPC}
 
 \lstinputlisting{usage/example-273.cpp}
+
+\newpage
+
+\Needspace{680pt}
+
+\section{整体二分}
+
+\subsection{整体二分：动态区间第k小}\label{compact-OverallKth}\index{OverallKth}
+
+代码依赖：\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+OverallKth(a)读取0-based非空初始数组；后续位置用1..n。set(pos,value)登记单点赋值；query(l,r,k)登记闭区间第k小并返回0-based查询ID，1<=k<=r-l+1。run()按查询ID返回vector<long long>，答案对应登记查询时的状态，不是最后数组；可重复run，也可继续登记后重新run。支持完整long long值域，不做值的算术；同值修改跳过。依赖Fenwick<int>，递归值域分治，保持时间顺序并撤销贡献。n<=INT\_MAX/2，事件数E=n+2U+Q<=INT\_MAX（U为实际变值次数），另须满足内存限制。V为出现过的不同值数，时间O(E log(E+1)+E log(n+1) log(V+1))，空间O(n+E)。只读current/events/queries，不外部修改。
+
+\lstinputlisting[firstline=4,lastline=44,firstnumber=1]{../src/compact/overall_kth.hpp}
+
+\newpage
+
+\noindent 继续求解（接上页同一结构体）：
+
+\lstinputlisting[firstline=45,lastline=65,firstnumber=42]{../src/compact/overall_kth.hpp}
+
+\newpage
+
+\noindent 继续求解（接上页同一结构体）：
+
+\lstinputlisting[firstline=66,lastline=109,firstnumber=63]{../src/compact/overall_kth.hpp}
+
+\Needspace{491pt}
+
+\subsection*{应用题补充：P2617 Dynamic Rankings（整体二分）}
+
+\label{usage-example-356}
+
+题意：n,m<=100000，初值和修改值0..1e9；Q l r k查询闭区间第k小，C pos value单点赋值。先按原时间顺序登记，最后统一求解输出；不继承在线DynamicKth的AC。
+
+所需模板：\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）、\hyperref[compact-OverallKth]{OverallKth}（第~\pageref{compact-OverallKth}~页，\ref{compact-OverallKth}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2617}
+
+\lstinputlisting{usage/example-356.cpp}
+
+\newpage
 
 \newpage
 

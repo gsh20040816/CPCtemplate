@@ -200,6 +200,7 @@
 - `verify/luogu/P2522.compact.cpp`
 - `verify/luogu/P2597.compact.cpp`
 - `verify/luogu/P2617.compact.cpp`
+- `verify/luogu/P2617.offline.compact.cpp`
 - `verify/luogu/P2633.compact.cpp`
 - `verify/luogu/P2742.compact.cpp`
 - `verify/luogu/P2762.compact.cpp`
@@ -265,6 +266,7 @@
 - `verify/luogu/P4887.compact.cpp`
 - `verify/luogu/P4929.compact.cpp`
 - `verify/luogu/P4994.compact.cpp`
+- `verify/luogu/P5043.compact.cpp`
 - `verify/luogu/P5091.compact.cpp`
 - `verify/luogu/P5170.compact.cpp`
 - `verify/luogu/P5180.compact.cpp`

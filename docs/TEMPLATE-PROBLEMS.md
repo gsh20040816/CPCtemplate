@@ -242,6 +242,8 @@
 | `TimeConnectivity::TimeConnectivity(n,q)` | [Luogu P2147](https://www.luogu.com.cn/problem/P2147) | n<=10000,q<=200000; initial empty forest, legal Connect/Destroy/Query; 1s/125MB as displayed. | [记录](https://www.luogu.com.cn/record/301882512) | 待核验 |
 | `TreeMo::TreeMo` | [Luogu SP10707](https://www.luogu.com.cn/problem/SP10707) | Static tree path distinct values application; n<=40000,m<=100000;1.21s/1.46GB displayed. Edge weights locally tested only. | 待在线 AC | 待核验 |
 | `RollbackMo::RollbackMo` | [Luogu P5906](https://www.luogu.com.cn/problem/P5906) | Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed. | [记录](https://www.luogu.com.cn/record/301884220) | 待核验 |
+| `OverallKth::OverallKth` | [Luogu P2617](https://www.luogu.com.cn/problem/P2617) | n,m<=100000;values0..1e9;5s/1GB displayed. | [记录](https://www.luogu.com.cn/record/301886868) | 待核验 |
+| `TreeIsomorphism::TreeIsomorphism` | [Luogu P5043](https://www.luogu.com.cn/problem/P5043) | N,M<=50;1s/250MB displayed. | [记录](https://www.luogu.com.cn/record/301887481) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2272,6 +2274,22 @@ Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed.
 Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed.
 
 See verification/mo-online.json for current online results; no speed ranking. Core edge/empty/repeated-run contracts locally tested.
+
+### Luogu P2617 / OverallKth
+
+Dynamic range kth application of overall binary search.
+
+Dynamic range kth application of overall binary search.
+
+Online source archived; extended API domains/repeated calls and large-tree tests remain local evidence. No speed ranking.
+
+### Luogu P5043 / TreeIsomorphism
+
+Formal unrooted tree isomorphism template.
+
+Formal unrooted tree isomorphism template.
+
+Online source archived; extended API domains/repeated calls and large-tree tests remain local evidence. No speed ranking.
 
 ## 榜单口径
 

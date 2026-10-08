@@ -4522,5 +4522,30 @@
     "helper_types": [
       "Change"
     ]
+  },
+  {
+    "id": "example-356",
+    "symbol": "OverallKth",
+    "kind": "application",
+    "problem": "P2617 Dynamic Rankings（整体二分）",
+    "url": "https://www.luogu.com.cn/problem/P2617",
+    "summary": "n,m<=100000，初值和修改值0..1e9；Q l r k查询闭区间第k小，C pos value单点赋值。先按原时间顺序登记，最后统一求解输出；不继承在线DynamicKth的AC。",
+    "driver": "verify/luogu/P2617.offline.compact.cpp",
+    "requires": [
+      "Fenwick",
+      "OverallKth"
+    ]
+  },
+  {
+    "id": "example-357",
+    "symbol": "TreeIsomorphism",
+    "kind": "template",
+    "problem": "P5043 【模板】树同构 / [BJOI2015] 树的同构",
+    "url": "https://www.luogu.com.cn/problem/P5043",
+    "summary": "M棵无根树，每棵N个点，1<=N,M<=50。输入N个父亲编号，0表示根；转换无向树后忽略输入根。输出与本树同构的最早树编号；所有树共用同一驻留表。",
+    "driver": "verify/luogu/P5043.compact.cpp",
+    "requires": [
+      "TreeIsomorphism"
+    ]
   }
 ]

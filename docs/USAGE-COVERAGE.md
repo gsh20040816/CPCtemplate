@@ -276,3 +276,5 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | TimeConnectivity | [example-352（应用补充）](usage/example-352.cpp), [example-353（接口演示）](usage/example-353.cpp) | locally_checked_application |
 | TreeMo | [example-354（应用补充）](usage/example-354.cpp) | locally_checked_application |
 | RollbackMo | [example-355](usage/example-355.cpp) | locally_checked_example |
+| OverallKth | [example-356（应用补充）](usage/example-356.cpp) | locally_checked_application |
+| TreeIsomorphism | [example-357](usage/example-357.cpp) | locally_checked_example |

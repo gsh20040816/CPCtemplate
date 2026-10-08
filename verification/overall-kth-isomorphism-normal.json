@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "mode": "normal",
+  "source_sha256": {
+    "src/compact/overall_kth.hpp": "019dbe78d8c765cf651f4dbbd0e5a314815b8f6213a725818b42b29b5888767a",
+    "src/compact/tree_isomorphism.hpp": "97099e1536c6adf41e277d9e02857c17b56309f0bcdb285528b1f2bd6007b5a7",
+    "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
+    "tests/overall_kth.cpp": "eb9491d9d62c8b2054589e4756f5802a674193a691be4b6c321b9c59c6325e0b",
+    "tests/tree_isomorphism.cpp": "ecdbc42cf83512926e5b51ca488e6cb23e5c6ec2fa64e67efd72ebb13f3ff7b2",
+    "tests/overall_kth_and_isomorphism.py": "d137b615127e31a00cb2e42235f982735ef360e9d8d240eb7da735e0462cde5f",
+    "docs/catalog.json": "7a47f6af0b64c8637c1ac95e9b0540a2b8564d179000b3f4cc1f966308c705b1",
+    "docs/usage-examples.json": "782321716261da97e33d52eeb8882ea9d92b1ec093e470fd08a55ef2a5462b20",
+    "verify/luogu/P2617.offline.compact.cpp": "49a38abd1abca0822f4c099a18f86b27ca7639f36bc5fd55149496fe6b8557e7",
+    "verify/luogu/P5043.compact.cpp": "d08a72e3e3fdfabb27609fddfbf773f539e2bf3b37ff880f31a718dec2113646"
+  },
+  "core": {
+    "OverallKth": {
+      "header": "PASS 2000 operation streams, repeated and incremental run",
+      "ndebug": "PASS 2000 operation streams, repeated and incremental run",
+      "copied": "PASS 2000 operation streams, repeated and incremental run"
+    },
+    "TreeIsomorphism": {
+      "header": "PASS 2442 trees, all roots and relabelings; 100000-node chain/star",
+      "ndebug": "PASS 2442 trees, all roots and relabelings; 100000-node chain/star",
+      "copied": "PASS 2442 trees, all roots and relabelings; 100000-node chain/star"
+    }
+  },
+  "usage": {
+    "example-356": {
+      "program_sha256": "f1915defee3ef6a8d7262f93950e2c0e98da6dd31a7bfb0275f9976a0c9ecdeb",
+      "forms": {
+        "header": 152,
+        "ndebug": 152,
+        "expanded": 152,
+        "copied": 152
+      }
+    },
+    "example-357": {
+      "program_sha256": "cc595fb3c761a6a0a68da31b55fa44d3e44fd4a1e929afffa474a0f1e3021f5a",
+      "forms": {
+        "header": 40,
+        "ndebug": 40,
+        "expanded": 40,
+        "copied": 40
+      }
+    }
+  },
+  "scope": "Independent sorted interval and exact bracket-string oracles; all labeled trees through six vertices; repeated runs, signed64 extremes, two n=m=100000 kth stresses and 100000-node tree stress. No online AC inferred."
+}
