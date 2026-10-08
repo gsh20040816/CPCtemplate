@@ -281,6 +281,7 @@
 - `verify/luogu/P5632.compact.cpp`
 - `verify/luogu/P5656.compact.cpp`
 - `verify/luogu/P5905.compact.cpp`
+- `verify/luogu/P5906.compact.cpp`
 - `verify/luogu/P5960.compact.cpp`
 - `verify/luogu/P6080.compact.cpp`
 - `verify/luogu/P6113.compact.cpp`
@@ -291,6 +292,7 @@
 - `verify/luogu/P7173.compact.cpp`
 - `verify/luogu/P7771.compact.cpp`
 - `verify/luogu/P7883.compact.cpp`
+- `verify/luogu/SP10707.compact.cpp`
 - `verify/luogu/SP11470.compact.cpp`
 - `verify/luogu/SP1811.compact.cpp`
 - `verify/luogu/SP2939.compact.cpp`

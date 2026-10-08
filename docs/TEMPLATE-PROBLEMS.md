@@ -240,6 +240,8 @@
 | `DC3::constructor/sa` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase letters | 待在线 AC | 待核验 |
 | `convolution_mod::convolution_mod(a,b,mod)` | [Luogu P4245](https://www.luogu.com.cn/problem/P4245) | 1<=n,m<=100000 degrees;0<=coefficients<=1e9;2<=p<=1000000009 | [记录](https://www.luogu.com.cn/record/301858590) | 待核验 |
 | `TimeConnectivity::TimeConnectivity(n,q)` | [Luogu P2147](https://www.luogu.com.cn/problem/P2147) | n<=10000,q<=200000; initial empty forest, legal Connect/Destroy/Query; 1s/125MB as displayed. | [记录](https://www.luogu.com.cn/record/301882512) | 待核验 |
+| `TreeMo::TreeMo` | [Luogu SP10707](https://www.luogu.com.cn/problem/SP10707) | Static tree path distinct values application; n<=40000,m<=100000;1.21s/1.46GB displayed. Edge weights locally tested only. | 待在线 AC | 待核验 |
+| `RollbackMo::RollbackMo` | [Luogu P5906](https://www.luogu.com.cn/problem/P5906) | Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed. | [记录](https://www.luogu.com.cn/record/301884220) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2254,6 +2256,22 @@ SDOI2008 forest connectivity contest application, not a standalone general multi
 Pair Connect/Destroy into half-open lifetimes, close remaining edges atq; query leaf DSU and print Yes/No.
 
 Forest contest application AC100,11tests; initial edges, cycles, parallel edges, component sizes and repeated run covered locally only. Ranking unverified.
+
+### Luogu SP10707 / TreeMo
+
+Static tree path distinct values application; n<=40000,m<=100000;1.21s/1.46GB displayed. Edge weights locally tested only.
+
+Static tree path distinct values application; n<=40000,m<=100000;1.21s/1.46GB displayed. Edge weights locally tested only.
+
+See verification/mo-online.json for current online results; no speed ranking. Core edge/empty/repeated-run contracts locally tested.
+
+### Luogu P5906 / RollbackMo
+
+Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed.
+
+Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed.
+
+See verification/mo-online.json for current online results; no speed ranking. Core edge/empty/repeated-run contracts locally tested.
 
 ## 榜单口径
 

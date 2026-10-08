@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 188，application 63，composite 7，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 190，application 63，composite 7，related 9。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -276,4 +276,6 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Chain3D | 杂项 → 离线算法 → CDQ 分治 | direct | 三维最长链DP，先左递归、跨半区转移，再右递归；与静态偏序计数分开。 |
 | Dominance3D | 杂项 → 离线算法 → CDQ 分治 | direct | 静态无权三维弱偏序计数，CDQ按点对归并；不把卷积递推或整个CDQ页面当作已覆盖。 |
 | ModifiedMo | 杂项 → 离线算法 → 莫队算法 → 带修改莫队 | direct |  |
+| TreeMo | 杂项 → 离线算法 → 莫队算法 → 树上莫队 | direct | Static offline Mo template; recursive tree Euler tour or rollback-only interval state. |
+| RollbackMo | 杂项 → 离线算法 → 莫队算法 → 回滚莫队 | direct | Static offline Mo template; recursive tree Euler tour or rollback-only interval state. |
 | xor_hamming_pairs | 杂项 → 离线算法 → 莫队算法 → 莫队二次离线 | direct | 附件及 P4887 的异或 popcount 配对应用；不声称任意问题可直接代入。 |

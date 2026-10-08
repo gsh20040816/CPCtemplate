@@ -1,0 +1,41 @@
+{
+  "status": "pass",
+  "mode": "normal",
+  "source_sha256": {
+    "src/compact/tree_mo.hpp": "b51d26182d2750f574ab0e296828d47e4977f466de5b22b0cea69e7684a6826b",
+    "src/compact/rollback_mo.hpp": "a0cc4d7ed93749349fc5b77cc7f4e4f750e3f3ffb5f7a0e4db3f004a0987ecdd",
+    "src/compact/tree.hpp": "ca4763acedb458e95900afc84237ff62e5dec1f48a01f50f58ee15a4cd2224c8",
+    "tests/mo.cpp": "b9f0e30e5db7d44aa6ae8c3fabe682152586bcf7dbf0344548a6105c8cca67ad",
+    "tests/mo.py": "f79fad67ac50a47d0c7de01e66c28fc43b8b4a3833b94b0dfff3bbee797249bc",
+    "docs/catalog.json": "fa850456b758d6b2707f3eef192e68f6dc8552c636fac7cfed165606e4391797",
+    "docs/usage-examples.json": "b97b442f5cff83dc4932dc3675b35adb8f003c129efcb121db73f105b914d09a",
+    "verify/luogu/SP10707.compact.cpp": "05c2eeabb53c0ac00ce7b896cc08d4108b33e328d55553c6ec75e96a295a6759",
+    "verify/luogu/P5906.compact.cpp": "a7fbc9178410afaf939b9eb813811eb255bb0d5693b5d29611f0aa7df379123e"
+  },
+  "core": {
+    "header": "PASS 1500 trees and 1500 interval sets, four block sizes",
+    "ndebug": "PASS 1500 trees and 1500 interval sets, four block sizes",
+    "copied": "PASS 1500 trees and 1500 interval sets, four block sizes"
+  },
+  "usage": {
+    "example-354": {
+      "program_sha256": "ebe70a41b611b63130561139fe7328b90ceb75727f6606898674308c7f35ee69",
+      "forms": {
+        "header": 101,
+        "ndebug": 101,
+        "expanded": 101,
+        "copied": 101
+      }
+    },
+    "example-355": {
+      "program_sha256": "54881bf609aed70e7f4dcea5e2c38f7c8c0d080acae22a79634e4575dfaa2716",
+      "forms": {
+        "header": 101,
+        "ndebug": 101,
+        "expanded": 101,
+        "copied": 101
+      }
+    }
+  },
+  "scope": "Independent path BFS and interval scan; mixed vertex/edge core; repeated runs and varied blocks; maximum-size chain and constant array. No online AC implied."
+}

@@ -11750,6 +11750,88 @@ ModifiedMo(n,m) 保存离线询问，n>0，m 为修改总数。add(l,r,t) 登记
 
 \Needspace{680pt}
 
+\subsection{树上莫队}
+
+\subsubsection{树上莫队：点权与边权}\label{compact-TreeMo}\index{TreeMo}
+
+代码依赖：\hyperref[compact-HLD]{HLD}（第~\pageref{compact-HLD}~页，\ref{compact-HLD}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+先对非空连通树HLD.build(root)，再TreeMo(tree)；tree须活到run结束且不能修改。点号1..n，双欧拉序长2n，n<=INT\_MAX/2；DFS递归。add(u,v,edge=false)返回0-based查询ID；默认点权，edge=true把父边权记在子点并排除LCA。run(add,del,ans,block=0)的add/del参数是顶点，ans参数是查询ID；只适合与集合排列无关且可增删的统计。调用前统计为空，结束恢复空；不可在回调内修改树/查询，可重复运行。混用点边查询时回调须有一致的数据解释。默认块长max(1,2n/sqrt(m))；自定B>0。m>0时调度O(m log(m+1)+mB+n$^{2}$/B+n)，查询转换另需O(m log n)，回调代价另计。空间O(n+m)，复用HLD；整数大小另须满足内存限制。
+
+\lstinputlisting[firstline=4,lastline=46]{../src/compact/tree_mo.hpp}
+
+\newpage
+
+\noindent 查询调度与状态恢复（接上页同一结构体）：
+
+\lstinputlisting[firstline=47,firstnumber=44]{../src/compact/tree_mo.hpp}
+
+\Needspace{538pt}
+
+\subsection*{应用题补充：SP10707 COT2 - Count on a tree II}
+
+\label{usage-example-354}
+
+题意：静态树路径不同点权数，n<=40000,m<=100000；离散化权值，双欧拉序维护出现次数，额外补LCA。竞赛应用；边权语义另由核心对拍验证。
+
+所需模板：\hyperref[compact-HLD]{HLD}（第~\pageref{compact-HLD}~页，\ref{compact-HLD}~节）、\hyperref[compact-TreeMo]{TreeMo}（第~\pageref{compact-TreeMo}~页，\ref{compact-TreeMo}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/SP10707}
+
+\lstinputlisting[lastline=34]{usage/example-354.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=35,firstnumber=35]{usage/example-354.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{680pt}
+
+\subsection{回滚莫队}
+
+\subsubsection{回滚莫队}\label{compact-RollbackMo}\index{RollbackMo}
+
+RollbackMo(n)，n>=0；add(l,r)登记0-based半开区间[l,r)，允许空区间，返回0-based查询ID。run(add, snapshot, rollback, ans, block=0)：add接收位置，snapshot返回当前快照，rollback恢复该祖先快照，ans接收查询ID。开始时统计必须为空；结束恢复初始快照。每次add都须可撤销，包含长期右段；不保留失效快照、不修改查询。只支持与插入次序无关的区间统计。默认B=max(1,n/sqrt(m))；m>0时调度与O(1)增删总计O(m log(m+1)+mB+n$^{2}$/B+n)，空间O(m)加回调状态/历史O(n)。可重复run，n=0只允许空查询；无查询不调用回调。
+
+\lstinputlisting[firstline=8,lastline=43]{../src/compact/rollback_mo.hpp}
+
+\newpage
+
+\noindent 查询调度与状态恢复（接上页同一结构体）：
+
+\lstinputlisting[firstline=44,firstnumber=37]{../src/compact/rollback_mo.hpp}
+
+\Needspace{431pt}
+
+\subsection*{模板题使用：P5906 【模板】回滚莫队\&不删除莫队}
+
+\label{usage-example-355}
+
+题意：n,m<=200000，值1..2e9；对每个1-based闭区间输出相同值的最远下标差，无重复输出0。离散化，保存各值最左/最右位置和全局答案，历史逐次恢复。
+
+所需模板：\hyperref[compact-RollbackMo]{RollbackMo}（第~\pageref{compact-RollbackMo}~页，\ref{compact-RollbackMo}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5906}
+
+\lstinputlisting[lastline=24]{usage/example-355.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=25,firstnumber=25]{usage/example-355.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{680pt}
+
 \subsection{莫队二次离线}
 
 \subsubsection{莫队二次离线：异或位数配对}\label{compact-xor_hamming_pairs}\index{xor\_hamming\_pairs}

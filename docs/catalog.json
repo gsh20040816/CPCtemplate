@@ -1600,5 +1600,17 @@
     "TimeConnectivity",
     "时间线段树分治：离线动态连通性",
     "TimeConnectivity(n,q)，点号0..n（1-based图不使用0），时间0..q-1。add(l,r,u,v)登记边在半开区间[l,r)有效，允许空区间、重叠区间、重边和自环。run(visit)按时间递增调用visit(t,const RollbackDSU &d)，可用find判断连通、siz[find(u)]取分量大小；只在回调内读取，不保留引用，不在遍历中改图。每次run重新建并查集，可重复调用，也可在两次run间加区间。q=0不调用回调。n>=0且n<INT_MAX，0<=q<=INT_MAX/4，并须满足内存限制。K个非空区间：存储O(n+q+K log(q+1))；建区间O(K log(q+1))，遍历O(n+q+K log(q+1) log(n+2))，另加回调代价。依赖RollbackDSU，不做路径压缩；DFS保持递归。"
+  ],
+  [
+    "tree_mo",
+    "TreeMo",
+    "树上莫队：点权与边权",
+    "先对非空连通树HLD.build(root)，再TreeMo(tree)；tree须活到run结束且不能修改。点号1..n，双欧拉序长2n，n<=INT_MAX/2；DFS递归。add(u,v,edge=false)返回0-based查询ID；默认点权，edge=true把父边权记在子点并排除LCA。run(add,del,ans,block=0)的add/del参数是顶点，ans参数是查询ID；只适合与集合排列无关且可增删的统计。调用前统计为空，结束恢复空；不可在回调内修改树/查询，可重复运行。混用点边查询时回调须有一致的数据解释。默认块长max(1,2n/sqrt(m))；自定B>0。m>0时调度O(m log(m+1)+mB+n²/B+n)，查询转换另需O(m log n)，回调代价另计。空间O(n+m)，复用HLD；整数大小另须满足内存限制。"
+  ],
+  [
+    "rollback_mo",
+    "RollbackMo",
+    "回滚莫队",
+    "RollbackMo(n)，n>=0；add(l,r)登记0-based半开区间[l,r)，允许空区间，返回0-based查询ID。run(add,snapshot,rollback,ans,block=0)：add接收位置，snapshot返回当前快照，rollback恢复该祖先快照，ans接收查询ID。开始时统计必须为空；结束恢复初始快照。每次add都须可撤销，包含长期右段；不保留失效快照、不修改查询。只支持与插入次序无关的区间统计。默认B=max(1,n/sqrt(m))；m>0时调度与O(1)增删总计O(m log(m+1)+mB+n²/B+n)，空间O(m)加回调状态/历史O(n)。可重复run，n=0只允许空查询；无查询不调用回调。"
   ]
 ]

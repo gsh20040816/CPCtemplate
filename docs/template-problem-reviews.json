@@ -6091,5 +6091,63 @@
       "verification/time-connectivity-sanitizer.json"
     ],
     "adapter": "Pair Connect/Destroy into half-open lifetimes, close remaining edges atq; query leaf DSU and print Yes/No."
+  },
+  {
+    "symbol": "TreeMo",
+    "problem": "Luogu SP10707",
+    "url": "https://www.luogu.com.cn/problem/SP10707",
+    "classification": "Static tree path distinct values application; n<=40000,m<=100000;1.21s/1.46GB displayed. Edge weights locally tested only.",
+    "statement_checked": true,
+    "limits": "Static tree path distinct values application; n<=40000,m<=100000;1.21s/1.46GB displayed. Edge weights locally tested only.",
+    "tested_api": [
+      "add",
+      "run"
+    ],
+    "api": "TreeMo",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "See verification/mo-online.json for current online results; no speed ranking. Core edge/empty/repeated-run contracts locally tested.",
+    "checked_date": "2026-10-08",
+    "source": "src/compact/tree_mo.hpp",
+    "driver": "verify/luogu/SP10707.compact.cpp",
+    "usage": "example-354",
+    "local_reports": [
+      "verification/mo-normal.json",
+      "verification/mo-sanitizer.json"
+    ],
+    "adapter": "Static tree path distinct values application; n<=40000,m<=100000;1.21s/1.46GB displayed. Edge weights locally tested only."
+  },
+  {
+    "symbol": "RollbackMo",
+    "problem": "Luogu P5906",
+    "url": "https://www.luogu.com.cn/problem/P5906",
+    "classification": "Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed.",
+    "statement_checked": true,
+    "limits": "Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed.",
+    "tested_api": [
+      "add",
+      "run"
+    ],
+    "api": "RollbackMo",
+    "ac": "https://www.luogu.com.cn/record/301884220",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "See verification/mo-online.json for current online results; no speed ranking. Core edge/empty/repeated-run contracts locally tested.",
+    "checked_date": "2026-10-08",
+    "source": "src/compact/rollback_mo.hpp",
+    "driver": "verify/luogu/P5906.compact.cpp",
+    "usage": "example-355",
+    "local_reports": [
+      "verification/mo-normal.json",
+      "verification/mo-sanitizer.json"
+    ],
+    "adapter": "Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed."
   }
 ]

@@ -4494,5 +4494,33 @@
       "RollbackDSU",
       "TimeConnectivity"
     ]
+  },
+  {
+    "id": "example-354",
+    "symbol": "TreeMo",
+    "kind": "application",
+    "problem": "SP10707 COT2 - Count on a tree II",
+    "url": "https://www.luogu.com.cn/problem/SP10707",
+    "summary": "静态树路径不同点权数，n<=40000,m<=100000；离散化权值，双欧拉序维护出现次数，额外补LCA。竞赛应用；边权语义另由核心对拍验证。",
+    "driver": "verify/luogu/SP10707.compact.cpp",
+    "requires": [
+      "HLD",
+      "TreeMo"
+    ]
+  },
+  {
+    "id": "example-355",
+    "symbol": "RollbackMo",
+    "kind": "template",
+    "problem": "P5906 【模板】回滚莫队&不删除莫队",
+    "url": "https://www.luogu.com.cn/problem/P5906",
+    "summary": "n,m<=200000，值1..2e9；对每个1-based闭区间输出相同值的最远下标差，无重复输出0。离散化，保存各值最左/最右位置和全局答案，历史逐次恢复。",
+    "driver": "verify/luogu/P5906.compact.cpp",
+    "requires": [
+      "RollbackMo"
+    ],
+    "helper_types": [
+      "Change"
+    ]
   }
 ]
