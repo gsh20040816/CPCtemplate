@@ -237,6 +237,7 @@
 | `AssignmentSpectrum::add/solve/best/r` | [Luogu P6577](https://www.luogu.com.cn/problem/P6577) | n<=500; m<=n^2; -19980731<=weight<=19980731 | 待在线 AC | 待核验 |
 | `FibonacciPeriod::period` | [Luogu P4994](https://www.luogu.com.cn/problem/P4994) | 2<=M<=706150 | 待在线 AC | 待核验 |
 | `DagDominator::build/idom` | [Library Checker dominatortree (DAG/LT composition)](https://judge.yosupo.jp/problem/dominatortree) | 1<=N<=200000;0<=M<=200000;0-based vertices | 待在线 AC | 待核验 |
+| `DC3::constructor/sa` | [Library Checker suffixarray](https://judge.yosupo.jp/problem/suffixarray) | 1<=N<=500000; lowercase letters | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2227,6 +2228,14 @@ Standalone general dominator problem solved by explicit DAG/LT dispatch. The DAG
 0-based to1-based; if DAG fails use original LT with moved graph, then output idom-1.
 
 No new online submission or ranking. Pure DAG API and full composite program separately validated.
+
+### Library Checker suffixarray / DC3
+
+Standalone suffix-array template, new independent DC3 implementation. Earlier doubling/SA-IS evidence does not confer online acceptance.
+
+Read lowercase token, no caller sentinel; output all nonempty suffix starting positions0-based.
+
+No online submission or ranking; integer/empty/byte-boundary interfaces separately locally tested.
 
 ## 榜单口径
 

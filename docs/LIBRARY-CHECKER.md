@@ -238,7 +238,7 @@
 | [Palindromes in Deque](https://judge.yosupo.jp/problem/palindromes_in_deque) | String | 待逐题审题、适配与在线验证 | — |
 | [Prefix-Substring LCS](https://judge.yosupo.jp/problem/prefix_substring_lcs) | String | 待逐题审题、适配与在线验证 | — |
 | [Run Enumerate](https://judge.yosupo.jp/problem/runenumerate) | String | 待逐题审题、适配与在线验证 | — |
-| [Suffix Array](https://judge.yosupo.jp/problem/suffixarray) | String | 待逐题审题、适配与在线验证 | [suffixarray.compact.cpp](../verify/library_checker/suffixarray.compact.cpp)<br>[suffixarray_sais.compact.cpp](../verify/library_checker/suffixarray_sais.compact.cpp) |
+| [Suffix Array](https://judge.yosupo.jp/problem/suffixarray) | String | 待逐题审题、适配与在线验证 | [suffixarray.compact.cpp](../verify/library_checker/suffixarray.compact.cpp)<br>[suffixarray.dc3.compact.cpp](../verify/library_checker/suffixarray.dc3.compact.cpp)<br>[suffixarray_sais.compact.cpp](../verify/library_checker/suffixarray_sais.compact.cpp) |
 | [Wildcard Pattern Matching](https://judge.yosupo.jp/problem/wildcard_pattern_matching) | String | 待逐题审题、适配与在线验证 | — |
 | [Z Algorithm](https://judge.yosupo.jp/problem/zalgorithm) | String | 待逐题审题、适配与在线验证 | [zalgorithm.compact.cpp](../verify/library_checker/zalgorithm.compact.cpp) |
 | [Cartesian Tree](https://judge.yosupo.jp/problem/cartesian_tree) | Tree | 待逐题审题、适配与在线验证 | — |

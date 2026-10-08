@@ -1564,5 +1564,11 @@
     "DagDominator",
     "DAG支配树：拓扑序与在线倍增LCA",
     "DagDominator(n)，1≤n<INT_MAX，点号1..n；add(u,v)，允许重边。build(root)检查全图DAG并返回bool，任意分量有环（含自环）都返回false，同时清空idom/dep/up/order，不能使用半成品。成功后idom[root]=root，不可达点idom=dep=0；order为全图拓扑序。仅从可达前驱累积LCA，不可达前驱不能影响结果。lca(u,v)仅在成功build后对可达点使用，0可作空累积值，lca(0,v)=v。idom是直接支配点，可按逆order向父亲累加子树大小，跳过不可达点和根的自累加。可更换root重建；加边后旧结果失效，须重新build。g只通过add改动，结果数组只读。时间O((n+m)log(n+1))，空间O(nlog(n+1)+m)，入度须可由int表示。一般图请使用DominatorTree；多入口按题意添加虚拟根，不可擅自把所有无入度点当同一个入口。"
+  ],
+  [
+    "dc3",
+    "DC3",
+    "后缀数组：DC3线性构造",
+    "DC3(string)按unsigned char比较全部字节（含0/255）；DC3(vector<int>,alphabet)要求每项在[0,alphabet)，1≤alphabet<INT_MAX−3，长度n<INT_MAX−3。空输入合法。sa为所有非空后缀的0-based起点，rk[sa[i]]=i；lcp[0]=0，lcp[i]为sa[i−1]与sa[i]的公共前缀长度。三数组均长n，空输入均为空，不含空后缀；输入不被改写，无需调用者补零或三倍数组。内部把符号加一，0只作哨兵；n mod3=1时补一个虚拟采样点，归并时跳过。稳定基数排序三元组、递归命名、排序余0类并合并；时间空间均O(n+alphabet)，仅alphabet=O(n)或固定字节集时称线性。稀疏大整数先保序离散化，其比较排序代价另计。递归深度O(log(n+1))，私有sort_suffixes要求正符号，用户只用构造及结果数组。与SuffixArray/SAIS接口约定一致，无线上性能优越性声明。"
   ]
 ]

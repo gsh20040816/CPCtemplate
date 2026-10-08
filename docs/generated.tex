@@ -480,6 +480,62 @@ square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long l
 
 \lstinputlisting{usage/example-186.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\subsection{后缀数组：DC3线性构造}\label{compact-DC3}\index{DC3}
+
+DC3(string)按unsigned char比较全部字节（含0/255）；DC3(vector<int>,alphabet)要求每项在[0,alphabet)，1$\le$alphabet<INT\_MAX−3，长度n<INT\_MAX−3。空输入合法。sa为所有非空后缀的0-based起点，rk[sa[i]]=i；lcp[0]=0，lcp[i]为sa[i−1]与sa[i]的公共前缀长度。三数组均长n，空输入均为空，不含空后缀；输入不被改写，无需调用者补零或三倍数组。内部把符号加一，0只作哨兵；n mod3=1时补一个虚拟采样点，归并时跳过。稳定基数排序三元组、递归命名、排序余0类并合并；时间空间均O(n+alphabet)，仅alphabet=O(n)或固定字节集时称线性。稀疏大整数先保序离散化，其比较排序代价另计。递归深度O(log(n+1))，私有sort\_suffixes要求正符号，用户只用构造及结果数组。与SuffixArray/SAIS接口约定一致，无线上性能优越性声明。
+
+\lstinputlisting[firstline=6,lastline=48,firstnumber=1]{../src/compact/dc3.hpp}
+
+\newpage
+
+\noindent 采样三元组排序与递归命名（接上页同一结构体）：
+
+\lstinputlisting[firstline=49,lastline=92,firstnumber=44]{../src/compact/dc3.hpp}
+
+\newpage
+
+\noindent 恢复采样排名并合并（接上页同一结构体）：
+
+\lstinputlisting[firstline=93,lastline=126,firstnumber=88]{../src/compact/dc3.hpp}
+
+\newpage
+
+\Needspace{289pt}
+
+\subsection*{模板题使用：Library Checker suffixarray（DC3）}
+
+\label{usage-example-341}
+
+题意：输入长度1..500000的小写字符串，输出所有非空后缀按字典序排列的0-based起点。DC3独立程序，无需附加哨兵；原倍增或SA-IS用法的线上记录不转移到本程序。
+
+所需模板：\hyperref[compact-DC3]{DC3}（第~\pageref{compact-DC3}~页，\ref{compact-DC3}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/suffixarray}
+
+\lstinputlisting{usage/example-341.cpp}
+
+\newpage
+
+\Needspace{412pt}
+
+\subsection*{接口用法演示：稠密整数后缀数组、逆排名及LCP}
+
+\label{usage-example-342}
+
+演示约定：输入n,alphabet与n个[0,alphabet)整数，分别输出sa、rk、lcp三行。允许n=0，此时仍输出三个空行。lcp[0]=0，其余对当前排名与前一名后缀比较；输入符号0可用，不应手工插入空后缀哨兵。API演示，不是线上题目或AC。
+
+所需模板：\hyperref[compact-DC3]{DC3}（第~\pageref{compact-DC3}~页，\ref{compact-DC3}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/string/sa/}
+
+\lstinputlisting{usage/example-342.cpp}
+
+\newpage
+
 \Needspace{330pt}
 
 \chapter{后缀自动机 (SAM)}

@@ -51,6 +51,7 @@ chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
 chapters['potential_dsu'] = '带势并查集与差值约束'
 chapters['gauss_real'] = '实数高斯消元'
+chapters['dc3'] = 'DC3后缀数组'
 chapters['dag_dominator'] = 'DAG支配树'
 chapters['fibonacci_period'] = '斐波那契最小循环节'
 chapters['assignment_spectrum'] = '按匹配基数最大权与顶标'
@@ -122,7 +123,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('rectangle_union_area', 'DagDominator', 'FibonacciPeriod', 'AssignmentSpectrum', 'DynamicPathMax', 'SequenceKth', 'SequenceScapegoat', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Prim', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D', 'Isap', 'flow_unique', 'ZkwFlow', 'TreeMarket'):
+            if name in ('rectangle_union_area', 'DC3', 'DagDominator', 'FibonacciPeriod', 'AssignmentSpectrum', 'DynamicPathMax', 'SequenceKth', 'SequenceScapegoat', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Prim', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D', 'Isap', 'flow_unique', 'ZkwFlow', 'TreeMarket'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -490,6 +491,15 @@ for style in ['compact']:
                     captions = ['', 'run：逐轮松弛与负环种子', '继续 run：恢复负环并传播；随后为 path']
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
                 for part in range(len(cuts) - 1):
+                    if part:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'DC3':
+                tokens = ['private:', '        vector<int> rank(n + 3);']
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
+                captions = ['', '采样三元组排序与递归命名', '恢复采样排名并合并']
+                for part in range(3):
                     if part:
                         body.append('\\newpage')
                         body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
@@ -1154,7 +1164,7 @@ for style in ['compact']:
                         body.append('\\lstinputlisting[firstline=' + str(split_lines + 1) + ',firstnumber=' + str(split_lines + 1) + ']{' + listing + '}')
                 else:
                     body.append('\\lstinputlisting{' + listing + '}')
-            if name in ('AffineSequenceTreap', 'TarjanSCC', 'AssignmentSpectrum', 'FibonacciPeriod', 'DagDominator'):
+            if name in ('AffineSequenceTreap', 'TarjanSCC', 'AssignmentSpectrum', 'FibonacciPeriod', 'DagDominator', 'DC3'):
                 body.append('\\newpage')
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 assert {r['symbol'] for r in records} == {r[1] for r in cat}, 'Catalog contains an unprinted module'

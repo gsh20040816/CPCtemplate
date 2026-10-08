@@ -268,3 +268,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | AssignmentSpectrum | [example-332（接口演示）](usage/example-332.cpp), [example-333（应用补充）](usage/example-333.cpp), [example-334](usage/example-334.cpp) | locally_checked_example |
 | FibonacciPeriod | [example-335](usage/example-335.cpp), [example-336（接口演示）](usage/example-336.cpp), [example-337（接口演示）](usage/example-337.cpp) | locally_checked_example |
 | DagDominator | [example-338（接口演示）](usage/example-338.cpp), [example-339](usage/example-339.cpp), [example-340（应用补充）](usage/example-340.cpp) | locally_checked_example |
+| DC3 | [example-341](usage/example-341.cpp), [example-342（接口演示）](usage/example-342.cpp) | locally_checked_example |

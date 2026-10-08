@@ -4315,5 +4315,31 @@
       "DagDominator"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-341",
+    "symbol": "DC3",
+    "kind": "template",
+    "problem": "Library Checker suffixarray（DC3）",
+    "url": "https://judge.yosupo.jp/problem/suffixarray",
+    "summary": "输入长度1..500000的小写字符串，输出所有非空后缀按字典序排列的0-based起点。DC3独立程序，无需附加哨兵；原倍增或SA-IS用法的线上记录不转移到本程序。",
+    "driver": "verify/library_checker/suffixarray.dc3.compact.cpp",
+    "requires": [
+      "DC3"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-342",
+    "symbol": "DC3",
+    "kind": "api",
+    "problem": "稠密整数后缀数组、逆排名及LCP",
+    "url": "https://oi-wiki.org/string/sa/",
+    "summary": "输入n,alphabet与n个[0,alphabet)整数，分别输出sa、rk、lcp三行。允许n=0，此时仍输出三个空行。lcp[0]=0，其余对当前排名与前一名后缀比较；输入符号0可用，不应手工插入空后缀哨兵。API演示，不是线上题目或AC。",
+    "driver": "verify/api/dc3.compact.cpp",
+    "requires": [
+      "DC3"
+    ],
+    "start_new_page": true
   }
 ]

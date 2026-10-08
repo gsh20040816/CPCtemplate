@@ -172,3 +172,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 [DAG支配树](docs/DAG-DOMINATOR.md)：拓扑序合并可达前驱LCA，附环检测、通用LT组合模板题及P2597食物网应用。
 
 [原根附件来源审计](docs/PRIMITIVE-ROOT-SOURCE.md)：完整123行程序与已有P6091用法对照，核对排序采样及空行协议，避免重复添加同功能模板。
+
+[DC3后缀数组](docs/DC3.md)：线性skew构造，明确零哨兵与虚拟采样点，提供独立后缀数组模板题和整数sa/rk/lcp用法。

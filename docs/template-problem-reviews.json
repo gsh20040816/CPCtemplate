@@ -5999,5 +5999,36 @@
       "verification/dag-dominator-sanitizer.json"
     ],
     "adapter": "0-based to1-based; if DAG fails use original LT with moved graph, then output idom-1."
+  },
+  {
+    "symbol": "DC3",
+    "problem": "Library Checker suffixarray",
+    "url": "https://judge.yosupo.jp/problem/suffixarray",
+    "classification": "Standalone suffix-array template, new independent DC3 implementation. Earlier doubling/SA-IS evidence does not confer online acceptance.",
+    "statement_checked": true,
+    "limits": "1<=N<=500000; lowercase letters",
+    "tested_api": [
+      "sa"
+    ],
+    "candidate_api": [
+      "sa"
+    ],
+    "api": "constructor/sa",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No online submission or ranking; integer/empty/byte-boundary interfaces separately locally tested.",
+    "checked_date": "2026-10-08",
+    "source": "src/compact/dc3.hpp",
+    "driver": "verify/library_checker/suffixarray.dc3.compact.cpp",
+    "usage": "example-341",
+    "local_reports": [
+      "verification/dc3-normal.json",
+      "verification/dc3-sanitizer.json"
+    ],
+    "adapter": "Read lowercase token, no caller sentinel; output all nonempty suffix starting positions0-based."
   }
 ]
