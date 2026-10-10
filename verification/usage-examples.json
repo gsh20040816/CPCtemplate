@@ -3668,5 +3668,25 @@
     "cases_per_mode": 101,
     "driver": "verify/api/burnside_colorings.compact.cpp",
     "scope": "Exhaustive orbit representatives / exact fixed-inventory combinatorics; four complete forms and maximum-scale pressures. Core wide arithmetic and permutation enumeration separately tested; online evidence distinct."
+  },
+  "example-368": {
+    "program_sha256": "cd0463e6df66a46259fc6338882d63936ea6349cd6dabd22aa2e5eb3184d118d",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 25,
+    "driver": "verify/luogu/P3370.compact.cpp",
+    "scope": "Four full program forms; probabilistic equality, no collision-free guarantee; online separately tracked."
+  },
+  "example-369": {
+    "program_sha256": "6abe387fc4860136312d05c790d89955b3fcb3bc04039f7cbb0e0c342dc92fe5",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 50,
+    "driver": "verify/api/string_hash.compact.cpp",
+    "scope": "Four full program forms; probabilistic equality, no collision-free guarantee; online separately tracked."
   }
 }

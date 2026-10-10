@@ -4670,5 +4670,29 @@
       "BurnsideAverage",
       "permutation_cycles"
     ]
+  },
+  {
+    "id": "example-368",
+    "symbol": "StringHash",
+    "kind": "template",
+    "problem": "P3370 【模板】字符串哈希",
+    "url": "https://www.luogu.com.cn/problem/P3370",
+    "summary": "输入N个非空字母数字串，输出不同串数。随机底数全局共享，按长度与双哈希去重；概率判等，AC不证明零碰撞。",
+    "driver": "verify/luogu/P3370.compact.cpp",
+    "requires": [
+      "StringHash"
+    ]
+  },
+  {
+    "id": "example-369",
+    "symbol": "StringHash",
+    "kind": "api",
+    "problem": "API 子串、反串与拼接",
+    "url": "https://oi-wiki.org/string/hash/",
+    "summary": "首行字符串可空，再输入两分量底数、q；每次l r a b为原串半开区间，输出[l,r)正向/反向、[l,r)+[a,b)的双哈希。底数显式输入便于重现，不是固定底数推荐。",
+    "driver": "verify/api/string_hash.compact.cpp",
+    "requires": [
+      "StringHash"
+    ]
   }
 ]

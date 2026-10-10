@@ -197,3 +197,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 单调斜率、分治决策单调性与 WQS：[使用条件和证明](docs/DP-OPTIMIZATION.md)。
 
 Burnside/Pólya 的群作用、模除法与验证范围见 [计数说明](docs/POLYA.md)。
+
+子串、反串与拼接双哈希的接口、碰撞概率和确定性替代见 [字符串哈希](docs/STRING-HASH.md)。

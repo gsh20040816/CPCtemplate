@@ -283,6 +283,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | MonotoneHull | [example-360（应用补充）](usage/example-360.cpp) | locally_checked_application |
 | monotone_dp_layer | [example-361（应用补充）](usage/example-361.cpp), [example-363（应用补充）](usage/example-363.cpp) | locally_checked_application |
 | wqs_independent_set | [example-362（应用补充）](usage/example-362.cpp) | locally_checked_application |
-| BurnsideAverage | [example-365（应用补充）](usage/example-365.cpp) | generated_unverified |
-| permutation_cycles | [example-367（接口演示）](usage/example-367.cpp) | generated_unverified |
-| necklace_colorings | [example-364](usage/example-364.cpp), [example-366（接口演示）](usage/example-366.cpp) | generated_unverified |
+| BurnsideAverage | [example-365（应用补充）](usage/example-365.cpp) | locally_checked_application |
+| permutation_cycles | [example-367（接口演示）](usage/example-367.cpp) | locally_checked_api |
+| necklace_colorings | [example-364](usage/example-364.cpp), [example-366（接口演示）](usage/example-366.cpp) | locally_checked_example |
+| StringHash | [example-368](usage/example-368.cpp), [example-369（接口演示）](usage/example-369.cpp) | locally_checked_example |

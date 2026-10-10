@@ -253,6 +253,7 @@
 | `necklace_colorings::necklace_colorings` | [P4980 【模板】Pólya定理](https://www.luogu.com.cn/problem/P4980) | t<=1000，1<=n<=10^9；n个点用n种命名颜色，仅旋转等价，模10^9+7。直接调用旋转环计数。 | [记录](https://www.luogu.com.cn/record/302212651) | 待核验 |
 | `BurnsideAverage::BurnsideAverage` | [P1446 [HNOI2008] Cards](https://www.luogu.com.cn/problem/P1446) | 三色各用r/b/g张，均<=20；m<=60，m+1<p<100且p为素数。输入置换与恒等构成完整群；补恒等并去重，绝不能把任意生成元直接平均。每循环整体染一种颜色，用二维背包计红蓝数量，绿色由已处理点数推得；中间模群阶*p。 | [记录](https://www.luogu.com.cn/record/302212973) | 待核验 |
 | `permutation_cycles::permutation_cycles` | [P1446 [HNOI2008] Cards](https://www.luogu.com.cn/problem/P1446) | 三色各用r/b/g张，均<=20；m<=60，m+1<p<100且p为素数。输入置换与恒等构成完整群；补恒等并去重，绝不能把任意生成元直接平均。每循环整体染一种颜色，用二维背包计红蓝数量，绿色由已处理点数推得；中间模群阶*p。 | [记录](https://www.luogu.com.cn/record/302212973) | 待核验 |
+| `StringHash` | [P3370 【模板】字符串哈希](https://www.luogu.com.cn/problem/P3370) | N≤10000，非空数字/大小写字母串，最大长1500；按长度与双哈希去重，所有对象共享随机底数。 | [记录](https://www.luogu.com.cn/record/302216358) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2371,6 +2372,14 @@ Fixed-inventory contest application, not an independent formal template.
 Complete driver; proofs and numerical contracts in docs/POLYA.md.
 
 Only stated official domain verified online. Reflection, noninvertible group order and wide API bounds remain local evidence; no speed rank.
+
+### P3370 【模板】字符串哈希 / StringHash
+
+Formal string hash template; full-string distinct count remains probabilistic.
+
+Lightweight double polynomial hash; collision theorem, explicit counterexample and deterministic alternatives in docs/STRING-HASH.md.
+
+Substring endpoints, reverse and concatenation have local evidence only. AC never proves collision-free equality. No verified speed rank.
 
 ## 榜单口径
 

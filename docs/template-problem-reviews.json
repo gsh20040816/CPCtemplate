@@ -6463,5 +6463,34 @@
       "verification/polya-sanitizer.json"
     ],
     "adapter": "Complete driver; proofs and numerical contracts in docs/POLYA.md."
+  },
+  {
+    "symbol": "StringHash",
+    "api": "StringHash::get",
+    "problem": "P3370 【模板】字符串哈希",
+    "url": "https://www.luogu.com.cn/problem/P3370",
+    "classification": "Formal string hash template; full-string distinct count remains probabilistic.",
+    "statement_checked": true,
+    "limits": "N≤10000，非空数字/大小写字母串，最大长1500；按长度与双哈希去重，所有对象共享随机底数。",
+    "tested_api": [
+      "constructor",
+      "get(0,n,false)"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302216358",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Substring endpoints, reverse and concatenation have local evidence only. AC never proves collision-free equality. No verified speed rank.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/string_hash.hpp",
+    "driver": "verify/luogu/P3370.compact.cpp",
+    "usage": "example-368",
+    "local_reports": [
+      "verification/string-hash-normal.json",
+      "verification/string-hash-sanitizer.json"
+    ],
+    "adapter": "Lightweight double polynomial hash; collision theorem, explicit counterexample and deterministic alternatives in docs/STRING-HASH.md."
   }
 ]

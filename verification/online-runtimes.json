@@ -1,7 +1,7 @@
 {
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
-    "verification/oj.json": "2377ff85676ec0a3eb0bf4be0870a3512b1016c10efc7e66b06ca51465f44432",
+    "verification/oj.json": "26b449d1af0d502ada06d2881eee0fe3c2fc49c1bb3ceac0d9eecb07e435cd5b",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
     "verification/mo-online.json": "c90b5fdfd13df35b145da368a7f4ff74d9e52d18d9fea56f41898f152c3fb268",
@@ -9,8 +9,9 @@
     "verification/overall-kth-isomorphism-online.json": "fbbcef1aade003474536609c348d39e88a3f64eecb91dea3c91a8057e2eef303",
     "verification/polya-online.json": "84162dbf2afff3bc49750b3b9c7081d302a47ab2587c6df8a0f041c9609b7cda",
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
+    "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
-    "docs/template-problem-reviews.json": "e07487eb3c8036e371fd924fcb74b6b8d5aaf7d0d31275aee75d39fb6b7872e5"
+    "docs/template-problem-reviews.json": "d3564345939de75acd7b878d8ec45e5db3911b1480702f7ea6652757163d7379"
   },
   "entries": [
     {
@@ -3435,6 +3436,76 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302216358",
+      "problem": "P3370",
+      "sources": [
+        {
+          "path": "verification/submitted/P3370.compact.cpp",
+          "sha256": "dd2de8bef939805c3fee1fe2e9c60f1aa0cf65af978cd8f504f18e911595a8e3"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "max_case_time_ms": 464,
+            "displayed_total_time": "1.90s",
+            "test_times_ms": [
+              459,
+              4,
+              4,
+              4,
+              9,
+              9,
+              9,
+              9,
+              463,
+              464,
+              462
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Authenticated Firefox native record details; local uploaded bytes archived. No downloaded server source hash claim. Probabilistic full-string dedup only; no online evidence for reversed substrings/join."
+        },
+        {
+          "evidence": "verification/string-hash-online.json",
+          "timing": {
+            "displayed_total_time": "1.90s",
+            "test_times_ms": [
+              459,
+              4,
+              4,
+              4,
+              9,
+              9,
+              9,
+              9,
+              463,
+              464,
+              462
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "StringHash"
+      ],
+      "maximum_case_ms": 464,
+      "sum_of_case_ms": 1896,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/301887481",
       "problem": "P5043",
       "sources": [
@@ -3949,10 +4020,10 @@
     }
   ],
   "counts": {
-    "entries": 105,
-    "with_record": 104,
-    "accepted": 103,
-    "known_case_max": 41,
+    "entries": 106,
+    "with_record": 105,
+    "accepted": 104,
+    "known_case_max": 42,
     "benchmarks_verified": 0
   }
 }

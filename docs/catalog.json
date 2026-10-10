@@ -1672,5 +1672,11 @@
     "necklace_colorings",
     "Pólya环染色：旋转与翻转",
     "necklace_colorings(n,colors,mod,reflection=false)：n>=1的环，每位置可选colors>=0种命名颜色，返回本质不同染色数模mod。n为int；mod>0，群阶g为n或2n，须g*mod<=LLONG_MAX/2。默认只视旋转相同；reflection=true也视翻转相同。允许颜色不用完，不能用于相邻异色、固定颜色用量或颜色重命名模型。n=1/2仍适用，二面体抽象群作用可不忠实。用BurnsideAverage模g*mod后整除，无需模逆元；因子分解与枚举约数O(sqrt(n))，每约数O(omega(n)+log(n))，额外O(omega(n))。"
+  ],
+  [
+    "string_hash",
+    "StringHash",
+    "子串与反串双哈希",
+    "StringHash(s,base)，n<INT_MAX，两个底数分别在[257,mod-2]，所有比较对象共享同组底数。get(l,r,rev=false)取0-based半开区间；rev=true反转原区间，空区间返回{0,0}。join(a,b,len_b)拼接，要求规范余数、同底数及0≤len_b≤n，可拼出长度超过n的哈希。构造O(n)，查询/拼接O(1)，约24(n+1)字节；按unsigned char加1编码。判等必须先比长度；双哈希仍可能碰撞。理想独立均匀底数下，固定同长不同串的碰撞上界为两个min(1,(L-1)/(mod[j]-258))之积，多次比较用联合界；可预测种子和适应性输入不享有该保证。需确定性时用直接比较或SuffixArray＋SuffixLCP；回文可用Manacher。成员只读。"
   ]
 ]

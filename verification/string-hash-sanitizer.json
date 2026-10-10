@@ -1,0 +1,40 @@
+{
+  "status": "pass",
+  "mode": "sanitizer",
+  "source_sha256": {
+    "src/compact/string_hash.hpp": "47c6ed8538ca99c0177a826120aef714ed9861bafd27713e7b7bb236ce833553",
+    "tests/string_hash.cpp": "0824ddc4fa2ccbcf125625c8ccdfd86bbc807184de1616ca2380c16e383e72a4",
+    "tests/string_hash.py": "7ab2876f31b6a44446a0b16ac228330a6d9d6b6e4be4de58df42b5bf55f2ecf8",
+    "docs/catalog.json": "c5bc9f475cb2f63f79d1e1f1e0560f703afad5bc84fdf47515b955d8c37cf979",
+    "docs/usage-examples.json": "d0dee0b0df30ca7058eae158f3128ff63a58b8e4fab3b040adfefc1aad5f2d84",
+    "verify/luogu/P3370.compact.cpp": "8628f8dc1c6889923f0c4fb7d8cf8bddf6215229f53c2b8b940b5c65ca616d22",
+    "verify/api/string_hash.compact.cpp": "9865fe0db4a7585b8dadea6acb5bee45428da924eaf3c0b57e7c7ff5cb9dde02"
+  },
+  "core": {
+    "header": "PASS exhaustive bytes, intervals, reverse, joins, real collision, million-byte stress",
+    "ndebug": "PASS exhaustive bytes, intervals, reverse, joins, real collision, million-byte stress",
+    "copied": "PASS exhaustive bytes, intervals, reverse, joins, real collision, million-byte stress"
+  },
+  "usage": {
+    "example-368": {
+      "program_sha256": "cd0463e6df66a46259fc6338882d63936ea6349cd6dabd22aa2e5eb3184d118d",
+      "forms": {
+        "header": 25,
+        "ndebug": 25,
+        "expanded": 25,
+        "copied": 25
+      }
+    },
+    "example-369": {
+      "program_sha256": "6abe387fc4860136312d05c790d89955b3fcb3bc04039f7cbb0e0c342dc92fe5",
+      "forms": {
+        "header": 50,
+        "ndebug": 50,
+        "expanded": 50,
+        "copied": 50
+      }
+    }
+  },
+  "mutants": {},
+  "scope": "Polynomial arithmetic, exact string set oracle and API contracts only; explicit collision retained. Does not prove collision-free equality or online AC."
+}
