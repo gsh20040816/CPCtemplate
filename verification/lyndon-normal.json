@@ -1,0 +1,163 @@
+{
+  "status": "pass",
+  "mode": "normal",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/tests/lyndon.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/lyndon.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6114.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-372-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6114.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-372-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-372-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-372-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-372-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-372-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/lyndon.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-373-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/lyndon.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-373-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-373-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-373-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-373-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/example-373-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-fsigned-char",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/mutant-equality.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/mutant-equality"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-fsigned-char",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/mutant-signed-byte.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/mutant-signed-byte"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-fsigned-char",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/mutant-endpoint.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/lyndon/normal/mutant-endpoint"
+    ]
+  ],
+  "core": {
+    "header": "PASS 29524 exhaustive, 3000 random, 3 length-5000001 cases",
+    "ndebug": "PASS 29524 exhaustive, 3000 random, 3 length-5000001 cases",
+    "copied": "PASS 29524 exhaustive, 3000 random, 3 length-5000001 cases"
+  },
+  "usage": {
+    "example-372": {
+      "program_sha256": "3a5dbe319dba0212dfc4b6a99846e27b420024dbed831ea3520e3330136bbc20",
+      "forms": {
+        "header": 105,
+        "ndebug": 105,
+        "expanded": 105,
+        "copied": 105
+      }
+    },
+    "example-373": {
+      "program_sha256": "8dedc7bc37aa2bea88835dda126ddda3f3d70d29f2fd373684e4bfc8a9f1a6e6",
+      "forms": {
+        "header": 101,
+        "ndebug": 101,
+        "expanded": 101,
+        "copied": 101
+      }
+    }
+  },
+  "mutants": {
+    "equality": "detected",
+    "signed-byte": "detected",
+    "endpoint": "detected"
+  },
+  "source_sha256": {
+    "src/compact/lyndon.hpp": "c24880c74f76a6a67b83a83ce65839f6d44a9a74ba2ed941c653feb327467a29",
+    "tests/lyndon.cpp": "33aa7ace5c2b0361670a758b2bb6f40db843bcbdbb48c503d46875040872cbe9",
+    "tests/lyndon.py": "de2b2ae3c1a42ccf157c10560aba4e83b1bfc84312e1276f2700905cbad7e7cf",
+    "verify/luogu/P6114.compact.cpp": "49b2673bb80b8144235cafd2d69036a1420fc690be162f700b1e56cc0b63bf18",
+    "verify/api/lyndon.compact.cpp": "3f3e459e9d61b625d4a6ef5e007784a07599e9896f79d5ff43a2eb5434897711"
+  },
+  "scope": "Full factor endpoints compared with unique definition-only partition enumeration; maximum-length pressure. Online and runtime ranking tracked separately."
+}

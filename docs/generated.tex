@@ -1160,6 +1160,46 @@ minimum\_rotation(s) 返回字典序最小循环表示的起点（0-based），�
 
 \lstinputlisting{usage/example-209.cpp}
 
+\newpage
+
+\Needspace{680pt}
+
+\chapter{Lyndon 分解}
+
+\section{Lyndon 分解：Duval}\label{compact-lyndon}\index{lyndon}
+
+lyndon(s) 返回严格递增的因子右端点 ends；按 0-based 半开区间 [0,ends[0])、[ends[i-1],ends[i]) 取因子，数值恰好也是 1-based 闭区间右端点。各因子严格小于自己的所有非空真后缀，因子序列按字典序非递增，分解唯一。输入按 unsigned char 的 0..255 字节序比较，支持空串、零字节与高位字节；不是 Unicode 字符顺序。空串返回空 vector，s 不变，长度须$\le$INT\_MAX。Duval 时间 O(n)，预留 n 个 int 的输出容量，空间 O(n)，除返回数组外只需 O(1) 工作空间；不复制子串。P6114 直接异或 ends，无需再加 1；全部相同字符会拆成 n 个单字符，不能合并相等因子。
+
+\lstinputlisting[firstline=7,lastline=33]{../src/compact/lyndon.hpp}
+
+\Needspace{278pt}
+
+\subsection*{模板题使用：P6114 【模板】Lyndon 分解}
+
+\label{usage-example-372}
+
+题意：输入小写字符串，输出非递增 Lyndon 分解的全部 1-based 右端点异或和；n$\le$5000001。
+
+所需模板：\hyperref[compact-lyndon]{lyndon}（第~\pageref{compact-lyndon}~页，\ref{compact-lyndon}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6114}
+
+\lstinputlisting{usage/example-372.cpp}
+
+\Needspace{348pt}
+
+\subsection*{接口用法演示：API 字节串完整分解}
+
+\label{usage-example-373}
+
+演示约定：输入 n 和 n 个 0..255 整数作为字节串，可为空；输出因子个数及全部右端点，按 unsigned char 字节序。
+
+所需模板：\hyperref[compact-lyndon]{lyndon}（第~\pageref{compact-lyndon}~页，\ref{compact-lyndon}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/string/lyndon/}
+
+\lstinputlisting{usage/example-373.cpp}
+
 \part{数学}
 
 \Needspace{312pt}

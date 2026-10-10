@@ -200,4 +200,6 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 
 Burnside/Pólya 的群作用、模除法与验证范围见 [计数说明](docs/POLYA.md)。
 
+Lyndon 分解的端点接口、证明与验证见 [Lyndon](docs/LYNDON.md)。
+
 子串、反串与拼接双哈希的接口、碰撞概率和确定性替代见 [字符串哈希](docs/STRING-HASH.md)。

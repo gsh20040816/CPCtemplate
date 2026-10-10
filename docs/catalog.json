@@ -1684,5 +1684,11 @@
     "KruskalTree",
     "Kruskal重构森林与阈值连通块",
     "KruskalTree(n)，0≤n≤INT_MAX/2，原点0..n-1；add(u,v,w)加入无向边，返回插入编号，边数≤INT_MAX，支持完整signed64权、重边、自环、负权和断连。build(descending=false)重建并返回连通块数；默认升序，true降序。每次成功合并创建父点：ch为左右儿子，val为合并边权；叶点ch={-1,-1}且val无意义。总点数k=2n-连通块数，父编号大于子编号；可按n..k-1聚合叶点信息，不需要模拟DFS。up[0]为父点，根为-1。\n\ncomponent(u,w,strict=false)返回阈值子图中u所属分量的最高重构节点；默认升序保留边权≤w，降序保留≥w，strict改成<或>。其子树叶点恰为分量，可从聚合数组查大小、最小值等。同权边必须连续爬完所有合法祖先；不以叶点val充当无穷哨兵。构建O(m log(m+1)+n log(n+1))，空间O(m+n log(n+1))，查询O(log(n+1))。依赖dsu，合并前按大小交换根。支持重复build、切换方向与值复制；加边后必须重建再查询，构建后成员只读。空图只允许build、不允许查询。"
+  ],
+  [
+    "lyndon",
+    "lyndon",
+    "Lyndon 分解：Duval",
+    "lyndon(s) 返回严格递增的因子右端点 ends；按 0-based 半开区间 [0,ends[0])、[ends[i-1],ends[i]) 取因子，数值恰好也是 1-based 闭区间右端点。各因子严格小于自己的所有非空真后缀，因子序列按字典序非递增，分解唯一。输入按 unsigned char 的 0..255 字节序比较，支持空串、零字节与高位字节；不是 Unicode 字符顺序。空串返回空 vector，s 不变，长度须≤INT_MAX。Duval 时间 O(n)，预留 n 个 int 的输出容量，空间 O(n)，除返回数组外只需 O(1) 工作空间；不复制子串。P6114 直接异或 ends，无需再加 1；全部相同字符会拆成 n 个单字符，不能合并相等因子。"
   ]
 ]

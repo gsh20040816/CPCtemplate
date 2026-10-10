@@ -3708,5 +3708,25 @@
     "cases_per_mode": 2,
     "driver": "verify/api/kruskal_tree.compact.cpp",
     "scope": "Printed usage execution only; no new online AC or comprehensive algorithm proof"
+  },
+  "example-372": {
+    "program_sha256": "3a5dbe319dba0212dfc4b6a99846e27b420024dbed831ea3520e3330136bbc20",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 105,
+    "driver": "verify/luogu/P6114.compact.cpp",
+    "scope": "Four program forms; definition-only partition oracle and full endpoint checks in dedicated Lyndon tests. Online separately tracked."
+  },
+  "example-373": {
+    "program_sha256": "8dedc7bc37aa2bea88835dda126ddda3f3d70d29f2fd373684e4bfc8a9f1a6e6",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 101,
+    "driver": "verify/api/lyndon.compact.cpp",
+    "scope": "Four program forms; definition-only partition oracle and full endpoint checks in dedicated Lyndon tests. Online separately tracked."
   }
 }

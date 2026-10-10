@@ -288,3 +288,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | necklace_colorings | [example-364](usage/example-364.cpp), [example-366（接口演示）](usage/example-366.cpp) | locally_checked_example |
 | StringHash | [example-368](usage/example-368.cpp), [example-369（接口演示）](usage/example-369.cpp) | locally_checked_example |
 | KruskalTree | [example-370（应用补充）](usage/example-370.cpp), [example-371（接口演示）](usage/example-371.cpp) | locally_checked_application |
+| lyndon | [example-372](usage/example-372.cpp), [example-373（接口演示）](usage/example-373.cpp) | locally_checked_example |

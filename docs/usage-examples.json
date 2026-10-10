@@ -4719,5 +4719,29 @@
     "requires": [
       "KruskalTree"
     ]
+  },
+  {
+    "id": "example-372",
+    "symbol": "lyndon",
+    "kind": "template",
+    "problem": "P6114 【模板】Lyndon 分解",
+    "url": "https://www.luogu.com.cn/problem/P6114",
+    "summary": "输入小写字符串，输出非递增 Lyndon 分解的全部 1-based 右端点异或和；n≤5000001。",
+    "driver": "verify/luogu/P6114.compact.cpp",
+    "requires": [
+      "lyndon"
+    ]
+  },
+  {
+    "id": "example-373",
+    "symbol": "lyndon",
+    "kind": "api",
+    "problem": "API 字节串完整分解",
+    "url": "https://oi-wiki.org/string/lyndon/",
+    "summary": "输入 n 和 n 个 0..255 整数作为字节串，可为空；输出因子个数及全部右端点，按 unsigned char 字节序。",
+    "driver": "verify/api/lyndon.compact.cpp",
+    "requires": [
+      "lyndon"
+    ]
   }
 ]

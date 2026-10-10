@@ -6524,5 +6524,33 @@
       "verification/kruskal-tree-sanitizer.json"
     ],
     "adapter": "Dijkstra at vertex1; min leaf distance per descending reconstruction subtree; strict altitude>water."
+  },
+  {
+    "symbol": "lyndon",
+    "api": "lyndon",
+    "problem": "P6114 【模板】Lyndon 分解",
+    "url": "https://www.luogu.com.cn/problem/P6114",
+    "classification": "Formal template: unique nonincreasing Lyndon factorization; output XOR of 1-based right endpoints.",
+    "statement_checked": true,
+    "limits": "1≤n≤5000001，小写英文字母；页面300ms、500MB。",
+    "tested_api": [
+      "lyndon(s) nonempty lowercase strings; endpoint XOR"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302332529",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Empty strings, arbitrary bytes and complete factor endpoint equality locally tested only; speed rank not checked.",
+    "checked_date": "2026-10-11",
+    "source": "src/compact/lyndon.hpp",
+    "driver": "verify/luogu/P6114.compact.cpp",
+    "usage": "example-372",
+    "local_reports": [
+      "verification/lyndon-normal.json",
+      "verification/lyndon-sanitizer.json"
+    ],
+    "adapter": "Half-open endpoints equal 1-based inclusive endpoints. XOR directly; no +1 conversion."
   }
 ]
