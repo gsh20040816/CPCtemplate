@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "checks": [
+    "debug compile and run",
+    "optimized compile and run",
+    "quoted source and absolute output; explicit output does not run",
+    "source, text, symlink and directory are not overwritten",
+    "invalid arguments fail",
+    "compile failure never runs old binary; nonzero run status propagates",
+    "UBSan exits on signed overflow",
+    "30 fixed seeds match independent nonempty subarray oracle",
+    "first wrong_answer stops and retains reproduction files",
+    "first runtime stops and retains reproduction files",
+    "first generator stops and retains reproduction files",
+    "first reference stops and retains reproduction files",
+    "first timeout stops and retains reproduction files",
+    "second-seed failure cannot leave previous outputs in saved case"
+  ],
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "bash": "GNU bash, version 5.3.20(1)-release (aarch64-apple-darwin27.0.0)",
+  "timeout": "timeout (GNU coreutils) 9.12",
+  "source_sha256": {
+    "examples/infra/stress.sh": "373b491e4ab9bb7138d99f9779acb22215d50a3e2f739992dfe928cd07e7d70e",
+    "examples/infra/brute.py": "834a60f69232e3ee442828f665c585f14077ecf2bfbed5a63180b828bd907746",
+    "examples/infra/compile.sh": "2efa72461cb7216f76abf5b1d7ff38083bf4290729abf02d4439f0ef364fd966",
+    "examples/infra/gen.py": "d561812dfdc3a278b815830ad92aa95096b4f7a5831c5f82358f5bf2689a9ed6",
+    "examples/infra/main.cpp": "dd5b0a39bbc282643042aba35539b14bf00c4d52dd303c6bb9aff2c7ca8e019e",
+    "tests/infra_scripts.py": "6b0fe6cc36b11e5f4120b9b840131cbefc58a1918e1fae0c8af1d4cef23f478a"
+  },
+  "scope": "Actual scripts executed on host shown; test-only PATH binds g++ to configured GNU compiler. Not a native Linux test or complete issue17 validation."
+}

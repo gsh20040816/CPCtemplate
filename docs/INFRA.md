@@ -1,5 +1,7 @@
 # Infra 构建与验证
 
+后续定位由 [issue #17](https://github.com/gsh20040816/CPCtemplate/issues/17) 改为Python、C++进阶、Shell、赛场环境四章手册；下文为当前旧版构建说明。已执行的第三章脚本素材见 [编译与对拍](INFRA-SCRIPTS.md)。PDF重编与更名尚未完成。
+
 `output/pdf/infra.pdf` 汇总 OI Wiki 的比赛相关、工具软件、语言基础三板块中与当前模板相关的内容。正文源为 `docs/infra-body.tex`；`tools/infra.py` 生成封面与跨册索引。
 
 GNU配对堆在数据结构册详细介绍，并在infra集中索引。标准库部分整理当前常用容器、排序/查找、optional、回调、位操作与随机数，并专节解释std::move。已按当前源码补充complex的模长/共轭、partial_sum累加类型、tie引用语义、位宽零边界和shuffle复现范围，具体对应关系见[标准库增补审计](INFRA-STL-AUDIT.md)。它不是整个C++标准库或OI Wiki三板块的完整替代品；还需对照实际使用记录继续补齐未登记细项，issue #9保持开放。
@@ -16,7 +18,7 @@ tools/build_pdf.sh
 
 本地验证使用同版本pypdf；GitHub CI已停用。构建器先生成算法各册，随后用xr-hyper读取最终aux，再构建infra；不能先生成infra而引用旧页码。所有PDF放在同一目录，链接采用GoToR命名目的地，不手写页码。
 
-`tools/infra_audit.py` 读取infra实际链接，核对目标文件、命名目的地及目标页的印刷页码。当前生成索引有16项，实际跳转通过与否以每次PDF构建后的审计报告 `verification/infra-links.json` 为准。集合记录在 `docs/infra-links.json`，包含PBDS堆、有序树、rope、GP/CC哈希表及标准库典型使用场景，并直达PBDS句柄删除/modify降键的两份正式题用法；本次新增ComplexFFT、WaveletMatrix和SecondMST入口。原来的字体、溢出、索引与页码检查不放松。
+`tools/infra_audit.py` 读取infra实际链接，核对目标文件、命名目的地及目标页的印刷页码。当前生成索引有18项，实际跳转通过与否以每次PDF构建后的审计报告 `verification/infra-links.json` 为准。集合记录在 `docs/infra-links.json`，包含PBDS堆、有序树、rope、GP/CC哈希表及标准库典型使用场景，并直达PBDS句柄删除/modify降键的两份正式题用法；本次新增ComplexFFT、WaveletMatrix和SecondMST入口。原来的字体、溢出、索引与页码检查不放松。
 
 ## 示例检查
 
