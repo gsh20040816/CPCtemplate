@@ -1690,5 +1690,11 @@
     "lyndon",
     "Lyndon 分解：Duval",
     "lyndon(s) 返回严格递增的因子右端点 ends；按 0-based 半开区间 [0,ends[0])、[ends[i-1],ends[i]) 取因子，数值恰好也是 1-based 闭区间右端点。各因子严格小于自己的所有非空真后缀，因子序列按字典序非递增，分解唯一。输入按 unsigned char 的 0..255 字节序比较，支持空串、零字节与高位字节；不是 Unicode 字符顺序。空串返回空 vector，s 不变，长度须≤INT_MAX。Duval 时间 O(n)，预留 n 个 int 的输出容量，空间 O(n)，除返回数组外只需 O(1) 工作空间；不复制子串。P6114 直接异或 ends，无需再加 1；全部相同字符会拆成 n 个单字符，不能合并相等因子。"
+  ],
+  [
+    "min_cycle",
+    "MinCycle",
+    "非负权无向图最小环与原边方案",
+    "MinCycle(n)，n≥0，点0..n-1。add(u,v,w)返回从0开始的原边号，边数≤INT_MAX，0≤w≤LLONG_MAX；允许自环和重边。solve()从零求至少3个不同顶点的简单环，无解nullopt；故自环忽略，平行边只保留最轻的一条（同权留最早），不计二元环。Result.weight是int128，vertices不重复首点，edges[i]连接vertices[i]与vertices[(i+1)%size]，边号对应e；并列返回任意一个，不保证字典序。支持空图、断连、零权、重复solve及加边后重算，旧结果独立；e/id只读。Floyd更新中间点k之前枚举i<j<k，用d[i][j]+边(i,k)+边(j,k)更新最优值，每轮至多恢复一次路径；严格松弛避免零权环导致方案循环。solve为O(n³+n²)，构造O(n²)，add摊还O(1)，总空间O(n²+m)，恢复通过next逐边走路径，不是模拟DFS。负边不支持；无穷大2^120只作内部哨兵，合法简单路径与候选和均小于2^95。"
   ]
 ]

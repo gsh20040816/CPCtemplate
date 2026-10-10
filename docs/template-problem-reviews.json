@@ -6552,5 +6552,35 @@
       "verification/lyndon-sanitizer.json"
     ],
     "adapter": "Half-open endpoints equal 1-based inclusive endpoints. XOR directly; no +1 conversion."
+  },
+  {
+    "symbol": "MinCycle",
+    "api": "MinCycle::solve",
+    "problem": "P6175 无向图的最小环问题",
+    "url": "https://www.luogu.com.cn/problem/P6175",
+    "classification": "Direct algorithm problem: minimum-weight undirected simple cycle with at least three distinct vertices; no extra contest application model.",
+    "statement_checked": true,
+    "limits": "1≤n≤100，1≤m≤5000，边权1..100000；1s、512MB。允许重边，官方样例包含同端点反向输入。",
+    "tested_api": [
+      "constructor",
+      "add",
+      "solve().weight / nullopt"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302333056",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Returned original edge/vertex witnesses, zero/full64 weights, n=0, and repeated solve are locally tested; speed rank not checked.",
+    "checked_date": "2026-10-11",
+    "source": "src/compact/min_cycle.hpp",
+    "driver": "verify/luogu/P6175.compact.cpp",
+    "usage": "example-374",
+    "local_reports": [
+      "verification/min-cycle-normal.json",
+      "verification/min-cycle-sanitizer.json"
+    ],
+    "adapter": "0-based conversion once. A valid cycle has at most100 edges, each≤100000, so narrowing final weight to long long is safe. No solution. includes the period."
   }
 ]

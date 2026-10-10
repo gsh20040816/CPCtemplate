@@ -1,11 +1,12 @@
 {
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
-    "verification/oj.json": "5481cf1021d101f5d4e21252283cba2f6a6b43a972a52cd87ff33571e829b831",
+    "verification/oj.json": "de596885e55418bf1f22ffb0a613c7d2fef07d33ff8c7b46b3358c8dfe10d350",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
     "verification/kruskal-tree-online.json": "17fdee900f963141e88656243299395b9ca64f9c706dca8dfa1871236e14672a",
     "verification/lyndon-online.json": "0f325a6fec1766a0f839e641b1d43767620e00d7f2f14eaf52d18ab65dabbe48",
+    "verification/min-cycle-online.json": "f6a319e1feb838fedc4c91292cb69ecf0841fbe2230caf8a1ad087afc04a45bf",
     "verification/mo-online.json": "c90b5fdfd13df35b145da368a7f4ff74d9e52d18d9fea56f41898f152c3fb268",
     "verification/nth-roots-online.json": "068115a3cae22733b23dd1fd185b0897ff662164341262db2fb10602aeecd408",
     "verification/overall-kth-isomorphism-online.json": "fbbcef1aade003474536609c348d39e88a3f64eecb91dea3c91a8057e2eef303",
@@ -13,7 +14,7 @@
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
-    "docs/template-problem-reviews.json": "2fafcbca8a27fc3caf4edff29b0001166116cc8489954df76aa14b005dc11ebc"
+    "docs/template-problem-reviews.json": "864486606d243ae963af3ee271def3f826206bdcced873d33f20b7bf9fb6e1cf"
   },
   "entries": [
     {
@@ -3105,6 +3106,79 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302333056",
+      "problem": "Luogu P6175",
+      "sources": [
+        {
+          "path": "verification/submitted/P6175.compact.cpp",
+          "sha256": "e989a3db9b671dc95f0635219f155b8d8154d72a310d1dff669c5354dcb81549"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "total_time_ms": 68,
+            "test_times_ms": [
+              8,
+              7,
+              5,
+              4,
+              4,
+              4,
+              6,
+              4,
+              7,
+              5,
+              6,
+              8
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual AC for positive weights and weight-only output. Full scheme, zero/full64 weights and empty graph verified locally; speed rank not checked."
+        },
+        {
+          "evidence": "verification/min-cycle-online.json",
+          "timing": {
+            "total_time_ms": 68,
+            "max_case_time_display": "8ms",
+            "displayed_total_time": "68ms",
+            "test_times_ms": [
+              8,
+              7,
+              5,
+              4,
+              4,
+              4,
+              6,
+              4,
+              7,
+              5,
+              6,
+              8
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual AC for positive weights and weight-only output. Full scheme, zero/full64 weights and empty graph verified locally; speed rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "MinCycle"
+      ],
+      "maximum_case_ms": 8,
+      "sum_of_case_ms": 68,
+      "reported_total_ms": 68,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/297619886",
       "problem": "Luogu P6178",
       "sources": [
@@ -4156,10 +4230,10 @@
     }
   ],
   "counts": {
-    "entries": 108,
-    "with_record": 107,
-    "accepted": 106,
-    "known_case_max": 43,
+    "entries": 109,
+    "with_record": 108,
+    "accepted": 107,
+    "known_case_max": 44,
     "benchmarks_verified": 0
   }
 }

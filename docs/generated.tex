@@ -9662,6 +9662,62 @@ enumerate\_triangles(n,edges,visit) 使用 0..n-1 点号；edges 须为无向简
 
 \lstinputlisting{usage/example-6.cpp}
 
+\newpage
+
+\Needspace{680pt}
+
+\chapter{最小环}
+
+\section{非负权无向图最小环与原边方案}\label{compact-MinCycle}\index{MinCycle}
+
+MinCycle(n)，n$\ge$0，点0..n-1。add(u,v,w)返回从0开始的原边号，边数$\le$INT\_MAX，0$\le$w$\le$LLONG\_MAX；允许自环和重边。solve()从零求至少3个不同顶点的简单环，无解nullopt；故自环忽略，平行边只保留最轻的一条（同权留最早），不计二元环。Result.weight是int128，vertices不重复首点，edges[i]连接vertices[i]与vertices[(i+1)\%size]，边号对应e；并列返回任意一个，不保证字典序。支持空图、断连、零权、重复solve及加边后重算，旧结果独立；e/id只读。Floyd更新中间点k之前枚举i<j<k，用d[i][j]+边(i,k)+边(j,k)更新最优值，每轮至多恢复一次路径；严格松弛避免零权环导致方案循环。solve为O(n$^{3}$+n$^{2}$)，构造O(n$^{2}$)，add摊还O(1)，总空间O(n$^{2}$+m)，恢复通过next逐边走路径，不是模拟DFS。负边不支持；无穷大2\textasciicircum{}120只作内部哨兵，合法简单路径与候选和均小于2\textasciicircum{}95。
+
+\lstinputlisting[firstline=6,lastline=38,firstnumber=1]{../src/compact/min_cycle.hpp}
+
+\newpage
+
+\noindent 初始化与本轮候选检查（接上页同一结构体）：
+
+\lstinputlisting[firstline=39,lastline=70,firstnumber=34]{../src/compact/min_cycle.hpp}
+
+\newpage
+
+\noindent 方案恢复与Floyd更新（接上页solve的k循环）：
+
+\lstinputlisting[firstline=71,lastline=99,firstnumber=66]{../src/compact/min_cycle.hpp}
+
+\paragraph{检查必须在松弛之前} 固定环中最大编号点k，其两侧邻点i、j都小于k。此时d[i][j]只允许小于k的中间点，与两条原边共同构成合法简单环；先做本轮Floyd会使路径经过k，错误接受重复点。
+
+\paragraph{恢复不能每次改进都做} 每轮只记最优i、j，结束枚举后恢复一次，所有恢复共O(n$^{2}$)。next沿真实路径逐边走，不是模拟DFS；更新必须严格变小，尤其不能把零权等长路径改成自指。
+
+\Needspace{388pt}
+
+\subsection*{模板题使用：P6175 无向图的最小环问题}
+
+\label{usage-example-374}
+
+题意：求至少3个不同顶点的最小权环；n$\le$100，m$\le$5000，边权1..100000，答案$\le$10000000，可转long long输出；无解精确输出No solution.。
+
+所需模板：\hyperref[compact-MinCycle]{MinCycle}（第~\pageref{compact-MinCycle}~页，\ref{compact-MinCycle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6175}
+
+\lstinputlisting{usage/example-374.cpp}
+
+\Needspace{551pt}
+
+\subsection*{接口用法演示：API 无向最小环与原边编号}
+
+\label{usage-example-375}
+
+演示约定：输入n m及0-based无向边u v w，w非负long long。无解输出NONE；否则依次输出128位权值、环长、顶点序列、原边编号序列，不重复首点。
+
+所需模板：\hyperref[compact-MinCycle]{MinCycle}（第~\pageref{compact-MinCycle}~页，\ref{compact-MinCycle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/min-cycle/}
+
+\lstinputlisting{usage/example-375.cpp}
+
 \Needspace{446pt}
 
 \chapter{2-SAT}

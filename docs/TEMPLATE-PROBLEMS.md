@@ -256,6 +256,7 @@
 | `StringHash` | [P3370 【模板】字符串哈希](https://www.luogu.com.cn/problem/P3370) | N≤10000，非空数字/大小写字母串，最大长1500；按长度与双哈希去重，所有对象共享随机底数。 | [记录](https://www.luogu.com.cn/record/302216358) | 待核验 |
 | `KruskalTree` | [P4768 [NOI2018] 归程](https://www.luogu.com.cn/problem/P4768) | T≤3，n≤200000,m≤400000,Q≤400000；边长1..10000，海拔≤10^9，原图连通；在线解码用long long。 | [记录](https://www.luogu.com.cn/record/302331476) | 待核验 |
 | `lyndon::lyndon` | [P6114 【模板】Lyndon 分解](https://www.luogu.com.cn/problem/P6114) | 1≤n≤5000001，小写英文字母；页面300ms、500MB。 | [记录](https://www.luogu.com.cn/record/302332529) | 待核验 |
+| `MinCycle` | [P6175 无向图的最小环问题](https://www.luogu.com.cn/problem/P6175) | 1≤n≤100，1≤m≤5000，边权1..100000；1s、512MB。允许重边，官方样例包含同端点反向输入。 | [记录](https://www.luogu.com.cn/record/302333056) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2398,6 +2399,14 @@ Formal template: unique nonincreasing Lyndon factorization; output XOR of 1-base
 Half-open endpoints equal 1-based inclusive endpoints. XOR directly; no +1 conversion.
 
 Empty strings, arbitrary bytes and complete factor endpoint equality locally tested only; speed rank not checked.
+
+### P6175 无向图的最小环问题 / MinCycle
+
+Direct algorithm problem: minimum-weight undirected simple cycle with at least three distinct vertices; no extra contest application model.
+
+0-based conversion once. A valid cycle has at most100 edges, each≤100000, so narrowing final weight to long long is safe. No solution. includes the period.
+
+Returned original edge/vertex witnesses, zero/full64 weights, n=0, and repeated solve are locally tested; speed rank not checked.
 
 ## 榜单口径
 

@@ -7231,6 +7231,30 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "MinCycle",
+      "title": "非负权无向图最小环与原边方案",
+      "source": "src/compact/min_cycle.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P6175.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6175",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/302333056"
+          ],
+          "review": "Direct minimum-cycle problem reviewed; positive-weight answer AC. Broader contract and original-edge witness locally verified; docs/MIN-CYCLE.md."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [

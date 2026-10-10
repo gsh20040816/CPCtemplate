@@ -4743,5 +4743,29 @@
     "requires": [
       "lyndon"
     ]
+  },
+  {
+    "id": "example-374",
+    "symbol": "MinCycle",
+    "kind": "template",
+    "problem": "P6175 无向图的最小环问题",
+    "url": "https://www.luogu.com.cn/problem/P6175",
+    "summary": "求至少3个不同顶点的最小权环；n≤100，m≤5000，边权1..100000，答案≤10000000，可转long long输出；无解精确输出No solution.。",
+    "driver": "verify/luogu/P6175.compact.cpp",
+    "requires": [
+      "MinCycle"
+    ]
+  },
+  {
+    "id": "example-375",
+    "symbol": "MinCycle",
+    "kind": "api",
+    "problem": "API 无向最小环与原边编号",
+    "url": "https://oi-wiki.org/graph/min-cycle/",
+    "summary": "输入n m及0-based无向边u v w，w非负long long。无解输出NONE；否则依次输出128位权值、环长、顶点序列、原边编号序列，不重复首点。",
+    "driver": "verify/api/min_cycle.compact.cpp",
+    "requires": [
+      "MinCycle"
+    ]
   }
 ]

@@ -1,0 +1,160 @@
+{
+  "status": "pass",
+  "mode": "normal",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/tests/min_cycle.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/min_cycle.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6175.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-374-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6175.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-374-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-374-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-374-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-374-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-374-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/min_cycle.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-375-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/min_cycle.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-375-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-375-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-375-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-375-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/example-375-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/mutant-two-vertex-cycle.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/mutant-two-vertex-cycle"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/mutant-parallel-max.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/mutant-parallel-max"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/mutant-weight-truncation.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-cycle/normal/mutant-weight-truncation"
+    ]
+  ],
+  "core": {
+    "header": "PASS 59049 exhaustive, 3000 random/rebuild/copy, wide-weight ring/dense",
+    "ndebug": "PASS 59049 exhaustive, 3000 random/rebuild/copy, wide-weight ring/dense",
+    "copied": "PASS 59049 exhaustive, 3000 random/rebuild/copy, wide-weight ring/dense"
+  },
+  "usage": {
+    "example-374": {
+      "program_sha256": "a718fda3e6c0e95dc608be1cdf1e55f1c383509c0bc0f3e893aa501afcf62303",
+      "forms": {
+        "header": 153,
+        "ndebug": 153,
+        "expanded": 153,
+        "copied": 153
+      }
+    },
+    "example-375": {
+      "program_sha256": "97ad1bacd9f0e13873cc43a176dfc87410f233b41712c0e5135aa23ea3bbadb5",
+      "forms": {
+        "header": 102,
+        "ndebug": 102,
+        "expanded": 102,
+        "copied": 102
+      }
+    }
+  },
+  "mutants": {
+    "two-vertex-cycle": "detected",
+    "parallel-max": "detected",
+    "weight-truncation": "detected"
+  },
+  "source_sha256": {
+    "src/compact/min_cycle.hpp": "fdfb969d5082202b2d03d02d1e44530a2eff9bab018b704197dbe74883975bc5",
+    "tests/min_cycle.cpp": "d5890164838e8e3077431ff93ad2d95355fb34855415720e8dad19b6b2213580",
+    "tests/min_cycle.py": "97012ba440d91b759e43214bb2065df4f08de02f7b1e9b9264a750ab162c9bb8",
+    "verify/luogu/P6175.compact.cpp": "1c2b9c51016aca990d3ebc3f3b7bfddf147f8e01bccc2f94adc3550a503578c0",
+    "verify/api/min_cycle.compact.cpp": "ee67eb1eb16cca917d1869e3bfedaec52c6ed84cc737f0799cdfd2a0427788c7"
+  },
+  "scope": "Definition-only simple cycle enumeration, original edge and vertex witness checks, full64 weights, largest P6175 graph sizes; online and ranking tracked separately."
+}
