@@ -1,0 +1,145 @@
+{
+  "scope": "Local chrono wall-time incl sieve+factor+count; excludes input/output. Four variants, five shuffled runs. Same outputs on test sets; exact rotation formula for n<=80. Compiler/platform differ from OJ; no speed rank or performance guarantee.",
+  "modes": [
+    "existing general implementation",
+    "prime sieve factorization, still scans divisors",
+    "prime sieve plus recursive divisor/phi enumeration, same general modular division",
+    "same enumeration, fixed prime inverse and 64-bit products; narrower P4980 domain"
+  ],
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "flags": [
+    "-std=c++20",
+    "-O2"
+  ],
+  "source_sha256": {
+    "tests/polya_runtime.cpp": "53c4a2251fc0fb73c853e299e8c34c5654e8b6e1c559d64eecd33d0c5305fd92",
+    "tests/polya_runtime.py": "7188eea6eb05fd5c0eaf99320ed659f468146c46d7c342ccefaf8792c986e44e",
+    "src/compact/polya.hpp": "576478299b2711bf9ee353ad2a8bd4f62c0e38865c34a049950ccf1d63578cb2"
+  },
+  "results": {
+    "prime_repeat": {
+      "input_sha256": "09f54b9a77213b4ed45a49c8a0e4d68a2cbf69d5bd91b5b8355826db71e1516d",
+      "count": 1000,
+      "milliseconds": {
+        "0": [
+          44.496,
+          44.294,
+          44.403,
+          44.551,
+          44.893
+        ],
+        "1": [
+          18.096,
+          17.207,
+          17.28,
+          17.22,
+          17.163
+        ],
+        "2": [
+          2.521,
+          2.078,
+          2.107,
+          2.018,
+          2.043
+        ],
+        "3": [
+          2.284,
+          1.962,
+          2.18,
+          1.967,
+          1.861
+        ]
+      },
+      "median_ms": {
+        "0": 44.496,
+        "1": 17.22,
+        "2": 2.078,
+        "3": 1.967
+      },
+      "output_sha256": "b3b07ef0607cea1b94186d08b367c5758f95bb12b4dc26822b109c0eda4c6575"
+    },
+    "mixed": {
+      "input_sha256": "f2ba53f54e42e560fa689cbd8ef6af30b0a9426c66c23d0ce8082a0e47d7da6a",
+      "count": 1000,
+      "milliseconds": {
+        "0": [
+          25.939,
+          25.825,
+          25.937,
+          26.121,
+          26.086
+        ],
+        "1": [
+          14.797,
+          14.771,
+          14.992,
+          14.811,
+          14.788
+        ],
+        "2": [
+          4.453,
+          4.455,
+          4.438,
+          4.463,
+          4.455
+        ],
+        "3": [
+          1.298,
+          1.3,
+          1.32,
+          1.32,
+          1.301
+        ]
+      },
+      "median_ms": {
+        "0": 25.939,
+        "1": 14.797,
+        "2": 4.455,
+        "3": 1.301
+      },
+      "output_sha256": "cce52f4c50ec63c2ee8744b97ff6caebfbc56fb75db95a23b168fc2d071f0f0a"
+    },
+    "many_divisors": {
+      "input_sha256": "98da3e082ee61f0a9a9d6080495b2596a927461ff7948d7212980fd242ef525d",
+      "count": 1000,
+      "milliseconds": {
+        "0": [
+          165.969,
+          168.553,
+          165.626,
+          168.709,
+          165.431
+        ],
+        "1": [
+          157.996,
+          157.524,
+          156.84,
+          160.894,
+          159.639
+        ],
+        "2": [
+          129.311,
+          127.373,
+          127.506,
+          125.283,
+          128.058
+        ],
+        "3": [
+          20.361,
+          20.185,
+          20.615,
+          20.345,
+          21.013
+        ]
+      },
+      "median_ms": {
+        "0": 165.969,
+        "1": 157.996,
+        "2": 127.506,
+        "3": 20.361
+      },
+      "output_sha256": "32080a44b3db4879f1da3cfdb2f01daa69dff2cc439e14ec9e84f31998a2a83c"
+    }
+  }
+}
