@@ -59,6 +59,7 @@ SANITIZE=1 tools/test.sh
 
 - [OJ 记录与实际受测接口](verification/oj.json)：保留原始提交源码和 SHA256，不把同文件未调用模块算作通过评测。
 - [当前源码与 AC 快照对照](verification/oj-source-audit.json)：完整文件相同或受测结构的排版归一化比对结果。
+- [已归档提交用时](docs/ONLINE-RUNTIMES.md)：区分总计、最慢单点和旧字段口径；[P4980 差距核查](docs/RUNTIME-P4980.md)。
 - [待评测队列](verification/pending-oj.md)：尚未提交、网站错误与未完成验证的接口。
 
 覆盖表中的 `pending` 表示对应项尚未完成迁移和验证；当前仍未达到完整覆盖要求。

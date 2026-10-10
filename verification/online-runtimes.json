@@ -1,0 +1,3958 @@
+{
+  "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
+  "inputs_sha256": {
+    "verification/oj.json": "2377ff85676ec0a3eb0bf4be0870a3512b1016c10efc7e66b06ca51465f44432",
+    "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
+    "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
+    "verification/mo-online.json": "c90b5fdfd13df35b145da368a7f4ff74d9e52d18d9fea56f41898f152c3fb268",
+    "verification/nth-roots-online.json": "068115a3cae22733b23dd1fd185b0897ff662164341262db2fb10602aeecd408",
+    "verification/overall-kth-isomorphism-online.json": "fbbcef1aade003474536609c348d39e88a3f64eecb91dea3c91a8057e2eef303",
+    "verification/polya-online.json": "84162dbf2afff3bc49750b3b9c7081d302a47ab2587c6df8a0f041c9609b7cda",
+    "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
+    "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
+    "docs/template-problem-reviews.json": "e07487eb3c8036e371fd924fcb74b6b8d5aaf7d0d31275aee75d39fb6b7872e5"
+  },
+  "entries": [
+    {
+      "record": null,
+      "problem": "CF321E",
+      "sources": [
+        {
+          "path": "verification/submitted/CF321E.compact.cpp",
+          "sha256": "6fd22023b95247957b6c970e6698eeb46f6f7cafbba1a5ba286dd049821a2ee9"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/dp-optimization-online.json",
+          "timing": {},
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "submission_rejected"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://judge.yosupo.jp/submission/401867",
+      "problem": "Library Checker associative_array",
+      "sources": [
+        {
+          "path": "verification/submitted/LC-associative_array.compact.cpp",
+          "sha256": "341afaf8509717c6fee1d907a24adeff4e27c3b18e7696b11075ba062dafccb5"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 309
+          },
+          "language": null,
+          "note": "20 tests passed including unordered_map_killer, sparse keys and language-specific killers. Submitted editor source copied back and byte-equal to bundle. erase/insert/copy/clear are locally tested only. At audit time, all-AC time rank 956 out of 7334, tied positions 956-960, dedup disabled; see docs/ranking-audits.json."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "gp_map"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://judge.yosupo.jp/submission/401869",
+      "problem": "Library Checker ordered_set",
+      "sources": [
+        {
+          "path": "verification/submitted/LC-ordered_set.compact.cpp",
+          "sha256": "a18c03f12033c909419e45a76cce9995285cf3649330e0904e2490dc7c465b6e"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 605
+          },
+          "language": null,
+          "note": "37 cases passed. Submitted source copied back from editor and byte-equal to bundle. Distinct integer keys only; pair-based duplicates and reverse comparator have local tests, not this AC. All-AC time rank 628/1095, tied positions 628-629, no user deduplication; see ranking-audits.json."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "ost"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://judge.yosupo.jp/submission/401871",
+      "problem": "Library Checker persistent_queue",
+      "sources": [
+        {
+          "path": "verification/submitted/LC-persistent_queue.compact.cpp",
+          "sha256": "bb8e854b3b8775bcc5eb4f42d61bd55c7688d7b0954066459043b38833129b0e"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 942
+          },
+          "language": null,
+          "note": "14 cases; preallocate Q cells and maintain per-version head/tail, avoiding concat/substr rebalancing. Does not online-verify push_back/erase/substr. Initial direct queue submission 401870 RE at 1024MiB on half_rot_killer. Source copied back and byte-equal."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "rp"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://judge.yosupo.jp/submission/402090",
+      "problem": "Library Checker point_set_range_composite",
+      "sources": [
+        {
+          "path": "verification/submitted/LC-point_set_range_composite.compact.cpp",
+          "sha256": "8ea7b2e19a6d120a82cf2e616e18e2c35f6c5a321e3a3451140a1046f310e281"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 247
+          },
+          "language": null,
+          "note": "16 test cases passed; noncommutative affine composition. Source pasted via app.paste. get/all/boundary searches not invoked in this driver."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "segtree"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://judge.yosupo.jp/submission/402089",
+      "problem": "Library Checker predecessor_problem",
+      "sources": [
+        {
+          "path": "verification/submitted/LC-predecessor_problem.compact.cpp",
+          "sha256": "fe3dcf9b90d1672ac55317f95fa6bbad3c38f08a481bee83e74a9229fb96cb1b"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 383
+          },
+          "language": null,
+          "note": "22 tests passed. Pasted bundled source through app.paste. prod/all not invoked. Online count monoid; noncommutative boundary order has separate local evidence."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "segtree"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297602650",
+      "problem": "Luogu P1429",
+      "sources": [
+        {
+          "path": "verification/submitted/P1429.compact.cpp",
+          "sha256": "be6d8b67e0de66def1647c8c21efed04dd7ef46f4c5b9ae5ed5108e3f95e7342"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "350ms",
+            "max_case_time_ms": 75
+          },
+          "language": "C++17 O2",
+          "note": "All 11 cases accepted; n<=200000, integer coordinates in [0,1e9], distance printed to four decimals. Decimal coordinates, extreme scales, fewer than two points and subnormal values have separate local evidence. This does not verify the separate exact integer geometry implementation."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "ClosestPair::solve"
+      ],
+      "maximum_case_ms": 75,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297603238",
+      "problem": "Luogu P1429",
+      "sources": [
+        {
+          "path": "verification/submitted/P1429.classic.cpp",
+          "sha256": "9de617608f998490e3de4fc2762fa9b92598149cc76268dbb729263ff26e237f"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "346ms",
+            "max_case_time_ms": 75
+          },
+          "language": "C++17 O2",
+          "note": "All 11 cases accepted; n<=200000, integer coordinates in [0,1e9], distance printed to four decimals. Decimal coordinates, extreme scales, fewer than two points and subnormal values have separate local evidence. This does not verify the separate exact integer geometry implementation."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Closest_Pair::Solve"
+      ],
+      "maximum_case_ms": 75,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302212973",
+      "problem": "Luogu P1446",
+      "sources": [
+        {
+          "path": "verification/submitted/P1446.compact.cpp",
+          "sha256": "528b5ac12205cd746305b2bd5e15c3aa3def9ffd162eecea52df12773030e7e4"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 5,
+            "total_time_ms": 55
+          },
+          "language": null,
+          "note": "C++20 O2; all tests AC. Exact locally uploaded minimal copied file archived. Reflection, zero colors, empty permutation, noninvertible group order and full arithmetic bounds remain local evidence. No speed ranking or downloaded-source-byte claim."
+        },
+        {
+          "evidence": "verification/polya-online.json",
+          "timing": {
+            "test_times_ms": [
+              5,
+              5,
+              5,
+              4,
+              5,
+              4,
+              4,
+              4,
+              5,
+              5,
+              4,
+              5
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "BurnsideAverage"
+      ],
+      "maximum_case_ms": 5,
+      "sum_of_case_ms": 55,
+      "reported_total_ms": 55,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302209955",
+      "problem": "Luogu P1484",
+      "sources": [
+        {
+          "path": "verification/submitted/P1484.wqs.compact.cpp",
+          "sha256": "77060a8336cf334c12553a6aa3e48bc3556cd82a9309824243ebb26640fb7368"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 27,
+            "total_time_ms": 124
+          },
+          "language": null,
+          "note": "C++20 O2; Firefox file upload of archived minimal copied source; all tests AC. Native record details observed; no downloaded-source byte comparison. Extended API domains, ties and degenerate inputs remain local evidence. No speed ranking claim."
+        },
+        {
+          "evidence": "verification/dp-optimization-online.json",
+          "timing": {
+            "test_times_ms": [
+              4,
+              4,
+              4,
+              4,
+              10,
+              27,
+              27,
+              25,
+              14,
+              5
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "wqs_independent_set"
+      ],
+      "maximum_case_ms": 27,
+      "sum_of_case_ms": 124,
+      "reported_total_ms": 124,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297521594",
+      "problem": "Luogu P1495",
+      "sources": [
+        {
+          "path": "verification/submitted/P1495.compact.cpp",
+          "sha256": "4ed8b60dfa2f2b9a76a74476413fcf60b29a022451159d77ad144baca2b55deb"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 44
+          },
+          "language": "C++20 O2",
+          "note": "All 11 judge cases accepted. Pairwise coprime moduli and product <= 1e18; target equals product. Larger periods, arbitrary target, full mixed-radix reconstruction and invalid-input rejection are local tests only. Other bundled number theory functions are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "garner"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297521658",
+      "problem": "Luogu P1495",
+      "sources": [
+        {
+          "path": "verification/submitted/P1495.classic.cpp",
+          "sha256": "3cf90f7c869cd59ae470b793ed1bf5997aa97a66460a9a5261b85f051bc5a7e4"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 44
+          },
+          "language": "C++20 O2",
+          "note": "All 11 judge cases accepted. Pairwise coprime moduli and product <= 1e18; target equals product. Larger periods, arbitrary target, full mixed-radix reconstruction and invalid-input rejection are local tests only. Other bundled number theory functions are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Garner"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297608403",
+      "problem": "Luogu P1742",
+      "sources": [
+        {
+          "path": "verification/submitted/P1742.compact.cpp",
+          "sha256": "bb5b470b88dea856958e22aab6878764441ec7cd6f9c62b9af82120721978129"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "177ms",
+            "max_case_time_ms": 52
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; n<=100000, |coordinates|<=10000 with at most two decimal places, SPJ checks radius and center. Empty input, multiple shuffle seeds and additional degeneracies have separate local evidence. Unused bundled geometry APIs are not covered by this acceptance."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "EnclosingCircle::solve"
+      ],
+      "maximum_case_ms": 52,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297608801",
+      "problem": "Luogu P1742",
+      "sources": [
+        {
+          "path": "verification/submitted/P1742.classic.cpp",
+          "sha256": "a79a1fc65127721d9d1e3e61be8d3a764fba406e4b073bb39b2de6a71d6662d8"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "192ms",
+            "max_case_time_ms": 49
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; n<=100000, |coordinates|<=10000 with at most two decimal places, SPJ checks radius and center. Empty input, multiple shuffle seeds and additional degeneracies have separate local evidence. Unused bundled geometry APIs are not covered by this acceptance."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Enclosing_Circle::Solve"
+      ],
+      "maximum_case_ms": 49,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297653743",
+      "problem": "Luogu P1903",
+      "sources": [
+        {
+          "path": "verification/submitted/P1903.compact.cpp",
+          "sha256": "6df4bf75c5964842cd5870095914df85e678ca86fa5b132023d60876c002985b"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 546
+          },
+          "language": null,
+          "note": "13 tests. time_ms is slowest individual test, UI total 2.57s. Distinct-color queries with point assignments, default block size; custom blocks, empty intervals and arbitrary query-time registration covered locally. Fastest-submission ranking not yet audited."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "ModifiedMo"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/301882512",
+      "problem": "Luogu P2147",
+      "sources": [
+        {
+          "path": "verification/submitted/P2147.offline.compact.cpp",
+          "sha256": "89acd56cedba6dea6179df2dd069d03f64ba0cd2f83138e5547465343038f45a"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 202,
+            "total_time_ms": 1100
+          },
+          "language": null,
+          "note": "C++20 O2; Firefox file upload;11testsAC. Header aggregate1.10s, slowest202ms. Forest contest application only; initial/multiple edges, cycles, component sizes and repeat-run are tested locally. No speed ranking claim."
+        },
+        {
+          "evidence": "verification/time-connectivity-online.json",
+          "timing": {
+            "time_ms": 202,
+            "total_time_ms": 1100,
+            "test_times_ms": [
+              18,
+              34,
+              53,
+              74,
+              90,
+              112,
+              129,
+              156,
+              174,
+              202,
+              58
+            ]
+          },
+          "language": null,
+          "note": "C++20 O2; Firefox file upload;11testsAC. Header aggregate1.10s, slowest202ms. Forest contest application only; initial/multiple edges, cycles, component sizes and repeat-run are tested locally. No speed ranking claim."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "TimeConnectivity"
+      ],
+      "maximum_case_ms": 202,
+      "sum_of_case_ms": 1100,
+      "reported_total_ms": 1100,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302209623",
+      "problem": "Luogu P2365",
+      "sources": [
+        {
+          "path": "verification/submitted/P2365.compact.cpp",
+          "sha256": "840c8ad86d06a6fb640b691409b24da75a8c51d3d94bebfcd4393201b8a9d4da"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 4,
+            "total_time_ms": 44
+          },
+          "language": null,
+          "note": "C++20 O2; Firefox file upload of archived minimal copied source; all tests AC. Native record details observed; no downloaded-source byte comparison. Extended API domains, ties and degenerate inputs remain local evidence. No speed ranking claim."
+        },
+        {
+          "evidence": "verification/dp-optimization-online.json",
+          "timing": {
+            "test_times_ms": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "MonotoneHull"
+      ],
+      "maximum_case_ms": 4,
+      "sum_of_case_ms": 44,
+      "reported_total_ms": 44,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/299974727",
+      "problem": "Luogu P2731",
+      "sources": [
+        {
+          "path": "verification/submitted/P2731.compact.cpp",
+          "sha256": "fb83e8b7392da8f1ab95c38ade52550706a64d100e7b8f2ce369022d3cbbc497"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 5,
+            "total_time_ms": 38
+          },
+          "language": null,
+          "note": "C++20 O2; exact bundled source pasted via Firefox.9 tests AC; slowest single test5ms, header aggregate38ms. Vertex sequence only; edge_ids, invalid instances and alternate starts/modes covered locally. Global speed rank unverified."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "UndirectedEuler"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": 38,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/299973954",
+      "problem": "Luogu P2921",
+      "sources": [
+        {
+          "path": "verification/submitted/P2921.compact.cpp",
+          "sha256": "20facb360ed0899baa94c980601f32673ae754b33fbcebc776ba70f176b78d46"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 25,
+            "total_time_ms": 155
+          },
+          "language": null,
+          "note": "C++20 O2; exact bundled source pasted via Firefox. 10 tests AC; slowest single test25ms, header aggregate155ms. Only tail-depth plus cycle-length visited count; advance/steps not invoked. Global speed rank unverified."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "FunctionalGraph"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": 155,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297668102",
+      "problem": "Luogu P3367",
+      "sources": [
+        {
+          "path": "verification/submitted/P3367.compact.cpp",
+          "sha256": "82b96e29d22e9636fb17bf519b9f21fc6c1cb52d22448a8b259077426bddcfe4"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 196
+          },
+          "language": null,
+          "note": "20 tests; slowest individual test 196ms, UI total 2.02s. find is invoked through merge/same. size/groups and empty construction are covered locally, not by this output. Ranking not audited."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "dsu"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297515150",
+      "problem": "Luogu P3369",
+      "sources": [
+        {
+          "path": "verification/submitted/P3369.compact.cpp",
+          "sha256": "599f69be842874906a9eea2edc3b66f8efa13d6a53a368767860fa2084d846c5"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 243
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "OrderedTreap"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520192",
+      "problem": "Luogu P3369",
+      "sources": [
+        {
+          "path": "verification/submitted/P3369.splay.compact.cpp",
+          "sha256": "7f43d37962ca301a92595bf20b964c6f5d33506130e31f85e2c48dd54883092a"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 240
+          },
+          "language": "C++20 O2",
+          "note": "Ordinary multiset Splay. Valid kth/predecessor/successor inputs follow P3369. Does not cover sequence Splay or dynamic-tree extensions."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "OrderedSplay"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520197",
+      "problem": "Luogu P3369",
+      "sources": [
+        {
+          "path": "verification/submitted/P3369.splay.classic.cpp",
+          "sha256": "3841a4c809a17d35c9a07071b49e2ccddf485f6223352f3f70eb0da0d2fabcc3"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 246
+          },
+          "language": "C++20 O2",
+          "note": "Ordinary multiset Splay. Valid kth/predecessor/successor inputs follow P3369. Does not cover sequence Splay or dynamic-tree extensions."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "OrderedSplay"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520203",
+      "problem": "Luogu P3369",
+      "sources": [
+        {
+          "path": "verification/submitted/P3369.classic.cpp",
+          "sha256": "e549ea24cbf35f705a55859aae51797cbf5e98ab608860c35ad39eb52f09de42"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 275
+          },
+          "language": "C++20 O2",
+          "note": "Ordinary multiset Treap; unused sequence Treap in the same bundle is not tested by P3369. Valid kth/predecessor/successor inputs follow the official task."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "OrderedTreap"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297518952",
+      "problem": "Luogu P3373",
+      "sources": [
+        {
+          "path": "verification/submitted/P3373.compact.cpp",
+          "sha256": "4246193507f914159e5b15041bd51667c0663475f39c0c711a0d7b18d40d7309"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 1180
+          },
+          "language": "C++20 O2",
+          "note": "Assignment, signed coefficients, composite moduli and modulus one tested locally"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "AffineSegTree"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297501480",
+      "problem": "Luogu P3376",
+      "sources": [
+        {
+          "path": "verification/submitted/P3376.compact.cpp",
+          "sha256": "a4f6d85ed9d9a7e56c90040b422bb67bb27936554bcd7b0cf1cc9da5509ffa0c"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 76
+          },
+          "language": null,
+          "note": "Other algorithms bundled in this header are not covered by this AC; source comparison in oj-source-audit.json"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "Dinic"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297502364",
+      "problem": "Luogu P3376",
+      "sources": [
+        {
+          "path": "verification/submitted/P3376.classic.cpp",
+          "sha256": "16067a01b5d2e04a9ae309c5a1b8c386036d698cb72ed45096aa42549a85d6ff"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 79
+          },
+          "language": null,
+          "note": "Other algorithms bundled in this header are not covered by this AC; source comparison in oj-source-audit.json"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Network_Flow"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297521009",
+      "problem": "Luogu P3379",
+      "sources": [
+        {
+          "path": "verification/submitted/P3379.offline.compact.cpp",
+          "sha256": "c98f90b81dc787faf1ca14d03489f2aec1907ae44bb942c3dff170e383fc85a3"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 2330
+          },
+          "language": "C++20 O2",
+          "note": "All 14 displayed cases accepted. Summary shows 2.33s/107.55MB; largest displayed individual-case memory is 143.44MB. Recursive DFS retained."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "OfflineLCA"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520172",
+      "problem": "Luogu P3384",
+      "sources": [
+        {
+          "path": "verification/submitted/P3384.compact.cpp",
+          "sha256": "cf42508d550247e4b6778114be693200490b8a4f1e4a51ac896c4059f96f7f81"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 1330
+          },
+          "language": "C++20 O2",
+          "note": "Recursive HLD with path/subtree addition and modular sum. Direct LCA, edge paths, multiplication/assignment, reset/reroot extensions separately tested locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "HLD + AffineSegTree"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520179",
+      "problem": "Luogu P3384",
+      "sources": [
+        {
+          "path": "verification/submitted/P3384.classic.cpp",
+          "sha256": "92e1d8a8bba516fbe31d4075cbb4004e18c364bdf739d56602adcc161c8d065e"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 1440
+          },
+          "language": "C++20 O2",
+          "note": "Recursive HLD with path/subtree addition and modular sum. Direct LCA, edge paths, multiplication/assignment, reset/reroot extensions separately tested locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "HLD + AffineSegTree"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520211",
+      "problem": "Luogu P3391",
+      "sources": [
+        {
+          "path": "verification/submitted/P3391.compact.cpp",
+          "sha256": "a1ba307a6662b8eecbcb13138064475ffe17ec975ef43df369309b8621d909f9"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 613
+          },
+          "language": "C++20 O2",
+          "note": "Implicit sequence Treap with recursive output traversal. Does not cover uncalled sequence operations or the ordered Treap in the same bundle."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "SequenceTreap"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520217",
+      "problem": "Luogu P3391",
+      "sources": [
+        {
+          "path": "verification/submitted/P3391.classic.cpp",
+          "sha256": "80e6208d0bab2d4e3c67ef4991ff16185872fb79ae6fbaa0e1ed1647df95c54b"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 592
+          },
+          "language": "C++20 O2",
+          "note": "Implicit sequence Treap with recursive output traversal. Does not cover uncalled sequence operations or the ordered Treap in the same bundle."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "SequenceTreap"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/299972443",
+      "problem": "Luogu P3398",
+      "sources": [
+        {
+          "path": "verification/submitted/P3398.compact.cpp",
+          "sha256": "e04688adaa420dfd6c91f2927d2f45f9690abd5c1ebf188d6bd1eaf2c0f97928"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 134,
+            "total_time_ms": 516
+          },
+          "language": null,
+          "note": "C++20 O2, Firefox app.paste of bundled source. All 10 tests AC, slowest single test134ms; header aggregate516ms. Boolean path intersection only; exact endpoints/count and weighted_distance not validated by this AC. Global speed rank unverified."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "path_intersection"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": 516,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297512741",
+      "problem": "Luogu P3690",
+      "sources": [
+        {
+          "path": "verification/submitted/P3690.compact.cpp",
+          "sha256": "b204dc4bbfe244d85424ab1c97960b97349c43dbfb58c12e7c83d29d28c2a327"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 755
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297513273",
+      "problem": "Luogu P3690",
+      "sources": [
+        {
+          "path": "verification/submitted/P3690.classic.cpp",
+          "sha256": "09e20ff0fbe3e06241a5e1b9b0d0b04be81c6636796f6acb8b52aea726755901"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 814
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297519137",
+      "problem": "Luogu P3806",
+      "sources": [
+        {
+          "path": "verification/submitted/P3806.compact.cpp",
+          "sha256": "4f19881994a572a68fea60b218d7cf479377fbf59741d3930bcffe4253678f01"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 107
+          },
+          "language": "C++20 O2",
+          "note": "Full count magnitudes, zero weights and forest behavior independently tested locally"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "CentroidPairs"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297519170",
+      "problem": "Luogu P3806",
+      "sources": [
+        {
+          "path": "verification/submitted/P3806.classic.cpp",
+          "sha256": "09bc65f4ba7233951f4ae86b365c492369d0face8c6cb44913824741cbc9adb8"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 109
+          },
+          "language": "C++20 O2",
+          "note": "Full count magnitudes, zero weights and forest behavior independently tested locally"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "CentroidPairs"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297556209",
+      "problem": "Luogu P3807",
+      "sources": [
+        {
+          "path": "verification/submitted/P3807.compact.cpp",
+          "sha256": "b4d6b1c957d0c07df8355dca73eb3351af538800c315c7bc823cf01d60b2e377"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 301
+          },
+          "language": "C++20 O2",
+          "note": "All 25 judge cases accepted. Driver computes C(n+m,n) with n,m,p <= 100000 and prime p. Full unsigned 64-bit arguments, k>n, zero arguments and repeated init are independently tested locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "Lucas"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297556596",
+      "problem": "Luogu P3807",
+      "sources": [
+        {
+          "path": "verification/submitted/P3807.classic.cpp",
+          "sha256": "c4cbc8058987ddc7901bea1e39a4b24f2a7bb9c8abd68931d621f81c80ac74c7"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 286
+          },
+          "language": "C++20 O2",
+          "note": "All 25 judge cases accepted. Driver computes C(n+m,n) with n,m,p <= 100000 and prime p. Full unsigned 64-bit arguments, k>n, zero arguments and repeated init are independently tested locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Lucas_Theorem"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297563298",
+      "problem": "Luogu P3811",
+      "sources": [
+        {
+          "path": "verification/submitted/P3811.compact.cpp",
+          "sha256": "73c0709ae69cad8752224e45b70ee06c8b7defd434b41ec568b8b172792836fc"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 387,
+            "max_case_time_ms": 221
+          },
+          "language": "C++20 O2",
+          "note": "All 6 judge cases accepted; 1<=n<=3000000, n<p<20000528, prime p. Empty prefix and int32 modulus limits are tested locally. General exgcd and Fermat inverse APIs are not covered by this submission."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "inverse_table"
+      ],
+      "maximum_case_ms": 221,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297563503",
+      "problem": "Luogu P3811",
+      "sources": [
+        {
+          "path": "verification/submitted/P3811.classic.cpp",
+          "sha256": "35df8371e95e4274e527f7592dae188da94dd54e23887a00006bbd537f3f7da5"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 385,
+            "max_case_time_ms": 219
+          },
+          "language": "C++20 O2",
+          "note": "All 6 judge cases accepted; 1<=n<=3000000, n<p<20000528, prime p. Empty prefix and int32 modulus limits are tested locally. General exgcd and Fermat inverse APIs are not covered by this submission."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Inverse_Table"
+      ],
+      "maximum_case_ms": 219,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520290",
+      "problem": "Luogu P3834",
+      "sources": [
+        {
+          "path": "verification/submitted/P3834.compact.cpp",
+          "sha256": "3827a2890ec7d2ff0fb1ec29af032f71a19270b9b630ed338a85643e9890a4fd"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 2895
+          },
+          "language": "C++20 O2",
+          "note": "Static interval kth smallest only. Other algorithms bundled in optimization.hpp are not covered. Time is the sum of the 20 displayed test-case times (summary rounds to 2.90s)."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "PersistentKth"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520299",
+      "problem": "Luogu P3834",
+      "sources": [
+        {
+          "path": "verification/submitted/P3834.classic.cpp",
+          "sha256": "d7612348d34917621c1be51eac1be0eac48bb226ecad9cf1d1df10f1647ad058"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 2905
+          },
+          "language": "C++20 O2",
+          "note": "Static interval kth smallest only; other algorithms in optimization.hpp are not covered. Time is the sum of the 20 displayed test-case times."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Persistent_Kth"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520221",
+      "problem": "Luogu P3919",
+      "sources": [
+        {
+          "path": "verification/submitted/P3919.compact.cpp",
+          "sha256": "a12b16ffdd501cef65ad6c3a1f8da342b6f5ef0b48c439fda7295001d460e647"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 3130
+          },
+          "language": "C++20 O2",
+          "note": "Branching versions, point assignment/query and version copying; not an order-statistics tree. Memory is the judge reported value for this driver and test set."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "PersistentArray"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520224",
+      "problem": "Luogu P3919",
+      "sources": [
+        {
+          "path": "verification/submitted/P3919.classic.cpp",
+          "sha256": "392768668bf06c050e36b3199c63442c98ad280f7f5c214e0518fa8f75795b30"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 5180
+          },
+          "language": "C++20 O2",
+          "note": "Branching versions, point assignment/query and version copying; static node capacity 23000000. Reinitialization and allocation bounds also tested locally. Not an order-statistics tree."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "PersistentArray"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520300",
+      "problem": "Luogu P4174",
+      "sources": [
+        {
+          "path": "verification/submitted/P4174.compact.cpp",
+          "sha256": "e1e14322f8e32b7e3f703af80f3440c5fd18964ead04dc72357547957db4ceda"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 212
+          },
+          "language": "C++20 O2",
+          "note": "Station/group maximum-profit reduction. The judge checks only the optimal weight, not the returned selected vertex list. Selection certificates, LLONG_MIN and arbitrary dependency cycles are tested locally; other flow algorithms are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "maximum_closure"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520304",
+      "problem": "Luogu P4174",
+      "sources": [
+        {
+          "path": "verification/submitted/P4174.classic.cpp",
+          "sha256": "fab5281319d29b7cda3c3f72be1520e528fd648a64c53795f30fa1eff5572f2d"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 196
+          },
+          "language": "C++20 O2",
+          "note": "Station/group maximum-profit reduction. The judge checks only the optimal weight, not the returned selected vertex list. Selection certificates, LLONG_MIN and arbitrary dependency cycles are tested locally; other flow algorithms are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Maximum_Closure"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520101",
+      "problem": "Luogu P4195",
+      "sources": [
+        {
+          "path": "verification/submitted/P4195.compact.cpp",
+          "sha256": "e79d06c10d7f3fea98d9cec82ae21e6ac1a3e55f66ff3b74eb425ff8347c1c41"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 2080
+          },
+          "language": "C++20 O2",
+          "note": "OJ inputs a,p,b in 1..1e9 and smallest exponent; signed inputs and 1e12 modulus extension checked locally. Unused algebra/number-theory APIs in bundle are not covered by this AC."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "DiscreteLog"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520104",
+      "problem": "Luogu P4195",
+      "sources": [
+        {
+          "path": "verification/submitted/P4195.classic.cpp",
+          "sha256": "098f7488a679a246a8fcd5016fc75e0f4bc91a24c68eb7e8b9b0ab86518a5d7e"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 2320
+          },
+          "language": "C++20 O2",
+          "note": "OJ inputs a,p,b in 1..1e9 and smallest exponent; signed inputs and 1e12 modulus extension checked locally. Unused algebra/number-theory APIs in bundle are not covered by this AC."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "DiscreteLog"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/301858590",
+      "problem": "Luogu P4245",
+      "sources": [
+        {
+          "path": "verification/submitted/P4245.crt.compact.cpp",
+          "sha256": "1b57a3d1b75de5ae5f3b5730762cc3fa4535bb619ed5bb14f47ae391c6df0dab"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 254,
+            "total_time_ms": 2050
+          },
+          "language": null,
+          "note": "C++20 O2; native Firefox upload of 5048-byte minimal copied source. All 20 tests AC. Header aggregate2.05s, slowest single254ms, peak6.38MB. Record visibly observed in authenticated Firefox; no downloaded-source byte comparison. Empty input, negative coefficients, mod1, INT_MAX and transform length2^24 are outside this judge evidence. No global speed-rank claim; historical floating FFT AC is separate."
+        },
+        {
+          "evidence": "verification/convolution-mod-online.json",
+          "timing": {
+            "time_ms": 254,
+            "total_time_ms": 2050,
+            "test_times_ms": [
+              4,
+              5,
+              4,
+              4,
+              4,
+              9,
+              10,
+              11,
+              10,
+              16,
+              123,
+              119,
+              120,
+              123,
+              242,
+              250,
+              249,
+              245,
+              250,
+              254
+            ]
+          },
+          "language": null,
+          "note": "C++20 O2; native Firefox upload of 5048-byte minimal copied source. All 20 tests AC. Header aggregate2.05s, slowest single254ms, peak6.38MB. Record visibly observed in authenticated Firefox; no downloaded-source byte comparison. Empty input, negative coefficients, mod1, INT_MAX and transform length2^24 are outside this judge evidence. No global speed-rank claim; historical floating FFT AC is separate."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "convolution_mod"
+      ],
+      "maximum_case_ms": 254,
+      "sum_of_case_ms": 2052,
+      "reported_total_ms": 2050,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297630491",
+      "problem": "Luogu P4717",
+      "sources": [
+        {
+          "path": "verification/submitted/P4717.compact.cpp",
+          "sha256": "d916225e7289216a63d35915d37c6567a90e6ccc21dc71e19ac17e3e10a24d7c"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "425ms",
+            "max_case_time_ms": 84
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; three bitwise convolutions, 1<=bits<=17, modulus 998244353. Other moduli, singleton arrays and standalone transform semantics have separate local evidence. Unused bundled subset convolution and number-theory functions are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "SetConvolution<998244353>::multiply"
+      ],
+      "maximum_case_ms": 84,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297630911",
+      "problem": "Luogu P4717",
+      "sources": [
+        {
+          "path": "verification/submitted/P4717.classic.cpp",
+          "sha256": "20a9dd71bdf6f248fb21375f61446a71973bb97c6eaefc274aaeaeb84315d696"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "420ms",
+            "max_case_time_ms": 81
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; three bitwise convolutions, 1<=bits<=17, modulus 998244353. Other moduli, singleton arrays and standalone transform semantics have separate local evidence. Unused bundled subset convolution and number-theory functions are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Set_Convolution<998244353>::Multiply"
+      ],
+      "maximum_case_ms": 81,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297569299",
+      "problem": "Luogu P4718",
+      "sources": [
+        {
+          "path": "verification/submitted/P4718.compact.cpp",
+          "sha256": "c0d3315ca8c17440f7df6374028560ad5ced194d323b12313eb37b5680c4e530"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "5.19s",
+            "max_case_time_display": "2.11s"
+          },
+          "language": "C++20 O2",
+          "note": "All 20 cases accepted, T<=350 and 2<=n<=1e18. Current page shows 4s per-case limit. Complete factor multiplicities, minimum factor, n=1, and uint64 values above 1e18 have separate local evidence. Other bundled number theory components are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "PollardRho::factor"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297569935",
+      "problem": "Luogu P4718",
+      "sources": [
+        {
+          "path": "verification/submitted/P4718.classic.cpp",
+          "sha256": "ef3f3369a78e16ced7b950e86bf940ada05fa6d1ee01e3b974138d7d7875bc7e"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "5.21s",
+            "max_case_time_display": "2.12s"
+          },
+          "language": "C++20 O2",
+          "note": "All 20 cases accepted, T<=350 and 2<=n<=1e18. Current page shows 4s per-case limit. Complete factor multiplicities, minimum factor, n=1, and uint64 values above 1e18 have separate local evidence. Other bundled number theory components are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Pollard_Rho::Factor"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520142",
+      "problem": "Luogu P4720",
+      "sources": [
+        {
+          "path": "verification/submitted/P4720.compact.cpp",
+          "sha256": "ec75c16d776904caea2b9762db87069987de413ab4dc0b453e585daf9c22a0e6"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 61
+          },
+          "language": "C++20 O2",
+          "note": "One binomial query, 1<=k<=n<=1e18 and 2<=mod<=1e6. Zero/out-of-range k, mod=1, repeated queries and uint64 endpoint verified independently locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "ExLucas"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520151",
+      "problem": "Luogu P4720",
+      "sources": [
+        {
+          "path": "verification/submitted/P4720.classic.cpp",
+          "sha256": "ee4f56f8ac4693184b1f1360d38098063f0d524b64ac8be0aaf56c9a32b0b797"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 55
+          },
+          "language": "C++20 O2",
+          "note": "One binomial query, 1<=k<=n<=1e18 and 2<=mod<=1e6. Zero/out-of-range k, mod=1, repeated queries/reinitialization and uint64 endpoint verified independently locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "ExLucas"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297628790",
+      "problem": "Luogu P4723",
+      "sources": [
+        {
+          "path": "verification/submitted/P4723.compact.cpp",
+          "sha256": "2e0e9b62c95625bbf668885975b4e7e7c67655d6ec7ab63e54c7d44e1d999a97"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "4.53s",
+            "max_case_time_ms": 907
+          },
+          "language": "C++20 O2",
+          "note": "All 5 cases accepted; n<=1e9, k<=32000, signed inputs within [-1e9,1e9], modulus 998244353. General rational numerators/denominators, other moduli, empty recurrence and full uint64 indices have separate local evidence; unrelated bundled number-theory APIs are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "BostanMori<>::recurrence"
+      ],
+      "maximum_case_ms": 907,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297629192",
+      "problem": "Luogu P4723",
+      "sources": [
+        {
+          "path": "verification/submitted/P4723.classic.cpp",
+          "sha256": "8ce86dd40e98bc0d2ea2e9bf32a862e06ccb5bdad67ec84bfb7226904f1dabbe"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "4.52s",
+            "max_case_time_ms": 905
+          },
+          "language": "C++20 O2",
+          "note": "All 5 cases accepted; n<=1e9, k<=32000, signed inputs within [-1e9,1e9], modulus 998244353. General rational numerators/denominators, other moduli, empty recurrence and full uint64 indices have separate local evidence; unrelated bundled number-theory APIs are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Bostan_Mori<>::Recurrence"
+      ],
+      "maximum_case_ms": 905,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302210674",
+      "problem": "Luogu P4767",
+      "sources": [
+        {
+          "path": "verification/submitted/P4767.compact.cpp",
+          "sha256": "0ec5cdf4b72ee6b6084413e60ea380e0d902413b24a0c7f9cbff4df42d058ce5"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 41,
+            "total_time_ms": 169
+          },
+          "language": null,
+          "note": "C++20 O2; Firefox file upload of archived minimal copied source; all tests AC. Native record details observed; no downloaded-source byte comparison. Extended API domains, ties and degenerate inputs remain local evidence. No speed ranking claim."
+        },
+        {
+          "evidence": "verification/dp-optimization-online.json",
+          "timing": {
+            "test_times_ms": [
+              4,
+              5,
+              4,
+              4,
+              41,
+              37,
+              28,
+              20,
+              7,
+              19
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "monotone_dp_layer"
+      ],
+      "maximum_case_ms": 41,
+      "sum_of_case_ms": 169,
+      "reported_total_ms": 169,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297521102",
+      "problem": "Luogu P4777",
+      "sources": [
+        {
+          "path": "verification/submitted/P4777.compact.cpp",
+          "sha256": "49f40e0aa9dc83488cc0004722f305ee91118ccb632a873e70cc373b35a902a6"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 142
+          },
+          "language": "C++20 O2",
+          "note": "All 15 judge cases accepted. Judge guarantees consistency and LCM <= 1e18. Negative residues, inconsistency and int64 period overflow tested locally. Other Number_Theory algorithms in the bundle are not covered by this AC."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "NumberTheory::crt"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297521173",
+      "problem": "Luogu P4777",
+      "sources": [
+        {
+          "path": "verification/submitted/P4777.classic.cpp",
+          "sha256": "32aaaa6020c853773c8fbe5919e6b6db0c08ce1d2135eb8bc253ae78a5bf129d"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 141
+          },
+          "language": "C++20 O2",
+          "note": "All 15 judge cases accepted. Judge guarantees consistency and LCM <= 1e18. Negative residues, inconsistency and int64 period overflow tested locally. Other Number_Theory algorithms in the bundle are not covered by this AC."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Number_Theory::Crt"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520159",
+      "problem": "Luogu P4781",
+      "sources": [
+        {
+          "path": "verification/submitted/P4781.compact.cpp",
+          "sha256": "9805829bab632f28dbc2ad4ad8a381d006bee30c48ec2dab6bbcec8f153bc556"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 304
+          },
+          "language": "C++20 O2",
+          "note": "Arbitrary distinct nodes and modulus 998244353, n<=2000, positive input residues. Consecutive-node preparation, power sums, signed normalization and other prime moduli verified locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "Lagrange"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520164",
+      "problem": "Luogu P4781",
+      "sources": [
+        {
+          "path": "verification/submitted/P4781.classic.cpp",
+          "sha256": "52c61653caefaf57eb44ab1f53def72684491f20055c0f1b56dbd9bc63e9a563"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 100
+          },
+          "language": "C++20 O2",
+          "note": "Arbitrary distinct nodes and modulus 998244353, n<=2000, positive input residues. Consecutive-node preparation, power sums, signed normalization and other prime moduli verified locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Lagrange"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297591576",
+      "problem": "Luogu P4897",
+      "sources": [
+        {
+          "path": "verification/submitted/P4897.compact.cpp",
+          "sha256": "2ae6cb8931041c08cab75a7581e9964a8b706da49de2484ad70bf0ffb7680f89"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "2.46s",
+            "max_case_time_ms": 252
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; up to 501 vertices, 1500 undirected edges, 100000 distinct-vertex queries and weights <=10000. Total displayed time is rounded. Per-case limit 500ms. Fundamental tree-edge cut certificates, singleton/diagonal conventions and larger capacities have separate local tests. Other bundled flow components are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "gomory_hu + cut_tree_values"
+      ],
+      "maximum_case_ms": 252,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297592933",
+      "problem": "Luogu P4897",
+      "sources": [
+        {
+          "path": "verification/submitted/P4897.classic.cpp",
+          "sha256": "702e23cf7877fd8c009e163780f6b0eb10f0c51fa3bd03a6501f4afb504b1f0c"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "1.80s",
+            "max_case_time_ms": 185
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; up to 501 vertices, 1500 undirected edges, 100000 distinct-vertex queries and weights <=10000. Total displayed time is rounded. Per-case limit 500ms. Fundamental tree-edge cut certificates, singleton/diagonal conventions and larger capacities have separate local tests. Other bundled flow components are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Gomory_Hu + Cut_Tree_Values"
+      ],
+      "maximum_case_ms": 185,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302212651",
+      "problem": "Luogu P4980",
+      "sources": [
+        {
+          "path": "verification/submitted/P4980.compact.cpp",
+          "sha256": "84da583ecdb28a987f62454cfa5a98866822a4d9fc108d97edf954a798a3d063"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 120,
+            "total_time_ms": 679
+          },
+          "language": null,
+          "note": "C++20 O2; all tests AC. Exact locally uploaded minimal copied file archived. Reflection, zero colors, empty permutation, noninvertible group order and full arithmetic bounds remain local evidence. No speed ranking or downloaded-source-byte claim."
+        },
+        {
+          "evidence": "verification/polya-online.json",
+          "timing": {
+            "test_times_ms": [
+              22,
+              78,
+              23,
+              26,
+              95,
+              108,
+              94,
+              61,
+              52,
+              120
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "necklace_colorings"
+      ],
+      "maximum_case_ms": 120,
+      "sum_of_case_ms": 679,
+      "reported_total_ms": 679,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297626422",
+      "problem": "Luogu P5395",
+      "sources": [
+        {
+          "path": "verification/submitted/P5395.compact.cpp",
+          "sha256": "9aaa0eb23c327138804d23e5b492bb69f03c0595d6e76237dfa96a8fbfbc18e6"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "1.04s",
+            "max_case_time_ms": 202
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; second-kind full row for n<=200000 modulo 167772161. Other moduli, uint64 exponents and first-kind rows are not covered by this acceptance."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "stirling_second_row<167772161>"
+      ],
+      "maximum_case_ms": 202,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297626660",
+      "problem": "Luogu P5395",
+      "sources": [
+        {
+          "path": "verification/submitted/P5395.classic.cpp",
+          "sha256": "e614115544c8b33792cfcfc1b6342fda07f0c658879993d579ac09b5ef41f586"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "1.03s",
+            "max_case_time_ms": 203
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; second-kind full row for n<=200000 modulo 167772161. Other moduli, uint64 exponents and first-kind rows are not covered by this acceptance."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Stirling_Second_Row<167772161>"
+      ],
+      "maximum_case_ms": 203,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297627360",
+      "problem": "Luogu P5408",
+      "sources": [
+        {
+          "path": "verification/submitted/P5408.compact.cpp",
+          "sha256": "beaae21038cab0f673f3579175a274f8aafb3a121e87a18457747e333ab7bdcd"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "1.53s",
+            "max_case_time_ms": 310
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; unsigned first-kind full row for 1<=n<262144 modulo 167772161. Uses recursive doubling and polynomial Taylor shift. Other moduli, n=0 and second-kind rows are not covered by this acceptance."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "stirling_first_row<167772161>"
+      ],
+      "maximum_case_ms": 310,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297627676",
+      "problem": "Luogu P5408",
+      "sources": [
+        {
+          "path": "verification/submitted/P5408.classic.cpp",
+          "sha256": "c65840e27167af8a273bbbccc8433aaa5e95f38b055e11086d2fbaf261e431b2"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "1.54s",
+            "max_case_time_ms": 311
+          },
+          "language": "C++20 O2",
+          "note": "All 10 cases accepted; unsigned first-kind full row for 1<=n<262144 modulo 167772161. Uses recursive doubling and polynomial Taylor shift. Other moduli, n=0 and second-kind rows are not covered by this acceptance."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Stirling_First_Row<167772161>"
+      ],
+      "maximum_case_ms": 311,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297561197",
+      "problem": "Luogu P5431",
+      "sources": [
+        {
+          "path": "verification/submitted/P5431.compact.cpp",
+          "sha256": "fce09d4e8edadbc960f7aa175e17d2eea4b08e24ea6f38ae1a60fcde504808d4"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 806,
+            "max_case_time_ms": 386
+          },
+          "language": "C++20 O2",
+          "note": "All 5 judge cases accepted, n<=5e6 and prime p<=1e9. Per-element inverse certificates, composite moduli, nonunits, modulus one, empty inputs and signed int64 extremes are tested locally. Other bundled number theory code is not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "batch_inverse"
+      ],
+      "maximum_case_ms": 386,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297561804",
+      "problem": "Luogu P5431",
+      "sources": [
+        {
+          "path": "verification/submitted/P5431.classic.cpp",
+          "sha256": "9a9ae8bb3a3fdf8d7bb7b187c824b2b749d50bba280dbe5fab2b5f9c9db905a5"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 803,
+            "max_case_time_ms": 384
+          },
+          "language": "C++20 O2",
+          "note": "All 5 judge cases accepted, n<=5e6 and prime p<=1e9. Per-element inverse certificates, composite moduli, nonunits, modulus one, empty inputs and signed int64 extremes are tested locally. Other bundled number theory code is not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Batch_Inverse"
+      ],
+      "maximum_case_ms": 384,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520354",
+      "problem": "Luogu P5491",
+      "sources": [
+        {
+          "path": "verification/submitted/P5491.compact.cpp",
+          "sha256": "1c5d5221b2879bb1104e174715da178a86b32eccadf71f92abbbd40071031e87"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 148
+          },
+          "language": "C++20 O2",
+          "note": "Prime modulus modular square roots; all 10 judge cases accepted. Time is the sum of displayed test-case times."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "mod_sqrt"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297518043",
+      "problem": "Luogu P5496",
+      "sources": [
+        {
+          "path": "verification/submitted/P5496.compact.cpp",
+          "sha256": "cd255bd588ed3bc6d3936133526c2265eeda688c6934ae10d93620e826de9cb2"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 422
+          },
+          "language": "C++20 O2",
+          "note": "Total occurrence counts tested locally; P3649 online verification pending"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "PalindromicTree"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/300024458",
+      "problem": "Luogu P5668",
+      "sources": [
+        {
+          "path": "verification/submitted/P5668.compact.cpp",
+          "sha256": "f4c564b63ca2e355446ac4ef2be8cef370d50b3dfbf76991244008c167c20248"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 172,
+            "total_time_ms": 372
+          },
+          "language": null,
+          "note": "12 tests AC in C++20 O2. Native Firefox upload of exact printed usage194 expanded source (23116 bytes). Header total372ms, max single172ms, peak5.19MB. Source-tab opening and initial lines visually confirmed; no claim of downloaded-source hash comparison. Automatic-modulus overload, invalid input and full core uint64/signed bounds are not covered by this judge. All-submission speed rank unverified."
+        },
+        {
+          "evidence": "verification/nth-roots-online.json",
+          "timing": {
+            "time_ms": 172,
+            "total_time_ms": 372,
+            "test_times_ms": [
+              71,
+              12,
+              26,
+              9,
+              47,
+              4,
+              6,
+              5,
+              8,
+              172,
+              5,
+              7
+            ]
+          },
+          "language": null,
+          "note": "12 tests AC in C++20 O2. Native Firefox upload of exact printed usage194 expanded source (23116 bytes). Header total372ms, max single172ms, peak5.19MB. Source-tab opening and initial lines visually confirmed; no claim of downloaded-source hash comparison. Automatic-modulus overload, invalid input and full core uint64/signed bounds are not covered by this judge. All-submission speed rank unverified."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "CompositeRoots"
+      ],
+      "maximum_case_ms": 172,
+      "sum_of_case_ms": 372,
+      "reported_total_ms": 372,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297558740",
+      "problem": "Luogu P6091",
+      "sources": [
+        {
+          "path": "verification/submitted/P6091.compact.cpp",
+          "sha256": "34523a2454cf4de4fc5cf1ae7282a35ed765cc22998338f430c3e3cabcc24908"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 2793
+          },
+          "language": "C++20 O2",
+          "note": "All 11 judge cases accepted, 2<=n<=1e6. Time sums displayed case times. Minimum-root minimality, order, signed inputs and int32 limits have separate local tests; other bundled number theory code is not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "PrimitiveRoot"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297559082",
+      "problem": "Luogu P6091",
+      "sources": [
+        {
+          "path": "verification/submitted/P6091.classic.cpp",
+          "sha256": "8186e9b82bc98f1afc6c199907477325f792996b5158c84c11175cee7602e221"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 2796
+          },
+          "language": "C++20 O2",
+          "note": "All 11 judge cases accepted, 2<=n<=1e6. Time sums displayed case times. Minimum-root minimality, order, signed inputs and int32 limits have separate local tests; other bundled number theory code is not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Primitive_Root"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297631186",
+      "problem": "Luogu P6097",
+      "sources": [
+        {
+          "path": "verification/submitted/P6097.compact.cpp",
+          "sha256": "7a0cc097dea4c815a5bbb7c011d7efd503cdcfab203d8615a18fc3a60767083d"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "4.93s",
+            "max_case_time_ms": 2700,
+            "max_case_time_display": "2.70s"
+          },
+          "language": "C++20 O2",
+          "note": "All 5 cases accepted; disjoint subset convolution, 1<=bits<=20, modulus 1000000009. Other moduli and singleton arrays have separate local evidence. Unused bundled XOR/AND transforms and number-theory functions are not covered. Maximum case milliseconds are converted from the rounded UI display 2.70s."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "subset_convolution<1000000009>"
+      ],
+      "maximum_case_ms": 2700,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297631585",
+      "problem": "Luogu P6097",
+      "sources": [
+        {
+          "path": "verification/submitted/P6097.classic.cpp",
+          "sha256": "319ba0efd5fe287ff2daa5b3bb6ea0480be310beb3a84b6612677338255fea91"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "4.93s",
+            "max_case_time_ms": 2690,
+            "max_case_time_display": "2.69s"
+          },
+          "language": "C++20 O2",
+          "note": "All 5 cases accepted; disjoint subset convolution, 1<=bits<=20, modulus 1000000009. Other moduli and singleton arrays have separate local evidence. Unused bundled XOR/AND transforms and number-theory functions are not covered. Maximum case milliseconds are converted from the rounded UI display 2.69s."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Subset_Convolution<1000000009>"
+      ],
+      "maximum_case_ms": 2690,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297800993",
+      "problem": "Luogu P6136",
+      "sources": [
+        {
+          "path": "verification/submitted/P6136.pbds.compact.cpp",
+          "sha256": "be68e648fada82130e59026f2051ba877ee5ca7460f8ebd8b98c077d5596d354"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 1130
+          },
+          "language": null,
+          "note": "24 test cells displayed; slowest 1.13s. Multiset pairs, one-occurrence erase, online XOR and checksum validated by complete driver. Uploaded bundled file. Ranking not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "ost"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297619886",
+      "problem": "Luogu P6178",
+      "sources": [
+        {
+          "path": "verification/submitted/P6178.compact.cpp",
+          "sha256": "7e4560f3e4e5ec1b5b83f8beff409a5832a268bfc95f9ecf5313ca4bd0108d3f"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "517ms",
+            "max_case_time_ms": 64
+          },
+          "language": "C++20 O2",
+          "note": "All 11 cases accepted: 6 undirected and 5 directed outward-root-1 cases; n<=300, m<=100000, positive weights<=1e9, parallel edges and loops allowed. Other roots, inward trees, signed/zero weights and small prime moduli have separate local evidence. Other bundled algebra/number-theory APIs are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "MatrixTree<1000000007>::count"
+      ],
+      "maximum_case_ms": 64,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297620263",
+      "problem": "Luogu P6178",
+      "sources": [
+        {
+          "path": "verification/submitted/P6178.classic.cpp",
+          "sha256": "d368a37ff198c9ab86af761cff133462c6bc2b75effd6732949c1bb540f14c39"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "512ms",
+            "max_case_time_ms": 62
+          },
+          "language": "C++20 O2",
+          "note": "All 11 cases accepted: 6 undirected and 5 directed outward-root-1 cases; n<=300, m<=100000, positive weights<=1e9, parallel edges and loops allowed. Other roots, inward trees, signed/zero weights and small prime moduli have separate local evidence. Other bundled algebra/number-theory APIs are not covered."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Matrix_Tree<1000000007>::Count"
+      ],
+      "maximum_case_ms": 62,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520123",
+      "problem": "Luogu P6577",
+      "sources": [
+        {
+          "path": "verification/submitted/P6577.compact.cpp",
+          "sha256": "5252f5d3ee408b03364d45d2a5a67ac23a340416e6ab462e7b9e9c6456d2e198"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 2010
+          },
+          "language": "C++20 O2",
+          "note": "Perfect matching with n<=500, missing edges and signed problem-range weights. Optional matches, infeasible graphs, duplicate edges and full int64 weights verified independently locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "WeightedMatching"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297520132",
+      "problem": "Luogu P6577",
+      "sources": [
+        {
+          "path": "verification/submitted/P6577.classic.cpp",
+          "sha256": "7d7fbc745258664fc12698c7bcc2f93234c18c6005bbfb31dcef4f3d2f3a7008"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 1860
+          },
+          "language": "C++20 O2",
+          "note": "Perfect matching with n<=500, missing edges and signed problem-range weights. Optional matches, infeasible graphs, duplicate edges and full int64 weights verified independently locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "WeightedMatching"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297517446",
+      "problem": "Luogu P8435",
+      "sources": [
+        {
+          "path": "verification/submitted/P8435.compact.cpp",
+          "sha256": "2340babbf7cd3db81a58445fee116a288c5e06807ebcdd1119133c15709c7df9"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 4770
+          },
+          "language": "C++20 O2",
+          "note": "Recursive DFS; bridge and block forest outputs tested locally separately"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "Biconnected"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297517662",
+      "problem": "Luogu P8435",
+      "sources": [
+        {
+          "path": "verification/submitted/P8435.classic.cpp",
+          "sha256": "ba38a7bd2185f201f04f0635c863f5a5226685c744a6f34209ed68bdff88447b"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 4950
+          },
+          "language": "C++20 O2",
+          "note": "Recursive DFS; bridge and block forest outputs tested locally separately"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Biconnected"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297519028",
+      "problem": "Luogu P8436",
+      "sources": [
+        {
+          "path": "verification/submitted/P8436.compact.cpp",
+          "sha256": "96a016421a9675363fceba875ad30c05fd6dc318947ab2a7ad7ed3b30acd35ed"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 5040
+          },
+          "language": "C++20 O2",
+          "note": "Recursive DFS; block and bridge forest outputs additionally tested locally"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "Biconnected"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/297519083",
+      "problem": "Luogu P8436",
+      "sources": [
+        {
+          "path": "verification/submitted/P8436.classic.cpp",
+          "sha256": "a7a5eaed27a03086018edabd23467b03e79c879ac8828bd768ded45f58e0a8a9"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 5430
+          },
+          "language": "C++20 O2",
+          "note": "Recursive DFS; block and bridge forest outputs additionally tested locally"
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Biconnected"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/301886868",
+      "problem": "P2617",
+      "sources": [
+        {
+          "path": "verification/submitted/P2617.offline.compact.cpp",
+          "sha256": "db998f6544d0b85d090d23d488034b7013c573ffc68d751377f0b867a19db646"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/overall-kth-isomorphism-online.json",
+          "timing": {
+            "displayed_total_time": "1.99s",
+            "test_ms": [
+              4,
+              4,
+              4,
+              5,
+              7,
+              9,
+              11,
+              16,
+              14,
+              20,
+              191,
+              189,
+              189,
+              191,
+              190,
+              187,
+              191,
+              191,
+              188,
+              189,
+              4
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 191,
+      "sum_of_case_ms": 1994,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302207967",
+      "problem": "P2865",
+      "sources": [
+        {
+          "path": "verification/submitted/P2865.compact.cpp",
+          "sha256": "f68d340268dd2157b227a4e6b3e64948bfd190d3639e42899a2337729a2bc845"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/short-walks-online.json",
+          "timing": {
+            "test_times_ms": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              7,
+              6,
+              30,
+              4,
+              4
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 30,
+      "sum_of_case_ms": 79,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302208192",
+      "problem": "P2901",
+      "sources": [
+        {
+          "path": "verification/submitted/P2901.compact.cpp",
+          "sha256": "9a67d4e6321c3cf3eb843777e8ccebfd5c680ad51f6eea7158c1c9080c177a5a"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/short-walks-online.json",
+          "timing": {
+            "test_times_ms": [
+              5,
+              4,
+              4,
+              5,
+              4,
+              5,
+              5,
+              6,
+              11,
+              10
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 11,
+      "sum_of_case_ms": 59,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/301887481",
+      "problem": "P5043",
+      "sources": [
+        {
+          "path": "verification/submitted/P5043.compact.cpp",
+          "sha256": "62fe7b91f8d19398b3837d50cfd6521011bd42bbff0374603594f589a4d513a0"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/overall-kth-isomorphism-online.json",
+          "timing": {
+            "displayed_total_time": "42ms",
+            "test_ms": [
+              4,
+              5,
+              4,
+              4,
+              4,
+              4,
+              5,
+              4,
+              4,
+              4
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 5,
+      "sum_of_case_ms": 42,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/301884220",
+      "problem": "P5906",
+      "sources": [
+        {
+          "path": "verification/submitted/P5906.compact.cpp",
+          "sha256": "2a0a6504827593c29da556e4451ec31b56e9f973aef95202025f96da5aa52768"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/mo-online.json",
+          "timing": {
+            "displayed_total_time": "7.46s",
+            "test_ms": [
+              5,
+              57,
+              58,
+              742,
+              714,
+              710,
+              711,
+              723,
+              749,
+              762,
+              410,
+              408,
+              425,
+              413,
+              408,
+              47,
+              114
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 762,
+      "sum_of_case_ms": 7456,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/2939493",
+      "problem": "QOJ 8235",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ8235.compact.cpp",
+          "sha256": "b4d4b64069829d57285ab64d5b17cfad0bffc9818617e3b7c62ad5befe14fe85"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "666ms",
+            "max_case_time_ms": 666
+          },
+          "language": "C++20",
+          "note": "All 50 main and 1 extra tests accepted. n,q<=500000, positive edge weights<=1e9, distinct vertex values<=1e9 and radius<=1e15. Zero-weight trees, full int64 distances, arbitrary summary merge and farthest-witness identity retain separate local evidence."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "Weighted Euler LCA and prefix point-set diameter"
+      ],
+      "maximum_case_ms": 666,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/2939551",
+      "problem": "QOJ 8235",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ8235.classic.cpp",
+          "sha256": "1a66d4ec8e039d27f700865c7098a796982524be4b54ab279a6ce2c1225b9555"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "588ms",
+            "max_case_time_ms": 588
+          },
+          "language": "C++20",
+          "note": "All 50 main and 1 extra tests accepted. n,q<=500000, positive edge weights<=1e9, distinct vertex values<=1e9 and radius<=1e15. Zero-weight trees, full int64 distances, arbitrary summary merge and farthest-witness identity retain separate local evidence."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Weighted Euler LCA and prefix point-set diameter"
+      ],
+      "maximum_case_ms": 588,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/2940150",
+      "problem": "QOJ 8236",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ8236.compact.cpp",
+          "sha256": "91de6fd65382a1099d1b1c8b98f301bd4045c1d5a1fad279ccf756c7e658b7cc"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 324
+          },
+          "language": null,
+          "note": "58 main and 3 extra tests. Unit grid edges, source time zero and initial-snake opening times; arbitrary directed graphs and nonzero source time covered locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "release_bfs"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/2940191",
+      "problem": "QOJ 8236",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ8236.classic.cpp",
+          "sha256": "c3207ff07a458f451210e14dd53a49b7210ee0955d9d24686070c818d1399086"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 294
+          },
+          "language": null,
+          "note": "58 main and 3 extra tests. Unit grid edges, source time zero and initial-snake opening times; arbitrary directed graphs and nonzero source time covered locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Release_Bfs"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/2939916",
+      "problem": "QOJ 8237",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ8237.compact.cpp",
+          "sha256": "00fc8823c93a936501e50cbfd41d4233a7090c6a425fcdeb3a2a51d749d90ddf"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "162ms",
+            "max_case_time_ms": 162
+          },
+          "language": "C++20",
+          "note": "All 31 main and 2 extra tests accepted. Sum n<=500000, positive initial values/increments<=1e9, uniformly random event permutation and modulus 1000000007. This validates graph decomposition metadata and inverse-factorial application; advance/steps and unrelated number-theory APIs are not called."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "Functional-graph dependency and random event ordering"
+      ],
+      "maximum_case_ms": 162,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/2939975",
+      "problem": "QOJ 8237",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ8237.classic.cpp",
+          "sha256": "700f9a62e9363d063937b8ee6718640ec836c59cd6cb08b92a89a4898c0233bd"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "158ms",
+            "max_case_time_ms": 158
+          },
+          "language": "C++20",
+          "note": "All 31 main and 2 extra tests accepted. Sum n<=500000, positive initial values/increments<=1e9, uniformly random event permutation and modulus 1000000007. This validates graph decomposition metadata and inverse-factorial application; advance/steps and unrelated number-theory APIs are not called."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Functional-graph dependency and random event ordering"
+      ],
+      "maximum_case_ms": 158,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/2939235",
+      "problem": "QOJ 8240",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ8240.compact.cpp",
+          "sha256": "2bcbd23b4316eef4ead41919ff4b9b17be7fac69b88ac70e45efd2650d604fed"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "789ms",
+            "max_case_time_ms": 789
+          },
+          "language": "C++20",
+          "note": "All 41 main tests and 3 extra tests accepted. n,q<=300000 and 1<=a_i<=n. General signed increments, arbitrary interval sums and arbitrary branching splices retain separate local evidence; this application uses the precise listed subset of interfaces."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "PersistentRange card-game application"
+      ],
+      "maximum_case_ms": 789,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/2939291",
+      "problem": "QOJ 8240",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ8240.classic.cpp",
+          "sha256": "35a5af6d169e166c3963d7c2e135049c34e1cfcc7f98babbecd7fdc08b61abb2"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_display": "752ms",
+            "max_case_time_ms": 752
+          },
+          "language": "C++20",
+          "note": "All 41 main tests and 3 extra tests accepted. n,q<=300000 and 1<=a_i<=n. General signed increments, arbitrary interval sums and arbitrary branching splices retain separate local evidence; this application uses the precise listed subset of interfaces."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "classic"
+      ],
+      "algorithms": [
+        "Persistent_Range card-game application"
+      ],
+      "maximum_case_ms": 752,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/2940638",
+      "problem": "QOJ 906",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ906.compact.cpp",
+          "sha256": "b797585c486cea65114873ede9f8df8fbff59fa94b2b9c5103781840b64bec59"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 203
+          },
+          "language": null,
+          "note": "11 tests; SCC partition emitted in topological order. dag is not called. Visible full-score time competition rank 94/143, ties 94-96; global denominator mismatch remains unresolved. See docs/ranking-audits.json."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "TarjanSCC"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/3061625",
+      "problem": "QOJ 906",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ906.kosaraju.compact.cpp",
+          "sha256": "9379185c2c8a5421d375fba5cf12a5b60824c45519ee25da2d7097289e9c2c05"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 226
+          },
+          "language": null,
+          "note": "Kosaraju SCC. File uploaded through Firefox native file picker in C++20. Detail page shows 11 accepted tests. Other bundled algorithms and SCC.dag are not invoked. No speed-ranking claim."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "SCC"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://qoj.ac/submission/3061643",
+      "problem": "QOJ 999",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ999.core.compact.cpp",
+          "sha256": "2e5380bba522e7a09c560d2b4541885a17455397ba5d85e4d55601185abfacf9"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 87
+          },
+          "language": null,
+          "note": "20 accepted tests in C++20; native Firefox file upload. Only edge-biconnected partition output is checked; blocks, cut, forest and augmentation outputs are not covered by this AC."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "BiconnectedCore"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/301884426",
+      "problem": "SP10707",
+      "sources": [
+        {
+          "path": "verification/submitted/SP10707.compact.cpp",
+          "sha256": "35c11bfb813c72cdffe5ba72c05f53c0e3d3146805b3bb56d9e5264c8356cbef"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/mo-online.json",
+          "timing": {},
+          "language": null,
+          "note": "RemoteJudge; no AC claimed until terminal verdict observed."
+        }
+      ],
+      "statuses": [
+        "Waiting"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    }
+  ],
+  "counts": {
+    "entries": 105,
+    "with_record": 104,
+    "accepted": 103,
+    "known_case_max": 41,
+    "benchmarks_verified": 0
+  }
+}
