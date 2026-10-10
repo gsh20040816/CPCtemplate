@@ -257,6 +257,7 @@
 | `KruskalTree` | [P4768 [NOI2018] 归程](https://www.luogu.com.cn/problem/P4768) | T≤3，n≤200000,m≤400000,Q≤400000；边长1..10000，海拔≤10^9，原图连通；在线解码用long long。 | [记录](https://www.luogu.com.cn/record/302331476) | 待核验 |
 | `lyndon::lyndon` | [P6114 【模板】Lyndon 分解](https://www.luogu.com.cn/problem/P6114) | 1≤n≤5000001，小写英文字母；页面300ms、500MB。 | [记录](https://www.luogu.com.cn/record/302332529) | 待核验 |
 | `MinCycle` | [P6175 无向图的最小环问题](https://www.luogu.com.cn/problem/P6175) | 1≤n≤100，1≤m≤5000，边权1..100000；1s、512MB。允许重边，官方样例包含同端点反向输入。 | [记录](https://www.luogu.com.cn/record/302333056) | 待核验 |
+| `LongChain` | [P5903 【模板】树上 K 级祖先](https://www.luogu.com.cn/problem/P5903) | 2≤n≤500000，1≤q≤5000000，1≤seed≤2^32-1；3s、500MB；输入合法有根树。 | [记录](https://www.luogu.com.cn/record/302333606) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2407,6 +2408,14 @@ Direct algorithm problem: minimum-weight undirected simple cycle with at least t
 0-based conversion once. A valid cycle has at most100 edges, each≤100000, so narrowing final weight to long long is safe. No solution. includes the period.
 
 Returned original edge/vertex witnesses, zero/full64 weights, n=0, and repeated solve are locally tested; speed rank not checked.
+
+### P5903 【模板】树上 K 级祖先 / LongChain
+
+Direct long-chain kth-ancestor template; statement explicitly does not guarantee rejecting slower methods.
+
+Root depth1; uint32_t xorshift calls sequenced x then k; XOR accumulation promotes i*last to unsigned long long before multiplication.
+
+Singleton/over-root queries, copy/reroot/rebuild and table invariants locally tested; native Linux 500000-node recursion and 5000000 queries in O2/ASan+UBSan. Speed ranking not checked.
 
 ## 榜单口径
 

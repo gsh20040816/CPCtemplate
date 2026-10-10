@@ -6582,5 +6582,38 @@
       "verification/min-cycle-sanitizer.json"
     ],
     "adapter": "0-based conversion once. A valid cycle has at most100 edges, each≤100000, so narrowing final weight to long long is safe. No solution. includes the period."
+  },
+  {
+    "symbol": "LongChain",
+    "api": "LongChain::kth",
+    "problem": "P5903 【模板】树上 K 级祖先",
+    "url": "https://www.luogu.com.cn/problem/P5903",
+    "classification": "Direct long-chain kth-ancestor template; statement explicitly does not guarantee rejecting slower methods.",
+    "statement_checked": true,
+    "limits": "2≤n≤500000，1≤q≤5000000，1≤seed≤2^32-1；3s、500MB；输入合法有根树。",
+    "tested_api": [
+      "constructor",
+      "add",
+      "build(root)",
+      "kth(valid ancestor)",
+      "dep"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302333606",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Singleton/over-root queries, copy/reroot/rebuild and table invariants locally tested; native Linux 500000-node recursion and 5000000 queries in O2/ASan+UBSan. Speed ranking not checked.",
+    "checked_date": "2026-10-11",
+    "source": "src/compact/long_chain.hpp",
+    "driver": "verify/luogu/P5903.compact.cpp",
+    "usage": "example-376",
+    "local_reports": [
+      "verification/long-chain-normal.json",
+      "verification/long-chain-sanitizer.json",
+      "verification/long-chain-linux-large.json"
+    ],
+    "adapter": "Root depth1; uint32_t xorshift calls sequenced x then k; XOR accumulation promotes i*last to unsigned long long before multiplication."
   }
 ]

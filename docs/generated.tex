@@ -7882,9 +7882,63 @@ path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径�
 
 \lstinputlisting{usage/example-169.cpp}
 
-\Needspace{640pt}
+\newpage
+
+\Needspace{680pt}
 
 \section{树链剖分}
+
+\subsection{长链剖分与常数时间K级祖先}\label{compact-LongChain}\index{LongChain}
+
+LongChain(n)，1$\le$n<INT\_MAX，点号1..n；add(u,v)加入无向树边，调用方保证全部边恰好构成一棵树，不支持环、重边、自环或森林。build(root=1)以指定根重建，dep[root]=1；kth(u,k)返回k级祖先，k$\ge$0，k=0返回自身，越过根返回0。查询前必须build，加边后必须重建；支持重复build、换根与值复制。son按子树最大高度选长儿子，不能换成子树大小；len含自身。链顶t的down[t]从t向下，up[t][0]=t且向上越根补0；成员只读，dfs1/dfs2仅内部使用。预处理O(n log(n+1))，空间O(n log(n+1))，两次DFS均递归、栈深O(n)。查询先跳最高2的幂，再在链顶上下表中查一次，32位字长模型下O(1)；k=0必须先处理，不能求0的最高位。
+
+\lstinputlisting[firstline=6,lastline=40,firstnumber=1]{../src/compact/long_chain.hpp}
+
+\newpage
+
+\noindent 递归划分长链并填表（接上页同一结构体）：
+
+\lstinputlisting[firstline=41,lastline=63,firstnumber=36]{../src/compact/long_chain.hpp}
+
+\newpage
+
+\noindent 重建与常数时间查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=64,lastline=91,firstnumber=59]{../src/compact/long_chain.hpp}
+
+\paragraph{为什么一次跳跃就够} 先向上跳p（不超过k的最大2的幂），到达u，剩余r小于p。原查询点是u下方距离p的后代，所以u的子树高度至少p+1。u所在长链顶t的链长至少dep[u]-dep[t]+p+1，足以覆盖r；若r不超过u到t的距离就查down，否则查up。选择长儿子必须按高度，不能按子树大小。
+
+\paragraph{边界与空间} up[t][0]和down[t][0]都等于t；up越过根填0。先处理k=0和越根，避免对0求最高位。各长链长度之和为n，上下表各存n个int；倍增表为O(n log n)。预处理两次DFS都保持递归，栈深可达n。
+
+\Needspace{549pt}
+
+\subsection*{模板题使用：P5903 【模板】树上 K 级祖先}
+
+\label{usage-example-376}
+
+题意：按题意用32位无符号xorshift顺序生成询问；根深度为1，先生成x再生成k，按64位累计i*答案的异或；n$\le$500000，q$\le$5000000。
+
+所需模板：\hyperref[compact-LongChain]{LongChain}（第~\pageref{compact-LongChain}~页，\ref{compact-LongChain}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5903}
+
+\lstinputlisting{usage/example-376.cpp}
+
+\Needspace{388pt}
+
+\subsection*{接口用法演示：API 任意根与越根祖先}
+
+\label{usage-example-377}
+
+演示约定：输入n root q、n-1条1-based树边和q组u k；逐行输出k级祖先，k=0为自身，越根为0。
+
+所需模板：\hyperref[compact-LongChain]{LongChain}（第~\pageref{compact-LongChain}~页，\ref{compact-LongChain}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/hld/}
+
+\lstinputlisting{usage/example-377.cpp}
+
+\Needspace{605pt}
 
 \subsection{重链剖分与 LCA}\label{compact-HLD}\index{HLD}
 

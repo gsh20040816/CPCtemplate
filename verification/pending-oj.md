@@ -60,6 +60,7 @@
 - `verify/api/kruskal_tree.compact.cpp`
 - `verify/api/kuangbin_tree_count.compact.cpp`
 - `verify/api/line3.compact.cpp`
+- `verify/api/long_chain.compact.cpp`
 - `verify/api/lyndon.compact.cpp`
 - `verify/api/matrix_tree_exact.compact.cpp`
 - `verify/api/merge_splay.compact.cpp`

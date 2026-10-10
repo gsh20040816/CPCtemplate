@@ -1,0 +1,123 @@
+{
+  "status": "pass",
+  "platform": "Linux-7.2.8-zen1-2-zen-x86_64-with-glibc2.44",
+  "machine": "x86_64",
+  "compiler": "g++ (GCC) 16.2.1 20260810",
+  "stack_bytes": 536870912,
+  "original_stack_bytes": 8388608,
+  "commands": [
+    [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-O2",
+      "/tmp/cpctemplate-long-chain-VOjXyt/tests/long_chain.cpp",
+      "-o",
+      "/tmp/cpctemplate-long-chain-VOjXyt/build/long-chain/large/core-normal"
+    ],
+    [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-O2",
+      "/tmp/cpctemplate-long-chain-VOjXyt/verify/luogu/P5903.compact.cpp",
+      "-o",
+      "/tmp/cpctemplate-long-chain-VOjXyt/build/long-chain/large/driver-normal"
+    ],
+    [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-no-pie",
+      "/tmp/cpctemplate-long-chain-VOjXyt/tests/long_chain.cpp",
+      "-o",
+      "/tmp/cpctemplate-long-chain-VOjXyt/build/long-chain/large/core-sanitizer"
+    ],
+    [
+      "/usr/bin/g++",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-no-pie",
+      "/tmp/cpctemplate-long-chain-VOjXyt/verify/luogu/P5903.compact.cpp",
+      "-o",
+      "/tmp/cpctemplate-long-chain-VOjXyt/build/long-chain/large/driver-sanitizer"
+    ]
+  ],
+  "results": {
+    "normal": {
+      "core": "500000-node chain/reroot/star/heap PASS",
+      "cases": [
+        {
+          "shape": "chain",
+          "n": 500000,
+          "q": 5000000,
+          "seed": 4294967295,
+          "expected": 4108338358799,
+          "elapsed_seconds": 0.36,
+          "peak_rss_kib": 166036
+        },
+        {
+          "shape": "star",
+          "n": 500000,
+          "q": 5000000,
+          "seed": 4294967295,
+          "expected": 3081701194385,
+          "elapsed_seconds": 0.19,
+          "peak_rss_kib": 132840
+        },
+        {
+          "shape": "heap",
+          "n": 500000,
+          "q": 5000000,
+          "seed": 4294967295,
+          "expected": 506229694225,
+          "elapsed_seconds": 0.36,
+          "peak_rss_kib": 115472
+        }
+      ]
+    },
+    "sanitizer": {
+      "core": "500000-node chain/reroot/star/heap PASS",
+      "cases": [
+        {
+          "shape": "chain",
+          "n": 500000,
+          "q": 5000000,
+          "seed": 4294967295,
+          "expected": 4108338358799,
+          "elapsed_seconds": 1.67,
+          "peak_rss_kib": 442448
+        },
+        {
+          "shape": "star",
+          "n": 500000,
+          "q": 5000000,
+          "seed": 4294967295,
+          "expected": 3081701194385,
+          "elapsed_seconds": 0.48,
+          "peak_rss_kib": 184164
+        },
+        {
+          "shape": "heap",
+          "n": 500000,
+          "q": 5000000,
+          "seed": 4294967295,
+          "expected": 506229694225,
+          "elapsed_seconds": 0.78,
+          "peak_rss_kib": 288732
+        }
+      ]
+    }
+  },
+  "source_sha256": {
+    "src/compact/long_chain.hpp": "334b352ade8f08b9827f0ab43883d91f5d1b4151bc3566f9728b71f858c43a77",
+    "tests/long_chain.cpp": "92dab4307411e20c48e70c69256003ed1502a7013ca44d6eb967853a4f729478",
+    "tests/long_chain_large.py": "983e182a35f8a9911fddf9f3c44acf4818458f6273f67743b25413110c69fa72",
+    "verify/luogu/P5903.compact.cpp": "a2361006e342e6238b38671fca6fe53b73c5e1115f6b3340b8a36e873815f285"
+  },
+  "scope": "Local native Linux tests only; shape formulas are independent of long-chain tables. Recursive source unchanged; no OJ/runtime-rank claim."
+}

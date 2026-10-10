@@ -4767,5 +4767,29 @@
     "requires": [
       "MinCycle"
     ]
+  },
+  {
+    "id": "example-376",
+    "symbol": "LongChain",
+    "kind": "template",
+    "problem": "P5903 【模板】树上 K 级祖先",
+    "url": "https://www.luogu.com.cn/problem/P5903",
+    "summary": "按题意用32位无符号xorshift顺序生成询问；根深度为1，先生成x再生成k，按64位累计i*答案的异或；n≤500000，q≤5000000。",
+    "driver": "verify/luogu/P5903.compact.cpp",
+    "requires": [
+      "LongChain"
+    ]
+  },
+  {
+    "id": "example-377",
+    "symbol": "LongChain",
+    "kind": "api",
+    "problem": "API 任意根与越根祖先",
+    "url": "https://oi-wiki.org/graph/hld/",
+    "summary": "输入n root q、n-1条1-based树边和q组u k；逐行输出k级祖先，k=0为自身，越根为0。",
+    "driver": "verify/api/long_chain.compact.cpp",
+    "requires": [
+      "LongChain"
+    ]
   }
 ]

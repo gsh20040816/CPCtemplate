@@ -1,10 +1,11 @@
 {
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
-    "verification/oj.json": "de596885e55418bf1f22ffb0a613c7d2fef07d33ff8c7b46b3358c8dfe10d350",
+    "verification/oj.json": "725ea27838c244aba5fc0c09896a8d7a68902e4c63e15f59eaa77e75b05d9755",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
     "verification/kruskal-tree-online.json": "17fdee900f963141e88656243299395b9ca64f9c706dca8dfa1871236e14672a",
+    "verification/long-chain-online.json": "7789091cdc2f67e2e29c4e59a9b84b13a3d3d280bfa238732936a8bf6cc50c3a",
     "verification/lyndon-online.json": "0f325a6fec1766a0f839e641b1d43767620e00d7f2f14eaf52d18ab65dabbe48",
     "verification/min-cycle-online.json": "f6a319e1feb838fedc4c91292cb69ecf0841fbe2230caf8a1ad087afc04a45bf",
     "verification/mo-online.json": "c90b5fdfd13df35b145da368a7f4ff74d9e52d18d9fea56f41898f152c3fb268",
@@ -14,7 +15,7 @@
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
-    "docs/template-problem-reviews.json": "864486606d243ae963af3ee271def3f826206bdcced873d33f20b7bf9fb6e1cf"
+    "docs/template-problem-reviews.json": "9bd67885db08ee47cb5c72371f45c5033a12267e40868bcce7d03f8cc05a83ea"
   },
   "entries": [
     {
@@ -2838,6 +2839,51 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302333606",
+      "problem": "Luogu P5903",
+      "sources": [
+        {
+          "path": "verification/submitted/P5903.compact.cpp",
+          "sha256": "2c8547eb3b7fc488b2c6afe28fc96f78373309e9274f628ddfb43b24f47c5608"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "max_case_time_display": "1.51s",
+            "displayed_total_time": "7.13s"
+          },
+          "language": "C++20 O2",
+          "note": "Actual AC for valid kth ancestors with online RNG feedback. Out-of-root/singleton/copy/rebuild and structural tables verified locally; O(1) complexity by proof, not inferred from AC; speed rank not checked."
+        },
+        {
+          "evidence": "verification/long-chain-online.json",
+          "timing": {
+            "max_case_time_display": "1.51s",
+            "displayed_total_time": "7.13s"
+          },
+          "language": "C++20 O2",
+          "note": "Actual AC for valid kth ancestors with online RNG feedback. Out-of-root/singleton/copy/rebuild and structural tables verified locally; O(1) complexity by proof, not inferred from AC; speed rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "LongChain"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/297558740",
       "problem": "Luogu P6091",
       "sources": [
@@ -4230,9 +4276,9 @@
     }
   ],
   "counts": {
-    "entries": 109,
-    "with_record": 108,
-    "accepted": 107,
+    "entries": 110,
+    "with_record": 109,
+    "accepted": 108,
     "known_case_max": 44,
     "benchmarks_verified": 0
   }

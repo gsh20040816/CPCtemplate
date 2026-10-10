@@ -2202,5 +2202,35 @@
       8
     ],
     "scope": "Actual AC for positive weights and weight-only output. Full scheme, zero/full64 weights and empty graph verified locally; speed rank not checked."
+  },
+  {
+    "problem": "Luogu P5903",
+    "style": "compact",
+    "algorithm": "LongChain",
+    "source_driver": "verify/luogu/P5903.compact.cpp",
+    "submitted_source": "verification/submitted/P5903.compact.cpp",
+    "submitted_sha256": "2c8547eb3b7fc488b2c6afe28fc96f78373309e9274f628ddfb43b24f47c5608",
+    "record": "https://www.luogu.com.cn/record/302333606",
+    "verdict": "Accepted",
+    "score": 100,
+    "language": "C++20 O2",
+    "submitted_at": "2026-10-11 00:43:51",
+    "usage": "example-376",
+    "displayed_total_time": "7.13s",
+    "max_case_time_display": "1.51s",
+    "peak_memory_display": "143.54MB",
+    "test_times_display": [
+      "4ms",
+      "5ms",
+      "80ms",
+      "70ms",
+      "80ms",
+      "1.43s",
+      "1.33s",
+      "1.30s",
+      "1.32s",
+      "1.51s"
+    ],
+    "scope": "Actual AC for valid kth ancestors with online RNG feedback. Out-of-root/singleton/copy/rebuild and structural tables verified locally; O(1) complexity by proof, not inferred from AC; speed rank not checked."
   }
 ]

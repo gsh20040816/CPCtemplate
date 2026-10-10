@@ -1,0 +1,165 @@
+{
+  "status": "pass",
+  "mode": "sanitizer",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/tests/long_chain.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/long_chain.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P5903.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-376-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P5903.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-376-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-376-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-376-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-376-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-376-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/long_chain.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-377-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/long_chain.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-377-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-377-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-377-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-377-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/long-chain/sanitizer/example-377-copied"
+    ]
+  ],
+  "core": {
+    "header": "1442 labelled trees/all roots; 3000 shuffled trees/copy/reroot; broom PASS",
+    "ndebug": "1442 labelled trees/all roots; 3000 shuffled trees/copy/reroot; broom PASS",
+    "copied": "1442 labelled trees/all roots; 3000 shuffled trees/copy/reroot; broom PASS"
+  },
+  "usage": {
+    "example-376": {
+      "program_sha256": "8098ac73229e0bb9ec9052ee7778ed5b0f303f32d064ec08d172ccf8059f1092",
+      "forms": {
+        "header": 151,
+        "ndebug": 151,
+        "expanded": 151,
+        "copied": 151
+      }
+    },
+    "example-377": {
+      "program_sha256": "64e8b8de0735877efabeff91902e80c091751055a793df63e73bc68f593f8156",
+      "forms": {
+        "header": 150,
+        "ndebug": 150,
+        "expanded": 150,
+        "copied": 150
+      }
+    }
+  },
+  "mutants": {},
+  "source_sha256": {
+    "src/compact/long_chain.hpp": "334b352ade8f08b9827f0ab43883d91f5d1b4151bc3566f9728b71f858c43a77",
+    "tests/long_chain.cpp": "92dab4307411e20c48e70c69256003ed1502a7013ca44d6eb967853a4f729478",
+    "tests/long_chain.py": "df273be951af9183d2a2c6c19189192e2481dce480992a71a938b6960d98f4e8",
+    "verify/luogu/P5903.compact.cpp": "a2361006e342e6238b38671fca6fe53b73c5e1115f6b3340b8a36e873815f285",
+    "verify/api/long_chain.compact.cpp": "a9633cfaf63a37e95c0733a7882c45885a2a4183cc2bf5675190c613a819786e"
+  },
+  "scope": "All labelled trees through n=6/all roots and random trees compared with BFS parents and direct climbing; full API boundaries/copy/reroot. Large Linux recursion and online evidence recorded separately."
+}

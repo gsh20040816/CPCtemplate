@@ -290,3 +290,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | KruskalTree | [example-370（应用补充）](usage/example-370.cpp), [example-371（接口演示）](usage/example-371.cpp) | locally_checked_application |
 | lyndon | [example-372](usage/example-372.cpp), [example-373（接口演示）](usage/example-373.cpp) | locally_checked_example |
 | MinCycle | [example-374](usage/example-374.cpp), [example-375（接口演示）](usage/example-375.cpp) | locally_checked_example |
+| LongChain | [example-376](usage/example-376.cpp), [example-377（接口演示）](usage/example-377.cpp) | locally_checked_example |
