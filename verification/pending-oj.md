@@ -45,6 +45,7 @@
 - `verify/api/fibonacci_period_hdu3977.compact.cpp`
 - `verify/api/flow_unique.compact.cpp`
 - `verify/api/floyd.compact.cpp`
+- `verify/api/four_cycles.compact.cpp`
 - `verify/api/general_sam_queries.compact.cpp`
 - `verify/api/hld_path_add.compact.cpp`
 - `verify/api/independent_set.compact.cpp`
@@ -308,6 +309,7 @@
 - `verify/luogu/SP11470.compact.cpp`
 - `verify/luogu/SP1811.compact.cpp`
 - `verify/luogu/SP2939.compact.cpp`
+- `verify/luogu/U367189.compact.cpp`
 - `verify/luogu/online_sam/P6139.compact.cpp`
 - `verify/poj/1330.compact.cpp`
 - `verify/poj/1330.lifting.compact.cpp`

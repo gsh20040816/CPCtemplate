@@ -258,6 +258,7 @@
 | `lyndon::lyndon` | [P6114 【模板】Lyndon 分解](https://www.luogu.com.cn/problem/P6114) | 1≤n≤5000001，小写英文字母；页面300ms、500MB。 | [记录](https://www.luogu.com.cn/record/302332529) | 待核验 |
 | `MinCycle` | [P6175 无向图的最小环问题](https://www.luogu.com.cn/problem/P6175) | 1≤n≤100，1≤m≤5000，边权1..100000；1s、512MB。允许重边，官方样例包含同端点反向输入。 | [记录](https://www.luogu.com.cn/record/302333056) | 待核验 |
 | `LongChain` | [P5903 【模板】树上 K 级祖先](https://www.luogu.com.cn/problem/P5903) | 2≤n≤500000，1≤q≤5000000，1≤seed≤2^32-1；3s、500MB；输入合法有根树。 | [记录](https://www.luogu.com.cn/record/302333606) | 待核验 |
+| `count_four_cycles` | [U367189 无向图四元环计数](https://www.luogu.com.cn/problem/U367189) | 1≤n≤100000，1≤m≤200000，无自环重边，可能不连通；浏览器锁屏前未核对时间/内存限制。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2416,6 +2417,14 @@ Direct long-chain kth-ancestor template; statement explicitly does not guarantee
 Root depth1; uint32_t xorshift calls sequenced x then k; XOR accumulation promotes i*last to unsigned long long before multiplication.
 
 Singleton/over-root queries, copy/reroot/rebuild and table invariants locally tested; native Linux 500000-node recursion and 5000000 queries in O2/ASan+UBSan. Speed ranking not checked.
+
+### U367189 无向图四元环计数 / count_four_cycles
+
+Direct non-induced four-cycle counting in a simple undirected graph. Public problem statement read; online submission pending.
+
+Input endpoints converted from 1-based to 0-based exactly once. K4 counts3; no final factor division.
+
+Core/driver locally checked, but no actual AC, speed rank or judge timing evidence. Mac locked; submission waits for UI access.
 
 ## 榜单口径
 

@@ -1,0 +1,163 @@
+{
+  "status": "pass",
+  "mode": "normal",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/tests/four_cycles.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/four_cycles.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/U367189.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-378-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/U367189.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-378-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-378-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-378-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-378-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-378-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/four_cycles.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-379-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/four_cycles.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-379-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-379-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-379-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-379-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/example-379-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-D_GLIBCXX_ASSERTIONS",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/mutant-tie-break.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/mutant-tie-break"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-D_GLIBCXX_ASSERTIONS",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/mutant-reset.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/mutant-reset"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-D_GLIBCXX_ASSERTIONS",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/mutant-width.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/four-cycles/normal/mutant-width"
+    ]
+  ],
+  "core": {
+    "header": "33868 exhaustive graphs; 3000 relabelled graphs; K632/K2,99998/K400,500/star/isolates PASS",
+    "ndebug": "33868 exhaustive graphs; 3000 relabelled graphs; K632/K2,99998/K400,500/star/isolates PASS",
+    "copied": "33868 exhaustive graphs; 3000 relabelled graphs; K632/K2,99998/K400,500/star/isolates PASS"
+  },
+  "usage": {
+    "example-378": {
+      "program_sha256": "2ad88e75375a1fe74299d7c03688955a95e0d8f14b1804afa524fba1f58de3b3",
+      "forms": {
+        "header": 154,
+        "ndebug": 154,
+        "expanded": 154,
+        "copied": 154
+      }
+    },
+    "example-379": {
+      "program_sha256": "35c6902f538923105bb7a730e200405a59f8110133d8001b20c029fa8164c8c4",
+      "forms": {
+        "header": 155,
+        "ndebug": 155,
+        "expanded": 155,
+        "copied": 155
+      }
+    }
+  },
+  "mutants": {
+    "tie-break": "detected",
+    "reset": "detected",
+    "width": "detected"
+  },
+  "source_sha256": {
+    "src/compact/four_cycles.hpp": "bc4cf57dbc6925ce88709c5f5b74ca25b0058b5dc20d47158c45c28b7153bd29",
+    "tests/four_cycles.cpp": "18d46c55a3f7d5216e89cf802575812c6742cf302350dd009b2ea6f6ac136c82",
+    "tests/four_cycles.py": "bcd24cc7eb819b1e755abe5fe0ed44b705a2281be23cc38ece791e4afa528864",
+    "verify/luogu/U367189.compact.cpp": "e4e4797c2e48df70cdb8bf1d6f4a8b76ce72259fda302f7ffcf1d0049f1990b5",
+    "verify/api/four_cycles.compact.cpp": "d1bff2d14077231c981024eef6231d2c4851de03fcdb15c1734d5f07d73df9ad"
+  },
+  "scope": "Every simple graph through n=6 by explicit four-vertex cycle enumeration, random graph relabelling, dense/sparse closed-form stress and 64-bit answers; O2 and sanitizer separate. No online AC claimed by local tests."
+}

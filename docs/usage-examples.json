@@ -4791,5 +4791,29 @@
     "requires": [
       "LongChain"
     ]
+  },
+  {
+    "id": "example-378",
+    "symbol": "count_four_cycles",
+    "kind": "template",
+    "problem": "U367189 无向图四元环计数",
+    "url": "https://www.luogu.com.cn/problem/U367189",
+    "summary": "简单无向图，n≤100000，m≤200000；允许断连，不含重边和自环。输入1-based端点，输出非诱导四元环数。",
+    "driver": "verify/luogu/U367189.compact.cpp",
+    "requires": [
+      "count_four_cycles"
+    ]
+  },
+  {
+    "id": "example-379",
+    "symbol": "count_four_cycles",
+    "kind": "api",
+    "problem": "API 零基四元环计数",
+    "url": "https://oi-wiki.org/graph/rings-count/",
+    "summary": "输入n m和m条0-based简单无向边；输出四元环数，允许n=m=0。",
+    "driver": "verify/api/four_cycles.compact.cpp",
+    "requires": [
+      "count_four_cycles"
+    ]
   }
 ]

@@ -35,6 +35,8 @@
 
 整体二分的时间序与撤销见 [离线动态第k小](docs/OVERALL-KTH.md)；有根/无根树的确定性编号见 [树同构](docs/TREE-ISOMORPHISM.md)，配套P2617、P5043完整用法。
 
+简单无向图四元环计数、非诱导定义与本地穷举验证见 [四元环](docs/FOUR-CYCLES.md)（待线上AC）。
+
 递归长链剖分、常数时间祖先查询及50万点深链验证见 [长链剖分](docs/LONG-CHAIN.md)。
 
 非负权无向图最小环、原边方案与严格三点约束见 [最小环](docs/MIN-CYCLE.md)。

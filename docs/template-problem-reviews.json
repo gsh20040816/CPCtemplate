@@ -6615,5 +6615,30 @@
       "verification/long-chain-linux-large.json"
     ],
     "adapter": "Root depth1; uint32_t xorshift calls sequenced x then k; XOR accumulation promotes i*last to unsigned long long before multiplication."
+  },
+  {
+    "symbol": "count_four_cycles",
+    "problem": "U367189 无向图四元环计数",
+    "url": "https://www.luogu.com.cn/problem/U367189",
+    "classification": "Direct non-induced four-cycle counting in a simple undirected graph. Public problem statement read; online submission pending.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "1≤n≤100000，1≤m≤200000，无自环重边，可能不连通；浏览器锁屏前未核对时间/内存限制。",
+    "adapter": "Input endpoints converted from 1-based to 0-based exactly once. K4 counts3; no final factor division.",
+    "tested_api": [],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Core/driver locally checked, but no actual AC, speed rank or judge timing evidence. Mac locked; submission waits for UI access.",
+    "source": "src/compact/four_cycles.hpp",
+    "driver": "verify/luogu/U367189.compact.cpp",
+    "usage": "example-378",
+    "local_reports": [
+      "verification/four-cycles-normal.json",
+      "verification/four-cycles-sanitizer.json"
+    ]
   }
 ]

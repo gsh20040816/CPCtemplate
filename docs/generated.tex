@@ -9692,9 +9692,47 @@ block\_cut\_forest(graph) 接收已经 run 的 BiconnectedCore，返回 1-based 
 
 \lstinputlisting{usage/example-165.cpp}
 
-\Needspace{410pt}
+\newpage
+
+\Needspace{680pt}
 
 \chapter{环计数问题}
+
+\section{简单无向图四元环计数}\label{compact-count_four_cycles}\index{count\_four\_cycles}
+
+count\_four\_cycles(n,edges)返回long long计数，n$\ge$0、点0..n-1、m=edges.size()$\le$INT\_MAX。输入必须是简单无向图，每条边恰好给一次，不允许重边和自环；不自动去重。允许空图、孤立点、断连，输入不变，可重复调用。计四个不同点组成的四边环，不要求诱导子图无弦；K4有3个四元环，旋转和反向不重复计算。按(度数,编号)严格定序，以唯一最大点u为起点，统计u-v-w中v,w均小于u的二步路径；第二条路径与前面路径配对。每轮清空实际访问的cnt。时间O(n+m$\sqrt{\vphantom x}$m)，空间O(n+m)，无需排序或递归；不可仅按编号定序后仍声称此复杂度。cnt只需int，答案必须long long；在m$\le$INT\_MAX约定下，环数$\le$m(m-1)/2<2\textasciicircum{}61，不溢出。
+
+\lstinputlisting[firstline=9,lastline=42]{../src/compact/four_cycles.hpp}
+
+\Needspace{325pt}
+
+\subsection*{模板题使用：U367189 无向图四元环计数}
+
+\label{usage-example-378}
+
+题意：简单无向图，n$\le$100000，m$\le$200000；允许断连，不含重边和自环。输入1-based端点，输出非诱导四元环数。
+
+所需模板：\hyperref[compact-count_four_cycles]{count\_\allowbreak{}four\_\allowbreak{}cycles}（第~\pageref{compact-count_four_cycles}~页，\ref{compact-count_four_cycles}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/U367189}
+
+\lstinputlisting{usage/example-378.cpp}
+
+\Needspace{251pt}
+
+\subsection*{接口用法演示：API 零基四元环计数}
+
+\label{usage-example-379}
+
+演示约定：输入n m和m条0-based简单无向边；输出四元环数，允许n=m=0。
+
+所需模板：\hyperref[compact-count_four_cycles]{count\_\allowbreak{}four\_\allowbreak{}cycles}（第~\pageref{compact-count_four_cycles}~页，\ref{compact-count_four_cycles}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/rings-count/}
+
+\lstinputlisting{usage/example-379.cpp}
+
+\Needspace{375pt}
 
 \section{无向简单图三元环枚举}\label{compact-enumerate_triangles}\index{enumerate\_triangles}
 
