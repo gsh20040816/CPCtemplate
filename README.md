@@ -35,6 +35,8 @@
 
 整体二分的时间序与撤销见 [离线动态第k小](docs/OVERALL-KTH.md)；有根/无根树的确定性编号见 [树同构](docs/TREE-ISOMORPHISM.md)，配套P2617、P5043完整用法。
 
+Kruskal重构森林与升降序阈值连通块见 [重构树](docs/KRUSKAL-TREE.md)，配套 P4768 归程完整用法与实际AC记录。
+
 ## 码风
 
 - `src/compact/`：基于队伍实际提交，`vector`、小写短名、清晰分行；目录名不表示压缩代码。

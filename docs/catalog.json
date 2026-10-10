@@ -1678,5 +1678,11 @@
     "StringHash",
     "子串与反串双哈希",
     "StringHash(s,base)，n<INT_MAX，两个底数分别在[257,mod-2]，所有比较对象共享同组底数。get(l,r,rev=false)取0-based半开区间；rev=true反转原区间，空区间返回{0,0}。join(a,b,len_b)拼接，要求规范余数、同底数及0≤len_b≤n，可拼出长度超过n的哈希。构造O(n)，查询/拼接O(1)，约24(n+1)字节；按unsigned char加1编码。判等必须先比长度；双哈希仍可能碰撞。理想独立均匀底数下，固定同长不同串的碰撞上界为两个min(1,(L-1)/(mod[j]-258))之积，多次比较用联合界；可预测种子和适应性输入不享有该保证。需确定性时用直接比较或SuffixArray＋SuffixLCP；回文可用Manacher。成员只读。"
+  ],
+  [
+    "kruskal_tree",
+    "KruskalTree",
+    "Kruskal重构森林与阈值连通块",
+    "KruskalTree(n)，0≤n≤INT_MAX/2，原点0..n-1；add(u,v,w)加入无向边，返回插入编号，边数≤INT_MAX，支持完整signed64权、重边、自环、负权和断连。build(descending=false)重建并返回连通块数；默认升序，true降序。每次成功合并创建父点：ch为左右儿子，val为合并边权；叶点ch={-1,-1}且val无意义。总点数k=2n-连通块数，父编号大于子编号；可按n..k-1聚合叶点信息，不需要模拟DFS。up[0]为父点，根为-1。\n\ncomponent(u,w,strict=false)返回阈值子图中u所属分量的最高重构节点；默认升序保留边权≤w，降序保留≥w，strict改成<或>。其子树叶点恰为分量，可从聚合数组查大小、最小值等。同权边必须连续爬完所有合法祖先；不以叶点val充当无穷哨兵。构建O(m log(m+1)+n log(n+1))，空间O(m+n log(n+1))，查询O(log(n+1))。依赖dsu，合并前按大小交换根。支持重复build、切换方向与值复制；加边后必须重建再查询，构建后成员只读。空图只允许build、不允许查询。"
   ]
 ]

@@ -6492,5 +6492,37 @@
       "verification/string-hash-sanitizer.json"
     ],
     "adapter": "Lightweight double polynomial hash; collision theorem, explicit counterexample and deterministic alternatives in docs/STRING-HASH.md."
+  },
+  {
+    "symbol": "KruskalTree",
+    "api": "KruskalTree::component",
+    "problem": "P4768 [NOI2018] 归程",
+    "url": "https://www.luogu.com.cn/problem/P4768",
+    "classification": "Competition application: descending strict-threshold connected components plus shortest-path minima; not a standalone formal template.",
+    "statement_checked": true,
+    "limits": "T≤3，n≤200000,m≤400000,Q≤400000；边长1..10000，海拔≤10^9，原图连通；在线解码用long long。",
+    "tested_api": [
+      "constructor",
+      "add",
+      "build(true)",
+      "component(u,p,true)",
+      "ch/val/up construction"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302331476",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Ascending/non-strict, negative/full64 weights and disconnected graphs locally tested only. No standalone formal-template entry or verified speed rank.",
+    "checked_date": "2026-10-11",
+    "source": "src/compact/kruskal_tree.hpp",
+    "driver": "verify/luogu/P4768.compact.cpp",
+    "usage": "example-370",
+    "local_reports": [
+      "verification/kruskal-tree-normal.json",
+      "verification/kruskal-tree-sanitizer.json"
+    ],
+    "adapter": "Dijkstra at vertex1; min leaf distance per descending reconstruction subtree; strict altitude>water."
   }
 ]

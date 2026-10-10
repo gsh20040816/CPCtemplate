@@ -47,6 +47,20 @@ class RuntimeEvidenceTests(unittest.TestCase):
             self.assertEqual((r['maximum_case_ms'], r['sum_of_case_ms'], r['reported_total_ms']), (7, 14, 14))
             self.assertEqual(len(r['observations']), 2)
 
+    def test_flat_receipt_preserves_rounded_display(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            row = self.fixture(root)
+            row.pop('time_ms')
+            row.update(displayed_total_time='13.72s', max_case_time_display='2.01s')
+            (root / 'verification/batch-online.json').write_text(json.dumps(row))
+            result = build(root)['entries'][0]
+            self.assertEqual(len(result['observations']), 2)
+            timing = result['observations'][1]['timing']
+            self.assertEqual(timing['max_case_time_display'], '2.01s')
+            self.assertIsNone(result['maximum_case_ms'])
+            self.assertIsNone(result['reported_total_ms'])
+
     def test_corrupt_archive_is_not_verified(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)

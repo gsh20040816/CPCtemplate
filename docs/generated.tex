@@ -8852,11 +8852,71 @@ KShortestWalks(n)，点号1..n，n<INT\_MAX；add(u,v,w)添加有向边，要求
 
 \newpage
 
-\Needspace{508pt}
+\Needspace{680pt}
 
 \chapter{生成树问题}
 
 \section{最小生成树}
+
+\subsection{Kruskal重构森林与阈值连通块}\label{compact-KruskalTree}\index{KruskalTree}
+
+代码依赖：\hyperref[compact-dsu]{dsu}（第~\pageref{compact-dsu}~页，\ref{compact-dsu}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+KruskalTree(n)，0$\le$n$\le$INT\_MAX/2，原点0..n-1；add(u,v,w)加入无向边，返回插入编号，边数$\le$INT\_MAX，支持完整signed64权、重边、自环、负权和断连。build(descending=false)重建并返回连通块数；默认升序，true降序。每次成功合并创建父点：ch为左右儿子，val为合并边权；叶点ch=\{-1,-1\}且val无意义。总点数k=2n-连通块数，父编号大于子编号；可按n..k-1聚合叶点信息，不需要模拟DFS。up[0]为父点，根为-1。
+
+component(u,w,strict=false)返回阈值子图中u所属分量的最高重构节点；默认升序保留边权$\le$w，降序保留$\ge$w，strict改成<或>。其子树叶点恰为分量，可从聚合数组查大小、最小值等。同权边必须连续爬完所有合法祖先；不以叶点val充当无穷哨兵。构建O(m log(m+1)+n log(n+1))，空间O(m+n log(n+1))，查询O(log(n+1))。依赖dsu，合并前按大小交换根。支持重复build、切换方向与值复制；加边后必须重建再查询，构建后成员只读。空图只允许build、不允许查询。
+
+\lstinputlisting[firstline=4,lastline=30,firstnumber=1]{../src/compact/kruskal_tree.hpp}
+
+\newpage
+
+\noindent 重建森林与倍增表（接上页同一结构体）：
+
+\lstinputlisting[firstline=31,lastline=76,firstnumber=28]{../src/compact/kruskal_tree.hpp}
+
+\newpage
+
+\noindent 阈值分量查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=77,lastline=90,firstnumber=74]{../src/compact/kruskal_tree.hpp}
+
+\paragraph{为何阈值查询正确} 升序处理完所有权不超过w的边后，并查集恰好是该阈值子图的连通分量。每次成功合并的两棵子树叶点集合不交，新父点记录其并集；沿叶点到根的内部点权单调不减。因此最高合法祖先的叶点集合就是答案。降序情形反向比较；严格阈值排除等权合并。同权内部点可能连续出现，倍增必须爬到最高合法点。
+
+\paragraph{如何聚合分量} 叶点先存原数据，随后按编号n到k-1合并两个儿子的结果，可求大小、最小值、最大值等。不必为聚合另跑DFS；这利用的是建点时已经确定的父子拓扑顺序。断连图的各棵树独立，无须添加超级根。
+
+\paragraph{归程建模} 先用长度求每个点到1号点的最短步行距离。汽车只能走海拔严格大于水位的边，故选降序构建和strict=true；可在分量内任意点下车，答案为该重构子树的叶点距离最小值。普通最小生成树的总权不能代替这个分量查询。
+
+\Needspace{650pt}
+
+\subsection*{应用题补充：P4768 [NOI2018] 归程}
+
+\label{usage-example-370}
+
+题意：汽车只能经过海拔严格大于水位的边；可在可达分量任意点下车，再步行到1号点。Dijkstra预处理步行距离，降序重构树聚合最小值，支持依赖上次答案的在线解码。
+
+所需模板：\hyperref[compact-KruskalTree]{KruskalTree}（第~\pageref{compact-KruskalTree}~页，\ref{compact-KruskalTree}~节）、\hyperref[compact-Dijkstra]{Dijkstra}（第~\pageref{compact-Dijkstra}~页，\ref{compact-Dijkstra}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4768}
+
+\lstinputlisting{usage/example-370.cpp}
+
+\Needspace{534pt}
+
+\subsection*{接口用法演示：API 阈值连通块聚合}
+
+\label{usage-example-371}
+
+演示约定：输入n m q down，点0-based；m条u v w，无向可断连。先输出全图连通块数。每次u w strict，输出对应阈值连通块的点数与最小原点号；down和strict取0/1。
+
+所需模板：\hyperref[compact-KruskalTree]{KruskalTree}（第~\pageref{compact-KruskalTree}~页，\ref{compact-KruskalTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/graph/mst/}
+
+\lstinputlisting{usage/example-371.cpp}
+
+\newpage
+
+\Needspace{438pt}
 
 \subsection{曼哈顿最小生成树}\label{compact-ManhattanMST}\index{ManhattanMST}
 

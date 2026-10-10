@@ -3688,5 +3688,25 @@
     "cases_per_mode": 50,
     "driver": "verify/api/string_hash.compact.cpp",
     "scope": "Four full program forms; probabilistic equality, no collision-free guarantee; online separately tracked."
+  },
+  "example-370": {
+    "program_sha256": "a66f40ec1f375764dc5e97911c3813ee24e7a7a0432e16540d80dc99f7cee25e",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 2,
+    "driver": "verify/luogu/P4768.compact.cpp",
+    "scope": "Printed usage execution only; no new online AC or comprehensive algorithm proof"
+  },
+  "example-371": {
+    "program_sha256": "9c6dfac10e47c19777b13ccf74693c1ca4cc01d2f7742d031f3376edf65218cd",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 2,
+    "driver": "verify/api/kruskal_tree.compact.cpp",
+    "scope": "Printed usage execution only; no new online AC or comprehensive algorithm proof"
   }
 }

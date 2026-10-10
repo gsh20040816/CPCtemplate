@@ -1,0 +1,167 @@
+{
+  "status": "pass",
+  "mode": "sanitizer",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/tests/kruskal_tree.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/kruskal_tree.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P4768.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-370-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P4768.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-370-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-370-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-370-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-370-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-370-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/kruskal_tree.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-371-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/kruskal_tree.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-371-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-371-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-371-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-371-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/kruskal-tree/sanitizer/example-371-copied"
+    ]
+  ],
+  "core": {
+    "header": "3000 forests, thresholds/directions/rebuild/copy, 200000-chain PASS",
+    "ndebug": "3000 forests, thresholds/directions/rebuild/copy, 200000-chain PASS",
+    "copied": "3000 forests, thresholds/directions/rebuild/copy, 200000-chain PASS"
+  },
+  "usage": {
+    "example-370": {
+      "program_sha256": "a66f40ec1f375764dc5e97911c3813ee24e7a7a0432e16540d80dc99f7cee25e",
+      "forms": {
+        "header": 102,
+        "ndebug": 102,
+        "expanded": 102,
+        "copied": 102
+      }
+    },
+    "example-371": {
+      "program_sha256": "9c6dfac10e47c19777b13ccf74693c1ca4cc01d2f7742d031f3376edf65218cd",
+      "forms": {
+        "header": 101,
+        "ndebug": 101,
+        "expanded": 101,
+        "copied": 101
+      }
+    }
+  },
+  "mutants": {},
+  "source_sha256": {
+    "src/compact/kruskal_tree.hpp": "9e14d75807bf9a959cb3e387b89f9c91b1b95a89bd310c628944a3e91c258763",
+    "tests/kruskal_tree.cpp": "577f77e1f09842de4a56f60cb54bdf1ce2e3beca35e2e5787eba6b90a8496752",
+    "tests/kruskal_tree.py": "630976d2597dbcb59e90f0dec1e4d68472170671f8ee313621c4103fc669cb2d",
+    "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
+    "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+    "verify/luogu/P4768.compact.cpp": "32228ae13c761077e1661edc6233ff5c01c2d990c0d99972edd4ddeec3a82082",
+    "verify/api/kruskal_tree.compact.cpp": "8d571d9b5445c3b4c2bb467d69b7036b88500c30d00f04bf05b0cbe270f8f74d"
+  },
+  "scope": "Exact threshold-component oracle and full P4768 decoding via Floyd/flood fill; largest n,m,q chain case; not online acceptance or runtime ranking."
+}

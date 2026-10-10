@@ -57,6 +57,7 @@
 - `verify/api/kd_range.compact.cpp`
 - `verify/api/kmp_nextval.compact.cpp`
 - `verify/api/kruskal.compact.cpp`
+- `verify/api/kruskal_tree.compact.cpp`
 - `verify/api/kuangbin_tree_count.compact.cpp`
 - `verify/api/line3.compact.cpp`
 - `verify/api/matrix_tree_exact.compact.cpp`

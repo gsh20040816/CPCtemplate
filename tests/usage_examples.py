@@ -409,7 +409,12 @@ cases['example-317'] = [('4 2\n0 1 -9223372036854775808\n1 2 -922337203685477580
 cases['example-318'] = [('3 2 3\n2 1\n0 0\n1 0\n2 1\n', '3 0 0 1 0 2 1'), ('0 0 0\n', '0')]
 cases['example-319'] = [('2 3\n2 1\n1 1\n1 1\n1 2\n', '1: 1 2 2: 3'), ('2 2\n1 1\n1 1\n1 1\n', 'No Solution!')]
 cases['example-320'] = [('2 1 1 2\n1 2 3\n', '3 UNIQUE 3'), ('3 2 1 2\n1 2 1\n3 3 1\n', '1 MULTIPLE 1 0')]
-assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
+cases['example-370'] = [('1\n4 3\n1 2 50 1\n2 3 100 2\n3 4 50 1\n5 0 2\n3 0\n2 1\n4 1\n3 1\n3 2\n', '0 50 200 50 150'), ('1\n5 5\n1 2 1 2\n2 3 1 2\n4 3 1 2\n5 3 1 2\n1 5 2 1\n4 1 3\n5 1\n5 2\n2 0\n4 0\n', '0 2 3 1')]
+cases['example-371'] = [('4 3 4 0\n0 1 -5\n1 2 -5\n2 2 9\n0 -5 0\n0 -5 1\n3 9 0\n2 9223372036854775807 1\n', '2 3 0 1 0 1 3 3 0'), ('0 0 0 1\n', '0')]
+if args.only:
+    assert set(args.only) <= {r['id'] for r in rows} & set(cases)
+else:
+    assert {r['id'] for r in rows} == set(cases), 'Every registered example needs execution cases'
 proof_path = root / 'verification/usage-examples.json'
 proof = json.loads(proof_path.read_text()) if args.only else {}
 selected = set(args.only) if args.only else set(cases)

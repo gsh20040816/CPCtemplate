@@ -27,6 +27,8 @@ def observations(root):
             if 'testpoints' in data:
                 row['test_times_ms'] = [p['time_ms'] for p in data['testpoints']]
             rows = [row]
+        elif isinstance(data.get('record'), str) and data.get('problem'):
+            rows = [data]
         else:
             raise ValueError(f'Unsupported online evidence schema: {path}')
         for row in rows:

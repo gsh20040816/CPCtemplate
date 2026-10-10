@@ -4694,5 +4694,30 @@
     "requires": [
       "StringHash"
     ]
+  },
+  {
+    "id": "example-370",
+    "symbol": "KruskalTree",
+    "kind": "application",
+    "problem": "P4768 [NOI2018] 归程",
+    "url": "https://www.luogu.com.cn/problem/P4768",
+    "summary": "汽车只能经过海拔严格大于水位的边；可在可达分量任意点下车，再步行到1号点。Dijkstra预处理步行距离，降序重构树聚合最小值，支持依赖上次答案的在线解码。",
+    "driver": "verify/luogu/P4768.compact.cpp",
+    "requires": [
+      "KruskalTree",
+      "Dijkstra"
+    ]
+  },
+  {
+    "id": "example-371",
+    "symbol": "KruskalTree",
+    "kind": "api",
+    "problem": "API 阈值连通块聚合",
+    "url": "https://oi-wiki.org/graph/mst/",
+    "summary": "输入n m q down，点0-based；m条u v w，无向可断连。先输出全图连通块数。每次u w strict，输出对应阈值连通块的点数与最小原点号；down和strict取0/1。",
+    "driver": "verify/api/kruskal_tree.compact.cpp",
+    "requires": [
+      "KruskalTree"
+    ]
   }
 ]
