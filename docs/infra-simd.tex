@@ -1,0 +1,75 @@
+\newpage
+\section{先检查自动向量化}\index{SIMD}\index{自动向量化}
+先写连续数组上的简单循环，以O2编译并看报告；循环间依赖、指针可能重叠、复杂分支都可能阻止向量化。
+\begin{lstlisting}[language=bash]
+g++ main.cpp -std=c++23 -O2 -mavx2 \
+    -fopt-info-vec-optimized -o main
+g++ main.cpp -std=c++23 -O2 -mavx2 \
+    -fopt-info-vec-missed -o main
+objdump -d -C main > main.asm
+\end{lstlisting}
+报告要定位到目标循环；反汇编检查目标函数里的ymm/zmm指令，不能只在整份程序里搜到一条就算通过。
+\texttt{\_\_restrict} 承诺指针访问满足不别名要求，只能在实际满足时使用。
+手写intrinsics也需要逐项校验结果，并与编译器生成的版本比较。
+
+\section{AVX2类型与常用指令}\index{AVX2}\index{intrinsics}
+包含 \texttt{<immintrin.h>}。命令行用 \texttt{-mavx2}，或用下面的push/target/pop只包住目标函数。
+\texttt{\_\_m256i} 是256位整数向量，可按8个32位或4个64位整数操作；
+\texttt{\_\_m256} 为8个float，\texttt{\_\_m256d} 为4个double。
+整数类型本身不区分有符号性，含义由具体指令决定。
+下表名称均省略前缀 \texttt{\_mm256\_}。
+\begin{longtable}{p{65mm}p{94mm}}\toprule 后缀 & 用途与边界\\\midrule\endhead
+\texttt{setzero\_si256} / \texttt{set1\_epi32} & 全零 / 广播一个32位值。\\
+\texttt{loadu\_si256} / \texttt{storeu\_si256} & 读写32字节，不要求32字节对齐；所有字节仍须有效。\\
+\texttt{load\_si256} / \texttt{store\_si256} & 地址必须32字节对齐；普通vector不保证这一点。\\
+\texttt{add\_epi32} / \texttt{sub\_epi32} & 每个32位槽独立加减，低32位结果。\\
+\texttt{mullo\_epi32} & 每槽乘积低32位；不是8个完整64位乘积。\\
+\texttt{and\_si256} / \texttt{or\_si256} & 逐位与 / 或。\\
+\texttt{xor\_si256} / \texttt{andnot\_si256} & 异或 / \texttt{(~a)\&b}，注意andnot参数次序。\\
+\texttt{cmpeq\_epi32} / \texttt{cmpgt\_epi32} & 相等 / 有符号大于；真槽全1，假槽全0。\\
+\texttt{movemask\_epi8} & 取32个字节各自的最高位，组成32位掩码。\\
+\texttt{castsi256\_ps} + \texttt{movemask\_ps} & 不转换数值地重解释，再取8个32位槽的最高位。\\
+\texttt{permutevar8x32\_epi32} & 按8个下标重排整个256位向量的32位槽。\\
+\texttt{shuffle\_epi8} & 每个128位半区内部按字节重排，不能任意跨半区。\\\bottomrule
+\end{longtable}
+无符号32位比较可先把两边异或最高位 \texttt{0x80000000u}，再作有符号比较。
+\texttt{cast} 不执行浮点数值转换；下面的movemask只提取比较结果，不进行浮点运算。
+
+\newpage
+\section{AVX2批量加法与条件计数}\index{SIMD尾部}
+加法采用uint32\_t，标量与向量都按模 $2^{32}$ 回绕；不能直接以可能溢出的有符号加法作参考。
+约定n非负，三个数组至少n个元素，输出与输入不重叠。每次只读取完整的8个元素，余数走标量。
+循环写 \texttt{i<=n-8}，避免 \texttt{i+8} 在n接近INT\_MAX时溢出。
+\lstinputlisting[firstline=1,lastline=20]{../examples/infra/simd.hpp}
+计数使用有符号32位比较；提取每槽一个bit，再统计1的个数。
+以下函数接在同一个target范围中，末尾pop恢复原来的目标选项。
+\lstinputlisting[firstline=21,lastline=37]{../examples/infra/simd.hpp}
+
+\newpage
+\section{重排与AVX-512掩码尾部}\index{AVX-512}\index{SIMD重排}
+逆序8个32位整数：setr按书写次序设置槽，槽0对应数组第一个元素。
+输入和输出至少8个元素。
+\lstinputlisting[firstline=6,lastline=15]{../examples/infra/simd_demo.cpp}
+
+AVX-512的整数向量为 \texttt{\_\_m512i}，可容纳16个32位整数；
+\texttt{\_\_mmask16} 的bit j控制槽j。
+下例只需AVX512F；AVX512BW、DQ、VL是额外子集，不能由F推断它们都可用。
+最后不足16项时，只访问掩码选中的槽，不越过数组尾部。
+maskz加载将未选中的槽置零，mask存储不写未选中的槽。
+\lstinputlisting[firstline=38]{../examples/infra/simd.hpp}
+此处尾部长度为1到15，因此移位合法；完整16项已由主循环处理。
+loadu仅免除对齐要求，AVX2完整加载仍不能跨数组边界；AVX-512示例则明确使用掩码访存。
+
+\section{原生Linux实测}
+Ryzen 7 9700X、Linux x86\_64、GCC16.2.1，O2加 \texttt{-mavx2}。
+两个 $2^{20}$ 长度uint32数组相加，初始化和逐元素校验在计时外；
+每个进程执行100次，编译器屏障保留每轮写入，9次交错运行取中位数。
+普通循环已在目标函数反汇编中确认使用ymm向量加法。
+\begin{center}
+\begin{tabular}{lrrr}\toprule
+实现 & 编译器循环 & 手写AVX2 & 手写AVX512F\\\midrule
+毫秒 & 8.538 & 8.205 & 7.852\\\bottomrule
+\end{tabular}
+\end{center}
+本例三者差距不大；换数据规模、访存方式或CPU后重新测量。
+先检查自动向量化，再对确实有收益的热点保留手写版本。

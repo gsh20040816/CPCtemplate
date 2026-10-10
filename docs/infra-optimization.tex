@@ -1,0 +1,89 @@
+\section{优化选项与局部 pragma}\index{O2}\index{O3}\index{Ofast}\index{pragma}
+先选合适算法和数据结构，再定位热点；以评测的O2配置为基线实测。
+优化不是纠正未定义行为的工具，调试版与提交版要分别运行。
+\begin{longtable}{p{45mm}p{114mm}}\toprule 选项 & 用法与代价\\\midrule\endhead
+\texttt{-O2} & 常用优化基线。具体启用项依GCC版本和目标而变。\\
+\texttt{-O3} & 增加循环等变换，可能增大代码；不保证比O2快。\\
+\texttt{-funroll-loops} & 尝试展开循环，减少部分循环控制开销；代码膨胀可能伤害指令缓存。\\
+\texttt{-Ofast} & 含fast-math等放宽语义的优化；浮点重排、NaN/Inf、带符号零等处理可能变化。\\
+\texttt{GCC optimize} & 给后续函数定义设置优化选项，不追溯先前定义。\\
+\texttt{GCC target} & 为后续函数选目标特性；启用指令集不等于检测运行CPU。\\\bottomrule
+\end{longtable}
+下面仅在一个函数上试O3和循环展开；push/pop恢复进入前的设置。
+\lstinputlisting{../examples/infra/pragma_scope.cpp}
+把 pragma 放在 \texttt{\#include} 前，头文件内后续定义的函数、内联函数和模板也可能受影响；
+放在 include 后不追溯已读入的定义。头文件自己的属性或push/pop还可能调整作用范围。
+优先在头文件之后，只包住已测过的热点；不要无差别堆叠全局“火车头”。
+\texttt{reset\_options} 恢复命令行的默认选项，\texttt{pop\_options} 恢复上次push的设置。
+
+x86的 \texttt{target("avx2")} 允许生成AVX2代码，不自动判断评测CPU是否支持。
+执行CPU或操作系统未支持的指令可能触发非法指令退出（常见SIGILL）。
+更高指令集不必然更快；目标函数与调用者特性不一致也可能导致内联编译错误。
+热身时确认评测CPU、系统和编译器支持，再选择目标指令集。
+
+\newpage
+\section{浮点优化会改变答案}\index{浮点重排}
+下例输入 \texttt{10000000000000000 1}。普通double计算先把加1舍入掉；
+允许代数重排后，编译器可以把整个表达式化为y。
+\lstinputlisting{../examples/infra/fast_math.cpp}
+本机GNU GCC16.2.0实测：O2、O3输出0，Ofast输出1。
+这足以说明Ofast并非单纯“更努力优化”；几何谓词和浮点误差分析不能默认沿用原来的语义。
+\begin{lstlisting}[language=bash]
+g++ fast_math.cpp -std=c++23 -O2 -o math_o2
+g++ fast_math.cpp -std=c++23 -Ofast -o math_fast
+printf '10000000000000000 1\n' | ./math_o2
+printf '10000000000000000 1\n' | ./math_fast
+\end{lstlisting}
+
+pragma的include边界也已用同一表达式实测：头文件定义函数H，include后定义函数L，pop后定义函数R，
+三个函数都保留独立调用。外层按O2编译。
+\begin{longtable}{p{89mm}p{70mm}}\toprule Ofast pragma的位置 & H / L / R输出\\\midrule\endhead
+放在include前，L之后pop & 1 / 1 / 0\\
+放在include后，L之后pop & 0 / 1 / 0\\\bottomrule
+\end{longtable}
+这说明局部选项可以恢复，也说明include前的pragma会影响头文件定义。
+不要因为main在pop之后，就认为它调用的所有函数也恢复成了O2。
+
+\section{O2基线下怎样测}\index{性能测试}
+相同输入、校验答案、交错运行候选、多次取中位数；预先约定是否包含初始化、分配和析构。
+计时区间内不能打印调试信息。必须使用结果，防止编译器删除无用计算。
+微基准只定位成本，最终仍应跑原题最大数据。
+
+后页实测环境为Apple M5、macOS arm64、GNU GCC16.2.0、C++23与O2，
+每项9个新进程，表中单位为毫秒。计时使用steady\_clock；每次校验整数和。
+算法主体读取 $2048^2$ 个int，值为 \texttt{i\%1009}。
+同一按行求和循环在O2、O3、O2加unroll下的中位数见表；差异很小，没有测出稳定的大幅收益。
+\input{infra-performance-options.tex}
+
+\newpage
+\section{先减少复制、分配和跨步访问}\index{卡常}\index{reserve}\index{内存布局}
+\input{infra-performance-table.tex}
+扩容组从空vector开始，计入reserve、push和求和；其他数组组先在计时外填好数据。
+传值组计入参数构造、求和和参数析构；move后原数组不再使用，引用组仍借用原数组。
+这些调用的所有权要求不同，先满足接口语义，再考虑快慢。
+
+\begin{longtable}{p{42mm}p{117mm}}\toprule 热点 & 可直接采用的改动\\\midrule\endhead
+vector逐个追加 & 已知数量时先reserve(n)，避免多次搬移。别每次追加都reserve(size()+1)，这会破坏几何扩容。\\
+只读大对象 & 参数用const引用；遍历大元素用 \texttt{const auto\&}，避免无意复制。\\
+转交所有权 & 接口按值接收且原对象之后不用时，传std::move；const对象通常仍复制。\\
+多轮临时数组 & 尺寸相近时复用缓冲区，clear保留capacity；峰值很大且不再需要时再考虑释放。\\
+连续矩阵 & 行主序存储通常让列下标在内层，尽量连续访问；不要在内层反复判断遍历模式。\\
+结构体数组 & 先看sizeof与填充，热点只读少数字段时再试分离字段数组，按实际负载测。\\\bottomrule
+\end{longtable}
+reserve只增加容量，不产生可下标访问的元素；过度预留会占内存。
+少量标量按值传递通常更简单，不能把所有参数都改为引用。
+move传给const引用不会转交所有权，随意给返回值加move也可能妨碍复制消除。
+\texttt{inline} 不强制机器码内联，\texttt{register} 不是通用提速手段。
+
+本次按行/按列都累加相同元素；行主序下前者内层连续，后者步长为2048个int。
+修改访问顺序必须保留算法依赖，例如背包方向不能为了局部性随意倒置。
+
+\newpage
+\section{复用缓冲与输入输出}\index{缓冲区}\index{输入输出优化}
+此例比较每轮释放重建与clear复用，2048轮、每轮4096个int，累计校验所有元素。
+\lstinputlisting{../examples/infra/performance_reuse.cpp}
+输入组从同一磁盘文件读取100万个十进制整数（值仍为 \texttt{i\%1009}），计时包含解析和求和。
+关闭同步要在I/O前做；之后避免混用stdio与iostream，交互题应显式刷新。
+\lstinputlisting{../examples/infra/performance_io.cpp}
+通常用 \texttt{'\textbackslash n'} 代替逐行endl；endl还会刷新。
+取消cin与cout绑定后，不能依赖下一次读取帮你刷新提示。

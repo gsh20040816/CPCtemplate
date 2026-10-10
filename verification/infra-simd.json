@@ -1,0 +1,132 @@
+{
+  "status": "pass",
+  "platform": "Linux-7.2.8-zen1-2-zen-x86_64-with-glibc2.44",
+  "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  16\nOn-line CPU(s) list:                     0-15\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 7 9700X 8-Core Processor\nCPU family:                              26\nModel:                                   68\nThread(s) per core:                      2\nCore(s) per socket:                      8\nSocket(s):                               1\nStepping:                                0\nMicrocode version:                       0xb404035\nFrequency boost:                         enabled\nCPU(s) scaling MHz:                      37%\nCPU max MHz:                             5734.5459\nCPU min MHz:                             621.8190\nBogoMIPS:                                7599.98\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpuid_fault cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx_vnni avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid bus_lock_detect movdiri movdir64b overflow_recov succor smca fsrm avx512_vp2intersect flush_l1d amd_lbr_pmc_freeze\nVirtualization:                          AMD-V\nL1d cache:                               384 KiB (8 instances)\nL1i cache:                               256 KiB (8 instances)\nL2 cache:                                8 MiB (8 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-15\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Mitigation; IBPB on VMEXIT only\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB on VMEXIT\n",
+  "compiler": "g++ (GCC) 16.2.1 20260810",
+  "records": [
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++23",
+        "-O2",
+        "-mavx2",
+        "-Wall",
+        "-Wextra",
+        "-fopt-info-vec-optimized=/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-simd/simd_demo.vec",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/simd_demo.cpp",
+        "-o",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-simd/simd_demo"
+      ],
+      "compiler_stderr": "",
+      "stdout": "SIMD demo PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++23",
+        "-O2",
+        "-mavx2",
+        "-Wall",
+        "-Wextra",
+        "-fopt-info-vec-optimized=/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-simd/infra_simd.vec",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/tests/infra_simd.cpp",
+        "-o",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-simd/infra_simd"
+      ],
+      "compiler_stderr": "",
+      "stdout": "SIMD lengths 0..1024, guard pages, modular sums and signed bounds PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++23",
+        "-O2",
+        "-mavx2",
+        "-Wall",
+        "-Wextra",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-fopt-info-vec-optimized=/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-simd/simd_demo_san.vec",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/simd_demo.cpp",
+        "-o",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-simd/simd_demo_san"
+      ],
+      "compiler_stderr": "",
+      "stdout": "SIMD demo PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++23",
+        "-O2",
+        "-mavx2",
+        "-Wall",
+        "-Wextra",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-fopt-info-vec-optimized=/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-simd/infra_simd_san.vec",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/tests/infra_simd.cpp",
+        "-o",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-simd/infra_simd_san"
+      ],
+      "compiler_stderr": "",
+      "stdout": "SIMD lengths 0..1024, guard pages, modular sums and signed bounds PASS\n",
+      "stderr": ""
+    }
+  ],
+  "vectorization_report": "/tmp/cpctemplate-infra-simd-1OQRfw/tests/infra_simd.cpp:10:23: optimized: loop vectorized using 32 byte vectors and unroll factor 8\n/usr/include/c++/16/bits/random.tcc:412:42: optimized: loop vectorized using 32 byte vectors and unroll factor 4\n",
+  "samples_ms": {
+    "0": [
+      8.373732,
+      7.958274,
+      8.747039,
+      8.538231,
+      8.804079,
+      8.533991,
+      7.311758,
+      8.75932,
+      8.75321
+    ],
+    "1": [
+      8.204672,
+      7.377087,
+      8.516181,
+      7.750546,
+      7.405727,
+      8.73524,
+      7.419207,
+      8.873278,
+      8.875759
+    ],
+    "2": [
+      7.852265,
+      7.658696,
+      7.787465,
+      7.595926,
+      7.618356,
+      8.723859,
+      8.019194,
+      7.957385,
+      8.317272
+    ]
+  },
+  "median_ms": {
+    "0": 8.538231,
+    "1": 8.204672,
+    "2": 7.852265
+  },
+  "benchmark": "O2 -mavx2, 2^20 uint32 elements, 100 additions per process, 9 interleaved samples; 0=compiler loop, 1=manual AVX2, 2=manual AVX512F. Setup and result check outside timing; compiler memory barrier retains every repetition.",
+  "automatic_add_assembly": "<automatic_add(unsigned int const*, unsigned int const*, unsigned int*, int)>:\n    3480:\t49 89 d0             \tmov    %rdx,%r8\n    3483:\t85 c9                \ttest   %ecx,%ecx\n    3485:\t7e 74                \tjle    34fb <automatic_add(unsigned int const*, unsigned int const*, unsigned int*, int)+0x7b>\n    3487:\t8d 41 ff             \tlea    -0x1(%rcx),%eax\n    348a:\t83 f8 06             \tcmp    $0x6,%eax\n    348d:\t76 6d                \tjbe    34fc <automatic_add(unsigned int const*, unsigned int const*, unsigned int*, int)+0x7c>\n    348f:\t89 ca                \tmov    %ecx,%edx\n    3491:\t31 c0                \txor    %eax,%eax\n    3493:\tc1 ea 03             \tshr    $0x3,%edx\n    3496:\t41 89 d1             \tmov    %edx,%r9d\n    3499:\t49 c1 e1 05          \tshl    $0x5,%r9\n    349d:\t0f 1f 00             \tnopl   (%rax)\n    34a0:\tc5 fe 6f 04 06       \tvmovdqu (%rsi,%rax,1),%ymm0\n    34a5:\tc5 fd fe 04 07       \tvpaddd (%rdi,%rax,1),%ymm0,%ymm0\n    34aa:\tc4 c1 7e 7f 04 00    \tvmovdqu %ymm0,(%r8,%rax,1)\n    34b0:\t48 83 c0 20          \tadd    $0x20,%rax\n    34b4:\t4c 39 c8             \tcmp    %r9,%rax\n    34b7:\t75 e7                \tjne    34a0 <automatic_add(unsigned int const*, unsigned int const*, unsigned int*, int)+0x20>\n    34b9:\t8d 04 d5 00 00 00 00 \tlea    0x0(,%rdx,8),%eax\n    34c0:\t39 c1                \tcmp    %eax,%ecx\n    34c2:\t74 34                \tje     34f8 <automatic_add(unsigned int const*, unsigned int const*, unsigned int*, int)+0x78>\n    34c4:\tc5 f8 77             \tvzeroupper\n    34c7:\t0f 1f 00             \tnopl   (%rax)\n    34ca:\t66 66 2e 0f 1f 84 00 \tdata16 cs nopw 0x0(%rax,%rax,1)\n    34d1:\t00 00 00 00 \n    34d5:\t66 66 2e 0f 1f 84 00 \tdata16 cs nopw 0x0(%rax,%rax,1)\n    34dc:\t00 00 00 00 \n    34e0:\t8b 14 86             \tmov    (%rsi,%rax,4),%edx\n    34e3:\t03 14 87             \tadd    (%rdi,%rax,4),%edx\n    34e6:\t41 89 14 80          \tmov    %edx,(%r8,%rax,4)\n    34ea:\t48 83 c0 01          \tadd    $0x1,%rax\n    34ee:\t39 c1                \tcmp    %eax,%ecx\n    34f0:\t7f ee                \tjg     34e0 <automatic_add(unsigned int const*, unsigned int const*, unsigned int*, int)+0x60>\n    34f2:\tc3                   \tret\n    34f3:\t0f 1f 44 00 00       \tnopl   0x0(%rax,%rax,1)\n    34f8:\tc5 f8 77             \tvzeroupper\n    34fb:\tc3                   \tret\n    34fc:\t31 c0                \txor    %eax,%eax\n    34fe:\teb e0                \tjmp    34e0 <automatic_add(unsigned int const*, unsigned int const*, unsigned int*, int)+0x60>",
+  "asm_sha256": "11f2084f536dd913642eff4c81af87d18b2bde79ba43afb9c68109076d59a365",
+  "source_sha256": {
+    "examples/infra/simd.hpp": "af7b30432383cf899e3adee85a9daa0c2fe47a8eecbcb7fcde55fec3fd479e3f",
+    "examples/infra/simd_demo.cpp": "d34b37cf42ffcaf968ad1182a4949de160a061c481f29c624ad967ebbfcce128",
+    "tests/infra_simd.cpp": "b3a5ef00c2793efd3313cc10049eef26e5052ad4001cdf07da26da5f363a152a",
+    "tests/infra_simd.py": "10d2e6b733e28ccaa8f3e3fc1c388f0a514a57f8996d697f394accd070b3a32c"
+  }
+}

@@ -63,3 +63,7 @@ C++时间与随机工具由 examples/infra 的 clock_demo.cpp、random_tools.hpp
 补充来源：[C++随机分布](https://eel.is/c++draft/rand.dist)、[单调时钟](https://eel.is/c++draft/time.clock.steady)、[PBDS哈希参数](https://gcc.gnu.org/onlinedocs/gcc-15.2.0/libstdc%2B%2B/api/a01292_source.html)。随机树为重标号随机递归树，并非所有标号树均匀抽样；简单图枚举所有边再洗牌，仅供小数据对拍。
 
 第二章编译检查与GNU扩展新增内容及执行证据见 [INFRA-CHECKS.md](INFRA-CHECKS.md)。警告/运行时诊断、int128读写和GNU位技巧已落实；优化基准、SIMD及第四章环境联调仍未完成。
+
+卡常O2基线、浮点优化和pragma范围实测见 [INFRA-PERFORMANCE.md](INFRA-PERFORMANCE.md) 与 verification/infra-performance.json。数据含分配、参数传递、行列访问和I/O；当前结果来自Apple M5/GCC16，不代替评测环境实测。SIMD及第四章仍待完成。
+
+第二章优化、卡常与SIMD已补齐；原生Linux执行范围、CPU要求、尾部保护页及性能数据见 [INFRA-SIMD.md](INFRA-SIMD.md)。第四章环境/GDB/内存/交互仍待补齐。

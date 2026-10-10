@@ -1,5 +1,9 @@
 \input{preamble.tex}
 
+\makeindex[noautomatic,title=用途索引,columns=2]
+
+\indexsetup{othercode=\small\renewcommand{\indexspace}{\par\vskip0pt}}
+
 \externaldocument[ext-strings-]{../build/pdf/volume-strings}[xcpc-strings.pdf]
 
 \externaldocument[ext-mathematics-]{../build/pdf/volume-mathematics}[xcpc-mathematics.pdf]
@@ -30,7 +34,7 @@
 
 \end{titlepage}\hypersetup{pageanchor=true}
 
-\frontmatter\tableofcontents
+\frontmatter{\footnotesize\tableofcontents}
 
 \mainmatter
 

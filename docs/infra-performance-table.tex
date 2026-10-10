@@ -1,0 +1,8 @@
+\begin{longtable}{p{85mm}r r}\toprule 对比 & 前者(ms) & 后者(ms)\\\midrule\endhead
+逐个扩容 / 一次reserve & 5.152 & 3.998\\
+按值复制 / const引用 & 2.245 & 1.030\\
+按值复制 / 转移所有权 & 2.245 & 1.081\\
+按列访问 / 按行访问 & 7.308 & 1.048\\
+每轮新分配 / clear复用 & 5.147 & 4.210\\
+默认cin / 关闭同步和绑定 & 307.987 & 15.015\\
+\bottomrule\end{longtable}
