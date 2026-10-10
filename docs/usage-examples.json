@@ -4547,5 +4547,29 @@
     "requires": [
       "TreeIsomorphism"
     ]
+  },
+  {
+    "id": "example-358",
+    "symbol": "StrictSecondShortest",
+    "kind": "application",
+    "problem": "P2865 [USACO06NOV] Roadblocks G",
+    "url": "https://www.luogu.com.cn/problem/P2865",
+    "summary": "无向正权图，从1到n求严格次短距离，允许回溯；多条等长最短路不算次短。n<=5000，m<=100000，边权1..5000，题目保证次短存在。",
+    "driver": "verify/luogu/P2865.compact.cpp",
+    "requires": [
+      "StrictSecondShortest"
+    ]
+  },
+  {
+    "id": "example-359",
+    "symbol": "KShortestWalks",
+    "kind": "application",
+    "problem": "P2901 [USACO08MAR] Cow Jogging G",
+    "url": "https://www.luogu.com.cn/problem/P2901",
+    "summary": "从n到1求前k条路线长度，等长按边序列分别计数，不足输出-1。n<=1000，m<=10000，k<=100，边权1..10^6；边均从大编号指向小编号。此题为DAG应用，不验证有环接口域。",
+    "driver": "verify/luogu/P2901.compact.cpp",
+    "requires": [
+      "KShortestWalks"
+    ]
   }
 ]

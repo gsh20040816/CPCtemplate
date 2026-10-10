@@ -6208,5 +6208,63 @@
       "verification/overall-kth-isomorphism-sanitizer.json"
     ],
     "adapter": "Formal unrooted tree isomorphism template."
+  },
+  {
+    "symbol": "StrictSecondShortest",
+    "problem": "Luogu P2865",
+    "url": "https://www.luogu.com.cn/problem/P2865",
+    "classification": "Contest application, not a separately named formal template.",
+    "statement_checked": true,
+    "limits": "P2865: n<=5000,m<=100000,w<=5000;1s/512MB. P2901: n<=1000,m<=10000,k<=100,w<=1000000;1s/125MB.",
+    "tested_api": [
+      "add",
+      "run"
+    ],
+    "api": "StrictSecondShortest",
+    "ac": "https://www.luogu.com.cn/record/302207967",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No formal-template entry yet. Zero-weight strict-second and cyclic K-walk API domains remain local evidence; no path reconstruction or speed ranking.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/shortest_walks.hpp",
+    "driver": "verify/luogu/P2865.compact.cpp",
+    "usage": "example-358",
+    "local_reports": [
+      "verification/short-walks-normal.json",
+      "verification/short-walks-sanitizer.json"
+    ],
+    "adapter": "Complete direct application."
+  },
+  {
+    "symbol": "KShortestWalks",
+    "problem": "Luogu P2901",
+    "url": "https://www.luogu.com.cn/problem/P2901",
+    "classification": "Contest application, not a separately named formal template.",
+    "statement_checked": true,
+    "limits": "P2865: n<=5000,m<=100000,w<=5000;1s/512MB. P2901: n<=1000,m<=10000,k<=100,w<=1000000;1s/125MB.",
+    "tested_api": [
+      "add",
+      "run"
+    ],
+    "api": "KShortestWalks",
+    "ac": "https://www.luogu.com.cn/record/302208192",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No formal-template entry yet. Zero-weight strict-second and cyclic K-walk API domains remain local evidence; no path reconstruction or speed ranking.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/shortest_walks.hpp",
+    "driver": "verify/luogu/P2901.compact.cpp",
+    "usage": "example-359",
+    "local_reports": [
+      "verification/short-walks-normal.json",
+      "verification/short-walks-sanitizer.json"
+    ],
+    "adapter": "Complete direct application."
   }
 ]

@@ -244,6 +244,8 @@
 | `RollbackMo::RollbackMo` | [Luogu P5906](https://www.luogu.com.cn/problem/P5906) | Formal rollback Mo template; n,m<=200000;ai<=2e9;1s/128MB displayed. | [记录](https://www.luogu.com.cn/record/301884220) | 待核验 |
 | `OverallKth::OverallKth` | [Luogu P2617](https://www.luogu.com.cn/problem/P2617) | n,m<=100000;values0..1e9;5s/1GB displayed. | [记录](https://www.luogu.com.cn/record/301886868) | 待核验 |
 | `TreeIsomorphism::TreeIsomorphism` | [Luogu P5043](https://www.luogu.com.cn/problem/P5043) | N,M<=50;1s/250MB displayed. | [记录](https://www.luogu.com.cn/record/301887481) | 待核验 |
+| `StrictSecondShortest::StrictSecondShortest` | [Luogu P2865](https://www.luogu.com.cn/problem/P2865) | P2865: n<=5000,m<=100000,w<=5000;1s/512MB. P2901: n<=1000,m<=10000,k<=100,w<=1000000;1s/125MB. | [记录](https://www.luogu.com.cn/record/302207967) | 待核验 |
+| `KShortestWalks::KShortestWalks` | [Luogu P2901](https://www.luogu.com.cn/problem/P2901) | P2865: n<=5000,m<=100000,w<=5000;1s/512MB. P2901: n<=1000,m<=10000,k<=100,w<=1000000;1s/125MB. | [记录](https://www.luogu.com.cn/record/302208192) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2290,6 +2292,22 @@ Formal unrooted tree isomorphism template.
 Formal unrooted tree isomorphism template.
 
 Online source archived; extended API domains/repeated calls and large-tree tests remain local evidence. No speed ranking.
+
+### Luogu P2865 / StrictSecondShortest
+
+Contest application, not a separately named formal template.
+
+Complete direct application.
+
+No formal-template entry yet. Zero-weight strict-second and cyclic K-walk API domains remain local evidence; no path reconstruction or speed ranking.
+
+### Luogu P2901 / KShortestWalks
+
+Contest application, not a separately named formal template.
+
+Complete direct application.
+
+No formal-template entry yet. Zero-weight strict-second and cyclic K-walk API domains remain local evidence; no path reconstruction or speed ranking.
 
 ## 榜单口径
 

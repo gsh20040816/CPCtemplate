@@ -8532,6 +8532,72 @@ O(nm+n+m)时间、O(n+m)空间；path输出O(路径长)。inf=2\textasciicircum{
 
 \newpage
 
+\Needspace{680pt}
+
+\section{k 短路}
+
+\subsection{非负权严格次短行走}\label{compact-StrictSecondShortest}\index{StrictSecondShortest}
+
+StrictSecondShortest(n)，点号1..n，n<INT\_MAX；add(u,v,w)添加有向边，无向边添加两次。允许重边、自环及零权，0<=w<LLONG\_MAX。run(s)返回dis[v][0/1]，分别为最短距离与严格大于它的最小距离；同长路线不重复计数，允许重复点边，s到自身包含空路。不存在或长度>=LLONG\_MAX返回inf=LLONG\_MAX；只保证此阈值以下的精确答案，超界扩展跳过。只读g/n；可重复求解、加边后重算。O((n+m) log(n+m+1))时间，O(n+m)空间，不返回行走方案。
+
+\lstinputlisting[firstline=11,lastline=29,firstnumber=1]{../src/compact/shortest_walks.hpp}
+
+\newpage
+
+\noindent 继续求解（接上页同一结构体）：
+
+\lstinputlisting[firstline=30,lastline=61,firstnumber=20]{../src/compact/shortest_walks.hpp}
+
+\Needspace{351pt}
+
+\subsection*{应用题补充：P2865 [USACO06NOV] Roadblocks G}
+
+\label{usage-example-358}
+
+题意：无向正权图，从1到n求严格次短距离，允许回溯；多条等长最短路不算次短。n<=5000，m<=100000，边权1..5000，题目保证次短存在。
+
+所需模板：\hyperref[compact-StrictSecondShortest]{StrictSecondShortest}（第~\pageref{compact-StrictSecondShortest}~页，\ref{compact-StrictSecondShortest}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2865}
+
+\lstinputlisting{usage/example-358.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{650pt}
+
+\subsection{正权前K短行走}\label{compact-KShortestWalks}\index{KShortestWalks}
+
+KShortestWalks(n)，点号1..n，n<INT\_MAX；add(u,v,w)添加有向边，要求0<w<LLONG\_MAX，零权边/环不在接口范围内。允许自环与重边，每次add视为不同边。run(s,t,k)按非降序返回至多k个行走长度，k>=0；不同边序列分别计数，即使等长。允许重复点边，不是简单路径算法。s=t时第一个答案为空路0；若排除空路，调用k+1后删除首项，需k<INT\_MAX。终点仍可继续走再回来。长度>=LLONG\_MAX不返回；只有阈值以下答案有保证。每个顶点至多扩展k次，O(n+km log(km+2))时间、O(n+km)空间；k大时应改用更高效算法。只读g/n，可重复求解和加边后重算，不返回方案。
+
+\lstinputlisting[firstline=62,lastline=80,firstnumber=1]{../src/compact/shortest_walks.hpp}
+
+\newpage
+
+\noindent 继续求解（接上页同一结构体）：
+
+\lstinputlisting[firstline=81,lastline=110,firstnumber=20]{../src/compact/shortest_walks.hpp}
+
+\Needspace{392pt}
+
+\subsection*{应用题补充：P2901 [USACO08MAR] Cow Jogging G}
+
+\label{usage-example-359}
+
+题意：从n到1求前k条路线长度，等长按边序列分别计数，不足输出-1。n<=1000，m<=10000，k<=100，边权1..10\textasciicircum{}6；边均从大编号指向小编号。此题为DAG应用，不验证有环接口域。
+
+所需模板：\hyperref[compact-KShortestWalks]{KShortestWalks}（第~\pageref{compact-KShortestWalks}~页，\ref{compact-KShortestWalks}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2901}
+
+\lstinputlisting{usage/example-359.cpp}
+
+\newpage
+
+\newpage
+
 \Needspace{508pt}
 
 \chapter{生成树问题}

@@ -1624,5 +1624,17 @@
     "TreeIsomorphism",
     "确定性有根与无根树同构",
     "TreeIsomorphism iso；rooted(g,root)返回有根树编号，unrooted(g)返回无根树pair编号。g是0-based非空简单无向连通树，邻接表双向各存一次；root在0..n-1。递归DFS，不验证非法图。所有待比较的树必须共用同一个iso；编号依赖插入次序，不同对象或清空codes前后的编号不能直接比较。对子节点编号排序并用map精确驻留，无随机哈希碰撞。无根树取重心：单重心返回(code,0)，双重心分别以两点为根编码并排序。支持单点；不考虑点/边标签，也不返回顶点映射。codes只读，编号数须<INT_MAX，n<=INT_MAX。S为本次结束时驻留签名数，一次n点调用O(n log(n+1)+n log(S+1))，临时O(n)，跨调用累计存储至多O(T)，T为累计编码遍历的顶点数。"
+  ],
+  [
+    "shortest_walks",
+    "StrictSecondShortest",
+    "非负权严格次短行走",
+    "StrictSecondShortest(n)，点号1..n，n<INT_MAX；add(u,v,w)添加有向边，无向边添加两次。允许重边、自环及零权，0<=w<LLONG_MAX。run(s)返回dis[v][0/1]，分别为最短距离与严格大于它的最小距离；同长路线不重复计数，允许重复点边，s到自身包含空路。不存在或长度>=LLONG_MAX返回inf=LLONG_MAX；只保证此阈值以下的精确答案，超界扩展跳过。只读g/n；可重复求解、加边后重算。O((n+m) log(n+m+1))时间，O(n+m)空间，不返回行走方案。"
+  ],
+  [
+    "shortest_walks",
+    "KShortestWalks",
+    "正权前K短行走",
+    "KShortestWalks(n)，点号1..n，n<INT_MAX；add(u,v,w)添加有向边，要求0<w<LLONG_MAX，零权边/环不在接口范围内。允许自环与重边，每次add视为不同边。run(s,t,k)按非降序返回至多k个行走长度，k>=0；不同边序列分别计数，即使等长。允许重复点边，不是简单路径算法。s=t时第一个答案为空路0；若排除空路，调用k+1后删除首项，需k<INT_MAX。终点仍可继续走再回来。长度>=LLONG_MAX不返回；只有阈值以下答案有保证。每个顶点至多扩展k次，O(n+km log(km+2))时间、O(n+km)空间；k大时应改用更高效算法。只读g/n，可重复求解和加边后重算，不返回方案。"
   ]
 ]

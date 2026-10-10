@@ -207,6 +207,8 @@
 - `verify/luogu/P2763.compact.cpp`
 - `verify/luogu/P2860.compact.cpp`
 - `verify/luogu/P2860.forest.compact.cpp`
+- `verify/luogu/P2865.compact.cpp`
+- `verify/luogu/P2901.compact.cpp`
 - `verify/luogu/P3165.compact.cpp`
 - `verify/luogu/P3224.compact.cpp`
 - `verify/luogu/P3275.compact.cpp`
