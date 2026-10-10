@@ -6670,5 +6670,35 @@
       "verification/min-mean-cycle-sanitizer.json",
       "verification/min-mean-cycle-linux-large.json"
     ]
+  },
+  {
+    "symbol": "Cactus",
+    "problem": "P5236 【模板】静态仙人掌",
+    "url": "https://www.luogu.com.cn/problem/P5236",
+    "classification": "Direct static cactus shortest-path template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "n,q≤10000，m≤20000，1≤w≤100000，无重边连通仙人掌；300ms / 125MB。",
+    "adapter": "1-based edges; build once and answer shortest-distance queries.",
+    "tested_api": [
+      "Cactus.add",
+      "Cactus.build",
+      "Cactus.distance"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302334786",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Empty/disconnected forests, zero weights, copy/rebuild and larger weight sums locally verified. Speed rank not checked.",
+    "source": "src/compact/cactus.hpp",
+    "driver": "verify/luogu/P5236.compact.cpp",
+    "usage": "example-382",
+    "local_reports": [
+      "verification/cactus-normal.json",
+      "verification/cactus-sanitizer.json",
+      "verification/cactus-linux-large.json"
+    ]
   }
 ]

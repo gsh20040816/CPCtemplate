@@ -9662,9 +9662,49 @@ orient\_edges(graph) 接受 Lowlink 对象。返回长度等于逻辑边数的�
 
 \lstinputlisting{usage/example-58.cpp}
 
+\newpage
+
 \Needspace{680pt}
 
 \section{圆方树}
+
+\subsection{静态仙人掌森林最短路}\label{compact-Cactus}\index{Cactus}
+
+Cactus(n)，0$\le$n<INT\_MAX/2，原点1..n。add(u,v,w)加入无向边；输入须为无自环无重边的仙人掌森林（每条边最多属于一个简单环），不检查此结构前提。权非负，所有边权之和$\le$LLONG\_MAX/4。build()递归构造桥/环虚点森林并倍增；distance(u,v)仅接受原点，断连返回-1，同点返回0。查询前必须build；加边后必须重建，支持重复build和复制，无动态修改或路径方案接口。编号n+1..cnt为环虚点；t是从根向下的带权邻接表，成员只读。环的顶点到最上方割点距离取较短弧，虚点到该割点权0；LCA是虚点时，须用两个儿子在环上的较短弧替换根距离贡献。dfs与prepare均递归，环上沿par回走仅枚举边，不模拟DFS栈。原图DFS及环枚举O(n+m)，总预处理/空间O((n+m)log(n+1))，查询O(log(n+1))，递归深度O(n)。n=0允许build但无合法查询；不支持负权、非法仙人掌或修改内部数组。
+
+\lstinputlisting[firstline=7,lastline=30,firstnumber=1]{../src/compact/cactus.hpp}
+
+\newpage\noindent 递归构造环虚点与根距离（接上页同一结构体）：
+
+\lstinputlisting[firstline=31,lastline=72,firstnumber=25]{../src/compact/cactus.hpp}
+
+\newpage\noindent 从零重建（接上页同一结构体）：
+
+\lstinputlisting[firstline=73,lastline=97,firstnumber=67]{../src/compact/cactus.hpp}
+
+\newpage\noindent 查询与环上距离修正（接上页同一结构体）：
+
+\lstinputlisting[firstline=98,lastline=121,firstnumber=92]{../src/compact/cactus.hpp}
+
+\paragraph{为什么需要环上修正} 桥和环块构成森林，块间路径唯一。若最近公共祖先是原点，两条根距离减去公共前缀即可；若是环虚点，u、v现为该虚点的两个原点儿子，先扣掉这两点到根的距离，再加环上两段弧长的较小值。不能直接把虚点当普通LCA，否则会强迫路径绕经环顶割点。
+
+\paragraph{复杂度与前提} 每条边只属于至多一个环，因此沿par回走的总次数为O(m)，不是每个返祖边各走O(n)。两次DFS均为递归。输入须为非负权简单仙人掌森林，全部边权和不超过LLONG\_MAX/4；不自动校验结构，非法图可能越界。加边后必须重建。
+
+\Needspace{397pt}
+
+\subsection*{模板题使用：P5236 【模板】静态仙人掌}
+
+\label{usage-example-382}
+
+题意：正权无重边仙人掌，查询两点最短距离；n,q$\le$10000、m$\le$20000、w$\le$100000。
+
+所需模板：\hyperref[compact-Cactus]{Cactus}（第~\pageref{compact-Cactus}~页，\ref{compact-Cactus}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5236}
+
+\lstinputlisting{usage/example-382.cpp}
+
+\Needspace{650pt}
 
 \subsection{由点双构造圆方森林}\label{compact-block_cut_forest}\index{block\_cut\_forest}
 

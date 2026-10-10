@@ -8,7 +8,7 @@
 
 基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。
 
-当前 112 项，110 条 AC；45 项有明确最慢单点，0 项已完成 SOTA 核验。
+当前 113 项，111 条 AC；46 项有明确最慢单点，0 项已完成 SOTA 核验。
 
 | 题目/记录 | 状态、码风 | 原始登记 | 最慢单点 ms | 逐点合计 ms | 明确登记总计 ms | SOTA |
 |---|---|---|---:|---:|---:|---|
@@ -79,6 +79,7 @@
 | [Luogu P4897](https://www.luogu.com.cn/record/297591576) | Accepted, compact | time_display=2.46s | 252 | — | — | 待核验 |
 | [Luogu P4897](https://www.luogu.com.cn/record/297592933) | Accepted, classic | time_display=1.80s | 185 | — | — | 待核验 |
 | [Luogu P4980](https://www.luogu.com.cn/record/302212651) | Accepted, compact | time_ms=120 | 120 | 679 | 679 | 待核验 |
+| [Luogu P5236](https://www.luogu.com.cn/record/302334786) | Accepted, compact | time_ms=202 | 12 | 202 | — | 待核验 |
 | [Luogu P5395](https://www.luogu.com.cn/record/297626422) | Accepted, compact | time_display=1.04s | 202 | — | — | 待核验 |
 | [Luogu P5395](https://www.luogu.com.cn/record/297626660) | Accepted, classic | time_display=1.03s | 203 | — | — | 待核验 |
 | [Luogu P5408](https://www.luogu.com.cn/record/297627360) | Accepted, compact | time_display=1.53s | 310 | — | — | 待核验 |

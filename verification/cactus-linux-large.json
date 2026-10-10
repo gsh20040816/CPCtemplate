@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "platform": "native Linux x86_64, GCC 16.2.1",
+  "stack_limit_kib": 524288,
+  "scope": "Recursive chain/ring/star n=100000; triangle chain n=99999; 400000 independent formula queries plus rebuilding.",
+  "output": "PASS: 100000-vertex recursive chain/ring/star and 99999-vertex triangle chain; 400000 formula-checked queries\nO2 0.09 s 63136 KiB\nPASS: 100000-vertex recursive chain/ring/star and 99999-vertex triangle chain; 400000 formula-checked queries\nASanUBSan 1.09 s 366700 KiB\n",
+  "source_sha256": {
+    "src/compact/cactus.hpp": "f99d4f90b0ec25e56152fe0aa1f65fafa45b8d0e57f2b957f00530fc56bee5eb",
+    "tests/cactus_large.cpp": "ed62a3f2219490027d91c18d4137e90d45388a380157cb0c8c7f42c41c7db9cf"
+  }
+}

@@ -1,7 +1,8 @@
 {
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
-    "verification/oj.json": "f7c511e3b52fb473abde379c9facac9e2cfc2a91101bca8aa91829dc07bcc73c",
+    "verification/oj.json": "f5bfdbd8e54bd59780b4b03b5758183feebd77064b742c6a17fd408b554f983b",
+    "verification/cactus-online.json": "687b9261d1ccf15d858d1310f96fa613ed8ed7e072197bf95bc962ed0be09e1f",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
     "verification/four-cycles-online.json": "01a0b06257b97bde3afc03c000eb5a431d9d8f24597e1053b0c62b551734d3d4",
@@ -17,7 +18,7 @@
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
-    "docs/template-problem-reviews.json": "c811264b18931bce56e0d35b82f38bbb4c6799d7b3d186185b8b2d0b19d6fce9"
+    "docs/template-problem-reviews.json": "e410db516c53e06e24ad6b921ca13ba921e1def2ae7b50ca03aa6a3bf89cfad4"
   },
   "entries": [
     {
@@ -2541,6 +2542,95 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302334786",
+      "problem": "Luogu P5236",
+      "sources": [
+        {
+          "path": "verification/submitted/P5236.compact.cpp",
+          "sha256": "7dc604833773d724bf70dff8747a1c333a0c74bca0668bfbd6dab4d81d654f38"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 202,
+            "max_case_time_ms": 12,
+            "test_times_ms": [
+              11,
+              6,
+              6,
+              11,
+              12,
+              11,
+              11,
+              11,
+              6,
+              6,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              12,
+              11,
+              11,
+              11
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual positive-weight connected simple cactus AC. Empty/disconnected forests, zero weights, rebuild/copy and large signed64-safe totals locally tested; speed rank not checked."
+        },
+        {
+          "evidence": "verification/cactus-online.json",
+          "timing": {
+            "time_ms": 202,
+            "max_case_time_ms": 12,
+            "test_times_ms": [
+              11,
+              6,
+              6,
+              11,
+              12,
+              11,
+              11,
+              11,
+              6,
+              6,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              12,
+              11,
+              11,
+              11
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual positive-weight connected simple cactus AC. Empty/disconnected forests, zero weights, rebuild/copy and large signed64-safe totals locally tested; speed rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "Cactus"
+      ],
+      "maximum_case_ms": 12,
+      "sum_of_case_ms": 202,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/297626422",
       "problem": "Luogu P5395",
       "sources": [
@@ -4392,10 +4482,10 @@
     }
   ],
   "counts": {
-    "entries": 112,
-    "with_record": 111,
-    "accepted": 110,
-    "known_case_max": 45,
+    "entries": 113,
+    "with_record": 112,
+    "accepted": 111,
+    "known_case_max": 46,
     "benchmarks_verified": 0
   }
 }

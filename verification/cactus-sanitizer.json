@@ -1,0 +1,109 @@
+{
+  "status": "pass",
+  "mode": "sanitizer",
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/tests/cactus.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/cactus.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P5236.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/example-382-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P5236.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/example-382-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/example-382-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/example-382-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/example-382-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/cactus/sanitizer/example-382-copied"
+    ]
+  ],
+  "core": {
+    "header": "PASS: 10025 exhaustive cactus forests, 3000 randomized graphs and deletions, rebuild/copy/add, 64-bit bounds",
+    "ndebug": "PASS: 10025 exhaustive cactus forests, 3000 randomized graphs and deletions, rebuild/copy/add, 64-bit bounds",
+    "copied": "PASS: 10025 exhaustive cactus forests, 3000 randomized graphs and deletions, rebuild/copy/add, 64-bit bounds"
+  },
+  "usage": {
+    "example-382": {
+      "program_sha256": "b98b23c930aa3790dfb7d17ccccfcf60f7fd9d75315c6ec8f591132e251db535",
+      "forms": {
+        "header": 152,
+        "ndebug": 152,
+        "expanded": 152,
+        "copied": 152
+      }
+    }
+  },
+  "mutants": {},
+  "source_sha256": {
+    "src/compact/cactus.hpp": "f99d4f90b0ec25e56152fe0aa1f65fafa45b8d0e57f2b957f00530fc56bee5eb",
+    "tests/cactus.cpp": "60db6d13c9f106d33ff63a2cc0a826d8a70d142eabd73085f0114333181a2667",
+    "tests/cactus.py": "7f281a193589b9ae68398ca5aba260c40ff3ea67e54398f51d46a4052dfdb8b7",
+    "verify/luogu/P5236.compact.cpp": "3cea6f680c954806d11bb28a96eff586f82b226f2690bc135326dcc543cbc1a8"
+  },
+  "scope": "Definition-only cycle enumeration for cactus input classification, Floyd distance oracle; official samples, copied forms and recursive DFS. Online evidence separate."
+}

@@ -211,3 +211,5 @@ Burnside/Pólya 的群作用、模除法与验证范围见 [计数说明](docs/P
 Lyndon 分解的端点接口、证明与验证见 [Lyndon](docs/LYNDON.md)。
 
 子串、反串与拼接双哈希的接口、碰撞概率和确定性替代见 [字符串哈希](docs/STRING-HASH.md)。
+
+静态仙人掌森林最短路：接口、正确性与验证见 [CACTUS](docs/CACTUS.md)。
