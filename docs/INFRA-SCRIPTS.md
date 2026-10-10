@@ -1,6 +1,6 @@
 # 赛场编译与对拍脚本
 
-这是 [issue #17](https://github.com/gsh20040816/CPCtemplate/issues/17) 第三章的已执行素材。四章手册、PDF更名和其余示例仍在推进；当前PDF暂未改版。
+这是 [issue #17](https://github.com/gsh20040816/CPCtemplate/issues/17) 第三章的已执行素材。已接入四章手册的第三章，PDF已更名为xcpc-infra.pdf；第二、四章仍需补齐。
 
 目标环境：Linux、Bash、GNU g++ 支持 C++23、GNU coreutils（timeout）、Python 3。脚本不做平台和编译器探测。测试环境另记在文末。
 

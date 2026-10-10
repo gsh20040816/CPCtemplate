@@ -30,6 +30,11 @@ with tempfile.TemporaryDirectory(prefix='infra scripts ') as tmp:
     def checked(name):
         checks.append(name)
         print('PASS', name, flush=True)
+    (work / 'file').write_text('10\n2\n-1\n')
+    assert run(['head', '-n', '20', 'file']).stdout == '10\n2\n-1\n'
+    assert int(run(['wc', '-l', 'file']).stdout.split()[0]) == 3
+    assert run(['sort', '-n', 'file']).stdout == '-1\n2\n10\n'
+    checked('printed head, wc and numeric sort commands')
     data = '4\n-4 3 -1 5\n'
     assert run(['bash', 'compile.sh', 'main'], data=data).stdout == '7\n'
     checked('debug compile and run')

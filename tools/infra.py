@@ -12,7 +12,7 @@ links += [('精确整数行列式：Boost cpp_int', 'determinant_exact'), ('不�
 intro=[r'\input{preamble.tex}']
 for v in volumes:
  intro.append(r'\externaldocument[ext-'+v['id']+'-]{../build/pdf/volume-'+v['id']+'}[xcpc-'+v['id']+'.pdf]')
-intro += [r'\begin{document}',r'\raggedbottom',r'\hypersetup{pageanchor=false}',r'\begin{titlepage}\centering\vspace*{35mm}',r'{\Huge\bfseries Infra\par}\vspace{15mm}',r'{\LARGE Morning Flower and Evening Oath\par}\vspace{15mm}',r'{\Large 比赛相关、工具软件、语言基础\par}\vfill',r'本册按 C++20 和当前模板使用方式整理；GNU 扩展与标准库明确区分。',r'\end{titlepage}\hypersetup{pageanchor=true}',r'\frontmatter\tableofcontents',r'\mainmatter',r'\input{infra-body.tex}',r'\chapter{分册跳转索引}\label{infra-links}',r'请将本册与其他 PDF 放在同一目录。下表页码是分册印刷页码；链接直接指向条目，部分浏览器内置 PDF 阅读器可能不支持跨文件跳转。',r'\begin{longtable}{p{80mm}p{65mm}}\toprule 内容 & 所属分册及页码\\\midrule\endhead']
+intro += [r'\begin{document}',r'\raggedbottom',r'\hypersetup{pageanchor=false}',r'\begin{titlepage}\centering\vspace*{35mm}',r'{\Huge\bfseries Infra\par}\vspace{15mm}',r'{\LARGE Morning Flower and Evening Oath\par}\vspace{15mm}',r'{\Large Python、C++ 进阶、Shell 与赛场调试\par}\vfill',r'假定 Linux、Bash、GCC 13+ 与 C++23、Python 3.11+。',r'\end{titlepage}\hypersetup{pageanchor=true}',r'\frontmatter\tableofcontents',r'\mainmatter',r'\input{infra-body.tex}',r'\section{分册跳转索引}\label{infra-links}',r'请将本册与其他 PDF 放在同一目录。下表页码是分册印刷页码；链接直接指向条目，部分浏览器内置 PDF 阅读器可能不支持跨文件跳转。',r'\begin{longtable}{p{80mm}p{65mm}}\toprule 内容 & 所属分册及页码\\\midrule\endhead']
 records=[]
 for title,symbol in links:
  v=owner[symbol];label='ext-'+v['id']+'-compact-'+symbol

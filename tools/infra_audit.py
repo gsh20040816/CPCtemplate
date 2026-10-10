@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 from pypdf import PdfReader
 root=Path(__file__).resolve().parents[1]
-reader=PdfReader(root/'output/pdf/infra.pdf')
+reader=PdfReader(root/'output/pdf/xcpc-infra.pdf')
 rows=json.loads((root/'docs/infra-links.json').read_text())
 observed=[]
 for page in reader.pages:

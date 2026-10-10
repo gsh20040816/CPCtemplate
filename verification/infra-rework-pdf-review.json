@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "reviewed_at": "2026-10-10T15:17:53.255463+00:00",
+  "physical_pages": 19,
+  "reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "render": "pdftoppm -scale-to 1000 -png",
+  "findings": "All final pages visually inspected: legible code, no overlap or clipping; generator functions split at function boundary; TOC/index and 18 cross-volume page links retained.",
+  "source_sha256": {
+    "output/pdf/xcpc-infra.pdf": "7ad184ba449187728423ead8d48a26ed24d21d6938edd9b70b4d3f2de4ade71d",
+    "docs/infra-shell.tex": "27f49dc790f86f5d6ccd487b1ff91d0d73c187d67ca7c67e16c9a753755ad973",
+    "docs/infra-python.tex": "5ad691425a78a6d4a16b1afe14a5c57a905072e2e8ddbe358d7bd261445f4c82",
+    "docs/infra.tex": "0d98a7996fc71f85eafc9e01197e248e7aab8088af10dfd2066a75a722ac8687",
+    "docs/infra-random.tex": "11fea46596527d7688e010319bfd10859c2aadaf7187e40bc2663c48ac62995b",
+    "docs/infra-body.tex": "3b0114f1fee46c05b65384704db13ba10456b20d294d24c7db8c1cc4567ef0f7",
+    "tools/infra.py": "bbc714f0c7bf031e62300196d860a63b0b6268fd6b911578d00a2d0a28a7d1a8"
+  },
+  "scope": "Python and Shell chapters plus C++ timing/random/data-generation/hash additions. C++ optimization/SIMD and environment/debugging remain incomplete."
+}

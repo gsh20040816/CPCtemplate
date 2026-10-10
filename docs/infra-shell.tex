@@ -1,0 +1,37 @@
+\chapter{Shell 脚本与常用命令}
+\section{编译并运行}\index{编译脚本}\index{ASan}\index{UBSan}
+保存为 compile.sh，运行 \texttt{bash compile.sh main}；默认调试编译后运行。
+加 \texttt{-O2} 使用优化配置；\texttt{-o solution} 指定输出且只编译。
+输入输出可在调用后接 \texttt{< input.txt > actual.txt}。
+\lstinputlisting[language=bash]{../examples/infra/compile.sh}
+只支持单源文件，文件名不以减号开头。路径含空格时加引号。
+拒绝覆盖源码、普通文本、目录和链接；已有普通可执行文件可覆盖。
+编译失败不运行旧文件；程序运行失败保留非零退出状态。
+
+\newpage
+\section{对拍与保存反例}\index{对拍}\index{timeout}\index{diff}
+当前目录准备可执行的 gen、brute、main：生成器接收整数种子，
+暴力和待测从标准输入读取。执行 \texttt{bash stress.sh 1000}。
+\lstinputlisting[language=bash]{../examples/infra/stress.sh}
+每个程序分别限时2秒，TERM后1秒仍未退出则KILL。timeout返回124通常为超时，
+137可能为KILL；检查对应err文件。diff返回1表示答案不同，其他错误也停下。
+浮点容差题、输出方案题应换为专用checker。
+每次创建独立目录，每轮清空输出槽；失败保存首个反例，成功保留末组。
+用保存的input直接重跑，不能只凭种子猜测输入。
+
+\newpage
+\section{完整造数与暴力示例}\index{暴力}
+示例任务为非空最大子段和。保存下列生成器为gen.py，暴力为brute.py；
+待测main使用自己的算法。复制为gen、brute后执行
+\texttt{chmod +x gen brute}，用前页脚本对拍。
+\lstinputlisting[language=Python]{../examples/infra/gen.py}
+\lstinputlisting[language=Python]{../examples/infra/brute.py}
+\begin{longtable}{p{47mm}p{112mm}}\toprule 写法 & 用途与坑点\\\midrule\endhead
+\texttt{"\$1"}、\texttt{\$\#}、shift & 首参数、参数个数、移除首参数；路径变量必须双引号。\\
+\texttt{flags=(...)} & 数组；\texttt{"\$\{flags[@]\}"} 逐项传参，不能把选项全塞入一个字符串。\\
+\texttt{[[ ... ]]}、\texttt{(( ... ))} & 字符串/文件判断、算术条件。算术结果0的退出状态是1。\\
+\texttt{<}、\texttt{>}、\texttt{2>} & 输入、覆盖输出、错误输出；\texttt{>>}追加，别把同一文件同时当输入输出。\\
+\texttt{set -euo pipefail} & 普通命令失败、未设置变量、管道失败尽早停止；if条件和\&\&/||链等有例外。\\
+\texttt{head -n 20 file} & 看前20行；\texttt{wc -l file}数换行，\texttt{sort -n file}数值排序。\\
+\texttt{diff -u a b} & 对比内容；\texttt{cat run.err}检查错误。编译成功不等于运行成功。\\\bottomrule
+\end{longtable}

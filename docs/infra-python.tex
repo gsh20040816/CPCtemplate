@@ -1,0 +1,50 @@
+\chapter{Python}
+\section{精确整数、分数与小数}\index{Python}\index{大整数}\index{模逆}
+需要整数答案时保留整数运算；不要先除成 float 再转回 int。
+\begin{longtable}{p{56mm}p{103mm}}\toprule 用途 & 最短写法与坑点\\\midrule\endhead
+整数平方根 & \texttt{isqrt(n)}，要求非负；返回向下取整的精确结果。\\
+组合数、最大公约数 & \texttt{comb(n,k)}、\texttt{gcd(a,b)}、\texttt{lcm(a,b)}。\\
+模幂、模逆 & \texttt{pow(a,e,m)}；逆元用 \texttt{pow(a,-1,m)}，不互质抛 ValueError。\\
+整数除法 & \texttt{//} 向下取整，C++ 向零截断；Python 余数与除数同号或为零。\\
+有理数 & \texttt{Fraction(a,b)} 自动约分；十进制输入用字符串，避免先变 float。\\
+高精度小数 & \texttt{Decimal("0.1")}；context 的 prec 是有效数字数，并非小数位数。\\\bottomrule
+\end{longtable}
+\lstinputlisting[language=Python]{../examples/infra/python_numbers.py}
+\texttt{Fraction} 的分子分母可能快速膨胀；\texttt{Decimal} 仍有舍入，不能当作任意精确实数。
+
+\newpage
+\section{枚举、容器与记忆化}\index{itertools}\index{heapq}\index{记忆化}
+\texttt{combinations} 枚举选下标的组合，\texttt{permutations} 枚举排列，
+\texttt{product} 枚举笛卡尔积。输入有重复值时不自动去重。
+它们产生迭代器；大规模枚举直接遍历，别先转成 list。
+\lstinputlisting[language=Python]{../examples/infra/python_containers.py}
+heapq 默认小根堆；大根堆可存负值。bisect 要求序列有序，二分 O(log n)，
+向 list 中间插入仍 O(n)。Counter 读不存在的键返回0；defaultdict 下标读取可能插入新键。
+cache 参数必须可哈希，多组改变外部状态后清缓存。递归深度仍受限。
+
+\newpage
+\section{随机造数与打表找规律}\index{造数据}\index{打表}
+固定种子复现失败输入；不同 Python 版本不承诺所有抽样函数逐项一致，保存实际输入。
+randint 两端包含；randrange 右端不含，第三参数是步长。
+sample 无放回抽取位置，输入有重复值时结果仍可能重复；shuffle 原地改序列并返回 None。
+\lstinputlisting[language=Python]{../examples/infra/python_random.py}
+下例暴力统计无相邻1的二进制串，检查前11项是否符合猜测。
+有限打表只能发现规律；本例递推证明为按末位0、末尾01分类，另处理长度0和1。
+\lstinputlisting[language=Python]{../examples/infra/python_table.py}
+
+\newpage
+\section{输入输出与容易踩的坑}\index{Python输入输出}\index{整数转字符串}\index{列表别名}
+\lstinputlisting[language=Python]{../examples/infra/python_io.py}
+\texttt{read().split()} 同时保存全部 token，大输入可改成逐行读。
+bytes 下标得到整数；读文本才得到单字符字符串。
+大量输出用 join 或分块缓冲，避免循环逐字符拼接字符串。
+\begin{longtable}{p{43mm}p{116mm}}\toprule 场景 & 做法\\\midrule\endhead
+二维数组 & \texttt{[[0]*m for \_ in range(n)]}；\texttt{[[0]*m]*n} 共享同一行。\\
+复制 & \texttt{b=a} 为别名；\texttt{a[:]} 只复制外层。\\
+递归 & \texttt{sys.setrecursionlimit(k)} 调整解释器限制，不增加操作系统栈与内存。深递归须在比赛环境实测。\\
+选择解释器 & CPython 启动快、C实现内置操作强；PyPy 的JIT可能加速长时间纯Python循环，但有预热和额外内存。用相同最大数据分别实测。\\
+大整数 & int 不溢出，但操作成本随位数增长；避免 \texttt{int(a/b)} 做大整数除法。\\
+十进制转换 & CPython 3.11+ 可限制十进制转换位数；只对可信比赛输入按下例关闭。\\\bottomrule
+\end{longtable}
+\lstinputlisting[language=Python]{../examples/infra/python_digits.py}
+该限制作用于十进制等转换，不限制 int 本身的算术位数；二进制、十六进制转换不受同一限制。

@@ -9,7 +9,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 reports = []
 for key in ['template', 'strings', 'mathematics', 'data-structures', 'graphs', 'geometry', 'misc', 'infra']:
-    path = root / ('output/pdf/infra.pdf' if key == 'infra' else f'output/pdf/xcpc-{key}.pdf')
+    path = root / ('output/pdf/xcpc-infra.pdf' if key == 'infra' else f'output/pdf/xcpc-{key}.pdf')
     name = 'main' if key == 'template' else ('infra' if key == 'infra' else f'volume-{key}')
     log = (root / f'build/pdf/{name}.log').read_text()
     warnings = [s for s in log.splitlines() if any(w in s for w in ['Warning', 'Overfull', 'Underfull', 'Missing character'])]

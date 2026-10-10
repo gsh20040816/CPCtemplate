@@ -10,7 +10,7 @@ reports = []
 for row in json.loads((root / 'verification/pdf-volumes.json').read_text()):
     file = root / row['file']
     stem = file.stem
-    name = 'main' if stem == 'xcpc-template' else ('infra' if stem == 'infra' else stem.replace('xcpc-', 'volume-'))
+    name = 'main' if stem == 'xcpc-template' else ('infra' if stem == 'xcpc-infra' else stem.replace('xcpc-', 'volume-'))
     source = (root / ('docs/' + name + '.tex')).read_text()
     if name == 'main':
         source += (root / 'docs/generated.tex').read_text()

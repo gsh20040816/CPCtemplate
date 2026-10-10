@@ -18,7 +18,7 @@ cd ..
 python3 tools/infra.py
 cd docs
 latexmk -xelatex -interaction=nonstopmode -halt-on-error -outdir=../build/pdf infra.tex
-cp ../build/pdf/infra.pdf ../output/pdf/infra.pdf
+cp ../build/pdf/infra.pdf ../output/pdf/xcpc-infra.pdf
 cd ..
 python3 tools/pdf_audit.py
 if [[ -x build/tools-env/bin/python ]]; then

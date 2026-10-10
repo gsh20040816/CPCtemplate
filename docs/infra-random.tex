@@ -1,0 +1,48 @@
+\newpage
+\section{计时与卡时}\index{chrono}\index{卡时}\index{计时}
+\texttt{steady\_clock} 单调，适合测经过时间；\texttt{system\_clock} 是日历时间，可能被校时。
+\texttt{high\_resolution\_clock} 可能只是前两者之一的别名，不能据名字假定单调。
+\texttt{duration\_cast<milliseconds>} 截掉不足1毫秒的部分；\texttt{duration<double>} 得到以秒为单位的浮点数。
+\lstinputlisting{../examples/infra/clock_demo.cpp}
+上例每1024次操作检查一次时间，减少读钟开销；卡时可能超出一个批次，还要为输出留余量。
+时间种子可改变每次运行的序列；对拍改成固定种子，并保存失败输入。
+随机搜索要随时保存合法的当前最优解，不能等超时后才构造答案。
+
+\section{随机引擎、分布与抽样}\index{random}\index{shuffle}\index{sample}
+\texttt{mt19937} 产生32位值，\texttt{mt19937\_64} 产生64位值。
+不要用 \texttt{rng()\%n} 代替均匀分布：除非区间大小整除引擎值域大小，否则有偏差。
+\texttt{rand()} 的值域和质量依实现；\texttt{random\_shuffle} 已在C++17移除，改用 shuffle。
+\begin{longtable}{p{84mm}p{75mm}}\toprule 调用 & 结果与条件\\\midrule\endhead
+\texttt{uniform\_int\_distribution<long long>(l,r)} & 整数闭区间 $[l,r]$，要求 $l\le r$。\\
+\texttt{uniform\_real\_distribution<double>(l,r)} & 目标区间 $[l,r)$；用有限小范围且 $l<r$，注意浮点舍入。\\
+\texttt{bernoulli\_distribution(p)} & 概率 $p$ 为 true，$0\le p\le1$。\\
+\texttt{normal\_distribution<double>(mu,sigma)} & 正态分布；标准差 $\sigma>0$，结果不限区间。\\
+\texttt{discrete\_distribution<int>\{1,2,7\}} & 返回下标0、1、2，概率比1:2:7；权非负且总和正。\\
+\texttt{shuffle(first,last,rng)} & 原地打乱，保留元素和重复次数。\\
+\texttt{sample(first,last,out,k,rng)} & 无放回抽取至多 $k$ 个位置；值不一定互异。\\\bottomrule
+\end{longtable}
+分布对象可能缓存结果（例如正态分布）。重设引擎种子后，要复现整条调用序列，
+还须对已用分布调用 \texttt{reset()} 或重新构造。
+同一工具链中固定种子与调用顺序可复现；不同标准库的分布和洗牌结果不保证逐项相同。
+
+\newpage
+\section{对拍用造数据函数}\index{造数据}\index{随机树}\index{随机图}
+以下代码保存为 random\_tools.hpp；点编号为 $[0,n)$，长度非负。
+互异值先生成全集再抽取，适合可枚举的小值域；随机字符串的字母表非空。
+树采用逐点连接旧点再随机重标号，\textbf{并非所有标号树等概率}。
+简单无向图先枚举全部边再抽取，适合小数据，不保证连通。
+对拍还应专门构造链、星、完全图、空图、重复权等边界，别只依赖一种随机分布。
+\lstinputlisting[lastline=48]{../examples/infra/random_tools.hpp}
+\newpage
+\lstinputlisting[firstline=50,firstnumber=50]{../examples/infra/random_tools.hpp}
+
+\section{生成器入口}
+下面入口与 random\_tools.hpp 放在同一目录，编译后以命令行参数传种子。
+演示输出先打印各类随机值，最后打印图；对拍时只保留题目需要的输出格式。
+\lstinputlisting{../examples/infra/random_demo.cpp}
+\newpage
+\section{整数键防卡哈希}\index{防卡哈希}\index{splitmix64}
+整数键可用时间种子配合 splitmix64 混合，降低针对固定哈希构造冲突的风险。
+它不保证最坏时间，也不适合密码用途。种子一经初始化，在容器存活期间保持不变；
+不要每次调用哈希时重新取时间。PBDS 没有与 unordered\_map 相同的 reserve 接口。
+\lstinputlisting{../examples/infra/hash_demo.cpp}

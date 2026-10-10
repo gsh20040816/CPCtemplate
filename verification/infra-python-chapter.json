@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "python": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "outputs": {
+    "python_containers.py": "containers: pass\n",
+    "python_digits.py": "digits: pass\n",
+    "python_io.py": "4\n-5 8 3 -2\n",
+    "python_numbers.py": "numbers: pass\n",
+    "python_random.py": "random: pass\n",
+    "python_table.py": "0 1\n1 2\n2 3\n3 5\n4 8\n5 13\n6 21\n7 34\n8 55\n9 89\n10 144\n"
+  },
+  "failure_checks": 4,
+  "source_sha256": {
+    "examples/infra/python_containers.py": "1b8788ae1fe45eb973be648c41106da7d14faab7b00b44d7a3e2e3d8ed9ddc4c",
+    "examples/infra/python_digits.py": "27cf4e6b8bec706144a2ab12fdc87353d2c9adcc6f9ee9c8686eb92afbde86e3",
+    "examples/infra/python_io.py": "064b9b7ff4888f1d2cda552abf6498bcf2ed47589dc22a225a30176e6b8f3c6f",
+    "examples/infra/python_numbers.py": "d18be48d2394a0753cc5e64493ceb84d6d8df8615966c741e44e76f4c57743c8",
+    "examples/infra/python_random.py": "e4f9df03f184eef3833b47e36f2c6ce3b9593dda5ba7dcb5fe15fab78bdd3232",
+    "examples/infra/python_table.py": "666ce8cb35e09fd4ae1c2881cd3fd9e825a0b9c0cd62b4fd6f3846e877e0e181",
+    "tests/infra_python_chapter.py": "9374ab558e7efbf7e5b9eede41a0b7a10b695d23896e1d9639b82aed44188699"
+  },
+  "scope": "Runs the six exact printed Python sources plus four semantic checks; no Python/PyPy performance ranking."
+}

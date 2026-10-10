@@ -80,7 +80,7 @@ Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECK
 
 固定版本官方数据的本地复验与报告口径见 [OFFICIAL-TESTS.md](docs/OFFICIAL-TESTS.md)。它与线上 AC 档案分开记录。
 
-环境和标准库速查见 [Infra说明](docs/INFRA.md)，构建时另生成 `output/pdf/infra.pdf`，集中提供到算法分册的页码跳转。
+环境和标准库速查见 [Infra说明](docs/INFRA.md)，构建时另生成 `output/pdf/xcpc-infra.pdf`，集中提供到算法分册的页码跳转。
 
 标准库实际使用点、复数、前缀和累加类型、tuple 引用、shuffle 和位操作的验证边界见 [Infra 补充审计](docs/INFRA-STL-AUDIT.md)。
 

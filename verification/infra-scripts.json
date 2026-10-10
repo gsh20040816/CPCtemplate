@@ -1,6 +1,7 @@
 {
   "status": "pass",
   "checks": [
+    "printed head, wc and numeric sort commands",
     "debug compile and run",
     "optimized compile and run",
     "quoted source and absolute output; explicit output does not run",
@@ -22,11 +23,21 @@
   "timeout": "timeout (GNU coreutils) 9.12",
   "source_sha256": {
     "examples/infra/stress.sh": "373b491e4ab9bb7138d99f9779acb22215d50a3e2f739992dfe928cd07e7d70e",
+    "examples/infra/random_demo.cpp": "732a65f273c3feed7e5735ccece26baae00fbfd9adff68648b03efdb0a33df0f",
     "examples/infra/brute.py": "834a60f69232e3ee442828f665c585f14077ecf2bfbed5a63180b828bd907746",
     "examples/infra/compile.sh": "2efa72461cb7216f76abf5b1d7ff38083bf4290729abf02d4439f0ef364fd966",
     "examples/infra/gen.py": "d561812dfdc3a278b815830ad92aa95096b4f7a5831c5f82358f5bf2689a9ed6",
+    "examples/infra/python_io.py": "064b9b7ff4888f1d2cda552abf6498bcf2ed47589dc22a225a30176e6b8f3c6f",
+    "examples/infra/hash_demo.cpp": "6e85366579054ad7df666a3470cc2fa410a2b3de67bb673c014843c2db150539",
+    "examples/infra/random_tools.hpp": "6549f9b27a20ddc383fa586a4563328142b934cf84df293ecd82e53f2c0e3305",
+    "examples/infra/clock_demo.cpp": "7366bff5c5709605fb81ca944de9d95a6c27c423ca9bf76a88bc9f44bbaaece4",
+    "examples/infra/python_random.py": "e4f9df03f184eef3833b47e36f2c6ce3b9593dda5ba7dcb5fe15fab78bdd3232",
+    "examples/infra/python_table.py": "666ce8cb35e09fd4ae1c2881cd3fd9e825a0b9c0cd62b4fd6f3846e877e0e181",
+    "examples/infra/python_numbers.py": "d18be48d2394a0753cc5e64493ceb84d6d8df8615966c741e44e76f4c57743c8",
+    "examples/infra/python_containers.py": "1b8788ae1fe45eb973be648c41106da7d14faab7b00b44d7a3e2e3d8ed9ddc4c",
+    "examples/infra/python_digits.py": "27cf4e6b8bec706144a2ab12fdc87353d2c9adcc6f9ee9c8686eb92afbde86e3",
     "examples/infra/main.cpp": "dd5b0a39bbc282643042aba35539b14bf00c4d52dd303c6bb9aff2c7ca8e019e",
-    "tests/infra_scripts.py": "6b0fe6cc36b11e5f4120b9b840131cbefc58a1918e1fae0c8af1d4cef23f478a"
+    "tests/infra_scripts.py": "0ced45fd2b051077401035dc87dbf7fda4d4abcef10ef207e8fecdee01ebe1ac"
   },
   "scope": "Actual scripts executed on host shown; test-only PATH binds g++ to configured GNU compiler. Not a native Linux test or complete issue17 validation."
 }
