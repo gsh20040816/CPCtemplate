@@ -1,0 +1,1757 @@
+{
+  "status": "pass",
+  "platform": "Linux-7.2.8-zen1-2-zen-x86_64-with-glibc2.44",
+  "compiler": "g++ (GCC) 16.2.1 20260810",
+  "records": [
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++23",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/environment.cpp",
+        "-o",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-environment/environment"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++23",
+        "-Wall",
+        "-Wextra",
+        "-O0",
+        "-g",
+        "-DLOCAL",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/debug_local.cpp",
+        "-o",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-environment/debug_local"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++23",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/memory.cpp",
+        "-o",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-environment/memory"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++23",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactive.cpp",
+        "-o",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-environment/interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "./environment"
+      ],
+      "returncode": 0,
+      "stdout": "compiler 16.2.1 20260810\nstandard 202302\nint128 16\npbds 9\nstack soft/hard 8388608 18446744073709551615 bytes; infinity=18446744073709551615\navx2 1\navx512f 1\nchecksum 7741116063276628444 seconds 0.0106924\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "./debug_local"
+      ],
+      "returncode": 0,
+      "stdout": "49\n",
+      "stderr": "x=7\n"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "ulimit -c 0; ./debug_local <<< -1"
+      ],
+      "returncode": 134,
+      "stdout": "",
+      "stderr": "debug_local: /tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/debug_local.cpp:6: int square(int): Assertion `0 <= x && x <= 10000' failed.\nbash: line 1: 3797638 Aborted                    (core dumped) ./debug_local <<< -1\n"
+    },
+    {
+      "command": [
+        "gdb",
+        "-q",
+        "-batch",
+        "-x",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/debug.gdb",
+        "./debug_local"
+      ],
+      "returncode": 0,
+      "stdout": "Breakpoint 1 at 0x11a4: file /tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/debug_local.cpp, line 6.\n[Thread debugging using libthread_db enabled]\nUsing host libthread_db library \"/usr/lib/libthread_db.so.1\".\n\nBreakpoint 1, square (x=7) at /tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/debug_local.cpp:6\n6\t    assert(0 <= x && x <= 10000);\n$1 = 7\n#0  square (x=7) at /tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/debug_local.cpp:6\n#1  0x0000555555555273 in main () at /tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/debug_local.cpp:19\n8\t    cerr << \"x=\" << x << '\\n';\nsquare (x=7) at /tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/debug_local.cpp:11\n11\t    return result;\n$2 = 49\n0x0000555555555273 in main () at /tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/debug_local.cpp:19\n19\t    int answer = square(x);\nValue returned is $3 = 49\n49\n[Inferior 1 (process 3797673) exited normally]\n",
+      "stderr": "x=7\n"
+    },
+    {
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%es %MKB",
+        "./memory"
+      ],
+      "returncode": 0,
+      "stdout": "499999500000\n",
+      "stderr": "VmPeak:\t   11404 kB\nVmHWM:\t    7960 kB\nCPU seconds 0.000572\n0.00s 8140KB\n"
+    },
+    {
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "./memory"
+      ],
+      "returncode": 0,
+      "stdout": "499999500000\n",
+      "stderr": "VmPeak:\t   11404 kB\nVmHWM:\t    7960 kB\nCPU seconds 0.000594\n\tCommand being timed: \"./memory\"\n\tUser time (seconds): 0.00\n\tSystem time (seconds): 0.00\n\tPercent of CPU this job got: 100%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 8256\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 625\n\tVoluntary context switches: 1\n\tInvoluntary context switches: 0\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 0\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "time ./memory"
+      ],
+      "returncode": 0,
+      "stdout": "499999500000\n",
+      "stderr": "VmPeak:\t   11404 kB\nVmHWM:\t    7852 kB\nCPU seconds 0.000604\n\nreal\t0m0.001s\nuser\t0m0.001s\nsys\t0m0.000s\n"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "(ulimit -Sv 262144 && ulimit -Ss 65536 && ./memory)"
+      ],
+      "returncode": 0,
+      "stdout": "499999500000\n",
+      "stderr": "VmPeak:\t   11404 kB\nVmHWM:\t    7964 kB\nCPU seconds 0.000592\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "0.1s",
+        "sleep",
+        "2"
+      ],
+      "returncode": 124,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "g++ --version; python3 --version; ulimit -Ss; ulimit -Hs; lscpu"
+      ],
+      "returncode": 0,
+      "stdout": "g++ (GCC) 16.2.1 20260810\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nPython 3.14.7\n8192\nunlimited\nArchitecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           48 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  16\nOn-line CPU(s) list:                     0-15\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 7 9700X 8-Core Processor\nCPU family:                              26\nModel:                                   68\nThread(s) per core:                      2\nCore(s) per socket:                      8\nSocket(s):                               1\nStepping:                                0\nMicrocode version:                       0xb404035\nFrequency boost:                         enabled\nCPU(s) scaling MHz:                      52%\nCPU max MHz:                             5734.5459\nCPU min MHz:                             621.8190\nBogoMIPS:                                7599.98\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpuid_fault cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx_vnni avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid bus_lock_detect movdiri movdir64b overflow_recov succor smca fsrm avx512_vp2intersect flush_l1d amd_lbr_pmc_freeze\nVirtualization:                          AMD-V\nL1d cache:                               384 KiB (8 instances)\nL1i cache:                               256 KiB (8 instances)\nL2 cache:                                8 MiB (8 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-15\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Mitigation; IBPB on VMEXIT only\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB on VMEXIT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "1",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 1\nsolution: ? 4\njudge: 1\nsolution: ? 2\njudge: 1\nsolution: ? 1\njudge: 1\nsolution: ! 1\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "2",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 1\nsolution: ? 4\njudge: 1\nsolution: ? 2\njudge: 1\nsolution: ? 1\njudge: 0\nsolution: ! 2\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "3",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 1\nsolution: ? 4\njudge: 1\nsolution: ? 2\njudge: 0\nsolution: ? 3\njudge: 1\nsolution: ! 3\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "4",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 1\nsolution: ? 4\njudge: 1\nsolution: ? 2\njudge: 0\nsolution: ? 3\njudge: 0\nsolution: ! 4\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "5",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 1\nsolution: ? 4\njudge: 0\nsolution: ? 6\njudge: 1\nsolution: ? 5\njudge: 1\nsolution: ! 5\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "6",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 1\nsolution: ? 4\njudge: 0\nsolution: ? 6\njudge: 1\nsolution: ? 5\njudge: 0\nsolution: ! 6\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "7",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 1\nsolution: ? 4\njudge: 0\nsolution: ? 6\njudge: 0\nsolution: ! 7\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "8",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 0\nsolution: ? 10\njudge: 1\nsolution: ? 9\njudge: 1\nsolution: ? 8\njudge: 1\nsolution: ! 8\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "9",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 0\nsolution: ? 10\njudge: 1\nsolution: ? 9\njudge: 1\nsolution: ? 8\njudge: 0\nsolution: ! 9\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "10",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 0\nsolution: ? 10\njudge: 1\nsolution: ? 9\njudge: 0\nsolution: ! 10\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "11",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 0\nsolution: ? 10\njudge: 0\nsolution: ? 12\njudge: 1\nsolution: ? 11\njudge: 1\nsolution: ! 11\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "12",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 0\nsolution: ? 10\njudge: 0\nsolution: ? 12\njudge: 1\nsolution: ? 11\njudge: 0\nsolution: ! 12\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "13",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 1\nsolution: ? 7\njudge: 0\nsolution: ? 10\njudge: 0\nsolution: ? 12\njudge: 0\nsolution: ! 13\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "14",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 1\nsolution: ? 16\njudge: 1\nsolution: ? 15\njudge: 1\nsolution: ? 14\njudge: 1\nsolution: ! 14\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "15",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 1\nsolution: ? 16\njudge: 1\nsolution: ? 15\njudge: 1\nsolution: ? 14\njudge: 0\nsolution: ! 15\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "16",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 1\nsolution: ? 16\njudge: 1\nsolution: ? 15\njudge: 0\nsolution: ! 16\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "17",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 1\nsolution: ? 16\njudge: 0\nsolution: ? 18\njudge: 1\nsolution: ? 17\njudge: 1\nsolution: ! 17\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "18",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 1\nsolution: ? 16\njudge: 0\nsolution: ? 18\njudge: 1\nsolution: ? 17\njudge: 0\nsolution: ! 18\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "19",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 1\nsolution: ? 16\njudge: 0\nsolution: ? 18\njudge: 0\nsolution: ! 19\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "20",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 0\nsolution: ? 22\njudge: 1\nsolution: ? 21\njudge: 1\nsolution: ? 20\njudge: 1\nsolution: ! 20\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "21",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 0\nsolution: ? 22\njudge: 1\nsolution: ? 21\njudge: 1\nsolution: ? 20\njudge: 0\nsolution: ! 21\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "22",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 0\nsolution: ? 22\njudge: 1\nsolution: ? 21\njudge: 0\nsolution: ! 22\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "23",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 0\nsolution: ? 22\njudge: 0\nsolution: ? 24\njudge: 1\nsolution: ? 23\njudge: 1\nsolution: ! 23\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "24",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 0\nsolution: ? 22\njudge: 0\nsolution: ? 24\njudge: 1\nsolution: ? 23\njudge: 0\nsolution: ! 24\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "25",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 1\nsolution: ? 13\njudge: 0\nsolution: ? 19\njudge: 0\nsolution: ? 22\njudge: 0\nsolution: ? 24\njudge: 0\nsolution: ! 25\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "26",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 1\nsolution: ? 29\njudge: 1\nsolution: ? 27\njudge: 1\nsolution: ? 26\njudge: 1\nsolution: ! 26\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "27",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 1\nsolution: ? 29\njudge: 1\nsolution: ? 27\njudge: 1\nsolution: ? 26\njudge: 0\nsolution: ! 27\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "28",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 1\nsolution: ? 29\njudge: 1\nsolution: ? 27\njudge: 0\nsolution: ? 28\njudge: 1\nsolution: ! 28\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "29",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 1\nsolution: ? 29\njudge: 1\nsolution: ? 27\njudge: 0\nsolution: ? 28\njudge: 0\nsolution: ! 29\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "30",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 1\nsolution: ? 29\njudge: 0\nsolution: ? 31\njudge: 1\nsolution: ? 30\njudge: 1\nsolution: ! 30\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "31",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 1\nsolution: ? 29\njudge: 0\nsolution: ? 31\njudge: 1\nsolution: ? 30\njudge: 0\nsolution: ! 31\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "32",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 1\nsolution: ? 29\njudge: 0\nsolution: ? 31\njudge: 0\nsolution: ! 32\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "33",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 0\nsolution: ? 35\njudge: 1\nsolution: ? 34\njudge: 1\nsolution: ? 33\njudge: 1\nsolution: ! 33\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "34",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 0\nsolution: ? 35\njudge: 1\nsolution: ? 34\njudge: 1\nsolution: ? 33\njudge: 0\nsolution: ! 34\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "35",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 0\nsolution: ? 35\njudge: 1\nsolution: ? 34\njudge: 0\nsolution: ! 35\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "36",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 0\nsolution: ? 35\njudge: 0\nsolution: ? 37\njudge: 1\nsolution: ? 36\njudge: 1\nsolution: ! 36\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "37",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 0\nsolution: ? 35\njudge: 0\nsolution: ? 37\njudge: 1\nsolution: ? 36\njudge: 0\nsolution: ! 37\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "38",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 1\nsolution: ? 32\njudge: 0\nsolution: ? 35\njudge: 0\nsolution: ? 37\njudge: 0\nsolution: ! 38\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "39",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 1\nsolution: ? 41\njudge: 1\nsolution: ? 40\njudge: 1\nsolution: ? 39\njudge: 1\nsolution: ! 39\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "40",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 1\nsolution: ? 41\njudge: 1\nsolution: ? 40\njudge: 1\nsolution: ? 39\njudge: 0\nsolution: ! 40\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "41",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 1\nsolution: ? 41\njudge: 1\nsolution: ? 40\njudge: 0\nsolution: ! 41\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "42",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 1\nsolution: ? 41\njudge: 0\nsolution: ? 43\njudge: 1\nsolution: ? 42\njudge: 1\nsolution: ! 42\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "43",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 1\nsolution: ? 41\njudge: 0\nsolution: ? 43\njudge: 1\nsolution: ? 42\njudge: 0\nsolution: ! 43\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "44",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 1\nsolution: ? 41\njudge: 0\nsolution: ? 43\njudge: 0\nsolution: ! 44\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "45",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 0\nsolution: ? 47\njudge: 1\nsolution: ? 46\njudge: 1\nsolution: ? 45\njudge: 1\nsolution: ! 45\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "46",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 0\nsolution: ? 47\njudge: 1\nsolution: ? 46\njudge: 1\nsolution: ? 45\njudge: 0\nsolution: ! 46\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "47",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 0\nsolution: ? 47\njudge: 1\nsolution: ? 46\njudge: 0\nsolution: ! 47\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "48",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 0\nsolution: ? 47\njudge: 0\nsolution: ? 49\njudge: 1\nsolution: ? 48\njudge: 1\nsolution: ! 48\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "49",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 0\nsolution: ? 47\njudge: 0\nsolution: ? 49\njudge: 1\nsolution: ? 48\njudge: 0\nsolution: ! 49\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "50",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 1\nsolution: ? 25\njudge: 0\nsolution: ? 38\njudge: 0\nsolution: ? 44\njudge: 0\nsolution: ? 47\njudge: 0\nsolution: ? 49\njudge: 0\nsolution: ! 50\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "51",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 1\nsolution: ? 54\njudge: 1\nsolution: ? 52\njudge: 1\nsolution: ? 51\njudge: 1\nsolution: ! 51\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "52",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 1\nsolution: ? 54\njudge: 1\nsolution: ? 52\njudge: 1\nsolution: ? 51\njudge: 0\nsolution: ! 52\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "53",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 1\nsolution: ? 54\njudge: 1\nsolution: ? 52\njudge: 0\nsolution: ? 53\njudge: 1\nsolution: ! 53\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "54",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 1\nsolution: ? 54\njudge: 1\nsolution: ? 52\njudge: 0\nsolution: ? 53\njudge: 0\nsolution: ! 54\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "55",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 1\nsolution: ? 54\njudge: 0\nsolution: ? 56\njudge: 1\nsolution: ? 55\njudge: 1\nsolution: ! 55\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "56",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 1\nsolution: ? 54\njudge: 0\nsolution: ? 56\njudge: 1\nsolution: ? 55\njudge: 0\nsolution: ! 56\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "57",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 1\nsolution: ? 54\njudge: 0\nsolution: ? 56\njudge: 0\nsolution: ! 57\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "58",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 0\nsolution: ? 60\njudge: 1\nsolution: ? 59\njudge: 1\nsolution: ? 58\njudge: 1\nsolution: ! 58\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "59",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 0\nsolution: ? 60\njudge: 1\nsolution: ? 59\njudge: 1\nsolution: ? 58\njudge: 0\nsolution: ! 59\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "60",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 0\nsolution: ? 60\njudge: 1\nsolution: ? 59\njudge: 0\nsolution: ! 60\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "61",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 0\nsolution: ? 60\njudge: 0\nsolution: ? 62\njudge: 1\nsolution: ? 61\njudge: 1\nsolution: ! 61\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "62",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 0\nsolution: ? 60\njudge: 0\nsolution: ? 62\njudge: 1\nsolution: ? 61\njudge: 0\nsolution: ! 62\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "63",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 1\nsolution: ? 57\njudge: 0\nsolution: ? 60\njudge: 0\nsolution: ? 62\njudge: 0\nsolution: ! 63\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "64",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 1\nsolution: ? 66\njudge: 1\nsolution: ? 65\njudge: 1\nsolution: ? 64\njudge: 1\nsolution: ! 64\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "65",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 1\nsolution: ? 66\njudge: 1\nsolution: ? 65\njudge: 1\nsolution: ? 64\njudge: 0\nsolution: ! 65\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "66",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 1\nsolution: ? 66\njudge: 1\nsolution: ? 65\njudge: 0\nsolution: ! 66\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "67",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 1\nsolution: ? 66\njudge: 0\nsolution: ? 68\njudge: 1\nsolution: ? 67\njudge: 1\nsolution: ! 67\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "68",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 1\nsolution: ? 66\njudge: 0\nsolution: ? 68\njudge: 1\nsolution: ? 67\njudge: 0\nsolution: ! 68\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "69",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 1\nsolution: ? 66\njudge: 0\nsolution: ? 68\njudge: 0\nsolution: ! 69\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "70",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 0\nsolution: ? 72\njudge: 1\nsolution: ? 71\njudge: 1\nsolution: ? 70\njudge: 1\nsolution: ! 70\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "71",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 0\nsolution: ? 72\njudge: 1\nsolution: ? 71\njudge: 1\nsolution: ? 70\njudge: 0\nsolution: ! 71\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "72",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 0\nsolution: ? 72\njudge: 1\nsolution: ? 71\njudge: 0\nsolution: ! 72\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "73",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 0\nsolution: ? 72\njudge: 0\nsolution: ? 74\njudge: 1\nsolution: ? 73\njudge: 1\nsolution: ! 73\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "74",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 0\nsolution: ? 72\njudge: 0\nsolution: ? 74\njudge: 1\nsolution: ? 73\njudge: 0\nsolution: ! 74\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "75",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 1\nsolution: ? 63\njudge: 0\nsolution: ? 69\njudge: 0\nsolution: ? 72\njudge: 0\nsolution: ? 74\njudge: 0\nsolution: ! 75\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "76",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 1\nsolution: ? 79\njudge: 1\nsolution: ? 77\njudge: 1\nsolution: ? 76\njudge: 1\nsolution: ! 76\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "77",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 1\nsolution: ? 79\njudge: 1\nsolution: ? 77\njudge: 1\nsolution: ? 76\njudge: 0\nsolution: ! 77\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "78",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 1\nsolution: ? 79\njudge: 1\nsolution: ? 77\njudge: 0\nsolution: ? 78\njudge: 1\nsolution: ! 78\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "79",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 1\nsolution: ? 79\njudge: 1\nsolution: ? 77\njudge: 0\nsolution: ? 78\njudge: 0\nsolution: ! 79\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "80",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 1\nsolution: ? 79\njudge: 0\nsolution: ? 81\njudge: 1\nsolution: ? 80\njudge: 1\nsolution: ! 80\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "81",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 1\nsolution: ? 79\njudge: 0\nsolution: ? 81\njudge: 1\nsolution: ? 80\njudge: 0\nsolution: ! 81\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "82",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 1\nsolution: ? 79\njudge: 0\nsolution: ? 81\njudge: 0\nsolution: ! 82\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "83",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 0\nsolution: ? 85\njudge: 1\nsolution: ? 84\njudge: 1\nsolution: ? 83\njudge: 1\nsolution: ! 83\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "84",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 0\nsolution: ? 85\njudge: 1\nsolution: ? 84\njudge: 1\nsolution: ? 83\njudge: 0\nsolution: ! 84\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "85",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 0\nsolution: ? 85\njudge: 1\nsolution: ? 84\njudge: 0\nsolution: ! 85\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "86",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 0\nsolution: ? 85\njudge: 0\nsolution: ? 87\njudge: 1\nsolution: ? 86\njudge: 1\nsolution: ! 86\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "87",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 0\nsolution: ? 85\njudge: 0\nsolution: ? 87\njudge: 1\nsolution: ? 86\njudge: 0\nsolution: ! 87\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "88",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 1\nsolution: ? 82\njudge: 0\nsolution: ? 85\njudge: 0\nsolution: ? 87\njudge: 0\nsolution: ! 88\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "89",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 1\nsolution: ? 91\njudge: 1\nsolution: ? 90\njudge: 1\nsolution: ? 89\njudge: 1\nsolution: ! 89\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "90",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 1\nsolution: ? 91\njudge: 1\nsolution: ? 90\njudge: 1\nsolution: ? 89\njudge: 0\nsolution: ! 90\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "91",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 1\nsolution: ? 91\njudge: 1\nsolution: ? 90\njudge: 0\nsolution: ! 91\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "92",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 1\nsolution: ? 91\njudge: 0\nsolution: ? 93\njudge: 1\nsolution: ? 92\njudge: 1\nsolution: ! 92\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "93",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 1\nsolution: ? 91\njudge: 0\nsolution: ? 93\njudge: 1\nsolution: ? 92\njudge: 0\nsolution: ! 93\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "94",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 1\nsolution: ? 91\njudge: 0\nsolution: ? 93\njudge: 0\nsolution: ! 94\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "95",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 0\nsolution: ? 97\njudge: 1\nsolution: ? 96\njudge: 1\nsolution: ? 95\njudge: 1\nsolution: ! 95\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "96",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 0\nsolution: ? 97\njudge: 1\nsolution: ? 96\njudge: 1\nsolution: ? 95\njudge: 0\nsolution: ! 96\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "97",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 0\nsolution: ? 97\njudge: 1\nsolution: ? 96\njudge: 0\nsolution: ! 97\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "98",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 0\nsolution: ? 97\njudge: 0\nsolution: ? 99\njudge: 1\nsolution: ? 98\njudge: 1\nsolution: ! 98\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "99",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 0\nsolution: ? 97\njudge: 0\nsolution: ? 99\njudge: 1\nsolution: ? 98\njudge: 0\nsolution: ! 99\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "100",
+        "./interactive"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "solution: ? 50\njudge: 0\nsolution: ? 75\njudge: 0\nsolution: ? 88\njudge: 0\nsolution: ? 94\njudge: 0\nsolution: ? 97\njudge: 0\nsolution: ? 99\njudge: 0\nsolution: ! 100\nAC\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "0.3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "42",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-environment/wrong"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "solution: ! 0\nTraceback (most recent call last):\n  File \"/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py\", line 17, in <module>\n    assert value == secret, 'wrong answer'\n           ^^^^^^^^^^^^^^^\nAssertionError: wrong answer\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "0.3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "42",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-environment/malformed"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "solution: garbage\nTraceback (most recent call last):\n  File \"/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py\", line 14, in <module>\n    assert len(parts) == 2, 'EOF or malformed output'\n           ^^^^^^^^^^^^^^^\nAssertionError: EOF or malformed output\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "0.3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "42",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-environment/noflush"
+      ],
+      "returncode": 124,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "0.3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "42",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-environment/extra"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "solution: ! 42\nTraceback (most recent call last):\n  File \"/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py\", line 20, in <module>\n    assert not p.stdout.read().strip(), 'extra output'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: extra output\n"
+    },
+    {
+      "command": [
+        "timeout",
+        "-k",
+        "1s",
+        "0.3s",
+        "python3",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py",
+        "42",
+        "/tmp/cpctemplate-infra-simd-1OQRfw/build/infra-environment/exitbad"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "solution: ! 42\nTraceback (most recent call last):\n  File \"/tmp/cpctemplate-infra-simd-1OQRfw/examples/infra/interactor.py\", line 19, in <module>\n    assert p.wait(timeout=1) == 0, 'nonzero exit'\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: nonzero exit\n"
+    }
+  ],
+  "source_sha256": {
+    "examples/infra/environment.cpp": "40ac301bdf261e2c57b6f600b2493c9d885024244ee9b1410ec3b3eafcbf8d01",
+    "examples/infra/debug_local.cpp": "a9a4ce4d96fe0c96731c78b8bca52765ecfd2d50bb200a02c2eb47377c33a152",
+    "examples/infra/debug.gdb": "dc7c4434af9ffd0860144be99b98e83671697ea2cd8682fb98ba0b78a9425a57",
+    "examples/infra/memory.cpp": "9fd73dd08183c4135016529e50c860a7e11d337c0b0a8a586e5534db8b1cda87",
+    "examples/infra/interactive.cpp": "68c9de8039a9fd8a084e1b87e5f84ae3a2fd09ab8cda56b8431a6038404ab524",
+    "examples/infra/interactor.py": "17b165426e68d60b45abc8da37cc5ae8f38c21e082f699d2ab4ef0693aeb00f1",
+    "tests/infra_environment.py": "289e0038975736c45b981c2e533a257f883b395b01020850af36e7c79566d225"
+  },
+  "scope": "Native Linux examples, GDB, time/proc/soft limits; all 100 secrets; five broken protocol variants. Local environment only, no OJ submission or measured judge environment."
+}

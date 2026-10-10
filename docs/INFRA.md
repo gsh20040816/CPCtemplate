@@ -1,6 +1,6 @@
 # Infra 构建与验证
 
-后续定位由 [issue #17](https://github.com/gsh20040816/CPCtemplate/issues/17) 改为Python、C++进阶、Shell、赛场环境四章手册；下文说明当前构建方式。已执行的第三章脚本素材见 [编译与对拍](INFRA-SCRIPTS.md)。已完成第一、三章主体并更名；第二、四章仍需补齐。
+后续定位由 [issue #17](https://github.com/gsh20040816/CPCtemplate/issues/17) 改为Python、C++进阶、Shell、赛场环境四章手册；下文说明当前构建方式。已执行的第三章脚本素材见 [编译与对拍](INFRA-SCRIPTS.md)。四章主体均已落地并更名；本轮优化/SIMD和环境调试新增执行范围见文末。
 
 `output/pdf/xcpc-infra.pdf` 按 Python、C++ 进阶、Shell、赛场环境四章组织。正文源为 `docs/infra-body.tex`；`tools/infra.py` 生成封面与跨册索引。
 
@@ -54,7 +54,7 @@ tools/build_pdf.sh
 
 ## 本批进度
 
-Python第一章和Shell第三章已纳入印刷稿。C++计时、随机分布、造数据与整数防卡哈希已补入；优化实测、SIMD及第四章环境检查/GDB/交互联调仍未完成。Python同源例子收据见 verification/infra-python-chapter.json；脚本收据见 verification/infra-scripts.json。历史批次JSON中的旧PDF路径和哈希保留为历史证据，不改写成新文件的验证结果。
+Python第一章和Shell第三章已纳入印刷稿。C++计时、随机分布、造数据与整数防卡哈希已补入；本轮已补齐优化实测、SIMD及第四章环境检查/GDB/交互联调。Python同源例子收据见 verification/infra-python-chapter.json；脚本收据见 verification/infra-scripts.json。历史批次JSON中的旧PDF路径和哈希保留为历史证据，不改写成新文件的验证结果。
 
 Python语义来源：[内置类型](https://docs.python.org/3/library/stdtypes.html)、[random](https://docs.python.org/3/library/random.html)、[Decimal](https://docs.python.org/3/library/decimal.html)、[itertools](https://docs.python.org/3/library/itertools.html)。运行时版本见收据，例子不使用3.11之后新增的API。
 
@@ -62,8 +62,8 @@ C++时间与随机工具由 examples/infra 的 clock_demo.cpp、random_tools.hpp
 
 补充来源：[C++随机分布](https://eel.is/c++draft/rand.dist)、[单调时钟](https://eel.is/c++draft/time.clock.steady)、[PBDS哈希参数](https://gcc.gnu.org/onlinedocs/gcc-15.2.0/libstdc%2B%2B/api/a01292_source.html)。随机树为重标号随机递归树，并非所有标号树均匀抽样；简单图枚举所有边再洗牌，仅供小数据对拍。
 
-第二章编译检查与GNU扩展新增内容及执行证据见 [INFRA-CHECKS.md](INFRA-CHECKS.md)。警告/运行时诊断、int128读写和GNU位技巧已落实；优化基准、SIMD及第四章环境联调仍未完成。
+第二章编译检查与GNU扩展新增内容及执行证据见 [INFRA-CHECKS.md](INFRA-CHECKS.md)。警告/运行时诊断、int128读写和GNU位技巧已落实；优化基准、SIMD及第四章环境联调见下文新增收据。
 
-卡常O2基线、浮点优化和pragma范围实测见 [INFRA-PERFORMANCE.md](INFRA-PERFORMANCE.md) 与 verification/infra-performance.json。数据含分配、参数传递、行列访问和I/O；当前结果来自Apple M5/GCC16，不代替评测环境实测。SIMD及第四章仍待完成。
+卡常O2基线、浮点优化和pragma范围实测见 [INFRA-PERFORMANCE.md](INFRA-PERFORMANCE.md) 与 verification/infra-performance.json。数据含分配、参数传递、行列访问和I/O；当前结果来自Apple M5/GCC16，不代替评测环境实测。SIMD及第四章的原生Linux记录另见下文。
 
-第二章优化、卡常与SIMD已补齐；原生Linux执行范围、CPU要求、尾部保护页及性能数据见 [INFRA-SIMD.md](INFRA-SIMD.md)。第四章环境/GDB/内存/交互仍待补齐。
+第二章优化、卡常与SIMD已补齐；原生Linux执行范围、CPU要求、尾部保护页及性能数据见 [INFRA-SIMD.md](INFRA-SIMD.md)。第四章环境/GDB/内存/交互见 [INFRA-ENVIRONMENT.md](INFRA-ENVIRONMENT.md)。

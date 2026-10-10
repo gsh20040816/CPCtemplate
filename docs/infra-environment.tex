@@ -1,0 +1,129 @@
+\chapter{赛场环境与调试}
+\section{开赛与热身检查清单}\index{环境检查}\index{爆栈}
+选手机是编辑、编译、对拍的机器；评测机实际运行提交程序。选手机的CPU、版本和限制不能代替评测配置。
+先读比赛提供的语言列表与完整编译命令；热身时用允许的测试方式提交短探针，记录实际结果。
+如果系统不展示程序输出，使用提供的自定义测试或向工作人员确认。
+\begin{longtable}{p{35mm}>{\raggedright\arraybackslash}p{124mm}}\toprule 检查项 & 需要确认或完成的动作\\\midrule\endhead
+编译器与标准 & 记录评测命令、GCC版本、语言档位、O2、宏定义与栈设置；程序可输出\texttt{\_\_VERSION\_\_}和\texttt{\_\_cplusplus}，但不能由这两个值还原全部编译选项。\\
+头文件与扩展 & 编译实际使用的\texttt{\_\_int128}、PBDS、Boost探针；只包含头文件而不用接口，检查不充分。\\
+CPU与指令集 & 本机用lscpu；评测探针用CPU内建检测AVX2/AVX512F等。以基础目标编译探针，先检测再运行目标指令；不要用\texttt{-march=native}猜评测CPU。\\
+栈与内存 & 核对题目内存、栈限制及getrlimit结果；栈软上限与硬上限分别记录。DFS保留递归，本地栈过小就调整测试限制。\\
+大致速度 & 同一份有可核验输出的O2基准分别跑本机与评测机；记录数据规模，不用一次微基准推算所有算法。\\
+编辑器 & 保存UTF-8；设置4空格缩进、显示行号；配置第三章编译脚本、输入重定向和运行目录，亲自编译运行样例。\\
+常用操作 & 练熟保存、跳转行号、查找/替换、整行注释、缩进、撤销及终端切换；以现场编辑器实际绑定为准。\\
+提交链路 & 提交一次样例程序，确认文件、语言、输入输出格式及查看编译错误的位置。交互题另测刷新与失败退出。\\\bottomrule
+\end{longtable}
+本地终端检查；这些结果只属于当前选手机：
+\begin{lstlisting}[language=bash]
+g++ --version
+python3 --version
+lscpu
+ulimit -Ss
+ulimit -Hs
+g++ environment.cpp -std=c++23 -O2 -o environment
+./environment
+\end{lstlisting}
+Vim可在命令模式输入 \texttt{:set number expandtab shiftwidth=4 tabstop=4}；
+\texttt{:w}保存，\texttt{:42}跳转行，\texttt{/word}查找，n到下一处，u撤销，Ctrl-R重做。
+使用VS Code时可练熟Ctrl-S保存、Ctrl-G跳行、Ctrl-F查找、Ctrl-H替换、Ctrl-/注释；现场先确认键位未被桌面拦截。
+
+\newpage
+\section{短探针与速度校验}
+以下保存为environment.cpp，面向Linux x86/GCC；编译成功并输出9同时验证PBDS可用。
+getrlimit单位为字节，RLIM\_INFINITY表示无限制；这仍须与比赛公布的限制一起解释。
+速度循环保留可观察校验值，避免无用循环被删除。
+\lstinputlisting{../examples/infra/environment.cpp}
+CPU检测只报告运行环境允许的特性；缺少AVX-512时不执行对应函数。
+评测系统禁用系统接口时遵守现场提供的环境说明，不把探针失败当作算法失败。
+若要使用Boost，再编译数学册cpp\_int的实际例子；它不由PBDS成功推出。
+
+\section{提交前核对}
+逐题确认下标、区间开闭、空输入、重边、自环、数值范围和模板前提。
+整数先转宽再乘；0可能是合法答案。调试信息放stderr，正式提交关闭LOCAL。
+保留失败输入，先查样例、边界与小数据参考，再跑最大数据；检查版和O2版分别通过。
+
+\newpage
+\section{GDB、assert与LOCAL}\index{GDB}\index{断点}\index{LOCAL}
+用 \texttt{-O0 -g} 保留容易对应的源码位置；O2可能内联、重排或移除变量。
+assert条件必须没有需要保留的副作用；定义NDEBUG会删除断言，不能在断言内完成输入、赋值或必要调用。
+\lstinputlisting{../examples/infra/debug_local.cpp}
+保存为debug\_local.cpp；输入7应输出49，LOCAL开启时stderr额外输出x=7。
+\begin{lstlisting}[language=bash]
+g++ debug_local.cpp -std=c++23 -O0 -g -DLOCAL -o debug
+printf '7\n' > input.txt
+gdb ./debug
+\end{lstlisting}
+\begin{longtable}{p{55mm}p{104mm}}\toprule GDB命令 & 用途\\\midrule\endhead
+\texttt{break square} / \texttt{b file.cpp:20} & 在函数或源码行设断点。\\
+\texttt{run < input.txt} & 重新启动并从文件读输入。\\
+\texttt{next} / \texttt{step} & 单步越过函数 / 单步进入函数；简称n/s。\\
+\texttt{print x} / \texttt{display x} & 立即查看 / 每次停止时显示变量。\\
+\texttt{backtrace} / \texttt{frame 1} & 查看调用栈 / 切换到指定栈帧；简称bt/f。\\
+\texttt{info locals} / \texttt{list} & 当前局部变量 / 附近源码。\\
+\texttt{until 11} / \texttt{finish} & 运行到当前帧第11行 / 运行到当前函数返回。\\
+\texttt{continue} / \texttt{quit} & 继续到下个断点或退出 / 退出调试器。\\
+\texttt{watch x} / \texttt{delete 1} & 在值改变时停下 / 删除编号1的断点。\\\bottomrule
+\end{longtable}
+本例可依次输入 \texttt{b square}、\texttt{run < input.txt}、\texttt{p x}、\texttt{bt}、
+\texttt{n}、\texttt{until 11}、\texttt{p result}、\texttt{finish}、\texttt{c}。
+预期看到x=7、result=49和main调用帧。输入负数会在assert处停止；看第一处异常与调用栈。
+
+\newpage
+\section{测时间、峰值内存与限制}\index{测内存}\index{time}\index{ulimit}
+Bash的time报告real（墙上时间）、user（用户态CPU时间）、sys（内核态CPU时间）；
+等待输入和调度会增加real，多线程的累计CPU时间也可能大于real。
+GNU time的\%e是秒，\%M是最大驻留集KiB，诊断输出走stderr。
+\begin{lstlisting}[language=bash]
+time ./memory
+/usr/bin/time -v ./memory
+/usr/bin/time -f '%es %MKB' ./memory
+(ulimit -Sv 262144 && ulimit -Ss 65536 && ./memory)
+timeout -k 1s 2s ./main < input.txt > output.txt
+\end{lstlisting}
+上例在子shell中限制256MiB虚拟地址空间、64MiB栈，只调整软上限；继承的硬上限不足时设置会失败。
+用\texttt{\&\&}连接设置与运行，设置失败就停止。
+\texttt{ulimit -v}约束虚拟地址空间，并不等同于OJ按RSS统计的内存；不要用它限制ASan，ASan需要很大的虚拟地址空间。
+\texttt{timeout}用墙上时间，2秒先发TERM，再过1秒发KILL；124通常表示超时，137可能表示KILL。
+递归DFS不用改写为显式栈；根据题目内存预算配置本地栈，并保留最坏深度测试。
+
+\lstinputlisting{../examples/infra/memory.cpp}
+\texttt{clock()}返回进程消耗的CPU时间刻度，除以CLOCKS\_PER\_SEC转秒；失败值为\texttt{clock\_t(-1)}。
+需要经过时间或卡时用第二章steady\_clock，不把CPU时间当墙上时间。
+\texttt{/proc/self/status}里VmPeak是虚拟地址空间峰值，VmHWM是驻留集高水位，输出kB按KiB解释。
+该接口的RSS统计可能近似；当前进程的数值不包含所有子进程，也不必与OJ统计口径一致。
+
+\begin{longtable}{p{40mm}p{119mm}}\toprule 对象 & 内存估算\\\midrule\endhead
+连续数组 & \texttt{sizeof(T)*n}，先用size\_t或更宽类型计算乘积，另计其他数组。\\
+vector & 元素缓冲按capacity而非size计算；扩容时新旧缓冲可能同时存在。二维vector还含每行对象与独立分配开销。\\
+map/set & 除键值外还有父/子指针、颜色、对齐和分配器开销；\texttt{sizeof(map)}只测容器对象，不含节点。\\
+递归栈 & 每层局部变量、返回地址、保存寄存器等乘最大深度；内联、优化与检查器都会影响帧大小，实际测最坏链。\\\bottomrule
+\end{longtable}
+
+\newpage
+\section{交互题：刷新、协议与失败退出}\index{交互题}\index{刷新输出}
+示例：裁判藏一个1到100的整数。选手输出\texttt{? m}，裁判回复1表示答案不大于m，否则回复0；最多7次询问。
+输出\texttt{! x}报告答案。每次询问后必须刷新；关闭cin.tie后不能依赖下一次输入自动刷新。
+\lstinputlisting{../examples/infra/interactive.cpp}
+上例使用endl同时换行并刷新；也可写换行后flush，C stdio用fflush(stdout)。
+收到EOF或题面规定的错误回复立即退出，不能继续输出询问。
+调试信息写stderr，stdout只留协议内容。
+
+\begin{lstlisting}[language=bash]
+g++ interactive.cpp -std=c++23 -O2 -o interactive
+timeout -k 1s 3s python3 interactor.py 42 ./interactive \
+    2> interaction.log
+cat interaction.log
+\end{lstlisting}
+下一页裁判由Python子进程管道连接选手，不用单向的\texttt{judge | solution}冒充双向通信。
+裁判每行记录双方内容，并检查询问次数、最终答案、退出码和多余输出。
+外层timeout约束整个进程组；如果双方互等，查看记录的最后一行，先检查谁没有刷新。
+本地裁判的协议应逐项对应题面：范围、询问预算、错误哨兵及最终输出格式。
+
+\newpage
+\section{最短本地裁判}\index{交互通信记录}
+保存为interactor.py；第一个参数是秘密数，第二个是选手可执行文件。
+只适用于本页约定的单行协议，长输出、并发交互或多组数据按题意调整。
+\lstinputlisting[language=Python]{../examples/infra/interactor.py}
+裁判的readline会等待完整一行；必须使用前页timeout命令限制挂起。
+断言失败、数字解析失败和子程序非零退出均视为本地测试失败；不要用\texttt{python -O}运行裁判，否则断言会被删除。
+finally在普通异常时回收子进程；外层超时直接终止进程组。
