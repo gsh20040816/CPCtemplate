@@ -1,0 +1,40 @@
+\newpage
+\section{\_\_int128 的十进制读写}\index{int128}\index{最小负数}
+有符号范围 $[-2^{127},2^{127}-1]$，无符号范围 $[0,2^{128}-1]$。
+先转换再乘，如 \texttt{i128(a)*b}；有符号溢出仍是UB。
+最小负数不能直接取负，也不能先读到 long long 再转换。
+下面函数按字符串解析，拒绝非法或超范围输入；失败时保留原变量。
+输出先取无符号幅值，正确处理最小负数与0。
+\lstinputlisting[lastline=45]{../examples/infra/int128_io.cpp}
+
+\newpage
+\section{strict 与 GNU 模式的差异}\index{GNU扩展}\index{语言标准}
+前页函数后接以下入口即可读到EOF；普通 cin/cout 没有直接的 \_\_int128 数值重载。
+\lstinputlisting[firstline=47,firstnumber=47]{../examples/infra/int128_io.cpp}
+GCC在支持128位整数的目标上，\texttt{-std=c++20} 也接受 \_\_int128 扩展，但它不是ISO标准类型。
+
+加入 \texttt{-pedantic-errors} 会拒绝此扩展写法。
+\texttt{-std=gnu++20} 关闭strict模式，部分版本的标准库还会改变对扩展类型的识别，
+不能因为能声明变量就假定所有模板都接受它。
+\lstinputlisting{../examples/infra/type_probe.cpp}
+本机GNU GCC16、libstdc++实测：以上探针在两种模式分别输出
+\texttt{202002 / 1 / 16 / 1 / 127} 与 \texttt{202002 / 0 / 16 / 1 / 127}。
+本版本两种模式的 \texttt{is\_integral\_v<\_\_int128>} 均为true；区别是strict宏。标准库约束与可用接口还取决于版本。
+热身时用比赛的真实编译命令跑探针；不要用该trait在strict模式下否定编译器的算术支持。
+GNU头文件、PBDS和bitset扩展同样不是ISO接口；算法分册页码见本册末索引。
+
+\newpage
+\section{GNU 位函数与 bitset 遍历}\index{bitset}\index{低位1}\index{builtin}
+\begin{longtable}{p{71mm}p{88mm}}\toprule 写法 & 结果或条件\\\midrule\endhead
+\texttt{\_\_builtin\_popcountll(x)} & unsigned long long 中1的个数，允许0。\\
+\texttt{\_\_builtin\_ctzll(x)} & 从低位数连续0；$x\ne0$。\\
+\texttt{\_\_builtin\_clzll(x)} & 从高位数连续0；$x\ne0$，64位时最高位下标为63减该值。\\
+\texttt{x \&= x-1} & 对无符号非零数删去最低位的1。\\
+\texttt{b.\_Find\_first()} & 最低置位位置，无置位返回 \texttt{b.size()}。\\
+\texttt{b.\_Find\_next(i)} & 严格大于 $i$ 的下一置位，无则返回 size。\\\bottomrule
+\end{longtable}
+无 ll 的版本对应unsigned int；64位值误传会被截断。
+bitset 两个查找函数是libstdc++扩展，可跨多个机器字扫描，并非总是常数时间。
+
+以下例子同时覆盖第0、64、129位以及空集合；遍历条件必须排除size哨兵。
+\lstinputlisting{../examples/infra/gnu_bits.cpp}

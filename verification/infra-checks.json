@@ -1,0 +1,350 @@
+{
+  "status": "pass",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "integer_tokens": 3015,
+  "integer_input_sha256": "72cc2d01e8c470354294b7f5f6dd8ac0af5371c89a81134cffc31d9ed883a4d1",
+  "records": [
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/int128_io.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/int128_io"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/int128_io"
+      ],
+      "returncode": 0,
+      "stdout": "0\n1\n-1\n-170141183460469231731687303715884105728\n170141183460469231731687303715884105727\n-75448592872641507224268630084797611826\n-64926034370187128308001957569480304497\n122070713032428618184367853022150461329\n81289077386889050034321448809331830214\n-32170998274598279656585363179104800919\n155642494783622689988215291427535033649\n-150366685058103429032921413567054080732\n53956920252259993456949985914494863284\n-112045708353117890374507514772213094205\n-5136271066680954987568530824473195066\n63291952931600503034226213410215664866\n-36895512575588058845699610998862496132\n156835691671843104537335660802152464207\n-97868707502571433083898075057598847539\n105754547671298595745236807046549229187\n-27563695146656628986571978681127253304\n115336509475011905401678574604095523759\n-6719042057591692344271284740690101373\n155820207459551498938451947002934613330\n-69676781212164179625770872578281093846\n29402800214097937134158580098148654758\n18369754547976591477496544085144437392\n-92195713629590001874039835945593188232\n159850695147544515123039184008584395953\n26740811714281837401016255541610025718\n-22520970729388007247516197767587730537\n6341599923040238375848616383997110597\n90171918697964672683996017078567715441\n-8532125620775305446335090648930251888\n-11102387725382089139303690951388002959\n-152513910092413014531153735830015467486\n67816534892432086126696741373105278246\n100024937701649718140889234424447209592\n13169329177225568697085089457695118457\n161742553763870892039075875049035437203\n-60691329549092481814739879000673829977\n114694138722465919223524646967261084287\n-73735991273821273068557881628800112869\n-101980386988700623566892795352617522623\n-31597484853426455357667630236385881229\n807606431563229949384044930701927258\n-128482113468263662157991931263316300222\n-112179705365763306321533493884868968643\n-71974705704983217593033540327972211853\n-60792236110565288426502291284500318939\n-79611666613693243604144810263746068228\n-21698813523700312093542714369190319523\n77129368387075090053654431219482111096\n-143",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/int128_io.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/int128_io"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/int128_io"
+      ],
+      "returncode": 0,
+      "stdout": "0\n1\n-1\n-170141183460469231731687303715884105728\n170141183460469231731687303715884105727\n-75448592872641507224268630084797611826\n-64926034370187128308001957569480304497\n122070713032428618184367853022150461329\n81289077386889050034321448809331830214\n-32170998274598279656585363179104800919\n155642494783622689988215291427535033649\n-150366685058103429032921413567054080732\n53956920252259993456949985914494863284\n-112045708353117890374507514772213094205\n-5136271066680954987568530824473195066\n63291952931600503034226213410215664866\n-36895512575588058845699610998862496132\n156835691671843104537335660802152464207\n-97868707502571433083898075057598847539\n105754547671298595745236807046549229187\n-27563695146656628986571978681127253304\n115336509475011905401678574604095523759\n-6719042057591692344271284740690101373\n155820207459551498938451947002934613330\n-69676781212164179625770872578281093846\n29402800214097937134158580098148654758\n18369754547976591477496544085144437392\n-92195713629590001874039835945593188232\n159850695147544515123039184008584395953\n26740811714281837401016255541610025718\n-22520970729388007247516197767587730537\n6341599923040238375848616383997110597\n90171918697964672683996017078567715441\n-8532125620775305446335090648930251888\n-11102387725382089139303690951388002959\n-152513910092413014531153735830015467486\n67816534892432086126696741373105278246\n100024937701649718140889234424447209592\n13169329177225568697085089457695118457\n161742553763870892039075875049035437203\n-60691329549092481814739879000673829977\n114694138722465919223524646967261084287\n-73735991273821273068557881628800112869\n-101980386988700623566892795352617522623\n-31597484853426455357667630236385881229\n807606431563229949384044930701927258\n-128482113468263662157991931263316300222\n-112179705365763306321533493884868968643\n-71974705704983217593033540327972211853\n-60792236110565288426502291284500318939\n-79611666613693243604144810263746068228\n-21698813523700312093542714369190319523\n77129368387075090053654431219482111096\n-143",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/type_probe.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/type_probe"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/type_probe"
+      ],
+      "returncode": 0,
+      "stdout": "202002\n1\n16\n1\n127\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/gnu_bits.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/gnu_bits"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/gnu_bits"
+      ],
+      "returncode": 0,
+      "stdout": "0\n64\n129\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=gnu++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/int128_io.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/int128_io"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/int128_io"
+      ],
+      "returncode": 0,
+      "stdout": "0\n1\n-1\n-170141183460469231731687303715884105728\n170141183460469231731687303715884105727\n-75448592872641507224268630084797611826\n-64926034370187128308001957569480304497\n122070713032428618184367853022150461329\n81289077386889050034321448809331830214\n-32170998274598279656585363179104800919\n155642494783622689988215291427535033649\n-150366685058103429032921413567054080732\n53956920252259993456949985914494863284\n-112045708353117890374507514772213094205\n-5136271066680954987568530824473195066\n63291952931600503034226213410215664866\n-36895512575588058845699610998862496132\n156835691671843104537335660802152464207\n-97868707502571433083898075057598847539\n105754547671298595745236807046549229187\n-27563695146656628986571978681127253304\n115336509475011905401678574604095523759\n-6719042057591692344271284740690101373\n155820207459551498938451947002934613330\n-69676781212164179625770872578281093846\n29402800214097937134158580098148654758\n18369754547976591477496544085144437392\n-92195713629590001874039835945593188232\n159850695147544515123039184008584395953\n26740811714281837401016255541610025718\n-22520970729388007247516197767587730537\n6341599923040238375848616383997110597\n90171918697964672683996017078567715441\n-8532125620775305446335090648930251888\n-11102387725382089139303690951388002959\n-152513910092413014531153735830015467486\n67816534892432086126696741373105278246\n100024937701649718140889234424447209592\n13169329177225568697085089457695118457\n161742553763870892039075875049035437203\n-60691329549092481814739879000673829977\n114694138722465919223524646967261084287\n-73735991273821273068557881628800112869\n-101980386988700623566892795352617522623\n-31597484853426455357667630236385881229\n807606431563229949384044930701927258\n-128482113468263662157991931263316300222\n-112179705365763306321533493884868968643\n-71974705704983217593033540327972211853\n-60792236110565288426502291284500318939\n-79611666613693243604144810263746068228\n-21698813523700312093542714369190319523\n77129368387075090053654431219482111096\n-143",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=gnu++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/int128_io.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/int128_io"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/int128_io"
+      ],
+      "returncode": 0,
+      "stdout": "0\n1\n-1\n-170141183460469231731687303715884105728\n170141183460469231731687303715884105727\n-75448592872641507224268630084797611826\n-64926034370187128308001957569480304497\n122070713032428618184367853022150461329\n81289077386889050034321448809331830214\n-32170998274598279656585363179104800919\n155642494783622689988215291427535033649\n-150366685058103429032921413567054080732\n53956920252259993456949985914494863284\n-112045708353117890374507514772213094205\n-5136271066680954987568530824473195066\n63291952931600503034226213410215664866\n-36895512575588058845699610998862496132\n156835691671843104537335660802152464207\n-97868707502571433083898075057598847539\n105754547671298595745236807046549229187\n-27563695146656628986571978681127253304\n115336509475011905401678574604095523759\n-6719042057591692344271284740690101373\n155820207459551498938451947002934613330\n-69676781212164179625770872578281093846\n29402800214097937134158580098148654758\n18369754547976591477496544085144437392\n-92195713629590001874039835945593188232\n159850695147544515123039184008584395953\n26740811714281837401016255541610025718\n-22520970729388007247516197767587730537\n6341599923040238375848616383997110597\n90171918697964672683996017078567715441\n-8532125620775305446335090648930251888\n-11102387725382089139303690951388002959\n-152513910092413014531153735830015467486\n67816534892432086126696741373105278246\n100024937701649718140889234424447209592\n13169329177225568697085089457695118457\n161742553763870892039075875049035437203\n-60691329549092481814739879000673829977\n114694138722465919223524646967261084287\n-73735991273821273068557881628800112869\n-101980386988700623566892795352617522623\n-31597484853426455357667630236385881229\n807606431563229949384044930701927258\n-128482113468263662157991931263316300222\n-112179705365763306321533493884868968643\n-71974705704983217593033540327972211853\n-60792236110565288426502291284500318939\n-79611666613693243604144810263746068228\n-21698813523700312093542714369190319523\n77129368387075090053654431219482111096\n-143",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=gnu++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/type_probe.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/type_probe"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/type_probe"
+      ],
+      "returncode": 0,
+      "stdout": "202002\n0\n16\n1\n127\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=gnu++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/gnu_bits.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/gnu_bits"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/gnu_bits"
+      ],
+      "returncode": 0,
+      "stdout": "0\n64\n129\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++20",
+        "-pedantic-errors",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/int128_io.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/int128_io"
+      ],
+      "returncode": 1,
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/examples/infra/int128_io.cpp:3:14: error: ISO C++ does not support '__int128' for 'type name' [-Wpedantic]\n    3 | using i128 = __int128;\n      |              ^~~~~~~~\n/Users/gsh/Workspace/CPCtemplate/examples/infra/int128_io.cpp:4:23: error: ISO C++ does not support '__int128' for 'type name' [-Wpedantic]\n    4 | using u128 = unsigned __int128;\n      |                       ^~~~~~~~\n"
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/parse_contract"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/bits_check"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++23",
+        "-O1",
+        "-g",
+        "-fsanitize=undefined",
+        "-fno-sanitize-recover=all",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/diagnostics.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/diagnostics"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/diagnostics",
+        "1"
+      ],
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/examples/infra/diagnostics.cpp:12:21: runtime error: signed integer overflow: 2147483647 + 1 cannot be represented in type 'int'\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++23",
+        "-O1",
+        "-g",
+        "-fsanitize=address",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/diagnostics.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/diagnostics"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/diagnostics",
+        "2"
+      ],
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "=================================================================\n==10523==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x602000000974 at pc 0x000102191138 bp 0x00016dc6e3f0 sp 0x00016dc6e408\nREAD of size 4 at 0x602000000974 thread T0\n==10523==WARN: Invalid dyld module map detected. This is most likely a bug in the sanitizer.\n==10523==WARN: Backtraces may be unreliable.\n    #0 0x000102191134 in main diagnostics.cpp:16\n    #1 0x00019d4c7e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\n0x602000000974 is located 0 bytes after 4-byte region [0x602000000970,0x602000000974)\nallocated by thread T0 here:\n    #0 0x000102b9e3ec in _Znam+0x6c (libasan.8.dylib:arm64+0x4e3ec)\n    #1 0x0001021910a4 in main diagnostics.cpp:14\n    #2 0x00019d4c7e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\nSUMMARY: AddressSanitizer: heap-buffer-overflow diagnostics.cpp:16 in main\nShadow bytes around the buggy address:\n  0x602000000680: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000700: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000780: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000800: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000880: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 03\n=>0x602000000900: fa fa 00 00 fa fa 00 fa fa fa 00 00 fa fa[04]fa\n  0x602000000980: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000a00: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000a80: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000b00: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000b80: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==10523==ABORTING\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++23",
+        "-O1",
+        "-g",
+        "-D_GLIBCXX_ASSERTIONS",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/diagnostics.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/diagnostics"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/diagnostics",
+        "3"
+      ],
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/bits/stl_vector.h:1253: constexpr std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](size_type) [with _Tp = int; _Alloc = std::allocator<int>; reference = int&; size_type = long unsigned int]: Assertion '__n < this->size()' failed.\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++23",
+        "-O1",
+        "-g",
+        "-D_GLIBCXX_DEBUG",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/diagnostics.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/diagnostics"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/diagnostics",
+        "4"
+      ],
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/debug/safe_iterator.h:352:\nIn function:\n    constexpr gnu_debug::_Safe_iterator<_Iterator, _Sequence, \n    _Category>::reference gnu_debug::_Safe_iterator<_Iterator, _Sequence, \n    _Category>::operator*() const [with _Iterator = gnu_cxx::\n    normal_iterator<int*, std::vector<int, std::allocator<int> > >; \n    _Sequence = std::debug::vector<int>; _Category = \n    std::forward_iterator_tag; reference = int&]\n\nError: attempt to dereference a singular iterator.\n\nObjects involved in the operation:\n    iterator \"this\" @ 0x16b5f2720 {\n      type = gnu_cxx::normal_iterator<int*, std::vector<int, std::allocator<int> > > (mutable iterator);\n      state = singular;\n      references sequence with type 'std::debug::vector<int, std::allocator<int> >' @ 0x16b5f2798\n    }\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-Wall",
+        "-Wextra",
+        "-std=c++23",
+        "-O2",
+        "-Wshadow",
+        "-Wconversion",
+        "/Users/gsh/Workspace/CPCtemplate/examples/infra/warnings.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/infra-checks/warnings"
+      ],
+      "returncode": 0,
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/examples/infra/warnings.cpp: In function 'int main()':\n/Users/gsh/Workspace/CPCtemplate/examples/infra/warnings.cpp:8:21: warning: conversion from 'double' to 'int' may change value [-Wfloat-conversion]\n    8 |     int truncated = fraction;\n      |                     ^~~~~~~~\n/Users/gsh/Workspace/CPCtemplate/examples/infra/warnings.cpp:9:14: warning: declaration of 'value' shadows a previous local [-Wshadow]\n    9 |     for (int value = 0; value < 2; value++) {\n      |              ^~~~~\n/Users/gsh/Workspace/CPCtemplate/examples/infra/warnings.cpp:6:9: note: shadowed declaration is here\n    6 |     int value = 7;\n      |         ^~~~~\n/Users/gsh/Workspace/CPCtemplate/examples/infra/warnings.cpp:12:16: warning: format '%lld' expects argument of type 'long long int', but argument 2 has type 'int' [-Wformat=]\n   12 |     printf(\"%lld\\n\", truncated);\n      |             ~~~^     ~~~~~~~~~\n      |                |     |\n      |                |     int\n      |                long long int\n      |             %d\n/Users/gsh/Workspace/CPCtemplate/examples/infra/warnings.cpp:6:9: warning: unused variable 'value' [-Wunused-variable]\n    6 |     int value = 7;\n      |         ^~~~~\n"
+    }
+  ],
+  "source_sha256": {
+    "examples/infra/int128_io.cpp": "8e06241f2d7ce25d51e3568acdac3280991a5027b2b619cef9d3c09acc0a6bf6",
+    "examples/infra/type_probe.cpp": "69fc4d940c20997deb49c5260797294462d5d5c6b3fe8dcc60427ac5a1fb1ff7",
+    "examples/infra/gnu_bits.cpp": "fd2bd5025a565b0cc6ec7086d021a1dca6e52e9756a302237abc6156434c1481",
+    "examples/infra/diagnostics.cpp": "322869f2ecb79453609af70a23b5d7335783da2f20d61266589fbfa8be6410d7",
+    "examples/infra/warnings.cpp": "a89f9d123ccf4a92fa64381c0e879a07e086ce88820f989d62d3ecfb022845c2",
+    "tests/infra_checks.py": "29029dbc644c2b5ff1e3e5acefea87a4ab2da0fb6eb6be6d09884a5a6caf5d33",
+    "build/infra-checks/bits_check.cpp": "0cdb553e18d1e180462b76fc73cc7f7e88d740c0136df4d455fae9ada75475ce",
+    "build/infra-checks/parse_contract.cpp": "b7df19d17ea407bd3666377bee90dc06eab326c6ea456ca0498eb23b14e23ac0"
+  },
+  "scope": "GNU GCC host behavior in strict and GNU C++20; printed warning fixture compile-only; four intentionally faulty cases run only under matching checkers. Not a full-library correctness claim."
+}

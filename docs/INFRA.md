@@ -61,3 +61,5 @@ Python语义来源：[内置类型](https://docs.python.org/3/library/stdtypes.h
 C++时间与随机工具由 examples/infra 的 clock_demo.cpp、random_tools.hpp、random_demo.cpp、hash_demo.cpp 同源印刷，tests/infra_random.py 在O2和ASan/UBSan下运行；1000种子检查排列、互异值、字符集、树连通性及边数、简单图去重和范围、同环境复现，收据见 verification/infra-random.json。只验证结构和API使用，不将样本当作分布正确性的证明或优化性能证据。
 
 补充来源：[C++随机分布](https://eel.is/c++draft/rand.dist)、[单调时钟](https://eel.is/c++draft/time.clock.steady)、[PBDS哈希参数](https://gcc.gnu.org/onlinedocs/gcc-15.2.0/libstdc%2B%2B/api/a01292_source.html)。随机树为重标号随机递归树，并非所有标号树均匀抽样；简单图枚举所有边再洗牌，仅供小数据对拍。
+
+第二章编译检查与GNU扩展新增内容及执行证据见 [INFRA-CHECKS.md](INFRA-CHECKS.md)。警告/运行时诊断、int128读写和GNU位技巧已落实；优化基准、SIMD及第四章环境联调仍未完成。

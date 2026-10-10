@@ -1,0 +1,44 @@
+\section{编译警告与检查配置}\index{警告}\index{ASan}\index{UBSan}\index{越界}
+提交版用题目指定标准和优化选项；本地排错单独编译，别拿检查版耗时估算能否通过。
+常用命令如下，所有源文件同时编译时使用一致的宏和检查选项。
+\begin{lstlisting}[language=bash]
+g++ main.cpp -std=c++23 -O2 -Wall -Wextra -Wshadow -Wconversion -o main
+g++ main.cpp -std=c++23 -O1 -g -fsanitize=address,undefined \
+    -fno-sanitize-recover=all -fno-omit-frame-pointer -o debug
+g++ main.cpp -std=c++23 -O1 -g -D_GLIBCXX_DEBUG -o debug_stl
+\end{lstlisting}
+\begin{longtable}{p{54mm}p{105mm}}\toprule 选项 & 用途与易错点\\\midrule\endhead
+\texttt{-Wall -Wextra} & 常见可疑写法；Wall 并不包含所有警告。\\
+\texttt{-Wshadow} & 同名局部变量遮蔽外层变量。\\
+\texttt{-Wconversion} & 可能改变数值的隐式转换；先核对范围，别为消警告随意强转。\\
+\texttt{-Wformat} & printf/scanf 格式与参数不匹配；Wall 已包含常用检查。\\
+\texttt{-fsanitize=address} & 常见堆栈越界、释放后使用；不能指望检出所有未初始化读取或容器逻辑越界。\\
+\texttt{-fsanitize=undefined} & 有符号溢出、非法移位等已覆盖的UB；不是全部UB的检测器。\\
+\texttt{-fno-sanitize-recover=all} & 检出问题立即停止，不让UBSan报错后继续跑出“答案”。\\
+\texttt{-D\_GLIBCXX\_ASSERTIONS} & libstdc++ 轻量前提检查，如 vector 下标；不跟踪全部迭代器失效。\\
+\texttt{-D\_GLIBCXX\_DEBUG} & 更强容器/迭代器检查；有额外开销，部分容器类型与布局改变。\\\bottomrule
+\end{longtable}
+\_GLIBCXX\_DEBUG 与普通模式不能随意跨编译单元传同一个STL容器。
+ASan 判断可访问内存，vector 的 size 与 capacity 是另一层约束；在已分配容量内访问 size 外元素也非法，
+但未启用容器注解的ASan可能漏掉，要用下标检查或 \texttt{at()}。
+无符号回绕是定义良好的行为，普通UBSan不会把它当成有符号溢出。
+检查只覆盖实际执行路径，仍要用边界数据和对拍。
+
+下例只编译看警告：截断小数、遮蔽变量、printf类型不匹配、未使用变量。
+不要执行存在格式类型错误的程序。
+\lstinputlisting{../examples/infra/warnings.cpp}
+
+\newpage
+\section{读懂第一条错误}\index{运行时排错}\index{迭代器失效}
+保存下面故意写错的程序为 diagnostics.cpp。每次只执行对应编号；
+报错后先找第一条诊断和回溯中自己代码的位置，不追最后一次崩溃。
+\lstinputlisting{../examples/infra/diagnostics.cpp}
+\begin{longtable}{p{22mm}>{\raggedright\arraybackslash}p{70mm}p{64mm}}\toprule 参数 & 编译时加入 & 典型报错关键词\\\midrule\endhead
+1 & \texttt{-fsanitize=undefined -fno-sanitize-recover=all} & signed integer overflow\\
+2 & \texttt{-fsanitize=address} & heap-buffer-overflow\\
+3 & \texttt{-D\_GLIBCXX\_ASSERTIONS} & 下标小于 size 的断言失败\\
+4 & \texttt{-D\_GLIBCXX\_DEBUG} & singular iterator\\\bottomrule
+\end{longtable}
+例如 \texttt{g++ diagnostics.cpp -std=c++23 -O1 -g -D\_GLIBCXX\_DEBUG -o debug}，
+再执行 \texttt{./debug 4}。诊断文本随版本变化，重点看错误类型、访问大小与源代码行。
+\newpage

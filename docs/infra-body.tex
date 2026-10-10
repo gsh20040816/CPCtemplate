@@ -1,6 +1,7 @@
 \input{infra-python.tex}
 
 \chapter{C++ 进阶}
+\input{infra-checks.tex}
 
 \section{值、引用与调用边界}
 \index{reference}
@@ -37,6 +38,7 @@ multiset 的 \texttt{erase(key)} 会删掉全部等价元素；只删一个时�
 
 unordered\_map 的普通查改平均常数时间，最坏可线性；rehash 会使迭代器失效。需要容量控制时看其 reserve/max\_load\_factor 接口，不把这些名字照搬到 PBDS。GNU 的 gp/cc 哈希表、选型和范围见本册末的分册索引。
 
+\Needspace{12\baselineskip}
 \section{queue、stack 与优先队列}
 \index{queue}\index{stack}\index{priority-queue}
 queue 先入先出，stack 后入先出；取 front/top 和 pop 前检查非空。标准 priority\_queue 默认大根堆，pop 不返回值，先复制 top 再 pop。它没有按句柄修改和合并接口。
@@ -75,6 +77,7 @@ assert(a == 5 && b == 2);
 \end{lstlisting}
 普通数值变量要保存快照可用 \texttt{pair\{a,b\}} 或 \texttt{make\_tuple(a,b)}，交换则直接 swap。
 
+\Needspace{20\baselineskip}
 \section{数值累加与前缀和}
 \index{numeric}\index{accumulate}\index{partial-sum}
 accumulate 的初值决定累加类型，64 位求和用 \texttt{0LL}；把返回结果装进 long long 不会改变中间累加类型。乘积也须先提升，例如 \texttt{1LL*a*b}，但仍应保证宽类型可表示结果。
@@ -128,6 +131,8 @@ PBDS 有序树、gp/cc 哈希表、配对堆以及 \texttt{\_\_gnu\_cxx::rope} �
 Bareiss 消元依靠数学上的整除性质保存精确整数，矩阵树用它计算不取模答案；目录末有对应分册跳转。
 数值越大，运算和存储越贵，不应把任意精度操作视为机器字常数时间。
 Boost 使用表达式模板，需跨语句保存计算结果时写明确的 \texttt{cpp\_int} 类型，避免用 \texttt{auto} 保存依赖随后修改变量或临时量的表达式。
+
+\input{infra-gnu.tex}
 
 \input{infra-shell.tex}
 
