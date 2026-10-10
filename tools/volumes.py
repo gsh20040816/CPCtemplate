@@ -15,6 +15,7 @@ groups = {'strings': ('字符串', ''),
           'graphs': ('图论', ''), 'geometry': ('计算几何', ''), 'misc': ('杂项', '')}
 owner = {title: key for key, (title, _) in groups.items()}
 owner['搜索'] = 'misc'
+owner['动态规划'] = 'misc'
 for r in rows:
     r['volume'] = owner[TAX[r['symbol']]['hierarchy'][0]]
 by_name = {r['symbol']: r for r in rows}

@@ -1636,5 +1636,23 @@
     "KShortestWalks",
     "正权前K短行走",
     "KShortestWalks(n)，点号1..n，n<INT_MAX；add(u,v,w)添加有向边，要求0<w<LLONG_MAX，零权边/环不在接口范围内。允许自环与重边，每次add视为不同边。run(s,t,k)按非降序返回至多k个行走长度，k>=0；不同边序列分别计数，即使等长。允许重复点边，不是简单路径算法。s=t时第一个答案为空路0；若排除空路，调用k+1后删除首项，需k<INT_MAX。终点仍可继续走再回来。长度>=LLONG_MAX不返回；只有阈值以下答案有保证。每个顶点至多扩展k次，O(n+km log(km+2))时间、O(n+km)空间；k大时应改用更高效算法。只读g/n，可重复求解和加边后重算，不返回方案。"
+  ],
+  [
+    "monotone_hull",
+    "MonotoneHull",
+    "单调斜率凸包：最小值与决策",
+    "默认空；add(m,b,id)按斜率非增加入直线mx+b，query(x)按x非减查询，返回(pair<int128,int>)(最小值,编号)。首次查询前至少加一条线；可交替加线与查询。并列保留最早加入的直线，不是最小id；同斜率只留最小截距，截距也同则留旧线。q/head仅供只读；查询会永久淘汰旧候选，不支持回退x或任意斜率。要求|m|,|b|,|x|<=10^18，总加线数<INT_MAX。先提升int128再做差与交叉乘法，范围内精确无浮点；返回值勿未经证明窄化为long long。总M次加线、Q次查询O(M+Q)，空间O(M)，被查询淘汰的前缀仍留在vector中。"
+  ],
+  [
+    "monotone_dp",
+    "monotone_dp_layer",
+    "分治决策单调性：一层分组DP",
+    "monotone_dp_layer(prev,first,cost,opt)返回cur，prev下标0..n，1<=first<=n<INT_MAX。对i=first..n求min(prev[j]+cost(j+1,i))，j在first-1..i-1，cost是闭区间代价；用于第g组时first=g。inf=LLONG_MAX/4；prev[first-1]必须可达，其他inf跳过，cost对全部合法区间有限。所有有限prev、cost及转移和须严格在(-inf,inf)，保证long long加法安全。cur[0..first-1]=inf，opt对应为-1；其余opt返回最小最优j。调用方须证明该并列规则下opt[i]非减，本函数不会检查，任意DP不能套用。cost须无副作用且O(1)才能得O(n log(n+1))单层时间；递归深度O(log n)，输出与辅助O(n)。"
+  ],
+  [
+    "wqs_independent_set",
+    "wqs_independent_set",
+    "WQS二分：至多k个不相邻位置",
+    "wqs_independent_set(a,k)返回0-based数组中至多选k个两两不相邻位置的最大权和；允许空选、空数组、负权，k>=0。n=a.size()<INT_MAX，W=max|a[i]|，要求n*W<=LLONG_MAX/4（以足够宽类型核验），因此不含LLONG_MIN。只返回最优值，不返回方案。路径独立集等价于路径边匹配，定基数最优值离散凹；每次选择扣penalty，pair比较先权和、并列取更多位置。若罚0的最优数量<=k直接返回；否则二分仍能选至少k个的最大非负整数罚值，答案为惩罚后最优值+penalty*k。不是任意DP的WQS通用封装。O(n log(W+2))时间、O(1)额外空间。"
   ]
 ]

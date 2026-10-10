@@ -181,6 +181,7 @@
 - `verify/luogu/CF1100F.compact.cpp`
 - `verify/luogu/CF118E.compact.cpp`
 - `verify/luogu/CF204E.compact.cpp`
+- `verify/luogu/CF321E.compact.cpp`
 - `verify/luogu/CF379F.compact.cpp`
 - `verify/luogu/CF600E.compact.cpp`
 - `verify/luogu/P1082.compact.cpp`
@@ -189,6 +190,7 @@
 - `verify/luogu/P1313.compact.cpp`
 - `verify/luogu/P13270.compact.cpp`
 - `verify/luogu/P1452.compact.cpp`
+- `verify/luogu/P1484.wqs.compact.cpp`
 - `verify/luogu/P1516.compact.cpp`
 - `verify/luogu/P1593.compact.cpp`
 - `verify/luogu/P1807.compact.cpp`
@@ -196,6 +198,7 @@
 - `verify/luogu/P1993.compact.cpp`
 - `verify/luogu/P2093.compact.cpp`
 - `verify/luogu/P2158.compact.cpp`
+- `verify/luogu/P2365.compact.cpp`
 - `verify/luogu/P2495.compact.cpp`
 - `verify/luogu/P2522.compact.cpp`
 - `verify/luogu/P2597.compact.cpp`
@@ -262,6 +265,7 @@
 - `verify/luogu/P4716.compact.cpp`
 - `verify/luogu/P4721.compact.cpp`
 - `verify/luogu/P4735.compact.cpp`
+- `verify/luogu/P4767.compact.cpp`
 - `verify/luogu/P4779.compact.cpp`
 - `verify/luogu/P4782.compact.cpp`
 - `verify/luogu/P4783.compact.cpp`

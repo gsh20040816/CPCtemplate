@@ -6266,5 +6266,118 @@
       "verification/short-walks-sanitizer.json"
     ],
     "adapter": "Complete direct application."
+  },
+  {
+    "symbol": "MonotoneHull",
+    "problem": "P2365 任务安排",
+    "url": "https://www.luogu.com.cn/problem/P2365",
+    "classification": "Contest application, not a separately named formal template.",
+    "statement_checked": true,
+    "limits": "IOI2002任务安排：保持任务顺序分批，最小化完成时刻乘费用系数的总和。n<=5000，s<=50，t和f在1..100。前缀T/C，dp[i]=T[i]*C[i]+s*C[n]+min(dp[j]-(T[i]+s)*C[j])；斜率和查询方向均满足单调，答案及截距在long long范围内。",
+    "tested_api": [
+      "add",
+      "query"
+    ],
+    "api": "MonotoneHull",
+    "ac": "https://www.luogu.com.cn/record/302209623",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Extended API boundary and tie behavior remain local evidence; no speed ranking.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/monotone_hull.hpp",
+    "driver": "verify/luogu/P2365.compact.cpp",
+    "usage": "example-360",
+    "local_reports": [
+      "verification/dp-optimization-normal.json",
+      "verification/dp-optimization-sanitizer.json"
+    ],
+    "adapter": "Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md."
+  },
+  {
+    "symbol": "monotone_dp_layer",
+    "problem": "CF321E Ciel and Gondolas",
+    "url": "https://www.luogu.com.cn/problem/CF321E",
+    "classification": "Contest application, not a separately named formal template.",
+    "statement_checked": true,
+    "limits": "Ciel and Gondolas：n<=4000，k<=800，非负对称矩阵对角0；恰分k个非空连续组，最小化组内无序对权和。二维前缀和O(1)求闭区间代价；四边形不等式保证最小最优决策非减。",
+    "tested_api": [
+      "monotone_dp_layer"
+    ],
+    "api": "monotone_dp_layer",
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Extended API boundary and tie behavior remain local evidence; no speed ranking. CF remote judge rejected submission; no online record or AC.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/monotone_dp.hpp",
+    "driver": "verify/luogu/CF321E.compact.cpp",
+    "usage": "example-361",
+    "local_reports": [
+      "verification/dp-optimization-normal.json",
+      "verification/dp-optimization-sanitizer.json"
+    ],
+    "adapter": "Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md."
+  },
+  {
+    "symbol": "wqs_independent_set",
+    "problem": "P1484 种树（WQS）",
+    "url": "https://www.luogu.com.cn/problem/P1484",
+    "classification": "Contest application, not a separately named formal template.",
+    "statement_checked": true,
+    "limits": "种树：至多选k个不相邻坑，最大获利；允许负数。n<=300000，k<=n/2，|a[i]|<=10^6。WQS的凹性证明依赖路径匹配模型。",
+    "tested_api": [
+      "wqs_independent_set"
+    ],
+    "api": "wqs_independent_set",
+    "ac": "https://www.luogu.com.cn/record/302209955",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Extended API boundary and tie behavior remain local evidence; no speed ranking.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/wqs_independent_set.hpp",
+    "driver": "verify/luogu/P1484.wqs.compact.cpp",
+    "usage": "example-362",
+    "local_reports": [
+      "verification/dp-optimization-normal.json",
+      "verification/dp-optimization-sanitizer.json"
+    ],
+    "adapter": "Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md."
+  },
+  {
+    "symbol": "monotone_dp_layer",
+    "problem": "P4767 [IOI 2000] 邮局 加强版",
+    "url": "https://www.luogu.com.cn/problem/P4767",
+    "classification": "Contest application, not a separately named formal template.",
+    "statement_checked": true,
+    "limits": "n<=3000个村庄，k<=300个邮局，坐标1..10000；最小化到最近邮局距离之和。先排序；每个连续组在中位数处建邮局，前缀和O(1)求组代价。该代价满足四边形不等式，使用恰分k组DP。",
+    "tested_api": [
+      "monotone_dp_layer"
+    ],
+    "api": "monotone_dp_layer",
+    "ac": "https://www.luogu.com.cn/record/302210674",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Extended API boundary and tie behavior remain local evidence; no speed ranking.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/monotone_dp.hpp",
+    "driver": "verify/luogu/P4767.compact.cpp",
+    "usage": "example-363",
+    "local_reports": [
+      "verification/dp-optimization-normal.json",
+      "verification/dp-optimization-sanitizer.json"
+    ],
+    "adapter": "Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md."
   }
 ]

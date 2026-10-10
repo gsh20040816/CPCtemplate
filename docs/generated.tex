@@ -80,6 +80,114 @@ MinimumCover(m, rows)，列号0..m-1，每行内部互异，允许空行/重复�
 
 \lstinputlisting{usage/example-244.cpp}
 
+\part{动态规划}
+
+\newpage
+
+\Needspace{680pt}
+
+\chapter{DP 优化}
+
+\section{斜率优化}
+
+\subsection{单调斜率凸包：最小值与决策}\label{compact-MonotoneHull}\index{MonotoneHull}
+
+默认空；add(m,b,id)按斜率非增加入直线mx+b，query(x)按x非减查询，返回(pair<int128,int>)(最小值,编号)。首次查询前至少加一条线；可交替加线与查询。并列保留最早加入的直线，不是最小id；同斜率只留最小截距，截距也同则留旧线。q/head仅供只读；查询会永久淘汰旧候选，不支持回退x或任意斜率。要求|m|,|b|,|x|<=10\textasciicircum{}18，总加线数<INT\_MAX。先提升int128再做差与交叉乘法，范围内精确无浮点；返回值勿未经证明窄化为long long。总M次加线、Q次查询O(M+Q)，空间O(M)，被查询淘汰的前缀仍留在vector中。
+
+\lstinputlisting[firstline=7,lastline=45,firstnumber=1]{../src/compact/monotone_hull.hpp}
+
+\newpage
+
+\noindent 查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=46,lastline=58,firstnumber=40]{../src/compact/monotone_hull.hpp}
+
+\Needspace{453pt}
+
+\subsection*{应用题补充：P2365 任务安排}
+
+\label{usage-example-360}
+
+题意：IOI2002任务安排：保持任务顺序分批，最小化完成时刻乘费用系数的总和。n<=5000，s<=50，t和f在1..100。前缀T/C，dp[i]=T[i]*C[i]+s*C[n]+min(dp[j]-(T[i]+s)*C[j])；斜率和查询方向均满足单调，答案及截距在long long范围内。
+
+所需模板：\hyperref[compact-MonotoneHull]{MonotoneHull}（第~\pageref{compact-MonotoneHull}~页，\ref{compact-MonotoneHull}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P2365}
+
+\lstinputlisting{usage/example-360.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{680pt}
+
+\section{四边形不等式优化}
+
+\subsection{分治决策单调性：一层分组DP}\label{compact-monotone_dp_layer}\index{monotone\_dp\_layer}
+
+monotone\_dp\_layer(prev,first,cost,opt)返回cur，prev下标0..n，1<=first<=n<INT\_MAX。对i=first..n求min(prev[j]+cost(j+1,i))，j在first-1..i-1，cost是闭区间代价；用于第g组时first=g。inf=LLONG\_MAX/4；prev[first-1]必须可达，其他inf跳过，cost对全部合法区间有限。所有有限prev、cost及转移和须严格在(-inf,inf)，保证long long加法安全。cur[0..first-1]=inf，opt对应为-1；其余opt返回最小最优j。调用方须证明该并列规则下opt[i]非减，本函数不会检查，任意DP不能套用。cost须无副作用且O(1)才能得O(n log(n+1))单层时间；递归深度O(log n)，输出与辅助O(n)。
+
+\lstinputlisting[firstline=9,lastline=39]{../src/compact/monotone_dp.hpp}
+
+\Needspace{491pt}
+
+\subsection*{应用题补充：CF321E Ciel and Gondolas}
+
+\label{usage-example-361}
+
+题意：Ciel and Gondolas：n<=4000，k<=800，非负对称矩阵对角0；恰分k个非空连续组，最小化组内无序对权和。二维前缀和O(1)求闭区间代价；四边形不等式保证最小最优决策非减。
+
+所需模板：\hyperref[compact-monotone_dp_layer]{monotone\_\allowbreak{}dp\_\allowbreak{}layer}（第~\pageref{compact-monotone_dp_layer}~页，\ref{compact-monotone_dp_layer}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/CF321E}
+
+\lstinputlisting{usage/example-361.cpp}
+
+\Needspace{447pt}
+
+\subsection*{应用题补充：P4767 [IOI 2000] 邮局 加强版}
+
+\label{usage-example-363}
+
+题意：n<=3000个村庄，k<=300个邮局，坐标1..10000；最小化到最近邮局距离之和。先排序；每个连续组在中位数处建邮局，前缀和O(1)求组代价。该代价满足四边形不等式，使用恰分k组DP。
+
+所需模板：\hyperref[compact-monotone_dp_layer]{monotone\_\allowbreak{}dp\_\allowbreak{}layer}（第~\pageref{compact-monotone_dp_layer}~页，\ref{compact-monotone_dp_layer}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4767}
+
+\lstinputlisting{usage/example-363.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{680pt}
+
+\section{WQS 二分}
+
+\subsection{WQS二分：至多k个不相邻位置}\label{compact-wqs_independent_set}\index{wqs\_independent\_set}
+
+wqs\_independent\_set(a,k)返回0-based数组中至多选k个两两不相邻位置的最大权和；允许空选、空数组、负权，k>=0。n=a.size()<INT\_MAX，W=max|a[i]|，要求n*W<=LLONG\_MAX/4（以足够宽类型核验），因此不含LLONG\_MIN。只返回最优值，不返回方案。路径独立集等价于路径边匹配，定基数最优值离散凹；每次选择扣penalty，pair比较先权和、并列取更多位置。若罚0的最优数量<=k直接返回；否则二分仍能选至少k个的最大非负整数罚值，答案为惩罚后最优值+penalty*k。不是任意DP的WQS通用封装。O(n log(W+2))时间、O(1)额外空间。
+
+\lstinputlisting[firstline=9,lastline=35]{../src/compact/wqs_independent_set.hpp}
+
+\Needspace{273pt}
+
+\subsection*{应用题补充：P1484 种树（WQS）}
+
+\label{usage-example-362}
+
+题意：种树：至多选k个不相邻坑，最大获利；允许负数。n<=300000，k<=n/2，|a[i]|<=10\textasciicircum{}6。WQS的凹性证明依赖路径匹配模型。
+
+所需模板：\hyperref[compact-wqs_independent_set]{wqs\_\allowbreak{}independent\_\allowbreak{}set}（第~\pageref{compact-wqs_independent_set}~页，\ref{compact-wqs_independent_set}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1484}
+
+\lstinputlisting{usage/example-362.cpp}
+
+\newpage
+
 \part{字符串}
 
 \Needspace{251pt}

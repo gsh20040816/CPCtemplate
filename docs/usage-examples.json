@@ -4571,5 +4571,53 @@
     "requires": [
       "KShortestWalks"
     ]
+  },
+  {
+    "id": "example-360",
+    "symbol": "MonotoneHull",
+    "kind": "application",
+    "problem": "P2365 任务安排",
+    "url": "https://www.luogu.com.cn/problem/P2365",
+    "summary": "IOI2002任务安排：保持任务顺序分批，最小化完成时刻乘费用系数的总和。n<=5000，s<=50，t和f在1..100。前缀T/C，dp[i]=T[i]*C[i]+s*C[n]+min(dp[j]-(T[i]+s)*C[j])；斜率和查询方向均满足单调，答案及截距在long long范围内。",
+    "driver": "verify/luogu/P2365.compact.cpp",
+    "requires": [
+      "MonotoneHull"
+    ]
+  },
+  {
+    "id": "example-361",
+    "symbol": "monotone_dp_layer",
+    "kind": "application",
+    "problem": "CF321E Ciel and Gondolas",
+    "url": "https://www.luogu.com.cn/problem/CF321E",
+    "summary": "Ciel and Gondolas：n<=4000，k<=800，非负对称矩阵对角0；恰分k个非空连续组，最小化组内无序对权和。二维前缀和O(1)求闭区间代价；四边形不等式保证最小最优决策非减。",
+    "driver": "verify/luogu/CF321E.compact.cpp",
+    "requires": [
+      "monotone_dp_layer"
+    ]
+  },
+  {
+    "id": "example-362",
+    "symbol": "wqs_independent_set",
+    "kind": "application",
+    "problem": "P1484 种树（WQS）",
+    "url": "https://www.luogu.com.cn/problem/P1484",
+    "summary": "种树：至多选k个不相邻坑，最大获利；允许负数。n<=300000，k<=n/2，|a[i]|<=10^6。WQS的凹性证明依赖路径匹配模型。",
+    "driver": "verify/luogu/P1484.wqs.compact.cpp",
+    "requires": [
+      "wqs_independent_set"
+    ]
+  },
+  {
+    "id": "example-363",
+    "symbol": "monotone_dp_layer",
+    "kind": "application",
+    "problem": "P4767 [IOI 2000] 邮局 加强版",
+    "url": "https://www.luogu.com.cn/problem/P4767",
+    "summary": "n<=3000个村庄，k<=300个邮局，坐标1..10000；最小化到最近邮局距离之和。先排序；每个连续组在中位数处建邮局，前缀和O(1)求组代价。该代价满足四边形不等式，使用恰分k组DP。",
+    "driver": "verify/luogu/P4767.compact.cpp",
+    "requires": [
+      "monotone_dp_layer"
+    ]
   }
 ]

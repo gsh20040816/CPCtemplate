@@ -192,3 +192,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 新增时间线段树分治与离线动态连通性，复用回滚并查集，附森林竞赛应用和带初始重边的完整接口用法；见[接口及验证](docs/TIME-CONNECTIVITY.md)。
 
 严格次短路与 K 短行走的接口、适用范围和验证：[说明](docs/SHORTEST-WALKS.md)。
+
+单调斜率、分治决策单调性与 WQS：[使用条件和证明](docs/DP-OPTIMIZATION.md)。

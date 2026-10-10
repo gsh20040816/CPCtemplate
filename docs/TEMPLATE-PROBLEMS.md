@@ -246,6 +246,10 @@
 | `TreeIsomorphism::TreeIsomorphism` | [Luogu P5043](https://www.luogu.com.cn/problem/P5043) | N,M<=50;1s/250MB displayed. | [记录](https://www.luogu.com.cn/record/301887481) | 待核验 |
 | `StrictSecondShortest::StrictSecondShortest` | [Luogu P2865](https://www.luogu.com.cn/problem/P2865) | P2865: n<=5000,m<=100000,w<=5000;1s/512MB. P2901: n<=1000,m<=10000,k<=100,w<=1000000;1s/125MB. | [记录](https://www.luogu.com.cn/record/302207967) | 待核验 |
 | `KShortestWalks::KShortestWalks` | [Luogu P2901](https://www.luogu.com.cn/problem/P2901) | P2865: n<=5000,m<=100000,w<=5000;1s/512MB. P2901: n<=1000,m<=10000,k<=100,w<=1000000;1s/125MB. | [记录](https://www.luogu.com.cn/record/302208192) | 待核验 |
+| `MonotoneHull::MonotoneHull` | [P2365 任务安排](https://www.luogu.com.cn/problem/P2365) | IOI2002任务安排：保持任务顺序分批，最小化完成时刻乘费用系数的总和。n<=5000，s<=50，t和f在1..100。前缀T/C，dp[i]=T[i]*C[i]+s*C[n]+min(dp[j]-(T[i]+s)*C[j])；斜率和查询方向均满足单调，答案及截距在long long范围内。 | [记录](https://www.luogu.com.cn/record/302209623) | 待核验 |
+| `monotone_dp_layer::monotone_dp_layer` | [CF321E Ciel and Gondolas](https://www.luogu.com.cn/problem/CF321E) | Ciel and Gondolas：n<=4000，k<=800，非负对称矩阵对角0；恰分k个非空连续组，最小化组内无序对权和。二维前缀和O(1)求闭区间代价；四边形不等式保证最小最优决策非减。 | 待在线 AC | 待核验 |
+| `wqs_independent_set::wqs_independent_set` | [P1484 种树（WQS）](https://www.luogu.com.cn/problem/P1484) | 种树：至多选k个不相邻坑，最大获利；允许负数。n<=300000，k<=n/2，\|a[i]\|<=10^6。WQS的凹性证明依赖路径匹配模型。 | [记录](https://www.luogu.com.cn/record/302209955) | 待核验 |
+| `monotone_dp_layer::monotone_dp_layer` | [P4767 [IOI 2000] 邮局 加强版](https://www.luogu.com.cn/problem/P4767) | n<=3000个村庄，k<=300个邮局，坐标1..10000；最小化到最近邮局距离之和。先排序；每个连续组在中位数处建邮局，前缀和O(1)求组代价。该代价满足四边形不等式，使用恰分k组DP。 | [记录](https://www.luogu.com.cn/record/302210674) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2308,6 +2312,38 @@ Contest application, not a separately named formal template.
 Complete direct application.
 
 No formal-template entry yet. Zero-weight strict-second and cyclic K-walk API domains remain local evidence; no path reconstruction or speed ranking.
+
+### P2365 任务安排 / MonotoneHull
+
+Contest application, not a separately named formal template.
+
+Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md.
+
+Extended API boundary and tie behavior remain local evidence; no speed ranking.
+
+### CF321E Ciel and Gondolas / monotone_dp_layer
+
+Contest application, not a separately named formal template.
+
+Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md.
+
+Extended API boundary and tie behavior remain local evidence; no speed ranking. CF remote judge rejected submission; no online record or AC.
+
+### P1484 种树（WQS） / wqs_independent_set
+
+Contest application, not a separately named formal template.
+
+Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md.
+
+Extended API boundary and tie behavior remain local evidence; no speed ranking.
+
+### P4767 [IOI 2000] 邮局 加强版 / monotone_dp_layer
+
+Contest application, not a separately named formal template.
+
+Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md.
+
+Extended API boundary and tie behavior remain local evidence; no speed ranking.
 
 ## 榜单口径
 

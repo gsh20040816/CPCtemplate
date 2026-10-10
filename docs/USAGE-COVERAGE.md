@@ -278,5 +278,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | RollbackMo | [example-355](usage/example-355.cpp) | locally_checked_example |
 | OverallKth | [example-356（应用补充）](usage/example-356.cpp) | locally_checked_application |
 | TreeIsomorphism | [example-357](usage/example-357.cpp) | locally_checked_example |
-| StrictSecondShortest | [example-358（应用补充）](usage/example-358.cpp) | generated_unverified |
-| KShortestWalks | [example-359（应用补充）](usage/example-359.cpp) | generated_unverified |
+| StrictSecondShortest | [example-358（应用补充）](usage/example-358.cpp) | locally_checked_application |
+| KShortestWalks | [example-359（应用补充）](usage/example-359.cpp) | locally_checked_application |
+| MonotoneHull | [example-360（应用补充）](usage/example-360.cpp) | generated_unverified |
+| monotone_dp_layer | [example-361（应用补充）](usage/example-361.cpp), [example-363（应用补充）](usage/example-363.cpp) | generated_unverified |
+| wqs_independent_set | [example-362（应用补充）](usage/example-362.cpp) | generated_unverified |
