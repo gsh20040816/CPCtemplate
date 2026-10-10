@@ -9760,6 +9760,54 @@ enumerate\_triangles(n,edges,visit) 使用 0..n-1 点号；edges 须为无向简
 
 \chapter{最小环}
 
+\noindent 相关应用：Karp最小平均权有向环，目标不同于最小总权环；两遍DP线性空间。
+
+\section{有向图最小平均权环：线性空间Karp}\label{compact-minimum_mean_cycle}\index{minimum\_mean\_cycle}
+
+minimum\_mean\_cycle(n,edges)，0$\le$n<INT\_MAX，点0..n-1，edges为tuple<int,int,T>有向边；支持断连、负权、自环和重边，输入不变。返回optional<pair<W,int>>，无环nullopt；有环返回分子/正分母，未约分，不返回环方案。T为有符号至多64位整数时W=int128，全部比较精确，支持LLONG\_MIN/MAX；n<2\textasciicircum{}31使交叉乘法绝对值<2\textasciicircum{}126。实数T须支持值语义，W=T；禁止NaN/Inf，要求2n$^{2}$max|w|<2\textasciicircum{}118避免溢出，仍有舍入误差，不能泛称精确。P3199驱动用GCC \_\_float128进行113位核心运算，long double仅用于输入输出；需GCC支持此扩展。F0全部为0，Fk为恰好k条边的最短行走；先滚动到Fn，再重算F0..Fn-1，取min\_v max\_k (Fn(v)-Fk(v))/(n-k)。时间O(n(n+m))，额外O(n)，输入O(m)；非强连通也成立，无需DFS、二分或负环启发式。k为0..n-1，不能只比较最后一层或允许至多k条边。
+
+\lstinputlisting[firstline=7,lastline=33]{../src/compact/minimum_mean_cycle.hpp}
+
+\newpage\noindent 第二遍重算并取min-max（接上页同一函数）：
+
+\lstinputlisting[firstline=34,lastline=52,firstnumber=28]{../src/compact/minimum_mean_cycle.hpp}
+
+\paragraph{为什么全点初始化成立} 把各边减去最小平均值后，所有环非负且存在零环。任意起点最短行走都能删环变成少于n条边的路径，所以每点的max比值非负。到零环的最短行走接无限重复零环，取长度n的最短前缀，其终点使max为0；因此全局min为0。恢复原权后所有比值增加同一常数，公式仍成立。无环图没有长度n行走，返回nullopt。
+
+\paragraph{返回分数与数值类型} 分母为1..n；不保证约分，也不保证分子本身就是某个环的权和。整数类型提升到int128进行运算和交叉比较；小数用调用者选择的T，普通浮点不是精确计算。P3199采用GCC的113位浮点进行核心运算，long double仅用于输入输出。无需保存全部DP层，但第二遍必须重新从全0开始。
+
+\Needspace{374pt}
+
+\subsection*{模板题使用：P3199 [HNOI2009] 最小圈}
+
+\label{usage-example-380}
+
+题意：实数有向边权，n$\le$3000、m$\le$10000、|w|$\le$10\textasciicircum{}7，保证有圈；GCC \_\_float128核心运算，long double读入/输出8位小数。
+
+所需模板：\hyperref[compact-minimum_mean_cycle]{minimum\_\allowbreak{}mean\_\allowbreak{}cycle}（第~\pageref{compact-minimum_mean_cycle}~页，\ref{compact-minimum_mean_cycle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3199}
+
+\lstinputlisting{usage/example-380.cpp}
+
+\Needspace{468pt}
+
+\subsection*{接口用法演示：API 整数最小平均环精确分数}
+
+\label{usage-example-381}
+
+演示约定：输入n m和0-based有向边u v w，w为signed64；无环输出NONE，否则输出128位分子和正分母，未约分。
+
+所需模板：\hyperref[compact-minimum_mean_cycle]{minimum\_\allowbreak{}mean\_\allowbreak{}cycle}（第~\pageref{compact-minimum_mean_cycle}~页，\ref{compact-minimum_mean_cycle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://www2.eecs.berkeley.edu/Pubs/TechRpts/1977/29121.html}
+
+\lstinputlisting{usage/example-381.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
 \section{非负权无向图最小环与原边方案}\label{compact-MinCycle}\index{MinCycle}
 
 MinCycle(n)，n$\ge$0，点0..n-1。add(u,v,w)返回从0开始的原边号，边数$\le$INT\_MAX，0$\le$w$\le$LLONG\_MAX；允许自环和重边。solve()从零求至少3个不同顶点的简单环，无解nullopt；故自环忽略，平行边只保留最轻的一条（同权留最早），不计二元环。Result.weight是int128，vertices不重复首点，edges[i]连接vertices[i]与vertices[(i+1)\%size]，边号对应e；并列返回任意一个，不保证字典序。支持空图、断连、零权、重复solve及加边后重算，旧结果独立；e/id只读。Floyd更新中间点k之前枚举i<j<k，用d[i][j]+边(i,k)+边(j,k)更新最优值，每轮至多恢复一次路径；严格松弛避免零权环导致方案循环。solve为O(n$^{3}$+n$^{2}$)，构造O(n$^{2}$)，add摊还O(1)，总空间O(n$^{2}$+m)，恢复通过next逐边走路径，不是模拟DFS。负边不支持；无穷大2\textasciicircum{}120只作内部哨兵，合法简单路径与候选和均小于2\textasciicircum{}95。

@@ -259,6 +259,7 @@
 | `MinCycle` | [P6175 无向图的最小环问题](https://www.luogu.com.cn/problem/P6175) | 1≤n≤100，1≤m≤5000，边权1..100000；1s、512MB。允许重边，官方样例包含同端点反向输入。 | [记录](https://www.luogu.com.cn/record/302333056) | 待核验 |
 | `LongChain` | [P5903 【模板】树上 K 级祖先](https://www.luogu.com.cn/problem/P5903) | 2≤n≤500000，1≤q≤5000000，1≤seed≤2^32-1；3s、500MB；输入合法有根树。 | [记录](https://www.luogu.com.cn/record/302333606) | 待核验 |
 | `count_four_cycles` | [U367189 无向图四元环计数](https://www.luogu.com.cn/problem/U367189) | 1≤n≤100000，1≤m≤200000，无自环重边，可能不连通；1s、256MB。 | [记录](https://www.luogu.com.cn/record/302334160) | 待核验 |
+| `minimum_mean_cycle` | [P3199 [HNOI2009] 最小圈](https://www.luogu.com.cn/problem/P3199) | 2≤n≤3000，1≤m≤10000，\|w\|≤10^7，实数权，无自环，保证有圈且有点可达全图；5s/512MB，输出8位小数。 | [记录](https://www.luogu.com.cn/record/302334598) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2425,6 +2426,14 @@ Direct non-induced four-cycle counting template in a simple undirected graph.
 Input endpoints converted from 1-based to 0-based exactly once. K4 counts3; no final factor division.
 
 Actual AC verified; n=0 and input permutation/invariance additionally tested locally. Speed rank not checked.
+
+### P3199 [HNOI2009] 最小圈 / minimum_mean_cycle
+
+Direct minimum mean directed cycle problem with real weights; two-pass Karp arithmetic.
+
+Long double stream input is promoted to GCC __float128 for DP and fraction comparisons, then result converted only once for stream output. No Boost/quadmath library dependency.
+
+Exact signed64 fractions, singleton/self-loops, disconnected/empty/acyclic graph handled in local tests. Floating output still has input/formatting rounding; speed rank unverified.
 
 ## 榜单口径
 

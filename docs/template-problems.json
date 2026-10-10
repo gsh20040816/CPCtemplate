@@ -7303,6 +7303,30 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "minimum_mean_cycle",
+      "title": "有向图最小平均权环：线性空间Karp",
+      "source": "src/compact/minimum_mean_cycle.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3199.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3199",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/302334598"
+          ],
+          "review": "Direct model reviewed; actual GCC __float128 AC and exact integer/real local verification. See docs/MINIMUM-MEAN-CYCLE.md."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [

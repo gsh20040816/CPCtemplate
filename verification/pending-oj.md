@@ -66,6 +66,7 @@
 - `verify/api/matrix_tree_exact.compact.cpp`
 - `verify/api/merge_splay.compact.cpp`
 - `verify/api/min_cycle.compact.cpp`
+- `verify/api/minimum_mean_cycle.compact.cpp`
 - `verify/api/mod64.compact.cpp`
 - `verify/api/necklace_colorings.compact.cpp`
 - `verify/api/online_sam.compact.cpp`

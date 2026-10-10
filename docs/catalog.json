@@ -1708,5 +1708,11 @@
     "count_four_cycles",
     "简单无向图四元环计数",
     "count_four_cycles(n,edges)返回long long计数，n≥0、点0..n-1、m=edges.size()≤INT_MAX。输入必须是简单无向图，每条边恰好给一次，不允许重边和自环；不自动去重。允许空图、孤立点、断连，输入不变，可重复调用。计四个不同点组成的四边环，不要求诱导子图无弦；K4有3个四元环，旋转和反向不重复计算。按(度数,编号)严格定序，以唯一最大点u为起点，统计u-v-w中v,w均小于u的二步路径；第二条路径与前面路径配对。每轮清空实际访问的cnt。时间O(n+m√m)，空间O(n+m)，无需排序或递归；不可仅按编号定序后仍声称此复杂度。cnt只需int，答案必须long long；在m≤INT_MAX约定下，环数≤m(m-1)/2<2^61，不溢出。"
+  ],
+  [
+    "minimum_mean_cycle",
+    "minimum_mean_cycle",
+    "有向图最小平均权环：线性空间Karp",
+    "minimum_mean_cycle(n,edges)，0≤n<INT_MAX，点0..n-1，edges为tuple<int,int,T>有向边；支持断连、负权、自环和重边，输入不变。返回optional<pair<W,int>>，无环nullopt；有环返回分子/正分母，未约分，不返回环方案。T为有符号至多64位整数时W=int128，全部比较精确，支持LLONG_MIN/MAX；n<2^31使交叉乘法绝对值<2^126。实数T须支持值语义，W=T；禁止NaN/Inf，要求2n²max|w|<2^118避免溢出，仍有舍入误差，不能泛称精确。P3199驱动用GCC __float128进行113位核心运算，long double仅用于输入输出；需GCC支持此扩展。F0全部为0，Fk为恰好k条边的最短行走；先滚动到Fn，再重算F0..Fn-1，取min_v max_k (Fn(v)-Fk(v))/(n-k)。时间O(n(n+m))，额外O(n)，输入O(m)；非强连通也成立，无需DFS、二分或负环启发式。k为0..n-1，不能只比较最后一层或允许至多k条边。"
   ]
 ]

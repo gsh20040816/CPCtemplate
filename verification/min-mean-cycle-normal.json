@@ -1,0 +1,163 @@
+{
+  "status": "pass",
+  "mode": "normal",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/tests/minimum_mean_cycle.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/minimum_mean_cycle.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P3199.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-380-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P3199.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-380-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-380-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-380-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-380-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-380-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/minimum_mean_cycle.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-381-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/minimum_mean_cycle.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-381-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-381-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-381-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-381-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/example-381-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-D_GLIBCXX_ASSERTIONS",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/mutant-minmax.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/mutant-minmax"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-D_GLIBCXX_ASSERTIONS",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/mutant-exact-length.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/mutant-exact-length"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-D_GLIBCXX_ASSERTIONS",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/mutant-fraction-order.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/min-mean-cycle/normal/mutant-fraction-order"
+    ]
+  ],
+  "core": {
+    "header": "19683 ternary digraphs; 65536 weighted four-vertex digraphs; 3000 random multigraphs; full64 and 3000/10000 stress PASS",
+    "ndebug": "19683 ternary digraphs; 65536 weighted four-vertex digraphs; 3000 random multigraphs; full64 and 3000/10000 stress PASS",
+    "copied": "19683 ternary digraphs; 65536 weighted four-vertex digraphs; 3000 random multigraphs; full64 and 3000/10000 stress PASS"
+  },
+  "usage": {
+    "example-380": {
+      "program_sha256": "ff3b22756591eac6c2b399c5f865e1bfa685aa7ab89d413f480109b0a5dc12a6",
+      "forms": {
+        "header": 136,
+        "ndebug": 136,
+        "expanded": 136,
+        "copied": 136
+      }
+    },
+    "example-381": {
+      "program_sha256": "97e9d6fca6f009a7c07189ed19aba333e54cefd7a408e92695776ca33a39a2f0",
+      "forms": {
+        "header": 153,
+        "ndebug": 153,
+        "expanded": 153,
+        "copied": 153
+      }
+    }
+  },
+  "mutants": {
+    "minmax": "detected",
+    "exact-length": "detected",
+    "fraction-order": "detected"
+  },
+  "source_sha256": {
+    "src/compact/minimum_mean_cycle.hpp": "4a02efa69825ebdf68cfcfc1c4a3ddd18db80d704a81aeac05634f1d1c486154",
+    "tests/minimum_mean_cycle.cpp": "02223e3e78dfbb235a489aa7b118dd9d34d583bf1ee6821d92a44a772f95d75b",
+    "tests/minimum_mean_cycle.py": "e1c59418de021d6b32985309c0fdac321efc2e29c5fdc50ee4a2f83cfff8a2e5",
+    "verify/luogu/P3199.compact.cpp": "701453b85f5da07463f0331130e656b25546c29c9860da0786a4c47ad01aafd1",
+    "verify/api/minimum_mean_cycle.compact.cpp": "63cd9e4b4839439224f502272722be22b09bf3580248d49ac8d6b8b107b204f8"
+  },
+  "scope": "Definition-only simple-cycle enumeration; exact rational integer answers, Fraction reference for decimal weights and cancellation/rounding tests; two-pass Karp tested in four driver forms. OJ evidence separate."
+}

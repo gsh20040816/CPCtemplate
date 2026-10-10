@@ -292,3 +292,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | MinCycle | [example-374](usage/example-374.cpp), [example-375（接口演示）](usage/example-375.cpp) | locally_checked_example |
 | LongChain | [example-376](usage/example-376.cpp), [example-377（接口演示）](usage/example-377.cpp) | locally_checked_example |
 | count_four_cycles | [example-378](usage/example-378.cpp), [example-379（接口演示）](usage/example-379.cpp) | locally_checked_example |
+| minimum_mean_cycle | [example-380](usage/example-380.cpp), [example-381（接口演示）](usage/example-381.cpp) | locally_checked_example |

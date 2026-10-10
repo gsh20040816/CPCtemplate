@@ -4815,5 +4815,29 @@
     "requires": [
       "count_four_cycles"
     ]
+  },
+  {
+    "id": "example-380",
+    "symbol": "minimum_mean_cycle",
+    "kind": "template",
+    "problem": "P3199 [HNOI2009] 最小圈",
+    "url": "https://www.luogu.com.cn/problem/P3199",
+    "summary": "实数有向边权，n≤3000、m≤10000、|w|≤10^7，保证有圈；GCC __float128核心运算，long double读入/输出8位小数。",
+    "driver": "verify/luogu/P3199.compact.cpp",
+    "requires": [
+      "minimum_mean_cycle"
+    ]
+  },
+  {
+    "id": "example-381",
+    "symbol": "minimum_mean_cycle",
+    "kind": "api",
+    "problem": "API 整数最小平均环精确分数",
+    "url": "https://www2.eecs.berkeley.edu/Pubs/TechRpts/1977/29121.html",
+    "summary": "输入n m和0-based有向边u v w，w为signed64；无环输出NONE，否则输出128位分子和正分母，未约分。",
+    "driver": "verify/api/minimum_mean_cycle.compact.cpp",
+    "requires": [
+      "minimum_mean_cycle"
+    ]
   }
 ]

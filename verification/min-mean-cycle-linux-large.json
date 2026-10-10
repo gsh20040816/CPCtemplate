@@ -1,0 +1,50 @@
+{
+  "status": "pass",
+  "platform": "Linux-7.2.8-zen1-2-zen-x86_64-with-glibc2.44",
+  "compiler": "g++ (GCC) 16.2.1 20260810",
+  "n": 3000,
+  "m": 10000,
+  "construction": "w(u,v)=base+potential[v]-potential[u]+nonnegative slack; ring slack0. Every cycle mean>=base, ring attains it. 14-digit decimal weights and large cancellation.",
+  "expected": "2469135782469/20000000000000",
+  "input_sha256": "fc2c2005355da60da12fa821b5ca20f1e3d50526fc83521bdb01910af2b30021",
+  "results": [
+    {
+      "mode": "normal",
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++20",
+        "-O2",
+        "/tmp/cpctemplate-long-chain-VOjXyt/verify/luogu/P3199.compact.cpp",
+        "-o",
+        "/tmp/cpctemplate-long-chain-VOjXyt/build/min-mean-cycle/linux/normal"
+      ],
+      "output": "0.12345679",
+      "elapsed_seconds": 1.61,
+      "peak_rss_kib": 4768
+    },
+    {
+      "mode": "sanitizer",
+      "command": [
+        "/usr/bin/g++",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-no-pie",
+        "/tmp/cpctemplate-long-chain-VOjXyt/verify/luogu/P3199.compact.cpp",
+        "-o",
+        "/tmp/cpctemplate-long-chain-VOjXyt/build/min-mean-cycle/linux/sanitizer"
+      ],
+      "output": "0.12345679",
+      "elapsed_seconds": 1.78,
+      "peak_rss_kib": 23168
+    }
+  ],
+  "source_sha256": {
+    "src/compact/minimum_mean_cycle.hpp": "4a02efa69825ebdf68cfcfc1c4a3ddd18db80d704a81aeac05634f1d1c486154",
+    "verify/luogu/P3199.compact.cpp": "701453b85f5da07463f0331130e656b25546c29c9860da0786a4c47ad01aafd1",
+    "tests/minimum_mean_cycle_large.py": "9078e365a512474c189b350ad5fa04ec1c2b7ca9fe459b1fc1cba58eb06bdd30"
+  },
+  "scope": "Native Linux local stress, not online rank. /usr/bin/time -f formatting; timings measured on executable only, compile excluded."
+}

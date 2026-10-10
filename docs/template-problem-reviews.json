@@ -6642,5 +6642,33 @@
       "verification/four-cycles-normal.json",
       "verification/four-cycles-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "minimum_mean_cycle",
+    "problem": "P3199 [HNOI2009] 最小圈",
+    "url": "https://www.luogu.com.cn/problem/P3199",
+    "classification": "Direct minimum mean directed cycle problem with real weights; two-pass Karp arithmetic.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "2≤n≤3000，1≤m≤10000，|w|≤10^7，实数权，无自环，保证有圈且有点可达全图；5s/512MB，输出8位小数。",
+    "adapter": "Long double stream input is promoted to GCC __float128 for DP and fraction comparisons, then result converted only once for stream output. No Boost/quadmath library dependency.",
+    "tested_api": [
+      "minimum_mean_cycle<__float128>"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302334598",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Exact signed64 fractions, singleton/self-loops, disconnected/empty/acyclic graph handled in local tests. Floating output still has input/formatting rounding; speed rank unverified.",
+    "source": "src/compact/minimum_mean_cycle.hpp",
+    "driver": "verify/luogu/P3199.compact.cpp",
+    "usage": "example-380",
+    "local_reports": [
+      "verification/min-mean-cycle-normal.json",
+      "verification/min-mean-cycle-sanitizer.json",
+      "verification/min-mean-cycle-linux-large.json"
+    ]
   }
 ]
