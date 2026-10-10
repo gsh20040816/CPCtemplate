@@ -250,6 +250,9 @@
 | `monotone_dp_layer::monotone_dp_layer` | [CF321E Ciel and Gondolas](https://www.luogu.com.cn/problem/CF321E) | Ciel and Gondolas：n<=4000，k<=800，非负对称矩阵对角0；恰分k个非空连续组，最小化组内无序对权和。二维前缀和O(1)求闭区间代价；四边形不等式保证最小最优决策非减。 | 待在线 AC | 待核验 |
 | `wqs_independent_set::wqs_independent_set` | [P1484 种树（WQS）](https://www.luogu.com.cn/problem/P1484) | 种树：至多选k个不相邻坑，最大获利；允许负数。n<=300000，k<=n/2，\|a[i]\|<=10^6。WQS的凹性证明依赖路径匹配模型。 | [记录](https://www.luogu.com.cn/record/302209955) | 待核验 |
 | `monotone_dp_layer::monotone_dp_layer` | [P4767 [IOI 2000] 邮局 加强版](https://www.luogu.com.cn/problem/P4767) | n<=3000个村庄，k<=300个邮局，坐标1..10000；最小化到最近邮局距离之和。先排序；每个连续组在中位数处建邮局，前缀和O(1)求组代价。该代价满足四边形不等式，使用恰分k组DP。 | [记录](https://www.luogu.com.cn/record/302210674) | 待核验 |
+| `necklace_colorings::necklace_colorings` | [P4980 【模板】Pólya定理](https://www.luogu.com.cn/problem/P4980) | t<=1000，1<=n<=10^9；n个点用n种命名颜色，仅旋转等价，模10^9+7。直接调用旋转环计数。 | [记录](https://www.luogu.com.cn/record/302212651) | 待核验 |
+| `BurnsideAverage::BurnsideAverage` | [P1446 [HNOI2008] Cards](https://www.luogu.com.cn/problem/P1446) | 三色各用r/b/g张，均<=20；m<=60，m+1<p<100且p为素数。输入置换与恒等构成完整群；补恒等并去重，绝不能把任意生成元直接平均。每循环整体染一种颜色，用二维背包计红蓝数量，绿色由已处理点数推得；中间模群阶*p。 | [记录](https://www.luogu.com.cn/record/302212973) | 待核验 |
+| `permutation_cycles::permutation_cycles` | [P1446 [HNOI2008] Cards](https://www.luogu.com.cn/problem/P1446) | 三色各用r/b/g张，均<=20；m<=60，m+1<p<100且p为素数。输入置换与恒等构成完整群；补恒等并去重，绝不能把任意生成元直接平均。每循环整体染一种颜色，用二维背包计红蓝数量，绿色由已处理点数推得；中间模群阶*p。 | [记录](https://www.luogu.com.cn/record/302212973) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2344,6 +2347,30 @@ Contest application, not a separately named formal template.
 Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md.
 
 Extended API boundary and tie behavior remain local evidence; no speed ranking.
+
+### P4980 【模板】Pólya定理 / necklace_colorings
+
+Formal Polya rotation template.
+
+Complete driver; proofs and numerical contracts in docs/POLYA.md.
+
+Only stated official domain verified online. Reflection, noninvertible group order and wide API bounds remain local evidence; no speed rank.
+
+### P1446 [HNOI2008] Cards / BurnsideAverage
+
+Fixed-inventory contest application, not an independent formal template.
+
+Complete driver; proofs and numerical contracts in docs/POLYA.md.
+
+Only stated official domain verified online. Reflection, noninvertible group order and wide API bounds remain local evidence; no speed rank.
+
+### P1446 [HNOI2008] Cards / permutation_cycles
+
+Fixed-inventory contest application, not an independent formal template.
+
+Complete driver; proofs and numerical contracts in docs/POLYA.md.
+
+Only stated official domain verified online. Reflection, noninvertible group order and wide API bounds remain local evidence; no speed rank.
 
 ## 榜单口径
 

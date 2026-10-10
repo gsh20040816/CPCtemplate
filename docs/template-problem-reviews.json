@@ -6379,5 +6379,89 @@
       "verification/dp-optimization-sanitizer.json"
     ],
     "adapter": "Complete direct application; applicability proof in docs/DP-OPTIMIZATION.md."
+  },
+  {
+    "symbol": "necklace_colorings",
+    "problem": "P4980 【模板】Pólya定理",
+    "url": "https://www.luogu.com.cn/problem/P4980",
+    "classification": "Formal Polya rotation template.",
+    "statement_checked": true,
+    "limits": "t<=1000，1<=n<=10^9；n个点用n种命名颜色，仅旋转等价，模10^9+7。直接调用旋转环计数。",
+    "tested_api": [
+      "necklace_colorings"
+    ],
+    "api": "necklace_colorings",
+    "ac": "https://www.luogu.com.cn/record/302212651",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Only stated official domain verified online. Reflection, noninvertible group order and wide API bounds remain local evidence; no speed rank.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/polya.hpp",
+    "driver": "verify/luogu/P4980.compact.cpp",
+    "usage": "example-364",
+    "local_reports": [
+      "verification/polya-normal.json",
+      "verification/polya-sanitizer.json"
+    ],
+    "adapter": "Complete driver; proofs and numerical contracts in docs/POLYA.md."
+  },
+  {
+    "symbol": "BurnsideAverage",
+    "problem": "P1446 [HNOI2008] Cards",
+    "url": "https://www.luogu.com.cn/problem/P1446",
+    "classification": "Fixed-inventory contest application, not an independent formal template.",
+    "statement_checked": true,
+    "limits": "三色各用r/b/g张，均<=20；m<=60，m+1<p<100且p为素数。输入置换与恒等构成完整群；补恒等并去重，绝不能把任意生成元直接平均。每循环整体染一种颜色，用二维背包计红蓝数量，绿色由已处理点数推得；中间模群阶*p。",
+    "tested_api": [
+      "BurnsideAverage"
+    ],
+    "api": "BurnsideAverage",
+    "ac": "https://www.luogu.com.cn/record/302212973",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Only stated official domain verified online. Reflection, noninvertible group order and wide API bounds remain local evidence; no speed rank.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/polya.hpp",
+    "driver": "verify/luogu/P1446.compact.cpp",
+    "usage": "example-365",
+    "local_reports": [
+      "verification/polya-normal.json",
+      "verification/polya-sanitizer.json"
+    ],
+    "adapter": "Complete driver; proofs and numerical contracts in docs/POLYA.md."
+  },
+  {
+    "symbol": "permutation_cycles",
+    "problem": "P1446 [HNOI2008] Cards",
+    "url": "https://www.luogu.com.cn/problem/P1446",
+    "classification": "Fixed-inventory contest application, not an independent formal template.",
+    "statement_checked": true,
+    "limits": "三色各用r/b/g张，均<=20；m<=60，m+1<p<100且p为素数。输入置换与恒等构成完整群；补恒等并去重，绝不能把任意生成元直接平均。每循环整体染一种颜色，用二维背包计红蓝数量，绿色由已处理点数推得；中间模群阶*p。",
+    "tested_api": [
+      "permutation_cycles"
+    ],
+    "api": "permutation_cycles",
+    "ac": "https://www.luogu.com.cn/record/302212973",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Only stated official domain verified online. Reflection, noninvertible group order and wide API bounds remain local evidence; no speed rank.",
+    "checked_date": "2026-10-10",
+    "source": "src/compact/polya.hpp",
+    "driver": "verify/luogu/P1446.compact.cpp",
+    "usage": "example-365",
+    "local_reports": [
+      "verification/polya-normal.json",
+      "verification/polya-sanitizer.json"
+    ],
+    "adapter": "Complete driver; proofs and numerical contracts in docs/POLYA.md."
   }
 ]

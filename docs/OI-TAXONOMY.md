@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 196，application 63，composite 7，related 10。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 199，application 63，composite 7，related 10。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -100,6 +100,9 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | stirling_first_row | 数学 → 组合数学 → 斯特林数 | direct |  |
 | stirling_second_row | 数学 → 组合数学 → 斯特林数 | direct |  |
 | Partitions | 数学 → 组合数学 → 分拆数 | direct |  |
+| BurnsideAverage | 数学 → 组合数学 → Pólya 计数 | direct | Group fixed-point average, cycle decomposition and named-color cyclic/dihedral action; arbitrary modulus with exact division. |
+| necklace_colorings | 数学 → 组合数学 → Pólya 计数 | direct | Group fixed-point average, cycle decomposition and named-color cyclic/dihedral action; arbitrary modulus with exact division. |
+| permutation_cycles | 数学 → 组合数学 → Pólya 计数 | direct | Group fixed-point average, cycle decomposition and named-color cyclic/dihedral action; arbitrary modulus with exact division. |
 | MaxPlusMatrix | 数学 → 线性代数 → 矩阵 | application | max-plus 半环矩阵；不是普通域矩阵运算。 |
 | ModMatrix | 数学 → 线性代数 → 矩阵 | direct |  |
 | matrix_inverse | 数学 → 线性代数 → 矩阵 | direct | 素数模方阵求逆，使用 Gauss-Jordan 消元。 |

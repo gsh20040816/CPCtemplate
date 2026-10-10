@@ -1,0 +1,36 @@
+{
+  "source_sha256": "576478299b2711bf9ee353ad2a8bd4f62c0e38865c34a049950ccf1d63578cb2",
+  "test_sha256": "48e17a53b299007f66cf252be5a42d14681139368e1092b856bdd31a0bd0e606",
+  "mutants": [
+    {
+      "name": "wrong_modulus",
+      "detected": true,
+      "returncode": -6,
+      "method": "Independent core oracle under NDEBUG"
+    },
+    {
+      "name": "duplicate_square_divisor",
+      "detected": true,
+      "returncode": -6,
+      "method": "Independent core oracle under NDEBUG"
+    },
+    {
+      "name": "wrong_odd_reflection",
+      "detected": true,
+      "returncode": -6,
+      "method": "Independent core oracle under NDEBUG"
+    },
+    {
+      "name": "wrong_cycle_length",
+      "detected": true,
+      "returncode": -6,
+      "method": "Independent core oracle under NDEBUG"
+    },
+    {
+      "name": "missing_identity",
+      "detected": true,
+      "observed": "0",
+      "expected": "2"
+    }
+  ]
+}

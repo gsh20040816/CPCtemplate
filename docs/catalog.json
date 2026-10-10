@@ -1654,5 +1654,23 @@
     "wqs_independent_set",
     "WQS二分：至多k个不相邻位置",
     "wqs_independent_set(a,k)返回0-based数组中至多选k个两两不相邻位置的最大权和；允许空选、空数组、负权，k>=0。n=a.size()<INT_MAX，W=max|a[i]|，要求n*W<=LLONG_MAX/4（以足够宽类型核验），因此不含LLONG_MIN。只返回最优值，不返回方案。路径独立集等价于路径边匹配，定基数最优值离散凹；每次选择扣penalty，pair比较先权和、并列取更多位置。若罚0的最优数量<=k直接返回；否则二分仍能选至少k个的最大非负整数罚值，答案为惩罚后最优值+penalty*k。不是任意DP的WQS通用封装。O(n log(W+2))时间、O(1)额外空间。"
+  ],
+  [
+    "polya",
+    "BurnsideAverage",
+    "Burnside平均：任意模数下的精确除法",
+    "BurnsideAverage(g,p)：群阶g>0，目标模数p>0，要求g*p<=LLONG_MAX/2（先用int128检查）。mod=g*p供不动点计数使用；add(fixed,multiplicity=1)累加非负long long计数与重数，内部int128乘法。power(a,k)求a^k模mod，a,k非负，0^0=1。result()返回sum/g，支持p=1与g不可逆；sum必须是对全部群元素的不动点计数之和模mod，不是先模p后的计数。调用方保证确为群作用并完整枚举群元素或共轭类型，重数合计g；不会生成闭包或验证群公理。字段只读，add后可继续累计，只有完整合法总和才能result。每次add/result为O(1)，power为O(log(k+1))，空间O(1)。"
+  ],
+  [
+    "polya",
+    "permutation_cycles",
+    "置换的循环长度分解",
+    "permutation_cycles(p)返回各不交循环长度，按循环最小位置升序。p是0-based的合法置换，n<INT_MAX；空置换返回空vector。本函数不校验输入，非置换不允许。O(n)时间与空间；环上循环迭代不是DFS。固定染色在每个循环内同色，命名颜色不限数量时为colors^循环数；限定各色用量时以循环长度做背包。"
+  ],
+  [
+    "polya",
+    "necklace_colorings",
+    "Pólya环染色：旋转与翻转",
+    "necklace_colorings(n,colors,mod,reflection=false)：n>=1的环，每位置可选colors>=0种命名颜色，返回本质不同染色数模mod。n为int；mod>0，群阶g为n或2n，须g*mod<=LLONG_MAX/2。默认只视旋转相同；reflection=true也视翻转相同。允许颜色不用完，不能用于相邻异色、固定颜色用量或颜色重命名模型。n=1/2仍适用，二面体抽象群作用可不忠实。用BurnsideAverage模g*mod后整除，无需模逆元；因子分解与枚举约数O(sqrt(n))，每约数O(omega(n)+log(n))，额外O(omega(n))。"
   ]
 ]

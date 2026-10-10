@@ -194,3 +194,5 @@ zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FL
 严格次短路与 K 短行走的接口、适用范围和验证：[说明](docs/SHORTEST-WALKS.md)。
 
 单调斜率、分治决策单调性与 WQS：[使用条件和证明](docs/DP-OPTIMIZATION.md)。
+
+Burnside/Pólya 的群作用、模除法与验证范围见 [计数说明](docs/POLYA.md)。

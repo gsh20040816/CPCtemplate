@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "mode": "sanitizer",
+  "source_sha256": {
+    "src/compact/polya.hpp": "576478299b2711bf9ee353ad2a8bd4f62c0e38865c34a049950ccf1d63578cb2",
+    "tests/polya.cpp": "48e17a53b299007f66cf252be5a42d14681139368e1092b856bdd31a0bd0e606",
+    "tests/polya.py": "cff64482adc8e458e506b90d9eac2ae6989218aee7f299b7d8181ab6fcb91f10",
+    "docs/catalog.json": "c9a7a91c8c440bb95bed36fba65f777cad6b695d7957ea458f702b6321b97d5d",
+    "docs/usage-examples.json": "3d34a0706014d41d6cff17d510e0ae8744d621b0f361093fd1e4cf308af232ca",
+    "verify/luogu/P4980.compact.cpp": "1c56347f377b57e28ecebea130c7940507c7f470df76d383f9ce16501c1a5215",
+    "verify/luogu/P1446.compact.cpp": "a9c5370a95da5864ea1dbee4f514945dc9fdef38e191ef018daf39036bd850c5",
+    "verify/api/necklace_colorings.compact.cpp": "3425d2d4a122910a578b2585a654a425260bfa8c420f0fd254704f5f81434c07",
+    "verify/api/burnside_colorings.compact.cpp": "200dfb12cc5226f274947443998650654af2fd403d4b84984949239116926212"
+  },
+  "core": {
+    "header": "PASS exhaustive permutations, orbit enumeration, arbitrary-modulus division and wide arithmetic",
+    "ndebug": "PASS exhaustive permutations, orbit enumeration, arbitrary-modulus division and wide arithmetic",
+    "copied": "PASS exhaustive permutations, orbit enumeration, arbitrary-modulus division and wide arithmetic"
+  },
+  "usage": {
+    "example-364": {
+      "program_sha256": "51862562f337ec1c784e5bd91f0c05b63e764a345e766124aea4777ab61762d5",
+      "forms": {
+        "header": 2,
+        "ndebug": 2,
+        "expanded": 2,
+        "copied": 2
+      }
+    },
+    "example-365": {
+      "program_sha256": "005d2f981def4cb899d3d81073fc24c89f51e61ee708b5c1268180b8552aafce",
+      "forms": {
+        "header": 101,
+        "ndebug": 101,
+        "expanded": 101,
+        "copied": 101
+      }
+    },
+    "example-366": {
+      "program_sha256": "5cb6db24982136259b7ed7a09234b9abea16b0d4eff3213771aeb4c18f355aa7",
+      "forms": {
+        "header": 101,
+        "ndebug": 101,
+        "expanded": 101,
+        "copied": 101
+      }
+    },
+    "example-367": {
+      "program_sha256": "a578018e8e60db2bb2daf4297006f4d1bcb02700ff00c346cfa5042f296b5460",
+      "forms": {
+        "header": 101,
+        "ndebug": 101,
+        "expanded": 101,
+        "copied": 101
+      }
+    }
+  },
+  "scope": "Exhaustive orbit representatives, permutation connected-component oracle, cpp_int arithmetic and exact fixed-inventory formulas; four full program forms. Online evidence separate."
+}

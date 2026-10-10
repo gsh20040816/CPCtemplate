@@ -51,6 +51,7 @@ chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
 chapters['potential_dsu'] = '带势并查集与差值约束'
 chapters['gauss_real'] = '实数高斯消元'
+chapters['polya'] = 'Burnside与Pólya计数'
 chapters['monotone_hull'] = '单调斜率优化'
 chapters['monotone_dp'] = '分治决策单调性'
 chapters['wqs_independent_set'] = 'WQS二分'
@@ -136,7 +137,7 @@ for style in ['compact']:
             if name == 'TreePathProducts':
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('MonotoneHull', 'monotone_dp_layer', 'wqs_independent_set', 'StrictSecondShortest', 'KShortestWalks', 'OverallKth', 'TreeIsomorphism', 'TreeMo', 'RollbackMo', 'TimeConnectivity', 'RealSpace', 'Line3', 'Plane3', 'rectangle_union_area', 'convolution_mod', 'DC3', 'DagDominator', 'FibonacciPeriod', 'AssignmentSpectrum', 'DynamicPathMax', 'SequenceKth', 'SequenceScapegoat', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Prim', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D', 'Isap', 'flow_unique', 'ZkwFlow', 'TreeMarket'):
+            if name in ('BurnsideAverage', 'permutation_cycles', 'necklace_colorings', 'MonotoneHull', 'monotone_dp_layer', 'wqs_independent_set', 'StrictSecondShortest', 'KShortestWalks', 'OverallKth', 'TreeIsomorphism', 'TreeMo', 'RollbackMo', 'TimeConnectivity', 'RealSpace', 'Line3', 'Plane3', 'rectangle_union_area', 'convolution_mod', 'DC3', 'DagDominator', 'FibonacciPeriod', 'AssignmentSpectrum', 'DynamicPathMax', 'SequenceKth', 'SequenceScapegoat', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Prim', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D', 'Isap', 'flow_unique', 'ZkwFlow', 'TreeMarket'):
                 body.append('\\newpage')
                 estimate = 650
             if name == 'Min25':
@@ -1235,7 +1236,7 @@ for style in ['compact']:
                         body.append('\\lstinputlisting[firstline=' + str(split_lines + 1) + ',firstnumber=' + str(split_lines + 1) + ']{' + listing + '}')
                 else:
                     body.append('\\lstinputlisting{' + listing + '}')
-            if name in ('MonotoneHull', 'monotone_dp_layer', 'wqs_independent_set', 'StrictSecondShortest', 'KShortestWalks', 'OverallKth', 'TreeIsomorphism', 'TreeMo', 'RollbackMo', 'TimeConnectivity', 'RealSpace', 'Line3', 'Plane3', 'AffineSequenceTreap', 'TarjanSCC', 'AssignmentSpectrum', 'FibonacciPeriod', 'DagDominator', 'DC3', 'convolution_mod'):
+            if name in ('BurnsideAverage', 'permutation_cycles', 'necklace_colorings', 'MonotoneHull', 'monotone_dp_layer', 'wqs_independent_set', 'StrictSecondShortest', 'KShortestWalks', 'OverallKth', 'TreeIsomorphism', 'TreeMo', 'RollbackMo', 'TimeConnectivity', 'RealSpace', 'Line3', 'Plane3', 'AffineSequenceTreap', 'TarjanSCC', 'AssignmentSpectrum', 'FibonacciPeriod', 'DagDominator', 'DC3', 'convolution_mod'):
                 body.append('\\newpage')
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 assert {r['symbol'] for r in records} == {r[1] for r in cat}, 'Catalog contains an unprinted module'

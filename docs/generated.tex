@@ -4209,9 +4209,107 @@ $k=1$ 给出互异分拆数等于奇数部分分拆数；$k=0$ 则所有正部�
 本节的 $A_k$、恰好部分数及阶梯变换是建模公式，不是新增的 \texttt{Partitions} 成员函数。
 
 
-\Needspace{180pt}
+\newpage
+
+\Needspace{680pt}
 
 \section{Pólya 计数}
+
+\subsection{Burnside平均：任意模数下的精确除法}\label{compact-BurnsideAverage}\index{BurnsideAverage}
+
+BurnsideAverage(g,p)：群阶g>0，目标模数p>0，要求g*p<=LLONG\_MAX/2（先用int128检查）。mod=g*p供不动点计数使用；add(fixed,multiplicity=1)累加非负long long计数与重数，内部int128乘法。power(a,k)求a\textasciicircum{}k模mod，a,k非负，0\textasciicircum{}0=1。result()返回sum/g，支持p=1与g不可逆；sum必须是对全部群元素的不动点计数之和模mod，不是先模p后的计数。调用方保证确为群作用并完整枚举群元素或共轭类型，重数合计g；不会生成闭包或验证群公理。字段只读，add后可继续累计，只有完整合法总和才能result。每次add/result为O(1)，power为O(log(k+1))，空间O(1)。
+
+\lstinputlisting[firstline=8,lastline=44]{../src/compact/polya.hpp}
+
+\Needspace{409pt}
+
+\subsection*{应用题补充：P1446 [HNOI2008] Cards}
+
+\label{usage-example-365}
+
+题意：三色各用r/b/g张，均<=20；m<=60，m+1<p<100且p为素数。输入置换与恒等构成完整群；补恒等并去重，绝不能把任意生成元直接平均。每循环整体染一种颜色，用二维背包计红蓝数量，绿色由已处理点数推得；中间模群阶*p。
+
+所需模板：\hyperref[compact-BurnsideAverage]{BurnsideAverage}（第~\pageref{compact-BurnsideAverage}~页，\ref{compact-BurnsideAverage}~节）、\hyperref[compact-permutation_cycles]{permutation\_\allowbreak{}cycles}（第~\pageref{compact-permutation_cycles}~页，\ref{compact-permutation_cycles}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1446}
+
+\lstinputlisting[lastline=21]{usage/example-365.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=22,firstnumber=22]{usage/example-365.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{650pt}
+
+\subsection{置换的循环长度分解}\label{compact-permutation_cycles}\index{permutation\_cycles}
+
+permutation\_cycles(p)返回各不交循环长度，按循环最小位置升序。p是0-based的合法置换，n<INT\_MAX；空置换返回空vector。本函数不校验输入，非置换不允许。O(n)时间与空间；环上循环迭代不是DFS。固定染色在每个循环内同色，命名颜色不限数量时为colors\textasciicircum{}循环数；限定各色用量时以循环长度做背包。
+
+\lstinputlisting[firstline=48,lastline=65]{../src/compact/polya.hpp}
+
+\Needspace{348pt}
+
+\subsection*{接口用法演示：API 显式置换群染色}
+
+\label{usage-example-367}
+
+演示约定：输入n size colors mod，然后size个0-based置换，必须完整列出群作用（包括恒等），不是生成元。统计循环数，累加colors\textasciicircum{}循环数并平均；允许n=0，空集合染色数为1。
+
+所需模板：\hyperref[compact-BurnsideAverage]{BurnsideAverage}（第~\pageref{compact-BurnsideAverage}~页，\ref{compact-BurnsideAverage}~节）、\hyperref[compact-permutation_cycles]{permutation\_\allowbreak{}cycles}（第~\pageref{compact-permutation_cycles}~页，\ref{compact-permutation_cycles}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/math/combinatorics/polya/}
+
+\lstinputlisting{usage/example-367.cpp}
+
+\newpage
+
+\newpage
+
+\Needspace{650pt}
+
+\subsection{Pólya环染色：旋转与翻转}\label{compact-necklace_colorings}\index{necklace\_colorings}
+
+代码依赖：\hyperref[compact-BurnsideAverage]{BurnsideAverage}（第~\pageref{compact-BurnsideAverage}~页，\ref{compact-BurnsideAverage}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+necklace\_colorings(n,colors,mod,reflection=false)：n>=1的环，每位置可选colors>=0种命名颜色，返回本质不同染色数模mod。n为int；mod>0，群阶g为n或2n，须g*mod<=LLONG\_MAX/2。默认只视旋转相同；reflection=true也视翻转相同。允许颜色不用完，不能用于相邻异色、固定颜色用量或颜色重命名模型。n=1/2仍适用，二面体抽象群作用可不忠实。用BurnsideAverage模g*mod后整除，无需模逆元；因子分解与枚举约数O(sqrt(n))，每约数O(omega(n)+log(n))，额外O(omega(n))。
+
+\lstinputlisting[firstline=69,lastline=108]{../src/compact/polya.hpp}
+
+\Needspace{301pt}
+
+\subsection*{模板题使用：P4980 【模板】Pólya定理}
+
+\label{usage-example-364}
+
+题意：t<=1000，1<=n<=10\textasciicircum{}9；n个点用n种命名颜色，仅旋转等价，模10\textasciicircum{}9+7。直接调用旋转环计数。
+
+所需模板：\hyperref[compact-necklace_colorings]{necklace\_\allowbreak{}colorings}（第~\pageref{compact-necklace_colorings}~页，\ref{compact-necklace_colorings}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4980}
+
+\lstinputlisting{usage/example-364.cpp}
+
+\Needspace{270pt}
+
+\subsection*{接口用法演示：API 环与手链命名颜色计数}
+
+\label{usage-example-366}
+
+演示约定：输入n colors mod，输出仅旋转、旋转加翻转两种计数。遵守核心乘积界；特别可测试mod与群阶不互质和n=1/2。
+
+所需模板：\hyperref[compact-necklace_colorings]{necklace\_\allowbreak{}colorings}（第~\pageref{compact-necklace_colorings}~页，\ref{compact-necklace_colorings}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://oi-wiki.org/math/combinatorics/polya/}
+
+\lstinputlisting{usage/example-366.cpp}
+
+\newpage
 
 \subsection{群作用计数：先确定什么算同一个方案}\label{knowledge-orbits-model}
 \index{Burnside}\index{Polya}\index{群作用}

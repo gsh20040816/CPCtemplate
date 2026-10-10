@@ -28,6 +28,7 @@
 - `verify/api/adaptive_simpson.compact.cpp`
 - `verify/api/assignment_spectrum.compact.cpp`
 - `verify/api/bellman_ford.compact.cpp`
+- `verify/api/burnside_colorings.compact.cpp`
 - `verify/api/capacitated_matching.compact.cpp`
 - `verify/api/centroid_diameter.compact.cpp`
 - `verify/api/chain3d_source.compact.cpp`
@@ -61,6 +62,7 @@
 - `verify/api/matrix_tree_exact.compact.cpp`
 - `verify/api/merge_splay.compact.cpp`
 - `verify/api/mod64.compact.cpp`
+- `verify/api/necklace_colorings.compact.cpp`
 - `verify/api/online_sam.compact.cpp`
 - `verify/api/plane_line3.compact.cpp`
 - `verify/api/plane_plane3.compact.cpp`

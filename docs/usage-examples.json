@@ -4619,5 +4619,56 @@
     "requires": [
       "monotone_dp_layer"
     ]
+  },
+  {
+    "id": "example-364",
+    "symbol": "necklace_colorings",
+    "kind": "template",
+    "problem": "P4980 【模板】Pólya定理",
+    "url": "https://www.luogu.com.cn/problem/P4980",
+    "summary": "t<=1000，1<=n<=10^9；n个点用n种命名颜色，仅旋转等价，模10^9+7。直接调用旋转环计数。",
+    "driver": "verify/luogu/P4980.compact.cpp",
+    "requires": [
+      "necklace_colorings"
+    ]
+  },
+  {
+    "id": "example-365",
+    "symbol": "BurnsideAverage",
+    "kind": "application",
+    "problem": "P1446 [HNOI2008] Cards",
+    "url": "https://www.luogu.com.cn/problem/P1446",
+    "summary": "三色各用r/b/g张，均<=20；m<=60，m+1<p<100且p为素数。输入置换与恒等构成完整群；补恒等并去重，绝不能把任意生成元直接平均。每循环整体染一种颜色，用二维背包计红蓝数量，绿色由已处理点数推得；中间模群阶*p。",
+    "driver": "verify/luogu/P1446.compact.cpp",
+    "requires": [
+      "BurnsideAverage",
+      "permutation_cycles"
+    ],
+    "page_break_before": "    BurnsideAverage avg(group.size(), mod);"
+  },
+  {
+    "id": "example-366",
+    "symbol": "necklace_colorings",
+    "kind": "api",
+    "problem": "API 环与手链命名颜色计数",
+    "url": "https://oi-wiki.org/math/combinatorics/polya/",
+    "summary": "输入n colors mod，输出仅旋转、旋转加翻转两种计数。遵守核心乘积界；特别可测试mod与群阶不互质和n=1/2。",
+    "driver": "verify/api/necklace_colorings.compact.cpp",
+    "requires": [
+      "necklace_colorings"
+    ]
+  },
+  {
+    "id": "example-367",
+    "symbol": "permutation_cycles",
+    "kind": "api",
+    "problem": "API 显式置换群染色",
+    "url": "https://oi-wiki.org/math/combinatorics/polya/",
+    "summary": "输入n size colors mod，然后size个0-based置换，必须完整列出群作用（包括恒等），不是生成元。统计循环数，累加colors^循环数并平均；允许n=0，空集合染色数为1。",
+    "driver": "verify/api/burnside_colorings.compact.cpp",
+    "requires": [
+      "BurnsideAverage",
+      "permutation_cycles"
+    ]
   }
 ]
