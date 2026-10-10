@@ -6620,19 +6620,21 @@
     "symbol": "count_four_cycles",
     "problem": "U367189 无向图四元环计数",
     "url": "https://www.luogu.com.cn/problem/U367189",
-    "classification": "Direct non-induced four-cycle counting in a simple undirected graph. Public problem statement read; online submission pending.",
+    "classification": "Direct non-induced four-cycle counting template in a simple undirected graph.",
     "statement_checked": true,
     "checked_date": "2026-10-11",
-    "limits": "1≤n≤100000，1≤m≤200000，无自环重边，可能不连通；浏览器锁屏前未核对时间/内存限制。",
+    "limits": "1≤n≤100000，1≤m≤200000，无自环重边，可能不连通；1s、256MB。",
     "adapter": "Input endpoints converted from 1-based to 0-based exactly once. K4 counts3; no final factor division.",
-    "tested_api": [],
-    "ac": null,
+    "tested_api": [
+      "count_four_cycles"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302334160",
     "ranking": {
       "status": "not_checked",
       "rank": null,
       "total": null
     },
-    "remaining": "Core/driver locally checked, but no actual AC, speed rank or judge timing evidence. Mac locked; submission waits for UI access.",
+    "remaining": "Actual AC verified; n=0 and input permutation/invariance additionally tested locally. Speed rank not checked.",
     "source": "src/compact/four_cycles.hpp",
     "driver": "verify/luogu/U367189.compact.cpp",
     "usage": "example-378",

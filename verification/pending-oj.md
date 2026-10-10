@@ -309,7 +309,6 @@
 - `verify/luogu/SP11470.compact.cpp`
 - `verify/luogu/SP1811.compact.cpp`
 - `verify/luogu/SP2939.compact.cpp`
-- `verify/luogu/U367189.compact.cpp`
 - `verify/luogu/online_sam/P6139.compact.cpp`
 - `verify/poj/1330.compact.cpp`
 - `verify/poj/1330.lifting.compact.cpp`

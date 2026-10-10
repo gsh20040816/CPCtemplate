@@ -1,9 +1,10 @@
 {
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
-    "verification/oj.json": "725ea27838c244aba5fc0c09896a8d7a68902e4c63e15f59eaa77e75b05d9755",
+    "verification/oj.json": "96a5da7161ca9855f9b5600bdf462756dbd78bfca368840324cf6fb56103b768",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
+    "verification/four-cycles-online.json": "01a0b06257b97bde3afc03c000eb5a431d9d8f24597e1053b0c62b551734d3d4",
     "verification/kruskal-tree-online.json": "17fdee900f963141e88656243299395b9ca64f9c706dca8dfa1871236e14672a",
     "verification/long-chain-online.json": "7789091cdc2f67e2e29c4e59a9b84b13a3d3d280bfa238732936a8bf6cc50c3a",
     "verification/lyndon-online.json": "0f325a6fec1766a0f839e641b1d43767620e00d7f2f14eaf52d18ab65dabbe48",
@@ -15,7 +16,7 @@
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
-    "docs/template-problem-reviews.json": "9bd67885db08ee47cb5c72371f45c5033a12267e40868bcce7d03f8cc05a83ea"
+    "docs/template-problem-reviews.json": "395209606ed5a49a80e18d2bd28ecad5c9625106d07dee8d52bb325f4fcafd0a"
   },
   "entries": [
     {
@@ -3507,6 +3508,75 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302334160",
+      "problem": "Luogu U367189",
+      "sources": [
+        {
+          "path": "verification/submitted/U367189.compact.cpp",
+          "sha256": "3b9435374c3ccf582e5af39eff599c67cd6bbd04aafd1cbea1e3b36380737d6a"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "total_time_ms": 392,
+            "max_case_time_ms": 63,
+            "test_times_ms": [
+              4,
+              5,
+              4,
+              45,
+              58,
+              56,
+              49,
+              63,
+              58,
+              50
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual simple-undirected-graph four-cycle counting AC. Empty graph and permutation invariance additionally tested locally; speed rank not checked."
+        },
+        {
+          "evidence": "verification/four-cycles-online.json",
+          "timing": {
+            "total_time_ms": 392,
+            "max_case_time_ms": 63,
+            "test_times_ms": [
+              4,
+              5,
+              4,
+              45,
+              58,
+              56,
+              49,
+              63,
+              58,
+              50
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual simple-undirected-graph four-cycle counting AC. Empty graph and permutation invariance additionally tested locally; speed rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "count_four_cycles"
+      ],
+      "maximum_case_ms": 63,
+      "sum_of_case_ms": 392,
+      "reported_total_ms": 392,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/301886868",
       "problem": "P2617",
       "sources": [
@@ -4276,10 +4346,10 @@
     }
   ],
   "counts": {
-    "entries": 110,
-    "with_record": 109,
-    "accepted": 108,
-    "known_case_max": 44,
+    "entries": 111,
+    "with_record": 110,
+    "accepted": 109,
+    "known_case_max": 45,
     "benchmarks_verified": 0
   }
 }
