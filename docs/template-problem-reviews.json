@@ -6829,13 +6829,13 @@
     "tested_api": [
       "regular_matching(g, seed)"
     ],
-    "ac": null,
+    "ac": "https://qoj.ac/submission/3150703",
     "ranking": {
       "status": "not_checked",
       "rank": null,
       "total": null
     },
-    "remaining": "Online submission and runtime ranking pending.",
+    "remaining": "Runtime rank pending.",
     "source": "src/compact/regular_matching.hpp",
     "driver": "verify/qoj/265.compact.cpp",
     "usage": "example-389",
@@ -6873,6 +6873,37 @@
       "verification/tutte-sanitizer.json",
       "verification/tutte-large.json",
       "verification/tutte-mutants.json"
+    ]
+  },
+  {
+    "symbol": "SteinerTree",
+    "problem": "P6192 最小斯坦纳树",
+    "url": "https://www.luogu.com.cn/problem/P6192",
+    "classification": "Direct Steiner tree template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "n≤100,m≤500,k≤10,w≤1000000；无向连通图，允许重边自环。1s / 250MB。",
+    "adapter": "Convert vertices to zero-based; add edges; print solve(terminals).cost.",
+    "tested_api": [
+      "add(u,v,w)",
+      "solve(terminals)",
+      "Result.edges"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302413451",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Runtime rank pending; broader API and returned edge witness checked locally.",
+    "source": "src/compact/steiner_tree.hpp",
+    "driver": "verify/luogu/P6192.compact.cpp",
+    "usage": "example-391",
+    "local_reports": [
+      "verification/steiner-tree-normal.json",
+      "verification/steiner-tree-sanitizer.json",
+      "verification/steiner-tree-large.json",
+      "verification/steiner-tree-mutants.json"
     ]
   }
 ]

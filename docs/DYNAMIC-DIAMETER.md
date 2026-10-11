@@ -1,6 +1,6 @@
 # 边权修改动态树直径
 
-本批尚未完成线上提交，不能标作 OJ AC。代码和本地测试已准备；目标为 issue #15 的 LibreOJ3163，强制在线驱动依据 [CEOI2019 官方英文题面](https://static.oj.uz/problem/25e3211db5386a934022e12dfa2cbd1e/statement/3fcf1f887b1fd60449dda224dc92b81cba9807b438de72ed782653882d7e1adb/statement_en.pdf)。LOJ 页面当前未能读取，提交前需复核该站题面与限制。
+本批尚未完成线上提交，不能标作 OJ AC。代码和本地测试已准备；目标为 issue #15 的 LibreOJ3163，强制在线驱动依据 [CEOI2019 官方英文题面](https://static.oj.uz/problem/25e3211db5386a934022e12dfa2cbd1e/statement/3fcf1f887b1fd60449dda224dc92b81cba9807b438de72ed782653882d7e1adb/statement_en.pdf)。2026-10-11已在Firefox读取LOJ3163：6000ms、1024MiB；强制在线解码、n/q≤100000、w≤2×10^13以及两份样例与现有驱动和测试一致。登录请求目前显示处理中，尚无线上提交回执。
 
 `DynamicDiameter(n)` 要求 n≥1。`add(u,v,w)` 添加非负权无向边并返回从 0 开始的边编号；输入必须恰好构成一棵树。`build(root=1)` 预处理，可换根重建。`update(id,w)` 设置原边的新权值，`diameter()` 返回最长路径长度（单点树为 0）。不支持 link/cut 或负权。内部字段除只读外不要直接改写；新增边后必须重新 build。复制结构相互独立。只提供长度，不提供端点。
 

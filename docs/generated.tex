@@ -9370,6 +9370,50 @@ solve(n,root,edges)，点号 0..n-1，n$\ge$1、0$\le$root<n；返回以 root �
 
 \lstinputlisting{usage/example-149.cpp}
 
+\newpage
+
+\Needspace{680pt}
+
+\chapter{斯坦纳树}
+
+\section{最小斯坦纳树与原边方案}\label{compact-SteinerTree}\index{SteinerTree}
+
+SteinerTree(n)，点号0..n-1；add(u,v,w)添加无向边并返回0-based原边编号，允许重边、自环、零权。n$\ge$1，w$\ge$0，所有边权总和严格小于LLONG\_MAX/4。solve(terminals)自动去重，返回\{cost,edges\}，edges为不重复、升序原边编号；空终端返回0及空方案，无法连通返回-1及空方案。输入图不修改，可重复求解；恢复最优连通子图，不额外保证零权环树化，递归回溯。
+
+令k为去重终端数。dp[mask][v]先枚举互补非空子集在v合并，再多源Dijkstra移动根。时间O(3\textasciicircum{}k n+2\textasciicircum{}k(m+n)log n)，空间O(2\textasciicircum{}k n+n+m)。位掩码约束k$\le$20，不代表此规模必然能在时限内完成；P6192为n$\le$100、m$\le$500、k$\le$10。负权不适用。当前已通过独立边子集枚举和方案校验，P6192已100分通过，排名未核验。
+
+\paragraph{正确性要点} 非负权最优连通子图可删环成树。以v为根，分叉处将关键点分成两个非空集合，在同根合并；单分支路径由最短路扩展得到。真子集先处理，逐mask闭包即可。回溯合并严格缩小mask，同mask前驱遵循Dijkstra的确定次序；严格改善避免零权前驱环。原边去重后的连通方案费用不大于dp，最优性又排除严格更小，故边权和恰等于cost。
+
+\newpage\noindent 图存储与加边：
+
+\lstinputlisting[firstline=7,lastline=40,firstnumber=1]{../src/compact/steiner_tree.hpp}
+
+\newpage\noindent 状态初始化与同根合并（接上页结构体）：
+
+\lstinputlisting[firstline=41,lastline=69,firstnumber=35]{../src/compact/steiner_tree.hpp}
+
+\newpage\noindent 多源最短路（接上页mask循环）：
+
+\lstinputlisting[firstline=70,lastline=90,firstnumber=64]{../src/compact/steiner_tree.hpp}
+
+\newpage\noindent 最优根与递归方案恢复（接上页solve函数）：
+
+\lstinputlisting[firstline=91,lastline=118,firstnumber=85]{../src/compact/steiner_tree.hpp}
+
+\Needspace{400pt}
+
+\subsection*{模板题使用：P6192 最小斯坦纳树}
+
+\label{usage-example-391}
+
+题意：输入无向正权图及关键点，输出连接所有关键点的最小边权和。方案边编号可直接读取solve返回值的edges。
+
+所需模板：\hyperref[compact-SteinerTree]{SteinerTree}（第~\pageref{compact-SteinerTree}~页，\ref{compact-SteinerTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6192}
+
+\lstinputlisting{usage/example-391.cpp}
+
 \Needspace{180pt}
 
 \chapter{连通性相关}
@@ -10754,7 +10798,7 @@ regular\_matching(g, seed)返回左侧各点的右侧匹配点，均为0..n-1；
 
 从均匀随机未匹配左点开始，按邻接项均匀抽边，沿匹配边继续；path和pos维护无环交替游走，遇旧左点时删去环。命中未匹配右点后倒序翻转；只在匹配全部建立后返回，不存在概率性错误答案。未匹配左点数为k时，每次尝试最多4(floor(n/k)+2)步，超限清空路径重试，不改变匹配。包含当前匹配边的采样项只形成自环，可正常消除。
 
-理想独立均匀随机模型下，游走期望O(n log(n+1))；加上全量度数检查，总期望O(nd+n log(n+1))，额外空间O(n)。固定PRNG种子没有确定性最坏耗时保证。seed显式传入，测试用固定种子，赛时用时钟。随机性仅影响耗时与选择哪份正确方案；线上提交尚未完成。
+理想独立均匀随机模型下，游走期望O(n log(n+1))；加上全量度数检查，总期望O(nd+n log(n+1))，额外空间O(n)。固定PRNG种子没有确定性最坏耗时保证。seed显式传入，测试用固定种子，赛时用时钟。随机性仅影响耗时与选择哪份正确方案；QOJ265已以CCF\_NOI满分通过，排名未核验。
 
 \paragraph{期望界} 将匹配点对收缩、原边定向左到右，加入源到未匹配左点和未匹配右点到汇各d条边，再识别源汇。所有点入出度平衡，源出度kd，总出度$(n+2k)d$；随机游走返回源的期望步数不超过$n/k+2$。截断后重试的单次成功概率至少$1/2$，故增广期望$O(1+n/k)$，求和得$O(n\log(n+1))$。路径数组只保存游走并消环，不是模拟DFS调用栈。
 

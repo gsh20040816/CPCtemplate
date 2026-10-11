@@ -20,9 +20,9 @@ for form in ['header','ndebug','copied']:
  print(MODE,form,core[form],flush=True)
 r={'status':'pass','mode':MODE,'core':core,'oracle':'independent edge-subset enumeration and returned edge witness','online_status':'not submitted'}
 (ROOT/('verification/steiner-tree-'+MODE+'.json')).write_text(json.dumps(r,indent=2)+'\n')
-# The official numeric sample was not available in the retrieved statement.
-# These are authored driver fixtures, not claimed as official samples.
+# Official sample retrieved through Firefox on 2026-10-11.
 fixtures = [
+ ('7 7 4\n1 2 3\n2 3 2\n4 3 9\n2 6 2\n4 5 3\n6 5 2\n7 6 4\n2 4 7 5\n', '11'),
  ('3 3 2\n1 2 4\n2 3 7\n1 3 20\n1 3\n', '11'),
  ('4 4 3\n1 2 3\n2 3 2\n2 4 5\n1 4 100\n1 3 4\n', '10'),
  ('2 3 2\n1 1 0\n1 2 8\n1 2 2\n1 2\n', '2'),
@@ -39,6 +39,7 @@ for form in ['header','ndebug','copied']:
   out=subprocess.check_output([str(exe)],input=data,text=True,timeout=30).strip()
   assert out==want,(form,out,want)
 r['driver_forms']=['header','ndebug','copied']
-r['authored_driver_cases']=len(fixtures)
+r['authored_driver_cases']=len(fixtures)-1
+r['official_sample_cases']=1
 (ROOT/('verification/steiner-tree-'+MODE+'.json')).write_text(json.dumps(r,indent=2)+'\n')
 print(MODE,'driver PASS',flush=True)

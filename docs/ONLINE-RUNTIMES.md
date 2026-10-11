@@ -8,7 +8,7 @@
 
 基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。
 
-当前 118 项，116 条 AC；49 项有明确最慢单点，0 项已完成 SOTA 核验。
+当前 120 项，118 条 AC；50 项有明确最慢单点，0 项已完成 SOTA 核验。
 
 | 题目/记录 | 状态、码风 | 原始登记 | 最慢单点 ms | 逐点合计 ms | 明确登记总计 ms | SOTA |
 |---|---|---|---:|---:|---:|---|
@@ -101,6 +101,7 @@
 | [Luogu P6177](https://www.luogu.com.cn/record/302395995) | Accepted, compact | time_ms=2849; displayed_total_time=2.85s | 768 | 2849 | — | 待核验 |
 | [Luogu P6178](https://www.luogu.com.cn/record/297619886) | Accepted, compact | time_display=517ms | 64 | — | — | 待核验 |
 | [Luogu P6178](https://www.luogu.com.cn/record/297620263) | Accepted, classic | time_display=512ms | 62 | — | — | 待核验 |
+| [Luogu P6192](https://www.luogu.com.cn/record/302413451) | Accepted, compact | displayed_total_time=195ms | 25 | 195 | — | 待核验 |
 | [Luogu P6577](https://www.luogu.com.cn/record/297520123) | Accepted, compact | time_ms=2010 | — | — | — | 待核验 |
 | [Luogu P6577](https://www.luogu.com.cn/record/297520132) | Accepted, classic | time_ms=1860 | — | — | — | 待核验 |
 | [Luogu P8435](https://www.luogu.com.cn/record/297517446) | Accepted, compact | time_ms=4770 | — | — | — | 待核验 |
@@ -117,6 +118,7 @@
 | [P5906](https://www.luogu.com.cn/record/301884220) | Accepted | displayed_total_time=7.46s | 762 | 7456 | — | 待核验 |
 | [QOJ 21566](https://qoj.ac/submission/3150412) | Accepted, compact | time_ms=554; displayed_total_time=554ms (maximum) | 554 | 3994 | — | 待核验 |
 | [QOJ 21566](https://qoj.ac/submission/3150675) | Accepted, compact | time_display=670ms | — | — | — | 待核验 |
+| [QOJ 265](https://qoj.ac/submission/3150703) | Accepted, compact | time_display=1391ms | — | — | — | 待核验 |
 | [QOJ 45](https://qoj.ac/submission/3150664) | Accepted, compact | time_display=3093ms | — | — | — | 待核验 |
 | [QOJ 8235](https://qoj.ac/submission/2939493) | Accepted, compact | time_display=666ms | 666 | — | — | 待核验 |
 | [QOJ 8235](https://qoj.ac/submission/2939551) | Accepted, classic | time_display=588ms | 588 | — | — | 待核验 |

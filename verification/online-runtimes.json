@@ -18,12 +18,14 @@
     "verification/nth-roots-online.json": "068115a3cae22733b23dd1fd185b0897ff662164341262db2fb10602aeecd408",
     "verification/overall-kth-isomorphism-online.json": "fbbcef1aade003474536609c348d39e88a3f64eecb91dea3c91a8057e2eef303",
     "verification/polya-online.json": "84162dbf2afff3bc49750b3b9c7081d302a47ab2587c6df8a0f041c9609b7cda",
+    "verification/regular-matching-online.json": "538de55464b10e939f5c09138c6289df7900f5d4430b0e03397639b8f2245b12",
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
+    "verification/steiner-tree-online.json": "867c4bb47d66ccd6b5646985bfa7528cbc23a5e8222c5789010e9ed87ec99289",
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
     "verification/tree-block-online.json": "35bf371a12b2decea0e5710260fb46bb3b96ed9a9cf80dff66ba846318276643",
     "verification/tutte-online.json": "b0243dfb595dc1cc3f1f5b0c1339a23683621ee630cc8e696a51fb2a0780abd2",
-    "docs/template-problem-reviews.json": "83092c8abb8ad844d947f7ddea972e84a3997606c49ed57e01985d23fc3449e4"
+    "docs/template-problem-reviews.json": "4c448601e4a0e7f005cf1726a6a7c1d7cc5ad9cb5f938e9fc194cc27ed3befd9"
   },
   "entries": [
     {
@@ -3572,6 +3574,54 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302413451",
+      "problem": "Luogu P6192",
+      "sources": [
+        {
+          "path": "verification/submitted/P6192.compact.cpp",
+          "sha256": "80f11bf6b409682343e3ef02549b32ba6b22d23857eeaad4dc3e542415875929"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/steiner-tree-online.json",
+          "timing": {
+            "max_case_time_ms": 25,
+            "displayed_total_time": "195ms",
+            "test_times_ms": [
+              4,
+              20,
+              12,
+              24,
+              23,
+              19,
+              21,
+              23,
+              24,
+              25
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Formal positive-weight Steiner cost accepted; returned-edge witness, disconnected/zero-weight/duplicate-terminal API validated locally. Rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "SteinerTree"
+      ],
+      "maximum_case_ms": 25,
+      "sum_of_case_ms": 195,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/297520123",
       "problem": "Luogu P6577",
       "sources": [
@@ -4304,6 +4354,41 @@
       "ratio": null
     },
     {
+      "record": "https://qoj.ac/submission/3150703",
+      "problem": "QOJ 265",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ265.compact.cpp",
+          "sha256": "af8eb9b7522d9ff5e63060df8754149c9da7da100fd9968dfa601880470d61ba"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/regular-matching-online.json",
+          "timing": {
+            "time_display": "1391ms"
+          },
+          "language": "C++20",
+          "note": "Formal regular bipartite multigraph matching accepted; runtime rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "regular_matching"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://qoj.ac/submission/3150664",
       "problem": "QOJ 45",
       "sources": [
@@ -4760,10 +4845,10 @@
     }
   ],
   "counts": {
-    "entries": 118,
-    "with_record": 117,
-    "accepted": 116,
-    "known_case_max": 49,
+    "entries": 120,
+    "with_record": 119,
+    "accepted": 118,
+    "known_case_max": 50,
     "benchmarks_verified": 0
   }
 }

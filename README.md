@@ -225,3 +225,5 @@ HLPP 最大流与流方案：接口、证明及证据见 [HLPP](docs/HLPP.md)。
 正则二分图匹配：随机游走、重边与期望界见 [REGULAR-MATCHING](docs/REGULAR-MATCHING.md)，线上提交待完成。
 
 Tutte多项式：子集指数递推、特殊取值与独立验证见 [TUTTE](docs/TUTTE.md)，QOJ45 已满分通过，排名待核验。
+
+最小斯坦纳树：子集DP、多源最短路与原边方案见 [STEINER-TREE](docs/STEINER-TREE.md)。
