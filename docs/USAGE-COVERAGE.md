@@ -299,4 +299,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Dominance4D | [example-386](usage/example-386.cpp), [example-387（接口演示）](usage/example-387.cpp) | locally_checked_example |
 | DynamicDiameter | [example-388](usage/example-388.cpp) | locally_checked_example |
 | regular_matching | [example-389](usage/example-389.cpp) | locally_checked_example |
-| tutte | [example-390](usage/example-390.cpp) | generated_unverified |
+| tutte | [example-390](usage/example-390.cpp) | locally_checked_example |

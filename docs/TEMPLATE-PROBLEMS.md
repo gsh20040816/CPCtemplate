@@ -263,10 +263,10 @@
 | `Cactus` | [P5236 【模板】静态仙人掌](https://www.luogu.com.cn/problem/P5236) | n,q≤10000，m≤20000，1≤w≤100000，无重边连通仙人掌；300ms / 125MB。 | [记录](https://www.luogu.com.cn/record/302334786) | 待核验 |
 | `HLPP` | [P4722 【模板】最大流 加强版 / 预流推进](https://www.luogu.com.cn/problem/P4722) | n≤1200，m≤120000，正容量≤2^31-1，答案≤2^31-1；1.5s / 500MB。 | [记录](https://www.luogu.com.cn/record/302390118) | 待核验 |
 | `TreeBlockDistinct` | [P6177 【模板】树分块 / Count on a tree II](https://www.luogu.com.cn/problem/P6177) | 1≤n≤40000，1≤q≤100000，0≤u编码,颜色<2^31；2s / 512MB。 | [记录](https://www.luogu.com.cn/record/302395995) | 待核验 |
-| `Dominance4D` | [QOJ21566 四维偏序](https://qoj.ac/problem/21566) | 1≤n≤100000；每维为1..n的排列；2s / 2048MB。 | [记录](https://qoj.ac/submission/3150412) | 待核验 |
+| `Dominance4D` | [QOJ21566 四维偏序](https://qoj.ac/problem/21566) | 1≤n≤100000；每维为1..n的排列；2s / 2048MB。 | [记录](https://qoj.ac/submission/3150675) | 待核验 |
 | `DynamicDiameter` | [CEOI2019 Dynamic Diameter / LOJ3163](https://loj.ac/p/3163) | CEOI原题n,q≤100000，0≤边权<w≤2e13；LOJ站点限制待复核。 | 待在线 AC | 待核验 |
 | `regular_matching` | [QOJ265 正则二分图匹配](https://qoj.ac/problem/265) | n,d≥1，nd≤2000000；3s / 2048MB。 | 待在线 AC | 待核验 |
-| `tutte` | [QOJ45 Tutte多项式](https://qoj.ac/problem/45) | 1≤n≤21，简单无向图，0≤x,y<998244353；7s / 512MB。 | 待在线 AC | 待核验 |
+| `tutte` | [QOJ45 Tutte多项式](https://qoj.ac/problem/45) | 1≤n≤21，简单无向图，0≤x,y<998244353；7s / 512MB。 | [记录](https://qoj.ac/submission/3150664) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2472,7 +2472,7 @@ Direct strict 4D dominance pair counting.
 
 Call strict mode and accumulate per-point counts with long long.
 
-Weak mode, duplicate/equal coordinates, signed64 extremes and per-point order verified locally; runtime rank not checked.
+Runtime rank pending; ties and weak dominance validated separately locally.
 
 ### CEOI2019 Dynamic Diameter / LOJ3163 / DynamicDiameter
 
@@ -2496,7 +2496,7 @@ Direct Tutte evaluation template.
 
 Convert adjacency matrix to unsigned masks; call tutte.
 
-Online submission and runtime rank pending; empty graph supported locally beyond formal input.
+Runtime rank pending; empty graph supported locally beyond formal input.
 
 ## 榜单口径
 
