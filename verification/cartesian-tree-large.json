@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "environment": "macOS local GCC16 O2",
+  "cases": [
+    {
+      "case": "increasing",
+      "n": 10000000,
+      "seconds": 0.037779,
+      "oracle": "every node compared against known chain"
+    },
+    {
+      "case": "decreasing",
+      "n": 10000000,
+      "seconds": 0.025371,
+      "oracle": "every node compared against known chain"
+    },
+    {
+      "case": "all-equal",
+      "n": 10000000,
+      "seconds": 0.030227,
+      "oracle": "every node compared against known chain"
+    }
+  ],
+  "peak_rss_bytes": 162676736,
+  "online": false
+}
