@@ -6700,5 +6700,33 @@
       "verification/cactus-sanitizer.json",
       "verification/cactus-linux-large.json"
     ]
+  },
+  {
+    "symbol": "HLPP",
+    "problem": "P4722 【模板】最大流 加强版 / 预流推进",
+    "url": "https://www.luogu.com.cn/problem/P4722",
+    "classification": "Direct strengthened maximum flow template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "n≤1200，m≤120000，正容量≤2^31-1，答案≤2^31-1；1.5s / 500MB。",
+    "adapter": "1-based directed capacities; run highest-label preflow-push and output maximum flow.",
+    "tested_api": [
+      "HLPP.add",
+      "HLPP.flow"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302390118",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Flow conservation, original-edge flows, min-cut certificate, zero/self/parallel arcs and terminal changes verified locally; speed ranking pending.",
+    "source": "src/compact/hlpp.hpp",
+    "driver": "verify/luogu/P4722.compact.cpp",
+    "usage": "example-383",
+    "local_reports": [
+      "verification/hlpp-normal.json",
+      "verification/hlpp-sanitizer.json"
+    ]
   }
 ]

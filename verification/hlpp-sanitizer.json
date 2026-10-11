@@ -1,0 +1,164 @@
+{
+  "status": "pass",
+  "mode": "sanitizer",
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/tests/hlpp.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/hlpp.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P4722.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-383-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P4722.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-383-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-383-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-383-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-383-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-383-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/hlpp.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-384-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/hlpp.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-384-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-384-expanded.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-384-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-384-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/hlpp/sanitizer/example-384-copied"
+    ]
+  ],
+  "core": {
+    "header": "PASS: 19683 ternary directed graphs, 5000 random multigraphs and shuffled copies; capacity/conservation/cut/recompute/terminal-change/64-bit checks",
+    "ndebug": "PASS: 19683 ternary directed graphs, 5000 random multigraphs and shuffled copies; capacity/conservation/cut/recompute/terminal-change/64-bit checks",
+    "copied": "PASS: 19683 ternary directed graphs, 5000 random multigraphs and shuffled copies; capacity/conservation/cut/recompute/terminal-change/64-bit checks"
+  },
+  "usage": {
+    "example-383": {
+      "program_sha256": "87f133e48173331f0215cf76f0d7326c697ff96722bda7acb56ec7e4a2dc3400",
+      "forms": {
+        "header": 156,
+        "ndebug": 156,
+        "expanded": 156,
+        "copied": 156
+      }
+    },
+    "example-384": {
+      "program_sha256": "4b61b51ee2e03b9cbea50a97efcbe7efe21ef9dcaaa731e91a10753b7e1166e1",
+      "forms": {
+        "header": 156,
+        "ndebug": 156,
+        "expanded": 156,
+        "copied": 156
+      }
+    }
+  },
+  "mutants": {},
+  "source_sha256": {
+    "src/compact/hlpp.hpp": "4333bab24dfa9e9940b9e256a74b3b0dc870c9083d33bb00c427b54d5bcae8a7",
+    "tests/hlpp.cpp": "45cad53a0312c859de333db359c4ac9f541b5747675d149e887f06be6d437e32",
+    "tests/hlpp.py": "de162c3e2a7191a25bd6433110834a4faafc5874e3105ddda40dd108d30fb457",
+    "verify/luogu/P4722.compact.cpp": "c4120c9b4e830113fbf4ebcf7a686abc6e68503d3157035965c021d66b35e01f",
+    "verify/api/hlpp.compact.cpp": "d4fc323976584742d94f42585d9a861a79fef25add8baee145113f55c66edc60"
+  },
+  "scope": "Independent cut enumeration plus capacity/conservation/min-cut witness checks; two official samples, max n/m dense/stranded/chain construction; OJ/ranking evidence separate."
+}

@@ -48,6 +48,7 @@
 - `verify/api/four_cycles.compact.cpp`
 - `verify/api/general_sam_queries.compact.cpp`
 - `verify/api/hld_path_add.compact.cpp`
+- `verify/api/hlpp.compact.cpp`
 - `verify/api/independent_set.compact.cpp`
 - `verify/api/integer_palindromes.compact.cpp`
 - `verify/api/interval_substring.compact.cpp`

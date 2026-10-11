@@ -213,3 +213,5 @@ Lyndon 分解的端点接口、证明与验证见 [Lyndon](docs/LYNDON.md)。
 子串、反串与拼接双哈希的接口、碰撞概率和确定性替代见 [字符串哈希](docs/STRING-HASH.md)。
 
 静态仙人掌森林最短路：接口、正确性与验证见 [CACTUS](docs/CACTUS.md)。
+
+HLPP 最大流与流方案：接口、证明及证据见 [HLPP](docs/HLPP.md)。

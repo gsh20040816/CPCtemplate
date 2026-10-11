@@ -10086,11 +10086,69 @@ mixed\_euler\_trail(n,edges) 返回任意可行欧拉路径的定向边序列，
 
 联合使用示例见第~\pageref{usage-example-206}~页（混合欧拉路径：定向与走法（自定义协议）），其中直接调用本模板。
 
-\Needspace{180pt}
+\newpage
+
+\Needspace{680pt}
 
 \chapter{网络流}
 
 \section{最大流}
+
+\subsection{HLPP最高标号预流推进与流方案}\label{compact-HLPP}\index{HLPP}
+
+HLPP(n)，2$\le$n<INT\_MAX/2，点1..n。add(u,v,cap)返回偶数残量边号id，允许自环、重边、反向边和零容量；原边数<INT\_MAX/2，全部原容量之和$\le$LLONG\_MAX。flow(s,t)要求s$\ne$t，每次从零重算并返回总最大流，支持重复调用、换源汇和加边后重算；与Dinic返回增量的约定不同。used(id)读原边净流，min\_cut()返回源侧0/1数组（下标0不用），只在完整flow后有效，加边后须重算。保证非源汇流守恒，多余预流确实退回源点；不止计算最大预流值。e/g只读，不支持外部改容量或限流。初始反向BFS标号，最高标号单链桶、当前弧和gap；没有周期全局重标号。不可达点初高n+1，仍须放流。head/next是活跃点桶链表，不是DFS栈；本算法无需DFS。给出保守O(n$^{2}$(n+m))时间、O(n+m)空间界；不据经验或AC声称线性。
+
+\lstinputlisting[firstline=7,lastline=36,firstnumber=1]{../src/compact/hlpp.hpp}
+
+\newpage\noindent 活跃点、推流与gap重标号（接上页同一结构体）：
+
+\lstinputlisting[firstline=37,lastline=81,firstnumber=31]{../src/compact/hlpp.hpp}
+
+\newpage\noindent 从零初始化与反向BFS（接上页同一结构体）：
+
+\lstinputlisting[firstline=82,lastline=117,firstnumber=76]{../src/compact/hlpp.hpp}
+
+\newpage\noindent 最高标号放流（接上页同一结构体）：
+
+\lstinputlisting[firstline=118,lastline=143,firstnumber=112]{../src/compact/hlpp.hpp}
+
+\newpage\noindent 原边流量与最小割（接上页同一结构体）：
+
+\lstinputlisting[firstline=144,lastline=171,firstnumber=138]{../src/compact/hlpp.hpp}
+
+\paragraph{预流不能冒充流方案} 不可达汇点的活跃点仍须继续放流，直到多余流退回源点；否则虽然ex[t]可能已是最大流值，used仍可能违反中间点流守恒。完成后，每对残量容量之和等于原容量，各原边流量合法；源侧残量可达集给出同值最小割。
+
+\paragraph{桶与gap} head[h]和next[u]是活跃点单链桶，不是DFS栈。点仅在多余流从0变正时加入，取出后放流至0；gap改变多个点高度后重建桶，并排除当前正在处理的点，避免重复入桶或旧高度记录。初始BFS只做一次，反向遍历必须看反边残量；没有周期全局重标号。
+
+\paragraph{调用约定} flow每次清空旧流并重算，因此允许换源汇；不返回增量，也不支持限流。used只接收add返回的偶数边号，min\_cut只在完整求流后有效。容量总和不超过LLONG\_MAX，不能只保证最大流值未溢出而忽略初始化预流。
+
+\Needspace{328pt}
+
+\subsection*{模板题使用：P4722 【模板】最大流 加强版 / 预流推进}
+
+\label{usage-example-383}
+
+题意：n$\le$1200、m$\le$120000，有向容量，输出最大流；允许重边/反向边。
+
+所需模板：\hyperref[compact-HLPP]{HLPP}（第~\pageref{compact-HLPP}~页，\ref{compact-HLPP}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4722}
+
+\lstinputlisting{usage/example-383.cpp}
+
+\Needspace{384pt}
+
+\subsection*{接口用法演示：API 最大流方案与最小割}
+
+\label{usage-example-384}
+
+演示约定：输入n m s t和m条边；输出总流量、每条原边流量，最后输出n位源侧标记。
+
+所需模板：\hyperref[compact-HLPP]{HLPP}（第~\pageref{compact-HLPP}~页，\ref{compact-HLPP}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://www.luogu.com.cn/problem/P4722}
+
+\lstinputlisting{usage/example-384.cpp}
 
 \subsection{最大流与方案}\label{compact-Dinic}\index{Dinic}
 

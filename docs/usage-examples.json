@@ -4851,5 +4851,29 @@
     "requires": [
       "Cactus"
     ]
+  },
+  {
+    "id": "example-383",
+    "symbol": "HLPP",
+    "kind": "template",
+    "problem": "P4722 【模板】最大流 加强版 / 预流推进",
+    "url": "https://www.luogu.com.cn/problem/P4722",
+    "summary": "n≤1200、m≤120000，有向容量，输出最大流；允许重边/反向边。",
+    "driver": "verify/luogu/P4722.compact.cpp",
+    "requires": [
+      "HLPP"
+    ]
+  },
+  {
+    "id": "example-384",
+    "symbol": "HLPP",
+    "kind": "api",
+    "problem": "API 最大流方案与最小割",
+    "url": "https://www.luogu.com.cn/problem/P4722",
+    "summary": "输入n m s t和m条边；输出总流量、每条原边流量，最后输出n位源侧标记。",
+    "driver": "verify/api/hlpp.compact.cpp",
+    "requires": [
+      "HLPP"
+    ]
   }
 ]

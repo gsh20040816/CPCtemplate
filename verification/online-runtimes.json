@@ -1,11 +1,12 @@
 {
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
-    "verification/oj.json": "f5bfdbd8e54bd59780b4b03b5758183feebd77064b742c6a17fd408b554f983b",
+    "verification/oj.json": "8921c9954ce48f448ee03ed960aa9cec78747f4f4cd9f6bd9ef1d5df9839ba26",
     "verification/cactus-online.json": "687b9261d1ccf15d858d1310f96fa613ed8ed7e072197bf95bc962ed0be09e1f",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
     "verification/four-cycles-online.json": "01a0b06257b97bde3afc03c000eb5a431d9d8f24597e1053b0c62b551734d3d4",
+    "verification/hlpp-online.json": "1b0809c172aaabd8214dbae595cf4eb6342f81e63abecc216b91625cede81275",
     "verification/kruskal-tree-online.json": "17fdee900f963141e88656243299395b9ca64f9c706dca8dfa1871236e14672a",
     "verification/long-chain-online.json": "7789091cdc2f67e2e29c4e59a9b84b13a3d3d280bfa238732936a8bf6cc50c3a",
     "verification/lyndon-online.json": "0f325a6fec1766a0f839e641b1d43767620e00d7f2f14eaf52d18ab65dabbe48",
@@ -18,7 +19,7 @@
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
-    "docs/template-problem-reviews.json": "e410db516c53e06e24ad6b921ca13ba921e1def2ae7b50ca03aa6a3bf89cfad4"
+    "docs/template-problem-reviews.json": "b28b73a6abc1794c65e48bf5635b11f5732a0e45de03f2bac8d310eed97a78d3"
   },
   "entries": [
     {
@@ -2142,6 +2143,69 @@
       ],
       "maximum_case_ms": null,
       "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302390118",
+      "problem": "Luogu P4722",
+      "sources": [
+        {
+          "path": "verification/submitted/P4722.compact.cpp",
+          "sha256": "f11eb773a7c50e135f86cb413c30673c9214da37e698df0fd23802d4c412a364"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "max_case_time_ms": 266,
+            "displayed_total_time": "1.06s",
+            "test_times_ms": [
+              5,
+              202,
+              266,
+              209,
+              219,
+              157,
+              7
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual maximum-flow value AC. Full edge flow/min-cut, zero/self/parallel arcs and terminal changes separately checked locally. Rank not yet verified."
+        },
+        {
+          "evidence": "verification/hlpp-online.json",
+          "timing": {
+            "max_case_time_ms": 266,
+            "displayed_total_time": "1.06s",
+            "test_times_ms": [
+              5,
+              202,
+              266,
+              209,
+              219,
+              157,
+              7
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual maximum-flow value AC. Full edge flow/min-cut, zero/self/parallel arcs and terminal changes separately checked locally. Rank not yet verified."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "HLPP"
+      ],
+      "maximum_case_ms": 266,
+      "sum_of_case_ms": 1065,
       "reported_total_ms": null,
       "benchmark_status": "not_checked",
       "benchmark": null,
@@ -4482,10 +4546,10 @@
     }
   ],
   "counts": {
-    "entries": 113,
-    "with_record": 112,
-    "accepted": 111,
-    "known_case_max": 46,
+    "entries": 114,
+    "with_record": 113,
+    "accepted": 112,
+    "known_case_max": 47,
     "benchmarks_verified": 0
   }
 }

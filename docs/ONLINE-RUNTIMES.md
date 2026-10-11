@@ -4,11 +4,11 @@
 
 旧 `time_ms` 字段的含义不一致，原样列入“原始登记”，不能直接与单点或总计比较。只有逐测试点列表或明确字段支持的值才进入相应列；显示为秒的舍入总时长不转换为精确毫秒。等待评测和拒绝提交不算 AC。
 
-已审查的候选及差距见 [P4980 核查](RUNTIME-P4980.md)。候选未满足排名覆盖核验条件，仍不计入正式 SOTA。
+已审查的候选及差距见 [P4980 核查](RUNTIME-P4980.md)、[P4722 核查](RUNTIME-P4722.md)。候选未满足排名覆盖核验条件，仍不计入正式 SOTA。
 
 基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。
 
-当前 113 项，111 条 AC；46 项有明确最慢单点，0 项已完成 SOTA 核验。
+当前 114 项，112 条 AC；47 项有明确最慢单点，0 项已完成 SOTA 核验。
 
 | 题目/记录 | 状态、码风 | 原始登记 | 最慢单点 ms | 逐点合计 ms | 明确登记总计 ms | SOTA |
 |---|---|---|---:|---:|---:|---|
@@ -69,6 +69,7 @@
 | [Luogu P4718](https://www.luogu.com.cn/record/297569935) | Accepted, classic | time_display=5.21s; max_case_time_display=2.12s | — | — | — | 待核验 |
 | [Luogu P4720](https://www.luogu.com.cn/record/297520142) | Accepted, compact | time_ms=61 | — | — | — | 待核验 |
 | [Luogu P4720](https://www.luogu.com.cn/record/297520151) | Accepted, classic | time_ms=55 | — | — | — | 待核验 |
+| [Luogu P4722](https://www.luogu.com.cn/record/302390118) | Accepted, compact | displayed_total_time=1.06s | 266 | 1065 | — | 待核验 |
 | [Luogu P4723](https://www.luogu.com.cn/record/297628790) | Accepted, compact | time_display=4.53s | 907 | — | — | 待核验 |
 | [Luogu P4723](https://www.luogu.com.cn/record/297629192) | Accepted, classic | time_display=4.52s | 905 | — | — | 待核验 |
 | [Luogu P4767](https://www.luogu.com.cn/record/302210674) | Accepted, compact | time_ms=41 | 41 | 169 | 169 | 待核验 |
