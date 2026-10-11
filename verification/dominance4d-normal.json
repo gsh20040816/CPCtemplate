@@ -1,0 +1,172 @@
+{
+  "status": "pass",
+  "mode": "normal",
+  "core": {
+    "header": "PASS: 65536 Boolean-grid subsets, 5000 random multisets and permutations, signed64 extremes, both comparison modes",
+    "ndebug": "PASS: 65536 Boolean-grid subsets, 5000 random multisets and permutations, signed64 extremes, both comparison modes",
+    "copied": "PASS: 65536 Boolean-grid subsets, 5000 random multisets and permutations, signed64 extremes, both comparison modes"
+  },
+  "drivers": {
+    "verify/qoj/21566.compact.cpp": {
+      "header": "pass",
+      "ndebug": "pass",
+      "expanded": "pass",
+      "copied": "pass"
+    },
+    "verify/api/dominance_4d.compact.cpp": {
+      "header": "pass",
+      "ndebug": "pass",
+      "expanded": "pass",
+      "copied": "pass"
+    }
+  },
+  "large": "chain strict=0 n=100000 checksum=4999950000 seconds=0.275025\nchain strict=1 n=100000 checksum=4999950000 seconds=0.33231\nantichain strict=0 n=100000 checksum=0 seconds=0.312183\nantichain strict=1 n=100000 checksum=0 seconds=0.294724\nduplicates strict=0 n=100000 checksum=9999900000 seconds=0.320487\nduplicates strict=1 n=100000 checksum=0 seconds=0.135991\nrandom-3d strict=0 n=100000 checksum=1247465078 seconds=0.74227\nrandom-3d strict=1 n=100000 checksum=1247465078 seconds=0.730933\n",
+  "mutants": {
+    "tie-order": "detected",
+    "fourth-dimension": "detected",
+    "rollback": "detected",
+    "self": "detected"
+  },
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/tests/dominance_4d.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/dominance_4d.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/qoj/21566.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/21566.compact-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/qoj/21566.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/21566.compact-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/21566.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/21566.compact-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/21566.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/21566.compact-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/dominance_4d.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/dominance_4d.compact-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/api/dominance_4d.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/dominance_4d.compact-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/dominance_4d.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/dominance_4d.compact-expanded"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/dominance_4d.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/dominance_4d.compact-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/tests/dominance_4d_large.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/large"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/mutant-tie-order.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/mutant-tie-order"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/mutant-fourth-dimension.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/mutant-fourth-dimension"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/mutant-rollback.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/mutant-rollback"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/mutant-self.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/dominance4d/normal/mutant-self"
+    ]
+  ],
+  "source_sha256": {
+    "src/compact/dominance_4d.hpp": "93ae356a3b8bd85e8e8a831ea5a8b7a14f19789601ed55630ead49eb26b3d64b",
+    "tests/dominance_4d.cpp": "b04b03c4803514046c3eec5c0b92641433e46d42a76d3208b7a5c491df62cf90",
+    "tests/dominance_4d_large.cpp": "1e529b768c453b903155ef4ebc37e9de479254e0630137708514055694a8b312",
+    "tests/dominance_4d.py": "02dcc969be0c333341496d12422032b2e9b45c9ee7f546469f9e6b90e45ce2cb",
+    "verify/qoj/21566.compact.cpp": "c3777b2dcff128977d092f9e7aeb05d1025ddddb6df234de40950fbfea5b6a70",
+    "verify/api/dominance_4d.compact.cpp": "ba363c60b64e054acdf748467f99c322335f20638b9890d2bffa42c82c177e04"
+  },
+  "scope": "Independent quadratic comparisons for both modes; all Boolean-grid subsets; signed64 extremes and duplicates; two official samples; n100000 formulas and reduction to independent 3D template. OJ and ranking separate."
+}

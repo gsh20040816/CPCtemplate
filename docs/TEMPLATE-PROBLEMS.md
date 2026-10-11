@@ -263,6 +263,7 @@
 | `Cactus` | [P5236 【模板】静态仙人掌](https://www.luogu.com.cn/problem/P5236) | n,q≤10000，m≤20000，1≤w≤100000，无重边连通仙人掌；300ms / 125MB。 | [记录](https://www.luogu.com.cn/record/302334786) | 待核验 |
 | `HLPP` | [P4722 【模板】最大流 加强版 / 预流推进](https://www.luogu.com.cn/problem/P4722) | n≤1200，m≤120000，正容量≤2^31-1，答案≤2^31-1；1.5s / 500MB。 | [记录](https://www.luogu.com.cn/record/302390118) | 待核验 |
 | `TreeBlockDistinct` | [P6177 【模板】树分块 / Count on a tree II](https://www.luogu.com.cn/problem/P6177) | 1≤n≤40000，1≤q≤100000，0≤u编码,颜色<2^31；2s / 512MB。 | [记录](https://www.luogu.com.cn/record/302395995) | 待核验 |
+| `Dominance4D` | [QOJ21566 四维偏序](https://qoj.ac/problem/21566) | 1≤n≤100000；每维为1..n的排列；2s / 2048MB。 | [记录](https://qoj.ac/submission/3150412) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2461,6 +2462,14 @@ Direct online static tree path distinct colors.
 Decode u by XOR with previous answer, initialized to zero.
 
 Alternative roots/block sizes/rebuild/copy/signed64 colors checked locally; runtime rank not checked.
+
+### QOJ21566 四维偏序 / Dominance4D
+
+Direct strict 4D dominance pair counting.
+
+Call strict mode and accumulate per-point counts with long long.
+
+Weak mode, duplicate/equal coordinates, signed64 extremes and per-point order verified locally; runtime rank not checked.
 
 ## 榜单口径
 

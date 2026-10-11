@@ -6758,5 +6758,32 @@
       "verification/tree-block-sanitizer.json",
       "verification/tree-block-linux-large.json"
     ]
+  },
+  {
+    "symbol": "Dominance4D",
+    "problem": "QOJ21566 四维偏序",
+    "url": "https://qoj.ac/problem/21566",
+    "classification": "Direct strict 4D dominance pair counting.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "1≤n≤100000；每维为1..n的排列；2s / 2048MB。",
+    "adapter": "Call strict mode and accumulate per-point counts with long long.",
+    "tested_api": [
+      "Dominance4D.count(strict=true)"
+    ],
+    "ac": "https://qoj.ac/submission/3150412",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Weak mode, duplicate/equal coordinates, signed64 extremes and per-point order verified locally; runtime rank not checked.",
+    "source": "src/compact/dominance_4d.hpp",
+    "driver": "verify/qoj/21566.compact.cpp",
+    "usage": "example-386",
+    "local_reports": [
+      "verification/dominance4d-normal.json",
+      "verification/dominance4d-sanitizer.json"
+    ]
   }
 ]

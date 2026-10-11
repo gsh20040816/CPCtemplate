@@ -8,7 +8,7 @@
 
 基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。
 
-当前 115 项，113 条 AC；48 项有明确最慢单点，0 项已完成 SOTA 核验。
+当前 116 项，114 条 AC；49 项有明确最慢单点，0 项已完成 SOTA 核验。
 
 | 题目/记录 | 状态、码风 | 原始登记 | 最慢单点 ms | 逐点合计 ms | 明确登记总计 ms | SOTA |
 |---|---|---|---:|---:|---:|---|
@@ -115,6 +115,7 @@
 | [P4768](https://www.luogu.com.cn/record/302331476) | Accepted, compact | displayed_total_time=13.72s; max_case_time_display=2.01s | — | — | — | 待核验 |
 | [P5043](https://www.luogu.com.cn/record/301887481) | Accepted | displayed_total_time=42ms | 5 | 42 | — | 待核验 |
 | [P5906](https://www.luogu.com.cn/record/301884220) | Accepted | displayed_total_time=7.46s | 762 | 7456 | — | 待核验 |
+| [QOJ 21566](https://qoj.ac/submission/3150412) | Accepted, compact | time_ms=554; displayed_total_time=554ms (maximum) | 554 | 3994 | — | 待核验 |
 | [QOJ 8235](https://qoj.ac/submission/2939493) | Accepted, compact | time_display=666ms | 666 | — | — | 待核验 |
 | [QOJ 8235](https://qoj.ac/submission/2939551) | Accepted, classic | time_display=588ms | 588 | — | — | 待核验 |
 | [QOJ 8236](https://qoj.ac/submission/2940150) | Accepted, compact | time_ms=324 | — | — | — | 待核验 |

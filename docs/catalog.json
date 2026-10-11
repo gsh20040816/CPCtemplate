@@ -1732,5 +1732,11 @@
     "TreeBlockDistinct",
     "树分块与在线路径去重",
     "TreeBlockDistinct(n)，1≤n<INT_MAX，点1..n；add(u,v)加入无向边，调用方保证恰为一棵树。build(values, b=512, root=1)离散化signed64点颜色，values长度n+1且忽略0号；b≥1，root为合法点。query(u,v)返回闭路径不同颜色数，可强制在线；无修改操作，改颜色或加边后必须重新build且仍保证树结构。支持换根、换块长、重建和值复制。\n\n递归按残余子树大小选关键点并补根，关键点数K≤floor(n/B)+1，每点到最近关键祖先距离<B。预存每对关键点路径颜色位集，重复颜色用计数回溯。令C为颜色种数、W=ceil(C/64)，预处理O(n log n+Kn+K²W)，空间O(n log n+K²W+n)，查询O(B+W+log n)。n=40000、B=512时K≤79，位集表最多约31.2MB；B过小会导致平方级关键点表，不保证任意块长都能装入内存。DFS保持递归，按题目内存提供足够调用栈。\n\n查询在LCA分成两条祖先链；长链选LCA下方B-1层的x，以near[x]为上端关键点，保证它不会越过LCA。不能直接使用near[LCA]。最后显式加入LCA颜色。g、up、c、dep、id、near、keys、paths等构建后只读；partition、mark、collect、leg为内部过程，jump要求0≤steps≤dep[u]。"
+  ],
+  [
+    "dominance_4d",
+    "Dominance4D",
+    "四维偏序：双层CDQ",
+    "Dominance4D::count(p, strict=false)返回vector<int>，第i项为其他点j在四个坐标均≤p[i]的数量；strict=true改为四个坐标均严格小于。按原输入顺序返回，排除自身，重复点按不同输入编号计数；空输入返回空。坐标可为任意signed64，输入不修改。n≤INT_MAX/2；每点答案≤n-1，总点对数须用long long汇总。\n\n每点拆成更新与查询两个事件；x、y同坐标时，弱模式更新先于查询，严格模式查询先于更新。外层CDQ固定x序，只抽取左半更新与右半查询；内层按y序分治，以z归并并用Fenwick统计w前缀。严格模式比较z<且查询w排名-1；弱模式z≤、查询完整排名，最后减去自身一次。递归CDQ，不模拟DFS栈。时间O(n log³(n+1))，额外空间O(n)，两层递归总调用深度O(log(n+1))。坐标只比较，不做减一或取负，避免极值溢出；w排名减一是压缩后的安全下标。"
   ]
 ]

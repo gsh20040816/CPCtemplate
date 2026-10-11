@@ -296,3 +296,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Cactus | [example-382](usage/example-382.cpp) | locally_checked_example |
 | HLPP | [example-383](usage/example-383.cpp), [example-384（接口演示）](usage/example-384.cpp) | locally_checked_example |
 | TreeBlockDistinct | [example-385](usage/example-385.cpp) | locally_checked_example |
+| Dominance4D | [example-386](usage/example-386.cpp), [example-387（接口演示）](usage/example-387.cpp) | locally_checked_example |

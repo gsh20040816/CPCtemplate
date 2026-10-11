@@ -12424,11 +12424,65 @@ solve(points,rng,eps) 返回 optional<Circle>，Circle=\{o,r\}；空集返回 nu
 
 \newpage
 
-\Needspace{589pt}
+\Needspace{680pt}
 
 \chapter{离线算法}
 
 \section{CDQ 分治}
+
+\subsection{四维偏序：双层CDQ}\label{compact-Dominance4D}\index{Dominance4D}
+
+Dominance4D::count(p, strict=false)返回vector<int>，第i项为其他点j在四个坐标均$\le$p[i]的数量；strict=true改为四个坐标均严格小于。按原输入顺序返回，排除自身，重复点按不同输入编号计数；空输入返回空。坐标可为任意signed64，输入不修改。n$\le$INT\_MAX/2；每点答案$\le$n-1，总点对数须用long long汇总。
+
+每点拆成更新与查询两个事件；x、y同坐标时，弱模式更新先于查询，严格模式查询先于更新。外层CDQ固定x序，只抽取左半更新与右半查询；内层按y序分治，以z归并并用Fenwick统计w前缀。严格模式比较z<且查询w排名-1；弱模式z$\le$、查询完整排名，最后减去自身一次。递归CDQ，不模拟DFS栈。时间O(n log$^{3}$(n+1))，额外空间O(n)，两层递归总调用深度O(log(n+1))。坐标只比较，不做减一或取负，避免极值溢出；w排名减一是压缩后的安全下标。
+
+\newpage\noindent 坐标压缩与x序事件：
+
+\lstinputlisting[firstline=7,lastline=39,firstnumber=1]{../src/compact/dominance_4d.hpp}
+
+\newpage\noindent Fenwick与外层CDQ（接上页同一函数）：
+
+\lstinputlisting[firstline=40,lastline=65,firstnumber=34]{../src/compact/dominance_4d.hpp}
+
+\paragraph{两次唯一分离} 每个合法更新--查询对在x事件序中有先后顺序，恰好在外层递归的一处分到左右两半。只提取左更新和右查询后，再按y排序并递归，恰好在内层的一处分离。z双指针与w前缀和检查余下两维，因此既不漏计也不重复计数。
+
+\paragraph{相等坐标} x、y相等时，严格模式将查询放在更新前面，阻止这一对进入贡献方向；弱模式反过来。z的比较和w的前缀下标也必须一起切换。弱模式每个点的自身恰被算一次，最后减一；重复点仍按不同编号保留。
+
+\newpage\noindent 内层CDQ、回滚与结果（接上页同一函数）：
+
+\lstinputlisting[firstline=66,lastline=100,firstnumber=60]{../src/compact/dominance_4d.hpp}
+
+\Needspace{284pt}
+
+\subsection*{模板题使用：QOJ21566 四维偏序}
+
+\label{usage-example-386}
+
+题意：四个坐标各为1..n的排列，统计四维全部严格小于的有向点对数；64位汇总。
+
+所需模板：\hyperref[compact-Dominance4D]{Dominance4D}（第~\pageref{compact-Dominance4D}~页，\ref{compact-Dominance4D}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://qoj.ac/problem/21566}
+
+\lstinputlisting{usage/example-386.cpp}
+
+\Needspace{297pt}
+
+\subsection*{接口用法演示：API 四维逐点支配计数}
+
+\label{usage-example-387}
+
+演示约定：输入n和strict(0/1)，再输入n个四维点；按原顺序逐行输出每点答案，排除自身。
+
+所需模板：\hyperref[compact-Dominance4D]{Dominance4D}（第~\pageref{compact-Dominance4D}~页，\ref{compact-Dominance4D}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://qoj.ac/problem/21566}
+
+\lstinputlisting{usage/example-387.cpp}
+
+\newpage
+
+\Needspace{519pt}
 
 \subsection{静态三维偏序计数}\label{compact-Dominance3D}\index{Dominance3D}
 

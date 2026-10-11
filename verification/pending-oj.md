@@ -40,6 +40,7 @@
 - `verify/api/dc3.compact.cpp`
 - `verify/api/dense_dijkstra.compact.cpp`
 - `verify/api/determinant_exact.compact.cpp`
+- `verify/api/dominance_4d.compact.cpp`
 - `verify/api/dynamic_path_max.compact.cpp`
 - `verify/api/fibonacci_period.compact.cpp`
 - `verify/api/fibonacci_period_hdu3977.compact.cpp`

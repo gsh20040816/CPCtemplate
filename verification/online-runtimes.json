@@ -1,9 +1,10 @@
 {
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
-    "verification/oj.json": "5bdb628c835426e1f679da1ac6cb55f7ee5842b350d464b43f66326e0ae464a0",
+    "verification/oj.json": "66ca4f1b9d2d70780d79750377d4cf951f34342ca472c9d5d6c29820a32f691c",
     "verification/cactus-online.json": "687b9261d1ccf15d858d1310f96fa613ed8ed7e072197bf95bc962ed0be09e1f",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
+    "verification/dominance4d-online.json": "d41ba508d6527977c035f8cc79990ff114c1a204ed96c9dd72b672a31759beb4",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
     "verification/four-cycles-online.json": "01a0b06257b97bde3afc03c000eb5a431d9d8f24597e1053b0c62b551734d3d4",
     "verification/hlpp-online.json": "1b0809c172aaabd8214dbae595cf4eb6342f81e63abecc216b91625cede81275",
@@ -19,8 +20,8 @@
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
-    "verification/tree-block-online.json": "412d33f089707be3c89cb08e7edcb09e04aa8424b96d96f690da2c9d03d270b3",
-    "docs/template-problem-reviews.json": "8013c516c53a58d1cad55cdf450ecb2492b1c34412fad4b60ac57e3d3bc6b968"
+    "verification/tree-block-online.json": "35bf371a12b2decea0e5710260fb46bb3b96ed9a9cf80dff66ba846318276643",
+    "docs/template-problem-reviews.json": "c65e01b4d2ace778d4c14f376f4a143aa98ede3397af0594edd3b5babcffedc7"
   },
   "entries": [
     {
@@ -4196,6 +4197,76 @@
       "ratio": null
     },
     {
+      "record": "https://qoj.ac/submission/3150412",
+      "problem": "QOJ 21566",
+      "sources": [
+        {
+          "path": "verification/submitted/QOJ21566.compact.cpp",
+          "sha256": "0ea7951a9c7a7fd9eec9d990cbc3f1939fb57b50a888253b7cd166e05b3e6585"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 554,
+            "max_case_time_ms": 554,
+            "displayed_total_time": "554ms (maximum)",
+            "test_times_ms": [
+              247,
+              245,
+              244,
+              245,
+              246,
+              554,
+              554,
+              553,
+              552,
+              554
+            ]
+          },
+          "language": "C++20",
+          "note": "Actual strict-mode AC on distinct coordinates; equal coordinates and weak mode verified separately locally. Runtime rank not checked."
+        },
+        {
+          "evidence": "verification/dominance4d-online.json",
+          "timing": {
+            "max_case_time_ms": 554,
+            "displayed_total_time": "554ms (maximum)",
+            "test_times_ms": [
+              247,
+              245,
+              244,
+              245,
+              246,
+              554,
+              554,
+              553,
+              552,
+              554
+            ]
+          },
+          "language": "C++20",
+          "note": "Actual strict-mode AC on distinct coordinates; equal coordinates and weak mode verified separately locally. Runtime rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "Dominance4D"
+      ],
+      "maximum_case_ms": 554,
+      "sum_of_case_ms": 3994,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://qoj.ac/submission/2939493",
       "problem": "QOJ 8235",
       "sources": [
@@ -4617,10 +4688,10 @@
     }
   ],
   "counts": {
-    "entries": 115,
-    "with_record": 114,
-    "accepted": 113,
-    "known_case_max": 48,
+    "entries": 116,
+    "with_record": 115,
+    "accepted": 114,
+    "known_case_max": 49,
     "benchmarks_verified": 0
   }
 }

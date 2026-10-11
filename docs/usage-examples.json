@@ -4887,5 +4887,29 @@
     "requires": [
       "TreeBlockDistinct"
     ]
+  },
+  {
+    "id": "example-386",
+    "symbol": "Dominance4D",
+    "kind": "template",
+    "problem": "QOJ21566 四维偏序",
+    "url": "https://qoj.ac/problem/21566",
+    "summary": "四个坐标各为1..n的排列，统计四维全部严格小于的有向点对数；64位汇总。",
+    "driver": "verify/qoj/21566.compact.cpp",
+    "requires": [
+      "Dominance4D"
+    ]
+  },
+  {
+    "id": "example-387",
+    "symbol": "Dominance4D",
+    "kind": "api",
+    "problem": "API 四维逐点支配计数",
+    "url": "https://qoj.ac/problem/21566",
+    "summary": "输入n和strict(0/1)，再输入n个四维点；按原顺序逐行输出每点答案，排除自身。",
+    "driver": "verify/api/dominance_4d.compact.cpp",
+    "requires": [
+      "Dominance4D"
+    ]
   }
 ]
