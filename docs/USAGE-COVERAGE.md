@@ -295,3 +295,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | minimum_mean_cycle | [example-380](usage/example-380.cpp), [example-381（接口演示）](usage/example-381.cpp) | locally_checked_example |
 | Cactus | [example-382](usage/example-382.cpp) | locally_checked_example |
 | HLPP | [example-383](usage/example-383.cpp), [example-384（接口演示）](usage/example-384.cpp) | locally_checked_example |
+| TreeBlockDistinct | [example-385](usage/example-385.cpp) | locally_checked_example |

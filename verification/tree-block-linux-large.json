@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "host": "desktop Linux x86_64 GCC16",
+  "command": "g++ -std=c++20 -O2 tests/tree_block_distinct_large.cpp -o large; ulimit -s unlimited; ./large",
+  "stdout": "chain-unique n=40000 q=100000 keys=79 checksum=1340461456 seconds=0.176406\nchain-periodic n=40000 q=100000 keys=79 checksum=97198201 seconds=0.0920317\nstar n=40000 q=100000 keys=1 checksum=299991 seconds=0.0700597\nbinary n=40000 q=100000 keys=41 checksum=2559269 seconds=0.0822207\n",
+  "scope": "Four n=40000 q=100000 analytical-oracle cases; recursive DFS with expanded native call stack. Local timings are not OJ rankings.",
+  "source_sha256": {
+    "src/compact/tree_block_distinct.hpp": "c03d3b1209eca2ba1a9a43a97bd19d53a8cd8a6d405c56bcb8b9a4064ac17181",
+    "tests/tree_block_distinct_large.cpp": "671d90bd7b42c75f65bb7cab1d6721f4a2ae8b47ea30e2a79f16b93bacf8d0c6"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
-    "verification/oj.json": "8921c9954ce48f448ee03ed960aa9cec78747f4f4cd9f6bd9ef1d5df9839ba26",
+    "verification/oj.json": "5bdb628c835426e1f679da1ac6cb55f7ee5842b350d464b43f66326e0ae464a0",
     "verification/cactus-online.json": "687b9261d1ccf15d858d1310f96fa613ed8ed7e072197bf95bc962ed0be09e1f",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
@@ -19,7 +19,8 @@
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
-    "docs/template-problem-reviews.json": "b28b73a6abc1794c65e48bf5635b11f5732a0e45de03f2bac8d310eed97a78d3"
+    "verification/tree-block-online.json": "412d33f089707be3c89cb08e7edcb09e04aa8424b96d96f690da2c9d03d270b3",
+    "docs/template-problem-reviews.json": "8013c516c53a58d1cad55cdf450ecb2492b1c34412fad4b60ac57e3d3bc6b968"
   },
   "entries": [
     {
@@ -3426,6 +3427,76 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302395995",
+      "problem": "Luogu P6177",
+      "sources": [
+        {
+          "path": "verification/submitted/P6177.compact.cpp",
+          "sha256": "c2735fe76b48128f38ef9080682d54e2e48c82d11a4247f93b334e27e79c1373"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 2849,
+            "max_case_time_ms": 768,
+            "displayed_total_time": "2.85s",
+            "test_times_ms": [
+              164,
+              182,
+              168,
+              168,
+              170,
+              172,
+              173,
+              262,
+              768,
+              622
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual online path distinct-color AC; root/block/rebuild contracts checked separately locally. Rank not checked."
+        },
+        {
+          "evidence": "verification/tree-block-online.json",
+          "timing": {
+            "max_case_time_ms": 768,
+            "displayed_total_time": "2.85s",
+            "test_times_ms": [
+              164,
+              182,
+              168,
+              168,
+              170,
+              172,
+              173,
+              262,
+              768,
+              622
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Actual online path distinct-color AC; root/block/rebuild contracts checked separately locally. Rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "TreeBlockDistinct"
+      ],
+      "maximum_case_ms": 768,
+      "sum_of_case_ms": 2849,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/297619886",
       "problem": "Luogu P6178",
       "sources": [
@@ -4546,10 +4617,10 @@
     }
   ],
   "counts": {
-    "entries": 114,
-    "with_record": 113,
-    "accepted": 112,
-    "known_case_max": 47,
+    "entries": 115,
+    "with_record": 114,
+    "accepted": 113,
+    "known_case_max": 48,
     "benchmarks_verified": 0
   }
 }

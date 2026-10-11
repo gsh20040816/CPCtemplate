@@ -215,3 +215,5 @@ Lyndon 分解的端点接口、证明与验证见 [Lyndon](docs/LYNDON.md)。
 静态仙人掌森林最短路：接口、正确性与验证见 [CACTUS](docs/CACTUS.md)。
 
 HLPP 最大流与流方案：接口、证明及证据见 [HLPP](docs/HLPP.md)。
+
+树分块与在线路径去重：接口、分块界及验证见 [TREE-BLOCK](docs/TREE-BLOCK.md)。

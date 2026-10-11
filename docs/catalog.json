@@ -1726,5 +1726,11 @@
     "HLPP",
     "HLPP最高标号预流推进与流方案",
     "HLPP(n)，2≤n<INT_MAX/2，点1..n。add(u,v,cap)返回偶数残量边号id，允许自环、重边、反向边和零容量；原边数<INT_MAX/2，全部原容量之和≤LLONG_MAX。flow(s,t)要求s≠t，每次从零重算并返回总最大流，支持重复调用、换源汇和加边后重算；与Dinic返回增量的约定不同。used(id)读原边净流，min_cut()返回源侧0/1数组（下标0不用），只在完整flow后有效，加边后须重算。保证非源汇流守恒，多余预流确实退回源点；不止计算最大预流值。e/g只读，不支持外部改容量或限流。初始反向BFS标号，最高标号单链桶、当前弧和gap；没有周期全局重标号。不可达点初高n+1，仍须放流。head/next是活跃点桶链表，不是DFS栈；本算法无需DFS。给出保守O(n²(n+m))时间、O(n+m)空间界；不据经验或AC声称线性。"
+  ],
+  [
+    "tree_block_distinct",
+    "TreeBlockDistinct",
+    "树分块与在线路径去重",
+    "TreeBlockDistinct(n)，1≤n<INT_MAX，点1..n；add(u,v)加入无向边，调用方保证恰为一棵树。build(values, b=512, root=1)离散化signed64点颜色，values长度n+1且忽略0号；b≥1，root为合法点。query(u,v)返回闭路径不同颜色数，可强制在线；无修改操作，改颜色或加边后必须重新build且仍保证树结构。支持换根、换块长、重建和值复制。\n\n递归按残余子树大小选关键点并补根，关键点数K≤floor(n/B)+1，每点到最近关键祖先距离<B。预存每对关键点路径颜色位集，重复颜色用计数回溯。令C为颜色种数、W=ceil(C/64)，预处理O(n log n+Kn+K²W)，空间O(n log n+K²W+n)，查询O(B+W+log n)。n=40000、B=512时K≤79，位集表最多约31.2MB；B过小会导致平方级关键点表，不保证任意块长都能装入内存。DFS保持递归，按题目内存提供足够调用栈。\n\n查询在LCA分成两条祖先链；长链选LCA下方B-1层的x，以near[x]为上端关键点，保证它不会越过LCA。不能直接使用near[LCA]。最后显式加入LCA颜色。g、up、c、dep、id、near、keys、paths等构建后只读；partition、mark、collect、leg为内部过程，jump要求0≤steps≤dep[u]。"
   ]
 ]

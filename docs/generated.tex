@@ -5815,6 +5815,64 @@ b.erase(h);
 
 \Needspace{680pt}
 
+\chapter{块状数据结构}
+
+\section{树分块}
+
+\subsection{树分块与在线路径去重}\label{compact-TreeBlockDistinct}\index{TreeBlockDistinct}
+
+TreeBlockDistinct(n)，1$\le$n<INT\_MAX，点1..n；add(u,v)加入无向边，调用方保证恰为一棵树。build(values, b=512, root=1)离散化signed64点颜色，values长度n+1且忽略0号；b$\ge$1，root为合法点。query(u,v)返回闭路径不同颜色数，可强制在线；无修改操作，改颜色或加边后必须重新build且仍保证树结构。支持换根、换块长、重建和值复制。
+
+递归按残余子树大小选关键点并补根，关键点数K$\le$floor(n/B)+1，每点到最近关键祖先距离<B。预存每对关键点路径颜色位集，重复颜色用计数回溯。令C为颜色种数、W=ceil(C/64)，预处理O(n log n+Kn+K$^{2}$W)，空间O(n log n+K$^{2}$W+n)，查询O(B+W+log n)。n=40000、B=512时K$\le$79，位集表最多约31.2MB；B过小会导致平方级关键点表，不保证任意块长都能装入内存。DFS保持递归，按题目内存提供足够调用栈。
+
+查询在LCA分成两条祖先链；长链选LCA下方B-1层的x，以near[x]为上端关键点，保证它不会越过LCA。不能直接使用near[LCA]。最后显式加入LCA颜色。g、up、c、dep、id、near、keys、paths等构建后只读；partition、mark、collect、leg为内部过程，jump要求0$\le$steps$\le$dep[u]。
+
+\newpage\noindent 结构与关键点选择：
+
+\lstinputlisting[firstline=7,lastline=44,firstnumber=1]{../src/compact/tree_block_distinct.hpp}
+
+\newpage\noindent 最近关键祖先与路径位集（接上页同一结构体）：
+
+\lstinputlisting[firstline=45,lastline=62,firstnumber=39]{../src/compact/tree_block_distinct.hpp}
+
+\paragraph{分块界} 每个按残余大小选出的关键点消耗至少B个尚未归入更深关键点的点，故数量不超过floor(n/B)，补根后至多再加1。连续B个非关键祖先会使其中最高点的残余大小至少B，矛盾；因此near距离严格小于B。
+
+\paragraph{重复颜色} collect沿当前简单路径维护颜色出现次数，回溯时只有计数归零才能清除对应位。每个关键点作为源递归遍历整棵树，遇到另一个关键点就保存当前位集。
+
+\newpage\noindent 离散化与从零重建（接上页同一结构体）：
+
+\lstinputlisting[firstline=63,lastline=95,firstnumber=57]{../src/compact/tree_block_distinct.hpp}
+
+\newpage\noindent 倍增祖先与LCA（接上页同一结构体）：
+
+\lstinputlisting[firstline=96,lastline=118,firstnumber=90]{../src/compact/tree_block_distinct.hpp}
+
+\paragraph{上端关键点不能越过LCA} 设当前祖先链终点为p。长链中x在p下方B-1层，near[x]距x至多B-1，所以b=near[x]仍在p的子树内；a=near[u]位于b下方或等于b。关键路径a至b之外，两端各不足B步，枚举这些短段即可。短链直接枚举，最后补上p的颜色。
+
+\paragraph{空间选型} 令W=ceil(C/64)。K个源的遍历需O(Kn)，保存K平方份位集需O(K²W)时间和空间；另有倍增表。默认B=512针对四万点量级，不能把B任意缩小后仍假定线性内存。
+
+\newpage\noindent 拼接路径与在线查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=119,lastline=153,firstnumber=113]{../src/compact/tree_block_distinct.hpp}
+
+\Needspace{436pt}
+
+\subsection*{模板题使用：P6177 【模板】树分块 / Count on a tree II}
+
+\label{usage-example-385}
+
+题意：静态点颜色，u与上次答案异或解码；在线输出闭路径颜色种数。
+
+所需模板：\hyperref[compact-TreeBlockDistinct]{TreeBlockDistinct}（第~\pageref{compact-TreeBlockDistinct}~页，\ref{compact-TreeBlockDistinct}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6177}
+
+\lstinputlisting{usage/example-385.cpp}
+
+\newpage
+
+\Needspace{680pt}
+
 \chapter{ST 表}
 
 \section{位掩码静态区间最值与位置}\label{compact-StaticRMQ}\index{StaticRMQ}

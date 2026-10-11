@@ -262,6 +262,7 @@
 | `minimum_mean_cycle` | [P3199 [HNOI2009] 最小圈](https://www.luogu.com.cn/problem/P3199) | 2≤n≤3000，1≤m≤10000，\|w\|≤10^7，实数权，无自环，保证有圈且有点可达全图；5s/512MB，输出8位小数。 | [记录](https://www.luogu.com.cn/record/302334598) | 待核验 |
 | `Cactus` | [P5236 【模板】静态仙人掌](https://www.luogu.com.cn/problem/P5236) | n,q≤10000，m≤20000，1≤w≤100000，无重边连通仙人掌；300ms / 125MB。 | [记录](https://www.luogu.com.cn/record/302334786) | 待核验 |
 | `HLPP` | [P4722 【模板】最大流 加强版 / 预流推进](https://www.luogu.com.cn/problem/P4722) | n≤1200，m≤120000，正容量≤2^31-1，答案≤2^31-1；1.5s / 500MB。 | [记录](https://www.luogu.com.cn/record/302390118) | 待核验 |
+| `TreeBlockDistinct` | [P6177 【模板】树分块 / Count on a tree II](https://www.luogu.com.cn/problem/P6177) | 1≤n≤40000，1≤q≤100000，0≤u编码,颜色<2^31；2s / 512MB。 | [记录](https://www.luogu.com.cn/record/302395995) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2452,6 +2453,14 @@ Direct strengthened maximum flow template.
 1-based directed capacities; run highest-label preflow-push and output maximum flow.
 
 Flow conservation, original-edge flows, min-cut certificate, zero/self/parallel arcs and terminal changes verified locally; speed ranking pending.
+
+### P6177 【模板】树分块 / Count on a tree II / TreeBlockDistinct
+
+Direct online static tree path distinct colors.
+
+Decode u by XOR with previous answer, initialized to zero.
+
+Alternative roots/block sizes/rebuild/copy/signed64 colors checked locally; runtime rank not checked.
 
 ## 榜单口径
 

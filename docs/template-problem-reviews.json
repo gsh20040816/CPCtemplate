@@ -6728,5 +6728,35 @@
       "verification/hlpp-normal.json",
       "verification/hlpp-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "TreeBlockDistinct",
+    "problem": "P6177 【模板】树分块 / Count on a tree II",
+    "url": "https://www.luogu.com.cn/problem/P6177",
+    "classification": "Direct online static tree path distinct colors.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "1≤n≤40000，1≤q≤100000，0≤u编码,颜色<2^31；2s / 512MB。",
+    "adapter": "Decode u by XOR with previous answer, initialized to zero.",
+    "tested_api": [
+      "TreeBlockDistinct.add",
+      "TreeBlockDistinct.build",
+      "TreeBlockDistinct.query"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302395995",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Alternative roots/block sizes/rebuild/copy/signed64 colors checked locally; runtime rank not checked.",
+    "source": "src/compact/tree_block_distinct.hpp",
+    "driver": "verify/luogu/P6177.compact.cpp",
+    "usage": "example-385",
+    "local_reports": [
+      "verification/tree-block-normal.json",
+      "verification/tree-block-sanitizer.json",
+      "verification/tree-block-linux-large.json"
+    ]
   }
 ]

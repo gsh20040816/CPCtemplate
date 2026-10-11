@@ -1,0 +1,105 @@
+{
+  "status": "pass",
+  "mode": "normal",
+  "core": {
+    "header": "PASS: 1442 labelled trees, 1500 random trees, block sizes/root/rebuild/copy/64-bit colors/bit-word boundaries",
+    "ndebug": "PASS: 1442 labelled trees, 1500 random trees, block sizes/root/rebuild/copy/64-bit colors/bit-word boundaries",
+    "copied": "PASS: 1442 labelled trees, 1500 random trees, block sizes/root/rebuild/copy/64-bit colors/bit-word boundaries"
+  },
+  "online_cases": {
+    "header": 101,
+    "ndebug": 101,
+    "copied": 101
+  },
+  "mutants": {
+    "above-lca": "detected by timeout",
+    "duplicate-clear": "detected",
+    "missing-lca": "detected"
+  },
+  "commands": [
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/tests/tree_block_distinct.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/core-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/tests/tree_block_distinct.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/core-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/core-copied.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/core-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6177.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/driver-header"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-DNDEBUG",
+      "/Users/gsh/Workspace/CPCtemplate/verify/luogu/P6177.compact.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/driver-ndebug"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/P6177.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/driver-copied"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-D_GLIBCXX_ASSERTIONS",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/mutant-above-lca.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/mutant-above-lca"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-D_GLIBCXX_ASSERTIONS",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/mutant-duplicate-clear.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/mutant-duplicate-clear"
+    ],
+    [
+      "/opt/homebrew/bin/g++-16",
+      "-std=c++20",
+      "-O2",
+      "-D_GLIBCXX_ASSERTIONS",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/mutant-missing-lca.cpp",
+      "-o",
+      "/Users/gsh/Workspace/CPCtemplate/build/tree-block/normal/mutant-missing-lca"
+    ]
+  ],
+  "source_sha256": {
+    "src/compact/tree_block_distinct.hpp": "c03d3b1209eca2ba1a9a43a97bd19d53a8cd8a6d405c56bcb8b9a4064ac17181",
+    "tests/tree_block_distinct.cpp": "4694a1f1a6a79e7c3615e93621219db6fe500ef833fa4dfd8342f0332eeca767",
+    "verify/luogu/P6177.compact.cpp": "4b0b74050509c7ed4b2f75767b8a4420d4fca1707d111dd9b54f9efdd7ebeaa1",
+    "tests/tree_block_distinct.py": "28478b22c1a487c13911483372d2d7b51642758af57d8168dbe8c4fd2023cb4b"
+  },
+  "scope": "1442 labelled trees, 1500 random trees, repeated build/root/block/copy/bit boundaries; official sample and 100 independently encoded online cases. Large scale and actual OJ separate."
+}
