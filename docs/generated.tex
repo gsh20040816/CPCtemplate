@@ -7776,11 +7776,49 @@ odd\_induced\_partition(n,edges) 接收 0..n-1 的无向简单图，禁止自环
 
 \lstinputlisting{usage/example-96.cpp}
 
-\Needspace{653pt}
+\newpage
+
+\Needspace{680pt}
 
 \chapter{树上问题}
 
 \section{树的直径}
+
+\noindent 相关应用：固定拓扑下修改非负边权，递归欧拉序与区间加维护动态直径。
+
+\subsection{边权修改动态树直径}\label{compact-DynamicDiameter}\index{DynamicDiameter}
+
+DynamicDiameter(n)，n$\ge$1，点号1..n。add(u,v,w)返回从0开始的原边编号；输入须恰为一棵非负权无向树。build(root=1)预处理；update(id,w)设置原边权值；diameter()返回最长路径长度，单点树为0。仅返回长度，不支持link/cut和负权。可换根重建、复制；所有内部成员仅供只读。全部边权之和始终$\le$LLONG\_MAX/4，保证中间值安全。
+
+递归DFS记录进入顶点及每次孩子返回后的根距离，得到2n-1项欧拉序。修改父边等价于对子树首次至最后出现的闭区间加Δ。维护max(d[i]-2d[j]+d[k])，i$\le$j$\le$k；非负权下区间最小根距离等于LCA根距离，故最大值即直径。线段树五项high、low、left、right、best分别表示d、-2d、前两项、后两项、完整三项最大值。统一加Δ后依次加Δ、-2Δ、-Δ、-Δ、0。建树O(n)，修改O(log n)，查询O(1)，空间O(n)。DFS保持递归，深链须给足原生栈。线上验证尚待提交。
+
+\newpage\noindent 字段、加边与五项合并：
+
+\lstinputlisting[firstline=7,lastline=52,firstnumber=1]{../src/compact/dynamic_diameter.hpp}
+
+\newpage\noindent 递归欧拉遍历与建树（接上页结构体）：
+
+\lstinputlisting[firstline=53,lastline=87,firstnumber=47]{../src/compact/dynamic_diameter.hpp}
+
+\newpage\noindent 区间加与原边修改（接上页结构体）：
+
+\lstinputlisting[firstline=88,lastline=126,firstnumber=82]{../src/compact/dynamic_diameter.hpp}
+
+\Needspace{449pt}
+
+\subsection*{模板题使用：CEOI2019 Dynamic Diameter（LOJ3163待复核提交）}
+
+\label{usage-example-388}
+
+题意：每次修改一条边后输出直径；用上次答案解码边号和新权，边编号0-based。
+
+所需模板：\hyperref[compact-DynamicDiameter]{DynamicDiameter}（第~\pageref{compact-DynamicDiameter}~页，\ref{compact-DynamicDiameter}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://loj.ac/p/3163}
+
+\lstinputlisting{usage/example-388.cpp}
+
+\Needspace{583pt}
 
 \subsection{树上点集直径摘要}\label{compact-TreeDiameter}\index{TreeDiameter}
 

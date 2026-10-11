@@ -1,4 +1,9 @@
 \input{preamble.tex}
+% Four-digit printed page numbers need a wider TOC page-number box.
+\makeatletter
+\renewcommand{\@pnumwidth}{2.5em}
+\renewcommand{\@tocrmarg}{3.5em}
+\makeatother
 \begin{document}
 \raggedbottom
 \hypersetup{pageanchor=false}

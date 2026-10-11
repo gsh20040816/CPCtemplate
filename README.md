@@ -219,3 +219,5 @@ HLPP 最大流与流方案：接口、证明及证据见 [HLPP](docs/HLPP.md)。
 树分块与在线路径去重：接口、分块界及验证见 [TREE-BLOCK](docs/TREE-BLOCK.md)。
 
 四维偏序：严格/弱偏序接口、双层 CDQ 证明及验证见 [DOMINANCE4D](docs/DOMINANCE4D.md)。
+
+边权修改动态树直径：接口、欧拉序证明与本地验证见 [DYNAMIC-DIAMETER](docs/DYNAMIC-DIAMETER.md)，线上提交待完成。

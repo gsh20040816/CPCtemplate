@@ -6785,5 +6785,36 @@
       "verification/dominance4d-normal.json",
       "verification/dominance4d-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "DynamicDiameter",
+    "problem": "CEOI2019 Dynamic Diameter / LOJ3163",
+    "url": "https://loj.ac/p/3163",
+    "classification": "Edge-weight updates and whole-tree diameter; official CEOI statement read, LOJ page pending.",
+    "statement_checked": false,
+    "checked_date": "2026-10-11",
+    "limits": "CEOI原题n,q≤100000，0≤边权<w≤2e13；LOJ站点限制待复核。",
+    "adapter": "Decode original edge id and new weight with last diameter.",
+    "tested_api": [
+      "add",
+      "build",
+      "update",
+      "diameter"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "LOJ statement confirmation and online submission pending; runtime ranking not checked.",
+    "source": "src/compact/dynamic_diameter.hpp",
+    "driver": "verify/loj/3163.compact.cpp",
+    "usage": "example-388",
+    "local_reports": [
+      "verification/dynamic-diameter-local.json",
+      "verification/dynamic-diameter-driver-normal.json",
+      "verification/dynamic-diameter-driver-sanitizer.json"
+    ]
   }
 ]
