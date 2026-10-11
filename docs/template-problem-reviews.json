@@ -6816,5 +6816,34 @@
       "verification/dynamic-diameter-driver-normal.json",
       "verification/dynamic-diameter-driver-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "regular_matching",
+    "problem": "QOJ265 正则二分图匹配",
+    "url": "https://qoj.ac/problem/265",
+    "classification": "Direct regular bipartite perfect matching template, parallel edges allowed.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "n,d≥1，nd≤2000000；3s / 2048MB。",
+    "adapter": "Read 1-based adjacency, convert to 0-based and output returned matching plus one.",
+    "tested_api": [
+      "regular_matching(g, seed)"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and runtime ranking pending.",
+    "source": "src/compact/regular_matching.hpp",
+    "driver": "verify/qoj/265.compact.cpp",
+    "usage": "example-389",
+    "local_reports": [
+      "verification/regular-matching-normal.json",
+      "verification/regular-matching-sanitizer.json",
+      "verification/regular-matching-large.json",
+      "verification/regular-matching-mutants.json"
+    ]
   }
 ]

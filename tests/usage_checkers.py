@@ -4,6 +4,15 @@ import math
 
 
 def check_output(example_id, mode, data, stdout, expected):
+    if isinstance(expected, dict) and 'regular_matching' in expected:
+        values = list(map(int, data.split()))
+        n, d = values[:2]
+        assert len(values) == 2 + n * d
+        output = list(map(int, stdout.split()))
+        assert sorted(output) == list(range(1, n + 1))
+        for u, v in enumerate(output):
+            assert v in values[2 + u * d:2 + (u + 1) * d]
+        return
     if isinstance(expected, dict) and 'difference_constraints' in expected:
         tokens = list(map(int, data.split()))
         n, m = tokens[:2]

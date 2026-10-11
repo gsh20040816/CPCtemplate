@@ -265,6 +265,7 @@
 | `TreeBlockDistinct` | [P6177 【模板】树分块 / Count on a tree II](https://www.luogu.com.cn/problem/P6177) | 1≤n≤40000，1≤q≤100000，0≤u编码,颜色<2^31；2s / 512MB。 | [记录](https://www.luogu.com.cn/record/302395995) | 待核验 |
 | `Dominance4D` | [QOJ21566 四维偏序](https://qoj.ac/problem/21566) | 1≤n≤100000；每维为1..n的排列；2s / 2048MB。 | [记录](https://qoj.ac/submission/3150412) | 待核验 |
 | `DynamicDiameter` | [CEOI2019 Dynamic Diameter / LOJ3163](https://loj.ac/p/3163) | CEOI原题n,q≤100000，0≤边权<w≤2e13；LOJ站点限制待复核。 | 待在线 AC | 待核验 |
+| `regular_matching` | [QOJ265 正则二分图匹配](https://qoj.ac/problem/265) | n,d≥1，nd≤2000000；3s / 2048MB。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2479,6 +2480,14 @@ Edge-weight updates and whole-tree diameter; official CEOI statement read, LOJ p
 Decode original edge id and new weight with last diameter.
 
 LOJ statement confirmation and online submission pending; runtime ranking not checked.
+
+### QOJ265 正则二分图匹配 / regular_matching
+
+Direct regular bipartite perfect matching template, parallel edges allowed.
+
+Read 1-based adjacency, convert to 0-based and output returned matching plus one.
+
+Online submission and runtime ranking pending.
 
 ## 榜单口径
 
