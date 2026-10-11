@@ -6790,10 +6790,10 @@
     "symbol": "DynamicDiameter",
     "problem": "CEOI2019 Dynamic Diameter / LOJ3163",
     "url": "https://loj.ac/p/3163",
-    "classification": "Edge-weight updates and whole-tree diameter; official CEOI statement read, LOJ page pending.",
-    "statement_checked": false,
+    "classification": "Direct formal template, official site statement checked.",
+    "statement_checked": true,
     "checked_date": "2026-10-11",
-    "limits": "CEOI原题n,q≤100000，0≤边权<w≤2e13；LOJ站点限制待复核。",
+    "limits": "LOJ3163: n,q≤100000，0≤边权<w≤2e13；6000ms、1024MiB。",
     "adapter": "Decode original edge id and new weight with last diameter.",
     "tested_api": [
       "add",
@@ -6801,13 +6801,13 @@
       "update",
       "diameter"
     ],
-    "ac": null,
+    "ac": "https://loj.ac/s/2631249",
     "ranking": {
       "status": "not_checked",
       "rank": null,
       "total": null
     },
-    "remaining": "LOJ statement confirmation and online submission pending; runtime ranking not checked.",
+    "remaining": "Runtime ranking not checked; broader API contracts additionally validated locally.",
     "source": "src/compact/dynamic_diameter.hpp",
     "driver": "verify/loj/3163.compact.cpp",
     "usage": "example-388",
@@ -6904,6 +6904,38 @@
       "verification/steiner-tree-sanitizer.json",
       "verification/steiner-tree-large.json",
       "verification/steiner-tree-mutants.json"
+    ]
+  },
+  {
+    "symbol": "CartesianTree",
+    "problem": "P5854 笛卡尔树",
+    "url": "https://www.luogu.com.cn/problem/P5854",
+    "classification": "Direct formal template, official site statement checked.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "1≤n≤10^7，1..n排列；1秒、512MB；题面建议C++14 GCC9。",
+    "adapter": "Construct zero-based Cartesian tree and convert child IDs for 64-bit checksum.",
+    "tested_api": [
+      "cartesian_tree(a)",
+      "root",
+      "left",
+      "right"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302414811",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Runtime ranking not checked; broader API contracts additionally validated locally.",
+    "source": "src/compact/cartesian_tree.hpp",
+    "driver": "verify/luogu/P5854.compact.cpp",
+    "usage": "example-392",
+    "local_reports": [
+      "verification/cartesian-tree-normal.json",
+      "verification/cartesian-tree-sanitizer.json",
+      "verification/cartesian-tree-large.json",
+      "verification/cartesian-tree-mutants.json"
     ]
   }
 ]

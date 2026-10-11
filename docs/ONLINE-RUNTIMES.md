@@ -8,7 +8,7 @@
 
 基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。
 
-当前 120 项，118 条 AC；50 项有明确最慢单点，0 项已完成 SOTA 核验。
+当前 122 项，120 条 AC；51 项有明确最慢单点，0 项已完成 SOTA 核验。
 
 | 题目/记录 | 状态、码风 | 原始登记 | 最慢单点 ms | 逐点合计 ms | 明确登记总计 ms | SOTA |
 |---|---|---|---:|---:|---:|---|
@@ -18,6 +18,7 @@
 | [Library Checker persistent_queue](https://judge.yosupo.jp/submission/401871) | Accepted, compact | time_ms=942 | — | — | — | 待核验 |
 | [Library Checker point_set_range_composite](https://judge.yosupo.jp/submission/402090) | Accepted, compact | time_ms=247 | — | — | — | 待核验 |
 | [Library Checker predecessor_problem](https://judge.yosupo.jp/submission/402089) | Accepted, compact | time_ms=383 | — | — | — | 待核验 |
+| [LibreOJ 3163](https://loj.ac/s/2631249) | Accepted, compact | time_display=4460 ms | — | — | — | 待核验 |
 | [Luogu P1429](https://www.luogu.com.cn/record/297602650) | Accepted, compact | time_display=350ms | 75 | — | — | 待核验 |
 | [Luogu P1429](https://www.luogu.com.cn/record/297603238) | Accepted, classic | time_display=346ms | 75 | — | — | 待核验 |
 | [Luogu P1446](https://www.luogu.com.cn/record/302212973) | Accepted, compact | time_ms=5 | 5 | 55 | 55 | 待核验 |
@@ -90,6 +91,7 @@
 | [Luogu P5491](https://www.luogu.com.cn/record/297520354) | Accepted, compact | time_ms=148 | — | — | — | 待核验 |
 | [Luogu P5496](https://www.luogu.com.cn/record/297518043) | Accepted, compact | time_ms=422 | — | — | — | 待核验 |
 | [Luogu P5668](https://www.luogu.com.cn/record/300024458) | Accepted, compact | time_ms=172 | 172 | 372 | 372 | 待核验 |
+| [Luogu P5854](https://www.luogu.com.cn/record/302414811) | Accepted, compact | displayed_total_time=1.79s | 675 | 1794 | — | 待核验 |
 | [Luogu P5903](https://www.luogu.com.cn/record/302333606) | Accepted, compact | displayed_total_time=7.13s; max_case_time_display=1.51s | — | — | — | 待核验 |
 | [Luogu P6091](https://www.luogu.com.cn/record/297558740) | Accepted, compact | time_ms=2793 | — | — | — | 待核验 |
 | [Luogu P6091](https://www.luogu.com.cn/record/297559082) | Accepted, classic | time_ms=2796 | — | — | — | 待核验 |

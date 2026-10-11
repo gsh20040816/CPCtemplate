@@ -3,10 +3,12 @@
   "inputs_sha256": {
     "verification/oj.json": "66ca4f1b9d2d70780d79750377d4cf951f34342ca472c9d5d6c29820a32f691c",
     "verification/cactus-online.json": "687b9261d1ccf15d858d1310f96fa613ed8ed7e072197bf95bc962ed0be09e1f",
+    "verification/cartesian-tree-online.json": "c5b126a2edbb4071182d6321b598b1f91e5c4199f935d52c0208d5b80f254785",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
     "verification/dominance4d-ccf-noi-online.json": "c6ee7cf21f75f88afc1377d9dfb35c4a18c4a0c938e0e65a9d6a2861e67748ee",
     "verification/dominance4d-online.json": "d41ba508d6527977c035f8cc79990ff114c1a204ed96c9dd72b672a31759beb4",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
+    "verification/dynamic-diameter-online.json": "b07070425ac153a11d57ea4424d0ed68e5de1095cb11b318e8a28a45b699c449",
     "verification/four-cycles-online.json": "01a0b06257b97bde3afc03c000eb5a431d9d8f24597e1053b0c62b551734d3d4",
     "verification/hlpp-online.json": "1b0809c172aaabd8214dbae595cf4eb6342f81e63abecc216b91625cede81275",
     "verification/kruskal-tree-online.json": "17fdee900f963141e88656243299395b9ca64f9c706dca8dfa1871236e14672a",
@@ -25,7 +27,7 @@
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
     "verification/tree-block-online.json": "35bf371a12b2decea0e5710260fb46bb3b96ed9a9cf80dff66ba846318276643",
     "verification/tutte-online.json": "b0243dfb595dc1cc3f1f5b0c1339a23683621ee630cc8e696a51fb2a0780abd2",
-    "docs/template-problem-reviews.json": "4c448601e4a0e7f005cf1726a6a7c1d7cc5ad9cb5f938e9fc194cc27ed3befd9"
+    "docs/template-problem-reviews.json": "7fee9a63448bdcac608b4e4d42d4462a59a18b68760dbf6c6fade6b0e943f596"
   },
   "entries": [
     {
@@ -224,6 +226,41 @@
       ],
       "algorithms": [
         "segtree"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://loj.ac/s/2631249",
+      "problem": "LibreOJ 3163",
+      "sources": [
+        {
+          "path": "verification/submitted/LOJ3163.compact.cpp",
+          "sha256": "c6d99091bf57bde20985c7dc2051294f257ce21d1819827afa2b3fce9b792201"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/dynamic-diameter-online.json",
+          "timing": {
+            "time_display": "4460 ms"
+          },
+          "language": "GNU C++20 O2 64-bit",
+          "note": "Formal encrypted online edge-weight updates accepted, all six subtasks and sample; runtime rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "DynamicDiameter"
       ],
       "maximum_case_ms": null,
       "sum_of_case_ms": null,
@@ -3046,6 +3083,55 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302414811",
+      "problem": "Luogu P5854",
+      "sources": [
+        {
+          "path": "verification/submitted/P5854.compact.cpp",
+          "sha256": "cadbe4e19ac243b341c826a31b3fa5c466c8b825084af6b1485dbd1056b81e0a"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/cartesian-tree-online.json",
+          "timing": {
+            "max_case_time_ms": 675,
+            "displayed_total_time": "1.79s",
+            "test_times_ms": [
+              4,
+              5,
+              4,
+              10,
+              10,
+              10,
+              71,
+              70,
+              346,
+              675,
+              589
+            ]
+          },
+          "language": "C++14 GCC9 O2",
+          "note": "Formal permutation input and checksum accepted; empty input, equal-value priority and full arrays independently checked locally. Rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "CartesianTree"
+      ],
+      "maximum_case_ms": 675,
+      "sum_of_case_ms": 1794,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/302333606",
       "problem": "Luogu P5903",
       "sources": [
@@ -4845,10 +4931,10 @@
     }
   ],
   "counts": {
-    "entries": 120,
-    "with_record": 119,
-    "accepted": 118,
-    "known_case_max": 50,
+    "entries": 122,
+    "with_record": 121,
+    "accepted": 120,
+    "known_case_max": 51,
     "benchmarks_verified": 0
   }
 }

@@ -7118,6 +7118,32 @@ SequenceSplay(n)建立原编号0..n−1的序列，允许n=0，要求n$\le$INT\_
 
 \lstinputlisting{usage/example-326.cpp}
 
+\Needspace{446pt}
+
+\section{笛卡尔树}
+
+\subsection{笛卡尔树与相等值优先级}\label{compact-CartesianTree}\index{CartesianTree}
+
+cartesian\_tree(a)返回CartesianTree \{root,left,right\}，下标0..n-1，缺失孩子及空树根为-1。中序遍历为原下标顺序，按值为小根堆；相等值保留较小下标在上方，即区间最左最小值为根。输入不修改，n须能用int表示，元素比较须构成严格弱序，浮点NaN不适用。
+
+比较O(1)时，构造O(n)，结果数组及辅助单调栈均O(n)。每点入栈一次、出栈至多一次；单调栈维护树的最右路径，不模拟DFS。弹出节点中最后一个成为新节点的左孩子，剩余栈顶的右孩子改成新节点。P5854用1..n排列，n$\le$10\textasciicircum{}7；P5854已用C++14 GCC9满分通过，排名未核验。
+
+\lstinputlisting[firstline=6,lastline=33]{../src/compact/cartesian_tree.hpp}
+
+\Needspace{362pt}
+
+\subsection*{模板题使用：P5854 笛卡尔树}
+
+\label{usage-example-392}
+
+题意：输入1..n的排列，构造小根笛卡尔树并输出左右孩子的异或校验和。孩子由0-based转为1-based，缺失孩子为0；乘法使用long long。
+
+所需模板：\hyperref[compact-CartesianTree]{CartesianTree}（第~\pageref{compact-CartesianTree}~页，\ref{compact-CartesianTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5854}
+
+\lstinputlisting{usage/example-392.cpp}
+
 \Needspace{180pt}
 
 \chapter{可持久化数据结构}
@@ -7790,7 +7816,7 @@ odd\_induced\_partition(n,edges) 接收 0..n-1 的无向简单图，禁止自环
 
 DynamicDiameter(n)，n$\ge$1，点号1..n。add(u,v,w)返回从0开始的原边编号；输入须恰为一棵非负权无向树。build(root=1)预处理；update(id,w)设置原边权值；diameter()返回最长路径长度，单点树为0。仅返回长度，不支持link/cut和负权。可换根重建、复制；所有内部成员仅供只读。全部边权之和始终$\le$LLONG\_MAX/4，保证中间值安全。
 
-递归DFS记录进入顶点及每次孩子返回后的根距离，得到2n-1项欧拉序。修改父边等价于对子树首次至最后出现的闭区间加Δ。维护max(d[i]-2d[j]+d[k])，i$\le$j$\le$k；非负权下区间最小根距离等于LCA根距离，故最大值即直径。线段树五项high、low、left、right、best分别表示d、-2d、前两项、后两项、完整三项最大值。统一加Δ后依次加Δ、-2Δ、-Δ、-Δ、0。建树O(n)，修改O(log n)，查询O(1)，空间O(n)。DFS保持递归，深链须给足原生栈。线上验证尚待提交。
+递归DFS记录进入顶点及每次孩子返回后的根距离，得到2n-1项欧拉序。修改父边等价于对子树首次至最后出现的闭区间加Δ。维护max(d[i]-2d[j]+d[k])，i$\le$j$\le$k；非负权下区间最小根距离等于LCA根距离，故最大值即直径。线段树五项high、low、left、right、best分别表示d、-2d、前两项、后两项、完整三项最大值。统一加Δ后依次加Δ、-2Δ、-Δ、-Δ、0。建树O(n)，修改O(log n)，查询O(1)，空间O(n)。DFS保持递归，深链须给足原生栈。LOJ3163已满分通过，排名未核验。
 
 \newpage\noindent 字段、加边与五项合并：
 

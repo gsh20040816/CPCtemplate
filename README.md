@@ -227,3 +227,5 @@ HLPP 最大流与流方案：接口、证明及证据见 [HLPP](docs/HLPP.md)。
 Tutte多项式：子集指数递推、特殊取值与独立验证见 [TUTTE](docs/TUTTE.md)，QOJ45 已满分通过，排名待核验。
 
 最小斯坦纳树：子集DP、多源最短路与原边方案见 [STEINER-TREE](docs/STEINER-TREE.md)。
+
+笛卡尔树：线性构造、相等值约定与验证见 [CARTESIAN-TREE](docs/CARTESIAN-TREE.md)。

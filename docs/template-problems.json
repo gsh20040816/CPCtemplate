@@ -7429,13 +7429,15 @@
       "symbol": "DynamicDiameter",
       "title": "边权修改动态树直径",
       "source": "src/compact/dynamic_diameter.hpp",
-      "status": "needs_template_problem_review",
+      "status": "reviewed_formal_template",
       "candidate_drivers": [
         {
           "driver": "verify/loj/3163.compact.cpp",
           "url": "https://loj.ac/p/3163",
-          "existing_ac": [],
-          "review": "CEOI official statement checked; LOJ endpoint and online AC pending."
+          "existing_ac": [
+            "https://loj.ac/s/2631249"
+          ],
+          "review": "Official statement and samples checked; current implementation Accepted 100."
         }
       ],
       "qoj_tag_candidate": null,
@@ -7508,6 +7510,30 @@
             "https://www.luogu.com.cn/record/302413451"
           ],
           "review": "Direct formal template; P6192 Accepted 100."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "CartesianTree",
+      "title": "笛卡尔树与相等值优先级",
+      "source": "src/compact/cartesian_tree.hpp",
+      "status": "reviewed_formal_template",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5854.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5854",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/302414811"
+          ],
+          "review": "Official statement and samples checked; current implementation Accepted 100."
         }
       ],
       "qoj_tag_candidate": null,

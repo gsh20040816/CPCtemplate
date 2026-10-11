@@ -4959,5 +4959,17 @@
     "requires": [
       "SteinerTree"
     ]
+  },
+  {
+    "id": "example-392",
+    "symbol": "CartesianTree",
+    "kind": "template",
+    "problem": "P5854 笛卡尔树",
+    "url": "https://www.luogu.com.cn/problem/P5854",
+    "summary": "输入1..n的排列，构造小根笛卡尔树并输出左右孩子的异或校验和。孩子由0-based转为1-based，缺失孩子为0；乘法使用long long。",
+    "driver": "verify/luogu/P5854.compact.cpp",
+    "requires": [
+      "CartesianTree"
+    ]
   }
 ]

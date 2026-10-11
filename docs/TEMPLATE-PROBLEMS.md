@@ -264,10 +264,11 @@
 | `HLPP` | [P4722 【模板】最大流 加强版 / 预流推进](https://www.luogu.com.cn/problem/P4722) | n≤1200，m≤120000，正容量≤2^31-1，答案≤2^31-1；1.5s / 500MB。 | [记录](https://www.luogu.com.cn/record/302390118) | 待核验 |
 | `TreeBlockDistinct` | [P6177 【模板】树分块 / Count on a tree II](https://www.luogu.com.cn/problem/P6177) | 1≤n≤40000，1≤q≤100000，0≤u编码,颜色<2^31；2s / 512MB。 | [记录](https://www.luogu.com.cn/record/302395995) | 待核验 |
 | `Dominance4D` | [QOJ21566 四维偏序](https://qoj.ac/problem/21566) | 1≤n≤100000；每维为1..n的排列；2s / 2048MB。 | [记录](https://qoj.ac/submission/3150675) | 待核验 |
-| `DynamicDiameter` | [CEOI2019 Dynamic Diameter / LOJ3163](https://loj.ac/p/3163) | CEOI原题n,q≤100000，0≤边权<w≤2e13；LOJ站点限制待复核。 | 待在线 AC | 待核验 |
+| `DynamicDiameter` | [CEOI2019 Dynamic Diameter / LOJ3163](https://loj.ac/p/3163) | LOJ3163: n,q≤100000，0≤边权<w≤2e13；6000ms、1024MiB。 | [记录](https://loj.ac/s/2631249) | 待核验 |
 | `regular_matching` | [QOJ265 正则二分图匹配](https://qoj.ac/problem/265) | n,d≥1，nd≤2000000；3s / 2048MB。 | [记录](https://qoj.ac/submission/3150703) | 待核验 |
 | `tutte` | [QOJ45 Tutte多项式](https://qoj.ac/problem/45) | 1≤n≤21，简单无向图，0≤x,y<998244353；7s / 512MB。 | [记录](https://qoj.ac/submission/3150664) | 待核验 |
 | `SteinerTree` | [P6192 最小斯坦纳树](https://www.luogu.com.cn/problem/P6192) | n≤100,m≤500,k≤10,w≤1000000；无向连通图，允许重边自环。1s / 250MB。 | [记录](https://www.luogu.com.cn/record/302413451) | 待核验 |
+| `CartesianTree` | [P5854 笛卡尔树](https://www.luogu.com.cn/problem/P5854) | 1≤n≤10^7，1..n排列；1秒、512MB；题面建议C++14 GCC9。 | [记录](https://www.luogu.com.cn/record/302414811) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2477,11 +2478,11 @@ Runtime rank pending; ties and weak dominance validated separately locally.
 
 ### CEOI2019 Dynamic Diameter / LOJ3163 / DynamicDiameter
 
-Edge-weight updates and whole-tree diameter; official CEOI statement read, LOJ page pending.
+Direct formal template, official site statement checked.
 
 Decode original edge id and new weight with last diameter.
 
-LOJ statement confirmation and online submission pending; runtime ranking not checked.
+Runtime ranking not checked; broader API contracts additionally validated locally.
 
 ### QOJ265 正则二分图匹配 / regular_matching
 
@@ -2506,6 +2507,14 @@ Direct Steiner tree template.
 Convert vertices to zero-based; add edges; print solve(terminals).cost.
 
 Runtime rank pending; broader API and returned edge witness checked locally.
+
+### P5854 笛卡尔树 / CartesianTree
+
+Direct formal template, official site statement checked.
+
+Construct zero-based Cartesian tree and convert child IDs for 64-bit checksum.
+
+Runtime ranking not checked; broader API contracts additionally validated locally.
 
 ## 榜单口径
 

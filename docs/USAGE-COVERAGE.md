@@ -301,3 +301,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | regular_matching | [example-389](usage/example-389.cpp) | locally_checked_example |
 | tutte | [example-390](usage/example-390.cpp) | locally_checked_example |
 | SteinerTree | [example-391](usage/example-391.cpp) | locally_checked_example |
+| CartesianTree | [example-392](usage/example-392.cpp) | locally_checked_example |

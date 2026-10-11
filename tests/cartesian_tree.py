@@ -22,7 +22,7 @@ r={'status':'pass','mode':MODE,'core':core,'oracle':'recursive leftmost interval
 (ROOT/('verification/cartesian-tree-'+MODE+'.json')).write_text(json.dumps(r,indent=2)+'\n')
 import random
 rng=random.Random(5854)
-fixtures=[]
+fixtures=[('5\n4 1 3 2 5\n', '19 21')]
 for n in [1,2,5,20,100]:
  for repeat in range(10):
   a=list(range(1,n+1));rng.shuffle(a)
@@ -45,6 +45,7 @@ for form in ['header','ndebug','copied']:
  for data,want in fixtures:
   assert subprocess.check_output([str(exe)],input=data,text=True,timeout=30).strip()==want
 r['driver_cases']=len(fixtures)
+r['official_samples']=1
 r['driver_forms']=['header','ndebug','copied']
 (ROOT/('verification/cartesian-tree-'+MODE+'.json')).write_text(json.dumps(r,indent=2)+'\n')
 print(MODE,'driver PASS',flush=True)
