@@ -11119,9 +11119,49 @@ $k=1$ 时无需加边，答案为1，不计算负指数。原图的内部边固�
 以上用最小叶子的一致约定推导；不将本节计数说明当作整个上游页面的实现覆盖。
 
 
-\Needspace{508pt}
+\newpage
+
+\Needspace{680pt}
 
 \chapter{矩阵树定理}
+
+\noindent 相关应用：生成树计数的相关扩展：Tutte多项式，T(1,1)对应连通图生成树数；不将其冒称为矩阵树定理实现。
+
+\section{Tutte多项式求值}\label{compact-tutte}\index{tutte}
+
+tutte(adj,x,y)返回模998244353的Tutte多项式值。简单无向图，n$\le$21，点号0..n-1；adj[u]为邻居位掩码，须对称、无自环、无越界位。0$\le$x,y<998244353；支持断连、孤立点及空图（值1），不支持重边或自环；输入不修改。连通分量DFS保持递归。
+
+每个连通分量独立计算并相乘。c[S]为S上连通生成子图按(y-1)的环秩计权之和；删去S的最小顶点r后，每个剩余连通块T的连接权为1+y+...+y\textasciicircum{}(h-1)，h为r连向T的边数，h=0时为0。用快速子集指数求集合划分。最后固定顶点0所在块，其余各块乘(x-1)。不除x-1或y-1，x=1、y=1均直接支持；普通形式指数只需1..20的模逆元。时间O(n$^{2}$2\textasciicircum{}n)，峰值空间O(n2\textasciicircum{}n)。21点Linux九次连续求值进程峰值约312MiB；线上提交尚未完成。
+
+\paragraph{集合指数为何正确} 按集合大小分次数层，zeta后做普通形式指数，再Mobius并取集合大小次项。逆变换只保留并集恰为S的项，次数等于$|S|$排除重叠；$1/k!$抵消k个块的排列。最小顶点从大到小处理时，余下块的c值已知。最终固定0所在块，其他块各乘$x-1$，恰好给出定义中的连通分量指数。
+
+\newpage\noindent 输入约定、等比和与分层zeta：
+
+\lstinputlisting[firstline=7,lastline=37,firstnumber=1]{../src/compact/tutte.hpp}
+
+\newpage\noindent 形式指数与Mobius（接上页函数）：
+
+\lstinputlisting[firstline=38,lastline=63,firstnumber=32]{../src/compact/tutte.hpp}
+
+\newpage\noindent 连通子集递推及分量乘积（接上页函数）：
+
+\lstinputlisting[firstline=64,lastline=112,firstnumber=58]{../src/compact/tutte.hpp}
+
+\Needspace{353pt}
+
+\subsection*{模板题使用：QOJ45 Tutte多项式}
+
+\label{usage-example-390}
+
+题意：输入简单无向图邻接矩阵和x,y，输出模998244353的Tutte多项式值；n$\le$21。
+
+所需模板：\hyperref[compact-tutte]{tutte}（第~\pageref{compact-tutte}~页，\ref{compact-tutte}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://qoj.ac/problem/45}
+
+\lstinputlisting{usage/example-390.cpp}
+
+\Needspace{473pt}
 
 \section{带权矩阵树：无向树与内外向树形图}\label{compact-MatrixTree}\index{MatrixTree}
 

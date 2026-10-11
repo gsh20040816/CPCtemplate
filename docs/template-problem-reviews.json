@@ -6845,5 +6845,34 @@
       "verification/regular-matching-large.json",
       "verification/regular-matching-mutants.json"
     ]
+  },
+  {
+    "symbol": "tutte",
+    "problem": "QOJ45 Tutte多项式",
+    "url": "https://qoj.ac/problem/45",
+    "classification": "Direct Tutte evaluation template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-11",
+    "limits": "1≤n≤21，简单无向图，0≤x,y<998244353；7s / 512MB。",
+    "adapter": "Convert adjacency matrix to unsigned masks; call tutte.",
+    "tested_api": [
+      "tutte(adj,x,y)"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and runtime rank pending; empty graph supported locally beyond formal input.",
+    "source": "src/compact/tutte.hpp",
+    "driver": "verify/qoj/45.compact.cpp",
+    "usage": "example-390",
+    "local_reports": [
+      "verification/tutte-normal.json",
+      "verification/tutte-sanitizer.json",
+      "verification/tutte-large.json",
+      "verification/tutte-mutants.json"
+    ]
   }
 ]

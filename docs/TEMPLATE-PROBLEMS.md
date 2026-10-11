@@ -266,6 +266,7 @@
 | `Dominance4D` | [QOJ21566 四维偏序](https://qoj.ac/problem/21566) | 1≤n≤100000；每维为1..n的排列；2s / 2048MB。 | [记录](https://qoj.ac/submission/3150412) | 待核验 |
 | `DynamicDiameter` | [CEOI2019 Dynamic Diameter / LOJ3163](https://loj.ac/p/3163) | CEOI原题n,q≤100000，0≤边权<w≤2e13；LOJ站点限制待复核。 | 待在线 AC | 待核验 |
 | `regular_matching` | [QOJ265 正则二分图匹配](https://qoj.ac/problem/265) | n,d≥1，nd≤2000000；3s / 2048MB。 | 待在线 AC | 待核验 |
+| `tutte` | [QOJ45 Tutte多项式](https://qoj.ac/problem/45) | 1≤n≤21，简单无向图，0≤x,y<998244353；7s / 512MB。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2488,6 +2489,14 @@ Direct regular bipartite perfect matching template, parallel edges allowed.
 Read 1-based adjacency, convert to 0-based and output returned matching plus one.
 
 Online submission and runtime ranking pending.
+
+### QOJ45 Tutte多项式 / tutte
+
+Direct Tutte evaluation template.
+
+Convert adjacency matrix to unsigned masks; call tutte.
+
+Online submission and runtime rank pending; empty graph supported locally beyond formal input.
 
 ## 榜单口径
 

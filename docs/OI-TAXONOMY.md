@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 209，application 63，composite 7，related 13。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 209，application 63，composite 7，related 14。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -260,6 +260,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | MatrixTree | 图论 → 矩阵树定理 | direct |  |
 | MatrixTreeExact | 图论 → 矩阵树定理 | direct | Exact signed integer arithmetic; no floating rounding. |
 | MatrixTreeMod | 图论 → 矩阵树定理 | direct |  |
+| tutte | 图论 → 矩阵树定理 | related | 生成树计数的相关扩展：Tutte多项式，T(1,1)对应连通图生成树数；不将其冒称为矩阵树定理实现。 |
 | dag_path_determinant | 图论 → LGV 引理 | direct | DAG 路径矩阵及带排列符号的 LGV 行列式。 |
 | DagDominator | 图论 → 支配树 | direct | DAG-specific topological predecessor LCA; cycle rejection and unreachable vertices explicit. |
 | DominatorTree | 图论 → 支配树 | direct |  |
