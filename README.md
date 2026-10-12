@@ -35,6 +35,8 @@
 
 整体二分的时间序与撤销见 [离线动态第k小](docs/OVERALL-KTH.md)；有根/无根树的确定性编号见 [树同构](docs/TREE-ISOMORPHISM.md)，配套P2617、P5043完整用法。
 
+单环与恰好K环覆盖分别见 [单环插头DP](docs/PLUG-CYCLE.md)、[多环与禁止嵌套](docs/PLUG-CYCLES.md)。HDU4285已有实际AC，完整AC速度排名及差距见 [运行核对](docs/RUNTIME-HDU4285.md)。
+
 有向最小平均环、精确整数分数和实数精度说明见 [最小平均环](docs/MINIMUM-MEAN-CYCLE.md)。
 
 简单无向图四元环计数、非诱导定义与本地穷举验证见 [四元环](docs/FOUR-CYCLES.md)。

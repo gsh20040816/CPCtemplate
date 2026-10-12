@@ -158,6 +158,62 @@ Count支持0/1构造和+=；固定整数必须保证所有中间计数不溢出�
 
 \newpage
 
+\section{插头DP：恰好K个不嵌套回路}\label{compact-grid_cycles}\index{grid\_cycles}
+
+grid\_cycles<Count>(a,k,nested=false) 统计覆盖全部 . 格子的恰好k个无向简单环；*为障碍，只有上下左右相邻。默认禁止任意环包含另一个环；nested=true允许嵌套。无可用格且k=0时返回1，其余无法覆盖时返回0。k为非负int且k<INT\_MAX；矩形尺寸可用int表示，自动转置后宽度m$\le$15。
+
+同编号的两个插头表示同一路径端点，规范化编号。闭环时环数加1；禁止嵌套时检查当前格左侧插头数为偶数。每个环在其最后扫描顶点闭合，该奇偶性是环的嵌套深度奇偶；若存在嵌套，必有深度1的环被拒绝。只在扫完全部格子、无剩余插头时取答案。
+
+Count需支持0/1构造、默认构造为0、复制和+=；所有中间计数均须可表示，可用模整数或cpp\_int。S为固定环数下最多轮廓状态数，固定宽度计数下期望时间O(n*m$^{2}$*(k+1)*(S+1))，两层状态表O((k+1)*(S+1))，网格O(nm)。S随宽度指数增长；高精度计数另计位复杂度。
+
+\lstinputlisting[firstline=7,lastline=37,firstnumber=1]{../src/compact/plug_cycles.hpp}
+
+\newpage
+
+行移位、规范化与创建路径（接上页同一函数）：
+
+\lstinputlisting[firstline=38,lastline=86,firstnumber=32]{../src/compact/plug_cycles.hpp}
+
+\newpage
+
+延伸、合并与闭环计数（接上页同一函数）：
+
+\lstinputlisting[firstline=87,lastline=120,firstnumber=81]{../src/compact/plug_cycles.hpp}
+
+\newpage
+
+\Needspace{339pt}
+
+\subsection*{应用题补充：HDU4285 circuits}
+
+\label{usage-example-404}
+
+题意：官方竞赛应用：多组2$\le$n,m$\le$12网格，恰好K个互不嵌套回路覆盖所有可用格，答案模10$^{9}$+7。官方样例为2、6；不是单环模板的旧AC。 当前最小抄写版41022698已AC，11216MS、27236K。
+
+所需模板：\hyperref[compact-grid_cycles]{grid\_\allowbreak{}cycles}（第~\pageref{compact-grid_cycles}~页，\ref{compact-grid_cycles}~节）、\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://acm.hdu.edu.cn/showproblem.php?pid=4285}
+
+\lstinputlisting{usage/example-404.cpp}
+
+\Needspace{291pt}
+
+\subsection*{接口用法演示：多环覆盖与嵌套开关（精确计数）}
+
+\label{usage-example-405}
+
+演示约定：输入n,m,k,nested与网格，nested=0禁止嵌套，非0允许嵌套；使用cpp\_int避免中间计数溢出，需要Boost头文件。空网格k=0有一个空方案。此驱动为接口演示。
+
+所需模板：\hyperref[compact-grid_cycles]{grid\_\allowbreak{}cycles}（第~\pageref{compact-grid_cycles}~页，\ref{compact-grid_cycles}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+额外依赖（不属于标准头文件）：\nolinkurl{boost/multiprecision/cpp_int.hpp}，须由编译环境提供并显式包含。
+
+来源：\href{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/PLUG-CYCLES.md}{参考文档}
+
+\lstinputlisting{usage/example-405.cpp}
+
+\newpage
+
 \Needspace{680pt}
 
 \chapter{DP 优化}

@@ -7242,5 +7242,33 @@
     "local_reports": [
       "verification/alternate-template-judges.json"
     ]
+  },
+  {
+    "symbol": "grid_cycles",
+    "problem": "HDU4285 circuits",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4285",
+    "classification": "官方2012天津网络赛应用；不是非竞赛模板题。",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "2≤n,m≤12，15秒、32768K，多组，答案模10⁹+7；题面未单列K、T上限。",
+    "adapter": "ModInt计数，默认禁止嵌套；K超过可用格数/4直接返回0。",
+    "tested_api": [
+      "grid_cycles<ModInt<1000000007>>(a,k,false)"
+    ],
+    "ac": "https://acm.hdu.edu.cn/viewcode.php?rid=41022698",
+    "ranking": {
+      "status": "verified_all_accepted",
+      "rank": 432,
+      "total": 514,
+      "scope": "2026-10-12，全语言全部AC，35页514个唯一记录；按Exe.Time竞争排名，同用时两条占432–433位。"
+    },
+    "remaining": "非竞赛模板入口待核验；允许嵌套、宽15、cpp_int为本地证据。完整AC运行排名已枚举，但最快/第5快源码不可见，同算法SOTA仍待核验。",
+    "source": "src/compact/plug_cycles.hpp",
+    "driver": "verify/hdu/4285.compact.cpp",
+    "usage": "example-404",
+    "local_reports": [
+      "verification/plug-cycles-local.json",
+      "verification/plug-cycles-source-audit.json"
+    ]
   }
 ]

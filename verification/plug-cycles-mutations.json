@@ -1,0 +1,22 @@
+[
+  {
+    "mutation": "allow-nesting",
+    "rejected": true,
+    "counterexample": "....\n....\n....\n....\nk=2 got 7,7 expected 7,6"
+  },
+  {
+    "mutation": "lose-cycle-count",
+    "rejected": true,
+    "counterexample": "..\n..\nk=1 got 0,0 expected 1,1"
+  },
+  {
+    "mutation": "lose-row-shift",
+    "rejected": true,
+    "counterexample": "..\n..\nk=1 got 0,0 expected 1,1"
+  },
+  {
+    "mutation": "lose-merge",
+    "rejected": true,
+    "counterexample": "...\n...\n..*\nk=1 got 0,0 expected 1,1"
+  }
+]

@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 216，application 63，composite 7，related 17。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 217，application 63，composite 7，related 17。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -14,6 +14,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | MinimumCover | 搜索 → Dancing Links | direct | 无权最少行重复覆盖及方案；不含带权、多重次数与解计数。 |
 | digit_count | 动态规划 → 数位 DP | direct | 数位DP的前导零、上界限制和重复调用示例，统计正整数数码次数。 |
 | grid_cycle | 动态规划 → 插头 DP | direct | 轮廓线连通性最小编号表示，单个闭环覆盖所有可用格子，Count可取精确或模计数。 |
+| grid_cycles | 动态规划 → 插头 DP | direct | 恰好K个回路，默认禁止嵌套；与单闭环模板分开保留。 |
 | MonotoneHull | 动态规划 → DP 优化 → 斜率优化 | direct | Monotonicity and exact arithmetic contracts; complete partition or path-selection application. |
 | monotone_dp_layer | 动态规划 → DP 优化 → 四边形不等式优化 | direct | Monotonicity and exact arithmetic contracts; complete partition or path-selection application. |
 | wqs_independent_set | 动态规划 → DP 优化 → WQS 二分 | direct | Monotonicity and exact arithmetic contracts; complete partition or path-selection application. |

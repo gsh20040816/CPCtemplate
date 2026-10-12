@@ -27,6 +27,7 @@
     "verification/ordinary-mo-online.json": "4524fae7690e94253556b354f5c882f6a4ee22cee01f929710521002b5585faf",
     "verification/overall-kth-isomorphism-online.json": "fbbcef1aade003474536609c348d39e88a3f64eecb91dea3c91a8057e2eef303",
     "verification/plug-cycle-online.json": "deda7883a467d1ad4f4f76756e09164b51627a2b92b7226dbae222d115f58b19",
+    "verification/plug-cycles-online.json": "24fc94f421bdfd560be5c018e661c9d778dc926439a41145e9e91a6f2cb91fed",
     "verification/polya-online.json": "84162dbf2afff3bc49750b3b9c7081d302a47ab2587c6df8a0f041c9609b7cda",
     "verification/polygon-union-online.json": "541e227d6d424a9d750dea49e67723ba1c85ece60a705641594e69c829a2db05",
     "verification/regular-matching-online.json": "538de55464b10e939f5c09138c6289df7900f5d4430b0e03397639b8f2245b12",
@@ -39,7 +40,7 @@
     "verification/tree-mo-u104310-online.json": "bdfdd8b2277e34428789e1acdcd39fdd998ae6af8ccb3603df9f024222be68cf",
     "verification/tutte-online.json": "b0243dfb595dc1cc3f1f5b0c1339a23683621ee630cc8e696a51fb2a0780abd2",
     "verification/weighted-blossom-online.json": "6b2f047f901af96b668148e6460bcc1b7842e754cdf2e778fb81bffdf8f719e0",
-    "docs/template-problem-reviews.json": "cf304c937a23faab61a0f9ae178f1b5cb09aa35345a03a9363f61830495ee2f7"
+    "docs/template-problem-reviews.json": "e10d4f3b31507b45634932fa0a460fb391774962f48177db72c506e42717787e"
   },
   "entries": [
     {
@@ -64,6 +65,42 @@
       ],
       "styles": [],
       "algorithms": [],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://acm.hdu.edu.cn/viewcode.php?rid=41022698",
+      "problem": "HDU4285",
+      "sources": [
+        {
+          "path": "verification/submitted/HDU4285.compact.cpp",
+          "sha256": "b315a9e833ce576d728c5d355d31d57fa55609ec1978582e5a5cc89a87939b29"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/plug-cycles-online.json",
+          "timing": {
+            "time_ms": 11216,
+            "time_display": "11216MS"
+          },
+          "language": "G++",
+          "note": "HDU page Exe.Time; aggregation semantics and compiler version not exposed. Non-nested modulo mode, dimensions 2..12; application not noncompetition template."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "vector"
+      ],
+      "algorithms": [
+        "grid_cycles"
+      ],
       "maximum_case_ms": null,
       "sum_of_case_ms": null,
       "reported_total_ms": null,
@@ -5485,9 +5522,9 @@
     }
   ],
   "counts": {
-    "entries": 133,
-    "with_record": 132,
-    "accepted": 130,
+    "entries": 134,
+    "with_record": 133,
+    "accepted": 131,
     "known_case_max": 61,
     "benchmarks_verified": 0
   }

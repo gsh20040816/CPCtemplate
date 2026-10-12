@@ -280,6 +280,7 @@
 | `WeightedBlossom` | [P6699 一般图最大权匹配](https://www.luogu.com.cn/problem/P6699) | n≤400，m≤79800，1≤w≤5×10⁸；1秒、128MB。 | [记录](https://www.luogu.com.cn/record/302632540) | 待核验 |
 | `circle_union_area` | [U106005 用户模板题](https://www.luogu.com.cn/problem/U106005) | n≤1000，整数\|x\|、\|y\|、r≤1000；1秒、128MB；误差1e-3，至少4位小数。 | [记录](https://www.luogu.com.cn/record/302633427) | 待核验 |
 | `TreeMo` | [U104310 用户模板题](https://www.luogu.com.cn/problem/U104310) | n,m≤10⁵，1≤颜色≤10⁹；5秒、500MB。 | [记录](https://www.luogu.com.cn/record/302633483) | 待核验 |
+| `grid_cycles` | [HDU4285 circuits](https://acm.hdu.edu.cn/showproblem.php?pid=4285) | 2≤n,m≤12，15秒、32768K，多组，答案模10⁹+7；题面未单列K、T上限。 | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022698) | 432 out of 514（2026-10-12，全语言全部AC，35页514个唯一记录；按Exe.Time竞争排名，同用时两条占432–433位。） |
 
 ## 适配与证据范围
 
@@ -2614,6 +2615,14 @@ Public user-created template; separate evidence from the official SPOJ RemoteJud
 驱动与已归档COT2驱动逐字节相同；此题上限扩大至10⁵点，已补递归长链验证。
 
 已核对有限可见最优列表，详见docs/RUNTIME-ALTERNATE-TEMPLATES.md；全部AC排名与历史最快/百分位仍未核验。原SPOJ转交记录仍Waiting，本结果不替代其状态。
+
+### HDU4285 circuits / grid_cycles
+
+官方2012天津网络赛应用；不是非竞赛模板题。
+
+ModInt计数，默认禁止嵌套；K超过可用格数/4直接返回0。
+
+非竞赛模板入口待核验；允许嵌套、宽15、cpp_int为本地证据。完整AC运行排名已枚举，但最快/第5快源码不可见，同算法SOTA仍待核验。
 
 ## 榜单口径
 

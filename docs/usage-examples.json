@@ -5115,5 +5115,35 @@
       "circle_union_area"
     ],
     "start_new_page": false
+  },
+  {
+    "id": "example-404",
+    "symbol": "grid_cycles",
+    "kind": "application",
+    "problem": "HDU4285 circuits",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4285",
+    "summary": "官方竞赛应用：多组2≤n,m≤12网格，恰好K个互不嵌套回路覆盖所有可用格，答案模10⁹+7。官方样例为2、6；不是单环模板的旧AC。 当前最小抄写版41022698已AC，11216MS、27236K。",
+    "driver": "verify/hdu/4285.compact.cpp",
+    "requires": [
+      "grid_cycles",
+      "ModInt"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-405",
+    "symbol": "grid_cycles",
+    "kind": "api",
+    "problem": "多环覆盖与嵌套开关（精确计数）",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/PLUG-CYCLES.md",
+    "summary": "输入n,m,k,nested与网格，nested=0禁止嵌套，非0允许嵌套；使用cpp_int避免中间计数溢出，需要Boost头文件。空网格k=0有一个空方案。此驱动为接口演示。",
+    "driver": "verify/api/grid_cycles.compact.cpp",
+    "requires": [
+      "grid_cycles"
+    ],
+    "extra_headers": [
+      "boost/multiprecision/cpp_int.hpp"
+    ],
+    "start_new_page": false
   }
 ]

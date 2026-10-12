@@ -4,15 +4,16 @@
 
 旧 `time_ms` 字段的含义不一致，原样列入“原始登记”，不能直接与单点或总计比较。只有逐测试点列表或明确字段支持的值才进入相应列；显示为秒的舍入总时长不转换为精确毫秒。等待评测和拒绝提交不算 AC。
 
-已审查的候选及差距见 [P4980 核查](RUNTIME-P4980.md)、[P4722 核查](RUNTIME-P4722.md)。候选未满足排名覆盖核验条件，仍不计入正式 SOTA。
+已审查的候选及差距见 [P4980 核查](RUNTIME-P4980.md)、[P4722 核查](RUNTIME-P4722.md)、[HDU4285 核查](RUNTIME-HDU4285.md)。HDU4285已枚举完整AC运行排名，但基准源码仍不可见；这些候选尚未计入已审查的同算法 SOTA。
 
 基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。
 
-当前 133 项，130 条 AC；61 项有明确最慢单点，0 项已完成 SOTA 核验。
+当前 134 项，131 条 AC；61 项有明确最慢单点，0 项已完成 SOTA 核验。
 
 | 题目/记录 | 状态、码风 | 原始登记 | 最慢单点 ms | 逐点合计 ms | 明确登记总计 ms | SOTA |
 |---|---|---|---:|---:|---:|---|
 | CF321E（无记录） | submission_rejected | — | — | — | — | 待核验 |
+| [HDU4285](https://acm.hdu.edu.cn/viewcode.php?rid=41022698) | Accepted, vector | time_ms=11216; time_display=11216MS | — | — | — | 待核验 |
 | [Library Checker associative_array](https://judge.yosupo.jp/submission/401867) | Accepted, compact | time_ms=309 | — | — | — | 待核验 |
 | [Library Checker ordered_set](https://judge.yosupo.jp/submission/401869) | Accepted, compact | time_ms=605 | — | — | — | 待核验 |
 | [Library Checker persistent_queue](https://judge.yosupo.jp/submission/401871) | Accepted, compact | time_ms=942 | — | — | — | 待核验 |
