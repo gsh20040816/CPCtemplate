@@ -20,7 +20,7 @@
 |mulT(b)|反转b、普通卷积后删去前b.size()-1项|真值c_i=Σ_j a_(i+j)b_j；零数组与空b|
 |eval(points)|MultipointEvaluation::evaluate|独立Horner，重复点、零点、无查询、多于系数的点数|
 
-mulT是转置卷积/相关系数，并非普通乘法。现库组合步骤已经在测试中逐项核对；手册尚无专门独立用法，所以仍列为后续整理项，不能把这个测试当作用户已获得完整接口说明。简单vector操作不另造Poly类。
+mulT是转置卷积/相关系数，并非普通乘法。现库组合步骤已经在测试中逐项核对；现已补用法455，包含完整输入输出、右端零补齐及空输入约定，见docs/TRANSPOSED-CONVOLUTION.md。简单vector操作不另造Poly类。
 
 ## 边界与反例
 

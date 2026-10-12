@@ -1,0 +1,36 @@
+{
+  "scope": "Exact printed and header transposed-convolution usage; independent Python integers, signed64 limits, empty inputs, unequal shapes and analytic overlap counts. No online AC.",
+  "runs": [
+    {
+      "form": "printed",
+      "mode": "normal",
+      "cases": 110,
+      "source_sha256": "afb1e16a13cf59185f4439a1c522f42244b945dc1bdb4de8829ee405d48ae12b"
+    },
+    {
+      "form": "printed",
+      "mode": "sanitizer",
+      "cases": 110,
+      "source_sha256": "afb1e16a13cf59185f4439a1c522f42244b945dc1bdb4de8829ee405d48ae12b"
+    },
+    {
+      "form": "header",
+      "mode": "normal",
+      "cases": 110,
+      "source_sha256": "73e33eaf1d8b86f0e5fb31af2faaa1d648d308780aeced8a347adb089390bb21"
+    },
+    {
+      "form": "header",
+      "mode": "sanitizer",
+      "cases": 110,
+      "source_sha256": "73e33eaf1d8b86f0e5fb31af2faaa1d648d308780aeced8a347adb089390bb21"
+    }
+  ],
+  "program_sha256": "afb1e16a13cf59185f4439a1c522f42244b945dc1bdb4de8829ee405d48ae12b",
+  "files": {
+    "tests/transposed_usage.py": "186446e0dbad7b86b8c073f614f62388e725d1ff77663c67568602e2a55be7f4",
+    "verify/api/transposed_convolution.compact.cpp": "73e33eaf1d8b86f0e5fb31af2faaa1d648d308780aeced8a347adb089390bb21",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+  }
+}

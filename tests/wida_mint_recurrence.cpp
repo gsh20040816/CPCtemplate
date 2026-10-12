@@ -139,6 +139,35 @@ int main(int argc, char **argv)
         cout << checks << " constant-denominator counterexample checks PASS\n";
         return 0;
     }
+    source::Comb comb;
+    Binomial<998244353> current_comb;
+    vector<int> pascal{1};
+    for (int n = 0; n <= 512; n++)
+    {
+        current_comb.init(n);
+        for (int k = 0; k <= n; k++)
+        {
+            check(comb.binom(n, k).x == pascal[k]);
+            check(current_comb.choose(n, k).v == pascal[k]);
+        }
+        check(comb.binom(n, -1).x == 0);
+        check(comb.binom(n, n + 1).x == 0);
+        pascal.push_back(0);
+        for (int k = n + 1; k > 0; k--)
+            pascal[k] = (pascal[k] + pascal[k - 1]) % 998244353;
+    }
+    long long factorial = 1;
+    check(comb.inv(0).x == 0);
+    for (int n = 1; n <= 4096; n++)
+    {
+        factorial = factorial * n % 998244353;
+        check(comb.fac(n).x == factorial);
+        check(1LL * comb.invfac(n).x * factorial % 998244353 == 1);
+        check(1LL * comb.inv(n).x * n % 998244353 == 1);
+    }
+    int allocated = comb.n;
+    comb.init(3);
+    check(comb.n == allocated);
     exhaustive<2>(10);
     exhaustive<3>(7);
     mt19937 rng(45737810);

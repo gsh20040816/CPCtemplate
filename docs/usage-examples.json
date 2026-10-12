@@ -5843,5 +5843,19 @@
       "shifted_power_sum"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-455",
+    "symbol": "NttConvolution",
+    "kind": "api",
+    "problem": "转置卷积与向右滑动点积",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/TRANSPOSED-CONVOLUTION.md",
+    "summary": "输入n m及两组低次到高次系数a、b，允许signed64输入。输出c长度及系数，其中c[i]=Σ(j=0..m-1)a[i+j]b[j]，越界a视为0；非空时输出n项，任一输入为空则输出长度0。反转b后卷积，删除前m-1项即可，不反转a。要求非空时n+m-1≤2^23，模998244353。这是相关系数/转置卷积，不是普通多项式乘积，也不只输出完整窗口。",
+    "driver": "verify/api/transposed_convolution.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution"
+    ],
+    "start_new_page": true
   }
 ]

@@ -66,7 +66,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ComplexFFT | [example-222](usage/example-222.cpp), [example-412（应用补充）](usage/example-412.cpp) | locally_checked_example |
 | convolution_fft | [example-121](usage/example-121.cpp), [example-411（应用补充）](usage/example-411.cpp) | locally_checked_example |
 | convolution_mod_fft | [example-122](usage/example-122.cpp) | locally_checked_example |
-| NttConvolution | [example-16](usage/example-16.cpp) | locally_checked_example |
+| NttConvolution | [example-16](usage/example-16.cpp), [example-455（接口演示）](usage/example-455.cpp) | locally_checked_example |
 | Ntt2D | [example-451（接口演示）](usage/example-451.cpp) | locally_checked_api |
 | stirling_second_row | [example-53](usage/example-53.cpp) | locally_checked_example |
 | stirling_first_row | [example-54](usage/example-54.cpp) | locally_checked_example |
