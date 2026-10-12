@@ -23,7 +23,7 @@
 
 后续补充见 [整除反演与对称计数](docs/MATH-COUNTING-MODELS.md)：GCD 建模、整除分块、Burnside/Pólya、固定库存与非可逆群阶除法。
 
-当前有 32 个分类知识节（数学 27、图论 4、计算几何 1），按固定 OI Wiki 导航纳入总册和所属分册；包括上述主题以及 LTE、Lagrange 反演、递推、容斥、类欧几里德、矩阵树、整数分拆、模运算条件、Catalan／投票反射建模、一次不定方程范围计数、数值积分、曼哈顿最小生成树证明、Pick格点计数、Prüfer树计数和Legendre／Kummer赋值判据。映射与尚未分类的旧附录范围见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)，不把这些节数当作完整知识体系的覆盖比例。
+当前有 34 个分类知识节（数学 29、图论 4、计算几何 1），按固定 OI Wiki 导航纳入总册和所属分册；包括上述主题以及 LTE、Lagrange 反演、递推、容斥、类欧几里德、矩阵树、整数分拆、模运算条件、Catalan／投票反射建模、一次不定方程范围计数、数值积分、曼哈顿最小生成树证明、Pick格点计数、Prüfer树计数、Legendre／Kummer赋值判据以及斯特林数定义和反演。映射与尚未分类的旧附录范围见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)，不把这些节数当作完整知识体系的覆盖比例。
 
 线性诱导排序后缀数组见 [SA-IS](docs/SAIS.md)，与既有倍增版并列，保留相同 sa/rk/lcp 下标约定；不继承旧版线上成绩。
 
@@ -235,3 +235,5 @@ Tutte多项式：子集指数递推、特殊取值与独立验证见 [TUTTE](doc
 笛卡尔树：线性构造、相等值约定与验证见 [CARTESIAN-TREE](docs/CARTESIAN-TREE.md)。
 
 [HDU4742与HDU4656线上核验](docs/RUNTIME-HDU-SOURCE.md)：官方题面歧义已解，两题实际AC；完整排名与缺项榜单分别记录。
+
+[斯特林数与斯特林反演](docs/ISSUE-18.md)：四种快速行列求解、生成函数、两类符号约定与反演推导；本轮四种当前实现均获Library Checker AC，整列常数差距单独披露。

@@ -95,6 +95,7 @@ chapters['determinant_exact'] = '精确整数行列式'
 chapters['matrix_tree_exact'] = '精确整数生成树计数'
 chapters['adaptive_simpson'] = '自适应Simpson积分'
 chapters['eight_puzzle'] = '八数码反向搜索'
+chapters['stirling_column'] = '斯特林数整列计算'
 body = []
 records = []
 for style in ['compact']:
@@ -129,6 +130,8 @@ for style in ['compact']:
                 if end and lines[end - 1].startswith('template'):
                     end -= 1
             estimate = sum((max(1, (len(line.expandtabs(4)) + 109) // 110) for line in lines[start:end])) * 10.2 + 70 + len(info) / 65 * 12
+            if name.startswith('stirling_'):
+                body.append('\\newpage')
             if name == 'ac_shortest':
                 estimate = max(estimate, 380)
             if name == 'HLD':

@@ -1712,7 +1712,7 @@
       "symbol": "stirling_second_row",
       "title": "第二类斯特林数：同一行前缀",
       "source": "src/compact/stirling.hpp",
-      "status": "needs_template_problem_review",
+      "status": "reviewed_direct_template_ac",
       "candidate_drivers": [
         {
           "driver": "verify/luogu/P5395.compact.cpp",
@@ -1721,6 +1721,14 @@
             "https://www.luogu.com.cn/record/297626422"
           ],
           "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/stirling_number_of_the_second_kind.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind",
+          "existing_ac": [
+            "https://judge.yosupo.jp/submission/410001"
+          ],
+          "review": "Current exact printed core accepted online C++20; LC first kind is signed."
         }
       ],
       "qoj_tag_candidate": null,
@@ -1736,7 +1744,7 @@
       "symbol": "stirling_first_row",
       "title": "无符号第一类斯特林数：同一行",
       "source": "src/compact/stirling.hpp",
-      "status": "needs_template_problem_review",
+      "status": "reviewed_direct_template_ac",
       "candidate_drivers": [
         {
           "driver": "verify/luogu/P5408.compact.cpp",
@@ -1745,6 +1753,14 @@
             "https://www.luogu.com.cn/record/297627360"
           ],
           "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/stirling_number_of_the_first_kind.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind",
+          "existing_ac": [
+            "https://judge.yosupo.jp/submission/410002"
+          ],
+          "review": "Current exact printed core accepted online C++20; LC first kind is signed."
         }
       ],
       "qoj_tag_candidate": null,
@@ -8129,6 +8145,54 @@
           "url": "https://judge.yosupo.jp/problem/rectangle_sum",
           "existing_ac": [],
           "review": "Official half-open weighted rectangle protocol; 14 local official checker cases passed; no online verdict."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "stirling_first_column",
+      "title": "无符号第一类斯特林数：同一列",
+      "source": "src/compact/stirling_column.hpp",
+      "status": "reviewed_direct_template_ac",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/stirling_number_of_the_first_kind_fixed_k.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind_fixed_k",
+          "existing_ac": [
+            "https://judge.yosupo.jp/submission/409999"
+          ],
+          "review": "Verified official template protocol; new exact printed program accepted online in C++20; see verification/stirling-columns-online.json"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "stirling_second_column",
+      "title": "第二类斯特林数：同一列",
+      "source": "src/compact/stirling_column.hpp",
+      "status": "reviewed_direct_template_ac",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/stirling_number_of_the_second_kind_fixed_k.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k",
+          "existing_ac": [
+            "https://judge.yosupo.jp/submission/410000"
+          ],
+          "review": "Verified official template protocol; new exact printed program accepted online in C++20; see verification/stirling-columns-online.json"
         }
       ],
       "qoj_tag_candidate": null,

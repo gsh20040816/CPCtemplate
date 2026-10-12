@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 218，application 67，composite 8，related 25。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 220，application 67，composite 8，related 25。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -104,7 +104,9 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | polynomial_shift | 数学 → 多项式与生成函数 → 多项式平移\|连续点值平移 | direct |  |
 | Binomial | 数学 → 组合数学 → 排列组合 | direct |  |
 | FibonacciPeriod | 数学 → 组合数学 → 斐波那契数列 | direct | Exact minimal Pisano period, full unsigned64 modulus, verified prime-power lifting. |
+| stirling_first_column | 数学 → 组合数学 → 斯特林数 | direct |  |
 | stirling_first_row | 数学 → 组合数学 → 斯特林数 | direct |  |
+| stirling_second_column | 数学 → 组合数学 → 斯特林数 | direct |  |
 | stirling_second_row | 数学 → 组合数学 → 斯特林数 | direct |  |
 | Partitions | 数学 → 组合数学 → 分拆数 | direct |  |
 | BurnsideAverage | 数学 → 组合数学 → Pólya 计数 | direct | Group fixed-point average, cycle decomposition and named-color cyclic/dihedral action; arbitrary modulus with exact division. |

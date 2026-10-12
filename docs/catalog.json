@@ -1906,5 +1906,17 @@
     "BigInteger",
     "高精度整数：有符号加减乘与小整数除法",
     "BigInteger(x)接收long long，BigInteger(s)接收可带正负号及前导零的非空十进制串；str()返回规范化十进制，cmp(b)返回−1/0/1。支持一元负号、加减乘，divmod(int b)返回商和余数，b≠0；商向零截断，余数与被除数同号或为0。pow(unsigned e)计算非负整数幂，约定0的0次方为1。\n\nd是低位在前的10⁹进制绝对值，sign为±1；零为空d且sign=1，勿直接修改。n,m为分节数：加减比较O(n+m)，乘法O(nm+n+m)，小整数除法O(n)，结果空间O(n+m)；幂执行O(log(e+1))次乘法，位数增长另计。字符串长度、所有中间分节数及两操作数长度之和须小于INT_MAX并留进位空间。不含大整数除大整数；不用浮点或Boost。"
+  ],
+  [
+    "stirling_column",
+    "stirling_first_column",
+    "无符号第一类斯特林数：同一列",
+    "stirling_first_column(N,k) 返回无符号c(0..N,k)，固定模998244353。N>=0、N<2^22、k>=0；k>N返回全零，k=0仅第零项为1。取生成函数的最低x^k后，用FpsPower求剩余单位级数的k次幂，逐项乘n!/k!；第一类若需有符号数，另乘(-1)^(n-k)。令m=N-k+1，合法非零列时间O(N+m log m)，空间O(N)。所有分母小于模数；NTT工作长度由N限制保证。依赖FpsPower及其逆、对数、指数和NTT链，不能直接改用167772161。"
+  ],
+  [
+    "stirling_column",
+    "stirling_second_column",
+    "第二类斯特林数：同一列",
+    "stirling_second_column(N,k) 返回S(0..N,k)，固定模998244353。N>=0、N<2^22、k>=0；k>N返回全零，k=0仅第零项为1。取生成函数的最低x^k后，用FpsPower求剩余单位级数的k次幂，逐项乘n!/k!；令m=N-k+1，合法非零列时间O(N+m log m)，空间O(N)。所有分母小于模数；NTT工作长度由N限制保证。依赖FpsPower及其逆、对数、指数和NTT链，不能直接改用167772161。"
   ]
 ]

@@ -16,10 +16,19 @@ def render(entries, omnibus=False):
     root = None
     def taxonomy(row):
         return row['taxonomy'] if 'taxonomy' in row else TAX[row['symbol']]
-    ordered = sorted(enumerate(entries), key=lambda p:(taxonomy(p[1])['order'],p[0]))
+    # Issue 18: keep definitions, all four algorithms/usages, then inversion together.
+    stirling_order = {name: i for i, name in enumerate([
+        'knowledge-stirling-definitions', 'stirling_first_row',
+        'stirling_first_column', 'stirling_second_row',
+        'stirling_second_column', 'knowledge-stirling-inversion'])}
+    ordered = sorted(enumerate(entries), key=lambda p:(
+        taxonomy(p[1])['order'], stirling_order.get(p[1]['symbol'], 0), p[0]))
     for _, row in ordered:
         item = taxonomy(row)
-        path = item['hierarchy']
+        path = list(item['hierarchy'])
+        if row['symbol'] in stirling_order:
+            assert path[-1] == '斯特林数', path
+            path[-1] = '斯特林数与斯特林反演'
         if path[0] != root:
             if omnibus and root == '计算几何':
                 result.append(r'\input{geometry-notes.tex}')

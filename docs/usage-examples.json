@@ -5521,5 +5521,41 @@
       "PersistentWeightedIndex"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-433",
+    "symbol": "stirling_first_column",
+    "kind": "template",
+    "problem": "Library Checker Signed First Stirling Fixed K",
+    "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind_fixed_k",
+    "summary": "输入N K，0<=K<=N<=500000，模998244353；只输出n=K..N的有符号第一类s(n,K)。库函数返回无符号c(n,K)，逐项乘(-1)^(n-K)，勿遗漏符号。",
+    "driver": "verify/library_checker/stirling_number_of_the_first_kind_fixed_k.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "FpsFunctions",
+      "FpsPower",
+      "stirling_first_column"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-434",
+    "symbol": "stirling_second_column",
+    "kind": "template",
+    "problem": "Library Checker Second Stirling Fixed K",
+    "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k",
+    "summary": "输入N K，0<=K<=N<=500000，模998244353；只输出n=K..N的第二类S(n,K)。K=0时输出首项1、其余0；不输出n<K的前导零。",
+    "driver": "verify/library_checker/stirling_number_of_the_second_kind_fixed_k.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "FpsFunctions",
+      "FpsPower",
+      "stirling_second_column"
+    ],
+    "start_new_page": true
   }
 ]

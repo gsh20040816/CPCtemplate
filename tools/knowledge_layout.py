@@ -44,4 +44,4 @@ def legacy_knowledge():
         directive = r'\input{' + Path(source).name + '}'
         assert text.count(directive) == 1, source
         text = text.replace(directive, '')
-    return text
+    return text.rstrip() + '\n'
