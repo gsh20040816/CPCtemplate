@@ -1,7 +1,7 @@
 {
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
-    "verification/oj.json": "d425255678ba4aa7cb04555f93ce23e02eed929a417253f59d91342c55f07d9b",
+    "verification/oj.json": "a0c5a094f07a497f0c8a8cf7dcc85620b9ab95ce680c60f9b22b6e75cb3cb2cc",
     "verification/area-unions-online.json": "cce2ea0f59855db0ec6f44ed87262c258a1f61a6f2e5aaa9d938b8aa897ff9a7",
     "verification/cactus-online.json": "687b9261d1ccf15d858d1310f96fa613ed8ed7e072197bf95bc962ed0be09e1f",
     "verification/cartesian-tree-online.json": "c5b126a2edbb4071182d6321b598b1f91e5c4199f935d52c0208d5b80f254785",
@@ -13,6 +13,7 @@
     "verification/dominance4d-online.json": "d41ba508d6527977c035f8cc79990ff114c1a204ed96c9dd72b672a31759beb4",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
     "verification/dynamic-diameter-online.json": "b07070425ac153a11d57ea4424d0ed68e5de1095cb11b318e8a28a45b699c449",
+    "verification/fft-kuangbin-online.json": "80d5ec18bca76ae9c48172e0842b04d2cb210ea2b4895935142fe1b63632ae7e",
     "verification/four-cycles-online.json": "01a0b06257b97bde3afc03c000eb5a431d9d8f24597e1053b0c62b551734d3d4",
     "verification/hdu-source-completion-online.json": "e86a6ec49102732c83ebc40bb1ab6a606832aa2d707df85aa341a258578171e1",
     "verification/hlpp-online.json": "1b0809c172aaabd8214dbae595cf4eb6342f81e63abecc216b91625cede81275",
@@ -42,7 +43,7 @@
     "verification/tree-mo-u104310-online.json": "bdfdd8b2277e34428789e1acdcd39fdd998ae6af8ccb3603df9f024222be68cf",
     "verification/tutte-online.json": "b0243dfb595dc1cc3f1f5b0c1339a23683621ee630cc8e696a51fb2a0780abd2",
     "verification/weighted-blossom-online.json": "6b2f047f901af96b668148e6460bcc1b7842e754cdf2e778fb81bffdf8f719e0",
-    "docs/template-problem-reviews.json": "c5bcefaf63ebf191b944fe32bbc42b6a71af677f1427cff4b6f131b01ceb8639"
+    "docs/template-problem-reviews.json": "00ba259b2c15e316be51bb2bda1e22d142133013d7859751e40279f9dca2b8f5"
   },
   "entries": [
     {
@@ -67,6 +68,49 @@
       ],
       "styles": [],
       "algorithms": [],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://acm.hdu.edu.cn/viewcode.php?rid=41022782",
+      "problem": "HDU1402",
+      "sources": [
+        {
+          "path": "verification/submitted/HDU1402.compact.cpp",
+          "sha256": "9833be34df702e9ca2766e14a268749774b29f5069e2b01eec71897dce03561c"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 124
+          },
+          "language": "G++",
+          "note": "HDU Exe.Time, not inferred as sum or maximum. STL FFT; ranking/SOTA not checked under issue16 supplemental exception."
+        },
+        {
+          "evidence": "verification/fft-kuangbin-online.json",
+          "timing": {
+            "time_ms": 124
+          },
+          "language": "G++",
+          "note": "HDU Exe.Time, not inferred as sum or maximum. STL FFT; ranking/SOTA not checked under issue16 supplemental exception."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "convolution_fft"
+      ],
       "maximum_case_ms": null,
       "sum_of_case_ms": null,
       "reported_total_ms": null,
@@ -145,6 +189,49 @@
       ],
       "algorithms": [
         "grid_cycles"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://acm.hdu.edu.cn/viewcode.php?rid=41022784",
+      "problem": "HDU4609",
+      "sources": [
+        {
+          "path": "verification/submitted/HDU4609.compact.cpp",
+          "sha256": "76c4554ae2bf51b5d1c9e9788b4de52da0967a7c819dad9aa3f38d81b9d65d4c"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/oj.json",
+          "timing": {
+            "time_ms": 967
+          },
+          "language": "G++",
+          "note": "HDU Exe.Time, not inferred as sum or maximum. STL FFT; ranking/SOTA not checked under issue16 supplemental exception."
+        },
+        {
+          "evidence": "verification/fft-kuangbin-online.json",
+          "timing": {
+            "time_ms": 967
+          },
+          "language": "G++",
+          "note": "HDU Exe.Time, not inferred as sum or maximum. STL FFT; ranking/SOTA not checked under issue16 supplemental exception."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "compact"
+      ],
+      "algorithms": [
+        "ComplexFFT"
       ],
       "maximum_case_ms": null,
       "sum_of_case_ms": null,
@@ -5639,9 +5726,9 @@
     }
   ],
   "counts": {
-    "entries": 137,
-    "with_record": 136,
-    "accepted": 134,
+    "entries": 139,
+    "with_record": 138,
+    "accepted": 136,
     "known_case_max": 61,
     "benchmarks_verified": 0
   }

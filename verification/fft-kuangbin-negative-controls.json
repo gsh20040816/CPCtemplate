@@ -1,0 +1,44 @@
+{
+  "normal": {
+    "cases": 57,
+    "original_inverse_scales_real_only": true,
+    "current_scales_both": true,
+    "opposite_forward_sign": true
+  },
+  "sanitizer": {
+    "cases": 57,
+    "original_inverse_scales_real_only": true,
+    "current_scales_both": true,
+    "opposite_forward_sign": true
+  },
+  "missing_self_pair": {
+    "rejected": true,
+    "expected": "0.0000000",
+    "observed": "-1.0000000"
+  },
+  "ordered_pairs": {
+    "rejected": true,
+    "expected": "0.0000000",
+    "observed": "-1.0000000"
+  },
+  "strict_prefix": {
+    "rejected": true,
+    "expected": "0.0000000",
+    "observed": "1.0000000"
+  },
+  "cyclic_alias": {
+    "rejected": true,
+    "expected": "1.0000000",
+    "observed": "-11.0000000"
+  },
+  "missing_carry": {
+    "rejected": true,
+    "expected": "9801",
+    "observed": "121"
+  },
+  "negative_zero": {
+    "rejected": true,
+    "expected": "0",
+    "observed": "-0"
+  }
+}

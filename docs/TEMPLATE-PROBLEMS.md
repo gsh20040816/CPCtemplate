@@ -283,6 +283,8 @@
 | `grid_cycles` | [HDU4285 circuits](https://acm.hdu.edu.cn/showproblem.php?pid=4285) | 2≤n,m≤12，15秒、32768K，多组，答案模10⁹+7；题面未单列K、T上限。 | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022698) | 432 out of 514（2026-10-12，全语言全部AC，35页514个唯一记录；按Exe.Time竞争排名，同用时两条占432–433位。） |
 | `convolution_mod` | [HDU4656 Evaluation](https://acm.hdu.edu.cn/showproblem.php?pid=4656) | One case;1<=n<=100000;1<=b,c,d<=1000000;0<=a_i<=1000000;mod1000003;3s/65536K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022719) | 154 out of 379（26页全部AC，全部语言，同用时6条，排名154–159） |
 | `Hull3DMetrics` | [HDU4273 Rescue](https://acm.hdu.edu.cn/showproblem.php?pid=4273) | EOF;4<=n<=100;integer \|coordinate\|<=10000;nondegenerate hull, all points extreme;0.001 accuracy;1000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022769) | 待核验 |
+| `convolution_fft` | [HDU1402](https://acm.hdu.edu.cn/showproblem.php?pid=1402) | EOF;two integers each<=50000 characters;1000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022782) | 待核验 |
+| `ComplexFFT` | [HDU4609](https://acm.hdu.edu.cn/showproblem.php?pid=4609) | T<=100;3<=n<=100000;1<=a_i<=100000;7decimals;5000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022784) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2647,6 +2649,26 @@ Nonnegative tetrahedral vertex masses; integrate signed supporting-plane distanc
 浮点坐标重心及任意实数点面距离待单独扩展；planes与centroid由本地精确真值验证。
 
 原始题面与参数：[来源 1](https://acm.hdu.edu.cn/showproblem.php?pid=4273)
+
+### HDU1402 / convolution_fft
+
+高精度乘法应用；不是完整复数变换模板。
+
+Decimal carry after digit convolution.
+
+FFT numeric prerequisites remain platform dependent; general transform API covered separately.
+
+原始题面与参数：[来源 1](https://acm.hdu.edu.cn/showproblem.php?pid=1402)
+
+### HDU4609 / ComplexFFT
+
+2013多校第一场比赛应用；不计独立模板题。
+
+Frequency square; remove self-pairs; divide2; subtract unique-largest invalid triples.
+
+FFT numeric prerequisites remain platform dependent; general transform API covered separately.
+
+原始题面与参数：[来源 1](https://acm.hdu.edu.cn/showproblem.php?pid=4609)
 
 ## 榜单口径
 

@@ -5215,5 +5215,32 @@
       "Hull3DMetrics"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-411",
+    "symbol": "convolution_fft",
+    "kind": "application",
+    "problem": "HDU1402 十进制高精度乘法",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=1402",
+    "summary": "EOF读两个至多50000位整数，支持可选正负号和前导零。逐位卷积后进位，零不带负号。范数乘积≤4050000；同FFT数值前提下舍入误差小于0.000001。",
+    "driver": "verify/hdu/1402.compact.cpp",
+    "requires": [
+      "ComplexFFT",
+      "convolution_fft"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-412",
+    "symbol": "ComplexFFT",
+    "kind": "application",
+    "problem": "HDU4609 随机三根组成三角形的概率",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4609",
+    "summary": "T≤100，3≤n≤100000，长度1..100000。频数平方卷积去掉自选再除2；正长度使坏三元组有唯一最长根，减去所有“两根和≤第三根”的计数。范数平方≤n²，2^18点下误差界小于0.001。",
+    "driver": "verify/hdu/4609.compact.cpp",
+    "requires": [
+      "ComplexFFT"
+    ],
+    "start_new_page": true
   }
 ]

@@ -6,6 +6,8 @@ with localcontext() as context:
     u = Decimal(2) ** -53
     beta = 8 * u
     for name, levels, norm_product, limit in [
+        ('HDU1402 digits', 17, Decimal(81)*50000, Decimal('0.000001')),
+        ('HDU4609 frequencies', 18, Decimal(10)**10, Decimal('0.001')),
         ('integer', 22, Decimal('2e12'), Decimal('0.166')),
         ('modular limb', 19, Decimal(2047)**2 * (Decimal(2)**18 + 1), Decimal('0.079')),
     ]:

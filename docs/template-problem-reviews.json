@@ -7336,5 +7336,63 @@
         "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4273"
       }
     ]
+  },
+  {
+    "symbol": "convolution_fft",
+    "problem": "HDU1402",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=1402",
+    "classification": "高精度乘法应用；不是完整复数变换模板。",
+    "statement_checked": true,
+    "limits": "EOF;two integers each<=50000 characters;1000MS/32768K.",
+    "driver": "verify/hdu/1402.compact.cpp",
+    "usage": "example-411",
+    "ac": "https://acm.hdu.edu.cn/viewcode.php?rid=41022782",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null,
+      "scope": "STL FFT; no percentile or SOTA claim."
+    },
+    "remaining": "FFT numeric prerequisites remain platform dependent; general transform API covered separately.",
+    "checked_date": "2026-10-12",
+    "adapter": "Decimal carry after digit convolution.",
+    "local_reports": [
+      "verification/fft-kuangbin-local.json",
+      "verification/fft-kuangbin-negative-controls.json"
+    ],
+    "statement_sources": [
+      {
+        "url": "https://acm.hdu.edu.cn/showproblem.php?pid=1402"
+      }
+    ]
+  },
+  {
+    "symbol": "ComplexFFT",
+    "problem": "HDU4609",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4609",
+    "classification": "2013多校第一场比赛应用；不计独立模板题。",
+    "statement_checked": true,
+    "limits": "T<=100;3<=n<=100000;1<=a_i<=100000;7decimals;5000MS/32768K.",
+    "driver": "verify/hdu/4609.compact.cpp",
+    "usage": "example-412",
+    "ac": "https://acm.hdu.edu.cn/viewcode.php?rid=41022784",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null,
+      "scope": "STL FFT; no percentile or SOTA claim."
+    },
+    "remaining": "FFT numeric prerequisites remain platform dependent; general transform API covered separately.",
+    "checked_date": "2026-10-12",
+    "adapter": "Frequency square; remove self-pairs; divide2; subtract unique-largest invalid triples.",
+    "local_reports": [
+      "verification/fft-kuangbin-local.json",
+      "verification/fft-kuangbin-negative-controls.json"
+    ],
+    "statement_sources": [
+      {
+        "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4609"
+      }
+    ]
   }
 ]

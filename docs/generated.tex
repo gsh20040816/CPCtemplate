@@ -2954,6 +2954,22 @@ ComplexFFT(n) 预计算单位根，n 为 1..2\textasciicircum{}22 的二次幂�
 
 \newpage
 
+\Needspace{514pt}
+
+\subsection*{应用题补充：HDU4609 随机三根组成三角形的概率}
+
+\label{usage-example-412}
+
+题意：T$\le$100，3$\le$n$\le$100000，长度1..100000。频数平方卷积去掉自选再除2；正长度使坏三元组有唯一最长根，减去所有“两根和$\le$第三根”的计数。范数平方$\le$n$^{2}$，2\textasciicircum{}18点下误差界小于0.001。
+
+所需模板：\hyperref[compact-ComplexFFT]{ComplexFFT}（第~\pageref{compact-ComplexFFT}~页，\ref{compact-ComplexFFT}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://acm.hdu.edu.cn/showproblem.php?pid=4609}
+
+\lstinputlisting{usage/example-412.cpp}
+
+\newpage
+
 \Needspace{363pt}
 
 \subsection{浮点 FFT 整数卷积}\label{compact-convolution_fft}\index{convolution\_fft}
@@ -2977,6 +2993,22 @@ convolution\_fft(a,b) 接受 vector<int>，返回 vector<long long>，空输入�
 题目：\url{https://www.luogu.com.cn/problem/P3803}
 
 \lstinputlisting{usage/example-121.cpp}
+
+\newpage
+
+\Needspace{453pt}
+
+\subsection*{应用题补充：HDU1402 十进制高精度乘法}
+
+\label{usage-example-411}
+
+题意：EOF读两个至多50000位整数，支持可选正负号和前导零。逐位卷积后进位，零不带负号。范数乘积$\le$4050000；同FFT数值前提下舍入误差小于0.000001。
+
+所需模板：\hyperref[compact-ComplexFFT]{ComplexFFT}（第~\pageref{compact-ComplexFFT}~页，\ref{compact-ComplexFFT}~节）、\hyperref[compact-convolution_fft]{convolution\_\allowbreak{}fft}（第~\pageref{compact-convolution_fft}~页，\ref{compact-convolution_fft}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://acm.hdu.edu.cn/showproblem.php?pid=1402}
+
+\lstinputlisting{usage/example-411.cpp}
 
 \Needspace{606pt}
 
