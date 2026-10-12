@@ -147,6 +147,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | SubtreeColors | [example-138（应用补充）](usage/example-138.cpp) | locally_checked_application |
 | AffineSegTree | [example-12](usage/example-12.cpp) | locally_checked_example |
 | SegmentBeats | [example-200](usage/example-200.cpp) | locally_checked_example |
+| DivideSegmentTree | [example-458（接口演示）](usage/example-458.cpp), [example-459（应用补充）](usage/example-459.cpp) | locally_checked_application |
 | VirtualTree | [example-139（应用补充）](usage/example-139.cpp) | locally_checked_application |
 | PersistentArray | [example-11](usage/example-11.cpp) | locally_checked_example |
 | PersistentWeightedIndex | [example-431（接口演示）](usage/example-431.cpp), [example-432](usage/example-432.cpp) | locally_checked_example |

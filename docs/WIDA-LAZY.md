@@ -38,3 +38,5 @@ maintainL/maintainR 依赖 difl/difr、maxlowl/maxlowr、maxl/maxr 等字段；�
 - 123,792 项原稿 half 的逐叶结果检查，不算作当前替代模板验证。
 
 结果和 SHA-256 见 `verification/wida-lazy.json`。两份来源继续 partial，没有新增线上 AC，也未核验注释中所有 Nowcoder、CF、QOJ、AtCoder 完整应用。本批不新增组件/用法或修改 PDF；当前仍为 335 个组件、457 个完整用法。
+
+后续更新：DivideSegmentTree 已补充非负、全部位置有效时的区间加/赋值/整除/求和及折半，见 DIVIDE-SEGMENT-TREE.md 和用法458/459。本文上方记录的是原稿核验当批状态；无效叶子语义与 maintainL/maintainR 仍未覆盖。

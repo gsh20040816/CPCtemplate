@@ -1,0 +1,21 @@
+{
+  "scope": "Independent literal array, small exhaustive divisions, exact WIDA half with supplied all-active nonnegative Info/Tag, 500000 elements and 100000 uniform operation cycles. No online verdict; timings are local only.",
+  "runs": [
+    {
+      "mode": "normal",
+      "stdout": "616681 independent/source/large checks PASS\n",
+      "elapsed_seconds": 0.34748337499331683
+    },
+    {
+      "mode": "sanitizer",
+      "stdout": "616681 independent/source/large checks PASS\n",
+      "elapsed_seconds": 0.9213334160158411
+    }
+  ],
+  "files": {
+    "src/compact/divide_segment_tree.hpp": "14fa5cf84645010908180d0868f652f513410fb9b620f972239b13beea5831f3",
+    "tests/divide_segment_tree.cpp": "18d1bd754ef04047889d21c264feebd35d3929ba89b3da137143714247906013",
+    "tests/divide_segment_tree.py": "4649d65d266a16e6b0193501a89263211c23f993678487a2b3d852fee26522a2",
+    "tests/fixtures/wida_lazy/04.cpp": "a51b4b78c2072dd8142ef02bab0ec618f1aaa368154e9c99ec3254300446ec2b"
+  }
+}

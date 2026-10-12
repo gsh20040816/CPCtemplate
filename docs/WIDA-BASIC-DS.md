@@ -57,3 +57,5 @@ last = last >= l ? last : -1;
 另外，尚未纳入本批的 04 LazySegmentTree 原稿包含 half、maintainL、maintainR 专用成员；它们依赖不同 Info 字段，末尾仅有 x 的示例 Info 不足以实例化这些操作。不能仅凭当前通用 lazy_segtree 就标记整份原稿已覆盖。这部分和 03A 继续待核验。
 
 本批无新增组件或用法，不改手册 PDF；总量仍为 335 个组件、457 个完整用法。
+
+后续更新：DivideSegmentTree 已补充非负、全部位置有效时的区间加/赋值/整除/求和及折半，见 DIVIDE-SEGMENT-TREE.md 和用法458/459。本文上方记录的是原稿核验当批状态；无效叶子语义与 maintainL/maintainR 仍未覆盖。

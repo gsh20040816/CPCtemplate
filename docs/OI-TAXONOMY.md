@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 220，application 71，composite 8，related 36。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 220，application 71，composite 8，related 37。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -163,6 +163,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | MergeSplitTree | 数据结构 → 线段树 → 线段树合并 & 分裂 | direct | 非负重数、值域分裂、破坏性合并与节点回收。 |
 | LiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
 | SegmentLiChao | 数据结构 → 线段树 → 李超线段树 | direct |  |
+| DivideSegmentTree | 数据结构 → 线段树 → 区间最值操作 & 区间历史最值 | related | 区间最值剪枝处理正整数除法，附加区间加与赋值；不声称覆盖该页所有操作，也不套用chmin/chmax的复杂度。 |
 | SegmentBeats | 数据结构 → 线段树 → 区间最值操作 & 区间历史最值 | direct | 区间 chmin/chmax/add/sum；不含区间历史最值。 |
 | DivisionTree | 数据结构 → 划分树 | direct | 原序列按排序中位数稳定划分，重复中位值限额进入左半，递归查询静态区间顺序统计。 |
 | WaveletMatrix | 数据结构 → 划分树 | related | 小波矩阵使用逐位稳定划分和压位rank，解决静态区间顺序统计；在固定导航的划分树下按相关结构收录，不等同于原文划分树实现。 |

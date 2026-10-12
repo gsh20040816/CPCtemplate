@@ -5883,5 +5883,31 @@
     "problem": "旋转与AND/OR表达式的复合迭代",
     "summary": "输入m组shift operation mask，0≤shift<64，operation=0表示rotl(x,shift) OR mask，1表示AND mask；把各项异或，再异或constant得到f(x)。最后输入constant x exponent，输出f迭代exponent次的值。各项都作用于同一个x，不是逐项更新x；属于完整API例子，不冒充原题协议。",
     "driver": "verify/api/xor_affine_rotations.compact.cpp"
+  },
+  {
+    "id": "example-458",
+    "symbol": "DivideSegmentTree",
+    "kind": "api",
+    "problem": "区间加、赋值、整除与求和",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/DIVIDE-SEGMENT-TREE.md",
+    "summary": "输入n q和n个非负初值；0 l r x区间加，1 l r x赋值，2 l r x向下整除，3 l r输出和。全部区间0-based半开，可为空；修改后点值须在[0,10^12]内，除数为正signed64。内部剪枝不是任意混合操作的对数时间保证。",
+    "driver": "verify/api/divide_segment_tree.compact.cpp",
+    "requires": [
+      "DivideSegmentTree"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-459",
+    "symbol": "DivideSegmentTree",
+    "kind": "application",
+    "problem": "ABC256 Ex：I like Query Problem",
+    "url": "https://atcoder.jp/contests/abc256/tasks/abc256_h",
+    "summary": "完整原题协议：输入N Q、数组与Q个操作；1 L R x整除，2 L R y赋值，3 L R求和。题面是一基闭区间，仅将L减一即可转换。N≤500000，Q≤100000，题面值与赋值≤100000，除数≥2；本用法不包含区间加。官方样例及随机朴素数组本地核验，没有新在线AC。",
+    "driver": "verify/atcoder/abc256_h.compact.cpp",
+    "requires": [
+      "DivideSegmentTree"
+    ],
+    "start_new_page": true
   }
 ]
