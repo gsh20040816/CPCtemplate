@@ -7814,6 +7814,24 @@
       "ranking": {
         "status": "not_checked"
       }
+    },
+    {
+      "symbol": "ColorMax",
+      "title": "树上翻色与同色连通块最大值",
+      "source": "src/compact/color_max.hpp",
+      "status": "reviewed_application_only",
+      "candidate_drivers": [
+        {
+          "driver": "verify/spoj/QTREE7.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/SP16580",
+          "existing_ac": [],
+          "review": "Operation/input/sample reviewed; mirror numeric bounds malformed; original challenge then offline error. Local BFS and source comparisons pass. Luogu302644732 Waiting, not AC."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked"
+      }
     }
   ],
   "unresolved_upstream_topics": [
@@ -10510,12 +10528,6 @@
       "source_path": "ACM template (2018)",
       "page": "54",
       "topic": "2.19 其它公式"
-    },
-    {
-      "source": "kuangbin",
-      "source_path": "ACM template (2018)",
-      "page": "87",
-      "topic": "3.5.6 SPOJQTREE7"
     },
     {
       "source": "kuangbin",

@@ -65,6 +65,7 @@ chapters['polygon_union'] = '一般多边形面积并'
 chapters['circle_union'] = '圆面积并'
 chapters['simplex'] = '单纯形法'
 chapters['plug_cycle'] = '插头DP'
+chapters['color_max'] = '树上翻色最大权'
 chapters['color_components'] = '树上翻色连通块'
 chapters['plug_cycles'] = '多环插头DP'
 chapters['digit_count'] = '数位DP'
@@ -298,7 +299,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
+            if name in ('ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -377,6 +378,14 @@ for style in ['compact']:
                         body.append(r'\paragraph{人工变量与两阶段} 对每条约束引入同一个人工变量t，系数为-1。从最负的右端行让t入基即得到可行起点，第一阶段最大化-t。最优值小于零说明原问题无解；为零时把仍在基内的人工变量换出，零冗余行可以保留。原目标行始终参加换基，第二阶段禁止人工变量入基，直接优化原目标。')
                     if part == 3:
                         body.append(r'\paragraph{退化与数值} 在精确运算下，入基选最小变量编号，最小比值并列时选最小基本变量编号，是Bland防循环规则。这里按eps判断约化系数和比值并列，所以不承诺浮点下严格防循环。极小系数、严重消去或尺度悬殊都可能改变分类；先对模型缩放，并用原输入复核返回方案。需要精确判定时应使用有理数算法，不能仅缩小eps。')
+            elif name == 'ColorMax':
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('long long base(', 'void change(')] + [end]
+                for part in range(3):
+                    if part:
+                        body.append(r'\newpage')
+                        body.append(('重链区间最大值与连通块最高点（接上页结构体）：', '修改并向轻边父亲传播（接上页结构体）：')[part - 1])
+                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append(r'\paragraph{维护不变量} light[u][c]保存每个颜色c的轻儿子向下同色连通块最大值，保留重复项。线段树在u处存本点权与同色轻儿子贡献的最大值；down取重链上从u开始的连续同色区间。更新前保存旧链头颜色和贡献，更新后删旧加新传给链头父亲，每次跨轻边，最多O(log n)层。')
             elif name == 'ColorComponents':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('void add(', 'void change(')] + [end]
                 for part in range(3):

@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 217，application 64，composite 7，related 17。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 217，application 65，composite 7，related 17。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -188,6 +188,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | OfflineLCA | 图论 → 树上问题 → 最近公共祖先 | application | LCA 不同算法及路径交应用。 |
 | path_intersection | 图论 → 树上问题 → 最近公共祖先 | application | LCA 不同算法及路径交应用。 |
 | ColorComponents | 图论 → 树上问题 → 树链剖分 | application | 固定树同色连通块；HLD配合树状数组和颜色有序集合，不是动态拓扑LCT。 |
+| ColorMax | 图论 → 树上问题 → 树链剖分 | application | 固定树翻色及改权的同色连通块最大值，轻儿子multiset与重链区间最大值；不是动态拓扑LCT。 |
 | HLD | 图论 → 树上问题 → 树链剖分 | direct |  |
 | LongChain | 图论 → 树上问题 → 树链剖分 | direct | 按高度剖分长链，O(1)静态K级祖先；递归DFS。 |
 | SubtreeColors | 图论 → 树上问题 → 树上启发式合并 | direct |  |

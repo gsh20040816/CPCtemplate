@@ -5173,5 +5173,19 @@
       "ColorComponents"
     ],
     "start_new_page": false
+  },
+  {
+    "id": "example-408",
+    "symbol": "ColorMax",
+    "kind": "application",
+    "problem": "SPOJ QTREE7 / SP16580 同色连通块最大权",
+    "url": "https://www.luogu.com.cn/problem/SP16580",
+    "summary": "输入n、n−1条边、初始颜色数组、权值数组、q及操作；0 u查询、1 u翻色、2 u w改权。驱动兼容EOF多组。镜像数值约束残缺，未推断上界；当前记录302644732为Waiting，本地验证通过。",
+    "driver": "verify/spoj/QTREE7.compact.cpp",
+    "requires": [
+      "HLD",
+      "ColorMax"
+    ],
+    "start_new_page": true
   }
 ]

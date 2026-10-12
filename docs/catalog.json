@@ -1828,5 +1828,11 @@
     "ColorComponents",
     "树上翻色与同色连通块",
     "先构造并build连通树HLD h，再构造ColorComponents(h, color={})；点1..n，颜色0/1，省略color时全0，否则传长n+1的数组。flip(u)单点翻色，query(u)返回u所在同色连通块大小，col[u]可读。h须比本对象长寿且不能再修改或build；内部pos、bit、add、change不应直接修改或调用。\n\n固定树拓扑，不支持link/cut。初始化O(n log n)，翻色/查询O(log²n)，额外空间O(n)。依赖HLD的递归DFS，需足够栈空间。1≤n≤INT_MAX/2，计数用long long维护、结果≤n。两色子树贡献沿祖先链传播，包含首个异色祖先；有序集合定位同色链顶。"
+  ],
+  [
+    "color_max",
+    "ColorMax",
+    "树上翻色、改权与同色连通块最大值",
+    "先build连通树HLD h，再构造ColorMax(h,color,w)，color和w长n+1、点1..n，颜色为0/1，权值支持signed64全范围。flip(u)单点翻色，set_weight(u,w)改权，query(u)返回所在同色连通块最大权值；col、weight可读。h须比对象长寿，构造后不可修改或重新build；其余成员仅供实现使用。\n\n固定拓扑，初始化O(n log n)，每次操作O(log²n)，空间O(n)，HLD使用递归DFS。1≤n≤INT_MAX/2。轻儿子贡献按颜色存multiset，重链连续同色区间用线段树取最大值；删除相等贡献只删一个。LLONG_MIN仅作max单位元，不做加减，不会屏蔽合法最小权。"
   ]
 ]
