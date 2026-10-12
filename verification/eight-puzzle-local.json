@@ -1,0 +1,148 @@
+{
+  "status": "pass",
+  "source_lines": 89,
+  "source_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "histogram": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    20,
+    39,
+    62,
+    116,
+    152,
+    286,
+    396,
+    748,
+    1024,
+    1893,
+    2512,
+    4485,
+    5638,
+    9529,
+    10878,
+    16993,
+    17110,
+    23952,
+    20224,
+    24047,
+    15578,
+    14560,
+    6274,
+    3910,
+    760,
+    221,
+    2
+  ],
+  "reachable": 181440,
+  "unreachable": 181440,
+  "max_distance": 31,
+  "forms": {
+    "normal-original": {
+      "cases": 362880,
+      "seconds": 2.382,
+      "source_sha256": "a254dccd74ca0278659f22325e8d504c4c9868e24c16d4d8bd9cf5d1364241d8",
+      "stdout_sha256": "33a64470c2d24e58d94dcdbe3baea1c85fbb9a76faaa02585c95e674ba602f50",
+      "upstream_shortest_path_exceptions": [
+        {
+          "board": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "0"
+          ],
+          "path": "ud",
+          "expected": ""
+        }
+      ]
+    },
+    "normal-driver": {
+      "cases": 362880,
+      "seconds": 1.799,
+      "source_sha256": "a0cbaa15e369e7f4e8097705ccddb68824f67f7a20f20849af04b38272d4f29e",
+      "stdout_sha256": "dab21d495054ac6a00e0bf6697ad32289ebb087725c7f34afc59072848612b53",
+      "upstream_shortest_path_exceptions": []
+    },
+    "normal-expanded": {
+      "cases": 362880,
+      "seconds": 1.665,
+      "source_sha256": "6188cf345913acb36e7d555634333a683a678bf2501775b0117aab7506ae4b23",
+      "stdout_sha256": "dab21d495054ac6a00e0bf6697ad32289ebb087725c7f34afc59072848612b53",
+      "upstream_shortest_path_exceptions": []
+    },
+    "normal-minimal": {
+      "cases": 362880,
+      "seconds": 1.689,
+      "source_sha256": "1597c12ee123baf7de9e6109a374f20b85d7219fce0ba27877381ac4a034ff27",
+      "stdout_sha256": "dab21d495054ac6a00e0bf6697ad32289ebb087725c7f34afc59072848612b53",
+      "upstream_shortest_path_exceptions": []
+    },
+    "normal-ndebug": {
+      "cases": 362880,
+      "seconds": 1.666,
+      "source_sha256": "6188cf345913acb36e7d555634333a683a678bf2501775b0117aab7506ae4b23",
+      "stdout_sha256": "dab21d495054ac6a00e0bf6697ad32289ebb087725c7f34afc59072848612b53",
+      "upstream_shortest_path_exceptions": []
+    },
+    "sanitizer-original": {
+      "cases": 362880,
+      "seconds": 2.467,
+      "source_sha256": "a254dccd74ca0278659f22325e8d504c4c9868e24c16d4d8bd9cf5d1364241d8",
+      "stdout_sha256": "33a64470c2d24e58d94dcdbe3baea1c85fbb9a76faaa02585c95e674ba602f50",
+      "upstream_shortest_path_exceptions": [
+        {
+          "board": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "0"
+          ],
+          "path": "ud",
+          "expected": ""
+        }
+      ]
+    },
+    "sanitizer-driver": {
+      "cases": 362880,
+      "seconds": 1.934,
+      "source_sha256": "a0cbaa15e369e7f4e8097705ccddb68824f67f7a20f20849af04b38272d4f29e",
+      "stdout_sha256": "dab21d495054ac6a00e0bf6697ad32289ebb087725c7f34afc59072848612b53",
+      "upstream_shortest_path_exceptions": []
+    },
+    "sanitizer-expanded": {
+      "cases": 362880,
+      "seconds": 1.985,
+      "source_sha256": "6188cf345913acb36e7d555634333a683a678bf2501775b0117aab7506ae4b23",
+      "stdout_sha256": "dab21d495054ac6a00e0bf6697ad32289ebb087725c7f34afc59072848612b53",
+      "upstream_shortest_path_exceptions": []
+    },
+    "sanitizer-minimal": {
+      "cases": 362880,
+      "seconds": 1.867,
+      "source_sha256": "1597c12ee123baf7de9e6109a374f20b85d7219fce0ba27877381ac4a034ff27",
+      "stdout_sha256": "dab21d495054ac6a00e0bf6697ad32289ebb087725c7f34afc59072848612b53",
+      "upstream_shortest_path_exceptions": []
+    },
+    "sanitizer-ndebug": {
+      "cases": 362880,
+      "seconds": 1.899,
+      "source_sha256": "6188cf345913acb36e7d555634333a683a678bf2501775b0117aab7506ae4b23",
+      "stdout_sha256": "dab21d495054ac6a00e0bf6697ad32289ebb087725c7f34afc59072848612b53",
+      "upstream_shortest_path_exceptions": []
+    }
+  },
+  "oracle": "Independent 4-bit board encoding, undirected grid-edge BFS; permutation-rank bijection; inversion parity; replay every output move",
+  "source_language": "Unmodified original compiled as C++98 to avoid global move/std::move ambiguity"
+}

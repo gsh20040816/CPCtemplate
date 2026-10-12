@@ -85,6 +85,7 @@ chapters['assignment_spectrum'] = '按匹配基数最大权与顶标'
 chapters['determinant_exact'] = '精确整数行列式'
 chapters['matrix_tree_exact'] = '精确整数生成树计数'
 chapters['adaptive_simpson'] = '自适应Simpson积分'
+chapters['eight_puzzle'] = '八数码反向搜索'
 body = []
 records = []
 for style in ['compact']:
@@ -1348,6 +1349,12 @@ for style in ['compact']:
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\noindent 极角比较器（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'EightPuzzle':
+                split = next(i for i in range(start, end) if 'EightPuzzle()' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 反向预处理与最短方案（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'ComplexFFT':
                 split = next(i for i in range(start, end) if 'void transform(' in lines[i])

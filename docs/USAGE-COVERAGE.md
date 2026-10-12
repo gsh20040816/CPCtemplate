@@ -314,3 +314,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ColorComponents | [example-406（应用补充）](usage/example-406.cpp), [example-407（接口演示）](usage/example-407.cpp) | locally_checked_application |
 | ColorMax | [example-408（应用补充）](usage/example-408.cpp) | locally_checked_application |
 | Hull3DMetrics | [example-409（应用补充）](usage/example-409.cpp), [example-410（接口演示）](usage/example-410.cpp) | locally_checked_application |
+| EightPuzzle | [example-413（应用补充）](usage/example-413.cpp) | locally_checked_application |

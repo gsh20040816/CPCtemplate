@@ -1,0 +1,22 @@
+{
+  "direction-not-inverted": {
+    "rejected": true,
+    "returncode": -6,
+    "diagnostic": "Assertion failed: (false), function main, file direction-not-inverted.cpp, line 144.\n"
+  },
+  "rank-base": {
+    "rejected": true,
+    "returncode": -6,
+    "diagnostic": "AddressSanitizer:DEADLYSIGNAL\n=================================================================\n==98806==ERROR: AddressSanitizer: SEGV on unknown address 0x00010ef39120 (pc 0x000102c7eaf8 bp 0x00016d188f90 sp 0x00016d188f90 T0)\n==98806==The signal is caused by a WRITE memory access.\n==98806==WARN: Invalid dyld module map detected. This is most likely a bug in the sanitizer.\n==98806==WARN: Backtraces may be unreliable.\n    #0 0x000102c7eaf8 in EightPuzzle::EightPuzzle()+0x1e60 (rank-base:arm64+0x"
+  },
+  "unreachable-as-empty-solution": {
+    "rejected": true,
+    "returncode": -6,
+    "diagnostic": "Assertion failed: (ok == (depth >= 0)), function main, file unreachable-as-empty-solution.cpp, line 129.\n"
+  },
+  "horizontal-wrap": {
+    "rejected": true,
+    "returncode": -6,
+    "diagnostic": "Assertion failed: (int(path.size()) == depth && depth <= 31), function main, file horizontal-wrap.cpp, line 133.\n"
+  }
+}

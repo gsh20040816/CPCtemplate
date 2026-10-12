@@ -285,6 +285,7 @@
 | `Hull3DMetrics` | [HDU4273 Rescue](https://acm.hdu.edu.cn/showproblem.php?pid=4273) | EOF;4<=n<=100;integer \|coordinate\|<=10000;nondegenerate hull, all points extreme;0.001 accuracy;1000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022769) | 待核验 |
 | `convolution_fft` | [HDU1402](https://acm.hdu.edu.cn/showproblem.php?pid=1402) | EOF;two integers each<=50000 characters;1000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022782) | 待核验 |
 | `ComplexFFT` | [HDU4609](https://acm.hdu.edu.cn/showproblem.php?pid=4609) | T<=100;3<=n<=100000;1<=a_i<=100000;7decimals;5000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022784) | 待核验 |
+| `EightPuzzle` | [HDU1043 Eight](https://acm.hdu.edu.cn/showproblem.php?pid=1043) | 3x3 permutation of1..8,x; EOF cases; Others5000MS/32768K | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022820) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2669,6 +2670,14 @@ Frequency square; remove self-pairs; divide2; subtract unique-largest invalid tr
 FFT numeric prerequisites remain platform dependent; general transform API covered separately.
 
 原始题面与参数：[来源 1](https://acm.hdu.edu.cn/showproblem.php?pid=4609)
+
+### HDU1043 Eight / EightPuzzle
+
+South Central USA 1998 contest application; not standalone non-contest template
+
+
+
+STL exception under issue16; no all-history rank claim
 
 ## 榜单口径
 

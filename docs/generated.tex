@@ -1,5 +1,39 @@
 \part{搜索}
 
+\Needspace{180pt}
+
+\chapter{BFS（搜索）}
+
+\section{八数码：反向搜索与最短方案}\label{compact-EightPuzzle}\index{EightPuzzle}
+
+构造一次EightPuzzle，solve(a)可多次查询；a按行存0..8的一个排列，0为空格，固定目标123456780。返回pair<bool,string>，false表示不可达；true的字符串按空格移动方向u/d/l/r给出最短方案，目标状态返回空串。rank(a)是0..9!−1的康托编号；parent和step仅供实现，不应改写。
+
+反向BFS首次访问记录朝目标的前驱及反向动作，不给每个状态保存整条字符串。最多181440个可达状态，最远31步。对固定9格，预处理O(9!·9$^{2}$)时间、O(9!·9)空间（含队列），持久表O(9!)；查询O(9$^{2}$+路径长度)。仅适用于3×3和上述固定目标，不适用于十五数码；输入须合法，不检查重复数。
+
+\lstinputlisting[firstline=6,lastline=22]{../src/compact/eight_puzzle.hpp}
+
+\newpage
+
+\noindent 反向预处理与最短方案（接上页同一结构体）：
+
+\lstinputlisting[firstline=23,lastline=67,firstnumber=18]{../src/compact/eight_puzzle.hpp}
+
+\newpage
+
+\Needspace{378pt}
+
+\subsection*{应用题补充：HDU1043 八数码路径}
+
+\label{usage-example-413}
+
+题意：EOF读若干3×3排列，x为空格；输出空格移动方向u/d/l/r或unsolvable，目标状态输出空行。题面只要求任意合法方案，本实现保证最短，不按官方样例字符串逐字比较。
+
+所需模板：\hyperref[compact-EightPuzzle]{EightPuzzle}（第~\pageref{compact-EightPuzzle}~页，\ref{compact-EightPuzzle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://acm.hdu.edu.cn/showproblem.php?pid=1043}
+
+\lstinputlisting{usage/example-413.cpp}
+
 \newpage
 
 \Needspace{392pt}
