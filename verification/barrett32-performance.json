@@ -1,0 +1,98 @@
+{
+  "scope": "Same local machine, GCC16 C++20 O2, alternating 3 runs of dependent multiply-add chain; not OJ timing or universal speed claim.",
+  "baseline_commit": "d390956",
+  "baseline_path": "src/compact/dynamic_modint.hpp",
+  "baseline_sha256": "ce1b732e59ca87b804107fdc228e28ab618e405f4a6cbc59e4ed5a60e29f7159",
+  "runs": [
+    {
+      "mod": 1,
+      "iterations": 3000000,
+      "runs_seconds": {
+        "before": [
+          0.03566,
+          0.035886,
+          0.035494
+        ],
+        "after": [
+          0.011571,
+          0.011496,
+          0.011611
+        ]
+      },
+      "median_seconds": {
+        "before": 0.03566,
+        "after": 0.011571
+      },
+      "after_over_before": 0.3244812114413909
+    },
+    {
+      "mod": 12,
+      "iterations": 3000000,
+      "runs_seconds": {
+        "before": [
+          0.036033,
+          0.036381,
+          0.036061
+        ],
+        "after": [
+          0.011344,
+          0.011468,
+          0.011135
+        ]
+      },
+      "median_seconds": {
+        "before": 0.036061,
+        "after": 0.011344
+      },
+      "after_over_before": 0.3145780760378248
+    },
+    {
+      "mod": 998244353,
+      "iterations": 3000000,
+      "runs_seconds": {
+        "before": [
+          0.040243,
+          0.038771,
+          0.038926
+        ],
+        "after": [
+          0.012094,
+          0.011615,
+          0.011599
+        ]
+      },
+      "median_seconds": {
+        "before": 0.038926,
+        "after": 0.011615
+      },
+      "after_over_before": 0.2983866824230591
+    },
+    {
+      "mod": 2147483647,
+      "iterations": 3000000,
+      "runs_seconds": {
+        "before": [
+          0.038947,
+          0.039007,
+          0.03934
+        ],
+        "after": [
+          0.011549,
+          0.011437,
+          0.011647
+        ]
+      },
+      "median_seconds": {
+        "before": 0.039007,
+        "after": 0.011549
+      },
+      "after_over_before": 0.29607506345015
+    }
+  ],
+  "files": {
+    "tests/barrett32_benchmark.cpp": "a6d373c2e386dcc9e512c89ae76db4c068466095a6716a8a056d6fcfd2ec321d",
+    "tests/barrett32_benchmark.py": "5b3f48cccdc82cf244a096a310b4545b18d076b68c6e986b07f6d502e61e9da3",
+    "src/compact/barrett32.hpp": "5cc41299b6a34d4115620d1bfc3db30442129ce6ed292f6f67528b3b69fd236b",
+    "src/compact/dynamic_modint.hpp": "50c35d394fea92215e750565708c956edfdc95327fd2013b74ad7561cd0ddb15"
+  }
+}

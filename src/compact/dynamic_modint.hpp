@@ -1,39 +1,78 @@
 #pragma once
 #include <bits/stdc++.h>
 #include <cassert>
+#include "barrett32.hpp"
 using namespace std;
 
 // BEGIN mint
 template <int tag = 0> struct mint
 {
     static inline int mod = 998244353;
+    static inline Barrett32 reducer{998244353};
     int v;
 
     static void set_mod(int p)
     {
         assert(p >= 1);
         mod = p;
+        reducer = Barrett32(p);
     }
 
-    mint(long long x = 0) : v((x % mod + mod) % mod) {}
+    mint(long long x = 0) : v(x % mod)
+    {
+        if (v < 0)
+            v += mod;
+    }
 
-    mint operator+(mint b) const { return mint((long long)v + b.v); }
+    mint operator+(mint b) const
+    {
+        mint r;
+        long long sum = (long long)v + b.v;
+        r.v = sum >= mod ? sum - mod : sum;
+        return r;
+    }
 
-    mint operator-(mint b) const { return mint((long long)v - b.v); }
+    mint operator-(mint b) const
+    {
+        mint r;
+        r.v = v - b.v;
+        if (r.v < 0)
+            r.v += mod;
+        return r;
+    }
 
-    mint operator*(mint b) const { return mint(1LL * v * b.v); }
+    mint operator*(mint b) const
+    {
+        mint r;
+        r.v = reducer.mul(v, b.v);
+        return r;
+    }
 
-    mint &operator+=(mint b) { return *this = *this + b; }
+    mint &operator+=(mint b)
+    {
+        return *this = *this + b;
+    }
 
-    mint &operator-=(mint b) { return *this = *this - b; }
+    mint &operator-=(mint b)
+    {
+        return *this = *this - b;
+    }
 
-    mint &operator*=(mint b) { return *this = *this * b; }
+    mint &operator*=(mint b)
+    {
+        return *this = *this * b;
+    }
 
     mint pow(uint64_t k) const
     {
         mint a = *this, r = 1;
-        for (; k; k >>= 1, a *= a)
-            if (k & 1) r *= a;
+        while (k)
+        {
+            if (k & 1)
+                r *= a;
+            a *= a;
+            k >>= 1;
+        }
         return r;
     }
 
@@ -46,7 +85,8 @@ template <int tag = 0> struct mint
             tie(a, b) = pair{b, a - q * b};
             tie(x, y) = pair{y, x - q * y};
         }
-        if (a != 1) return nullopt;
+        if (a != 1)
+            return nullopt;
         return mint(x);
     }
 
@@ -57,9 +97,15 @@ template <int tag = 0> struct mint
         return *x;
     }
 
-    mint operator/(mint b) const { return *this * b.inv(); }
+    mint operator/(mint b) const
+    {
+        return *this * b.inv();
+    }
 
-    mint &operator/=(mint b) { return *this = *this / b; }
+    mint &operator/=(mint b)
+    {
+        return *this = *this / b;
+    }
 
     bool operator==(const mint &) const = default;
 };

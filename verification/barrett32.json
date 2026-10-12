@@ -1,0 +1,45 @@
+{
+  "source_blob": "c5af9ebd28047a3c6bd7023cbe26150761c8e86b",
+  "scope": "Barrett32 and accelerated mint; not full 07E or Montgomery coverage.",
+  "runs": [
+    {
+      "mode": "normal",
+      "test": "barrett32",
+      "output": "3136516 checks; 107004 quotient corrections PASS\nsource uint32-domain mismatch: 4294967291 2137899609 3861224214 2982428172 2982428167"
+    },
+    {
+      "mode": "normal",
+      "test": "dynamic_modint",
+      "output": "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS"
+    },
+    {
+      "mode": "normal",
+      "test": "batch_units",
+      "output": "Generic batch units: exhaustive composite units/nonunits, empty input and independent product certificates PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "test": "barrett32",
+      "output": "3136516 checks; 107004 quotient corrections PASS\nsource uint32-domain mismatch: 4294967291 2137899609 3861224214 2982428172 2982428167"
+    },
+    {
+      "mode": "sanitizer",
+      "test": "dynamic_modint",
+      "output": "Dynamic mint: exhaustive composite inverses, int128 arithmetic, aliases, independent tags and Fenwick composition PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "test": "batch_units",
+      "output": "Generic batch units: exhaustive composite units/nonunits, empty input and independent product certificates PASS"
+    }
+  ],
+  "files": {
+    "src/compact/barrett32.hpp": "5cc41299b6a34d4115620d1bfc3db30442129ce6ed292f6f67528b3b69fd236b",
+    "src/compact/dynamic_modint.hpp": "50c35d394fea92215e750565708c956edfdc95327fd2013b74ad7561cd0ddb15",
+    "tests/barrett32.cpp": "5e75cf9b8380bfc869dc6d0229a2714e05c3fe2e88dbfa00e8f28504bfae06ec",
+    "tests/barrett32.py": "e5abe432c923350e4b5bd2bb4c9d666281169ae4ab6ec9018011451305a6c5f6",
+    "tests/dynamic_modint.cpp": "3560e93c58683e59f3d6c3e78000abcaf541cfcd9e5375d3ede93c322b4cf611",
+    "tests/batch_units.cpp": "1833fc1699710835ef720684b4c26605e47444c126c3e920b79c893973fa98a8",
+    "tests/fixtures/wida_mod_reduction/07E.cpp": "b8d5f9d1f835b6781c86e34df3578123dbb92aafc7e34c0efc3eb0e0a45cc7e6"
+  }
+}

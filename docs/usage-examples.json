@@ -2448,6 +2448,7 @@
     "summary": "输入1≤n≤5000000、2≤k<p≤10^9、1≤a_i<p且p为素数，求Σk^i/a_i模p。先设置mint的模数p，再构造数组；传move(a)调用batch_units，只求一次总积逆元。权重从1开始，每项先乘k再累加。read与main一起抄；move后不再读取a。更换同tag模数后旧对象失效，计算期间不能切换。核心支持合数单位，本题只覆盖素数；动态模数、构造、乘法及累加、v输出在此直接使用，合数求逆接口另由核心测试核验。",
     "driver": "verify/luogu/P5431.mint.compact.cpp",
     "requires": [
+      "Barrett32",
       "mint",
       "batch_units"
     ],
@@ -2914,6 +2915,7 @@
     "driver": "verify/library_checker/unionfind_with_potential.compact.cpp",
     "requires": [
       "PotentialDSU",
+      "Barrett32",
       "mint"
     ]
   },
@@ -5715,6 +5717,19 @@
     "driver": "verify/cf/896D.compact.cpp",
     "requires": [
       "CompositeBinomial"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-447",
+    "symbol": "Barrett32",
+    "kind": "api",
+    "problem": "Barrett 规范余数模乘 API",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BARRETT32.md",
+    "summary": "输入非零uint32模数m与询问数，每组a b满足0≤a,b<m，输出a*b模m。支持m=1和大于INT_MAX的模数；输入本身不正规化。",
+    "driver": "verify/api/barrett32.compact.cpp",
+    "requires": [
+      "Barrett32"
     ],
     "start_new_page": true
   }
