@@ -1388,12 +1388,13 @@ for style in ['compact']:
                         body.append('\\noindent 模整数（接上页同一结构体）：')
                     body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'ModInt':
-                split = next(i for i in range(start, end) if 'optional<' + name + '> try_inv' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                if name == 'ModInt':
-                    body.append('\\noindent 求逆与除法（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+                tokens = ['ModInt pow(', 'ModInt operator/(']
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
+                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
+                    if j:
+                        body.append('\\newpage')
+                        body.append('\\noindent 模整数（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'PalindromicTree':
                 split = next(i for i in range(start, end) if '// Append a lowercase letter' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')

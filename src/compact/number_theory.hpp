@@ -126,20 +126,51 @@ template <int mod> struct ModInt
     static_assert(mod >= 1);
     int v;
 
-    ModInt(long long x = 0) : v((x % mod + mod) % mod) {}
+    ModInt(long long x = 0)
+    {
+        v = x % mod;
+        if (v < 0)
+            v += mod;
+    }
 
-    ModInt operator+(ModInt b) const { return ModInt((long long)v + b.v); }
+    ModInt operator+(ModInt b) const
+    {
+        long long x = (long long)v + b.v;
+        if (x >= mod)
+            x -= mod;
+        ModInt r;
+        r.v = x;
+        return r;
+    }
 
-    ModInt operator-(ModInt b) const { return ModInt((long long)v - b.v); }
+    ModInt operator-(ModInt b) const
+    {
+        int x = v - b.v;
+        if (x < 0)
+            x += mod;
+        ModInt r;
+        r.v = x;
+        return r;
+    }
 
-    ModInt operator*(ModInt b) const { return ModInt(1LL * v * b.v); }
+    ModInt operator*(ModInt b) const
+    {
+        ModInt r;
+        r.v = 1LL * v * b.v % mod;
+        return r;
+    }
 
     ModInt pow(long long e) const
     {
         assert(e >= 0);
         ModInt a = *this, r = 1;
-        for (; e; e >>= 1, a = a * a)
-            if (e & 1) r = r * a;
+        while (e)
+        {
+            if (e & 1)
+                r = r * a;
+            a = a * a;
+            e >>= 1;
+        }
         return r;
     }
 
@@ -154,7 +185,8 @@ template <int mod> struct ModInt
             x -= q * y;
             swap(x, y);
         }
-        if (a != 1) return nullopt;
+        if (a != 1)
+            return nullopt;
         return ModInt(x);
     }
 
@@ -165,15 +197,30 @@ template <int mod> struct ModInt
         return *r;
     } // requires an invertible residue
 
-    ModInt operator/(ModInt b) const { return *this * b.inv(); }
+    ModInt operator/(ModInt b) const
+    {
+        return *this * b.inv();
+    }
 
-    ModInt &operator+=(ModInt b) { return *this = *this + b; }
+    ModInt &operator+=(ModInt b)
+    {
+        return *this = *this + b;
+    }
 
-    ModInt &operator-=(ModInt b) { return *this = *this - b; }
+    ModInt &operator-=(ModInt b)
+    {
+        return *this = *this - b;
+    }
 
-    ModInt &operator*=(ModInt b) { return *this = *this * b; }
+    ModInt &operator*=(ModInt b)
+    {
+        return *this = *this * b;
+    }
 
-    ModInt &operator/=(ModInt b) { return *this = *this / b; }
+    ModInt &operator/=(ModInt b)
+    {
+        return *this = *this / b;
+    }
 };
 
 template <int mod> struct Binomial
