@@ -39,6 +39,33 @@ set/map 去重，multiset/multimap 允许等价键。比较器必须是严格弱
 
 multiset 的 \texttt{erase(key)} 会删掉全部等价元素；只删一个时先 find，再 erase 该迭代器。树容器的 lower\_bound 用成员函数，通用算法在非随机访问迭代器上可能线性走步。关联容器的键不可原地修改为破坏排序的值。
 
+\paragraph{比较器决定等价与边界}
+等价指两个方向比较都为假，不一定是字段逐一相等。begin 指向首元素，end 是尾后位置，不能解引用；空集合两者相同。lower\_bound(k) 找第一个“不排在 k 前面”的元素，upper\_bound(k) 找第一个“排在 k 后面”的元素；使用降序比较器时，不再是数值上的大于等于/大于。
+\begin{lstlisting}
+multiset<int, greater<int>> s{7, 5, 5, 2};
+auto l = s.lower_bound(5); // 指向第一个5
+auto r = s.upper_bound(5); // 指向2
+s.erase(l);              // 只删除一个5
+s.erase(5);              // 删除剩余全部5
+\end{lstlisting}
+结构体可写独立比较器；以下按 x 升序、x 相同按 y 降序。同一比较器可用于 set 去重或 multiset 保留重复值。查找返回 end 时不能 erase 该迭代器；equal\_range 返回等价键的半开区间，clear 清空，size/count 分别给出总数/等价键数。
+\begin{lstlisting}
+struct Node
+{
+    int x, y;
+};
+struct Cmp
+{
+    bool operator()(const Node &a, const Node &b) const
+    {
+        if (a.x != b.x)
+            return a.x < b.x;
+        return a.y > b.y;
+    }
+};
+multiset<Node, Cmp> nodes;
+\end{lstlisting}
+
 unordered\_map 的普通查改平均常数时间，最坏可线性；rehash 会使迭代器失效。需要容量控制时看其 reserve/max\_load\_factor 接口，不把这些名字照搬到 PBDS。GNU 的 gp/cc 哈希表、选型和范围见本册末的分册索引。
 
 \Needspace{12\baselineskip}
@@ -52,8 +79,20 @@ q.push(2);
 int x = q.top();
 q.pop();
 \end{lstlisting}
+比较器 comp(a,b) 为真表示 a 的优先级低于 b；相同优先级不保证先进先出。需要按优先级再按编号取最小时，pair 的字典序已足够：
+\begin{lstlisting}
+using Item = pair<int, int>; // 优先级、编号
+priority_queue<Item, vector<Item>, greater<Item>> q2;
+q2.push({3, 8});
+q2.push({3, 2});
+auto [key, id] = q2.top(); // 3、2
+q2.pop();
+\end{lstlisting}
+也可提供独立比较器；无需同时重载多个关系运算符。比较器若读取外部数组，入堆后不能直接修改数组来假装降键：堆不会自动重排。应存入键值快照并在取出时过滤过期项（见最短路），或使用支持修改的堆。
+
 需要修改已入堆的键、删除指定元素或合并时，使用数据结构册的 PBDS 配对堆；不要混用两种 priority\_queue 的接口或句柄保证。
 
+\Needspace{14\baselineskip}
 \section{排序、查找与区间算法}
 \index{sort}\index{lower-bound}\index{unique}\index{nth-element}
 算法区间通常为半开区间。sort 要求严格弱序，stable\_sort 保留等价元素的原顺序；nth\_element 只保证第 k 位及两侧分区，平均线性，不等于完整排序。lower/upper\_bound 要求对应有序或分区前提，并使用一致比较规则。
@@ -94,6 +133,7 @@ assert(prefix.back() == 3000000000LL);
 \end{lstlisting}
 空区间不写输出；非空时输出区间必须足够大。iota 适合连续编号。gcd/lcm 仍有可表示范围前提，最小负数的绝对值应先转宽或转无符号幅值。浮点整数精确范围和 long double 有效位数用 numeric\_limits 查询；几何数值条件另看几何册。
 
+\Needspace{14\baselineskip}
 \section{complex 与 FFT}
 \index{complex}\index{conj}
 FFT 使用 \texttt{complex<long double>}；\texttt{C(re,im)} 分别设置实部、虚部，real()/imag() 读取分量，conj(z) 取共轭。abs(z) 是模长，norm(z) 是模长的平方；尤其不要与本库 RealPlane::norm 的长度含义混淆。逆变换使用共轭单位根，并按模板约定除以长度。

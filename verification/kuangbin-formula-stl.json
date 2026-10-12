@@ -1,0 +1,39 @@
+{
+  "status": "pass",
+  "permutation_formula_cases": 40200,
+  "cycle_oracle": "Undirected permutation graph components; n=1..200 all rotations/reflections",
+  "stl": {
+    "source-normal": {
+      "status": "pass",
+      "output": "69545 operations; source comparators, bounds, erasure PASS"
+    },
+    "printed-normal": {
+      "status": "pass",
+      "output": ""
+    },
+    "source-sanitizer": {
+      "status": "pass",
+      "output": "69545 operations; source comparators, bounds, erasure PASS"
+    },
+    "printed-sanitizer": {
+      "status": "pass",
+      "output": ""
+    }
+  },
+  "printed_sha256": "45040d9dc6abbee453916269c35696ca8b8ac5207cd559b878d9228ffedad4a1",
+  "hashes": {
+    "tests/kuangbin_stl.cpp": "86c6a1f5c675a1e9787d1f595281a22665629640baec430a6c58c0f4fe513681",
+    "tests/kuangbin_formula_stl.py": "a743ea15a3ab65e73d7d7662a6897cf2d4862b37699eb82a24d35e3f2995a2d2",
+    "docs/infra-body.tex": "e6c25064d03d338ed0bd6f64ccfee814014554e2d5487791832ed5f5f0e1ffca",
+    "src/compact/polya.hpp": "576478299b2711bf9ee353ad2a8bd4f62c0e38865c34a049950ccf1d63578cb2"
+  },
+  "source_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "physical_pages_reviewed": [
+    56,
+    57,
+    258,
+    259,
+    260
+  ],
+  "scope": "2.19 formulas, 8.5 comparator functions and container operations. 8.4 read only, no stack-pointer assembly executed. No new online AC."
+}
