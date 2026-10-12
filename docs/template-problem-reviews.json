@@ -7450,5 +7450,31 @@
       "verification/manhattan-mo-local.json",
       "verification/manhattan-mo-guards.json"
     ]
+  },
+  {
+    "symbol": "circle_coverage_area",
+    "problem": "Luogu SP8119 / SPOJ CIRUT",
+    "title": "圆覆盖重数面积：恰好覆盖 k 次",
+    "url": "https://www.luogu.com.cn/problem/SP8119",
+    "classification": "Direct template for all exact circle coverage multiplicity areas.",
+    "statement_checked": true,
+    "limits": "n<=1000; distinct positive circles; integer |x|,|y|<=1000,r<=1000; mirror 639ms/1.46GB",
+    "tested_api": [
+      "circle_coverage_area"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Submitted record302660709 remains Waiting; no AC or runtime claim. Duplicate and zero-radius extensions independently checked locally.",
+    "checked_date": "2026-10-12",
+    "usage": "example-417",
+    "source": "src/compact/circle_coverage.hpp",
+    "local_evidence": [
+      "verification/circle-coverage-local.json",
+      "verification/circle-coverage-source.json"
+    ]
   }
 ]

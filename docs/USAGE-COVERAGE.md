@@ -316,3 +316,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Hull3DMetrics | [example-409（应用补充）](usage/example-409.cpp), [example-410（接口演示）](usage/example-410.cpp) | locally_checked_application |
 | EightPuzzle | [example-413（应用补充）](usage/example-413.cpp) | locally_checked_application |
 | manhattan_order | [example-416（应用补充）](usage/example-416.cpp) | locally_checked_application |
+| circle_coverage_area | [example-417](usage/example-417.cpp) | locally_checked_example |

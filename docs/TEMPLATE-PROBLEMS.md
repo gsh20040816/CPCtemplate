@@ -287,6 +287,7 @@
 | `ComplexFFT` | [HDU4609](https://acm.hdu.edu.cn/showproblem.php?pid=4609) | T<=100;3<=n<=100000;1<=a_i<=100000;7decimals;5000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022784) | 待核验 |
 | `EightPuzzle` | [HDU1043 Eight](https://acm.hdu.edu.cn/showproblem.php?pid=1043) | 3x3 permutation of1..8,x; EOF cases; Others5000MS/32768K | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022820) | 待核验 |
 | `manhattan_order` | [P1494 小Z的袜子](https://www.luogu.com.cn/problem/P1494) | n,m≤50000; Ci≤n; singleton intervals require0/1;400ms,128MB. | [记录](https://www.luogu.com.cn/record/302657154) | 待核验 |
+| `circle_coverage_area` | [Luogu SP8119 / SPOJ CIRUT](https://www.luogu.com.cn/problem/SP8119) | n<=1000; distinct positive circles; integer \|x\|,\|y\|<=1000,r<=1000; mirror 639ms/1.46GB | 驱动登记待核验；AC 待核验 | 待核验 |
 
 ## 适配与证据范围
 
@@ -2687,6 +2688,14 @@ Competition application of static interval ordering; not a standalone official t
 Convert1-based closed intervals into half-open endpoint points. Maintain unordered equal-color pairs; reduce ratio or output0/1.
 
 Accepted all10tests; rank not checked.
+
+### Luogu SP8119 / SPOJ CIRUT / circle_coverage_area
+
+Direct template for all exact circle coverage multiplicity areas.
+
+
+
+Submitted record302660709 remains Waiting; no AC or runtime claim. Duplicate and zero-radius extensions independently checked locally.
 
 ## 榜单口径
 

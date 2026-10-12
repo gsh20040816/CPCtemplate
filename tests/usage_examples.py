@@ -21,6 +21,7 @@ cases = {
     'example-7': [('5 7\n2 1 2\n1 1 2\n2 1 2\n1 3 4\n2 1 4\n1 2 3\n2 1 4\n', 'N Y N Y'), ('1 1\n2 1 1\n', 'Y')]
 }
 cases['example-415'] = [('6 4\n1 2 3 3 3 2\n2 6\n1 3\n3 5\n1 6\n', '2/5 0/1 1/1 4/15'), ('3 4\n1 1 2\n1 1\n2 2\n1 2\n1 3\n', '0/1 0/1 1/1 1/3')]
+cases['example-417'] = [('3\n0 0 1\n1 0 1\n1 1 1\n', '[1] = 4.699 [2] = 1.699 [3] = 0.443'), ('2\n0 0 1\n0 0 1\n', '[1] = 0.000 [2] = 3.142')]
 cases['example-416'] = cases['example-415']
 cases['example-414'] = [('2 3\n2 MON THU\n1 2\n3 MON FRI\n1 1 2\n3 MON SUN\n1 2 2\n10 2\n1 MON TUE\n3\n1 MON WED\n3\n0 0\n', '8 3 Inconsistent data.'), ('2 1\n2 MON SUN\n1 2\n0 0\n', 'Multiple solutions.'), ('1 1\n1 MON MON\n1\n0 0\n', '8')]
 cases['example-194'] = [('7\n2 1 0\n2 8 1\n2 9 0\n2 15 1\n2 7 2\n3 8 2\n1 1000000000 999999999\n', '1 0 4 1 3 5 7 3 0 3 6 4 1 4 11 14 2 3 4 0 1 999999999')]

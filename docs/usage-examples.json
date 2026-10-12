@@ -5303,5 +5303,19 @@
     ],
     "start_new_page": true,
     "page_break_before": "        auto save = [&](int id, long long len)"
+  },
+  {
+    "id": "example-417",
+    "symbol": "circle_coverage_area",
+    "kind": "template",
+    "problem": "SP8119 CIRUT 圆覆盖重数面积",
+    "url": "https://www.luogu.com.cn/problem/SP8119",
+    "summary": "n≤1000，互异圆，整数圆心坐标绝对值≤1000、0<r≤1000；输出恰被k个圆覆盖的面积，保留三位小数。核心额外支持同圆及零半径，另由本地独立验证覆盖。末端max仅避免舍入负零，不改变核心结果。已提交记录302660709，仍Waiting，不记AC。",
+    "driver": "verify/luogu/SP8119.compact.cpp",
+    "requires": [
+      "RealPlane",
+      "circle_coverage_area"
+    ],
+    "start_new_page": false
   }
 ]

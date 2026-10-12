@@ -12595,6 +12595,54 @@ circle\_union\_area(a) 求闭圆盘的面积并，输入vector<RealPlane::Circle
 
 \newpage
 
+\noindent 相关应用：分层圆弧积分求每个精确覆盖重数的面积，重复圆按编号分层；有独立高精度截面积分验证。
+
+\section{圆覆盖重数面积：恰好覆盖 k 次}\label{compact-circle_coverage_area}\index{circle\_coverage\_area}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+circle\_coverage\_area(a) 返回长n+1的数组，ans[k]为恰被k个闭圆盘覆盖的面积（1$\le$k$\le$n）；ans[0]=0仅为占位，不表示无界平面面积。输入vector<RealPlane::Circle>，圆心和半径long double，半径$\ge$0，n$\le$INT\_MAX-2；按值传参不改原数组。支持重复圆、零半径、包含、相切和孔洞。
+
+圆弧按覆盖层数积分得到至少k次面积，再相邻作差；同圆按编号依次归入不同层，不能去重。O(n$^{2}$ log n)时间、O(n)额外空间，并查集递归最深O(n)。输入和中间运算须有限可表示；严格原值排序、分块平移及补偿求和不能消除近退化与小面积差分的浮点误差。不对核心结果强制取绝对值或截零。
+
+\lstinputlisting[firstline=5,lastline=38,firstnumber=1]{../src/compact/circle_coverage.hpp}
+
+\newpage
+
+两圆关系及覆盖角区间（接上页函数）：
+
+\lstinputlisting[firstline=39,lastline=84,firstnumber=35]{../src/compact/circle_coverage.hpp}
+
+\newpage
+
+分层圆弧积分与补偿求和（接上页函数）：
+
+\lstinputlisting[firstline=85,lastline=111,firstnumber=81]{../src/compact/circle_coverage.hpp}
+
+\newpage
+
+\paragraph{覆盖分层} 当前圆弧左侧包含自身，另有count-1个圆覆盖；它是至少count次覆盖区域的正向边界。分别积分到对应层后，按k递增作answer[k]-answer[k+1]得到恰好k次。重合的m个圆按编号让第t个额外计入前t-1个同圆，从而每个阈值恰贡献一次边界；不能去重。ans[0]只是占位。
+
+\paragraph{数值与验证} 各连通块平移、严格角排序、补偿累加；仍有浮点分类和相邻层相减的消去误差，小面积可能有微小负误差。466组70位竖条截面积分及解析压力例，在O2、NDEBUG、抄写版与ASan/UBSan下通过；不据此承诺任意实数精确。
+
+\paragraph{积分公式} 对相对连通块原点的圆心$(x,y)$，半径$r$，弧角从$l$到$u$，令$h=(u-l)/2$、$t=(u+l)/2$。格林公式给出贡献$r^2h+r\sin h(x\cos t+y\sin t)$。整圆直接用$\pi r^2$，避免$\sin\pi$舍入误差；补偿求和减少大量正负弧贡献相加的损失。连通块分别平移不改变闭合边界积分。
+
+\Needspace{337pt}
+
+\subsection*{模板题使用：SP8119 CIRUT 圆覆盖重数面积}
+
+\label{usage-example-417}
+
+题意：n$\le$1000，互异圆，整数圆心坐标绝对值$\le$1000、0<r$\le$1000；输出恰被k个圆覆盖的面积，保留三位小数。核心额外支持同圆及零半径，另由本地独立验证覆盖。末端max仅避免舍入负零，不改变核心结果。已提交记录302660709，仍Waiting，不记AC。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_coverage_area]{circle\_\allowbreak{}coverage\_\allowbreak{}area}（第~\pageref{compact-circle_coverage_area}~页，\ref{compact-circle_coverage_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/SP8119}
+
+\lstinputlisting{usage/example-417.cpp}
+
+\newpage
+
 \Needspace{562pt}
 
 \chapter{三维计算几何基础}
