@@ -56,6 +56,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Partitions | [example-158](usage/example-158.cpp), [example-159（应用补充）](usage/example-159.cpp) | locally_checked_example |
 | Lucas | [example-40](usage/example-40.cpp) | locally_checked_example |
 | ExLucas | [example-41](usage/example-41.cpp) | locally_checked_example |
+| CompositeBinomial | [example-445（接口演示）](usage/example-445.cpp), [example-446（应用补充）](usage/example-446.cpp) | locally_checked_application |
 | mod_sqrt | [example-42](usage/example-42.cpp) | locally_checked_example |
 | KthResidue | [example-194](usage/example-194.cpp) | locally_checked_example |
 | PrimePowerRoots | [example-194](usage/example-194.cpp) | locally_checked_example |

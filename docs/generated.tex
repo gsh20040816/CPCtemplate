@@ -2485,6 +2485,64 @@ ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k �
 
 \Needspace{650pt}
 
+\noindent 相关应用：按上标范围预处理的合数模数组合数，与小模数大上标ExLucas互补
+
+\subsection{有界上标的任意模数组合数}\label{compact-CompositeBinomial}\index{CompositeBinomial}
+
+CompositeBinomial(N,mod)预处理上标0..N的组合数，0$\le$N<INT\_MAX、1$\le$mod$\le$INT\_MAX；mod可为合数。choose(n,k)返回C(n,k)模mod；负n、负k、k>n返回0，其余要求n$\le$N。mod=1时所有结果为0。每个素数幂分别保存去除对应素因子的阶乘、逆阶乘和指数前缀，再用CRT合并。
+
+设s为mod的不同素因子个数。预处理O($\sqrt{\vphantom x}$mod+s(N+log mod))时间、O(s(N+1))空间，单次查询O(s)。各素数幂的p次幂表很短；指数达到该素数幂的次数即直接贡献0。表长取决于N，不按mod或素数幂大小开数组，适合N$\le$10\textasciicircum{}5、mod为10\textasciicircum{}9级数的多次查询。n为完整unsigned64且模数小的场景仍用ExLucas。
+
+limit、mod、factors及辅助函数视为内部数据；不支持自动扩表或修改模数。所有模乘提升为long long，CRT每乘一次即取模。已通过独立Pascal递推、Python精确组合数、原稿安全小域对照和ASan/UBSan；CF896D为已验证的本地应用驱动，尚无本次线上AC。
+
+\lstinputlisting[firstline=9,lastline=32,firstnumber=1]{../src/compact/composite_binomial.hpp}
+
+\newpage
+
+\noindent 有界上标组合数（接上页同一结构体）：
+
+\lstinputlisting[firstline=33,lastline=82,firstnumber=25]{../src/compact/composite_binomial.hpp}
+
+\newpage
+
+\noindent 有界上标组合数（接上页同一结构体）：
+
+\lstinputlisting[firstline=83,lastline=101,firstnumber=75]{../src/compact/composite_binomial.hpp}
+
+\Needspace{320pt}
+
+\subsection*{接口用法演示：有界上标合数模数组合数 API}
+
+\label{usage-example-445}
+
+演示约定：输入预处理上界N、正int模数mod和询问数；每组n k输出C(n,k)模mod。负n、负k或k>n为0，否则必须n$\le$N。数组按N开，支持大合数或大素数模数。
+
+所需模板：\hyperref[compact-CompositeBinomial]{CompositeBinomial}（第~\pageref{compact-CompositeBinomial}~页，\ref{compact-CompositeBinomial}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/COMPOSITE-BINOMIAL.md}
+
+\lstinputlisting{usage/example-445.cpp}
+
+\newpage
+
+\Needspace{476pt}
+
+\subsection*{应用题补充：CF 896D Nephren Runs a Cinema}
+
+\label{usage-example-446}
+
+题意：输入n、mod、l、r，统计长度n、步长为-1/0/1、所有前缀和非负且末尾高度在[l,r]的序列数。n$\le$10\textasciicircum{}5，1$\le$mod$\le$2×10\textasciicircum{}9。设S(h)为不限制前缀的末尾高度h计数，反射原理给出合法数S(h)-S(h+2)，区间和只需四项S；按向下步数枚举两个组合数乘积求S。总时间O($\sqrt{\vphantom x}$mod+s(n+log mod))、空间O(s(n+1))，s为不同素因子数。
+
+所需模板：\hyperref[compact-CompositeBinomial]{CompositeBinomial}（第~\pageref{compact-CompositeBinomial}~页，\ref{compact-CompositeBinomial}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/problemset/problem/896/D}
+
+\lstinputlisting{usage/example-446.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
 \noindent 相关应用：Gaussian二项式的q-Lucas取值；普通组合数Lucas只是其高位部分
 
 \subsection{素数模 Gaussian 二项式}\label{compact-q_binomial}\index{q\_binomial}

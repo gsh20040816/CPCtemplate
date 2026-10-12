@@ -1,0 +1,69 @@
+{
+  "source_blob": "dc2eacad3e2e7eb6206c3fb9f9bc02d382bc3f60",
+  "online_ac": false,
+  "runs": [
+    {
+      "mode": "normal",
+      "kind": "core",
+      "result": "1418545 Pascal/source checks; five 100000-bound stress tables PASS"
+    },
+    {
+      "mode": "normal",
+      "kind": "api",
+      "result": "4838 Python exact binomial queries PASS"
+    },
+    {
+      "mode": "normal",
+      "kind": "cinema",
+      "result": "42 independent nonnegative-walk DP cases and four large endpoints PASS"
+    },
+    {
+      "mode": "normal",
+      "kind": "api-printed",
+      "result": "4838 Python exact binomial queries PASS"
+    },
+    {
+      "mode": "normal",
+      "kind": "cinema-printed",
+      "result": "42 independent nonnegative-walk DP cases and four large endpoints PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "kind": "core",
+      "result": "1418545 Pascal/source checks; five 100000-bound stress tables PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "kind": "api",
+      "result": "4838 Python exact binomial queries PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "kind": "cinema",
+      "result": "42 independent nonnegative-walk DP cases and four large endpoints PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "kind": "api-printed",
+      "result": "4838 Python exact binomial queries PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "kind": "cinema-printed",
+      "result": "42 independent nonnegative-walk DP cases and four large endpoints PASS"
+    }
+  ],
+  "printed_program_sha256": {
+    "example-445": "559306500b342bc81dae722f71e41f0f1fa9f0c75e46f07e00792d3ca666dd09",
+    "example-446": "25d179c02cc28083a8c0656e923a8f4a81a5af6ed8c4bc00ef85571f37798727"
+  },
+  "original_undefined_behavior": "/Users/gsh/Workspace/CPCtemplate/build/wida-binomial/source-overflow.cpp:22:26: runtime error: signed integer overflow: 1000003 * 1000003 cannot be represented in type 'int'\n",
+  "files": {
+    "src/compact/composite_binomial.hpp": "193fad24b83a07dd100b853e26d12d6e9ad5e4c43cdee3bb275301641935256d",
+    "tests/composite_binomial.cpp": "9028e16a5aa65a99f55e39ed774c55fcd7bbe36bd9a967b042b2c639d08d06fb",
+    "tests/composite_binomial.py": "4b30d423300cd8558a2a671132406359838109e27739bf9eb10e2435de3de845",
+    "tests/fixtures/wida_composite_binomial/13C.cpp": "6c561b77729a08b11794ff92d10f57efa44b640ef37bf9de8f66784ee6a1f61f",
+    "verify/api/composite_binomial.compact.cpp": "64a4cbea2fef37a8b4a46532a66ec6a95a90143684145095ba0b883149198985",
+    "verify/cf/896D.compact.cpp": "ba45871d9f3ec24d9462f4d05f07df95f309ffeecd31306ddaed49739bbb9eb9"
+  }
+}

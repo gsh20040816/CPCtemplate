@@ -294,6 +294,12 @@
     "ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k 为 unsigned long long，k>n 返回 0，mod=1 返回 0。适合 mod≤10⁶ 的合数或素数模数，不能用于 10⁹ 级素数的整段预处理。分解 mod 为互素素数幂 q=p^e，预处理每段内不含 p 因子的前缀积；unit(n,f) 去除 n! 中全部 p 因子，valuation 统计指数。分子分母指数之差不少于 e 时该项为零，否则只对互素单位部分求逆，最后 CRT 合并。预处理 O(√mod+Σq)，空间 O(Σ(q+1))；每次查询 O(Σ(log_p(n+1)·log(n+1)+log q))，求和遍历不同素因子。所有乘法用 long long；同一对象可重复查询，factors、fac 与辅助函数视为内部数据。"
   ],
   [
+    "composite_binomial",
+    "CompositeBinomial",
+    "有界上标的任意模数组合数",
+    "CompositeBinomial(N,mod)预处理上标0..N的组合数，0≤N<INT_MAX、1≤mod≤INT_MAX；mod可为合数。choose(n,k)返回C(n,k)模mod；负n、负k、k>n返回0，其余要求n≤N。mod=1时所有结果为0。每个素数幂分别保存去除对应素因子的阶乘、逆阶乘和指数前缀，再用CRT合并。\n\n设s为mod的不同素因子个数。预处理O(√mod+s(N+log mod))时间、O(s(N+1))空间，单次查询O(s)。各素数幂的p次幂表很短；指数达到该素数幂的次数即直接贡献0。表长取决于N，不按mod或素数幂大小开数组，适合N≤10^5、mod为10^9级数的多次查询。n为完整unsigned64且模数小的场景仍用ExLucas。\n\nlimit、mod、factors及辅助函数视为内部数据；不支持自动扩表或修改模数。所有模乘提升为long long，CRT每乘一次即取模。已通过独立Pascal递推、Python精确组合数、原稿安全小域对照和ASan/UBSan；CF896D为已验证的本地应用驱动，尚无本次线上AC。"
+  ],
+  [
     "modular_sqrt",
     "mod_sqrt",
     "素数模平方根（Cipolla）",

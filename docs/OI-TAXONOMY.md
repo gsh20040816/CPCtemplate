@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 220，application 67，composite 8，related 32。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 220，application 67，composite 8，related 33。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -68,6 +68,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | linear_congruence | 数学 → 数论 → 线性同余方程 | direct |  |
 | crt_merge | 数学 → 数论 → 中国剩余定理 | direct |  |
 | garner | 数学 → 数论 → 中国剩余定理 | direct |  |
+| CompositeBinomial | 数学 → 数论 → 卢卡斯定理 | related | 按上标范围预处理的合数模数组合数，与小模数大上标ExLucas互补 |
 | ExLucas | 数学 → 数论 → 卢卡斯定理 | direct |  |
 | Lucas | 数学 → 数论 → 卢卡斯定理 | direct |  |
 | q_binomial | 数学 → 数论 → 卢卡斯定理 | related | Gaussian二项式的q-Lucas取值；普通组合数Lucas只是其高位部分 |
