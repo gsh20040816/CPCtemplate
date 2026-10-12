@@ -111,6 +111,38 @@ class RuntimeEvidenceTests(unittest.TestCase):
                     self.assertIsNone(r['maximum_case_ms'])
                     self.assertIsNone(r['sum_of_case_ms'])
 
+    def test_url_receipt_with_case_times_and_source_hash(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            original = self.fixture(root)
+            receipt = dict(problem='rectangle_sum', url='https://judge.example/record/2',
+                           status='AC', cases=[dict(time_ms=4), dict(time_ms=8)],
+                           max_time_ms=8, source=original['submitted_source'],
+                           source_sha256=original['submitted_sha256'])
+            (root / 'verification/new-online.json').write_text(json.dumps(receipt))
+            result = build(root)
+            row = next(r for r in result['entries'] if r['record'] == receipt['url'])
+            self.assertEqual(row['statuses'], ['Accepted'])
+            self.assertEqual((row['maximum_case_ms'], row['sum_of_case_ms']), (8, 12))
+            self.assertEqual(row['sources'][0]['sha256'], original['submitted_sha256'])
+
+    def test_unsubmitted_receipts_do_not_merge_or_claim_source_verification(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            self.fixture(root)
+            for name in ['a', 'b']:
+                row = dict(problem=name, record=None, status='not_submitted',
+                           source='mutable-driver.cpp', reason='CAPTCHA rejected')
+                (root / f'verification/{name}-online.json').write_text(json.dumps(row))
+            result = build(root)
+            pending = [r for r in result['entries'] if not r['record']]
+            self.assertEqual(len(pending), 2)
+            self.assertEqual(result['counts']['accepted'], 1)
+            for row in pending:
+                self.assertEqual(row['sources'], [])
+                self.assertIsNone(row['maximum_case_ms'])
+                self.assertEqual(row['observations'][0]['note'], 'CAPTCHA rejected')
+
 
 if __name__ == '__main__':
     unittest.main()

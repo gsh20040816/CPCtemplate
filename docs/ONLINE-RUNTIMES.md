@@ -1,6 +1,6 @@
 # 已归档提交的运行时间
 
-对应 [issue #16](https://github.com/gsh20040816/CPCtemplate/issues/16)。本表合并中央登记与批次线上回执，并逐项绑定提交源码哈希；覆盖已归档记录，不声称已遍历整个账号的所有历史提交。退役 classic 只作为历史记录保留，不重新维护第二套码风。
+对应 [issue #16](https://github.com/gsh20040816/CPCtemplate/issues/16)。本表合并中央登记与批次线上回执，对已有提交源码存档校验哈希；未送出的尝试单列，不把可变驱动或准备文件当作提交存档。覆盖已归档记录，不声称已遍历整个账号的所有历史提交。退役 classic 只作为历史记录保留，不重新维护第二套码风。
 
 旧 `time_ms` 字段的含义不一致，原样列入“原始登记”，不能直接与单点或总计比较。只有逐测试点列表或明确字段支持的值才进入相应列；显示为秒的舍入总时长不转换为精确毫秒。等待评测和拒绝提交不算 AC。
 
@@ -8,7 +8,7 @@
 
 基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。
 
-当前 141 项，138 条 AC；62 项有明确最慢单点，0 项已完成 SOTA 核验。
+当前 154 项，148 条 AC；69 项有明确最慢单点，0 项已完成 SOTA 核验。
 
 | 题目/记录 | 状态、码风 | 原始登记 | 最慢单点 ms | 逐点合计 ms | 明确登记总计 ms | SOTA |
 |---|---|---|---:|---:|---:|---|
@@ -30,6 +30,7 @@
 | [Luogu P1429](https://www.luogu.com.cn/record/297602650) | Accepted, compact | time_display=350ms | 75 | — | — | 待核验 |
 | [Luogu P1429](https://www.luogu.com.cn/record/297603238) | Accepted, classic | time_display=346ms | 75 | — | — | 待核验 |
 | [Luogu P1446](https://www.luogu.com.cn/record/302212973) | Accepted, compact | time_ms=5 | 5 | 55 | 55 | 待核验 |
+| Luogu P1480（无记录） | not_submitted | — | — | — | — | 待核验 |
 | [Luogu P1484](https://www.luogu.com.cn/record/302209955) | Accepted, compact | time_ms=27 | 27 | 124 | 124 | 待核验 |
 | [Luogu P1495](https://www.luogu.com.cn/record/297521594) | Accepted, compact | time_ms=44 | — | — | — | 待核验 |
 | [Luogu P1495](https://www.luogu.com.cn/record/297521658) | Accepted, classic | time_ms=44 | — | — | — | 待核验 |
@@ -125,9 +126,13 @@
 | [Luogu U367189](https://www.luogu.com.cn/record/302334160) | Accepted, compact | — | 63 | 392 | 392 | 待核验 |
 | [P13337](https://www.luogu.com.cn/record/302627451) | Accepted | — | 45 | 427 | — | 待核验 |
 | [P13338](https://www.luogu.com.cn/record/302630852) | Accepted | — | 372 | 2977 | — | 待核验 |
+| [P1494](https://www.luogu.com.cn/record/302657154) | Accepted | time_ms=[13, 12, 12, 53, 52, 54, 112, 113, 112, 67] | — | — | — | 待核验 |
+| [P1494](https://www.luogu.com.cn/record/302657483) | Accepted | time_ms=[6, 6, 6, 18, 18, 18, 37, 36, 36, 25] | — | — | — | 待核验 |
 | [P2617](https://www.luogu.com.cn/record/301886868) | Accepted | displayed_total_time=1.99s | 191 | 1994 | — | 待核验 |
 | [P2865](https://www.luogu.com.cn/record/302207967) | Accepted | — | 30 | 79 | — | 待核验 |
 | [P2901](https://www.luogu.com.cn/record/302208192) | Accepted | — | 11 | 59 | — | 待核验 |
+| [P3187](https://www.luogu.com.cn/record/302662813) | Accepted | — | 26 | 113 | 113 | 待核验 |
+| P3317（无记录） | not_submitted | — | — | — | — | 待核验 |
 | [P3370](https://www.luogu.com.cn/record/302216358) | Accepted, compact | displayed_total_time=1.90s | 464 | 1896 | — | 待核验 |
 | [P4724](https://www.luogu.com.cn/record/302631415) | Accepted | — | 21 | 103 | 103 | 待核验 |
 | [P4768](https://www.luogu.com.cn/record/302331476) | Accepted, compact | displayed_total_time=13.72s; max_case_time_display=2.01s | — | — | — | 待核验 |
@@ -137,6 +142,7 @@
 | [QOJ 21566](https://qoj.ac/submission/3150412) | Accepted, compact | time_ms=554; displayed_total_time=554ms (maximum) | 554 | 3994 | — | 待核验 |
 | [QOJ 21566](https://qoj.ac/submission/3150675) | Accepted, compact | time_display=670ms | — | — | — | 待核验 |
 | [QOJ 265](https://qoj.ac/submission/3150703) | Accepted, compact | time_display=1391ms | — | — | — | 待核验 |
+| [QOJ 4281](https://qoj.ac/submission/3166447) | Accepted, compact | time_ms=1 | — | — | — | 待核验 |
 | [QOJ 45](https://qoj.ac/submission/3150664) | Accepted, compact | time_display=3093ms | — | — | — | 待核验 |
 | [QOJ 8235](https://qoj.ac/submission/2939493) | Accepted, compact | time_display=666ms | 666 | — | — | 待核验 |
 | [QOJ 8235](https://qoj.ac/submission/2939551) | Accepted, classic | time_display=588ms | 588 | — | — | 待核验 |
@@ -151,7 +157,14 @@
 | [QOJ 999](https://qoj.ac/submission/3061643) | Accepted, compact | time_ms=87 | — | — | — | 待核验 |
 | [SP10707](https://www.luogu.com.cn/record/301884426) | Waiting | — | — | — | — | 待核验 |
 | [SP8073](https://www.luogu.com.cn/record/302630657) | Waiting | — | — | — | — | 待核验 |
+| [SP8119 CIRUT](https://www.luogu.com.cn/record/302660709) | Waiting | — | — | — | — | 待核验 |
 | [U104310](https://www.luogu.com.cn/record/302633483) | Accepted | — | 356 | 3298 | 3298 | 待核验 |
 | [U106005](https://www.luogu.com.cn/record/302633427) | Accepted | — | 284 | 328 | 328 | 待核验 |
+| [rectangle_sum](https://judge.yosupo.jp/submission/410009) | Accepted | — | 1072 | 7914 | — | 待核验 |
+| [rectangle_sum](https://judge.yosupo.jp/submission/410016) | Accepted | — | 258 | 2080 | — | 待核验 |
+| [stirling_number_of_the_first_kind](https://judge.yosupo.jp/submission/410002) | Accepted | — | 589 | 2590 | — | 待核验 |
+| [stirling_number_of_the_first_kind_fixed_k](https://judge.yosupo.jp/submission/409999) | Accepted | — | 4457 | 31709 | — | 待核验 |
+| [stirling_number_of_the_second_kind](https://judge.yosupo.jp/submission/410001) | Accepted | — | 392 | 1719 | — | 待核验 |
+| [stirling_number_of_the_second_kind_fixed_k](https://judge.yosupo.jp/submission/410000) | Accepted | — | 4407 | 31364 | — | 待核验 |
 
 逐条证据路径、源码哈希、编译语言与原始计时字段见 [机器可读清单](../verification/online-runtimes.json)。本表可由 `python3 tools/online_runtimes.py` 重建。

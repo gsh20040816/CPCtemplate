@@ -27,18 +27,36 @@ def observations(root):
             if 'testpoints' in data:
                 row['test_times_ms'] = [p['time_ms'] for p in data['testpoints']]
             rows = [row]
-        elif isinstance(data.get('record'), str) and data.get('problem'):
+        elif data.get('problem') and ('record' in data or 'url' in data):
             rows = [data]
         else:
             raise ValueError(f'Unsupported online evidence schema: {path}')
         for row in rows:
+            row = dict(row)
+            if 'record' not in row:
+                row['record'] = row.get('url')
+            if row.get('status') == 'AC' and 'verdict' not in row:
+                row['verdict'] = 'Accepted'
+            if 'source_sha256' in row:
+                row.setdefault('sha256', row['source_sha256'])
+            if 'times_ms' in row:
+                row.setdefault('test_times_ms', row['times_ms'])
+            if 'cases' in row:
+                row.setdefault('test_times_ms', [case['time_ms'] for case in row['cases']])
+            if 'test_times_ms' in row and 'max_time_ms' in row:
+                row.setdefault('max_case_time_ms', row['max_time_ms'])
+            if not row.get('record') and not row.get('submitted_sha256', row.get('sha256')):
+                # A mutable driver or temporary prepared file is not a submitted archive.
+                row.pop('source', None)
+            if 'reason' in row and 'note' not in row:
+                row['note'] = row['reason']
             yield path, row
 
 
 def build(root):
     entries = {}
     inputs = {}
-    for path, row in observations(root):
+    for observation_index, (path, row) in enumerate(observations(root)):
         rel = str(path.relative_to(root))
         inputs[rel] = digest(path)
         url = row.get('record')
@@ -47,7 +65,7 @@ def build(root):
         if archive:
             if not sha or digest(root / archive) != sha:
                 raise ValueError(f'Archive hash mismatch: {archive}')
-        key = url or ('no-record:' + str(archive))
+        key = url or ('no-record:' + rel + ':' + str(observation_index))
         entry = entries.setdefault(key, dict(record=url, problem=row['problem'],
             sources=[], observations=[], statuses=[], styles=[], algorithms=[],
             maximum_case_ms=None, sum_of_case_ms=None, reported_total_ms=None,
@@ -95,7 +113,7 @@ def build(root):
 
 def render(data):
     lines = ['# 已归档提交的运行时间', '',
-             '对应 [issue #16](https://github.com/gsh20040816/CPCtemplate/issues/16)。本表合并中央登记与批次线上回执，并逐项绑定提交源码哈希；覆盖已归档记录，不声称已遍历整个账号的所有历史提交。退役 classic 只作为历史记录保留，不重新维护第二套码风。', '',
+             '对应 [issue #16](https://github.com/gsh20040816/CPCtemplate/issues/16)。本表合并中央登记与批次线上回执，对已有提交源码存档校验哈希；未送出的尝试单列，不把可变驱动或准备文件当作提交存档。覆盖已归档记录，不声称已遍历整个账号的所有历史提交。退役 classic 只作为历史记录保留，不重新维护第二套码风。', '',
              '旧 `time_ms` 字段的含义不一致，原样列入“原始登记”，不能直接与单点或总计比较。只有逐测试点列表或明确字段支持的值才进入相应列；显示为秒的舍入总时长不转换为精确毫秒。等待评测和拒绝提交不算 AC。', '',
              '已审查的候选及差距见 [P4980 核查](RUNTIME-P4980.md)、[P4722 核查](RUNTIME-P4722.md)、[HDU4285 核查](RUNTIME-HDU4285.md)、[HDU4742/4656 核查](RUNTIME-HDU-SOURCE.md)。HDU4285和HDU4656已枚举完整AC运行排名，HDU4742仍有4条缺项；基准源码均尚未核验；这些候选尚未计入已审查的同算法 SOTA。', '',
              '基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。', '',
