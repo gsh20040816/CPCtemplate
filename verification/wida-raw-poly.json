@@ -1,0 +1,66 @@
+{
+  "scope": "Exact 12A raw-int polynomial: ordinary source numerical observations are not defined-behavior proof because sanitizer reproduces UB in constant/log/exp. Current replacement is checked independently in both modes.",
+  "runs": [
+    {
+      "mode": "normal",
+      "task": "current",
+      "returncode": 0,
+      "stdout": "27425 independent raw polynomial checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "task": "source",
+      "returncode": 0,
+      "stdout": "35725 independent raw polynomial checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "current",
+      "returncode": 0,
+      "stdout": "27425 independent raw polynomial checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "source-safe",
+      "returncode": 0,
+      "stdout": "8162 defined-domain source arithmetic checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "source-constant",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_poly_variants/12A.cpp:20:49: runtime error: shift exponent -1 is negative\n"
+    },
+    {
+      "mode": "sanitizer",
+      "task": "source-log",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_poly_variants/12A.cpp:20:49: runtime error: shift exponent -1 is negative\n"
+    },
+    {
+      "mode": "sanitizer",
+      "task": "source-exp",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_poly_variants/12A.cpp:20:49: runtime error: shift exponent -1 is negative\n"
+    }
+  ],
+  "files": {
+    "tests/wida_raw_poly.cpp": "17a82d5c6a67ed2f8af5aa595a3c17c7f92757574e870038c5736e482318c6df",
+    "tests/wida_raw_poly.py": "2f6476e7201b56aaad35ee89ae156ca48b7338f50671950385baf64fc297fc5c",
+    "tests/fixtures/wida_poly_variants/12A.cpp": "2f52a2adfd9925e26dda0f9d2bded843e470ae785b62b8ec691f8ecb07112951",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_sqrt.hpp": "6f2d57fb17d515140c4020427c468e36e596fbd19dfc7f4040ddb7ea36837169",
+    "src/compact/fps_inverse.hpp": "7d598c748a7829ffb757ec5f15db8078f4b5fab16cbf6a24164053dc9b83a1c0",
+    "src/compact/multipoint_evaluation.hpp": "fb70d767dd84c2b53f1e4714f1a2454270ef15b98c50d8f4e36f9629f89aa94c",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+  }
+}
