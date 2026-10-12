@@ -70,7 +70,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | stirling_first_row | [example-54](usage/example-54.cpp) | locally_checked_example |
 | FpsInverse | [example-18](usage/example-18.cpp) | locally_checked_example |
 | FpsFunctions | [example-28](usage/example-28.cpp), [example-29](usage/example-29.cpp) | locally_checked_example |
-| GaussMod | [example-24](usage/example-24.cpp) | locally_checked_example |
+| GaussMod | [example-24](usage/example-24.cpp), [example-414（应用补充）](usage/example-414.cpp) | locally_checked_example |
 | det_prime | [example-25](usage/example-25.cpp) | locally_checked_example |
 | ModMatrix | [example-26](usage/example-26.cpp) | locally_checked_example |
 | matrix_inverse | [example-100](usage/example-100.cpp), [example-101](usage/example-101.cpp) | locally_checked_example |

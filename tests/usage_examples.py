@@ -20,6 +20,7 @@ cases = {
     'example-6': [('4 5\n1 2 3 4\n0 2\n2 3\n0 3\n1 2\n1 3\n', '36'), ('3 3\n998244352 998244352 998244352\n0 1\n1 2\n2 0\n', '998244352')],
     'example-7': [('5 7\n2 1 2\n1 1 2\n2 1 2\n1 3 4\n2 1 4\n1 2 3\n2 1 4\n', 'N Y N Y'), ('1 1\n2 1 1\n', 'Y')]
 }
+cases['example-414'] = [('2 3\n2 MON THU\n1 2\n3 MON FRI\n1 1 2\n3 MON SUN\n1 2 2\n10 2\n1 MON TUE\n3\n1 MON WED\n3\n0 0\n', '8 3 Inconsistent data.'), ('2 1\n2 MON SUN\n1 2\n0 0\n', 'Multiple solutions.'), ('1 1\n1 MON MON\n1\n0 0\n', '8')]
 cases['example-194'] = [('7\n2 1 0\n2 8 1\n2 9 0\n2 15 1\n2 7 2\n3 8 2\n1 1000000000 999999999\n', '1 0 4 1 3 5 7 3 0 3 6 4 1 4 11 14 2 3 4 0 1 999999999')]
 cases['example-191'] = [('2 3\n', '15'), ('1 50000000\n', '1'), ('50000000 0\n', '1'), ('9901 50000000\n', '1')]
 cases['example-192'] = [('1729\n17\n561\n1109\n431\n0\n', 'The number 1729 is a Carmichael number. 17 is normal. The number 561 is a Carmichael number. 1109 is normal. 431 is normal.'), ('4\n9\n1105\n0\n', '4 is normal. 9 is normal. The number 1105 is a Carmichael number.')]

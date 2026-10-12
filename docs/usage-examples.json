@@ -4629,6 +4629,7 @@
     "summary": "t<=1000，1<=n<=10^9；n个点用n种命名颜色，仅旋转等价，模10^9+7。直接调用旋转环计数。",
     "driver": "verify/luogu/P4980.compact.cpp",
     "requires": [
+      "BurnsideAverage",
       "necklace_colorings"
     ]
   },
@@ -4655,6 +4656,7 @@
     "summary": "输入n colors mod，输出仅旋转、旋转加翻转两种计数。遵守核心乘积界；特别可测试mod与群阶不互质和n=1/2。",
     "driver": "verify/api/necklace_colorings.compact.cpp",
     "requires": [
+      "BurnsideAverage",
       "necklace_colorings"
     ]
   },
@@ -4704,6 +4706,7 @@
     "summary": "汽车只能经过海拔严格大于水位的边；可在可达分量任意点下车，再步行到1号点。Dijkstra预处理步行距离，降序重构树聚合最小值，支持依赖上次答案的在线解码。",
     "driver": "verify/luogu/P4768.compact.cpp",
     "requires": [
+      "dsu",
       "KruskalTree",
       "Dijkstra"
     ]
@@ -4717,6 +4720,7 @@
     "summary": "输入n m q down，点0-based；m条u v w，无向可断连。先输出全图连通块数。每次u w strict，输出对应阈值连通块的点数与最小原点号；down和strict取0/1。",
     "driver": "verify/api/kruskal_tree.compact.cpp",
     "requires": [
+      "dsu",
       "KruskalTree"
     ]
   },
@@ -5253,6 +5257,20 @@
     "driver": "verify/hdu/1043.compact.cpp",
     "requires": [
       "EightPuzzle"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-414",
+    "symbol": "GaussMod",
+    "kind": "application",
+    "problem": "SP2883 Widget Factory（POJ2947 同题）",
+    "url": "https://www.luogu.com.cn/problem/SP2883",
+    "summary": "EOF读n,m，0 0结束；每条记录累加重复编号，星期差包含首尾两天。模7消元后区分无解、多解；唯一解的余数0、1、2加7，映射到3..9天。n,m≤300，每条记录至多10000个编号。",
+    "driver": "verify/poj/2947.compact.cpp",
+    "requires": [
+      "ModInt",
+      "GaussMod"
     ],
     "start_new_page": true
   }

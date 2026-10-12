@@ -1,0 +1,164 @@
+43 HTML 内容 Description: SP2883 WIDGET - Widget Factory - 洛谷, URL: luogu.com.cn/problem/SP2883
+				44 container
+					45 link luogu.com.cn/
+					46 container
+						47 link 题目列表, Value: luogu.com.cn/problem/list
+						48 文本 /
+						49 link SP2883, Value: luogu.com.cn/problem/SP2883
+					50 文本栏 (settable) 输入题号搜索题目
+					51 link javascript:void%200
+					52 link luogu.com.cn/chat
+					53 link 1, Value: luogu.com.cn/user/notification
+					54 link javascript:void%200
+					55 link User Avatar, Value: luogu.com.cn/user/86208
+					56 内容列表
+						57 link luogu.com.cn/
+						58 link luogu.com.cn/problem/list
+						59 link class.luogu.com.cn/
+						60 link luogu.com.cn/training/list
+						61 link luogu.com.cn/contest/list
+						62 link luogu.com.cn/record/list?user=86208
+					63 内容列表
+						64 link luogu.com.cn/discuss
+						65 link luogu.com.cn/article
+					66 文本 GSH_gsh
+					67 内容列表
+						68 link 个人中心, Value: luogu.com.cn/user/86208
+						69 link 用户设置, Value: luogu.com.cn/user/setting
+						70 link 练习情况, Value: luogu.com.cn/user/86208/practice
+						71 link 我的题库, Value: luogu.com.cn/user/mine/problem
+						72 link 我的专栏, Value: luogu.com.cn/article/mine
+						73 link 收藏夹, Value: luogu.com.cn/user/mine/trainingFav
+						74 link 我的工单, Value: luogu.com.cn/ticket
+					75 container
+						76 link 锁定, Value: javascript:void%200
+						77 link 登出, Value: javascript:void%200
+					78 标题 SP2883 WIDGET - Widget Factory, Value: 2
+						79 文本 SP2883 WIDGET - Widget Factory
+					80 container
+						81 text 提交 573
+						82 文本 通过
+						83 文本 169
+						84 文本 时间限制
+						85 文本 2.00s
+						86 文本 内存限制
+						87 文本 1.46GB
+					88 内容列表
+						89 文本 题目描述
+						90 文本 提交答案
+					91 按钮 加入题单
+					92 按钮 复制题目
+					93 container
+						94 text 题目编号 SP2883 题目来源
+						95 link SPOJ, Value: spoj.com/problems/WIDGET/
+						96 文本 评测方式
+						97 link RemoteJudge, Value: help.luogu.com.cn/manual/luogu/problem/remote-judge
+						98 文本 难度
+						99 链接 显示难度
+							100 文本 显示难度
+						101 文本 历史分数
+						102 link Waiting, Value: luogu.com.cn/record/list?pid=SP2883&user=86208
+						103 link 提交记录, Value: luogu.com.cn/record/list?pid=SP2883
+						104 link 查看题解, Value: luogu.com.cn/problem/solution/SP2883
+						105 link 题目反馈, Value: luogu.com.cn/ticket?type=problem.general&related=SP2883
+					106 标题 标签, Value: 3
+						107 文本 标签
+					108 文本 显示算法标签
+					109 container
+						110 标题 相关讨论, Value: 3
+							111 文本 相关讨论
+						112 link 进入讨论版, Value: luogu.com.cn/discuss?forum=SP2883
+						113 文本 查看讨论
+					114 标题 推荐题目, Value: 3
+						115 文本 推荐题目
+					116 文本 暂无
+					117 container
+						118 link 复制 Markdown, Value: javascript:void%200
+						119 link 中文, Value: javascript:void%200
+						120 link 展开, Value: javascript:void%200
+						121 link 进入 IDE 模式, Value: javascript:void%200
+						122 标题 题目描述, Value: 2
+							123 文本 题目描述
+						124 container
+							125 text 一个零件工厂生产 种零件，第 种零件的生产天数在 天到 天之间，且一定是一个整数。
+						126 container
+							127 text 有 条记录，每一条记录记录着某个工人的工作情况：开始工作在星期几、结束工作在星期几、在这段时间内共做了哪些零件。
+						128 container
+							129 text 假设工人在工作期间没有放假，开始工作当天和结束工作当天在工作，且零件刚好做完，试通过这 条记录得到每一种零件的生产天数。
+						130 标题 输入数据, Value: 3
+							131 文本 输入数据
+						132 文本 有若干组输入数据。
+						133 container
+							134 text 每一组输入的第一行两个正整数 表示加工的数量和记录的数量。
+						135 container
+							136 text 接下来 行每两行描述一条记录。
+						137 container
+							138 text 每一条记录的第一行一个正整数 和两个字符串 ， 分别表示开始工作在星期几和结束工作在星期几，只有 SUN MON TUE WED THU FRI SAT 种可能， 表示这段时间内工人加工的零件数量；
+						139 container
+							140 text 第二行 个正整数 表示加工的零件的种类，可能存在某些 相等。
+						141 标题 输入格式, Value: 2
+							142 文本 输入格式
+						143 container
+							144 text 4  TUE SUN
+ 13 18 1 13
+						145 按钮
+						146 container
+							147 text 当 时表示输入结束
+						148 标题 输出格式, Value: 2
+							149 文本 输出格式
+						150 container
+							151 text 对于每一组数据输出一行。如果存在唯一解输出 个正整数，第 个正整数表示第 个零件的加工时间， 注意输出时第一个数之前和最后一个数之后不能有空格，而两个数之间严格有一个空格 ；如果存在多解输出 Multiple solutions. ；如果无解输出 Inconsistent data. 。
+						152 标题 输入输出样例, Value: 2
+							153 文本 输入输出样例
+						154 文本 输入 #1
+						155 按钮 复制
+						156 text 2 3
+2 MON THU
+1 2
+3 MON FRI
+1 1 2
+3 MON SUN
+1 2 2
+10 2
+1 MON TUE
+3
+1 MON WED
+3
+0 0 输出 #1
+						157 按钮 复制
+						158 文本 8 3
+Inconsistent data.
+					159 container
+						160 link 关于洛谷, Value: help.luogu.com.cn/about-us
+						161 文本  ·
+						162 link 帮助中心, Value: help.luogu.com.cn/
+						163 文本  ·
+						164 link 用户协议, Value: help.luogu.com.cn/ula/luogu
+						165 文本  ·
+						166 link 联系我们, Value: help.luogu.com.cn/contact-us
+						167 文本  ·
+						168 link 小黑屋, Value: luogu.com.cn/discuss?forum=miaomiaowu
+						169 文本  ·
+						170 link 陶片放逐, Value: luogu.com.cn/judgement
+						171 文本  ·
+						172 link 社区规则, Value: help.luogu.com.cn/rules/community/
+					173 container
+						174 text 在洛谷，享受 Coding 的欢乐 · © 2013-2026 洛谷. All rights reserved.  增值电信业务经营许可证 沪B2-20200477 ·
+						175 link 沪ICP备18008322号, Value: beian.miit.gov.cn/
+					176 container
+						177 标题 加入题单, Value: 3
+							178 文本 加入题单
+						179 文本 操作
+						180 container
+							181 文本 加入做题计划
+							182 文本 加入个人题单
+							183 文本 加入团队题单
+						184 按钮 (disabled) 保存
+					185 container
+						186 标题 复制题目, Value: 3
+							187 文本 复制题目
+						188 文本 目标团队
+						189 文本 获取团队中...
+						190 按钮 (disabled) 保存
+				191 图像
+				192 按钮 翻译

@@ -4573,7 +4573,7 @@ necklace\_colorings(n,colors,mod,reflection=false)：n>=1的环，每位置可�
 
 题意：t<=1000，1<=n<=10\textasciicircum{}9；n个点用n种命名颜色，仅旋转等价，模10\textasciicircum{}9+7。直接调用旋转环计数。
 
-所需模板：\hyperref[compact-necklace_colorings]{necklace\_\allowbreak{}colorings}（第~\pageref{compact-necklace_colorings}~页，\ref{compact-necklace_colorings}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-BurnsideAverage]{BurnsideAverage}（第~\pageref{compact-BurnsideAverage}~页，\ref{compact-BurnsideAverage}~节）、\hyperref[compact-necklace_colorings]{necklace\_\allowbreak{}colorings}（第~\pageref{compact-necklace_colorings}~页，\ref{compact-necklace_colorings}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4980}
 
@@ -4587,7 +4587,7 @@ necklace\_colorings(n,colors,mod,reflection=false)：n>=1的环，每位置可�
 
 演示约定：输入n colors mod，输出仅旋转、旋转加翻转两种计数。遵守核心乘积界；特别可测试mod与群阶不互质和n=1/2。
 
-所需模板：\hyperref[compact-necklace_colorings]{necklace\_\allowbreak{}colorings}（第~\pageref{compact-necklace_colorings}~页，\ref{compact-necklace_colorings}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-BurnsideAverage]{BurnsideAverage}（第~\pageref{compact-BurnsideAverage}~页，\ref{compact-BurnsideAverage}~节）、\hyperref[compact-necklace_colorings]{necklace\_\allowbreak{}colorings}（第~\pageref{compact-necklace_colorings}~页，\ref{compact-necklace_colorings}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 来源：\url{https://oi-wiki.org/math/combinatorics/polya/}
 
@@ -5750,6 +5750,22 @@ GaussMod<p>::solve(a,n) 接收 m 行 n+1 列增广矩阵，p 必须是素数，n
 题目：\url{https://judge.yosupo.jp/problem/system_of_linear_equations}
 
 \lstinputlisting{usage/example-24.cpp}
+
+\newpage
+
+\Needspace{655pt}
+
+\subsection*{应用题补充：SP2883 Widget Factory（POJ2947 同题）}
+
+\label{usage-example-414}
+
+题意：EOF读n,m，0 0结束；每条记录累加重复编号，星期差包含首尾两天。模7消元后区分无解、多解；唯一解的余数0、1、2加7，映射到3..9天。n,m$\le$300，每条记录至多10000个编号。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-GaussMod]{GaussMod}（第~\pageref{compact-GaussMod}~页，\ref{compact-GaussMod}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/SP2883}
+
+\lstinputlisting{usage/example-414.cpp}
 
 \newpage
 
@@ -9472,7 +9488,7 @@ component(u,w,strict=false)返回阈值子图中u所属分量的最高重构节�
 
 题意：汽车只能经过海拔严格大于水位的边；可在可达分量任意点下车，再步行到1号点。Dijkstra预处理步行距离，降序重构树聚合最小值，支持依赖上次答案的在线解码。
 
-所需模板：\hyperref[compact-KruskalTree]{KruskalTree}（第~\pageref{compact-KruskalTree}~页，\ref{compact-KruskalTree}~节）、\hyperref[compact-Dijkstra]{Dijkstra}（第~\pageref{compact-Dijkstra}~页，\ref{compact-Dijkstra}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-dsu]{dsu}（第~\pageref{compact-dsu}~页，\ref{compact-dsu}~节）、\hyperref[compact-KruskalTree]{KruskalTree}（第~\pageref{compact-KruskalTree}~页，\ref{compact-KruskalTree}~节）、\hyperref[compact-Dijkstra]{Dijkstra}（第~\pageref{compact-Dijkstra}~页，\ref{compact-Dijkstra}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/P4768}
 
@@ -9486,7 +9502,7 @@ component(u,w,strict=false)返回阈值子图中u所属分量的最高重构节�
 
 演示约定：输入n m q down，点0-based；m条u v w，无向可断连。先输出全图连通块数。每次u w strict，输出对应阈值连通块的点数与最小原点号；down和strict取0/1。
 
-所需模板：\hyperref[compact-KruskalTree]{KruskalTree}（第~\pageref{compact-KruskalTree}~页，\ref{compact-KruskalTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-dsu]{dsu}（第~\pageref{compact-dsu}~页，\ref{compact-dsu}~节）、\hyperref[compact-KruskalTree]{KruskalTree}（第~\pageref{compact-KruskalTree}~页，\ref{compact-KruskalTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 来源：\url{https://oi-wiki.org/graph/mst/}
 
