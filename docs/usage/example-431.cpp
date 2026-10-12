@@ -27,7 +27,10 @@ int main()
         {
             int after, key;
             cin >> after >> key;
-            cout << tree.first(version, after, key) << '\n';
+            if (op == 3)
+                cout << tree.first(version, after, key) << '\n';
+            else
+                cout << tree.last(version, after, key) << '\n';
         }
     }
 }

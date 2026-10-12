@@ -1,0 +1,71 @@
+{
+  "tested_bundle_sha256": "edc7c1352ea65219e8aad422066b8c901f0f872926483d21bb8a246abb2639ed",
+  "scope": "Local same compiler C++20 O2 sequential alternating runs; wall-clock includes I/O, not OJ ranking",
+  "reference": "Official offline Fenwick sweep; same algorithmic approach",
+  "reference_source_sha256": "e070667b659441496d08244bede4bbf379fdff6d2fa0fe95eb5ba15f756bf5ef",
+  "cases": [
+    {
+      "case": "max_random_00",
+      "seconds": {
+        "normal": [
+          0.15561237500514835,
+          0.1504846670140978,
+          0.15052295802161098
+        ],
+        "reference": [
+          1.1969325829995796,
+          0.24264420801773667,
+          0.2443964580015745
+        ]
+      },
+      "median_seconds": {
+        "normal": 0.15052295802161098,
+        "reference": 0.2443964580015745
+      },
+      "ratio": 0.6158966429073258,
+      "over_80_percent_slower": false
+    },
+    {
+      "case": "max_random_01",
+      "seconds": {
+        "normal": [
+          0.164352207997581,
+          0.15054433298064396,
+          0.1510080830194056
+        ],
+        "reference": [
+          0.24775937499362044,
+          0.24509166699135676,
+          0.24471670799539424
+        ]
+      },
+      "median_seconds": {
+        "normal": 0.1510080830194056,
+        "reference": 0.24509166699135676
+      },
+      "ratio": 0.6161289972568955,
+      "over_80_percent_slower": false
+    },
+    {
+      "case": "max_random_02",
+      "seconds": {
+        "normal": [
+          0.15322733300854452,
+          0.14992895800969563,
+          0.15767516702180728
+        ],
+        "reference": [
+          0.2428601669962518,
+          0.2413232499966398,
+          0.24401316701550968
+        ]
+      },
+      "median_seconds": {
+        "normal": 0.15322733300854452,
+        "reference": 0.2428601669962518
+      },
+      "ratio": 0.6309282205628615,
+      "over_80_percent_slower": false
+    }
+  ]
+}

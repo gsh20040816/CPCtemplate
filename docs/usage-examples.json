@@ -5502,7 +5502,7 @@
     "kind": "api",
     "problem": "持久化计数与权值索引 API",
     "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WIDA-SHIFT-SPLAY.md",
-    "summary": "输入n q，位置域[0,n)、初始版本0为空。1 version pos weight从该版本新增元素并输出新版本号；2 version l r输出[l,r)内count和sum；3 before after key输出版本差中>=key的首位置或-1，要求逐位置计数差非负。旧版本不变，允许分叉和负权。本地API例子，不是OJ判定。",
+    "summary": "输入n q，位置域[0,n)、初始版本0为空。1 version pos weight从该版本新增元素并输出新版本号；2 version l r输出[l,r)内count和sum；3 before after key输出版本差中>=key的首位置或-1，4 before after key输出版本差中严格<key的末位置或-1；操作3/4要求逐位置计数差非负。旧版本不变，允许分叉和负权。本地API例子，不是OJ判定。",
     "driver": "verify/api/persistent_weighted_index.compact.cpp",
     "requires": [
       "PersistentWeightedIndex"
@@ -5515,7 +5515,7 @@
     "kind": "template",
     "problem": "Library Checker Rectangle Sum",
     "url": "https://judge.yosupo.jp/problem/rectangle_sum",
-    "summary": "N个带权点，Q次查询[l,r)×[d,u)内权值和；1<=N,Q<=200000，坐标及权值在[0,1e9]。按x排序建立前缀版本，y离散化；两个版本相减，重复点与零权合法，答案用signed64。预处理O(NlogN)，每次查询O(logN)，空间O(NlogN)。官方数据本地检查通过，非线上AC。",
+    "summary": "N个带权点，Q次查询[l,r)×[d,u)内权值和；1<=N,Q<=200000，坐标及权值在[0,1e9]。按x排序建立前缀版本，y离散化；两个版本相减，重复点与零权合法，答案用signed64。预处理O(NlogN)，每次查询O(logN)，空间O(NlogN)。Library Checker C++20线上AC 410009，1072ms、101.38MiB。",
     "driver": "verify/library_checker/rectangle_sum.compact.cpp",
     "requires": [
       "PersistentWeightedIndex"
@@ -5568,6 +5568,20 @@
     "driver": "verify/codeforces/CF38G.compact.cpp",
     "requires": [
       "SequenceMaxTreap"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-436",
+    "symbol": "offline_rectangle_sum",
+    "kind": "template",
+    "problem": "Library Checker Rectangle Sum（离线）",
+    "url": "https://judge.yosupo.jp/problem/rectangle_sum",
+    "summary": "N,Q<=200000，点坐标与权值在[0,1e9]；读取全部询问后用扫描线返回半开矩形权值和。此例可离线处理，节省持久化节点的内存；需要在线查询时使用持久化版本（用法432）。Library Checker C++20线上AC 410016，258ms、29.98MiB。",
+    "driver": "verify/library_checker/rectangle_sum_offline.compact.cpp",
+    "requires": [
+      "Fenwick",
+      "offline_rectangle_sum"
     ],
     "start_new_page": true
   }

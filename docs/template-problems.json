@@ -8138,13 +8138,15 @@
       "symbol": "PersistentWeightedIndex",
       "title": "持久化计数与权值索引",
       "source": "src/compact/persistent_weighted_index.hpp",
-      "status": "needs_template_problem_review",
+      "status": "reviewed_application_only",
       "candidate_drivers": [
         {
           "driver": "verify/library_checker/rectangle_sum.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/rectangle_sum",
-          "existing_ac": [],
-          "review": "Official half-open weighted rectangle protocol; 14 local official checker cases passed; no online verdict."
+          "existing_ac": [
+            "https://judge.yosupo.jp/submission/410009"
+          ],
+          "review": "Full rectangle_sum online C++20 AC 410009, 1072 ms, 101.38 MiB. This does not certify branched versions, predecessor or successor; these remain locally tested."
         }
       ],
       "qoj_tag_candidate": null,
@@ -8215,6 +8217,30 @@
           "url": "https://codeforces.com/problemset/problem/38/G",
           "existing_ac": [],
           "review": "Official samples, literal adjacent-swap oracle, original WIDA source and maximum-size analytic cases checked locally; no online verdict."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "offline_rectangle_sum",
+      "title": "离线静态矩形权值和",
+      "source": "src/compact/offline_rectangle_sum.hpp",
+      "status": "reviewed_direct_template_ac",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/rectangle_sum_offline.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/rectangle_sum",
+          "existing_ac": [
+            "https://judge.yosupo.jp/submission/410016"
+          ],
+          "review": "Exact printed source C++20 online AC 410016, 258 ms, 29.98 MiB; independent signed/extreme-coordinate core and official local protocol checks passed."
         }
       ],
       "qoj_tag_candidate": null,

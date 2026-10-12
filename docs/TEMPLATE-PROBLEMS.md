@@ -296,6 +296,8 @@
 | `det_prime` | [Luogu P4336](https://www.luogu.com.cn/problem/P4336) | 2<=n<=17, n-1 companies, each list has distinct undirected nonloop edges, mod 1000000007; 2s / 250MB, browser confirmed | 驱动登记待核验；AC 待核验 | 待核验 |
 | `MatrixTree` | [Luogu P4455](https://www.luogu.com.cn/problem/P4455) | 1<=n<=250, 1<=m<=n(n-1), mod 10007; duplicate/self-loop and n=1,m=0 tests are documented extensions; resource limits not yet checked | 驱动登记待核验；AC 待核验 | 待核验 |
 | `tree_probability` | [Luogu P3317](https://www.luogu.com.cn/problem/P3317) | 2<=n<=50; symmetric probabilities with <=2 decimals; nonzero answer>=1e-4; relative error<=1e-4; 1s/125MB; Firefox screenshot checked | 驱动登记待核验；AC 待核验 | 待核验 |
+| `offline_rectangle_sum` | [Library Checker Rectangle Sum](https://judge.yosupo.jp/problem/rectangle_sum) | 1<=N,Q<=200000; points and weights in [0,1e9]; half-open nonempty rectangles; time limit 5s | [记录](https://judge.yosupo.jp/submission/410016) | 待核验 |
+| `PersistentWeightedIndex` | [Library Checker Rectangle Sum](https://judge.yosupo.jp/problem/rectangle_sum) | 1<=N,Q<=200000; points and weights in [0,1e9]; half-open nonempty rectangles; time limit 5s | [记录](https://judge.yosupo.jp/submission/410009) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2768,6 +2770,22 @@ Probability matrix-tree application
 
 
 Authorized CAPTCHA attempt failed without a record; user reports manual verification also seems unavailable. Further retries stopped; no online verdict.
+
+### Library Checker Rectangle Sum / offline_rectangle_sum
+
+Direct offline rectangle-sum template
+
+
+
+No own rank/total; general signed and extreme-coordinate extension locally tested
+
+### Library Checker Rectangle Sum / PersistentWeightedIndex
+
+Persistent index rectangle-sum application; subset of APIs
+
+
+
+Branched versions, counts and strict predecessor/successor only locally tested; original JOI/CF full protocols unresolved
 
 ## 榜单口径
 

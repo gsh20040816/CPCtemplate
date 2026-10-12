@@ -1,0 +1,24 @@
+{
+  "driver": "verify/library_checker/rectangle_sum_offline.compact.cpp",
+  "bundle_sha256": "edc7c1352ea65219e8aad422066b8c901f0f872926483d21bb8a246abb2639ed",
+  "test_sha256": "73e33aa6efcb8f5f8b725f74e64ecb99e83cd95c889883e76587f9bbd5c7a3c5",
+  "scope": "Independent full-protocol local tests, not online verdict",
+  "runs": {
+    "normal": {
+      "protocols": 241,
+      "flags": [
+        "-std=c++20",
+        "-O2"
+      ]
+    },
+    "sanitizer": {
+      "protocols": 241,
+      "flags": [
+        "-std=c++20",
+        "-O2",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer"
+      ]
+    }
+  }
+}

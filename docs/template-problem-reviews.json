@@ -7687,5 +7687,56 @@
     "local_evidence": [
       "verification/tree-probability.json"
     ]
+  },
+  {
+    "symbol": "offline_rectangle_sum",
+    "problem": "Library Checker Rectangle Sum",
+    "url": "https://judge.yosupo.jp/problem/rectangle_sum",
+    "classification": "Direct offline rectangle-sum template",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "1<=N,Q<=200000; points and weights in [0,1e9]; half-open nonempty rectangles; time limit 5s",
+    "tested_api": [
+      "offline_rectangle_sum"
+    ],
+    "ac": "https://judge.yosupo.jp/submission/410016",
+    "ranking": {
+      "status": "own_rank_total_not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No own rank/total; general signed and extreme-coordinate extension locally tested",
+    "usage": "example-436",
+    "source_driver": "verify/library_checker/rectangle_sum_offline.compact.cpp",
+    "local_evidence": [
+      "verification/offline-rectangle-core.json",
+      "verification/offline-rectangle-official.json"
+    ]
+  },
+  {
+    "symbol": "PersistentWeightedIndex",
+    "problem": "Library Checker Rectangle Sum",
+    "url": "https://judge.yosupo.jp/problem/rectangle_sum",
+    "classification": "Persistent index rectangle-sum application; subset of APIs",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "1<=N,Q<=200000; points and weights in [0,1e9]; half-open nonempty rectangles; time limit 5s",
+    "tested_api": [
+      "add on prefix version",
+      "query interval sum"
+    ],
+    "ac": "https://judge.yosupo.jp/submission/410009",
+    "ranking": {
+      "status": "own_rank_total_not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Branched versions, counts and strict predecessor/successor only locally tested; original JOI/CF full protocols unresolved",
+    "usage": "example-432",
+    "source_driver": "verify/library_checker/rectangle_sum.compact.cpp",
+    "local_evidence": [
+      "verification/persistent-weighted-index-core.json",
+      "verification/persistent-predecessor.json"
+    ]
   }
 ]

@@ -813,7 +813,7 @@
     "persistent_weighted_index",
     "PersistentWeightedIndex",
     "持久化计数与权值索引",
-    "PersistentWeightedIndex(n)，位置域[0,n)，n为正int，版本0为空。add(version,pos,weight)从任意已有版本分叉，新增一个元素，count加1、sum加weight，返回新版本号；weight允许负数。query(version,l,r)返回半开区间的{count,sum}，空区间合法。first(before,after,key)返回计数版本差中>=key的最小位置，无结果-1；key可越界。必须保证after-before逐位置计数非负，祖先版本与后代版本满足此前提，任意两个分支不一定满足。后继按count判断，不按sum。\n\n每次插入新增O(log(n+1))节点，query/first时间O(log(n+1))，查询不分配节点。元素计数、版本数和节点数需可用int编号；所有节点权值和及查询累加中间结果须适配signed64。两次query相减可得区间版本差，但减法也需防溢出。内部根与辅助函数不可外部修改，对象复制独立。"
+    "PersistentWeightedIndex(n)，位置域[0,n)，n为正int，版本0为空。add(version,pos,weight)从任意已有版本分叉，新增一个元素，count加1、sum加weight，返回新版本号；weight允许负数。query(version,l,r)返回半开区间的{count,sum}，空区间合法。first(before,after,key)返回计数版本差中>=key的最小位置，无结果-1；last(before,after,key)返回严格<key的最大位置，无结果-1；二者key均可越界。必须保证after-before逐位置计数非负，祖先版本与后代版本满足此前提，任意两个分支不一定满足。后继按count判断，不按sum。\n\n每次插入新增O(log(n+1))节点，query/first/last时间O(log(n+1))，查询不分配节点。元素计数、版本数和节点数需可用int编号；所有节点权值和及查询累加中间结果须适配signed64。两次query相减可得区间版本差，但减法也需防溢出。内部根与辅助函数不可外部修改，对象复制独立。"
   ],
   [
     "support_hull",
@@ -1360,6 +1360,12 @@
     "Fenwick2D",
     "稀疏二维树状数组：点加与矩形和",
     "Fenwick2D<T>(points)，T默认long long；预登记所有将来更新的(x,y)，重复点自动去重，初始权值全0。add(x,y,v)在已登记点累加，删除可加负值；不是不预知坐标的在线数据结构。prefix(x,y)求横坐标<x且纵坐标<y的权和，sum(l,d,r,u)求[l,r)×[d,u)，允许空矩形；坐标、端点均为long long，不做端点±1。上界须可表示，因此不能用有限半开区间包含LLONG_MAX坐标。init(points)重新登记并清空权值，空点集合法。K为登记项数（含重复），P为不同点数且P<2^30：构造O(K log K+P log P)，构造峰值空间O(K+P log P)，更新与查询O(log² P)。按y有序分发到各横轴Fenwick节点，使内层坐标有序且去重。T支持零值、加减，所有节点和与容斥中间值均须可表示。内部字段只读，不提供未经登记的动态插入。"
+  ],
+  [
+    "offline_rectangle_sum",
+    "offline_rectangle_sum",
+    "离线静态矩形权值和",
+    "offline_rectangle_sum(points,queries)：points每项为{x,y,w}，queries每项为{l,d,r,u}，返回按询问原顺序排列的[l,r)×[d,u)内权值和。坐标、端点与权值均为long long；要求l<=r、d<=u，允许空矩形、空点集、空询问、重合点和负权。传入点按值复制，两个输入均不改变，多次调用互不影响。坐标仅比较，不用端点±1，支持LLONG_MIN/MAX；半开矩形无法包含位于LLONG_MAX的上边界坐标。\n\n一次读完所有询问，按横坐标扫描，在纵轴离散化树状数组上加点。同横坐标事件只包含x<事件横坐标的点，保证左右开闭正确。时间O((N+Q)log(N+Q+1))，空间O(N+Q)，N,Q均小于2^30且内存可分配。要求所有权值绝对值之和<=LLONG_MAX，保证树状数组、容斥与符号乘法不溢出。依赖Fenwick；若需逐条在线回答，改用持久化前缀版本。"
   ],
   [
     "rectangle_fenwick",

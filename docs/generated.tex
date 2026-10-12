@@ -6649,6 +6649,36 @@ RectangleFenwick<T>(n,m)，T默认long long，0$\le$n,m<2\textasciicircum{}30，
 
 \lstinputlisting{usage/example-210.cpp}
 
+\Needspace{666pt}
+
+\noindent 相关应用：离线二维扫描线应用，不代表整页覆盖
+
+\section{离线静态矩形权值和}\label{compact-offline_rectangle_sum}\index{offline\_rectangle\_sum}
+
+代码依赖：\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+offline\_rectangle\_sum(points,queries)：points每项为\{x,y,w\}，queries每项为\{l,d,r,u\}，返回按询问原顺序排列的[l,r)×[d,u)内权值和。坐标、端点与权值均为long long；要求l<=r、d<=u，允许空矩形、空点集、空询问、重合点和负权。传入点按值复制，两个输入均不改变，多次调用互不影响。坐标仅比较，不用端点±1，支持LLONG\_MIN/MAX；半开矩形无法包含位于LLONG\_MAX的上边界坐标。
+
+一次读完所有询问，按横坐标扫描，在纵轴离散化树状数组上加点。同横坐标事件只包含x<事件横坐标的点，保证左右开闭正确。时间O((N+Q)log(N+Q+1))，空间O(N+Q)，N,Q均小于2\textasciicircum{}30且内存可分配。要求所有权值绝对值之和<=LLONG\_MAX，保证树状数组、容斥与符号乘法不溢出。依赖Fenwick；若需逐条在线回答，改用持久化前缀版本。
+
+\lstinputlisting[firstline=5,lastline=55]{../src/compact/offline_rectangle_sum.hpp}
+
+\newpage
+
+\Needspace{351pt}
+
+\subsection*{模板题使用：Library Checker Rectangle Sum（离线）}
+
+\label{usage-example-436}
+
+题意：N,Q<=200000，点坐标与权值在[0,1e9]；读取全部询问后用扫描线返回半开矩形权值和。此例可离线处理，节省持久化节点的内存；需要在线查询时使用持久化版本（用法432）。Library Checker C++20线上AC 410016，258ms、29.98MiB。
+
+所需模板：\hyperref[compact-Fenwick]{Fenwick}（第~\pageref{compact-Fenwick}~页，\ref{compact-Fenwick}~节）、\hyperref[compact-offline_rectangle_sum]{offline\_\allowbreak{}rectangle\_\allowbreak{}sum}（第~\pageref{compact-offline_rectangle_sum}~页，\ref{compact-offline_rectangle_sum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/rectangle_sum}
+
+\lstinputlisting{usage/example-436.cpp}
+
 \Needspace{180pt}
 
 \chapter{线段树}
@@ -7956,9 +7986,9 @@ PersistentDistinct(a) 传入非空 0-based 数组，query(l,r) 返回闭区间�
 
 \subsection{持久化计数与权值索引}\label{compact-PersistentWeightedIndex}\index{PersistentWeightedIndex}
 
-PersistentWeightedIndex(n)，位置域[0,n)，n为正int，版本0为空。add(version,pos,weight)从任意已有版本分叉，新增一个元素，count加1、sum加weight，返回新版本号；weight允许负数。query(version,l,r)返回半开区间的\{count,sum\}，空区间合法。first(before,after,key)返回计数版本差中>=key的最小位置，无结果-1；key可越界。必须保证after-before逐位置计数非负，祖先版本与后代版本满足此前提，任意两个分支不一定满足。后继按count判断，不按sum。
+PersistentWeightedIndex(n)，位置域[0,n)，n为正int，版本0为空。add(version,pos,weight)从任意已有版本分叉，新增一个元素，count加1、sum加weight，返回新版本号；weight允许负数。query(version,l,r)返回半开区间的\{count,sum\}，空区间合法。first(before,after,key)返回计数版本差中>=key的最小位置，无结果-1；last(before,after,key)返回严格<key的最大位置，无结果-1；二者key均可越界。必须保证after-before逐位置计数非负，祖先版本与后代版本满足此前提，任意两个分支不一定满足。后继按count判断，不按sum。
 
-每次插入新增O(log(n+1))节点，query/first时间O(log(n+1))，查询不分配节点。元素计数、版本数和节点数需可用int编号；所有节点权值和及查询累加中间结果须适配signed64。两次query相减可得区间版本差，但减法也需防溢出。内部根与辅助函数不可外部修改，对象复制独立。
+每次插入新增O(log(n+1))节点，query/first/last时间O(log(n+1))，查询不分配节点。元素计数、版本数和节点数需可用int编号；所有节点权值和及查询累加中间结果须适配signed64。两次query相减可得区间版本差，但减法也需防溢出。内部根与辅助函数不可外部修改，对象复制独立。
 
 \lstinputlisting[firstline=8,lastline=42,firstnumber=1]{../src/compact/persistent_weighted_index.hpp}
 
@@ -7966,17 +7996,17 @@ PersistentWeightedIndex(n)，位置域[0,n)，n为正int，版本0为空。add(v
 
 \noindent 接上页同一结构体：
 
-\lstinputlisting[firstline=43,lastline=91,firstnumber=36]{../src/compact/persistent_weighted_index.hpp}
+\lstinputlisting[firstline=43,lastline=112,firstnumber=36]{../src/compact/persistent_weighted_index.hpp}
 
 \newpage
 
-\Needspace{559pt}
+\Needspace{606pt}
 
 \subsection*{接口用法演示：持久化计数与权值索引 API}
 
 \label{usage-example-431}
 
-演示约定：输入n q，位置域[0,n)、初始版本0为空。1 version pos weight从该版本新增元素并输出新版本号；2 version l r输出[l,r)内count和sum；3 before after key输出版本差中>=key的首位置或-1，要求逐位置计数差非负。旧版本不变，允许分叉和负权。本地API例子，不是OJ判定。
+演示约定：输入n q，位置域[0,n)、初始版本0为空。1 version pos weight从该版本新增元素并输出新版本号；2 version l r输出[l,r)内count和sum；3 before after key输出版本差中>=key的首位置或-1，4 before after key输出版本差中严格<key的末位置或-1；操作3/4要求逐位置计数差非负。旧版本不变，允许分叉和负权。本地API例子，不是OJ判定。
 
 所需模板：\hyperref[compact-PersistentWeightedIndex]{PersistentWeightedIndex}（第~\pageref{compact-PersistentWeightedIndex}~页，\ref{compact-PersistentWeightedIndex}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
@@ -7986,13 +8016,13 @@ PersistentWeightedIndex(n)，位置域[0,n)，n为正int，版本0为空。add(v
 
 \newpage
 
-\Needspace{608pt}
+\Needspace{619pt}
 
 \subsection*{模板题使用：Library Checker Rectangle Sum}
 
 \label{usage-example-432}
 
-题意：N个带权点，Q次查询[l,r)×[d,u)内权值和；1<=N,Q<=200000，坐标及权值在[0,1e9]。按x排序建立前缀版本，y离散化；两个版本相减，重复点与零权合法，答案用signed64。预处理O(NlogN)，每次查询O(logN)，空间O(NlogN)。官方数据本地检查通过，非线上AC。
+题意：N个带权点，Q次查询[l,r)×[d,u)内权值和；1<=N,Q<=200000，坐标及权值在[0,1e9]。按x排序建立前缀版本，y离散化；两个版本相减，重复点与零权合法，答案用signed64。预处理O(NlogN)，每次查询O(logN)，空间O(NlogN)。Library Checker C++20线上AC 410009，1072ms、101.38MiB。
 
 所需模板：\hyperref[compact-PersistentWeightedIndex]{PersistentWeightedIndex}（第~\pageref{compact-PersistentWeightedIndex}~页，\ref{compact-PersistentWeightedIndex}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 

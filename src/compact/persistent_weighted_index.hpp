@@ -88,4 +88,25 @@ struct PersistentWeightedIndex
         assert(0 <= after && after < (int)roots.size());
         return find(roots[before], roots[after], 0, n, key);
     }
+
+    int find_last(int before, int after, int l, int r, int key) const
+    {
+        if (l >= key || t[after].count == t[before].count)
+            return -1;
+        if (r - l == 1)
+            return l;
+        int m = l + (r - l) / 2;
+        int answer = find_last(t[before].right, t[after].right, m, r, key);
+        if (answer == -1)
+            answer = find_last(t[before].left, t[after].left, l, m, key);
+        return answer;
+    }
+
+    // Strict predecessor; the same nonnegative count-difference contract applies.
+    int last(int before, int after, int key) const
+    {
+        assert(0 <= before && before < (int)roots.size());
+        assert(0 <= after && after < (int)roots.size());
+        return find_last(roots[before], roots[after], 0, n, key);
+    }
 };

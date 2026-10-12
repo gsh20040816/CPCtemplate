@@ -234,6 +234,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | MinimumCover | [example-244（接口演示）](usage/example-244.cpp) | locally_checked_api |
 | CentroidNearest | [example-245（应用补充）](usage/example-245.cpp) | locally_checked_application |
 | Fenwick2D | [example-246](usage/example-246.cpp) | locally_checked_example |
+| offline_rectangle_sum | [example-436](usage/example-436.cpp) | locally_checked_example |
 | RectangleFenwick | [example-247](usage/example-247.cpp) | locally_checked_example |
 | PersistentDSU | [example-248](usage/example-248.cpp) | locally_checked_example |
 | MergeSplitTree | [example-249](usage/example-249.cpp), [example-289（应用补充）](usage/example-289.cpp) | locally_checked_example |
