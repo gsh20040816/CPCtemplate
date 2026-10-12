@@ -7049,5 +7049,35 @@
       "verification/plug-cycle-local.json",
       "verification/plug-cycle-driver.json"
     ]
+  },
+  {
+    "symbol": "Simplex",
+    "problem": "P13337 线性规划",
+    "url": "https://www.luogu.com.cn/problem/P13337",
+    "classification": "Formal general linear programming template with feasibility/unboundedness and solution output.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "1≤n,m≤100；整数系数绝对值≤100；随机数据；3秒、512MB。",
+    "adapter": "Read c then rows A[i],b[i], maximize under nonnegative variables; print classification or objective plus solution.",
+    "tested_api": [
+      "Simplex(A,b,c)",
+      "solve()",
+      "Result.status",
+      "Result.value",
+      "Result.x"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302627451",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Runtime rank not checked; floating-point numerical limitations remain explicit.",
+    "source": "src/compact/simplex.hpp",
+    "driver": "verify/luogu/P13337.compact.cpp",
+    "usage": "example-397",
+    "local_reports": [
+      "verification/simplex-local.json"
+    ]
   }
 ]

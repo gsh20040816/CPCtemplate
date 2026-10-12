@@ -5177,6 +5177,60 @@ $\lambda=0$ 时矩阵幂零，序列为 $0,1,0,0,\ldots$，BM 的长度 2 系数
 
 \Needspace{180pt}
 
+\chapter{线性规划}
+
+\section{单纯形法}
+
+\subsection{线性规划：两阶段单纯形}\label{compact-Simplex}\index{Simplex}
+
+Simplex(A,b,c) 求 max c·x，约束 Ax$\le$b、x$\ge$0；A为m×n，b长m，c长n，变量/约束均0基。构造后只调用一次solve()，返回status、value、x；optimal时value与x有效，infeasible/unbounded时只读status。允许负b、冗余约束及零维；内部表与pivot/improve仅供实现使用。
+
+long double、绝对eps=1e-12。两阶段人工变量法；按变量编号选入基、最小比值并按基变量编号解平局。精确运算下Bland规则避免循环，浮点容差下不保证任意病态输入的正确分类或终止；勿把AC视为精确LP保证。先缩放数量级，求解后复核原约束和目标值。每次换基O((m+1)(n+1))，空间同阶；总换基次数最坏指数级。
+
+\lstinputlisting[firstline=7,lastline=39,firstnumber=1]{../src/compact/simplex.hpp}
+
+\newpage
+
+换基（接上页结构体）：
+
+\lstinputlisting[firstline=40,lastline=56,firstnumber=34]{../src/compact/simplex.hpp}
+
+\paragraph{表的含义} 第i行表示基本变量等于右端值减去非基本变量的线性组合。目标行同样表示当前目标常数减去约化系数乘变量。负约化系数表示增加该变量可改善目标；仅系数为正的约束限制增加量，故用右端除系数的最小值选择离基。若没有限制行则沿该方向无界。
+
+\paragraph{人工变量与两阶段} 对每条约束引入同一个人工变量t，系数为-1。从最负的右端行让t入基即得到可行起点，第一阶段最大化-t。最优值小于零说明原问题无解；为零时把仍在基内的人工变量换出，零冗余行可以保留。原目标行始终参加换基，第二阶段禁止人工变量入基，直接优化原目标。
+
+\newpage
+
+选择入基与出基变量（接上页结构体）：
+
+\lstinputlisting[firstline=57,lastline=86,firstnumber=51]{../src/compact/simplex.hpp}
+
+\newpage
+
+两阶段求解与方案恢复（接上页结构体）：
+
+\lstinputlisting[firstline=87,lastline=113,firstnumber=81]{../src/compact/simplex.hpp}
+
+\paragraph{退化与数值} 在精确运算下，入基选最小变量编号，最小比值并列时选最小基本变量编号，是Bland防循环规则。这里按eps判断约化系数和比值并列，所以不承诺浮点下严格防循环。极小系数、严重消去或尺度悬殊都可能改变分类；先对模型缩放，并用原输入复核返回方案。需要精确判定时应使用有理数算法，不能仅缩小eps。
+
+\newpage
+
+\Needspace{446pt}
+
+\subsection*{模板题使用：P13337 线性规划}
+
+\label{usage-example-397}
+
+题意：n,m$\le$100，整数系数绝对值$\le$100，题目保证随机数据。最大化c·x，Ax$\le$b、x$\ge$0。输出最优值及任一最优解，或Infeasible/Unbounded；允许绝对或相对误差1e-6。
+
+所需模板：\hyperref[compact-Simplex]{Simplex}（第~\pageref{compact-Simplex}~页，\ref{compact-Simplex}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P13337}
+
+\lstinputlisting{usage/example-397.cpp}
+
+\Needspace{180pt}
+
 \chapter{概率论}
 
 \section{随机变量的数字特征}

@@ -272,7 +272,8 @@
 | `TimeConnectivity` | [LOJ121 动态图连通性](https://loj.ac/p/121) | n≤5000,q≤500000; 800ms,512MiB; initially empty simple graph, legal insert/delete. | [记录](https://loj.ac/s/2631419) | 待核验 |
 | `Mo` | [P2709 莫队](https://www.luogu.com.cn/problem/P2709) | n,m,k≤100000;1秒、128MB。 | [记录](https://www.luogu.com.cn/record/302624429) | 待核验 |
 | `digit_count` | [P2602 数字计数](https://www.luogu.com.cn/problem/P2602) | 1≤a≤b≤10^12;1秒、125MB。 | [记录](https://www.luogu.com.cn/record/302624647) | 待核验 |
-| `grid_cycle` | [P5056 插头 DP](https://www.luogu.com.cn/problem/P5056) | 2≤n,m≤12;1秒、125MB。 | 待在线 AC | 待核验 |
+| `grid_cycle` | [P5056 插头 DP](https://www.luogu.com.cn/problem/P5056) | 2≤n,m≤12;1秒、125MB。 | [记录](https://www.luogu.com.cn/record/302626494) | 待核验 |
+| `Simplex` | [P13337 线性规划](https://www.luogu.com.cn/problem/P13337) | 1≤n,m≤100；整数系数绝对值≤100；随机数据；3秒、512MB。 | [记录](https://www.luogu.com.cn/record/302627451) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2550,7 +2551,15 @@ Formal single-loop plug DP template.
 
 Read obstacle grid; __int128 is safe because at most (n-1)(m-1)<=121 binary choices bound all partial history counts by 2^121; print decimal.
 
-Initial Boost submission CE (missing header); adapted bounded __int128 driver pending.
+Accepted all 10 tests; runtime rank not checked.
+
+### P13337 线性规划 / Simplex
+
+Formal general linear programming template with feasibility/unboundedness and solution output.
+
+Read c then rows A[i],b[i], maximize under nonnegative variables; print classification or objective plus solution.
+
+Runtime rank not checked; floating-point numerical limitations remain explicit.
 
 ## 榜单口径
 

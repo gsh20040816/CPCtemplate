@@ -5021,5 +5021,18 @@
       "grid_cycle"
     ],
     "start_new_page": false
+  },
+  {
+    "id": "example-397",
+    "symbol": "Simplex",
+    "kind": "template",
+    "problem": "P13337 线性规划",
+    "url": "https://www.luogu.com.cn/problem/P13337",
+    "summary": "n,m≤100，整数系数绝对值≤100，题目保证随机数据。最大化c·x，Ax≤b、x≥0。输出最优值及任一最优解，或Infeasible/Unbounded；允许绝对或相对误差1e-6。",
+    "driver": "verify/luogu/P13337.compact.cpp",
+    "requires": [
+      "Simplex"
+    ],
+    "start_new_page": true
   }
 ]
