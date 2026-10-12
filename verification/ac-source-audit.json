@@ -1,0 +1,16 @@
+{
+  "source_pdf_sha256": "b5ce46f7cf542be2d9846d8f01898c8ccd7f4619521036b0b7895206895745f3",
+  "source_sha256": "6288e069b9eb7f6012b264be9dcc8621cab21f8bec4b5250e1dfbd549e2f1cc2",
+  "source_lines": 69,
+  "files": {
+    "tests/ac_source.cpp": "353858f6fbbda548701c9c6adf2d9ae2149ad420791ded2e419d714a06dece48",
+    "tests/ac_source_audit.py": "9f5d9a371ef4e7b0db1cf437120633fa2df0e213149fa442b4b33a2f64244898",
+    "src/compact/string.hpp": "be145d0bbbe033aae59174b130d391af9dfa5de32adb5c5dca4243b1d68e90f4",
+    "src/compact/ac_shortest.hpp": "82dc961b20dce742adfdf2340c3e40520f567432856a16dba6ad3c9679eadf33"
+  },
+  "runs": {
+    "normal": "3246 pattern sets; 2012061 independent shortest suffix checks incl. reset, duplicate, absent PASS",
+    "sanitizer": "3246 pattern sets; 2012061 independent shortest suffix checks incl. reset, duplicate, absent PASS"
+  },
+  "scope": "Original unchanged Clear/Insert/Build plus missing declarations; positive pattern lengths, build once, literal suffix oracle; no new online AC"
+}

@@ -1,0 +1,41 @@
+{
+  "source_pdf_sha256": "b5ce46f7cf542be2d9846d8f01898c8ccd7f4619521036b0b7895206895745f3",
+  "source_line_counts": {
+    "sam": 47,
+    "exSAM": 119,
+    "PAM": 56
+  },
+  "source_sha256": {
+    "sam": "8929f7fbd14cee51252128c19c2ef86e62c516fd4062d0beaf62a5602a08e4b2",
+    "exSAM": "47e15f6254390e85afbba98946a97af2ea98b2042914b07ec5521363b8d758fb",
+    "PAM": "1230cb7352b7c783cf6474fffe0322e9bde5566a15dd4904cdddb9328fd3f362"
+  },
+  "files": {
+    "tests/automata_source.cpp": "436a394f83b9129f4a261236ab4f5da812b02b7d4be0e1e6fb59859075abe97f",
+    "tests/automata_source_audit.py": "604200b09dc82d2dd91a4549c6ff12256e10a42e95ded89818f118ac47e84fbf",
+    "src/compact/string.hpp": "be145d0bbbe033aae59174b130d391af9dfa5de32adb5c5dca4243b1d68e90f4",
+    "src/compact/online_sam.hpp": "725311b02a6d5d587153eb8fead6461036fca9833d34c69990f20f9f73467b88",
+    "src/compact/general_sam.hpp": "c7e4e8656f34c6cba34a1fb72ac7875ba0ca00f572d037cff9cdaa68ea026d2e",
+    "src/compact/palindromic_tree.hpp": "5c5fbe8fa4d2e0c52cf50fdd7d75790f1c8b00ba2ed578644ad92e89e098ce9f",
+    "verify/luogu/P6139.compact.cpp": "b746f179c4e0114a4687d89b29b0da0b897348b4143bb193330a84bbf81deb6f",
+    "verify/luogu/P5496.compact.cpp": "c165fd868e753b9750087c9cd4c0e24fd9bf0d9b63d7b88c949bdcad7fad9c7d"
+  },
+  "runs": {
+    "source-structure-normal": "3280 single SAM cases; 4375 generalized cases; 3780 decoded PAM cases; 72349 endpos oracle checks PASS",
+    "source-general-normal": "40 complete endpos protocols PASS",
+    "current-general-normal": "40 complete endpos protocols PASS",
+    "source-pam-normal": "42 complete decoded protocols incl. 500000 equal/alternating PASS",
+    "current-pam-normal": "42 complete decoded protocols incl. 500000 equal/alternating PASS",
+    "source-structure-sanitizer": "3280 single SAM cases; 4375 generalized cases; 3780 decoded PAM cases; 72349 endpos oracle checks PASS",
+    "source-general-sanitizer": "40 complete endpos protocols PASS",
+    "current-general-sanitizer": "40 complete endpos protocols PASS",
+    "source-pam-sanitizer": "42 complete decoded protocols incl. 500000 equal/alternating PASS",
+    "current-pam-sanitizer": "42 complete decoded protocols incl. 500000 equal/alternating PASS"
+  },
+  "limitations": [
+    "No new online verdict or performance ranking",
+    "General-SAM source maximum million-character recursion not run; current implementation prior stress evidence is separate",
+    "Harness clears generalized edge vectors between cases; original Clear does not reset Solve edges",
+    "Original ordinary SAM endpos is a raw external tag, not a frequency"
+  ]
+}
