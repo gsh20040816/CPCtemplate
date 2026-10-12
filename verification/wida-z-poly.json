@@ -1,0 +1,74 @@
+{
+  "scope": "Exact WIDA12B source Poly interfaces against independent coefficient recurrences/Horner and current components. Scoped local checks, no original application or online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "task": "small",
+      "stdout": "126297 independent Poly interface checks PASS\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "mode": "normal",
+      "task": "large",
+      "stdout": "266251 analytic large-series/evaluation checks PASS\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "mode": "normal",
+      "task": "counterexamples",
+      "stdout": "17 documented source counterexample checks PASS\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "mode": "normal",
+      "task": "singleton",
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "mode": "sanitizer",
+      "task": "small",
+      "stdout": "126297 independent Poly interface checks PASS\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "mode": "sanitizer",
+      "task": "large",
+      "stdout": "266251 analytic large-series/evaluation checks PASS\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "mode": "sanitizer",
+      "task": "counterexamples",
+      "stdout": "17 documented source counterexample checks PASS\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "mode": "sanitizer",
+      "task": "singleton",
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_poly_variants/12B.cpp:94:49: runtime error: shift exponent -1 is negative\n",
+      "returncode": -6
+    }
+  ],
+  "files": {
+    "tests/wida_z_poly.cpp": "99d2ab96310bc8f85b2fde3480146fe8e84374413860bc1cdf775b3f2915efb2",
+    "tests/wida_z_poly.py": "5951285618954a2945f63142d69bd0029fd520121513a0867d64c577cee0e4d6",
+    "tests/fixtures/wida_poly_variants/12B.cpp": "348042d516fcb1755eda524e47caf6541d017874a68979f588ea7f2374ad928d",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_power.hpp": "b5678567b42bf77e7693544006efe7ebae53578be474fcc5203c6190e13fa759",
+    "src/compact/fps_sqrt.hpp": "6f2d57fb17d515140c4020427c468e36e596fbd19dfc7f4040ddb7ea36837169",
+    "src/compact/fps_inverse.hpp": "7d598c748a7829ffb757ec5f15db8078f4b5fab16cbf6a24164053dc9b83a1c0",
+    "src/compact/multipoint_evaluation.hpp": "fb70d767dd84c2b53f1e4714f1a2454270ef15b98c50d8f4e36f9629f89aa94c",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+  }
+}
