@@ -143,6 +143,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | VirtualTree | [example-139（应用补充）](usage/example-139.cpp) | locally_checked_application |
 | PersistentArray | [example-11](usage/example-11.cpp) | locally_checked_example |
 | PersistentWeightedIndex | [example-431（接口演示）](usage/example-431.cpp), [example-432](usage/example-432.cpp) | locally_checked_example |
+| PersistentParityIndex | [example-437（接口演示）](usage/example-437.cpp) | locally_checked_api |
 | SupportHull | [example-226（接口演示）](usage/example-226.cpp) | locally_checked_api |
 | SuffixLCP | [example-205（接口演示）](usage/example-205.cpp), [example-343（接口演示）](usage/example-343.cpp) | locally_checked_api |
 | prefix_lcs | [example-205（接口演示）](usage/example-205.cpp) | locally_checked_api |
@@ -237,7 +238,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | offline_rectangle_sum | [example-436](usage/example-436.cpp) | locally_checked_example |
 | RectangleFenwick | [example-247](usage/example-247.cpp) | locally_checked_example |
 | PersistentDSU | [example-248](usage/example-248.cpp) | locally_checked_example |
-| MergeSplitTree | [example-249](usage/example-249.cpp), [example-289（应用补充）](usage/example-289.cpp) | locally_checked_example |
+| MergeSplitTree | [example-249](usage/example-249.cpp), [example-289（应用补充）](usage/example-289.cpp), [example-438（接口演示）](usage/example-438.cpp) | locally_checked_example |
 | exkmp | [example-250](usage/example-250.cpp) | locally_checked_example |
 | order_match | [example-251（应用补充）](usage/example-251.cpp) | locally_checked_application |
 | SAMLex | [example-253（应用补充）](usage/example-253.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |

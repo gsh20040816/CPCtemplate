@@ -6853,7 +6853,7 @@ MonotoneStackSeg(a) 要求非空 long long 数组；add(l,r,delta) 对 0-based �
 
 \subsection{线段树合并与分裂}\label{compact-MergeSplitTree}\index{MergeSplitTree}
 
-MergeSplitTree(n)建空集合0，或传vector<long long>建初始重数；n>0，值域[0,n)。add(s,x,delta)点增减，结果重数非负；sum(s,l,r)查询半开值域；kth(s,k)按重数返回第k小的0-based值，不存在返回-1。split(s,l,r)移走区间并返回新集合号，空区间也创建集合；merge(dst,src)消耗不同的src，src变空后可重用。所有集合总量分别须$\le$LLONG\_MAX，节点/集合索引须适合int。仅通过集合号操作，root/t/free只读，其余递归函数内部使用，禁止浅拷贝根。初始化O(n)，增减/分裂/查询O(log(n+1))；单次合并非O(log n)，遍历重叠节点并回收，总合并开销可摊到节点创建。完整对象值复制独立。
+MergeSplitTree(n)建空集合0，或传vector<long long>建初始重数；n>0，值域[0,n)。add(s,x,delta)点增减，结果重数非负；sum(s,l,r)查询半开值域；kth(s,k)按重数返回第k小的0-based值，不存在返回-1。split(s,l,r)移走区间并返回新集合号，空区间也创建集合；split\_rank(s,k,reverse=false)移走最小k个元素到新集合；reverse=true移走最大k个，k在[0,集合总重数]内，同值的重数可拆开，k=0也创建空集合。merge(dst,src)消耗不同的src，src变空后可重用。所有集合总量分别须$\le$LLONG\_MAX，节点/集合索引须适合int。仅通过集合号操作，root/t/free只读，其余递归函数内部使用，禁止浅拷贝根。初始化O(n)，增减/分裂/查询O(log(n+1))；单次合并非O(log n)，遍历重叠节点并回收，总合并开销可摊到节点创建。完整对象值复制独立。
 
 \lstinputlisting[firstline=9,lastline=43,firstnumber=1]{../src/compact/merge_split_tree.hpp}
 
@@ -6879,13 +6879,13 @@ MergeSplitTree(n)建空集合0，或传vector<long long>建初始重数；n>0，
 
 \noindent 线段树合并与分裂（接上页同一结构体）：
 
-\lstinputlisting[firstline=141,lastline=177,firstnumber=133]{../src/compact/merge_split_tree.hpp}
+\lstinputlisting[firstline=141,lastline=218,firstnumber=133]{../src/compact/merge_split_tree.hpp}
 
 \newpage
 
 \noindent 线段树合并与分裂（接上页同一结构体）：
 
-\lstinputlisting[firstline=178,lastline=208,firstnumber=170]{../src/compact/merge_split_tree.hpp}
+\lstinputlisting[firstline=219,lastline=249,firstnumber=211]{../src/compact/merge_split_tree.hpp}
 
 \Needspace{680pt}
 
@@ -6920,6 +6920,22 @@ MergeSplitTree(n)建空集合0，或传vector<long long>建初始重数；n>0，
 \noindent 继续处理操作（接上页同一 main）：
 
 \lstinputlisting[firstline=40,firstnumber=40]{usage/example-289.cpp}
+
+\newpage
+
+\Needspace{680pt}
+
+\subsection*{接口用法演示：按重数升序/降序分裂 API}
+
+\label{usage-example-438}
+
+演示约定：读n q，初始集合0为空，值域[0,n)。1 s x delta增减重数且结果非负；2 s k reverse移走k个最小值（reverse=0）或最大值（1）并输出新集合号；3 s l r输出[l,r)重数和；4 s other把不同的other合并到s，other清空可复用；5 s k输出1-based第k小的值，无结果-1。k可等于0或集合总重数，重复值可分到两边。自定义API协议，非OJ判定。
+
+所需模板：\hyperref[compact-MergeSplitTree]{MergeSplitTree}（第~\pageref{compact-MergeSplitTree}~页，\ref{compact-MergeSplitTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{}
+
+\lstinputlisting{usage/example-438.cpp}
 
 \Needspace{473pt}
 
@@ -8029,6 +8045,34 @@ PersistentWeightedIndex(n)，位置域[0,n)，n为正int，版本0为空。add(v
 题目：\url{https://judge.yosupo.jp/problem/rectangle_sum}
 
 \lstinputlisting{usage/example-432.cpp}
+
+\noindent 相关应用：按原始整数奇偶维护历史重数及专用降序选择，不代表整页覆盖
+
+\subsection{持久化奇偶计数与降序选择}\label{compact-PersistentParityIndex}\index{PersistentParityIndex}
+
+PersistentParityIndex(n)，原始整数位置域[0,n)，n为正int，版本0为空。add(version,x,delta)从任意版本分叉，位置x的重数加signed64增量delta，返回新版本号；要求结果重数非负、版本总重数<=LLONG\_MAX。delta=0也创建版本但不分配节点。奇偶性按原始x判断，不能直接把数值离散化后的编号当原值。
+
+difference(before,after)返回\{总重数差,奇数位置重数差\}，允许有符号差。以下两个查询要求每个位置after-before重数非负；有删除操作时，即使祖先与后代版本也不自动满足。stop(before,after,k)从大到小删除至多k个偶数元素，遇到奇数立即停止，返回剩余最大位置，无元素返回-1，查询不改版本。odd\_kth(before,after,k)只按奇数位置元素降序选择0-based第k项，返回\{位置,该位置总重数,在该位置内的0-based偏移\}；不存在返回\{-1,0,k-奇数总重数\}。k为非负signed64，位置0合法。
+
+每次非零更新O(log(n+1))时间和新增节点；difference为O(1)，其余查询O(log(n+1))且不分配节点。总空间O(版本数+更新数log(n+1))，节点不回收，节点和版本编号须适合int；递归深度O(log(n+1))。t/roots及递归辅助函数仅供内部实现；完整对象复制独立。原稿无结果的0哨兵由驱动按需映射，不能把0当本接口的空结果。
+
+\lstinputlisting[firstline=8,lastline=112]{../src/compact/persistent_parity_index.hpp}
+
+\newpage
+
+\Needspace{610pt}
+
+\subsection*{接口用法演示：持久化奇偶计数与降序选择 API}
+
+\label{usage-example-437}
+
+演示约定：读n q，初始版本0。1 v x delta在v上增减位置x重数，输出新版本号；2 before after k输出stop；3 before after k输出odd\_kth三元组；4 before after输出总重数差与奇数重数差。操作2/3要求逐位置版本差非负，k>=0；原值域[0,n)，下标0-based，重数与k使用signed64。自定义API协议，非OJ判定。
+
+所需模板：\hyperref[compact-PersistentParityIndex]{PersistentParityIndex}（第~\pageref{compact-PersistentParityIndex}~页，\ref{compact-PersistentParityIndex}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{}
+
+\lstinputlisting{usage/example-437.cpp}
 
 \newpage
 

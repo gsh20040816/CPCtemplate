@@ -5584,5 +5584,31 @@
       "offline_rectangle_sum"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-437",
+    "symbol": "PersistentParityIndex",
+    "kind": "api",
+    "problem": "持久化奇偶计数与降序选择 API",
+    "url": "",
+    "summary": "读n q，初始版本0。1 v x delta在v上增减位置x重数，输出新版本号；2 before after k输出stop；3 before after k输出odd_kth三元组；4 before after输出总重数差与奇数重数差。操作2/3要求逐位置版本差非负，k>=0；原值域[0,n)，下标0-based，重数与k使用signed64。自定义API协议，非OJ判定。",
+    "driver": "verify/api/persistent_parity_index.compact.cpp",
+    "requires": [
+      "PersistentParityIndex"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-438",
+    "symbol": "MergeSplitTree",
+    "kind": "api",
+    "problem": "按重数升序/降序分裂 API",
+    "url": "",
+    "summary": "读n q，初始集合0为空，值域[0,n)。1 s x delta增减重数且结果非负；2 s k reverse移走k个最小值（reverse=0）或最大值（1）并输出新集合号；3 s l r输出[l,r)重数和；4 s other把不同的other合并到s，other清空可复用；5 s k输出1-based第k小的值，无结果-1。k可等于0或集合总重数，重复值可分到两边。自定义API协议，非OJ判定。",
+    "driver": "verify/api/rank_split.compact.cpp",
+    "requires": [
+      "MergeSplitTree"
+    ],
+    "start_new_page": true
   }
 ]

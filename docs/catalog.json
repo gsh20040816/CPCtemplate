@@ -816,6 +816,12 @@
     "PersistentWeightedIndex(n)，位置域[0,n)，n为正int，版本0为空。add(version,pos,weight)从任意已有版本分叉，新增一个元素，count加1、sum加weight，返回新版本号；weight允许负数。query(version,l,r)返回半开区间的{count,sum}，空区间合法。first(before,after,key)返回计数版本差中>=key的最小位置，无结果-1；last(before,after,key)返回严格<key的最大位置，无结果-1；二者key均可越界。必须保证after-before逐位置计数非负，祖先版本与后代版本满足此前提，任意两个分支不一定满足。后继按count判断，不按sum。\n\n每次插入新增O(log(n+1))节点，query/first/last时间O(log(n+1))，查询不分配节点。元素计数、版本数和节点数需可用int编号；所有节点权值和及查询累加中间结果须适配signed64。两次query相减可得区间版本差，但减法也需防溢出。内部根与辅助函数不可外部修改，对象复制独立。"
   ],
   [
+    "persistent_parity_index",
+    "PersistentParityIndex",
+    "持久化奇偶计数与降序选择",
+    "PersistentParityIndex(n)，原始整数位置域[0,n)，n为正int，版本0为空。add(version,x,delta)从任意版本分叉，位置x的重数加signed64增量delta，返回新版本号；要求结果重数非负、版本总重数<=LLONG_MAX。delta=0也创建版本但不分配节点。奇偶性按原始x判断，不能直接把数值离散化后的编号当原值。\n\ndifference(before,after)返回{总重数差,奇数位置重数差}，允许有符号差。以下两个查询要求每个位置after-before重数非负；有删除操作时，即使祖先与后代版本也不自动满足。stop(before,after,k)从大到小删除至多k个偶数元素，遇到奇数立即停止，返回剩余最大位置，无元素返回-1，查询不改版本。odd_kth(before,after,k)只按奇数位置元素降序选择0-based第k项，返回{位置,该位置总重数,在该位置内的0-based偏移}；不存在返回{-1,0,k-奇数总重数}。k为非负signed64，位置0合法。\n\n每次非零更新O(log(n+1))时间和新增节点；difference为O(1)，其余查询O(log(n+1))且不分配节点。总空间O(版本数+更新数log(n+1))，节点不回收，节点和版本编号须适合int；递归深度O(log(n+1))。t/roots及递归辅助函数仅供内部实现；完整对象复制独立。原稿无结果的0哨兵由驱动按需映射，不能把0当本接口的空结果。"
+  ],
+  [
     "support_hull",
     "SupportHull",
     "支撑点查询恢复下凸包",
@@ -1383,7 +1389,7 @@
     "merge_split_tree",
     "MergeSplitTree",
     "线段树合并与分裂",
-    "MergeSplitTree(n)建空集合0，或传vector<long long>建初始重数；n>0，值域[0,n)。add(s,x,delta)点增减，结果重数非负；sum(s,l,r)查询半开值域；kth(s,k)按重数返回第k小的0-based值，不存在返回-1。split(s,l,r)移走区间并返回新集合号，空区间也创建集合；merge(dst,src)消耗不同的src，src变空后可重用。所有集合总量分别须≤LLONG_MAX，节点/集合索引须适合int。仅通过集合号操作，root/t/free只读，其余递归函数内部使用，禁止浅拷贝根。初始化O(n)，增减/分裂/查询O(log(n+1))；单次合并非O(log n)，遍历重叠节点并回收，总合并开销可摊到节点创建。完整对象值复制独立。"
+    "MergeSplitTree(n)建空集合0，或传vector<long long>建初始重数；n>0，值域[0,n)。add(s,x,delta)点增减，结果重数非负；sum(s,l,r)查询半开值域；kth(s,k)按重数返回第k小的0-based值，不存在返回-1。split(s,l,r)移走区间并返回新集合号，空区间也创建集合；split_rank(s,k,reverse=false)移走最小k个元素到新集合；reverse=true移走最大k个，k在[0,集合总重数]内，同值的重数可拆开，k=0也创建空集合。merge(dst,src)消耗不同的src，src变空后可重用。所有集合总量分别须≤LLONG_MAX，节点/集合索引须适合int。仅通过集合号操作，root/t/free只读，其余递归函数内部使用，禁止浅拷贝根。初始化O(n)，增减/分裂/查询O(log(n+1))；单次合并非O(log n)，遍历重叠节点并回收，总合并开销可摊到节点创建。完整对象值复制独立。"
   ],
   [
     "exkmp",

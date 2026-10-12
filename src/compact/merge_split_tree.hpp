@@ -175,6 +175,47 @@ struct MergeSplitTree
         return (int)root.size() - 1;
     }
 
+    pair<int, int> cut_rank(int p, int l, int r, ll k, bool reverse)
+    {
+        if (!p || k == 0)
+            return {p, 0};
+        if (k == t[p].sum)
+            return {0, p};
+        int q = make();
+        if (r - l == 1)
+        {
+            t[p].sum -= k;
+            t[q].sum = k;
+            return {p, q};
+        }
+        int m = l + (r - l) / 2;
+        ll left = t[t[p].l].sum;
+        ll right = t[t[p].r].sum;
+        ll take_left = k < left ? k : left;
+        if (reverse)
+            take_left = k > right ? k - right : 0;
+        auto [a, b] = cut_rank(t[p].l, l, m, take_left, reverse);
+        auto [c, d] = cut_rank(t[p].r, m, r, k - take_left, reverse);
+        t[p].l = a;
+        t[p].r = c;
+        t[q].l = b;
+        t[q].r = d;
+        pull(p);
+        pull(q);
+        return {p, q};
+    }
+
+    // Move the k smallest (or largest) occurrences into a new set.
+    int split_rank(int s, ll k, bool reverse = false)
+    {
+        assert(0 <= s && s < (int)root.size());
+        assert(0 <= k && k <= t[root[s]].sum);
+        auto [p, q] = cut_rank(root[s], 0, n, k, reverse);
+        root[s] = p;
+        root.push_back(q);
+        return (int)root.size() - 1;
+    }
+
     ll query(int p, int l, int r, int a, int b) const
     {
         if (!p || b <= l || r <= a) return 0;
