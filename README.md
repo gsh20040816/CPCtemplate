@@ -37,6 +37,8 @@
 
 单环与恰好K环覆盖分别见 [单环插头DP](docs/PLUG-CYCLE.md)、[多环与禁止嵌套](docs/PLUG-CYCLES.md)。HDU4285已有实际AC，完整AC速度排名及差距见 [运行核对](docs/RUNTIME-HDU4285.md)。
 
+[欧拉函数来源审计](docs/PHI-SOURCE-AUDIT.md)记录完整四段原稿、整数范围与千万项独立恒等式验证。
+
 有向最小平均环、精确整数分数和实数精度说明见 [最小平均环](docs/MINIMUM-MEAN-CYCLE.md)。
 
 简单无向图四元环计数、非诱导定义与本地穷举验证见 [四元环](docs/FOUR-CYCLES.md)。

@@ -1,0 +1,80 @@
+{
+  "source_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "printed_pages": [
+    32,
+    33
+  ],
+  "physical_pages_visually_inspected": [
+    34,
+    35
+  ],
+  "source_line_counts": [
+    5,
+    12,
+    12,
+    27
+  ],
+  "source_sha256": [
+    "460bf496d67ee9f2ee1230bd2faf81be13c133312b4ca24143966ad8d83c97f6",
+    "b1e81920d6d4171e34203259aaf87cdd1509613eeef53d25040fb5966b6de42a",
+    "b196e28bd1d09175208bd82b20f84ce1040e1f41f08164e454af856b4fc264a0",
+    "9d0a6e03180fdd450313c61a5162a3fd08e7d948de529a3b418798b077025262"
+  ],
+  "factor_dependency": "Exact trial factor adapter; not upstream section 2.2 getFactors",
+  "linear_table_entries": 10000000,
+  "divisor_identity_entries": 10000000,
+  "eratosthenes_table_entries": 3000000,
+  "scalar_values": 20000,
+  "gcd_count_values": 500,
+  "runs": [
+    {
+      "mode": "normal",
+      "form": "header",
+      "result": "PASS: 10M divisor identities and source linear table; 3M source sieve; 20K scalar comparisons; repeated initialization and integer boundaries"
+    },
+    {
+      "mode": "normal",
+      "form": "ndebug",
+      "result": "PASS: 10M divisor identities and source linear table; 3M source sieve; 20K scalar comparisons; repeated initialization and integer boundaries"
+    },
+    {
+      "mode": "normal",
+      "form": "copied",
+      "result": "PASS: 10M divisor identities and source linear table; 3M source sieve; 20K scalar comparisons; repeated initialization and integer boundaries"
+    },
+    {
+      "mode": "sanitizer",
+      "form": "header",
+      "result": "PASS: 10M divisor identities and source linear table; 3M source sieve; 20K scalar comparisons; repeated initialization and integer boundaries"
+    },
+    {
+      "mode": "sanitizer",
+      "form": "ndebug",
+      "result": "PASS: 10M divisor identities and source linear table; 3M source sieve; 20K scalar comparisons; repeated initialization and integer boundaries"
+    },
+    {
+      "mode": "sanitizer",
+      "form": "copied",
+      "result": "PASS: 10M divisor identities and source linear table; 3M source sieve; 20K scalar comparisons; repeated initialization and integer boundaries"
+    }
+  ],
+  "upstream_square_overflow": {
+    "n": 2147483647,
+    "stderr": "/Users/gsh/Workspace/CPCtemplate/build/phi-source-audit/source-overflow.cpp:6:16: runtime error: signed integer overflow: 46341 * 46341 cannot be represented in type 'int'\n",
+    "returncode": -6
+  },
+  "upstream_narrow_accumulator": {
+    "caller_n": 4294967296,
+    "observed_result": 0,
+    "correct_result": 2147483648,
+    "scope": "Outside int accumulator domain; observed compiler conversion, not claimed signed-overflow diagnostic"
+  },
+  "current_sha256": {
+    "tests/phi_source_audit.py": "79d32bb83c5392603effb944a1d86ff2a22c614c978f77730895380912fb60f5",
+    "tests/phi_source_audit.cpp": "7e6ea6c4558f377314ebafa064304f8a59bc58a8e77f9613a95878fad2defe33",
+    "src/compact/euler_phi.hpp": "918ef68dc6e91e058bf58744d3addde881baed882e382fc723df3df4328be9dc",
+    "src/compact/number_theory.hpp": "a34ca088e2b3fe2decceadfba4b59164a8ee6625ced23a3e1781e24590a1790a",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9"
+  }
+}
