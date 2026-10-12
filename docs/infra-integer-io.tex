@@ -1,0 +1,14 @@
+\newpage
+\section{整数输入输出：EOF 与极值}\index{整数读入}\index{EOF}
+以下读写 signed64 十进制整数，接受单个正负号与前导零。要求普通文本、C locale、long long为64位。getchar返回int以区分所有字节与EOF；跳过空白时也检查EOF。关闭iostream同步后不要混用这组stdio函数。
+\texttt{read\_ll(x)} 成功返回true；EOF、非法或越界时返回false且x不变。失败后停止解析，不提供恢复到下一词的接口；非法输入与正常EOF不区分。合法词后必须是空白或EOF。负数先按无符号幅值累积，再恢复符号，支持最小负数。\texttt{write\_ll(x)} 不自动换行，不对最小负数直接取负。每个数字O(位数)，临时空间O(位数)；使用stdio已有缓冲，不宣称优于所有OJ上的cin/scanf。
+\lstinputlisting[firstline=5,lastline=31]{../examples/infra/integer_io.cpp}
+\newpage
+\noindent 输出函数与完整调用：
+\lstinputlisting[firstline=33,lastline=46]{../examples/infra/integer_io.cpp}
+\lstinputlisting[firstline=49]{../examples/infra/integer_io.cpp}
+\newpage
+\section{逐行解析整数}\index{getline}\index{istringstream}
+每行是一组signed64整数，以空白分隔；空行得到空数组。示例输出数量及规范化的数；整行存在非法词或越界则输出invalid，不处理已解析前缀。先跳过空白再检查EOF，避免把末尾越界但同时到EOF误认为成功。若前面使用过cin提取，再调用getline前应按题意处理遗留换行。此处直接getline，不自动吞掉有意义的空行。
+\lstinputlisting[firstline=4]{../examples/infra/line_integers.cpp}
+原稿gets没有缓冲区长度；不采用。strtok会修改字符数组且分隔符是字符集合，传入单个空格不等于所有空白；sscanf必须检查返回值，转换失败时不能复用旧变量。上述整行方案使用标准流并显式拒绝非完整整数词。

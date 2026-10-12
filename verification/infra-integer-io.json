@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "results": {
+    "header-normal": "pass",
+    "printed-normal": "pass",
+    "probe-normal": "pass",
+    "line-normal": "pass",
+    "header-sanitizer": "pass",
+    "printed-sanitizer": "pass",
+    "probe-sanitizer": "pass",
+    "line-sanitizer": "pass",
+    "source_trailing_whitespace": "timeout reproduced",
+    "source_min_negative": "/Users/gsh/Workspace/CPCtemplate/build/kuangbin-io/original.cpp:9:46: runtime error: signed integer overflow: 9223372036854775800 + 8 cannot be represented in type 'long long int'",
+    "source_negative_output": "'.'",
+    "source_line_parser": "Ignored sscanf failure reuses 1; space-only strtok loses tab-separated 2, reproduced with bounded input"
+  },
+  "integer_values": 10005,
+  "line_cases": 1024,
+  "invalid_tokens": 13,
+  "hashes": {
+    "examples/infra/integer_io.cpp": "61db63d8cdb27e24441e77fac496d292f51249e8e46832cda30161c553d5819b",
+    "examples/infra/line_integers.cpp": "9f5aed3b5549f9c279b63dcce34457cc119a563143b4c7c88a5aa14cca21c75e",
+    "docs/infra-integer-io.tex": "c72790cec3c4ed70f4fd423bd4b32cdddea4ac8b3be6228dba015924d78c6fe6",
+    "tests/infra_integer_io.py": "af7b2751351c05eb6dd257128900b804faec90bd18c67f4feac63a9ecc59f551"
+  },
+  "printed_sha256": "78c470db138c465d2769ec944c7a5be2ce3846bc7db60561175f80d73a112177",
+  "scope": "Local source audit and actual printed signed64 IO; no OJ or fastest-runtime claim"
+}
