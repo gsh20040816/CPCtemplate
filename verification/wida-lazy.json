@@ -1,0 +1,22 @@
+{
+  "scope": "Exact WIDA03A max-add/point-set with supplied Info; WIDA04 generic additive summaries and search with supplied types. Source-only nonnegative all-active half. maintainL/R and original applications unverified; no online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "returncode": 0,
+      "stdout": "general operations 529200\n652992 checks PASS; half is source-only, maintainL/R not instantiated\n"
+    },
+    {
+      "mode": "sanitizer",
+      "returncode": 0,
+      "stdout": "general operations 529200\n652992 checks PASS; half is source-only, maintainL/R not instantiated\n"
+    }
+  ],
+  "files": {
+    "tests/wida_lazy.cpp": "9e8f66a970425db2712b5b51ea70cbb422fed12ef0ac5d13a372855eb81af85f",
+    "tests/wida_lazy.py": "b73e8e0f71a65b6e2b4e0b1971c05baa41277fa99a1cf3ee71d27a054147d971",
+    "src/compact/lazy_segtree.hpp": "b4ba9f60235c0eac1b4e7a405b67b46a1b8d57ee83a5415b2f54b3c4e4554251",
+    "tests/fixtures/wida_lazy/03A.cpp": "dd875684651139c44b8a8dec9dd070785b95de42d58ce925f4c45af31c6a404a",
+    "tests/fixtures/wida_lazy/04.cpp": "a51b4b78c2072dd8142ef02bab0ec618f1aaa368154e9c99ec3254300446ec2b"
+  }
+}
