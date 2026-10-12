@@ -4984,5 +4984,29 @@
       "RollbackDSU",
       "TimeConnectivity"
     ]
+  },
+  {
+    "id": "example-394",
+    "symbol": "Mo",
+    "kind": "template",
+    "problem": "P2709 莫队 / 小B的询问",
+    "url": "https://www.luogu.com.cn/problem/P2709",
+    "summary": "静态数组值域1..k，询问闭区间内各值出现次数的平方和。n,m,k≤100000，输入1-based闭区间转成0-based半开区间；加删一个值由平方差O(1)更新，答案用long long。",
+    "driver": "verify/luogu/P2709.compact.cpp",
+    "requires": [
+      "Mo"
+    ]
+  },
+  {
+    "id": "example-395",
+    "symbol": "digit_count",
+    "kind": "application",
+    "problem": "P2602 [ZJOI2010] 数字计数",
+    "url": "https://www.luogu.com.cn/problem/P2602",
+    "summary": "输入1≤a≤b≤10^12，输出区间中0..9的出现次数；前缀相减，前导零不计，两个上界独立记忆化。该题范围内每个计数可转long long。",
+    "driver": "verify/luogu/P2602.compact.cpp",
+    "requires": [
+      "digit_count"
+    ]
   }
 ]

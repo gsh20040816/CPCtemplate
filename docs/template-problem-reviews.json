@@ -6967,5 +6967,60 @@
       "verification/time-connectivity-normal.json",
       "verification/time-connectivity-sanitizer.json"
     ]
+  },
+  {
+    "symbol": "Mo",
+    "problem": "P2709 莫队",
+    "url": "https://www.luogu.com.cn/problem/P2709",
+    "classification": "Direct ordinary Mo template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "n,m,k≤100000;1秒、128MB。",
+    "adapter": "Convert closed 1-based intervals; maintain sum of squared frequencies with 64-bit square differences.",
+    "tested_api": [
+      "add(l,r)",
+      "run(add,del,ans)"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302624429",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Accepted on all 30 tests; runtime rank not checked.",
+    "source": "src/compact/ordinary_mo.hpp",
+    "driver": "verify/luogu/P2709.compact.cpp",
+    "usage": "example-394",
+    "local_reports": [
+      "verification/ordinary-mo-local.json",
+      "verification/ordinary-mo-driver.json"
+    ]
+  },
+  {
+    "symbol": "digit_count",
+    "problem": "P2602 数字计数",
+    "url": "https://www.luogu.com.cn/problem/P2602",
+    "classification": "Digit-DP contest application; state semantics specific to digit-frequency counting.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "1≤a≤b≤10^12;1秒、125MB。",
+    "adapter": "Subtract independent prefix counts; cast to long long only under the problem bounds.",
+    "tested_api": [
+      "digit_count(n)"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302624647",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Accepted on all 10 tests; runtime rank not checked.",
+    "source": "src/compact/digit_count.hpp",
+    "driver": "verify/luogu/P2602.compact.cpp",
+    "usage": "example-395",
+    "local_reports": [
+      "verification/digit-count-local.json",
+      "verification/digit-count-driver.json"
+    ]
   }
 ]

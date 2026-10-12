@@ -302,3 +302,5 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | tutte | [example-390](usage/example-390.cpp) | locally_checked_example |
 | SteinerTree | [example-391](usage/example-391.cpp) | locally_checked_example |
 | CartesianTree | [example-392](usage/example-392.cpp) | locally_checked_example |
+| Mo | [example-394](usage/example-394.cpp) | locally_checked_example |
+| digit_count | [example-395（应用补充）](usage/example-395.cpp) | locally_checked_application |

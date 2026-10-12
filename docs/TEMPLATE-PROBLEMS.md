@@ -270,6 +270,8 @@
 | `SteinerTree` | [P6192 最小斯坦纳树](https://www.luogu.com.cn/problem/P6192) | n≤100,m≤500,k≤10,w≤1000000；无向连通图，允许重边自环。1s / 250MB。 | [记录](https://www.luogu.com.cn/record/302413451) | 待核验 |
 | `CartesianTree` | [P5854 笛卡尔树](https://www.luogu.com.cn/problem/P5854) | 1≤n≤10^7，1..n排列；1秒、512MB；题面建议C++14 GCC9。 | [记录](https://www.luogu.com.cn/record/302414811) | 待核验 |
 | `TimeConnectivity` | [LOJ121 动态图连通性](https://loj.ac/p/121) | n≤5000,q≤500000; 800ms,512MiB; initially empty simple graph, legal insert/delete. | [记录](https://loj.ac/s/2631419) | 待核验 |
+| `Mo` | [P2709 莫队](https://www.luogu.com.cn/problem/P2709) | n,m,k≤100000;1秒、128MB。 | [记录](https://www.luogu.com.cn/record/302624429) | 待核验 |
+| `digit_count` | [P2602 数字计数](https://www.luogu.com.cn/problem/P2602) | 1≤a≤b≤10^12;1秒、125MB。 | [记录](https://www.luogu.com.cn/record/302624647) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2524,6 +2526,22 @@ Direct formal simple-graph dynamic connectivity template.
 Normalize endpoints, pair insert/delete into [l,r), close remaining edges at q, print Y/N at query leaves.
 
 Runtime ranking unverified. Multigraph/initial-edge API remains separately locally verified.
+
+### P2709 莫队 / Mo
+
+Direct ordinary Mo template.
+
+Convert closed 1-based intervals; maintain sum of squared frequencies with 64-bit square differences.
+
+Accepted on all 30 tests; runtime rank not checked.
+
+### P2602 数字计数 / digit_count
+
+Digit-DP contest application; state semantics specific to digit-frequency counting.
+
+Subtract independent prefix counts; cast to long long only under the problem bounds.
+
+Accepted on all 10 tests; runtime rank not checked.
 
 ## 榜单口径
 

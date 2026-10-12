@@ -7552,6 +7552,54 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "Mo",
+      "title": "普通莫队：静态区间统计",
+      "source": "src/compact/ordinary_mo.hpp",
+      "status": "reviewed_formal_template",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P2709.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2709",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/302624429"
+          ],
+          "review": "Direct formal Mo template; current source accepted on all 30 tests."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "digit_count",
+      "title": "数位DP：十进制数码计数",
+      "source": "src/compact/digit_count.hpp",
+      "status": "reviewed_application",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P2602.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2602",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/302624647"
+          ],
+          "review": "ZJOI2010 digit-frequency application; not a formally named generic template."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [

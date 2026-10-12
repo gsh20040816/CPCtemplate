@@ -59,6 +59,8 @@ chapters['wqs_independent_set'] = 'WQS二分'
 chapters['shortest_walks'] = '严格次短路与K短行走'
 chapters['overall_kth'] = '整体二分'
 chapters['tree_isomorphism'] = '确定性树同构'
+chapters['digit_count'] = '数位DP'
+chapters['ordinary_mo'] = '普通莫队'
 chapters['tree_mo'] = '树上莫队'
 chapters['rollback_mo'] = '回滚莫队'
 chapters['time_connectivity'] = '离线动态连通性'
@@ -295,7 +297,8 @@ for style in ['compact']:
                 info = info.replace('run(add,snapshot,rollback,ans,block=0)', 'run(add, snapshot, rollback, ans, block=0)')
             if name == 'StringHash':
                 info = info.replace('StringHash(s,base)', 'StringHash(s, base)').replace('get(l,r,rev=false)', 'get(l, r, rev=false)').replace('join(a,b,len_b)', 'join(a, b, len_b)')
-            body.append(esc(info))
+            if name not in ('Mo', 'digit_count'):
+                body.append(esc(info))
             if name in ('ost', 'rp'):
                 body.append(r'只需键值查改而不需要有序排名时，gp\_hash\_table / cc\_hash\_table 及选型建议见第~\pageref{compact-gp_map}~页。')
             if name == 'ost':
@@ -1287,6 +1290,9 @@ for style in ['compact']:
                 body.append(r'\begin{lstlisting}' + '\n' + 'rp<int> a;\na.push_back(3);\na.insert(0, 7);\nrp<int> b = a;\nb.replace(1, 9);\nb.erase(0, 1);\nauto c = a.substr(0, 1);\nint x = a[1];\n' + r'\end{lstlisting}')
             if name == 'pheap':
                 body.append(r'\begin{lstlisting}' + '\n' + 'pheap<int> a, b;\nauto h = a.push(7);\na.modify(h, 2);\nb.join(a);\nb.erase(h);\n' + r'\end{lstlisting}')
+            if name in ('Mo', 'digit_count'):
+                body.append(r'\newpage')
+                body.append(esc(info))
             for usage in usage_rows:
                 if usage['symbol'] != name:
                     if name in usage.get('also_covers', []):
