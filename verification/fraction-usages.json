@@ -1,0 +1,67 @@
+{
+  "scope": "P1572 complete expression parser and arbitrary-precision API; Python Fraction oracle on exact header and printed forms, no online AC.",
+  "runs": [
+    {
+      "example": "example-441",
+      "form": "header",
+      "mode": "normal",
+      "cases": 300,
+      "source_sha256": "aa56444d18457e2fcaa5e6dcfff9c01ec861c8a151a05ae639838fad64665f11"
+    },
+    {
+      "example": "example-441",
+      "form": "header",
+      "mode": "sanitizer",
+      "cases": 300,
+      "source_sha256": "aa56444d18457e2fcaa5e6dcfff9c01ec861c8a151a05ae639838fad64665f11"
+    },
+    {
+      "example": "example-441",
+      "form": "printed",
+      "mode": "normal",
+      "cases": 300,
+      "source_sha256": "d015409f687132c13e71933707762210422708b78f283e1d54232dcc91157028"
+    },
+    {
+      "example": "example-441",
+      "form": "printed",
+      "mode": "sanitizer",
+      "cases": 300,
+      "source_sha256": "d015409f687132c13e71933707762210422708b78f283e1d54232dcc91157028"
+    },
+    {
+      "example": "example-442",
+      "form": "header",
+      "mode": "normal",
+      "cases": 1,
+      "source_sha256": "c088699b14e6b28eac1aecf06ea14d7fb7bc73b5817ec0c9fd20c8c4f41b299f"
+    },
+    {
+      "example": "example-442",
+      "form": "header",
+      "mode": "sanitizer",
+      "cases": 1,
+      "source_sha256": "c088699b14e6b28eac1aecf06ea14d7fb7bc73b5817ec0c9fd20c8c4f41b299f"
+    },
+    {
+      "example": "example-442",
+      "form": "printed",
+      "mode": "normal",
+      "cases": 1,
+      "source_sha256": "9e6e4ff57bbc3a30c5b688e22ed06093d92f2963edb6bcaf30e0a321063ff5ac"
+    },
+    {
+      "example": "example-442",
+      "form": "printed",
+      "mode": "sanitizer",
+      "cases": 1,
+      "source_sha256": "9e6e4ff57bbc3a30c5b688e22ed06093d92f2963edb6bcaf30e0a321063ff5ac"
+    }
+  ],
+  "files": {
+    "src/compact/fraction.hpp": "e73be736856443bda1750ddfe9be8a92cac25dcf49491a68f63b859529a7d5f0",
+    "verify/luogu/P1572.compact.cpp": "41c4249f5c4de8711aa3e1d232e1812af3ffc484619f8ec499ffae58a6dbc410",
+    "verify/api/fraction.compact.cpp": "2c0bf66b66f8fb2047b4f3dc3cf8295562ee3308d247e88e40f5d2e04470020d",
+    "tests/fraction_usages.py": "faa77a91f69c4fe37d19f2fcc5f5bc2ef0db8971e9c3e3b287a7b4e2e51f194f"
+  }
+}

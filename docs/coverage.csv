@@ -49,7 +49,7 @@ WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 2D.cpp,,
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/26 - Segt++.cpp,,26 - Segt++,pending,,
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/26 - Segt.cpp,,26 - Segt,pending,,
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/27 - 坐标压缩.cpp,,27 - 坐标压缩,pending,,
-WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/29 - 分数四则运算.cpp,,29 - 分数四则运算,pending,,
+WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/29 - 分数四则运算.cpp,,29 - 分数四则运算,local-tested,src/compact/fraction.hpp,verification/fraction.json; exact Python Fraction oracle; signed64/128 and cpp_int; self alias safe; example441/442; no new online AC; original source defects documented separately
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/30 - ST 表.cpp,,30 - ST 表,pending,,
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/31 - 线性基（高斯消元法）.cpp,,31 - 线性基（高斯消元法）,local-tested,src/compact/data_structure.hpp#XorBasis,"64-bit unsigned basis: membership, affine maximum, nonempty minimum, distinct kth with uint128 rank, cached rebuild and multiset merge; exhaustive subsets and rank-64 boundaries; P3812 maximum-only driver local-tested, OJ pending"
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/32 - 取模类.cpp,,32 - 取模类,pending,,
@@ -513,7 +513,7 @@ WIDA,"03 - jiangly模板收集/03 - 数论、几何与多项式/12C - 多项式�
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/12D - 多项式乘法.cpp,,12D - 多项式乘法,pending,,
 WIDA,"03 - jiangly模板收集/03 - 数论、几何与多项式/12D - 多项式（Poly, with MInt）.cpp",,"12D - 多项式（Poly, with MInt）",pending,,
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/13A - 生成函数（q-int）.cpp,,13A - 生成函数（q-int）,pending,,
-WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/13B - 生成函数（q-Binomial）.cpp,,13B - 生成函数（q-Binomial）,pending,,
+WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/13B - 生成函数（q-Binomial）.cpp,,13B - 生成函数（q-Binomial）,local-tested,src/compact/q_binomial.hpp,verification/q-binomial.json; verification/q-binomial-protocols.json; unchanged source/small Gaussian recurrence/unsigned64 generating product coefficient oracle; example443; no new online AC
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/13C - 生成函数（Binomial 任意模数二项式）.cpp,,13C - 生成函数（Binomial 任意模数二项式）,pending,,
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/14 - 自适应辛普森法（Simpson）.cpp,,14 - 自适应辛普森法（Simpson）,partial,src/compact/adaptive_simpson.hpp; verify/api/adaptive_simpson.compact.cpp,tests/adaptive_simpson.py; analytic and resource-contract local checks; cached bounded callable replaces integration core; original global integrand and source submissions not reproduced; no online AC
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/15 - 矩阵（Matrix）.cpp,,15 - 矩阵（Matrix）,pending,,
@@ -537,7 +537,7 @@ WIDA,03 - jiangly模板收集/04 - 数据结构/08A - 其他平衡树.cpp,,08A -
 WIDA,03 - jiangly模板收集/04 - 数据结构/08B - 其他平衡树.cpp,,08B - 其他平衡树,partial,src/compact/persistent_weighted_index.hpp,verification/persistent-predecessor.json; unchanged source/core histogram 600000 cases per build; example431 strict predecessor; original CF full protocol/online verdict pending
 WIDA,03 - jiangly模板收集/04 - 数据结构/08C - 其他平衡树.cpp,,08C - 其他平衡树,local-tested,src/compact/sequence_max_treap.hpp,verification/sequence-max-treap.json; verification/sequence-max-application.json; unchanged original source + literal swaps; example435; online verdict pending
 WIDA,03 - jiangly模板收集/04 - 数据结构/08D - 其他平衡树.cpp,,08D - 其他平衡树,partial,src/compact/merge_split_tree.hpp,verification/rank-split.json; count-only merge + ascending/descending rank split; 920352 forest certificates per build; example438; cntnew/Info metadata and original full protocol pending
-WIDA,03 - jiangly模板收集/04 - 数据结构/09 - 分数四则运算（Frac）.cpp,,09 - 分数四则运算（Frac）,pending,,
+WIDA,03 - jiangly模板收集/04 - 数据结构/09 - 分数四则运算（Frac）.cpp,,09 - 分数四则运算（Frac）,local-tested,src/compact/fraction.hpp,verification/fraction.json; exact Python Fraction oracle; signed64/128 and cpp_int; self alias safe; example441/442; no new online AC; original source defects documented separately
 WIDA,03 - jiangly模板收集/04 - 数据结构/10 - 线性基（Basis）.cpp,,10 - 线性基（Basis）,local-tested,src/compact/position_basis.hpp#PositionBasis,"Position-priority basis: threshold membership, affine maximum and rank; arbitrary nonnegative int tags and uint64 values. tests/position_basis.cpp independent threshold subset oracle; CF1100F dual driver local-tested at n=q=500000, OJ pending"
 WIDA,03 - jiangly模板收集/05 - 字符串/01A - 马拉车（Manacher）.cpp,,01A - 马拉车（Manacher）,local-tested,manacher,"sequence-matching audit: generic string/vector<int>/vector<long long>; independent palindrome enumeration, signed64 extremes and million-element formulas; radius mapping in docs/SEQUENCE-MATCHING.md. Local normal+ASan/UBSan only, no online AC/rank."
 WIDA,03 - jiangly模板收集/05 - 字符串/02 - Z函数.cpp,,02 - Z函数,local-tested,z_function,string-prefix source audit; independent normal+ASan/UBSan; Same-string suffix LCP; z[0]=n; upstream optional zero tail slot omitted explicitly. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.

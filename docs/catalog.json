@@ -1938,6 +1938,12 @@
     "BigInteger(x)接收long long，BigInteger(s)接收可带正负号及前导零的非空十进制串；str()返回规范化十进制，cmp(b)返回−1/0/1。支持一元负号、加减乘，divmod(int b)返回商和余数，b≠0；商向零截断，余数与被除数同号或为0。pow(unsigned e)计算非负整数幂，约定0的0次方为1。\n\nd是低位在前的10⁹进制绝对值，sign为±1；零为空d且sign=1，勿直接修改。n,m为分节数：加减比较O(n+m)，乘法O(nm+n+m)，小整数除法O(n)，结果空间O(n+m)；幂执行O(log(e+1))次乘法，位数增长另计。字符串长度、所有中间分节数及两操作数长度之和须小于INT_MAX并留进位空间。不含大整数除大整数；不用浮点或Boost。"
   ],
   [
+    "fraction",
+    "Rational",
+    "精确分数四则运算",
+    "Rational<>默认保存long long分子num与正分母den，所有构造和运算后立即约分，零固定为0/1。构造Rational<>(n,d)，默认0/1；支持四则、复合赋值、负号、六种比较和输出，整值输出整数，其余输出num/den。x+=x、x-=x、x*=x、非零x的x/=x均有效。num/den可读，不要直接修改以破坏约分和正分母不变量。\n\n默认以signed128计算中间值，合法64位规范分数的交叉乘积及加减均可表示；要求每次构造及运算后的最简分子在signed64内、正分母≤LLONG_MAX，除数非零。不要求约分前的积能放入64位。比如LLONG_MIN 除以 LLONG_MIN可约为1，而1 除以 LLONG_MIN的正分母无法表示，后者不属于接口域；LLONG_MIN取负也超域。assert仅辅助检查前置条件，NDEBUG下仍必须遵守。\n\n任意精度用Rational<cpp_int,cpp_int>，额外包含Boost 多精度整数头文件，详见完整用法；按位数承担大整数乘除及gcd成本，不能把它当常数时间。其他T/W组合须自行证明中间值与符号处理范围。assign/make仅内部辅助，外部调用构造和运算符。double显式转换只是近似；大整数分子分母各自转double可能溢出，不用于精确判定。比较始终采用整数。"
+  ],
+  [
     "stirling_column",
     "stirling_first_column",
     "无符号第一类斯特林数：同一列",
@@ -1948,5 +1954,11 @@
     "stirling_second_column",
     "第二类斯特林数：同一列",
     "stirling_second_column(N,k) 返回S(0..N,k)，固定模998244353。N>=0、N<2^22、k>=0；k>N返回全零，k=0仅第零项为1。取生成函数的最低x^k后，用FpsPower求剩余单位级数的k次幂，逐项乘n!/k!；令m=N-k+1，合法非零列时间O(N+m log m)，空间O(N)。所有分母小于模数；NTT工作长度由N限制保证。依赖FpsPower及其逆、对数、指数和NTT链，不能直接改用167772161。"
+  ],
+  [
+    "q_binomial",
+    "q_binomial",
+    "素数模 Gaussian 二项式",
+    "q_binomial(n,k,q,p)返回Gaussian二项式在q处的值模素数p，规范为[0,p)。n、k为unsigned long long；k>n返回0。2≤p≤INT_MAX且必须为素数，函数不做素性检验；q为int，可负，先归一化。q=0时合法k返回1，q=1退化为普通组合数。\n\n非零q先由p-1的因子求乘法阶r。q-Lucas把答案分成C(n/r,k/r)与低位Gaussian二项式[n%r,k%r]；低位k>n直接为0，其余只对非零因子求逆。普通组合数再按p进制Lucas计算，避免在单位根处直接计算0/0。\n\n空间O(1)。试除分解p-1花O(√p)，缩阶至多O(log p)次模幂，各O(log p)；设a=n%r、b=k%r，则低位乘积O(min(b,a-b))，普通Lucas逐位成本为Σmin(ki,ni-ki)，另有O(log p+log_p(n+1))开销。因此大素数且某位k接近p/2仍可能很慢，不是任意大模数的快速组合数算法。所有乘积提升为long long。与WIDA13B原稿及独立递推本地对照，尚无本次线上AC；不包含WIDA13A的p进阶数接口。"
   ]
 ]

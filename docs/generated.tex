@@ -1368,7 +1368,69 @@ lyndon(s) 返回严格递增的因子右端点 ends；按 0-based 半开区间 [
 
 \newpage
 
+\Needspace{680pt}
+
 \chapter{高精度计算}
+
+\noindent 相关应用：约分有理数：signed64值与signed128中间值，或cpp\_int任意精度；不是实数浮点模板
+
+\section{精确分数四则运算}\label{compact-Rational}\index{Rational}
+
+Rational<>默认保存long long分子num与正分母den，所有构造和运算后立即约分，零固定为0/1。构造Rational<>(n,d)，默认0/1；支持四则、复合赋值、负号、六种比较和输出，整值输出整数，其余输出num/den。x+=x、x-=x、x*=x、非零x的x/=x均有效。num/den可读，不要直接修改以破坏约分和正分母不变量。
+
+默认以signed128计算中间值，合法64位规范分数的交叉乘积及加减均可表示；要求每次构造及运算后的最简分子在signed64内、正分母$\le$LLONG\_MAX，除数非零。不要求约分前的积能放入64位。比如LLONG\_MIN 除以 LLONG\_MIN可约为1，而1 除以 LLONG\_MIN的正分母无法表示，后者不属于接口域；LLONG\_MIN取负也超域。assert仅辅助检查前置条件，NDEBUG下仍必须遵守。
+
+任意精度用Rational<cpp\_int,cpp\_int>，额外包含Boost 多精度整数头文件，详见完整用法；按位数承担大整数乘除及gcd成本，不能把它当常数时间。其他T/W组合须自行证明中间值与符号处理范围。assign/make仅内部辅助，外部调用构造和运算符。double显式转换只是近似；大整数分子分母各自转double可能溢出，不用于精确判定。比较始终采用整数。
+
+\lstinputlisting[firstline=9,lastline=40,firstnumber=1]{../src/compact/fraction.hpp}
+
+\newpage
+
+\noindent 精确分数（接上页同一结构体）：
+
+\lstinputlisting[firstline=41,lastline=88,firstnumber=33]{../src/compact/fraction.hpp}
+
+\newpage
+
+\noindent 精确分数（接上页同一结构体）：
+
+\lstinputlisting[firstline=89,lastline=141,firstnumber=81]{../src/compact/fraction.hpp}
+
+\newpage
+
+\Needspace{289pt}
+
+\subsection*{模板题使用：P1572 计算分数}
+
+\label{usage-example-441}
+
+题意：读取只含分数、加减号的表达式，输出最简分数或整数；用输入流直接读带符号分子。原题保证逐项约分后的中间结果在int范围内，故默认64位版足够。本地已验证，尚无本次线上AC。
+
+所需模板：\hyperref[compact-Rational]{Rational}（第~\pageref{compact-Rational}~页，\ref{compact-Rational}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1572}
+
+\lstinputlisting{usage/example-441.cpp}
+
+\newpage
+
+\Needspace{471pt}
+
+\subsection*{接口用法演示：任意精度分数 API}
+
+\label{usage-example-442}
+
+演示约定：先读q，随后每行an ad op bn bd；分母非零，op为+、-、*、/或<，除法要求bn非零。前四种输出最简结果，<输出比较值-1/0/1。需要额外抄入Boost头文件，cpp\_int不依赖本书BigInteger。整数长度不受64位限制，时间与内存随位数增长。
+
+所需模板：\hyperref[compact-Rational]{Rational}（第~\pageref{compact-Rational}~页，\ref{compact-Rational}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+额外依赖（不属于标准头文件）：\nolinkurl{boost/multiprecision/cpp_int.hpp}，须由编译环境提供并显式包含。
+
+来源：\href{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/FRACTION.md}{参考文档}
+
+\lstinputlisting{usage/example-442.cpp}
+
+\newpage
 
 \section{高精度整数：有符号加减乘与小整数除法}\label{compact-BigInteger}\index{BigInteger}
 
@@ -2418,6 +2480,44 @@ ExLucas(mod) 预处理固定模数，choose(n,k) 返回 C(n,k) 模 mod；n、k �
 题目：\url{https://www.luogu.com.cn/problem/P4720}
 
 \lstinputlisting{usage/example-41.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
+\noindent 相关应用：Gaussian二项式的q-Lucas取值；普通组合数Lucas只是其高位部分
+
+\subsection{素数模 Gaussian 二项式}\label{compact-q_binomial}\index{q\_binomial}
+
+q\_binomial(n,k,q,p)返回Gaussian二项式在q处的值模素数p，规范为[0,p)。n、k为unsigned long long；k>n返回0。2$\le$p$\le$INT\_MAX且必须为素数，函数不做素性检验；q为int，可负，先归一化。q=0时合法k返回1，q=1退化为普通组合数。
+
+非零q先由p-1的因子求乘法阶r。q-Lucas把答案分成C(n/r,k/r)与低位Gaussian二项式[n\%r,k\%r]；低位k>n直接为0，其余只对非零因子求逆。普通组合数再按p进制Lucas计算，避免在单位根处直接计算0/0。
+
+空间O(1)。试除分解p-1花O($\sqrt{\vphantom x}$p)，缩阶至多O(log p)次模幂，各O(log p)；设a=n\%r、b=k\%r，则低位乘积O(min(b,a-b))，普通Lucas逐位成本为$\sum$min(ki,ni-ki)，另有O(log p+log\_p(n+1))开销。因此大素数且某位k接近p/2仍可能很慢，不是任意大模数的快速组合数算法。所有乘积提升为long long。与WIDA13B原稿及独立递推本地对照，尚无本次线上AC；不包含WIDA13A的p进阶数接口。
+
+\lstinputlisting[firstline=7,lastline=43]{../src/compact/q_binomial.hpp}
+
+\newpage
+
+\noindent Gaussian 二项式（接上页同一函数）：
+
+\lstinputlisting[firstline=44,lastline=75,firstnumber=38]{../src/compact/q_binomial.hpp}
+
+\newpage
+
+\Needspace{329pt}
+
+\subsection*{接口用法演示：Gaussian 二项式 API}
+
+\label{usage-example-443}
+
+演示约定：读测试组数，每组n k q p，n/k为非负64位无符号整数，q为int，p是[2,INT\_MAX]内的素数；输出Gaussian二项式模p。k>n输出0。注意乘法阶及Lucas各位的乘积循环成本，详见接口说明。
+
+所需模板：\hyperref[compact-q_binomial]{q\_\allowbreak{}binomial}（第~\pageref{compact-q_binomial}~页，\ref{compact-q_binomial}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/Q-BINOMIAL.md}
+
+\lstinputlisting{usage/example-443.cpp}
 
 \Needspace{680pt}
 

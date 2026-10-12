@@ -1,0 +1,44 @@
+{
+  "runs": [
+    {
+      "mode": "normal",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "-Wl,-stack_size,0x20000000",
+        "/Users/gsh/Workspace/CPCtemplate/tests/q_binomial.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/q-binomial/normal"
+      ],
+      "result": "689695 recurrence/source/boundary checks PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-Wl,-stack_size,0x20000000",
+        "/Users/gsh/Workspace/CPCtemplate/tests/q_binomial.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/q-binomial/sanitizer"
+      ],
+      "result": "689695 recurrence/source/boundary checks PASS"
+    }
+  ],
+  "scope": "Unchanged WIDA source, independent Gaussian recurrence, all small prime residues, signed q and unsigned64 boundaries. No online AC.",
+  "files": {
+    "src/compact/q_binomial.hpp": "53efbe3c3f67b482623f502f388813df9127e48ff218330fcdf0324add922943",
+    "tests/q_binomial.cpp": "0c4822348264515a0338f1481627ad895e9ae30945f28b07167917e40fe9d44c",
+    "tests/q_binomial.py": "05bafd2124d71968edf155abf5bd74215f9dd18b6407f770140bed94b724805d",
+    "tests/fixtures/wida_q_binomial/13B.cpp": "8b6fba5d9109f931110a40272516f5c0c4d9c6272de3fa99102c8b61efa34474"
+  }
+}

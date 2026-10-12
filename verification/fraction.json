@@ -1,0 +1,27 @@
+{
+  "scope": "Independent Python Fraction exact oracle, signed64 extremes, up to 199 decimal digits, all six comparisons and self operations. No online verdict.",
+  "cases_per_mode": 44178,
+  "runs": [
+    {
+      "mode": "normal",
+      "results": {
+        "fraction": "2600000 source/arithmetic/self-alias/comparison checks; signed boundaries and 4096-bit cases PASS",
+        "fraction_protocol": "44178 exact Python Fraction cases PASS"
+      }
+    },
+    {
+      "mode": "sanitizer",
+      "results": {
+        "fraction": "2600000 source/arithmetic/self-alias/comparison checks; signed boundaries and 4096-bit cases PASS",
+        "fraction_protocol": "44178 exact Python Fraction cases PASS"
+      }
+    }
+  ],
+  "files": {
+    "src/compact/fraction.hpp": "e73be736856443bda1750ddfe9be8a92cac25dcf49491a68f63b859529a7d5f0",
+    "tests/fraction.cpp": "45a77b1ea40e80ec1bd78420c3faf0116b464e83fe0c6938645ca63b9fcb8325",
+    "tests/fraction_protocol.cpp": "97f6bffff3b3f1bbb350b8124ec178defec179f7b51a1a99e6aa28ef8283af6d",
+    "tests/fraction.py": "bd4071b7492de8fe076830e3486611329f820f19fc08d6767b9a5f502e075018",
+    "tests/fixtures/wida_fraction/Frac.cpp": "afc95d456c9aa5d0e23b2b2571f0ac572857ccf09ebd4e0245769e827a7bf57f"
+  }
+}

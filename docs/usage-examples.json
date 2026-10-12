@@ -5636,5 +5636,47 @@
       "DynamicPeachTree"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-441",
+    "symbol": "Rational",
+    "kind": "template",
+    "problem": "P1572 计算分数",
+    "url": "https://www.luogu.com.cn/problem/P1572",
+    "summary": "读取只含分数、加减号的表达式，输出最简分数或整数；用输入流直接读带符号分子。原题保证逐项约分后的中间结果在int范围内，故默认64位版足够。本地已验证，尚无本次线上AC。",
+    "driver": "verify/luogu/P1572.compact.cpp",
+    "requires": [
+      "Rational"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-442",
+    "symbol": "Rational",
+    "kind": "api",
+    "problem": "任意精度分数 API",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/FRACTION.md",
+    "summary": "先读q，随后每行an ad op bn bd；分母非零，op为+、-、*、/或<，除法要求bn非零。前四种输出最简结果，<输出比较值-1/0/1。需要额外抄入Boost头文件，cpp_int不依赖本书BigInteger。整数长度不受64位限制，时间与内存随位数增长。",
+    "driver": "verify/api/fraction.compact.cpp",
+    "requires": [
+      "Rational"
+    ],
+    "extra_headers": [
+      "boost/multiprecision/cpp_int.hpp"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-443",
+    "symbol": "q_binomial",
+    "kind": "api",
+    "problem": "Gaussian 二项式 API",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/Q-BINOMIAL.md",
+    "summary": "读测试组数，每组n k q p，n/k为非负64位无符号整数，q为int，p是[2,INT_MAX]内的素数；输出Gaussian二项式模p。k>n输出0。注意乘法阶及Lucas各位的乘积循环成本，详见接口说明。",
+    "driver": "verify/api/q_binomial.compact.cpp",
+    "requires": [
+      "q_binomial"
+    ],
+    "start_new_page": true
   }
 ]

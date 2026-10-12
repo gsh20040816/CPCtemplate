@@ -1,0 +1,31 @@
+{
+  "scope": "Full unsigned64 n/k, independent truncated generating-product coefficient oracle using polynomial period exponentiation; header/printed, no online AC.",
+  "cases_per_form_mode": 980,
+  "runs": [
+    {
+      "form": "header",
+      "mode": "normal",
+      "source_sha256": "2162d36bf5dfc2ae399f570a8d90472aa561ee7eba622a9d86f4cbb4913f652c"
+    },
+    {
+      "form": "header",
+      "mode": "sanitizer",
+      "source_sha256": "2162d36bf5dfc2ae399f570a8d90472aa561ee7eba622a9d86f4cbb4913f652c"
+    },
+    {
+      "form": "printed",
+      "mode": "normal",
+      "source_sha256": "d26422c40d4035b8b1155a3d70126af9e08f53a55196109b258ab8f7752697d4"
+    },
+    {
+      "form": "printed",
+      "mode": "sanitizer",
+      "source_sha256": "d26422c40d4035b8b1155a3d70126af9e08f53a55196109b258ab8f7752697d4"
+    }
+  ],
+  "files": {
+    "src/compact/q_binomial.hpp": "53efbe3c3f67b482623f502f388813df9127e48ff218330fcdf0324add922943",
+    "verify/api/q_binomial.compact.cpp": "4d87ba75cf0b7132d0d5768ddcf683d603f626d39928cee21745c52d69de7536",
+    "tests/q_binomial_protocols.py": "f9c1707e25cf181917c390e9aa58b0f75326b26f85827f37f81d56e75201983b"
+  }
+}

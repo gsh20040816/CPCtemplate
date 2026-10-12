@@ -1,0 +1,7 @@
+{
+  "scope": "Original source fails to instantiate addition because friend lhs parameter is const and operator+= is non-const. No source edits applied.",
+  "source_blob": "ea11b3e93c28572480a03a3aaf18d4f33f2ba693",
+  "source_sha256": "351b85032e4387e608dab4cc72a60aa105eb7d74253d122306fac9d5e2201039",
+  "probe": "#include <bits/stdc++.h>\nusing namespace std;\n#include \"../../tests/fixtures/wida_fraction/online.cpp\"\nint main()\n{\n    Frac<long long> a(1, 2), b(1, 3);\n    cout << a + b << '\\n';\n}\n",
+  "compiler_stderr": "In file included from build/fraction/source2-add.cpp:3:\nbuild/fraction/../../tests/fixtures/wida_fraction/online.cpp: In instantiation of 'constexpr Frac<long long int> operator+(Frac<long long int>, Frac<long long int>)':\nbuild/fraction/source2-add.cpp:7:17:   required from here\n    7 |     cout << a + b << '\\n';\n      |                 ^\nbuild/fraction/../../tests/fixtures/wida_fraction/online.cpp:51:76: error: passing 'const Frac<long long int>' as 'this' argument discards qualifiers [-fpermissive]\n   51 |     friend constexpr Frac operator+(const Frac i, const Frac j) { return i += j; }\n      |                                                                          ~~^~~~\nbuild/fraction/../../tests/fixtures/wida_fraction/online.cpp:36:21: note:   in call to 'constexpr Frac<T>& Frac<T>::operator+=(const Frac<T>&) [with T = long long int]'\n   36 |     constexpr Frac &operator+=(const Frac &i) {\n      |                     ^~~~~~~~\n"
+}

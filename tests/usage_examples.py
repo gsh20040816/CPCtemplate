@@ -22,6 +22,9 @@ cases = {
 }
 cases['example-430'] = [('9\n1 0 2\n1 0 5\n2 0 4\n3 0 -3\n3 1 2\n5 0 1\n4 0 1\n5 0 2\n5 0 1\n', '1 2 1 -1 7 -1')]
 cases['example-433'] = [('3 1\n', '1 998244352 2'), ('0 0\n', '1')]
+cases['example-443'] = [('5\n3 1 2 7\n3 1 1 7\n3 4 2 7\n100 50 0 7\n4 2 -1 7\n', '0 3 0 1 2')]
+cases['example-441'] = [('1/2-1/3+2/6\n', '1/2'), ('-1/2+3/2\n', '1'), ('2/3-2/3\n', '0')]
+cases['example-442'] = [('3\n2 3 / 2 3\n100000000000000000000 3 + 2 3\n-1 2 < -2 3\n', '1 33333333333333333334 1')]
 cases['example-440'] = [('1\n1 3\n2\n1 1 2\n2 1 1\n1 1 1\n', 'YES NO YES')]
 cases['example-439'] = [('3 3\n-1 0 0\n1 2 3\n0 0\n1 0\n2 0\n', '11 11 9 0'), ('1 2\n-1\n5\n0 0\n0 134217727\n', '5 0 134217727')]
 cases['example-437'] = [('6 10\n1 0 4 3\n1 1 3 2\n1 2 1 1\n2 0 3 2\n2 0 3 3\n3 0 3 1\n1 3 3 -2\n2 0 4 3\n3 0 4 1\n4 0 4\n', '1 2 3 4 3 3 2 1 4 1 -1 0 0 4 1'), ('1 4\n1 0 0 5\n2 0 1 4\n2 0 1 5\n3 0 1 0\n', '1 0 -1 -1 0 0')]
@@ -502,6 +505,8 @@ for row in rows:
     source.write_text(row['program'])
     for mode in ['normal', 'sanitizer']:
         flags = ['-O2'] if mode == 'normal' else ['-O1', '-g', '-fsanitize=address,undefined']
+        if row.get('extra_headers') and Path('/opt/homebrew/include/boost').exists():
+            flags += ['-I/opt/homebrew/include']
         exe = root / ('build/usage-' + row['id'] + '-' + mode)
         subprocess.run([CXX, '-std=c++20', *flags, str(source), '-o', str(exe)], check=True)
         for data, expected in cases[row['id']]:
