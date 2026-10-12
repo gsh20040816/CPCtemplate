@@ -7307,5 +7307,34 @@
         "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4656"
       }
     ]
+  },
+  {
+    "symbol": "Hull3DMetrics",
+    "problem": "HDU4273 Rescue",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4273",
+    "classification": "官方比赛应用，2012长春网络赛；不计非比赛独立模板题。",
+    "statement_checked": true,
+    "limits": "EOF;4<=n<=100;integer |coordinate|<=10000;nondegenerate hull, all points extreme;0.001 accuracy;1000MS/32768K.",
+    "driver": "verify/hdu/4273.compact.cpp",
+    "usage": "example-409",
+    "ac": "https://acm.hdu.edu.cn/viewcode.php?rid=41022769",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null,
+      "scope": "STL hull; no SOTA claim, issue16 supplemental exemption."
+    },
+    "remaining": "浮点坐标重心及任意实数点面距离待单独扩展；planes与centroid由本地精确真值验证。",
+    "checked_date": "2026-10-12",
+    "adapter": "Nonnegative tetrahedral vertex masses; integrate signed supporting-plane distances before floating division.",
+    "local_reports": [
+      "verification/hull3d-metrics-local.json",
+      "verification/hull3d-metrics-source.json"
+    ],
+    "statement_sources": [
+      {
+        "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4273"
+      }
+    ]
   }
 ]

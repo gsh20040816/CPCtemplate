@@ -282,6 +282,7 @@
 | `TreeMo` | [U104310 用户模板题](https://www.luogu.com.cn/problem/U104310) | n,m≤10⁵，1≤颜色≤10⁹；5秒、500MB。 | [记录](https://www.luogu.com.cn/record/302633483) | 待核验 |
 | `grid_cycles` | [HDU4285 circuits](https://acm.hdu.edu.cn/showproblem.php?pid=4285) | 2≤n,m≤12，15秒、32768K，多组，答案模10⁹+7；题面未单列K、T上限。 | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022698) | 432 out of 514（2026-10-12，全语言全部AC，35页514个唯一记录；按Exe.Time竞争排名，同用时两条占432–433位。） |
 | `convolution_mod` | [HDU4656 Evaluation](https://acm.hdu.edu.cn/showproblem.php?pid=4656) | One case;1<=n<=100000;1<=b,c,d<=1000000;0<=a_i<=1000000;mod1000003;3s/65536K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022719) | 154 out of 379（26页全部AC，全部语言，同用时6条，排名154–159） |
+| `Hull3DMetrics` | [HDU4273 Rescue](https://acm.hdu.edu.cn/showproblem.php?pid=4273) | EOF;4<=n<=100;integer \|coordinate\|<=10000;nondegenerate hull, all points extreme;0.001 accuracy;1000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022769) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2636,6 +2637,16 @@ Factorial shift convolution followed by centered square-exponent convolution;exa
 c=0、signed int归一化、EOF多组及100010上界是本地扩展；线上AC不覆盖这些范围。同算法源码及SOTA尚未核验。
 
 原始题面与参数：[来源 1](https://acm.hdu.edu.cn/showproblem.php?pid=4656)
+
+### HDU4273 Rescue / Hull3DMetrics
+
+官方比赛应用，2012长春网络赛；不计非比赛独立模板题。
+
+Nonnegative tetrahedral vertex masses; integrate signed supporting-plane distances before floating division.
+
+浮点坐标重心及任意实数点面距离待单独扩展；planes与centroid由本地精确真值验证。
+
+原始题面与参数：[来源 1](https://acm.hdu.edu.cn/showproblem.php?pid=4273)
 
 ## 榜单口径
 

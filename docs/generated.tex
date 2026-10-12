@@ -12627,6 +12627,68 @@ Hull3D<T>(points)，T只取long long或long double（默认）。输入编号从
 
 \newpage
 
+\section{整数凸多面体：体积重心与表面距离}\label{compact-Hull3DMetrics}\index{Hull3DMetrics}
+
+代码依赖：\hyperref[compact-Hull3D]{Hull3D}（第~\pageref{compact-Hull3D}~页，\ref{compact-Hull3D}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+先构造Hull3D<long long> h，再构造Hull3DMetrics m(h)，h须存活且不修改。整数点和查询点坐标绝对值$\le$10$^{9}$。centroid()返回optional<array<long double,3>>体积重心；clearance()返回重心到表面的最短距离，低维均为空。plane\_distance(p,i)为整数点到faces[i]所在无限平面的距离，不是到三角形的距离。planes()给每个几何平面的代表三角面下标；二维为1个、点线为空。三角面数直接读h.faces.size()。
+
+构造O(n+F)，重心O(n)，距离O(nF)，平面分组O(F$^{2}$)，空间O(n+F)。128位精确累加非负四面体质量，距离通过非负仿射积分计算，避免薄凸包的重心点积抵消；最终浮点测量仍有舍入。mass、total只供实现，不应改写。
+
+字段与非负四面体质量：
+
+\lstinputlisting[firstline=5,lastline=24,firstnumber=1]{../src/compact/hull3d_metrics.hpp}
+
+\newpage
+
+体积重心与整数点到平面距离（接同一结构体）：
+
+\lstinputlisting[firstline=25,lastline=59,firstnumber=21]{../src/compact/hull3d_metrics.hpp}
+
+\newpage
+
+重心到表面距离及几何面分组（接同一结构体）：
+
+\lstinputlisting[firstline=60,lastline=102,firstnumber=56]{../src/compact/hull3d_metrics.hpp}
+
+\paragraph{精度约定} 取凸包点p[0]作公共四面体顶点，各外向面的六倍体积v非负，四顶点各加v，total为四倍六倍体积。坐标界M下total不超过$192M^3$，128位安全。各坐标先减最小值后非负求和；距离则对面行列式作非负质量积分，不用近似重心相减。浮点乘除和范数仍有舍入，重心接近零时不保证相对误差。
+
+\paragraph{验证范围} 509组精确有理矩与支撑平面真值，六种构建通过；含行列式1的极薄整数四面体。原kuangbin完整246行与驱动、最小抄写版各102组EOF对拍。HDU4273记录41022769已AC，15MS、1844K；原题是整数坐标比赛应用，不据此声明任意实数测量已覆盖。
+
+\newpage
+
+\Needspace{319pt}
+
+\subsection*{应用题补充：HDU4273 Rescue：重心到表面距离}
+
+\label{usage-example-409}
+
+题意：EOF多组，4$\le$n$\le$100，整数坐标绝对值$\le$10000，输入均为非退化凸多面体顶点。输出三位小数。使用非负顶点质量直接积分各平面距离，避免薄凸包相减。
+
+所需模板：\hyperref[compact-Hull3D]{Hull3D}（第~\pageref{compact-Hull3D}~页，\ref{compact-Hull3D}~节）、\hyperref[compact-Hull3DMetrics]{Hull3DMetrics}（第~\pageref{compact-Hull3DMetrics}~页，\ref{compact-Hull3DMetrics}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://acm.hdu.edu.cn/showproblem.php?pid=4273}
+
+\lstinputlisting{usage/example-409.cpp}
+
+\newpage
+
+\Needspace{452pt}
+
+\subsection*{接口用法演示：体积重心、代表面和原点到面平面的距离}
+
+\label{usage-example-410}
+
+演示约定：输入n及n个整数点。输出重心和表面距离（低维输出NO VOLUME），再输出各几何平面的三角面编号、原输入顶点编号及原点到无限平面的距离。全部下标从0开始。
+
+所需模板：\hyperref[compact-Hull3D]{Hull3D}（第~\pageref{compact-Hull3D}~页，\ref{compact-Hull3D}~节）、\hyperref[compact-Hull3DMetrics]{Hull3DMetrics}（第~\pageref{compact-Hull3DMetrics}~页，\ref{compact-Hull3DMetrics}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/HULL3D-METRICS.md}
+
+\lstinputlisting{usage/example-410.cpp}
+
+\newpage
+
 \Needspace{650pt}
 
 \section{实数三维向量与夹角}\label{compact-RealSpace}\index{RealSpace}

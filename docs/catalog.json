@@ -1834,5 +1834,11 @@
     "ColorMax",
     "树上翻色、改权与同色连通块最大值",
     "先build连通树HLD h，再构造ColorMax(h,color,w)，color和w长n+1、点1..n，颜色为0/1，权值支持signed64全范围。flip(u)单点翻色，set_weight(u,w)改权，query(u)返回所在同色连通块最大权值；col、weight可读。h须比对象长寿，构造后不可修改或重新build；其余成员仅供实现使用。\n\n固定拓扑，初始化O(n log n)，每次操作O(log²n)，空间O(n)，HLD使用递归DFS。1≤n≤INT_MAX/2。轻儿子贡献按颜色存multiset，重链连续同色区间用线段树取最大值；删除相等贡献只删一个。LLONG_MIN仅作max单位元，不做加减，不会屏蔽合法最小权。"
+  ],
+  [
+    "hull3d_metrics",
+    "Hull3DMetrics",
+    "整数凸多面体：体积重心与表面距离",
+    "先构造Hull3D<long long> h，再构造Hull3DMetrics m(h)，h须存活且不修改。整数点和查询点坐标绝对值≤10⁹。centroid()返回optional<array<long double,3>>体积重心；clearance()返回重心到表面的最短距离，低维均为空。plane_distance(p,i)为整数点到faces[i]所在无限平面的距离，不是到三角形的距离。planes()给每个几何平面的代表三角面下标；二维为1个、点线为空。三角面数直接读h.faces.size()。\n\n构造O(n+F)，重心O(n)，距离O(nF)，平面分组O(F²)，空间O(n+F)。128位精确累加非负四面体质量，距离通过非负仿射积分计算，避免薄凸包的重心点积抵消；最终浮点测量仍有舍入。mass、total只供实现，不应改写。"
   ]
 ]

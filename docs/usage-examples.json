@@ -5187,5 +5187,33 @@
       "ColorMax"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-409",
+    "symbol": "Hull3DMetrics",
+    "kind": "application",
+    "problem": "HDU4273 Rescue：重心到表面距离",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4273",
+    "summary": "EOF多组，4≤n≤100，整数坐标绝对值≤10000，输入均为非退化凸多面体顶点。输出三位小数。使用非负顶点质量直接积分各平面距离，避免薄凸包相减。",
+    "driver": "verify/hdu/4273.compact.cpp",
+    "requires": [
+      "Hull3D",
+      "Hull3DMetrics"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-410",
+    "symbol": "Hull3DMetrics",
+    "kind": "api",
+    "problem": "体积重心、代表面和原点到面平面的距离",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/HULL3D-METRICS.md",
+    "summary": "输入n及n个整数点。输出重心和表面距离（低维输出NO VOLUME），再输出各几何平面的三角面编号、原输入顶点编号及原点到无限平面的距离。全部下标从0开始。",
+    "driver": "verify/api/hull3d_metrics.compact.cpp",
+    "requires": [
+      "Hull3D",
+      "Hull3DMetrics"
+    ],
+    "start_new_page": true
   }
 ]

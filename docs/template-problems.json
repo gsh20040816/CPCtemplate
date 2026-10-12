@@ -7832,6 +7832,30 @@
       "ranking": {
         "status": "not_checked"
       }
+    },
+    {
+      "symbol": "Hull3DMetrics",
+      "title": "整数凸多面体：体积重心与表面距离",
+      "source": "src/compact/hull3d_metrics.hpp",
+      "status": "application_only",
+      "candidate_drivers": [
+        {
+          "driver": "verify/hdu/4273.compact.cpp",
+          "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4273",
+          "existing_ac": [
+            "https://acm.hdu.edu.cn/viewcode.php?rid=41022769"
+          ],
+          "review": "Official 2012 Changchun contest application; integer n<=100, abs coordinate<=10000. AC15MS1844K. Not an independent formal template."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [
@@ -10558,12 +10582,6 @@
       "source_path": "ACM template (2018)",
       "page": "243",
       "topic": "7.4 三维凸包"
-    },
-    {
-      "source": "kuangbin",
-      "source_path": "ACM template (2018)",
-      "page": "243",
-      "topic": "7.4.1 HDU4273"
     },
     {
       "source": "kuangbin",

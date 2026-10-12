@@ -61,6 +61,7 @@ chapters['overall_kth'] = '整体二分'
 chapters['tree_isomorphism'] = '确定性树同构'
 chapters['weighted_blossom'] = '一般图最大权匹配'
 chapters['hull3d'] = '三维凸包'
+chapters['hull3d_metrics'] = '凸多面体测量'
 chapters['polygon_union'] = '一般多边形面积并'
 chapters['circle_union'] = '圆面积并'
 chapters['simplex'] = '单纯形法'
@@ -299,7 +300,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
+            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -329,6 +330,16 @@ for style in ['compact']:
                 body.append(r'\paragraph{来源及MIT许可} 改编自Shahjalal Shohag的带权带花树，固定提交0884be6ab81f（完整提交号见仓库来源记录）。以下许可随本实现保留：')
                 notice = (root / 'docs/weighted-blossom-LICENSE.txt').read_text()
                 body.append(esc(notice))
+            elif name == 'Hull3DMetrics':
+                tokens = ('    // Uniform volume centroid', '    // Distance from the volume centroid')
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
+                for part in range(3):
+                    if part:
+                        body.append(r'\newpage')
+                    body.append(('字段与非负四面体质量：', '体积重心与整数点到平面距离（接同一结构体）：', '重心到表面距离及几何面分组（接同一结构体）：')[part])
+                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append(r'\paragraph{精度约定} 取凸包点p[0]作公共四面体顶点，各外向面的六倍体积v非负，四顶点各加v，total为四倍六倍体积。坐标界M下total不超过$192M^3$，128位安全。各坐标先减最小值后非负求和；距离则对面行列式作非负质量积分，不用近似重心相减。浮点乘除和范数仍有舍入，重心接近零时不保证相对误差。')
+                body.append(r'\paragraph{验证范围} 509组精确有理矩与支撑平面真值，六种构建通过；含行列式1的极薄整数四面体。原kuangbin完整246行与驱动、最小抄写版各102组EOF对拍。HDU4273记录41022769已AC，15MS、1844K；原题是整数坐标比赛应用，不据此声明任意实数测量已覆盖。')
             elif name == 'Hull3D':
                 tokens = ('    // Exact signs', '    static int turn_sign', '    static int orient_sign', '    explicit Hull3D', '        int n = p.size();', '            order.resize(n);', '        dimension = 3;', '    long double area()')
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
