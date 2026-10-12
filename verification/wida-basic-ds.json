@@ -1,0 +1,45 @@
+{
+  "scope": "Six exact WIDA sources: exhaustive small frequencies, literal partition snapshots, random max search and noncommutative concatenation. Original applications and generic algebraic types not exhaustively covered; no new online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "task": "normal",
+      "returncode": 0,
+      "stdout": "fenwick 609828\nthrough dsu 5152596\n5271463 independent checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "normal",
+      "returncode": 0,
+      "stdout": "fenwick 609828\nthrough dsu 5152596\n5271463 independent checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "empty-old",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_basic_ds/01A.cpp:38:24: runtime error: shift exponent -1 is negative\n"
+    },
+    {
+      "mode": "sanitizer",
+      "task": "empty-new",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_basic_ds/01B.cpp:39:24: runtime error: shift exponent -1 is negative\n"
+    }
+  ],
+  "files": {
+    "tests/wida_basic_ds.cpp": "494a1b1f0bd4eaa51e4ee86bf66d9026ba1bbc605371f0e9edd4258534920363",
+    "tests/wida_basic_ds.py": "c1eca31214cf42fb2450f523fae3e4f1f682c6746d9a73fd8e6238b9ac1f0474",
+    "src/compact/data_structure.hpp": "bb5d0bc25729ce29f58a39e74d66c0da8cc0c3769298f06299850aaa4f64169c",
+    "src/compact/segtree.hpp": "1075367a87d5a3886b3de8aae9f0826e6e31d855c94d372d06400d2b9f263ed5",
+    "tests/fixtures/wida_basic_ds/01A.cpp": "76e3b46b32c61bde2ac05b224917b594b63189e7c874f5746e578fe51a6beb6b",
+    "tests/fixtures/wida_basic_ds/01B.cpp": "6e512073c51d32d030a44a4d4ef3aac4a389cd2d414667fa68829b0ae82f7b05",
+    "tests/fixtures/wida_basic_ds/02A.cpp": "23bccd4da8051a33257f2cce33329f17ada72781fcb9b862f1874a3556052f06",
+    "tests/fixtures/wida_basic_ds/02B.cpp": "b51039782f7cb37fb216e32d3510febbb23ea972895f4bee10d7be6d0e0c0ea3",
+    "tests/fixtures/wida_basic_ds/03C.cpp": "226b0e9f841ff36f337aeed59dee1a2fa649e1602edd85d6d6890282c8ba3df4",
+    "tests/fixtures/wida_basic_ds/03D.cpp": "aceeed8c58c961926499aaccdd0213cba1335c61375bc88ecc6905e74df32514"
+  }
+}
