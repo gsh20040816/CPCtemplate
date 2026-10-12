@@ -292,6 +292,7 @@
 | `convex_cut` | [AOJ CGL_4_C](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C&lang=en) | n,q<=100; integer coordinates[-10000,10000]; absolute area error<1e-5 | 驱动登记待核验；AC 待核验 | 待核验 |
 | `polygon_centroid` | [API demonstration]() | Simple polygon; finite arithmetic; n fits int | 驱动登记待核验；AC 待核验 | 待核验 |
 | `BigInteger` | [Luogu P1480 / P2142 / P1303](https://www.luogu.com.cn/problem/P1480) | P1480: 0<=a<=10^5000, 1<=b<=10^9; P1303: inputs<=10^2000; P2142 full numeric bound not visible in fetched statement | 驱动登记待核验；AC 待核验 | 待核验 |
+| `triangle_incircle` | [AOJ CGL_7_B](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_B&lang=en) | Three noncollinear integer points, abs coordinate<=10000; error<1e-6; resource fields empty in fetched statement | 驱动登记待核验；AC 待核验 | 待核验 |
 
 ## 适配与证据范围
 
@@ -2732,6 +2733,14 @@ Direct small-divisor division, subtraction and multiplication templates; Catalan
 
 
 No online verdict: P1480 submission not delivered after two captcha failures; P2142/P1303 not submitted
+
+### AOJ CGL_7_B / triangle_incircle
+
+Direct incircle template
+
+
+
+No online verdict; AOJ saved login unavailable in prior check
 
 ## 榜单口径
 

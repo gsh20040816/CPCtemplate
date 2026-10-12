@@ -12817,6 +12817,38 @@ polygon\_centroid(p) 返回optional<RealPlane::Point>，表示均匀密度简单
 
 \newpage
 
+\Needspace{334pt}
+
+\noindent 相关应用：三角形内心与内切圆，非完整二维几何来源覆盖
+
+\section{三角形内切圆：边长加权内心}\label{compact-triangle_incircle}\index{triangle\_incircle}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+triangle\_incircle(a,b,c)返回optional<RealPlane::Circle>，圆心为内心、半径为面积除以半周长。顺逆时针均可，不改变输入；计算叉积恰为0或三点全重合返回nullopt，不把原点作为失败标志。用对边长加权顶点，避免三角函数；O(1)时间和空间。
+
+先相对a平移，边向量按最大分量归一化再求边长；面积叉积在归一化前计算，保留AOJ整数域内精确零判定。要求输入、相减、叉积及输出等中间值有限可表示且不发生影响结果的下溢；任意近共线实数的零判定仍可能舍入错误，不是精确拓扑接口。AOJ整数坐标绝对值<=10000、三点不共线；叉积精确，圆心半径仍为浮点近似。long double不保证比double精度高。
+
+\lstinputlisting[firstline=5,lastline=24]{../src/compact/triangle_incircle.hpp}
+
+\newpage
+
+\Needspace{263pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_B 三角形内切圆}
+
+\label{usage-example-426}
+
+题意：输入三个非共线整点，坐标绝对值不超过10000，输出内心坐标与半径；要求误差小于1e-6。官方题面已核对，完整协议本地验证，尚无本实现在线记录。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-triangle_incircle]{triangle\_\allowbreak{}incircle}（第~\pageref{compact-triangle_incircle}~页，\ref{compact-triangle_incircle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_B&lang=en}
+
+\lstinputlisting{usage/example-426.cpp}
+
+\newpage
+
 \Needspace{562pt}
 
 \chapter{三维计算几何基础}

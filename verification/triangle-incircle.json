@@ -1,0 +1,217 @@
+{
+  "status": "pass",
+  "results": {
+    "normal-header": {
+      "cases": 5038,
+      "max_integer_absolute_error": "3.673322726617064115376112282E-12"
+    },
+    "normal-ndebug": {
+      "cases": 5038,
+      "max_integer_absolute_error": "3.673322726617064115376112282E-12"
+    },
+    "normal-copied": {
+      "cases": 5038,
+      "max_integer_absolute_error": "3.673322726617064115376112282E-12"
+    },
+    "driver-normal": 60,
+    "sanitizer-header": {
+      "cases": 5038,
+      "max_integer_absolute_error": "3.661272251431207271954969650E-12"
+    },
+    "sanitizer-ndebug": {
+      "cases": 5038,
+      "max_integer_absolute_error": "3.661272251431207271954969650E-12"
+    },
+    "sanitizer-copied": {
+      "cases": 5038,
+      "max_integer_absolute_error": "3.661272251431207271954969650E-12"
+    },
+    "driver-sanitizer": 60,
+    "source-normal": {
+      "cases": 5018,
+      "max_absolute_error": "0.002504387803961720141707160378",
+      "outside_1e6_tolerance": [
+        {
+          "points": [
+            [
+              "-10000",
+              "-10000"
+            ],
+            [
+              "10000",
+              "9999"
+            ],
+            [
+              "9999",
+              "9998"
+            ]
+          ],
+          "error": "0.002504387803961720141707160378"
+        },
+        {
+          "points": [
+            [
+              "10000",
+              "9999"
+            ],
+            [
+              "-10000",
+              "-10000"
+            ],
+            [
+              "9999",
+              "9998"
+            ]
+          ],
+          "error": "0.0001948226628382798582928396221"
+        },
+        {
+          "points": [
+            [
+              "3984",
+              "-8838"
+            ],
+            [
+              "-7366",
+              "8090"
+            ],
+            [
+              "-460",
+              "-2251"
+            ]
+          ],
+          "error": "0.000003238503078482297187159031780"
+        },
+        {
+          "points": [
+            [
+              "4628",
+              "-9226"
+            ],
+            [
+              "-4440",
+              "9903"
+            ],
+            [
+              "230",
+              "37"
+            ]
+          ],
+          "error": "0.00001208003195683259229995850276"
+        },
+        {
+          "points": [
+            [
+              "4704",
+              "8111"
+            ],
+            [
+              "9439",
+              "-6723"
+            ],
+            [
+              "6713",
+              "1771"
+            ]
+          ],
+          "error": "0.000002651479435284571731140481597"
+        }
+      ]
+    },
+    "source-sanitizer": {
+      "cases": 5018,
+      "max_absolute_error": "0.002504387803961720141707160378",
+      "outside_1e6_tolerance": [
+        {
+          "points": [
+            [
+              "-10000",
+              "-10000"
+            ],
+            [
+              "10000",
+              "9999"
+            ],
+            [
+              "9999",
+              "9998"
+            ]
+          ],
+          "error": "0.002504387803961720141707160378"
+        },
+        {
+          "points": [
+            [
+              "10000",
+              "9999"
+            ],
+            [
+              "-10000",
+              "-10000"
+            ],
+            [
+              "9999",
+              "9998"
+            ]
+          ],
+          "error": "0.0001948226628382798582928396221"
+        },
+        {
+          "points": [
+            [
+              "3984",
+              "-8838"
+            ],
+            [
+              "-7366",
+              "8090"
+            ],
+            [
+              "-460",
+              "-2251"
+            ]
+          ],
+          "error": "0.000003238503078482297187159031780"
+        },
+        {
+          "points": [
+            [
+              "4628",
+              "-9226"
+            ],
+            [
+              "-4440",
+              "9903"
+            ],
+            [
+              "230",
+              "37"
+            ]
+          ],
+          "error": "0.00001208003195683259229995850276"
+        },
+        {
+          "points": [
+            [
+              "4704",
+              "8111"
+            ],
+            [
+              "9439",
+              "-6723"
+            ],
+            [
+              "6713",
+              "1771"
+            ]
+          ],
+          "error": "0.000002651479435284571731140481597"
+        }
+      ]
+    }
+  },
+  "oracle": "90-digit Decimal intersection of three inward unit-offset lines; independent of weighted-center implementation",
+  "source_sha256": "603aaf7e6270bce624a4ba381f7932d0a5006e2796df493c24eeb0eb20e9843e",
+  "scope": "All permutations, AOJ integer bounds, collinear/repeated, powers-of-two scale; finite tests are not an exact real-predicate guarantee; online pending",
+  "source_geometry_sha256": "37ea68f98096ee00dfd3dff17868732a80682c313a64ef186704b84685fe019e"
+}

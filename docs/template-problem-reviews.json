@@ -7586,5 +7586,30 @@
       "verification/big-integer-driver.json",
       "verification/big-integer-source.json"
     ]
+  },
+  {
+    "symbol": "triangle_incircle",
+    "problem": "AOJ CGL_7_B",
+    "title": "三角形内切圆：边长加权内心",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_B&lang=en",
+    "classification": "Direct incircle template",
+    "statement_checked": true,
+    "limits": "Three noncollinear integer points, abs coordinate<=10000; error<1e-6; resource fields empty in fetched statement",
+    "tested_api": [
+      "triangle_incircle"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No online verdict; AOJ saved login unavailable in prior check",
+    "checked_date": "2026-10-12",
+    "usage": "example-426",
+    "source": "src/compact/triangle_incircle.hpp",
+    "local_evidence": [
+      "verification/triangle-incircle.json"
+    ]
   }
 ]

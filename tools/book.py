@@ -68,6 +68,7 @@ chapters['circle_coverage'] = '圆覆盖重数面积'
 chapters['minimum_rectangle'] = '最小面积包围矩形'
 chapters['convex_cut'] = '凸多边形裁剪'
 chapters['polygon_centroid'] = '简单多边形面积重心'
+chapters['triangle_incircle'] = '三角形内切圆'
 chapters['big_integer'] = '高精度整数'
 chapters['simplex'] = '单纯形法'
 chapters['plug_cycle'] = '插头DP'
@@ -307,7 +308,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
+            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'triangle_incircle', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
