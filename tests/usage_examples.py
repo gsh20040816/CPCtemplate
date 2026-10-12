@@ -438,6 +438,8 @@ cases['example-376'] = [('6 3 7\n5 5 2 2 0 3\n', '1')]
 cases['example-377'] = [('3 2 4\n1 2\n2 3\n3 0\n3 1\n3 2\n1 2147483647\n', '3 2 0 0')]
 cases['example-374'] = [('5 7\n1 4 1\n1 3 300\n3 1 10\n1 2 16\n2 3 100\n2 5 15\n5 3 20\n', '61'), ('2 2\n1 2 1\n1 2 2\n', 'No solution.')]
 cases['example-375'] = [('3 3\n0 1 1\n1 2 2\n2 0 3\n', '6 3 2 0 1 2 0 1'), ('0 0\n', 'NONE')]
+cases['example-401'] = [('4 3\n1 2 100\n1 3 1\n2 4 1\n', '100 2 1 0 0'), ('1 0\n', '0 0')]
+cases['example-402'] = [('4 3\n1 2 100\n1 3 1\n2 4 1\n', '2 2 3 4 1 2 PERFECT'), ('2 1\n1 2 -9223372036854775808\n', '1 -9223372036854775808 2 1 PERFECT'), ('3 1\n1 2 0\n', '1 0 2 1 0 NOT_PERFECT'), ('0 0\n', '0 0 PERFECT')]
 if args.only:
     assert set(args.only) <= {r['id'] for r in rows} & set(cases)
 else:

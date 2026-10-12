@@ -59,6 +59,7 @@ chapters['wqs_independent_set'] = 'WQS二分'
 chapters['shortest_walks'] = '严格次短路与K短行走'
 chapters['overall_kth'] = '整体二分'
 chapters['tree_isomorphism'] = '确定性树同构'
+chapters['weighted_blossom'] = '一般图最大权匹配'
 chapters['hull3d'] = '三维凸包'
 chapters['polygon_union'] = '一般多边形面积并'
 chapters['circle_union'] = '圆面积并'
@@ -295,7 +296,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('Hull3D', 'polygon_union_area', 'circle_union_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
+            if name in ('WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -310,7 +311,22 @@ for style in ['compact']:
                 body.append(r'序列中间插删、截取与版本共享的 GNU rope 见第~\pageref{compact-rp}~页。')
             if name == 'gp_map':
                 body.append(r'\index{gp\_hash\_table}\index{cc\_hash\_table}需要排名与有序前驱时，PBDS 平衡树见第~\pageref{compact-ost}~页。')
-            if name == 'Hull3D':
+            if name == 'WeightedBlossom':
+                tokens = ('    I gap(', '    void pair_with(', '    void shrink(', '    void expand(', '    bool search(', '            I delta = INF;', '    Result solve(')
+                cuts = [start] + [next(i for i in range(start, end) if lines[i].startswith(token)) for token in tokens] + [end]
+                captions = ('字段与加边', '松弛与递归代表元', '花内配对、增广与公共祖先', '缩花及原始端点映射', '展开与紧边处理', '交替森林搜索', '对偶更新与继续搜索', '两种目标、初始化与方案返回')
+                for part in range(len(cuts) - 1):
+                    if part:
+                        body.append(r'\newpage')
+                    body.append(captions[part] + '（同一结构体内连续抄写）：')
+                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append(r'\newpage')
+                body.append(r'\paragraph{目标与证书} 基数优先模式给每条存在边加$B=nW+1$，$W$为最大绝对原权；任意两个匹配原权差不超过$nW$，所以多一条边严格占优。求完美匹配必须选择此模式再检查$2\cdot pairs=n$。顶点标签与奇集标签给出匹配LP的对偶上界；边约束可行、匹配边紧、未匹配顶点标签零以及正标签花饱和使上下界相等。所有标签应完成更新后再终止，不能留下部分更新。')
+                body.append(r'\paragraph{验证范围} 六种构建各28546次子集DP、方案和对偶检查；400点16次大图证书检查通过O2与ASan/UBSan。实际触发嵌套缩花与展开。P6699记录302632540，20点全AC，最慢209ms、最高24.02MB；负权、基数优先及完美判断为本地证据，排名未核验。')
+                body.append(r'\paragraph{来源及MIT许可} 改编自Shahjalal Shohag的带权带花树，固定提交0884be6ab81f（完整提交号见仓库来源记录）。以下许可随本实现保留：')
+                notice = (root / 'docs/weighted-blossom-LICENSE.txt').read_text()
+                body.append(esc(notice))
+            elif name == 'Hull3D':
                 tokens = ('    // Exact signs', '    static int turn_sign', '    static int orient_sign', '    explicit Hull3D', '        int n = p.size();', '            order.resize(n);', '        dimension = 3;', '    long double area()')
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
                 captions = ('字段与面积运算：', '浮点展开式运算（接同一结构体）：', '二维方向与共线检查（接同一结构体）：', '三维方向的过滤与精确回退（接同一结构体）：', '构造、排序与去重（接同一结构体）：', '低维识别与平面投影（接同一构造函数）：', '平面单调链与三角化（接同一构造函数）：', '初始四面体与增量可见面（接同一构造函数）：', '面积与六倍体积（接同一结构体）：')

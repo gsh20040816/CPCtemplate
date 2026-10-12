@@ -277,6 +277,7 @@
 | `circle_union_area` | [SP8073 CIRU 圆面积并](https://www.luogu.com.cn/problem/SP8073) | n≤1000；整数\|X\|,\|Y\|,R≤1000；允许零半径；2.23s、1.46GB。 | 待在线 AC | 待核验 |
 | `polygon_union_area` | [P13338 三角形面积并加强版](https://www.luogu.com.cn/problem/P13338) | n≤1000；整数坐标绝对值≤10⁶；非退化三角形；1–3s、512MB。 | [记录](https://www.luogu.com.cn/record/302630852) | 待核验 |
 | `Hull3D` | [P4724 三维凸包](https://www.luogu.com.cn/problem/P4724) | 4≤n≤2000；实数坐标，题面未给坐标界；1秒、125MB。 | [记录](https://www.luogu.com.cn/record/302631415) | 待核验 |
+| `WeightedBlossom` | [P6699 一般图最大权匹配](https://www.luogu.com.cn/problem/P6699) | n≤400，m≤79800，1≤w≤5×10⁸；1秒、128MB。 | [记录](https://www.luogu.com.cn/record/302632540) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2587,6 +2588,14 @@ Formal real-coordinate 3D hull surface-area template; integer exact volume and f
 Read points, build hull and output area; planar hull uses double-sided wrapping convention in driver only.
 
 Runtime rank not checked; integer volume and full mesh covered by independent local verification, not this surface-area judge.
+
+### P6699 一般图最大权匹配 / WeightedBlossom
+
+Formal positive-weight general matching; negative weights and cardinality-first mode independently checked locally.
+
+Read undirected edges, solve maximum weight, output weight and mate; nonunique witness accepted.
+
+Runtime rank not checked; signed weights/cardinality-first/perfect feasibility covered locally.
 
 ## 榜单口径
 

@@ -5075,5 +5075,31 @@
       "Hull3D"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-401",
+    "symbol": "WeightedBlossom",
+    "kind": "template",
+    "problem": "P6699 一般图最大权匹配",
+    "url": "https://www.luogu.com.cn/problem/P6699",
+    "summary": "n≤400、m≤79800、1≤w≤5×10⁸。输出最大总权及每点的匹配点，未匹配为0。答案≤10¹¹，可转long long；方案不唯一。当前源码记录302632540，20点全AC。",
+    "driver": "verify/luogu/P6699.compact.cpp",
+    "requires": [
+      "WeightedBlossom"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-402",
+    "symbol": "WeightedBlossom",
+    "kind": "api",
+    "problem": "基数优先与最大权完美匹配",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WEIGHTED-BLOSSOM.md",
+    "summary": "输入n、m和signed64无向边。先输出最大匹配边数及其中的最大原权，再输出mate，最后判断是否完美；不是另一条线上AC记录。负权保留，原权用128位十进制输出。",
+    "driver": "verify/api/weighted_blossom_cardinality.compact.cpp",
+    "requires": [
+      "WeightedBlossom"
+    ],
+    "start_new_page": true
   }
 ]

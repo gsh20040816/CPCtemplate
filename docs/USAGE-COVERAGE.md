@@ -309,3 +309,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | circle_union_area | [example-398](usage/example-398.cpp) | locally_checked_example |
 | polygon_union_area | [example-399](usage/example-399.cpp) | locally_checked_example |
 | Hull3D | [example-400](usage/example-400.cpp) | locally_checked_example |
+| WeightedBlossom | [example-401](usage/example-401.cpp), [example-402（接口演示）](usage/example-402.cpp) | locally_checked_example |

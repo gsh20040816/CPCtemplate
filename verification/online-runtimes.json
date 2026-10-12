@@ -36,7 +36,8 @@
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
     "verification/tree-block-online.json": "35bf371a12b2decea0e5710260fb46bb3b96ed9a9cf80dff66ba846318276643",
     "verification/tutte-online.json": "b0243dfb595dc1cc3f1f5b0c1339a23683621ee630cc8e696a51fb2a0780abd2",
-    "docs/template-problem-reviews.json": "e6fa16eb89de13a797c536da30bf96006e3679208a08022d4e2b2c7c970abc8d"
+    "verification/weighted-blossom-online.json": "6b2f047f901af96b668148e6460bcc1b7842e754cdf2e778fb81bffdf8f719e0",
+    "docs/template-problem-reviews.json": "7e88b3c365c8acb80392dead4ef097d11f4402bd2d216e24374570e07f605218"
   },
   "entries": [
     {
@@ -4717,6 +4718,59 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302632540",
+      "problem": "P6699",
+      "sources": [
+        {
+          "path": "verification/submitted/P6699.compact.cpp",
+          "sha256": "f1ccf57d4ff70b1166153de709d925533eda9371b76338f0a74ff340a1692b3e"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/weighted-blossom-online.json",
+          "timing": {
+            "total_time_ms": 2796,
+            "test_ms": [
+              151,
+              63,
+              204,
+              204,
+              142,
+              205,
+              63,
+              133,
+              139,
+              155,
+              206,
+              62,
+              66,
+              140,
+              59,
+              201,
+              204,
+              209,
+              137,
+              53
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Formal positive-weight general matching; negative weights and cardinality-first mode independently checked locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 209,
+      "sum_of_case_ms": 2796,
+      "reported_total_ms": 2796,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://qoj.ac/submission/3150412",
       "problem": "QOJ 21566",
       "sources": [
@@ -5348,10 +5402,10 @@
     }
   ],
   "counts": {
-    "entries": 130,
-    "with_record": 129,
-    "accepted": 127,
-    "known_case_max": 58,
+    "entries": 131,
+    "with_record": 130,
+    "accepted": 128,
+    "known_case_max": 59,
     "benchmarks_verified": 0
   }
 }

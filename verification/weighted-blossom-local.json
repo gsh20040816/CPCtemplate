@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "source_sha256": "ed47b124bc68fb54ad84c4109281f26a7d76b41e32018375293a8827322944fe",
+  "oracle": "Independent subset DP; optimum weight/cardinality and complete witness checks; exhaustive four-vertex weights, all five-vertex simple graphs, random n<=12, LL extremes, repeat solve and add after solve; independent matching LP primal/dual equality and complementary slackness",
+  "forms": {
+    "normal-header": {
+      "status": "pass",
+      "result": "28546 independent optimum and witness checks PASS",
+      "seconds": 1.359
+    },
+    "normal-ndebug": {
+      "status": "pass",
+      "result": "28546 independent optimum and witness checks PASS",
+      "seconds": 0.635
+    },
+    "normal-copied": {
+      "status": "pass",
+      "result": "28546 independent optimum and witness checks PASS",
+      "seconds": 0.622
+    },
+    "sanitizer-header": {
+      "status": "pass",
+      "result": "28546 independent optimum and witness checks PASS",
+      "seconds": 1.23
+    },
+    "sanitizer-ndebug": {
+      "status": "pass",
+      "result": "28546 independent optimum and witness checks PASS",
+      "seconds": 1.271
+    },
+    "sanitizer-copied": {
+      "status": "pass",
+      "result": "28546 independent optimum and witness checks PASS",
+      "seconds": 1.412
+    }
+  }
+}

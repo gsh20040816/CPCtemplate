@@ -11244,6 +11244,114 @@ Blossom(n)，点号 0..n-1；add(u,v) 加无向边，忽略自环，允许重边
 
 \lstinputlisting{usage/example-72.cpp}
 
+\newpage
+
+\section{一般图最大权匹配}
+
+\subsection{一般图最大权匹配：带权带花树}\label{compact-WeightedBlossom}\index{WeightedBlossom}
+
+WeightedBlossom(n)，点1..n，0$\le$n<INT\_MAX/2。add\_edge(u,v,w)添加signed64边权，自环忽略，重边取最大。solve()只最大化总权，允许空匹配，不保证同权时边数最多；solve(true)先最大化匹配边数，再最大化原权。返回weight（\_\_int128）、pairs、mate（未匹配为0）。求最大权完美匹配用solve(true)，并检查2*pairs==n。
+
+每次solve从头计算，支持重复、切换模式、加边后重算。O(n$^{3}$)时间、O(n$^{2}$)空间，稠密矩阵适合数百点；不因接口允许大n而保证能装入内存。内部成员仅供核验，不应直接修改。缩花、展开与增广使用递归；全范围signed64权值以128位对偶计算。
+
+改编自Shahjalal Shohag的MIT实现，完整许可见后页。P6699已100分通过；负权与基数优先模式由独立本地验证覆盖。
+
+字段与加边（同一结构体内连续抄写）：
+
+\lstinputlisting[firstline=9,lastline=43,firstnumber=1]{../src/compact/weighted_blossom.hpp}
+
+\newpage
+
+松弛与递归代表元（同一结构体内连续抄写）：
+
+\lstinputlisting[firstline=44,lastline=76,firstnumber=36]{../src/compact/weighted_blossom.hpp}
+
+\newpage
+
+花内配对、增广与公共祖先（同一结构体内连续抄写）：
+
+\lstinputlisting[firstline=77,lastline=111,firstnumber=69]{../src/compact/weighted_blossom.hpp}
+
+\newpage
+
+缩花及原始端点映射（同一结构体内连续抄写）：
+
+\lstinputlisting[firstline=112,lastline=153,firstnumber=104]{../src/compact/weighted_blossom.hpp}
+
+\newpage
+
+展开与紧边处理（同一结构体内连续抄写）：
+
+\lstinputlisting[firstline=154,lastline=206,firstnumber=146]{../src/compact/weighted_blossom.hpp}
+
+\newpage
+
+交替森林搜索（同一结构体内连续抄写）：
+
+\lstinputlisting[firstline=207,lastline=236,firstnumber=199]{../src/compact/weighted_blossom.hpp}
+
+\newpage
+
+对偶更新与继续搜索（同一结构体内连续抄写）：
+
+\lstinputlisting[firstline=237,lastline=275,firstnumber=229]{../src/compact/weighted_blossom.hpp}
+
+\newpage
+
+两种目标、初始化与方案返回（同一结构体内连续抄写）：
+
+\lstinputlisting[firstline=276,lastline=325,firstnumber=268]{../src/compact/weighted_blossom.hpp}
+
+\newpage
+
+\paragraph{目标与证书} 基数优先模式给每条存在边加$B=nW+1$，$W$为最大绝对原权；任意两个匹配原权差不超过$nW$，所以多一条边严格占优。求完美匹配必须选择此模式再检查$2\cdot pairs=n$。顶点标签与奇集标签给出匹配LP的对偶上界；边约束可行、匹配边紧、未匹配顶点标签零以及正标签花饱和使上下界相等。所有标签应完成更新后再终止，不能留下部分更新。
+
+\paragraph{验证范围} 六种构建各28546次子集DP、方案和对偶检查；400点16次大图证书检查通过O2与ASan/UBSan。实际触发嵌套缩花与展开。P6699记录302632540，20点全AC，最慢209ms、最高24.02MB；负权、基数优先及完美判断为本地证据，排名未核验。
+
+\paragraph{来源及MIT许可} 改编自Shahjalal Shohag的带权带花树，固定提交0884be6ab81f（完整提交号见仓库来源记录）。以下许可随本实现保留：
+
+Copyright (c) 2021 Shahjalal Shohag
+License: MIT
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+\newpage
+
+\Needspace{380pt}
+
+\subsection*{模板题使用：P6699 一般图最大权匹配}
+
+\label{usage-example-401}
+
+题意：n$\le$400、m$\le$79800、1$\le$w$\le$5×10$^{8}$。输出最大总权及每点的匹配点，未匹配为0。答案$\le$10$^{11}$，可转long long；方案不唯一。当前源码记录302632540，20点全AC。
+
+所需模板：\hyperref[compact-WeightedBlossom]{WeightedBlossom}（第~\pageref{compact-WeightedBlossom}~页，\ref{compact-WeightedBlossom}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P6699}
+
+\lstinputlisting{usage/example-401.cpp}
+
+\newpage
+
+\Needspace{586pt}
+
+\subsection*{接口用法演示：基数优先与最大权完美匹配}
+
+\label{usage-example-402}
+
+演示约定：输入n、m和signed64无向边。先输出最大匹配边数及其中的最大原权，再输出mate，最后判断是否完美；不是另一条线上AC记录。负权保留，原权用128位十进制输出。
+
+所需模板：\hyperref[compact-WeightedBlossom]{WeightedBlossom}（第~\pageref{compact-WeightedBlossom}~页，\ref{compact-WeightedBlossom}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WEIGHTED-BLOSSOM.md}
+
+\lstinputlisting{usage/example-402.cpp}
+
 \Needspace{180pt}
 
 \chapter{Prüfer 序列}

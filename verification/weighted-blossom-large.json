@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "source_sha256": "ed47b124bc68fb54ad84c4109281f26a7d76b41e32018375293a8827322944fe",
+  "large": {
+    "n": 400,
+    "graphs": 8,
+    "modes": 2,
+    "checks_per_build": 16,
+    "forms": {
+      "normal": "16 large primal/dual certificate checks PASS",
+      "sanitizer": "16 large primal/dual certificate checks PASS"
+    },
+    "oracle": "Independent primal witness, matching LP dual feasibility and equality"
+  },
+  "instrumentation": {
+    "checks": 28546,
+    "shrinks": 11673,
+    "nested_children": 4998,
+    "expansions": 404
+  },
+  "scope": "Local checks, not an online rank or unconditional implementation proof"
+}

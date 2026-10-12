@@ -7159,5 +7159,35 @@
       "verification/hull3d-local.json",
       "verification/hull3d-predicates.json"
     ]
+  },
+  {
+    "symbol": "WeightedBlossom",
+    "problem": "P6699 一般图最大权匹配",
+    "url": "https://www.luogu.com.cn/problem/P6699",
+    "classification": "Formal positive-weight general matching; negative weights and cardinality-first mode independently checked locally.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "n≤400，m≤79800，1≤w≤5×10⁸；1秒、128MB。",
+    "adapter": "Read undirected edges, solve maximum weight, output weight and mate; nonunique witness accepted.",
+    "tested_api": [
+      "WeightedBlossom(n)",
+      "add_edge(u,v,w)",
+      "solve()",
+      "Result::mate"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302632540",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Runtime rank not checked; signed weights/cardinality-first/perfect feasibility covered locally.",
+    "source": "src/compact/weighted_blossom.hpp",
+    "driver": "verify/luogu/P6699.compact.cpp",
+    "usage": "example-401",
+    "local_reports": [
+      "verification/weighted-blossom-local.json",
+      "verification/weighted-blossom-large.json"
+    ]
   }
 ]
