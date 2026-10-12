@@ -7423,5 +7423,32 @@
       "verification/eight-puzzle-negative-controls.json",
       "verification/eight-puzzle-online.json"
     ]
+  },
+  {
+    "symbol": "manhattan_order",
+    "problem": "P1494 小Z的袜子",
+    "url": "https://www.luogu.com.cn/problem/P1494",
+    "classification": "Competition application of static interval ordering; not a standalone official template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "n,m≤50000; Ci≤n; singleton intervals require0/1;400ms,128MB.",
+    "adapter": "Convert1-based closed intervals into half-open endpoint points. Maintain unordered equal-color pairs; reduce ratio or output0/1.",
+    "tested_api": [
+      "manhattan_order(points)"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302657154",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Accepted all10tests; rank not checked.",
+    "source": "src/compact/manhattan_order.hpp",
+    "driver": "verify/luogu/P1494.mst.cpp",
+    "usage": "example-416",
+    "local_reports": [
+      "verification/manhattan-mo-local.json",
+      "verification/manhattan-mo-guards.json"
+    ]
   }
 ]

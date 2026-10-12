@@ -5273,5 +5273,35 @@
       "GaussMod"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-415",
+    "symbol": "Mo",
+    "kind": "application",
+    "problem": "P1494 小Z的袜子（分块莫队）",
+    "url": "https://www.luogu.com.cn/problem/P1494",
+    "summary": "n,m≤50000，颜色1..n。维护同色无序对数，除以区间所有无序对数并约分；单点区间输出0/1。输入1-based闭区间转0-based半开区间，答案按原询问顺序输出。",
+    "driver": "verify/luogu/P1494.block.cpp",
+    "requires": [
+      "Mo"
+    ],
+    "start_new_page": true,
+    "page_break_before": "        auto save = [&](int id, long long len)"
+  },
+  {
+    "id": "example-416",
+    "symbol": "manhattan_order",
+    "kind": "application",
+    "problem": "P1494 小Z的袜子（曼哈顿DFS排序）",
+    "url": "https://www.luogu.com.cn/problem/P1494",
+    "summary": "n,m≤50000，颜色1..n。维护同色无序对数，除以区间所有无序对数并约分；单点区间输出0/1。输入1-based闭区间转0-based半开区间，答案按原询问顺序输出。",
+    "driver": "verify/luogu/P1494.mst.cpp",
+    "requires": [
+      "dsu",
+      "ManhattanMST",
+      "manhattan_order"
+    ],
+    "start_new_page": true,
+    "page_break_before": "        auto save = [&](int id, long long len)"
   }
 ]

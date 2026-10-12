@@ -13596,6 +13596,64 @@ Mo(n)，n$\ge$0；add(l,r)登记0-based半开区间并返回查询编号，允�
 
 \newpage
 
+\Needspace{499pt}
+
+\subsection*{应用题补充：P1494 小Z的袜子（分块莫队）}
+
+\label{usage-example-415}
+
+题意：n,m$\le$50000，颜色1..n。维护同色无序对数，除以区间所有无序对数并约分；单点区间输出0/1。输入1-based闭区间转0-based半开区间，答案按原询问顺序输出。
+
+所需模板：\hyperref[compact-Mo]{Mo}（第~\pageref{compact-Mo}~页，\ref{compact-Mo}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1494}
+
+\lstinputlisting[lastline=30]{usage/example-415.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=31,firstnumber=31]{usage/example-415.cpp}
+
+\newpage
+
+\Needspace{406pt}
+
+\subsubsection{曼哈顿 MST 的递归 DFS 查询顺序}\label{compact-manhattan_order}\index{manhattan\_order}
+
+代码依赖：\hyperref[compact-ManhattanMST]{ManhattanMST}（第~\pageref{compact-ManhattanMST}~页，\ref{compact-ManhattanMST}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+输入二维整数点，返回从原编号0开始的DFS先序排列；空输入返回空序列，重复点分别保留。可把静态区间[l,r)看作点(l,r)，按返回编号移动莫队双指针。只负责排序，统计和答案由调用处维护。
+
+复用ManhattanMST构造树，递归DFS，每个点恰好一次。设MST权值为T，由DFS往返及三角不等式，相邻访问点的L1距离之和$\le$2T。起始空区间到首个查询的移动另计；排序O(q log(q+1))时间、O(q)空间与最坏O(q)递归栈。不保证比普通分块更快，也不保证最短访问顺序。点坐标可为signed64，距离界用int128。查询数须$\le$INT\_MAX；输入不变。 P1494当前实现已100分AC，10点单点最大113ms、峰值10.49MB；排名未核查。
+
+\lstinputlisting[firstline=5,lastline=31]{../src/compact/manhattan_order.hpp}
+
+\newpage
+
+\Needspace{488pt}
+
+\subsection*{应用题补充：P1494 小Z的袜子（曼哈顿DFS排序）}
+
+\label{usage-example-416}
+
+题意：n,m$\le$50000，颜色1..n。维护同色无序对数，除以区间所有无序对数并约分；单点区间输出0/1。输入1-based闭区间转0-based半开区间，答案按原询问顺序输出。
+
+所需模板：\hyperref[compact-dsu]{dsu}（第~\pageref{compact-dsu}~页，\ref{compact-dsu}~节）、\hyperref[compact-ManhattanMST]{ManhattanMST}（第~\pageref{compact-ManhattanMST}~页，\ref{compact-ManhattanMST}~节）、\hyperref[compact-manhattan_order]{manhattan\_\allowbreak{}order}（第~\pageref{compact-manhattan_order}~页，\ref{compact-manhattan_order}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P1494}
+
+\lstinputlisting[lastline=29]{usage/example-416.cpp}
+
+\newpage
+
+\noindent 继续处理操作（接上页同一 main）：
+
+\lstinputlisting[firstline=30,firstnumber=30]{usage/example-416.cpp}
+
+\newpage
+
 \Needspace{680pt}
 
 \subsection{带修改莫队}

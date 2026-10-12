@@ -71,6 +71,7 @@ chapters['color_components'] = '树上翻色连通块'
 chapters['plug_cycles'] = '多环插头DP'
 chapters['digit_count'] = '数位DP'
 chapters['ordinary_mo'] = '普通莫队'
+chapters['manhattan_order'] = '曼哈顿查询排序'
 chapters['tree_mo'] = '树上莫队'
 chapters['rollback_mo'] = '回滚莫队'
 chapters['time_connectivity'] = '离线动态连通性'
@@ -146,7 +147,7 @@ for style in ['compact']:
                 body.append('\\newpage')
                 split = next(i for i in range(start, end) if 'struct PolarLess' in lines[i])
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name in ('convolution_fft', 'cdq_convolution'):
+            if name in ('convolution_fft', 'cdq_convolution', 'manhattan_order'):
                 body.append('\\newpage')
             if name == 'TreePathProducts':
                 body.append('\\newpage')

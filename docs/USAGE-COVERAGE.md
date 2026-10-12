@@ -302,7 +302,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | tutte | [example-390](usage/example-390.cpp) | locally_checked_example |
 | SteinerTree | [example-391](usage/example-391.cpp) | locally_checked_example |
 | CartesianTree | [example-392](usage/example-392.cpp) | locally_checked_example |
-| Mo | [example-394](usage/example-394.cpp) | locally_checked_example |
+| Mo | [example-394](usage/example-394.cpp), [example-415（应用补充）](usage/example-415.cpp) | locally_checked_example |
 | digit_count | [example-395（应用补充）](usage/example-395.cpp) | locally_checked_application |
 | grid_cycle | [example-396](usage/example-396.cpp) | locally_checked_example |
 | Simplex | [example-397](usage/example-397.cpp) | locally_checked_example |
@@ -315,3 +315,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ColorMax | [example-408（应用补充）](usage/example-408.cpp) | locally_checked_application |
 | Hull3DMetrics | [example-409（应用补充）](usage/example-409.cpp), [example-410（接口演示）](usage/example-410.cpp) | locally_checked_application |
 | EightPuzzle | [example-413（应用补充）](usage/example-413.cpp) | locally_checked_application |
+| manhattan_order | [example-416（应用补充）](usage/example-416.cpp) | locally_checked_application |

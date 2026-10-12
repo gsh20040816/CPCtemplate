@@ -286,6 +286,7 @@
 | `convolution_fft` | [HDU1402](https://acm.hdu.edu.cn/showproblem.php?pid=1402) | EOF;two integers each<=50000 characters;1000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022782) | 待核验 |
 | `ComplexFFT` | [HDU4609](https://acm.hdu.edu.cn/showproblem.php?pid=4609) | T<=100;3<=n<=100000;1<=a_i<=100000;7decimals;5000MS/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022784) | 待核验 |
 | `EightPuzzle` | [HDU1043 Eight](https://acm.hdu.edu.cn/showproblem.php?pid=1043) | 3x3 permutation of1..8,x; EOF cases; Others5000MS/32768K | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022820) | 待核验 |
+| `manhattan_order` | [P1494 小Z的袜子](https://www.luogu.com.cn/problem/P1494) | n,m≤50000; Ci≤n; singleton intervals require0/1;400ms,128MB. | [记录](https://www.luogu.com.cn/record/302657154) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2678,6 +2679,14 @@ South Central USA 1998 contest application; not standalone non-contest template
 
 
 STL exception under issue16; no all-history rank claim
+
+### P1494 小Z的袜子 / manhattan_order
+
+Competition application of static interval ordering; not a standalone official template.
+
+Convert1-based closed intervals into half-open endpoint points. Maintain unordered equal-color pairs; reduce ratio or output0/1.
+
+Accepted all10tests; rank not checked.
 
 ## 榜单口径
 
