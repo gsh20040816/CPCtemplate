@@ -1,0 +1,37 @@
+{
+  "scope": "Exact WIDA old gauss: exhaustive small-field entire solution sets, safe invertible source systems, diagonally dominant floating systems, zero-pivot and singular-source counterexamples, constructed polynomial division. No source application or online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "task": "normal",
+      "returncode": 0,
+      "stdout": "35741 exhaustive solution-space and source-contract checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "normal",
+      "returncode": 0,
+      "stdout": "35741 exhaustive solution-space and source-contract checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "singular",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "=================================================================\n==35661==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x603000000f88 at pc 0x000102cf5180 bp 0x00016d1088c0 sp 0x00016d1088d8\nREAD of size 8 at 0x603000000f88 thread T0\n==35661==WARN: Invalid dyld module map detected. This is most likely a bug in the sanitizer.\n==35661==WARN: Backtraces may be unreliable.\n    #0 0x000102cf517c in source::gauss(std::vector<std::vector<int, std::allocator<int>>, std::allocator<std::vector<int, std::allocator<int>>>>, std::vector<int, std::allocator<int>>) new_allocator.h:28\n    #1 0x000102d3de98 in main wida_gauss.cpp:129\n    #2 0x00019d4c7e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\n0x603000000f88 is located 0 bytes after 24-byte region [0x603000000f70,0x603000000f88)\nallocated by thread T0 here:\n    #0 0x000103936bcc in _Znwm+0x6c (libasan.8.dylib:arm64+0x4ebcc)\n    #1 0x000102d3daf0 in main wida_gauss.cpp:129\n    #2 0x00019d4c7e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\nSUMMARY: AddressSanitizer: heap-buffer-overflow new_allocator.h:28 in source::gauss(std::vector<std::vector<int, std::allocator<int>>, std::allocator<std::vector<int, std::allocator<int>>>>, std::vector<int, std::allocator<int>>)\nShadow bytes around the buggy address:\n  0x603000000d00: 00 00 00 00 fa fa 00 00 00 00 fa fa 00 00 00 00\n  0x603000000d80: fa fa 00 00 00 00 fa fa 00 00 00 00 fa fa 00 00\n  0x603000000e00: 00 00 fa fa 00 00 00 00 fa fa 00 00 00 00 fa fa\n  0x603000000e80: 00 00 00 00 fa fa 00 00 00 00 fa fa 00 00 00 00\n  0x603000000f00: fa fa 00 00 00 00 fa fa 00 00 00 00 fa fa 00 00\n=>0x603000000f80: 00[fa]fa fa fd fd fd fd fa fa fd fd fd fd fa fa\n  0x603000001000: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd\n  0x603000001080: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd\n  0x603000001100: fd fa fa fa fd fd fd fd fa fa fd fd fd fd fa fa\n  0x603000001180: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd\n  0x603000001200: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==35661==ABORTING\n"
+    }
+  ],
+  "files": {
+    "tests/wida_gauss.cpp": "33f0d528ad4490a32aba4529f6b829b445ccf377452ba0d9c425a30c37055f2a",
+    "tests/wida_gauss.py": "0f1742eb0ba9344a41d4e83c56178f8e37e5f3a5c3131d731b6c6e34c704218a",
+    "tests/fixtures/wida_gauss/gauss.cpp": "eeff1c87fb25926c8a05ad237fc128b1fee71868eb595900d05b6c6e2cdf4b21",
+    "src/compact/gauss_mod.hpp": "852e697bfd7ef868caf6d20c06694813fb0df5b2fc11cfc2b0d7f684a78f2f05",
+    "src/compact/gauss_real.hpp": "9fdb3d679e14ccd8eb851b45967bc46fbe142232ce69ed3720fad889e3e5d3b7",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/fps_inverse.hpp": "7d598c748a7829ffb757ec5f15db8078f4b5fab16cbf6a24164053dc9b83a1c0",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+  }
+}
