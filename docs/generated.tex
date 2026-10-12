@@ -11192,17 +11192,17 @@ HLPP(n)，2$\le$n<INT\_MAX/2，点1..n。add(u,v,cap)返回偶数残量边号id�
 
 \subsection{最大流与方案}\label{compact-Dinic}\index{Dinic}
 
-Dinic(n)，点号 1..n；add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新增流；used(id) 查询原边净流，cut(s) 返回残量可达点集。允许重边、自环，容量非负，s$\ne$t；重复求流须使用相同源汇。只有求尽最大流后 cut 才是最小割。一般 O(V$^{2}$E)，递归增广深度 O(V)。总流不得超过 long long 上限。 get\_edge(id) 返回 tuple(起点,终点,总容量,当前流)，change\_edge(id,cap,f) 修改总容量与流，要求 id 为 add 返回的偶数原边编号且 0$\le$f$\le$cap；正向残量变为 cap-f，反向为 f。仅保证此残量对一致，不自动维持所有顶点的流量守恒；继续 flow 前必须由调用方保证全局可行流及同源汇。增容且保留 f 合法，缩容低于已有流时不能只截断该边。要从零重算须将所有原边一起重置为零流。两个新接口为 O(1)，尚只有本地验证。
+Dinic(n)，点号 1..n；add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新增流；used(id) 查询原边净流，cut(s) 返回残量可达点集。允许重边、自环，容量非负，s$\ne$t；重复求流须使用相同源汇。只有求尽最大流后 cut 才是最小割。一般 O(V$^{2}$E)，递归增广深度 O(V)。总流不得超过 long long 上限。 get\_edge(id) 返回 tuple(起点,终点,总容量,当前流)，change\_edge(id,cap,f) 修改总容量与流，要求 id 为 add 返回的偶数原边编号且 0$\le$f$\le$cap；正向残量变为 cap-f，反向为 f。仅保证此残量对一致，不自动维持所有顶点的流量守恒；继续 flow 前必须由调用方保证全局可行流及同源汇。增容且保留 f 合法，缩容低于已有流时不能只截断该边。要从零重算须将所有原边一起重置为零流。两个新接口为 O(1)，尚只有本地验证。 可选容量缩放：按源码各处 Scaling 注释同步修改 BFS、DFS、递归调用和外层循环，不能只取消一处注释。阈值从不超过当前最大残量 mx 的最大二次幂降到 1，mx=0 直接返回；用 lim$\le$mx/2 再翻倍避免溢出。bfs/dfs 的 lim 默认 1，cut 仍检查全部正残量；flow 仍返回新增流且支持限流续流。缩放一般 O(VE log(U+1))，U 为本次初始最大残量；不保证比普通版快，大 INF 可能增加空阶段。
 
 \lstinputlisting[firstline=6,lastline=33,firstnumber=1]{../src/compact/flow.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=34,lastline=71,firstnumber=29]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=34,lastline=73,firstnumber=29]{../src/compact/flow.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=72,lastline=118,firstnumber=67]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=74,lastline=124,firstnumber=69]{../src/compact/flow.hpp}
 
 \Needspace{329pt}
 
@@ -11452,15 +11452,15 @@ cut\_tree\_values(n,tree) 对合法的连通无环加权树计算全点对路径
 
 MinCostFlow(n)，点号 1..n；add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 位费用，used(id) 返回原边流量。允许负费用，初始残量网络必须没有负环；检测到负环抛异常。Bellman-Ford 初始化 O(VE)，每次增广 O(E log V)；增广次数不能简单假设为 O(V)。 另要求 $\sum$(cap×|cost|)<2\textasciicircum{}120，防止总费用超过 int128。 slope(s,t,limit) 返回从 (0,0) 开始的本次新增流量/费用折点，相邻同斜率段合并，费用为 int128。无增广时只返回起点；每个整数流量的费用可在线性段内插值。重复调用仍用同源汇，返回值不是历史累计值。flow 不存储曲线；slope 额外空间为折点数。内部 run 不是用户接口。新曲线接口仅本地验证，P3381 驱动只输出终点，不能据此验证全部中间折点。
 
-\lstinputlisting[firstline=119,lastline=148,firstnumber=1]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=125,lastline=154,firstnumber=1]{../src/compact/flow.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=149,lastline=197,firstnumber=31]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=155,lastline=203,firstnumber=31]{../src/compact/flow.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=198,lastline=234,firstnumber=80]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=204,lastline=240,firstnumber=80]{../src/compact/flow.hpp}
 
 \Needspace{365pt}
 
@@ -11588,7 +11588,7 @@ ZkwFlow(n)，点号1..n，s$\ne$t。add(u,v,cap,cost)返回偶数原边编号，
 
 BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0$\le$lo$\le$hi$\le$LLONG\_MAX，所有下界总和须$\le$LLONG\_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。
 
-\lstinputlisting[firstline=235,lastline=278]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=241,lastline=284]{../src/compact/flow.hpp}
 
 \Needspace{435pt}
 

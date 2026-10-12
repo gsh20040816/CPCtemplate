@@ -31,7 +31,7 @@ struct Dinic
         return id;
     }
 
-    bool bfs(int s, int t)
+    bool bfs(int s, int t) // Scaling: add parameter ll lim = 1.
     {
         fill(dep.begin(), dep.end(), -1);
         queue<int> q;
@@ -42,6 +42,7 @@ struct Dinic
             int u = q.front();
             q.pop();
             for (int id : g[u])
+                // Scaling: replace e[id].cap with e[id].cap >= lim.
                 if (e[id].cap && dep[e[id].to] < 0)
                 {
                     dep[e[id].to] = dep[u] + 1;
@@ -51,14 +52,15 @@ struct Dinic
         return dep[t] >= 0;
     }
 
-    ll dfs(int u, int t, ll f)
+    ll dfs(int u, int t, ll f) // Scaling: add parameter ll lim = 1.
     {
         if (u == t) return f;
         for (int &i = cur[u]; i < (int)g[u].size(); i++)
         {
             int id = g[u][i], v = e[id].to;
+            // Scaling: replace !e[id].cap with e[id].cap < lim.
             if (!e[id].cap || dep[v] != dep[u] + 1) continue;
-            ll d = dfs(v, t, min(f, e[id].cap));
+            ll d = dfs(v, t, min(f, e[id].cap)); // Scaling: pass lim last.
             if (d)
             {
                 e[id].cap -= d;
@@ -74,12 +76,16 @@ struct Dinic
     {
         assert(s != t && limit >= 0);
         ll ans = 0;
-        while (ans < limit && bfs(s, t))
+        // Scaling: mx = maximum current residual cap over all e (both directions).
+        // Scaling: if mx == 0, return 0.
+        // Scaling: start ll lim = 1, double while lim <= mx / 2.
+        // Scaling: wrap the whole while below in for (; lim; lim >>= 1).
+        while (ans < limit && bfs(s, t)) // Scaling: pass lim last.
         {
             fill(cur.begin(), cur.end(), 0);
             while (ans < limit)
             {
-                ll d = dfs(s, t, limit - ans);
+                ll d = dfs(s, t, limit - ans); // Scaling: pass lim last.
                 if (!d) break;
                 ans += d;
             }

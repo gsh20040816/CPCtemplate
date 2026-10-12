@@ -1,0 +1,44 @@
+{
+  "scope": "Local exhaustive-cut, feasible-flow and residual certificates. No online verdict.",
+  "runs": [
+    {
+      "mode": "normal",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "-Wl,-stack_size,0x20000000",
+        "/Users/gsh/Workspace/CPCtemplate/build/dinic-scaling/probe.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/dinic-scaling/normal"
+      ],
+      "result": "PASS 4061872 cut/flow/residual certificates; 4000 graphs; 64-bit and continuation boundaries"
+    },
+    {
+      "mode": "sanitizer",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-Wl,-stack_size,0x20000000",
+        "/Users/gsh/Workspace/CPCtemplate/build/dinic-scaling/probe.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/dinic-scaling/sanitizer"
+      ],
+      "result": "PASS 4061872 cut/flow/residual certificates; 4000 graphs; 64-bit and continuation boundaries"
+    }
+  ],
+  "files": {
+    "src/compact/flow.hpp": "065c806800d1a8eb6f21338584d1aa32f566ce4c92e17bc93609bd71ed4095ce",
+    "tests/dinic_scaling.cpp": "63d14521a8c151f4efc4d9f34a403314b9200e73d40cc652b6e519b0c81edee2",
+    "tests/dinic_scaling.py": "307672da349ec5e33ae2e5296dbb835ad8bd2afdf2893b287d00005384102e2e"
+  },
+  "enabled_source_sha256": "fce3c26ab268cae96765a5aaf1c729ddb00e000f8e7ff08a7da9d5267828b21d"
+}
