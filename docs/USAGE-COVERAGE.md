@@ -333,4 +333,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Rational | [example-441](usage/example-441.cpp), [example-442（接口演示）](usage/example-442.cpp) | locally_checked_example |
 | stirling_first_column | [example-433](usage/example-433.cpp) | locally_checked_example |
 | stirling_second_column | [example-434](usage/example-434.cpp) | locally_checked_example |
-| q_binomial | [example-443（接口演示）](usage/example-443.cpp) | locally_checked_api |
+| q_binomial | [example-443（接口演示）](usage/example-443.cpp), [example-444（应用补充）](usage/example-444.cpp) | locally_checked_application |

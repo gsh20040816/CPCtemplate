@@ -1,0 +1,75 @@
+{
+  "source_blob": "1e9fba7eaa91e176b6e53d6d80d8514d767a7909",
+  "original_submission": "https://qoj.ac/submission/163986",
+  "observed_verdict": "TL",
+  "problem": "https://qoj.ac/contest/1341/problem/4281",
+  "source_cases": [
+    {
+      "input": [
+        2,
+        3,
+        2,
+        100003
+      ],
+      "original": 7,
+      "exact": 7
+    },
+    {
+      "input": [
+        3,
+        2,
+        2,
+        2
+      ],
+      "original": 0,
+      "exact": 1
+    },
+    {
+      "input": [
+        3,
+        3,
+        2,
+        2
+      ],
+      "original": 0,
+      "exact": 1
+    },
+    {
+      "input": [
+        7,
+        3,
+        3,
+        3
+      ],
+      "original": 0,
+      "exact": 1
+    },
+    {
+      "input": [
+        2,
+        6,
+        3,
+        3
+      ],
+      "original": 0,
+      "exact": 0
+    }
+  ],
+  "scope": "Exact source fragment plus original arithmetic caller; not an online submission.",
+  "replacement_runs": [
+    {
+      "mode": "normal",
+      "exact_cases": 2700
+    },
+    {
+      "mode": "sanitizer",
+      "exact_cases": 2700
+    }
+  ],
+  "files": {
+    "tests/fixtures/wida_q_int/13A.cpp": "414dc291fc2504c36e8b2f11b95d428d7fe38da3bbed79c9d4e4ab0ded787e5e",
+    "tests/wida_q_int.py": "c501cac7467de3051bd3d34891ce63ed17e011b4c6c79ac6f8bb13ecab3f3b5d",
+    "verify/qoj/4281.compact.cpp": "a5f14121fe95429f6f7a3476924fb496c6d83ca18b7bdda923f7ab1c3968ee9c",
+    "src/compact/q_binomial.hpp": "53efbe3c3f67b482623f502f388813df9127e48ff218330fcdf0324add922943"
+  }
+}

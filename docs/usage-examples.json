@@ -5678,5 +5678,18 @@
       "q_binomial"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-444",
+    "symbol": "q_binomial",
+    "kind": "application",
+    "problem": "QOJ 4281 Subspace",
+    "url": "https://qoj.ac/contest/1341/problem/4281",
+    "summary": "输入素数q、维数n、子空间维数k、素数p，求F_q^n中k维子空间个数模p。原题q,n≤10^9，1≤k≤n，p≤200000。按有序线性无关向量组数除以每个子空间的有序基数，得到Gaussian二项式；单位根处用q-Lucas，不能直接除零。QOJ提交3166447已AC（1ms）。",
+    "driver": "verify/qoj/4281.compact.cpp",
+    "requires": [
+      "q_binomial"
+    ],
+    "start_new_page": true
   }
 ]

@@ -1959,6 +1959,6 @@
     "q_binomial",
     "q_binomial",
     "素数模 Gaussian 二项式",
-    "q_binomial(n,k,q,p)返回Gaussian二项式在q处的值模素数p，规范为[0,p)。n、k为unsigned long long；k>n返回0。2≤p≤INT_MAX且必须为素数，函数不做素性检验；q为int，可负，先归一化。q=0时合法k返回1，q=1退化为普通组合数。\n\n非零q先由p-1的因子求乘法阶r。q-Lucas把答案分成C(n/r,k/r)与低位Gaussian二项式[n%r,k%r]；低位k>n直接为0，其余只对非零因子求逆。普通组合数再按p进制Lucas计算，避免在单位根处直接计算0/0。\n\n空间O(1)。试除分解p-1花O(√p)，缩阶至多O(log p)次模幂，各O(log p)；设a=n%r、b=k%r，则低位乘积O(min(b,a-b))，普通Lucas逐位成本为Σmin(ki,ni-ki)，另有O(log p+log_p(n+1))开销。因此大素数且某位k接近p/2仍可能很慢，不是任意大模数的快速组合数算法。所有乘积提升为long long。与WIDA13B原稿及独立递推本地对照，尚无本次线上AC；不包含WIDA13A的p进阶数接口。"
+    "q_binomial(n,k,q,p)返回Gaussian二项式在q处的值模素数p，规范为[0,p)。n、k为unsigned long long；k>n返回0。2≤p≤INT_MAX且必须为素数，函数不做素性检验；q为int，可负，先归一化。q=0时合法k返回1，q=1退化为普通组合数。\n\n非零q先由p-1的因子求乘法阶r。q-Lucas把答案分成C(n/r,k/r)与低位Gaussian二项式[n%r,k%r]；低位k>n直接为0，其余只对非零因子求逆。普通组合数再按p进制Lucas计算，避免在单位根处直接计算0/0。\n\n空间O(1)。试除分解p-1花O(√p)，缩阶至多O(log p)次模幂，各O(log p)；设a=n%r、b=k%r，则低位乘积O(min(b,a-b))，普通Lucas逐位成本为Σmin(ki,ni-ki)，另有O(log p+log_p(n+1))开销。因此大素数且某位k接近p/2仍可能很慢，不是任意大模数的快速组合数算法。所有乘积提升为long long。与WIDA13B原稿及独立递推本地对照，QOJ4281子空间计数已AC。WIDA13A原调用存在零因子约分错误，使用本函数替代其Gaussian二项式任务；不提供通用p进阶数/单位部分接口。"
   ]
 ]
