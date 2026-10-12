@@ -243,7 +243,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | SAMDocuments | [example-259（应用补充）](usage/example-259.cpp), [example-260（接口演示）](usage/example-260.cpp) | locally_checked_application |
 | KDNearest | [example-267（接口演示）](usage/example-267.cpp), [example-268（应用补充）](usage/example-268.cpp) | locally_checked_application |
 | KDRange | [example-270（接口演示）](usage/example-270.cpp), [example-271（接口演示）](usage/example-271.cpp) | locally_checked_api |
-| Chain3D | [example-272（接口演示）](usage/example-272.cpp), [example-273（接口演示）](usage/example-273.cpp) | locally_checked_api |
+| Chain3D | [example-272（接口演示）](usage/example-272.cpp), [example-273（应用补充）](usage/example-273.cpp) | locally_checked_application |
 | KDMin | [example-274（接口演示）](usage/example-274.cpp), [example-275（应用补充）](usage/example-275.cpp) | locally_checked_application |
 | StaticRMQ | [example-276](usage/example-276.cpp), [example-277](usage/example-277.cpp), [example-278（接口演示）](usage/example-278.cpp) | locally_checked_example |
 | StaticRMQ2D | [example-279（接口演示）](usage/example-279.cpp), [example-280（接口演示）](usage/example-280.cpp) | locally_checked_api |
@@ -269,7 +269,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | FibonacciPeriod | [example-335](usage/example-335.cpp), [example-336（接口演示）](usage/example-336.cpp), [example-337（接口演示）](usage/example-337.cpp) | locally_checked_example |
 | DagDominator | [example-338（接口演示）](usage/example-338.cpp), [example-339](usage/example-339.cpp), [example-340（应用补充）](usage/example-340.cpp) | locally_checked_example |
 | DC3 | [example-341](usage/example-341.cpp), [example-342（接口演示）](usage/example-342.cpp) | locally_checked_example |
-| convolution_mod | [example-345](usage/example-345.cpp), [example-346（接口演示）](usage/example-346.cpp), [example-347（接口演示）](usage/example-347.cpp) | locally_checked_example |
+| convolution_mod | [example-345](usage/example-345.cpp), [example-346（接口演示）](usage/example-346.cpp), [example-347（应用补充）](usage/example-347.cpp) | locally_checked_example |
 | RealSpace | [example-348（接口演示）](usage/example-348.cpp) | locally_checked_api |
 | Line3 | [example-349（接口演示）](usage/example-349.cpp) | locally_checked_api |
 | Plane3 | [example-350（接口演示）](usage/example-350.cpp), [example-351（接口演示）](usage/example-351.cpp) | locally_checked_api |

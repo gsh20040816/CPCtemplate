@@ -200,7 +200,7 @@
 | `DynamicAC` | [Codeforces 710F / String Set Queries](https://codeforces.com/problemset/problem/710/F) | m<=300000,total lengths<=300000,nonempty lowercase; new string never added before, removal present; online, flush answer before next input; 3 seconds,768MiB. Local resource completion does not establish official acceptance. | 待在线 AC | 待核验 |
 | `KDNearest` | [Luogu P2093 / JZPFAR](https://www.luogu.com.cn/problem/P2093) | n≤100000，m≤10000，1≤k≤min(n,20)，互异二维点；点与查询坐标在[-10^9,10^9]。题面带随机分布条件，当前未核对时间/内存上限。 | 待在线 AC | 待核验 |
 | `KDRange` | [kuangbin 3.10 / 动态KD树源码模型](https://github.com/kuangbin/ACM-ICPC) | 接口坐标支持signed64；搬移演示n≤100000，W,H在1..10^9，非负系数/E≤10^9，中心绝对值≤10^9。为演示约束，不冒称原题约束。 | 待在线 AC | 待核验 |
-| `Chain3D` | [kuangbin 3.8.3 / HDU4742源码模型](https://acm.hdu.edu.cn/showproblem.php?pid=4742) | 接口n≤INT_MAX/2且内存可分配，坐标signed64，正int模数；源码模型模数2^30、非空输入。为接口约束，不冒称原题约束。 | 待在线 AC | 待核验 |
+| `Chain3D` | [HDU4742 Pinball Game 3D](https://acm.hdu.edu.cn/showproblem.php?pid=4742) | T<=3;1<=N<=100000;0<=x,y,z<=2^30;distinct points;count mod2^30;5s/32768K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022720) | 59 out of 723（可见AC记录；官方累计727，有4条未能核到，不是完整历史排名） |
 | `KDMin` | [Codeforces 44G Shooting Gallery](https://codeforces.com/problemset/problem/44/G) | n,m≤100000；坐标0..10^7，非退化矩形，z互异且在1..10^7；5秒/256MB为官方限制，不是实测通过声明。 | 待在线 AC | 待核验 |
 | `StaticRMQ` | [Library Checker Static RMQ](https://judge.yosupo.jp/problem/staticrmq) | n,q≤500000;0≤a_i≤10^9;0≤l<r≤n;official fixed source time limit5s, no judge resource pass claim. | 待在线 AC | 待核验 |
 | `StaticRMQ` | [Luogu P3865](https://www.luogu.com.cn/problem/P3865) | n≤100000;q≤2000000;0≤a_i≤10^9;1-based closed intervals;statement warns0.8s maximum-data limit, no judge resource pass claim. | 待在线 AC | 待核验 |
@@ -281,6 +281,7 @@
 | `circle_union_area` | [U106005 用户模板题](https://www.luogu.com.cn/problem/U106005) | n≤1000，整数\|x\|、\|y\|、r≤1000；1秒、128MB；误差1e-3，至少4位小数。 | [记录](https://www.luogu.com.cn/record/302633427) | 待核验 |
 | `TreeMo` | [U104310 用户模板题](https://www.luogu.com.cn/problem/U104310) | n,m≤10⁵，1≤颜色≤10⁹；5秒、500MB。 | [记录](https://www.luogu.com.cn/record/302633483) | 待核验 |
 | `grid_cycles` | [HDU4285 circuits](https://acm.hdu.edu.cn/showproblem.php?pid=4285) | 2≤n,m≤12，15秒、32768K，多组，答案模10⁹+7；题面未单列K、T上限。 | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022698) | 432 out of 514（2026-10-12，全语言全部AC，35页514个唯一记录；按Exe.Time竞争排名，同用时两条占432–433位。） |
+| `convolution_mod` | [HDU4656 Evaluation](https://acm.hdu.edu.cn/showproblem.php?pid=4656) | One case;1<=n<=100000;1<=b,c,d<=1000000;0<=a_i<=1000000;mod1000003;3s/65536K. | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022719) | 154 out of 379（26页全部AC，全部语言，同用时6条，排名154–159） |
 
 ## 适配与证据范围
 
@@ -1970,13 +1971,15 @@ Online AC and rank pending; application does not close formal-template search.
 
 原题严格/非严格距离、完整协议、资源限制、在线AC与排名未核验；来源3.10保留partial。
 
-### kuangbin 3.8.3 / HDU4742源码模型 / Chain3D
+### HDU4742 Pinball Game 3D / Chain3D
 
-来源模型/API演示；原稿严格三维递增说明与弱偏序源码有差异，不冒称已核验的HDU4742题意或正式模板题。
+官方比赛应用（2013杭州区域赛网络赛），不是非比赛模板题。三维均为<=，无重合点；按命中点集计数，原稿严格小于注释不符合官方题面。
 
+Use Chain3D(points,1<<30,false);output length and count.
 
+已AC的只有官方弱偏序/无重合点域；严格模式、重合点顺序、其他模数及path由本地验证。全AC排名缺4记录，同算法源码/SOTA未核验。
 
-原题严格/非严格关系与重复点计数语义、资源限制、在线AC与排名未核验；来源3.8.3保留partial。
+原始题面与参数：[来源 1](https://acm.hdu.edu.cn/showproblem.php?pid=4742)
 
 ### Codeforces 44G Shooting Gallery / KDMin
 
@@ -2623,6 +2626,16 @@ Public user-created template; separate evidence from the official SPOJ RemoteJud
 ModInt计数，默认禁止嵌套；K超过可用格数/4直接返回0。
 
 非竞赛模板入口待核验；允许嵌套、宽15、cpp_int为本地证据。完整AC运行排名已枚举，但最快/第5快源码不可见，同算法SOTA仍待核验。
+
+### HDU4656 Evaluation / convolution_mod
+
+官方比赛应用（2013多校训练第6场）；不是非比赛模板题。官方指数为2k，不是2^k。
+
+Factorial shift convolution followed by centered square-exponent convolution;exact CRT mod1000003.
+
+c=0、signed int归一化、EOF多组及100010上界是本地扩展；线上AC不覆盖这些范围。同算法源码及SOTA尚未核验。
+
+原始题面与参数：[来源 1](https://acm.hdu.edu.cn/showproblem.php?pid=4656)
 
 ## 榜单口径
 

@@ -6193,15 +6193,23 @@
       "symbol": "Chain3D",
       "title": "三维最长链、计数与方案",
       "source": "src/compact/chain_3d.hpp",
-      "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "status": "reviewed_application_only",
+      "candidate_drivers": [
+        {
+          "driver": "verify/api/chain3d_source.compact.cpp",
+          "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4742",
+          "existing_ac": [
+            "https://acm.hdu.edu.cn/viewcode.php?rid=41022720"
+          ],
+          "review": "Official weak order, distinct points. Competition application AC; not standalone template."
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
-        "status": "not_checked",
-        "rank": null,
-        "total": null,
-        "checked_at": null,
-        "scope": null
+        "status": "visible_records_only",
+        "rank": 59,
+        "total": 723,
+        "scope": "visible AC only;official727;4unresolved"
       }
     },
     {
@@ -6798,6 +6806,14 @@
           "url": "",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/source-model/shift_geometric.compact.cpp",
+          "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4656",
+          "existing_ac": [
+            "https://acm.hdu.edu.cn/viewcode.php?rid=41022719"
+          ],
+          "review": "Official application; n<=100000,positive b/c/d;998MS;allAC154/379."
         }
       ],
       "qoj_tag_candidate": null,

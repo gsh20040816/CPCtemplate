@@ -3414,10 +3414,10 @@
   {
     "id": "example-273",
     "symbol": "Chain3D",
-    "kind": "api",
-    "problem": "三维弱链计数（kuangbin HDU4742源码模型）",
-    "url": "https://github.com/kuangbin/ACM-ICPC",
-    "summary": "输入T组，每组给n≥1和n个三维整数点，输出按三维弱偏序及重合点固定顺序得到的最长链长度、方案数模2^30。这是原稿源码的闭边界模型；其文字描述却写三个严格小于，原HDU4742题面/约束/协议尚未核验，不视为正式模板题或已完成OJ适配。",
+    "kind": "application",
+    "problem": "HDU4742 Pinball Game 3D",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4742",
+    "summary": "T≤3组，每组1≤n≤10^5个互不重合的三维点，坐标0..2^30。命中顺序要求三维均不减，按命中点集计数；输出最长长度及方案数模2^30。调用Chain3D的弱偏序模式；无重合点使每个可行点集只有一个规范顺序。5秒、32768K，当前最小抄写版已AC。严格模式、重合点及其他模数仍属本地验证范围。",
     "driver": "verify/api/chain3d_source.compact.cpp",
     "requires": [
       "Chain3D"
@@ -4403,10 +4403,10 @@
   {
     "id": "example-347",
     "symbol": "convolution_mod",
-    "kind": "api",
-    "problem": "kuangbin HDU4656来源模型：移位等比点求值",
-    "url": "https://github.com/kuangbin/ACM-ICPC",
-    "summary": "多组直到EOF：输入系数个数1≤n≤100010及b,c,d，随后n个升幂系数；参数与系数均为signed int，按模1000003归一化。逐行输出F(b*c^(2k)+d)，k=0..n−1；c=0时约定0^0=1。两次精确卷积，O(n log n)时间、O(n)空间。来源应用模型，HDU官方协议/资源限制尚未独立核验，不是线上模板题或AC。",
+    "kind": "application",
+    "problem": "HDU4656 Evaluation：移位等比点求值",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4656",
+    "summary": "官方仅一组，n为1..100000；b、c、d为1..1000000，n个升幂系数为0..1000000。按k=0..n−1输出F(b * c^(2k) + d)，结果模1000003。两次精确卷积，O(n log n)时间、O(n)空间；3秒、65536K，当前最小抄写版已AC。代码兼容EOF多组、signed int参数及c=0，扩展边界只由本地测试验证。",
     "driver": "verify/source-model/shift_geometric.compact.cpp",
     "requires": [
       "ModInt",

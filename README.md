@@ -233,3 +233,5 @@ Tutte多项式：子集指数递推、特殊取值与独立验证见 [TUTTE](doc
 最小斯坦纳树：子集DP、多源最短路与原边方案见 [STEINER-TREE](docs/STEINER-TREE.md)。
 
 笛卡尔树：线性构造、相等值约定与验证见 [CARTESIAN-TREE](docs/CARTESIAN-TREE.md)。
+
+[HDU4742与HDU4656线上核验](docs/RUNTIME-HDU-SOURCE.md)：官方题面歧义已解，两题实际AC；完整排名与缺项榜单分别记录。

@@ -5091,11 +5091,11 @@
   },
   {
     "symbol": "Chain3D",
-    "problem": "kuangbin 3.8.3 / HDU4742源码模型",
+    "problem": "HDU4742 Pinball Game 3D",
     "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4742",
-    "classification": "来源模型/API演示；原稿严格三维递增说明与弱偏序源码有差异，不冒称已核验的HDU4742题意或正式模板题。",
-    "statement_checked": false,
-    "limits": "接口n≤INT_MAX/2且内存可分配，坐标signed64，正int模数；源码模型模数2^30、非空输入。为接口约束，不冒称原题约束。",
+    "classification": "官方比赛应用（2013杭州区域赛网络赛），不是非比赛模板题。三维均为<=，无重合点；按命中点集计数，原稿严格小于注释不符合官方题面。",
+    "statement_checked": true,
+    "limits": "T<=3;1<=N<=100000;0<=x,y,z<=2^30;distinct points;count mod2^30;5s/32768K.",
     "driver": "verify/api/chain3d_source.compact.cpp",
     "usage": "example-273",
     "tested_api": [
@@ -5104,17 +5104,24 @@
       "len/ways/parent",
       "path"
     ],
-    "ac": null,
+    "ac": "https://acm.hdu.edu.cn/viewcode.php?rid=41022720",
     "ranking": {
-      "status": "not_checked",
-      "rank": null,
-      "total": null
+      "status": "visible_records_only",
+      "rank": 59,
+      "total": 723,
+      "scope": "可见AC记录；官方累计727，有4条未能核到，不是完整历史排名"
     },
-    "remaining": "原题严格/非严格关系与重复点计数语义、资源限制、在线AC与排名未核验；来源3.8.3保留partial。",
-    "checked_date": "2026-10-07",
+    "remaining": "已AC的只有官方弱偏序/无重合点域；严格模式、重合点顺序、其他模数及path由本地验证。全AC排名缺4记录，同算法源码/SOTA未核验。",
+    "checked_date": "2026-10-12",
     "local_evidence": [
       "verification/chain-3d-normal.json",
       "verification/chain-3d-sanitizer.json"
+    ],
+    "adapter": "Use Chain3D(points,1<<30,false);output length and count.",
+    "statement_sources": [
+      {
+        "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4742"
+      }
     ]
   },
   {
@@ -7269,6 +7276,36 @@
     "local_reports": [
       "verification/plug-cycles-local.json",
       "verification/plug-cycles-source-audit.json"
+    ]
+  },
+  {
+    "symbol": "convolution_mod",
+    "problem": "HDU4656 Evaluation",
+    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4656",
+    "classification": "官方比赛应用（2013多校训练第6场）；不是非比赛模板题。官方指数为2k，不是2^k。",
+    "statement_checked": true,
+    "limits": "One case;1<=n<=100000;1<=b,c,d<=1000000;0<=a_i<=1000000;mod1000003;3s/65536K.",
+    "driver": "verify/source-model/shift_geometric.compact.cpp",
+    "usage": "example-347",
+    "ac": "https://acm.hdu.edu.cn/viewcode.php?rid=41022719",
+    "ranking": {
+      "status": "verified_all_accepted",
+      "rank": 154,
+      "total": 379,
+      "scope": "26页全部AC，全部语言，同用时6条，排名154–159"
+    },
+    "remaining": "c=0、signed int归一化、EOF多组及100010上界是本地扩展；线上AC不覆盖这些范围。同算法源码及SOTA尚未核验。",
+    "checked_date": "2026-10-12",
+    "adapter": "Factorial shift convolution followed by centered square-exponent convolution;exact CRT mod1000003.",
+    "local_reports": [
+      "verification/shift-geometric-normal.json",
+      "verification/shift-geometric-sanitizer.json",
+      "verification/hdu-source-completion-local.json"
+    ],
+    "statement_sources": [
+      {
+        "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4656"
+      }
     ]
   }
 ]

@@ -14,6 +14,7 @@
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
     "verification/dynamic-diameter-online.json": "b07070425ac153a11d57ea4424d0ed68e5de1095cb11b318e8a28a45b699c449",
     "verification/four-cycles-online.json": "01a0b06257b97bde3afc03c000eb5a431d9d8f24597e1053b0c62b551734d3d4",
+    "verification/hdu-source-completion-online.json": "e86a6ec49102732c83ebc40bb1ab6a606832aa2d707df85aa341a258578171e1",
     "verification/hlpp-online.json": "1b0809c172aaabd8214dbae595cf4eb6342f81e63abecc216b91625cede81275",
     "verification/hull3d-online.json": "65fa7aa969300a76d0ed4acd81674b8a29407e091222a818d586ace28c3b1649",
     "verification/kruskal-tree-online.json": "17fdee900f963141e88656243299395b9ca64f9c706dca8dfa1871236e14672a",
@@ -40,7 +41,7 @@
     "verification/tree-mo-u104310-online.json": "bdfdd8b2277e34428789e1acdcd39fdd998ae6af8ccb3603df9f024222be68cf",
     "verification/tutte-online.json": "b0243dfb595dc1cc3f1f5b0c1339a23683621ee630cc8e696a51fb2a0780abd2",
     "verification/weighted-blossom-online.json": "6b2f047f901af96b668148e6460bcc1b7842e754cdf2e778fb81bffdf8f719e0",
-    "docs/template-problem-reviews.json": "e10d4f3b31507b45634932fa0a460fb391774962f48177db72c506e42717787e"
+    "docs/template-problem-reviews.json": "440ce993bc1c5c2f7d723205f0fba5e10f022f9010510f4552a40f6d436eff6c"
   },
   "entries": [
     {
@@ -100,6 +101,78 @@
       ],
       "algorithms": [
         "grid_cycles"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://acm.hdu.edu.cn/viewcode.php?rid=41022719",
+      "problem": "HDU4656",
+      "sources": [
+        {
+          "path": "verification/submitted/HDU4656.compact.cpp",
+          "sha256": "afd9adfc177368fa4090414d0fd4f1ba414fd3b95b5c90ae153c35478f21b1ff"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/hdu-source-completion-online.json",
+          "timing": {
+            "time_ms": 998,
+            "time_display": "998MS"
+          },
+          "language": "G++",
+          "note": "Official competition application. Exe.Time is the raw judge field; per-case/aggregate meaning, compiler version/options not exposed. Submitted bytes archived locally; rendered source not returned in AX."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "vector"
+      ],
+      "algorithms": [
+        "convolution_mod"
+      ],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://acm.hdu.edu.cn/viewcode.php?rid=41022720",
+      "problem": "HDU4742",
+      "sources": [
+        {
+          "path": "verification/submitted/HDU4742.compact.cpp",
+          "sha256": "b2e5e251c68ce218e466a4ef6ae13c5351452d0abc3212b2cc850c70ef3a769c"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/hdu-source-completion-online.json",
+          "timing": {
+            "time_ms": 951,
+            "time_display": "951MS"
+          },
+          "language": "G++",
+          "note": "Official competition application. Exe.Time is the raw judge field; per-case/aggregate meaning, compiler version/options not exposed. Submitted bytes archived locally; rendered source not returned in AX."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [
+        "vector"
+      ],
+      "algorithms": [
+        "Chain3D"
       ],
       "maximum_case_ms": null,
       "sum_of_case_ms": null,
@@ -5522,9 +5595,9 @@
     }
   ],
   "counts": {
-    "entries": 134,
-    "with_record": 133,
-    "accepted": 131,
+    "entries": 136,
+    "with_record": 135,
+    "accepted": 133,
     "known_case_max": 61,
     "benchmarks_verified": 0
   }
