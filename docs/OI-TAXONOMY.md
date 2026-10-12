@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 220，application 67，composite 8，related 36。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 220，application 69，composite 8，related 36。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -92,12 +92,14 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | cdq_convolution | 数学 → 多项式与生成函数 → 快速傅里叶变换 | related | CDQ 分治配合 NTT 的卷积递推，附件标题为分治 FFT；算法不做浮点变换。 |
 | convolution_fft | 数学 → 多项式与生成函数 → 快速傅里叶变换 | direct | 复数FFT及三块拆系数卷积；明确长度、范数与单位根精度前提，不能用随机通过代替最坏误差界。 |
 | convolution_mod_fft | 数学 → 多项式与生成函数 → 快速傅里叶变换 | direct | 复数FFT及三块拆系数卷积；明确长度、范数与单位根精度前提，不能用随机通过代替最坏误差界。 |
+| Ntt2D | 数学 → 多项式与生成函数 → 快速数论变换 | application | 逐行逐列NTT及二元普通卷积；两维分别满足单位根长度条件。 |
 | NttConvolution | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | convolution_i64 | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | convolution_mod | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | SetConvolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |
 | subset_convolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |
 | chirp_z | 数学 → 多项式与生成函数 → Chirp Z 变换 | direct |  |
+| BivariateInverse | 数学 → 多项式与生成函数 → 多项式牛顿迭代 | application | 系数环为截断y级数，沿x方向Newton倍增；二元逆级数而非方阵求逆。 |
 | FpsInverse | 数学 → 多项式与生成函数 → 多项式牛顿迭代 | direct |  |
 | PolynomialDivision | 数学 → 多项式与生成函数 → 多项式牛顿迭代 | application | 反转后调用逆级数的带余除法；此页挂靠为求逆应用，不代表页面包含全部除法接口。 |
 | MultipointEvaluation | 数学 → 多项式与生成函数 → 多项式多点求值\|快速插值 | direct | 任意点求值允许重复点；快速插值为另一个独立函数。 |

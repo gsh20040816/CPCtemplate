@@ -1,0 +1,792 @@
+{
+  "scope": "Initial full-product Newton version, retained before high-half optimization; timings are local single runs, not SOTA",
+  "source": "#pragma once\n#include \"ntt_2d.hpp\"\n#include \"fps_inverse.hpp\"\n\nstruct BivariateInverse : Ntt2D<998244353>\n{\n    static Matrix inverse(const Matrix &a, int n, int m)\n    {\n        assert(n > 0 && m > 0 && m <= max_size);\n        assert(!a.empty() && !a[0].empty() && a[0][0].v != 0);\n        auto row = a[0];\n        if ((int)row.size() > m)\n            row.resize(m);\n        Matrix b{FpsInverse::inverse(row, m)};\n        if (n == 1)\n            return b;\n        assert(n <= max_size / 2 && 3LL * m - 2 <= max_size);\n        int width = 1;\n        while (width < 3LL * m - 2)\n            width *= 2;\n        while ((int)b.size() < n)\n        {\n            int k = b.size(), height = 4 * k;\n            int next = min(n, 2 * k);\n            Matrix f(height, vector<Z>(width));\n            for (int i = 0; i < min(next, (int)a.size()); i++)\n                for (int j = 0; j < min(m, (int)a[i].size()); j++)\n                    f[i][j] = a[i][j];\n            b.resize(height);\n            for (auto &v : b)\n                v.resize(width);\n            transform(f);\n            transform(b);\n            for (int i = 0; i < height; i++)\n                for (int j = 0; j < width; j++)\n                    b[i][j] *= Z(2) - f[i][j] * b[i][j];\n            transform(b, true);\n            b.resize(next);\n            for (auto &v : b)\n                v.resize(m);\n        }\n        return b;\n    }\n};\n",
+  "printed_program": "#include <bits/stdc++.h>\nusing namespace std;\n#include <cassert>\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include <cassert>\n#include <bits/stdc++.h>\nusing namespace std;\n\nstruct Mod64\n{\n    using ull = unsigned long long;\n    using u128 = __uint128_t;\n\n    static ull mul(ull a, ull b, ull m) { return u128(a) * b % m; }\n\n    static ull power(ull a, ull b, ull m)\n    {\n        assert(m);\n        ull r = 1 % m;\n        a %= m;\n        for (; b; b >>= 1, a = mul(a, a, m))\n            if (b & 1) r = mul(r, a, m);\n        return r;\n    }\n};\n\n\nstruct Prime64 : Mod64\n{\n    static bool prime(ull n)\n    {\n        if (n < 2) return false;\n        for (ull p : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37})\n            if (n % p == 0) return n == p;\n        ull d = n - 1;\n        int s = 0;\n        while (!(d & 1))\n        {\n            d >>= 1;\n            ++s;\n        }\n        for (ull a :\n             {2ULL, 325ULL, 9375ULL, 28178ULL, 450775ULL, 9780504ULL, 1795265022ULL})\n        {\n            if (a % n == 0) continue;\n            ull x = power(a, d, n);\n            if (x == 1 || x == n - 1) continue;\n            bool ok = false;\n            for (int j = 1; j < s; j++)\n            {\n                x = mul(x, x, n);\n                if (x == n - 1)\n                {\n                    ok = true;\n                    break;\n                }\n            }\n            if (!ok) return false;\n        }\n        return true;\n    }\n};\n\n#include <cassert>\n#include <bits/stdc++.h>\nusing namespace std;\n\n// BEGIN extended_gcd\n__int128_t extended_gcd(__int128_t a, __int128_t b, __int128_t &x, __int128_t &y)\n{\n    using i128 = __int128_t;\n    if (!b)\n    {\n        x = 1;\n        y = 0;\n        return a;\n    }\n    i128 d = extended_gcd(b, a % b, y, x);\n    y -= a / b * x;\n    return d;\n}\n\n// END extended_gcd\n\n#include <cassert>\n\n// BEGIN mod_inverse\nlong long mod_inverse(long long a, long long m)\n{\n    using i128 = __int128_t;\n    assert(m > 0);\n    a %= m;\n    if (a < 0) a += m;\n    i128 x, y;\n    if (extended_gcd(a, m, x, y) != 1) return -1;\n    return (x % m + m) % m;\n}\n\n// END mod_inverse\n\n#include <cassert>\n\n// BEGIN crt_merge\nbool crt_merge(long long &r, long long &m, long long b, long long n)\n{\n    using ll = long long;\n    using i128 = __int128_t;\n    assert(m > 0 && n > 0);\n    r %= m;\n    if (r < 0) r += m;\n    b %= n;\n    if (b < 0) b += n;\n    i128 x, y;\n    ll g = (ll)extended_gcd(m, n, x, y);\n    i128 diff = i128(b) - r;\n    if (diff % g) return false;\n    i128 q = n / g, k = (diff / g * x % q + q) % q, mod = i128(m) * q;\n    if (mod > LLONG_MAX) throw overflow_error(\"CRT modulus\");\n    r = (r + i128(m) * k) % mod;\n    m = (ll)mod;\n    return true;\n}\n\n// END crt_merge\n\n#include <cassert>\n#include <bits/stdc++.h>\nusing namespace std;\n\n// BEGIN floor_sum\n__int128_t floor_sum(long long n, long long m, long long a, long long b)\n{\n    using ll = long long;\n    using i128 = __int128_t;\n    assert(n >= 0 && m > 0);\n    i128 ans = 0;\n    auto norm = [&](ll &v)\n    {\n        ll q = v / m;\n        if (v % m < 0) --q;\n        v = (ll)(i128(v) - i128(q) * m);\n        return q;\n    };\n    ans += i128(norm(a)) * n * (n - 1) / 2;\n    ans += i128(norm(b)) * n;\n    while (true)\n    {\n        ans += i128(n) * (n - 1) / 2 * (a / m);\n        a %= m;\n        ans += i128(n) * (b / m);\n        b %= m;\n        i128 y = i128(a) * n + b;\n        if (y < m) break;\n        n = (ll)(y / m);\n        b = (ll)(y % m);\n        swap(a, m);\n    }\n    return ans;\n}\n\n// END floor_sum\n\n\n// Compatibility entry; handbook components are classified independently.\nnamespace number_theory_detail\n{\nconstexpr auto floor_sum_fn = floor_sum;\n}\n\nstruct NumberTheory : Prime64\n{\n    using ll = long long;\n    using i128 = __int128_t;\n\n    static i128 exgcd(i128 a, i128 b, i128 &x, i128 &y)\n    {\n        return extended_gcd(a, b, x, y);\n    }\n\n    static ll inverse(ll a, ll m) { return mod_inverse(a, m); }\n\n    static bool crt(ll &r, ll &m, ll b, ll n) { return crt_merge(r, m, b, n); }\n\n    static i128 floor_sum(ll n, ll m, ll a, ll b)\n    {\n        return number_theory_detail::floor_sum_fn(n, m, a, b);\n    }\n};\n\nstruct PollardRho\n{\n    using ull = unsigned long long;\n    using u128 = __uint128_t;\n    mt19937_64 rng;\n\n    PollardRho(ull seed = 712367821) : rng(seed) {}\n\n    ull rho(ull n)\n    {\n        if (n % 2 == 0) return 2;\n        for (;;)\n        {\n            ull c = rng() % (n - 1) + 1, x = rng() % n, y = x, d = 1;\n            auto f = [&](ull v)\n            {\n                return (Mod64::mul(v, v, n) + u128(c)) % n;\n            };\n            // Retry bounded attempts; Las Vegas: only exact divisors returned.\n            for (int i = 0; i < 200000 && d == 1; i++)\n            {\n                x = f(x);\n                y = f(f(y));\n                d = gcd(x > y ? x - y : y - x, n);\n            }\n            if (1 < d && d < n) return d;\n        }\n    }\n\n    void split(ull n, vector<ull> &a)\n    {\n        if (n == 1) return;\n        if (Prime64::prime(n))\n        {\n            a.push_back(n);\n            return;\n        }\n        ull d = rho(n);\n        split(d, a);\n        split(n / d, a);\n    }\n\n    vector<ull> factor(ull n)\n    {\n        assert(n >= 1);\n        vector<ull> a;\n        split(n, a);\n        sort(a.begin(), a.end());\n        return a;\n    }\n};\n\nstruct LinearSieve\n{\n    vector<int> prime, lp, phi, mu;\n\n    LinearSieve(int n) : lp(n + 1), phi(n + 1), mu(n + 1)\n    {\n        if (n) phi[1] = mu[1] = 1;\n        for (int i = 2; i <= n; i++)\n        {\n            if (!lp[i])\n            {\n                lp[i] = i;\n                prime.push_back(i);\n                phi[i] = i - 1;\n                mu[i] = -1;\n            }\n            for (int p : prime)\n            {\n                if (p > n / i) break;\n                int j = i * p;\n                lp[j] = p;\n                if (i % p == 0)\n                {\n                    phi[j] = phi[i] * p;\n                    mu[j] = 0;\n                    break;\n                }\n                phi[j] = phi[i] * (p - 1);\n                mu[j] = -mu[i];\n            }\n        }\n    }\n};\n\ntemplate <int mod> struct ModInt\n{\n    static_assert(mod >= 1);\n    int v;\n\n    ModInt(long long x = 0)\n    {\n        v = x % mod;\n        if (v < 0)\n            v += mod;\n    }\n\n    ModInt operator+(ModInt b) const\n    {\n        long long x = (long long)v + b.v;\n        if (x >= mod)\n            x -= mod;\n        ModInt r;\n        r.v = x;\n        return r;\n    }\n\n    ModInt operator-(ModInt b) const\n    {\n        int x = v - b.v;\n        if (x < 0)\n            x += mod;\n        ModInt r;\n        r.v = x;\n        return r;\n    }\n\n    ModInt operator*(ModInt b) const\n    {\n        ModInt r;\n        r.v = 1LL * v * b.v % mod;\n        return r;\n    }\n\n    ModInt pow(long long e) const\n    {\n        assert(e >= 0);\n        ModInt a = *this, r = 1;\n        while (e)\n        {\n            if (e & 1)\n                r = r * a;\n            a = a * a;\n            e >>= 1;\n        }\n        return r;\n    }\n\n    optional<ModInt> try_inv() const\n    {\n        long long a = v, b = mod, x = 1, y = 0;\n        while (b)\n        {\n            long long q = a / b;\n            a -= q * b;\n            swap(a, b);\n            x -= q * y;\n            swap(x, y);\n        }\n        if (a != 1)\n            return nullopt;\n        return ModInt(x);\n    }\n\n    ModInt inv() const\n    {\n        auto r = try_inv();\n        assert(r);\n        return *r;\n    } // requires an invertible residue\n\n    ModInt operator/(ModInt b) const\n    {\n        return *this * b.inv();\n    }\n\n    ModInt &operator+=(ModInt b)\n    {\n        return *this = *this + b;\n    }\n\n    ModInt &operator-=(ModInt b)\n    {\n        return *this = *this - b;\n    }\n\n    ModInt &operator*=(ModInt b)\n    {\n        return *this = *this * b;\n    }\n\n    ModInt &operator/=(ModInt b)\n    {\n        return *this = *this / b;\n    }\n};\n\ntemplate <int mod> struct Binomial\n{\n    using Z = ModInt<mod>;\n    vector<Z> fac{Z(1)}, ifac{Z(1)};\n\n    Binomial(int n = 0) { init(n); }\n\n    void init(int n)\n    {\n        assert(0 <= n && n < mod);\n        int old = (int)fac.size() - 1;\n        if (n <= old) return;\n        fac.resize(n + 1);\n        ifac.resize(n + 1);\n        for (int i = old + 1; i <= n; i++) fac[i] = fac[i - 1] * i;\n        ifac[n] = fac[n].inv();\n        for (int i = n; i > old; i--) ifac[i - 1] = ifac[i] * i;\n    }\n\n    Z choose(int n, int k) const\n    {\n        if (k < 0 || k > n) return 0;\n        assert(n < (int)fac.size());\n        return fac[n] * ifac[k] * ifac[n - k];\n    }\n\n    Z permute(int n, int k) const\n    {\n        if (k < 0 || k > n) return 0;\n        assert(n < (int)fac.size());\n        return fac[n] * ifac[n - k];\n    }\n};\n\n\ntemplate <int mod, int primitive = 3> struct NttConvolution\n{\n    static_assert(mod >= 2 && primitive >= 1 && primitive < mod);\n    static constexpr int max_size = (mod - 1) & -(mod - 1);\n    using Z = ModInt<mod>;\n    using Poly = vector<Z>;\n\n    // mod is prime, primitive is a primitive root modulo mod.\n    static void ntt(Poly &a, bool invert = false)\n    {\n        int n = a.size();\n        assert(n > 0 && (n & (n - 1)) == 0 && n <= max_size);\n        static Poly roots{0, 1};\n        for (int half = roots.size(); half < n; half *= 2)\n        {\n            Z step = Z(primitive).pow((mod - 1) / (2 * half));\n            roots.resize(2 * half);\n            for (int i = half / 2; i < half; i++)\n            {\n                roots[2 * i] = roots[i];\n                roots[2 * i + 1] = roots[i] * step;\n            }\n        }\n        for (int i = 1, j = 0; i < n; i++)\n        {\n            int bit = n >> 1;\n            for (; j & bit; bit >>= 1)\n                j ^= bit;\n            j ^= bit;\n            if (i < j)\n                swap(a[i], a[j]);\n        }\n        for (int half = 1; half < n; half *= 2)\n        {\n            for (int i = 0; i < n; i += 2 * half)\n            {\n                for (int j = 0; j < half; j++)\n                {\n                    Z u = a[i + j];\n                    Z v = a[i + j + half] * roots[half + j];\n                    a[i + j] = u + v;\n                    a[i + j + half] = u - v;\n                }\n            }\n        }\n        if (invert)\n        {\n            reverse(a.begin() + 1, a.end());\n            Z inverse = Z(n).inv();\n            for (auto &x : a)\n                x *= inverse;\n        }\n    }\n\n    static Poly multiply(Poly a, Poly b)\n    {\n        if (a.empty() || b.empty())\n            return {};\n        assert(a.size() + b.size() - 1 <= max_size);\n        int size = a.size() + b.size() - 1, n = 1;\n        while (n < size)\n            n *= 2;\n        a.resize(n);\n        b.resize(n);\n        ntt(a);\n        ntt(b);\n        for (int i = 0; i < n; i++)\n            a[i] *= b[i];\n        ntt(a, true);\n        a.resize(size);\n        return a;\n    }\n};\n\n\ntemplate <int mod = 998244353, int primitive = 3> struct Ntt2D\n{\n    using N = NttConvolution<mod, primitive>;\n    using Z = typename N::Z;\n    using Matrix = vector<vector<Z>>;\n    static constexpr int max_size = N::max_size;\n\n    static void transform(Matrix &a, bool invert = false)\n    {\n        assert(!a.empty() && !a[0].empty());\n        int n = a.size(), m = a[0].size();\n        assert(n <= max_size && (n & (n - 1)) == 0);\n        assert(m <= max_size && (m & (m - 1)) == 0);\n        for (auto &row : a)\n        {\n            assert((int)row.size() == m);\n            N::ntt(row, invert);\n        }\n        vector<Z> column(n);\n        for (int j = 0; j < m; j++)\n        {\n            for (int i = 0; i < n; i++)\n                column[i] = a[i][j];\n            N::ntt(column, invert);\n            for (int i = 0; i < n; i++)\n                a[i][j] = column[i];\n        }\n    }\n\n    static Matrix multiply(Matrix a, Matrix b)\n    {\n        if (a.empty() || b.empty() || a[0].empty() || b[0].empty())\n            return {};\n        int h = a[0].size(), w = b[0].size();\n        for (const auto &row : a)\n            assert((int)row.size() == h);\n        for (const auto &row : b)\n            assert((int)row.size() == w);\n        assert(a.size() + b.size() - 1 <= max_size);\n        assert((long long)h + w - 1 <= max_size);\n        int n = a.size() + b.size() - 1, m = h + w - 1;\n        int x = 1, y = 1;\n        while (x < n)\n            x *= 2;\n        while (y < m)\n            y *= 2;\n        a.resize(x);\n        b.resize(x);\n        for (auto &row : a)\n            row.resize(y);\n        for (auto &row : b)\n            row.resize(y);\n        transform(a);\n        transform(b);\n        for (int i = 0; i < x; i++)\n            for (int j = 0; j < y; j++)\n                a[i][j] *= b[i][j];\n        transform(a, true);\n        a.resize(n);\n        for (auto &row : a)\n            row.resize(m);\n        return a;\n    }\n};\n\n\nstruct FpsInverse : NttConvolution<998244353>\n{\n    static constexpr int mod = 998244353;\n\n    static Poly inverse(const Poly &a, int n)\n    {\n        assert(n > 0 && n <= max_size && !a.empty() && a[0].v);\n        Poly b{a[0].inv()};\n        while ((int)b.size() < n)\n        {\n            int k = b.size(), len = 2 * k;\n            int m = min(n, len);\n            Poly f(a.begin(), a.begin() + min(m, (int)a.size()));\n            Poly g = b;\n            f.resize(len);\n            g.resize(len);\n            ntt(f);\n            ntt(g);\n            for (int i = 0; i < len; i++)\n                f[i] *= g[i];\n            ntt(f, true);\n            // Only the high half of a*b is free of cyclic wraparound.\n            fill(f.begin(), f.begin() + k, Z(0));\n            ntt(f);\n            for (int i = 0; i < len; i++)\n                f[i] *= g[i];\n            ntt(f, true);\n            b.resize(m);\n            for (int i = k; i < m; i++)\n                b[i] = Z(0) - f[i];\n        }\n        return b;\n    }\n};\n\n\nstruct BivariateInverse : Ntt2D<998244353>\n{\n    static Matrix inverse(const Matrix &a, int n, int m)\n    {\n        assert(n > 0 && m > 0 && m <= max_size);\n        assert(!a.empty() && !a[0].empty() && a[0][0].v != 0);\n        auto row = a[0];\n        if ((int)row.size() > m)\n            row.resize(m);\n        Matrix b{FpsInverse::inverse(row, m)};\n        if (n == 1)\n            return b;\n        assert(n <= max_size / 2 && 3LL * m - 2 <= max_size);\n        int width = 1;\n        while (width < 3LL * m - 2)\n            width *= 2;\n        while ((int)b.size() < n)\n        {\n            int k = b.size(), height = 4 * k;\n            int next = min(n, 2 * k);\n            Matrix f(height, vector<Z>(width));\n            for (int i = 0; i < min(next, (int)a.size()); i++)\n                for (int j = 0; j < min(m, (int)a[i].size()); j++)\n                    f[i][j] = a[i][j];\n            b.resize(height);\n            for (auto &v : b)\n                v.resize(width);\n            transform(f);\n            transform(b);\n            for (int i = 0; i < height; i++)\n                for (int j = 0; j < width; j++)\n                    b[i][j] *= Z(2) - f[i][j] * b[i][j];\n            transform(b, true);\n            b.resize(next);\n            for (auto &v : b)\n                v.resize(m);\n        }\n        return b;\n    }\n};\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int n, m;\n    cin >> n >> m;\n    BivariateInverse::Matrix a(n, vector<BivariateInverse::Z>(m));\n    for (auto &row : a)\n        for (auto &x : row)\n        {\n            int value;\n            cin >> value;\n            x = value;\n        }\n    auto b = BivariateInverse::inverse(a, n, m);\n    for (const auto &row : b)\n    {\n        for (int j = 0; j < m; j++)\n            cout << row[j].v << \" \\n\"[j + 1 == m];\n    }\n}\n",
+  "core": {
+    "scope": "Independent local 2D DFT, four-loop convolution and triangular coefficient inverse; no online AC",
+    "runs": [
+      {
+        "mode": "normal",
+        "flags": [
+          "-O2",
+          "-DNDEBUG"
+        ],
+        "output": "95577 independent 2D DFT/convolution/inverse checks PASS\n"
+      },
+      {
+        "mode": "sanitizer",
+        "flags": [
+          "-O1",
+          "-g",
+          "-fsanitize=address,undefined"
+        ],
+        "output": "95577 independent 2D DFT/convolution/inverse checks PASS\n"
+      }
+    ],
+    "files": {
+      "src/compact/ntt_2d.hpp": "b922a55164bfe588bf799d3a3a8414ed97a57393cc35cc9108221e22a3ac4a69",
+      "src/compact/bivariate_inverse.hpp": "c47a33dc735485b5e10a38dd9b4d7d2bbde19f1638c44c4c53ec3dc049474815",
+      "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+      "src/compact/fps_inverse.hpp": "7d598c748a7829ffb757ec5f15db8078f4b5fab16cbf6a24164053dc9b83a1c0",
+      "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2",
+      "tests/bivariate.cpp": "d9d2a0299657a55af2000d746d8a03595662968b71f4f73a8834a884e4a67dae"
+    }
+  },
+  "capacity": {
+    "scope": "Original exact 12A C=1024 bivariate inverse and current replacement, a=1-x-y, every coefficient checked by integer Pascal recurrence. Source constant-product UB is separately expected. No online AC.",
+    "runs": [
+      {
+        "mode": "normal",
+        "implementation": "original",
+        "output": "0.986776 seconds; 1048576 Pascal recurrence coefficients PASS\n"
+      },
+      {
+        "mode": "normal",
+        "implementation": "current",
+        "output": "1.01104 seconds; 1048576 Pascal recurrence coefficients PASS\n"
+      },
+      {
+        "mode": "normal",
+        "test": "original-constant-product",
+        "returncode": 0,
+        "stdout": "6\n",
+        "stderr": ""
+      },
+      {
+        "mode": "sanitizer",
+        "implementation": "original",
+        "output": "6.06995 seconds; 1048576 Pascal recurrence coefficients PASS\n"
+      },
+      {
+        "mode": "sanitizer",
+        "implementation": "current",
+        "output": "7.37253 seconds; 1048576 Pascal recurrence coefficients PASS\n"
+      },
+      {
+        "mode": "sanitizer",
+        "test": "original-constant-product",
+        "returncode": -6,
+        "stdout": "",
+        "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_poly_variants/12A.cpp:20:49: runtime error: shift exponent -1 is negative\n"
+      }
+    ],
+    "files": {
+      "tests/bivariate_capacity.cpp": "0b71103910fc5799662e7a6c4e1feddac9710fa866d51462b27daf409f2b9ffd",
+      "tests/bivariate_capacity.py": "bcefcfdccf3582ffb5674d1a0d442663b7c3db758293e0146bcd240b90fd449e",
+      "tests/fixtures/wida_poly_variants/12A.cpp": "2f52a2adfd9925e26dda0f9d2bded843e470ae785b62b8ec691f8ecb07112951",
+      "src/compact/bivariate_inverse.hpp": "c47a33dc735485b5e10a38dd9b4d7d2bbde19f1638c44c4c53ec3dc049474815",
+      "src/compact/ntt_2d.hpp": "b922a55164bfe588bf799d3a3a8414ed97a57393cc35cc9108221e22a3ac4a69",
+      "src/compact/fps_inverse.hpp": "7d598c748a7829ffb757ec5f15db8078f4b5fab16cbf6a24164053dc9b83a1c0",
+      "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+      "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+    }
+  },
+  "protocols": {
+    "scope": "Exact printed and header API drivers with independent Python integer truth, including empty/zero/negative/rectangular/truncation cases. No online AC.",
+    "runs": [
+      {
+        "id": "example-451",
+        "form": "header",
+        "mode": "normal",
+        "cases": 100,
+        "source_sha256": "5351ba554a3128e83062963e1be90359f6bd7aade60ce77e7852f4e9d66e5fe9"
+      },
+      {
+        "id": "example-451",
+        "form": "header",
+        "mode": "sanitizer",
+        "cases": 100,
+        "source_sha256": "5351ba554a3128e83062963e1be90359f6bd7aade60ce77e7852f4e9d66e5fe9"
+      },
+      {
+        "id": "example-451",
+        "form": "printed",
+        "mode": "normal",
+        "cases": 100,
+        "source_sha256": "9b9657558c9fdd3b7ba5dbb6979cb9bfb3e531adee2673290f77939dcdc70928"
+      },
+      {
+        "id": "example-451",
+        "form": "printed",
+        "mode": "sanitizer",
+        "cases": 100,
+        "source_sha256": "9b9657558c9fdd3b7ba5dbb6979cb9bfb3e531adee2673290f77939dcdc70928"
+      },
+      {
+        "id": "example-452",
+        "form": "header",
+        "mode": "normal",
+        "cases": 100,
+        "source_sha256": "52a49c47a0bd4ee32ae0d644a935903588c0696e0f7e5a8dd124c3a0800af09a"
+      },
+      {
+        "id": "example-452",
+        "form": "header",
+        "mode": "sanitizer",
+        "cases": 100,
+        "source_sha256": "52a49c47a0bd4ee32ae0d644a935903588c0696e0f7e5a8dd124c3a0800af09a"
+      },
+      {
+        "id": "example-452",
+        "form": "printed",
+        "mode": "normal",
+        "cases": 100,
+        "source_sha256": "144e0cdb304d2d31e95ed59b8400d1bfa3b633261604116de4fffb970d4098dd"
+      },
+      {
+        "id": "example-452",
+        "form": "printed",
+        "mode": "sanitizer",
+        "cases": 100,
+        "source_sha256": "144e0cdb304d2d31e95ed59b8400d1bfa3b633261604116de4fffb970d4098dd"
+      }
+    ]
+  },
+  "official": {
+    "commit": "1814c4e5205517e368bb57a8d1127eb961cfeaae",
+    "scope": "Official generator/input and official reference-output hash verification, local runs of exact printed program in O2 and ASan/UBSan. Not an online verdict or SOTA timing.",
+    "cases": [
+      {
+        "label": "example_00",
+        "dimensions": "3 5",
+        "input_sha256": "199cbd16d8887d207a0c0f55b5e393fb42cd35e9222710cc31eea644b356a8fa",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.7497055840212852,
+            "output_sha256": "de00427eb26a824afbe163fff12ba5ea927a81a2c5789e2037ec4babdadca3c4"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.22823424998205155,
+            "output_sha256": "de00427eb26a824afbe163fff12ba5ea927a81a2c5789e2037ec4babdadca3c4"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 0.30026991601334885,
+            "output_sha256": "de00427eb26a824afbe163fff12ba5ea927a81a2c5789e2037ec4babdadca3c4"
+          }
+        ]
+      },
+      {
+        "label": "random_00",
+        "dimensions": "389813 1",
+        "input_sha256": "d053cf0b6ef9c1bd2c214e283e7757a5282b486c8d70bd67726d2041358a4aea",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.23246075000497513,
+            "output_sha256": "97d24fc55ba7d77fa277cb4f333dfaff2e0a66c716eb96ae1daf2ed598dbc561"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.20229658301104791,
+            "output_sha256": "97d24fc55ba7d77fa277cb4f333dfaff2e0a66c716eb96ae1daf2ed598dbc561"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 1.5222912080062088,
+            "output_sha256": "97d24fc55ba7d77fa277cb4f333dfaff2e0a66c716eb96ae1daf2ed598dbc561"
+          }
+        ]
+      },
+      {
+        "label": "random_01",
+        "dimensions": "463046 1",
+        "input_sha256": "6df6f06a7350f62d7c93d4ed1782e0719b6f8113fefe1387752b32a5d9f005a5",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.2459456670039799,
+            "output_sha256": "5b430a32a097cbd190e58c414e86de40266dfb22abbd34ac45caa509f901709d"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.21162695801467635,
+            "output_sha256": "5b430a32a097cbd190e58c414e86de40266dfb22abbd34ac45caa509f901709d"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 1.5515642919926904,
+            "output_sha256": "5b430a32a097cbd190e58c414e86de40266dfb22abbd34ac45caa509f901709d"
+          }
+        ]
+      },
+      {
+        "label": "random_02",
+        "dimensions": "53336 6",
+        "input_sha256": "f9795a2e98cb10e5dfdf4c558c1b81b4942ab77816f728b54648c582b1704bbb",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.24728920799680054,
+            "output_sha256": "cba5525385541255c025b97652a3fa19211a08dea1ff340b5dbed2eb1babb8bd"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.22882449999451637,
+            "output_sha256": "cba5525385541255c025b97652a3fa19211a08dea1ff340b5dbed2eb1babb8bd"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 2.2547762090107426,
+            "output_sha256": "cba5525385541255c025b97652a3fa19211a08dea1ff340b5dbed2eb1babb8bd"
+          }
+        ]
+      },
+      {
+        "label": "random_03",
+        "dimensions": "429249 1",
+        "input_sha256": "1f4679f30f22346dbe0e97239c86cfbc2916439c5edb759b5f66a89bce8c9bd0",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.2453769169806037,
+            "output_sha256": "2f01a8fe1e0564b0c46c4e09251ded16c9eb732389a01708b83e073d0561a497"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.20377087499946356,
+            "output_sha256": "2f01a8fe1e0564b0c46c4e09251ded16c9eb732389a01708b83e073d0561a497"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 1.5486927079909947,
+            "output_sha256": "2f01a8fe1e0564b0c46c4e09251ded16c9eb732389a01708b83e073d0561a497"
+          }
+        ]
+      },
+      {
+        "label": "random_04",
+        "dimensions": "277012 1",
+        "input_sha256": "6a5739b6a06a61bb8682bdf34d54449efaaf283781ed5f50827a1804ea452af5",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.2109685830073431,
+            "output_sha256": "eb83d073c82dc2418e21240e8d6294cb163e3f32c76939a0eab974bfc9fd8322"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.19833066599676386,
+            "output_sha256": "eb83d073c82dc2418e21240e8d6294cb163e3f32c76939a0eab974bfc9fd8322"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 1.514760624995688,
+            "output_sha256": "eb83d073c82dc2418e21240e8d6294cb163e3f32c76939a0eab974bfc9fd8322"
+          }
+        ]
+      },
+      {
+        "label": "maxDegX_00",
+        "dimensions": "500000 1",
+        "input_sha256": "04d1c65317abfdec37df73caf6ed19fd6a9f30fd360ac6645cb98bfc28b78354",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.2584101249813102,
+            "output_sha256": "4452e38f98af33c49bdaf818abbd1d2ab90b1eadc18855d0373feb6b5a958237"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.21013783302623779,
+            "output_sha256": "4452e38f98af33c49bdaf818abbd1d2ab90b1eadc18855d0373feb6b5a958237"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 1.555385749990819,
+            "output_sha256": "4452e38f98af33c49bdaf818abbd1d2ab90b1eadc18855d0373feb6b5a958237"
+          }
+        ]
+      },
+      {
+        "label": "maxDegY_00",
+        "dimensions": "1 500000",
+        "input_sha256": "e6aaa86073d74e77b9f9e01105ba30e570f73c2579342f6025ee8aef12cd8cdd",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.26068666600622237,
+            "output_sha256": "3eb0472ab025cad587bce8999b2035391d75f15fffe5cf4b9b85b797cc93db17"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.10216433301684447,
+            "output_sha256": "3eb0472ab025cad587bce8999b2035391d75f15fffe5cf4b9b85b797cc93db17"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 0.9307772079773713,
+            "output_sha256": "3eb0472ab025cad587bce8999b2035391d75f15fffe5cf4b9b85b797cc93db17"
+          }
+        ]
+      },
+      {
+        "label": "maxDeg_00",
+        "dimensions": "389813 1",
+        "input_sha256": "f006c8e121e55ca323bf65980c96e655213cf9cc9debf53c79c8c4718aa7e99e",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.23774116599815898,
+            "output_sha256": "501df1de0f39ef07d4bceeadd33b8cc3efb2a8c5ab8d7a6810eff609ad1b30a4"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.20695820898981765,
+            "output_sha256": "501df1de0f39ef07d4bceeadd33b8cc3efb2a8c5ab8d7a6810eff609ad1b30a4"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 1.534657292009797,
+            "output_sha256": "501df1de0f39ef07d4bceeadd33b8cc3efb2a8c5ab8d7a6810eff609ad1b30a4"
+          }
+        ]
+      },
+      {
+        "label": "maxDeg_01",
+        "dimensions": "463046 1",
+        "input_sha256": "bee670c986b40b6d5ce6d06d0e4907cd06a82ceb2c7d378cfa9f7c37e9861d0c",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.24823724999441765,
+            "output_sha256": "cd77196d97e3f8dc44605adcb3cb51241c98b575471597879fc04b1926e7772a"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.20872299998882227,
+            "output_sha256": "cd77196d97e3f8dc44605adcb3cb51241c98b575471597879fc04b1926e7772a"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 1.546737458993448,
+            "output_sha256": "cd77196d97e3f8dc44605adcb3cb51241c98b575471597879fc04b1926e7772a"
+          }
+        ]
+      },
+      {
+        "label": "maxDeg_02",
+        "dimensions": "53336 9",
+        "input_sha256": "90fe90d7eefddd3580900c691966383658aaa8ea5047cd215ad555f759bb833e",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.40338795800926164,
+            "output_sha256": "e46af1b5e98a529ac01acb11caa01b3be687228a13ff48ceed74f3ac05a22d6a"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.46826824999880046,
+            "output_sha256": "e46af1b5e98a529ac01acb11caa01b3be687228a13ff48ceed74f3ac05a22d6a"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 4.447023582994007,
+            "output_sha256": "e46af1b5e98a529ac01acb11caa01b3be687228a13ff48ceed74f3ac05a22d6a"
+          }
+        ]
+      },
+      {
+        "label": "smallDeg_00",
+        "dimensions": "5 1",
+        "input_sha256": "b9765dff8ab6b3ec8d9dde7993f32bbdaccc0a626be910bcfaf29e8b322083a8",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.01563016598811373,
+            "output_sha256": "815bfd365375abbc99aebd2c3cc2f9b8720db3da56d4c375bcbdfa607ffb880c"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.010879166977247223,
+            "output_sha256": "815bfd365375abbc99aebd2c3cc2f9b8720db3da56d4c375bcbdfa607ffb880c"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 0.06047662498895079,
+            "output_sha256": "815bfd365375abbc99aebd2c3cc2f9b8720db3da56d4c375bcbdfa607ffb880c"
+          }
+        ]
+      },
+      {
+        "label": "smallDeg_01",
+        "dimensions": "6 5",
+        "input_sha256": "4ed180890e1d2b9fd9f306f8c575b0a0fab42e164eb4765d2942f91067f9196c",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.008014249993721023,
+            "output_sha256": "968ca7e845c575ba9583623d30edb23f798e49e279c91b93bb1c845b8256befd"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.007218290993478149,
+            "output_sha256": "968ca7e845c575ba9583623d30edb23f798e49e279c91b93bb1c845b8256befd"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 0.0522752910037525,
+            "output_sha256": "968ca7e845c575ba9583623d30edb23f798e49e279c91b93bb1c845b8256befd"
+          }
+        ]
+      },
+      {
+        "label": "smallDeg_02",
+        "dimensions": "8 6",
+        "input_sha256": "cdea0665fa2a8a14800bb251efae8d1a60826fa6069902cb406f576976569699",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.008785915997577831,
+            "output_sha256": "66b18bf636d441ef6cdc94cbb9f885dae04a37a0309248f1fca942c18cf07234"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.00744633300928399,
+            "output_sha256": "66b18bf636d441ef6cdc94cbb9f885dae04a37a0309248f1fca942c18cf07234"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 0.05415295800776221,
+            "output_sha256": "66b18bf636d441ef6cdc94cbb9f885dae04a37a0309248f1fca942c18cf07234"
+          }
+        ]
+      },
+      {
+        "label": "smallDeg_03",
+        "dimensions": "1 2",
+        "input_sha256": "1de0327bf5de4e45314d6c3b7eb513ac8a834223d7d9fdde6e0c9d521d0c048d",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.007859333010856062,
+            "output_sha256": "442e89f5af545de2e0ab73cd0aa9d7e26c4b21b0efb46c32d67b8183db93af05"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.007251542003359646,
+            "output_sha256": "442e89f5af545de2e0ab73cd0aa9d7e26c4b21b0efb46c32d67b8183db93af05"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 0.05306854099035263,
+            "output_sha256": "442e89f5af545de2e0ab73cd0aa9d7e26c4b21b0efb46c32d67b8183db93af05"
+          }
+        ]
+      },
+      {
+        "label": "smallDeg_04",
+        "dimensions": "4 3",
+        "input_sha256": "821caca4e4f62af07696cd369a0ee5399886eed88ee4c9839fd63539fb80a701",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.007784916990203783,
+            "output_sha256": "0c86538746a80fcfe17dc0aeb61ab1365c38ab98660f8c39d7a38c5bec41e2ce"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.006847208016552031,
+            "output_sha256": "0c86538746a80fcfe17dc0aeb61ab1365c38ab98660f8c39d7a38c5bec41e2ce"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 0.05292749998625368,
+            "output_sha256": "0c86538746a80fcfe17dc0aeb61ab1365c38ab98660f8c39d7a38c5bec41e2ce"
+          }
+        ]
+      },
+      {
+        "label": "randomSquare_00",
+        "dimensions": "1045 478",
+        "input_sha256": "5021ed93066c4a620df9306bbaf87b00ab17f2f64690d514131cf2f501f10584",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.3611388749850448,
+            "output_sha256": "7580fcc6a38ec757b685a82c2dff324333899908a272007bf6842cb4bbaa2ca6"
+          },
+          {
+            "mode": "normal",
+            "seconds": 1.013726916979067,
+            "output_sha256": "7580fcc6a38ec757b685a82c2dff324333899908a272007bf6842cb4bbaa2ca6"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 8.563128334004432,
+            "output_sha256": "7580fcc6a38ec757b685a82c2dff324333899908a272007bf6842cb4bbaa2ca6"
+          }
+        ]
+      },
+      {
+        "label": "randomSquare_01",
+        "dimensions": "550 909",
+        "input_sha256": "0e5424bc0e0d600d02a5a65f37aec7451a7f589a4f0c8c9601f9d24fc7a6aac0",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.3597422910097521,
+            "output_sha256": "c66244f419fd3756d398af86e50db9d07ed78ff22f098d5bc92441101403d6c7"
+          },
+          {
+            "mode": "normal",
+            "seconds": 1.077679290989181,
+            "output_sha256": "c66244f419fd3756d398af86e50db9d07ed78ff22f098d5bc92441101403d6c7"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 8.42497825002647,
+            "output_sha256": "c66244f419fd3756d398af86e50db9d07ed78ff22f098d5bc92441101403d6c7"
+          }
+        ]
+      },
+      {
+        "label": "randomSquare_02",
+        "dimensions": "440 1136",
+        "input_sha256": "f0ba2828a134d25a37396ae9324180afb5528198d91ac6d44f399a9f6a81663b",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.3587368749722373,
+            "output_sha256": "6c3a007c50719ac845e3fc86440b3c738e1d51efe5627188c041621f1962cfb3"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.5253847920102999,
+            "output_sha256": "6c3a007c50719ac845e3fc86440b3c738e1d51efe5627188c041621f1962cfb3"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 4.174061958998209,
+            "output_sha256": "6c3a007c50719ac845e3fc86440b3c738e1d51efe5627188c041621f1962cfb3"
+          }
+        ]
+      },
+      {
+        "label": "randomSquare_03",
+        "dimensions": "545 917",
+        "input_sha256": "4c93e57f7c12f86e056d2e0980a8c18daac80edf4a84fd9b04e7e8e1357ba8bc",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.3632896250055637,
+            "output_sha256": "f7c9a6343b69fb3524674b1b0b08c30fcef689739417a5ae80136cef9ba0dd3d"
+          },
+          {
+            "mode": "normal",
+            "seconds": 1.0829014579940122,
+            "output_sha256": "f7c9a6343b69fb3524674b1b0b08c30fcef689739417a5ae80136cef9ba0dd3d"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 8.43755445900024,
+            "output_sha256": "f7c9a6343b69fb3524674b1b0b08c30fcef689739417a5ae80136cef9ba0dd3d"
+          }
+        ]
+      },
+      {
+        "label": "randomSquare_04",
+        "dimensions": "884 565",
+        "input_sha256": "ebcbf3040510ddc606dc1f72ecf1d7dca7cfd84c3992a2dba53264f3e2c46199",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.35884050000458956,
+            "output_sha256": "676f47241d0d13a4e5ae03d42b3143502ac1d7bd4cd70657df0d53f2f90fc70f"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.48889608299941756,
+            "output_sha256": "676f47241d0d13a4e5ae03d42b3143502ac1d7bd4cd70657df0d53f2f90fc70f"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 4.188685125001939,
+            "output_sha256": "676f47241d0d13a4e5ae03d42b3143502ac1d7bd4cd70657df0d53f2f90fc70f"
+          }
+        ]
+      },
+      {
+        "label": "degX2_00",
+        "dimensions": "2 250000",
+        "input_sha256": "3c1049d70ac064ac94b0f1da8ec178aba8ac40022cf8d9ccf6c943507648ba2a",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.26271937499404885,
+            "output_sha256": "e262231c377ccbd6381b949a862af212d8e9734221af521e26d817bae6fc18ef"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.28137370900367387,
+            "output_sha256": "e262231c377ccbd6381b949a862af212d8e9734221af521e26d817bae6fc18ef"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 2.474818833026802,
+            "output_sha256": "e262231c377ccbd6381b949a862af212d8e9734221af521e26d817bae6fc18ef"
+          }
+        ]
+      },
+      {
+        "label": "degX10_00",
+        "dimensions": "10 50000",
+        "input_sha256": "fd49cea826c4a9d2d03d01b9ff00b3f05d5d9d64c05d1b4899058ff5746de4ff",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.39556520798942074,
+            "output_sha256": "19ef2cc0dc81d60fc4acd3b58767d6313373796592528f5c44759ce6617ad86a"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.9266922500100918,
+            "output_sha256": "19ef2cc0dc81d60fc4acd3b58767d6313373796592528f5c44759ce6617ad86a"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 7.686070541007211,
+            "output_sha256": "19ef2cc0dc81d60fc4acd3b58767d6313373796592528f5c44759ce6617ad86a"
+          }
+        ]
+      },
+      {
+        "label": "degX100_00",
+        "dimensions": "10 50000",
+        "input_sha256": "fd49cea826c4a9d2d03d01b9ff00b3f05d5d9d64c05d1b4899058ff5746de4ff",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.39730570797109976,
+            "output_sha256": "19ef2cc0dc81d60fc4acd3b58767d6313373796592528f5c44759ce6617ad86a"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.9292175419977866,
+            "output_sha256": "19ef2cc0dc81d60fc4acd3b58767d6313373796592528f5c44759ce6617ad86a"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 7.706222417007666,
+            "output_sha256": "19ef2cc0dc81d60fc4acd3b58767d6313373796592528f5c44759ce6617ad86a"
+          }
+        ]
+      },
+      {
+        "label": "degY2_00",
+        "dimensions": "250000 2",
+        "input_sha256": "074a3c1e3594dec10fcd42a3d72ee155a7abd28cb6a90102cc037a887c76039d",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.30466837499989197,
+            "output_sha256": "8c6811a9a77b9249fd461f3b28a7c3e394d1b47432d7a0fcc314e5501e284801"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.26547045799088664,
+            "output_sha256": "8c6811a9a77b9249fd461f3b28a7c3e394d1b47432d7a0fcc314e5501e284801"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 2.448389124998357,
+            "output_sha256": "8c6811a9a77b9249fd461f3b28a7c3e394d1b47432d7a0fcc314e5501e284801"
+          }
+        ]
+      },
+      {
+        "label": "degY10_00",
+        "dimensions": "50000 10",
+        "input_sha256": "8b8e2c7e3f189c8800efc6ac3eef8a133440a122dbd2234edd3d195f88a6189f",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.40742795797996223,
+            "output_sha256": "eb63ba10abd924458a9a3d03183a413092a9bda5f5c906fb13edff1dfa04ef40"
+          },
+          {
+            "mode": "normal",
+            "seconds": 0.4736798749945592,
+            "output_sha256": "eb63ba10abd924458a9a3d03183a413092a9bda5f5c906fb13edff1dfa04ef40"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 4.488445541006513,
+            "output_sha256": "eb63ba10abd924458a9a3d03183a413092a9bda5f5c906fb13edff1dfa04ef40"
+          }
+        ]
+      },
+      {
+        "label": "degY100_00",
+        "dimensions": "5000 100",
+        "input_sha256": "de4259afab959c3350e10acb78e5c8e60a73a743f6a5ec87b5f2d76e3437cf7b",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.4008557920169551,
+            "output_sha256": "9316c7780b0f32b5ff235c75a6c7796c63d8dba8cc46c7589c46ac454c7e25a0"
+          },
+          {
+            "mode": "normal",
+            "seconds": 1.0172050409892108,
+            "output_sha256": "9316c7780b0f32b5ff235c75a6c7796c63d8dba8cc46c7589c46ac454c7e25a0"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 8.553247542004101,
+            "output_sha256": "9316c7780b0f32b5ff235c75a6c7796c63d8dba8cc46c7589c46ac454c7e25a0"
+          }
+        ]
+      },
+      {
+        "label": "square_00",
+        "dimensions": "707 707",
+        "input_sha256": "cdb9ee6316af462479e1059b3fb3e6b09521dd26840a710f50f2ed2f5d2c6fc8",
+        "runs": [
+          {
+            "mode": "reference",
+            "seconds": 0.40316945797530934,
+            "output_sha256": "6f112fabefd44475b14b7d540d148aaefa230381ec56f289a51204075dc3759a"
+          },
+          {
+            "mode": "normal",
+            "seconds": 1.075821124977665,
+            "output_sha256": "6f112fabefd44475b14b7d540d148aaefa230381ec56f289a51204075dc3759a"
+          },
+          {
+            "mode": "sanitizer",
+            "seconds": 8.32391408298281,
+            "output_sha256": "6f112fabefd44475b14b7d540d148aaefa230381ec56f289a51204075dc3759a"
+          }
+        ]
+      }
+    ],
+    "files": {
+      "build/bivariate/official/gen/smallDeg.cpp": "038fb8c952b08febf422838af32f7659ee95df2b5af5c3c7f8f6175d69a410a6",
+      "build/bivariate/official/gen/square.cpp": "5235c8347959656229bfc51db079937bb809eb587568b499c6da24a338fa7b79",
+      "build/bivariate/official/gen/example_00.in": "199cbd16d8887d207a0c0f55b5e393fb42cd35e9222710cc31eea644b356a8fa",
+      "build/bivariate/official/gen/random.cpp": "aedc985d5dbbf6cadaa812d1c33e54ece199ad293b1e7d705f2373816695e5cf",
+      "build/bivariate/official/gen/degY100.cpp": "c1a878f9eadf69ccb370cc21b741a2ca782cbe75aad434de60c7f252c21e9cd5",
+      "build/bivariate/official/gen/degY10.cpp": "3a347476a8605514bebccfddc6b4cf776fa9b8c24e78c21e2527961736bae691",
+      "build/bivariate/official/gen/degX100.cpp": "4337c5e454e02fb20e449b038cf02e2ee9d0c51575381ade249c91fa9267d8d3",
+      "build/bivariate/official/gen/degY2.cpp": "ee579b533e42ac2700d1c75ddfe65c825c9a179eebf0dcf3e9c04c9bdbaafd85",
+      "build/bivariate/official/gen/maxDegY.cpp": "fe355ed2efefb663624df536409908ff5a9d26da0b443d8c5edb52bf4b408c30",
+      "build/bivariate/official/gen/maxDegX.cpp": "5cde1dea29435a559e9accd9b117c6a88b79d8e95d07ca47e53f2ed2097391da",
+      "build/bivariate/official/gen/maxDeg.cpp": "7b00bfd270ca15d9d6682e29c964bb4282d1cf8175de6b8dea704b1d2e5e4f58",
+      "build/bivariate/official/gen/degX10.cpp": "4337c5e454e02fb20e449b038cf02e2ee9d0c51575381ade249c91fa9267d8d3",
+      "build/bivariate/official/gen/degX2.cpp": "d740543d6a432e96afbb8f055c0e929784ed7325bd25fadf5d804497cf483443",
+      "build/bivariate/official/gen/randomSquare.cpp": "f88d7a72ab59798962f3c157f768b9749785839503cff500fd539aa99219f253",
+      "build/bivariate/official/sol/correct.cpp": "f66721341046e3147c2255f54d50a4f62da91f23410668aae5a34cbcb07aaf78",
+      "build/bivariate/official/task.md": "ae50dd263d89c7d2bd81439cba9f94e41caeec1520f9cc20cbcd3ba7df7c472f",
+      "build/bivariate/official/info.toml": "494c53c8af9ad801722cd61c6140a84ef302a3c5779e9dc8deb8897c52863de0",
+      "build/bivariate/official/hash.json": "753dca0a857d4f21211ce6cee8eff411471019e9a144c4bac9b69c1a0c1a79f6",
+      "build/bivariate/official/random.h": "d0ae9470c3a04425e1ab8c39f376a0e707507659b8f5aa3ca06c5b47f193613c",
+      "build/bivariate/official/params.h": "afa33c51a765a560ee26272c8cb5b9bdc01536b8f652b9ed710f8f6ca37b77f4",
+      "tests/bivariate_official.py": "c7c81058189620c70e1d9a6796638a6c0c850e83179ebcd121dbf5968b95649f"
+    },
+    "program_sha256": "a9fa6c30004f6221a0b7cbf51480d320fbcfddb7eeb515ab3f816ae189d6ce79",
+    "status": "passed"
+  }
+}

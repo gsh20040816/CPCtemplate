@@ -1,7 +1,7 @@
 {
-  "templates": 331,
-  "direct_edges": 176,
-  "usages": 450,
+  "templates": 333,
+  "direct_edges": 179,
+  "usages": 453,
   "transitive_closure": {
     "CartesianTree": [],
     "SteinerTree": [],
@@ -517,6 +517,16 @@
     "recurrence_nth": [],
     "BostanMori": [
       "ModInt",
+      "NttConvolution"
+    ],
+    "Ntt2D": [
+      "ModInt",
+      "NttConvolution"
+    ],
+    "BivariateInverse": [
+      "FpsInverse",
+      "ModInt",
+      "Ntt2D",
       "NttConvolution"
     ],
     "StaticMod64": [

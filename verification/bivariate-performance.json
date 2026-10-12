@@ -1,0 +1,307 @@
+{
+  "scope": "Local same-machine GCC16 O2 subprocess wall time including I/O, three alternating rounds. Official reference is an easy comparison, not fastest/SOTA or an online verdict. Run after correctness jobs finish.",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "rows": [
+    {
+      "label": "maxDegX_00",
+      "dimensions": "500000 1",
+      "input_sha256": "04d1c65317abfdec37df73caf6ed19fd6a9f30fd360ac6645cb98bfc28b78354",
+      "runs": [
+        {
+          "mode": "initial",
+          "repeat": 0,
+          "seconds": 0.9420960830175318
+        },
+        {
+          "mode": "normal",
+          "repeat": 0,
+          "seconds": 0.1699217090208549
+        },
+        {
+          "mode": "reference",
+          "repeat": 0,
+          "seconds": 0.2598808330076281
+        },
+        {
+          "mode": "reference",
+          "repeat": 1,
+          "seconds": 0.2543957500020042
+        },
+        {
+          "mode": "normal",
+          "repeat": 1,
+          "seconds": 0.17051487500430085
+        },
+        {
+          "mode": "initial",
+          "repeat": 1,
+          "seconds": 0.20878474999335594
+        },
+        {
+          "mode": "initial",
+          "repeat": 2,
+          "seconds": 0.2067463329876773
+        },
+        {
+          "mode": "normal",
+          "repeat": 2,
+          "seconds": 0.1744009589892812
+        },
+        {
+          "mode": "reference",
+          "repeat": 2,
+          "seconds": 0.25563966599293053
+        }
+      ],
+      "medians": {
+        "initial": 0.20878474999335594,
+        "normal": 0.17051487500430085,
+        "reference": 0.25563966599293053
+      },
+      "after_over_before": 0.8167017706500453,
+      "after_over_reference": 0.6670125871977014
+    },
+    {
+      "label": "randomSquare_00",
+      "dimensions": "1045 478",
+      "input_sha256": "5021ed93066c4a620df9306bbaf87b00ab17f2f64690d514131cf2f501f10584",
+      "runs": [
+        {
+          "mode": "initial",
+          "repeat": 0,
+          "seconds": 0.9960293750045821
+        },
+        {
+          "mode": "normal",
+          "repeat": 0,
+          "seconds": 0.38914933399064466
+        },
+        {
+          "mode": "reference",
+          "repeat": 0,
+          "seconds": 0.3572609580005519
+        },
+        {
+          "mode": "reference",
+          "repeat": 1,
+          "seconds": 0.35677316700457595
+        },
+        {
+          "mode": "normal",
+          "repeat": 1,
+          "seconds": 0.3892041660146788
+        },
+        {
+          "mode": "initial",
+          "repeat": 1,
+          "seconds": 1.0014756669988856
+        },
+        {
+          "mode": "initial",
+          "repeat": 2,
+          "seconds": 1.0027048329939134
+        },
+        {
+          "mode": "normal",
+          "repeat": 2,
+          "seconds": 0.3909386250015814
+        },
+        {
+          "mode": "reference",
+          "repeat": 2,
+          "seconds": 0.3604094169859309
+        }
+      ],
+      "medians": {
+        "initial": 1.0014756669988856,
+        "normal": 0.3892041660146788,
+        "reference": 0.3572609580005519
+      },
+      "after_over_before": 0.38863067655053857,
+      "after_over_reference": 1.0894114156579
+    },
+    {
+      "label": "degX10_00",
+      "dimensions": "10 50000",
+      "input_sha256": "fd49cea826c4a9d2d03d01b9ff00b3f05d5d9d64c05d1b4899058ff5746de4ff",
+      "runs": [
+        {
+          "mode": "initial",
+          "repeat": 0,
+          "seconds": 0.9182312499906402
+        },
+        {
+          "mode": "normal",
+          "repeat": 0,
+          "seconds": 0.3453764580190182
+        },
+        {
+          "mode": "reference",
+          "repeat": 0,
+          "seconds": 0.39072250001481734
+        },
+        {
+          "mode": "reference",
+          "repeat": 1,
+          "seconds": 0.39048500001081266
+        },
+        {
+          "mode": "normal",
+          "repeat": 1,
+          "seconds": 0.3454817089950666
+        },
+        {
+          "mode": "initial",
+          "repeat": 1,
+          "seconds": 0.9132359579962213
+        },
+        {
+          "mode": "initial",
+          "repeat": 2,
+          "seconds": 0.9176717079826631
+        },
+        {
+          "mode": "normal",
+          "repeat": 2,
+          "seconds": 0.34629916699486785
+        },
+        {
+          "mode": "reference",
+          "repeat": 2,
+          "seconds": 0.39412758298567496
+        }
+      ],
+      "medians": {
+        "initial": 0.9176717079826631,
+        "normal": 0.3454817089950666,
+        "reference": 0.39072250001481734
+      },
+      "after_over_before": 0.3764763651203177,
+      "after_over_reference": 0.8842124755599304
+    },
+    {
+      "label": "degY100_00",
+      "dimensions": "5000 100",
+      "input_sha256": "de4259afab959c3350e10acb78e5c8e60a73a743f6a5ec87b5f2d76e3437cf7b",
+      "runs": [
+        {
+          "mode": "initial",
+          "repeat": 0,
+          "seconds": 1.0115661249728873
+        },
+        {
+          "mode": "normal",
+          "repeat": 0,
+          "seconds": 0.3777779169904534
+        },
+        {
+          "mode": "reference",
+          "repeat": 0,
+          "seconds": 0.40081154098152183
+        },
+        {
+          "mode": "reference",
+          "repeat": 1,
+          "seconds": 0.4008270000049379
+        },
+        {
+          "mode": "normal",
+          "repeat": 1,
+          "seconds": 0.37564254098106176
+        },
+        {
+          "mode": "initial",
+          "repeat": 1,
+          "seconds": 1.0060742089990526
+        },
+        {
+          "mode": "initial",
+          "repeat": 2,
+          "seconds": 1.0046404999739025
+        },
+        {
+          "mode": "normal",
+          "repeat": 2,
+          "seconds": 0.376423582987627
+        },
+        {
+          "mode": "reference",
+          "repeat": 2,
+          "seconds": 0.3973692919826135
+        }
+      ],
+      "medians": {
+        "initial": 1.0060742089990526,
+        "normal": 0.376423582987627,
+        "reference": 0.40081154098152183
+      },
+      "after_over_before": 0.3741509121500415,
+      "after_over_reference": 0.9391535534775952
+    },
+    {
+      "label": "square_00",
+      "dimensions": "707 707",
+      "input_sha256": "cdb9ee6316af462479e1059b3fb3e6b09521dd26840a710f50f2ed2f5d2c6fc8",
+      "runs": [
+        {
+          "mode": "initial",
+          "repeat": 0,
+          "seconds": 1.0684711250069086
+        },
+        {
+          "mode": "normal",
+          "repeat": 0,
+          "seconds": 0.3947057080222294
+        },
+        {
+          "mode": "reference",
+          "repeat": 0,
+          "seconds": 0.3607673749793321
+        },
+        {
+          "mode": "reference",
+          "repeat": 1,
+          "seconds": 0.3587344999832567
+        },
+        {
+          "mode": "normal",
+          "repeat": 1,
+          "seconds": 0.4001983749913052
+        },
+        {
+          "mode": "initial",
+          "repeat": 1,
+          "seconds": 1.1179656669846736
+        },
+        {
+          "mode": "initial",
+          "repeat": 2,
+          "seconds": 1.0700907499995083
+        },
+        {
+          "mode": "normal",
+          "repeat": 2,
+          "seconds": 0.3933630420069676
+        },
+        {
+          "mode": "reference",
+          "repeat": 2,
+          "seconds": 0.36231762502575293
+        }
+      ],
+      "medians": {
+        "initial": 1.0700907499995083,
+        "normal": 0.3947057080222294,
+        "reference": 0.3607673749793321
+      },
+      "after_over_before": 0.36885255575044523,
+      "after_over_reference": 1.0940726224061739
+    }
+  ],
+  "programs": {
+    "initial": "a9fa6c30004f6221a0b7cbf51480d320fbcfddb7eeb515ab3f816ae189d6ce79",
+    "normal": "e090ad24b253382aa214e0b93c204daedb6284e30e63c3821368ab47dac125c3",
+    "reference": "f66721341046e3147c2255f54d50a4f62da91f23410668aae5a34cbcb07aaf78"
+  },
+  "script_sha256": "22a507a56323cea3057b921d3b9e31ea741d6ab05138ba28fe513cfa1aaf136a"
+}

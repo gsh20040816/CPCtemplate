@@ -8416,6 +8416,43 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "Ntt2D",
+      "title": "二维NTT与二元多项式卷积",
+      "source": "src/compact/ntt_2d.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "BivariateInverse",
+      "title": "二元形式幂级数求逆",
+      "source": "src/compact/bivariate_inverse.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/inv_of_formal_power_series_2d.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/inv_of_formal_power_series_2d",
+          "existing_ac": [],
+          "review": "Pinned official task/info reviewed; all 28 official input/answer hashes and exact printed driver locally checked in O2 and ASan/UBSan. No online AC/rank; see docs/BIVARIATE.md."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [

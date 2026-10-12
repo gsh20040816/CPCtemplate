@@ -7934,6 +7934,32 @@
         "模算术简介"
       ],
       "order": 194
+    },
+    "Ntt2D": {
+      "primary": "math/poly/ntt.md",
+      "relation": "application",
+      "note": "逐行逐列NTT及二元普通卷积；两维分别满足单位根长度条件。",
+      "additional": [],
+      "hierarchy": [
+        "数学",
+        "多项式与生成函数",
+        "快速数论变换"
+      ],
+      "order": 229
+    },
+    "BivariateInverse": {
+      "primary": "math/poly/newton.md",
+      "relation": "application",
+      "note": "系数环为截断y级数，沿x方向Newton倍增；二元逆级数而非方阵求逆。",
+      "additional": [
+        "math/poly/ntt.md"
+      ],
+      "hierarchy": [
+        "数学",
+        "多项式与生成函数",
+        "多项式牛顿迭代"
+      ],
+      "order": 232
     }
   }
 }

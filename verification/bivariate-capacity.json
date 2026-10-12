@@ -1,0 +1,49 @@
+{
+  "scope": "Original exact 12A C=1024 bivariate inverse and current replacement, a=1-x-y, every coefficient checked by integer Pascal recurrence. Source constant-product UB is separately expected. No online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "implementation": "original",
+      "output": "1.01433 seconds; 1048576 Pascal recurrence coefficients PASS\n"
+    },
+    {
+      "mode": "normal",
+      "implementation": "current",
+      "output": "0.362574 seconds; 1048576 Pascal recurrence coefficients PASS\n"
+    },
+    {
+      "mode": "normal",
+      "test": "original-constant-product",
+      "returncode": 0,
+      "stdout": "6\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "implementation": "original",
+      "output": "6.3476 seconds; 1048576 Pascal recurrence coefficients PASS\n"
+    },
+    {
+      "mode": "sanitizer",
+      "implementation": "current",
+      "output": "2.94908 seconds; 1048576 Pascal recurrence coefficients PASS\n"
+    },
+    {
+      "mode": "sanitizer",
+      "test": "original-constant-product",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_poly_variants/12A.cpp:20:49: runtime error: shift exponent -1 is negative\n"
+    }
+  ],
+  "files": {
+    "tests/bivariate_capacity.cpp": "0b71103910fc5799662e7a6c4e1feddac9710fa866d51462b27daf409f2b9ffd",
+    "tests/bivariate_capacity.py": "bcefcfdccf3582ffb5674d1a0d442663b7c3db758293e0146bcd240b90fd449e",
+    "tests/fixtures/wida_poly_variants/12A.cpp": "2f52a2adfd9925e26dda0f9d2bded843e470ae785b62b8ec691f8ecb07112951",
+    "src/compact/bivariate_inverse.hpp": "00025a7ec6be9870d666821fbec3d36933e51c651b317cbdee73880ec48f937b",
+    "src/compact/ntt_2d.hpp": "b922a55164bfe588bf799d3a3a8414ed97a57393cc35cc9108221e22a3ac4a69",
+    "src/compact/fps_inverse.hpp": "7d598c748a7829ffb757ec5f15db8078f4b5fab16cbf6a24164053dc9b83a1c0",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+  }
+}

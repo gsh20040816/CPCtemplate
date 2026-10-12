@@ -360,6 +360,12 @@
     "声明 NttConvolution<mod, primitive>，primitive 默认 3。mod 必须为 int 范围内的素数，primitive 是模 mod 原根；不在接口内验证素性或阶。max_size 是 mod-1 的最大二次幂因子。ntt(a,invert) 原地变换，长度须为正二次幂且不超过 max_size；invert=true 为逆变换。multiply(a,b) 返回普通卷积，任一为空则为空；非空时长度和减一不超过 max_size。元素类型 Z，数组类型 Poly。O(n log n) 时间；每种mod/primitive实例缓存分层单位根，空间O(历次最大变换长度)，同一实例调用时不并发扩容。输入输出均为自然顺序，逆变换复用正变换后翻转下标1..n-1并乘n的逆元。998244353 和 167772161 均可用原根 3。"
   ],
   [
+    "ntt_2d",
+    "Ntt2D",
+    "二维NTT与二元多项式卷积",
+    "Ntt2D 的模板参数为 mod=998244353、primitive=3；Matrix 为 vector<vector<Z>>，a[i][j]表示x^i y^j系数。transform(a,invert=false)先逐行再逐列原地变换，要求非空矩形、两维均为不超过max_size的正二次幂，模数与原根前提同NttConvolution。multiply(a,b)返回普通二元卷积；输入须为矩形，任一维为空返回空Matrix，否则结果两维分别为行数和减一、列数和减一，均须≤max_size。两维独立补至二次幂H、W，时间O(HW(log H+log W))，工作空间O(HW)，另有NTT历史单位根缓存；二维面积须能分配内存，不能只看单维上限。这是二维卷积，不是矩阵乘法。"
+  ],
+  [
     "stirling",
     "stirling_second_row",
     "第二类斯特林数：同一行前缀",
@@ -376,6 +382,12 @@
     "FpsInverse",
     "形式幂级数求逆",
     "FpsInverse::inverse(a,n) 返回 a 的逆级数前 n 项，模数固定 998244353。要求 1≤n≤2²³、a 非空且 a[0]≠0；a.size()在int范围内，不足项视为零，多余项只取需要前缀。继承 NttConvolution<998244353> 的 Poly、Z、multiply。Newton公式b←b(2-ab)只更新新增高半段：长度2k循环卷积的回绕只污染低k项，清除低半段后再乘b，高半段即修正项。每轮五次长度2k变换，复用b的频域值。O(n log n)时间、O(n)工作空间；单位根缓存另按NTT约定。"
+  ],
+  [
+    "bivariate_inverse",
+    "BivariateInverse",
+    "二元形式幂级数求逆",
+    "BivariateInverse::inverse(a,n,m)返回模x^n、y^m的恰好n×m项逆级数，模数固定998244353。n,m>0且a[0][0]非零；输入可为不等长行，不足补零，超出目标矩形的系数忽略，各输入尺寸须在int范围内。n=1时m≤2²³；n>1时n≤2²³且2m-1≤2²³。先用FpsInverse求第0行，再按x方向Newton倍增b←b(2-ab)，每轮只更新[k,min(n,2k))的新行。变换高2k、宽为不小于2m-1的最小二次幂；a*b的x方向回绕仅影响旧低半段，保留高半段并截断y，再乘b，取负得到新行。复用b的频域值，共五次二维变换。O(nm(log(n+1)+log(m+1)))时间、O(nm)工作空间，实际矩形内存远早于单维上限成为限制；第0行逆元同样唯一。依赖Ntt2D、FpsInverse；不是普通方阵逆，不要求n=m。"
   ],
   [
     "fps_functions",

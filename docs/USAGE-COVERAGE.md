@@ -67,9 +67,11 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | convolution_fft | [example-121](usage/example-121.cpp), [example-411（应用补充）](usage/example-411.cpp) | locally_checked_example |
 | convolution_mod_fft | [example-122](usage/example-122.cpp) | locally_checked_example |
 | NttConvolution | [example-16](usage/example-16.cpp) | locally_checked_example |
+| Ntt2D | [example-451（接口演示）](usage/example-451.cpp) | locally_checked_api |
 | stirling_second_row | [example-53](usage/example-53.cpp) | locally_checked_example |
 | stirling_first_row | [example-54](usage/example-54.cpp) | locally_checked_example |
 | FpsInverse | [example-18](usage/example-18.cpp) | locally_checked_example |
+| BivariateInverse | [example-452（接口演示）](usage/example-452.cpp), [example-453](usage/example-453.cpp) | locally_checked_example |
 | FpsFunctions | [example-28](usage/example-28.cpp), [example-29](usage/example-29.cpp) | locally_checked_example |
 | GaussMod | [example-24](usage/example-24.cpp), [example-414（应用补充）](usage/example-414.cpp) | locally_checked_example |
 | det_prime | [example-25](usage/example-25.cpp), [example-427（应用补充）](usage/example-427.cpp) | locally_checked_example |

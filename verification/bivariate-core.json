@@ -1,0 +1,31 @@
+{
+  "scope": "Independent local 2D DFT, four-loop convolution and triangular coefficient inverse; no online AC",
+  "runs": [
+    {
+      "mode": "normal",
+      "flags": [
+        "-O2",
+        "-DNDEBUG"
+      ],
+      "output": "95577 independent 2D DFT/convolution/inverse checks PASS\n"
+    },
+    {
+      "mode": "sanitizer",
+      "flags": [
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined"
+      ],
+      "output": "95577 independent 2D DFT/convolution/inverse checks PASS\n"
+    }
+  ],
+  "files": {
+    "src/compact/ntt_2d.hpp": "b922a55164bfe588bf799d3a3a8414ed97a57393cc35cc9108221e22a3ac4a69",
+    "src/compact/bivariate_inverse.hpp": "00025a7ec6be9870d666821fbec3d36933e51c651b317cbdee73880ec48f937b",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/fps_inverse.hpp": "7d598c748a7829ffb757ec5f15db8078f4b5fab16cbf6a24164053dc9b83a1c0",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2",
+    "tests/bivariate.cpp": "d9d2a0299657a55af2000d746d8a03595662968b71f4f73a8834a884e4a67dae",
+    "tests/bivariate.py": "b94919a78bbf555ecd5040d259a4baad549efa0b85d62744c1315cdec79744b3"
+  }
+}

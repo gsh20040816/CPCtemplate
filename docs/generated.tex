@@ -3570,6 +3570,38 @@ convolution\_i64(a,b) 返回 signed64 整数卷积，空输入返回空。非空
 
 \newpage
 
+\subsection{二维NTT与二元多项式卷积}\label{compact-Ntt2D}\index{Ntt2D}
+
+代码依赖：\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+Ntt2D 的模板参数为 mod=998244353、primitive=3；Matrix 为 vector<vector<Z>>，a[i][j]表示x\textasciicircum{}i y\textasciicircum{}j系数。transform(a,invert=false)先逐行再逐列原地变换，要求非空矩形、两维均为不超过max\_size的正二次幂，模数与原根前提同NttConvolution。multiply(a,b)返回普通二元卷积；输入须为矩形，任一维为空返回空Matrix，否则结果两维分别为行数和减一、列数和减一，均须$\le$max\_size。两维独立补至二次幂H、W，时间O(HW(log H+log W))，工作空间O(HW)，另有NTT历史单位根缓存；二维面积须能分配内存，不能只看单维上限。这是二维卷积，不是矩阵乘法。
+
+\lstinputlisting[firstline=4,lastline=32]{../src/compact/ntt_2d.hpp}
+
+\newpage
+
+\noindent 二维普通卷积（接上页同一结构体）：
+
+\lstinputlisting[firstline=33,lastline=67,firstnumber=30]{../src/compact/ntt_2d.hpp}
+
+\newpage
+
+\Needspace{437pt}
+
+\subsection*{接口用法演示：二维卷积完整输入输出}
+
+\label{usage-example-451}
+
+演示约定：输入n m h w及n×m、h×w两个系数矩形，按行读取，允许有符号系数。输出结果行列数，再逐行输出普通二元卷积；空维度输出0 0。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-Ntt2D]{Ntt2D}（第~\pageref{compact-Ntt2D}~页，\ref{compact-Ntt2D}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BIVARIATE.md}
+
+\lstinputlisting{usage/example-451.cpp}
+
+\newpage
+
 \Needspace{650pt}
 
 \subsection{三模NTT：精确任意模数卷积}\label{compact-convolution_mod}\index{convolution\_mod}
@@ -3793,6 +3825,54 @@ PolynomialDivision::divide(a,b) 返回 pair<Poly,Poly>\{商,余式\}，模数固
 题目：\url{https://judge.yosupo.jp/problem/division_of_polynomials}
 
 \lstinputlisting{usage/example-118.cpp}
+
+\newpage
+
+\subsection{二元形式幂级数求逆}\label{compact-BivariateInverse}\index{BivariateInverse}
+
+代码依赖：\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-Ntt2D]{Ntt2D}（第~\pageref{compact-Ntt2D}~页，\ref{compact-Ntt2D}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+BivariateInverse::inverse(a,n,m)返回模x\textasciicircum{}n、y\textasciicircum{}m的恰好n×m项逆级数，模数固定998244353。n,m>0且a[0][0]非零；输入可为不等长行，不足补零，超出目标矩形的系数忽略，各输入尺寸须在int范围内。n=1时m$\le$2$^{23}$；n>1时n$\le$2$^{23}$且2m-1$\le$2$^{23}$。先用FpsInverse求第0行，再按x方向Newton倍增b←b(2-ab)，每轮只更新[k,min(n,2k))的新行。变换高2k、宽为不小于2m-1的最小二次幂；a*b的x方向回绕仅影响旧低半段，保留高半段并截断y，再乘b，取负得到新行。复用b的频域值，共五次二维变换。O(nm(log(n+1)+log(m+1)))时间、O(nm)工作空间，实际矩形内存远早于单维上限成为限制；第0行逆元同样唯一。依赖Ntt2D、FpsInverse；不是普通方阵逆，不要求n=m。
+
+\lstinputlisting[firstline=5,lastline=38]{../src/compact/bivariate_inverse.hpp}
+
+\newpage
+
+\noindent 截断误差并更新新行（接上页同一结构体、函数与循环）：
+
+\lstinputlisting[firstline=39,lastline=57,firstnumber=35]{../src/compact/bivariate_inverse.hpp}
+
+\newpage
+
+\Needspace{464pt}
+
+\subsection*{接口用法演示：二元逆级数完整输入输出}
+
+\label{usage-example-452}
+
+演示约定：输入目标精度n m、输入尺寸h w及h×w系数，按行读取。常数项为0或输入为空输出-1，否则输出n×m项二元逆级数；尺寸须满足模板契约，超出目标的输入系数不参与。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-Ntt2D]{Ntt2D}（第~\pageref{compact-Ntt2D}~页，\ref{compact-Ntt2D}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-BivariateInverse]{BivariateInverse}（第~\pageref{compact-BivariateInverse}~页，\ref{compact-BivariateInverse}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BIVARIATE.md}
+
+\lstinputlisting{usage/example-452.cpp}
+
+\newpage
+
+\Needspace{398pt}
+
+\subsection*{模板题使用：Library Checker Inv of Bivariate Formal Power Series}
+
+\label{usage-example-453}
+
+题意：官方模板题：输入N M及N×M系数，NM$\le$500000、常数项非零，模998244353。输出相同矩形精度的二元逆级数，逐行输出；输入形状既可极窄也可接近正方形。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-Ntt2D]{Ntt2D}（第~\pageref{compact-Ntt2D}~页，\ref{compact-Ntt2D}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-BivariateInverse]{BivariateInverse}（第~\pageref{compact-BivariateInverse}~页，\ref{compact-BivariateInverse}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/inv_of_formal_power_series_2d}
+
+\lstinputlisting{usage/example-453.cpp}
 
 \Needspace{487pt}
 

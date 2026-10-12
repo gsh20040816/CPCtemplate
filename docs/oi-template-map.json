@@ -2027,6 +2027,20 @@
       "additional": [],
       "relation": "related",
       "note": "完整uint64固定模整数与合数单位逆元，精确整数模乘替代依赖long double精度的实现"
+    },
+    "Ntt2D": {
+      "primary": "math/poly/ntt.md",
+      "relation": "application",
+      "note": "逐行逐列NTT及二元普通卷积；两维分别满足单位根长度条件。",
+      "additional": []
+    },
+    "BivariateInverse": {
+      "primary": "math/poly/newton.md",
+      "relation": "application",
+      "note": "系数环为截断y级数，沿x方向Newton倍增；二元逆级数而非方阵求逆。",
+      "additional": [
+        "math/poly/ntt.md"
+      ]
     }
   },
   "reference_source_sha256": "de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806"

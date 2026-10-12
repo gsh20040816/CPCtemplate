@@ -5778,5 +5778,54 @@
       "FpsSqrt"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-451",
+    "symbol": "Ntt2D",
+    "kind": "api",
+    "problem": "二维卷积完整输入输出",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BIVARIATE.md",
+    "summary": "输入n m h w及n×m、h×w两个系数矩形，按行读取，允许有符号系数。输出结果行列数，再逐行输出普通二元卷积；空维度输出0 0。",
+    "driver": "verify/api/convolution_2d.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "Ntt2D"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-452",
+    "symbol": "BivariateInverse",
+    "kind": "api",
+    "problem": "二元逆级数完整输入输出",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BIVARIATE.md",
+    "summary": "输入目标精度n m、输入尺寸h w及h×w系数，按行读取。常数项为0或输入为空输出-1，否则输出n×m项二元逆级数；尺寸须满足模板契约，超出目标的输入系数不参与。",
+    "driver": "verify/api/bivariate_inverse.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "Ntt2D",
+      "FpsInverse",
+      "BivariateInverse"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-453",
+    "symbol": "BivariateInverse",
+    "kind": "template",
+    "problem": "Library Checker Inv of Bivariate Formal Power Series",
+    "url": "https://judge.yosupo.jp/problem/inv_of_formal_power_series_2d",
+    "summary": "官方模板题：输入N M及N×M系数，NM≤500000、常数项非零，模998244353。输出相同矩形精度的二元逆级数，逐行输出；输入形状既可极窄也可接近正方形。",
+    "driver": "verify/library_checker/inv_of_formal_power_series_2d.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "Ntt2D",
+      "FpsInverse",
+      "BivariateInverse"
+    ],
+    "start_new_page": true
   }
 ]
