@@ -5678,6 +5678,54 @@ a[i][j] 为转移收益，不存在的边为 neg；power(k) 求恰好 k 步的�
 
 \lstinputlisting{usage/example-223.cpp}
 
+\newpage
+
+\Needspace{669pt}
+
+\subsection{64位异或仿射变换}\label{compact-XorAffine64}\index{XorAffine64}
+
+XorAffine64 f默认零变换，XorAffine64(true)为恒等变换。col恰有64项，col[i]是输入第i位对输出的异或贡献，可直接赋值，不能改变长度；bias为常数项。apply(x)=bias异或所有置位输入对应的col，linear(x)不加bias。f.then(g)表示先f后g，即g(f(x))，不是反过来；power(k)重复应用k次，k为完整unsigned long long，k=0返回恒等变换。所有输入与系数都是完整64位位串。apply为O(popcount(x))，复合O(64$^{2}$)，幂O(64$^{2}$ log(k+1))，空间O(64)；ctz仅对非零数调用。支持非可逆映射与常量变换，不提供求逆。表示GF(2)上的仿射映射，不能把带进位整数加法当成异或；可表示旋转后AND/OR常数掩码并异或汇总。
+
+\lstinputlisting[firstline=5,lastline=43]{../src/compact/xor_affine64.hpp}
+
+\newpage
+
+\noindent 重复应用的二进制幂（接上页同一结构体）：
+
+\lstinputlisting[firstline=44,lastline=56,firstnumber=40]{../src/compact/xor_affine64.hpp}
+
+\newpage
+
+\Needspace{358pt}
+
+\subsection*{接口用法演示：64位异或仿射变换的迭代}
+
+\label{usage-example-456}
+
+演示约定：输入bias和64个col，再输入q组x k。每组输出同一变换应用k次的结果；输入均为unsigned64，k=0保持x不变。每组单独求幂，适合少量询问；大量查询可自行预存64层倍增变换。
+
+所需模板：\hyperref[compact-XorAffine64]{XorAffine64}（第~\pageref{compact-XorAffine64}~页，\ref{compact-XorAffine64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/XOR-AFFINE64.md}
+
+\lstinputlisting{usage/example-456.cpp}
+
+\newpage
+
+\Needspace{477pt}
+
+\subsection*{接口用法演示：旋转与AND/OR表达式的复合迭代}
+
+\label{usage-example-457}
+
+演示约定：输入m组shift operation mask，0$\le$shift<64，operation=0表示rotl(x,shift) OR mask，1表示AND mask；把各项异或，再异或constant得到f(x)。最后输入constant x exponent，输出f迭代exponent次的值。各项都作用于同一个x，不是逐项更新x；属于完整API例子，不冒充原题协议。
+
+所需模板：\hyperref[compact-XorAffine64]{XorAffine64}（第~\pageref{compact-XorAffine64}~页，\ref{compact-XorAffine64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/XOR-AFFINE64.md}
+
+\lstinputlisting{usage/example-457.cpp}
+
 \Needspace{406pt}
 
 \section{行列式}

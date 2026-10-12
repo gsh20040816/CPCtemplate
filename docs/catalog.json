@@ -420,6 +420,12 @@
     "ModMatrix<p>::multiply(a,b) 计算 n×k 与 k×m 的矩阵积，要求非空且每行尺寸一致。power(a,e) 接收非空 n×n 方阵和 unsigned long long 指数；e=0 返回单位阵。只使用加乘，p 为≥2 的 int 模数，允许合数。矩阵乘法 O(nkm)，矩阵幂 O(n³ log(e+1))，额外空间 O(n²)；复用 ModInt。"
   ],
   [
+    "xor_affine64",
+    "XorAffine64",
+    "64位异或仿射变换",
+    "XorAffine64 f默认零变换，XorAffine64(true)为恒等变换。col恰有64项，col[i]是输入第i位对输出的异或贡献，可直接赋值，不能改变长度；bias为常数项。apply(x)=bias异或所有置位输入对应的col，linear(x)不加bias。f.then(g)表示先f后g，即g(f(x))，不是反过来；power(k)重复应用k次，k为完整unsigned long long，k=0返回恒等变换。所有输入与系数都是完整64位位串。apply为O(popcount(x))，复合O(64²)，幂O(64² log(k+1))，空间O(64)；ctz仅对非零数调用。支持非可逆映射与常量变换，不提供求逆。表示GF(2)上的仿射映射，不能把带进位整数加法当成异或；可表示旋转后AND/OR常数掩码并异或汇总。"
+  ],
+  [
     "matrix_inverse",
     "matrix_inverse",
     "素数模矩阵求逆",

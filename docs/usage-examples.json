@@ -5857,5 +5857,31 @@
       "NttConvolution"
     ],
     "start_new_page": true
+  },
+  {
+    "symbol": "XorAffine64",
+    "kind": "api",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/XOR-AFFINE64.md",
+    "requires": [
+      "XorAffine64"
+    ],
+    "start_new_page": true,
+    "id": "example-456",
+    "problem": "64位异或仿射变换的迭代",
+    "summary": "输入bias和64个col，再输入q组x k。每组输出同一变换应用k次的结果；输入均为unsigned64，k=0保持x不变。每组单独求幂，适合少量询问；大量查询可自行预存64层倍增变换。",
+    "driver": "verify/api/xor_affine64.compact.cpp"
+  },
+  {
+    "symbol": "XorAffine64",
+    "kind": "api",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/XOR-AFFINE64.md",
+    "requires": [
+      "XorAffine64"
+    ],
+    "start_new_page": true,
+    "id": "example-457",
+    "problem": "旋转与AND/OR表达式的复合迭代",
+    "summary": "输入m组shift operation mask，0≤shift<64，operation=0表示rotl(x,shift) OR mask，1表示AND mask；把各项异或，再异或constant得到f(x)。最后输入constant x exponent，输出f迭代exponent次的值。各项都作用于同一个x，不是逐项更新x；属于完整API例子，不冒充原题协议。",
+    "driver": "verify/api/xor_affine_rotations.compact.cpp"
   }
 ]

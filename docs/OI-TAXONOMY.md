@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 220，application 70，composite 8，related 36。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 220，application 71，composite 8，related 36。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -123,6 +123,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | permutation_cycles | 数学 → 组合数学 → Pólya 计数 | direct | Group fixed-point average, cycle decomposition and named-color cyclic/dihedral action; arbitrary modulus with exact division. |
 | MaxPlusMatrix | 数学 → 线性代数 → 矩阵 | application | max-plus 半环矩阵；不是普通域矩阵运算。 |
 | ModMatrix | 数学 → 线性代数 → 矩阵 | direct |  |
+| XorAffine64 | 数学 → 线性代数 → 矩阵 | application | GF(2)上64位仿射映射，常数项与线性列向量分开存储，复合及迭代。 |
 | matrix_inverse | 数学 → 线性代数 → 矩阵 | direct | 素数模方阵求逆，使用 Gauss-Jordan 消元。 |
 | matrix_inverse_mod2 | 数学 → 线性代数 → 矩阵 | direct | F2 上的方阵求逆，uint64_t 按位消元。 |
 | det_prime | 数学 → 线性代数 → 行列式 | direct |  |

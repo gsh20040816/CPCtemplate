@@ -28,7 +28,7 @@ a只取前min(n,2k)行，b仅k行，两者每行截到m列。高度2k的循环�
 
 tests/bivariate_official.py按固定blob清单获取官方源码，检查每个生成输入的官方SHA-256，再检查官方参考程序输出的SHA-256，最后逐项核对本库准确纸面程序。包含500000×1、1×500000、窄长矩形与接近方形。正式用法、API示例与原稿对照分别存档；不把本地官方数据通过写成线上AC。
 
-WIDA12A继续partial：本批只深入核验其二维尾部和一维常数乘法反例，一维主体另见docs/WIDA-RAW-POLY.md，其普通数值结果与UB反例分别记录；原Codeforces应用和全面容量仍未完成逐项审计。12B、两份12D仍待后续审查，不按相同名称视为覆盖。
+WIDA12A继续partial：本批只深入核验其二维尾部和一维常数乘法反例，一维主体另见docs/WIDA-RAW-POLY.md，其普通数值结果与UB反例分别记录；原Codeforces应用和全面容量仍未完成逐项审计。12B与两份12D的后续局部审查分别见WIDA-Z-POLY.md、WIDA-POLY-MULTIPLY.md和WIDA-MINT-POLY.md，仍不按相同名称视为全部完成。
 
 ## 性能与官方数据结果
 

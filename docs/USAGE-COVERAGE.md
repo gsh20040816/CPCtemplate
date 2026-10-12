@@ -77,6 +77,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | GaussMod | [example-24](usage/example-24.cpp), [example-414（应用补充）](usage/example-414.cpp) | locally_checked_example |
 | det_prime | [example-25](usage/example-25.cpp), [example-427（应用补充）](usage/example-427.cpp) | locally_checked_example |
 | ModMatrix | [example-26](usage/example-26.cpp) | locally_checked_example |
+| XorAffine64 | [example-456（接口演示）](usage/example-456.cpp), [example-457（接口演示）](usage/example-457.cpp) | locally_checked_api |
 | matrix_inverse | [example-100](usage/example-100.cpp), [example-101](usage/example-101.cpp) | locally_checked_example |
 | matrix_inverse_mod2 | [example-102](usage/example-102.cpp) | locally_checked_example |
 | determinant_mod | [example-77](usage/example-77.cpp) | locally_checked_example |

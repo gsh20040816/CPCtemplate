@@ -28,7 +28,7 @@ linearRecurrence(p,q,n)实际求有理级数p(x)/q(x)的第n项，使用Bostan�
 
 ## 剩余工作
 
-MInt整文件继续partial：尾部get已由平移幂和模板覆盖，本轮增加BM与Bostan–Mori相关证据；其他MInt、Poly、Comb成员、完整容量与性能、原AtCoder/Codeforces应用仍需核验。Mac当前锁定，原题在线读取无法进行；本批没有新线上AC，也没有OJ排名或SOTA证据。不得用本地通过替换这些未完成项。
+MInt整文件继续partial：尾部get已由平移幂和模板覆盖，本轮增加BM与Bostan–Mori相关证据；MInt/Poly主体及Comb的后续局部验证见WIDA-MINT-POLY.md和下节；完整容量与性能、原AtCoder/Codeforces应用仍需核验。Mac当前锁定，原题在线读取无法进行；本批没有新线上AC，也没有OJ排名或SOTA证据。不得用本地通过替换这些未完成项。
 
 ## Comb增量表补充核验
 

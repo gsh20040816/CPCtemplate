@@ -4548,5 +4548,25 @@
     "cases_per_mode": 3,
     "driver": "verify/api/transposed_convolution.compact.cpp",
     "scope": "Printed usage execution only; no new online AC or comprehensive algorithm proof"
+  },
+  "example-456": {
+    "program_sha256": "17949cc04cd0b49ee09860c438a4bfc30f5550f42a553e204036bfe3f25f5eb1",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 1,
+    "driver": "verify/api/xor_affine64.compact.cpp",
+    "scope": "Printed usage execution only; no new online AC or comprehensive algorithm proof"
+  },
+  "example-457": {
+    "program_sha256": "1f48757b7c49b7b4336770c10eb5775b62ed723eaccedef89dc3395183c682b5",
+    "modes": [
+      "normal",
+      "sanitizer"
+    ],
+    "cases_per_mode": 2,
+    "driver": "verify/api/xor_affine_rotations.compact.cpp",
+    "scope": "Printed usage execution only; no new online AC or comprehensive algorithm proof"
   }
 }

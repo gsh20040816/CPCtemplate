@@ -1,0 +1,19 @@
+{
+  "scope": "Independent bit-matrix application, composition/repeated application and analytic uint64 powers; exact source operator and rotation/AND/OR reader comparisons. No original problem protocol or online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "stdout": "8432 independent affine-bit checks PASS\n"
+    },
+    {
+      "mode": "sanitizer",
+      "stdout": "8432 independent affine-bit checks PASS\n"
+    }
+  ],
+  "files": {
+    "tests/xor_affine64.cpp": "88334427c4b042d23a2617813bc30e3ad832e6fb14e4e886f6719e82266268a5",
+    "tests/xor_affine64.py": "21855202bd5565c1abf354bc6f9b6458b6643101cd55f2b057f4bfd9a53f5c55",
+    "tests/fixtures/wida_matrix/matrix.cpp": "4922e0baad4e387905f60250a2b9681cbf8f2bbe101ecda377539417d86eedc7",
+    "src/compact/xor_affine64.hpp": "7700ea076f945fbbd2d0cdd66354138729f06861f4ad74b91a5abd11c1e7f003"
+  }
+}
