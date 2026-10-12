@@ -1,10 +1,10 @@
-# WIDA 按值平移 Splay 与持久化权值索引：实现检查点
+# WIDA 按值平移 Splay 与持久化权值索引
 
 已读取 `hh2048/XCPC` 的固定blob `4d7c728da88ac87eb4bccaadb44a6640fc784b5f`，原路径为 `03 - jiangly模板收集/04 - 数据结构/07A - Splay.cpp`。完整原文保存在 `tests/fixtures/wida_splay_sources/original.inc`，保留上游来源及许可，未作为本库原创代码重新授权。
 
 旧台账把它概括为“序列Splay+主席树”不够准确：Tree按val有序，split以数值阈值分裂；add对整棵树平移；merge要求两树有序且不交叉。不存在按秩区间翻转，不能用SequenceSplay替代。旁边Node独立保存持久化count/sum，按位置插入、查询单版本区间统计，以及查询两个版本之差中不小于阈值的最小位置。权重不是计数，sum也不是用于判断有没有元素的依据。
 
-原文只给函数片段。引用的AtCoder提交页本轮返回403，未取得完整JOI主程序与题目协议，所以不编造“JOI应用已覆盖”或线上AC。当前补充两个独立vector核心，尚待打印集成和完整用法；来源保持partial。
+原文只给函数片段。引用的AtCoder提交页本轮返回403，未取得完整JOI主程序与题目协议，所以不编造“JOI应用已覆盖”或线上AC。当前两个独立vector核心已接入目录、打印手册及完整API用法；JOI完整协议与线上验证仍待补，来源保持partial。
 
 ## ShiftSplay
 
@@ -30,6 +30,14 @@ insert、split、merge、value均摊O(log(N+1))，单次最坏O(N)，add为O(1)�
 
 独立位置数组保存每个历史分支的count/sum，500组各150次分叉插入，60万次历史区间和合法祖先版本差后继核验；含负权、重复位置、空区间和阈值越界。另验证INT_MAX位置域及LLONG_MIN单权、20万前缀版本的解析计数与权值和。普通与ASan/UBSan均通过。证据 `verification/persistent-weighted-index-core.json`。
 
-## 尚未完成
+## 完整用法与打印验证
 
-本批核心已落库，但不增加已集成的组件/用法计数。需要继续补充：独立完整输入输出例子、实际抄写展开测试、catalog与依赖关系、LaTeX/PDF布局和索引、适用的正式模板题验证。JOI完整应用要在取得实际题面与调用协议后单独判断，不能从片段猜测。原稿逐函数运行对照也未以当前核心测试冒充完成。
+用法430管理同一Splay节点池中的多棵树：槽0初始为空，插入输出稳定节点ID，split保留左侧并创建右侧新槽，merge清空被消耗槽，查询始终更新所属槽的根。用法431展示任意历史版本分叉、区间count/sum与合法祖先版本差的first。它们是明确标注的API演示，不是虚构OJ题目。
+
+`tests/wida_splay_integration.py` 为每份完整程序生成80组各约200次操作的独立历史，用树槽中的元素列表、每个持久化版本的元素列表求真值；普通和ASan/UBSan检查实际打印展开后的程序。`tests/wida_splay_copy.py` 从手册的同一提取逻辑取得代码，在标准头文件上下文中重跑全部核心真值与压力测试，两个构建均通过。对应证据 `verification/wida-splay-integration.json`、`verification/wida-splay-copy.json`。固定示例另经 `tests/usage_examples.py` 检查。
+
+catalog、依赖、OI导航和数据结构分册已整合，计数318组件、431份完整用法。函数边界明确分页，完整用法单页，不通过缩小字号或合并多条语句解决断页。
+
+## 剩余范围
+
+原稿逐函数运行对照尚未完成，当前核心独立真值不冒充原稿测试。JOI完整应用要在取得实际题面与调用协议后单独判断，不能从片段猜测。适用正式模板题及线上判定、速度排名仍待核实，来源条目保持partial；本次不声称全库已完成。

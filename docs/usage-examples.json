@@ -5482,5 +5482,31 @@
       "tree_probability"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-430",
+    "symbol": "ShiftSplay",
+    "kind": "api",
+    "problem": "按值分裂与整体平移 Splay API",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WIDA-SHIFT-SPLAY.md",
+    "summary": "输入q，初始树槽0为空。1 r v插入并输出节点ID；2 r key把槽r保留<key部分，新建槽存>=key部分并输出槽号；3 r delta全树平移；4 r s有序合并到r并清空s（r!=s，且左侧所有值<=右侧）；5 r id输出该槽节点当前值。槽号0-based，ID从1递增，空槽可复用。仅合法操作，所有中间加法需适配signed64。本地API例子，不是OJ判定。",
+    "driver": "verify/api/shift_splay.compact.cpp",
+    "requires": [
+      "ShiftSplay"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-431",
+    "symbol": "PersistentWeightedIndex",
+    "kind": "api",
+    "problem": "持久化计数与权值索引 API",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WIDA-SHIFT-SPLAY.md",
+    "summary": "输入n q，位置域[0,n)、初始版本0为空。1 version pos weight从该版本新增元素并输出新版本号；2 version l r输出[l,r)内count和sum；3 before after key输出版本差中>=key的首位置或-1，要求逐位置计数差非负。旧版本不变，允许分叉和负权。本地API例子，不是OJ判定。",
+    "driver": "verify/api/persistent_weighted_index.compact.cpp",
+    "requires": [
+      "PersistentWeightedIndex"
+    ],
+    "start_new_page": true
   }
 ]

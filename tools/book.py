@@ -29,6 +29,8 @@ chapters['kd_min'] = '静态 K-D Tree 矩形最小权'
 chapters['static_rmq'] = '位掩码静态RMQ'
 chapters['static_rmq_2d'] = '二维静态RMQ'
 chapters['merge_splay'] = '可合并伸展树'
+chapters['shift_splay'] = '按值分裂与整体平移'
+chapters['persistent_weighted_index'] = '历史版本计数与权值索引'
 chapters['dag_longest'] = '有向无环图最长路'
 chapters['floyd'] = '全源最短路'
 chapters['shortest_path_tree'] = '最短路树与最小总边权'
@@ -308,7 +310,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'triangle_incircle', 'tree_probability', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
+            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'triangle_incircle', 'tree_probability', 'ShiftSplay', 'PersistentWeightedIndex', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -338,6 +340,14 @@ for style in ['compact']:
                 body.append(r'\paragraph{来源及MIT许可} 改编自Shahjalal Shohag的带权带花树，固定提交0884be6ab81f（完整提交号见仓库来源记录）。以下许可随本实现保留：')
                 notice = (root / 'docs/weighted-blossom-LICENSE.txt').read_text()
                 body.append(esc(notice))
+            elif name in ('ShiftSplay', 'PersistentWeightedIndex'):
+                tokens = ['void rotate(', 'pair<int, int> split('] if name == 'ShiftSplay' else ['int add(']
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
+                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
+                    if j:
+                        body.append(r'\newpage')
+                        body.append(r'\noindent 接上页同一结构体：')
+                    body.append(r'\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'tree_probability':
                 split = next(i for i in range(start, end) if 'vector<vector<long double>> a(' in lines[i])
                 body.append('必选森林与分量编号（同一函数连续抄写）：')

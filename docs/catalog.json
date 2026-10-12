@@ -810,6 +810,12 @@
     "PersistentArray(a,changes=0)，a 是非空 0-based 初值数组；第 0 版为初始状态。set(version,pos,value) 基于任意已有版本修改 1-based 位置，创建并返回新版本编号；copy(version) 以 O(1) 时间复制版本；query(version,pos) 只读且不自动创建版本。values 支持 long long 全范围。每次修改复制根到叶的节点，旧版本不变；build 为内部函数，不可覆盖历史节点。建树 O(n)，修改及查询 O(log n)，初始 2n-1 个节点，每次修改至多 ceil(log2(n))+1 个；总空间 O(n+修改数*log n+版本数)。changes 仅用于预留节点池，低估后可扩容，所有外部引用应使用下标，不保存 vector 元素引用。节点下标用 int，节点总量须可表示。"
   ],
   [
+    "persistent_weighted_index",
+    "PersistentWeightedIndex",
+    "持久化计数与权值索引",
+    "PersistentWeightedIndex(n)，位置域[0,n)，n为正int，版本0为空。add(version,pos,weight)从任意已有版本分叉，新增一个元素，count加1、sum加weight，返回新版本号；weight允许负数。query(version,l,r)返回半开区间的{count,sum}，空区间合法。first(before,after,key)返回计数版本差中>=key的最小位置，无结果-1；key可越界。必须保证after-before逐位置计数非负，祖先版本与后代版本满足此前提，任意两个分支不一定满足。后继按count判断，不按sum。\n\n每次插入新增O(log(n+1))节点，query/first时间O(log(n+1))，查询不分配节点。元素计数、版本数和节点数需可用int编号；所有节点权值和及查询累加中间结果须适配signed64。两次query相减可得区间版本差，但减法也需防溢出。内部根与辅助函数不可外部修改，对象复制独立。"
+  ],
+  [
     "support_hull",
     "SupportHull",
     "支撑点查询恢复下凸包",
@@ -1456,6 +1462,12 @@
     "SequenceSplay",
     "区间翻转 Splay 与固定编号定位",
     "SequenceSplay(n)建立原编号0..n−1的序列，允许n=0，要求n≤INT_MAX−3且内存足够。reverse(l,r)翻转当前0-based半开区间[l,r)，允许空区间；pos(id)返回原编号id的当前位置；at(k)返回当前位置k的原编号；order()按当前顺序返回全部原编号。值由调用方按原编号存储，重复值不会合并。\n\n初建O(n)，pos/at/reverse均摊O(log(n+1))、单次最坏O(n)，order为O(n)，空间O(n)；不含插入、删除和数值聚合。所有辅助函数与a/root/n约定内部只读，pos/at会伸展并改变树形。两哨兵不暴露给用户；节点编号不随旋转变化。build/祖先下传/遍历均递归，退化时深度O(n)，调用方保证栈空间。支持独立值拷贝；重置用新建对象赋值。"
+  ],
+  [
+    "shift_splay",
+    "ShiftSplay",
+    "按值分裂与整体平移 Splay",
+    "空构造，根0为空；同一对象内可管理多棵互不相交的树。insert(root,value)通过引用更新根，返回稳定的1-based节点ID；重复值允许。split(root,key)消耗旧根，返回值<key与>=key两棵根。add(root,delta)全树平移。merge(left,right)消耗两根，要求左树所有值<=右树所有值；不是任意集合合并。value(root,id)读取本树节点并通过引用更新根，节点ID稳定，根会变化。所有根和ID必须属于同一对象，id必须属于给定树；消耗后的旧根不能再当独立树使用。\n\ninsert/split/merge/value均摊O(log(N+1))，单次最坏O(N)，add为O(1)，空间O(N)，不回收节点。所有实际值及val/lazy每次加法中间结果须适配signed64；最终值合法不能代替懒标记不溢出的要求。祖先下传递归，需O(N)栈空间。对象复制独立，辅助函数与a仅供内部实现。"
   ],
   [
     "merge_splay",
