@@ -1,0 +1,53 @@
+{
+  "scope": "Local dependent multiply-add chain, constant modulus 998244353, C++20 O2; no OJ or universal performance claim",
+  "iterations": 10000000,
+  "runs": [
+    {
+      "repeat": 0,
+      "mode": "ordinary",
+      "checksum": 418515607,
+      "seconds": 0.035387
+    },
+    {
+      "repeat": 0,
+      "mode": "montgomery",
+      "checksum": 418515607,
+      "seconds": 0.042061
+    },
+    {
+      "repeat": 1,
+      "mode": "montgomery",
+      "checksum": 418515607,
+      "seconds": 0.041516
+    },
+    {
+      "repeat": 1,
+      "mode": "ordinary",
+      "checksum": 418515607,
+      "seconds": 0.035425
+    },
+    {
+      "repeat": 2,
+      "mode": "ordinary",
+      "checksum": 418515607,
+      "seconds": 0.035524
+    },
+    {
+      "repeat": 2,
+      "mode": "montgomery",
+      "checksum": 418515607,
+      "seconds": 0.042101
+    }
+  ],
+  "median_seconds": {
+    "ordinary": 0.035425,
+    "montgomery": 0.042061
+  },
+  "ratio": 1.1873253352152435,
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/montgomery_modint.hpp": "140724eb8112b1ef45d0cd2508981fcf46f0343045a59e6d2c21d3cf82e58130",
+    "tests/montgomery_benchmark.cpp": "9a9e870ce22b25a0a0b20fd5f4a2c05ec3a84881b729fbff25c60f2cc9f22eba",
+    "tests/montgomery_benchmark.py": "aeafde0cccc46b90a52ec4f25b101f3f13ba98646b878bf6145c109074be6502"
+  }
+}

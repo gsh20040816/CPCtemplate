@@ -1,0 +1,23 @@
+{
+  "source_blob": "17db0d506f744f101a8b40329b0e649265320b1a",
+  "scope": "Exact 07D source helpers against brute roots, multiplicative cycles, and power-of-two boundaries; no online AC",
+  "runs": [
+    {
+      "mode": "normal",
+      "output": "4498 source-helper checks; overflow above 2^63 confirmed"
+    },
+    {
+      "mode": "sanitizer",
+      "output": "4498 source-helper checks; overflow above 2^63 confirmed"
+    }
+  ],
+  "files": {
+    "src/compact/montgomery_modint.hpp": "140724eb8112b1ef45d0cd2508981fcf46f0343045a59e6d2c21d3cf82e58130",
+    "tests/montgomery_helpers.cpp": "5912139282873e2c2aeecf02c0ba8b7e8c6f487bdafb2a5b285dd8fe3d2914f7",
+    "tests/montgomery_helpers.py": "79e928e70a21fc0e1981e45de4a2bbd257d4748e13ba3f986fd737305dbeaa23",
+    "tests/fixtures/wida_mod_reduction/07D.cpp": "ff61a5efac08e6a1e0854db16019682e21c3863fc6e7b57b9e0fe9fb58b2a7af",
+    "src/compact/primitive_root.hpp": "7128aeceeeb02de5fbc37a0a34332cc83b874f2ff83746fef37d4b05d87f809a",
+    "src/compact/modular_sqrt.hpp": "b35d0cf49b3dc630db16ccc045a0f84d5e00c9f48cdbc0bfac0b280270bdd2a3",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9"
+  }
+}

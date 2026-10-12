@@ -186,6 +186,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | segtree | [example-78](usage/example-78.cpp) | locally_checked_example |
 | lazy_segtree | [example-79](usage/example-79.cpp) | locally_checked_example |
 | Barrett32 | [example-447（接口演示）](usage/example-447.cpp) | locally_checked_api |
+| Montgomery | [example-448（接口演示）](usage/example-448.cpp) | locally_checked_api |
 | mint | [example-198](usage/example-198.cpp) | locally_checked_example |
 | batch_units | [example-198](usage/example-198.cpp) | locally_checked_example |
 | convolution_i64 | [example-52](usage/example-52.cpp) | locally_checked_example |

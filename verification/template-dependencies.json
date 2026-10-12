@@ -1,7 +1,7 @@
 {
-  "templates": 308,
-  "direct_edges": 163,
-  "usages": 413,
+  "templates": 330,
+  "direct_edges": 175,
+  "usages": 448,
   "transitive_closure": {
     "CartesianTree": [],
     "SteinerTree": [],
@@ -142,7 +142,9 @@
     ],
     "pheap": [],
     "batch_units": [],
-    "mint": [],
+    "mint": [
+      "Barrett32"
+    ],
     "lazy_segtree": [],
     "segtree": [],
     "rp": [],
@@ -454,6 +456,7 @@
       "ModInt",
       "det_prime"
     ],
+    "tree_probability": [],
     "MatrixTreeMod": [
       "determinant_mod"
     ],
@@ -516,6 +519,13 @@
       "ModInt",
       "NttConvolution"
     ],
+    "Montgomery": [],
+    "Barrett32": [],
+    "CompositeBinomial": [],
+    "q_binomial": [],
+    "Rational": [],
+    "DynamicPeachTree": [],
+    "XorPathSum": [],
     "exkmp": [
       "z_function"
     ],
@@ -540,6 +550,13 @@
     "StaticRMQ": [],
     "StaticRMQ2D": [],
     "MergeSplay": [],
+    "SequenceMaxTreap": [],
+    "offline_rectangle_sum": [
+      "Fenwick"
+    ],
+    "ShiftSplay": [],
+    "PersistentWeightedIndex": [],
+    "PersistentParityIndex": [],
     "DagLongest": [],
     "Floyd": [],
     "ShortestPathTree": [],
@@ -597,6 +614,22 @@
     "circle_union_area": [
       "RealPlane"
     ],
+    "circle_coverage_area": [
+      "RealPlane"
+    ],
+    "minimum_rectangle": [
+      "RealPlane"
+    ],
+    "convex_cut": [
+      "RealPlane"
+    ],
+    "polygon_centroid": [
+      "RealPlane"
+    ],
+    "triangle_incircle": [
+      "RealPlane"
+    ],
+    "BigInteger": [],
     "Simplex": [],
     "grid_cycle": [],
     "ColorMax": [
@@ -608,6 +641,10 @@
     "grid_cycles": [],
     "digit_count": [],
     "Mo": [],
+    "manhattan_order": [
+      "ManhattanMST",
+      "dsu"
+    ],
     "TreeMo": [
       "HLD"
     ],
@@ -640,7 +677,21 @@
       "determinant_exact"
     ],
     "AdaptiveSimpson": [],
-    "EightPuzzle": []
+    "EightPuzzle": [],
+    "stirling_first_column": [
+      "FpsFunctions",
+      "FpsInverse",
+      "FpsPower",
+      "ModInt",
+      "NttConvolution"
+    ],
+    "stirling_second_column": [
+      "FpsFunctions",
+      "FpsInverse",
+      "FpsPower",
+      "ModInt",
+      "NttConvolution"
+    ]
   },
   "scope": "Catalog identifiers in actual code, including inheritance; comments and strings excluded. Standard-library names and caller-supplied generic parameters are not catalog dependencies. All usage requires link to local sections; full transitive named dependencies included in six volumes."
 }

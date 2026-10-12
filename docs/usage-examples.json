@@ -5732,5 +5732,18 @@
       "Barrett32"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-448",
+    "symbol": "Montgomery",
+    "kind": "api",
+    "problem": "Montgomery 固定模整数 API",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/MONTGOMERY.md",
+    "summary": "固定模998244353。每组输入signed64整数a、b与uint64非负指数k，依次输出a+b、a-b、a*b、a^k、b逆元，均正规化；b不可逆输出-1。内部v不能直接输出，须get()。",
+    "driver": "verify/api/montgomery.compact.cpp",
+    "requires": [
+      "Montgomery"
+    ],
+    "start_new_page": true
   }
 ]

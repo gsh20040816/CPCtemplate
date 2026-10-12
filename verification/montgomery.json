@@ -1,0 +1,20 @@
+{
+  "source_blob": "17db0d506f744f101a8b40329b0e649265320b1a",
+  "scope": "Montgomery arithmetic; helper coverage separate; no online AC",
+  "runs": [
+    {
+      "mode": "normal",
+      "output": "3169015 checks; original zero-power and composite-inverse counterexamples confirmed"
+    },
+    {
+      "mode": "sanitizer",
+      "output": "3169015 checks; original zero-power and composite-inverse counterexamples confirmed"
+    }
+  ],
+  "files": {
+    "src/compact/montgomery_modint.hpp": "140724eb8112b1ef45d0cd2508981fcf46f0343045a59e6d2c21d3cf82e58130",
+    "tests/montgomery.cpp": "700f16fbd224a05a64a12f4fae09d2def4da80db2f30d4a373c7499d4ff3fa90",
+    "tests/montgomery.py": "d5fc7e693ddfc5f5c012648e2bbeb40ffba046f51b141c8fb9ddee3de9f34a99",
+    "tests/fixtures/wida_mod_reduction/07D.cpp": "ff61a5efac08e6a1e0854db16019682e21c3863fc6e7b57b9e0fe9fb58b2a7af"
+  }
+}

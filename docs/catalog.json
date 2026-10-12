@@ -1074,6 +1074,12 @@
     "Barrett32(m)预计算运行时模数的64位倒数，1≤m≤UINT32_MAX；mul(a,b)要求0≤a,b<m，返回a*b mod m的规范uint32余数。构造O(1)且含一次64位除法，此后的每次乘法只用整数乘法、取高位和一次校正，不使用浮点数或整数除法。对象可复制，多个对象的模数互不影响；mod和reciprocal只读，需要换模时重新构造。\n\n令R=2^64，m>1时reciprocal=ceil(R/m)，估计商只可能等于真实商或多1。用64位z<q*m判断是否多减一次，再补回m；不要先截成32位后比较，这在大于INT_MAX的模数下会错误。m=1时规范输入只能为0，倒数按unsigned64回绕为0，返回0。依赖GNU/Clang的uint128乘法；不适用于64位模数，后者仍用Mod64。"
   ],
   [
+    "montgomery_modint",
+    "Montgomery",
+    "Montgomery固定模整数",
+    "Montgomery<P> 为可选固定模整数，要求奇数1<P<2^30，允许合数。构造接受完整long long并正规化；get()返回普通余数。v是[0,P)内的Montgomery表示，只读，不能作为普通余数使用或直接赋值。加减乘与一元负号O(1)，乘法不用除法；比较直接比较规范内部表示。pow(k)保留完整uint64非负指数，约定0^0=1，不把指数对P-1取模。try_inv()用扩展欧几里得，非单位返回nullopt；inv与除法要求除数可逆，复杂度O(log P)。\n\n内部取R=2^32，neg_inv=-P^{-1} mod R，r2=R^2 mod P；reduce(x)要求x<P*R，以q=(x mod R)*neg_inv mod R使x+qP能被R整除，再取高32位并最多减P。x+qP<2PR<2^63；核心只用uint64。乘积和构造均满足输入界。inverse32/reduce为内部辅助；原根、模平方根另用已有模板。本类型不替换普通ModInt或动态mint，不保证所有平台都比编译期常模取余快。"
+  ],
+  [
     "dynamic_modint",
     "mint",
     "动态模整数与合数模逆元",
