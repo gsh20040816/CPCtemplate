@@ -1,0 +1,101 @@
+{
+  "scope": "Exact WIDA05 positive canonical fixed-capacity arithmetic versus independent Python integers and current BigInteger; separately expected zero/carry/overflow failures and alias wrong answer. No original application or online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "task": "normal",
+      "returncode": 0,
+      "cases": 1068,
+      "stdout_sha256": "c871641aa10c6f89f6d152b1463dd3ad4b8dcc2b849d70a47b7d9ba4fd066b4b",
+      "stdout": "1068 Python-checked arithmetic cases PASS",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "task": "alias",
+      "returncode": 0,
+      "cases": 1,
+      "stdout_sha256": "75302292ff2be33e04f19f5206f870bf387a282a8dffb0b087fb511040266b85",
+      "stdout": "28 18\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "task": "current",
+      "returncode": 0,
+      "cases": 4,
+      "stdout_sha256": "df4e97de699c6482f2ef3c2f7235b529ceb26925b40b99318a7577781114acf4",
+      "stdout": "0\n10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\n19327352823\n4 1410065412\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "normal",
+      "returncode": 0,
+      "cases": 1068,
+      "stdout_sha256": "c871641aa10c6f89f6d152b1463dd3ad4b8dcc2b849d70a47b7d9ba4fd066b4b",
+      "stdout": "1068 Python-checked arithmetic cases PASS",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "alias",
+      "returncode": 0,
+      "cases": 1,
+      "stdout_sha256": "75302292ff2be33e04f19f5206f870bf387a282a8dffb0b087fb511040266b85",
+      "stdout": "28 18\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "current",
+      "returncode": 0,
+      "cases": 4,
+      "stdout_sha256": "df4e97de699c6482f2ef3c2f7235b529ceb26925b40b99318a7577781114acf4",
+      "stdout": "0\n10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\n19327352823\n4 1410065412\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "zero",
+      "returncode": -6,
+      "cases": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stderr": "=================================================================\n==38942==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x00016dcf659c at pc 0x000102101744 bp 0x00016dcf5b60 sp 0x00016dcf5b78\nREAD of size 4 at 0x00016dcf659c thread T0\n==38942==WARN: Invalid dyld module map detected. This is most likely a bug in the sanitizer.\n==38942==WARN: Backtraces may be unreliable.\n    #0 0x000102101740 in original::operator<<(std::ostream&, original::BigInt const&) bigint.cpp:47\n    #1 0x000102117820 in main wida_bigint.cpp:31\n    #2 0x00019d4c7e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\nAddress 0x00016dcf659c is located in stack of thread T0 at offset 2300 in frame\n    #0 0x000102117440 in main wida_bigint.cpp:27\n\n  This frame has 50 object(s):\n    [48, 49) '<unknown>'\n    [64, 65) '<unknown>'\n    [80, 81) '<unknown>'\n    [96, 97) '<unknown>'\n    [112, 113) '<unknown>'\n    [128, 129) 'op' (line 72)\n    [144, 148) 'x' (line 87)\n    [160, 168) '__diffmax'\n    [192, 200) '__allocmax'\n    [224, 232) '__diffmax'\n    [256, 264) '__allocmax'\n    [288, 320) 'task' (line 28)\n    [352, 384) '<unknown>'\n    [416, 448) '<unknown>'\n    [480, 512) 'b' (line 59)\n    [544, 576) '<unknown>'\n    [608, 640) '<unknown>'\n    [672, 704) '<unknown>'\n    [736, 768) '<unknown>'\n    [800, 832) '<unknown>'\n    [864, 896) '<unknown>'\n    [928, 960) '<unknown>'\n    [992, 1024) '<unknown>'\n    [1056, 1088) '<unknown>'\n    [1120, 1152) '<unknown>'\n    [1184, 1216) '<unknown>'\n    [1248, 1280) '<unknown>'\n    [1312, 1344) '<unknown>'\n    [1376, 1408) '<unknown>'\n    [1440, 1472) '<unknown>'\n    [1504, 1536) '<unknown>'\n    [1568, 1600) 's' (line 73)\n    [1632, 1664) 'b' (line 77)\n    [1696, 1728) 't' (line 80)\n    [1760, 1792) '<unknown>'\n    [1824, 1856) '<unknown>'\n    [1888, 1920) '<unknown>'\n    [1952, 1984) '<unknown>'\n    [2016, 2048) '<unknown>'\n    [2080, 2112) '<unknown>'\n    [2144, 2184) 'result' (line 68)\n    [2224, 2264) '<unknown>'\n    [2304, 6304) '<unknown>' <== Memory access at offset 2300 underflows this variable\n    [6432, 10432) 'a' (line 36)\n    [10560, 14560) '<unknown>'\n    [14688, 18688) 'a' (line 43)\n    [18816, 22816) 'a' (line 50)\n    [22944, 26944) 'a' (line 57)\n    [27072, 31072) 'a' (line 76)\n    [31200, 35200) '<unknown>'\nHINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork\n      (longjmp and C++ exceptions *are* supported)\nSUMMARY: AddressSanitizer: stack-buffer-overflow bigint.cpp:47 in original::operator<<(std::ostream&, original::BigInt const&)\nShadow bytes around the buggy address:\n  0x00016dcf6300: 00 00 00 00 f2 f2 f2 f2 00 00 00 00 f2 f2 f2 f2\n  0x00016dcf6380: 00 00 00 00 f2 f2 f2 f2 00 00 00 00 f2 f2 f2 f2\n  0x00016dcf6400: 00 00 00 00 f2 f2 f2 f2 00 00 00 00 f2 f2 f2 f2\n  0x00016dcf6480: 00 00 00 00 f2 f2 f2 f2 00 00 00 00 f2 f2 f2 f2\n  0x00016dcf6500: 00 00 00 00 00 f2 f2 f2 f2 f2 00 00 00 00 00 f2\n=>0x00016dcf6580: f2 f2 f2[f2]00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016dcf6600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016dcf6680: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016dcf6700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016dcf6780: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016dcf6800: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==38942==ABORTING\n"
+    },
+    {
+      "mode": "sanitizer",
+      "task": "carry",
+      "returncode": -6,
+      "cases": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_bigint/bigint.cpp:37:24: runtime error: load of address 0x00016fd78560 with insufficient space for an object of type 'int'\n0x00016fd78560: note: pointer points here\n=================================================================\n==38944==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x00016fd78560 at pc 0x0001009abd58 bp 0x00016fd74f10 sp 0x00016fd74f50\nREAD of size 32 at 0x00016fd78560 thread T0\n==38944==WARN: Invalid dyld module map detected. This is most likely a bug in the sanitizer.\n==38944==WARN: Backtraces may be unreliable.\n    #0 0x0001009abd54 in write+0x104 (libasan.8.dylib:arm64+0x23d54)\n    #1 0x000100ff7360 in __sanitizer::internal_write(int, void const*, unsigned long)+0x1c (libubsan.1.dylib:arm64+0x13360)\n    #2 0x000100097d40 in main wida_bigint.cpp:37\n    #3 0x00019d4c7e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\nAddress 0x00016fd78560 is located in stack of thread T0 at offset 10432 in frame\n    #0 0x000100097440 in main wida_bigint.cpp:27\n\n  This frame has 50 object(s):\n    [48, 49) '<unknown>'\n    [64, 65) '<unknown>'\n    [80, 81) '<unknown>'\n    [96, 97) '<unknown>'\n    [112, 113) '<unknown>'\n    [128, 129) 'op' (line 72)\n    [144, 148) 'x' (line 87)\n    [160, 168) '__diffmax'\n    [192, 200) '__allocmax'\n    [224, 232) '__diffmax'\n    [256, 264) '__allocmax'\n    [288, 320) 'task' (line 28)\n    [352, 384) '<unknown>'\n    [416, 448) '<unknown>'\n    [480, 512) 'b' (line 59)\n    [544, 576) '<unknown>'\n    [608, 640) '<unknown>'\n    [672, 704) '<unknown>'\n    [736, 768) '<unknown>'\n    [800, 832) '<unknown>'\n    [864, 896) '<unknown>'\n    [928, 960) '<unknown>'\n    [992, 1024) '<unknown>'\n    [1056, 1088) '<unknown>'\n    [1120, 1152) '<unknown>'\n    [1184, 1216) '<unknown>'\n    [1248, 1280) '<unknown>'\n    [1312, 1344) '<unknown>'\n    [1376, 1408) '<unknown>'\n    [1440, 1472) '<unknown>'\n    [1504, 1536) '<unknown>'\n    [1568, 1600) 's' (line 73)\n    [1632, 1664) 'b' (line 77)\n    [1696, 1728) 't' (line 80)\n    [1760, 1792) '<unknown>'\n    [1824, 1856) '<unknown>'\n    [1888, 1920) '<unknown>'\n    [1952, 1984) '<unknown>'\n    [2016, 2048) '<unknown>'\n    [2080, 2112) '<unknown>'\n    [2144, 2184) 'result' (line 68)\n    [2224, 2264) '<unknown>'\n    [2304, 6304) '<unknown>'\n    [6432, 10432) 'a' (line 36) <== Memory access at offset 10432 overflows this variable\n    [10560, 14560) '<unknown>'\n    [14688, 18688) 'a' (line 43)\n    [18816, 22816) 'a' (line 50)\n    [22944, 26944) 'a' (line 57)\n    [27072, 31072) 'a' (line 76)\n    [31200, 35200) '<unknown>'\nHINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork\n      (longjmp and C++ exceptions *are* supported)\nSUMMARY: AddressSanitizer: stack-buffer-overflow wida_bigint.cpp:37 in main\nShadow bytes around the buggy address:\n  0x00016fd78280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016fd78300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016fd78380: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016fd78400: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016fd78480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n=>0x00016fd78500: 00 00 00 00 00 00 00 00 00 00 00 00[f2]f2 f2 f2\n  0x00016fd78580: f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 f2 00 00 00 00\n  0x00016fd78600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016fd78680: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016fd78700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00016fd78780: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==38944==ABORTING\n"
+    },
+    {
+      "mode": "sanitizer",
+      "task": "multiply",
+      "returncode": -6,
+      "cases": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_bigint/bigint.cpp:16:18: runtime error: signed integer overflow: 9 * 2147483647 cannot be represented in type 'int'\n"
+    },
+    {
+      "mode": "sanitizer",
+      "task": "divide",
+      "returncode": -6,
+      "cases": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_bigint/bigint.cpp:27:38: runtime error: signed integer overflow: 1000000000 * 10 cannot be represented in type 'int'\n"
+    }
+  ],
+  "files": {
+    "tests/wida_bigint.cpp": "7a3384dffdefea60c69465972a90921d749f9f11f6e121de8e197ec38d391008",
+    "tests/wida_bigint.py": "9a95456437c62bd02829cf0fae891f04c1531a66948d7487d2738b464dd5a1a2",
+    "tests/fixtures/wida_bigint/bigint.cpp": "053ea4ab859ed4dfcc1f31c3053fa10829f509437b7bf02742772ee451539958",
+    "src/compact/big_integer.hpp": "8db5f1195af5ba3bc4d561d22f77971af19a20430ed9418928520dcc3ce5aaa8"
+  }
+}
