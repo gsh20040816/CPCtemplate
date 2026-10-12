@@ -7,18 +7,30 @@ struct FpsInverse : NttConvolution<998244353>
 
     static Poly inverse(const Poly &a, int n)
     {
-        assert(n > 0 && !a.empty() && a[0].v);
+        assert(n > 0 && n <= max_size && !a.empty() && a[0].v);
         Poly b{a[0].inv()};
         while ((int)b.size() < n)
         {
-            int m = min(n, 2 * (int)b.size());
+            int k = b.size(), len = 2 * k;
+            int m = min(n, len);
             Poly f(a.begin(), a.begin() + min(m, (int)a.size()));
-            auto t = multiply(f, b);
-            t.resize(m);
-            for (auto &x : t) x = Z(0) - x;
-            t[0] = t[0] + 2;
-            b = multiply(b, t);
+            Poly g = b;
+            f.resize(len);
+            g.resize(len);
+            ntt(f);
+            ntt(g);
+            for (int i = 0; i < len; i++)
+                f[i] *= g[i];
+            ntt(f, true);
+            // Only the high half of a*b is free of cyclic wraparound.
+            fill(f.begin(), f.begin() + k, Z(0));
+            ntt(f);
+            for (int i = 0; i < len; i++)
+                f[i] *= g[i];
+            ntt(f, true);
             b.resize(m);
+            for (int i = k; i < m; i++)
+                b[i] = Z(0) - f[i];
         }
         return b;
     }

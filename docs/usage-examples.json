@@ -1425,7 +1425,8 @@
       "mod_sqrt",
       "FpsSqrt"
     ],
-    "kind": "template"
+    "kind": "template",
+    "start_new_page": true
   },
   {
     "id": "example-118",
@@ -1456,7 +1457,8 @@
       "mod_sqrt",
       "FpsSqrt"
     ],
-    "kind": "template"
+    "kind": "template",
+    "start_new_page": true
   },
   {
     "id": "example-120",
@@ -5766,7 +5768,7 @@
     "kind": "api",
     "problem": "形式幂级数平方根倒数与重复调用",
     "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WIDA-MONTGOMERY-POLY.md",
-    "summary": "输入多组n项级数，1≤n≤2^22，模998244353；求所选平方根的逆元模x^n，平方根首项取较小根。无平方根或常数项为0时输出-1。先FpsSqrt::sqrt，再检查首项非零，最后FpsInverse::inverse；同一进程支持多组调用。",
+    "summary": "输入多组n项级数，1≤n≤2^22，模998244353；inverse_sqrt直接求所选平方根的逆元模x^n，平方根首项取较小根。无平方根或常数项为0时输出-1。同一进程支持多组调用，不必先开方再求逆。",
     "driver": "verify/api/fps_inverse_sqrt.compact.cpp",
     "requires": [
       "ModInt",

@@ -13,48 +13,62 @@ template <int mod, int primitive = 3> struct NttConvolution
     {
         int n = a.size();
         assert(n > 0 && (n & (n - 1)) == 0 && n <= max_size);
+        static Poly roots{0, 1};
+        for (int half = roots.size(); half < n; half *= 2)
+        {
+            Z step = Z(primitive).pow((mod - 1) / (2 * half));
+            roots.resize(2 * half);
+            for (int i = half / 2; i < half; i++)
+            {
+                roots[2 * i] = roots[i];
+                roots[2 * i + 1] = roots[i] * step;
+            }
+        }
         for (int i = 1, j = 0; i < n; i++)
         {
             int bit = n >> 1;
-            for (; j & bit; bit >>= 1) j ^= bit;
+            for (; j & bit; bit >>= 1)
+                j ^= bit;
             j ^= bit;
-            if (i < j) swap(a[i], a[j]);
+            if (i < j)
+                swap(a[i], a[j]);
         }
         for (int half = 1; half < n; half *= 2)
         {
-            int len = half * 2;
-            Z step = Z(primitive).pow((mod - 1) / len);
-            if (invert) step = step.inv();
-            for (int i = 0; i < n; i += len)
+            for (int i = 0; i < n; i += 2 * half)
             {
-                Z w = 1;
                 for (int j = 0; j < half; j++)
                 {
-                    Z u = a[i + j], v = a[i + j + half] * w;
+                    Z u = a[i + j];
+                    Z v = a[i + j + half] * roots[half + j];
                     a[i + j] = u + v;
                     a[i + j + half] = u - v;
-                    w = w * step;
                 }
             }
         }
         if (invert)
         {
+            reverse(a.begin() + 1, a.end());
             Z inverse = Z(n).inv();
-            for (auto &x : a) x = x * inverse;
+            for (auto &x : a)
+                x *= inverse;
         }
     }
 
     static Poly multiply(Poly a, Poly b)
     {
-        if (a.empty() || b.empty()) return {};
+        if (a.empty() || b.empty())
+            return {};
         assert(a.size() + b.size() - 1 <= max_size);
         int size = a.size() + b.size() - 1, n = 1;
-        while (n < size) n *= 2;
+        while (n < size)
+            n *= 2;
         a.resize(n);
         b.resize(n);
         ntt(a);
         ntt(b);
-        for (int i = 0; i < n; i++) a[i] = a[i] * b[i];
+        for (int i = 0; i < n; i++)
+            a[i] *= b[i];
         ntt(a, true);
         a.resize(size);
         return a;

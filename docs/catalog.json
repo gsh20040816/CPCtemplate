@@ -357,7 +357,7 @@
     "ntt_convolution",
     "NttConvolution",
     "可指定素数与原根的 NTT 卷积",
-    "声明 NttConvolution<mod, primitive>，primitive 默认 3。mod 必须为 int 范围内的素数，primitive 是模 mod 原根；不在接口内验证素性或阶。max_size 是 mod-1 的最大二次幂因子。ntt(a,invert) 原地变换，长度须为正二次幂且不超过 max_size；invert=true 为逆变换。multiply(a,b) 返回普通卷积，任一为空则为空；非空时长度和减一不超过 max_size。元素类型 Z，数组类型 Poly。O(n log n) 时间、O(n) 空间。998244353 和 167772161 均可用原根 3。"
+    "声明 NttConvolution<mod, primitive>，primitive 默认 3。mod 必须为 int 范围内的素数，primitive 是模 mod 原根；不在接口内验证素性或阶。max_size 是 mod-1 的最大二次幂因子。ntt(a,invert) 原地变换，长度须为正二次幂且不超过 max_size；invert=true 为逆变换。multiply(a,b) 返回普通卷积，任一为空则为空；非空时长度和减一不超过 max_size。元素类型 Z，数组类型 Poly。O(n log n) 时间；每种mod/primitive实例缓存分层单位根，空间O(历次最大变换长度)，同一实例调用时不并发扩容。输入输出均为自然顺序，逆变换复用正变换后翻转下标1..n-1并乘n的逆元。998244353 和 167772161 均可用原根 3。"
   ],
   [
     "stirling",
@@ -375,7 +375,7 @@
     "fps_inverse",
     "FpsInverse",
     "形式幂级数求逆",
-    "FpsInverse::inverse(a,n) 返回 a 的逆级数前 n 项，模数固定 998244353。要求 n>0、a 非空且 a[0]≠0；不足项视为零，多余项只取需要的前缀。继承 NttConvolution<998244353> 的 Poly、Z、multiply，按 Newton 公式 b←b(2-ab) 倍增。所有内部卷积结果长度须≤2²³，n≤2²² 是统一充分界。O(n log n) 时间、O(n) 辅助空间。"
+    "FpsInverse::inverse(a,n) 返回 a 的逆级数前 n 项，模数固定 998244353。要求 1≤n≤2²³、a 非空且 a[0]≠0；a.size()在int范围内，不足项视为零，多余项只取需要前缀。继承 NttConvolution<998244353> 的 Poly、Z、multiply。Newton公式b←b(2-ab)只更新新增高半段：长度2k循环卷积的回绕只污染低k项，清除低半段后再乘b，高半段即修正项。每轮五次长度2k变换，复用b的频域值。O(n log n)时间、O(n)工作空间；单位根缓存另按NTT约定。"
   ],
   [
     "fps_functions",
@@ -1257,7 +1257,7 @@
     "fps_sqrt",
     "FpsSqrt",
     "形式幂级数开根（含前导零与无解）",
-    "FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回 nullopt；有解返回恰好 n 项，n=0 返回有值的空 vector。要求 0≤n≤2²²、a.size() 在 int 范围内；仅看输入前 n 项，不足补零。全零返回全零；首个非零项次数 k 为奇数或该系数为非二次剩余时无解。否则提出 x^k，首项选两个模平方根中较小者，Newton 迭代 b←(b+a/b)/2；最后乘 x^(k/2)，未被条件确定的末 k/2 项取零。这只是确定地返回一个解，不枚举全部根。依赖 mod_sqrt、FpsInverse 与 NttConvolution。时间 O(n log(n+1)) 加一次标量开根的期望 O(log mod)，额外空间 O(n)。P5205 保证 a[0]=1，得到常数项为 1 的根。"
+    "FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模998244353；无解为nullopt，有解恰好n项。0≤n≤2²²、a.size()在int范围内，仅看前n项，不足补零；n=0返回有值空vector。全零返回全零，首个非零项次数k为奇数或系数非二次剩余时无解。否则提出x^k，首项选较小模平方根，末尾未确定的k/2项取零。inverse_sqrt(a,n)直接求所选根的逆：n>0时要求常数项非零且为二次剩余，否则nullopt；n=0仍返回空。按b←(3b-ab³)/2倍增，长度4k的循环卷积只回绕到低k项，保留旧低半段、更新高半段；sqrt再乘原级数并移位。不枚举全部根。依赖mod_sqrt、FpsInverse、NTT；O(n log(n+1))时间加一次标量开根的期望O(log mod)，O(n)工作空间，单位根缓存另按NTT约定。P5205的a[0]=1得到首项1。"
   ],
   [
     "fps_power",

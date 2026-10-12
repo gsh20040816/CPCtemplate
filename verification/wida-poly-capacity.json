@@ -1,0 +1,20 @@
+{
+  "scope": "Original 12C convolution/inverse/first inverse-root capacity at 998244353,167772161,469762049; independent small convolution and analytic full-length outputs. Mod97 hidden root-table precondition counterexample. Not all operations/moduli, repeated inverse-root, applications, or online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "output": "mod97 original convolution: 9 8 8 8 8 8 8 8 2 2 2 2 2 2 2 2 0; mismatches 15\n998244353 original 2^21 convolution/inverse/first inverse-root PASS\n167772161 original 2^21 convolution/inverse/first inverse-root PASS\n469762049 original 2^21 convolution/inverse/first inverse-root PASS\n18878337 capacity/other-prime checks PASS\n"
+    },
+    {
+      "mode": "sanitizer",
+      "output": "mod97 original convolution: 9 8 8 8 8 8 8 8 2 2 2 2 2 2 2 2 0; mismatches 15\n998244353 original 2^21 convolution/inverse/first inverse-root PASS\n167772161 original 2^21 convolution/inverse/first inverse-root PASS\n469762049 original 2^21 convolution/inverse/first inverse-root PASS\n18878337 capacity/other-prime checks PASS\n"
+    }
+  ],
+  "files": {
+    "tests/wida_poly_capacity.cpp": "6a764c2db15e2ebfc390ca4d50eea6f2355508d17a2c6b18fda2281c8623b8ec",
+    "tests/wida_poly_capacity.py": "61e04f3f1b96d7e686deaa060f49649626b32d6b279d8bc56cca62abf22f25fb",
+    "tests/fixtures/wida_montgomery_poly/12C.cpp": "8b159c0df5bd88882489e2f1978717f7aa328e5572b0441219a33279be6c6647",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+  }
+}

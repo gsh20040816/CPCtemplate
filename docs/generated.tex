@@ -3512,7 +3512,7 @@ cdq\_convolution<mod=998244353,primitive=3>(kernel,initial) 求 f[i]=initial[i]+
 
 \lstinputlisting{usage/example-115.cpp}
 
-\Needspace{395pt}
+\Needspace{545pt}
 
 \section{快速数论变换}
 
@@ -3520,15 +3520,15 @@ cdq\_convolution<mod=998244353,primitive=3>(kernel,initial) 求 f[i]=initial[i]+
 
 代码依赖：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-声明 NttConvolution<mod, primitive>，primitive 默认 3。mod 必须为 int 范围内的素数，primitive 是模 mod 原根；不在接口内验证素性或阶。max\_size 是 mod-1 的最大二次幂因子。ntt(a,invert) 原地变换，长度须为正二次幂且不超过 max\_size；invert=true 为逆变换。multiply(a,b) 返回普通卷积，任一为空则为空；非空时长度和减一不超过 max\_size。元素类型 Z，数组类型 Poly。O(n log n) 时间、O(n) 空间。998244353 和 167772161 均可用原根 3。
+声明 NttConvolution<mod, primitive>，primitive 默认 3。mod 必须为 int 范围内的素数，primitive 是模 mod 原根；不在接口内验证素性或阶。max\_size 是 mod-1 的最大二次幂因子。ntt(a,invert) 原地变换，长度须为正二次幂且不超过 max\_size；invert=true 为逆变换。multiply(a,b) 返回普通卷积，任一为空则为空；非空时长度和减一不超过 max\_size。元素类型 Z，数组类型 Poly。O(n log n) 时间；每种mod/primitive实例缓存分层单位根，空间O(历次最大变换长度)，同一实例调用时不并发扩容。输入输出均为自然顺序，逆变换复用正变换后翻转下标1..n-1并乘n的逆元。998244353 和 167772161 均可用原根 3。
 
-\lstinputlisting[firstline=4,lastline=22]{../src/compact/ntt_convolution.hpp}
+\lstinputlisting[firstline=4,lastline=35]{../src/compact/ntt_convolution.hpp}
 
 \newpage
 
 \noindent 蝶形变换与卷积（接上页同一结构体与函数）：
 
-\lstinputlisting[firstline=23,lastline=62,firstnumber=20]{../src/compact/ntt_convolution.hpp}
+\lstinputlisting[firstline=36,lastline=76,firstnumber=33]{../src/compact/ntt_convolution.hpp}
 
 \Needspace{315pt}
 
@@ -3730,7 +3730,7 @@ chirp\_z(f,a,r,m) 返回 f(a*r\textasciicircum{}i)，i=0..m-1；f 为升幂系�
 
 \lstinputlisting{usage/example-31.cpp}
 
-\Needspace{370pt}
+\Needspace{503pt}
 
 \section{多项式牛顿迭代}
 
@@ -3738,9 +3738,9 @@ chirp\_z(f,a,r,m) 返回 f(a*r\textasciicircum{}i)，i=0..m-1；f 为升幂系�
 
 代码依赖：\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-FpsInverse::inverse(a,n) 返回 a 的逆级数前 n 项，模数固定 998244353。要求 n>0、a 非空且 a[0]$\ne$0；不足项视为零，多余项只取需要的前缀。继承 NttConvolution<998244353> 的 Poly、Z、multiply，按 Newton 公式 b←b(2-ab) 倍增。所有内部卷积结果长度须$\le$2$^{23}$，n$\le$2$^{22}$ 是统一充分界。O(n log n) 时间、O(n) 辅助空间。
+FpsInverse::inverse(a,n) 返回 a 的逆级数前 n 项，模数固定 998244353。要求 1$\le$n$\le$2$^{23}$、a 非空且 a[0]$\ne$0；a.size()在int范围内，不足项视为零，多余项只取需要前缀。继承 NttConvolution<998244353> 的 Poly、Z、multiply。Newton公式b←b(2-ab)只更新新增高半段：长度2k循环卷积的回绕只污染低k项，清除低半段后再乘b，高半段即修正项。每轮五次长度2k变换，复用b的频域值。O(n log n)时间、O(n)工作空间；单位根缓存另按NTT约定。
 
-\lstinputlisting[firstline=4,lastline=25]{../src/compact/fps_inverse.hpp}
+\lstinputlisting[firstline=4,lastline=37]{../src/compact/fps_inverse.hpp}
 
 \Needspace{290pt}
 
@@ -3850,7 +3850,7 @@ polynomial\_interpolation(x,y) 返回模998244353下次数<m的唯一插值多�
 
 \lstinputlisting{usage/example-212.cpp}
 
-\Needspace{461pt}
+\newpage
 
 \section{多项式初等函数}
 
@@ -3858,9 +3858,17 @@ polynomial\_interpolation(x,y) 返回模998244353下次数<m的唯一插值多�
 
 代码依赖：\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-mod_sqrt]{mod\_\allowbreak{}sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回 nullopt；有解返回恰好 n 项，n=0 返回有值的空 vector。要求 0$\le$n$\le$2$^{22}$、a.size() 在 int 范围内；仅看输入前 n 项，不足补零。全零返回全零；首个非零项次数 k 为奇数或该系数为非二次剩余时无解。否则提出 x\textasciicircum{}k，首项选两个模平方根中较小者，Newton 迭代 b←(b+a/b)/2；最后乘 x\textasciicircum{}(k/2)，未被条件确定的末 k/2 项取零。这只是确定地返回一个解，不枚举全部根。依赖 mod\_sqrt、FpsInverse 与 NttConvolution。时间 O(n log(n+1)) 加一次标量开根的期望 O(log mod)，额外空间 O(n)。P5205 保证 a[0]=1，得到常数项为 1 的根。
+FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模998244353；无解为nullopt，有解恰好n项。0$\le$n$\le$2$^{22}$、a.size()在int范围内，仅看前n项，不足补零；n=0返回有值空vector。全零返回全零，首个非零项次数k为奇数或系数非二次剩余时无解。否则提出x\textasciicircum{}k，首项选较小模平方根，末尾未确定的k/2项取零。inverse\_sqrt(a,n)直接求所选根的逆：n>0时要求常数项非零且为二次剩余，否则nullopt；n=0仍返回空。按b←(3b-ab$^{3}$)/2倍增，长度4k的循环卷积只回绕到低k项，保留旧低半段、更新高半段；sqrt再乘原级数并移位。不枚举全部根。依赖mod\_sqrt、FpsInverse、NTT；O(n log(n+1))时间加一次标量开根的期望O(log mod)，O(n)工作空间，单位根缓存另按NTT约定。P5205的a[0]=1得到首项1。
 
-\lstinputlisting[firstline=5,lastline=32]{../src/compact/fps_sqrt.hpp}
+\lstinputlisting[firstline=5,lastline=39]{../src/compact/fps_sqrt.hpp}
+
+\newpage
+
+\noindent 平方根与前导零处理（接上页同一结构体）：
+
+\lstinputlisting[firstline=40,lastline=61,firstnumber=36]{../src/compact/fps_sqrt.hpp}
+
+\newpage
 
 \Needspace{404pt}
 
@@ -3875,6 +3883,8 @@ FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回
 题目：\url{https://www.luogu.com.cn/problem/P5205}
 
 \lstinputlisting{usage/example-117.cpp}
+
+\newpage
 
 \Needspace{407pt}
 
@@ -3892,13 +3902,13 @@ FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回
 
 \newpage
 
-\Needspace{490pt}
+\Needspace{471pt}
 
 \subsection*{接口用法演示：形式幂级数平方根倒数与重复调用}
 
 \label{usage-example-450}
 
-演示约定：输入多组n项级数，1$\le$n$\le$2\textasciicircum{}22，模998244353；求所选平方根的逆元模x\textasciicircum{}n，平方根首项取较小根。无平方根或常数项为0时输出-1。先FpsSqrt::sqrt，再检查首项非零，最后FpsInverse::inverse；同一进程支持多组调用。
+演示约定：输入多组n项级数，1$\le$n$\le$2\textasciicircum{}22，模998244353；inverse\_sqrt直接求所选平方根的逆元模x\textasciicircum{}n，平方根首项取较小根。无平方根或常数项为0时输出-1。同一进程支持多组调用，不必先开方再求逆。
 
 所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-mod_sqrt]{mod\_\allowbreak{}sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）、\hyperref[compact-FpsSqrt]{FpsSqrt}（第~\pageref{compact-FpsSqrt}~页，\ref{compact-FpsSqrt}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 

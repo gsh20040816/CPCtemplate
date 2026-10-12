@@ -27,7 +27,14 @@ template <int P, int G> void run()
         }
     if (phi > 1) assert(power(G, (P - 1) / phi, P) != 1);
     mt19937 rng(P);
+    vector<int> lengths;
     for (int n = 1; n <= min(N::max_size, 32); n *= 2)
+        lengths.push_back(n);
+    auto reversed = lengths;
+    reverse(reversed.begin(), reversed.end());
+    lengths.insert(lengths.end(), reversed.begin(), reversed.end());
+    lengths.insert(lengths.end(), {1, min(N::max_size, 2), 1});
+    for (int n : lengths)
     {
         typename N::Poly a(n);
         for (int i = 0; i < n; i++)
@@ -44,6 +51,11 @@ template <int P, int G> void run()
             for (int j = 0; j < n; j++) sum += B(a[j].v) * power(w, i * j, P);
             want[i] = (sum % P).convert_to<int>();
         }
+        auto inverse_first = original;
+        N::ntt(inverse_first, true);
+        long long scale = power(n, P - 2, P);
+        for (int i = 0; i < n; i++)
+            assert(inverse_first[i].v == want[(n - i) % n] * scale % P);
         N::ntt(a);
         for (int i = 0; i < n; i++) assert(a[i].v == want[i]);
         N::ntt(a, true);
@@ -88,6 +100,8 @@ int main()
 {
     run<2, 1>();
     run<3, 2>();
+    run<17, 3>();
+    run<17, 5>();
     run<17, 3>();
     run<97, 5>();
     run<998244353, 3>();

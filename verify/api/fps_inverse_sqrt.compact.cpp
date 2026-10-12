@@ -16,14 +16,13 @@ int main()
             cin >> value;
             x = value;
         }
-        auto root = FpsSqrt::sqrt(a, n);
-        if (!root || (*root)[0].v == 0)
+        auto inverse = FpsSqrt::inverse_sqrt(a, n);
+        if (!inverse)
         {
             cout << -1 << '\n';
             continue;
         }
-        auto inverse = FpsInverse::inverse(*root, n);
         for (int i = 0; i < n; i++)
-            cout << inverse[i].v << " \n"[i + 1 == n];
+            cout << (*inverse)[i].v << " \n"[i + 1 == n];
     }
 }
