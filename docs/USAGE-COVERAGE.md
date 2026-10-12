@@ -216,7 +216,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | KDTreeSum | [example-114（应用补充）](usage/example-114.cpp), [example-269（接口演示）](usage/example-269.cpp) | locally_checked_application |
 | cdq_convolution | [example-115](usage/example-115.cpp) | locally_checked_example |
 | PolynomialDivision | [example-116](usage/example-116.cpp), [example-118](usage/example-118.cpp) | locally_checked_example |
-| FpsSqrt | [example-117](usage/example-117.cpp), [example-119](usage/example-119.cpp) | locally_checked_example |
+| FpsSqrt | [example-117](usage/example-117.cpp), [example-119](usage/example-119.cpp), [example-450（接口演示）](usage/example-450.cpp) | locally_checked_example |
 | FpsPower | [example-120](usage/example-120.cpp) | locally_checked_example |
 | WaveletMatrix | [example-140](usage/example-140.cpp), [example-141](usage/example-141.cpp), [example-142](usage/example-142.cpp) | locally_checked_example |
 | GaussXor | [example-143](usage/example-143.cpp), [example-145（应用补充）](usage/example-145.cpp) | locally_checked_example |

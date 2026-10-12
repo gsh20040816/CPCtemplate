@@ -1,0 +1,94 @@
+{
+  "scope": "Local fresh-process first-call timing, geometric-series input with every coefficient independently certified. Does not cover original repeated-call defect, random workload or OJ timing.",
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "rows": [
+    {
+      "n": 32768,
+      "runs": [
+        {
+          "mode": "original",
+          "repeat": 0,
+          "seconds": 0.005985
+        },
+        {
+          "mode": "composition",
+          "repeat": 0,
+          "seconds": 0.150313
+        },
+        {
+          "mode": "composition",
+          "repeat": 1,
+          "seconds": 0.137142
+        },
+        {
+          "mode": "original",
+          "repeat": 1,
+          "seconds": 0.002505
+        },
+        {
+          "mode": "original",
+          "repeat": 2,
+          "seconds": 0.002511
+        },
+        {
+          "mode": "composition",
+          "repeat": 2,
+          "seconds": 0.136656
+        }
+      ],
+      "median_seconds": {
+        "original": 0.002511,
+        "composition": 0.137142
+      },
+      "ratio": 54.616487455197124
+    },
+    {
+      "n": 131072,
+      "runs": [
+        {
+          "mode": "original",
+          "repeat": 0,
+          "seconds": 0.011793
+        },
+        {
+          "mode": "composition",
+          "repeat": 0,
+          "seconds": 0.626435
+        },
+        {
+          "mode": "composition",
+          "repeat": 1,
+          "seconds": 0.627531
+        },
+        {
+          "mode": "original",
+          "repeat": 1,
+          "seconds": 0.011218
+        },
+        {
+          "mode": "original",
+          "repeat": 2,
+          "seconds": 0.011227
+        },
+        {
+          "mode": "composition",
+          "repeat": 2,
+          "seconds": 0.626438
+        }
+      ],
+      "median_seconds": {
+        "original": 0.011227,
+        "composition": 0.626438
+      },
+      "ratio": 55.79745256969806
+    }
+  ],
+  "files": {
+    "tests/fps_inverse_sqrt_benchmark.cpp": "b3af92b487c15b7c7cffd23ae64e64d87ad331c353b1d605e83b721cd6400c6b",
+    "tests/fps_inverse_sqrt_benchmark.py": "40b7289e285a2557d9f5c236eafa398b6ad942ea8f12e2ac404607e5b7d87882",
+    "tests/fixtures/wida_montgomery_poly/12C.cpp": "8b159c0df5bd88882489e2f1978717f7aa328e5572b0441219a33279be6c6647",
+    "src/compact/fps_sqrt.hpp": "b04f978ee0767ce688b01f46893d80eea17ca8eb2385f576a1265f7e7fcbe87e",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec"
+  }
+}

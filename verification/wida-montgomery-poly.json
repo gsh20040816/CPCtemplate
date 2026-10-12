@@ -1,0 +1,37 @@
+{
+  "scope": "Exact12C at modulus998244353 and nonempty polynomials with up to255 coefficients; independent naive recurrences and existing replacement composition. Not full-scale/other moduli/source application coverage.",
+  "source_blob": "2fc05cbaebfde127ea5437a97ff27b4f7c6033fd",
+  "runs": [
+    {
+      "mode": "normal",
+      "output": "sqrt first mismatch got 1 262963663 expected 1 117088670\nsqrtinv first mismatch got 1 454971003 expected 1 881155683\nadd total 80 mismatches 0\nderiv total 80 mismatches 0\ndivision-quotient total 80 mismatches 0\ndivision-remainder total 80 mismatches 0\nexp total 80 mismatches 0\nintegr total 80 mismatches 0\ninv total 80 mismatches 0\nlog total 80 mismatches 0\nmul total 80 mismatches 0\npow-unit total 320 mismatches 0\nquo total 80 mismatches 0\nsqrt total 80 mismatches 74\nsqrtinv total 80 mismatches 70\nsub total 80 mismatches 0\n1202 replacement independent naive FPS checks PASS"
+    },
+    {
+      "mode": "normal",
+      "test": "repeated-square-root-minimal",
+      "output": "1 1 \n1 2 \n1 998244352 \n1 499122176 \nRepeated source calls differ; replacement calls stable"
+    },
+    {
+      "mode": "sanitizer",
+      "output": "sqrt first mismatch got 1 262963663 expected 1 117088670\nsqrtinv first mismatch got 1 454971003 expected 1 881155683\nadd total 80 mismatches 0\nderiv total 80 mismatches 0\ndivision-quotient total 80 mismatches 0\ndivision-remainder total 80 mismatches 0\nexp total 80 mismatches 0\nintegr total 80 mismatches 0\ninv total 80 mismatches 0\nlog total 80 mismatches 0\nmul total 80 mismatches 0\npow-unit total 320 mismatches 0\nquo total 80 mismatches 0\nsqrt total 80 mismatches 74\nsqrtinv total 80 mismatches 70\nsub total 80 mismatches 0\n1202 replacement independent naive FPS checks PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "test": "repeated-square-root-minimal",
+      "output": "1 1 \n1 2 \n1 998244352 \n1 499122176 \nRepeated source calls differ; replacement calls stable"
+    }
+  ],
+  "files": {
+    "tests/wida_montgomery_poly.cpp": "a32fa9cbcad827b5f7679823b399418d51d13a1944c9c41460ce4d458e8a5685",
+    "tests/wida_montgomery_poly.py": "8668bee79d19955f428f4706caa37ab29203b44169a5f59cbc61b97197161913",
+    "tests/fixtures/wida_montgomery_poly/12C.cpp": "8b159c0df5bd88882489e2f1978717f7aa328e5572b0441219a33279be6c6647",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_inverse.hpp": "23ddb338ea13c603e3686db5808f6ce91dc4c238c36503be738151e854c3d9c1",
+    "src/compact/fps_power.hpp": "b5678567b42bf77e7693544006efe7ebae53578be474fcc5203c6190e13fa759",
+    "src/compact/fps_sqrt.hpp": "b04f978ee0767ce688b01f46893d80eea17ca8eb2385f576a1265f7e7fcbe87e",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/ntt_convolution.hpp": "3e09a6fe9da5816b810b9f431088e38bf1e0b0c807a990f28162cc495152d1ec",
+    "src/compact/number_theory.hpp": "a34ca088e2b3fe2decceadfba4b59164a8ee6625ced23a3e1781e24590a1790a",
+    "src/compact/modular_sqrt.hpp": "b35d0cf49b3dc630db16ccc045a0f84d5e00c9f48cdbc0bfac0b280270bdd2a3"
+  }
+}

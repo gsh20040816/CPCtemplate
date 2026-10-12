@@ -3884,6 +3884,22 @@ FpsSqrt::sqrt(a,n) 返回 optional<Poly>，模数固定 998244353。无解返回
 
 \lstinputlisting{usage/example-119.cpp}
 
+\newpage
+
+\Needspace{490pt}
+
+\subsection*{接口用法演示：形式幂级数平方根倒数与重复调用}
+
+\label{usage-example-450}
+
+演示约定：输入多组n项级数，1$\le$n$\le$2\textasciicircum{}22，模998244353；求所选平方根的逆元模x\textasciicircum{}n，平方根首项取较小根。无平方根或常数项为0时输出-1。先FpsSqrt::sqrt，再检查首项非零，最后FpsInverse::inverse；同一进程支持多组调用。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-mod_sqrt]{mod\_\allowbreak{}sqrt}（第~\pageref{compact-mod_sqrt}~页，\ref{compact-mod_sqrt}~节）、\hyperref[compact-FpsSqrt]{FpsSqrt}（第~\pageref{compact-FpsSqrt}~页，\ref{compact-FpsSqrt}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WIDA-MONTGOMERY-POLY.md}
+
+\lstinputlisting{usage/example-450.cpp}
+
 \Needspace{593pt}
 
 \subsection{形式幂级数微积分、对数与指数}\label{compact-FpsFunctions}\index{FpsFunctions}
