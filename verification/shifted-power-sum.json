@@ -1,0 +1,38 @@
+{
+  "scope": "Independent binomial expansion; exact original get(n,m); full uint64 boundaries and periodicity; maximum supported degree analytic binomial coefficients. Local only.",
+  "runs": [
+    {
+      "mode": "normal",
+      "args": [],
+      "stdout": "52607 independent shifted-power and source checks PASS\n"
+    },
+    {
+      "mode": "normal",
+      "args": [
+        "capacity"
+      ],
+      "stdout": "4194304 maximum-degree binomial checks PASS\n"
+    },
+    {
+      "mode": "sanitizer",
+      "args": [],
+      "stdout": "52607 independent shifted-power and source checks PASS\n"
+    },
+    {
+      "mode": "sanitizer",
+      "args": [
+        "capacity"
+      ],
+      "stdout": "4194304 maximum-degree binomial checks PASS\n"
+    }
+  ],
+  "files": {
+    "tests/shifted_power_sum.cpp": "3b9f82876068b615ebe831f7a1d22a1d157794591871baedd1f0f1b5efb9215d",
+    "tests/shifted_power_sum.py": "b262674d5efb59c2d382cda855d4e2a1dc78cdc10f28609b93fd7c94348b23c6",
+    "tests/fixtures/wida_poly_variants/12D-mint.cpp": "52c45f4b9c3b9b15296829b7d0d97091518891dc2d17c1dc4a734a5ffdf911fc",
+    "src/compact/shifted_power_sum.hpp": "1fbdc07f2990854be6e2e28b696ede5acfe7c05f600cd524bc066aa3cca13548",
+    "src/compact/fps_inverse.hpp": "7d598c748a7829ffb757ec5f15db8078f4b5fab16cbf6a24164053dc9b83a1c0",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+  }
+}

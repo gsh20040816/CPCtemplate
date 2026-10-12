@@ -1,0 +1,150 @@
+{
+  "scope": "Three alternating process wall-time rounds including IO. Exact WIDA get and current printed program. Outputs compared between implementations; independent correctness is in separate receipts. Not SOTA or online ranking.",
+  "cases": [
+    {
+      "n": 32768,
+      "m": 1,
+      "runs": [
+        {
+          "round": 0,
+          "implementation": "original",
+          "seconds": 0.6530122919939458,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 0,
+          "implementation": "current",
+          "seconds": 0.23826516699045897,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 1,
+          "implementation": "current",
+          "seconds": 0.016192207986023277,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 1,
+          "implementation": "original",
+          "seconds": 0.01327408300130628,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 2,
+          "implementation": "original",
+          "seconds": 0.010735499992733821,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 2,
+          "implementation": "current",
+          "seconds": 0.009183332993416116,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        }
+      ],
+      "medians": {
+        "current": 0.016192207986023277,
+        "original": 0.01327408300130628
+      },
+      "current_over_original": 1.219836276783099
+    },
+    {
+      "n": 32768,
+      "m": 1000000000,
+      "runs": [
+        {
+          "round": 0,
+          "implementation": "original",
+          "seconds": 0.4826417500153184,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 0,
+          "implementation": "current",
+          "seconds": 0.02031299998634495,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 1,
+          "implementation": "current",
+          "seconds": 0.019240207999246195,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 1,
+          "implementation": "original",
+          "seconds": 0.4837944580067415,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 2,
+          "implementation": "original",
+          "seconds": 0.48270970801240765,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 2,
+          "implementation": "current",
+          "seconds": 0.020226083986926824,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        }
+      ],
+      "medians": {
+        "current": 0.020226083986926824,
+        "original": 0.48270970801240765
+      },
+      "current_over_original": 0.04190113364450281
+    },
+    {
+      "n": 131072,
+      "m": 1000000000,
+      "runs": [
+        {
+          "round": 0,
+          "implementation": "original",
+          "seconds": 2.1551689170009922,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 0,
+          "implementation": "current",
+          "seconds": 0.06376720900880173,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 1,
+          "implementation": "current",
+          "seconds": 0.06347054100479,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 1,
+          "implementation": "original",
+          "seconds": 2.1536040829960257,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 2,
+          "implementation": "original",
+          "seconds": 2.1603295840031933,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 2,
+          "implementation": "current",
+          "seconds": 0.06412916700355709,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        }
+      ],
+      "medians": {
+        "current": 0.06376720900880173,
+        "original": 2.1551689170009922
+      },
+      "current_over_original": 0.029588032987008957
+    }
+  ],
+  "programs_sha256": {
+    "current": "41b586c19106183664128f3665d57b21cb996e90004a206a103dc14aeed292ac",
+    "original": "f91139d9a48c8241705c42ef1217143ab0cb1e80bda6a93f818748211404d132"
+  }
+}

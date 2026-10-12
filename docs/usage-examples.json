@@ -5827,5 +5827,21 @@
       "BivariateInverse"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-454",
+    "symbol": "shifted_power_sum",
+    "kind": "api",
+    "problem": "平移幂和多项式完整输入输出",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WIDA-POLY-MULTIPLY.md",
+    "summary": "输入n和无符号64位m，输出Σ(k=1..m)(x+k)^n的n+1个系数，从常数项开始，模998244353。0≤n≤2^22-1；m=0和n=0均可用。",
+    "driver": "verify/api/shifted_power_sum.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "shifted_power_sum"
+    ],
+    "start_new_page": true
   }
 ]

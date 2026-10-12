@@ -1,0 +1,151 @@
+{
+  "scope": "Three alternating process wall-time rounds including IO. Exact WIDA get and current printed program. Outputs compared between implementations; independent correctness is in separate receipts. Not SOTA or online ranking.",
+  "cases": [
+    {
+      "n": 32768,
+      "m": 1,
+      "runs": [
+        {
+          "round": 0,
+          "implementation": "original",
+          "seconds": 0.7038376670097932,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 0,
+          "implementation": "current",
+          "seconds": 0.2628977500135079,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 1,
+          "implementation": "current",
+          "seconds": 0.027116749988636002,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 1,
+          "implementation": "original",
+          "seconds": 0.009294875024352223,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 2,
+          "implementation": "original",
+          "seconds": 0.008716749987797812,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        },
+        {
+          "round": 2,
+          "implementation": "current",
+          "seconds": 0.019337458012159914,
+          "output_sha256": "ae6ace0390a8e50fbfca4080d39ab228204dece470b2c17d94d15a815a1a7278"
+        }
+      ],
+      "medians": {
+        "current": 0.027116749988636002,
+        "original": 0.009294875024352223
+      },
+      "current_over_original": 2.917387261000405
+    },
+    {
+      "n": 32768,
+      "m": 1000000000,
+      "runs": [
+        {
+          "round": 0,
+          "implementation": "original",
+          "seconds": 0.4736531669914257,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 0,
+          "implementation": "current",
+          "seconds": 0.019584583002142608,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 1,
+          "implementation": "current",
+          "seconds": 0.018788707995554432,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 1,
+          "implementation": "original",
+          "seconds": 0.47700708301272243,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 2,
+          "implementation": "original",
+          "seconds": 0.47834987501846626,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        },
+        {
+          "round": 2,
+          "implementation": "current",
+          "seconds": 0.019717999995918944,
+          "output_sha256": "0a35552e1326aaf84d8a1ecafeaa0acaad7190fe716cc77b9ae1de49416df58d"
+        }
+      ],
+      "medians": {
+        "current": 0.019584583002142608,
+        "original": 0.47700708301272243
+      },
+      "current_over_original": 0.0410572163382745
+    },
+    {
+      "n": 131072,
+      "m": 1000000000,
+      "runs": [
+        {
+          "round": 0,
+          "implementation": "original",
+          "seconds": 2.1414754999859724,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 0,
+          "implementation": "current",
+          "seconds": 0.06385695797507651,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 1,
+          "implementation": "current",
+          "seconds": 0.06313158298144117,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 1,
+          "implementation": "original",
+          "seconds": 2.1416913330031093,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 2,
+          "implementation": "original",
+          "seconds": 2.1478457500052173,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        },
+        {
+          "round": 2,
+          "implementation": "current",
+          "seconds": 0.0640767079894431,
+          "output_sha256": "c47330b442e3549855000417f67f74294ec72dfb8a826901370e6e36278afa43"
+        }
+      ],
+      "medians": {
+        "current": 0.06385695797507651,
+        "original": 2.1416913330031093
+      },
+      "current_over_original": 0.02981613502891446
+    }
+  ],
+  "programs_sha256": {
+    "current": "f1a67c53e0f1f2e5cc444f1542ff747bbb1b09e04c22b83e47316406974714f4",
+    "original": "f91139d9a48c8241705c42ef1217143ab0cb1e80bda6a93f818748211404d132"
+  },
+  "printed_program": "#include <bits/stdc++.h>\nusing namespace std;\n#include <cassert>\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include <cassert>\n#include <bits/stdc++.h>\nusing namespace std;\n\nstruct Mod64\n{\n    using ull = unsigned long long;\n    using u128 = __uint128_t;\n\n    static ull mul(ull a, ull b, ull m) { return u128(a) * b % m; }\n\n    static ull power(ull a, ull b, ull m)\n    {\n        assert(m);\n        ull r = 1 % m;\n        a %= m;\n        for (; b; b >>= 1, a = mul(a, a, m))\n            if (b & 1) r = mul(r, a, m);\n        return r;\n    }\n};\n\n\nstruct Prime64 : Mod64\n{\n    static bool prime(ull n)\n    {\n        if (n < 2) return false;\n        for (ull p : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37})\n            if (n % p == 0) return n == p;\n        ull d = n - 1;\n        int s = 0;\n        while (!(d & 1))\n        {\n            d >>= 1;\n            ++s;\n        }\n        for (ull a :\n             {2ULL, 325ULL, 9375ULL, 28178ULL, 450775ULL, 9780504ULL, 1795265022ULL})\n        {\n            if (a % n == 0) continue;\n            ull x = power(a, d, n);\n            if (x == 1 || x == n - 1) continue;\n            bool ok = false;\n            for (int j = 1; j < s; j++)\n            {\n                x = mul(x, x, n);\n                if (x == n - 1)\n                {\n                    ok = true;\n                    break;\n                }\n            }\n            if (!ok) return false;\n        }\n        return true;\n    }\n};\n\n#include <cassert>\n#include <bits/stdc++.h>\nusing namespace std;\n\n// BEGIN extended_gcd\n__int128_t extended_gcd(__int128_t a, __int128_t b, __int128_t &x, __int128_t &y)\n{\n    using i128 = __int128_t;\n    if (!b)\n    {\n        x = 1;\n        y = 0;\n        return a;\n    }\n    i128 d = extended_gcd(b, a % b, y, x);\n    y -= a / b * x;\n    return d;\n}\n\n// END extended_gcd\n\n#include <cassert>\n\n// BEGIN mod_inverse\nlong long mod_inverse(long long a, long long m)\n{\n    using i128 = __int128_t;\n    assert(m > 0);\n    a %= m;\n    if (a < 0) a += m;\n    i128 x, y;\n    if (extended_gcd(a, m, x, y) != 1) return -1;\n    return (x % m + m) % m;\n}\n\n// END mod_inverse\n\n#include <cassert>\n\n// BEGIN crt_merge\nbool crt_merge(long long &r, long long &m, long long b, long long n)\n{\n    using ll = long long;\n    using i128 = __int128_t;\n    assert(m > 0 && n > 0);\n    r %= m;\n    if (r < 0) r += m;\n    b %= n;\n    if (b < 0) b += n;\n    i128 x, y;\n    ll g = (ll)extended_gcd(m, n, x, y);\n    i128 diff = i128(b) - r;\n    if (diff % g) return false;\n    i128 q = n / g, k = (diff / g * x % q + q) % q, mod = i128(m) * q;\n    if (mod > LLONG_MAX) throw overflow_error(\"CRT modulus\");\n    r = (r + i128(m) * k) % mod;\n    m = (ll)mod;\n    return true;\n}\n\n// END crt_merge\n\n#include <cassert>\n#include <bits/stdc++.h>\nusing namespace std;\n\n// BEGIN floor_sum\n__int128_t floor_sum(long long n, long long m, long long a, long long b)\n{\n    using ll = long long;\n    using i128 = __int128_t;\n    assert(n >= 0 && m > 0);\n    i128 ans = 0;\n    auto norm = [&](ll &v)\n    {\n        ll q = v / m;\n        if (v % m < 0) --q;\n        v = (ll)(i128(v) - i128(q) * m);\n        return q;\n    };\n    ans += i128(norm(a)) * n * (n - 1) / 2;\n    ans += i128(norm(b)) * n;\n    while (true)\n    {\n        ans += i128(n) * (n - 1) / 2 * (a / m);\n        a %= m;\n        ans += i128(n) * (b / m);\n        b %= m;\n        i128 y = i128(a) * n + b;\n        if (y < m) break;\n        n = (ll)(y / m);\n        b = (ll)(y % m);\n        swap(a, m);\n    }\n    return ans;\n}\n\n// END floor_sum\n\n\n// Compatibility entry; handbook components are classified independently.\nnamespace number_theory_detail\n{\nconstexpr auto floor_sum_fn = floor_sum;\n}\n\nstruct NumberTheory : Prime64\n{\n    using ll = long long;\n    using i128 = __int128_t;\n\n    static i128 exgcd(i128 a, i128 b, i128 &x, i128 &y)\n    {\n        return extended_gcd(a, b, x, y);\n    }\n\n    static ll inverse(ll a, ll m) { return mod_inverse(a, m); }\n\n    static bool crt(ll &r, ll &m, ll b, ll n) { return crt_merge(r, m, b, n); }\n\n    static i128 floor_sum(ll n, ll m, ll a, ll b)\n    {\n        return number_theory_detail::floor_sum_fn(n, m, a, b);\n    }\n};\n\nstruct PollardRho\n{\n    using ull = unsigned long long;\n    using u128 = __uint128_t;\n    mt19937_64 rng;\n\n    PollardRho(ull seed = 712367821) : rng(seed) {}\n\n    ull rho(ull n)\n    {\n        if (n % 2 == 0) return 2;\n        for (;;)\n        {\n            ull c = rng() % (n - 1) + 1, x = rng() % n, y = x, d = 1;\n            auto f = [&](ull v)\n            {\n                return (Mod64::mul(v, v, n) + u128(c)) % n;\n            };\n            // Retry bounded attempts; Las Vegas: only exact divisors returned.\n            for (int i = 0; i < 200000 && d == 1; i++)\n            {\n                x = f(x);\n                y = f(f(y));\n                d = gcd(x > y ? x - y : y - x, n);\n            }\n            if (1 < d && d < n) return d;\n        }\n    }\n\n    void split(ull n, vector<ull> &a)\n    {\n        if (n == 1) return;\n        if (Prime64::prime(n))\n        {\n            a.push_back(n);\n            return;\n        }\n        ull d = rho(n);\n        split(d, a);\n        split(n / d, a);\n    }\n\n    vector<ull> factor(ull n)\n    {\n        assert(n >= 1);\n        vector<ull> a;\n        split(n, a);\n        sort(a.begin(), a.end());\n        return a;\n    }\n};\n\nstruct LinearSieve\n{\n    vector<int> prime, lp, phi, mu;\n\n    LinearSieve(int n) : lp(n + 1), phi(n + 1), mu(n + 1)\n    {\n        if (n) phi[1] = mu[1] = 1;\n        for (int i = 2; i <= n; i++)\n        {\n            if (!lp[i])\n            {\n                lp[i] = i;\n                prime.push_back(i);\n                phi[i] = i - 1;\n                mu[i] = -1;\n            }\n            for (int p : prime)\n            {\n                if (p > n / i) break;\n                int j = i * p;\n                lp[j] = p;\n                if (i % p == 0)\n                {\n                    phi[j] = phi[i] * p;\n                    mu[j] = 0;\n                    break;\n                }\n                phi[j] = phi[i] * (p - 1);\n                mu[j] = -mu[i];\n            }\n        }\n    }\n};\n\ntemplate <int mod> struct ModInt\n{\n    static_assert(mod >= 1);\n    int v;\n\n    ModInt(long long x = 0)\n    {\n        v = x % mod;\n        if (v < 0)\n            v += mod;\n    }\n\n    ModInt operator+(ModInt b) const\n    {\n        long long x = (long long)v + b.v;\n        if (x >= mod)\n            x -= mod;\n        ModInt r;\n        r.v = x;\n        return r;\n    }\n\n    ModInt operator-(ModInt b) const\n    {\n        int x = v - b.v;\n        if (x < 0)\n            x += mod;\n        ModInt r;\n        r.v = x;\n        return r;\n    }\n\n    ModInt operator*(ModInt b) const\n    {\n        ModInt r;\n        r.v = 1LL * v * b.v % mod;\n        return r;\n    }\n\n    ModInt pow(long long e) const\n    {\n        assert(e >= 0);\n        ModInt a = *this, r = 1;\n        while (e)\n        {\n            if (e & 1)\n                r = r * a;\n            a = a * a;\n            e >>= 1;\n        }\n        return r;\n    }\n\n    optional<ModInt> try_inv() const\n    {\n        long long a = v, b = mod, x = 1, y = 0;\n        while (b)\n        {\n            long long q = a / b;\n            a -= q * b;\n            swap(a, b);\n            x -= q * y;\n            swap(x, y);\n        }\n        if (a != 1)\n            return nullopt;\n        return ModInt(x);\n    }\n\n    ModInt inv() const\n    {\n        auto r = try_inv();\n        assert(r);\n        return *r;\n    } // requires an invertible residue\n\n    ModInt operator/(ModInt b) const\n    {\n        return *this * b.inv();\n    }\n\n    ModInt &operator+=(ModInt b)\n    {\n        return *this = *this + b;\n    }\n\n    ModInt &operator-=(ModInt b)\n    {\n        return *this = *this - b;\n    }\n\n    ModInt &operator*=(ModInt b)\n    {\n        return *this = *this * b;\n    }\n\n    ModInt &operator/=(ModInt b)\n    {\n        return *this = *this / b;\n    }\n};\n\ntemplate <int mod> struct Binomial\n{\n    using Z = ModInt<mod>;\n    vector<Z> fac{Z(1)}, ifac{Z(1)};\n\n    Binomial(int n = 0) { init(n); }\n\n    void init(int n)\n    {\n        assert(0 <= n && n < mod);\n        int old = (int)fac.size() - 1;\n        if (n <= old) return;\n        fac.resize(n + 1);\n        ifac.resize(n + 1);\n        for (int i = old + 1; i <= n; i++) fac[i] = fac[i - 1] * i;\n        ifac[n] = fac[n].inv();\n        for (int i = n; i > old; i--) ifac[i - 1] = ifac[i] * i;\n    }\n\n    Z choose(int n, int k) const\n    {\n        if (k < 0 || k > n) return 0;\n        assert(n < (int)fac.size());\n        return fac[n] * ifac[k] * ifac[n - k];\n    }\n\n    Z permute(int n, int k) const\n    {\n        if (k < 0 || k > n) return 0;\n        assert(n < (int)fac.size());\n        return fac[n] * ifac[n - k];\n    }\n};\n\n\ntemplate <int mod, int primitive = 3> struct NttConvolution\n{\n    static_assert(mod >= 2 && primitive >= 1 && primitive < mod);\n    static constexpr int max_size = (mod - 1) & -(mod - 1);\n    using Z = ModInt<mod>;\n    using Poly = vector<Z>;\n\n    // mod is prime, primitive is a primitive root modulo mod.\n    static void ntt(Poly &a, bool invert = false)\n    {\n        int n = a.size();\n        assert(n > 0 && (n & (n - 1)) == 0 && n <= max_size);\n        static Poly roots{0, 1};\n        for (int half = roots.size(); half < n; half *= 2)\n        {\n            Z step = Z(primitive).pow((mod - 1) / (2 * half));\n            roots.resize(2 * half);\n            for (int i = half / 2; i < half; i++)\n            {\n                roots[2 * i] = roots[i];\n                roots[2 * i + 1] = roots[i] * step;\n            }\n        }\n        for (int i = 1, j = 0; i < n; i++)\n        {\n            int bit = n >> 1;\n            for (; j & bit; bit >>= 1)\n                j ^= bit;\n            j ^= bit;\n            if (i < j)\n                swap(a[i], a[j]);\n        }\n        for (int half = 1; half < n; half *= 2)\n        {\n            for (int i = 0; i < n; i += 2 * half)\n            {\n                for (int j = 0; j < half; j++)\n                {\n                    Z u = a[i + j];\n                    Z v = a[i + j + half] * roots[half + j];\n                    a[i + j] = u + v;\n                    a[i + j + half] = u - v;\n                }\n            }\n        }\n        if (invert)\n        {\n            reverse(a.begin() + 1, a.end());\n            Z inverse = Z(n).inv();\n            for (auto &x : a)\n                x *= inverse;\n        }\n    }\n\n    static Poly multiply(Poly a, Poly b)\n    {\n        if (a.empty() || b.empty())\n            return {};\n        assert(a.size() + b.size() - 1 <= max_size);\n        int size = a.size() + b.size() - 1, n = 1;\n        while (n < size)\n            n *= 2;\n        a.resize(n);\n        b.resize(n);\n        ntt(a);\n        ntt(b);\n        for (int i = 0; i < n; i++)\n            a[i] *= b[i];\n        ntt(a, true);\n        a.resize(size);\n        return a;\n    }\n};\n\n\nstruct FpsInverse : NttConvolution<998244353>\n{\n    static constexpr int mod = 998244353;\n\n    static Poly inverse(const Poly &a, int n)\n    {\n        assert(n > 0 && n <= max_size && !a.empty() && a[0].v);\n        Poly b{a[0].inv()};\n        while ((int)b.size() < n)\n        {\n            int k = b.size(), len = 2 * k;\n            int m = min(n, len);\n            Poly f(a.begin(), a.begin() + min(m, (int)a.size()));\n            Poly g = b;\n            f.resize(len);\n            g.resize(len);\n            ntt(f);\n            ntt(g);\n            for (int i = 0; i < len; i++)\n                f[i] *= g[i];\n            ntt(f, true);\n            // Only the high half of a*b is free of cyclic wraparound.\n            fill(f.begin(), f.begin() + k, Z(0));\n            ntt(f);\n            for (int i = 0; i < len; i++)\n                f[i] *= g[i];\n            ntt(f, true);\n            b.resize(m);\n            for (int i = k; i < m; i++)\n                b[i] = Z(0) - f[i];\n        }\n        return b;\n    }\n};\n\n\n// BEGIN shifted_power_sum\nvector<ModInt<998244353>> shifted_power_sum(int n, unsigned long long m)\n{\n    using F = FpsInverse;\n    using Z = F::Z;\n    assert(n >= 0 && 2LL * n + 1 <= F::max_size);\n    vector<Z> fac(n + 2), invfac(n + 2);\n    fac[0] = 1;\n    for (int i = 1; i <= n + 1; i++)\n        fac[i] = fac[i - 1] * i;\n    invfac[n + 1] = fac[n + 1].inv();\n    for (int i = n + 1; i > 0; i--)\n        invfac[i - 1] = invfac[i] * i;\n    vector<Z> a(n + 1), b(n + 1);\n    Z step = Z(m % F::mod) + 1;\n    Z power = 1;\n    for (int i = 0; i <= n; i++)\n    {\n        power *= step;\n        a[i] = (power - Z(1)) * invfac[i + 1];\n        b[i] = invfac[i + 1];\n    }\n    auto sums = F::multiply(a, F::inverse(b, n + 1));\n    vector<Z> result(n + 1);\n    for (int i = 0; i <= n; i++)\n        result[i] = fac[n] * invfac[i] * sums[n - i];\n    return result;\n}\n\n// END shifted_power_sum\n\nint main()\n{\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int n;\n    unsigned long long m;\n    cin >> n >> m;\n    auto f = shifted_power_sum(n, m);\n    for (int i = 0; i <= n; i++)\n        cout << f[i].v << \"\\n \"[i != n];\n}\n"
+}

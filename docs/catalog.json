@@ -390,6 +390,12 @@
     "BivariateInverse::inverse(a,n,m)返回模x^n、y^m的恰好n×m项逆级数，模数固定998244353。n,m>0且a[0][0]非零；输入可为不等长行，不足补零，超出目标矩形的系数忽略，各输入尺寸须在int范围内。n=1时m≤2²³；n>1时n≤2²³且2m-1≤2²³。先用FpsInverse求第0行，再按x方向Newton倍增b←b(2-ab)，每轮只更新[k,min(n,2k))的新行。变换高2k、宽为不小于2m-1的最小二次幂；a*b的x方向回绕仅影响旧低半段，保留高半段并截断y，再乘b，取负得到新行。复用b的频域值，共五次二维变换。O(nm(log(n+1)+log(m+1)))时间、O(nm)工作空间，实际矩形内存远早于单维上限成为限制；第0行逆元同样唯一。依赖Ntt2D、FpsInverse；不是普通方阵逆，不要求n=m。"
   ],
   [
+    "shifted_power_sum",
+    "shifted_power_sum",
+    "平移幂和多项式",
+    "shifted_power_sum(n,m) 返回 Σ(k=1..m)(x+k)^n 的 n+1 个系数，按 x 次数从低到高，模998244353。n≥0，2n+1≤2^23；m为完整unsigned long long，m=0返回全零，n=0返回常数m。利用生成函数 (exp((m+1)t)-exp(t))/(exp(t)-1)，分子分母先除t，再求逆与卷积；第i项为n!/i!乘该级数第n-i项。只在模域中计算m+1，避免uint64溢出；n+1小于模数，整周期幂和为零，故可先将m取模。O(n log(n+1))时间、O(n)工作空间，另有NTT缓存；n=0或m模素数为0、1时直接计算。依赖FpsInverse。不计算普通的几何级数和。"
+  ],
+  [
     "fps_functions",
     "FpsFunctions",
     "形式幂级数微积分、对数与指数",

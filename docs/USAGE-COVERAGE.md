@@ -72,6 +72,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | stirling_first_row | [example-54](usage/example-54.cpp) | locally_checked_example |
 | FpsInverse | [example-18](usage/example-18.cpp) | locally_checked_example |
 | BivariateInverse | [example-452（接口演示）](usage/example-452.cpp), [example-453](usage/example-453.cpp) | locally_checked_example |
+| shifted_power_sum | [example-454（接口演示）](usage/example-454.cpp) | locally_checked_api |
 | FpsFunctions | [example-28](usage/example-28.cpp), [example-29](usage/example-29.cpp) | locally_checked_example |
 | GaussMod | [example-24](usage/example-24.cpp), [example-414（应用补充）](usage/example-414.cpp) | locally_checked_example |
 | det_prime | [example-25](usage/example-25.cpp), [example-427（应用补充）](usage/example-427.cpp) | locally_checked_example |

@@ -1,0 +1,82 @@
+{
+  "scope": "Exact WIDA12D multiply source and current NttConvolution; independent integer convolution and direct DFT, full 2^23 analytic convolution. Local only, original QOJ application inaccessible.",
+  "runs": [
+    {
+      "mode": "normal",
+      "task": "small",
+      "returncode": 0,
+      "stdout": "96813 independent transform/convolution checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "task": "empty",
+      "returncode": 0,
+      "stdout": "3 empty-input behavior checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "task": "capacity-source",
+      "returncode": 0,
+      "stdout": "8388609 full 2^23 transform coefficients PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "task": "capacity-current",
+      "returncode": 0,
+      "stdout": "8388609 full 2^23 transform coefficients PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "normal",
+      "task": "singleton",
+      "returncode": 0,
+      "stdout": "7\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "small",
+      "returncode": 0,
+      "stdout": "96813 independent transform/convolution checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "empty",
+      "returncode": 0,
+      "stdout": "3 empty-input behavior checks PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "capacity-source",
+      "returncode": 0,
+      "stdout": "8388609 full 2^23 transform coefficients PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "capacity-current",
+      "returncode": 0,
+      "stdout": "8388609 full 2^23 transform coefficients PASS\n",
+      "stderr": ""
+    },
+    {
+      "mode": "sanitizer",
+      "task": "singleton",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_poly_variants/12D-multiply.cpp:24:49: runtime error: shift exponent -1 is negative\n"
+    }
+  ],
+  "files": {
+    "tests/wida_mul.cpp": "1de416c2c78864b7e6cec03081155d224d8ac6fc89c0b39cc9089c1a69d073a3",
+    "tests/wida_mul.py": "735f34287caaeffb7ed26ff45ced5e0f187de26b939eb990521a8b7773c7d7c7",
+    "tests/fixtures/wida_poly_variants/12D-multiply.cpp": "7d1e809fdb8451b8ba35f27f1c3160054d547e839e3e38e76d26d0332ce5de9c",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+  }
+}
