@@ -1,0 +1,49 @@
+{
+  "source_pdf_sha256": "b5ce46f7cf542be2d9846d8f01898c8ccd7f4619521036b0b7895206895745f3",
+  "source_line_counts": {
+    "manacher1": 40,
+    "manacher2": 24,
+    "suffix_array1": 61,
+    "suffix_array2": 79
+  },
+  "source_sha256": {
+    "manacher1": "8c83e2f2d6a0a9534808d473ed30b157fbcffa84557ef705a4115832ae6a12a8",
+    "manacher2": "b828853ac15db2b3b758bffccd62671d83dffb0d6d0020b19ca4b465ecec1cbb",
+    "suffix_array1": "9dc639fff35b3fc79f1982dca151ccf24d283d4eccdb6b01c09b31d787c572de",
+    "suffix_array2": "7372a01ab096b38e660bbd2b1bbfd4fdfc917a4e0ea15eb08734ea444ab05487"
+  },
+  "runs": {
+    "manacher1-normal": 3582,
+    "manacher2-normal": 3582,
+    "suffix_array1-normal": 3582,
+    "suffix_array2-normal": 13391,
+    "manacher1-sanitizer": 3582,
+    "manacher2-sanitizer": 3582,
+    "suffix_array1-sanitizer": 3582,
+    "suffix_array2-sanitizer": 13391
+  },
+  "current_runs": {
+    "string_source_current-normal": 13391,
+    "manacher-normal": "Manacher: 19531 sentinel/zero/high-byte strings, 2000 arbitrary-byte strings, every substring predicate/count and million-character radius closed forms PASS",
+    "suffix_array-normal": "Suffix array vector exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle and 1500 repeated-separator LCP cases PASS",
+    "string_source_current-sanitizer": 13391,
+    "manacher-sanitizer": "Manacher: 19531 sentinel/zero/high-byte strings, 2000 arbitrary-byte strings, every substring predicate/count and million-character radius closed forms PASS",
+    "suffix_array-sanitizer": "Suffix array vector exhaustive bytes, integer alphabets, reset, LCP minima and million-character periodic oracle and 1500 repeated-separator LCP cases PASS"
+  },
+  "sentinel_counterexamples": {
+    "manacher1": {
+      "input": "@",
+      "diagnostic": "index -1 out of bounds",
+      "scope": "Outside tested lowercase domain; original is not arbitrary-byte safe"
+    },
+    "manacher2": {
+      "input": "$",
+      "diagnostic": "__pos <= size()",
+      "scope": "Outside tested lowercase domain; original is not arbitrary-byte safe"
+    }
+  },
+  "test_sha256": "73db53d245398bdc3d0cfb8041477a0109ebfa87f1be325472670d19ea465815",
+  "current_header_sha256": "be145d0bbbe033aae59174b130d391af9dfa5de32adb5c5dca4243b1d68e90f4",
+  "scope": "Unchanged source snippets; lowercase nonempty Manacher/SA1, positive codes <= n and separator-clipped SA2. Harness clears globals per case; repeated calls without clearing are not certified.",
+  "online": "No new submission or AC"
+}
