@@ -36,8 +36,18 @@ insert、split、merge、value均摊O(log(N+1))，单次最坏O(N)，add为O(1)�
 
 `tests/wida_splay_integration.py` 为每份完整程序生成80组各约200次操作的独立历史，用树槽中的元素列表、每个持久化版本的元素列表求真值；普通和ASan/UBSan检查实际打印展开后的程序。`tests/wida_splay_copy.py` 从手册的同一提取逻辑取得代码，在标准头文件上下文中重跑全部核心真值与压力测试，两个构建均通过。对应证据 `verification/wida-splay-integration.json`、`verification/wida-splay-copy.json`。固定示例另经 `tests/usage_examples.py` 检查。
 
-catalog、依赖、OI导航和数据结构分册已整合，计数318组件、431份完整用法。函数边界明确分页，完整用法单页，不通过缩小字号或合并多条语句解决断页。
+catalog、依赖、OI导航和数据结构分册已整合，计数318组件、432份完整用法。函数边界明确分页，完整用法单页，不通过缩小字号或合并多条语句解决断页。
 
 ## 剩余范围
 
-原稿逐函数运行对照尚未完成，当前核心独立真值不冒充原稿测试。JOI完整应用要在取得实际题面与调用协议后单独判断，不能从片段猜测。适用正式模板题及线上判定、速度排名仍待核实，来源条目保持partial；本次不声称全库已完成。
+原稿逐函数运行对照已完成：固定原文不改函数体，补标准头文件和i64别名，60000次Splay结构/值证书、500000次持久化查询对照，普通及ASan/UBSan通过。原稿insert后由调用方splay、add仅传非空根、merge满足有序约束；原稿int字段保持范围内。证据verification/wida-splay-source.json。这不包含完整JOI主程序。JOI完整应用要在取得实际题面与调用协议后单独判断，不能从片段猜测。静态矩形求和已有正式模板题入口；线上判定、速度排名仍待核实，来源条目保持partial；本次不声称全库已完成。
+
+## 静态矩形求和正式入口
+
+用法432对接Library Checker rectangle_sum：按x排序，按y离散化建立持久化前缀版本，查询[l,r)×[d,u)用两个版本区间权值和相减。重复坐标、零权、落在1e9上界而不被右开区间包含的点均保留正确语义；最大和2e14使用signed64。预处理O(NlogN)、单次查询O(logN)、空间O(NlogN)。
+
+240组扫描真值协议加20万重复点的最大和边界，普通及ASan/UBSan通过；固定版本Library Checker生成的14组官方数据经原官方checker全部接受，故意错误输出被拒绝。仅是本地官方数据通过，不是线上AC。证据verification/rectangle-sum.json、verification/rectangle-sum-official.json。
+
+复现：在build/library-checker-reference固定提交e64660561a995c357cdc61ddee1bde68b80528db，设置CXX=/opt/homebrew/bin/g++-16运行其generate.py及data_structure/rectangle_sum/info.toml，再运行tests/rectangle_sum.py和tests/rectangle_sum_official.py。原始生成数据由上游hash.json核对，检查器报告记录逐组输入、答案、输出与展开源码摘要。
+
+性能提醒（本地，不是OJ排名）：与官方离线Fenwick扫描解法同编译器C++20/O2、三组最大随机数据分别交替运行3次，持久化版本中位数用时约为参考的2.36–2.40倍，超过80%慢速提醒线。证据verification/rectangle-sum-performance.json。纯静态矩形求和优先考虑离线扫描；本入口保留作持久化历史版本组件的正式协议验证，其O(NlogN)空间也高于离线Fenwick。

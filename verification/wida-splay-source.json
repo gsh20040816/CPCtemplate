@@ -1,0 +1,13 @@
+{
+  "source_blob": "4d7c728da88ac87eb4bccaadb44a6640fc784b5f",
+  "files": {
+    "tests/fixtures/wida_splay_sources/original.inc": "7bd0d66fd1634c6a785b6d317e82fc63ddb2320bc9f144890b8756092c586085",
+    "tests/wida_splay_source.cpp": "fee0b79e8d19330896c13467b53294ad3f6457d5c8e4f47b6d189fe20a076b67",
+    "tests/wida_splay_source.py": "48732f0f256f2f8cb239f4fcba8cf1e83d7e3f6ef45a93a01d493325e9ee6bcf"
+  },
+  "runs": {
+    "normal": "60000 source Splay certificates; 500000 source persistent query pairs PASS",
+    "sanitizer": "60000 source Splay certificates; 500000 source persistent query pairs PASS"
+  },
+  "scope": "Unchanged source function bodies, missing standard headers/i64 supplied; source insert followed by caller splay, add only on non-null roots, ordered merge, pointwise nonnegative ancestor version differences. Signed32 Splay fields kept within range; no JOI complete protocol or new online verdict."
+}

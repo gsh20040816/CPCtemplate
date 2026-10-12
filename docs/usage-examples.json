@@ -5508,5 +5508,18 @@
       "PersistentWeightedIndex"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-432",
+    "symbol": "PersistentWeightedIndex",
+    "kind": "template",
+    "problem": "Library Checker Rectangle Sum",
+    "url": "https://judge.yosupo.jp/problem/rectangle_sum",
+    "summary": "N个带权点，Q次查询[l,r)×[d,u)内权值和；1<=N,Q<=200000，坐标及权值在[0,1e9]。按x排序建立前缀版本，y离散化；两个版本相减，重复点与零权合法，答案用signed64。预处理O(NlogN)，每次查询O(logN)，空间O(NlogN)。官方数据本地检查通过，非线上AC。",
+    "driver": "verify/library_checker/rectangle_sum.compact.cpp",
+    "requires": [
+      "PersistentWeightedIndex"
+    ],
+    "start_new_page": true
   }
 ]

@@ -1,0 +1,70 @@
+{
+  "scope": "Local same compiler C++20 O2 sequential alternating runs; wall-clock includes I/O, not OJ ranking",
+  "reference": "Official offline Fenwick sweep; persistent versions provide a different interface and use more memory",
+  "reference_source_sha256": "e070667b659441496d08244bede4bbf379fdff6d2fa0fe95eb5ba15f756bf5ef",
+  "cases": [
+    {
+      "case": "max_random_00",
+      "seconds": {
+        "normal": [
+          0.5829455830098595,
+          0.5843096250027884,
+          0.5733624580025207
+        ],
+        "reference": [
+          1.441049082990503,
+          0.24293620898970403,
+          0.24292695801705122
+        ]
+      },
+      "median_seconds": {
+        "normal": 0.5829455830098595,
+        "reference": 0.24293620898970403
+      },
+      "ratio": 2.3995829416872376,
+      "over_80_percent_slower": true
+    },
+    {
+      "case": "max_random_01",
+      "seconds": {
+        "normal": [
+          0.5794037499872502,
+          0.5806314579967875,
+          0.584074333019089
+        ],
+        "reference": [
+          0.24138004099950194,
+          0.2419578340195585,
+          0.24221420800313354
+        ]
+      },
+      "median_seconds": {
+        "normal": 0.5806314579967875,
+        "reference": 0.2419578340195585
+      },
+      "ratio": 2.39972167195815,
+      "over_80_percent_slower": true
+    },
+    {
+      "case": "max_random_02",
+      "seconds": {
+        "normal": [
+          0.5705592909944244,
+          0.5683138330059592,
+          0.5688758749747649
+        ],
+        "reference": [
+          0.24155325000174344,
+          0.24103320800350048,
+          0.2446731660165824
+        ]
+      },
+      "median_seconds": {
+        "normal": 0.5688758749747649,
+        "reference": 0.24155325000174344
+      },
+      "ratio": 2.355074398587719,
+      "over_80_percent_slower": true
+    }
+  ]
+}

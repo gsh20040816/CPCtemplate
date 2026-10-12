@@ -8123,7 +8123,14 @@
       "title": "持久化计数与权值索引",
       "source": "src/compact/persistent_weighted_index.hpp",
       "status": "needs_template_problem_review",
-      "candidate_drivers": [],
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/rectangle_sum.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/rectangle_sum",
+          "existing_ac": [],
+          "review": "Official half-open weighted rectangle protocol; 14 local official checker cases passed; no online verdict."
+        }
+      ],
       "qoj_tag_candidate": null,
       "ranking": {
         "status": "not_checked",
