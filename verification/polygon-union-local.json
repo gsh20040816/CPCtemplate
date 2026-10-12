@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "oracle": "Exact Fraction vertical strip decomposition and linear envelope trapezoids; no boundary coverage sweep; three n=1000 analytic stress cases",
+  "cases": 450,
+  "source_sha256": "a38bb82a2d6e8773318de329ecb8983934ff9a3076b6c26b06e19bc72c082a1a",
+  "forms": {
+    "normal-header": {
+      "status": "pass",
+      "cases": 450,
+      "max_scaled_error": 5.2336871766011e-16,
+      "seconds": 0.407
+    },
+    "normal-ndebug": {
+      "status": "pass",
+      "cases": 450,
+      "max_scaled_error": 5.2336871766011e-16,
+      "seconds": 0.48
+    },
+    "normal-copied": {
+      "status": "pass",
+      "cases": 450,
+      "max_scaled_error": 5.2336871766011e-16,
+      "seconds": 0.462
+    },
+    "sanitizer-header": {
+      "status": "pass",
+      "cases": 450,
+      "max_scaled_error": 5.2336871766011e-16,
+      "seconds": 1.215
+    },
+    "sanitizer-ndebug": {
+      "status": "pass",
+      "cases": 450,
+      "max_scaled_error": 5.2336871766011e-16,
+      "seconds": 1.278
+    },
+    "sanitizer-copied": {
+      "status": "pass",
+      "cases": 450,
+      "max_scaled_error": 5.2336871766011e-16,
+      "seconds": 1.232
+    }
+  }
+}

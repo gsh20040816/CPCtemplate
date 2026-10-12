@@ -7079,5 +7079,57 @@
     "local_reports": [
       "verification/simplex-local.json"
     ]
+  },
+  {
+    "symbol": "circle_union_area",
+    "problem": "SP8073 CIRU 圆面积并",
+    "url": "https://www.luogu.com.cn/problem/SP8073",
+    "classification": "Formal circle-union-area template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "n≤1000；整数|X|,|Y|,R≤1000；允许零半径；页面时间/内存限制待浏览器核实。",
+    "adapter": "Read circles and print union area with three decimals.",
+    "tested_api": [
+      "circle_union_area(a)"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission and runtime rank pending; browser unavailable while Mac locked.",
+    "source": "src/compact/circle_union.hpp",
+    "driver": "verify/luogu/SP8073.compact.cpp",
+    "usage": "example-398",
+    "local_reports": [
+      "verification/circle-union-local.json"
+    ]
+  },
+  {
+    "symbol": "polygon_union_area",
+    "problem": "P13338 三角形面积并加强版",
+    "url": "https://www.luogu.com.cn/problem/P13338",
+    "classification": "Formal union-area template restricted to triangle inputs; general concave support verified separately.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "n≤1000，整数坐标绝对值≤10⁶，三角形非退化；时间/内存限制待浏览器核实。",
+    "adapter": "Read each triangle as a three-vertex polygon; normalize orientation within core; print union area.",
+    "tested_api": [
+      "polygon_union_area(polygons)"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Online submission pending Mac unlock; runtime rank not checked.",
+    "source": "src/compact/polygon_union.hpp",
+    "driver": "verify/luogu/P13338.compact.cpp",
+    "usage": "example-399",
+    "local_reports": [
+      "verification/polygon-union-local.json"
+    ]
   }
 ]

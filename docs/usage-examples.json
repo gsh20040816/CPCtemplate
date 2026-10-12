@@ -5034,5 +5034,33 @@
       "Simplex"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-398",
+    "symbol": "circle_union_area",
+    "kind": "template",
+    "problem": "SP8073 CIRU 圆面积并",
+    "url": "https://www.luogu.com.cn/problem/SP8073",
+    "summary": "n≤1000，整数圆心坐标绝对值及半径≤1000，允许零半径。输出圆盘面积并，保留三位小数；当前仅本地验证，线上提交待完成。",
+    "driver": "verify/luogu/SP8073.compact.cpp",
+    "requires": [
+      "RealPlane",
+      "circle_union_area"
+    ],
+    "start_new_page": false
+  },
+  {
+    "id": "example-399",
+    "symbol": "polygon_union_area",
+    "kind": "template",
+    "problem": "P13338 三角形面积并加强版",
+    "url": "https://www.luogu.com.cn/problem/P13338",
+    "summary": "n≤1000个非退化三角形，整数坐标绝对值≤10⁶；误差要求|答案-真值|/max(1,|真值|)≤1e-6。此驱动使用一般多边形模板；凹多边形能力另由本地验证覆盖。当前线上待提交。",
+    "driver": "verify/luogu/P13338.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "polygon_union_area"
+    ],
+    "start_new_page": true
   }
 ]

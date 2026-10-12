@@ -7648,6 +7648,50 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "circle_union_area",
+      "title": "圆面积并：未覆盖圆弧积分",
+      "source": "src/compact/circle_union.hpp",
+      "status": "reviewed_formal_template",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/SP8073.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/SP8073",
+          "existing_ac": [],
+          "review": "Statement read; independent local oracle passed; online submission pending, Mac locked."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "polygon_union_area",
+      "title": "一般多边形面积并：整数精确判定",
+      "source": "src/compact/polygon_union.hpp",
+      "status": "reviewed_formal_template",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P13338.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P13338",
+          "existing_ac": [],
+          "review": "Formal triangle-union template exercises general union algorithm; concave polygons additionally verified locally. Online pending Mac unlock."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [

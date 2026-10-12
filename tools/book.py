@@ -59,6 +59,8 @@ chapters['wqs_independent_set'] = 'WQS二分'
 chapters['shortest_walks'] = '严格次短路与K短行走'
 chapters['overall_kth'] = '整体二分'
 chapters['tree_isomorphism'] = '确定性树同构'
+chapters['polygon_union'] = '一般多边形面积并'
+chapters['circle_union'] = '圆面积并'
 chapters['simplex'] = '单纯形法'
 chapters['plug_cycle'] = '插头DP'
 chapters['digit_count'] = '数位DP'
@@ -292,7 +294,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
+            if name in ('polygon_union_area', 'circle_union_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -307,7 +309,31 @@ for style in ['compact']:
                 body.append(r'序列中间插删、截取与版本共享的 GNU rope 见第~\pageref{compact-rp}~页。')
             if name == 'gp_map':
                 body.append(r'\index{gp\_hash\_table}\index{cc\_hash\_table}需要排名与有序前驱时，PBDS 平衡树见第~\pageref{compact-ost}~页。')
-            if name == 'Simplex':
+            if name == 'polygon_union_area':
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('    int n = a.size();', '            for (int j = 0; j < n; j++)', '            add(Fraction(1), 0);')] + [end]
+                for part in range(4):
+                    if part:
+                        body.append(r'\newpage')
+                        body.append(('局部原点与边事件初始化（接上页函数）：', '右侧覆盖与共线边去重（接上页函数）：', '有理参数排序及未覆盖段积分（接上页函数）：')[part - 1])
+                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append(r'\paragraph{精确范围} 令坐标界M=10的9次方。差向量分量至多2M，叉积、交点参数分子及分母绝对值至多8M平方。分式比较的单个交叉乘积至多64M四次方，小于128位有符号上界；裁到[0,1]后的参数差也安全。不能直接沿用IntegerPlane允许的更大坐标界。')
+                body.append(r'\newpage')
+                body.append(r'\paragraph{为何看边的右侧} 每个多边形先转成逆时针，当前边的左侧已在并集中。只有其他多边形占据右侧时，该边才成为并集内部，不能贡献边界。把测试线向右侧平移无穷小量，原线上顶点视作在线上方：cross大于等于0对比小于0，等价于符号化极限，没有实际扰动坐标。向下穿越时覆盖加1，向上穿越时减1。凹多边形会产生多个区间，仍由相同事件累计处理。')
+                body.append(r'\paragraph{共享边与端点} 两条共线反向边的内部位于两侧，右侧测试已将其剔除；同向共线边仅编号较小的多边形保留，避免重复积分。所有事件参数精确裁到[0,1]，同参数事件的任意顺序只影响零长度段，不影响面积。退化顶点、相切和部分重叠边均不需要随机扰动。')
+                body.append(r'\paragraph{积分与孔洞} 对边p到q的未覆盖参数段[l,u]，贡献是cross(p-origin,q-origin)乘(u-l)/2。按逆时针原边方向累加，孔洞自动带负方向，不对单边取绝对值。包围盒相交关系的连通块包含真实并集连通块，按该分组平移不改变闭合积分。最终转long double和补偿求和仍有误差；输入内含洞或自交轮廓不在本接口范围。')
+                body.append(r'\paragraph{独立验证} Fraction精确枚举所有线段交点横坐标，分竖直条带合并各多边形截面，以线性上下包络的梯形公式求真值。包含凹多边形、重复/共线/反向边、孔洞、极值坐标、刚体变换和1000三角形压力例。线上状态见验证记录。')
+            elif name == 'circle_union_area':
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('        for (int j = 0; j < n; j++)', '        auto add =')] + [end]
+                for part in range(3):
+                    if part:
+                        body.append(r'\newpage')
+                        body.append(('两圆关系及覆盖角区间（接上页函数）：', '未覆盖圆弧积分与补偿求和（接上页函数）：')[part - 1])
+                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append(r'\newpage')
+                body.append(r'\paragraph{为什么只算未覆盖弧} 删去重合边界后，圆盘并边界恰是没有落在其他圆内部的圆弧。各圆逆时针方向的内部位于左侧，所以外边界和孔洞边界自动获得正确符号；不能对每条弧单独取绝对值。相切点面积为零，内含圆无需贡献。')
+                body.append(r'\paragraph{积分公式} 对相对连通块原点的圆心$(x,y)$，半径$r$，弧角从$l$到$u$，令$h=(u-l)/2$、$t=(u+l)/2$。格林公式给出贡献$r^2h+r\sin h(x\cos t+y\sin t)$。整圆直接用$\pi r^2$，避免$\sin\pi$舍入误差；补偿求和减少大量正负弧贡献相加的损失。连通块分别平移不改变闭合边界积分。')
+                body.append(r'\paragraph{数值与验证} 角度排序使用严格原值比较，同圆按编号去重，不以eps合并不同圆。半角通过缩放后的Heron乘积与atan2求出，避免acos靠近正负1时的敏感性；仍不是精确几何。独立70位高精度验证沿竖直截面、在全部交点横坐标处分段解析积分，另有孔洞、相切、远平移和千圆压力例。线上AC状态见验证记录，不能由本地通过推断。')
+            elif name == 'Simplex':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('void pivot(', 'bool improve(', 'Result solve(')] + [end]
                 for part in range(4):
                     if part:
