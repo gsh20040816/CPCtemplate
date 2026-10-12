@@ -1,0 +1,36 @@
+{
+  "scope": "Unchanged source audit: x/=x aliasing counterexample, not new fraction-template coverage.",
+  "runs": [
+    {
+      "mode": "normal",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/tests/wida_fraction_source.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/wida-fraction/normal"
+      ],
+      "result": "original x / x = 1; original x /= x = 1/3"
+    },
+    {
+      "mode": "sanitizer",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "/Users/gsh/Workspace/CPCtemplate/tests/wida_fraction_source.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/wida-fraction/sanitizer"
+      ],
+      "result": "original x / x = 1; original x /= x = 1/3"
+    }
+  ],
+  "files": {
+    "tests/fixtures/wida_fraction/Frac.cpp": "afc95d456c9aa5d0e23b2b2571f0ac572857ccf09ebd4e0245769e827a7bf57f",
+    "tests/wida_fraction_source.cpp": "53b1b098ec89b40a565accc46274688e7beb64545d08a461772a7779d6ee50d5",
+    "tests/wida_fraction_source.py": "f8fbb6b30ce6f5f06c1d425582d6f45b1fb0ef0bb607d2af1f7bc960c2bf46db"
+  }
+}

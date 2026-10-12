@@ -1,0 +1,34 @@
+{
+  "scope": "200 random CF1942H complete protocols / 10000 prefixes, independent Edmonds-Karp oracle; first official sample; multi-test reset. Local only, no online verdict.",
+  "runs": [
+    {
+      "form": "header",
+      "mode": "normal",
+      "cases": 202,
+      "source_sha256": "f49aee764a5695db5c2cc4c7d87c6d1af53aae13e3dcb58020461671e18f8a88"
+    },
+    {
+      "form": "header",
+      "mode": "sanitizer",
+      "cases": 202,
+      "source_sha256": "f49aee764a5695db5c2cc4c7d87c6d1af53aae13e3dcb58020461671e18f8a88"
+    },
+    {
+      "form": "printed",
+      "mode": "normal",
+      "cases": 202,
+      "source_sha256": "4cfe68366cfa95debce05538ddb9479f71fab16211a0b23739d47cebc8e824f6"
+    },
+    {
+      "form": "printed",
+      "mode": "sanitizer",
+      "cases": 202,
+      "source_sha256": "4cfe68366cfa95debce05538ddb9479f71fab16211a0b23739d47cebc8e824f6"
+    }
+  ],
+  "files": {
+    "verify/cf/1942H.compact.cpp": "b054a574c6fb06e878d1ee2900a579872118636ab220eb8ec3b1694a7ee09d51",
+    "tests/dynamic_peach_tree_protocols.py": "98d6a930f7c469dc33a9425cf9c7b5031fcdbb7212b3e0e8b3b5c9830ab995ca",
+    "src/compact/dynamic_peach_tree.hpp": "76f0d60230d2d4e41d33882e403b4d8ca4011e4af31c47c2d0732a88e5eb699a"
+  }
+}

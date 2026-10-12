@@ -1,0 +1,26 @@
+{
+  "runs": [
+    {
+      "mode": "normal",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "-Wl,-stack_size,0x20000000",
+        "/Users/gsh/Workspace/CPCtemplate/tests/dynamic_peach_tree_stress.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/dynamic-peach-tree/stress-normal"
+      ],
+      "result": "0 0.366117\n1 0.079968\n2 0.377529"
+    }
+  ],
+  "scope": "200000 nodes and 200000 random updates per chain/star/random tree; sufficient root supply invariant then forced deficit. Concurrent PDF build; not a judge time guarantee.",
+  "files": {
+    "src/compact/dynamic_peach_tree.hpp": "76f0d60230d2d4e41d33882e403b4d8ca4011e4af31c47c2d0732a88e5eb699a",
+    "tests/dynamic_peach_tree_stress.cpp": "24f7bb0113e67c02558d9b691c608404e5e7f6da4e69d1f3ccf1a4c2c73d2fcd",
+    "tests/dynamic_peach_tree_stress.py": "b168fa860544ef4994e9367fc7d76bd95867078ad6740e2ef03917e7ac2ddcfa",
+    "tests/fixtures/wida_peach/07B.cpp": "fbc5690a87e38734b828354df0b4c85490e5f9001c48d69c73ff3b1e0e69ac19"
+  }
+}

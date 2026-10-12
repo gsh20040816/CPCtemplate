@@ -8500,6 +8500,62 @@ TreePathProducts<mod>(g,weight) 要求 g 是非空无向树，点号 0..n-1、�
 
 \lstinputlisting{usage/example-108.cpp}
 
+\newpage
+
+\Needspace{650pt}
+
+\noindent 相关应用：固定树三状态min-plus仿射动态DP；生长采摘专用可行性模型
+
+\subsection{动态树上生长与采摘可行性}\label{compact-DynamicPeachTree}\index{DynamicPeachTree}
+
+DynamicPeachTree(parent,b)：0-based固定有根树，唯一根父亲-1，1$\le$n$\le$200000；b为非负long long需求数组。初始各点果实数为0。add(type,x,value)累计事件并返回当前整个前缀是否可行：type=1的每个生长事件可放到x的父亲或x子树任意一点；type=2的采摘事件可从x子树任意一点取走一个。每个前缀独立，可重新安排所有事件的顺序及分配，最终每点至少b[i]且过程中不能为负。根的生长只能放在自身子树。healthy()读取当前可行性；不是输出实际分配方案。
+
+所有b及历次value之和须$\le$10\textasciicircum{}15，value非负；原CF1942H约束满足。三状态min-plus仿射转移，第四维恒为0；不可达项相加前跳过，不能直接把INF加负数。sumg/sumh/sumb存虚子树贡献；更新必须用旧聚合扣除父亲的旧贡献。内部t与辅助函数不供调用方修改。初始化O(n)，单次add摊还O(logn)，空间O(n)，矩阵常数固定；递归初建深度最坏n，无换根或link/cut。
+
+对应WIDA07B，来源原稿、静态树DP、独立小规模最大流和完整CF1942H输入输出协议本地验证；不等于本次线上AC。
+
+\lstinputlisting[firstline=9,lastline=38,firstnumber=1]{../src/compact/dynamic_peach_tree.hpp}
+
+\newpage
+
+\noindent 动态树上供需判定（接上页同一结构体）：
+
+\lstinputlisting[firstline=39,lastline=86,firstnumber=31]{../src/compact/dynamic_peach_tree.hpp}
+
+\newpage
+
+\noindent 动态树上供需判定（接上页同一结构体）：
+
+\lstinputlisting[firstline=87,lastline=128,firstnumber=79]{../src/compact/dynamic_peach_tree.hpp}
+
+\newpage
+
+\noindent 动态树上供需判定（接上页同一结构体）：
+
+\lstinputlisting[firstline=129,lastline=162,firstnumber=121]{../src/compact/dynamic_peach_tree.hpp}
+
+\newpage
+
+\noindent 动态树上供需判定（接上页同一结构体）：
+
+\lstinputlisting[firstline=163,lastline=196,firstnumber=155]{../src/compact/dynamic_peach_tree.hpp}
+
+\newpage
+
+\Needspace{506pt}
+
+\subsection*{应用题补充：CF1942H Farmer John's Favorite Intern}
+
+\label{usage-example-440}
+
+题意：完整CF1942H协议：t组，每组n q，节点2..n的1-based父亲，n个最低需求，q行type x value；输出每个独立前缀是否存在可行事件分配。1$\le$n,q$\le$200000，总n及总q各$\le$200000，b$\le$10\textasciicircum{}6，1$\le$value$\le$10\textasciicircum{}6。当前仅本地验证，非新线上AC。
+
+所需模板：\hyperref[compact-DynamicPeachTree]{DynamicPeachTree}（第~\pageref{compact-DynamicPeachTree}~页，\ref{compact-DynamicPeachTree}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/problemset/problem/1942/H}
+
+\lstinputlisting{usage/example-440.cpp}
+
 \noindent 相关应用：固定拓扑的虚子树聚合与点权修改后全树路径异或和，不表示通用动态森林接口
 
 \subsection{点权修改与全树路径异或和}\label{compact-XorPathSum}\index{XorPathSum}

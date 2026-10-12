@@ -1,0 +1,44 @@
+{
+  "runs": [
+    {
+      "mode": "normal",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "-Wl,-stack_size,0x20000000",
+        "/Users/gsh/Workspace/CPCtemplate/tests/dynamic_peach_tree.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/dynamic-peach-tree/normal"
+      ],
+      "result": "750012 state/source/copy/large-tree checks passed"
+    },
+    {
+      "mode": "sanitizer",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-Wl,-stack_size,0x20000000",
+        "/Users/gsh/Workspace/CPCtemplate/tests/dynamic_peach_tree.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/dynamic-peach-tree/sanitizer"
+      ],
+      "result": "750012 state/source/copy/large-tree checks passed"
+    }
+  ],
+  "scope": "Local static recurrence, unchanged WIDA source, random relabeled dynamic trees, copies and 200000-node chain/star. No online verdict.",
+  "files": {
+    "src/compact/dynamic_peach_tree.hpp": "76f0d60230d2d4e41d33882e403b4d8ca4011e4af31c47c2d0732a88e5eb699a",
+    "tests/dynamic_peach_tree.cpp": "07c2837088ef043bce6b70dedd082537123c1fdce060a9b532e70e94a8d710ed",
+    "tests/dynamic_peach_tree.py": "b6383358320fdbdcff7f0d697c1d8b8e9eab3a821ccff7ee3a0091d1435d1add",
+    "tests/fixtures/wida_peach/07B.cpp": "fbc5690a87e38734b828354df0b4c85490e5f9001c48d69c73ff3b1e0e69ac19"
+  }
+}

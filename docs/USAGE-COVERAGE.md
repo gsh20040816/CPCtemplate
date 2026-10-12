@@ -118,6 +118,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | IntegerGeometry3D | [example-225（接口演示）](usage/example-225.cpp) | locally_checked_api |
 | LinkCutTree | [example-45](usage/example-45.cpp) | locally_checked_example |
 | XorPathSum | [example-439（接口演示）](usage/example-439.cpp) | locally_checked_api |
+| DynamicPeachTree | [example-440（应用补充）](usage/example-440.cpp) | locally_checked_application |
 | DynamicPathMax | [example-328（接口演示）](usage/example-328.cpp) | locally_checked_api |
 | TreePathProducts | [example-108（应用补充）](usage/example-108.cpp) | locally_checked_application |
 | OrderedTreap | [example-8](usage/example-8.cpp) | locally_checked_example |
