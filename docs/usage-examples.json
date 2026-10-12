@@ -5055,11 +5055,24 @@
     "kind": "template",
     "problem": "P13338 三角形面积并加强版",
     "url": "https://www.luogu.com.cn/problem/P13338",
-    "summary": "n≤1000个非退化三角形，整数坐标绝对值≤10⁶；误差要求|答案-真值|/max(1,|真值|)≤1e-6。此驱动使用一般多边形模板；凹多边形能力另由本地验证覆盖。当前线上待提交。",
+    "summary": "n≤1000个非退化三角形，整数坐标绝对值≤10⁶；误差要求|答案-真值|/max(1,|真值|)≤1e-6。此驱动使用一般多边形模板；凹多边形能力另由本地验证覆盖。当前实现已通过P13338，记录302630852。",
     "driver": "verify/luogu/P13338.compact.cpp",
     "requires": [
       "IntegerPlane",
       "polygon_union_area"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-400",
+    "symbol": "Hull3D",
+    "kind": "template",
+    "problem": "P4724 三维凸包",
+    "url": "https://www.luogu.com.cn/problem/P4724",
+    "summary": "4≤n≤2000个实数点，输出三维凸包表面积，保留三位小数。题面未给坐标界。驱动对纯平面输入采用正反双面包裹面积约定；核心area()仍返回平面单面面积。线上状态见验证记录。",
+    "driver": "verify/luogu/P4724.compact.cpp",
+    "requires": [
+      "Hull3D"
     ],
     "start_new_page": true
   }

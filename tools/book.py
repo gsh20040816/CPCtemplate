@@ -59,6 +59,7 @@ chapters['wqs_independent_set'] = 'WQS二分'
 chapters['shortest_walks'] = '严格次短路与K短行走'
 chapters['overall_kth'] = '整体二分'
 chapters['tree_isomorphism'] = '确定性树同构'
+chapters['hull3d'] = '三维凸包'
 chapters['polygon_union'] = '一般多边形面积并'
 chapters['circle_union'] = '圆面积并'
 chapters['simplex'] = '单纯形法'
@@ -294,7 +295,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('polygon_union_area', 'circle_union_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
+            if name in ('Hull3D', 'polygon_union_area', 'circle_union_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -309,7 +310,20 @@ for style in ['compact']:
                 body.append(r'序列中间插删、截取与版本共享的 GNU rope 见第~\pageref{compact-rp}~页。')
             if name == 'gp_map':
                 body.append(r'\index{gp\_hash\_table}\index{cc\_hash\_table}需要排名与有序前驱时，PBDS 平衡树见第~\pageref{compact-ost}~页。')
-            if name == 'polygon_union_area':
+            if name == 'Hull3D':
+                tokens = ('    // Exact signs', '    static int turn_sign', '    static int orient_sign', '    explicit Hull3D', '        int n = p.size();', '            order.resize(n);', '        dimension = 3;', '    long double area()')
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
+                captions = ('字段与面积运算：', '浮点展开式运算（接同一结构体）：', '二维方向与共线检查（接同一结构体）：', '三维方向的过滤与精确回退（接同一结构体）：', '构造、排序与去重（接同一结构体）：', '低维识别与平面投影（接同一构造函数）：', '平面单调链与三角化（接同一构造函数）：', '初始四面体与增量可见面（接同一构造函数）：', '面积与六倍体积（接同一结构体）：')
+                for part in range(len(cuts) - 1):
+                    if part:
+                        body.append(r'\newpage')
+                    body.append(captions[part])
+                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append(r'\paragraph{不变量} 三维初始四面体各面均背向内部。新增点只删除严格可见的面，删除面中的反向公共边两两消去，剩余有向边是轮廓。用轮廓边和新点组成新面即可恢复闭合外向凸包；零方向不算可见，不能扰动共面点。所有点先排序去重，平面情况投影到法向非零的轴，单独用二维凸包处理。')
+                body.append(r'\paragraph{精确符号的范围} 浮点展开式保存每次加法和乘法被舍弃的残差，末项符号即精确和的符号；乘法残差通过fma计算。先用保守舍入误差界过滤明显非零的方向，不能确定时回退。需二进制、最近舍入、禁用fast-math及运算重排，保证运算和残差不上下溢。对于有效位不超过113且指数范围至少覆盖普通double的实现，每个非零坐标绝对值在2的负100次方至2的100次方内是一个足够安全域。输入十进制读取误差不被恢复。')
+                body.append(r'\paragraph{测量和退化约定} 精确方向不等于精确面积。面积的平方根与求和、实数体积仍可能失去相对精度，极薄模型需额外检验。整数域内六倍体积精确且非负；平面核心只返回单面面积，点和线面积为0。题目驱动选择平面双面包裹约定，题面本身没有明确低维语义；其他题应按题意适配。')
+                body.append(r'\paragraph{独立验证} 565组输入分别验证整数和实数版，参考为精确支撑平面枚举及每个面的二维凸包；检查外向、无退化面、反向边配对、Euler关系、面积和体积。另有8000组精确有理数方向参考，含共面、nextafter近共面、不同指数和减法残差。原先放大整数点导致浮点行列式误判的反例保留。')
+            elif name == 'polygon_union_area':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('    int n = a.size();', '            for (int j = 0; j < n; j++)', '            add(Fraction(1), 0);')] + [end]
                 for part in range(4):
                     if part:

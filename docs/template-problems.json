@@ -7659,7 +7659,7 @@
           "driver": "verify/luogu/SP8073.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/SP8073",
           "existing_ac": [],
-          "review": "Statement read; independent local oracle passed; online submission pending, Mac locked."
+          "review": "Submitted current source, remote judge Waiting: https://www.luogu.com.cn/record/302630657. No AC claimed."
         }
       ],
       "qoj_tag_candidate": null,
@@ -7680,8 +7680,34 @@
         {
           "driver": "verify/luogu/P13338.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P13338",
-          "existing_ac": [],
-          "review": "Formal triangle-union template exercises general union algorithm; concave polygons additionally verified locally. Online pending Mac unlock."
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/302630852"
+          ],
+          "review": "Actual current-source AC on formal triangle-union template; general concave polygons separately verified by exact local oracle."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "Hull3D",
+      "title": "三维凸包：精确方向与退化处理",
+      "source": "src/compact/hull3d.hpp",
+      "status": "reviewed_formal_template",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P4724.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P4724",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/302631415"
+          ],
+          "review": "Current-source AC, 10 tests, max21ms. This judge covers real-coordinate surface area; integer volume and full mesh independently checked locally."
         }
       ],
       "qoj_tag_candidate": null,

@@ -8,7 +8,7 @@
 
 基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。
 
-当前 123 项，121 条 AC；52 项有明确最慢单点，0 项已完成 SOTA 核验。
+当前 130 项，127 条 AC；58 项有明确最慢单点，0 项已完成 SOTA 核验。
 
 | 题目/记录 | 状态、码风 | 原始登记 | 最慢单点 ms | 逐点合计 ms | 明确登记总计 ms | SOTA |
 |---|---|---|---:|---:|---:|---|
@@ -31,6 +31,8 @@
 | [Luogu P1903](https://www.luogu.com.cn/record/297653743) | Accepted, compact | time_ms=546 | — | — | — | 待核验 |
 | [Luogu P2147](https://www.luogu.com.cn/record/301882512) | Accepted, compact | time_ms=202 | 202 | 1100 | 1100 | 待核验 |
 | [Luogu P2365](https://www.luogu.com.cn/record/302209623) | Accepted, compact | time_ms=4 | 4 | 44 | 44 | 待核验 |
+| [Luogu P2602](https://www.luogu.com.cn/record/302624647) | Accepted | displayed_total_time=40ms | 4 | — | — | 待核验 |
+| [Luogu P2709](https://www.luogu.com.cn/record/302624429) | Accepted | displayed_total_time=1.41s | 69 | — | — | 待核验 |
 | [Luogu P2731](https://www.luogu.com.cn/record/299974727) | Accepted, compact | time_ms=5 | — | — | 38 | 待核验 |
 | [Luogu P2921](https://www.luogu.com.cn/record/299973954) | Accepted, compact | time_ms=25 | — | — | 155 | 待核验 |
 | [Luogu P3199](https://www.luogu.com.cn/record/302334598) | Accepted, compact | displayed_total_time=10.48s; max_case_time_display=1.92s | — | — | — | 待核验 |
@@ -82,6 +84,7 @@
 | [Luogu P4897](https://www.luogu.com.cn/record/297591576) | Accepted, compact | time_display=2.46s | 252 | — | — | 待核验 |
 | [Luogu P4897](https://www.luogu.com.cn/record/297592933) | Accepted, classic | time_display=1.80s | 185 | — | — | 待核验 |
 | [Luogu P4980](https://www.luogu.com.cn/record/302212651) | Accepted, compact | time_ms=120 | 120 | 679 | 679 | 待核验 |
+| [Luogu P5056](https://www.luogu.com.cn/record/302626494) | Accepted | displayed_total_time=414ms | 323 | 414 | — | 待核验 |
 | [Luogu P5236](https://www.luogu.com.cn/record/302334786) | Accepted, compact | time_ms=202 | 12 | 202 | — | 待核验 |
 | [Luogu P5395](https://www.luogu.com.cn/record/297626422) | Accepted, compact | time_display=1.04s | 202 | — | — | 待核验 |
 | [Luogu P5395](https://www.luogu.com.cn/record/297626660) | Accepted, classic | time_display=1.03s | 203 | — | — | 待核验 |
@@ -112,10 +115,13 @@
 | [Luogu P8436](https://www.luogu.com.cn/record/297519028) | Accepted, compact | time_ms=5040 | — | — | — | 待核验 |
 | [Luogu P8436](https://www.luogu.com.cn/record/297519083) | Accepted, classic | time_ms=5430 | — | — | — | 待核验 |
 | [Luogu U367189](https://www.luogu.com.cn/record/302334160) | Accepted, compact | — | 63 | 392 | 392 | 待核验 |
+| [P13337](https://www.luogu.com.cn/record/302627451) | Accepted | — | 45 | 427 | — | 待核验 |
+| [P13338](https://www.luogu.com.cn/record/302630852) | Accepted | — | 372 | 2977 | — | 待核验 |
 | [P2617](https://www.luogu.com.cn/record/301886868) | Accepted | displayed_total_time=1.99s | 191 | 1994 | — | 待核验 |
 | [P2865](https://www.luogu.com.cn/record/302207967) | Accepted | — | 30 | 79 | — | 待核验 |
 | [P2901](https://www.luogu.com.cn/record/302208192) | Accepted | — | 11 | 59 | — | 待核验 |
 | [P3370](https://www.luogu.com.cn/record/302216358) | Accepted, compact | displayed_total_time=1.90s | 464 | 1896 | — | 待核验 |
+| [P4724](https://www.luogu.com.cn/record/302631415) | Accepted | — | 21 | 103 | 103 | 待核验 |
 | [P4768](https://www.luogu.com.cn/record/302331476) | Accepted, compact | displayed_total_time=13.72s; max_case_time_display=2.01s | — | — | — | 待核验 |
 | [P5043](https://www.luogu.com.cn/record/301887481) | Accepted | displayed_total_time=42ms | 5 | 42 | — | 待核验 |
 | [P5906](https://www.luogu.com.cn/record/301884220) | Accepted | displayed_total_time=7.46s | 762 | 7456 | — | 待核验 |
@@ -135,5 +141,6 @@
 | [QOJ 906](https://qoj.ac/submission/3061625) | Accepted, compact | time_ms=226 | — | — | — | 待核验 |
 | [QOJ 999](https://qoj.ac/submission/3061643) | Accepted, compact | time_ms=87 | — | — | — | 待核验 |
 | [SP10707](https://www.luogu.com.cn/record/301884426) | Waiting | — | — | — | — | 待核验 |
+| [SP8073](https://www.luogu.com.cn/record/302630657) | Waiting | — | — | — | — | 待核验 |
 
 逐条证据路径、源码哈希、编译语言与原始计时字段见 [机器可读清单](../verification/online-runtimes.json)。本表可由 `python3 tools/online_runtimes.py` 重建。

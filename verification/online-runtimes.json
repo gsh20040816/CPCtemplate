@@ -2,15 +2,19 @@
   "scope": "Archived central ledger plus batch online receipts, cross-checked against reviewed AC URLs. Not a crawl of complete account history or proof of benchmark completion.",
   "inputs_sha256": {
     "verification/oj.json": "66ca4f1b9d2d70780d79750377d4cf951f34342ca472c9d5d6c29820a32f691c",
+    "verification/area-unions-online.json": "cce2ea0f59855db0ec6f44ed87262c258a1f61a6f2e5aaa9d938b8aa897ff9a7",
     "verification/cactus-online.json": "687b9261d1ccf15d858d1310f96fa613ed8ed7e072197bf95bc962ed0be09e1f",
     "verification/cartesian-tree-online.json": "c5b126a2edbb4071182d6321b598b1f91e5c4199f935d52c0208d5b80f254785",
+    "verification/circle-union-online.json": "8ec193c04d3391ac7c6ddad0ea8302b0d512e1f1e010459f8c05ab68d1892c63",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
+    "verification/digit-count-online.json": "da4fb74ba8c1766ad51b7d5db77c751a78b578f0267edd4ecc8c793616f7f32e",
     "verification/dominance4d-ccf-noi-online.json": "c6ee7cf21f75f88afc1377d9dfb35c4a18c4a0c938e0e65a9d6a2861e67748ee",
     "verification/dominance4d-online.json": "d41ba508d6527977c035f8cc79990ff114c1a204ed96c9dd72b672a31759beb4",
     "verification/dp-optimization-online.json": "06faef4810a266335879592c4a829458670d9266b85bbe937e4e71fddb3f6aa1",
     "verification/dynamic-diameter-online.json": "b07070425ac153a11d57ea4424d0ed68e5de1095cb11b318e8a28a45b699c449",
     "verification/four-cycles-online.json": "01a0b06257b97bde3afc03c000eb5a431d9d8f24597e1053b0c62b551734d3d4",
     "verification/hlpp-online.json": "1b0809c172aaabd8214dbae595cf4eb6342f81e63abecc216b91625cede81275",
+    "verification/hull3d-online.json": "65fa7aa969300a76d0ed4acd81674b8a29407e091222a818d586ace28c3b1649",
     "verification/kruskal-tree-online.json": "17fdee900f963141e88656243299395b9ca64f9c706dca8dfa1871236e14672a",
     "verification/loj121-online.json": "d480447f3fa5527184d10fa0c41adcb039b2b63c75474859564ccb2f65b573c5",
     "verification/long-chain-online.json": "7789091cdc2f67e2e29c4e59a9b84b13a3d3d280bfa238732936a8bf6cc50c3a",
@@ -19,16 +23,20 @@
     "verification/min-mean-cycle-online.json": "3a68a650d0bffec9a136cc465834b921b632b44a84799856fa343e0384e76c28",
     "verification/mo-online.json": "4a43a0bf3671480e15df1d3b1c2b6547f84b5c52dafce6c8065048611a23fef6",
     "verification/nth-roots-online.json": "068115a3cae22733b23dd1fd185b0897ff662164341262db2fb10602aeecd408",
+    "verification/ordinary-mo-online.json": "4524fae7690e94253556b354f5c882f6a4ee22cee01f929710521002b5585faf",
     "verification/overall-kth-isomorphism-online.json": "fbbcef1aade003474536609c348d39e88a3f64eecb91dea3c91a8057e2eef303",
+    "verification/plug-cycle-online.json": "deda7883a467d1ad4f4f76756e09164b51627a2b92b7226dbae222d115f58b19",
     "verification/polya-online.json": "84162dbf2afff3bc49750b3b9c7081d302a47ab2587c6df8a0f041c9609b7cda",
+    "verification/polygon-union-online.json": "541e227d6d424a9d750dea49e67723ba1c85ece60a705641594e69c829a2db05",
     "verification/regular-matching-online.json": "538de55464b10e939f5c09138c6289df7900f5d4430b0e03397639b8f2245b12",
     "verification/short-walks-online.json": "cf774583f36f05e3b88375787940f1eb591126a6999bd2f3c2f403251c8d84fd",
+    "verification/simplex-online.json": "6d0d1715be608bfd1c881cd98d1b081b3c2a5adba46aff8abbfa9c40a3c32bf4",
     "verification/steiner-tree-online.json": "867c4bb47d66ccd6b5646985bfa7528cbc23a5e8222c5789010e9ed87ec99289",
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
     "verification/tree-block-online.json": "35bf371a12b2decea0e5710260fb46bb3b96ed9a9cf80dff66ba846318276643",
     "verification/tutte-online.json": "b0243dfb595dc1cc3f1f5b0c1339a23683621ee630cc8e696a51fb2a0780abd2",
-    "docs/template-problem-reviews.json": "c9fcf12bda96aac513d629df2f431c5fdf006f0725a488e74ee90b7bb3a1da23"
+    "docs/template-problem-reviews.json": "e6fa16eb89de13a797c536da30bf96006e3679208a08022d4e2b2c7c970abc8d"
   },
   "entries": [
     {
@@ -794,6 +802,74 @@
       "maximum_case_ms": 4,
       "sum_of_case_ms": 44,
       "reported_total_ms": 44,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302624647",
+      "problem": "Luogu P2602",
+      "sources": [
+        {
+          "path": "verification/submitted/P2602.compact.cpp",
+          "sha256": "cc0eeec19ef1ed030424462f4189aa8815a90bb895b03192b6038cb1537c8880"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/digit-count-online.json",
+          "timing": {
+            "max_case_time_ms": 4,
+            "displayed_total_time": "40ms"
+          },
+          "language": "C++20 O2",
+          "note": "ZJOI2010 application, positive bounds <=10^12. Full signed-64 positive bounds covered locally. Runtime rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [
+        "digit_count"
+      ],
+      "maximum_case_ms": 4,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302624429",
+      "problem": "Luogu P2709",
+      "sources": [
+        {
+          "path": "verification/submitted/P2709.compact.cpp",
+          "sha256": "9e0235a5225f1fcc8410e5ab8f20cb978136260df391f499f378eb11ab8111d3"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/ordinary-mo-online.json",
+          "timing": {
+            "max_case_time_ms": 69,
+            "displayed_total_time": "1.41s"
+          },
+          "language": "C++20 O2",
+          "note": "Frequency-square queries accepted. Empty ranges and repeated runs covered locally. Runtime rank not checked."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [
+        "Mo"
+      ],
+      "maximum_case_ms": 69,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
       "benchmark_status": "not_checked",
       "benchmark": null,
       "ratio": null
@@ -2703,6 +2779,52 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302626494",
+      "problem": "Luogu P5056",
+      "sources": [
+        {
+          "path": "verification/submitted/P5056.compact.cpp",
+          "sha256": "eefd4407348c0b1b40df326939601eb661a2d2e8718c1659337988897f64fb6b"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/plug-cycle-online.json",
+          "timing": {
+            "max_case_time_ms": 323,
+            "displayed_total_time": "414ms",
+            "test_times_ms": [
+              4,
+              4,
+              4,
+              5,
+              27,
+              5,
+              6,
+              6,
+              323,
+              30
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Single undirected spanning cycle with obstacles; <=12x12. __int128 proved sufficient for all intermediate states by <=121 binary choices."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [
+        "grid_cycle"
+      ],
+      "maximum_case_ms": 323,
+      "sum_of_case_ms": 414,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/302334786",
       "problem": "Luogu P5236",
       "sources": [
@@ -4041,6 +4163,169 @@
       "ratio": null
     },
     {
+      "record": "https://www.luogu.com.cn/record/302627451",
+      "problem": "P13337",
+      "sources": [
+        {
+          "path": "verification/submitted/P13337.compact.cpp",
+          "sha256": "60e22c9a2d43e3086a408ab16d0a78681bbbb958a4c3793b839e28d826b530c5"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/simplex-online.json",
+          "timing": {
+            "test_ms": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              5,
+              4,
+              4,
+              7,
+              7,
+              5,
+              5,
+              6,
+              6,
+              6,
+              6,
+              6,
+              5,
+              45,
+              38,
+              31,
+              29,
+              23,
+              39,
+              36,
+              35,
+              32,
+              19
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 45,
+      "sum_of_case_ms": 427,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302630852",
+      "problem": "P13338",
+      "sources": [
+        {
+          "path": "verification/submitted/P13338.compact.cpp",
+          "sha256": "c606efa487f03b7496fe9bb47d66bb85bc61a1209ada1e24e22279a65b11355c"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/area-unions-online.json",
+          "timing": {
+            "test_ms": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              7,
+              7,
+              7,
+              7,
+              8,
+              7,
+              8,
+              7,
+              8,
+              6,
+              8,
+              6,
+              7,
+              365,
+              367,
+              372,
+              229,
+              190,
+              214,
+              296,
+              349,
+              246,
+              228
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        },
+        {
+          "evidence": "verification/polygon-union-online.json",
+          "timing": {
+            "test_ms": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              7,
+              7,
+              7,
+              7,
+              8,
+              7,
+              8,
+              7,
+              8,
+              6,
+              8,
+              6,
+              7,
+              365,
+              367,
+              372,
+              229,
+              190,
+              214,
+              296,
+              349,
+              246,
+              228
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 372,
+      "sum_of_case_ms": 2977,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
       "record": "https://www.luogu.com.cn/record/301886868",
       "problem": "P2617",
       "sources": [
@@ -4246,6 +4531,49 @@
       "maximum_case_ms": 464,
       "sum_of_case_ms": 1896,
       "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302631415",
+      "problem": "P4724",
+      "sources": [
+        {
+          "path": "verification/submitted/P4724.compact.cpp",
+          "sha256": "1f70b74482a753db678778fecd6bb3e6fcfe8d536b6e463ef215f3137ab655d6"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/hull3d-online.json",
+          "timing": {
+            "total_time_ms": 103,
+            "test_ms": [
+              4,
+              5,
+              4,
+              4,
+              4,
+              5,
+              21,
+              18,
+              19,
+              19
+            ]
+          },
+          "language": "C++20 O2",
+          "note": "Surface area on formal real-coordinate template; integer volume and complete mesh only independently tested locally."
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 21,
+      "sum_of_case_ms": 103,
+      "reported_total_ms": 103,
       "benchmark_status": "not_checked",
       "benchmark": null,
       "ratio": null
@@ -4982,13 +5310,48 @@
       "benchmark_status": "not_checked",
       "benchmark": null,
       "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302630657",
+      "problem": "SP8073",
+      "sources": [
+        {
+          "path": "verification/submitted/SP8073.compact.cpp",
+          "sha256": "c5c21aa6254fc61c8234db2a2acb8ceb721123e42b878d9cbe4eebc71a9c23e7"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/area-unions-online.json",
+          "timing": {},
+          "language": "C++20 O2",
+          "note": "RemoteJudge waiting for compilation; no AC claimed."
+        },
+        {
+          "evidence": "verification/circle-union-online.json",
+          "timing": {},
+          "language": "C++20 O2",
+          "note": "RemoteJudge waiting for compilation; no AC claimed."
+        }
+      ],
+      "statuses": [
+        "Waiting"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": null,
+      "sum_of_case_ms": null,
+      "reported_total_ms": null,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
     }
   ],
   "counts": {
-    "entries": 123,
-    "with_record": 122,
-    "accepted": 121,
-    "known_case_max": 52,
+    "entries": 130,
+    "with_record": 129,
+    "accepted": 127,
+    "known_case_max": 58,
     "benchmarks_verified": 0
   }
 }

@@ -7087,7 +7087,7 @@
     "classification": "Formal circle-union-area template.",
     "statement_checked": true,
     "checked_date": "2026-10-12",
-    "limits": "n≤1000；整数|X|,|Y|,R≤1000；允许零半径；页面时间/内存限制待浏览器核实。",
+    "limits": "n≤1000；整数|X|,|Y|,R≤1000；允许零半径；2.23s、1.46GB。",
     "adapter": "Read circles and print union area with three decimals.",
     "tested_api": [
       "circle_union_area(a)"
@@ -7098,7 +7098,7 @@
       "rank": null,
       "total": null
     },
-    "remaining": "Online submission and runtime rank pending; browser unavailable while Mac locked.",
+    "remaining": "RemoteJudge Waiting: https://www.luogu.com.cn/record/302630657; runtime rank not checked.",
     "source": "src/compact/circle_union.hpp",
     "driver": "verify/luogu/SP8073.compact.cpp",
     "usage": "example-398",
@@ -7113,23 +7113,51 @@
     "classification": "Formal union-area template restricted to triangle inputs; general concave support verified separately.",
     "statement_checked": true,
     "checked_date": "2026-10-12",
-    "limits": "n≤1000，整数坐标绝对值≤10⁶，三角形非退化；时间/内存限制待浏览器核实。",
+    "limits": "n≤1000；整数坐标绝对值≤10⁶；非退化三角形；1–3s、512MB。",
     "adapter": "Read each triangle as a three-vertex polygon; normalize orientation within core; print union area.",
     "tested_api": [
       "polygon_union_area(polygons)"
     ],
-    "ac": null,
+    "ac": "https://www.luogu.com.cn/record/302630852",
     "ranking": {
       "status": "not_checked",
       "rank": null,
       "total": null
     },
-    "remaining": "Online submission pending Mac unlock; runtime rank not checked.",
+    "remaining": "Runtime rank not checked; formal judge covers triangles, concave inputs verified locally.",
     "source": "src/compact/polygon_union.hpp",
     "driver": "verify/luogu/P13338.compact.cpp",
     "usage": "example-399",
     "local_reports": [
       "verification/polygon-union-local.json"
+    ]
+  },
+  {
+    "symbol": "Hull3D",
+    "problem": "P4724 三维凸包",
+    "url": "https://www.luogu.com.cn/problem/P4724",
+    "classification": "Formal real-coordinate 3D hull surface-area template; integer exact volume and full mesh independently verified locally.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "4≤n≤2000；实数坐标，题面未给坐标界；1秒、125MB。",
+    "adapter": "Read points, build hull and output area; planar hull uses double-sided wrapping convention in driver only.",
+    "tested_api": [
+      "Hull3D(points)",
+      "area()"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302631415",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Runtime rank not checked; integer volume and full mesh covered by independent local verification, not this surface-area judge.",
+    "source": "src/compact/hull3d.hpp",
+    "driver": "verify/luogu/P4724.compact.cpp",
+    "usage": "example-400",
+    "local_reports": [
+      "verification/hull3d-local.json",
+      "verification/hull3d-predicates.json"
     ]
   }
 ]

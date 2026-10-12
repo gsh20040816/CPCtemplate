@@ -274,8 +274,9 @@
 | `digit_count` | [P2602 数字计数](https://www.luogu.com.cn/problem/P2602) | 1≤a≤b≤10^12;1秒、125MB。 | [记录](https://www.luogu.com.cn/record/302624647) | 待核验 |
 | `grid_cycle` | [P5056 插头 DP](https://www.luogu.com.cn/problem/P5056) | 2≤n,m≤12;1秒、125MB。 | [记录](https://www.luogu.com.cn/record/302626494) | 待核验 |
 | `Simplex` | [P13337 线性规划](https://www.luogu.com.cn/problem/P13337) | 1≤n,m≤100；整数系数绝对值≤100；随机数据；3秒、512MB。 | [记录](https://www.luogu.com.cn/record/302627451) | 待核验 |
-| `circle_union_area` | [SP8073 CIRU 圆面积并](https://www.luogu.com.cn/problem/SP8073) | n≤1000；整数\|X\|,\|Y\|,R≤1000；允许零半径；页面时间/内存限制待浏览器核实。 | 待在线 AC | 待核验 |
-| `polygon_union_area` | [P13338 三角形面积并加强版](https://www.luogu.com.cn/problem/P13338) | n≤1000，整数坐标绝对值≤10⁶，三角形非退化；时间/内存限制待浏览器核实。 | 待在线 AC | 待核验 |
+| `circle_union_area` | [SP8073 CIRU 圆面积并](https://www.luogu.com.cn/problem/SP8073) | n≤1000；整数\|X\|,\|Y\|,R≤1000；允许零半径；2.23s、1.46GB。 | 待在线 AC | 待核验 |
+| `polygon_union_area` | [P13338 三角形面积并加强版](https://www.luogu.com.cn/problem/P13338) | n≤1000；整数坐标绝对值≤10⁶；非退化三角形；1–3s、512MB。 | [记录](https://www.luogu.com.cn/record/302630852) | 待核验 |
+| `Hull3D` | [P4724 三维凸包](https://www.luogu.com.cn/problem/P4724) | 4≤n≤2000；实数坐标，题面未给坐标界；1秒、125MB。 | [记录](https://www.luogu.com.cn/record/302631415) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2569,7 +2570,7 @@ Formal circle-union-area template.
 
 Read circles and print union area with three decimals.
 
-Online submission and runtime rank pending; browser unavailable while Mac locked.
+RemoteJudge Waiting: https://www.luogu.com.cn/record/302630657; runtime rank not checked.
 
 ### P13338 三角形面积并加强版 / polygon_union_area
 
@@ -2577,7 +2578,15 @@ Formal union-area template restricted to triangle inputs; general concave suppor
 
 Read each triangle as a three-vertex polygon; normalize orientation within core; print union area.
 
-Online submission pending Mac unlock; runtime rank not checked.
+Runtime rank not checked; formal judge covers triangles, concave inputs verified locally.
+
+### P4724 三维凸包 / Hull3D
+
+Formal real-coordinate 3D hull surface-area template; integer exact volume and full mesh independently verified locally.
+
+Read points, build hull and output area; planar hull uses double-sided wrapping convention in driver only.
+
+Runtime rank not checked; integer volume and full mesh covered by independent local verification, not this surface-area judge.
 
 ## 榜单口径
 

@@ -12173,13 +12173,13 @@ polygon\_union\_area(polygons) 求任意简单多边形的面积并，允许凹�
 
 \newpage
 
-\Needspace{291pt}
+\Needspace{297pt}
 
 \subsection*{模板题使用：P13338 三角形面积并加强版}
 
 \label{usage-example-399}
 
-题意：n$\le$1000个非退化三角形，整数坐标绝对值$\le$10$^{6}$；误差要求|答案-真值|/max(1,|真值|)$\le$1e-6。此驱动使用一般多边形模板；凹多边形能力另由本地验证覆盖。当前线上待提交。
+题意：n$\le$1000个非退化三角形，整数坐标绝对值$\le$10$^{6}$；误差要求|答案-真值|/max(1,|真值|)$\le$1e-6。此驱动使用一般多边形模板；凹多边形能力另由本地验证覆盖。当前实现已通过P13338，记录302630852。
 
 所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-polygon_union_area]{polygon\_\allowbreak{}union\_\allowbreak{}area}（第~\pageref{compact-polygon_union_area}~页，\ref{compact-polygon_union_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
@@ -12260,6 +12260,94 @@ circle\_union\_area(a) 求闭圆盘的面积并，输入vector<RealPlane::Circle
 来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/geometry_extra.hpp}
 
 \lstinputlisting{usage/example-225.cpp}
+
+\newpage
+
+\noindent 相关应用：不扰动增量凸包，精确方向符号、低维退化输出、面积及六倍体积。
+
+\section{三维凸包：精确方向与退化处理}\label{compact-Hull3D}\index{Hull3D}
+
+Hull3D<T>(points)，T只取long long或long double（默认）。输入编号从0起，不修改原数组。p为去重后字典序点，id映射首次原编号；faces是p下标组成的外向三角面。dimension为空/点/线/平面/三维时分别为-1/0/1/2/3；低维boundary给出点、线端点或平面凸多边形边界。area()在平面时只算单面，三维时算表面积；volume6()返回六倍体积，低维为0。
+
+整数坐标绝对值$\le$10$^{9}$，方向与六倍体积用128位精确运算。实数用过滤后浮点展开式确定符号，不用eps、不扰动坐标；按已读入的二进制数求凸包，面积和实数体积仍为近似。需最近舍入、禁用fast-math，运算及残差不得上下溢；足够安全的坐标域和具体约定见后页。
+
+时间O(n$^{2}$log n)、额外空间O(n)。外露字段用于读取结果，不应构造后自行改写。点数与面下标须能用int表示。
+
+字段与面积运算：
+
+\lstinputlisting[firstline=7,lastline=36,firstnumber=1]{../src/compact/hull3d.hpp}
+
+\newpage
+
+浮点展开式运算（接同一结构体）：
+
+\lstinputlisting[firstline=37,lastline=76,firstnumber=31]{../src/compact/hull3d.hpp}
+
+\newpage
+
+二维方向与共线检查（接同一结构体）：
+
+\lstinputlisting[firstline=77,lastline=102,firstnumber=71]{../src/compact/hull3d.hpp}
+
+\newpage
+
+三维方向的过滤与精确回退（接同一结构体）：
+
+\lstinputlisting[firstline=103,lastline=137,firstnumber=97]{../src/compact/hull3d.hpp}
+
+\newpage
+
+构造、排序与去重（接同一结构体）：
+
+\lstinputlisting[firstline=138,lastline=164,firstnumber=132]{../src/compact/hull3d.hpp}
+
+\newpage
+
+低维识别与平面投影（接同一构造函数）：
+
+\lstinputlisting[firstline=165,lastline=195,firstnumber=159]{../src/compact/hull3d.hpp}
+
+\newpage
+
+平面单调链与三角化（接同一构造函数）：
+
+\lstinputlisting[firstline=196,lastline=219,firstnumber=190]{../src/compact/hull3d.hpp}
+
+\newpage
+
+初始四面体与增量可见面（接同一构造函数）：
+
+\lstinputlisting[firstline=220,lastline=252,firstnumber=214]{../src/compact/hull3d.hpp}
+
+\newpage
+
+面积与六倍体积（接同一结构体）：
+
+\lstinputlisting[firstline=253,lastline=271,firstnumber=247]{../src/compact/hull3d.hpp}
+
+\paragraph{不变量} 三维初始四面体各面均背向内部。新增点只删除严格可见的面，删除面中的反向公共边两两消去，剩余有向边是轮廓。用轮廓边和新点组成新面即可恢复闭合外向凸包；零方向不算可见，不能扰动共面点。所有点先排序去重，平面情况投影到法向非零的轴，单独用二维凸包处理。
+
+\paragraph{精确符号的范围} 浮点展开式保存每次加法和乘法被舍弃的残差，末项符号即精确和的符号；乘法残差通过fma计算。先用保守舍入误差界过滤明显非零的方向，不能确定时回退。需二进制、最近舍入、禁用fast-math及运算重排，保证运算和残差不上下溢。对于有效位不超过113且指数范围至少覆盖普通double的实现，每个非零坐标绝对值在2的负100次方至2的100次方内是一个足够安全域。输入十进制读取误差不被恢复。
+
+\paragraph{测量和退化约定} 精确方向不等于精确面积。面积的平方根与求和、实数体积仍可能失去相对精度，极薄模型需额外检验。整数域内六倍体积精确且非负；平面核心只返回单面面积，点和线面积为0。题目驱动选择平面双面包裹约定，题面本身没有明确低维语义；其他题应按题意适配。
+
+\paragraph{独立验证} 565组输入分别验证整数和实数版，参考为精确支撑平面枚举及每个面的二维凸包；检查外向、无退化面、反向边配对、Euler关系、面积和体积。另有8000组精确有理数方向参考，含共面、nextafter近共面、不同指数和减法残差。原先放大整数点导致浮点行列式误判的反例保留。
+
+\newpage
+
+\Needspace{312pt}
+
+\subsection*{模板题使用：P4724 三维凸包}
+
+\label{usage-example-400}
+
+题意：4$\le$n$\le$2000个实数点，输出三维凸包表面积，保留三位小数。题面未给坐标界。驱动对纯平面输入采用正反双面包裹面积约定；核心area()仍返回平面单面面积。线上状态见验证记录。
+
+所需模板：\hyperref[compact-Hull3D]{Hull3D}（第~\pageref{compact-Hull3D}~页，\ref{compact-Hull3D}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4724}
+
+\lstinputlisting{usage/example-400.cpp}
 
 \newpage
 
