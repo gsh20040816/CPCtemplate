@@ -660,6 +660,12 @@
     "构造 LinkCutTree(n)，点号 1..n，初始权值为零。set(x,value) 修改点权；link(x,y) 仅在不同连通块之间连边并返回是否成功；cut(x,y) 只删除真实存在的边，否则返回 false。connected 查询连通性；query(x,y) 返回路径点权异或，要求两点连通，支持 x=y。make_root/find_root 维护与查询当前表示树根。每次操作均摊 O(log n)，O(n) 空间，splay 下传使用显式栈，支持长链。权值为 unsigned long long。仅维护路径异或，不包含虚子树聚合或动态直径。"
   ],
   [
+    "xor_path_sum",
+    "XorPathSum",
+    "点权修改与全树路径异或和",
+    "XorPathSum(parent,value)，两数组0-based且等长，1≤n≤200000，parent构成一棵固定有根树，唯一根的父亲为-1；根和节点编号任意。点权为[0,2^27)整数。sum()返回所有无序端点对u≤v的简单路径上点权异或值之和，包含n条单点路径；set(x,value)修改一个点权并返回新总和。不是路径异或查询，也不支持link/cut或改变拓扑。\n\n逐位维护首尾路径异或计数及虚子树之间的配对数，计数相乘先提升为long long。27位固定，n≤200000时总和至多n(n+1)/2乘(2^27-1)，可由signed64表示。初建O(27n)，set摊还O(27logn)，sum为O(1)，空间O(27n)且常数较大：每个节点保存两份Info、虚子树计数及配对数；按实际sizeof(Node)估算内存。初建DFS保持递归，最坏深度n；splay无翻转标记。t和其他函数仅供内部实现，调用方只用构造、set、sum；完整对象复制后相互独立。\n\nWIDA07C原稿的cnt乘法在两个5万点分支时会出现int中间值溢出，本版显式提升；原题完整约束尚未核实，不据此断言原题实现有错。当前为独立路径枚举、原稿小规模对照及大树公式验证，非线上AC。"
+  ],
+  [
     "dynamic_path_max",
     "DynamicPathMax",
     "动态森林路径加与最大值",

@@ -8500,6 +8500,52 @@ TreePathProducts<mod>(g,weight) 要求 g 是非空无向树，点号 0..n-1、�
 
 \lstinputlisting{usage/example-108.cpp}
 
+\noindent 相关应用：固定拓扑的虚子树聚合与点权修改后全树路径异或和，不表示通用动态森林接口
+
+\subsection{点权修改与全树路径异或和}\label{compact-XorPathSum}\index{XorPathSum}
+
+XorPathSum(parent,value)，两数组0-based且等长，1$\le$n$\le$200000，parent构成一棵固定有根树，唯一根的父亲为-1；根和节点编号任意。点权为[0,2\textasciicircum{}27)整数。sum()返回所有无序端点对u$\le$v的简单路径上点权异或值之和，包含n条单点路径；set(x,value)修改一个点权并返回新总和。不是路径异或查询，也不支持link/cut或改变拓扑。
+
+逐位维护首尾路径异或计数及虚子树之间的配对数，计数相乘先提升为long long。27位固定，n$\le$200000时总和至多n(n+1)/2乘(2\textasciicircum{}27-1)，可由signed64表示。初建O(27n)，set摊还O(27logn)，sum为O(1)，空间O(27n)且常数较大：每个节点保存两份Info、虚子树计数及配对数；按实际sizeof(Node)估算内存。初建DFS保持递归，最坏深度n；splay无翻转标记。t和其他函数仅供内部实现，调用方只用构造、set、sum；完整对象复制后相互独立。
+
+WIDA07C原稿的cnt乘法在两个5万点分支时会出现int中间值溢出，本版显式提升；原题完整约束尚未核实，不据此断言原题实现有错。当前为独立路径枚举、原稿小规模对照及大树公式验证，非线上AC。
+
+\lstinputlisting[firstline=7,lastline=48,firstnumber=1]{../src/compact/xor_path_sum.hpp}
+
+\newpage
+
+\noindent 全树路径异或和（接上页同一结构体）：
+
+\lstinputlisting[firstline=49,lastline=102,firstnumber=43]{../src/compact/xor_path_sum.hpp}
+
+\newpage
+
+\noindent 全树路径异或和（接上页同一结构体）：
+
+\lstinputlisting[firstline=103,lastline=153,firstnumber=97]{../src/compact/xor_path_sum.hpp}
+
+\newpage
+
+\noindent 全树路径异或和（接上页同一结构体）：
+
+\lstinputlisting[firstline=154,lastline=194,firstnumber=148]{../src/compact/xor_path_sum.hpp}
+
+\newpage
+
+\Needspace{405pt}
+
+\subsection*{接口用法演示：点权修改与全树路径异或和 API}
+
+\label{usage-example-439}
+
+演示约定：读n q，接着n个0-based父亲编号（唯一根为-1）与n个27位非负点权；输出初始所有无序端点简单路径的点权异或和，包含单点路径。随后q行x value，每次修改点x并输出新总和。固定树，1$\le$n$\le$200000；输出signed64。自定义API协议，非原比赛题判定。
+
+所需模板：\hyperref[compact-XorPathSum]{XorPathSum}（第~\pageref{compact-XorPathSum}~页，\ref{compact-XorPathSum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{}
+
+\lstinputlisting{usage/example-439.cpp}
+
 \newpage
 
 \Needspace{650pt}

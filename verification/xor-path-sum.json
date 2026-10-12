@@ -1,0 +1,47 @@
+{
+  "runs": [
+    {
+      "mode": "normal",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O2",
+        "-Wl,-stack_size,0x20000000",
+        "/Users/gsh/Workspace/CPCtemplate/tests/xor_path_sum.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/xor-path-sum/normal"
+      ],
+      "result": "PASS 77514759 certificates; 56000 original/core/enumerated updates; 100000-node chain/star; wide branch product",
+      "source_wide_output": "-1794867295",
+      "independent_wide_expected": 2500100001
+    },
+    {
+      "mode": "sanitizer",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-Wl,-stack_size,0x20000000",
+        "/Users/gsh/Workspace/CPCtemplate/tests/xor_path_sum.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/xor-path-sum/sanitizer"
+      ],
+      "result": "PASS 77514759 certificates; 56000 original/core/enumerated updates; 100000-node chain/star; wide branch product",
+      "source_wide_expected_ubsan_failure": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_xor_path/07C.cpp:89:47: runtime error: signed integer overflow: 50000 * 50000 cannot be represented in type 'int'\n"
+    }
+  ],
+  "scope": "Local independent unordered simple vertex-path xor enumeration including singleton paths; unchanged source runtime in small domain, separate raw-source overflow probe. No original problem protocol or online verdict.",
+  "files": {
+    "src/compact/xor_path_sum.hpp": "4ee12e110766557596ebf74be7a1427e86aa917ca7dfc030b8c9c97b666353a7",
+    "tests/xor_path_sum.cpp": "4f1cda4aab8506d40ba795868c38ed8df930842df642170116f28832adc9d20e",
+    "tests/xor_path_sum.py": "b7328970d948033dddebffdbfc309e4ae609a9f29cd29d578a01054aa78fe436",
+    "tests/fixtures/wida_xor_path/07C.cpp": "ec8cb3e0d33902f8f1ba621996c56792843cf54b341effafa17de840c3d2c598"
+  }
+}

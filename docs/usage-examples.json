@@ -5610,5 +5610,18 @@
       "MergeSplitTree"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-439",
+    "symbol": "XorPathSum",
+    "kind": "api",
+    "problem": "点权修改与全树路径异或和 API",
+    "url": "",
+    "summary": "读n q，接着n个0-based父亲编号（唯一根为-1）与n个27位非负点权；输出初始所有无序端点简单路径的点权异或和，包含单点路径。随后q行x value，每次修改点x并输出新总和。固定树，1≤n≤200000；输出signed64。自定义API协议，非原比赛题判定。",
+    "driver": "verify/api/xor_path_sum.compact.cpp",
+    "requires": [
+      "XorPathSum"
+    ],
+    "start_new_page": true
   }
 ]

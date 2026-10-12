@@ -12,9 +12,9 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Fenwick | [example-210](usage/example-210.cpp) | locally_checked_example |
 | LazySeg | [example-220](usage/example-220.cpp) | locally_checked_example |
 | XorBasis | [example-36](usage/example-36.cpp) | locally_checked_example |
-| Dinic | [example-1](usage/example-1.cpp), [example-318（接口演示）](usage/example-318.cpp), [example-319（应用补充）](usage/example-319.cpp) | generated_unverified |
-| maximum_closure | [example-148（应用补充）](usage/example-148.cpp) | generated_unverified |
-| MinCostFlow | [example-55](usage/example-55.cpp) | generated_unverified |
+| Dinic | [example-1](usage/example-1.cpp), [example-318（接口演示）](usage/example-318.cpp), [example-319（应用补充）](usage/example-319.cpp) | locally_checked_example |
+| maximum_closure | [example-148（应用补充）](usage/example-148.cpp) | locally_checked_application |
+| MinCostFlow | [example-55](usage/example-55.cpp) | locally_checked_example |
 | SpfaFlow | [example-127](usage/example-127.cpp) | locally_checked_example |
 | Dijkstra | [example-59](usage/example-59.cpp) | locally_checked_example |
 | SCC | [example-161](usage/example-161.cpp) | locally_checked_example |
@@ -105,9 +105,9 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | WeightedMatching | [example-73](usage/example-73.cpp) | locally_checked_example |
 | Arborescence | [example-149](usage/example-149.cpp) | locally_checked_example |
 | StoerWagner | [example-150](usage/example-150.cpp) | locally_checked_example |
-| gomory_hu | [example-56](usage/example-56.cpp) | generated_unverified |
-| cut_tree_values | [example-56](usage/example-56.cpp) | generated_unverified |
-| BoundedCirculation | [example-185](usage/example-185.cpp) | generated_unverified |
+| gomory_hu | [example-56](usage/example-56.cpp) | locally_checked_example |
+| cut_tree_values | [example-56](usage/example-56.cpp) | locally_checked_example |
+| BoundedCirculation | [example-185](usage/example-185.cpp) | locally_checked_example |
 | IntegerHalfplanes | [example-125（应用补充）](usage/example-125.cpp) | locally_checked_application |
 | CirclePolygon | [example-153](usage/example-153.cpp) | locally_checked_example |
 | EnclosingCircle | [example-61](usage/example-61.cpp) | locally_checked_example |
@@ -117,6 +117,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | minkowski_sum | [example-136（应用补充）](usage/example-136.cpp) | locally_checked_application |
 | IntegerGeometry3D | [example-225（接口演示）](usage/example-225.cpp) | locally_checked_api |
 | LinkCutTree | [example-45](usage/example-45.cpp) | locally_checked_example |
+| XorPathSum | [example-439（接口演示）](usage/example-439.cpp) | locally_checked_api |
 | DynamicPathMax | [example-328（接口演示）](usage/example-328.cpp) | locally_checked_api |
 | TreePathProducts | [example-108（应用补充）](usage/example-108.cpp) | locally_checked_application |
 | OrderedTreap | [example-8](usage/example-8.cpp) | locally_checked_example |
@@ -163,8 +164,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | DirectedEuler | [example-57](usage/example-57.cpp) | locally_checked_example |
 | UndirectedEuler | [example-177](usage/example-177.cpp) | locally_checked_example |
 | word_chain | [example-217（应用补充）](usage/example-217.cpp) | locally_checked_application |
-| mixed_euler_orientation | [example-206（接口演示）](usage/example-206.cpp) | generated_unverified |
-| mixed_euler_trail | [example-206（接口演示）](usage/example-206.cpp) | generated_unverified |
+| mixed_euler_orientation | [example-206（接口演示）](usage/example-206.cpp) | locally_checked_api |
+| mixed_euler_trail | [example-206（接口演示）](usage/example-206.cpp) | locally_checked_api |
 | odd_cycle_vertices | [example-204（应用补充）](usage/example-204.cpp) | locally_checked_application |
 | LexTwoSAT | [example-203（应用补充）](usage/example-203.cpp) | locally_checked_application |
 | BostanMori | [example-49](usage/example-49.cpp) | locally_checked_example |
@@ -195,12 +196,12 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ac_shortest | [example-92（应用补充）](usage/example-92.cpp) | locally_checked_application |
 | ACWeighted | [example-263（接口演示）](usage/example-263.cpp) | locally_checked_api |
 | DynamicAC | [example-264（应用补充）](usage/example-264.cpp) | locally_checked_application |
-| BoundedMaxFlow | [example-93（应用补充）](usage/example-93.cpp), [example-99（应用补充）](usage/example-99.cpp) | generated_unverified |
+| BoundedMaxFlow | [example-93（应用补充）](usage/example-93.cpp), [example-99（应用补充）](usage/example-99.cpp) | locally_checked_application |
 | matching_edges | [example-95（应用补充）](usage/example-95.cpp) | locally_checked_application |
-| mincut_edges | [example-94（应用补充）](usage/example-94.cpp) | generated_unverified |
+| mincut_edges | [example-94（应用补充）](usage/example-94.cpp) | locally_checked_application |
 | odd_induced_partition | [example-96（应用补充）](usage/example-96.cpp) | locally_checked_application |
-| unit_flow_edges | [example-97（应用补充）](usage/example-97.cpp), [example-133（应用补充）](usage/example-133.cpp) | generated_unverified |
-| NegativeCostFlow | [example-98](usage/example-98.cpp) | generated_unverified |
+| unit_flow_edges | [example-97（应用补充）](usage/example-97.cpp), [example-133（应用补充）](usage/example-133.cpp) | locally_checked_application |
+| NegativeCostFlow | [example-98](usage/example-98.cpp) | locally_checked_example |
 | prime_count | [example-103](usage/example-103.cpp) | locally_checked_example |
 | Min25 | [example-104](usage/example-104.cpp), [example-105](usage/example-105.cpp) | locally_checked_example |
 | euler_power | [example-106](usage/example-106.cpp) | locally_checked_example |
@@ -265,7 +266,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | DenseDijkstra | [example-312](usage/example-312.cpp), [example-313（接口演示）](usage/example-313.cpp) | locally_checked_example |
 | Kruskal | [example-314](usage/example-314.cpp), [example-315（接口演示）](usage/example-315.cpp) | locally_checked_example |
 | Prim | [example-316](usage/example-316.cpp), [example-317（接口演示）](usage/example-317.cpp) | locally_checked_example |
-| flow_unique | [example-320（接口演示）](usage/example-320.cpp) | generated_unverified |
+| flow_unique | [example-320（接口演示）](usage/example-320.cpp) | locally_checked_api |
 | Isap | [example-321](usage/example-321.cpp) | locally_checked_example |
 | ZkwFlow | [example-322](usage/example-322.cpp) | locally_checked_example |
 | TreeMarket | [example-323（接口演示）](usage/example-323.cpp) | locally_checked_api |

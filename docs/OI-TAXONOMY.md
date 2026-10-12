@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 220，application 67，composite 8，related 28。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 220，application 67，composite 8，related 29。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -189,6 +189,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | DynamicPathMax | 数据结构 → 动态树 → Link Cut Tree | direct | Dynamic forest path addition/max and rerooted parent cut; separate from XOR aggregation. |
 | LinkCutTree | 数据结构 → 动态树 → Link Cut Tree | direct |  |
 | TreePathProducts | 数据结构 → 动态树 → Link Cut Tree | application | 固定树动态点权与任意根路径乘积总和，维护虚子树及双向信息 |
+| XorPathSum | 数据结构 → 动态树 → Link Cut Tree | related | 固定拓扑的虚子树聚合与点权修改后全树路径异或和，不表示通用动态森林接口 |
 | odd_induced_partition | 图论 → DFS（图论） | application | DFS 后序与回边构造奇度诱导子图划分；固定导航没有此定理的独立条目，不等同于普通图染色。 |
 | DynamicDiameter | 图论 → 树上问题 → 树的直径 | related | 固定拓扑下修改非负边权，递归欧拉序与区间加维护动态直径。 |
 | TreeDiameter | 图论 → 树上问题 → 树的直径 | direct |  |
