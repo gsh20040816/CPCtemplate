@@ -725,9 +725,9 @@ issue11,https://github.com/user-attachments/files/32176902/default.pdf,10,1.4 4.
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,10,1.4.1 (1) 模板 1,local-tested,SuffixAutomaton,verification/automata-source-audit.json; docs/AUTOMATA-SOURCE-AUDIT.md; online verdict remains pending
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,11,1.5 5. 广义后缀自动机,local-tested,GeneralSAM; OnlineSAM,verification/automata-source-audit.json; docs/AUTOMATA-SOURCE-AUDIT.md; online verdict remains pending
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,14,1.6 6. 回文自动机,local-tested,PalindromicTree,verification/automata-source-audit.json; docs/AUTOMATA-SOURCE-AUDIT.md; online verdict remains pending
-issue11,https://github.com/user-attachments/files/32176902/default.pdf,15,2.1 1. 2-SAT,pending,,
-issue11,https://github.com/user-attachments/files/32176902/default.pdf,18,2.2 2. 支配树,partial,DominatorTree; DagDominator,"General LT previously locally verified; DAG-specific predecessor-LCA now checked on210251 rooted graphs in normal/NDEBUG/sanitizer,200000-vertex chain and repeated roots/cycle rejection. Usages338 pure API,339 full Library Checker DAG/LT composition,340 P2597 application. Online pending; docs/DAG-DOMINATOR.md"
-issue11,https://github.com/user-attachments/files/32176902/default.pdf,18,2.2.1 (1) 洛谷模板,pending,,
+issue11,https://github.com/user-attachments/files/32176902/default.pdf,15,2.1 1. 2-SAT,local-tested,TwoSAT; SCC,verification/graph-source-audit.json; verification/graph-source-stress.json; docs/GRAPH-SOURCE-AUDIT.md; no new online AC
+issue11,https://github.com/user-attachments/files/32176902/default.pdf,18,2.2 2. 支配树,local-tested,DominatorTree; DagDominator,verification/graph-source-audit.json; verification/graph-source-stress.json; docs/GRAPH-SOURCE-AUDIT.md; no new online AC
+issue11,https://github.com/user-attachments/files/32176902/default.pdf,18,2.2.1 (1) 洛谷模板,local-tested,DominatorTree; DagDominator,verification/graph-source-audit.json; verification/graph-source-stress.json; docs/GRAPH-SOURCE-AUDIT.md; no new online AC
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,24,2.3 3. 割点,partial,Lowlink,verification/lowlink-current.json; current-source online pending
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,26,2.4 4. 网络最大流,pending,,
 issue11,https://github.com/user-attachments/files/32176902/default.pdf,28,2.5 5. Johnson,partial,Johnson,verification/johnson.json; online pending

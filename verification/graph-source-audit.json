@@ -1,0 +1,218 @@
+{
+  "source_pdf_sha256": "b5ce46f7cf542be2d9846d8f01898c8ccd7f4619521036b0b7895206895745f3",
+  "source_sha256": {
+    "sat": "307d4dea7e03419b185e11c4c51b73162932012e3f0a7dd7db61088fc41b77a7",
+    "dom": "967caae95e6fb9639e3295865bb957e87052c94053ed9d1b5983e9cdd44b79b2"
+  },
+  "runs": {
+    "sat-normal": {
+      "cases": 1324,
+      "mismatches": 0
+    },
+    "dom-normal": {
+      "cases": 830,
+      "mismatches": 104
+    },
+    "current-sat-normal": {
+      "cases": 1324,
+      "mismatches": 0
+    },
+    "current-dom-normal": {
+      "cases": 830,
+      "mismatches": 0
+    },
+    "sat-sanitizer": {
+      "cases": 1324,
+      "mismatches": 0
+    },
+    "dom-sanitizer": {
+      "cases": 830,
+      "mismatches": 104
+    },
+    "current-sat-sanitizer": {
+      "cases": 1324,
+      "mismatches": 0
+    },
+    "current-dom-sanitizer": {
+      "cases": 830,
+      "mismatches": 0
+    }
+  },
+  "source_dominator_unreachable_counterexamples": {
+    "normal": [
+      {
+        "n": 3,
+        "edges": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "got": [
+          1,
+          0,
+          1
+        ],
+        "expected": [
+          2,
+          0,
+          1
+        ],
+        "all_reachable": false
+      },
+      {
+        "n": 3,
+        "edges": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "got": [
+          1,
+          0,
+          1
+        ],
+        "expected": [
+          2,
+          0,
+          1
+        ],
+        "all_reachable": false
+      },
+      {
+        "n": 3,
+        "edges": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "got": [
+          1,
+          0,
+          1
+        ],
+        "expected": [
+          2,
+          0,
+          1
+        ],
+        "all_reachable": false
+      }
+    ],
+    "sanitizer": [
+      {
+        "n": 3,
+        "edges": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "got": [
+          1,
+          0,
+          1
+        ],
+        "expected": [
+          2,
+          0,
+          1
+        ],
+        "all_reachable": false
+      },
+      {
+        "n": 3,
+        "edges": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "got": [
+          1,
+          0,
+          1
+        ],
+        "expected": [
+          2,
+          0,
+          1
+        ],
+        "all_reachable": false
+      },
+      {
+        "n": 3,
+        "edges": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "got": [
+          1,
+          0,
+          1
+        ],
+        "expected": [
+          2,
+          0,
+          1
+        ],
+        "all_reachable": false
+      }
+    ]
+  },
+  "scope": "Original function bodies unchanged; wrapper resets globals between protocols. All assignments independently checked. Dominance oracle removes vertices and computes reachability; no second LT as truth.",
+  "online": "No new submission",
+  "all_reachable_dominator_cases": 456,
+  "source_dominator_precondition": "Attachment page 18 explicitly assumes every vertex is reachable from the entry; mismatches are outside that domain.",
+  "files": {
+    "tests/graph_source_audit.py": "1d325586a7ba2f396094b24ceb4b3ff45e99aa2f0243cd3ee070a2c4e37ba33e",
+    "src/compact/graph.hpp": "951ee68e9c375ce020cbe67fa449344918bbc128a90fea3ce30a2b908470db57",
+    "src/compact/dominator_tree.hpp": "2ecb17ac59056eda9de78749aec5a900a78fa1817642c1c7ec7fa5044b843726",
+    "verify/luogu/P4782.compact.cpp": "f19ce3631ecd37a9e4b245e4e81e2b39cffa02856f978badfd312552b0c7f7fd",
+    "verify/luogu/P5180.compact.cpp": "9e3ca8f0d8c71778ad73de10c573117d4a8834a1f287fade62c4b071b77c5e86"
+  }
+}
