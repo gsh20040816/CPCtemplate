@@ -1464,6 +1464,12 @@
     "SequenceSplay(n)建立原编号0..n−1的序列，允许n=0，要求n≤INT_MAX−3且内存足够。reverse(l,r)翻转当前0-based半开区间[l,r)，允许空区间；pos(id)返回原编号id的当前位置；at(k)返回当前位置k的原编号；order()按当前顺序返回全部原编号。值由调用方按原编号存储，重复值不会合并。\n\n初建O(n)，pos/at/reverse均摊O(log(n+1))、单次最坏O(n)，order为O(n)，空间O(n)；不含插入、删除和数值聚合。所有辅助函数与a/root/n约定内部只读，pos/at会伸展并改变树形。两哨兵不暴露给用户；节点编号不随旋转变化。build/祖先下传/遍历均递归，退化时深度O(n)，调用方保证栈空间。支持独立值拷贝；重置用新建对象赋值。"
   ],
   [
+    "sequence_max_treap",
+    "SequenceMaxTreap",
+    "序列最大值 Treap",
+    "空构造，外部根变量0为空；同一对象可管理多棵互不相交的序列。insert(root,pos,value)在0-based位置pos前插入，pos可等于长度，通过引用更新根，返回按插入顺序递增的稳定节点ID。split(root,k)消耗旧根，返回前k项及其余项；merge(left,right)消耗两根并按顺序拼接，无值域大小限制，但两根必须互不相交且属于同一对象。last_greater(root,value)返回最右严格大于value的0-based位置，无结果为-1；后缀中<=value的个数等于size(root)-1-last_greater(root,value)。ids(root)按序返回稳定ID。\n\n插入、分裂、拼接和查询期望O(log(N+1))，随机优先级下单次最坏O(N)；输出O(N)。空间O(N)，节点不回收，递归最坏需O(N)栈。value允许任意signed64及重复值，不作值加减。节点总数须小于INT_MAX。消耗的根不可再作为独立树使用；root引用必须为外部变量，不能引用vector内字段。t、rng及辅助函数仅供内部实现。CF38G使用互异正整数，重复值扩展由独立测试覆盖；当前无线上判定。"
+  ],
+  [
     "shift_splay",
     "ShiftSplay",
     "按值分裂与整体平移 Splay",

@@ -7370,6 +7370,32 @@ build(v) 用数值与状态组成的序列替换当前内容。数值为无符�
 
 \lstinputlisting{usage/example-224.cpp}
 
+\noindent 相关应用：按位置分裂拼接与最大值剪枝，不代表整页覆盖
+
+\subsection{序列最大值 Treap}\label{compact-SequenceMaxTreap}\index{SequenceMaxTreap}
+
+空构造，外部根变量0为空；同一对象可管理多棵互不相交的序列。insert(root,pos,value)在0-based位置pos前插入，pos可等于长度，通过引用更新根，返回按插入顺序递增的稳定节点ID。split(root,k)消耗旧根，返回前k项及其余项；merge(left,right)消耗两根并按顺序拼接，无值域大小限制，但两根必须互不相交且属于同一对象。last\_greater(root,value)返回最右严格大于value的0-based位置，无结果为-1；后缀中<=value的个数等于size(root)-1-last\_greater(root,value)。ids(root)按序返回稳定ID。
+
+插入、分裂、拼接和查询期望O(log(N+1))，随机优先级下单次最坏O(N)；输出O(N)。空间O(N)，节点不回收，递归最坏需O(N)栈。value允许任意signed64及重复值，不作值加减。节点总数须小于INT\_MAX。消耗的根不可再作为独立树使用；root引用必须为外部变量，不能引用vector内字段。t、rng及辅助函数仅供内部实现。CF38G使用互异正整数，重复值扩展由独立测试覆盖；当前无线上判定。
+
+\lstinputlisting[firstline=10,lastline=108]{../src/compact/sequence_max_treap.hpp}
+
+\newpage
+
+\Needspace{413pt}
+
+\subsection*{模板题使用：Codeforces 38G Queue}
+
+\label{usage-example-435}
+
+题意：n<=100000；重要度是1..n的排列，0<=c\_i<=n。每人先入队尾，最多c\_i次与重要度更低的前一个人交换，输出最终输入编号。最右重要度更大的位置是不可越过的屏障，插入位置max(i-c\_i,barrier+1)。期望O(nlogn)、空间O(n)。三组题面样例、独立逐次交换及最大规模边界通过；尚无线上AC。
+
+所需模板：\hyperref[compact-SequenceMaxTreap]{SequenceMaxTreap}（第~\pageref{compact-SequenceMaxTreap}~页，\ref{compact-SequenceMaxTreap}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/problemset/problem/38/G}
+
+\lstinputlisting{usage/example-435.cpp}
+
 \newpage
 
 \Needspace{680pt}

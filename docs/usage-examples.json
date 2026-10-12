@@ -5557,5 +5557,18 @@
       "stirling_second_column"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-435",
+    "symbol": "SequenceMaxTreap",
+    "kind": "template",
+    "problem": "Codeforces 38G Queue",
+    "url": "https://codeforces.com/problemset/problem/38/G",
+    "summary": "n<=100000；重要度是1..n的排列，0<=c_i<=n。每人先入队尾，最多c_i次与重要度更低的前一个人交换，输出最终输入编号。最右重要度更大的位置是不可越过的屏障，插入位置max(i-c_i,barrier+1)。期望O(nlogn)、空间O(n)。三组题面样例、独立逐次交换及最大规模边界通过；尚无线上AC。",
+    "driver": "verify/codeforces/CF38G.compact.cpp",
+    "requires": [
+      "SequenceMaxTreap"
+    ],
+    "start_new_page": true
   }
 ]

@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 220，application 67，composite 8，related 25。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 220，application 67，composite 8，related 26。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -160,6 +160,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | AffineSequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct | 动态隐式Treap，模意义仿射修改与区间和；既有整数SequenceTreap不变 |
 | GcdSequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | OrderedTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
+| SequenceMaxTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | related | 按位置分裂拼接与最大值剪枝，不代表整页覆盖 |
 | SequenceTreap | 数据结构 → 二叉搜索树 & 平衡树 → Treap | direct |  |
 | MergeSplay | 数据结构 → 二叉搜索树 & 平衡树 → Splay 树 | direct |  |
 | OrderedSplay | 数据结构 → 二叉搜索树 & 平衡树 → Splay 树 | direct |  |
