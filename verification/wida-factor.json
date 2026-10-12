@@ -1,0 +1,43 @@
+{
+  "scope": "Exact WIDA17 modular helpers, bounded primality and factorization, certified false-positive and unsigned replacement cases. No original application or new online AC.",
+  "cases": {
+    "sieve_primality": 50001,
+    "trial_factorization": 10156,
+    "source_false_positive": 1,
+    "source_composite_leaf": 1,
+    "unsigned_factorization": 4,
+    "python_modular_multiply": 400,
+    "python_modular_power": 400,
+    "modular_endpoints": 24
+  },
+  "witness": {
+    "n": 3825123056546413051,
+    "factors": [
+      149491,
+      747451,
+      34233211
+    ]
+  },
+  "files": {
+    "tests/wida_factor.cpp": "97d146deb626e927690d8908b483c17c23b263cb6aa753a49c4424c73a4df1a1",
+    "tests/wida_factor.py": "7ff3982d8911be7b84cd395980728801ff8d474a5d5eb40eb0cc93dcc14fafb2",
+    "tests/fixtures/wida_factor/factor.cpp": "c36d33d5f4d109f0a62546f72e634899ae1bf6255019cc22da47aa1eb29391a0",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2",
+    "src/compact/prime64.hpp": "3da4d1a328c73415849b05b5f7b478defdf3875a0358d434abe99eeff1f65872",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "cases": 60987,
+      "passed": true,
+      "output_sha256": "b9ff8fd7713a99f7650bd0d124ed2a01524adf737d99c45aa669a14316f6ce4f"
+    },
+    {
+      "mode": "sanitizer",
+      "cases": 60987,
+      "passed": true,
+      "output_sha256": "b9ff8fd7713a99f7650bd0d124ed2a01524adf737d99c45aa669a14316f6ce4f"
+    }
+  ]
+}
