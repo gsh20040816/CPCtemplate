@@ -445,6 +445,8 @@ cases['example-404'] = [('2\n4 4 1\n**..\n....\n....\n....\n4 4 1\n....\n....\n.
 cases['example-405'] = [('4 4 2 1\n....\n....\n....\n....\n', '7'), ('0 0 0 0\n', '1')]
 cases['example-273'].append(('2\n3\n2 0 0\n0 1 0\n0 1 1\n5\n3 0 0\n0 1 0\n0 0 1\n0 2 2\n3 3 3\n', '2 1 3 2'))
 cases['example-347'] = [('2 1 2 3\n0 1\n', '4 7'), ('1 1000000 1000000 1000000\n1000000\n', '1000000')]
+cases['example-406'] = [('5\n1 2\n1 3\n1 4\n1 5\n3\n0 1\n1 1\n0 1\n', '5 1')]
+cases['example-407'] = [('3 3 5\n0 1 0\n1 2\n2 3\n0 1\n1 2\n0 1\n0 3\n0 2\n', '1 3 3 3')]
 if args.only:
     assert set(args.only) <= {r['id'] for r in rows} & set(cases)
 else:

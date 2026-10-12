@@ -1,0 +1,46 @@
+{
+  "scope": "Local BFS oracle and shape formulas; no judge acceptance or runtime-ranking claim.",
+  "runs": [
+    {
+      "mode": "normal",
+      "args": [],
+      "stdout": "1318058 exhaustive/random states pass"
+    },
+    {
+      "mode": "normal",
+      "args": [
+        "large"
+      ],
+      "stdout": "large chain/star/binary pass"
+    },
+    {
+      "mode": "ndebug",
+      "args": [],
+      "stdout": "1318058 exhaustive/random states pass"
+    },
+    {
+      "mode": "ndebug",
+      "args": [
+        "large"
+      ],
+      "stdout": "large chain/star/binary pass"
+    },
+    {
+      "mode": "sanitizer",
+      "args": [],
+      "stdout": "1318058 exhaustive/random states pass"
+    },
+    {
+      "mode": "sanitizer",
+      "args": [
+        "large"
+      ],
+      "stdout": "large chain/star/binary pass"
+    }
+  ],
+  "sha256": {
+    "src/compact/color_components.hpp": "1a31ad096a0effe01c838d966fdfe6b0201012c9174702cbcdfac30b5d4ca8df",
+    "tests/color_components_probe.cpp": "e94968aad3229dd76b0f3f2d559be1835e01ddc3ad95f91d1536f9f4928efb08",
+    "tests/color_components.py": "61bd63dd0e498aa89f8110dc32a5f8d29dbe946d80eec699a4f1c3e6c5dbf7c4"
+  }
+}

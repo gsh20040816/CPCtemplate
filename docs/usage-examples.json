@@ -5145,5 +5145,33 @@
       "boost/multiprecision/cpp_int.hpp"
     ],
     "start_new_page": false
+  },
+  {
+    "id": "example-406",
+    "symbol": "ColorComponents",
+    "kind": "application",
+    "problem": "SPOJ QTREE6 / SP16549 树上同色连通块",
+    "url": "https://www.luogu.com.cn/problem/SP16549",
+    "summary": "n,q≤100000，初始全黑。0 u输出同色连通块大小；1 u翻色。单组输入；记录302642339当前Waiting，本地验证通过，不推断远端AC。",
+    "driver": "verify/spoj/QTREE6.compact.cpp",
+    "requires": [
+      "HLD",
+      "ColorComponents"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-407",
+    "symbol": "ColorComponents",
+    "kind": "api",
+    "problem": "任意初始颜色与根的翻色接口",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/COLOR-COMPONENTS.md",
+    "summary": "输入n、root、q，再读n个0/1初始颜色、n−1条边、q个操作。0 u查询，1 u翻色；根只影响内部表示。",
+    "driver": "verify/api/color_components.compact.cpp",
+    "requires": [
+      "HLD",
+      "ColorComponents"
+    ],
+    "start_new_page": false
   }
 ]

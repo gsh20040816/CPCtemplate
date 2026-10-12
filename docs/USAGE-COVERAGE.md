@@ -311,3 +311,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Hull3D | [example-400](usage/example-400.cpp) | locally_checked_example |
 | WeightedBlossom | [example-401](usage/example-401.cpp), [example-402（接口演示）](usage/example-402.cpp) | locally_checked_example |
 | grid_cycles | [example-404（应用补充）](usage/example-404.cpp), [example-405（接口演示）](usage/example-405.cpp) | locally_checked_application |
+| ColorComponents | [example-406（应用补充）](usage/example-406.cpp), [example-407（接口演示）](usage/example-407.cpp) | locally_checked_application |
