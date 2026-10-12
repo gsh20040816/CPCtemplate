@@ -1,0 +1,34 @@
+{
+  "scope": "07E fixed32 safe-domain arithmetic, invGcd, floating64 portability and full-uint64 addition counterexample. Original applications not read; no online AC.",
+  "blob": "c5af9ebd28047a3c6bd7023cbe26150761c8e86b",
+  "runs": [
+    {
+      "mode": "normal",
+      "output": "long_double_digits 53\nmod 1000000007 mismatches 0\nmod 1000000000000000003 mismatches 64577 476281729113641836 369164126775384218 59710031966572773 612965958257021214\nmod 9223372036854775783 mismatches 97023 9223372036854775782 9223372036854775782 701 1\nfull_uint64_add 18446744073709551496 expected 18446744073709551555\n1000001 oracle checks"
+    },
+    {
+      "mode": "sanitizer",
+      "output": "long_double_digits 53\nmod 1000000007 mismatches 0\nmod 1000000000000000003 mismatches 64577 476281729113641836 369164126775384218 59710031966572773 612965958257021214\nmod 9223372036854775783 mismatches 97023 9223372036854775782 9223372036854775782 701 1\nfull_uint64_add 18446744073709551496 expected 18446744073709551555\n1000001 oracle checks"
+    }
+  ],
+  "files": {
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "tests/wida_modint_source.cpp": "2234ff456c7f15e93c5419a14411cdf6671c7eb66b2f9080e7ff3600a85290c1",
+    "tests/wida_modint_source.py": "fa1d9f5e04c4b5771ee3b0e9a34fec4cf3c9ccd9289bd2596174b011669e6dfd",
+    "tests/fixtures/wida_mod_reduction/07E.cpp": "b8d5f9d1f835b6781c86e34df3578123dbb92aafc7e34c0efc3eb0e0a45cc7e6"
+  },
+  "python_counterexample_checks": [
+    {
+      "mod": 9223372036854775783,
+      "a": 9223372036854775782,
+      "b": 9223372036854775782,
+      "exact": 1
+    },
+    {
+      "mod": 1000000000000000003,
+      "a": 476281729113641836,
+      "b": 369164126775384218,
+      "exact": 612965958257021214
+    }
+  ]
+}
