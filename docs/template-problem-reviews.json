@@ -7022,5 +7022,32 @@
       "verification/digit-count-local.json",
       "verification/digit-count-driver.json"
     ]
+  },
+  {
+    "symbol": "grid_cycle",
+    "problem": "P5056 插头 DP",
+    "url": "https://www.luogu.com.cn/problem/P5056",
+    "classification": "Formal single-loop plug DP template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "2≤n,m≤12;1秒、125MB。",
+    "adapter": "Read obstacle grid; __int128 is safe because at most (n-1)(m-1)<=121 binary choices bound all partial history counts by 2^121; print decimal.",
+    "tested_api": [
+      "grid_cycle<__int128>(a)"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302626494",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Accepted all 10 tests; runtime rank not checked.",
+    "source": "src/compact/plug_cycle.hpp",
+    "driver": "verify/luogu/P5056.compact.cpp",
+    "usage": "example-396",
+    "local_reports": [
+      "verification/plug-cycle-local.json",
+      "verification/plug-cycle-driver.json"
+    ]
   }
 ]

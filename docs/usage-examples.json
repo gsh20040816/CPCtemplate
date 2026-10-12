@@ -5008,5 +5008,18 @@
     "requires": [
       "digit_count"
     ]
+  },
+  {
+    "id": "example-396",
+    "symbol": "grid_cycle",
+    "kind": "template",
+    "problem": "P5056 插头 DP",
+    "url": "https://www.luogu.com.cn/problem/P5056",
+    "summary": "2≤n,m≤12，所有点格必须形成唯一闭环。仅同时存在下、右邻格时可能二选一，至多(12-1)²=121次，因此全部中间计数≤2^121，用__int128安全；十进制输出。",
+    "driver": "verify/luogu/P5056.compact.cpp",
+    "requires": [
+      "grid_cycle"
+    ],
+    "start_new_page": false
   }
 ]

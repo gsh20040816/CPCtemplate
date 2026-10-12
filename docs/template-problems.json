@@ -7600,6 +7600,30 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "grid_cycle",
+      "title": "插头DP：网格单闭环计数",
+      "source": "src/compact/plug_cycle.hpp",
+      "status": "reviewed_formal_template",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P5056.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P5056",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/302626494"
+          ],
+          "review": "Current __int128 driver accepted on all 10 tests; all intermediate counts bounded by 2^121 under judge constraints."
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [

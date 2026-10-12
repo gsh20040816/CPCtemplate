@@ -304,3 +304,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | CartesianTree | [example-392](usage/example-392.cpp) | locally_checked_example |
 | Mo | [example-394](usage/example-394.cpp) | locally_checked_example |
 | digit_count | [example-395（应用补充）](usage/example-395.cpp) | locally_checked_application |
+| grid_cycle | [example-396](usage/example-396.cpp) | generated_unverified |

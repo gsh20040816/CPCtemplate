@@ -272,6 +272,7 @@
 | `TimeConnectivity` | [LOJ121 动态图连通性](https://loj.ac/p/121) | n≤5000,q≤500000; 800ms,512MiB; initially empty simple graph, legal insert/delete. | [记录](https://loj.ac/s/2631419) | 待核验 |
 | `Mo` | [P2709 莫队](https://www.luogu.com.cn/problem/P2709) | n,m,k≤100000;1秒、128MB。 | [记录](https://www.luogu.com.cn/record/302624429) | 待核验 |
 | `digit_count` | [P2602 数字计数](https://www.luogu.com.cn/problem/P2602) | 1≤a≤b≤10^12;1秒、125MB。 | [记录](https://www.luogu.com.cn/record/302624647) | 待核验 |
+| `grid_cycle` | [P5056 插头 DP](https://www.luogu.com.cn/problem/P5056) | 2≤n,m≤12;1秒、125MB。 | 待在线 AC | 待核验 |
 
 ## 适配与证据范围
 
@@ -2542,6 +2543,14 @@ Digit-DP contest application; state semantics specific to digit-frequency counti
 Subtract independent prefix counts; cast to long long only under the problem bounds.
 
 Accepted on all 10 tests; runtime rank not checked.
+
+### P5056 插头 DP / grid_cycle
+
+Formal single-loop plug DP template.
+
+Read obstacle grid; __int128 is safe because at most (n-1)(m-1)<=121 binary choices bound all partial history counts by 2^121; print decimal.
+
+Initial Boost submission CE (missing header); adapted bounded __int128 driver pending.
 
 ## 榜单口径
 

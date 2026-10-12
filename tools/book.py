@@ -59,6 +59,7 @@ chapters['wqs_independent_set'] = 'WQS二分'
 chapters['shortest_walks'] = '严格次短路与K短行走'
 chapters['overall_kth'] = '整体二分'
 chapters['tree_isomorphism'] = '确定性树同构'
+chapters['plug_cycle'] = '插头DP'
 chapters['digit_count'] = '数位DP'
 chapters['ordinary_mo'] = '普通莫队'
 chapters['tree_mo'] = '树上莫队'
@@ -305,7 +306,14 @@ for style in ['compact']:
                 body.append(r'序列中间插删、截取与版本共享的 GNU rope 见第~\pageref{compact-rp}~页。')
             if name == 'gp_map':
                 body.append(r'\index{gp\_hash\_table}\index{cc\_hash\_table}需要排名与有序前驱时，PBDS 平衡树见第~\pageref{compact-ost}~页。')
-            if name == 'SteinerTree':
+            if name == 'grid_cycle':
+                cuts = [start, next(i for i in range(start, end) if 'for (int j = 0; j < m; j++)' in lines[i] and i > next(k for k in range(start, end) if 'dp.swap(next);' in lines[k])), next(i for i in range(start, end) if 'else if (!x || !y)' in lines[i]), end]
+                for part in range(3):
+                    if part:
+                        body.append(r'\newpage')
+                        body.append('轮廓转移（接上页同一函数）：' if part == 1 else '延伸、合并与最终闭环（接上页同一函数）：')
+                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'SteinerTree':
                 cuts = [start, next(i for i in range(start, end) if 'Result solve(' in lines[i]), next(i for i in range(start, end) if 'priority_queue<pair<ll' in lines[i]), next(i for i in range(start, end) if 'int root = min_element' in lines[i]), end]
                 body.append(r'\paragraph{正确性要点} 非负权最优连通子图可删环成树。以v为根，分叉处将关键点分成两个非空集合，在同根合并；单分支路径由最短路扩展得到。真子集先处理，逐mask闭包即可。回溯合并严格缩小mask，同mask前驱遵循Dijkstra的确定次序；严格改善避免零权前驱环。原边去重后的连通方案费用不大于dp，最优性又排除严格更小，故边权和恰等于cost。')
                 for part in range(4):
@@ -1293,6 +1301,11 @@ for style in ['compact']:
             if name in ('Mo', 'digit_count'):
                 body.append(r'\newpage')
                 body.append(esc(info))
+            if name == 'grid_cycle':
+                body.append(r'\newpage')
+                body.append(r'\paragraph{轮廓与不变量} 槽j、j+1是当前格的左、上插头，转移后成为下、右插头。处理过的可用点度数固定为2，每个未闭合连通块是一条路径，在轮廓上恰有两个同编号端点。行首左移4位；右边界插头恒为0，所以移位不丢有效信息。最多8条路径，临时编号15不会与规范编号冲突。')
+                body.append(r'\paragraph{转移与去重} 无入边时必须创建下、右两条出边；单入边选择延伸方向；不同编号的双入边合并路径并统一编号；相同编号表示闭环，只能在最后一个可用点且其他槽全零时接收。按首次出现重编号使相同连通关系唯一。每个边集唯一对应逐格选择，不按起点或方向重复计数。')
+                body.append(r'\paragraph{数值与验证} 固定整数要保证所有中间计数可表示，不能只检查最后答案。P5056仅内部(n-1)(m-1)个格子可能二选一，其余转移至多一个。所有中间计数不超过2的121次方，因此下面用128位整数仍能保证精确计数。已穷举74954个小障碍网格并与独立递归环搜索核对；完整2至14阶偶数方格与OEIS A003763核对。输入超过题目范围时状态数仍可能很大。')
             for usage in usage_rows:
                 if usage['symbol'] != name:
                     if name in usage.get('also_covers', []):

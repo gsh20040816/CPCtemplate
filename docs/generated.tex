@@ -110,6 +110,52 @@ digit\_count(n) 返回正整数 1..n 中十种十进制数码的出现次数；n
 
 \lstinputlisting{usage/example-395.cpp}
 
+\Needspace{180pt}
+
+\chapter{插头 DP}
+
+\section{插头DP：网格单闭环计数}\label{compact-grid_cycle}\index{grid\_cycle}
+
+grid\_cycle<Count>(a) 统计覆盖所有可用格子的单个无向简单环；矩形网格中 . 必须经过、* 不能经过，仅上下左右相邻。空网格/全障碍返回0。自动转置到较窄方向，宽度m$\le$15，尺寸须可用int表示。状态每槽4位，同编号表示同一路径的两个端点，按首次出现规范化；闭环只允许发生在最后一个可用格子且无其他插头时。
+
+Count支持0/1构造和+=；固定整数必须保证所有中间计数不溢出，可改模整数或cpp\_int。S为最多可达状态数，固定宽度计数的期望时间O(n*m$^{2}$*S)、状态表O(S)，另有网格O(nm)。S随宽度指数增长；cpp\_int还需计入位复杂度。
+
+\lstinputlisting[firstline=7,lastline=40,firstnumber=1]{../src/compact/plug_cycle.hpp}
+
+\newpage
+
+轮廓转移（接上页同一函数）：
+
+\lstinputlisting[firstline=41,lastline=79,firstnumber=35]{../src/compact/plug_cycle.hpp}
+
+\newpage
+
+延伸、合并与最终闭环（接上页同一函数）：
+
+\lstinputlisting[firstline=80,lastline=112,firstnumber=74]{../src/compact/plug_cycle.hpp}
+
+\newpage
+
+\paragraph{轮廓与不变量} 槽j、j+1是当前格的左、上插头，转移后成为下、右插头。处理过的可用点度数固定为2，每个未闭合连通块是一条路径，在轮廓上恰有两个同编号端点。行首左移4位；右边界插头恒为0，所以移位不丢有效信息。最多8条路径，临时编号15不会与规范编号冲突。
+
+\paragraph{转移与去重} 无入边时必须创建下、右两条出边；单入边选择延伸方向；不同编号的双入边合并路径并统一编号；相同编号表示闭环，只能在最后一个可用点且其他槽全零时接收。按首次出现重编号使相同连通关系唯一。每个边集唯一对应逐格选择，不按起点或方向重复计数。
+
+\paragraph{数值与验证} 固定整数要保证所有中间计数可表示，不能只检查最后答案。P5056仅内部(n-1)(m-1)个格子可能二选一，其余转移至多一个。所有中间计数不超过2的121次方，因此下面用128位整数仍能保证精确计数。已穷举74954个小障碍网格并与独立递归环搜索核对；完整2至14阶偶数方格与OEIS A003763核对。输入超过题目范围时状态数仍可能很大。
+
+\Needspace{367pt}
+
+\subsection*{模板题使用：P5056 插头 DP}
+
+\label{usage-example-396}
+
+题意：2$\le$n,m$\le$12，所有点格必须形成唯一闭环。仅同时存在下、右邻格时可能二选一，至多(12-1)$^{2}$=121次，因此全部中间计数$\le$2\textasciicircum{}121，用\_\_int128安全；十进制输出。
+
+所需模板：\hyperref[compact-grid_cycle]{grid\_\allowbreak{}cycle}（第~\pageref{compact-grid_cycle}~页，\ref{compact-grid_cycle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P5056}
+
+\lstinputlisting{usage/example-396.cpp}
+
 \newpage
 
 \Needspace{680pt}
