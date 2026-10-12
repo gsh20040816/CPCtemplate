@@ -5333,5 +5333,33 @@
       "minimum_rectangle"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-419",
+    "symbol": "convex_cut",
+    "kind": "template",
+    "problem": "AOJ CGL_4_C Convex Cut",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C&lang=en",
+    "summary": "n,q≤100，整数坐标绝对值≤10000，输入逆时针凸多边形可含共线点。每条查询均裁剪原多边形，输出左侧面积12位小数，要求绝对误差小于1e-5。已核对官方题面与本地精确模型；AOJ未登录且无已保存账号，尚无在线提交。",
+    "driver": "verify/aoj/CGL_4_C.compact.cpp",
+    "requires": [
+      "RealPlane",
+      "convex_cut"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-420",
+    "symbol": "polygon_centroid",
+    "kind": "api",
+    "problem": "简单多边形面积重心接口示例",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/POLYGON-TOOLS.md",
+    "summary": "读取按边界顺序给出的简单多边形，输出面积重心12位小数；退化时输出Undefined。支持凹多边形和顺时针输入。这是接口用法示例，不是在线评测题，不计作AC。",
+    "driver": "docs/usage-drivers/polygon-centroid-demo.cpp",
+    "requires": [
+      "RealPlane",
+      "polygon_centroid"
+    ],
+    "start_new_page": true
   }
 ]

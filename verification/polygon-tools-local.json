@@ -1,0 +1,38 @@
+{
+  "long_double_digits": 53,
+  "coordinate_tolerance": "1e-9*span + 2*epsilon*max_abs_coordinate + 1e-30",
+  "forms": {
+    "normal-header": {
+      "status": "pass",
+      "cases": 5072
+    },
+    "normal-ndebug": {
+      "status": "pass",
+      "cases": 5072
+    },
+    "normal-copied": {
+      "status": "pass",
+      "cases": 5072
+    },
+    "sanitizer-header": {
+      "status": "pass",
+      "cases": 5072
+    },
+    "sanitizer-ndebug": {
+      "status": "pass",
+      "cases": 5072
+    },
+    "sanitizer-copied": {
+      "status": "pass",
+      "cases": 5072
+    }
+  },
+  "oracles": [
+    "Cramer line intersections, retained vertices, exact rational hull",
+    "vertical strip area and first moments"
+  ],
+  "sources": {
+    "convex_cut": "69f7ea3671c2504737c9828f4885a02dfeb098d0d616c4a28afc0b74b207c587",
+    "polygon_centroid": "0c3874c3a6f8faa3d76878a4add9ee2f49704726ace73bf37ffe0cc9ff6535a2"
+  }
+}

@@ -12643,6 +12643,70 @@ circle\_coverage\_area(a) 返回长n+1的数组，ans[k]为恰被k个闭圆盘�
 
 \newpage
 
+\Needspace{334pt}
+
+\noindent 相关应用：凸多边形裁剪：保留有向直线左侧；几何基础上的独立补充接口。
+
+\section{凸多边形裁剪：保留有向直线左侧}\label{compact-convex_cut}\index{convex\_cut}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+convex\_cut(p,a,b) 返回凸多边形与有向直线a→b左侧闭半平面的交。a$\ne$b；输入按边界顺序，顺/逆时针均可，允许共线中间点；空集、点和线段也可。原输入不变，输出保留原方向，但可能有共线点或重复边界点，不能直接当作严格凸包传入minimum\_rectangle。
+
+逐边保留左侧顶点，仅在两端严格异侧时加入交点，过顶点及沿边切割不作重复求交。O(n)时间和输出空间。n须能用int表示，输入及中间运算有限可表示。不使用eps；任意近退化实数的符号受舍入影响，不保证精确拓扑。AOJ整数范围内输入侧向叉积可精确表示，交点与面积仍舍入。
+
+\lstinputlisting[firstline=5,lastline=25]{../src/compact/convex_cut.hpp}
+
+\newpage
+
+\Needspace{485pt}
+
+\subsection*{模板题使用：AOJ CGL\_4\_C Convex Cut}
+
+\label{usage-example-419}
+
+题意：n,q$\le$100，整数坐标绝对值$\le$10000，输入逆时针凸多边形可含共线点。每条查询均裁剪原多边形，输出左侧面积12位小数，要求绝对误差小于1e-5。已核对官方题面与本地精确模型；AOJ未登录且无已保存账号，尚无在线提交。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-convex_cut]{convex\_\allowbreak{}cut}（第~\pageref{compact-convex_cut}~页，\ref{compact-convex_cut}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C&lang=en}
+
+\lstinputlisting{usage/example-419.cpp}
+
+\newpage
+
+\Needspace{430pt}
+
+\noindent 相关应用：简单多边形面积重心；几何基础上的独立补充接口。
+
+\section{简单多边形面积重心}\label{compact-polygon_centroid}\index{polygon\_centroid}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+polygon\_centroid(p) 返回optional<RealPlane::Point>，表示均匀密度简单多边形的面积重心；可凹，顺/逆时针均可。少于三点或计算有向面积恰为0返回nullopt，不把原点作为失败标记。不用于自交、多环带孔多边形，也不是顶点平均或边界线重心。
+
+相对p[0]作三角扇，有向面积与一阶矩补偿求和；除以总有向面积恢复坐标。O(n)时间、O(1)额外空间，原输入不变。n须能用int表示，输入与中间运算有限可表示；不使用eps。实数近退化时面积符号和零判定仍可能舍入错误，巨大平移也限制最终坐标精度；long double不保证比double精度高。
+
+\lstinputlisting[firstline=5,lastline=34]{../src/compact/polygon_centroid.hpp}
+
+\newpage
+
+\Needspace{309pt}
+
+\subsection*{接口用法演示：简单多边形面积重心接口示例}
+
+\label{usage-example-420}
+
+演示约定：读取按边界顺序给出的简单多边形，输出面积重心12位小数；退化时输出Undefined。支持凹多边形和顺时针输入。这是接口用法示例，不是在线评测题，不计作AC。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-polygon_centroid]{polygon\_\allowbreak{}centroid}（第~\pageref{compact-polygon_centroid}~页，\ref{compact-polygon_centroid}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/POLYGON-TOOLS.md}
+
+\lstinputlisting{usage/example-420.cpp}
+
+\newpage
+
 \Needspace{562pt}
 
 \chapter{三维计算几何基础}

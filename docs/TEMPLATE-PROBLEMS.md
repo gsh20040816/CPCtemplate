@@ -289,6 +289,8 @@
 | `manhattan_order` | [P1494 小Z的袜子](https://www.luogu.com.cn/problem/P1494) | n,m≤50000; Ci≤n; singleton intervals require0/1;400ms,128MB. | [记录](https://www.luogu.com.cn/record/302657154) | 待核验 |
 | `circle_coverage_area` | [Luogu SP8119 / SPOJ CIRUT](https://www.luogu.com.cn/problem/SP8119) | n<=1000; distinct positive circles; integer \|x\|,\|y\|<=1000,r<=1000; mirror 639ms/1.46GB | 驱动登记待核验；AC 待核验 | 待核验 |
 | `minimum_rectangle` | [Luogu P3187](https://www.luogu.com.cn/problem/P3187) | 3<=n<=50000; coordinates[0,10] at most five decimals; area>=0.1; 1s/500MB | [记录](https://www.luogu.com.cn/record/302662813) | 待核验 |
+| `convex_cut` | [AOJ CGL_4_C](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C&lang=en) | n,q<=100; integer coordinates[-10000,10000]; absolute area error<1e-5 | 驱动登记待核验；AC 待核验 | 待核验 |
+| `polygon_centroid` | [API demonstration]() | Simple polygon; finite arithmetic; n fits int | 驱动登记待核验；AC 待核验 | 待核验 |
 
 ## 适配与证据范围
 
@@ -2705,6 +2707,22 @@ Direct minimum bounding rectangle template, originally HNOI2007; tests full area
 
 
 Ranking not checked; general real input classification and corner measurements remain floating point.
+
+### AOJ CGL_4_C / convex_cut
+
+Direct convex cut area template
+
+
+
+No online verdict; AOJ login unavailable
+
+### API demonstration / polygon_centroid
+
+Local API example only; not an OJ problem
+
+
+
+No direct OJ selected; independent local oracle only
 
 ## 榜单口径
 

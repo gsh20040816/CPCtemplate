@@ -7503,5 +7503,59 @@
       "verification/minimum-rectangle-driver.json",
       "verification/minimum-rectangle-source.json"
     ]
+  },
+  {
+    "symbol": "convex_cut",
+    "problem": "AOJ CGL_4_C",
+    "title": "凸多边形裁剪：保留有向直线左侧",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C&lang=en",
+    "classification": "Direct convex cut area template",
+    "statement_checked": true,
+    "limits": "n,q<=100; integer coordinates[-10000,10000]; absolute area error<1e-5",
+    "tested_api": [
+      "convex_cut(...)"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No online verdict; AOJ login unavailable",
+    "checked_date": "2026-10-12",
+    "usage": "example-419",
+    "source": "src/compact/convex_cut.hpp",
+    "local_evidence": [
+      "verification/polygon-tools-local.json",
+      "verification/polygon-tools-source.json",
+      "verification/polygon-tools-driver.json"
+    ]
+  },
+  {
+    "symbol": "polygon_centroid",
+    "problem": "API demonstration",
+    "title": "简单多边形面积重心",
+    "url": "",
+    "classification": "Local API example only; not an OJ problem",
+    "statement_checked": false,
+    "limits": "Simple polygon; finite arithmetic; n fits int",
+    "tested_api": [
+      "polygon_centroid(...)"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No direct OJ selected; independent local oracle only",
+    "checked_date": "2026-10-12",
+    "usage": "example-420",
+    "source": "src/compact/polygon_centroid.hpp",
+    "local_evidence": [
+      "verification/polygon-tools-local.json",
+      "verification/polygon-tools-source.json",
+      "verification/polygon-tools-driver.json"
+    ]
   }
 ]
