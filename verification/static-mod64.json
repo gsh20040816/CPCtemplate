@@ -1,0 +1,19 @@
+{
+  "scope": "Full uint64 fixed modulus, signed/unsigned construction, arithmetic, exact exponent and unit inverse; Boost cpp_int oracle; no online AC",
+  "runs": [
+    {
+      "mode": "normal",
+      "output": "1486662 Boost integer and unit-inverse certificate checks PASS"
+    },
+    {
+      "mode": "sanitizer",
+      "output": "1486662 Boost integer and unit-inverse certificate checks PASS"
+    }
+  ],
+  "files": {
+    "src/compact/static_mod64.hpp": "87f90e0330f995ef357a64b8056bb82028e9049a37a02ffc1bb74ddb8b083eae",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "tests/static_mod64.cpp": "5ff6fe94f8de307b2f35d976e2ca9ad2b013c39c54599c482299573ecdf8f36e",
+    "tests/static_mod64.py": "a80c12208fc3f675290da6a9304ec77c2ebffffac0df5670bd5079271da7ac08"
+  }
+}

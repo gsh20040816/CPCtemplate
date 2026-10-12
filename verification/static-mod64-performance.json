@@ -1,0 +1,54 @@
+{
+  "scope": "Local dependent multiply-add chain, constant modulus 18446744073709551557, C++20 O2; no OJ or universal performance claim",
+  "iterations": 3000000,
+  "runs": [
+    {
+      "repeat": 0,
+      "mode": "ordinary",
+      "checksum": 18390383092874152127,
+      "seconds": 0.024931
+    },
+    {
+      "repeat": 0,
+      "mode": "wrapped",
+      "checksum": 18390383092874152127,
+      "seconds": 0.024804
+    },
+    {
+      "repeat": 1,
+      "mode": "wrapped",
+      "checksum": 18390383092874152127,
+      "seconds": 0.024784
+    },
+    {
+      "repeat": 1,
+      "mode": "ordinary",
+      "checksum": 18390383092874152127,
+      "seconds": 0.024932
+    },
+    {
+      "repeat": 2,
+      "mode": "ordinary",
+      "checksum": 18390383092874152127,
+      "seconds": 0.025043
+    },
+    {
+      "repeat": 2,
+      "mode": "wrapped",
+      "checksum": 18390383092874152127,
+      "seconds": 0.024886
+    }
+  ],
+  "median_seconds": {
+    "ordinary": 0.024932,
+    "wrapped": 0.024804
+  },
+  "ratio": 0.9948660356168779,
+  "compiler": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "files": {
+    "src/compact/static_mod64.hpp": "87f90e0330f995ef357a64b8056bb82028e9049a37a02ffc1bb74ddb8b083eae",
+    "src/compact/mod64.hpp": "1399a15291b8d18ae72f666abea3b5c579cc45b001641590ed3d7f9b3d0004d9",
+    "tests/static_mod64_benchmark.cpp": "3a4a9e165939c11bc3bb204a506234e1e005dd8873bab3c4f28d383224928593",
+    "tests/static_mod64_benchmark.py": "0ae22f088dac686bc54821e7d648644b3ab0d29cef8cd037c1b94f701e7cf1f2"
+  }
+}

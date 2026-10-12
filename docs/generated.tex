@@ -1674,6 +1674,50 @@ mint<tag> 按 tag 独立保存运行时模数，默认 998244353。先 set\_mod(
 
 \Needspace{650pt}
 
+\noindent 相关应用：完整uint64固定模整数与合数单位逆元，精确整数模乘替代依赖long double精度的实现
+
+\subsection{完整64位固定模整数}\label{compact-StaticMod64}\index{StaticMod64}
+
+代码依赖：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+StaticMod64<P>支持1$\le$P$\le$UINT64\_MAX的固定模数，可为合数。构造接受不超过64位的标准有符号/无符号整数，默认零；公开v为规范uint64余数，只读，不要转为long long输出大余数。加减用先比较后运算避免溢出；乘法依赖Mod64的uint128精确取余，不用浮点。加减乘O(1)，支持一元负号、相等比较与复合赋值。
+
+pow(k)接受完整uint64非负指数，0\textasciicircum{}0=1 mod P，O(log(k+1))。try\_inv()用int128扩展欧几里得，gcd(v,P)$\ne$1时返回nullopt；inv及除法要求分母可逆，O(log P)。模1的唯一余数为0，逆元也返回0。构造用int128先求余再校正，支持LLONG\_MIN与UINT64\_MAX；求逆系数用int128，最终规范到[0,P)。依赖GNU/Clang的128位整数；不支持把更宽整数直接传给构造函数。不提供字符串流重载：按题目读signed64或unsigned64后构造，输出v。
+
+\lstinputlisting[firstline=5,lastline=34,firstnumber=1]{../src/compact/static_mod64.hpp}
+
+\newpage
+
+\noindent 64位模整数（接上页同一结构体）：
+
+\lstinputlisting[firstline=35,lastline=70,firstnumber=31]{../src/compact/static_mod64.hpp}
+
+\newpage
+
+\noindent 64位模整数（接上页同一结构体）：
+
+\lstinputlisting[firstline=71,lastline=105,firstnumber=67]{../src/compact/static_mod64.hpp}
+
+\newpage
+
+\Needspace{432pt}
+
+\subsection*{接口用法演示：完整64位模整数与合数逆元 API}
+
+\label{usage-example-449}
+
+演示约定：固定合数模UINT64\_MAX。每组输入signed64整数a、uint64整数b和非负指数k，输出a、b规范余数及a+b、a-b、a*b、a\textasciicircum{}k、b逆元；b不可逆输出-1。大余数直接输出uint64成员v，不能先转signed64。
+
+所需模板：\hyperref[compact-Mod64]{Mod64}（第~\pageref{compact-Mod64}~页，\ref{compact-Mod64}~节）、\hyperref[compact-StaticMod64]{StaticMod64}（第~\pageref{compact-StaticMod64}~页，\ref{compact-StaticMod64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+来源：\url{https://github.com/gsh20040816/CPCtemplate/blob/main/docs/STATIC-MOD64.md}
+
+\lstinputlisting{usage/example-449.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
 \noindent 相关应用：奇数固定模数的Montgomery表示及整数约减；辅助原根/平方根另列
 
 \subsection{Montgomery固定模整数}\label{compact-Montgomery}\index{Montgomery}

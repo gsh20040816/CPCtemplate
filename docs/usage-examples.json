@@ -5745,5 +5745,19 @@
       "Montgomery"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-449",
+    "symbol": "StaticMod64",
+    "kind": "api",
+    "problem": "完整64位模整数与合数逆元 API",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/STATIC-MOD64.md",
+    "summary": "固定合数模UINT64_MAX。每组输入signed64整数a、uint64整数b和非负指数k，输出a、b规范余数及a+b、a-b、a*b、a^k、b逆元；b不可逆输出-1。大余数直接输出uint64成员v，不能先转signed64。",
+    "driver": "verify/api/static_mod64.compact.cpp",
+    "requires": [
+      "Mod64",
+      "StaticMod64"
+    ],
+    "start_new_page": true
   }
 ]

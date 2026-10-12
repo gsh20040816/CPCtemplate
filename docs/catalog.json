@@ -1080,6 +1080,12 @@
     "Montgomery<P> 为可选固定模整数，要求奇数1<P<2^30，允许合数。构造接受完整long long并正规化；get()返回普通余数。v是[0,P)内的Montgomery表示，只读，不能作为普通余数使用或直接赋值。加减乘与一元负号O(1)，乘法不用除法；比较直接比较规范内部表示。pow(k)保留完整uint64非负指数，约定0^0=1，不把指数对P-1取模。try_inv()用扩展欧几里得，非单位返回nullopt；inv与除法要求除数可逆，复杂度O(log P)。\n\n内部取R=2^32，neg_inv=-P^{-1} mod R，r2=R^2 mod P；reduce(x)要求x<P*R，以q=(x mod R)*neg_inv mod R使x+qP能被R整除，再取高32位并最多减P。x+qP<2PR<2^63；核心只用uint64。乘积和构造均满足输入界。inverse32/reduce为内部辅助；原根、模平方根另用已有模板。本类型不替换普通ModInt或动态mint，不保证所有平台都比编译期常模取余快。"
   ],
   [
+    "static_mod64",
+    "StaticMod64",
+    "完整64位固定模整数",
+    "StaticMod64<P>支持1≤P≤UINT64_MAX的固定模数，可为合数。构造接受不超过64位的标准有符号/无符号整数，默认零；公开v为规范uint64余数，只读，不要转为long long输出大余数。加减用先比较后运算避免溢出；乘法依赖Mod64的uint128精确取余，不用浮点。加减乘O(1)，支持一元负号、相等比较与复合赋值。\n\npow(k)接受完整uint64非负指数，0^0=1 mod P，O(log(k+1))。try_inv()用int128扩展欧几里得，gcd(v,P)≠1时返回nullopt；inv及除法要求分母可逆，O(log P)。模1的唯一余数为0，逆元也返回0。构造用int128先求余再校正，支持LLONG_MIN与UINT64_MAX；求逆系数用int128，最终规范到[0,P)。依赖GNU/Clang的128位整数；不支持把更宽整数直接传给构造函数。不提供字符串流重载：按题目读signed64或unsigned64后构造，输出v。"
+  ],
+  [
     "dynamic_modint",
     "mint",
     "动态模整数与合数模逆元",
