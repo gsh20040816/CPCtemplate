@@ -6937,5 +6937,35 @@
       "verification/cartesian-tree-large.json",
       "verification/cartesian-tree-mutants.json"
     ]
+  },
+  {
+    "symbol": "TimeConnectivity",
+    "problem": "LOJ121 动态图连通性",
+    "url": "https://loj.ac/p/121",
+    "classification": "Direct formal simple-graph dynamic connectivity template.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "n≤5000,q≤500000; 800ms,512MiB; initially empty simple graph, legal insert/delete.",
+    "adapter": "Normalize endpoints, pair insert/delete into [l,r), close remaining edges at q, print Y/N at query leaves.",
+    "tested_api": [
+      "add",
+      "run",
+      "RollbackDSU.find"
+    ],
+    "ac": "https://loj.ac/s/2631419",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Runtime ranking unverified. Multigraph/initial-edge API remains separately locally verified.",
+    "source": "src/compact/time_connectivity.hpp",
+    "driver": "verify/loj/121.compact.cpp",
+    "usage": "example-393",
+    "local_reports": [
+      "verification/loj121-local.json",
+      "verification/time-connectivity-normal.json",
+      "verification/time-connectivity-sanitizer.json"
+    ]
   }
 ]

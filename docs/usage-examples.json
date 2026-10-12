@@ -4971,5 +4971,18 @@
     "requires": [
       "CartesianTree"
     ]
+  },
+  {
+    "id": "example-393",
+    "symbol": "TimeConnectivity",
+    "kind": "template",
+    "problem": "LOJ121 动态图连通性",
+    "url": "https://loj.ac/p/121",
+    "summary": "初始空的无向简单图，点号1..n；0加不存在的边、1删存在的边、2查连通性，输出Y/N。n≤5000，q≤500000；端点统一排序，加删配成半开生存区间，剩余边持续到q。",
+    "driver": "verify/loj/121.compact.cpp",
+    "requires": [
+      "RollbackDSU",
+      "TimeConnectivity"
+    ]
   }
 ]

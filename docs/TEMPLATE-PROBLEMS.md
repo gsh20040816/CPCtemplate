@@ -269,6 +269,7 @@
 | `tutte` | [QOJ45 Tutte多项式](https://qoj.ac/problem/45) | 1≤n≤21，简单无向图，0≤x,y<998244353；7s / 512MB。 | [记录](https://qoj.ac/submission/3150664) | 待核验 |
 | `SteinerTree` | [P6192 最小斯坦纳树](https://www.luogu.com.cn/problem/P6192) | n≤100,m≤500,k≤10,w≤1000000；无向连通图，允许重边自环。1s / 250MB。 | [记录](https://www.luogu.com.cn/record/302413451) | 待核验 |
 | `CartesianTree` | [P5854 笛卡尔树](https://www.luogu.com.cn/problem/P5854) | 1≤n≤10^7，1..n排列；1秒、512MB；题面建议C++14 GCC9。 | [记录](https://www.luogu.com.cn/record/302414811) | 待核验 |
+| `TimeConnectivity` | [LOJ121 动态图连通性](https://loj.ac/p/121) | n≤5000,q≤500000; 800ms,512MiB; initially empty simple graph, legal insert/delete. | [记录](https://loj.ac/s/2631419) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2515,6 +2516,14 @@ Direct formal template, official site statement checked.
 Construct zero-based Cartesian tree and convert child IDs for 64-bit checksum.
 
 Runtime ranking not checked; broader API contracts additionally validated locally.
+
+### LOJ121 动态图连通性 / TimeConnectivity
+
+Direct formal simple-graph dynamic connectivity template.
+
+Normalize endpoints, pair insert/delete into [l,r), close remaining edges at q, print Y/N at query leaves.
+
+Runtime ranking unverified. Multigraph/initial-edge API remains separately locally verified.
 
 ## 榜单口径
 

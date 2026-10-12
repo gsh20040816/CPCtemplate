@@ -6858,8 +6858,16 @@
       "symbol": "TimeConnectivity",
       "title": "时间线段树分治：离线动态连通性",
       "source": "src/compact/time_connectivity.hpp",
-      "status": "needs_template_problem_review",
+      "status": "reviewed_formal_template",
       "candidate_drivers": [
+        {
+          "driver": "verify/loj/121.compact.cpp",
+          "url": "https://loj.ac/p/121",
+          "existing_ac": [
+            "https://loj.ac/s/2631419"
+          ],
+          "review": "Formal general simple-graph dynamic connectivity; current offline implementation accepted."
+        },
         {
           "driver": "verify/luogu/P2147.offline.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P2147",
