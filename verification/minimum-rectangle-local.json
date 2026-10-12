@@ -1,0 +1,36 @@
+{
+  "source_sha256": "eb996cd0709c2c94dba79b6839acfe2d1c64302118796455c899d15793ff2e31",
+  "oracle": "exact Fraction scan of all points for each hull edge; rectangle containment, orthogonality, area and CCW checks; 50000-vertex regular polygon",
+  "forms": {
+    "normal-header": {
+      "status": "pass",
+      "cases": 2923,
+      "runtime_seconds": 0.8741020000015851
+    },
+    "normal-ndebug": {
+      "status": "pass",
+      "cases": 2923,
+      "runtime_seconds": 0.3520067920035217
+    },
+    "normal-copied": {
+      "status": "pass",
+      "cases": 2923,
+      "runtime_seconds": 0.3594380829890724
+    },
+    "sanitizer-header": {
+      "status": "pass",
+      "cases": 2923,
+      "runtime_seconds": 0.5859167909948155
+    },
+    "sanitizer-ndebug": {
+      "status": "pass",
+      "cases": 2923,
+      "runtime_seconds": 0.5434125410101842
+    },
+    "sanitizer-copied": {
+      "status": "pass",
+      "cases": 2923,
+      "runtime_seconds": 0.6164734999765642
+    }
+  }
+}

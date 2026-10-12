@@ -13274,6 +13274,46 @@ convex\_diameter2(p,endpoints=nullptr) 返回最远两点距离平方，类型 \
 
 \lstinputlisting{usage/example-124.cpp}
 
+\newpage
+
+\noindent 相关应用：凸包的三组支撑点旋转卡壳，最小包围矩形面积与逆时针四角。
+
+\section{最小面积包围矩形：旋转卡壳与四角}\label{compact-minimum_rectangle}\index{minimum\_rectangle}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+minimum\_rectangle(p) 返回pair(area,box)，box是array<Point,4>，非退化时按逆时针列出最优矩形四角；并列时不指定首点或方向。输入RealPlane::Point严格逆时针凸包，不重复首点、不保留共线中间点，不能直接传散点或顺时针多边形。空集返回0和四个原点；单点重复四次，线段返回a,b,b,a；原输入不变。
+
+沿每条凸包边维护前后投影极值与最大高度，恢复四条支撑线的交点。精确支撑比较下O(n)时间、O(1)额外空间；n$\le$INT\_MAX，输入及所有中间运算须有限可表示。浮点版不使用eps或扰动，近退化符号及角点精度仍受舍入影响；steps<n是异常平坦比较的终止保护，不能修复舍入错误（异常时最坏O(n$^{2}$)）。有界整数/定点题优先精确构造凸包，再传实数坐标。
+
+\lstinputlisting[firstline=5,lastline=32,firstnumber=1]{../src/compact/minimum_rectangle.hpp}
+
+\newpage
+
+三组支撑点推进与四角恢复（接上页函数）：
+
+\lstinputlisting[firstline=33,lastline=72,firstnumber=29]{../src/compact/minimum_rectangle.hpp}
+
+\paragraph{正确性} 最小面积包围矩形至少有一条边与凸包边共线。固定此方向，左右和上方支撑线由投影最小、投影最大和叉积最大三点决定。严格凸包边方向依次旋转，三个最优支撑点只向前移动；相同投影推进到末端，以跨过平行边。第一条边完整扫描初始化，避免从错误局部极值开始。
+
+\paragraph{恢复公式与边界} 设底边方向e、长度平方d，最小/最大投影l,r，最大叉积h。面积为(r-l)h/d，底边两端为p+el/d、p+er/d，上边统一加perp(e)h/d。不要求首角纵坐标最小。输入必须是严格逆时针凸包；任意实数判向和极薄模型不能由通过有界整数题保证。
+
+\newpage
+
+\Needspace{436pt}
+
+\subsection*{模板题使用：P3187 最小矩形覆盖}
+
+\label{usage-example-418}
+
+题意：3$\le$n$\le$50000，坐标[0,10]、至多五位小数。乘10$^{5}$后四舍五入还原整数，integer\_hull精确去重与判向，再将凸包转long double作卡壳。输出面积及逆时针四角，10位小数；面积误差/max(1,S)<1e-4、点到矩形距离<1e-4。已100分AC，记录302662813；最慢26ms，总计113ms。
+
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-integer_hull]{integer\_\allowbreak{}hull}（第~\pageref{compact-integer_hull}~页，\ref{compact-integer_hull}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-minimum_rectangle]{minimum\_\allowbreak{}rectangle}（第~\pageref{compact-minimum_rectangle}~页，\ref{compact-minimum_rectangle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3187}
+
+\lstinputlisting{usage/example-418.cpp}
+
 \Needspace{536pt}
 
 \chapter{半平面交}

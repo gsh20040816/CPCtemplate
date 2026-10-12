@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 217，application 67，composite 8，related 18。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 217，application 67，composite 8，related 19。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -306,6 +306,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | minkowski_sum | 计算几何 → 凸包 | related | 固定导航没有独立 Minkowski 和条目，按凸包的相关应用归档。 |
 | rectangle_union_area | 计算几何 → 扫描线 | direct | 整数轴对齐矩形面积并；不含周长和动态更新。 |
 | convex_diameter2 | 计算几何 → 旋转卡壳 | direct |  |
+| minimum_rectangle | 计算几何 → 旋转卡壳 | related | 凸包的三组支撑点旋转卡壳，最小包围矩形面积与逆时针四角。 |
 | IntegerHalfplanes | 计算几何 → 半平面交 | direct |  |
 | ClosestPair | 计算几何 → 平面最近点对 | direct |  |
 | closest_pair_i64 | 计算几何 → 平面最近点对 | direct |  |

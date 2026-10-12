@@ -7476,5 +7476,32 @@
       "verification/circle-coverage-local.json",
       "verification/circle-coverage-source.json"
     ]
+  },
+  {
+    "symbol": "minimum_rectangle",
+    "problem": "Luogu P3187",
+    "title": "最小面积包围矩形：旋转卡壳与四角",
+    "url": "https://www.luogu.com.cn/problem/P3187",
+    "classification": "Direct minimum bounding rectangle template, originally HNOI2007; tests full area and witness output.",
+    "statement_checked": true,
+    "limits": "3<=n<=50000; coordinates[0,10] at most five decimals; area>=0.1; 1s/500MB",
+    "tested_api": [
+      "minimum_rectangle(hull)"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302662813",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "Ranking not checked; general real input classification and corner measurements remain floating point.",
+    "checked_date": "2026-10-12",
+    "usage": "example-418",
+    "source": "src/compact/minimum_rectangle.hpp",
+    "local_evidence": [
+      "verification/minimum-rectangle-local.json",
+      "verification/minimum-rectangle-driver.json",
+      "verification/minimum-rectangle-source.json"
+    ]
   }
 ]

@@ -65,6 +65,7 @@ chapters['hull3d_metrics'] = '凸多面体测量'
 chapters['polygon_union'] = '一般多边形面积并'
 chapters['circle_union'] = '圆面积并'
 chapters['circle_coverage'] = '圆覆盖重数面积'
+chapters['minimum_rectangle'] = '最小面积包围矩形'
 chapters['simplex'] = '单纯形法'
 chapters['plug_cycle'] = '插头DP'
 chapters['color_max'] = '树上翻色最大权'
@@ -303,7 +304,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
+            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'minimum_rectangle', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -369,6 +370,14 @@ for style in ['compact']:
                 body.append(r'\paragraph{共享边与端点} 两条共线反向边的内部位于两侧，右侧测试已将其剔除；同向共线边仅编号较小的多边形保留，避免重复积分。所有事件参数精确裁到[0,1]，同参数事件的任意顺序只影响零长度段，不影响面积。退化顶点、相切和部分重叠边均不需要随机扰动。')
                 body.append(r'\paragraph{积分与孔洞} 对边p到q的未覆盖参数段[l,u]，贡献是cross(p-origin,q-origin)乘(u-l)/2。按逆时针原边方向累加，孔洞自动带负方向，不对单边取绝对值。包围盒相交关系的连通块包含真实并集连通块，按该分组平移不改变闭合积分。最终转long double和补偿求和仍有误差；输入内含洞或自交轮廓不在本接口范围。')
                 body.append(r'\paragraph{独立验证} Fraction精确枚举所有线段交点横坐标，分竖直条带合并各多边形截面，以线性上下包络的梯形公式求真值。包含凹多边形、重复/共线/反向边、孔洞、极值坐标、刚体变换和1000三角形压力例。线上状态见验证记录。')
+            elif name == 'minimum_rectangle':
+                cut = next(i for i in range(start, end) if '    for (int i = 0; i < n; i++)' in lines[i])
+                body.append(r'\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(cut) + ',firstnumber=1]{../src/' + style + '/' + filename + '.hpp}')
+                body.append(r'\newpage')
+                body.append('三组支撑点推进与四角恢复（接上页函数）：')
+                body.append(r'\lstinputlisting[firstline=' + str(cut + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(cut - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append(r'\paragraph{正确性} 最小面积包围矩形至少有一条边与凸包边共线。固定此方向，左右和上方支撑线由投影最小、投影最大和叉积最大三点决定。严格凸包边方向依次旋转，三个最优支撑点只向前移动；相同投影推进到末端，以跨过平行边。第一条边完整扫描初始化，避免从错误局部极值开始。')
+                body.append(r'\paragraph{恢复公式与边界} 设底边方向e、长度平方d，最小/最大投影l,r，最大叉积h。面积为(r-l)h/d，底边两端为p+el/d、p+er/d，上边统一加perp(e)h/d。不要求首角纵坐标最小。输入必须是严格逆时针凸包；任意实数判向和极薄模型不能由通过有界整数题保证。')
             elif name in ('circle_union_area', 'circle_coverage_area'):
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('        for (int j = 0; j < n; j++)', '        auto add =')] + [end]
                 for part in range(3):

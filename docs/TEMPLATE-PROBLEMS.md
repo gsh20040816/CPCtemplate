@@ -288,6 +288,7 @@
 | `EightPuzzle` | [HDU1043 Eight](https://acm.hdu.edu.cn/showproblem.php?pid=1043) | 3x3 permutation of1..8,x; EOF cases; Others5000MS/32768K | [记录](https://acm.hdu.edu.cn/viewcode.php?rid=41022820) | 待核验 |
 | `manhattan_order` | [P1494 小Z的袜子](https://www.luogu.com.cn/problem/P1494) | n,m≤50000; Ci≤n; singleton intervals require0/1;400ms,128MB. | [记录](https://www.luogu.com.cn/record/302657154) | 待核验 |
 | `circle_coverage_area` | [Luogu SP8119 / SPOJ CIRUT](https://www.luogu.com.cn/problem/SP8119) | n<=1000; distinct positive circles; integer \|x\|,\|y\|<=1000,r<=1000; mirror 639ms/1.46GB | 驱动登记待核验；AC 待核验 | 待核验 |
+| `minimum_rectangle` | [Luogu P3187](https://www.luogu.com.cn/problem/P3187) | 3<=n<=50000; coordinates[0,10] at most five decimals; area>=0.1; 1s/500MB | [记录](https://www.luogu.com.cn/record/302662813) | 待核验 |
 
 ## 适配与证据范围
 
@@ -2696,6 +2697,14 @@ Direct template for all exact circle coverage multiplicity areas.
 
 
 Submitted record302660709 remains Waiting; no AC or runtime claim. Duplicate and zero-radius extensions independently checked locally.
+
+### Luogu P3187 / minimum_rectangle
+
+Direct minimum bounding rectangle template, originally HNOI2007; tests full area and witness output.
+
+
+
+Ranking not checked; general real input classification and corner measurements remain floating point.
 
 ## 榜单口径
 

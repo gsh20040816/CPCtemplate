@@ -317,3 +317,4 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | EightPuzzle | [example-413（应用补充）](usage/example-413.cpp) | locally_checked_application |
 | manhattan_order | [example-416（应用补充）](usage/example-416.cpp) | locally_checked_application |
 | circle_coverage_area | [example-417](usage/example-417.cpp) | locally_checked_example |
+| minimum_rectangle | [example-418](usage/example-418.cpp) | locally_checked_example |

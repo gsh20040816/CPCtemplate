@@ -5317,5 +5317,21 @@
       "circle_coverage_area"
     ],
     "start_new_page": false
+  },
+  {
+    "id": "example-418",
+    "symbol": "minimum_rectangle",
+    "kind": "template",
+    "problem": "P3187 最小矩形覆盖",
+    "url": "https://www.luogu.com.cn/problem/P3187",
+    "summary": "3≤n≤50000，坐标[0,10]、至多五位小数。乘10⁵后四舍五入还原整数，integer_hull精确去重与判向，再将凸包转long double作卡壳。输出面积及逆时针四角，10位小数；面积误差/max(1,S)<1e-4、点到矩形距离<1e-4。已100分AC，记录302662813；最慢26ms，总计113ms。",
+    "driver": "verify/luogu/P3187.compact.cpp",
+    "requires": [
+      "IntegerPlane",
+      "integer_hull",
+      "RealPlane",
+      "minimum_rectangle"
+    ],
+    "start_new_page": true
   }
 ]
