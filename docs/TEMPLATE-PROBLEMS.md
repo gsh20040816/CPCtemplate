@@ -295,6 +295,7 @@
 | `triangle_incircle` | [AOJ CGL_7_B](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_B&lang=en) | Three noncollinear integer points, abs coordinate<=10000; error<1e-6; resource fields empty in fetched statement | 驱动登记待核验；AC 待核验 | 待核验 |
 | `det_prime` | [Luogu P4336](https://www.luogu.com.cn/problem/P4336) | 2<=n<=17, n-1 companies, each list has distinct undirected nonloop edges, mod 1000000007; 2s / 250MB, browser confirmed | 驱动登记待核验；AC 待核验 | 待核验 |
 | `MatrixTree` | [Luogu P4455](https://www.luogu.com.cn/problem/P4455) | 1<=n<=250, 1<=m<=n(n-1), mod 10007; duplicate/self-loop and n=1,m=0 tests are documented extensions; resource limits not yet checked | 驱动登记待核验；AC 待核验 | 待核验 |
+| `tree_probability` | [Luogu P3317](https://www.luogu.com.cn/problem/P3317) | 2<=n<=50; symmetric probabilities with <=2 decimals; nonzero answer>=1e-4; relative error<=1e-4; 1s/125MB; Firefox screenshot checked | 驱动登记待核验；AC 待核验 | 待核验 |
 
 ## 适配与证据范围
 
@@ -2759,6 +2760,14 @@ Application, not a standalone algorithm template
 输入a b表示a能看见b；选择b为a的消息来源，对应a指向b的父边，所有非根点沿父边最终到达1。因此按原输入方向调用toward_root，不能选away_from_root；点号减1，根为0，模10007。n不超过250，时间O(n^3+m)，空间O(n^2)。按朋友关系去重，自环忽略；重复关系不视为不同传播方案。不统计转发时间顺序。单点约定空树1。
 
 No online verdict; two separately authorized P4336 CAPTCHA attempts failed without a submission record; P4455 not yet submitted
+
+### Luogu P3317 / tree_probability
+
+Probability matrix-tree application
+
+
+
+Authorized CAPTCHA attempt failed without a record; user reports manual verification also seems unavailable. Further retries stopped; no online verdict.
 
 ## 榜单口径
 

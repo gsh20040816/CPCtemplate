@@ -77,6 +77,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | matrix_inverse_mod2 | [example-102](usage/example-102.cpp) | locally_checked_example |
 | determinant_mod | [example-77](usage/example-77.cpp) | locally_checked_example |
 | MatrixTree | [example-76](usage/example-76.cpp), [example-428（应用补充）](usage/example-428.cpp) | locally_checked_example |
+| tree_probability | [example-429（应用补充）](usage/example-429.cpp) | locally_checked_application |
 | MatrixTreeMod | [example-187](usage/example-187.cpp), [example-188](usage/example-188.cpp) | locally_checked_example |
 | DuJiao | [example-85](usage/example-85.cpp), [example-86](usage/example-86.cpp) | locally_checked_example |
 | DiscreteLog | [example-47](usage/example-47.cpp) | locally_checked_example |

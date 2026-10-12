@@ -11883,6 +11883,42 @@ tutte(adj,x,y)返回模998244353的Tutte多项式值。简单无向图，n$\le$2
 
 \lstinputlisting{usage/example-428.cpp}
 
+\newpage
+
+\noindent 相关应用：独立边随机图恰为生成树的概率应用；不代表额外来源整页覆盖
+
+\section{随机图恰为生成树的概率}\label{compact-tree_probability}\index{tree\_probability}
+
+tree\_probability(p)返回独立无向随机图恰有n-1条边且连通的概率。p为对称整数百分数矩阵，元素0..100、对角0，1<=n<=50；输入不变，单点为空树，返回1。概率100的边必须出现，成环直接返回0，否则先缩成森林分量。其余边赋权p/(100-p)，矩阵树结果乘所有非必选边的缺边概率；缩点后自环也必须缺失。
+
+先以正概率边检查连通性，严格判定不可行；连通余子式正定，消元主元应为正。不用eps把必选边替换成接近1，也不拿浮点行列式阈值判断连通性。用对数累加概率与主元，最后exp，避免中间乘积下溢。时间O(n$^{3}$)，空间O(n$^{2}$)。这是百分数输入域的浮点近似接口，不是任意实数概率的精确算法；超出题面下界的极小结果最终仍可能下溢。long double在部分平台只有double精度。
+
+必选森林与分量编号（同一函数连续抄写）：
+
+\lstinputlisting[firstline=7,lastline=38,firstnumber=1]{../src/compact/tree_probability.hpp}
+
+\newpage
+
+缩点拉普拉斯、连通性与对数行列式（续）：
+
+\lstinputlisting[firstline=39,lastline=81,firstnumber=33]{../src/compact/tree_probability.hpp}
+
+\newpage
+
+\Needspace{333pt}
+
+\subsection*{应用题补充：Luogu P3317 重建}
+
+\label{usage-example-429}
+
+题意：输入对称概率矩阵，最多两位小数，转为整数百分数；2<=n<=50。求独立保留边恰好构成树的概率，非零答案保证>=1e-4，相对误差限1e-4。固定12位输出足够覆盖该下界，不能把相同格式直接用于任意小概率。完整协议本地验证，线上待验证。
+
+所需模板：\hyperref[compact-tree_probability]{tree\_\allowbreak{}probability}（第~\pageref{compact-tree_probability}~页，\ref{compact-tree_probability}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3317}
+
+\lstinputlisting{usage/example-429.cpp}
+
 \Needspace{485pt}
 
 \section{任意正模数带权矩阵树}\label{compact-MatrixTreeMod}\index{MatrixTreeMod}
