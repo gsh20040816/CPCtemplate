@@ -1,0 +1,475 @@
+{
+  "scope": "Every coefficient independently checked against analytic series or modular-power evaluations. Internal timings include result conversion and evaluation construction, exclude input/oracle generation. No online AC or SOTA claim.",
+  "runs": [
+    {
+      "mode": "normal",
+      "operation": "inverse",
+      "implementation": "original",
+      "n": 4194304,
+      "coefficient_digest": "564172799847760771",
+      "seconds": 2.273261
+    },
+    {
+      "mode": "normal",
+      "operation": "inverse",
+      "implementation": "current",
+      "n": 4194304,
+      "coefficient_digest": "564172799847760771",
+      "seconds": 0.636472
+    },
+    {
+      "mode": "normal",
+      "operation": "log",
+      "implementation": "original",
+      "n": 262144,
+      "coefficient_digest": "9195592829653340527",
+      "seconds": 0.192054
+    },
+    {
+      "mode": "normal",
+      "operation": "log",
+      "implementation": "current",
+      "n": 262144,
+      "coefficient_digest": "9195592829653340527",
+      "seconds": 0.052567
+    },
+    {
+      "mode": "normal",
+      "operation": "exp",
+      "implementation": "original",
+      "n": 262144,
+      "coefficient_digest": "6549784854326699116",
+      "seconds": 0.780503
+    },
+    {
+      "mode": "normal",
+      "operation": "exp",
+      "implementation": "current",
+      "n": 262144,
+      "coefficient_digest": "6549784854326699116",
+      "seconds": 0.136423
+    },
+    {
+      "mode": "normal",
+      "operation": "sqrt",
+      "implementation": "original",
+      "n": 262144,
+      "coefficient_digest": "17690957201940743043",
+      "seconds": 0.218459
+    },
+    {
+      "mode": "normal",
+      "operation": "sqrt",
+      "implementation": "current",
+      "n": 262144,
+      "coefficient_digest": "17690957201940743043",
+      "seconds": 0.060374
+    },
+    {
+      "mode": "normal",
+      "operation": "eval",
+      "implementation": "original",
+      "n": 16384,
+      "coefficient_digest": "7989858350149550922",
+      "seconds": 0.085518
+    },
+    {
+      "mode": "normal",
+      "operation": "eval",
+      "implementation": "current",
+      "n": 16384,
+      "coefficient_digest": "7989858350149550922",
+      "seconds": 0.044025
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "inverse",
+      "implementation": "original",
+      "n": 4194304,
+      "coefficient_digest": "564172799847760771",
+      "seconds": 13.233477
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "inverse",
+      "implementation": "current",
+      "n": 4194304,
+      "coefficient_digest": "564172799847760771",
+      "seconds": 4.630749
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "log",
+      "implementation": "original",
+      "n": 262144,
+      "coefficient_digest": "9195592829653340527",
+      "seconds": 0.907037
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "log",
+      "implementation": "current",
+      "n": 262144,
+      "coefficient_digest": "9195592829653340527",
+      "seconds": 0.401026
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "exp",
+      "implementation": "original",
+      "n": 262144,
+      "coefficient_digest": "6549784854326699116",
+      "seconds": 2.678496
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "exp",
+      "implementation": "current",
+      "n": 262144,
+      "coefficient_digest": "6549784854326699116",
+      "seconds": 1.696701
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "sqrt",
+      "implementation": "original",
+      "n": 262144,
+      "coefficient_digest": "17690957201940743043",
+      "seconds": 1.545586
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "sqrt",
+      "implementation": "current",
+      "n": 262144,
+      "coefficient_digest": "17690957201940743043",
+      "seconds": 0.540275
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "eval",
+      "implementation": "original",
+      "n": 16384,
+      "coefficient_digest": "7989858350149550922",
+      "seconds": 0.989064
+    },
+    {
+      "mode": "sanitizer",
+      "operation": "eval",
+      "implementation": "current",
+      "n": 16384,
+      "coefficient_digest": "7989858350149550922",
+      "seconds": 0.701359
+    }
+  ],
+  "benchmarks": [
+    {
+      "operation": "inverse",
+      "n": 131072,
+      "runs": [
+        {
+          "mode": "normal",
+          "operation": "inverse",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.049529
+        },
+        {
+          "mode": "normal",
+          "operation": "inverse",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.014154
+        },
+        {
+          "mode": "normal",
+          "operation": "inverse",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.013943
+        },
+        {
+          "mode": "normal",
+          "operation": "inverse",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.048875
+        },
+        {
+          "mode": "normal",
+          "operation": "inverse",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.049022
+        },
+        {
+          "mode": "normal",
+          "operation": "inverse",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.013898
+        }
+      ],
+      "medians": {
+        "original": 0.049022,
+        "current": 0.013943
+      },
+      "current_over_original": 0.2844233201419771
+    },
+    {
+      "operation": "log",
+      "n": 131072,
+      "runs": [
+        {
+          "mode": "normal",
+          "operation": "log",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "272624692671122757",
+          "seconds": 0.086895
+        },
+        {
+          "mode": "normal",
+          "operation": "log",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "272624692671122757",
+          "seconds": 0.0237
+        },
+        {
+          "mode": "normal",
+          "operation": "log",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "272624692671122757",
+          "seconds": 0.023736
+        },
+        {
+          "mode": "normal",
+          "operation": "log",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "272624692671122757",
+          "seconds": 0.086788
+        },
+        {
+          "mode": "normal",
+          "operation": "log",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "272624692671122757",
+          "seconds": 0.087043
+        },
+        {
+          "mode": "normal",
+          "operation": "log",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "272624692671122757",
+          "seconds": 0.024038
+        }
+      ],
+      "medians": {
+        "original": 0.086895,
+        "current": 0.023736
+      },
+      "current_over_original": 0.2731572587605731
+    },
+    {
+      "operation": "exp",
+      "n": 131072,
+      "runs": [
+        {
+          "mode": "normal",
+          "operation": "exp",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "10093367276369869737",
+          "seconds": 0.381683
+        },
+        {
+          "mode": "normal",
+          "operation": "exp",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "10093367276369869737",
+          "seconds": 0.062941
+        },
+        {
+          "mode": "normal",
+          "operation": "exp",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "10093367276369869737",
+          "seconds": 0.062952
+        },
+        {
+          "mode": "normal",
+          "operation": "exp",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "10093367276369869737",
+          "seconds": 0.368383
+        },
+        {
+          "mode": "normal",
+          "operation": "exp",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "10093367276369869737",
+          "seconds": 0.365511
+        },
+        {
+          "mode": "normal",
+          "operation": "exp",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "10093367276369869737",
+          "seconds": 0.06297
+        }
+      ],
+      "medians": {
+        "original": 0.368383,
+        "current": 0.062952
+      },
+      "current_over_original": 0.17088736450922
+    },
+    {
+      "operation": "sqrt",
+      "n": 131072,
+      "runs": [
+        {
+          "mode": "normal",
+          "operation": "sqrt",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.103106
+        },
+        {
+          "mode": "normal",
+          "operation": "sqrt",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.029046
+        },
+        {
+          "mode": "normal",
+          "operation": "sqrt",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.028562
+        },
+        {
+          "mode": "normal",
+          "operation": "sqrt",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.102456
+        },
+        {
+          "mode": "normal",
+          "operation": "sqrt",
+          "implementation": "original",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.101168
+        },
+        {
+          "mode": "normal",
+          "operation": "sqrt",
+          "implementation": "current",
+          "n": 131072,
+          "coefficient_digest": "7525317461738455939",
+          "seconds": 0.028165
+        }
+      ],
+      "medians": {
+        "original": 0.102456,
+        "current": 0.028562
+      },
+      "current_over_original": 0.2787733270867494
+    },
+    {
+      "operation": "eval",
+      "n": 16384,
+      "runs": [
+        {
+          "mode": "normal",
+          "operation": "eval",
+          "implementation": "original",
+          "n": 16384,
+          "coefficient_digest": "7989858350149550922",
+          "seconds": 0.084507
+        },
+        {
+          "mode": "normal",
+          "operation": "eval",
+          "implementation": "current",
+          "n": 16384,
+          "coefficient_digest": "7989858350149550922",
+          "seconds": 0.043343
+        },
+        {
+          "mode": "normal",
+          "operation": "eval",
+          "implementation": "current",
+          "n": 16384,
+          "coefficient_digest": "7989858350149550922",
+          "seconds": 0.04376
+        },
+        {
+          "mode": "normal",
+          "operation": "eval",
+          "implementation": "original",
+          "n": 16384,
+          "coefficient_digest": "7989858350149550922",
+          "seconds": 0.08478
+        },
+        {
+          "mode": "normal",
+          "operation": "eval",
+          "implementation": "original",
+          "n": 16384,
+          "coefficient_digest": "7989858350149550922",
+          "seconds": 0.084783
+        },
+        {
+          "mode": "normal",
+          "operation": "eval",
+          "implementation": "current",
+          "n": 16384,
+          "coefficient_digest": "7989858350149550922",
+          "seconds": 0.042924
+        }
+      ],
+      "medians": {
+        "original": 0.08478,
+        "current": 0.043343
+      },
+      "current_over_original": 0.511240858693088
+    }
+  ],
+  "files": {
+    "tests/wida_z_scale.cpp": "8f063b5ea6958807355110f7302953a7ed6999ddc2ad50d8262ff3dae2be3ef9",
+    "tests/wida_z_scale.py": "e1d6450c8fee2c32396ab82702f48964dc8ac3356b79fd7302f5202e0003bbcd",
+    "tests/fixtures/wida_poly_variants/12B.cpp": "348042d516fcb1755eda524e47caf6541d017874a68979f588ea7f2374ad928d",
+    "src/compact/fps_functions.hpp": "dcf586259096a7c84d95929e3b06222458a257d28d09d326f50098a77ccba273",
+    "src/compact/fps_power.hpp": "b5678567b42bf77e7693544006efe7ebae53578be474fcc5203c6190e13fa759",
+    "src/compact/fps_sqrt.hpp": "6f2d57fb17d515140c4020427c468e36e596fbd19dfc7f4040ddb7ea36837169",
+    "src/compact/fps_inverse.hpp": "7d598c748a7829ffb757ec5f15db8078f4b5fab16cbf6a24164053dc9b83a1c0",
+    "src/compact/multipoint_evaluation.hpp": "fb70d767dd84c2b53f1e4714f1a2454270ef15b98c50d8f4e36f9629f89aa94c",
+    "src/compact/polynomial_division.hpp": "50a2cd3d47370202e907de12049b4194b42c726848742b7a46a043eb77de8623",
+    "src/compact/ntt_convolution.hpp": "eb160e1cff249ed29548e99ab44568603e9f06d6ccecd9ddbaeb6bbf4dc81d50",
+    "src/compact/number_theory.hpp": "b610fd1de6018af263b2b8cb3b67031a74dfa516ba4ecf5478ee8c9b99a388d2"
+  }
+}
