@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "results": {
+    "P4336-normal": {
+      "small_cases": 209,
+      "large_cases": 2,
+      "large_seconds": [
+        0.23426083297817968,
+        0.21963545799371786
+      ]
+    },
+    "P4455-normal": {
+      "small_cases": 4265,
+      "large_cases": 1,
+      "large_seconds": [
+        0.05086708298767917
+      ]
+    },
+    "P4336-sanitizer": {
+      "small_cases": 209,
+      "large_cases": 2,
+      "large_seconds": [
+        0.8375964169972576,
+        0.7562730409845244
+      ]
+    },
+    "P4455-sanitizer": {
+      "small_cases": 4265,
+      "large_cases": 1,
+      "large_seconds": [
+        0.14166979200672358
+      ]
+    }
+  },
+  "scope": "Local full protocols, exhaustive digraphs through n=4, independent company/parent enumeration and maximum-size Cayley identities. No online verdict or ranking.",
+  "hashes": {
+    "tests/matrix_apps.py": "2f21e208647eea54dab9a9c26c6a4f9fb986daee04ce5e613291e1bd3f962156",
+    "src/compact/matrix_tree.hpp": "c67fe9a5391cceac28b256eb7088e61a6bc1903ede3038228dcc04b2dcd23487",
+    "src/compact/det_prime.hpp": "9fa02dbacf45b13e78517d088e901f2007f92b1556d3db468e4dcfd48678acdf",
+    "src/compact/number_theory.hpp": "a34ca088e2b3fe2decceadfba4b59164a8ee6625ced23a3e1781e24590a1790a",
+    "verify/luogu/P4336.compact.cpp": "84d2f89cf94b7e7ded24a87ef45a7e27ac8bc27f2f13cb91a0c39a9f8cb79706",
+    "verify/luogu/P4455.compact.cpp": "451e4a61985e5f4bf90b70bdf093b15da84ca93378653e354288b999df89ce38"
+  }
+}

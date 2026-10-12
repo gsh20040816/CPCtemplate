@@ -5440,5 +5440,34 @@
       "triangle_incircle"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-427",
+    "symbol": "det_prime",
+    "kind": "application",
+    "problem": "Luogu P4336 黑暗前的幻想乡：公司集合容斥",
+    "url": "https://www.luogu.com.cn/problem/P4336",
+    "summary": "n点、n-1家公司，每家恰选一边成树；不同公司的同端点边分别计数。公司集合容斥配合矩阵树；Gray码每步增删一家。2<=n<=17，模1000000007，时间O(2^(n-1)n^3)，空间O(n^3)。删去末点；lap后续仍需使用，勿move。空集贡献为0。本地验证通过，线上待验证。",
+    "driver": "verify/luogu/P4336.compact.cpp",
+    "requires": [
+      "ModInt",
+      "det_prime"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-428",
+    "symbol": "MatrixTree",
+    "kind": "application",
+    "problem": "Luogu P4455 社交网络：根1内向树",
+    "url": "https://www.luogu.com.cn/problem/P4455",
+    "summary": "输入a b表示a能看见b；选择b为a的消息来源，对应a指向b的父边，所有非根点沿父边最终到达1。因此按原输入方向调用toward_root，不能选away_from_root；点号减1，根为0，模10007。n不超过250，时间O(n^3+m)，空间O(n^2)。按朋友关系去重，自环忽略；重复关系不视为不同传播方案。不统计转发时间顺序。单点约定空树1。 官方题面已核对，完整协议本地验证；尚无本实现在线记录。",
+    "driver": "verify/luogu/P4455.compact.cpp",
+    "requires": [
+      "ModInt",
+      "det_prime",
+      "MatrixTree"
+    ],
+    "start_new_page": true
   }
 ]

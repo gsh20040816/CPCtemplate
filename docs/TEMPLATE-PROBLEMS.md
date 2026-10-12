@@ -293,6 +293,8 @@
 | `polygon_centroid` | [API demonstration]() | Simple polygon; finite arithmetic; n fits int | 驱动登记待核验；AC 待核验 | 待核验 |
 | `BigInteger` | [Luogu P1480 / P2142 / P1303](https://www.luogu.com.cn/problem/P1480) | P1480: 0<=a<=10^5000, 1<=b<=10^9; P1303: inputs<=10^2000; P2142 full numeric bound not visible in fetched statement | 驱动登记待核验；AC 待核验 | 待核验 |
 | `triangle_incircle` | [AOJ CGL_7_B](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_B&lang=en) | Three noncollinear integer points, abs coordinate<=10000; error<1e-6; resource fields empty in fetched statement | 驱动登记待核验；AC 待核验 | 待核验 |
+| `det_prime` | [Luogu P4336](https://www.luogu.com.cn/problem/P4336) | 2<=n<=17, n-1 companies, each list has distinct undirected nonloop edges, mod 1000000007; 2s / 250MB, browser confirmed | 驱动登记待核验；AC 待核验 | 待核验 |
+| `MatrixTree` | [Luogu P4455](https://www.luogu.com.cn/problem/P4455) | 1<=n<=250, 1<=m<=n(n-1), mod 10007; duplicate/self-loop and n=1,m=0 tests are documented extensions; resource limits not yet checked | 驱动登记待核验；AC 待核验 | 待核验 |
 
 ## 适配与证据范围
 
@@ -2741,6 +2743,22 @@ Direct incircle template
 
 
 No online verdict; AOJ saved login unavailable in prior check
+
+### Luogu P4336 / det_prime
+
+Application, not a standalone algorithm template
+
+n个点、n-1家公司，每家公司恰选一条边组成生成树。同端点但不同公司的边分别计数。对允许公司集合做容斥，矩阵树统计多重图生成树；树恰有n-1条边，覆盖全部公司即每家恰一条。Gray码相邻集合只增删一家公司的拉普拉斯贡献。n为2到17，模1000000007，时间O(2^(n-1)n^3)，空间O(n^3)。余子式删去末点，det_prime按值复制，不能move交出需反复增删的lap。空集合没有生成树，可以跳过。
+
+No online verdict; P4336 submission awaits per-occurrence CAPTCHA confirmation; P4455 not yet submitted
+
+### Luogu P4455 / MatrixTree
+
+Application, not a standalone algorithm template
+
+输入a b表示a能看见b；选择b为a的消息来源，对应a指向b的父边，所有非根点沿父边最终到达1。因此按原输入方向调用toward_root，不能选away_from_root；点号减1，根为0，模10007。n不超过250，时间O(n^3+m)，空间O(n^2)。按朋友关系去重，自环忽略；重复关系不视为不同传播方案。不统计转发时间顺序。单点约定空树1。
+
+No online verdict; P4336 submission awaits per-occurrence CAPTCHA confirmation; P4455 not yet submitted
 
 ## 榜单口径
 
