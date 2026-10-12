@@ -6,6 +6,7 @@
     "verification/cactus-online.json": "687b9261d1ccf15d858d1310f96fa613ed8ed7e072197bf95bc962ed0be09e1f",
     "verification/cartesian-tree-online.json": "c5b126a2edbb4071182d6321b598b1f91e5c4199f935d52c0208d5b80f254785",
     "verification/circle-union-online.json": "8ec193c04d3391ac7c6ddad0ea8302b0d512e1f1e010459f8c05ab68d1892c63",
+    "verification/circle-union-u106005-online.json": "1cbafe2bf18f854c2a9ad9b7e80981ae080f03732c0ef486cc318af1498e5620",
     "verification/convolution-mod-online.json": "e47b7167ec98db84bb3422f1cce1b66cbc54483bc14167f949a9980327083db5",
     "verification/digit-count-online.json": "da4fb74ba8c1766ad51b7d5db77c751a78b578f0267edd4ecc8c793616f7f32e",
     "verification/dominance4d-ccf-noi-online.json": "c6ee7cf21f75f88afc1377d9dfb35c4a18c4a0c938e0e65a9d6a2861e67748ee",
@@ -35,9 +36,10 @@
     "verification/string-hash-online.json": "b05201e7380c8fd535f01de3d0a1cc52a7b49653e541458645e75cc80ec89554",
     "verification/time-connectivity-online.json": "e896f2b0303c6989013dd749dcba97cbd40033dce08c1d2a970686610438a3c1",
     "verification/tree-block-online.json": "35bf371a12b2decea0e5710260fb46bb3b96ed9a9cf80dff66ba846318276643",
+    "verification/tree-mo-u104310-online.json": "bdfdd8b2277e34428789e1acdcd39fdd998ae6af8ccb3603df9f024222be68cf",
     "verification/tutte-online.json": "b0243dfb595dc1cc3f1f5b0c1339a23683621ee630cc8e696a51fb2a0780abd2",
     "verification/weighted-blossom-online.json": "6b2f047f901af96b668148e6460bcc1b7842e754cdf2e778fb81bffdf8f719e0",
-    "docs/template-problem-reviews.json": "7e88b3c365c8acb80392dead4ef097d11f4402bd2d216e24374570e07f605218"
+    "docs/template-problem-reviews.json": "cf304c937a23faab61a0f9ae178f1b5cb09aa35345a03a9363f61830495ee2f7"
   },
   "entries": [
     {
@@ -5399,13 +5401,94 @@
       "benchmark_status": "not_checked",
       "benchmark": null,
       "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302633483",
+      "problem": "U104310",
+      "sources": [
+        {
+          "path": "verification/submitted/U104310.compact.cpp",
+          "sha256": "78a3c6f4b4a8f31367690db6e221cb19815819be2408bbc467008b53e45f863c"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/tree-mo-u104310-online.json",
+          "timing": {
+            "total_time_ms": 3298,
+            "test_ms": [
+              334,
+              356,
+              320,
+              315,
+              346,
+              316,
+              316,
+              327,
+              353,
+              315
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 356,
+      "sum_of_case_ms": 3298,
+      "reported_total_ms": 3298,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
+    },
+    {
+      "record": "https://www.luogu.com.cn/record/302633427",
+      "problem": "U106005",
+      "sources": [
+        {
+          "path": "verification/submitted/U106005.compact.cpp",
+          "sha256": "e28d7dd2c10c9268d99d2f9a3110cea8c92f077baf59076931c42f5fb14a04a7"
+        }
+      ],
+      "observations": [
+        {
+          "evidence": "verification/circle-union-u106005-online.json",
+          "timing": {
+            "total_time_ms": 328,
+            "test_ms": [
+              284,
+              32,
+              4,
+              4,
+              4
+            ]
+          },
+          "language": "C++20 O2",
+          "note": ""
+        }
+      ],
+      "statuses": [
+        "Accepted"
+      ],
+      "styles": [],
+      "algorithms": [],
+      "maximum_case_ms": 284,
+      "sum_of_case_ms": 328,
+      "reported_total_ms": 328,
+      "benchmark_status": "not_checked",
+      "benchmark": null,
+      "ratio": null
     }
   ],
   "counts": {
-    "entries": 131,
-    "with_record": 130,
-    "accepted": 128,
-    "known_case_max": 59,
+    "entries": 133,
+    "with_record": 132,
+    "accepted": 130,
+    "known_case_max": 61,
     "benchmarks_verified": 0
   }
 }

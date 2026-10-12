@@ -7189,5 +7189,58 @@
       "verification/weighted-blossom-local.json",
       "verification/weighted-blossom-large.json"
     ]
+  },
+  {
+    "symbol": "circle_union_area",
+    "problem": "U106005 用户模板题",
+    "url": "https://www.luogu.com.cn/problem/U106005",
+    "classification": "Public user-created template; separate evidence from the official SPOJ RemoteJudge still waiting.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "n≤1000，整数|x|、|y|、r≤1000；1秒、128MB；误差1e-3，至少4位小数。",
+    "adapter": "当前圆面积并核心不变，输出12位小数以满足SPJ至少4位小数要求。",
+    "tested_api": [
+      "circle_union_area"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302633427",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "已核对有限可见最优列表，详见docs/RUNTIME-ALTERNATE-TEMPLATES.md；全部AC排名与历史最快/百分位仍未核验。原SPOJ转交记录仍Waiting，本结果不替代其状态。",
+    "source": "src/compact/circle_union.hpp",
+    "driver": "verify/luogu/U106005.compact.cpp",
+    "usage": "example-403",
+    "local_reports": [
+      "verification/alternate-template-judges.json"
+    ]
+  },
+  {
+    "symbol": "TreeMo",
+    "problem": "U104310 用户模板题",
+    "url": "https://www.luogu.com.cn/problem/U104310",
+    "classification": "Public user-created template; separate evidence from the official SPOJ RemoteJudge still waiting.",
+    "statement_checked": true,
+    "checked_date": "2026-10-12",
+    "limits": "n,m≤10⁵，1≤颜色≤10⁹；5秒、500MB。",
+    "adapter": "驱动与已归档COT2驱动逐字节相同；此题上限扩大至10⁵点，已补递归长链验证。",
+    "tested_api": [
+      "TreeMo::add(point path)",
+      "TreeMo::run"
+    ],
+    "ac": "https://www.luogu.com.cn/record/302633483",
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "已核对有限可见最优列表，详见docs/RUNTIME-ALTERNATE-TEMPLATES.md；全部AC排名与历史最快/百分位仍未核验。原SPOJ转交记录仍Waiting，本结果不替代其状态。",
+    "source": "src/compact/tree_mo.hpp",
+    "driver": "verify/luogu/U104310.compact.cpp",
+    "usage": "example-354",
+    "local_reports": [
+      "verification/alternate-template-judges.json"
+    ]
   }
 ]

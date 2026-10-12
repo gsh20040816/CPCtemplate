@@ -12329,19 +12329,33 @@ circle\_union\_area(a) 求闭圆盘的面积并，输入vector<RealPlane::Circle
 
 \paragraph{数值与验证} 角度排序使用严格原值比较，同圆按编号去重，不以eps合并不同圆。半角通过缩放后的Heron乘积与atan2求出，避免acos靠近正负1时的敏感性；仍不是精确几何。独立70位高精度验证沿竖直截面、在全部交点横坐标处分段解析积分，另有孔洞、相切、远平移和千圆压力例。线上AC状态见验证记录，不能由本地通过推断。
 
-\Needspace{271pt}
+\Needspace{285pt}
 
 \subsection*{模板题使用：SP8073 CIRU 圆面积并}
 
 \label{usage-example-398}
 
-题意：n$\le$1000，整数圆心坐标绝对值及半径$\le$1000，允许零半径。输出圆盘面积并，保留三位小数；当前仅本地验证，线上提交待完成。
+题意：n$\le$1000，整数圆心坐标绝对值及半径$\le$1000，允许零半径。输出圆盘面积并，保留三位小数；SPOJ转交记录302630657仍Waiting。当前核心另已通过用户模板题U106005，输出精度适配见下一用法。
 
 所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_union_area]{circle\_\allowbreak{}union\_\allowbreak{}area}（第~\pageref{compact-circle_union_area}~页，\ref{compact-circle_union_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://www.luogu.com.cn/problem/SP8073}
 
 \lstinputlisting{usage/example-398.cpp}
+
+\Needspace{282pt}
+
+\subsection*{模板题使用：U106005 圆面积并（用户模板题）}
+
+\label{usage-example-403}
+
+题意：n$\le$1000，整数圆心坐标绝对值及半径$\le$1000，允许零半径。误差要求1e-3，SPJ要求至少4位小数，故输出12位。当前源码记录302633427，5点全AC；不代表SPOJ转交记录已通过。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_union_area]{circle\_\allowbreak{}union\_\allowbreak{}area}（第~\pageref{compact-circle_union_area}~页，\ref{compact-circle_union_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/U106005}
+
+\lstinputlisting{usage/example-403.cpp}
 
 \newpage
 
@@ -13336,13 +13350,13 @@ ModifiedMo(n,m) 保存离线询问，n>0，m 为修改总数。add(l,r,t) 登记
 
 \lstinputlisting[firstline=47,firstnumber=44]{../src/compact/tree_mo.hpp}
 
-\Needspace{538pt}
+\Needspace{558pt}
 
 \subsection*{应用题补充：SP10707 COT2 - Count on a tree II}
 
 \label{usage-example-354}
 
-题意：静态树路径不同点权数，n<=40000,m<=100000；离散化权值，双欧拉序维护出现次数，额外补LCA。竞赛应用；边权语义另由核心对拍验证。
+题意：静态树路径不同点权数，n<=40000,m<=100000；离散化权值，双欧拉序维护出现次数，额外补LCA。竞赛应用；边权语义另由核心对拍验证。 同一驱动已通过用户模板题U104310（n,m$\le$10$^{5}$，记录302633483）；SPOJ转交记录仍Waiting。
 
 所需模板：\hyperref[compact-HLD]{HLD}（第~\pageref{compact-HLD}~页，\ref{compact-HLD}~节）、\hyperref[compact-TreeMo]{TreeMo}（第~\pageref{compact-TreeMo}~页，\ref{compact-TreeMo}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 

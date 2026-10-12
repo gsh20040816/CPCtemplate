@@ -306,7 +306,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | digit_count | [example-395（应用补充）](usage/example-395.cpp) | locally_checked_application |
 | grid_cycle | [example-396](usage/example-396.cpp) | locally_checked_example |
 | Simplex | [example-397](usage/example-397.cpp) | locally_checked_example |
-| circle_union_area | [example-398](usage/example-398.cpp) | locally_checked_example |
+| circle_union_area | [example-398](usage/example-398.cpp), [example-403](usage/example-403.cpp) | locally_checked_example |
 | polygon_union_area | [example-399](usage/example-399.cpp) | locally_checked_example |
 | Hull3D | [example-400](usage/example-400.cpp) | locally_checked_example |
 | WeightedBlossom | [example-401](usage/example-401.cpp), [example-402（接口演示）](usage/example-402.cpp) | locally_checked_example |

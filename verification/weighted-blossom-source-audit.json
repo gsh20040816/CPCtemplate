@@ -1,0 +1,47 @@
+{
+  "source_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "source_physical_pages": [
+    159,
+    160
+  ],
+  "original_lines": 70,
+  "original_sha256": "ef006aa5bc8e9c3158ff2f0625853cb361542af781a3a7da06be8d48c5e2b81a",
+  "harness_sha256": "563be38c735c7167be1b007da790ff1f6b050b692a77ff398e270685cc94cbfb",
+  "runs": [
+    {
+      "mode": "normal",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=gnu++14",
+        "-O2",
+        "/Users/gsh/Workspace/CPCtemplate/build/weighted-blossom-source/audit.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/weighted-blossom-source/normal"
+      ],
+      "output": "PASS 6000 complete-even graphs; empty graph boundary reproduced",
+      "binary_sha256": "8aa65560da8fcb505a45740d43941997ecc50de046cb0e8bace97fb37d2ea15c"
+    },
+    {
+      "mode": "sanitizer",
+      "command": [
+        "/opt/homebrew/bin/g++-16",
+        "-std=gnu++14",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "/Users/gsh/Workspace/CPCtemplate/build/weighted-blossom-source/audit.cpp",
+        "-o",
+        "/Users/gsh/Workspace/CPCtemplate/build/weighted-blossom-source/sanitizer"
+      ],
+      "output": "PASS 6000 complete-even graphs; empty graph boundary reproduced",
+      "binary_sha256": "879d87467e7e3a5c17b4222dd6de9cc20ab0976e4edc47869657b016f10e463f"
+    }
+  ],
+  "scope": "Local comparison, not a proof of upstream correctness or worst-case complexity.",
+  "upstream_overflow": {
+    "input": "K4, every edge INT_MAX",
+    "expected_weight": 4294967294,
+    "diagnostic": "/Users/gsh/Workspace/CPCtemplate/build/weighted-blossom-source/original.inc:67:14: runtime error: signed integer overflow: 2147483647 + 2147483647 cannot be represented in type 'int'"
+  }
+}

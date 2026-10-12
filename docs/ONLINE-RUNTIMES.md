@@ -8,7 +8,7 @@
 
 基准全部待核验：需记录同题、语言/优化、计时口径、测评时间、全体通过提交数量与所选名次，并检查基准源码；排除打表等取巧提交。若改用同算法基准，须说明原因。按用户去重的最快榜不是全体通过提交排名。基准未知时不计算倍数，也不据此宣布性能达标。
 
-当前 131 项，128 条 AC；59 项有明确最慢单点，0 项已完成 SOTA 核验。
+当前 133 项，130 条 AC；61 项有明确最慢单点，0 项已完成 SOTA 核验。
 
 | 题目/记录 | 状态、码风 | 原始登记 | 最慢单点 ms | 逐点合计 ms | 明确登记总计 ms | SOTA |
 |---|---|---|---:|---:|---:|---|
@@ -143,5 +143,7 @@
 | [QOJ 999](https://qoj.ac/submission/3061643) | Accepted, compact | time_ms=87 | — | — | — | 待核验 |
 | [SP10707](https://www.luogu.com.cn/record/301884426) | Waiting | — | — | — | — | 待核验 |
 | [SP8073](https://www.luogu.com.cn/record/302630657) | Waiting | — | — | — | — | 待核验 |
+| [U104310](https://www.luogu.com.cn/record/302633483) | Accepted | — | 356 | 3298 | 3298 | 待核验 |
+| [U106005](https://www.luogu.com.cn/record/302633427) | Accepted | — | 284 | 328 | 328 | 待核验 |
 
 逐条证据路径、源码哈希、编译语言与原始计时字段见 [机器可读清单](../verification/online-runtimes.json)。本表可由 `python3 tools/online_runtimes.py` 重建。

@@ -4501,7 +4501,7 @@
     "kind": "application",
     "problem": "SP10707 COT2 - Count on a tree II",
     "url": "https://www.luogu.com.cn/problem/SP10707",
-    "summary": "静态树路径不同点权数，n<=40000,m<=100000；离散化权值，双欧拉序维护出现次数，额外补LCA。竞赛应用；边权语义另由核心对拍验证。",
+    "summary": "静态树路径不同点权数，n<=40000,m<=100000；离散化权值，双欧拉序维护出现次数，额外补LCA。竞赛应用；边权语义另由核心对拍验证。 同一驱动已通过用户模板题U104310（n,m≤10⁵，记录302633483）；SPOJ转交记录仍Waiting。",
     "driver": "verify/luogu/SP10707.compact.cpp",
     "requires": [
       "HLD",
@@ -5041,7 +5041,7 @@
     "kind": "template",
     "problem": "SP8073 CIRU 圆面积并",
     "url": "https://www.luogu.com.cn/problem/SP8073",
-    "summary": "n≤1000，整数圆心坐标绝对值及半径≤1000，允许零半径。输出圆盘面积并，保留三位小数；当前仅本地验证，线上提交待完成。",
+    "summary": "n≤1000，整数圆心坐标绝对值及半径≤1000，允许零半径。输出圆盘面积并，保留三位小数；SPOJ转交记录302630657仍Waiting。当前核心另已通过用户模板题U106005，输出精度适配见下一用法。",
     "driver": "verify/luogu/SP8073.compact.cpp",
     "requires": [
       "RealPlane",
@@ -5101,5 +5101,19 @@
       "WeightedBlossom"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-403",
+    "symbol": "circle_union_area",
+    "kind": "template",
+    "problem": "U106005 圆面积并（用户模板题）",
+    "url": "https://www.luogu.com.cn/problem/U106005",
+    "summary": "n≤1000，整数圆心坐标绝对值及半径≤1000，允许零半径。误差要求1e-3，SPJ要求至少4位小数，故输出12位。当前源码记录302633427，5点全AC；不代表SPOJ转交记录已通过。",
+    "driver": "verify/luogu/U106005.compact.cpp",
+    "requires": [
+      "RealPlane",
+      "circle_union_area"
+    ],
+    "start_new_page": false
   }
 ]
