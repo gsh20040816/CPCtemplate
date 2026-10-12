@@ -1,0 +1,64 @@
+{
+  "full-normal": {
+    "status": "pass",
+    "cases": 4641
+  },
+  "full-sanitizer": {
+    "status": "pass",
+    "cases": 4641
+  },
+  "simple-normal": {
+    "status": "pass",
+    "cases": 1400
+  },
+  "simple-sanitizer": {
+    "status": "pass",
+    "cases": 1400
+  },
+  "catalan-normal": {
+    "status": "pass",
+    "cases": 101
+  },
+  "catalan-sanitizer": {
+    "status": "pass",
+    "cases": 101
+  },
+  "equal_compare": {
+    "status": "original defect reproduced",
+    "diagnostic": "build/bigint/equal_compare.cpp:233:11: runtime error: index -1 out of bounds for type 'int [500]'"
+  },
+  "division_int_overflow": {
+    "status": "original defect reproduced",
+    "diagnostic": "build/bigint/division_int_overflow.cpp:194:20: runtime error: signed integer overflow: 9999999 * 10000 cannot be represented in type 'int'"
+  },
+  "mod_int_overflow": {
+    "status": "original defect reproduced",
+    "diagnostic": "build/bigint/mod_int_overflow.cpp:206:6: runtime error: signed integer overflow: 9999999 * 10000 cannot be represented in type 'int'"
+  },
+  "negative_chain": {
+    "status": "original defect reproduced",
+    "expected": "-9999",
+    "actual": "-10001"
+  },
+  "self_assignment": {
+    "status": "original defect reproduced",
+    "expected": "12345",
+    "actual": "00000"
+  },
+  "stream_reuse": {
+    "status": "original defect reproduced",
+    "expected": "10001",
+    "actual": "20001"
+  },
+  "stream_destination": {
+    "status": "original defect reproduced",
+    "expected": "12345",
+    "actual": ""
+  },
+  "source_pdf_sha256": "f1c90eae0c3fb309d58a14b050fe12b239efb474b033299a547b55646c2768ad",
+  "source_lines": {
+    "8.1": 70,
+    "8.2": 266
+  },
+  "scope": "Positive normalized inputs, unequal comparison/subtraction, divisor<=9999 and bounded powers for original-valid-domain checks. Defects recorded separately; current signed API tested independently."
+}

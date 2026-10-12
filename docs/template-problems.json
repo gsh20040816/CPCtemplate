@@ -8012,6 +8012,40 @@
         "checked_at": null,
         "scope": null
       }
+    },
+    {
+      "symbol": "BigInteger",
+      "title": "高精度整数：有符号加减乘与小整数除法",
+      "source": "src/compact/big_integer.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P1480.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1480",
+          "existing_ac": [],
+          "review": "Direct arithmetic protocol; local tested, online pending"
+        },
+        {
+          "driver": "verify/luogu/P2142.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P2142",
+          "existing_ac": [],
+          "review": "Direct arithmetic protocol; local tested, online pending"
+        },
+        {
+          "driver": "verify/luogu/P1303.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P1303",
+          "existing_ac": [],
+          "review": "Direct arithmetic protocol; local tested, online pending"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
     }
   ],
   "unresolved_upstream_topics": [

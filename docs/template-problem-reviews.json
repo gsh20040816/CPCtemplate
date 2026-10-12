@@ -7557,5 +7557,34 @@
       "verification/polygon-tools-source.json",
       "verification/polygon-tools-driver.json"
     ]
+  },
+  {
+    "symbol": "BigInteger",
+    "problem": "Luogu P1480 / P2142 / P1303",
+    "title": "高精度整数：有符号加减乘与小整数除法",
+    "url": "https://www.luogu.com.cn/problem/P1480",
+    "classification": "Direct small-divisor division, subtraction and multiplication templates; Catalan/API examples separately marked",
+    "statement_checked": true,
+    "limits": "P1480: 0<=a<=10^5000, 1<=b<=10^9; P1303: inputs<=10^2000; P2142 full numeric bound not visible in fetched statement",
+    "tested_api": [
+      "divmod(int)",
+      "operator-",
+      "operator*"
+    ],
+    "ac": null,
+    "ranking": {
+      "status": "not_checked",
+      "rank": null,
+      "total": null
+    },
+    "remaining": "No online verdict: P1480 submission not delivered after two captcha failures; P2142/P1303 not submitted",
+    "checked_date": "2026-10-12",
+    "usage": "example-421",
+    "source": "src/compact/big_integer.hpp",
+    "local_evidence": [
+      "verification/big-integer-local.json",
+      "verification/big-integer-driver.json",
+      "verification/big-integer-source.json"
+    ]
   }
 ]

@@ -291,6 +291,7 @@
 | `minimum_rectangle` | [Luogu P3187](https://www.luogu.com.cn/problem/P3187) | 3<=n<=50000; coordinates[0,10] at most five decimals; area>=0.1; 1s/500MB | [记录](https://www.luogu.com.cn/record/302662813) | 待核验 |
 | `convex_cut` | [AOJ CGL_4_C](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C&lang=en) | n,q<=100; integer coordinates[-10000,10000]; absolute area error<1e-5 | 驱动登记待核验；AC 待核验 | 待核验 |
 | `polygon_centroid` | [API demonstration]() | Simple polygon; finite arithmetic; n fits int | 驱动登记待核验；AC 待核验 | 待核验 |
+| `BigInteger` | [Luogu P1480 / P2142 / P1303](https://www.luogu.com.cn/problem/P1480) | P1480: 0<=a<=10^5000, 1<=b<=10^9; P1303: inputs<=10^2000; P2142 full numeric bound not visible in fetched statement | 驱动登记待核验；AC 待核验 | 待核验 |
 
 ## 适配与证据范围
 
@@ -2723,6 +2724,14 @@ Local API example only; not an OJ problem
 
 
 No direct OJ selected; independent local oracle only
+
+### Luogu P1480 / P2142 / P1303 / BigInteger
+
+Direct small-divisor division, subtraction and multiplication templates; Catalan/API examples separately marked
+
+
+
+No online verdict: P1480 submission not delivered after two captcha failures; P2142/P1303 not submitted
 
 ## 榜单口径
 

@@ -68,6 +68,7 @@ chapters['circle_coverage'] = '圆覆盖重数面积'
 chapters['minimum_rectangle'] = '最小面积包围矩形'
 chapters['convex_cut'] = '凸多边形裁剪'
 chapters['polygon_centroid'] = '简单多边形面积重心'
+chapters['big_integer'] = '高精度整数'
 chapters['simplex'] = '单纯形法'
 chapters['plug_cycle'] = '插头DP'
 chapters['color_max'] = '树上翻色最大权'
@@ -306,7 +307,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
+            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -372,6 +373,13 @@ for style in ['compact']:
                 body.append(r'\paragraph{共享边与端点} 两条共线反向边的内部位于两侧，右侧测试已将其剔除；同向共线边仅编号较小的多边形保留，避免重复积分。所有事件参数精确裁到[0,1]，同参数事件的任意顺序只影响零长度段，不影响面积。退化顶点、相切和部分重叠边均不需要随机扰动。')
                 body.append(r'\paragraph{积分与孔洞} 对边p到q的未覆盖参数段[l,u]，贡献是cross(p-origin,q-origin)乘(u-l)/2。按逆时针原边方向累加，孔洞自动带负方向，不对单边取绝对值。包围盒相交关系的连通块包含真实并集连通块，按该分组平移不改变闭合积分。最终转long double和补偿求和仍有误差；输入内含洞或自交轮廓不在本接口范围。')
                 body.append(r'\paragraph{独立验证} Fraction精确枚举所有线段交点横坐标，分竖直条带合并各多边形截面，以线性上下包络的梯形公式求真值。包含凹多边形、重复/共线/反向边、孔洞、极值坐标、刚体变换和1000三角形压力例。线上状态见验证记录。')
+            elif name == 'BigInteger':
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('    explicit BigInteger(', '    BigInteger operator-()', '    BigInteger operator*(')] + [end]
+                for part in range(4):
+                    if part:
+                        body.append(r'\newpage')
+                        body.append(('十进制构造、输出与比较（接上页结构体）：', '取负与加减法（接上页结构体）：', '乘法、小整数除法与整数幂（接上页结构体）：')[part - 1])
+                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'minimum_rectangle':
                 cut = next(i for i in range(start, end) if '    for (int i = 0; i < n; i++)' in lines[i])
                 body.append(r'\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(cut) + ',firstnumber=1]{../src/' + style + '/' + filename + '.hpp}')

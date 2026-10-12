@@ -700,8 +700,8 @@ kuangbin,ACM template (2018),238,7.2 三维几何,local-tested,RealSpace; Line3;
 kuangbin,ACM template (2018),242,7.3 平面最近点对,oj_ac_both,src/compact/closest_pair.hpp; src/compact/geometry_extra.hpp,"Floating recursive closest pair: P1429 dual AC 297602650/297603238, all 11 cases; 100-digit oracle covers decimal/extreme scales locally. Exact integer variant has separate cpp_int oracle. HDU/ZOJ formatting not separately submitted."
 kuangbin,ACM template (2018),243,7.4 三维凸包,partial,src/compact/hull3d.hpp; src/compact/hull3d_metrics.hpp,docs/HULL3D-METRICS.md; full 246 lines read and compiled; 102 EOF cases original/driver/minimal O2+ASan/UBSan; 509 independent exact moment cases in six builds; HDU4273 41022769 AC15MS1844K. Integer metrics domain only; arbitrary real centroid/distance remains pending.
 kuangbin,ACM template (2018),243,7.4.1 HDU4273,local-tested,src/compact/hull3d.hpp; src/compact/hull3d_metrics.hpp,docs/HULL3D-METRICS.md; full 246 lines read and compiled; 102 EOF cases original/driver/minimal O2+ASan/UBSan; 509 independent exact moment cases in six builds; HDU4273 41022769 AC15MS1844K. Integer metrics domain only; arbitrary real centroid/distance remains pending.
-kuangbin,ACM template (2018),249,8.1 高精度,pending,,
-kuangbin,ACM template (2018),250,8.2 完全高精度,pending,,
+kuangbin,ACM template (2018),249,8.1 高精度,local-tested,src/compact/big_integer.hpp#BigInteger,docs/BIG-INTEGER.md; complete70/266 source lines visually audited; 1400/4641 valid-domain source cases and full101 Catalan values; seven original defects separated; 24065 exact Python-int current cases in header/NDEBUG/copied O2+ASan/UBSan; online pending
+kuangbin,ACM template (2018),250,8.2 完全高精度,local-tested,src/compact/big_integer.hpp#BigInteger,docs/BIG-INTEGER.md; complete70/266 source lines visually audited; 1400/4641 valid-domain source cases and full101 Catalan values; seven original defects separated; 24065 exact Python-int current cases in header/NDEBUG/copied O2+ASan/UBSan; online pending
 kuangbin,ACM template (2018),256,8.3 strtok 和 sscanf 结合输入,pending,,
 kuangbin,ACM template (2018),256,8.4 解决爆栈，手动加栈,pending,,
 kuangbin,ACM template (2018),256,8.5 STL,pending,,

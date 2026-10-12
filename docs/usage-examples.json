@@ -5361,5 +5361,70 @@
       "polygon_centroid"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-421",
+    "symbol": "BigInteger",
+    "kind": "template",
+    "problem": "P1480 高精度除法 I",
+    "url": "https://www.luogu.com.cn/problem/P1480",
+    "summary": "0≤a≤10^5000，1≤b≤10^9；输出整数商。divmod同时返回余数，这里只打印first。完整协议本地通过，在线状态见验证记录。",
+    "driver": "verify/luogu/P1480.compact.cpp",
+    "requires": [
+      "BigInteger"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-422",
+    "symbol": "BigInteger",
+    "kind": "template",
+    "problem": "P2142 高精度减法",
+    "url": "https://www.luogu.com.cn/problem/P2142",
+    "summary": "输入两个正整数，输出a−b，结果可能为负；字符串构造后直接减法。完整协议本地通过，尚无本实现在线AC。",
+    "driver": "verify/luogu/P2142.compact.cpp",
+    "requires": [
+      "BigInteger"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-423",
+    "symbol": "BigInteger",
+    "kind": "template",
+    "problem": "P1303 高精度乘法",
+    "url": "https://www.luogu.com.cn/problem/P1303",
+    "summary": "读取两个非负十进制整数，输出乘积。竖式压位乘法，不适用于要求NTT复杂度的超长输入。完整协议本地通过，尚无本实现在线AC。",
+    "driver": "verify/luogu/P1303.compact.cpp",
+    "requires": [
+      "BigInteger"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-424",
+    "symbol": "BigInteger",
+    "kind": "api",
+    "problem": "HDU1134来源模型：卡特兰数",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BIG-INTEGER.md",
+    "summary": "按照kuangbin完整来源程序，预处理C0..C100，反复读n，−1结束。递推Ci=Ci−1(4i−2)/(i+1)，每步整除。官方题面暂未读取成功，当前仅来源模型，不计正式题目或AC。",
+    "driver": "verify/hdu/1134.compact.cpp",
+    "requires": [
+      "BigInteger"
+    ],
+    "start_new_page": true
+  },
+  {
+    "id": "example-425",
+    "symbol": "BigInteger",
+    "kind": "api",
+    "problem": "有符号高精度运算接口",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BIG-INTEGER.md",
+    "summary": "输入a,b、非零int除数d和非负unsigned指数e。依次输出和、差、积、比较结果、a/d的商与余数、a的e次方。负数除法向零截断；控制指数和位数以免结果过大。这是接口演示，不计OJ。",
+    "driver": "docs/usage-drivers/big-integer-demo.cpp",
+    "requires": [
+      "BigInteger"
+    ],
+    "start_new_page": true
   }
 ]
