@@ -1,0 +1,15 @@
+{
+  "scope": "Segt_<long long> range add, sum and minimum match a plain array on all subarrays of five elements. A split Ask returns bounds 0,0. On this compiler 1E18 becomes int 2147483647 and UBSan does not reject it; a partial minimum of zeros is still 0. n=0 is not constructed. Source does not compile alone. No online AC.",
+  "blob": "f855e1e84e2e499e7e891b7060ac7bef6f225308",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "sentinel": "2147483647 0 0"
+    }
+  ]
+}
