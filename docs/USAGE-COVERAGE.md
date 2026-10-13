@@ -251,6 +251,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | PersistentDSU | [example-248](usage/example-248.cpp) | locally_checked_example |
 | MergeSplitTree | [example-249](usage/example-249.cpp), [example-289（应用补充）](usage/example-289.cpp), [example-438（接口演示）](usage/example-438.cpp) | locally_checked_example |
 | exkmp | [example-250](usage/example-250.cpp) | locally_checked_example |
+| good_number_sum | [example-460（应用补充）](usage/example-460.cpp) | locally_checked_application |
 | order_match | [example-251（应用补充）](usage/example-251.cpp) | locally_checked_application |
 | SAMLex | [example-253（应用补充）](usage/example-253.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |
 | sam_lcs | [example-254（应用补充）](usage/example-254.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |

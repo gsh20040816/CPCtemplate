@@ -508,6 +508,42 @@ z\_function(s) 返回后缀 s[i..] 与原串的 LCP，约定 z[0]=n，空串返�
 
 \lstinputlisting{usage/example-22.cpp}
 
+\newpage
+
+\section{相邻十进制好数之和}\label{compact-good_number_sum}\index{good\_number\_sum}
+
+代码依赖：\hyperref[compact-exkmp]{exkmp}（第~\pageref{compact-exkmp}~页，\ref{compact-exkmp}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+good\_number\_sum(s,x,mod=2\textasciicircum{}61-1)返回array<int,3>\{l,k,r\}，表示s[l,k)与s[k,r)这两个相邻非空子串的十进制数值之和为x；无解返回\{-1,-1,-1\}。s和非空x都只能含1..9，不能含0；|s|$\le$500000，|x|$\le$200000。允许空s并返回无解。模数1$\le$mod<2\textasciicircum{}61，不要求素数；它仅影响筛选效率，不影响正确性。
+
+用exkmp缩减候选长度，再用底10数值余数筛选，命中后逐位验证实际加法与进位，避免哈希碰撞输出错误答案。不是普通StringHash字符哈希相加；不能取消最终验证。返回任意合法方案，不保证字典序最小。
+
+令n=|s|、m=|x|，生成候选O(n+m)，最多检查O(n)个候选；若C个候选通过余数筛选，总时间O(n+m+C*m)，最坏O(n*m+n+m)，空间O(n+m)。默认固定大模数通常筛选较强，但不宣称对抗输入的线性时间；mod=1允许强制所有候选碰撞以检验正确性。128位乘积精确取模，余数加法不溢出unsigned64。依赖exkmp及z\_function。CF1598G完整协议、原稿越界反例和大输入本地验证，无新在线AC。
+
+\lstinputlisting[firstline=8,lastline=35,firstnumber=1]{../src/compact/good_number_sum.hpp}
+
+\newpage
+
+\noindent 接上页同一函数：
+
+\lstinputlisting[firstline=36,lastline=75,firstnumber=29]{../src/compact/good_number_sum.hpp}
+
+\newpage
+
+\Needspace{346pt}
+
+\subsection*{应用题补充：CF1598G：The Sum of Good Numbers}
+
+\label{usage-example-460}
+
+题意：输入仅含1..9的字符串s和目标整数x，题面保证有解。输出相邻两个子串的一基闭区间，使对应整数之和为x；直接把返回\{l,k,r\}写成[l+1,k]和[k+1,r]。余数碰撞后仍逐位验证，避免错误方案。此驱动另外以-1表示无解，但正式题目不出现无解。
+
+所需模板：\hyperref[compact-z_function]{z\_\allowbreak{}function}（第~\pageref{compact-z_function}~页，\ref{compact-z_function}~节）、\hyperref[compact-exkmp]{exkmp}（第~\pageref{compact-exkmp}~页，\ref{compact-exkmp}~节）、\hyperref[compact-good_number_sum]{good\_\allowbreak{}number\_\allowbreak{}sum}（第~\pageref{compact-good_number_sum}~页，\ref{compact-good_number_sum}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://codeforces.com/contest/1598/problem/G}
+
+\lstinputlisting{usage/example-460.cpp}
+
 \Needspace{312pt}
 
 \section{两串扩展KMP}\label{compact-exkmp}\index{exkmp}

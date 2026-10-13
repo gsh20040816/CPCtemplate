@@ -5909,5 +5909,20 @@
       "DivideSegmentTree"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-460",
+    "symbol": "good_number_sum",
+    "kind": "application",
+    "problem": "CF1598G：The Sum of Good Numbers",
+    "url": "https://codeforces.com/contest/1598/problem/G",
+    "summary": "输入仅含1..9的字符串s和目标整数x，题面保证有解。输出相邻两个子串的一基闭区间，使对应整数之和为x；直接把返回{l,k,r}写成[l+1,k]和[k+1,r]。余数碰撞后仍逐位验证，避免错误方案。此驱动另外以-1表示无解，但正式题目不出现无解。",
+    "driver": "verify/codeforces/1598G.compact.cpp",
+    "requires": [
+      "z_function",
+      "exkmp",
+      "good_number_sum"
+    ],
+    "start_new_page": true
   }
 ]

@@ -1,0 +1,22 @@
+{
+  "scope": "Independent exhaustive adjacent-substring sums and randomized literal integer oracle, moduli 1/7/2^61-1 force collisions. No online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "stdout": "106407 exhaustive existence and forced-collision checks PASS\n",
+      "elapsed_seconds": 0.8001940840040334
+    },
+    {
+      "mode": "sanitizer",
+      "stdout": "106407 exhaustive existence and forced-collision checks PASS\n",
+      "elapsed_seconds": 0.4420656670117751
+    }
+  ],
+  "files": {
+    "tests/good_number_sum.cpp": "0aceb5be0928e01d4232024723d5678d7e457d831e60a76e3c806525efa88ddd",
+    "tests/good_number_sum.py": "39c24d40eecac8881a9b5086afe66de872f908f667c32c2cde700919ebbb174f",
+    "src/compact/good_number_sum.hpp": "01055f5ed008df22fb32dfc361e18f2e0ba175de78687368bc568bca8d6c16b2",
+    "src/compact/exkmp.hpp": "cdacaf46dc58202b0826c9f7598bc0d75869a5ff68e730246df859a0bb1fbbc6",
+    "src/compact/string.hpp": "be145d0bbbe033aae59174b130d391af9dfa5de32adb5c5dca4243b1d68e90f4"
+  }
+}
