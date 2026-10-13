@@ -1,0 +1,29 @@
+{
+  "scope": "Two same-named sieves, so the file does not compile together. Each half matches an independent linear sieve through n=100000, including phi. No near-INT_MAX overflow test and no online AC.",
+  "blob": "0bd397ab79b5ae363938682c46d3274167a621d0",
+  "runs": [
+    {
+      "mode": "normal",
+      "ns": [
+        0,
+        1,
+        2,
+        30,
+        100000
+      ]
+    },
+    {
+      "mode": "sanitizer",
+      "ns": [
+        0,
+        1,
+        2,
+        30,
+        100000
+      ]
+    },
+    {
+      "phi_n0": "writes phi[1]"
+    }
+  ]
+}
