@@ -1,0 +1,18 @@
+{
+  "scope": "0-based HLD. One work() matches parent climbing for lca, distance, jump, ancestor and rerooted parent/size/lca. A second work() does not reset cur and writes past seq. No online AC.",
+  "blob": "3f383ecf74fcc60cfc60c86cfcbd4670149e32b5",
+  "runs": [
+    {
+      "mode": "normal",
+      "checks": 29864
+    },
+    {
+      "mode": "sanitizer",
+      "checks": 29864
+    },
+    {
+      "second_work": "seq overflow",
+      "stderr": "==73464==ABORTING"
+    }
+  ]
+}
