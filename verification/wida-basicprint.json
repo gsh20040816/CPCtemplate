@@ -1,0 +1,17 @@
+{
+  "scope": "mysqrt matches through 5000. Old binary search handles the checked negative array values; a too-large query returns the last element. New search finds 5. Real binary is near sqrt(2), integer ternary finds 3, and real ternary is near 1.5. floor and ceil match. log2 matches the checked powers. mygcd forwards to std::gcd. The header program exits on empty, 0 and 4. LLONG_MAX square root, log2(0) and a large lcm overflow or are invalid. No online AC.",
+  "blob": "227a378410344eba94b973647318d2311fdbfb8d",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "sqrtmax": "/Users/gsh/Workspace/CPCtemplate/build/wida-basicprint/body.cpp:8:22: runtime error: signed integer overflow: 3037000500 * 3037000500 cannot be represented in type 'long long int'",
+      "log0": "/Users/gsh/Workspace/CPCtemplate/build/wida-basicprint/body.cpp:32:30: runtime error: passing zero to __builtin_clz(), which is not a valid argument",
+      "lcm": "/Users/gsh/Workspace/CPCtemplate/build/wida-basicprint/body.cpp:13:28: runtime error: signed integer overflow: 100000 * 100003 cannot be represented in type 'int'"
+    }
+  ]
+}
