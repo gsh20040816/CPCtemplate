@@ -34,9 +34,10 @@
       "docs/knowledge-persistent-notes.tex",
       "docs/knowledge-tree-notes.tex",
       "docs/knowledge-mo-notes.tex",
-      "docs/knowledge-mo-secondary.tex"
+      "docs/knowledge-mo-secondary.tex",
+      "docs/knowledge-functional-notes.tex"
     ],
-    "classified_section_count": 79,
+    "classified_section_count": 82,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -832,6 +833,34 @@
       "additional": [],
       "relation": "direct",
       "note": "二次离线把区间询问拆成前缀事件，并扣除询问自身；不新增接口。"
+    },
+    {
+      "label": "knowledge-functional-graph",
+      "source": "docs/knowledge-functional-notes.tex",
+      "path": "graph/concept.md",
+      "additional": [
+        "basic/binary-lifting.md"
+      ],
+      "relation": "direct",
+      "note": "固定导航没有单独的函数图页。入环链和倍增跳转记在图论相关概念下，不把倍增写成第二份正文。"
+    },
+    {
+      "label": "knowledge-hangzhou-h",
+      "source": "docs/knowledge-functional-notes.tex",
+      "path": "graph/concept.md",
+      "additional": [
+        "math/number-theory/factorial.md"
+      ],
+      "relation": "application",
+      "note": "杭州 2023 H 用函数图到达确定终点，成功概率是阶乘的倒数；不验证跳转接口。"
+    },
+    {
+      "label": "knowledge-hangzhou-g",
+      "source": "docs/knowledge-functional-notes.tex",
+      "path": "graph/shortest-path.md",
+      "additional": [],
+      "relation": "application",
+      "note": "开放时间下的单位边最短路。边权不全为 1 时不能用这套桶。"
     }
   ]
 }
