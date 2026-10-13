@@ -23,9 +23,10 @@
       "docs/knowledge-pick.tex",
       "docs/knowledge-prufer.tex",
       "docs/knowledge-valuations.tex",
-      "docs/knowledge-stirling.tex"
+      "docs/knowledge-stirling.tex",
+      "docs/knowledge-sieve-notes.tex"
     ],
-    "classified_section_count": 34,
+    "classified_section_count": 39,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -393,6 +394,56 @@
       "note": "issue18统一定义、四种行列算法和反演顺序",
       "relation": "direct",
       "additional": []
+    },
+    {
+      "label": "knowledge-dujiao",
+      "source": "docs/knowledge-sieve-notes.tex",
+      "path": "math/number-theory/hyperbola.md",
+      "additional": [
+        "math/number-theory/mobius.md",
+        "math/number-theory/sqrt-decomposition.md"
+      ],
+      "relation": "direct",
+      "note": "预筛、商段合并与缓存写回的杜教筛条件；不新增接口，也不把单次空间当成任意多询问的上界。"
+    },
+    {
+      "label": "knowledge-miller-bounds",
+      "source": "docs/knowledge-sieve-notes.tex",
+      "path": "math/number-theory/prime.md",
+      "additional": [
+        "math/number-theory/sieve.md"
+      ],
+      "relation": "direct",
+      "note": "固定七底的 64 位 Miller--Rabin 与无符号 128 位模乘范围；不外推到任意精度。"
+    },
+    {
+      "label": "knowledge-phi-single",
+      "source": "docs/knowledge-sieve-notes.tex",
+      "path": "math/number-theory/euler-totient.md",
+      "additional": [
+        "math/number-theory/prime.md"
+      ],
+      "relation": "direct",
+      "note": "单个正整数欧拉函数的试除与分解入口、phi(1) 与 0 的边界；P4718 的 AC 不记成此函数的新 AC。"
+    },
+    {
+      "label": "knowledge-linear-sieve",
+      "source": "docs/knowledge-sieve-notes.tex",
+      "path": "math/number-theory/sieve.md",
+      "additional": [
+        "math/number-theory/euler-totient.md",
+        "math/number-theory/mobius.md"
+      ],
+      "relation": "direct",
+      "note": "最小质因子、欧拉函数和莫比乌斯函数三张表的线性筛约定；不据此宣称反演应用已全部验证。"
+    },
+    {
+      "label": "knowledge-segmented-sieve",
+      "source": "docs/knowledge-sieve-notes.tex",
+      "path": "math/number-theory/sieve.md",
+      "additional": [],
+      "relation": "application",
+      "note": "只保存目标区间的素数筛、端点溢出与相邻差；尚无本库在线 AC。"
     }
   ]
 }
