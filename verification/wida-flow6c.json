@@ -1,0 +1,16 @@
+{
+  "scope": "0-based MaxFlow. Flow matches Edmonds-Karp and 1-based Dinic when s!=t. edges() restores original endpoints, capacity and flow. minCut after flow is the residual source side. Before any BFS, h is zero so minCut is all true. No online AC.",
+  "blob": "a51f7e70858f6002bbe4bedb8f8c6e5f8aefd66b",
+  "runs": [
+    {
+      "mode": "normal",
+      "cases": 30,
+      "checks": 30
+    },
+    {
+      "mode": "sanitizer",
+      "cases": 30,
+      "checks": 30
+    }
+  ]
+}
