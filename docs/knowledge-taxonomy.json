@@ -36,9 +36,10 @@
       "docs/knowledge-mo-notes.tex",
       "docs/knowledge-mo-secondary.tex",
       "docs/knowledge-functional-notes.tex",
-      "docs/knowledge-structure-notes.tex"
+      "docs/knowledge-structure-notes.tex",
+      "docs/knowledge-query-notes.tex"
     ],
-    "classified_section_count": 88,
+    "classified_section_count": 93,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -913,6 +914,52 @@
       "additional": [],
       "relation": "direct",
       "note": "副本数、物理节点和活键是三个量。墓碑不回收，空间按累计分配计算。"
+    },
+    {
+      "label": "knowledge-seg-stack",
+      "source": "docs/knowledge-query-notes.tex",
+      "path": "ds/seg.md",
+      "additional": [
+        "ds/monotonic-stack.md"
+      ],
+      "relation": "composite",
+      "note": "线段树维护双向扫描的最高值贡献，根上可算雨水体积。带边界的扫描最坏是对数平方。"
+    },
+    {
+      "label": "knowledge-kdt-sum",
+      "source": "docs/knowledge-query-notes.tex",
+      "path": "ds/kdt.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "动态 K-D 树的矩形和。查询最坏仍是线性，重建摊还不是每次操作的最坏对数界。"
+    },
+    {
+      "label": "knowledge-cdq-conv",
+      "source": "docs/knowledge-query-notes.tex",
+      "path": "misc/cdq-divide.md",
+      "additional": [
+        "math/poly/ntt.md"
+      ],
+      "relation": "direct",
+      "note": "CDQ 卷积要求每份贡献只跨越一次。实现用 NTT，不以形式幂级数求逆替代。"
+    },
+    {
+      "label": "knowledge-spfa-cost",
+      "source": "docs/knowledge-query-notes.tex",
+      "path": "graph/flow/min-cost.md",
+      "additional": [],
+      "relation": "application",
+      "note": "SPFA 费用流允许负边，不允许负环。最终流量按原边编号查询，不累加历史路径。"
+    },
+    {
+      "label": "knowledge-twosat-bcc",
+      "source": "docs/knowledge-query-notes.tex",
+      "path": "graph/2-sat.md",
+      "additional": [
+        "graph/bcc.md"
+      ],
+      "relation": "composite",
+      "note": "真值方向取决于 SCC 编号序。点双按无割点定义，换 SCC 实现必须重查赋值不等号。"
     }
   ]
 }
