@@ -1,0 +1,19 @@
+{
+  "scope": "Commented addEdge keeps only the negative-cost orientation: requested u->v has cap 0, and v->u has cap c and cost -f. Two-node positive cost therefore sends nothing from u to v. Unreachable potential update overflows. Not the library MinCostFlow. No online AC.",
+  "blob": "478da7e5f988c4959a9af238ec9d0e975515d6a3",
+  "runs": [
+    {
+      "mode": "normal",
+      "stdout": "0 0\n5 -15\n5 15\n"
+    },
+    {
+      "mode": "sanitizer",
+      "stdout": "0 0\n5 -15\n5 15\n"
+    },
+    {
+      "mode": "overflow",
+      "returncode": -6,
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_mcf7a/main.cpp:59:46: runtime error: signed integer overflow: 9223372036854775807 + 9223372036854775807 cannot be represented in type 'long long int'"
+    }
+  ]
+}
