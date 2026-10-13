@@ -1,0 +1,18 @@
+{
+  "scope": "complex<i64> monotone chain after defining i64. Collinear points are removed. Empty and single-point inputs are not safe. x/y macros rename identifiers. No online AC.",
+  "blob": "9f831125f80c5236db53eefd13ede34cd5c1ecaf",
+  "runs": [
+    {
+      "mode": "normal",
+      "cases": 5
+    },
+    {
+      "mode": "sanitizer",
+      "cases": 5
+    },
+    {
+      "tiny": "nonzero",
+      "returncode": -6
+    }
+  ]
+}
