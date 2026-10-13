@@ -1,0 +1,16 @@
+{
+  "scope": "MInt<1000000007> matches integers. MInt<0> starts at 998244353 and setMod(7) works. inv(0) aborts. mul uses signed a*b and long double without the 0.5 bias; large products overflow. i64 is undefined in the source. No online AC.",
+  "blob": "c0c6ceb5a52f5f248fbbfc1d70ecd099bdc851ae",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "inv0": -6,
+      "overflow": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_mint/main.cpp:18:17: runtime error: signed integer overflow: 1000000000000000 * 1000000000000000 cannot be represented in type 'long long int'"
+    }
+  ]
+}
