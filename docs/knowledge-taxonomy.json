@@ -29,9 +29,10 @@
       "docs/knowledge-residues.tex",
       "docs/knowledge-model-notes.tex",
       "docs/knowledge-higher-residues.tex",
-      "docs/knowledge-poly-notes.tex"
+      "docs/knowledge-poly-notes.tex",
+      "docs/knowledge-poly-funcs.tex"
     ],
-    "classified_section_count": 67,
+    "classified_section_count": 73,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -725,6 +726,56 @@
       ],
       "relation": "direct",
       "note": "Taylor 平移与等比点求值只覆盖所需前缀；点数超过阶数时不能直接读系数。"
+    },
+    {
+      "label": "knowledge-poly-division",
+      "source": "docs/knowledge-poly-funcs.tex",
+      "path": "math/poly/newton.md",
+      "additional": [
+        "math/number-theory/inverse.md"
+      ],
+      "relation": "direct",
+      "note": "带余除法先反转再求逆；常数项不可逆时不能直接做。"
+    },
+    {
+      "label": "knowledge-poly-sqrt",
+      "source": "docs/knowledge-poly-funcs.tex",
+      "path": "math/poly/elementary-func.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "级数开根要处理前导零；自由尾项不能被实现偷偷定死。"
+    },
+    {
+      "label": "knowledge-poly-ln-exp",
+      "source": "docs/knowledge-poly-funcs.tex",
+      "path": "math/poly/elementary-func.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "ln 要求常数项为 1，exp 要求常数项为 0，并且只保留所需前缀。"
+    },
+    {
+      "label": "knowledge-poly-power",
+      "source": "docs/knowledge-poly-funcs.tex",
+      "path": "math/poly/elementary-func.md",
+      "additional": [],
+      "relation": "application",
+      "note": "大指数幂要同时保留底数、指数和前导零的移位，不能只留一个整数指数。"
+    },
+    {
+      "label": "knowledge-fwt-inverse",
+      "source": "docs/knowledge-poly-funcs.tex",
+      "path": "math/poly/fwt.md",
+      "additional": [],
+      "relation": "application",
+      "note": "集合逆变换要能除以 2 的幂；模数不含该因子时不能做逆变换。"
+    },
+    {
+      "label": "knowledge-float-fft",
+      "source": "docs/knowledge-poly-funcs.tex",
+      "path": "math/poly/fft.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "浮点 FFT 在舍入前要约束最坏误差，不能把近似结果直接当成精确卷积。"
     }
   ]
 }
