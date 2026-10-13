@@ -1,0 +1,27 @@
+{
+  "scope": "Character toggle and two integer-search skeletons, plus relative real cut and ternary minimum. Snippets do not compile alone. No QOJ statement and no new template.",
+  "blobs": {
+    "03 - \u5b57\u7b26\u8c03\u6574.cpp": "37c6c358f1af2b5632e79b6b84e80400f5a8a38e",
+    "04A - \u4e8c\u5206\u7b97\u6cd5\uff08\u6574\u6570\u57df\uff09.cpp": "7a1e25df5b5ca0b0d07877d1fa97ca5e2d8edc32",
+    "04B - \u4e8c\u5206\u7b97\u6cd5\uff08\u5b9e\u6570\u57df\uff09.cpp": "9b36a370c76c04198dee56c3e40f0d296eb205cd"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "cut": 2.49999999848,
+      "quadratic": 4.8605684757e-15,
+      "decreasing": -9999.99999988
+    },
+    {
+      "mode": "sanitizer",
+      "cut": 2.49999999848,
+      "quadratic": 4.8605684757e-15,
+      "decreasing": -9999.99999988
+    },
+    {
+      "mode": "signed-overflow",
+      "returncode": -6,
+      "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/wida_misc_snippets.cpp:75:21: runtime error: signed integer overflow: 2147483646 + 2147483647 cannot be represented in type 'int'"
+    }
+  ]
+}
