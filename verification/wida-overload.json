@@ -1,0 +1,16 @@
+{
+  "scope": "MOD and std::__gcd are both missing. After supplying them, small powers, lcm, floor, ceil and positive logs match. Log2(-1) is 31. mypow(100000,2) overflows signed multiplication. Log2(0) is undefined. Negative exponents are not run. No online AC.",
+  "blob": "5fce17a4572dd6d7803e711f7d80362c8e862284",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "pow": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_overload/main.cpp:3:30: runtime error: signed integer overflow: 100000 * 100000 cannot be represented in type 'int'",
+      "zero": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_overload/main.cpp:12:30: runtime error: passing zero to __builtin_clz(), which is not a valid argument"
+    }
+  ]
+}
