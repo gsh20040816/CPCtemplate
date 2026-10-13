@@ -39,4 +39,6 @@ maintainL/maintainR 依赖 difl/difr、maxlowl/maxlowr、maxl/maxr 等字段；�
 
 结果和 SHA-256 见 `verification/wida-lazy.json`。两份来源继续 partial，没有新增线上 AC，也未核验注释中所有 Nowcoder、CF、QOJ、AtCoder 完整应用。本批不新增组件/用法或修改 PDF；当前仍为 335 个组件、457 个完整用法。
 
-后续更新：DivideSegmentTree 已补充非负、全部位置有效时的区间加/赋值/整除/求和及折半，见 DIVIDE-SEGMENT-TREE.md 和用法458/459。本文上方记录的是原稿核验当批状态；无效叶子语义与 maintainL/maintainR 仍未覆盖。
+后续更新：DivideSegmentTree 已补充非负、全部位置有效时的区间加/赋值/整除/求和及折半，见 DIVIDE-SEGMENT-TREE.md 和用法458/459。本文上方记录的是原稿核验当批状态；无效叶子语义仍未覆盖。
+
+又一次核对了 `maintainL` / `maintainR`。文件里没有定义 `inf`，末尾只有 `x` 的 `Info` 不能调用这两个函数。补上 `inf` 和所需字段后，两个叶子的 `maxlowl` 分别是 5 和 1、`maxlowr` 是 8 和 9。`maintainL` 把它们写成 `max=5,maxl=0` 和 `max=1,maxl=1`，并把 `maxlowl` 清成 `-inf`。`maintainR` 的叶子也是写 `max = maxlowl`，所以右边叶子的 `max` 变成 1，不是 9。原题不变量没有在这份源码里，因此不能把这次字段搬运当成原应用已经正确。`python3 tests/wida_maintain.py` 在普通 `-O2` 和 ASan/UBSan 下通过。
