@@ -14,43 +14,9 @@
 \input{knowledge-partitions.tex}
 
 \input{knowledge-residues.tex}
-
-\section{组合计数}\index{inclusion-exclusion}\index{Catalan}\index{Stirling numbers}
-容斥：$|\bigcup A_i|=\sum_{\emptyset\ne S}(-1)^{|S|+1}|\bigcap_{i\in S}A_i|$。
-二项式反演：若 $b_n=\sum_{k=0}^{n}\binom nk a_k$，则
-$a_n=\sum_{k=0}^{n}(-1)^{n-k}\binom nk b_k$。
-\[
-\sum_k\binom ak\binom b{n-k}=\binom{a+b}n,\qquad
-C_n=\binom{2n}n-\binom{2n}{n+1}.
-\]
-差分形式的 Catalan 公式避免直接除以 $n+1$，在模数下尤其有用，但组合数本身仍须正确求模。
-斯特林数的定义、快速行列求解与反演统一见第~\pageref{knowledge-stirling-definitions}~页。
-\begin{center}
-\begin{tabular}{lll}
-\toprule
-球与盒 & 空盒允许 & 空盒禁止\\\midrule
-不同球，不同盒 & $k^n$ & $k!S(n,k)$\\
-相同球，不同盒 & $\binom{n+k-1}{k-1}$ & $\binom{n-1}{k-1}$\\
-不同球，相同盒 & $\sum_{j=0}^{k}S(n,j)$ & $S(n,k)$\\
-\bottomrule
-\end{tabular}
-\end{center}
-上表默认 $k\ge1$；$n=0$、$k=0$ 等边界应按原问题约定单独处理。
+\input{knowledge-model-notes.tex}
 
 \input{knowledge-orbits.tex}
-
-\section{生成函数与递推}\index{generating functions}\index{Berlekamp-Massey}
-普通生成函数 $A(x)=\sum a_nx^n$ 的乘法对应普通卷积。
-指数生成函数 $A(x)=\sum a_nx^n/n!$ 的乘法对应
-$c_n=\sum_k\binom nk a_kb_{n-k}$。
-形式幂级数求逆要求常数项可逆；$\log A$ 取 $A(0)=1$，$\exp A$ 取 $A(0)=0$。
-有限域中积分涉及 $1/i$，必须避免 $i$ 被特征整除。
-\[
-B_{\rm new}=B(2-AB)\pmod{x^{2m}},\qquad
-(\log A)'=A'/A.
-\]
-BM 从样本得到最短线性递推。要对未来项使用，必须另外证明序列确实具有不超过相应阶数的线性递推；
-少量数值吻合不是证明。矩阵转移、有限状态计数常可提供阶数上界。
 
 \input{knowledge-combinatorics.tex}
 \input{knowledge-ballot.tex}
@@ -59,87 +25,11 @@ BM 从样本得到最短线性递推。要对未来项使用，必须另外证�
 
 \input{knowledge-state-recurrence.tex}
 
-\section{线性代数与生成树}\index{rank}\index{Matrix Tree theorem}
-域上的线性方程组一致时，解集为一个特解加零空间，零空间维数为未知数个数减秩。
-浮点消元中的秩依赖误差阈值；模素数消元是精确域运算；合数模数下不可随意除以非零元。
-无向图 Laplacian 的对角元为度数，非对角元为负的边重数。删去同一行列后的行列式为生成树数。
-自环不参与生成树；重边需要累加。只有一个顶点时空余子式行列式约定为 1。
-有向图需要重新明确入度/出度 Laplacian 与根向内/向外树的方向，不能直接复用无向封装。
-
-\section{模线性方程组：工厂工期}\index{Widget Factory}\index{模高斯消元}
-POJ2947（同题 UVa1564）给出每位工人制造的产品类型和起止星期。
-设第 $j$ 种产品需 $x_j$ 天，第 $i$ 条记录中出现 $a_{ij}$ 次，
-以星期一为 0、星期日为 6，则
-\[
-\sum_j a_{ij}x_j\equiv \operatorname{finish}_i-\operatorname{start}_i+1\pmod7.
-\]
-起止两天均计入；同一种产品重复出现必须累加系数。
-跨星期无需特判，模数类型负责归一化负数。
-每个余数在 $[3,9]$ 中恰有一个代表，因此模方程的解数就是原问题的解数。
-
-直接使用第~\pageref{compact-GaussMod}~页的模高斯消元，模数取 7。
-增广矩阵有 $m$ 行、$n+1$ 列，最后一列是右端项。
-先判断 \texttt{consistent}：假时输出无解；为真且秩小于 $n$ 时输出多解；
-否则读取特解，余数小于 3 的分量加 7。
-不能先以秩不足判断多解，因为零系数行仍可能有非零右端项。
-本题所有非零系数均可逆；合数模数不具备这一性质，不能直接套用此消元。
-
-完整双版本程序位于 \texttt{verify/poj/2947.*.cpp}。
-验证包含所有起止星期组合、产品重复 7 次导致系数归零、矛盾的零行、
-独立枚举所有 $3\!\sim\!9$ 天赋值，以及用可逆行变换构造的 300 阶稠密系统。
-该应用验证覆盖分类及唯一解输出，不代替零空间基等其他接口的验证。
-来源：\url{https://onlinejudge.org/external/15/1564.pdf}；kuangbin 2.10.2。
-
 \input{knowledge-probability-games.tex}
 
 \input{knowledge-integration.tex}
 \input{knowledge-manhattan-mst.tex}
 \input{knowledge-pick.tex}
-
-\section{数值算法与几何}\index{numerical stability}
-排序必须使用严格弱序；不能以“差小于 eps 则相等”定义通用排序比较器。
-叉积与行列式容易发生抵消；整数题优先精确整数判定，浮点构造单独处理误差。
-自适应积分的局部误差估计需要函数足够规则；奇点、间断与强振荡必须先分段处理。
-三分搜索要求单峰性，整数域最后枚举剩余区间；二分答案要求判定单调性。
-
-\paragraph{来源索引}
-本章为重新组织的公式速查，扩展范围依据 \url{https://oi-wiki.org/math/}。
-各算法实现、模板题用法与验证进度以仓库逐项清单为准；本章公式不能代替对应的完整代码与验证。
-
-\section{线性递推：系数方向与外推条件}
-\index{线性递推}
-约定 $a_i=\sum_{j=1}^{k}c_{j-1}a_{i-j}$，初值是
-$a_0,\ldots,a_{k-1}$。对应特征多项式为
-\[
-F(x)=x^k-c_0x^{k-1}-c_1x^{k-2}-\cdots-c_{k-1}.
-\]
-若 $x^n\bmod F(x)=\sum_{i=0}^{k-1}r_ix^i$，则
-$a_n=\sum_{i=0}^{k-1}r_ia_i$。代码由高次向低次消去多项式项，
-第 $j$ 个系数写入原次数减 $j$ 的位置，避免倒置系数。
-例如 Fibonacci 初值为 $[0,1]$，递推系数为 $[1,1]$。
-
-BM 在域上求有限前缀的最短递推。本书实现要求素数模数；
-一般的模合数环不能保证非零偏差存在逆元。
-仅凭若干样本无法证明真实序列以后一直遵循同一个规律。
-若事先知道序列满足阶数至多 $d$ 的齐次线性递推，
-至少给出前 $2d$ 项，再用恢复出的系数求后续项。
-系数向量末尾的零不能擅自删除：它可能对应非平稳的初始段，
-改变阶数会改变递推开始适用的位置。
-
-\Needspace{12\baselineskip}
-P5487 同时输出最短系数与远项，见第~\pageref{usage-example-160}~页。
-第一行仅有 $c_0,\ldots,c_{k-1}$，没有阶数前缀；取恰好 $k$ 个初值再求远项。
-全零前缀得到空系数时保留空首行，第二行输出0。题目保证最短递推唯一；
-本程序用 BM 与特征多项式求余，时间 $O(nk+k^2\log m)$，空间 $O(n+k)$。
-
-小规模参考逐阶建立全部递推方程，用高斯消元验证最短性和唯一系数，
-用伴随矩阵幂求远项。最大5000阶使用独立构造
-$a_n=\sum_{t=1}^{k}t^n$，特征多项式为 $\prod_{t=1}^{k}(x-t)$。
-前 $2k$ 项的 Hankel 矩阵是 $VV^{\mathsf T}$，其中 $V_{i,t}=t^i$；
-不同非零底数给出可逆的 Vandermonde 矩阵，所以最短阶数确为 $k$。
-远项直接求 $\sum t^m$，无需调用被测递推算法。普通与ASan/UBSan均通过，
-本地时间与线上AC、速度排名分开记录。
-
 
 \clearpage
 \section{素数模高次剩余与单位根}

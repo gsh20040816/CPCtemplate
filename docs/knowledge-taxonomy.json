@@ -26,9 +26,10 @@
       "docs/knowledge-stirling.tex",
       "docs/knowledge-sieve-notes.tex",
       "docs/knowledge-arithmetic-notes.tex",
-      "docs/knowledge-residues.tex"
+      "docs/knowledge-residues.tex",
+      "docs/knowledge-model-notes.tex"
     ],
-    "classified_section_count": 52,
+    "classified_section_count": 58,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -572,6 +573,70 @@
       ],
       "relation": "direct",
       "note": "阶乘表同时给出组合数与排列数的查表范围；超出预计算上界时不能读表。"
+    },
+    {
+      "label": "knowledge-counting-identities",
+      "source": "docs/knowledge-model-notes.tex",
+      "path": "math/combinatorics/inclusion-exclusion-principle.md",
+      "additional": [
+        "math/combinatorics/catalan.md",
+        "math/combinatorics/stirling.md"
+      ],
+      "relation": "composite",
+      "note": "容斥、二项式反演、范德蒙德恒等式、Catalan 差分式和球盒表；斯特林细节仍指向已分类专节。"
+    },
+    {
+      "label": "knowledge-generating-recurrence",
+      "source": "docs/knowledge-model-notes.tex",
+      "path": "math/poly/ogf.md",
+      "additional": [
+        "math/poly/egf.md",
+        "math/poly/linear-recurrence.md",
+        "math/berlekamp-massey.md"
+      ],
+      "relation": "composite",
+      "note": "OGF/EGF 乘法、求逆与对数指数的常数项条件，以及 BM 不能代替递推存在性证明。"
+    },
+    {
+      "label": "knowledge-matrix-span",
+      "source": "docs/knowledge-model-notes.tex",
+      "path": "math/linear-algebra/matrix.md",
+      "additional": [
+        "math/linear-algebra/determinant.md",
+        "graph/matrix-tree.md"
+      ],
+      "relation": "composite",
+      "note": "解集是特解加零空间；无向 Laplacian 余子式计生成树，有向根方向不能直接复用。"
+    },
+    {
+      "label": "knowledge-widget-gauss",
+      "source": "docs/knowledge-model-notes.tex",
+      "path": "math/numerical/gauss.md",
+      "additional": [
+        "math/number-theory/linear-equation.md"
+      ],
+      "relation": "application",
+      "note": "工厂工期是模 7 的线性方程组；先看一致性，再看秩是否不足。"
+    },
+    {
+      "label": "knowledge-numerical-boundaries",
+      "source": "docs/knowledge-model-notes.tex",
+      "path": "math/numerical/integral.md",
+      "additional": [
+        "math/numerical/gauss.md"
+      ],
+      "relation": "composite",
+      "note": "排序不能用 eps 相等，积分奇点要先分段，三分和二分分别要求单峰与单调。"
+    },
+    {
+      "label": "knowledge-recurrence-direction",
+      "source": "docs/knowledge-model-notes.tex",
+      "path": "math/poly/linear-recurrence.md",
+      "additional": [
+        "math/berlekamp-massey.md"
+      ],
+      "relation": "direct",
+      "note": "系数从高次写到低次，外推前要证明阶数；末尾零系数不能擅自删除。"
     }
   ]
 }
