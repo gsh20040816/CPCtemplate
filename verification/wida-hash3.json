@@ -1,0 +1,21 @@
+{
+  "scope": "Random moduli found for a length-2 table were prime, and \"ab\" updated to \"cb\" matched nonnegative 64-bit arithmetic. Miller-Rabin on 1,2,9,17 and findPrime(14)=17 match. get(\"a0\") stays negative. Building eight large powers overflows. The default 1<<21 table is not built. Source does not compile alone. No online AC.",
+  "blob": "f60132a4f225aff184d57389ca594263e50bd0be",
+  "runs": [
+    {
+      "mode": "normal",
+      "mods": [
+        352224689,
+        29,
+        471865081,
+        127
+      ]
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "overflow": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_hash3/main.cpp:61:34: runtime error: signed integer overflow: 260144641 * 127 cannot be represented in type 'int'"
+    }
+  ]
+}
