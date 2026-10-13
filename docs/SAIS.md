@@ -45,6 +45,8 @@ example-241 使用 Library Checker `suffixarray` 协议：长度1..500000的小�
 
 测试断言不依赖 NDEBUG；头文件与正文复制形式分别在断言开/关模式运行，并加入错误结果、LCP偏移等负对照。报告绑定实际源码与编译器。旧倍增实现的线上 AC 和旧官方数据记录保持历史含义，不转记为本版成绩；不声明新的线上 AC、跨平台性能或 LeakSanitizer 结论。
 
+本地受控计时只比较同一进程里的 SAIS 与倍增 `SuffixArray`，输入为 40 万字节，各跑三轮取中位数，先核对 `sa` 与 `lcp` 一致。g++-16 `-O2` 的中位数（毫秒，SAIS / 倍增）：随机 26 字母 7.421 / 28.962，交替字母 4.477 / 17.713，全相同 2.338 / 25.915。这不是 OJ 排名，也不能代替线上 AC。程序是 `tests/sais_timing.cpp`。
+
 ## 来源
 
 诱导排序由 [固定 ACL string.hpp](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/string.hpp) 改写，许可 [CC0-1.0](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/LICENSE)。移除了小规模 naive/doubling 分支，改成 alphabet 的半开范围、显式端点保护与本库 n 长度 LCP；不复制上游 string 入口的有符号 char 转换。

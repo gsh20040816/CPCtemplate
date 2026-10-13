@@ -123,7 +123,7 @@ ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆�
 
 接口、诱导排序与LMS命名证明见 [SAIS.md](SAIS.md)。固定ACL来源与旧本地快照保持历史含义，本轮实现另行验证。
 
-后续项：SA-IS新实现的独立线上AC与受控性能比较尚未完成；SuffixLCP不直接接受SAIS类型。
+后续项：SA-IS 的本地受控计时已写入 SAIS.md，独立线上 AC 仍待确认；SuffixLCP 不直接接受 SAIS 类型。
 
 ## 已修复的组合缺口
 
