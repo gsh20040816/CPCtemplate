@@ -1,0 +1,15 @@
+{
+  "scope": "Values 1,3,5 plus the int maximum occupy four ranks. operator[] is the count of stored values <= x, so a missing value shares the previous rank and Get of that rank returns the next stored value. count(INT_MAX) is true. Printing sends the opening brace to cout and the values to the requested stream. Get past the end asserts. Source does not compile alone. No online AC.",
+  "blob": "2f1e5e673740c415155d99322b59683e89654ba4",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "get": "Assertion failed: (x - shift < n), function Get, file main.cpp, line 29."
+    }
+  ]
+}
