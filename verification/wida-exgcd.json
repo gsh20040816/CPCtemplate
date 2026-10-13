@@ -1,0 +1,17 @@
+{
+  "scope": "For a,b in 1..8 and c in 1..20 the printer matches an independent scan. All 44 mismatches are c=0, where x can stay 0; ax+2y=0 prints x=0 instead of 2. exgcd(-4,6) returns 2 and satisfies Bezout. clac(0,5,10) divides by zero. The global lambda does not compile. No online AC.",
+  "blob": "0c03386ef4af4cc3465115665ff30b3e079ab14a",
+  "runs": [
+    {
+      "mode": "normal",
+      "gcd_sign": "ok 2 44"
+    },
+    {
+      "mode": "sanitizer",
+      "gcd_sign": "ok 2 44"
+    },
+    {
+      "zero": "/Users/gsh/Workspace/CPCtemplate/build/wida-exgcd/wrapped.cpp:44:25: runtime error: division by zero"
+    }
+  ]
+}
