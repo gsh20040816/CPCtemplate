@@ -1,0 +1,15 @@
+{
+  "scope": "0-based. Fully reached graphs: flow 2 cost 7, parallel edges flow 2 cost 5, and one negative edge flow 1 cost -5. An unreachable node makes h += INF overflow. Negative-cost reversal is commented out. Source does not compile alone. No online AC.",
+  "blob": "5962310cf2167a3559b9285ae18bd71fef59d01c",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "island": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_mcf_dijkstra/main.cpp:55:46: runtime error: signed integer overflow: 9223372036854775807 + 9223372036854775807 cannot be represented in type 'long long int'"
+    }
+  ]
+}
