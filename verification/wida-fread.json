@@ -1,0 +1,17 @@
+{
+  "scope": "The source does not compile alone. With the standard headers, \"-12 0 34\" reads and writes back on this compiler; getc is not a macro here. Empty input does not finish. A 10-digit value and INT_MIN overflow signed int. No online AC.",
+  "blob": "1241bb963bc021da78b2d5cda62c5457c1b2c18a",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "empty": "timed out",
+      "big": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_fread/main.cpp:16:23: runtime error: signed integer overflow: 999999999 * 10 cannot be represented in type 'int'",
+      "minimum": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_fread/main.cpp:24:36: runtime error: negation of -2147483648 cannot be represented in type 'int'; cast to an unsigned type to negate this value to itself"
+    }
+  ]
+}
