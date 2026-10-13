@@ -1,0 +1,12 @@
+{
+  "scope": "Same key hashes equal and 0..999 are distinct under one run seed. unordered_map<int,int,myhash> stores -1,0,1. gp_hash_table pair key {1,2} is distinct from {2,1}. The two operator() overloads have separate seeds. Numeric hash values are not fixed across runs. Source does not compile alone. No online AC.",
+  "blob": "52848daa42461f0ebba6cef6eb4524e4ecc2933d",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    }
+  ]
+}
