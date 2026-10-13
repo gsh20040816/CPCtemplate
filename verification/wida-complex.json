@@ -1,0 +1,16 @@
+{
+  "scope": "complex<long double> dot, cross, length and distance. get returns the distance from d to the intersection of lines ab and cd. Parallel lines are not finite. The x/y macros pollute the translation unit. No online AC.",
+  "blob": "4ef14be1f9d5b7f2207742e28a952bfeb5c59818",
+  "runs": [
+    {
+      "mode": "normal",
+      "near": 3.0,
+      "parallel": Infinity
+    },
+    {
+      "mode": "sanitizer",
+      "near": 3.0,
+      "parallel": Infinity
+    }
+  ]
+}
