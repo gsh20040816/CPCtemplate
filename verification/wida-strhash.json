@@ -1,0 +1,15 @@
+{
+  "scope": "Powers and the whole-string hash of \"ab\" match modular arithmetic under mod 1000. Changing either character matches rebuilding the hash. A large power times a character delta overflows int. There is no prefix or substring query. Source does not compile alone. No online AC.",
+  "blob": "a099684db509fe70a03bf9ab0eadb4e4c8bb8c54",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "overflow": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_strhash/main.cpp:14:34: runtime error: signed integer overflow: 260144641 * 127 cannot be represented in type 'int'"
+    }
+  ]
+}
