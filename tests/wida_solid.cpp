@@ -1,0 +1,14 @@
+    using P = Point3;
+    P i(1, 0, 0), j(0, 1, 0), k(0, 0, 1);
+    P c = crossEx(i, j);
+    cout << c.x << ' ' << c.y << ' ' << c.z << ' ' << cross(i, j) << '\n';
+    cout << dot(P(1, 2, 3), P(4, -5, 6)) << '\n';
+    P m = P(2, 3, 4) * P(5, 6, 7);
+    cout << m.x << ' ' << m.y << ' ' << m.z << '\n';
+    cout << setprecision(12) << dis(P(0, 0, 0), P(3, 4, 12)) << ' ' << len(P(3, 4, 12)) << '\n';
+    Plane s{P(0, 0, 0), P(1, 0, 0), P(0, 1, 0)};
+    P n = getVec(s);
+    cout << n.x << ' ' << n.y << ' ' << n.z << '\n';
+    P u = standardize(P(0, 0, 2));
+    P z = standardize(P(0, 0, 0));
+    cout << u.x << ' ' << u.y << ' ' << u.z << ' ' << isfinite((double)z.x) << '\n';

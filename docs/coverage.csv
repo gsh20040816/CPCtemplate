@@ -39,7 +39,7 @@ WIDA,01 - 常用在线模板汇总/03 - 数论、几何/19 - Exgcd.cpp,,19 - Exg
 WIDA,01 - 常用在线模板汇总/03 - 数论、几何/20 - 组合数 (Lucas).cpp,,20 - 组合数 (Lucas),local-tested,src/compact/number_theory.hpp: Binomial,"Source contains ordinary factorial C/P, not Lucas. Explicit init/Init replaces lazy growth; fac/ifac exposed. tests/binomial.cpp and boundary regression; Pascal/falling-factorial and million-entry tables; no dedicated OJ AC."
 WIDA,01 - 常用在线模板汇总/03 - 数论、几何/21 - Miller-Rabin + Pollard-Rho.cpp,,21 - Miller-Rabin + Pollard-Rho,partial,,MR matches through 20000 and fac through 4000; MR(1000000007) overflows int mul; fac(0) not run; tests/wida_pollard.py; no online AC; docs/WIDA-POLLARD.md
 WIDA,01 - 常用在线模板汇总/03 - 数论、几何/22 - 平面几何.cpp,,22 - 平面几何,partial,,integer vector ops match; scalar add changes both coordinates; rotate returns the vector; int dis overflows; cc macro leaks; tests/wida_plane.py; no online AC; docs/WIDA-PLANE.md
-WIDA,01 - 常用在线模板汇总/03 - 数论、几何/23 - 立体几何.cpp,,23 - 立体几何,pending,,
+WIDA,01 - 常用在线模板汇总/03 - 数论、几何/23 - 立体几何.cpp,,23 - 立体几何,partial,,"needs ld and P3; cross, dot and distance match; point product is componentwise; tests/wida_solid.py; no online AC; docs/WIDA-SOLID.md"
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/24 - DSU++.cpp,,24 - DSU++,pending,,
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/24 - DSU.cpp,,24 - DSU,pending,,
 WIDA,01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 1D++.cpp,,25 - Fenwick 1D++,pending,,
