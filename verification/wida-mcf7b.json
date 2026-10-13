@@ -1,0 +1,23 @@
+{
+  "scope": "Normal edge orientation. Tested min-cost max-flow values match Bellman-Ford. Augmentation is capped by INT_MAX per round. s==t does not return. Unreachable potentials overflow. No online AC.",
+  "blob": "7d59e03ce2f94fe2990de3f44e360acdf737250c",
+  "runs": [
+    {
+      "mode": "normal",
+      "cases": 5
+    },
+    {
+      "mode": "sanitizer",
+      "cases": 5
+    },
+    {
+      "wide": "3000000000 3000000000"
+    },
+    {
+      "overflow": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_mcf7b/main.cpp:64:22: runtime error: signed integer overflow: 9223372036854775807 + 9223372036854775807 cannot be represented in type 'long long int'"
+    },
+    {
+      "same_source_sink": "timed out"
+    }
+  ]
+}

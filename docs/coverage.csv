@@ -484,7 +484,7 @@ WIDA,03 - jiangly模板收集/02 - 图与网络/06A - 最大流（Flow 旧版其
 WIDA,03 - jiangly模板收集/02 - 图与网络/06B - 最大流（Flow 旧版其二，浮点数应用）.cpp,,06B - 最大流（Flow 旧版其二，浮点数应用）,partial,,double Dinic matches Edmonds-Karp on tested graphs; dfs accumulates in double and passes 1E100; Flow<int> conversion is not defined; tests/wida_flow6b.py; no online AC; docs/WIDA-FLOW6B.md
 WIDA,03 - jiangly模板收集/02 - 图与网络/06C - 最大流（MaxFlow 新版）.cpp,,06C - 最大流（MaxFlow 新版）,local-tested,Dinic,"0-based Dinic plus edges() and minCut(); flow matches Edmonds-Karp and 1-based Dinic when s!=t; cut is a saturated source side, not a unique vertex set; h is 0 before BFS; tests/wida_flow6c.py; no online AC; docs/WIDA-FLOW6C.md"
 WIDA,03 - jiangly模板收集/02 - 图与网络/07A - 费用流（MCFGraph 旧版）.cpp,,07A - 费用流（MCFGraph 旧版）,partial,,addEdge keeps only the negative-cost orientation; u->v cap is 0; unreachable potentials overflow on the next augmentation; not MinCostFlow; tests/wida_mcf7a.py; no online AC; docs/WIDA-MCF7A.md
-WIDA,03 - jiangly模板收集/02 - 图与网络/07B - 费用流（MinCostFlow 新版）.cpp,,07B - 费用流（MinCostFlow 新版）,pending,,
+WIDA,03 - jiangly模板收集/02 - 图与网络/07B - 费用流（MinCostFlow 新版）.cpp,,07B - 费用流（MinCostFlow 新版）,partial,,normal orientation matches Bellman-Ford on tested graphs; each augmentation capped by INT_MAX; s==t does not return; unreachable potentials overflow; tests/wida_mcf7b.py; no online AC; docs/WIDA-MCF7B.md
 WIDA,03 - jiangly模板收集/02 - 图与网络/08 - 树链剖分（HLD）.cpp,,08 - 树链剖分（HLD）,pending,,
 WIDA,03 - jiangly模板收集/02 - 图与网络/09 - 圆方树.cpp,,09 - 圆方树,local-tested,src/compact/biconnected.hpp,tests/biconnected.cpp; P8435 and P8436 both styles AC (verification/oj.json); block/bridge forests additionally tested locally
 WIDA,03 - jiangly模板收集/03 - 数论、几何与多项式/01 - 快速幂.cpp,,01 - 快速幂,pending,,
