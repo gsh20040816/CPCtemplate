@@ -1,0 +1,15 @@
+{
+  "scope": "Point adds and range sums on 1..6 match a plain array. add(2,5,3) changes indices 2,3,4 and not 5, so the third argument is an exclusive end. Two large point adds overflow int. Index 0 is not called. Source does not compile alone. No online AC.",
+  "blob": "864bd2178ce95e18ebfdf34d0eab893e2e7d4dc0",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "overflow": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_fenwick/main.cpp:12:18: runtime error: signed integer overflow: 2000000000 + 2000000000 cannot be represented in type 'int'"
+    }
+  ]
+}
