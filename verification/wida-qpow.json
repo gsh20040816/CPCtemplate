@@ -1,0 +1,20 @@
+{
+  "scope": "Two modular powers. The file does not compile until i64 is declared. Integer power matches __int128 on the small domain except mod 1 and exponent 0. Floating mul is compared on 20000 products. No new basic template and no online AC.",
+  "blob": "73f8c65c32b46ef3bc067a263a5c542f55352e12",
+  "runs": [
+    {
+      "mode": "normal",
+      "returncode": 0,
+      "stdout": "20 0 0\n0 0 0 0 0\n1 1",
+      "stderr": []
+    },
+    {
+      "mode": "sanitizer",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": [
+        "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_qpow/main.cpp:20:15: runtime error: signed integer overflow: 229993854253 * 328149755486 cannot be represented in type 'long long int'"
+      ]
+    }
+  ]
+}
