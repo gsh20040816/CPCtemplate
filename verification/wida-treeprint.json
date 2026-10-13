@@ -1,0 +1,15 @@
+{
+  "scope": "Unweighted diameter lengths match. Weighted radius matches, but diam adds one. getCog sizes vis to n and the library assertion rejects vis[n]. HLD and binary LCA match parent walks. Weighted query returns the max edge, not the weight sum. Path intersection counts nodes. DSU-on-tree answers 1 1 2 after color and LL are supplied. The centroid snippet does not compile alone. No online AC.",
+  "blob": "40c98911328d95e41e3645a8f32ccb774c0cbd32",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "cog": "/opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/bits/stl_bvector.h:1158: constexpr std::vector<bool, _Alloc>::reference std::vector<bool, _Alloc>::operator[](size_type) [with _Alloc = std::allocator<bool>; reference = std::vector<bool>::reference; size_type = long unsigned int]: Assertion '__n < this->size()' failed."
+    }
+  ]
+}

@@ -67,14 +67,14 @@ WIDA,02 - 打印稿模板汇总/01 - 基础算法.md,,新版,pending,,
 WIDA,02 - 打印稿模板汇总/01 - 基础算法.md,,实数域二分,pending,,
 WIDA,02 - 打印稿模板汇总/01 - 基础算法.md,,整数域三分,pending,,
 WIDA,02 - 打印稿模板汇总/01 - 基础算法.md,,实数域三分,pending,,
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树的直径,pending,,
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树论大封装（直径+重心+中心）,pending,,
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,点分治 / 树的重心,pending,,
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,最近公共祖先 LCA,local-tested,src/compact/lifting_lca.hpp;src/compact/tree.hpp,Both print subsections verified: HLD LCA/edge distance and binary lifting with signed path maximum; tests/hld.cpp and tests/lifting_lca.cpp independent parent-path oracles; zero-length weighted path represented by nullopt; OJ API scope remains separate
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树链剖分解法,local-tested,src/compact/tree.hpp#HLD,tests/hld.cpp; tests/lifting_lca.cpp all labelled trees n<=6/all roots/pairs verifies LCA and dep[u]+dep[v]-2*dep[lca] edge distance; build/Build replaces work; root depth=0 and root parent=self; no new OJ claim
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上倍增解法,local-tested,src/compact/lifting_lca.hpp#LiftingLCA,"Unweighted LCA/distance plus signed path maximum covered; tests/lifting_lca.cpp independent parent-path oracle, LLONG_MIN/MAX, empty optional and root overflow; P3379 checks LCA only; weighted maximum online pending"
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上路径交,local-tested,src/compact/path_intersection.hpp#path_intersection,"tests/path_intersection.cpp exhaustive n<=5 labelled trees/all roots/four endpoints, path-set oracle; Euler/HLD callbacks; endpoints and vertex count; avoids upstream vertex-ID sorting bug; P3398 dual complete programs at n=q=100000 local-tested, online pending"
-WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上启发式合并 (DSU on tree),local-tested,src/compact/dsu_on_tree.hpp,tests/dsu_on_tree.cpp; subtree max-frequency color sum; OJ pending
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树的直径,partial,,unweighted lengths 0 1 3 2 and forest 1; endpoints discarded; tests/wida_treeprint.py; docs/WIDA-TREEPRINT.md
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树论大封装（直径+重心+中心）,partial,,radius matches but diam adds one; getCog sizes vis to n; tests/wida_treeprint.py; docs/WIDA-TREEPRINT.md
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,点分治 / 树的重心,partial,,"snippet uses undefined n, ver, q and ans; MaxTree is int 1e18; tests/wida_treeprint.py; docs/WIDA-TREEPRINT.md"
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,最近公共祖先 LCA,partial,,see the HLD and binary-lifting rows; tests/wida_treeprint.py; docs/WIDA-TREEPRINT.md
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树链剖分解法,partial,,LCA and edge distance match parent walks; idx unused; tests/wida_treeprint.py; docs/WIDA-TREEPRINT.md
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上倍增解法,partial,,unweighted LCA matches; weighted clac counts edges and query returns max edge seeded at 0; tests/wida_treeprint.py; docs/WIDA-TREEPRINT.md
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上路径交,partial,,"needs global lca, clac and dep; checked counts are 3 and 0; tests/wida_treeprint.py; docs/WIDA-TREEPRINT.md"
+WIDA,02 - 打印稿模板汇总/02 - 树上问题.md,,树上启发式合并 (DSU on tree),partial,,needs color and LL; checked answers are 1 1 2; cnt is sized n+1; tests/wida_treeprint.py; docs/WIDA-TREEPRINT.md
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,常见概念,pending,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,单源最短路径（SSSP问题）,pending,,
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,（正权稀疏图）动态数组存图+Djikstra算法,local-tested,src/compact/graph.hpp#Dijkstra,"docs/DENSE-DIJKSTRA.md; fixed source bodies compiled against synchronous Bellman-Ford; source width/index/sentinel/reinitialization differences explicit, WIDA reused-distance counterexample retained. Matrix int128 distances and vertex paths, heap finite distances <LLONG_MAX. Normal+ASan/UBSan; AOJ312 formal/API313 local only, no new online AC/rank."
