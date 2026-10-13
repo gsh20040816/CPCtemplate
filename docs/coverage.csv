@@ -348,26 +348,26 @@ WIDA,02 - 打印稿模板汇总/09 - 动态规划.md,,背包问题求具体方�
 WIDA,02 - 打印稿模板汇总/09 - 动态规划.md,,数位 DP,pending,,
 WIDA,02 - 打印稿模板汇总/09 - 动态规划.md,,状压 DP,pending,,
 WIDA,02 - 打印稿模板汇总/09 - 动态规划.md,,常用例题,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,子串与子序列,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,字符串模式匹配算法 KMP,local-tested,"prefix_function,kmp_match",string-prefix source audit; independent normal+ASan/UBSan; 0-based borders/overlapping locations; prefix-length indexing and min-period/repetition formulas explicitly adapted. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,Z函数（扩展 KMP）,local-tested,z_function,string-prefix source audit; independent normal+ASan/UBSan; Same-string suffix LCP; z[0]=n; upstream optional zero tail slot omitted explicitly. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,最长公共子序列 LCS,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,小数据解,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,大数据解,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,字符串哈希,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,双哈希封装,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,前后缀去重,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,马拉车,local-tested,manacher,string-prefix source audit; independent normal+ASan/UBSan; String longest palindrome and transformed radii mapped to odd/even; no sentinel restrictions. Not online AC/rank. See verification/string-prefix-sources.json and docs/STRING-PREFIX-AUDIT.md.
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,字典树 trie,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,基础封装,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,01 字典树,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,后缀数组 SA,local-tested,src/compact/string.hpp#SuffixArray,"Counting-sort doubling O(n log n+alphabet); byte and integer alphabets, no explicit sentinel; rk/lcp 0-based. tests/suffix_array.cpp exhaustive suffix/LCP oracle and million-character cases; P3809 prepared, OJ pending"
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,AC 自动机,local-tested,AhoCorasick,"ac-source audit: P3808 complete presence-by-pattern-ID adapter matches the source first-query result, duplicate input patterns counted separately; count per terminal >0, reset by new object. Current queries deliberately non-destructive; old consume-across-queries semantics require external seen flags. Independent transition/failure/count oracles and normal+ASan/UBSan maximal P3808/P5357 programs. Not online AC/rank; HDU2222 current statement/resources unavailable. See docs/AC-SOURCE-AUDIT.md."
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,回文自动机 PAM（回文树）,local-tested,src/compact/palindromic_tree.hpp,"tests/palindromic_tree.cpp; suffix count, distinct count, occurrences and representative endpoints; OJ pending"
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,后缀自动机 SAM,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,子序列自动机,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,自动离散化、自动类型匹配封装,pending,,
-WIDA,02 - 打印稿模板汇总/10 - 串.md,,朴素封装,pending,,
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,子串与子序列,partial,,prose only in this pass; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,字符串模式匹配算法 KMP,partial,,"global lambda does not compile; checked positions 3, none, and 2; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md"
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,Z函数（扩展 KMP）,partial,,aaaa matches the naive extension; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,最长公共子序列 LCS,partial,,see the small and large rows; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,小数据解,partial,,cin into char* does not compile; the loops on abc/ac give 2; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,大数据解,partial,,needs maxn; permutation 123 vs 321 gives 1; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,字符串哈希,partial,,see the double-hash row; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,双哈希封装,partial,,"needs Zmod; with a local stand-in, substring and modify match the checked strings; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md"
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,前后缀去重,partial,,"compress(ab, bc) is abc; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md"
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,马拉车,partial,,not executed this pass; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,字典树 trie,partial,,see the basic and 01 rows; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,基础封装,partial,,needs N and LL; query(ab) is 2 after ab and abc; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,01 字典树,partial,,"max xor of 1,2,3 against 0 and 1 is 3; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md"
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,后缀数组 SA,partial,,banana sa and lcp match; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,AC 自动机,partial,,local object overflows the stack; heap-zeroed query is 2 then 0; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,回文自动机 PAM（回文树）,partial,,heap object reports 4 and 3 for aba; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,后缀自动机 SAM,partial,,extend from 0 on ab ends at cntNodes 2; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,子序列自动机,partial,,see the two implementation rows; docs/WIDA-STRINGPRINT.md
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,自动离散化、自动类型匹配封装,partial,,"contains 1,1,3 and rejects 1,2,2; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md"
+WIDA,02 - 打印稿模板汇总/10 - 串.md,,朴素封装,partial,,contains needs a non-const lvalue; named arrays match; tests/wida_stringprint.py; docs/WIDA-STRINGPRINT.md
 WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,巴什博奕,partial,,matches N%(M+1)!=0 for M=1..5 and N=0..30; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md
 WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,扩展巴什博弈,partial,,"four remainder cases match for a=1..4, b=a..6, N=0..40; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md"
 WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Nim 博弈,partial,,xor rule used by the anti-Nim checks; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md

@@ -1,0 +1,17 @@
+{
+  "scope": "Safe KMP and the overlapping aaa/aa case return the checked positions. Z, both LCS programs, a local Zmod stand-in, trie, xor trie, suffix array, heap-allocated AC, and both subsequence automata match the checked cases. The original LCS reader does not compile. A local ACAutomaton overflows the stack. PAM reports 4 and 3 for aba. SAM.extend from 0 ends at cntNodes 2. Manacher was not executed. No online AC.",
+  "blob": "0f160f11d0a3d00c5ec6c3e058824ae71b35e2bb",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "kmp": "continues past a match",
+      "pam": "4 3",
+      "sam": "2 2"
+    }
+  ]
+}
