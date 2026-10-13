@@ -1,0 +1,16 @@
+{
+  "scope": "Dinic matches Edmonds-Karp on the checked graphs, and reset repeats the same value. The project example prints 0 while the best subset profit is 8; 1E18 becomes INT_MAX. Gomory-Hu uses Flow<int> and does not compile against this alias. Reachable cost-flow samples match, and a second augmentation overflows an unreachable potential. No online AC.",
+  "blob": "3ebc352fec43201867c290e9d13b34dfa82db384",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "gomory": "does not compile",
+      "island": "/Users/gsh/Workspace/CPCtemplate/build/wida-flowprint/island.cpp:130:46: runtime error: signed integer overflow: 9223372036854775807 + 9223372036854775807 cannot be represented in type 'long long int'"
+    }
+  ]
+}
