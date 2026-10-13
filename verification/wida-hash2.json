@@ -1,0 +1,17 @@
+{
+  "scope": "With the power table limited to 2, the hashes of \"ab\" and the update to \"cb\" match 64-bit arithmetic. The empty string is (0,0). Building eight powers overflows a signed multiply. The default length 1<<21 is not timed. Source does not compile alone. No online AC.",
+  "blob": "d755a66281a887e40454ae6ead94ed611a58e677",
+  "runs": [
+    {
+      "mode": "normal",
+      "stdout": "12417 12805 0 0"
+    },
+    {
+      "mode": "sanitizer",
+      "stdout": "12417 12805 0 0"
+    },
+    {
+      "overflow": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_hash2/main.cpp:12:34: runtime error: signed integer overflow: 260144641 * 127 cannot be represented in type 'int'"
+    }
+  ]
+}
