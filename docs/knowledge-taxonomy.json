@@ -27,9 +27,10 @@
       "docs/knowledge-sieve-notes.tex",
       "docs/knowledge-arithmetic-notes.tex",
       "docs/knowledge-residues.tex",
-      "docs/knowledge-model-notes.tex"
+      "docs/knowledge-model-notes.tex",
+      "docs/knowledge-higher-residues.tex"
     ],
-    "classified_section_count": 58,
+    "classified_section_count": 62,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -637,6 +638,44 @@
       ],
       "relation": "direct",
       "note": "系数从高次写到低次，外推前要证明阶数；末尾零系数不能擅自删除。"
+    },
+    {
+      "label": "knowledge-higher-residue",
+      "source": "docs/knowledge-higher-residues.tex",
+      "path": "math/number-theory/residue.md",
+      "additional": [
+        "math/number-theory/primitive-root.md"
+      ],
+      "relation": "direct",
+      "note": "素数模高次剩余与单位根的存在条件；不把合数模直接套进这节。"
+    },
+    {
+      "label": "knowledge-prime-power-residue",
+      "source": "docs/knowledge-higher-residues.tex",
+      "path": "math/number-theory/residue.md",
+      "additional": [],
+      "relation": "application",
+      "note": "素数幂模上从素数模的根提升；提升失败不能当成无解。"
+    },
+    {
+      "label": "knowledge-composite-residue",
+      "source": "docs/knowledge-higher-residues.tex",
+      "path": "math/number-theory/residue.md",
+      "additional": [
+        "math/number-theory/crt.md"
+      ],
+      "relation": "application",
+      "note": "合数模先按素数幂分解再 CRT 合并各分量的根。"
+    },
+    {
+      "label": "knowledge-residue-setup",
+      "source": "docs/knowledge-higher-residues.tex",
+      "path": "math/number-theory/primitive-root.md",
+      "additional": [
+        "math/number-theory/residue.md"
+      ],
+      "relation": "application",
+      "note": "自动准备模数分解与原根，供高次剩余使用；不扩大原根存在的模数范围。"
     }
   ]
 }

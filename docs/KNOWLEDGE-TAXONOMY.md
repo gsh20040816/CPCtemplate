@@ -1,6 +1,6 @@
 # 配套知识的 OI Wiki 分类
 
-本表给二十四份知识源文件中的 **58 个带标签节** 登记显式分类。LTE、Lagrange反演、有限状态递推与广义容斥是新增知识正文，另有两节类欧几里德与两节矩阵树及一节整数分拆内容从旧附录迁移，矩阵树补充统一证明、分拆补充限制转换；另迁移一节模运算条件，补非单位元、升模整除与降幂阈值；另补一节Catalan与投票反射建模，并迁移一次不定方程、补矩形约束计数，新增数值积分与曼哈顿最小生成树证明，迁出Pick公式并补几何剖分证明，新增Prüfer计数与Legendre／Kummer赋值解释；本批另新增斯特林定义与反演两节；其余15节保留原主题，静态ModInt扩展时同步更新模概率节的接口前提，并把组合数扩表的求逆实现说明同步为扩展欧几里得；分类本身不新增算法、模板覆盖或 OJ 验证记录。
+本表给二十五份知识源文件中的 **62 个带标签节** 登记显式分类。LTE、Lagrange反演、有限状态递推与广义容斥是新增知识正文，另有两节类欧几里德与两节矩阵树及一节整数分拆内容从旧附录迁移，矩阵树补充统一证明、分拆补充限制转换；另迁移一节模运算条件，补非单位元、升模整除与降幂阈值；另补一节Catalan与投票反射建模，并迁移一次不定方程、补矩形约束计数，新增数值积分与曼哈顿最小生成树证明，迁出Pick公式并补几何剖分证明，新增Prüfer计数与Legendre／Kummer赋值解释；本批另新增斯特林定义与反演两节；其余15节保留原主题，静态ModInt扩展时同步更新模概率节的接口前提，并把组合数扩表的求逆实现说明同步为扩展欧几里得；分类本身不新增算法、模板覆盖或 OJ 验证记录。
 
 ## 固定来源与范围
 
@@ -8,7 +8,7 @@
 - 本地来源为 [`references/oi-wiki-mkdocs.yml`](references/oi-wiki-mkdocs.yml)，SHA256：`de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806`
 - 路径、完整大中小分类名和先后顺序取自 [`oi-taxonomy.json`](oi-taxonomy.json) 的 `navigation`，不另造 OI Wiki 叶子
 - 分类数据为 [`knowledge-taxonomy.json`](knowledge-taxonomy.json)；源文件仍为 `knowledge-combinatorics.tex`、`knowledge-probability-games.tex`、`knowledge-mobius.tex`、`knowledge-orbits.tex`、`knowledge-lte.tex`、`knowledge-lagrange.tex`、`knowledge-state-recurrence.tex`、`knowledge-inclusion.tex`、`knowledge-floor-sums.tex`、`knowledge-matrix-tree.tex`、`knowledge-partitions.tex`、`knowledge-modular-conditions.tex`、`knowledge-ballot.tex`、`knowledge-diophantine.tex`、`knowledge-integration.tex`、`knowledge-manhattan-mst.tex`、`knowledge-pick.tex`
-- 杜教筛、64 位判素、单个欧拉函数、线性筛和区间筛已迁入 `knowledge-sieve-notes.tex`。矩形 GCD、幂的约数和、批量逆元、线性逆元、线性同余、扩展 CRT 与 Garner 已迁入 `knowledge-arithmetic-notes.tex`。二次剩余、原根、Carmichael、Lucas、扩展 Lucas 和阶乘表已迁入 `knowledge-residues.tex`。组合计数、生成函数与递推、线性代数与生成树、模线性方程组、数值边界和线性递推已迁入 `knowledge-model-notes.tex`。`mathematics.tex` 的其余历史知识节尚未逐项分类，继续保留在附录；这些历史内容还混有其他分册的应用说明。本次不声称完成全部数学知识重排或 issue #5/#7 的全部范围
+- 杜教筛、64 位判素、单个欧拉函数、线性筛和区间筛已迁入 `knowledge-sieve-notes.tex`。矩形 GCD、幂的约数和、批量逆元、线性逆元、线性同余、扩展 CRT 与 Garner 已迁入 `knowledge-arithmetic-notes.tex`。二次剩余、原根、Carmichael、Lucas、扩展 Lucas 和阶乘表已迁入 `knowledge-residues.tex`。组合计数、生成函数与递推、线性代数与生成树、模线性方程组、数值边界和线性递推已迁入 `knowledge-model-notes.tex`。素数模、素数幂模、合数模高次剩余和自动准备原根已迁入 `knowledge-higher-residues.tex`。`mathematics.tex` 的其余历史知识节尚未逐项分类，继续保留在附录；这些历史内容还混有其他分册的应用说明。本次不声称完成全部数学知识重排或 issue #5/#7 的全部范围
 - 导航来源是固定的 OI Wiki 官方仓库，不声称已核验 `oi-wiki.com` 与该导航相同，也不要求实时网站提供相同路径
 
 ## 数据与生成约定
@@ -102,8 +102,13 @@
 | `knowledge-numerical-boundaries`<br>`docs/knowledge-model-notes.tex` | 数学 → 数值算法 → 数值积分<br>`math/numerical/integral.md` | composite：积分奇点、排序弱序、三分与二分的前提。 |
 | `knowledge-recurrence-direction`<br>`docs/knowledge-model-notes.tex` | 数学 → 多项式与生成函数 → 常系数齐次线性递推<br>`math/poly/linear-recurrence.md` | direct：系数方向与外推前的阶数证明。 |
 
+| `knowledge-higher-residue`<br>`docs/knowledge-higher-residues.tex` | 数学 → 数论 → 高次剩余 & 单位根<br>`math/number-theory/residue.md` | direct：素数模高次剩余与单位根的存在条件。 |
+| `knowledge-prime-power-residue`<br>`docs/knowledge-higher-residues.tex` | 数学 → 数论 → 高次剩余 & 单位根<br>`math/number-theory/residue.md` | application：素数幂模上从素数模的根提升。 |
+| `knowledge-composite-residue`<br>`docs/knowledge-higher-residues.tex` | 数学 → 数论 → 高次剩余 & 单位根<br>`math/number-theory/residue.md` | application：合数模按素数幂分解后再 CRT 合并。 |
+| `knowledge-residue-setup`<br>`docs/knowledge-higher-residues.tex` | 数学 → 数论 → 阶 & 原根<br>`math/number-theory/primitive-root.md` | application：自动准备模数分解与原根，不扩大原根存在范围。 |
+
 ## 本地检查
 
-运行 `python3 tests/knowledge_taxonomy.py`。该检查独立解析固定导航源文件，验证快照哈希与生成导航一致、58 个知识标签恰好各映射一次、源路径和叶子路径有效、主归属遵从固定导航：数学53节为三级，矩阵树2节为图论的既定二级叶子，曼哈顿最小生成树1节归入图论的最小生成树三级叶子，Prüfer1节归入图论的既定二级叶子，Pick1节归入计算几何的既定二级叶子，以及范围声明仍明确保留历史知识未分类的限制。负例检查覆盖重复、遗漏、错误源文件、未知叶子和擅自扩大范围；改标题而不改标签不会改变分类。
+运行 `python3 tests/knowledge_taxonomy.py`。该检查独立解析固定导航源文件，验证快照哈希与生成导航一致、62 个知识标签恰好各映射一次、源路径和叶子路径有效、主归属遵从固定导航：数学57节为三级，矩阵树2节为图论的既定二级叶子，曼哈顿最小生成树1节归入图论的最小生成树三级叶子，Prüfer1节归入图论的既定二级叶子，Pick1节归入计算几何的既定二级叶子，以及范围声明仍明确保留历史知识未分类的限制。负例检查覆盖重复、遗漏、错误源文件、未知叶子和擅自扩大范围；改标题而不改标签不会改变分类。
 
 这是分类数据检查，不是算法正确性、完整回归、线上 AC 或 PDF 视觉验收。数学例子与接口的原有验证仍见各知识源文件和 `tests/math_knowledge_*.py`。

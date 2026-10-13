@@ -1,0 +1,149 @@
+% 从旧数学附录迁出的高次剩余说明；不新增算法。
+\section{素数模高次剩余与单位根}\label{knowledge-higher-residue}
+实现见第~\pageref{compact-KthResidue}~页；依赖本书离散对数、线性同余和快速幂。
+设 $p$ 为素数，$g$ 是原根，$k>0$。
+$a=0$ 时根只有零；否则写 $a=g^b$、$x=g^y$，方程转为
+\[
+ky\equiv b\pmod{p-1}.
+\]
+令 $d=\gcd(k,p-1)$。当 $d\nmid b$ 时无解；否则指数解为
+$y=y_0+i(p-1)/d$，$0\le i<d$。
+因此用三个数存全部根：
+\[
+\texttt{first}=g^{y_0},\qquad
+\texttt{ratio}=g^{(p-1)/d},\qquad \texttt{count}=d.
+\]
+依次乘 ratio 即可枚举；不保证数值递增，也不保证 first 是最小根。
+ratio 是阶为 $d$ 的单位根，因而枚举恰有 $d$ 个不同的根。
+模 $p=2$ 同样有效；指数同余的模数是 1，唯一非零根为 1。
+
+接口支持 $p\le10^{12}$，需要调用者提供已验证的素数与原根；
+$k$ 支持完整 unsigned long long，先对 $p-1$ 取模后解同余。
+$a$ 支持完整 signed long long，先正规化。
+返回空 optional 表示无解，返回 \texttt{\{0,1,1\}} 表示唯一零根。
+给定原根后的期望时间、空间为 $O(\sqrt p)$；枚举全部根另外需要 $O(d)$ 时间。
+模乘须先扩展到 128 位，不可用 64 位乘积直接取模。
+
+测试穷举小于 100 的每个素数、全部原根及小指数，
+用任意精度模幂逐个枚举候选根并比较整个集合；
+覆盖负数、64 位边界、模 2、无解与零根。
+另检查 998244352 个根的紧凑表示，以及素数 999999999989 上的植根测试；
+后一个素数与原根的条件由试除及乘法阶证书独立确认。
+普通与 ASan/UBSan 均通过，尚无专门在线 AC。
+
+这是 \href{https://oi-wiki.org/math/number-theory/residue/}{OI Wiki 高次剩余} 中
+离散对数转线性同余方法的素数模实现。
+素数幂及非互素被开方数见下一节；一般合数模数见后文；改良 Tonelli--Shanks 尚需另补，
+不能把本节状态解读为该页面全部覆盖。
+
+\clearpage
+\section{素数幂模高次剩余与根的提升}\label{knowledge-prime-power-residue}
+实现见第~\pageref{compact-PrimePowerRoots}~页。
+令 $M=p^e$。当 $a=0$ 时，全部根是 $p^{\lceil e/k\rceil}$ 的倍数。
+否则令 $t=v_p(a)<e$，必须有 $k\mid t$，否则无解。
+取 $s=t/k$，$q=p^{e-t}$，写 $x=p^s y$，只需求单位方程
+\[
+y^k\equiv a/p^t\pmod q.
+\]
+每个单位根 $y$ 对应原模数下的根
+\[
+x=p^s y+\ell p^s q,\qquad 0\le\ell<p^{t-s}.
+\]
+这些提升保持互不相同，也解释了非互素被开方数可能产生大量根。
+
+奇素数时，提供模 $p^e$ 的原根，约化后仍是模 $q$ 的原根，
+沿用离散对数转线性同余的方法。
+$q=2$ 时单位根只有 1；$q\ge4$ 且为二的幂时，单位表示为
+$(-1)^z5^y$。符号指数模 2，5 的指数模 $q/4$；
+$q=4$ 时只有符号分支。分别解两个指数同余即可，不可假设二的高次幂存在原根。
+
+返回结构体保存 first、两个 ratio、两个 count，以及 step、lifts。
+全部根由下式给出：
+\[
+\bigl(\texttt{first}\cdot\texttt{ratio}[0]^i\cdot\texttt{ratio}[1]^j\bmod\texttt{step}\bigr)
++\ell\cdot\texttt{step}.
+\]
+其中 $0\le i<\texttt{count}[0]$、$0\le j<\texttt{count}[1]$、
+$0\le\ell<\texttt{lifts}$。
+\texttt{get} 已处理模乘溢出，\texttt{size} 返回三者乘积；
+不保证根按数值排序。零根情形复用同一表示。
+
+模数上限 $10^{12}$，$k$ 支持完整无符号 64 位。
+只检查范围，不检查 $p$ 的素性和奇素数原根的阶，调用者须保证。
+默认参数 $g=0$ 仅用于 $p=2$；奇素数不能漏传原根。
+时间和空间由 BSGS 决定，期望 $O(\sqrt q)$；
+单次按索引取根使用快速幂，需 $O(\log M)$。
+
+已穷举多个素数的全部不超过 256 的素数幂、所有被开方数与小指数，
+用任意精度模幂直接枚举所有根，比较整个集合。
+另测有符号与无符号 64 位边界、$2^{39}$ 的非平凡离散对数、
+$3^{20}$ 的非互素方程，以及数千亿根的紧凑表示。
+普通与 ASan/UBSan 均通过；尚无专门在线 AC。
+一般合数的 CRT 组合见下一节；改良 Tonelli--Shanks 仍未完成，OI Wiki 页面继续标记部分覆盖。
+
+\clearpage
+\section{一般合数模高次剩余：CRT 组合}\label{knowledge-composite-residue}
+实现见第~\pageref{compact-CompositeRoots}~页。
+调用者提供完整分解 $M=\prod_{t=0}^{F-1}m_t$，其中 $m_t=p_t^{e_t}$ 两两互素，
+并提供每个奇素数幂的原根。先分别求局部根族；任一局部无解，整体即无解。
+若局部根数为 $c_t$，则整体根数为 $\prod_t c_t$。
+只保存局部根族，不创建这个大小的数组。
+
+对每个因子预处理
+\[
+E_t=\frac M{m_t}\left(\left(\frac M{m_t}\right)^{-1}\bmod m_t\right)\bmod M.
+\]
+对一组局部根 $r_t$，唯一对应的标准代表是
+\[
+x=\sum_t r_tE_t\bmod M.
+\]
+逆元存在是因为因子两两互素。
+\texttt{get(index)} 将索引按各个 $c_t$ 转成混合进制数字，
+再把局部索引拆成两个乘法根族索引和加法提升索引，最后用上述公式组合。
+CRT 双射保证不重复、不遗漏，输出顺序不保证递增。
+
+$M\le10^{12}$，$k>0$；空因子列表表示 $M=1$，返回唯一代表 0。
+\texttt{mod} 保存模数，\texttt{total} 保存总解数，
+\texttt{parts} 和 \texttt{weight} 保存局部根族与 $E_t$。
+模数乘积检查上界，CRT 的乘积先扩展至 128 位。
+单次按索引查询为 $O(F\log M)$；求解的主要时间和空间为局部 BSGS，
+因子列表接口不包含整数分解与原根搜索的成本；自动准备重载见下一节。
+
+已对 $1\le M\le180$、所有被开方数与小指数直接枚举所有根，
+与两套代码的完整输出集合比较，并反转因子顺序重新检查。
+另覆盖有符号与无符号 64 位边界、混合素数幂上的非互素方程和大量零根，
+以及十一种不同素因子组成模数时的全部 1024 个平方根。
+普通与 ASan/UBSan 均通过；尚无专门在线 AC。
+至此已有已知分解及原根时的 BSGS 求根路线，
+更快的改良 Tonelli--Shanks 等内容仍未覆盖，OI Wiki 条目保留部分完成状态。
+
+\clearpage
+\section{自动准备模数分解与原根}\label{knowledge-residue-setup}
+实现见第~\pageref{compact-root_factors}~页。
+\texttt{root\_factors(M,rho)} 把 $M\le10^{12}$ 分解为互异素数的幂，
+返回合数求根需要的 $(p,e,g)$ 列表；模数 1 返回空列表。
+二的幂不需要原根，固定填零。
+奇素数幂 $m=p^e$ 的乘法群是循环群，设 $\varphi=m/p\cdot(p-1)$。
+分解 $\varphi$ 后，候选 $g$ 为原根当且仅当
+\[
+p\nmid g,\qquad g^{\varphi/q}\not\equiv1\pmod m
+\quad\text{对每个不同素因子 }q\mid\varphi.
+\]
+从 2 起枚举候选，返回最小原根；所有奇素数幂均有原根。
+这里检查的是模 $p^e$ 的阶，不能仅取一个模 $p$ 的原根而不验证提升。
+
+重载 \texttt{CompositeRoots::solve(a,k,M,rho)} 自动调用此准备过程。
+
+随机分解工作区类型为 \texttt{PollardRho}。
+如果需要在同一个模数下处理多个方程，先保存因子列表，调用原有列表接口，
+避免重复分解和原根搜索。
+准备成本包括 $M$ 与各 $\varphi$ 的因数分解，以及逐个候选的模幂检验；
+不能把这部分直接算作常数时间。
+
+独立试除验证 $1\ldots500$ 的全部模数与多组接近 $10^{12}$ 的边界值，
+并用任意精度模幂验证返回原根的阶。
+小模数进一步检查更小候选不能生成全部单位。
+直接传模数的两套求根接口，在小模数上与全部候选根的枚举结果比较。
+普通与 ASan/UBSan 均通过；尚无自动准备入口的在线 AC。
+
+\clearpage
