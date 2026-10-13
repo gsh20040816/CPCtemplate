@@ -110,21 +110,21 @@ WIDA,02 - 打印稿模板汇总/03A - 图论.md,,差分约束,local-tested,src/c
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,2-Sat,partial,,section heading; see the two implementation rows; docs/WIDA-GRAPHPRINT.md
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,基础封装,partial,,"0-based; forced true, contradiction, and (x or y) and (not x or y) match; tests/wida_graphprint.py; docs/WIDA-GRAPHPRINT.md"
 WIDA,02 - 打印稿模板汇总/03A - 图论.md,,答案不唯一时不输出,partial,,must be inserted into TwoSat; the checked formula prints ? 1; tests/wida_graphprint.py; docs/WIDA-GRAPHPRINT.md
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,常见结论,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,常见例题,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,杂,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,Prüfer 序列：凯莱公式,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,Prüfer 序列,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,单源最短/次短路计数,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,输出任意一个三元环,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,带权最小环大小与计数,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,最小环大小,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,本质不同简单环计数,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,输出任意一个非二元简单环,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,有向图环计数,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,有向图简单环检查、输出,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,无向图简单环检查、输出,pending,,
-WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,判定带环图是否是平面图,pending,,
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,常见结论,partial,,"prose; the printed tournament threshold is n(n+1)/2, while the indegree sum is n(n-1)/2; docs/WIDA-GRAPHBPRINT.md"
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,常见例题,partial,,section heading; see the following rows; docs/WIDA-GRAPHBPRINT.md
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,杂,partial,,pairing needs k and gives 4 on a path of 4; the negative tree gives 14; docs/WIDA-GRAPHBPRINT.md
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,Prüfer 序列：凯莱公式,partial,,"formula n^(n-2), no code; docs/WIDA-GRAPHBPRINT.md"
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,Prüfer 序列,partial,,"formula n^(k-2) times the component sizes, no code; docs/WIDA-GRAPHBPRINT.md"
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,单源最短/次短路计数,partial,,"printed order does not compile; after moving the arrays, the checked count is 2; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md"
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,输出任意一个三元环,partial,,ASan reports an out-of-bounds read when the parent is -1; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,带权最小环大小与计数,partial,,a directed triangle of weight 1 gives length 3 and count 1; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,最小环大小,partial,,Floyd and BFS both give 3 on a triangle; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,本质不同简单环计数,partial,,one triangle gives 1; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,输出任意一个非二元简单环,partial,,"search always restarts at vertex 1, so a later component is missed; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md"
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,有向图环计数,partial,,a triangle and a self-loop each count 1; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,有向图简单环检查、输出,partial,,a self-loop prints length 1; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,无向图简单环检查、输出,partial,,a triangle prints length 3 and a tree prints -1; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md
+WIDA,02 - 打印稿模板汇总/03B - 图论常见结论及例题.md,,判定带环图是否是平面图,partial,,needs TwoSat; crossing chords differ and nested chords can both be inside; tests/wida_graphbprint.py; docs/WIDA-GRAPHBPRINT.md
 WIDA,02 - 打印稿模板汇总/04 - 网络流.md,,最大流,partial,,Dinic matches Edmonds-Karp on the checked graphs; reset repeats the value only after it is placed in the struct; tests/wida_flowprint.py; docs/WIDA-FLOWPRINT.md
 WIDA,02 - 打印稿模板汇总/04 - 网络流.md,,最小割,partial,,example prints 0 while the best subset profit is 8; 1E18 becomes INT_MAX; tests/wida_flowprint.py; docs/WIDA-FLOWPRINT.md
 WIDA,02 - 打印稿模板汇总/04 - 网络流.md,,最小割树 Gomory-Hu Tree,partial,,Flow<int> does not compile against the Flow alias; reset is not called; tests/wida_flowprint.py; docs/WIDA-FLOWPRINT.md
