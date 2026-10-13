@@ -35,9 +35,10 @@
       "docs/knowledge-tree-notes.tex",
       "docs/knowledge-mo-notes.tex",
       "docs/knowledge-mo-secondary.tex",
-      "docs/knowledge-functional-notes.tex"
+      "docs/knowledge-functional-notes.tex",
+      "docs/knowledge-structure-notes.tex"
     ],
-    "classified_section_count": 82,
+    "classified_section_count": 88,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -861,6 +862,57 @@
       "additional": [],
       "relation": "application",
       "note": "开放时间下的单位边最短路。边权不全为 1 时不能用这套桶。"
+    },
+    {
+      "label": "knowledge-scc-template",
+      "source": "docs/knowledge-structure-notes.tex",
+      "path": "graph/scc.md",
+      "additional": [],
+      "relation": "application",
+      "note": "Library Checker 的强连通分量输出。可见名单的局部名次不是全站排名。"
+    },
+    {
+      "label": "knowledge-dsu-template",
+      "source": "docs/knowledge-structure-notes.tex",
+      "path": "ds/dsu.md",
+      "additional": [],
+      "relation": "application",
+      "note": "P3367 只覆盖 merge、same 和 find，不覆盖 size 与 groups。"
+    },
+    {
+      "label": "knowledge-acl-compose",
+      "source": "docs/knowledge-structure-notes.tex",
+      "path": "ds/seg.md",
+      "additional": [
+        "graph/scc.md",
+        "graph/2-sat.md"
+      ],
+      "relation": "composite",
+      "note": "ACL 懒标记先作用 g 再作用 f。SCC 方向和 2-SAT 编码不能互相替换。"
+    },
+    {
+      "label": "knowledge-lct-product",
+      "source": "docs/knowledge-structure-notes.tex",
+      "path": "ds/lct.md",
+      "additional": [],
+      "relation": "application",
+      "note": "固定树上的路径乘积，不含连边和删边。普通 LCT 的线上记录不能当作这个变体的 AC。"
+    },
+    {
+      "label": "knowledge-treap-flip",
+      "source": "docs/knowledge-structure-notes.tex",
+      "path": "ds/treap.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "逐位取反和区间顺序反转是两个操作。中点建树未修复堆序，不能写成线性构建。"
+    },
+    {
+      "label": "knowledge-scapegoat",
+      "source": "docs/knowledge-structure-notes.tex",
+      "path": "ds/sgt.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "副本数、物理节点和活键是三个量。墓碑不回收，空间按累计分配计算。"
     }
   ]
 }
