@@ -368,21 +368,21 @@ WIDA,02 - 打印稿模板汇总/10 - 串.md,,后缀自动机 SAM,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,子序列自动机,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,自动离散化、自动类型匹配封装,pending,,
 WIDA,02 - 打印稿模板汇总/10 - 串.md,,朴素封装,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,巴什博奕,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,扩展巴什博弈,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Nim 博弈,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Nim 游戏具体取法,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Moore’s Nim 游戏（Nim-K 游戏）,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Anti-Nim 游戏（反 Nim 游戏）,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,阶梯 - Nim 博弈,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,SG 游戏（有向图游戏）,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Anti-SG 游戏（反 SG 游戏）,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Lasker’s-Nim 游戏（ Multi-SG 游戏）,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Every-SG 游戏,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,威佐夫博弈,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,斐波那契博弈,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,树上删边游戏,pending,,
-WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,无向图删边游戏（Fusion Principle 定理）,pending,,
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,巴什博奕,partial,,matches N%(M+1)!=0 for M=1..5 and N=0..30; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,扩展巴什博弈,partial,,"four remainder cases match for a=1..4, b=a..6, N=0..40; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md"
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Nim 博弈,partial,,xor rule used by the anti-Nim checks; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Nim 游戏具体取法,partial,,"prose move rule, not executed as a program; docs/WIDA-GAMEPRINT.md"
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Moore’s Nim 游戏（Nim-K 游戏）,partial,,universal bit condition disagrees with one pile of 1 when K=1; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Anti-Nim 游戏（反 Nim 游戏）,partial,,matches DP for three piles of size at most 3; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,阶梯 - Nim 博弈,partial,,odd stairs next to the ground match for heights at most 4; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,SG 游戏（有向图游戏）,partial,,"snippet needs N, no and yes; not compiled as a program; docs/WIDA-GAMEPRINT.md"
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Anti-SG 游戏（反 SG 游戏）,partial,,same two-case statement as anti-Nim; not separately executed; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Lasker’s-Nim 游戏（ Multi-SG 游戏）,partial,,formula matches 1..20 and gives -1 at 0; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,Every-SG 游戏,partial,,odd step count has no executable definition here; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,威佐夫博弈,partial,,cold positions match floor(k*phi) for k=1..200; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,斐波那契博弈,partial,,"losses through 30 match 1,2,3,5,...; the printed loop can overflow int; tests/wida_gameprint.py; docs/WIDA-GAMEPRINT.md"
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,树上删边游戏,partial,,lambda redeclares x and does not compile; docs/WIDA-GAMEPRINT.md
+WIDA,02 - 打印稿模板汇总/11 - 博弈论.md,,无向图删边游戏（Fusion Principle 定理）,partial,,"prose only, no code; docs/WIDA-GAMEPRINT.md"
 WIDA,02 - 打印稿模板汇总/12 - STL与库函数.md,,库函数,pending,,
 WIDA,02 - 打印稿模板汇总/12 - STL与库函数.md,,pb_ds 库,pending,,
 WIDA,02 - 打印稿模板汇总/12 - STL与库函数.md,,查找后继 lower\_bound、upper\_bound,pending,,
