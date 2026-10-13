@@ -129,53 +129,53 @@ WIDA,02 - 打印稿模板汇总/04 - 网络流.md,,最大流,partial,,Dinic matc
 WIDA,02 - 打印稿模板汇总/04 - 网络流.md,,最小割,partial,,example prints 0 while the best subset profit is 8; 1E18 becomes INT_MAX; tests/wida_flowprint.py; docs/WIDA-FLOWPRINT.md
 WIDA,02 - 打印稿模板汇总/04 - 网络流.md,,最小割树 Gomory-Hu Tree,partial,,Flow<int> does not compile against the Flow alias; reset is not called; tests/wida_flowprint.py; docs/WIDA-FLOWPRINT.md
 WIDA,02 - 打印稿模板汇总/04 - 网络流.md,,费用流,partial,,reachable samples match; unreachable potential overflows on the second augmentation; tests/wida_flowprint.py; docs/WIDA-FLOWPRINT.md
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,常见数列,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,调和级数,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,素数密度与分布,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,因数最多数字与其因数数量,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,快速幂,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,常规,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,长整型 with 防爆乘法,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,质数判定,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,试除法,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,筛法,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,Miller-Rabin,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,质因子分解,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,筛法,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,Pollard-Rho,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,裴蜀定理,pending,,
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,常见数列,partial,,section heading; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,调和级数,partial,,prose and a divisor loop; the n=6 divisor list is checked later; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,素数密度与分布,partial,,"stated counts, not recomputed through 1e9; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,因数最多数字与其因数数量,partial,,"stated table, not recomputed; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,快速幂,partial,,see the two implementations; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,常规,partial,,"pow(2,10,1000) is 24 and pow(5,0,7) is 1; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,长整型 with 防爆乘法,partial,,"10^18 squared overflows; normal result is -1999999999999999997, __int128 is 9; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,质数判定,partial,,see the three tests; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,试除法,partial,,"97 is prime, 1 and 9 are not; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,筛法,partial,,"through 30, 29 is prime and 25 is not; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,Miller-Rabin,partial,,"97, 9 and 1 match trial division; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,质因子分解,partial,,see the sieve and Pollard rows; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,筛法,partial,,12 is 2^2 * 3; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,Pollard-Rho,partial,,91 becomes 7 and 13; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,裴蜀定理,partial,,"global ans starts at 0; 6,9,15 prints 3; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md"
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,逆元,local-tested,src/compact/number_theory.hpp; src/compact/inverse_table.hpp,tests/inverse_table.cpp; tests/inverse_table_application.py; exgcd inverse brute oracle and Fermat/linear multiplication certificates; n=3000000 driver checks; composite shortcut corrected (3 mod 8) using exgcd; P3811 linear table dual AC 297563298/297563503; general inverse APIs retain local evidence
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,费马小定理解（借助快速幂）,local-tested,src/compact/number_theory.hpp; src/compact/inverse_table.hpp,tests/inverse_table.cpp; tests/inverse_table_application.py; exgcd inverse brute oracle and Fermat/linear multiplication certificates; n=3000000 driver checks; composite shortcut corrected (3 mod 8) using exgcd; P3811 linear table dual AC 297563298/297563503; general inverse APIs retain local evidence
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,扩展欧几里得解,local-tested,src/compact/number_theory.hpp; src/compact/inverse_table.hpp,tests/inverse_table.cpp; tests/inverse_table_application.py; exgcd inverse brute oracle and Fermat/linear multiplication certificates; n=3000000 driver checks; composite shortcut corrected (3 mod 8) using exgcd; P3811 linear table dual AC 297563298/297563503; general inverse APIs retain local evidence
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,离线求解：线性递推解,local-tested,src/compact/number_theory.hpp; src/compact/inverse_table.hpp,tests/inverse_table.cpp; tests/inverse_table_application.py; exgcd inverse brute oracle and Fermat/linear multiplication certificates; n=3000000 driver checks; composite shortcut corrected (3 mod 8) using exgcd; P3811 linear table dual AC 297563298/297563503; general inverse APIs retain local evidence
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,扩展欧几里得 exgcd,local-tested,src/compact/number_theory.hpp; src/compact/linear_equation.hpp,tests/linear_equation.cpp; tests/linear_equation_application.py; cpp_int Bezout certificates; signed int64/zero cases; P5656 200000 cases with counts/extrema and positive-coordinate oracle; inverse evidence in tests/inverse_table.cpp; no new OJ AC
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,离散对数 bsgs 与 exbsgs,local-tested,src/compact/algebra.hpp#DiscreteLog,"tests/discrete_log.cpp; exhaustive residue first-occurrence oracle in both styles, noncoprime moduli, signed extremes and 1e12 bound; smallest exponent verified; P4195 dual AC 297520101/297520104 for official positive inputs <=1e9"
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,欧拉函数,pending,,
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,欧拉函数,partial,,phi(10) is 4 and phi(1) is 1; the ranged sieve needs ms; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,直接求解单个数的欧拉函数,local-tested,src/compact/euler_phi.hpp,tests/euler_phi.cpp; trial and reusable Pollard-Rho paths; gcd/sieve oracles; prime powers and uint64 boundaries; factor primes checked by trial; ASan/UBSan; no dedicated phi OJ AC
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,求解 1 到 N 所有数的欧拉函数,local-tested,src/compact/number_theory.hpp: LinearSieve,tests/linear_sieve.cpp and tests/phi_inversion.cpp; million-entry direct mu*id convolution and proper-divisor subtraction; O(n) sieve supplies same phi table without divisor lists; ASan/UBSan; no dedicated OJ AC
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,使用莫比乌斯反演求解欧拉函数,local-tested,src/compact/number_theory.hpp: LinearSieve,tests/linear_sieve.cpp and tests/phi_inversion.cpp; million-entry direct mu*id convolution and proper-divisor subtraction; O(n) sieve supplies same phi table without divisor lists; ASan/UBSan; no dedicated OJ AC
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,组合数,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,debug,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,逆元+卢卡斯定理（质数取模）,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,质因数分解,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,杨辉三角（精确计算）,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,求解连续数字的正约数集合——倍数法,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,容斥原理,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,二进制枚举解,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,dfs 解,pending,,
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,组合数,partial,,section heading; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,debug,partial,,"stated binomial residues, not recomputed here; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,逆元+卢卡斯定理（质数取模）,partial,,not executed this pass; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,质因数分解,partial,,not executed this pass; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,杨辉三角（精确计算）,partial,,"C(5,2) is 10, stored in int; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,求解连续数字的正约数集合——倍数法,partial,,divisors of 1..6 match; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,容斥原理,partial,,see the two implementations; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,二进制枚举解,partial,,"10 with primes 2,3,5 counts 8; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,dfs 解,partial,,the same count is 8; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md
 WIDA,02 - 打印稿模板汇总/05A - 数论.md,,同余方程组、拓展中国剩余定理 excrt,local-tested,src/compact/crt_merge.hpp: crt_merge,tests/crt.cpp; tests/crt_application.py; verification/crt-tests.txt; verification/crt-sanitizer-tests.txt; verification/crt-driver-tests.txt; noncoprime merge and int64 overflow; P4777 dual AC 297521102/297521173 (consistent judge cases only)
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,求解连续按位异或,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,高斯消元求解线性方程组,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,康拓展开,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,正向展开普通解法,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,正向展开树状数组解,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,逆向还原,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,Min25 筛,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,矩阵四则运算,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,矩阵快速幂,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,矩阵加速,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,莫比乌斯函数/反演,pending,,
-WIDA,02 - 打印稿模板汇总/05A - 数论.md,,整除（数论）分块,pending,,
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,求解连续按位异或,partial,,both functions match the running xor through 20; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,高斯消元求解线性方程组,partial,,not executed this pass; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,康拓展开,partial,,see the three implementations; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,正向展开普通解法,partial,,"the local string shadows the global one, so it prints 1; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md"
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,正向展开树状数组解,partial,,permutation 5 2 4 1 3 prints 107; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,逆向还原,partial,,the code is the forward expansion again; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,Min25 筛,partial,,not executed this pass; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,矩阵四则运算,partial,,not executed this pass; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,矩阵快速幂,partial,,not executed this pass; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,矩阵加速,partial,,not executed this pass; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,莫比乌斯函数/反演,partial,,not executed this pass; docs/WIDA-NTAPRINT.md
+WIDA,02 - 打印稿模板汇总/05A - 数论.md,,整除（数论）分块,partial,,sum of floor(10/i) is 27; tests/wida_ntaprint.py; docs/WIDA-NTAPRINT.md
 WIDA,02 - 打印稿模板汇总/05B - 数论常见结论及例题.md,,常见结论,partial,,section heading; see the following rows; docs/WIDA-NTBPRINT.md
 WIDA,02 - 打印稿模板汇总/05B - 数论常见结论及例题.md,,球盒模型,partial,,main does not initialize the tables; Fac(10) gives the checked answers; Stirling2(10) and Fac(30) are unsafe; tests/wida_ntbprint.py; docs/WIDA-NTBPRINT.md
 WIDA,02 - 打印稿模板汇总/05B - 数论常见结论及例题.md,,麦乐鸡定理,partial,,"prose Frobenius bound, no code; docs/WIDA-NTBPRINT.md"
