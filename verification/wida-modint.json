@@ -1,0 +1,15 @@
+{
+  "scope": "ModInt<998244353> matches integer modular arithmetic on the checked values, and inv(0) returns 0. u64 mulMod uses long double and mismatches __int128. The source does not compile until u32/u64 exist. Dynamic modulus is only a TODO. No online AC.",
+  "blob": "feb38dce787b7469cc183b02927933cd72ca5a70",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "mul64": "4840048882768193505 1319689441135291815"
+    }
+  ]
+}
