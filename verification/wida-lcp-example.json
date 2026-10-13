@@ -1,0 +1,27 @@
+{
+  "scope": "Exact truncated generalized-SAM fragment. Python mirrors extend, unique-string marks and the unused link tree. Original main prints nothing at -O0/-O1. No problem identity and no answer function. -O2 main is recorded separately.",
+  "blob": "b36bd5568fc01ca8f1641100df0d5a74634ba274",
+  "runs": [
+    {
+      "mode": "state-o2",
+      "groups": 47,
+      "checks": 43243
+    },
+    {
+      "mode": "main-o0",
+      "groups": 47,
+      "checks": 47
+    },
+    {
+      "mode": "sanitizer",
+      "groups": 47,
+      "checks": 43290
+    },
+    {
+      "mode": "main-o2-empty",
+      "returncode": -6,
+      "stderr": "terminate called after throwing an instance of 'std::length_error'\n  what():  vector::_M_realloc_append",
+      "stdout": ""
+    }
+  ]
+}
