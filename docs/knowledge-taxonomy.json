@@ -28,9 +28,10 @@
       "docs/knowledge-arithmetic-notes.tex",
       "docs/knowledge-residues.tex",
       "docs/knowledge-model-notes.tex",
-      "docs/knowledge-higher-residues.tex"
+      "docs/knowledge-higher-residues.tex",
+      "docs/knowledge-poly-notes.tex"
     ],
-    "classified_section_count": 62,
+    "classified_section_count": 67,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -676,6 +677,54 @@
       ],
       "relation": "application",
       "note": "自动准备模数分解与原根，供高次剩余使用；不扩大原根存在的模数范围。"
+    },
+    {
+      "label": "knowledge-det-mod",
+      "source": "docs/knowledge-poly-notes.tex",
+      "path": "math/linear-algebra/determinant.md",
+      "additional": [
+        "math/number-theory/crt.md"
+      ],
+      "relation": "direct",
+      "note": "任意正模数行列式的消元条件；模数不是素数时不能随意除以非零元。"
+    },
+    {
+      "label": "knowledge-ntt-moduli",
+      "source": "docs/knowledge-poly-notes.tex",
+      "path": "math/poly/ntt.md",
+      "additional": [
+        "math/number-theory/primitive-root.md"
+      ],
+      "relation": "direct",
+      "note": "NTT 模数需要足够的 2 的幂因子和原根；换模数前先检查长度。"
+    },
+    {
+      "label": "knowledge-bostan-mori",
+      "source": "docs/knowledge-poly-notes.tex",
+      "path": "math/poly/linear-recurrence.md",
+      "additional": [
+        "math/berlekamp-massey.md"
+      ],
+      "relation": "application",
+      "note": "Bostan–Mori 只求线性递推的单项；不代替整段序列的存在性证明。"
+    },
+    {
+      "label": "knowledge-subset-conv",
+      "source": "docs/knowledge-poly-notes.tex",
+      "path": "math/poly/fwt.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "集合变换与不相交子集卷积的模数条件；逆变换不能省略除以 2 的幂。"
+    },
+    {
+      "label": "knowledge-poly-shift",
+      "source": "docs/knowledge-poly-notes.tex",
+      "path": "math/poly/shift.md",
+      "additional": [
+        "math/poly/multipoint-eval-interpolation.md"
+      ],
+      "relation": "direct",
+      "note": "Taylor 平移与等比点求值只覆盖所需前缀；点数超过阶数时不能直接读系数。"
     }
   ]
 }
