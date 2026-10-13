@@ -1,0 +1,16 @@
+{
+  "scope": "Zmod<998244353> matches the checked add, subtract, multiply, divide, increment and power(10). Z(10)%4 is 2. inv(0) aborts and Z(10)%0 divides by zero. Composite moduli are not covered. Source does not compile alone. No online AC.",
+  "blob": "93b40a4c52c2df389ca66d3cf72394610c7d1ef7",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "inv": -6,
+      "mod0": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_modclass/main.cpp:71:18: runtime error: division by zero"
+    }
+  ]
+}
