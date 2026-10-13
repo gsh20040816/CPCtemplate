@@ -43,6 +43,7 @@ SOURCE_FILES = (
     'docs/knowledge-poly-funcs.tex',
     'docs/knowledge-persistent-notes.tex',
     'docs/knowledge-tree-notes.tex',
+    'docs/knowledge-mo-notes.tex',
 )
 SECTION = re.compile(r'(?m)(?=^\\section\{)')
 LABEL = re.compile(r'\\label\{(knowledge-[^}]+)\}')
@@ -85,7 +86,7 @@ def source_sections(sources):
             # from its title or incidental references in the body.
             assert LABEL.search(fragment.split('\n', 1)[0]), (source, label)
             sections[label] = source
-    assert len(sections) == 77, ('bounded knowledge section count', len(sections))
+    assert len(sections) == 78, ('bounded knowledge section count', len(sections))
     return sections
 
 
@@ -96,7 +97,7 @@ def validate(data, taxonomy, sources):
     scope = data['scope']
     assert len(scope['source_files']) == len(set(scope['source_files']))
     assert set(scope['source_files']) == set(SOURCE_FILES) == set(sources)
-    assert scope['classified_section_count'] == 77
+    assert scope['classified_section_count'] == 78
     assert scope['legacy_source'] == 'docs/mathematics.tex'
     assert scope['legacy_sections_classified'] is False
     assert scope['classification_only'] is True
@@ -129,6 +130,8 @@ def validate(data, taxonomy, sources):
             assert len(hierarchy) == 3, (label, hierarchy)
         elif hierarchy[0] == '图论' and len(hierarchy) == 3:
             pass
+        elif hierarchy[0] == '杂项':
+            assert len(hierarchy) == 4, (label, hierarchy)
         else:
             assert len(hierarchy) == 3 and hierarchy[0] == '数学', (label, hierarchy)
         assert isinstance(entry.get('page_break_before', False), bool)
@@ -163,7 +166,7 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
         self.assertEqual(pinned_navigation(source.read_text()), self.taxonomy['navigation'])
 
     def test_all_registered_sections_have_one_known_primary_leaf(self):
-        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 77)
+        self.assertEqual(len(validate(self.data, self.taxonomy, self.sources)), 78)
         observed = {path.relative_to(ROOT).as_posix()
                     for path in (ROOT / 'docs').glob('knowledge-*.tex')}
         self.assertEqual(observed, set(SOURCE_FILES), 'new source needs explicit classification')
@@ -180,7 +183,8 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
         graph = sum(row['path'].startswith('graph/') for row in self.data['entries'])
         geometry = sum(row['path'].startswith('geometry/') for row in self.data['entries'])
         ds = sum(row['path'].startswith('ds/') for row in self.data['entries'])
-        expected = f'当前有 {count} 个分类知识节（数学 {math}、图论 {graph}、计算几何 {geometry}、数据结构 {ds}）'
+        misc = sum(row['path'].startswith('misc/') for row in self.data['entries'])
+        expected = f'当前有 {count} 个分类知识节（数学 {math}、图论 {graph}、计算几何 {geometry}、数据结构 {ds}、杂项 {misc}）'
         self.assertIn(expected, text)
         self.assertIn('不把这些节数当作完整知识体系的覆盖比例', text)
 
