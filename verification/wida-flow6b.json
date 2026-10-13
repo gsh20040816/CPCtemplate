@@ -1,0 +1,22 @@
+{
+  "scope": "Floating Dinic. dfs accumulates in double and maxFlow passes 1E100. Tested double graphs match Edmonds-Karp exactly. Flow<int> happened to return the edge capacity under UBSan without a diagnostic; that does not define the 1E100 conversion. No online AC.",
+  "blob": "0c820e9e44641bc6b80950037bd10b0fb9dd6a21",
+  "runs": [
+    {
+      "mode": "normal",
+      "cases": 35,
+      "worst_abs": 0.0
+    },
+    {
+      "mode": "sanitizer",
+      "cases": 35,
+      "worst_abs": 0.0
+    },
+    {
+      "mode": "int-limit",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "3"
+    }
+  ]
+}
