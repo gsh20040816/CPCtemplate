@@ -1,0 +1,15 @@
+{
+  "scope": "Integer dot, cross, Manhattan distance and the 90-degree vector match. Adding a scalar changes both coordinates. Zero standardize is not finite. int dis overflows 100000^2. The cc macro escapes the namespace. Source does not compile alone. No online AC.",
+  "blob": "23de33672e259d662d64cd99d4bb4f43f4ac664e",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "overflow": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_plane/main.cpp:79:28: runtime error: signed integer overflow: -100000 * -100000 cannot be represented in type 'int'"
+    }
+  ]
+}
