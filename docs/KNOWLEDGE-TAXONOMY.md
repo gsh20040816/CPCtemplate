@@ -1,6 +1,6 @@
 # 配套知识的 OI Wiki 分类
 
-本表给三十四份知识源文件中的 **93 个带标签节** 登记显式分类。LTE、Lagrange反演、有限状态递推与广义容斥是新增知识正文，另有两节类欧几里德与两节矩阵树及一节整数分拆内容从旧附录迁移，矩阵树补充统一证明、分拆补充限制转换；另迁移一节模运算条件，补非单位元、升模整除与降幂阈值；另补一节Catalan与投票反射建模，并迁移一次不定方程、补矩形约束计数，新增数值积分与曼哈顿最小生成树证明，迁出Pick公式并补几何剖分证明，新增Prüfer计数与Legendre／Kummer赋值解释；本批另新增斯特林定义与反演两节；其余15节保留原主题，静态ModInt扩展时同步更新模概率节的接口前提，并把组合数扩表的求逆实现说明同步为扩展欧几里得；分类本身不新增算法、模板覆盖或 OJ 验证记录。
+本表给三十五份知识源文件中的 **102 个带标签节** 登记显式分类。LTE、Lagrange反演、有限状态递推与广义容斥是新增知识正文，另有两节类欧几里德与两节矩阵树及一节整数分拆内容从旧附录迁移，矩阵树补充统一证明、分拆补充限制转换；另迁移一节模运算条件，补非单位元、升模整除与降幂阈值；另补一节Catalan与投票反射建模，并迁移一次不定方程、补矩形约束计数，新增数值积分与曼哈顿最小生成树证明，迁出Pick公式并补几何剖分证明，新增Prüfer计数与Legendre／Kummer赋值解释；本批另新增斯特林定义与反演两节；其余15节保留原主题，静态ModInt扩展时同步更新模概率节的接口前提，并把组合数扩表的求逆实现说明同步为扩展欧几里得；分类本身不新增算法、模板覆盖或 OJ 验证记录。
 
 ## 固定来源与范围
 
@@ -8,7 +8,7 @@
 - 本地来源为 [`references/oi-wiki-mkdocs.yml`](references/oi-wiki-mkdocs.yml)，SHA256：`de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806`
 - 路径、完整大中小分类名和先后顺序取自 [`oi-taxonomy.json`](oi-taxonomy.json) 的 `navigation`，不另造 OI Wiki 叶子
 - 分类数据为 [`knowledge-taxonomy.json`](knowledge-taxonomy.json)；源文件仍为 `knowledge-combinatorics.tex`、`knowledge-probability-games.tex`、`knowledge-mobius.tex`、`knowledge-orbits.tex`、`knowledge-lte.tex`、`knowledge-lagrange.tex`、`knowledge-state-recurrence.tex`、`knowledge-inclusion.tex`、`knowledge-floor-sums.tex`、`knowledge-matrix-tree.tex`、`knowledge-partitions.tex`、`knowledge-modular-conditions.tex`、`knowledge-ballot.tex`、`knowledge-diophantine.tex`、`knowledge-integration.tex`、`knowledge-manhattan-mst.tex`、`knowledge-pick.tex`
-- 杜教筛、64 位判素、单个欧拉函数、线性筛和区间筛已迁入 `knowledge-sieve-notes.tex`。矩形 GCD、幂的约数和、批量逆元、线性逆元、线性同余、扩展 CRT 与 Garner 已迁入 `knowledge-arithmetic-notes.tex`。二次剩余、原根、Carmichael、Lucas、扩展 Lucas 和阶乘表已迁入 `knowledge-residues.tex`。组合计数、生成函数与递推、线性代数与生成树、模线性方程组、数值边界和线性递推已迁入 `knowledge-model-notes.tex`。素数模、素数幂模、合数模高次剩余和自动准备原根已迁入 `knowledge-higher-residues.tex`。任意正模数行列式、参数化 NTT、Bostan–Mori、集合变换和 Taylor 平移已迁入 `knowledge-poly-notes.tex`。带余除法、开根、ln/exp、大指数幂、集合逆变换和浮点 FFT 已迁入 `knowledge-poly-funcs.tex`。可持久化区间拼接和杭州 2023 K 已迁入 `knowledge-persistent-notes.tex`。树路径交和点集直径已迁入 `knowledge-tree-notes.tex`。带修莫队已迁入 `knowledge-mo-notes.tex`。莫队二次离线已迁入 `knowledge-mo-secondary.tex`。函数图、杭州 2023 H 和杭州 2023 G 已迁入 `knowledge-functional-notes.tex`。SCC、并查集、ACL 约定、动态树路径乘积、Treap 和替罪羊树已迁入 `knowledge-structure-notes.tex`。线段树扫描、K-D 树、CDQ 卷积、SPFA 费用流和 2-SAT 已迁入 `knowledge-query-notes.tex`。`mathematics.tex` 的其余历史知识节尚未逐项分类，继续保留在附录；这些历史内容还混有其他分册的应用说明。本次不声称完成全部数学知识重排或 issue #5/#7 的全部范围
+- 杜教筛、64 位判素、单个欧拉函数、线性筛和区间筛已迁入 `knowledge-sieve-notes.tex`。矩形 GCD、幂的约数和、批量逆元、线性逆元、线性同余、扩展 CRT 与 Garner 已迁入 `knowledge-arithmetic-notes.tex`。二次剩余、原根、Carmichael、Lucas、扩展 Lucas 和阶乘表已迁入 `knowledge-residues.tex`。组合计数、生成函数与递推、线性代数与生成树、模线性方程组、数值边界和线性递推已迁入 `knowledge-model-notes.tex`。素数模、素数幂模、合数模高次剩余和自动准备原根已迁入 `knowledge-higher-residues.tex`。任意正模数行列式、参数化 NTT、Bostan–Mori、集合变换和 Taylor 平移已迁入 `knowledge-poly-notes.tex`。带余除法、开根、ln/exp、大指数幂、集合逆变换和浮点 FFT 已迁入 `knowledge-poly-funcs.tex`。可持久化区间拼接和杭州 2023 K 已迁入 `knowledge-persistent-notes.tex`。树路径交和点集直径已迁入 `knowledge-tree-notes.tex`。带修莫队已迁入 `knowledge-mo-notes.tex`。莫队二次离线已迁入 `knowledge-mo-secondary.tex`。函数图、杭州 2023 H 和杭州 2023 G 已迁入 `knowledge-functional-notes.tex`。SCC、并查集、ACL 约定、动态树路径乘积、Treap 和替罪羊树已迁入 `knowledge-structure-notes.tex`。线段树扫描、K-D 树、CDQ 卷积、SPFA 费用流和 2-SAT 已迁入 `knowledge-query-notes.tex`。回文、后缀、单位边流、树上用法、模 2 消元、严格次小生成树和闭合集已迁入 `knowledge-application-notes.tex`。压位小波矩阵仍留在 `mathematics.tex`：固定导航没有小波矩阵页，不能改记成划分树。`mathematics.tex` 的其余历史知识节尚未逐项分类，继续保留在附录；这些历史内容还混有其他分册的应用说明。本次不声称完成全部数学知识重排或 issue #5/#7 的全部范围
 - 导航来源是固定的 OI Wiki 官方仓库，不声称已核验 `oi-wiki.com` 与该导航相同，也不要求实时网站提供相同路径
 
 ## 数据与生成约定
@@ -147,8 +147,18 @@
 | `knowledge-spfa-cost`<br>`docs/knowledge-query-notes.tex` | 图论 → 网络流 → 费用流<br>`graph/flow/min-cost.md` | application：允许负边，不允许负环。 |
 | `knowledge-twosat-bcc`<br>`docs/knowledge-query-notes.tex` | 图论 → 2-SAT<br>`graph/2-sat.md` | composite：真值方向绑定 SCC 编号序，并写出点双定义。 |
 
+| `knowledge-palindrome`<br>`docs/knowledge-application-notes.tex` | 字符串 → Manacher<br>`string/manacher.md` | composite：奇偶半径与回文树的出现次数不是同一契约。 |
+| `knowledge-suffix-bounds`<br>`docs/knowledge-application-notes.tex` | 字符串 → 后缀数组 (SA) → 后缀数组简介<br>`string/sa.md` | composite：整数入口先离散化；SAM 次数按长度倒序。 |
+| `knowledge-general-sam`<br>`docs/knowledge-application-notes.tex` | 字符串 → 广义后缀自动机<br>`string/general-sam.md` | direct：点数按 endpos，不是后缀 DFA 的最少状态。 |
+| `knowledge-flow-units`<br>`docs/knowledge-application-notes.tex` | 图论 → 网络流 → 最大流<br>`graph/flow/max-flow.md` | application：单位边分类用残量 SCC，不是最小割。 |
+| `knowledge-tree-uses`<br>`docs/knowledge-application-notes.tex` | 图论 → 树上问题 → 树分治<br>`graph/tree-divide.md` | composite：点分治、启发式合并与虚树最小边。 |
+| `knowledge-gauss-xor`<br>`docs/knowledge-application-notes.tex` | 数学 → 数值算法 → 高斯消元<br>`math/numerical/gauss.md` | direct：模 2 消元给出特解和零空间基。 |
+| `knowledge-second-mst`<br>`docs/knowledge-application-notes.tex` | 图论 → 生成树问题 → 最小生成树<br>`graph/mst.md` | application：严格次小要删不同权的第二大边。 |
+| `knowledge-switch-min`<br>`docs/knowledge-application-notes.tex` | 数学 → 数值算法 → 高斯消元<br>`math/numerical/gauss.md` | application：最少开关枚举零空间，不数一份特解。 |
+| `knowledge-closure-cuts`<br>`docs/knowledge-application-notes.tex` | 图论 → 网络流 → 最小割<br>`graph/flow/min-cut.md` | composite：闭合集、最小树形图和全局割。 |
+
 ## 本地检查
 
-运行 `python3 tests/knowledge_taxonomy.py`。该检查独立解析固定导航源文件，验证快照哈希与生成导航一致、93 个知识标签恰好各映射一次、源路径和叶子路径有效、主归属遵从固定导航：数学68节为三级，数据结构9节中 K-D 树为二级、其余为三级，另有3节图论三级叶子，函数图两节归入图论相关概念二级叶子，矩阵树2节为图论的既定二级叶子，曼哈顿最小生成树1节归入图论的最小生成树三级叶子，Prüfer1节归入图论的既定二级叶子，Pick1节归入计算几何的既定二级叶子，以及范围声明仍明确保留历史知识未分类的限制。负例检查覆盖重复、遗漏、错误源文件、未知叶子和擅自扩大范围；改标题而不改标签不会改变分类。
+运行 `python3 tests/knowledge_taxonomy.py`。该检查独立解析固定导航源文件，验证快照哈希与生成导航一致、102 个知识标签恰好各映射一次、源路径和叶子路径有效、主归属遵从固定导航：数学68节为三级，数据结构9节中 K-D 树为二级、其余为三级，另有3节图论三级叶子，函数图两节归入图论相关概念二级叶子，矩阵树2节为图论的既定二级叶子，曼哈顿最小生成树1节归入图论的最小生成树三级叶子，Prüfer1节归入图论的既定二级叶子，Pick1节归入计算几何的既定二级叶子，以及范围声明仍明确保留历史知识未分类的限制。负例检查覆盖重复、遗漏、错误源文件、未知叶子和擅自扩大范围；改标题而不改标签不会改变分类。
 
 这是分类数据检查，不是算法正确性、完整回归、线上 AC 或 PDF 视觉验收。数学例子与接口的原有验证仍见各知识源文件和 `tests/math_knowledge_*.py`。

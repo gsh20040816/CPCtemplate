@@ -37,9 +37,10 @@
       "docs/knowledge-mo-secondary.tex",
       "docs/knowledge-functional-notes.tex",
       "docs/knowledge-structure-notes.tex",
-      "docs/knowledge-query-notes.tex"
+      "docs/knowledge-query-notes.tex",
+      "docs/knowledge-application-notes.tex"
     ],
-    "classified_section_count": 93,
+    "classified_section_count": 102,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -960,6 +961,92 @@
       ],
       "relation": "composite",
       "note": "真值方向取决于 SCC 编号序。点双按无割点定义，换 SCC 实现必须重查赋值不等号。"
+    },
+    {
+      "label": "knowledge-palindrome",
+      "source": "docs/knowledge-application-notes.tex",
+      "path": "string/manacher.md",
+      "additional": [
+        "string/pam.md"
+      ],
+      "relation": "composite",
+      "note": "奇数和偶数半径的约定不同。PAM 的出现次数不是 Manacher 的任意字节契约。"
+    },
+    {
+      "label": "knowledge-suffix-bounds",
+      "source": "docs/knowledge-application-notes.tex",
+      "path": "string/sa.md",
+      "additional": [
+        "string/sam.md"
+      ],
+      "relation": "composite",
+      "note": "整数后缀数组要先离散化。SAM 出现次数按长度倒序传播，不能按创建编号。"
+    },
+    {
+      "label": "knowledge-general-sam",
+      "source": "docs/knowledge-application-notes.tex",
+      "path": "string/general-sam.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "点数按 endpos 等价类。后缀并集的最小 DFA 可以更少，不能据“最小”二字改口径。"
+    },
+    {
+      "label": "knowledge-flow-units",
+      "source": "docs/knowledge-application-notes.tex",
+      "path": "graph/flow/max-flow.md",
+      "additional": [
+        "graph/scc.md"
+      ],
+      "relation": "application",
+      "note": "单位边满流分类用残量 SCC，不是最小割边分类。本地证据不是线上 AC。"
+    },
+    {
+      "label": "knowledge-tree-uses",
+      "source": "docs/knowledge-application-notes.tex",
+      "path": "graph/tree-divide.md",
+      "additional": [
+        "graph/dsu-on-tree.md",
+        "graph/virtual-tree.md"
+      ],
+      "relation": "composite",
+      "note": "点分治、子树颜色和与虚树最小边是三份用法。虚树取路径最小值，不取路径总长。"
+    },
+    {
+      "label": "knowledge-gauss-xor",
+      "source": "docs/knowledge-application-notes.tex",
+      "path": "math/numerical/gauss.md",
+      "additional": [
+        "math/linear-algebra/basis.md"
+      ],
+      "relation": "direct",
+      "note": "模 2 消元给出特解和零空间基。无解和空特解都要看 consistent。"
+    },
+    {
+      "label": "knowledge-second-mst",
+      "source": "docs/knowledge-application-notes.tex",
+      "path": "graph/mst.md",
+      "additional": [],
+      "relation": "application",
+      "note": "严格次小必须删不同权的第二大边。同权另一棵 MST 不是严格次小。"
+    },
+    {
+      "label": "knowledge-switch-min",
+      "source": "docs/knowledge-application-notes.tex",
+      "path": "math/numerical/gauss.md",
+      "additional": [],
+      "relation": "application",
+      "note": "最少开关要枚举零空间，不能只数一份特解。棋盘维数界不能套到任意异或方程。"
+    },
+    {
+      "label": "knowledge-closure-cuts",
+      "source": "docs/knowledge-application-notes.tex",
+      "path": "graph/flow/min-cut.md",
+      "additional": [
+        "graph/dmst.md",
+        "graph/stoer-wagner.md"
+      ],
+      "relation": "composite",
+      "note": "闭合集、最小树形图和全局割是三份用法。本地验证不等于线上 AC。"
     }
   ]
 }
