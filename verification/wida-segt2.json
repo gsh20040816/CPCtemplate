@@ -1,0 +1,15 @@
+{
+  "scope": "Range add and range multiply on 1..4 match a plain array for every subarray sum. There is no Segt alias. Multiplying a length by 1000000000 overflows int. n=0 is not constructed. Source does not compile alone. No online AC.",
+  "blob": "70f64fe0d8fb9db507246830308a0edb9f917a38",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "overflow": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_segt2/main.cpp:54:45: runtime error: signed integer overflow: 3 * 1000000000 cannot be represented in type 'int'"
+    }
+  ]
+}
