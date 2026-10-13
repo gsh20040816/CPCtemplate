@@ -1,0 +1,52 @@
+{
+  "scope": "Exact CF1598G WIDA source official samples and legal deterministic out-of-bounds witness. Current exkmp only compared with literal LCP; full decimal application replacement is not implemented. No new online AC.",
+  "runs": [
+    {
+      "mode": "normal",
+      "task": "source_official_samples",
+      "cases": 4,
+      "passed": true
+    },
+    {
+      "mode": "normal",
+      "task": "current_lcp_only",
+      "cases": 1004,
+      "passed": true
+    },
+    {
+      "mode": "sanitizer",
+      "task": "source_official_samples",
+      "cases": 4,
+      "passed": true
+    },
+    {
+      "mode": "sanitizer",
+      "task": "source_legal_witness",
+      "input": [
+        "999124554",
+        "99"
+      ],
+      "valid_answer": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "returncode": -6,
+      "stderr": "=================================================================\n==39173==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000097c at pc 0x0001009f0e0c bp 0x00016f411660 sp 0x00016f411678\nREAD of size 4 at 0x60200000097c thread T0\n==39173==WARN: Invalid dyld module map detected. This is most likely a bug in the sanitizer.\n==39173==WARN: Backtraces may be unreliable.\n    #0 0x0001009f0e08 in main main.cpp:86\n    #1 0x00019d4c7e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\n0x60200000097c is located 0 bytes after 12-byte region [0x602000000970,0x60200000097c)\nallocated by thread T0 here:\n    #0 0x0001014babcc in _Znwm+0x6c (libasan.8.dylib:arm64+0x4ebcc)\n    #1 0x0001009ed2d4 in std::vector<int, std::allocator<int>>::vector(unsigned long, std::allocator<int> const&) main.cpp:577\n    #2 0x0001009ef878 in main main.cpp:70\n    #3 0x00019d4c7e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\nSUMMARY: AddressSanitizer: heap-buffer-overflow main.cpp:86 in main\nShadow bytes around the buggy address:\n  0x602000000680: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000700: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000780: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000800: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000880: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 03\n=>0x602000000900: fa fa 00 00 fa fa 00 fa fa fa 00 00 fa fa 00[04]\n  0x602000000980: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000a00: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000a80: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000b00: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\n  0x602000000b80: fa fa 00 00 fa fa 00 00 fa fa 00 00 fa fa 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==39173==ABORTING\n"
+    },
+    {
+      "mode": "sanitizer",
+      "task": "current_lcp_only",
+      "cases": 1004,
+      "passed": true
+    }
+  ],
+  "files": {
+    "tests/wida_decimal_hash.py": "3aecaedaff94075a262b638553208b769c75134abe3cad97b7caca7165113605",
+    "tests/wida_decimal_lcp.cpp": "d6d5b6bc652cfabc991f4844859f8d4b08f84a3f91212891d8731f8e7d87a6f8",
+    "tests/fixtures/wida_decimal_hash/main.cpp": "2d33c2c9cfe61f8ac8769367cf65aa01b852add36419e2b7925bb31ac7544331",
+    "src/compact/exkmp.hpp": "cdacaf46dc58202b0826c9f7598bc0d75869a5ff68e730246df859a0bb1fbbc6",
+    "src/compact/string.hpp": "be145d0bbbe033aae59174b130d391af9dfa5de32adb5c5dca4243b1d68e90f4"
+  }
+}
