@@ -30,9 +30,10 @@
       "docs/knowledge-model-notes.tex",
       "docs/knowledge-higher-residues.tex",
       "docs/knowledge-poly-notes.tex",
-      "docs/knowledge-poly-funcs.tex"
+      "docs/knowledge-poly-funcs.tex",
+      "docs/knowledge-persistent-notes.tex"
     ],
-    "classified_section_count": 73,
+    "classified_section_count": 75,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -776,6 +777,24 @@
       "additional": [],
       "relation": "direct",
       "note": "浮点 FFT 在舍入前要约束最坏误差，不能把近似结果直接当成精确卷积。"
+    },
+    {
+      "label": "knowledge-persistent-concat",
+      "source": "docs/knowledge-persistent-notes.tex",
+      "path": "ds/persistent-seg.md",
+      "additional": [
+        "ds/seg.md"
+      ],
+      "relation": "direct",
+      "note": "可持久化线段树上的区间拼接与懒标记边界；不新增接口。"
+    },
+    {
+      "label": "knowledge-hangzhou-k",
+      "source": "docs/knowledge-persistent-notes.tex",
+      "path": "ds/persistent-seg.md",
+      "additional": [],
+      "relation": "application",
+      "note": "杭州 2023 K 是跨版本拼接的应用，不单独扩大可持久化结构的契约。"
     }
   ]
 }
