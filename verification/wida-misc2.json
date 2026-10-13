@@ -1,0 +1,70 @@
+{
+  "scope": "int128 output skips negatives and sqrt search stops at 1e16. floor/ceil formulas are for the tested signs only. get(0) decrements until signed overflow; logi(1,2) does not advance. A full fread lands on the output array, and a missing number walks off the global. No new template or online AC.",
+  "blobs": {
+    "01 - int128 \u5e93\u51fd\u6570\u81ea\u5b9a\u4e49.cpp": "91a016e76a923cedf9f15636d39064f06c0a27ce",
+    "02 - \u5e38\u7528\u5e93\u51fd\u6570\u91cd\u8f7d.cpp": "0b91ba07bf4066c04479a158f5507d7939b2ed66",
+    "05 - \u5feb\u8bfb.cpp": "8f665a510e27028bcd803f274c9cc741f2a0eee6"
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "squares": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "8": 2,
+        "9": 3,
+        "10": 3,
+        "9007199254740992": 94906265,
+        "9007199254740991": 94906265
+      }
+    },
+    {
+      "mode": "sanitizer",
+      "squares": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "8": 2,
+        "9": 3,
+        "10": 3,
+        "9007199254740992": 94906265,
+        "9007199254740991": 94906265
+      }
+    },
+    {
+      "empty_read": true
+    },
+    {
+      "full_buffer_lands_on_output_array": true
+    },
+    {
+      "missing_int64_reader": true,
+      "hangs": [
+        {
+          "label": "get0-o2",
+          "stdout": "-3037000500"
+        },
+        {
+          "label": "logi-one",
+          "finished": false
+        },
+        {
+          "label": "ceil-overflow",
+          "returncode": -6,
+          "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_misc2/02 - \u5e38\u7528\u5e93\u51fd\u6570\u91cd\u8f7d.cpp:9:19: runtime error: signed integer overflow: 9223372036854775807 + 2 cannot be represented in type 'long long int'"
+        },
+        {
+          "label": "sqrt-overflow",
+          "returncode": -6,
+          "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_misc2/02 - \u5e38\u7528\u5e93\u51fd\u6570\u91cd\u8f7d.cpp:48:20: runtime error: signed integer overflow: 3037000500 * 3037000500 cannot be represented in type 'long long int'"
+        },
+        {
+          "label": "get0",
+          "returncode": -6,
+          "stderr": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_misc2/02 - \u5e38\u7528\u5e93\u51fd\u6570\u91cd\u8f7d.cpp:62:14: runtime error: signed integer overflow: -3037000500 * -3037000501 cannot be represented in type 'long long int'"
+        }
+      ]
+    }
+  ]
+}
