@@ -24,9 +24,10 @@
       "docs/knowledge-prufer.tex",
       "docs/knowledge-valuations.tex",
       "docs/knowledge-stirling.tex",
-      "docs/knowledge-sieve-notes.tex"
+      "docs/knowledge-sieve-notes.tex",
+      "docs/knowledge-arithmetic-notes.tex"
     ],
-    "classified_section_count": 39,
+    "classified_section_count": 46,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -444,6 +445,71 @@
       "additional": [],
       "relation": "application",
       "note": "只保存目标区间的素数筛、端点溢出与相邻差；尚无本库在线 AC。"
+    },
+    {
+      "label": "knowledge-coprime-rectangles",
+      "source": "docs/knowledge-arithmetic-notes.tex",
+      "path": "math/number-theory/mobius.md",
+      "additional": [
+        "math/number-theory/sqrt-decomposition.md",
+        "math/number-theory/euler-totient.md"
+      ],
+      "relation": "application",
+      "note": "矩形互质计数与 gcd=k 的四前缀容斥；P2522 的既有验证不记成新的在线 AC。"
+    },
+    {
+      "label": "knowledge-divisor-power-sum",
+      "source": "docs/knowledge-arithmetic-notes.tex",
+      "path": "math/number-theory/dirichlet.md",
+      "additional": [
+        "math/number-theory/inverse.md"
+      ],
+      "relation": "direct",
+      "note": "幂的约数和按质因子几何级数相乘；合数模或 p≡1 时不除以 p-1。"
+    },
+    {
+      "label": "knowledge-batch-inverse",
+      "source": "docs/knowledge-arithmetic-notes.tex",
+      "path": "math/number-theory/inverse.md",
+      "additional": [],
+      "relation": "direct",
+      "note": "任意数组批量逆元的前缀积与一次逆元；不把空数组或零元素写成可逆。"
+    },
+    {
+      "label": "knowledge-linear-inverses",
+      "source": "docs/knowledge-arithmetic-notes.tex",
+      "path": "math/number-theory/inverse.md",
+      "additional": [],
+      "relation": "application",
+      "note": "连续整数线性逆元表的递推前提是模数为素数且下标小于模数。"
+    },
+    {
+      "label": "knowledge-linear-congruence",
+      "source": "docs/knowledge-arithmetic-notes.tex",
+      "path": "math/number-theory/linear-equation.md",
+      "additional": [
+        "math/number-theory/bezouts.md"
+      ],
+      "relation": "direct",
+      "note": "线性同余的最小非负解与最小正周期；无解时不输出周期。"
+    },
+    {
+      "label": "knowledge-excrt",
+      "source": "docs/knowledge-arithmetic-notes.tex",
+      "path": "math/number-theory/crt.md",
+      "additional": [
+        "math/number-theory/linear-equation.md"
+      ],
+      "relation": "direct",
+      "note": "不要求两两互素的逐式合并；合并失败保持无解，不新增接口。"
+    },
+    {
+      "label": "knowledge-garner",
+      "source": "docs/knowledge-arithmetic-notes.tex",
+      "path": "math/number-theory/crt.md",
+      "additional": [],
+      "relation": "application",
+      "note": "混合进制重建与规范代表元；乘积不够大时不能把代表元当成原整数。"
     }
   ]
 }
