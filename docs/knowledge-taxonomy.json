@@ -25,9 +25,10 @@
       "docs/knowledge-valuations.tex",
       "docs/knowledge-stirling.tex",
       "docs/knowledge-sieve-notes.tex",
-      "docs/knowledge-arithmetic-notes.tex"
+      "docs/knowledge-arithmetic-notes.tex",
+      "docs/knowledge-residues.tex"
     ],
-    "classified_section_count": 46,
+    "classified_section_count": 52,
     "legacy_source": "docs/mathematics.tex",
     "legacy_sections_classified": false,
     "classification_only": true,
@@ -510,6 +511,67 @@
       "additional": [],
       "relation": "application",
       "note": "混合进制重建与规范代表元；乘积不够大时不能把代表元当成原整数。"
+    },
+    {
+      "label": "knowledge-quadratic-residue",
+      "source": "docs/knowledge-residues.tex",
+      "path": "math/number-theory/quad-residue.md",
+      "additional": [
+        "math/number-theory/fermat.md"
+      ],
+      "relation": "direct",
+      "note": "奇素数模的 Euler 判别、p≡3 mod 4 的显式根与 Cipolla；0 与合数模不在这节范围。"
+    },
+    {
+      "label": "knowledge-primitive-root",
+      "source": "docs/knowledge-residues.tex",
+      "path": "math/number-theory/primitive-root.md",
+      "additional": [
+        "math/number-theory/euler-totient.md"
+      ],
+      "relation": "direct",
+      "note": "乘法阶与原根存在条件；不把任意合数都写成有原根。"
+    },
+    {
+      "label": "knowledge-carmichael",
+      "source": "docs/knowledge-residues.tex",
+      "path": "math/number-theory/fermat.md",
+      "additional": [
+        "math/number-theory/primitive-root.md"
+      ],
+      "relation": "application",
+      "note": "Carmichael 函数是乘法群的最小公共指数；Korselt 条件只说明 Carmichael 数，不新增判素接口。"
+    },
+    {
+      "label": "knowledge-lucas",
+      "source": "docs/knowledge-residues.tex",
+      "path": "math/number-theory/lucas.md",
+      "additional": [
+        "math/number-theory/factorial.md"
+      ],
+      "relation": "direct",
+      "note": "素数模组合数按素数进制逐位相乘；模数不是素数时不能套用。"
+    },
+    {
+      "label": "knowledge-exlucas",
+      "source": "docs/knowledge-residues.tex",
+      "path": "math/number-theory/lucas.md",
+      "additional": [
+        "math/number-theory/crt.md",
+        "math/number-theory/inverse.md"
+      ],
+      "relation": "application",
+      "note": "合数模组合数拆成素数幂后用 CRT 合并；不把 Lucas 的素数条件扩大到合数。"
+    },
+    {
+      "label": "knowledge-factorial-table",
+      "source": "docs/knowledge-residues.tex",
+      "path": "math/number-theory/factorial.md",
+      "additional": [
+        "math/combinatorics/combination.md"
+      ],
+      "relation": "direct",
+      "note": "阶乘表同时给出组合数与排列数的查表范围；超出预计算上界时不能读表。"
     }
   ]
 }
