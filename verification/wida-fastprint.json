@@ -1,0 +1,16 @@
+{
+  "scope": "Binary gcd matches std::gcd on 0..200, and gcd(-4,6) is 2. is_prime matches trial through 5000. Montgomery add, sub, mul, div and pow match mod 1000000007 on 0..49. Miller-Rabin matches through 3000 and accepts the two 1e9 primes. HLPP matches Edmonds-Karp on three graphs. The Pollard-Rho fence is a stub and does not compile. Cin reads -12 0 34; empty input does not finish; Cout(INT_MIN) negates the minimum. No online AC.",
+  "blob": "f78e56d873d9b1297f19c70b658a2ac5a1556a6d",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "mode": "sanitizer"
+    },
+    {
+      "empty": "did not finish",
+      "minimum": "/Users/gsh/Workspace/CPCtemplate/build/wida-fastprint/fio-min.cpp:23:32: runtime error: negation of -2147483648 cannot be represented in type 'int'; cast to an unsigned type to negate this value to itself"
+    }
+  ]
+}

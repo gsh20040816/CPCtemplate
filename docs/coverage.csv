@@ -419,13 +419,13 @@ WIDA,02 - 打印稿模板汇总/12 - STL与库函数.md,,对 vector 定义哈希
 WIDA,02 - 打印稿模板汇总/12 - STL与库函数.md,,程序标准化,pending,,
 WIDA,02 - 打印稿模板汇总/12 - STL与库函数.md,,使用 Lambda 函数,pending,,
 WIDA,02 - 打印稿模板汇总/12 - STL与库函数.md,,使用构造函数,pending,,
-WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,基础算法 | 最大公约数 `gcd` | 位运算加速,pending,,
-WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,数论 | 质数判定 | 预分类讨论加速,pending,,
-WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,数论 | 质数判定 | Miller-Rabin,pending,,
-WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,数论 | 质因数分解 | Pollard-Rho,pending,,
-WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,数论 | 取模运算类 | 蒙哥马利模乘,pending,,
-WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,网络流 | 最大流 | 预流推进 HLPP,pending,,
-WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,快读,pending,,
+WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,基础算法 | 最大公约数 `gcd` | 位运算加速,partial,,"matches std::gcd on 0..200; gcd(-4,6) is 2; tests/wida_fastprint.py; docs/WIDA-FASTPRINT.md"
+WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,数论 | 质数判定 | 预分类讨论加速,partial,,matches trial through 5000; tests/wida_fastprint.py; docs/WIDA-FASTPRINT.md
+WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,数论 | 质数判定 | Miller-Rabin,partial,,needs i64; matches through 3000 and two 1e9 primes; tests/wida_fastprint.py; docs/WIDA-FASTPRINT.md
+WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,数论 | 质因数分解 | Pollard-Rho,partial,,Montgomery and isprime are empty stubs; does not compile; tests/wida_fastprint.py; docs/WIDA-FASTPRINT.md
+WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,数论 | 取模运算类 | 蒙哥马利模乘,partial,,needs i64; add/sub/mul/div/pow match mod 1000000007 on 0..49; tests/wida_fastprint.py; docs/WIDA-FASTPRINT.md
+WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,网络流 | 最大流 | 预流推进 HLPP,partial,,matches Edmonds-Karp on three small graphs; tests/wida_fastprint.py; docs/WIDA-FASTPRINT.md
+WIDA,02 - 打印稿模板汇总/13 - 卡常.md,,快读,partial,,reads -12 0 34; empty input does not finish; Cout(INT_MIN) negates the minimum; tests/wida_fastprint.py; docs/WIDA-FASTPRINT.md
 WIDA,02 - 打印稿模板汇总/14 - 杂类.md,,统计区间不同数字的数量（离线查询）,pending,,
 WIDA,02 - 打印稿模板汇总/14 - 杂类.md,,选数（DFS 解）,pending,,
 WIDA,02 - 打印稿模板汇总/14 - 杂类.md,,选数（位运算状压）,pending,,
