@@ -1,0 +1,22 @@
+{
+  "scope": "Without ONLINE_JUDGE the build stops at bits/wida.h. With it, the empty program prints nothing. Helpers match the checked min, sum, sort, floor, loops and macros. floor(5,0) aborts and mypow(100000,2) overflows int. The int macro and freopen are not used by the empty program. No online AC.",
+  "blob": "bf2c922a8bca7f3bbf97f1b5be2ca61d222b5c87",
+  "runs": [
+    {
+      "program": "normal"
+    },
+    {
+      "program": "sanitizer"
+    },
+    {
+      "helpers": "normal"
+    },
+    {
+      "helpers": "sanitizer"
+    },
+    {
+      "zero": -6,
+      "pow": "/Users/gsh/Workspace/CPCtemplate/build/wida-header/wrapped.cpp:77:34: runtime error: signed integer overflow: 100000 * 100000 cannot be represented in type 'int'"
+    }
+  ]
+}
