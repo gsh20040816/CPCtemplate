@@ -1,0 +1,13 @@
+{
+  "scope": "The checker is a Windows loop. On this machine the three .exe names are missing and system(\"fc ...\") does not return within 3 seconds, so the Wrong Answer path is not reached. CLOCKS_PER_SEC is 1000000 while the source labels the difference ms. A failing compare would call exit(0). The bat line if errorlevel==1 was not run. The sample program needs ONLINE_JUDGE or bits/wida.h. The two freopen snippets copy Ask.txt. No online AC.",
+  "blob": "632a72ec2ef746f054de87c894848f8474587237",
+  "runs": [
+    {
+      "checker": "fc did not return within 3s; the three exe names were not found",
+      "clocks": "#define CLOCKS_PER_SEC ((clock_t)1000000)"
+    },
+    {
+      "redirect": "ping"
+    }
+  ]
+}
