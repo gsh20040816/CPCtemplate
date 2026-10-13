@@ -10,7 +10,7 @@ WIDA,01 - 常用在线模板汇总/01 - 初始与杂类/03 - 对拍相关.md,,�
 WIDA,01 - 常用在线模板汇总/01 - 初始与杂类/04 - 手工随机哈希.cpp,,04 - 手工随机哈希,partial,,one-run splitmix hash distinguishes 0..999; map and gp_hash_table round-trip; seeds are not fixed; tests/wida_hash.py; no online AC; docs/WIDA-HASH.md
 WIDA,01 - 常用在线模板汇总/01 - 初始与杂类/05 - 全排列生成.cpp,,05 - 全排列生成,partial,,sorted distinct permutations match; duplicates print once; n=0 prints a blank line; failed input untested; tests/wida_perm.py; no online AC; docs/WIDA-PERM.md
 WIDA,01 - 常用在线模板汇总/01 - 初始与杂类/06 - 快读（fread）.cpp,,06 - 快读（fread）,partial,,reads -12 0 34; empty input does not finish; 10-digit and INT_MIN overflow; tests/wida_fread.py; no online AC; docs/WIDA-FREAD.md
-WIDA,01 - 常用在线模板汇总/01 - 初始与杂类/07 - int128输入输出流控制.cpp,,07 - int128输入输出流控制,pending,,
+WIDA,01 - 常用在线模板汇总/01 - 初始与杂类/07 - int128输入输出流控制.cpp,,07 - int128输入输出流控制,partial,,-O2 prints -12 34 but UBSan hits empty string::back(); int128 minimum negation is undefined; abs is ambiguous; tests/wida_i128.py; no online AC; docs/WIDA-I128.md
 WIDA,01 - 常用在线模板汇总/01 - 初始与杂类/08 - 样例构造（随机数、树、图生成）.cpp,,08 - 样例构造（随机数、树、图生成）,pending,,
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/01 - 树的直径.cpp,,01 - 树的直径,partial,,unweighted component diameter in edges; endpoints discarded; does not compile alone; tests/wida_diameter.py; no online AC; docs/WIDA-DIAMETER.md
 WIDA,01 - 常用在线模板汇总/02 - 图、树、网络流/02 - 点分治.cpp,,02 - 点分治,local-tested,src/compact/centroid.hpp,tests/centroid.cpp; P3806 both styles AC for static distance existence; full counts tested locally

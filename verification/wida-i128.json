@@ -1,0 +1,13 @@
+{
+  "scope": "At -O2, \"-12 34\" prints back and my128::abs(-12) is 12. UBSan says the reader reaches an unreachable point after the last character. Negating the int128 minimum is undefined. using namespace my128 makes abs ambiguous with std::abs. Source does not compile alone. No online AC.",
+  "blob": "29f875f2fe00ce7f1ef7232860d394784af4f738",
+  "runs": [
+    {
+      "mode": "normal"
+    },
+    {
+      "empty_back": "/opt/homebrew/Cellar/gcc/16.2.0/include/c++/16/bits/basic_string.h:282:29: runtime error: execution reached an unreachable program point",
+      "minimum": "/Users/gsh/Workspace/CPCtemplate/tests/fixtures/wida_i128/main.cpp:28:38: runtime error: negation of 0x80000000000000000000000000000000 cannot be represented in type '__int128'; cast to an unsigned type to negate this value to itself"
+    }
+  ]
+}
