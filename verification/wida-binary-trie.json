@@ -1,0 +1,16 @@
+{
+  "scope": "Exact 09B functions. raw add(0,3) without newNode makes trie[1][0] point at the root. Source leaves f[0]=0; setting it to inf is a test-only mutation and changes results. No main, no problem statement, no persistent xor trie equivalence.",
+  "blob": "47c6850d2a957c9e4e2cfbb52d168c57f7c14c9d",
+  "runs": [
+    {
+      "mode": "normal",
+      "checks": 437,
+      "cases": 32
+    },
+    {
+      "mode": "sanitizer",
+      "checks": 437,
+      "cases": 32
+    }
+  ]
+}
