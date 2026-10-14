@@ -3512,6 +3512,93 @@ $g(n)\le|S|$；长度为 $\max S$ 的整个窗口重复后才保证最终周期�
 \label{end-probability-games-supplement}
 
 
+\subsection{巴什博弈}\label{knowledge-game-bash}\index{巴什博弈}
+\textbf{内容}：一堆 $n$ 颗，每次取 $1\sim k$ 颗，取走最后一颗者胜。\\
+\textbf{结论}：$(k+1)\mid n$ 时先手必败，否则先手取 $n\bmod(k+1)$ 颗必胜。\\
+\textbf{思路}：对方取 $t$ 颗，自己就取 $k+1-t$ 颗，使每轮共取 $k+1$ 颗，局面始终保持 $(k+1)\mid n$。\\
+\textbf{适用}：单堆、每次取数量为连续区间 $[1,k]$；若允许集合不是区间，按减法游戏求 SG（第~\pageref{knowledge-subtraction-game}~页）。
+
+
+
+\subsection{Nim 游戏}\label{knowledge-game-nim}\index{Nim}
+\textbf{内容}：若干堆，每次从一堆取任意正数颗，取走最后一颗者胜。\\
+\textbf{结论}：各堆异或为 $0$ 时先手必败。\\
+\textbf{思路}：异或非零时，取异或最高位为 1 的一堆 $a_i$，改成 $a_i\oplus X<a_i$ 即可使异或变 $0$；异或为 $0$ 时任何一步都会使其非零。\\
+\textbf{适用}：多个独立子游戏且每个子游戏的 SG 值等于堆大小；一般的不交和先求各自 SG 再异或（第~\pageref{knowledge-sg}~页）。
+
+
+
+\subsection{威佐夫博弈}\label{knowledge-game-wythoff}\index{威佐夫博弈}
+\textbf{内容}：两堆 $a\le b$，每次从一堆取任意正数颗，或从两堆取相同正数颗，取走最后一颗者胜。\\
+\textbf{结论}：先手必败当且仅当 $a=\lfloor (b-a)\varphi\rfloor$，$\varphi=\frac{1+\sqrt5}{2}$。整数计算用 $\lfloor d\varphi\rfloor=\bigl(d+\lfloor\sqrt{5d^2}\rfloor\bigr)/2$（整除），$\lfloor\sqrt{\cdot}\rfloor$ 用整数开方，避免浮点误差。\\
+\textbf{思路}：必败态 $(a_d,a_d+d)$ 每个差 $d$ 恰有一个，且所有 $a_d$ 与 $a_d+d$ 恰好不重不漏地覆盖全体正整数（Beatty 序列），所以从必败态出发的单堆或双堆操作都到达不了另一个必败态。\\
+\textbf{适用}：两堆且允许“同时等量取”；三堆及以上或其他组合操作没有此闭式，需打表或求 SG。
+
+
+
+\subsection{斐波那契博弈}\label{knowledge-game-fibonacci}\index{斐波那契博弈}
+\textbf{内容}：一堆 $n\ge2$ 颗，先手第一次取 $1\sim n-1$ 颗，之后每次至少取 1 颗、至多取上一次对手所取数量的 2 倍，取走最后一颗者胜。\\
+\textbf{结论}：$n$ 是斐波那契数时先手必败。否则把 $n$ 写成不相邻斐波那契数之和（Zeckendorf 表示），先手取其中最小的一项必胜。\\
+\textbf{思路}：最小项 $F_i$ 与次小项至少差一个下标，有 $2F_i<F_{i+2}$，对手取不完下一项。剩余部分可以看成若干段独立的斐波那契数局面，于是总能把“剩下斐波那契数”的局面留给对手。\\
+\textbf{适用}：每次可取量依赖上一次取量的倍数限制；限制换成其他倍数时没有此结论，按状态 $(n,\text{上限})$ 记忆化搜索。
+
+
+
+\subsection{阶梯博弈}\label{knowledge-game-staircase}\index{阶梯博弈}
+\textbf{内容}：第 $1..k$ 级台阶上各有若干石子，每次把某一级（$i\ge1$）的任意正数颗移到第 $i-1$ 级，移到第 $0$ 级（地面）后不再参与，不能操作者负。\\
+\textbf{结论}：等价于只看奇数级台阶的 Nim，即各奇数级石子数的异或为 $0$ 时先手必败。\\
+\textbf{思路}：从奇数级往下移，相当于在 Nim 中取石子。对手若把偶数级的石子移到奇数级，自己就把同样数量再往下移一级，使奇数级恢复原状。\\
+\textbf{适用}：石子只能单向移动、且终点不计分的模型，如树上把子结点的石子移给父亲（按深度奇偶看）、数轴上的硬币只能左移（相邻间隔就是“台阶”）。
+
+
+
+\subsection{反 Nim（取走最后一颗者负）}\label{knowledge-game-anti-nim}\index{反Nim}\index{SJ定理}
+\textbf{内容}：Nim 规则不变，但取走最后一颗者负。\\
+\textbf{结论}：先手必胜当且仅当以下二者之一成立：所有堆都 $\le1$ 且异或为 $0$（即 1 的堆数为偶数）；或至少有一堆 $>1$ 且异或不为 $0$。\\
+\textbf{思路}：全为 1 时只看奇偶。存在大于 1 的堆时，先手按普通 Nim 取胜，只在最后一个大于 1 的堆处改为留 0 或 1，使剩下的 1 的堆数为奇数。\\
+\textbf{适用}：反常规则的 Nim；一般反常游戏不能套 SG 异或，需要 SJ 定理的前提或直接搜索（第~\pageref{knowledge-subtraction-game}~页）。
+
+
+
+\subsection{Nim-k（每次至多动 k 堆）}\label{knowledge-game-nim-k}\index{Nim-k}
+\textbf{内容}：多堆，每次选 $1\sim k$ 堆，每堆各取任意正数颗，取走最后一颗者胜。\\
+\textbf{结论}：把各堆写成二进制，若每一位上为 1 的堆数都是 $k+1$ 的倍数，则先手必败。$k=1$ 即 Nim。\\
+\textbf{思路}：与 Nim 相同，只是把“按位异或”换成“按位求和模 $k+1$”：从这种局面一步最多改动 $k$ 堆，不可能让每一位都保持模 $k+1$ 为 0；反之总能从高位到低位调整至多 $k$ 堆，恢复为 0。\\
+\textbf{适用}：一次可同时操作多堆、且各堆操作相同的模型。
+
+
+
+\subsection{树上删边（Green Hackenbush）}\label{knowledge-game-hackenbush}\index{树上删边}
+\textbf{内容}：有根树，每次删一条边，与根不连通的部分一起删除，不能操作者负。\\
+\textbf{结论}：$g(v)=\bigoplus_{c\in\mathrm{son}(v)}\bigl(g(c)+1\bigr)$，叶子为 $0$，$g(\text{根})=0$ 时先手必败。多棵树把各根的值异或。\\
+\textbf{思路}：一条长为 $\ell$ 的链等价于大小为 $\ell$ 的 Nim 堆。同一结点下的几条分支互不影响，可以合并成一条长度为各自 SG 异或的链（Colon 原理）；在子树上方加一条边，SG 值加 1。\\
+\textbf{适用}：删边或删子树的树上博弈。图中有环时需要“融合原理”，把环缩成链或自环后再算，不能直接套用此公式。
+
+
+
+\subsection{二分图博弈（不重复走点）}\label{knowledge-game-matching}\index{二分图博弈}
+\textbf{内容}：无向图中一枚棋子放在 $s$，双方轮流把它移到一个未访问过的相邻点（$s$ 视为已访问），不能移动者负。\\
+\textbf{结论}：先手必胜当且仅当 $s$ 在\emph{每一个}最大匹配中都被匹配，即删去 $s$ 后最大匹配变小。对一般图也成立；二分图上可用第~\pageref{compact-BipartiteMatching}~页 \texttt{BipartiteMatching} 求最大匹配，删去 $s$ 后再求一次比较。\\
+\textbf{思路}：若 $s$ 在某最大匹配 $M$ 中，先手总沿 $M$ 的匹配边走；后手走到的点若不在 $M$ 中，就能得到一条增广路，与 $M$ 最大矛盾。若存在不含 $s$ 的最大匹配，则后手沿该匹配边应对即可。\\
+\textbf{适用}：棋盘上走马、单词接龙等“走过的格子不能再走”的两人移动博弈；多个起点或询问时，逐个判断“该点是否一定被匹配”。
+
+
+
+\subsection{对称策略：环形取石子}\label{knowledge-game-symmetry}\index{对称策略}
+\textbf{内容}：$n$ 枚硬币围成一圈，每次取 1 枚或相邻 2 枚，取走最后一枚者胜。\\
+\textbf{结论}：$n\le2$ 时先手胜，$n\ge3$ 时后手胜。\\
+\textbf{思路}：先手第一步把环断成一条链，后手在链的正中取 1 或 2 枚，把链分成长度相等的两段，之后先手在一段中怎么取，后手就在另一段的对称位置照做。\\
+\textbf{适用}：局面可以被对手的一步变成两个完全对称的部分（棋盘中心对称、环上断成两条等长链等）；对称位置必须总是可走，且自己的一步不能同时破坏两边。
+
+
+
+\subsection{策略窃取：Chomp}\label{knowledge-game-chomp}\index{策略窃取}\index{Chomp}
+\textbf{内容}：$r\times c$ 的巧克力，左上角一格有毒。每次选一块，吃掉它以及右下方所有剩余块，吃到有毒那块者负。\\
+\textbf{结论}：只要 $rc>1$，先手必胜（不给出具体走法）。\\
+\textbf{思路}：设先手先吃右下角一块。若后手对此有必胜应对，这个应对局面先手第一步就能直接走出来，因为吃掉的部分包含右下角。于是先手可以窃取后手的策略，所以后手不可能有必胜策略；有限且无和局时，先手必胜。\\
+\textbf{适用}：只判断谁胜、且存在“先走一步不会更坏”的空步论证（如棋盘对称、多走一步无害）时；需要具体方案时仍需搜索。
+
+
 \Needspace{180pt}
 
 \chapter{数值算法}
@@ -3520,9 +3607,9 @@ $g(n)\le|S|$；长度为 $\max S$ 的整个窗口重复后才保证最终周期�
 
 \subsection{拉格朗日插值与连续点优化}\label{compact-Lagrange}\index{Lagrange}
 
-Lagrange(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long long>；Lagrange(ys,p) 专用于横坐标 0..n-1。重新构造赋值可更换数据。要求 p 为素数，2$\le$p$\le$INT\_MAX，点数 n$\le$p，任意横坐标取模后两两不同；不是仅要求原整数不同。query(k) 返回次数小于 n 的插值多项式在 k 处的值，允许 k、xs、ys 为完整 long long 范围，内部先归一化；空数据约定零多项式。通用预处理 O(n$^{2}$+n log p)，连续点预处理 O(n+log p)，每次查询 O(n)，空间 O(n)。查询利用前缀积与滚动后缀积，无需求逆，因此 k 与样本点模 p 相等时也正确。若求 1\textasciicircum{}d+…+k\textasciicircum{}d，要求 0$\le$d$\le$p-2，先计算 0..d+1 的前缀和作为 ys，再构造 Lagrange(ys,p)；用快速幂生成这些样本另花 O(d log(d+1))。仅处理素数域中的精确插值，不适用于浮点曲线拟合或重复节点的导数约束。
+Lagrange(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long long>；Lagrange(ys,p) 专用于横坐标 0..n-1；单次查询直接用 lagrange\_consecutive。重新构造赋值可更换数据。要求 p 为素数，2$\le$p$\le$INT\_MAX，点数 n$\le$p，任意横坐标取模后两两不同；不是仅要求原整数不同。query(k) 返回次数小于 n 的插值多项式在 k 处的值，允许 k、xs、ys 为完整 long long 范围，内部先归一化；空数据约定零多项式。通用预处理 O(n$^{2}$+n log p)，连续点预处理 O(n+log p)，每次查询 O(n)，空间 O(n)。查询利用前缀积与滚动后缀积，无需求逆，因此 k 与样本点模 p 相等时也正确。若求 1\textasciicircum{}d+…+k\textasciicircum{}d，要求 0$\le$d$\le$p-2，先计算 0..d+1 的前缀和作为 ys，再构造 Lagrange(ys,p)；用快速幂生成这些样本另花 O(d log(d+1))。仅处理素数域中的精确插值，不适用于浮点曲线拟合或重复节点的导数约束。
 
-\lstinputlisting[firstline=6,lastline=83]{../src/compact/interpolation.hpp}
+\lstinputlisting[firstline=6,lastline=84]{../src/compact/interpolation.hpp}
 
 \Needspace{293pt}
 
@@ -3537,6 +3624,14 @@ Lagrange(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long 
 题目：\url{https://www.luogu.com.cn/problem/P4781}
 
 \lstinputlisting{usage/example-17.cpp}
+
+\Needspace{446pt}
+
+\subsection{横坐标连续的 O(n) 拉格朗日插值}\label{compact-lagrange_consecutive}\index{lagrange\_consecutive}
+
+lagrange\_consecutive(ys,k,p) 已知 ys[i]=f(i)（i=0..n-1，deg f<n），返回 f(k) mod p。p 为素数，2$\le$p$\le$INT\_MAX，n$\le$p；ys、k 可为任意 long long，内部取模；空 ys 返回 0。用前缀积、后缀积得所有 j$\ne$i 的 (k-j) 之积，分母为 i!(n-1-i)! 并带符号 (-1)\textasciicircum{}(n-1-i)，只求一次逆，k 落在插值点上也正确。O(n+log p) 时间、O(n) 空间。横坐标为 a,a+1,… 时把 k 换成 k-a；求 1\textasciicircum{}d+…+k\textasciicircum{}d 时取 0..d+1 的前缀和共 d+2 个样本。需要对同一组样本多次查询时用 Lagrange(ys,p)。
+
+\lstinputlisting[firstline=86,lastline=116]{../src/compact/interpolation.hpp}
 
 \newpage
 

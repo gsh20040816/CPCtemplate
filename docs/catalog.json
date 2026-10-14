@@ -267,7 +267,13 @@
     "interpolation",
     "Lagrange",
     "拉格朗日插值与连续点优化",
-    "Lagrange(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long long>；Lagrange(ys,p) 专用于横坐标 0..n-1。重新构造赋值可更换数据。要求 p 为素数，2≤p≤INT_MAX，点数 n≤p，任意横坐标取模后两两不同；不是仅要求原整数不同。query(k) 返回次数小于 n 的插值多项式在 k 处的值，允许 k、xs、ys 为完整 long long 范围，内部先归一化；空数据约定零多项式。通用预处理 O(n²+n log p)，连续点预处理 O(n+log p)，每次查询 O(n)，空间 O(n)。查询利用前缀积与滚动后缀积，无需求逆，因此 k 与样本点模 p 相等时也正确。若求 1^d+…+k^d，要求 0≤d≤p-2，先计算 0..d+1 的前缀和作为 ys，再构造 Lagrange(ys,p)；用快速幂生成这些样本另花 O(d log(d+1))。仅处理素数域中的精确插值，不适用于浮点曲线拟合或重复节点的导数约束。"
+    "Lagrange(xs,ys,p) 使用任意横坐标，xs、ys 为等长 0-based vector<long long>；Lagrange(ys,p) 专用于横坐标 0..n-1；单次查询直接用 lagrange_consecutive。重新构造赋值可更换数据。要求 p 为素数，2≤p≤INT_MAX，点数 n≤p，任意横坐标取模后两两不同；不是仅要求原整数不同。query(k) 返回次数小于 n 的插值多项式在 k 处的值，允许 k、xs、ys 为完整 long long 范围，内部先归一化；空数据约定零多项式。通用预处理 O(n²+n log p)，连续点预处理 O(n+log p)，每次查询 O(n)，空间 O(n)。查询利用前缀积与滚动后缀积，无需求逆，因此 k 与样本点模 p 相等时也正确。若求 1^d+…+k^d，要求 0≤d≤p-2，先计算 0..d+1 的前缀和作为 ys，再构造 Lagrange(ys,p)；用快速幂生成这些样本另花 O(d log(d+1))。仅处理素数域中的精确插值，不适用于浮点曲线拟合或重复节点的导数约束。"
+  ],
+  [
+    "interpolation",
+    "lagrange_consecutive",
+    "横坐标连续的 O(n) 拉格朗日插值",
+    "lagrange_consecutive(ys,k,p) 已知 ys[i]=f(i)（i=0..n-1，deg f<n），返回 f(k) mod p。p 为素数，2≤p≤INT_MAX，n≤p；ys、k 可为任意 long long，内部取模；空 ys 返回 0。用前缀积、后缀积得所有 j≠i 的 (k-j) 之积，分母为 i!(n-1-i)! 并带符号 (-1)^(n-1-i)，只求一次逆，k 落在插值点上也正确。O(n+log p) 时间、O(n) 空间。横坐标为 a,a+1,… 时把 k 换成 k-a；求 1^d+…+k^d 时取 0..d+1 的前缀和共 d+2 个样本。需要对同一组样本多次查询时用 Lagrange(ys,p)。"
   ],
   [
     "fft",

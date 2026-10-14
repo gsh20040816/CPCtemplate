@@ -30,6 +30,7 @@ export CPC_SANITIZE="${SANITIZE:-0}"
 python3 tests/static_modint.py
 python3 tests/matrix_tree_knowledge.py
 python3 tests/partition_knowledge.py
+python3 tests/game_classics.py
 python3 tests/modular_knowledge.py
 python3 tests/ballot_knowledge.py
 python3 tests/gauss_real.py
@@ -143,6 +144,8 @@ build/exlucas
 
 "$CXX" "${flags[@]}" tests/interpolation.cpp -o build/interpolation
 build/interpolation
+"$CXX" "${flags[@]}" tests/lagrange_consecutive.cpp -o build/lagrange_consecutive
+build/lagrange_consecutive
 
 "$CXX" "${flags[@]}" tests/discrete_log.cpp -o build/discrete_log
 build/discrete_log

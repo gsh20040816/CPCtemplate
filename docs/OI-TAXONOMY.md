@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 178，application 32，composite 4，related 18。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 179，application 32，composite 4，related 18。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -99,6 +99,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | basis_sum_intersection | 数学 → 线性代数 → 线性基 | direct |  |
 | Simplex | 数学 → 线性规划 → 单纯形法 | direct | 独立实现两阶段单纯形与显式变量编号Bland选择；注明浮点容差、退化与非精确保证。 |
 | Lagrange | 数学 → 数值算法 → 插值 | direct |  |
+| lagrange_consecutive | 数学 → 数值算法 → 插值 | direct |  |
 | AdaptiveSimpson | 数学 → 数值算法 → 数值积分 | direct | 有限资源的自适应Simpson、采样复用与可见的估计条件/强制停止；不把局部估计作为任意函数精度保证。 |
 | GaussMod | 数学 → 数值算法 → 高斯消元 | direct |  |
 | GaussReal | 数学 → 数值算法 → 高斯消元 | direct | 部分选主元实数消元与最终数值模型的特解/自由方向；不是精确秩、附近原输入或全域数值稳定性证书。 |

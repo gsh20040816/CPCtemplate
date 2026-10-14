@@ -51,7 +51,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ExLucas | [example-41](usage/example-41.cpp) | locally_checked_example |
 | mod_sqrt | [example-42](usage/example-42.cpp) | locally_checked_example |
 | KthResidue | 待补 | pending_example |
-| Lagrange | [example-17](usage/example-17.cpp) | locally_checked_example |
+| Lagrange | [example-17](usage/example-17.cpp) | generated_unverified |
+| lagrange_consecutive | 待补 | pending_example |
 | ComplexFFT | [example-222](usage/example-222.cpp), [example-412（应用补充）](usage/example-412.cpp) | locally_checked_example |
 | convolution_mod_fft | [example-122](usage/example-122.cpp) | locally_checked_example |
 | NttConvolution | [example-16](usage/example-16.cpp), [example-455（接口演示）](usage/example-455.cpp) | generated_unverified |
