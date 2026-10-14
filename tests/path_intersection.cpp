@@ -1,6 +1,6 @@
 #include "../src/compact/path_intersection.hpp"
 #include "../src/classic/path_intersection.hpp"
-#include "../src/compact/euler_lca.hpp"
+#include "../src/compact/tree.hpp"
 #include "../src/classic/tree.hpp"
 #include <iostream>
 #include <random>
@@ -8,7 +8,7 @@
 
 void check(int n, const vector<pair<int, int>> &edges, bool exhaustive)
 {
-    EulerLCA tree(n);
+    HLD tree(n);
     static Heavy_Light_Decomposition<32> classic;
     classic.Init(n);
     vector<vector<int>> g(n + 1);
@@ -52,7 +52,7 @@ void check(int n, const vector<pair<int, int>> &edges, bool exhaustive)
         {
             uint64_t mask = paths[a][b] & paths[c][d];
             int count = __builtin_popcountll(mask);
-            auto x = path_intersection(a, b, c, d, tree.depth, lca);
+            auto x = path_intersection(a, b, c, d, tree.dep, lca);
             auto y = Path_Intersection(a, b, c, d, classic.dep, classic_lca);
             assert(x.vertices == count && y.vertices == count);
             if (!count)
@@ -128,5 +128,5 @@ int main()
             edges.push_back({labels[u], labels[rng() % (u - 1) + 1]});
         check(n, edges, false);
     }
-    cout << "Path intersection dual exhaustive labelled trees/roots/four endpoints, set oracle and Euler/HLD callbacks PASS\n";
+    cout << "Path intersection dual exhaustive labelled trees/roots/four endpoints, set oracle and HLD/classic HLD callbacks PASS\n";
 }

@@ -1,21 +1,20 @@
 #pragma once
 #include <bits/stdc++.h>
 #include <cassert>
-#include "barrett32.hpp"
 using namespace std;
 
 // BEGIN mint
 template <int tag = 0> struct mint
 {
     static inline int mod = 998244353;
-    static inline Barrett32 reducer{998244353};
+    static inline unsigned long long im = -1ULL / 998244353 + 1; // Barrett reciprocal
     int v;
 
     static void set_mod(int p)
     {
         assert(p >= 1);
         mod = p;
-        reducer = Barrett32(p);
+        im = -1ULL / p + 1;
     }
 
     mint(long long x = 0) : v(x % mod)
@@ -44,7 +43,8 @@ template <int tag = 0> struct mint
     mint operator*(mint b) const
     {
         mint r;
-        r.v = reducer.mul(v, b.v);
+        unsigned long long z = 1ULL * v * b.v, y = (unsigned long long)((__uint128_t(z) * im) >> 64) * mod;
+        r.v = int(z - y + (z < y ? mod : 0));
         return r;
     }
 

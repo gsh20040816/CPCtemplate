@@ -38,7 +38,7 @@ $a$ 支持完整 signed long long，先正规化。
 
 \clearpage
 \section{素数幂模高次剩余与根的提升}\label{knowledge-prime-power-residue}
-实现见第~\pageref{compact-PrimePowerRoots}~页。
+
 令 $M=p^e$。当 $a=0$ 时，全部根是 $p^{\lceil e/k\rceil}$ 的倍数。
 否则令 $t=v_p(a)<e$，必须有 $k\mid t$，否则无解。
 取 $s=t/k$，$q=p^{e-t}$，写 $x=p^s y$，只需求单位方程
@@ -83,7 +83,7 @@ $3^{20}$ 的非互素方程，以及数千亿根的紧凑表示。
 
 \clearpage
 \section{一般合数模高次剩余：CRT 组合}\label{knowledge-composite-residue}
-实现见第~\pageref{compact-CompositeRoots}~页。
+
 调用者提供完整分解 $M=\prod_{t=0}^{F-1}m_t$，其中 $m_t=p_t^{e_t}$ 两两互素，
 并提供每个奇素数幂的原根。先分别求局部根族；任一局部无解，整体即无解。
 若局部根数为 $c_t$，则整体根数为 $\prod_t c_t$。
@@ -119,7 +119,7 @@ $M\le10^{12}$，$k>0$；空因子列表表示 $M=1$，返回唯一代表 0。
 
 \clearpage
 \section{自动准备模数分解与原根}\label{knowledge-residue-setup}
-实现见第~\pageref{compact-root_factors}~页。
+
 \texttt{root\_factors(M,rho)} 把 $M\le10^{12}$ 分解为互异素数的幂，
 返回合数求根需要的 $(p,e,g)$ 列表；模数 1 返回空列表。
 二的幂不需要原根，固定填零。

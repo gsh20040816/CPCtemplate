@@ -76,7 +76,7 @@ def main():
     before=snapshot(ROOT)
     parts=extract_components(json.loads((ROOT/'docs/catalog.json').read_text()))
     def component(s):return next(x['code'] for x in parts if x['symbol']==s)
-    symbols=['GeneralSAM','OnlineSAM','SuffixAutomaton','SAMLex','Fenwick','SAMDocuments']
+    symbols=['GeneralSAM','SuffixAutomaton','SAMLex','Fenwick','SAMDocuments']
     core='\n'.join(component(s) for s in symbols)
     prelude=''.join('#include <'+s+'>\n' for s in ['algorithm','array','cassert','climits','iostream','map','numeric','optional','queue','random','set','stdexcept','string','utility','vector'])+'using namespace std;\n'
     probe=(ROOT/'tests/sam_documents_probe.cpp').read_text()
@@ -136,7 +136,7 @@ def main():
                 assert p.stdout.split()==[str(x).encode() for x in want],(name,label,p.stdout[:200])
                 entry['runs'].append(dict(case=label,input_sha256=sha(raw),output_sha256=sha(p.stdout),passed=True))
             report['applications'].append(entry);print(name,len(cases),'inputs PASS',flush=True)
-    report.update(passed=True,source_after_sha256=snapshot(ROOT),complete_input_counts={k:len(v) for k,v in data.items()},scope='Independent literal per-document substring sets, all small triples, random permutations, document duplicates and empties, every state and all thresholds, SAMLex document weights, unchanged source SAM and copies. GeneralSAM/OnlineSAM/single SAM; recursive depth100000 and 64-bit totals. Four core forms, seven semantic mutants and three complete forms per usage. Local only: no online AC/rank or full-library claim.')
+    report.update(passed=True,source_after_sha256=snapshot(ROOT),complete_input_counts={k:len(v) for k,v in data.items()},scope='Independent literal per-document substring sets, all small triples, random permutations, document duplicates and empties, every state and all thresholds, SAMLex document weights, unchanged source SAM and copies. GeneralSAM/single SAM; recursive depth100000 and 64-bit totals. Four core forms, seven semantic mutants and three complete forms per usage. Local only: no online AC/rank or full-library claim.')
     assert before==report['source_after_sha256']
     (out/'report.json').write_text(json.dumps(report,indent=2)+'\n');print('sam-documents',mode,'PASS:',out/'report.json',flush=True)
 

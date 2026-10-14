@@ -1,6 +1,5 @@
-#include "../src/compact/convolution_fft.hpp"
 #include "../src/compact/convolution_mod_fft.hpp"
-#include "../src/compact/convolution_i64.hpp"
+#include "../src/compact/ntt_convolution.hpp"
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/math/constants/constants.hpp>
 #include <climits>
@@ -27,6 +26,17 @@ vector<int> brute_mod(const vector<int> &a, const vector<int> &b, int p)
             c[i + j] = (v % p + p) % p;
         }
     return c;
+}
+
+// Exact residues for the CRT oracle (former convolution_i64 helper).
+template <int p> vector<int> convolution_residue(const vector<long long> &a, const vector<long long> &b)
+{
+    using N = NttConvolution<p>;
+    typename N::Poly x(a.begin(), a.end()), y(b.begin(), b.end());
+    auto c = N::multiply(move(x), move(y));
+    vector<int> r(c.size());
+    for (int i = 0; i < (int)c.size(); i++) r[i] = c[i].v;
+    return r;
 }
 
 vector<int> exact_mod(vector<int> a, vector<int> b, int mod)
@@ -111,14 +121,14 @@ int main()
         }
     }
     for (const auto &a : arrays)
-        for (const auto &b : arrays) assert(convolution_fft(a, b) == brute(a, b));
+        for (const auto &b : arrays) assert(convolution_mod_fft(a, b, 998244353) == brute_mod(a, b, 998244353));
     mt19937 rng(2400929);
     for (int t = 0; t < 1200; t++)
     {
         vector<int> a(rng() % 65), b(rng() % 65);
         for (int &x : a) x = (int)(rng() % 20001) - 10000;
         for (int &x : b) x = (int)(rng() % 20001) - 10000;
-        assert(convolution_fft(a, b) == brute(a, b));
+        assert(convolution_mod_fft(a, b, 1000000007) == brute_mod(a, b, 1000000007));
     }
     for (int p : {1, 2, 9, 998244353, 1000000009, INT_MAX})
     {
@@ -134,12 +144,12 @@ int main()
         vector<int> a{INT_MIN, INT_MAX, -1, 0, 1};
         assert(convolution_mod_fft(a, a, p) == brute_mod(a, a, p));
     }
-    assert(convolution_fft({INT_MIN}, {-511}) == brute({INT_MIN}, {-511}));
-    assert(convolution_fft({-7}, {3}) == vector<long long>{-21});
+    assert(convolution_mod_fft({INT_MIN}, {-511}, INT_MAX) == brute_mod({INT_MIN}, {-511}, INT_MAX));
+    assert(convolution_mod_fft({-7}, {3}, INT_MAX) == vector<int>{INT_MAX - 21});
     {
         const int n = 1000001;
         vector<int> a(n, 9);
-        auto c = convolution_fft(a, a);
+        auto c = convolution_mod_fft(a, a, INT_MAX);
         for (int i = 0; i < (int)c.size(); i++)
             assert(c[i] == 81LL * min(i + 1, 2 * n - 1 - i));
     }
@@ -151,8 +161,7 @@ int main()
             a[i] = llroundl(2047 * cosl(0.017L * i));
             b[i] = llroundl(2047 * sinl(0.017L * i));
         }
-        vector<long long> aa(a.begin(), a.end()), bb(b.begin(), b.end());
-        assert(convolution_fft(a, b) == convolution_i64(aa, bb));
+        assert(convolution_mod_fft(a, b, 1000000009) == exact_mod(a, b, 1000000009));
         for (int p : {1000000009, INT_MAX})
         {
             for (int &v : a) v = (long long)rng() - (1LL << 31);

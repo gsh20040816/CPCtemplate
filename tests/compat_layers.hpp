@@ -12,7 +12,6 @@
 #include "../src/compact/line_circle_intersections.hpp"
 #include "../src/compact/circle_intersections.hpp"
 #include "../src/compact/circle_overlap_area.hpp"
-#include "../src/compact/closest_pair_i64.hpp"
 #include "../src/compact/minkowski_sum.hpp"
 #include "../src/compact/real_space.hpp"
 #include "../src/compact/fps_functions.hpp"
@@ -20,9 +19,9 @@
 #include "../src/compact/recurrence.hpp"
 #include "../src/compact/algebra.hpp"
 #include "../src/compact/gauss_mod.hpp"
-#include "../src/compact/det_prime.hpp"
+#include "../src/compact/determinant_mod.hpp"
 #include "../src/compact/mod_matrix.hpp"
-#include "../src/compact/number_theory.hpp"
+#include "compat_number_theory.hpp"
 
 struct IntegerGeometry : IntegerPlane
 {
@@ -80,8 +79,6 @@ struct GeometryExtra
     using P = G::Point;
     using I = G::I;
 
-    static optional<I> closest_pair(vector<P> p) { return closest_pair_i64(move(p)); }
-
     static vector<P> minkowski(vector<P> a, vector<P> b)
     {
         return minkowski_sum(move(a), move(b));
@@ -130,7 +127,13 @@ template <int mod> struct LinearAlgebra : GaussMod<mod>, ModMatrix<mod>
     using Z = ModInt<mod>;
     using Matrix = vector<vector<Z>>;
 
-    static Z determinant(Matrix a) { return det_prime<mod>(move(a)); }
+    static Z determinant(Matrix a)
+    {
+        vector<vector<long long>> b(a.size());
+        for (int i = 0; i < (int)a.size(); i++)
+            for (auto x : a[i]) b[i].push_back(x.v);
+        return Z(determinant_mod(move(b), mod));
+    }
 
     // Undirected multigraph, vertices 0..n-1; loops ignored.
     static Z spanning_trees(int n, const vector<pair<int, int>> &edges)
@@ -148,30 +151,5 @@ template <int mod> struct LinearAlgebra : GaussMod<mod>, ModMatrix<mod>
         lap.pop_back();
         for (auto &row : lap) row.pop_back();
         return determinant(lap);
-    }
-};
-
-namespace number_theory_detail
-{
-constexpr auto floor_sum_fn = floor_sum;
-}
-
-struct NumberTheory : Prime64
-{
-    using ll = long long;
-    using i128 = __int128_t;
-
-    static i128 exgcd(i128 a, i128 b, i128 &x, i128 &y)
-    {
-        return extended_gcd(a, b, x, y);
-    }
-
-    static ll inverse(ll a, ll m) { return mod_inverse(a, m); }
-
-    static bool crt(ll &r, ll &m, ll b, ll n) { return crt_merge(r, m, b, n); }
-
-    static i128 floor_sum(ll n, ll m, ll a, ll b)
-    {
-        return number_theory_detail::floor_sum_fn(n, m, a, b);
     }
 };

@@ -1,4 +1,5 @@
 #include "../src/compact/floor_moments.hpp"
+#include "compat_number_theory.hpp"
 #include "../src/classic/floor_moments.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 #include <iostream>

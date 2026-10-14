@@ -5,7 +5,6 @@
 #include <set>
 #include <stdexcept>
 #include "../src/compact/general_sam.hpp"
-#include "../src/compact/online_sam.hpp"
 #include "../src/compact/string.hpp"
 #include "../src/compact/sam_queries.hpp"
 #include "../src/compact/sam_documents.hpp"
@@ -100,16 +99,12 @@ void check(const S &sam, const vector<string> &s)
 void run(const vector<string> &s)
 {
     GeneralSAM sam;
-    OnlineSAM online;
     for (auto &t : s)
     {
         sam.add(t);
-        int p = 0;
-        for (char c : t) p = online.extend(p, c - 'a');
     }
     sam.build();
     check(sam, s);
-    check(online, s);
     if (s.size() == 1)
     {
         SuffixAutomaton single;

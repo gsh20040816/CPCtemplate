@@ -156,9 +156,9 @@ static_assert(bit_width(8u) == 4);
 static_assert(popcount(10u) == 2);
 static_assert(countr_zero(0u) == numeric_limits<unsigned>::digits);
 \end{lstlisting}
-划分树、WaveletMatrix 用 \texttt{bit\_width((unsigned)max(1,n)-1)} 这类表达式计算层数；其中 n 分别取数组长度与去重后的值域大小。先保护零再减一，避免无符号回绕；各模板是否另加一层按接口说明。GCC 的 \texttt{\_\_builtin\_ctz(0)} 与 \texttt{\_\_builtin\_clz(0)} 均不能调用，处理64位输入还须选对应 ll 版本。
+按值域分层的结构用 \texttt{bit\_width((unsigned)max(1,n)-1)} 这类表达式计算层数，n 取去重后的值域大小。先保护零再减一，避免无符号回绕；各模板是否另加一层按接口说明。GCC 的 \texttt{\_\_builtin\_ctz(0)} 与 \texttt{\_\_builtin\_clz(0)} 均不能调用，处理64位输入还须选对应 ll 版本。
 
-\texttt{1ULL<<k} 须满足 k 非负且小于 unsigned long long 的位宽。WaveletMatrix 按64位块存储，用 \texttt{k=i\%64} 得到0到63；k=0 时 \texttt{(1ULL<<k)-1} 为零掩码，不能用移位64构造整块掩码。bitset 的大小固定，批量位运算不是与位数无关的常数操作。
+\texttt{1ULL<<k} 须满足 k 非负且小于 unsigned long long 的位宽。按64位块存储时用 \texttt{k=i\%64} 得到0到63；k=0 时 \texttt{(1ULL<<k)-1} 为零掩码，不能用移位64构造整块掩码。bitset 的大小固定，批量位运算不是与位数无关的常数操作。
 
 \input{infra-random.tex}
 
@@ -172,7 +172,7 @@ PBDS 有序树、gp/cc 哈希表、配对堆以及 \texttt{\_\_gnu\_cxx::rope} �
 \texttt{boost::multiprecision::cpp\_int} 是有符号任意精度整数，须显式包含
 \nolinkurl{boost/multiprecision/cpp_int.hpp}；它不属于 ISO C++ 标准库或 GNU 标准头文件，赛场必须提供 Boost。
 可使用十进制流输入输出，整数除法仍是截断除法，不会自动变成有理数，除数不能为零。
-Bareiss 消元依靠数学上的整除性质保存精确整数，矩阵树用它计算不取模答案；目录末有对应分册跳转。
+Bareiss 消元依靠数学上的整除性质保存精确整数，可用于不取模的行列式。
 数值越大，运算和存储越贵，不应把任意精度操作视为机器字常数时间。
 Boost 使用表达式模板，需跨语句保存计算结果时写明确的 \texttt{cpp\_int} 类型，避免用 \texttt{auto} 保存依赖随后修改变量或临时量的表达式。
 

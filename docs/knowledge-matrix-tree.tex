@@ -1,5 +1,5 @@
 \section{带权矩阵树定理与方向约定}\label{knowledge-matrix-tree-weighted}
-实现见第~\ref{compact-MatrixTree}~节（第~\pageref{compact-MatrixTree}~页）。
+
 返回的是每棵树的边权乘积，再对所有树求和，并对素数取模。
 无权计数只需把所有边权设为 1。
 重边是不同选择，自环不属于任何生成树；单点图的空树乘积为 1。
@@ -16,7 +16,7 @@ $L_{uu},L_{vv}$ 各加 $w$，$L_{uv},L_{vu}$ 各减 $w$。
 例如只有一条边 $0\to1$ 时，内向根 1 的答案为该边权，内向根 0 为零；
 外向根 0 的答案为该边权。
 \href{https://www.luogu.com.cn/problem/P6178}{P6178} 的有向模式（type=1）指定以 1 为根的外向树；type=0 为无向图，
-完整用法见第~\ref{usage-example-76}~节（第~\pageref{usage-example-76}~页）；驱动把点号减一，有向模式选择 \texttt{away\_from\_root}。
+
 只直接构造 $(n-1)\times(n-1)$ 余子式，时间 $O(n^3+m)$、额外空间 $O(n^2)$。
 行列式复用本书的素数模高斯消元，不支持将 mod 随意改成合数。
 

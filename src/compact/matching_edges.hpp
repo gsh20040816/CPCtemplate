@@ -1,6 +1,5 @@
 #pragma once
 #include "graph.hpp"
-#include "tarjan.hpp"
 
 // BEGIN matching_edges
 pair<int, vector<array<bool, 2>>>
@@ -13,7 +12,7 @@ matching_edges(int n, int m, const vector<pair<int, int>> &edges)
         b.add(u, v);
     }
     int size = b.solve(), s = n + m + 1, t = s + 1;
-    TarjanSCC d(t);
+    SCC d(t);
     for (int u = 1; u <= n; u++)
         if (b.l[u])
             d.add(u, s);

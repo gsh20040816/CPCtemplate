@@ -109,16 +109,16 @@
     {
       "module": "convolution",
       "category": "数学",
-      "status": "模卷积与精确整数卷积已有，本地验证",
+      "status": "模卷积与拆系数任意模卷积已有，本地验证",
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp",
       "reference_sha256": "456e3d737ec2a73ca00ed3c1f12f26731b8cbefc1e81dec5a950ebf458a509d5",
       "local": [
         "src/compact/ntt_convolution.hpp",
-        "src/compact/convolution_i64.hpp"
+        "src/compact/convolution_mod_fft.hpp"
       ],
-      "notes": "已有参数化素数模 NTT 卷积。ACL convolution_ll 返回有符号64位精确系数，采用三模重构并限制结果范围；单模卷积或把结果随意取模不能替代。 convolution_i64 已实现三模中心重构，支持 signed64 系数；结果长度不超过 2^24，真实结果须在 signed64 内。cpp_int 参考及 P3803 最大次数驱动普通/消毒器通过。",
+      "notes": "已有参数化素数模 NTT 卷积。ACL convolution_ll 返回有符号64位精确系数，采用三模重构并限制结果范围；单模卷积或把结果随意取模不能替代。 issue #21 删除了重复的 convolution_i64；任意模数改用 convolution_mod_fft 拆系数卷积，需要 signed64 精确系数时用三个 NTT 模数自行 CRT 重构。",
       "gaps": [
-        "精确整数卷积线上 AC 与性能排名待验证"
+        "任意模卷积线上 AC 与性能排名待验证"
       ]
     },
     {
@@ -157,10 +157,9 @@
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/scc.hpp",
       "reference_sha256": "2b534e50f7fb5117e86fbde22c5a3284ecf6b6089df864b835dacd55ab5694e2",
       "local": [
-        "src/compact/tarjan.hpp",
         "src/compact/graph.hpp"
       ],
-      "notes": "ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆拓扑编号的 Tarjan 与正向编号的 Kosaraju，已对 QOJ906 适配；编号方向必须保留在组合说明中。",
+      "notes": "ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库保留 graph.hpp 中正向拓扑编号的 Kosaraju SCC；issue #21 删除了重复的逆拓扑编号 Tarjan 版，组合时按 SCC 的编号方向使用。",
       "gaps": []
     },
     {

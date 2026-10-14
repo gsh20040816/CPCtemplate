@@ -1,7 +1,15 @@
 #include "../src/compact/gauss_mod.hpp"
-#include "../src/compact/det_prime.hpp"
+#include "../src/compact/determinant_mod.hpp"
 #include "../src/compact/mod_matrix.hpp"
 #include <iostream>
+
+template <int p> ModInt<p> det_prime(vector<vector<ModInt<p>>> a)
+{
+    vector<vector<long long>> b(a.size());
+    for (int i = 0; i < (int)a.size(); i++)
+        for (auto x : a[i]) b[i].push_back(x.v);
+    return ModInt<p>(determinant_mod(move(b), p));
+}
 
 template <int p> void check()
 {

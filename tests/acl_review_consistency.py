@@ -54,7 +54,7 @@ expected_paths = {
              'src/compact/mod_inverse.hpp', 'src/compact/crt_merge.hpp',
              'src/compact/floor_sum.hpp'],
     'modint': ['src/compact/number_theory.hpp', 'src/compact/dynamic_modint.hpp'],
-    'convolution': ['src/compact/ntt_convolution.hpp', 'src/compact/convolution_i64.hpp'],
+    'convolution': ['src/compact/ntt_convolution.hpp', 'src/compact/convolution_mod_fft.hpp'],
 }
 for name, paths in expected_paths.items():
     assert modules[name]['local'] == paths, name
@@ -68,7 +68,7 @@ declarations = {
     'number_theory.hpp': r'struct\s+ModInt\b',
     'dynamic_modint.hpp': r'struct\s+mint\b',
     'ntt_convolution.hpp': r'struct\s+NttConvolution\b',
-    'convolution_i64.hpp': r'\bconvolution_i64\(',
+    'convolution_mod_fft.hpp': r'\bconvolution_mod_fft\(',
 }
 for name, pattern in declarations.items():
     assert re.search(pattern, (ROOT / 'src/compact' / name).read_text()), name

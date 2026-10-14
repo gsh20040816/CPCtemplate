@@ -14,13 +14,11 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Dinic | [example-1](usage/example-1.cpp), [example-318（接口演示）](usage/example-318.cpp), [example-319（应用补充）](usage/example-319.cpp) | locally_checked_example |
 | maximum_closure | [example-148（应用补充）](usage/example-148.cpp) | locally_checked_application |
 | MinCostFlow | [example-55](usage/example-55.cpp) | locally_checked_example |
-| SpfaFlow | [example-127](usage/example-127.cpp) | locally_checked_example |
-| Dijkstra | [example-59](usage/example-59.cpp) | locally_checked_example |
-| SCC | [example-161](usage/example-161.cpp) | locally_checked_example |
-| TwoSAT | [example-3](usage/example-3.cpp), [example-128](usage/example-128.cpp) | locally_checked_example |
-| BipartiteMatching | [example-35](usage/example-35.cpp), [example-311（应用补充）](usage/example-311.cpp) | locally_checked_example |
-| Lowlink | [example-58](usage/example-58.cpp) | locally_checked_example |
-| HLD | [example-44](usage/example-44.cpp), [example-231](usage/example-231.cpp), [example-281（接口演示）](usage/example-281.cpp), [example-282（应用补充）](usage/example-282.cpp), [example-324（接口演示）](usage/example-324.cpp) | generated_unverified |
+| Dijkstra | [example-59](usage/example-59.cpp) | generated_unverified |
+| SCC | [example-161](usage/example-161.cpp) | generated_unverified |
+| TwoSAT | [example-3](usage/example-3.cpp), [example-128](usage/example-128.cpp) | generated_unverified |
+| BipartiteMatching | [example-35](usage/example-35.cpp), [example-311（应用补充）](usage/example-311.cpp) | generated_unverified |
+| HLD | [example-231](usage/example-231.cpp), [example-281（接口演示）](usage/example-281.cpp), [example-282（应用补充）](usage/example-282.cpp), [example-324（接口演示）](usage/example-324.cpp) | generated_unverified |
 | prefix_function | [example-91](usage/example-91.cpp), [example-344（接口演示）](usage/example-344.cpp) | locally_checked_example |
 | kmp_match | [example-91](usage/example-91.cpp) | locally_checked_example |
 | z_function | [example-22](usage/example-22.cpp) | locally_checked_example |
@@ -35,7 +33,6 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | mod_inverse | [example-219（应用补充）](usage/example-219.cpp) | locally_checked_application |
 | crt_merge | [example-15](usage/example-15.cpp) | locally_checked_example |
 | floor_sum | [example-14](usage/example-14.cpp) | locally_checked_example |
-| linear_equation | [example-75](usage/example-75.cpp) | locally_checked_example |
 | linear_congruence | [example-207（应用补充）](usage/example-207.cpp) | locally_checked_application |
 | segmented_primes | [example-208（应用补充）](usage/example-208.cpp) | locally_checked_application |
 | batch_inverse | [example-197](usage/example-197.cpp) | locally_checked_example |
@@ -46,42 +43,25 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ModInt | [example-216（应用补充）](usage/example-216.cpp) | generated_unverified |
 | Binomial | [example-216（应用补充）](usage/example-216.cpp) | generated_unverified |
 | PrimitiveRoot | [example-48](usage/example-48.cpp) | locally_checked_example |
-| CoprimePairs | [example-195（应用补充）](usage/example-195.cpp) | generated_unverified |
 | floor_moments | [example-157](usage/example-157.cpp) | generated_unverified |
-| power_sum | [example-193（应用补充）](usage/example-193.cpp) | generated_unverified |
-| divisor_sum_power | [example-191](usage/example-191.cpp) | generated_unverified |
 | euler_phi | [example-106](usage/example-106.cpp) | generated_unverified |
-| carmichael | [example-192（应用补充）](usage/example-192.cpp) | locally_checked_application |
 | Partitions | [example-158](usage/example-158.cpp), [example-159（应用补充）](usage/example-159.cpp) | locally_checked_example |
 | Lucas | [example-40](usage/example-40.cpp) | locally_checked_example |
 | ExLucas | [example-41](usage/example-41.cpp) | locally_checked_example |
-| CompositeBinomial | [example-445（接口演示）](usage/example-445.cpp), [example-446（应用补充）](usage/example-446.cpp) | locally_checked_application |
 | mod_sqrt | [example-42](usage/example-42.cpp) | locally_checked_example |
-| KthResidue | [example-194](usage/example-194.cpp) | generated_unverified |
-| PrimePowerRoots | [example-194](usage/example-194.cpp) | generated_unverified |
-| root_factors | [example-194](usage/example-194.cpp) | generated_unverified |
-| CompositeRoots | [example-194](usage/example-194.cpp) | generated_unverified |
+| KthResidue | 待补 | pending_example |
 | Lagrange | [example-17](usage/example-17.cpp) | locally_checked_example |
 | ComplexFFT | [example-222](usage/example-222.cpp), [example-412（应用补充）](usage/example-412.cpp) | locally_checked_example |
-| convolution_fft | [example-121](usage/example-121.cpp), [example-411（应用补充）](usage/example-411.cpp) | locally_checked_example |
 | convolution_mod_fft | [example-122](usage/example-122.cpp) | locally_checked_example |
 | NttConvolution | [example-16](usage/example-16.cpp), [example-455（接口演示）](usage/example-455.cpp) | generated_unverified |
-| Ntt2D | [example-451（接口演示）](usage/example-451.cpp) | generated_unverified |
 | stirling_second_row | [example-53](usage/example-53.cpp) | generated_unverified |
 | stirling_first_row | [example-54](usage/example-54.cpp) | generated_unverified |
 | FpsInverse | [example-18](usage/example-18.cpp) | generated_unverified |
-| BivariateInverse | [example-452（接口演示）](usage/example-452.cpp), [example-453](usage/example-453.cpp) | generated_unverified |
-| shifted_power_sum | [example-454（接口演示）](usage/example-454.cpp) | generated_unverified |
 | FpsFunctions | [example-28](usage/example-28.cpp), [example-29](usage/example-29.cpp) | generated_unverified |
 | GaussMod | [example-24](usage/example-24.cpp), [example-414（应用补充）](usage/example-414.cpp) | generated_unverified |
-| det_prime | [example-25](usage/example-25.cpp), [example-427（应用补充）](usage/example-427.cpp) | generated_unverified |
 | ModMatrix | [example-26](usage/example-26.cpp) | generated_unverified |
-| XorAffine64 | [example-456（接口演示）](usage/example-456.cpp), [example-457（接口演示）](usage/example-457.cpp) | locally_checked_api |
 | matrix_inverse | [example-100](usage/example-100.cpp), [example-101](usage/example-101.cpp) | generated_unverified |
-| matrix_inverse_mod2 | [example-102](usage/example-102.cpp) | locally_checked_example |
 | determinant_mod | [example-77](usage/example-77.cpp) | locally_checked_example |
-| MatrixTree | [example-76](usage/example-76.cpp), [example-428（应用补充）](usage/example-428.cpp) | generated_unverified |
-| tree_probability | [example-429（应用补充）](usage/example-429.cpp) | locally_checked_application |
 | MatrixTreeMod | [example-187](usage/example-187.cpp), [example-188](usage/example-188.cpp) | locally_checked_example |
 | DuJiao | [example-85](usage/example-85.cpp), [example-86](usage/example-86.cpp) | generated_unverified |
 | DiscreteLog | [example-47](usage/example-47.cpp) | generated_unverified |
@@ -102,41 +82,27 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | MaxPlusMatrix | [example-223（应用补充）](usage/example-223.cpp) | locally_checked_application |
 | LiChao | [example-89](usage/example-89.cpp) | locally_checked_example |
 | PersistentKth | [example-37](usage/example-37.cpp) | locally_checked_example |
-| TreePathKth | [example-38](usage/example-38.cpp) | locally_checked_example |
 | DynamicKth | [example-63](usage/example-63.cpp) | locally_checked_example |
-| PersistentDistinct | [example-46（应用补充）](usage/example-46.cpp) | locally_checked_application |
 | Hungarian | [example-80](usage/example-80.cpp) | locally_checked_example |
-| WeightedMatching | [example-73](usage/example-73.cpp) | locally_checked_example |
 | Arborescence | [example-149](usage/example-149.cpp) | locally_checked_example |
 | StoerWagner | [example-150](usage/example-150.cpp) | locally_checked_example |
-| gomory_hu | [example-56](usage/example-56.cpp) | locally_checked_example |
-| cut_tree_values | [example-56](usage/example-56.cpp) | locally_checked_example |
+| gomory_hu | [example-56](usage/example-56.cpp) | generated_unverified |
 | BoundedCirculation | [example-185](usage/example-185.cpp) | locally_checked_example |
 | IntegerHalfplanes | [example-125（应用补充）](usage/example-125.cpp) | locally_checked_application |
 | CirclePolygon | [example-153](usage/example-153.cpp) | locally_checked_example |
 | EnclosingCircle | [example-61](usage/example-61.cpp) | locally_checked_example |
 | CircleTangents | [example-155](usage/example-155.cpp) | locally_checked_example |
 | ClosestPair | [example-60](usage/example-60.cpp) | locally_checked_example |
-| closest_pair_i64 | [example-62](usage/example-62.cpp), [example-134](usage/example-134.cpp) | locally_checked_example |
 | minkowski_sum | [example-136（应用补充）](usage/example-136.cpp) | locally_checked_application |
 | IntegerGeometry3D | [example-225（接口演示）](usage/example-225.cpp) | generated_unverified |
 | LinkCutTree | [example-45](usage/example-45.cpp) | locally_checked_example |
-| XorPathSum | [example-439（接口演示）](usage/example-439.cpp) | locally_checked_api |
-| DynamicPeachTree | [example-440（应用补充）](usage/example-440.cpp) | locally_checked_application |
-| DynamicPathMax | [example-328（接口演示）](usage/example-328.cpp) | locally_checked_api |
-| TreePathProducts | [example-108（应用补充）](usage/example-108.cpp) | generated_unverified |
 | OrderedTreap | [example-8](usage/example-8.cpp) | locally_checked_example |
 | PersistentOrderedTreap | [example-199](usage/example-199.cpp) | locally_checked_example |
 | SequenceTreap | [example-10](usage/example-10.cpp), [example-109（应用补充）](usage/example-109.cpp) | locally_checked_example |
 | OrderedSplay | [example-9](usage/example-9.cpp) | locally_checked_example |
-| ScapegoatTree | [example-110](usage/example-110.cpp) | locally_checked_example |
-| SequenceScapegoat | [example-326（应用补充）](usage/example-326.cpp) | locally_checked_application |
-| SequenceKth | [example-327（接口演示）](usage/example-327.cpp) | locally_checked_api |
-| GcdSequenceTreap | [example-224（接口演示）](usage/example-224.cpp) | locally_checked_api |
 | Blossom | [example-72](usage/example-72.cpp) | locally_checked_example |
 | berlekamp_massey | [example-81](usage/example-81.cpp), [example-160](usage/example-160.cpp) | locally_checked_example |
 | recurrence_nth | [example-160](usage/example-160.cpp) | locally_checked_example |
-| TarjanSCC | [example-2](usage/example-2.cpp), [example-300（应用补充）](usage/example-300.cpp) | locally_checked_example |
 | BiconnectedCore | [example-4](usage/example-4.cpp), [example-5](usage/example-5.cpp) | locally_checked_example |
 | block_cut_forest | [example-165（应用补充）](usage/example-165.cpp) | locally_checked_application |
 | bridge_component_forest | [example-166（应用补充）](usage/example-166.cpp) | locally_checked_application |
@@ -144,36 +110,20 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | CentroidPairs | [example-137](usage/example-137.cpp) | locally_checked_example |
 | CentroidSum | [example-201](usage/example-201.cpp) | generated_unverified |
 | SubtreeColors | [example-138（应用补充）](usage/example-138.cpp) | locally_checked_application |
-| AffineSegTree | [example-12](usage/example-12.cpp) | locally_checked_example |
 | SegmentBeats | [example-200](usage/example-200.cpp) | locally_checked_example |
-| DivideSegmentTree | [example-458（接口演示）](usage/example-458.cpp), [example-459（应用补充）](usage/example-459.cpp) | locally_checked_application |
 | VirtualTree | [example-139（应用补充）](usage/example-139.cpp) | locally_checked_application |
-| PersistentArray | [example-11](usage/example-11.cpp) | locally_checked_example |
-| PersistentWeightedIndex | [example-431（接口演示）](usage/example-431.cpp), [example-432](usage/example-432.cpp) | locally_checked_example |
-| PersistentParityIndex | [example-437（接口演示）](usage/example-437.cpp) | locally_checked_api |
-| SupportHull | [example-226（接口演示）](usage/example-226.cpp) | locally_checked_api |
 | SuffixLCP | [example-205（接口演示）](usage/example-205.cpp), [example-343（接口演示）](usage/example-343.cpp) | locally_checked_api |
 | prefix_lcs | [example-205（接口演示）](usage/example-205.cpp) | locally_checked_api |
 | square_counts | [example-186（应用补充）](usage/example-186.cpp) | locally_checked_application |
 | PositionBasis | [example-39（应用补充）](usage/example-39.cpp) | locally_checked_application |
 | basis_intersection | [example-178](usage/example-178.cpp) | generated_unverified |
 | basis_sum_intersection | [example-179](usage/example-179.cpp) | generated_unverified |
-| XorWalk | [example-176（应用补充）](usage/example-176.cpp) | generated_unverified |
-| removal_components | [example-162](usage/example-162.cpp), [example-163（应用补充）](usage/example-163.cpp) | locally_checked_example |
-| EdgeCompression | [example-227（应用补充）](usage/example-227.cpp) | locally_checked_application |
-| orient_edges | [example-164（应用补充）](usage/example-164.cpp) | locally_checked_application |
-| bridge_augmentation | [example-167（应用补充）](usage/example-167.cpp) | locally_checked_application |
-| OfflineLCA | [example-32](usage/example-32.cpp) | locally_checked_example |
-| EulerLCA | [example-33](usage/example-33.cpp) | locally_checked_example |
 | LiftingLCA | [example-34](usage/example-34.cpp), [example-283（应用补充）](usage/example-283.cpp) | locally_checked_example |
-| path_intersection | [example-169（应用补充）](usage/example-169.cpp) | locally_checked_application |
+| path_intersection | 待补 | pending_example |
 | DirectedEuler | [example-57](usage/example-57.cpp) | locally_checked_example |
 | UndirectedEuler | [example-177](usage/example-177.cpp) | locally_checked_example |
-| word_chain | [example-217（应用补充）](usage/example-217.cpp) | locally_checked_application |
 | mixed_euler_orientation | [example-206（接口演示）](usage/example-206.cpp) | locally_checked_api |
 | mixed_euler_trail | [example-206（接口演示）](usage/example-206.cpp) | locally_checked_api |
-| odd_cycle_vertices | [example-204（应用补充）](usage/example-204.cpp) | locally_checked_application |
-| LexTwoSAT | [example-203（应用补充）](usage/example-203.cpp) | locally_checked_application |
 | BostanMori | [example-49](usage/example-49.cpp) | generated_unverified |
 | SetConvolution | [example-27](usage/example-27.cpp) | generated_unverified |
 | subset_convolution | [example-51](usage/example-51.cpp) | generated_unverified |
@@ -182,36 +132,22 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | PersistentRange | [example-174（应用补充）](usage/example-174.cpp), [example-175（应用补充）](usage/example-175.cpp) | locally_checked_application |
 | TreeDiameter | [example-170（应用补充）](usage/example-170.cpp) | locally_checked_application |
 | FunctionalGraph | [example-171](usage/example-171.cpp), [example-172](usage/example-172.cpp), [example-173（应用补充）](usage/example-173.cpp) | locally_checked_example |
-| release_bfs | [example-215（应用补充）](usage/example-215.cpp) | locally_checked_application |
 | ModifiedMo | [example-168](usage/example-168.cpp) | locally_checked_example |
 | gp_map | [example-68](usage/example-68.cpp), [example-69](usage/example-69.cpp) | locally_checked_example |
 | ost | [example-67](usage/example-67.cpp) | locally_checked_example |
 | rp | [example-66](usage/example-66.cpp) | locally_checked_example |
 | segtree | [example-78](usage/example-78.cpp) | locally_checked_example |
 | lazy_segtree | [example-79](usage/example-79.cpp) | locally_checked_example |
-| Barrett32 | [example-447（接口演示）](usage/example-447.cpp) | locally_checked_api |
-| Montgomery | [example-448（接口演示）](usage/example-448.cpp) | locally_checked_api |
-| StaticMod64 | [example-449（接口演示）](usage/example-449.cpp) | locally_checked_api |
-| mint | [example-198](usage/example-198.cpp) | locally_checked_example |
-| batch_units | [example-198](usage/example-198.cpp) | locally_checked_example |
-| convolution_i64 | [example-52](usage/example-52.cpp) | generated_unverified |
+| mint | [example-198](usage/example-198.cpp) | generated_unverified |
 | pheap | [example-189](usage/example-189.cpp), [example-190](usage/example-190.cpp) | locally_checked_example |
 | enumerate_triangles | [example-6](usage/example-6.cpp) | locally_checked_example |
 | LeftistHeap | [example-50](usage/example-50.cpp) | generated_unverified |
-| Johnson | [example-74](usage/example-74.cpp) | locally_checked_example |
 | DominatorTree | [example-82](usage/example-82.cpp), [example-83](usage/example-83.cpp) | locally_checked_example |
 | SegmentLiChao | [example-87](usage/example-87.cpp), [example-88（应用补充）](usage/example-88.cpp) | locally_checked_example |
 | GeneralSAM | [example-90](usage/example-90.cpp), [example-132](usage/example-132.cpp), [example-257（接口演示）](usage/example-257.cpp), [example-261（应用补充）](usage/example-261.cpp) | locally_checked_example |
-| ac_shortest | [example-92（应用补充）](usage/example-92.cpp) | locally_checked_application |
-| ACWeighted | [example-263（接口演示）](usage/example-263.cpp) | locally_checked_api |
-| DynamicAC | [example-264（应用补充）](usage/example-264.cpp) | locally_checked_application |
 | BoundedMaxFlow | [example-93（应用补充）](usage/example-93.cpp), [example-99（应用补充）](usage/example-99.cpp) | locally_checked_application |
-| matching_edges | [example-95（应用补充）](usage/example-95.cpp) | locally_checked_application |
-| mincut_edges | [example-94（应用补充）](usage/example-94.cpp) | locally_checked_application |
-| odd_induced_partition | [example-96（应用补充）](usage/example-96.cpp) | generated_unverified |
-| unit_flow_edges | [example-97（应用补充）](usage/example-97.cpp), [example-133（应用补充）](usage/example-133.cpp) | locally_checked_application |
-| NegativeCostFlow | [example-98](usage/example-98.cpp) | locally_checked_example |
-| prime_count | [example-103](usage/example-103.cpp) | locally_checked_example |
+| matching_edges | [example-95（应用补充）](usage/example-95.cpp) | generated_unverified |
+| mincut_edges | [example-94（应用补充）](usage/example-94.cpp) | generated_unverified |
 | Min25 | [example-104](usage/example-104.cpp), [example-105](usage/example-105.cpp) | generated_unverified |
 | euler_power | [example-106](usage/example-106.cpp) | generated_unverified |
 | dag_path_determinant | [example-107（应用补充）](usage/example-107.cpp) | generated_unverified |
@@ -222,18 +158,14 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | PolynomialDivision | [example-116](usage/example-116.cpp), [example-118](usage/example-118.cpp) | generated_unverified |
 | FpsSqrt | [example-117](usage/example-117.cpp), [example-119](usage/example-119.cpp), [example-450（接口演示）](usage/example-450.cpp) | generated_unverified |
 | FpsPower | [example-120](usage/example-120.cpp) | generated_unverified |
-| WaveletMatrix | [example-140](usage/example-140.cpp), [example-141](usage/example-141.cpp), [example-142](usage/example-142.cpp) | locally_checked_example |
 | GaussXor | [example-143](usage/example-143.cpp), [example-145（应用补充）](usage/example-145.cpp) | locally_checked_example |
 | SecondMST | [example-144（应用补充）](usage/example-144.cpp) | generated_unverified |
-| DivisionTree | [example-146](usage/example-146.cpp), [example-147](usage/example-147.cpp) | locally_checked_example |
 | line_circle_i64 | [example-151](usage/example-151.cpp) | locally_checked_example |
 | circle_intersections_i64 | [example-152](usage/example-152.cpp) | locally_checked_example |
-| IntegerTangents | [example-156](usage/example-156.cpp) | locally_checked_example |
 | rectangle_union_area | [example-202](usage/example-202.cpp) | locally_checked_example |
 | MultipointEvaluation | [example-211](usage/example-211.cpp) | generated_unverified |
 | polynomial_interpolation | [example-212](usage/example-212.cpp) | generated_unverified |
-| AffineSequenceTreap | [example-214](usage/example-214.cpp) | generated_unverified |
-| PotentialDSU | [example-232](usage/example-232.cpp) | locally_checked_example |
+| PotentialDSU | [example-232](usage/example-232.cpp) | generated_unverified |
 | GaussReal | [example-233（接口演示）](usage/example-233.cpp) | locally_checked_api |
 | AdaptiveSimpson | [example-235（接口演示）](usage/example-235.cpp) | locally_checked_api |
 | ManhattanMST | [example-236](usage/example-236.cpp) | generated_unverified |
@@ -243,50 +175,21 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | SAIS | [example-241](usage/example-241.cpp) | locally_checked_example |
 | ExactCover | [example-243](usage/example-243.cpp) | locally_checked_example |
 | MinimumCover | [example-244（接口演示）](usage/example-244.cpp) | locally_checked_api |
-| CentroidNearest | [example-245（应用补充）](usage/example-245.cpp) | locally_checked_application |
-| Fenwick2D | [example-246](usage/example-246.cpp) | locally_checked_example |
 | offline_rectangle_sum | [example-436](usage/example-436.cpp) | generated_unverified |
 | RectangleFenwick | [example-247](usage/example-247.cpp) | locally_checked_example |
 | PersistentDSU | [example-248](usage/example-248.cpp) | locally_checked_example |
 | MergeSplitTree | [example-249](usage/example-249.cpp), [example-289（应用补充）](usage/example-289.cpp), [example-438（接口演示）](usage/example-438.cpp) | generated_unverified |
 | exkmp | [example-250](usage/example-250.cpp) | locally_checked_example |
-| good_number_sum | [example-460（应用补充）](usage/example-460.cpp) | locally_checked_application |
-| order_match | [example-251（应用补充）](usage/example-251.cpp) | locally_checked_application |
 | SAMLex | [example-253（应用补充）](usage/example-253.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |
 | sam_lcs | [example-254（应用补充）](usage/example-254.cpp), [example-255（接口演示）](usage/example-255.cpp) | locally_checked_application |
-| OnlineSAM | [example-256（接口演示）](usage/example-256.cpp), [example-258](usage/example-258.cpp) | locally_checked_example |
 | SAMDocuments | [example-259（应用补充）](usage/example-259.cpp), [example-260（接口演示）](usage/example-260.cpp) | generated_unverified |
 | KDNearest | [example-267（接口演示）](usage/example-267.cpp), [example-268（应用补充）](usage/example-268.cpp) | locally_checked_application |
-| KDRange | [example-270（接口演示）](usage/example-270.cpp), [example-271（接口演示）](usage/example-271.cpp) | locally_checked_api |
-| Chain3D | [example-272（接口演示）](usage/example-272.cpp), [example-273（应用补充）](usage/example-273.cpp) | locally_checked_application |
-| KDMin | [example-274（接口演示）](usage/example-274.cpp), [example-275（应用补充）](usage/example-275.cpp) | locally_checked_application |
-| StaticRMQ | [example-276](usage/example-276.cpp), [example-277](usage/example-277.cpp), [example-278（接口演示）](usage/example-278.cpp) | locally_checked_example |
-| StaticRMQ2D | [example-279（接口演示）](usage/example-279.cpp), [example-280（接口演示）](usage/example-280.cpp) | locally_checked_api |
-| CentroidDiameter | [example-284（应用补充）](usage/example-284.cpp), [example-285（接口演示）](usage/example-285.cpp) | locally_checked_application |
-| SequenceSplay | [example-286](usage/example-286.cpp), [example-287（应用补充）](usage/example-287.cpp), [example-288（接口演示）](usage/example-288.cpp) | locally_checked_example |
-| SequenceMaxTreap | [example-435](usage/example-435.cpp) | locally_checked_example |
-| ShiftSplay | [example-430（接口演示）](usage/example-430.cpp) | locally_checked_api |
-| MergeSplay | [example-290（应用补充）](usage/example-290.cpp), [example-291（应用补充）](usage/example-291.cpp), [example-292（接口演示）](usage/example-292.cpp) | locally_checked_application |
 | BellmanFord | [example-293](usage/example-293.cpp), [example-294（应用补充）](usage/example-294.cpp), [example-295（接口演示）](usage/example-295.cpp) | locally_checked_example |
 | Spfa | [example-296](usage/example-296.cpp), [example-297](usage/example-297.cpp), [example-298（应用补充）](usage/example-298.cpp), [example-299（接口演示）](usage/example-299.cpp) | locally_checked_example |
-| DagLongest | [example-301（应用补充）](usage/example-301.cpp), [example-302（应用补充）](usage/example-302.cpp), [example-303（接口演示）](usage/example-303.cpp) | locally_checked_application |
 | Floyd | [example-304](usage/example-304.cpp), [example-305（应用补充）](usage/example-305.cpp), [example-306（接口演示）](usage/example-306.cpp) | locally_checked_example |
-| ShortestPathTree | [example-307（应用补充）](usage/example-307.cpp), [example-308（接口演示）](usage/example-308.cpp) | locally_checked_application |
-| independent_set | [example-309（应用补充）](usage/example-309.cpp), [example-310（接口演示）](usage/example-310.cpp) | locally_checked_application |
-| DenseDijkstra | [example-312](usage/example-312.cpp), [example-313（接口演示）](usage/example-313.cpp) | locally_checked_example |
+| independent_set | [example-309（应用补充）](usage/example-309.cpp), [example-310（接口演示）](usage/example-310.cpp) | generated_unverified |
 | Kruskal | [example-314](usage/example-314.cpp), [example-315（接口演示）](usage/example-315.cpp) | generated_unverified |
 | Prim | [example-316](usage/example-316.cpp), [example-317（接口演示）](usage/example-317.cpp) | locally_checked_example |
-| flow_unique | [example-320（接口演示）](usage/example-320.cpp) | locally_checked_api |
-| Isap | [example-321](usage/example-321.cpp) | locally_checked_example |
-| ZkwFlow | [example-322](usage/example-322.cpp) | locally_checked_example |
-| TreeMarket | [example-323（接口演示）](usage/example-323.cpp) | locally_checked_api |
-| determinant_exact | [example-329（接口演示）](usage/example-329.cpp) | locally_checked_api |
-| MatrixTreeExact | [example-330（接口演示）](usage/example-330.cpp), [example-331（接口演示）](usage/example-331.cpp) | locally_checked_api |
-| AssignmentSpectrum | [example-332（接口演示）](usage/example-332.cpp), [example-333（应用补充）](usage/example-333.cpp), [example-334](usage/example-334.cpp) | locally_checked_example |
-| FibonacciPeriod | [example-335](usage/example-335.cpp), [example-336（接口演示）](usage/example-336.cpp), [example-337（接口演示）](usage/example-337.cpp) | generated_unverified |
-| DagDominator | [example-338（接口演示）](usage/example-338.cpp), [example-339](usage/example-339.cpp), [example-340（应用补充）](usage/example-340.cpp) | locally_checked_example |
-| DC3 | [example-341](usage/example-341.cpp), [example-342（接口演示）](usage/example-342.cpp) | locally_checked_example |
-| convolution_mod | [example-345](usage/example-345.cpp), [example-346（接口演示）](usage/example-346.cpp), [example-347（应用补充）](usage/example-347.cpp) | generated_unverified |
 | RealSpace | [example-348（接口演示）](usage/example-348.cpp) | generated_unverified |
 | Line3 | [example-349（接口演示）](usage/example-349.cpp) | generated_unverified |
 | Plane3 | [example-350（接口演示）](usage/example-350.cpp), [example-351（接口演示）](usage/example-351.cpp) | generated_unverified |
@@ -312,15 +215,12 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | minimum_mean_cycle | [example-380](usage/example-380.cpp), [example-381（接口演示）](usage/example-381.cpp) | locally_checked_example |
 | Cactus | [example-382](usage/example-382.cpp) | locally_checked_example |
 | HLPP | [example-383](usage/example-383.cpp), [example-384（接口演示）](usage/example-384.cpp) | locally_checked_example |
-| TreeBlockDistinct | [example-385](usage/example-385.cpp) | locally_checked_example |
-| Dominance4D | [example-386](usage/example-386.cpp), [example-387（接口演示）](usage/example-387.cpp) | locally_checked_example |
 | DynamicDiameter | [example-388](usage/example-388.cpp) | locally_checked_example |
 | regular_matching | [example-389](usage/example-389.cpp) | locally_checked_example |
 | tutte | [example-390](usage/example-390.cpp) | locally_checked_example |
 | SteinerTree | [example-391](usage/example-391.cpp) | locally_checked_example |
 | CartesianTree | [example-392](usage/example-392.cpp) | locally_checked_example |
 | Mo | [example-394](usage/example-394.cpp), [example-415（应用补充）](usage/example-415.cpp) | locally_checked_example |
-| digit_count | [example-395（应用补充）](usage/example-395.cpp) | locally_checked_application |
 | grid_cycle | [example-396](usage/example-396.cpp) | locally_checked_example |
 | Simplex | [example-397](usage/example-397.cpp) | locally_checked_example |
 | circle_union_area | [example-398](usage/example-398.cpp), [example-403](usage/example-403.cpp) | locally_checked_example |
@@ -328,18 +228,9 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | Hull3D | [example-400](usage/example-400.cpp) | locally_checked_example |
 | WeightedBlossom | [example-401](usage/example-401.cpp), [example-402（接口演示）](usage/example-402.cpp) | locally_checked_example |
 | grid_cycles | [example-404（应用补充）](usage/example-404.cpp), [example-405（接口演示）](usage/example-405.cpp) | generated_unverified |
-| ColorComponents | [example-406（应用补充）](usage/example-406.cpp), [example-407（接口演示）](usage/example-407.cpp) | locally_checked_application |
-| ColorMax | [example-408（应用补充）](usage/example-408.cpp) | locally_checked_application |
-| Hull3DMetrics | [example-409（应用补充）](usage/example-409.cpp), [example-410（接口演示）](usage/example-410.cpp) | locally_checked_application |
-| EightPuzzle | [example-413（应用补充）](usage/example-413.cpp) | locally_checked_application |
 | manhattan_order | [example-416（应用补充）](usage/example-416.cpp) | generated_unverified |
-| circle_coverage_area | [example-417](usage/example-417.cpp) | locally_checked_example |
 | minimum_rectangle | [example-418](usage/example-418.cpp) | locally_checked_example |
 | convex_cut | [example-419](usage/example-419.cpp) | locally_checked_example |
 | polygon_centroid | [example-420（接口演示）](usage/example-420.cpp) | locally_checked_api |
 | triangle_incircle | [example-426](usage/example-426.cpp) | locally_checked_example |
 | BigInteger | [example-421](usage/example-421.cpp), [example-422](usage/example-422.cpp), [example-423](usage/example-423.cpp), [example-424（接口演示）](usage/example-424.cpp), [example-425（接口演示）](usage/example-425.cpp) | locally_checked_example |
-| Rational | [example-441](usage/example-441.cpp), [example-442（接口演示）](usage/example-442.cpp) | locally_checked_example |
-| stirling_first_column | [example-433](usage/example-433.cpp) | generated_unverified |
-| stirling_second_column | [example-434](usage/example-434.cpp) | generated_unverified |
-| q_binomial | [example-443（接口演示）](usage/example-443.cpp), [example-444（应用补充）](usage/example-444.cpp) | locally_checked_application |

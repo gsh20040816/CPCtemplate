@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #include <cassert>
 namespace compact {
-#include "../src/compact/euler_lca.hpp"
 #include "../src/compact/tree_diameter.hpp"
 }
 namespace classic {
@@ -12,13 +11,11 @@ using namespace std;
 using ll=long long;
 void check(int n,const vector<tuple<int,int,ll>>&edges)
 {
-    compact::EulerLCA lca(n);
     classic::Euler_LCA<10,5> old;
     old.Init(n);
     vector<vector<pair<int,ll>>> g(n);
     for(auto [u,v,w]:edges)
     {
-        lca.add(u+1,v+1,w);
         old.Insert(u+1,v+1,w);
         g[u].push_back({v,w});
         g[v].push_back({u,w});
@@ -46,15 +43,13 @@ void check(int n,const vector<tuple<int,int,ll>>&edges)
     }
     for(int root=1;root<=n;root++)
     {
-        lca.build(root);
         old.Build(root);
         for(int u=0;u<n;u++) for(int v=0;v<n;v++)
         {
-            assert(lca.weighted_distance(u+1,v+1)==d[u][v]);
             assert(old.Weighted_Distance(u+1,v+1)==d[u][v]);
         }
     }
-    auto dist=[&](int u,int v) {return lca.weighted_distance(u+1,v+1);};
+    auto dist=[&](int u,int v) {return d[u][v];};
     auto dist2=[&](int u,int v) {return old.Weighted_Distance(u+1,v+1);};
     vector<compact::TreeDiameter>a(1<<n);
     vector<classic::Tree_Diameter>b(1<<n);

@@ -16,10 +16,10 @@
 | [lazysegtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/lazysegtree.hpp) | 数据结构 | 通用递归实现已完成，本地验证通过 | [lazy_segtree.hpp](../src/compact/lazy_segtree.hpp) |
 | [math](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp) | 数学 | 核心功能已有，范围需适配 | [mod64.hpp](../src/compact/mod64.hpp)、[extended_gcd.hpp](../src/compact/extended_gcd.hpp)、[mod_inverse.hpp](../src/compact/mod_inverse.hpp)、[crt_merge.hpp](../src/compact/crt_merge.hpp)、[floor_sum.hpp](../src/compact/floor_sum.hpp) |
 | [modint](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp) | 数学 | 静态与动态实现已有，支持合数单位元求逆 | [number_theory.hpp](../src/compact/number_theory.hpp)、[dynamic_modint.hpp](../src/compact/dynamic_modint.hpp) |
-| [convolution](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp) | 数学 | 模卷积与精确整数卷积已有，本地验证 | [ntt_convolution.hpp](../src/compact/ntt_convolution.hpp)、[convolution_i64.hpp](../src/compact/convolution_i64.hpp) |
+| [convolution](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp) | 数学 | 模卷积与拆系数任意模卷积已有，本地验证 | [ntt_convolution.hpp](../src/compact/ntt_convolution.hpp)、[convolution_mod_fft.hpp](../src/compact/convolution_mod_fft.hpp) |
 | [maxflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/maxflow.hpp) | 图论 | 边状态接口已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
 | [mincostflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/mincostflow.hpp) | 图论 | 费用曲线已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
-| [scc](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/scc.hpp) | 图论 | 核心功能已有 | [tarjan.hpp](../src/compact/tarjan.hpp)、[graph.hpp](../src/compact/graph.hpp) |
+| [scc](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/scc.hpp) | 图论 | 核心功能已有 | [graph.hpp](../src/compact/graph.hpp) |
 | [twosat](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/twosat.hpp) | 图论 | 核心功能已有 | [graph.hpp](../src/compact/graph.hpp) |
 | [string](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/string.hpp) | 字符串 | SA-IS与倍增并列，LCP表示不同 | [string.hpp](../src/compact/string.hpp)、[suffix_lcp.hpp](../src/compact/suffix_lcp.hpp)、[sais.hpp](../src/compact/sais.hpp) |
 
@@ -95,7 +95,7 @@ floor_sum 的[现有文档契约](mathematics.tex)为 `0<=n<=10^9`、`1<=m<=10^9
 
 已有参数化素数模 NTT 卷积。ACL convolution_ll 返回有符号64位精确系数，采用三模重构并限制结果范围；单模卷积或把结果随意取模不能替代。
 
-已补齐 convolution_i64 三模精确重构，契约与证明见 [INTEGER-CONVOLUTION.md](INTEGER-CONVOLUTION.md)。cpp_int 参考、signed64 极值及百万次数驱动的普通与 ASan/UBSan 测试通过，线上 AC 和性能排名待验证。
+issue #21 删除了重复的 convolution_i64（历史契约见 [INTEGER-CONVOLUTION.md](INTEGER-CONVOLUTION.md)）；任意模数卷积保留拆系数版 convolution_mod_fft。
 
 ### maxflow
 

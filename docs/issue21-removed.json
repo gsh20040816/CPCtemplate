@@ -1,9 +1,551 @@
 {
-  "files": {},
+  "files": {
+    "ac_shortest": "string.hpp#AhoCorasick",
+    "ac_weighted": "string.hpp#AhoCorasick",
+    "affine_segment_tree": "lazy_segtree.hpp",
+    "affine_sequence": "treap.hpp#SequenceTreap",
+    "assignment_spectrum": "",
+    "barrett32": "dynamic_modint.hpp",
+    "batch_units": "number_theory.hpp#batch_inverse",
+    "biconnected": "biconnected_core.hpp",
+    "bivariate_inverse": "",
+    "bridge_augmentation": "bridge_component_forest.hpp",
+    "carmichael": "",
+    "centroid_diameter": "centroid.hpp",
+    "centroid_nearest": "centroid_sum.hpp",
+    "chain_3d": "dominance_3d.hpp",
+    "circle_coverage": "circle_union.hpp",
+    "closest_pair_i64": "closest_pair.hpp",
+    "color_components": "dynamic_tree.hpp",
+    "color_max": "dynamic_tree.hpp",
+    "composite_binomial": "exlucas.hpp",
+    "composite_roots": "kth_residue.hpp",
+    "convolution_fft": "fft.hpp",
+    "convolution_i64": "convolution_mod_fft.hpp",
+    "convolution_mod": "convolution_mod_fft.hpp",
+    "coprime_pairs": "",
+    "cut_tree_queries": "gomory_hu.hpp",
+    "dag_dominator": "dominator_tree.hpp",
+    "dag_longest": "",
+    "dc3": "sais.hpp",
+    "dense_dijkstra": "graph.hpp#Dijkstra",
+    "det_prime": "determinant_mod.hpp",
+    "determinant_exact": "determinant_mod.hpp",
+    "digit_count": "",
+    "divide_segment_tree": "segment_beats.hpp",
+    "division_tree": "optimization.hpp#PersistentKth",
+    "divisor_sum": "",
+    "dominance_4d": "dominance_3d.hpp",
+    "dynamic_path_max": "dynamic_tree.hpp",
+    "dynamic_peach_tree": "dynamic_tree.hpp",
+    "edge_components": "bridge_component_forest.hpp",
+    "eight_puzzle": "",
+    "euler_lca": "tree.hpp#HLD",
+    "fenwick2d": "rectangle_fenwick.hpp",
+    "fibonacci_period": "",
+    "flow_unique": "flow.hpp#mincut_edges",
+    "fraction": "",
+    "gcd_sequence": "treap.hpp#SequenceTreap",
+    "good_number_sum": "",
+    "hull3d_metrics": "hull3d.hpp",
+    "integer_tangents": "circle_tangents.hpp",
+    "isap": "flow.hpp#Dinic",
+    "johnson": "graph.hpp#Dijkstra",
+    "kd_min": "kd_nearest.hpp",
+    "kd_range": "kd_tree_sum.hpp",
+    "lex_two_sat": "graph.hpp#TwoSAT",
+    "linear_equation": "number_theory.hpp#extended_gcd",
+    "matrix_inverse_mod2": "gauss_xor.hpp",
+    "matrix_tree": "matrix_tree_mod.hpp",
+    "matrix_tree_exact": "matrix_tree_mod.hpp",
+    "merge_splay": "treap.hpp#OrderedTreap",
+    "montgomery_modint": "number_theory.hpp#ModInt",
+    "negative_cost_flow": "flow.hpp#BoundedCirculation",
+    "ntt_2d": "ntt_convolution.hpp",
+    "odd_cycle_vertices": "block_cut_forest.hpp",
+    "odd_induced_partition": "",
+    "offline_lca": "tree.hpp#HLD",
+    "online_sam": "general_sam.hpp",
+    "order_match": "string.hpp#prefix_function",
+    "persistent_array": "persistent_range.hpp",
+    "persistent_distinct": "optimization.hpp#PersistentKth",
+    "persistent_parity_index": "optimization.hpp#PersistentKth",
+    "persistent_weighted_index": "optimization.hpp#PersistentKth",
+    "prime_count": "min25.hpp",
+    "prime_power_roots": "kth_residue.hpp",
+    "q_binomial": "",
+    "release_bfs": "",
+    "root_factors": "kth_residue.hpp",
+    "scapegoat_tree": "treap.hpp#OrderedTreap",
+    "sequence_kth": "optimization.hpp#PersistentKth",
+    "sequence_max_treap": "treap.hpp#SequenceTreap",
+    "sequence_scapegoat": "treap.hpp#SequenceTreap",
+    "sequence_splay": "treap.hpp#SequenceTreap",
+    "shift_splay": "treap.hpp#OrderedTreap",
+    "shifted_power_sum": "",
+    "shortest_path_tree": "graph.hpp#Dijkstra",
+    "spfa_flow": "flow.hpp#MinCostFlow",
+    "static_mod64": "number_theory.hpp#ModInt",
+    "static_rmq": "",
+    "static_rmq_2d": "",
+    "stirling_column": "stirling.hpp",
+    "support_hull": "integer_hull.hpp",
+    "tarjan": "graph.hpp#SCC",
+    "tree_block_distinct": "",
+    "tree_market": "centroid.hpp",
+    "tree_path_kth": "optimization.hpp#PersistentKth",
+    "tree_path_products": "dynamic_tree.hpp",
+    "tree_probability": "matrix_tree_mod.hpp",
+    "unit_flow_edges": "flow.hpp#mincut_edges",
+    "vertex_removal": "biconnected_core.hpp#BiconnectedCore",
+    "wavelet_matrix": "optimization.hpp#PersistentKth",
+    "weighted_matching": "graph_advanced.hpp#Hungarian",
+    "word_chain": "directed_euler.hpp",
+    "xor_affine64": "gauss_xor.hpp",
+    "xor_path_sum": "dynamic_tree.hpp",
+    "xor_walk": "",
+    "zkw_flow": "flow.hpp#MinCostFlow"
+  },
   "symbols": {
+    "ACWeighted": {
+      "file": "ac_weighted",
+      "replacement": "string.hpp#AhoCorasick"
+    },
+    "AffineSegTree": {
+      "file": "affine_segment_tree",
+      "replacement": "lazy_segtree.hpp"
+    },
+    "AffineSequenceTreap": {
+      "file": "affine_sequence",
+      "replacement": "treap.hpp#SequenceTreap"
+    },
+    "AssignmentSpectrum": {
+      "file": "assignment_spectrum",
+      "replacement": ""
+    },
+    "Barrett32": {
+      "file": "barrett32",
+      "replacement": "dynamic_modint.hpp"
+    },
+    "BivariateInverse": {
+      "file": "bivariate_inverse",
+      "replacement": ""
+    },
+    "CentroidDiameter": {
+      "file": "centroid_diameter",
+      "replacement": "centroid.hpp"
+    },
+    "CentroidNearest": {
+      "file": "centroid_nearest",
+      "replacement": "centroid_sum.hpp"
+    },
+    "Chain3D": {
+      "file": "chain_3d",
+      "replacement": "dominance_3d.hpp"
+    },
+    "ColorComponents": {
+      "file": "color_components",
+      "replacement": "dynamic_tree.hpp"
+    },
+    "ColorMax": {
+      "file": "color_max",
+      "replacement": "dynamic_tree.hpp"
+    },
+    "CompositeBinomial": {
+      "file": "composite_binomial",
+      "replacement": "exlucas.hpp"
+    },
+    "CompositeRoots": {
+      "file": "composite_roots",
+      "replacement": "kth_residue.hpp"
+    },
+    "CoprimePairs": {
+      "file": "coprime_pairs",
+      "replacement": ""
+    },
+    "DC3": {
+      "file": "dc3",
+      "replacement": "sais.hpp"
+    },
+    "DagDominator": {
+      "file": "dag_dominator",
+      "replacement": "dominator_tree.hpp"
+    },
+    "DagLongest": {
+      "file": "dag_longest",
+      "replacement": ""
+    },
+    "DenseDijkstra": {
+      "file": "dense_dijkstra",
+      "replacement": "graph.hpp#Dijkstra"
+    },
+    "DivideSegmentTree": {
+      "file": "divide_segment_tree",
+      "replacement": "segment_beats.hpp"
+    },
+    "DivisionTree": {
+      "file": "division_tree",
+      "replacement": "optimization.hpp#PersistentKth"
+    },
+    "Dominance4D": {
+      "file": "dominance_4d",
+      "replacement": "dominance_3d.hpp"
+    },
+    "DynamicAC": {
+      "file": "ac_weighted",
+      "replacement": "string.hpp#AhoCorasick"
+    },
+    "DynamicPathMax": {
+      "file": "dynamic_path_max",
+      "replacement": "dynamic_tree.hpp"
+    },
+    "DynamicPeachTree": {
+      "file": "dynamic_peach_tree",
+      "replacement": "dynamic_tree.hpp"
+    },
+    "EdgeCompression": {
+      "file": "edge_components",
+      "replacement": "bridge_component_forest.hpp"
+    },
+    "EightPuzzle": {
+      "file": "eight_puzzle",
+      "replacement": ""
+    },
+    "EulerLCA": {
+      "file": "euler_lca",
+      "replacement": "tree.hpp#HLD"
+    },
+    "Fenwick2D": {
+      "file": "fenwick2d",
+      "replacement": "rectangle_fenwick.hpp"
+    },
+    "FibonacciPeriod": {
+      "file": "fibonacci_period",
+      "replacement": ""
+    },
+    "GcdSequenceTreap": {
+      "file": "gcd_sequence",
+      "replacement": "treap.hpp#SequenceTreap"
+    },
+    "Hull3DMetrics": {
+      "file": "hull3d_metrics",
+      "replacement": "hull3d.hpp"
+    },
+    "IntegerTangents": {
+      "file": "integer_tangents",
+      "replacement": "circle_tangents.hpp"
+    },
+    "Isap": {
+      "file": "isap",
+      "replacement": "flow.hpp#Dinic"
+    },
+    "Johnson": {
+      "file": "johnson",
+      "replacement": "graph.hpp#Dijkstra"
+    },
+    "KDMin": {
+      "file": "kd_min",
+      "replacement": "kd_nearest.hpp"
+    },
+    "KDRange": {
+      "file": "kd_range",
+      "replacement": "kd_tree_sum.hpp"
+    },
     "LazySeg": {
       "file": "data_structure",
       "replacement": "lazy_segtree"
+    },
+    "LexTwoSAT": {
+      "file": "lex_two_sat",
+      "replacement": "graph.hpp#TwoSAT"
+    },
+    "Lowlink": {
+      "file": "graph",
+      "replacement": "biconnected_core.hpp#BiconnectedCore"
+    },
+    "MatrixTree": {
+      "file": "matrix_tree",
+      "replacement": "matrix_tree_mod.hpp"
+    },
+    "MatrixTreeExact": {
+      "file": "matrix_tree_exact",
+      "replacement": "matrix_tree_mod.hpp"
+    },
+    "MergeSplay": {
+      "file": "merge_splay",
+      "replacement": "treap.hpp#OrderedTreap"
+    },
+    "Montgomery": {
+      "file": "montgomery_modint",
+      "replacement": "number_theory.hpp#ModInt"
+    },
+    "NegativeCostFlow": {
+      "file": "negative_cost_flow",
+      "replacement": "flow.hpp#BoundedCirculation"
+    },
+    "Ntt2D": {
+      "file": "ntt_2d",
+      "replacement": "ntt_convolution.hpp"
+    },
+    "OfflineLCA": {
+      "file": "offline_lca",
+      "replacement": "tree.hpp#HLD"
+    },
+    "OnlineSAM": {
+      "file": "online_sam",
+      "replacement": "general_sam.hpp"
+    },
+    "PersistentArray": {
+      "file": "persistent_array",
+      "replacement": "persistent_range.hpp"
+    },
+    "PersistentDistinct": {
+      "file": "persistent_distinct",
+      "replacement": "optimization.hpp#PersistentKth"
+    },
+    "PersistentParityIndex": {
+      "file": "persistent_parity_index",
+      "replacement": "optimization.hpp#PersistentKth"
+    },
+    "PersistentWeightedIndex": {
+      "file": "persistent_weighted_index",
+      "replacement": "optimization.hpp#PersistentKth"
+    },
+    "PrimePowerRoots": {
+      "file": "prime_power_roots",
+      "replacement": "kth_residue.hpp"
+    },
+    "Rational": {
+      "file": "fraction",
+      "replacement": ""
+    },
+    "ScapegoatTree": {
+      "file": "scapegoat_tree",
+      "replacement": "treap.hpp#OrderedTreap"
+    },
+    "SequenceKth": {
+      "file": "sequence_kth",
+      "replacement": "optimization.hpp#PersistentKth"
+    },
+    "SequenceMaxTreap": {
+      "file": "sequence_max_treap",
+      "replacement": "treap.hpp#SequenceTreap"
+    },
+    "SequenceScapegoat": {
+      "file": "sequence_scapegoat",
+      "replacement": "treap.hpp#SequenceTreap"
+    },
+    "SequenceSplay": {
+      "file": "sequence_splay",
+      "replacement": "treap.hpp#SequenceTreap"
+    },
+    "ShiftSplay": {
+      "file": "shift_splay",
+      "replacement": "treap.hpp#OrderedTreap"
+    },
+    "ShortestPathTree": {
+      "file": "shortest_path_tree",
+      "replacement": "graph.hpp#Dijkstra"
+    },
+    "SpfaFlow": {
+      "file": "spfa_flow",
+      "replacement": "flow.hpp#MinCostFlow"
+    },
+    "StaticMod64": {
+      "file": "static_mod64",
+      "replacement": "number_theory.hpp#ModInt"
+    },
+    "StaticRMQ": {
+      "file": "static_rmq",
+      "replacement": ""
+    },
+    "StaticRMQ2D": {
+      "file": "static_rmq_2d",
+      "replacement": ""
+    },
+    "SupportHull": {
+      "file": "support_hull",
+      "replacement": "integer_hull.hpp"
+    },
+    "TarjanSCC": {
+      "file": "tarjan",
+      "replacement": "graph.hpp#SCC"
+    },
+    "TreeBlockDistinct": {
+      "file": "tree_block_distinct",
+      "replacement": ""
+    },
+    "TreeMarket": {
+      "file": "tree_market",
+      "replacement": "centroid.hpp"
+    },
+    "TreePathKth": {
+      "file": "tree_path_kth",
+      "replacement": "optimization.hpp#PersistentKth"
+    },
+    "TreePathProducts": {
+      "file": "tree_path_products",
+      "replacement": "dynamic_tree.hpp"
+    },
+    "WaveletMatrix": {
+      "file": "wavelet_matrix",
+      "replacement": "optimization.hpp#PersistentKth"
+    },
+    "WeightedMatching": {
+      "file": "weighted_matching",
+      "replacement": "graph_advanced.hpp#Hungarian"
+    },
+    "XorAffine64": {
+      "file": "xor_affine64",
+      "replacement": "gauss_xor.hpp"
+    },
+    "XorPathSum": {
+      "file": "xor_path_sum",
+      "replacement": "dynamic_tree.hpp"
+    },
+    "XorWalk": {
+      "file": "xor_walk",
+      "replacement": ""
+    },
+    "ZkwFlow": {
+      "file": "zkw_flow",
+      "replacement": "flow.hpp#MinCostFlow"
+    },
+    "ac_shortest": {
+      "file": "ac_shortest",
+      "replacement": "string.hpp#AhoCorasick"
+    },
+    "batch_units": {
+      "file": "batch_units",
+      "replacement": "number_theory.hpp#batch_inverse"
+    },
+    "bridge_augmentation": {
+      "file": "bridge_augmentation",
+      "replacement": "bridge_component_forest.hpp"
+    },
+    "carmichael": {
+      "file": "carmichael",
+      "replacement": ""
+    },
+    "circle_coverage_area": {
+      "file": "circle_coverage",
+      "replacement": "circle_union.hpp"
+    },
+    "closest_pair_i64": {
+      "file": "closest_pair_i64",
+      "replacement": "closest_pair.hpp"
+    },
+    "convolution_fft": {
+      "file": "convolution_fft",
+      "replacement": "fft.hpp"
+    },
+    "convolution_i64": {
+      "file": "convolution_i64",
+      "replacement": "convolution_mod_fft.hpp"
+    },
+    "convolution_mod": {
+      "file": "convolution_mod",
+      "replacement": "convolution_mod_fft.hpp"
+    },
+    "cut_tree_values": {
+      "file": "cut_tree_queries",
+      "replacement": "gomory_hu.hpp"
+    },
+    "det_prime": {
+      "file": "det_prime",
+      "replacement": "determinant_mod.hpp"
+    },
+    "determinant_exact": {
+      "file": "determinant_exact",
+      "replacement": "determinant_mod.hpp"
+    },
+    "digit_count": {
+      "file": "digit_count",
+      "replacement": ""
+    },
+    "divisor_sum_power": {
+      "file": "divisor_sum",
+      "replacement": ""
+    },
+    "flow_unique": {
+      "file": "flow_unique",
+      "replacement": "flow.hpp#mincut_edges"
+    },
+    "good_number_sum": {
+      "file": "good_number_sum",
+      "replacement": ""
+    },
+    "linear_equation": {
+      "file": "linear_equation",
+      "replacement": "number_theory.hpp#extended_gcd"
+    },
+    "matrix_inverse_mod2": {
+      "file": "matrix_inverse_mod2",
+      "replacement": "gauss_xor.hpp"
+    },
+    "odd_cycle_vertices": {
+      "file": "odd_cycle_vertices",
+      "replacement": "block_cut_forest.hpp"
+    },
+    "odd_induced_partition": {
+      "file": "odd_induced_partition",
+      "replacement": ""
+    },
+    "order_match": {
+      "file": "order_match",
+      "replacement": "string.hpp#prefix_function"
+    },
+    "orient_edges": {
+      "file": "edge_components",
+      "replacement": "bridge_component_forest.hpp"
+    },
+    "power_sum": {
+      "file": "divisor_sum",
+      "replacement": ""
+    },
+    "prime_count": {
+      "file": "prime_count",
+      "replacement": "min25.hpp"
+    },
+    "q_binomial": {
+      "file": "q_binomial",
+      "replacement": ""
+    },
+    "release_bfs": {
+      "file": "release_bfs",
+      "replacement": ""
+    },
+    "removal_components": {
+      "file": "vertex_removal",
+      "replacement": "biconnected_core.hpp#BiconnectedCore"
+    },
+    "root_factors": {
+      "file": "root_factors",
+      "replacement": "kth_residue.hpp"
+    },
+    "shifted_power_sum": {
+      "file": "shifted_power_sum",
+      "replacement": ""
+    },
+    "stirling_first_column": {
+      "file": "stirling_column",
+      "replacement": "stirling.hpp"
+    },
+    "stirling_second_column": {
+      "file": "stirling_column",
+      "replacement": "stirling.hpp"
+    },
+    "tree_probability": {
+      "file": "tree_probability",
+      "replacement": "matrix_tree_mod.hpp"
+    },
+    "unit_flow_edges": {
+      "file": "unit_flow_edges",
+      "replacement": "flow.hpp#mincut_edges"
+    },
+    "word_chain": {
+      "file": "word_chain",
+      "replacement": "directed_euler.hpp"
     }
   }
 }

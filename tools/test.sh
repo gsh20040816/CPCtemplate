@@ -52,8 +52,6 @@ python3 tests/manhattan_mst_application.py
 python3 tests/sais.py
 python3 tests/exact_cover.py
 python3 tests/minimum_cover.py
-python3 tests/centroid_nearest.py
-python3 tests/fenwick2d.py
 python3 tests/ownership.py
 python3 tests/string_prefix.py
 python3 tests/convex_tangents.py
@@ -70,16 +68,12 @@ python3 tests/state_recurrence_snippet.py
 python3 tests/inclusion_knowledge.py
 python3 tests/complex_fft_usage.py
 python3 tests/maxplus_application.py
-python3 tests/tagged_gcd_demo.py
 python3 tests/integer_3d_demo.py
 python3 tests/real_polar_order.py
-python3 tests/support_hull_demo.py
-python3 tests/edge_compression_application.py
 python3 tests/ordered_splay_pagination.py
 python3 tests/joint_usage_references.py
 python3 tests/copy_prerequisite_order.py
 python3 tests/binomial_coefficient_application.py
-python3 tests/word_chain_distinct_application.py
 python3 tests/totient_lattice_application.py
 python3 tests/mod_inverse_application.py
 python3 tests/bezout_minimum_usage.py
@@ -107,9 +101,6 @@ for stage in small dense alternating sparse zero constant composition; do
     fi
 done
 python3 tests/polynomial_interpolation_application.py
-python3 tests/run_affine_sequence_oracle.py
-python3 tests/run_affine_sequence_oracle.py --max
-python3 tests/affine_sequence_application.py
 if [[ "${SANITIZE:-0}" == 1 ]]; then
     python3 tests/garner_convolution.py --sanitize
 else
@@ -131,24 +122,16 @@ build/graph_advanced
 build/geometry_extra
 "$CXX" "${flags[@]}" tests/dual.cpp -o build/dual
 build/dual
-"$CXX" "${flags[@]}" tests/lowlink.cpp -o build/lowlink
-build/lowlink
 "$CXX" "${flags[@]}" tests/boundaries.cpp -o build/boundaries
 build/boundaries
 "$CXX" "${flags[@]}" tests/trees.cpp -o build/trees
 build/trees
-
-"$CXX" "${flags[@]}" tests/gcd_sequence.cpp -o build/gcd_sequence
-build/gcd_sequence
 
 "$CXX" "${flags[@]}" tests/blossom.cpp -o build/blossom
 build/blossom
 
 "$CXX" "${flags[@]}" tests/recurrence.cpp -o build/recurrence
 build/recurrence
-
-"$CXX" "${flags[@]}" tests/tarjan.cpp -o build/tarjan
-build/tarjan
 
 "$CXX" "${flags[@]}" -pthread tests/biconnected.cpp -o build/biconnected
 build/biconnected
@@ -162,16 +145,10 @@ build/centroid
 "$CXX" "${flags[@]}" -pthread tests/dsu_on_tree.cpp -o build/dsu_on_tree
 build/dsu_on_tree
 
-"$CXX" "${flags[@]}" tests/affine_segment_tree.cpp -o build/affine_segment_tree
-build/affine_segment_tree
-
 "$CXX" "${flags[@]}" -pthread tests/virtual_tree.cpp -o build/virtual_tree
 build/virtual_tree
 
 python3 tests/virtual_tree_application.py
-
-"$CXX" "${flags[@]}" tests/persistent_array.cpp -o build/persistent_array
-build/persistent_array
 
 "$CXX" "${flags[@]}" tests/circle_precision.cpp -o build/circle_precision
 build/circle_precision
@@ -185,9 +162,6 @@ build/hopcroft_karp
 "$CXX" "${flags[@]}" tests/graph_contracts.cpp -o build/graph_contracts
 build/graph_contracts
 
-"$CXX" "${flags[@]}" tests/weighted_matching.cpp -o build/weighted_matching
-build/weighted_matching
-
 "$CXX" "${flags[@]}" tests/exlucas.cpp -o build/exlucas
 build/exlucas
 
@@ -197,23 +171,14 @@ build/interpolation
 "$CXX" "${flags[@]}" tests/discrete_log.cpp -o build/discrete_log
 build/discrete_log
 
-"$CXX" "${flags[@]}" -pthread tests/tree_path_kth.cpp -o build/tree_path_kth
-build/tree_path_kth
-
 "$CXX" "${flags[@]}" tests/dynamic_kth.cpp -o build/dynamic_kth
 build/dynamic_kth
-
-"$CXX" "${flags[@]}" tests/persistent_distinct.cpp -o build/persistent_distinct
-build/persistent_distinct
 
 "$CXX" "${flags[@]}" tests/modular_sqrt.cpp -o build/modular_sqrt
 build/modular_sqrt
 
 "$CXX" "${flags[@]}" -pthread tests/maximum_closure.cpp -o build/maximum_closure
 build/maximum_closure
-
-"$CXX" "${flags[@]}" tests/support_hull.cpp -o build/support_hull
-build/support_hull
 
 "$CXX" "${flags[@]}" tests/suffix_array.cpp -o build/suffix_array
 build/suffix_array
@@ -230,24 +195,6 @@ build/position_basis
 "$CXX" "${flags[@]}" tests/basis_intersection.cpp -o build/basis_intersection
 build/basis_intersection
 
-"$CXX" "${flags[@]}" -pthread tests/xor_walk.cpp -o build/xor_walk
-build/xor_walk
-
-"$CXX" "${flags[@]}" -pthread tests/vertex_removal.cpp -o build/vertex_removal
-build/vertex_removal
-
-"$CXX" "${flags[@]}" -pthread tests/edge_components.cpp -o build/edge_components
-build/edge_components
-
-"$CXX" "${flags[@]}" -pthread tests/bridge_augmentation.cpp -o build/bridge_augmentation
-build/bridge_augmentation
-
-"$CXX" "${flags[@]}" -pthread tests/offline_lca.cpp -o build/offline_lca
-build/offline_lca
-
-"$CXX" "${flags[@]}" -pthread tests/euler_lca.cpp -o build/euler_lca
-build/euler_lca
-
 "$CXX" "${flags[@]}" -pthread tests/lifting_lca.cpp -o build/lifting_lca
 build/lifting_lca
 
@@ -260,17 +207,8 @@ build/directed_euler
 "$CXX" "${flags[@]}" -pthread tests/undirected_euler.cpp -o build/undirected_euler
 build/undirected_euler
 
-"$CXX" "${flags[@]}" -pthread tests/word_chain.cpp -o build/word_chain
-build/word_chain
-
 "$CXX" "${flags[@]}" -pthread tests/mixed_euler.cpp -o build/mixed_euler
 build/mixed_euler
-
-"$CXX" "${flags[@]}" -pthread tests/odd_cycle_vertices.cpp -o build/odd_cycle_vertices
-build/odd_cycle_vertices
-
-"$CXX" "${flags[@]}" -pthread tests/lex_two_sat.cpp -o build/lex_two_sat
-build/lex_two_sat
 
 "$CXX" "${flags[@]}" tests/crt.cpp -o build/crt
 build/crt
@@ -286,9 +224,6 @@ build/lucas
 "$CXX" "${flags[@]}" tests/primitive_root.cpp -o build/primitive-root
 build/primitive-root
 
-"$CXX" "${flags[@]}" tests/carmichael.cpp -o build/carmichael
-build/carmichael
-
 "$CXX" "${flags[@]}" tests/binomial.cpp -o build/binomial
 build/binomial
 
@@ -302,8 +237,6 @@ build/inverse-table
 build/segmented_sieve
 python3 tests/prime_distance_application.py
 
-"$CXX" "${flags[@]}" tests/linear_equation.cpp -o build/linear_equation
-build/linear_equation
 python3 tests/linear_equation_application.py
 
 "$CXX" "${flags[@]}" tests/linear_congruence.cpp -o build/linear_congruence
@@ -324,10 +257,6 @@ python3 tests/factorization_application.py
 "$CXX" "${flags[@]}" tests/euler_phi.cpp -o build/euler_phi
 build/euler_phi
 
-"$CXX" "${flags[@]}" tests/coprime_pairs.cpp -o build/coprime_pairs
-build/coprime_pairs
-python3 tests/coprime_pairs_application.py
-
 "$CXX" "${flags[@]}" tests/phi_inversion.cpp -o build/phi_inversion
 build/phi_inversion
 
@@ -337,8 +266,6 @@ build/dujiao
 "$CXX" "${flags[@]}" tests/partitions.cpp -o build/partitions
 build/partitions
 
-"$CXX" "${flags[@]}" tests/divisor_sum.cpp -o build/divisor_sum
-build/divisor_sum
 python3 tests/divisor_sum_application.py
 
 "$CXX" "${flags[@]}" tests/floor_sum.cpp -o build/floor_sum
@@ -359,9 +286,6 @@ build/global_min_cut
 
 "$CXX" "${flags[@]}" tests/gomory_hu.cpp -o build/gomory_hu
 build/gomory_hu
-
-"$CXX" "${flags[@]}" tests/cut_tree_queries.cpp -o build/cut_tree_queries
-build/cut_tree_queries
 
 python3 tests/gomory_hu_application.py
 
@@ -391,17 +315,6 @@ build/circle_polygon
 "$CXX" "${flags[@]}" tests/kth_residue.cpp -o build/kth_residue
 build/kth_residue
 
-"$CXX" "${flags[@]}" tests/prime_power_roots.cpp -o build/prime_power_roots
-build/prime_power_roots
-
-"$CXX" "${flags[@]}" tests/composite_roots.cpp -o build/composite_roots
-build/composite_roots
-
-"$CXX" "${flags[@]}" tests/root_factors.cpp -o build/root_factors
-build/root_factors
-
-"$CXX" "${flags[@]}" tests/matrix_tree.cpp -o build/matrix_tree
-build/matrix_tree
 python3 tests/matrix_tree_application.py
 
 "$CXX" "${flags[@]}" tests/determinant_mod.cpp -o build/determinant_mod
@@ -446,16 +359,11 @@ python3 tests/functional_graph_application.py
 
 python3 tests/sugar_sweet_application.py
 
-"$CXX" "${flags[@]}" tests/release_bfs.cpp -o build/release_bfs
-build/release_bfs
 python3 tests/snake_application.py
-python3 tests/snake_printed_application.py
 
 "$CXX" "${flags[@]}" tests/modified_mo.cpp -o build/modified_mo
 build/modified_mo
 python3 tests/modified_mo_application.py
-
-python3 tests/scc_template_application.py
 
 "$CXX" "${flags[@]}" tests/dsu.cpp -o build/dsu
 build/dsu
@@ -493,8 +401,6 @@ build/lazy_binary_search
 "$CXX" "${flags[@]}" tests/dynamic_modint.cpp -o build/dynamic_modint
 build/dynamic_modint
 
-"$CXX" "${flags[@]}" tests/batch_units.cpp -o build/batch_units
-build/batch_units
 python3 tests/dynamic_batch_application.py
 
 "$CXX" "${flags[@]}" tests/flow_edges.cpp -o build/flow_edges
@@ -503,10 +409,6 @@ build/flow_edges
 "$CXX" "${flags[@]}" tests/flow_slope.cpp -o build/flow_slope
 build/flow_slope
 python3 tests/flow_slope_application.py
-
-"$CXX" "${flags[@]}" tests/convolution_i64.cpp -o build/convolution_i64
-build/convolution_i64
-python3 tests/convolution_i64_application.py
 
 python3 tests/scc_sat_application.py
 
@@ -551,8 +453,6 @@ python3 tests/circle_zero_mode.py
 "$CXX" "${flags[@]}" tests/triangles.cpp -o build/triangles
 build/triangles
 
-"$CXX" "${flags[@]}" tests/bcc_compat.cpp -o build/bcc-compat
-build/bcc-compat
 python3 tests/bcc_application.py
 
 "$CXX" "${flags[@]}" tests/leftist_heap.cpp -o build/leftist-heap
@@ -564,13 +464,9 @@ build/diameter-endpoints
 
 python3 tests/ac_application.py
 
-"$CXX" "${flags[@]}" tests/johnson.cpp -o build/johnson
-build/johnson
-
 "$CXX" "${flags[@]}" tests/dominator_tree.cpp -o build/dominator-tree
 build/dominator-tree
 python3 tests/dominator_application.py
-python3 tests/lowlink_application.py
 python3 tests/rollback_application.py
 
 python3 tests/dujiao_application.py
@@ -582,10 +478,7 @@ python3 tests/segment_li_chao_application.py
 build/general-sam
 python3 tests/suffix_state_semantics.py
 python3 tests/kmp_application.py
-python3 tests/ac_shortest_application.py
 
-"$CXX" "${flags[@]}" tests/ac_shortest.cpp -o build/ac-shortest-core
-build/ac-shortest-core
 "$CXX" "${flags[@]}" tests/bounded_maxflow.cpp -o build/bounded-maxflow
 build/bounded-maxflow
 python3 tests/bounded_maxflow_application.py
@@ -594,25 +487,10 @@ python3 tests/bounded_maxflow_application.py
 build/optimal-edge-classes
 python3 tests/mincut_application.py
 
-"$CXX" "${flags[@]}" tests/odd_induced_partition.cpp -o build/odd-induced-partition
-build/odd-induced-partition
-
-"$CXX" "${flags[@]}" tests/unit_flow_edges.cpp -o build/unit-flow-edges
-build/unit-flow-edges
-
-"$CXX" "${flags[@]}" tests/negative_cost_flow.cpp -o build/negative-cost-flow
-build/negative-cost-flow
-python3 tests/negative_cost_application.py
-
 "$CXX" "${flags[@]}" tests/matrix_inverse.cpp -o build/matrix-inverse
 build/matrix-inverse
 python3 tests/matrix_inverse_application.py
 
-"$CXX" "${flags[@]}" tests/matrix_inverse_mod2.cpp -o build/matrix-inverse-mod2
-build/matrix-inverse-mod2
-
-"$CXX" "${flags[@]}" tests/prime_count.cpp -o build/prime-count
-build/prime-count
 "$CXX" "${flags[@]}" tests/min25.cpp -o build/min25
 build/min25
 python3 tests/min25_application.py
@@ -623,18 +501,11 @@ python3 tests/euler_power_application.py
 "$CXX" "${flags[@]}" tests/dag_path_determinant.cpp -o build/lgv
 build/lgv
 
-"$CXX" "${flags[@]}" tests/tree_path_products.cpp -o build/tree-path-products
-build/tree-path-products
-python3 tests/tree_path_products_application.py
 python3 tests/lct_application.py
 
 "$CXX" "${flags[@]}" tests/sequence_flip.cpp -o build/sequence-flip
 build/sequence-flip
 python3 tests/sequence_flip_application.py
-
-"$CXX" "${flags[@]}" tests/scapegoat_tree.cpp -o build/scapegoat
-build/scapegoat
-python3 tests/scapegoat_application.py
 
 "$CXX" "${flags[@]}" tests/mo_secondary.cpp -o build/mo-secondary
 build/mo-secondary
@@ -671,8 +542,6 @@ python3 tests/fft_application.py
 build/polar-order
 python3 tests/geometry_attachment.py
 
-"$CXX" "${flags[@]}" tests/spfa_flow.cpp -o build/spfa-flow
-build/spfa-flow
 python3 tests/flow_attachment.py
 
 "$CXX" "${flags[@]}" tests/two_sat.cpp -o build/two-sat
@@ -687,13 +556,8 @@ python3 tests/palindrome_attachment.py
 build/suffix-automaton
 python3 tests/suffix_attachment.py
 python3 tests/general_sam_application.py
-python3 tests/knowns_unknowns.py
 python3 tests/polygon_applications.py
 python3 tests/tree_usage_applications.py
-
-"$CXX" "${flags[@]}" tests/wavelet_matrix.cpp -o build/wavelet-core
-build/wavelet-core
-python3 tests/wavelet_applications.py
 
 "$CXX" "${flags[@]}" tests/gauss_xor.cpp -o build/gauss-xor-core
 build/gauss-xor-core
@@ -701,10 +565,6 @@ build/gauss-xor-core
 "$CXX" "${flags[@]}" tests/second_mst.cpp -o build/second-mst-core
 build/second-mst-core
 python3 tests/mst_switch_applications.py
-
-"$CXX" "${flags[@]}" tests/division_tree.cpp -o build/division-core
-build/division-core
-python3 tests/division_applications.py
 
 python3 tests/cut_applications.py
 
@@ -727,8 +587,6 @@ python3 tests/rectangle_union_application.py
 "$CXX" "${flags[@]}" tests/rectangle_union_wide.cpp -o build/rectangle-union-wide
 build/rectangle-union-wide
 
-python3 tests/graph_printed_usages.py
-
 python3 tests/static_suffix_demo.py
 
 if [[ "${SANITIZE:-0}" == 1 ]]; then
@@ -743,17 +601,11 @@ else
     python3 tests/math_application_usages.py --mode normal
 fi
 
-python3 tests/sequence_matching.py
-
 python3 tests/sam_queries.py
-
-python3 tests/sam_build.py
 
 python3 tests/sam_documents.py
 python3 tests/tsubstr.py
 
 python3 tests/ac_source.py
-
-python3 tests/ac_weighted.py
 
 python3 tests/ac_indexed.py

@@ -45,8 +45,6 @@ int main() {
       u.push_back({X, Y});
       v.push_back({X, Y});
     }
-    assert(compact::GeometryExtra::closest_pair(u) ==
-           classic::Geometry_Extra::Closest_Pair(v));
     compact::BoundedCirculation f(3);
     classic::Bounded_Circulation<3, 6> F;
     F.Init(3);

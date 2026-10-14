@@ -4,8 +4,6 @@
   "tutte": [],
   "regular_matching": [],
   "DynamicDiameter": [],
-  "Dominance4D": [],
-  "TreeBlockDistinct": [],
   "HLPP": [],
   "Cactus": [],
   "minimum_mean_cycle": [],
@@ -39,32 +37,26 @@
   "CentroidSum": [
     "Fenwick"
   ],
-  "CentroidNearest": [],
-  "Fenwick2D": [],
   "RectangleFenwick": [],
   "SegmentBeats": [],
   "PersistentOrderedTreap": [],
-  "DivisionTree": [],
   "SecondMST": [
     "dsu"
   ],
   "GaussXor": [],
-  "WaveletMatrix": [],
   "euler_power": [
     "Mod64"
   ],
   "dag_path_determinant": [
     "ModInt",
-    "det_prime"
+    "determinant_mod"
   ],
-  "prime_count": [],
   "Min25": [
     "ModInt"
   ],
   "GeneralSAM": [],
   "SegmentLiChao": [],
   "DominatorTree": [],
-  "Johnson": [],
   "LeftistHeap": [],
   "BiconnectedCore": [],
   "block_cut_forest": [
@@ -122,42 +114,18 @@
   "convex_diameter2": [
     "IntegerPlane"
   ],
-  "closest_pair_i64": [
-    "IntegerPlane"
-  ],
   "minkowski_sum": [
     "IntegerPlane",
     "integer_hull"
   ],
   "pheap": [],
-  "batch_units": [],
-  "mint": [
-    "Barrett32"
-  ],
+  "mint": [],
   "lazy_segtree": [],
   "segtree": [],
   "rp": [],
   "ost": [],
   "gp_map": [],
-  "TarjanSCC": [],
   "FunctionalGraph": [],
-  "odd_cycle_vertices": [
-    "BiconnectedCore",
-    "block_cut_forest"
-  ],
-  "removal_components": [
-    "BiconnectedCore"
-  ],
-  "EdgeCompression": [
-    "BiconnectedCore"
-  ],
-  "orient_edges": [
-    "Lowlink"
-  ],
-  "bridge_augmentation": [
-    "BiconnectedCore",
-    "bridge_component_forest"
-  ],
   "dsu": [],
   "RollbackDSU": [],
   "Fenwick": [],
@@ -170,23 +138,14 @@
   "basis_sum_intersection": [
     "XorBasis"
   ],
-  "AffineSegTree": [],
   "Dinic": [],
   "MinCostFlow": [],
   "BoundedCirculation": [
     "Dinic"
   ],
-  "SpfaFlow": [],
-  "NegativeCostFlow": [
-    "MinCostFlow"
-  ],
-  "unit_flow_edges": [
-    "Dinic",
-    "TarjanSCC"
-  ],
   "mincut_edges": [
     "Dinic",
-    "TarjanSCC"
+    "SCC"
   ],
   "BoundedMaxFlow": [
     "BoundedCirculation"
@@ -200,20 +159,11 @@
     "SCC"
   ],
   "BipartiteMatching": [],
-  "Lowlink": [],
-  "odd_induced_partition": [
-    "dsu"
-  ],
   "matching_edges": [
     "BipartiteMatching",
-    "TarjanSCC"
+    "SCC"
   ],
-  "release_bfs": [],
-  "LexTwoSAT": [],
   "DirectedEuler": [],
-  "word_chain": [
-    "DirectedEuler"
-  ],
   "UndirectedEuler": [],
   "mixed_euler_orientation": [
     "Dinic"
@@ -221,12 +171,7 @@
   "mixed_euler_trail": [
     "mixed_euler_orientation"
   ],
-  "XorWalk": [
-    "XorBasis"
-  ],
   "HLD": [],
-  "OfflineLCA": [],
-  "EulerLCA": [],
   "TreeDiameter": [],
   "LiftingLCA": [],
   "path_intersection": [],
@@ -243,9 +188,6 @@
   "AhoCorasick": [],
   "SuffixArray": [],
   "SuffixAutomaton": [],
-  "ac_shortest": [
-    "AhoCorasick"
-  ],
   "SuffixLCP": [
     "SuffixArray"
   ],
@@ -278,9 +220,6 @@
   "Binomial": [
     "ModInt"
   ],
-  "linear_equation": [
-    "extended_gcd"
-  ],
   "linear_congruence": [
     "extended_gcd"
   ],
@@ -295,21 +234,12 @@
   "PrimitiveRoot": [
     "Mod64"
   ],
-  "CoprimePairs": [
-    "LinearSieve"
-  ],
   "floor_moments": [
     "ModInt"
-  ],
-  "power_sum": [],
-  "divisor_sum_power": [
-    "PollardRho",
-    "power_sum"
   ],
   "euler_phi": [
     "PollardRho"
   ],
-  "carmichael": [],
   "Partitions": [],
   "Lucas": [],
   "ExLucas": [],
@@ -319,35 +249,13 @@
     "Mod64",
     "linear_congruence"
   ],
-  "PrimePowerRoots": [
-    "DiscreteLog",
-    "Mod64",
-    "linear_congruence"
-  ],
-  "root_factors": [
-    "Mod64",
-    "PollardRho"
-  ],
-  "CompositeRoots": [
-    "PollardRho",
-    "PrimePowerRoots",
-    "mod_inverse",
-    "root_factors"
-  ],
   "Lagrange": [],
   "NttConvolution": [
     "ModInt"
   ],
   "ComplexFFT": [],
-  "convolution_fft": [
-    "ComplexFFT"
-  ],
   "convolution_mod_fft": [
     "ComplexFFT"
-  ],
-  "convolution_i64": [
-    "ModInt",
-    "NttConvolution"
   ],
   "polynomial_shift": [
     "ModInt",
@@ -391,16 +299,12 @@
   "GaussMod": [
     "ModInt"
   ],
-  "det_prime": [
-    "ModInt"
-  ],
   "ModMatrix": [
     "ModInt"
   ],
   "matrix_inverse": [
     "ModInt"
   ],
-  "matrix_inverse_mod2": [],
   "DuJiao": [
     "LinearSieve"
   ],
@@ -409,30 +313,20 @@
     "mod_inverse"
   ],
   "determinant_mod": [],
-  "MatrixTree": [
-    "ModInt",
-    "det_prime"
-  ],
-  "tree_probability": [],
   "MatrixTreeMod": [
     "determinant_mod"
   ],
   "MaxPlusMatrix": [],
   "LiChao": [],
   "PersistentKth": [],
-  "PersistentArray": [],
   "PersistentRange": [],
-  "TreePathKth": [],
   "DynamicKth": [],
-  "PersistentDistinct": [],
   "Hungarian": [],
   "Arborescence": [],
   "StoerWagner": [],
   "gomory_hu": [
     "Dinic"
   ],
-  "cut_tree_values": [],
-  "WeightedMatching": [],
   "IntegerHalfplanes": [],
   "CirclePolygon": [
     "RealPlane"
@@ -443,23 +337,11 @@
   "CircleTangents": [
     "RealPlane"
   ],
-  "IntegerTangents": [
-    "IntegerPlane",
-    "RealPlane"
-  ],
   "ClosestPair": [],
-  "SupportHull": [],
   "LinkCutTree": [],
-  "TreePathProducts": [
-    "ModInt"
-  ],
   "OrderedTreap": [],
   "SequenceTreap": [],
-  "AffineSequenceTreap": [
-    "ModInt"
-  ],
   "OrderedSplay": [],
-  "ScapegoatTree": [],
   "xor_hamming_pairs": [],
   "MonotoneStackSeg": [],
   "KDTreeSum": [],
@@ -467,96 +349,34 @@
     "ModInt",
     "NttConvolution"
   ],
-  "GcdSequenceTreap": [],
   "Blossom": [],
   "berlekamp_massey": [],
   "recurrence_nth": [],
   "BostanMori": [
     "NttConvolution"
   ],
-  "good_number_sum": [
-    "exkmp"
-  ],
-  "DivideSegmentTree": [],
-  "XorAffine64": [],
-  "Ntt2D": [
-    "NttConvolution"
-  ],
-  "BivariateInverse": [
-    "FpsInverse",
-    "Ntt2D"
-  ],
-  "shifted_power_sum": [
-    "FpsInverse",
-    "ModInt"
-  ],
-  "StaticMod64": [
-    "Mod64"
-  ],
-  "Montgomery": [],
-  "Barrett32": [],
-  "CompositeBinomial": [],
-  "q_binomial": [],
-  "Rational": [],
-  "DynamicPeachTree": [],
-  "XorPathSum": [],
   "exkmp": [
     "z_function"
   ],
-  "order_match": [],
   "SAMLex": [],
   "sam_lcs": [],
-  "OnlineSAM": [],
   "SAMDocuments": [
     "Fenwick"
   ],
-  "ACWeighted": [
-    "AhoCorasick"
-  ],
-  "DynamicAC": [
-    "ACWeighted"
-  ],
   "KDNearest": [],
-  "KDRange": [],
-  "Chain3D": [],
-  "KDMin": [],
-  "StaticRMQ": [],
-  "StaticRMQ2D": [],
-  "MergeSplay": [],
-  "SequenceMaxTreap": [],
   "offline_rectangle_sum": [
     "Fenwick"
   ],
-  "ShiftSplay": [],
-  "PersistentWeightedIndex": [],
-  "PersistentParityIndex": [],
-  "DagLongest": [],
   "Floyd": [],
-  "ShortestPathTree": [],
   "independent_set": [
     "BipartiteMatching"
-  ],
-  "TreeMarket": [],
-  "ZkwFlow": [],
-  "Isap": [],
-  "flow_unique": [
-    "Dinic",
-    "TarjanSCC"
   ],
   "Prim": [],
   "Kruskal": [
     "dsu"
   ],
-  "DenseDijkstra": [],
   "Spfa": [],
   "BellmanFord": [],
-  "DynamicPathMax": [],
-  "SequenceKth": [
-    "ost"
-  ],
-  "SequenceScapegoat": [],
-  "SequenceSplay": [],
-  "CentroidDiameter": [],
   "PersistentDSU": [],
   "MergeSplitTree": [],
   "PotentialDSU": [],
@@ -578,16 +398,10 @@
   "TreeIsomorphism": [],
   "WeightedBlossom": [],
   "Hull3D": [],
-  "Hull3DMetrics": [
-    "Hull3D"
-  ],
   "polygon_union_area": [
     "IntegerPlane"
   ],
   "circle_union_area": [
-    "RealPlane"
-  ],
-  "circle_coverage_area": [
     "RealPlane"
   ],
   "minimum_rectangle": [
@@ -605,14 +419,7 @@
   "BigInteger": [],
   "Simplex": [],
   "grid_cycle": [],
-  "ColorMax": [
-    "HLD"
-  ],
-  "ColorComponents": [
-    "HLD"
-  ],
   "grid_cycles": [],
-  "digit_count": [],
   "Mo": [],
   "manhattan_order": [
     "ManhattanMST"
@@ -633,29 +440,5 @@
     "Line3",
     "RealSpace"
   ],
-  "convolution_mod": [
-    "ModInt",
-    "NttConvolution"
-  ],
-  "DC3": [],
-  "DagDominator": [],
-  "FibonacciPeriod": [
-    "Mod64",
-    "PollardRho"
-  ],
-  "AssignmentSpectrum": [],
-  "determinant_exact": [],
-  "MatrixTreeExact": [
-    "determinant_exact"
-  ],
-  "AdaptiveSimpson": [],
-  "EightPuzzle": [],
-  "stirling_first_column": [
-    "FpsPower",
-    "ModInt"
-  ],
-  "stirling_second_column": [
-    "FpsPower",
-    "ModInt"
-  ]
+  "AdaptiveSimpson": []
 }

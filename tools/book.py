@@ -21,57 +21,18 @@ def esc(s):
     for a, b in {'π': '$\\pi$', '⊆': '$\\subseteq$', 'λ': '$\\lambda$', 'ω': '$\\omega$', '≡': '$\\equiv$', '≤': '$\\le$', '≥': '$\\ge$', '≠': '$\\ne$', 'Σ': '$\\sum$', 'α': '$\\alpha$', 'β': '$\\beta$', 'μ': '$\\mu$', 'φ': '$\\varphi$', '²': '$^2$', '³': '$^3$', '⁹': '$^9$', '⁶': '$^6$', '⁻¹²': '$^{-12}$', '¹²': '$^{12}$', '¹¹': '$^{11}$', '√': '$\\sqrt{\\vphantom x}$', '–': '--'}.items():
         s = s.replace(a, b)
     return s
-chapters = {'cartesian_tree': '笛卡尔树', 'steiner_tree': '最小斯坦纳树', 'tutte': 'Tutte多项式', 'regular_matching': '正则二分图匹配', 'dynamic_diameter': '边权修改动态树直径', 'dominance_4d': '四维偏序', 'tree_block_distinct': '树分块与在线路径去重', 'hlpp': 'HLPP预流推进', 'cactus': '静态仙人掌最短路', 'minimum_mean_cycle': '最小平均权环', 'four_cycles': '四元环计数', 'long_chain': '长链剖分', 'min_cycle': '无向图最小环', 'lyndon': 'Lyndon 分解', 'kruskal_tree': 'Kruskal重构树', 'exact_cover': '精确覆盖', 'minimum_cover': '最少行重复覆盖', 'sais': '线性后缀数组', 'convex_tangents_i64': '凸多边形外点切线', 'persistent_xor_trie': '前缀可持久化01字典树', 'dominance_3d': '静态三维偏序', 'manhattan_mst': '曼哈顿最小生成树', 'multipoint_evaluation': '任意点多项式求值', 'polynomial_interpolation': '任意点多项式快速插值', 'rectangle_union': '整数矩形面积并', 'centroid_sum': '动态点分树距离和', 'centroid_nearest': '动态点分树最近点', 'fenwick2d': '稀疏二维树状数组', 'rectangle_fenwick': '矩形加与矩形和', 'segment_beats': '区间最值截断线段树', 'persistent_ordered_treap': '可持久化有序平衡树', 'division_tree': '中位数划分树', 'second_mst': '次小生成树与换边方案', 'gauss_xor': '压位异或方程组', 'wavelet_matrix': '压位小波矩阵', 'euler_power': '扩展欧拉降幂', 'dag_path_determinant': 'LGV 路径行列式', 'prime_count': '素数计数', 'min25': 'Min_25 积性函数求和', 'general_sam': '广义后缀自动机', 'segment_li_chao': '精确线段李超树', 'dominator_tree': '支配树', 'johnson': 'Johnson 全源最短路', 'leftist_heap': '左偏树可并堆', 'biconnected_core': '点双与边双：共享 lowlink 核心', 'block_cut_forest': '由点双构造圆方森林', 'bridge_component_forest': '边双缩点森林（保留桥编号）', 'enumerate_triangles': '三元环枚举', 'real_plane': '浮点点向量、圆与交点结果', 'real_polar': '浮点极角精确排序', 'line_projection': '点在直线上的投影', 'segment_distance_real': '点到闭线段的距离', 'line_intersection_real': '浮点两直线交点', 'line_circle_intersections': '浮点直线与圆交点', 'circle_intersections': '浮点两圆交点', 'circle_overlap_area': '两圆交面积', 'integer_plane': '整数点向量与线段判定', 'line_circle_i64': '整数直线与圆交点', 'circle_intersections_i64': '整数两圆交点', 'integer_hull': '整数凸包：单调链', 'polygon_area2': '整数多边形有向面积', 'polygon_contains': '点在整数简单多边形内', 'convex_contains_i64': '点在整数凸包内（二分）', 'convex_diameter2': '整数凸包直径：旋转卡壳', 'closest_pair_i64': '整数最近点对', 'minkowski_sum': '凸包 Minkowski 和', 'pbds_heap': 'GNU 配对堆', 'batch_units': '模整数的批量运算', 'dynamic_modint': '运行时模数运算', 'lazy_segtree': '通用懒标记线段树', 'segtree': '通用线段树', 'rope': 'GNU 扩展可持久化序列', 'ordered_set': 'GNU 扩展有序树', 'hash_table': 'GNU 扩展哈希表', 'tarjan': 'Tarjan 与缩点', 'functional_graph': '函数图', 'biconnected': '双连通分量与圆方树', 'odd_cycle_vertices': '奇环顶点判定', 'vertex_removal': '删点连通性', 'edge_components': '边双缩点与边定向', 'bridge_augmentation': '桥树最少加边', 'data_structure': '数据结构', 'modified_mo': '带修改的莫队', 'position_basis': '带位置线性基', 'basis_intersection': '线性空间求交', 'affine_segment_tree': '线段树常用修改', 'flow': '网络流', 'spfa_flow': 'SPFA 费用流', 'negative_cost_flow': '允许负环的费用流', 'unit_flow_edges': '最大流单位边分类', 'mincut_edges': '最小割边分类', 'bounded_maxflow': '有源汇上下界最大流', 'maximum_closure': '最大权闭合子图', 'graph': '图论', 'odd_induced_partition': '奇度诱导子图划分', 'matching_edges': '二分图匹配边分类', 'release_bfs': '开放时间最短路', 'lex_two_sat': '字典序最小 2-SAT', 'directed_euler': '有向欧拉路', 'word_chain': '字典序单词链', 'undirected_euler': '无向欧拉路', 'mixed_euler': '混合图欧拉定向', 'xor_walk': '图上异或行走', 'tree': '树上算法', 'offline_lca': '离线最近公共祖先', 'euler_lca': '在线最近公共祖先', 'tree_diameter': '树上点集摘要', 'lifting_lca': '倍增祖先与路径最值', 'path_intersection': '树上路径交', 'centroid': '点分治', 'dsu_on_tree': '树上启发式合并', 'virtual_tree': '虚树', 'string': '字符串', 'ac_shortest': 'AC 自动机最短后缀匹配', 'suffix_lcp': '后缀查询与重复子串', 'palindromic_tree': '回文树', 'mod64': '64位模运算', 'prime64': '64位判素', 'extended_gcd': '扩展欧几里得', 'mod_inverse': '单个逆元', 'crt_merge': '广义CRT合并', 'floor_sum': '有符号整除和', 'number_theory': '数论', 'linear_equation': '二元一次不定方程', 'linear_congruence': '线性同余方程', 'segmented_sieve': '区间筛素数', 'batch_inverse': '批量模逆元', 'inverse_table': '连续整数逆元表', 'garner': '混合进制中国剩余定理', 'primitive_root': '乘法阶与原根', 'coprime_pairs': '矩形 GCD 计数', 'floor_moments': '带权类欧几里德', 'divisor_sum': '模几何级数与约数和', 'euler_phi': '单个数的欧拉函数', 'carmichael': 'Carmichael 函数', 'partitions': '整数分拆', 'lucas': '素数模数组合数', 'exlucas': '合数模数组合数', 'modular_sqrt': '二次剩余', 'kth_residue': '素数模高次剩余', 'prime_power_roots': '素数幂模高次剩余', 'root_factors': '合数求根的准备', 'composite_roots': '合数模高次剩余', 'interpolation': '多项式插值', 'ntt_convolution': '参数化 NTT 卷积', 'fft': '复数 FFT', 'convolution_fft': '浮点整数卷积', 'convolution_mod_fft': '拆系数任意模卷积', 'convolution_i64': '精确整数卷积', 'polynomial_shift': '多项式平移', 'chirp_z': '等比点求值', 'stirling': '斯特林数整行计算', 'set_convolution': '集合变换与卷积', 'subset_convolution': '不相交子集卷积', 'fps_inverse': '形式幂级数求逆', 'polynomial_division': '多项式除法', 'fps_sqrt': '形式幂级数开根', 'fps_functions': '形式幂级数初等函数', 'fps_power': '形式幂级数快速幂', 'gauss_mod': '模高斯消元', 'det_prime': '素数模行列式', 'mod_matrix': '模矩阵运算', 'matrix_inverse': '素数模矩阵求逆', 'matrix_inverse_mod2': '模 2 矩阵求逆', 'algebra': '代数与数论进阶', 'determinant_mod': '任意模数行列式', 'matrix_tree': '带权生成树计数', 'tree_probability': '随机图生成树概率', 'matrix_tree_mod': '合数模生成树计数', 'optimization': '优化与可持久化', 'persistent_array': '可持久化数组', 'persistent_range': '可持久化区间操作', 'tree_path_kth': '树上路径第 k 小', 'dynamic_kth': '动态区间顺序统计', 'persistent_distinct': '区间不同数统计', 'graph_advanced': '图论进阶', 'gomory_hu': '最小割树', 'cut_tree_queries': '最小割树查询', 'weighted_matching': '带权二分图匹配', 'halfplanes': '精确有界半平面交', 'circle_polygon': '圆与多边形面积', 'enclosing_circle': '最小覆盖圆', 'circle_tangents': '圆的切线', 'integer_tangents': '整数圆公切线与精确排序', 'closest_pair': '浮点最近点对', 'support_hull': '凸包支撑点查询', 'dynamic_tree': '动态树', 'tree_path_products': '动态换根路径乘积总和', 'treap': '随机平衡树', 'affine_sequence': '动态仿射序列', 'splay': '伸展树', 'scapegoat_tree': '替罪羊树', 'mo_secondary': '莫队二次离线', 'monotone_stack_seg': '线段树维护单调栈', 'kd_tree_sum': '动态二维 K-D Tree', 'cdq_convolution': 'CDQ 卷积递推', 'gcd_sequence': '状态序列维护', 'blossom': '一般图匹配', 'recurrence': '线性递推', 'bostan_mori': '快速线性递推'}
-chapters['good_number_sum'] = '相邻十进制数之和'
-chapters['divide_segment_tree'] = '区间整除线段树'
-chapters['xor_affine64'] = '64位异或仿射变换'
-chapters['ntt_2d'] = '二维NTT与卷积'
-chapters['bivariate_inverse'] = '二元形式级数求逆'
-chapters['shifted_power_sum'] = '平移幂和多项式'
-chapters['static_mod64'] = '完整64位固定模整数'
-chapters['montgomery_modint'] = 'Montgomery固定模整数'
-chapters['barrett32'] = '32位快速模乘'
-chapters['composite_binomial'] = '有界上标的任意模数组合数'
-chapters['q_binomial'] = 'Gaussian 二项式'
-chapters['fraction'] = '精确分数'
-chapters['dynamic_peach_tree'] = '动态树上供需判定'
-chapters['xor_path_sum'] = '动态全树路径异或和'
+chapters = {'cartesian_tree': '笛卡尔树', 'steiner_tree': '最小斯坦纳树', 'tutte': 'Tutte多项式', 'regular_matching': '正则二分图匹配', 'dynamic_diameter': '边权修改动态树直径', 'hlpp': 'HLPP预流推进', 'cactus': '静态仙人掌最短路', 'minimum_mean_cycle': '最小平均权环', 'four_cycles': '四元环计数', 'long_chain': '长链剖分', 'min_cycle': '无向图最小环', 'lyndon': 'Lyndon 分解', 'kruskal_tree': 'Kruskal重构树', 'exact_cover': '精确覆盖', 'minimum_cover': '最少行重复覆盖', 'sais': '线性后缀数组', 'convex_tangents_i64': '凸多边形外点切线', 'persistent_xor_trie': '前缀可持久化01字典树', 'dominance_3d': '静态三维偏序', 'manhattan_mst': '曼哈顿最小生成树', 'multipoint_evaluation': '任意点多项式求值', 'polynomial_interpolation': '任意点多项式快速插值', 'rectangle_union': '整数矩形面积并', 'centroid_sum': '动态点分树距离和', 'rectangle_fenwick': '矩形加与矩形和', 'segment_beats': '区间最值截断线段树', 'persistent_ordered_treap': '可持久化有序平衡树', 'second_mst': '次小生成树与换边方案', 'gauss_xor': '压位异或方程组', 'euler_power': '扩展欧拉降幂', 'dag_path_determinant': 'LGV 路径行列式', 'min25': 'Min_25 积性函数求和', 'general_sam': '广义后缀自动机', 'segment_li_chao': '精确线段李超树', 'dominator_tree': '支配树', 'leftist_heap': '左偏树可并堆', 'biconnected_core': '点双与边双：共享 lowlink 核心', 'block_cut_forest': '由点双构造圆方森林', 'bridge_component_forest': '边双缩点森林（保留桥编号）', 'enumerate_triangles': '三元环枚举', 'real_plane': '浮点点向量、圆与交点结果', 'real_polar': '浮点极角精确排序', 'line_projection': '点在直线上的投影', 'segment_distance_real': '点到闭线段的距离', 'line_intersection_real': '浮点两直线交点', 'line_circle_intersections': '浮点直线与圆交点', 'circle_intersections': '浮点两圆交点', 'circle_overlap_area': '两圆交面积', 'integer_plane': '整数点向量与线段判定', 'line_circle_i64': '整数直线与圆交点', 'circle_intersections_i64': '整数两圆交点', 'integer_hull': '整数凸包：单调链', 'polygon_area2': '整数多边形有向面积', 'polygon_contains': '点在整数简单多边形内', 'convex_contains_i64': '点在整数凸包内（二分）', 'convex_diameter2': '整数凸包直径：旋转卡壳', 'minkowski_sum': '凸包 Minkowski 和', 'pbds_heap': 'GNU 配对堆', 'dynamic_modint': '运行时模数运算', 'lazy_segtree': '通用懒标记线段树', 'segtree': '通用线段树', 'rope': 'GNU 扩展可持久化序列', 'ordered_set': 'GNU 扩展有序树', 'hash_table': 'GNU 扩展哈希表', 'functional_graph': '函数图', 'data_structure': '数据结构', 'modified_mo': '带修改的莫队', 'position_basis': '带位置线性基', 'basis_intersection': '线性空间求交', 'flow': '网络流', 'mincut_edges': '最小割边分类', 'bounded_maxflow': '有源汇上下界最大流', 'maximum_closure': '最大权闭合子图', 'graph': '图论', 'matching_edges': '二分图匹配边分类', 'directed_euler': '有向欧拉路', 'undirected_euler': '无向欧拉路', 'mixed_euler': '混合图欧拉定向', 'tree': '树上算法', 'tree_diameter': '树上点集摘要', 'lifting_lca': '倍增祖先与路径最值', 'path_intersection': '树上路径交', 'centroid': '点分治', 'dsu_on_tree': '树上启发式合并', 'virtual_tree': '虚树', 'string': '字符串', 'suffix_lcp': '后缀查询与重复子串', 'palindromic_tree': '回文树', 'mod64': '64位模运算', 'prime64': '64位判素', 'extended_gcd': '扩展欧几里得', 'mod_inverse': '单个逆元', 'crt_merge': '广义CRT合并', 'floor_sum': '有符号整除和', 'number_theory': '数论', 'linear_congruence': '线性同余方程', 'segmented_sieve': '区间筛素数', 'batch_inverse': '批量模逆元', 'inverse_table': '连续整数逆元表', 'garner': '混合进制中国剩余定理', 'primitive_root': '乘法阶与原根', 'floor_moments': '带权类欧几里德', 'euler_phi': '单个数的欧拉函数', 'partitions': '整数分拆', 'lucas': '素数模数组合数', 'exlucas': '合数模数组合数', 'modular_sqrt': '二次剩余', 'kth_residue': '素数模高次剩余', 'interpolation': '多项式插值', 'ntt_convolution': '参数化 NTT 卷积', 'fft': '复数 FFT', 'convolution_mod_fft': '拆系数任意模卷积', 'polynomial_shift': '多项式平移', 'chirp_z': '等比点求值', 'stirling': '斯特林数整行计算', 'set_convolution': '集合变换与卷积', 'subset_convolution': '不相交子集卷积', 'fps_inverse': '形式幂级数求逆', 'polynomial_division': '多项式除法', 'fps_sqrt': '形式幂级数开根', 'fps_functions': '形式幂级数初等函数', 'fps_power': '形式幂级数快速幂', 'gauss_mod': '模高斯消元', 'mod_matrix': '模矩阵运算', 'matrix_inverse': '素数模矩阵求逆', 'algebra': '代数与数论进阶', 'determinant_mod': '任意模数行列式', 'matrix_tree_mod': '合数模生成树计数', 'optimization': '优化与可持久化', 'persistent_range': '可持久化区间操作', 'dynamic_kth': '动态区间顺序统计', 'graph_advanced': '图论进阶', 'gomory_hu': '最小割树', 'halfplanes': '精确有界半平面交', 'circle_polygon': '圆与多边形面积', 'enclosing_circle': '最小覆盖圆', 'circle_tangents': '圆的切线', 'closest_pair': '浮点最近点对', 'dynamic_tree': '动态树', 'treap': '随机平衡树', 'splay': '伸展树', 'mo_secondary': '莫队二次离线', 'monotone_stack_seg': '线段树维护单调栈', 'kd_tree_sum': '动态二维 K-D Tree', 'cdq_convolution': 'CDQ 卷积递推', 'blossom': '一般图匹配', 'recurrence': '线性递推', 'bostan_mori': '快速线性递推'}
 chapters['exkmp'] = '两串扩展KMP'
-chapters['order_match'] = '顺序同构匹配'
 chapters['sam_queries'] = '后缀自动机查询'
-chapters['online_sam'] = '指定状态在线扩展SAM'
 chapters['sam_documents'] = 'SAM文档频率'
-chapters['ac_weighted'] = '带权与动态AC'
 chapters['kd_nearest'] = '静态 K-D Tree 近邻'
-chapters['kd_range'] = '动态 K-D Tree 矩形取点'
-chapters['chain_3d'] = '三维最长链CDQ'
-chapters['kd_min'] = '静态 K-D Tree 矩形最小权'
-chapters['static_rmq'] = '位掩码静态RMQ'
-chapters['static_rmq_2d'] = '二维静态RMQ'
-chapters['merge_splay'] = '可合并伸展树'
-chapters['sequence_max_treap'] = '序列最大值与后缀屏障'
 chapters['offline_rectangle_sum'] = '扫描线矩形权值和'
-chapters['shift_splay'] = '按值分裂与整体平移'
-chapters['persistent_weighted_index'] = '历史版本计数与权值索引'
-chapters['persistent_parity_index'] = '历史奇偶重数与降序选择'
-chapters['dag_longest'] = '有向无环图最长路'
 chapters['floyd'] = '全源最短路'
-chapters['shortest_path_tree'] = '最短路树与最小总边权'
 chapters['independent_set'] = '二分图独立集与覆盖方案'
-chapters['tree_market'] = '树上市场选址'
-chapters['zkw_flow'] = 'zkw费用流'
-chapters['isap'] = '递归ISAP最大流'
-chapters['flow_unique'] = '最大流方案唯一性'
 chapters['prim'] = '矩阵最小生成森林'
 chapters['kruskal'] = '最小生成森林'
-chapters['dense_dijkstra'] = '稠密图矩阵最短路'
 chapters['spfa'] = '队列松弛与差分约束'
 chapters['bellman_ford'] = '负边最短路与负环方案'
-chapters['dynamic_path_max'] = '动态森林路径加与最大值'
-chapters['sequence_kth'] = '在线序列区间第k小'
-chapters['sequence_scapegoat'] = '序列替罪羊树'
-chapters['sequence_splay'] = '区间翻转与固定编号定位'
-chapters['centroid_diameter'] = '有符号边权活动点直径'
 chapters['persistent_dsu'] = '可持久化并查集'
 chapters['merge_split_tree'] = '线段树合并与分裂'
 chapters['potential_dsu'] = '带势并查集与差值约束'
@@ -86,10 +47,8 @@ chapters['overall_kth'] = '整体二分'
 chapters['tree_isomorphism'] = '确定性树同构'
 chapters['weighted_blossom'] = '一般图最大权匹配'
 chapters['hull3d'] = '三维凸包'
-chapters['hull3d_metrics'] = '凸多面体测量'
 chapters['polygon_union'] = '一般多边形面积并'
 chapters['circle_union'] = '圆面积并'
-chapters['circle_coverage'] = '圆覆盖重数面积'
 chapters['minimum_rectangle'] = '最小面积包围矩形'
 chapters['convex_cut'] = '凸多边形裁剪'
 chapters['polygon_centroid'] = '简单多边形面积重心'
@@ -97,10 +56,7 @@ chapters['triangle_incircle'] = '三角形内切圆'
 chapters['big_integer'] = '高精度整数'
 chapters['simplex'] = '单纯形法'
 chapters['plug_cycle'] = '插头DP'
-chapters['color_max'] = '树上翻色最大权'
-chapters['color_components'] = '树上翻色连通块'
 chapters['plug_cycles'] = '多环插头DP'
-chapters['digit_count'] = '数位DP'
 chapters['ordinary_mo'] = '普通莫队'
 chapters['manhattan_order'] = '曼哈顿查询排序'
 chapters['tree_mo'] = '树上莫队'
@@ -109,16 +65,7 @@ chapters['time_connectivity'] = '离线动态连通性'
 chapters['real_space'] = '三维向量运算'
 chapters['line3'] = '三维直线与线段'
 chapters['plane3'] = '三维平面与求交'
-chapters['convolution_mod'] = '精确任意模数卷积'
-chapters['dc3'] = 'DC3后缀数组'
-chapters['dag_dominator'] = 'DAG支配树'
-chapters['fibonacci_period'] = '斐波那契最小循环节'
-chapters['assignment_spectrum'] = '按匹配基数最大权与顶标'
-chapters['determinant_exact'] = '精确整数行列式'
-chapters['matrix_tree_exact'] = '精确整数生成树计数'
 chapters['adaptive_simpson'] = '自适应Simpson积分'
-chapters['eight_puzzle'] = '八数码反向搜索'
-chapters['stirling_column'] = '斯特林数整列计算'
 body = []
 records = []
 for style in ['compact']:
@@ -195,7 +142,7 @@ for style in ['compact']:
                 split = next(i for i in range(start, end) if 'array<Z, 3> prefix{};' in lines[i])
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
             if name == 'dag_path_determinant':
-                split = next(i for i in range(start, end) if 'vector<vector<Z>> a(' in lines[i])
+                split = next(i for i in range(start, end) if 'vector<vector<long long>> a(' in lines[i])
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
             if name == 'LexTwoSAT':
                 split = next((i for i in range(start, end) if re.match('    bool (paint|Paint)\\(', lines[i])))
@@ -1502,7 +1449,7 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'dag_path_determinant':
-                split = next(i for i in range(start, end) if 'vector<vector<Z>> a(' in lines[i])
+                split = next(i for i in range(start, end) if 'vector<vector<long long>> a(' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')

@@ -149,7 +149,7 @@ def main():
         assert p.returncode == 0 and not p.stderr,(exe,p.returncode,p.stdout[:500],p.stderr[-1000:])
         return p.stdout.decode()
     text = (ROOT/'src/compact/graph.hpp').read_text()
-    matching = 'struct BipartiteMatching'+text.split('struct BipartiteMatching',1)[1].split('struct Lowlink',1)[0]
+    matching = 'struct BipartiteMatching'+text.split('struct BipartiteMatching',1)[1].split('\n};\n',1)[0]+'\n};\n'
     helper = (ROOT/'src/compact/independent_set.hpp').read_text().split('// BEGIN independent_set\n',1)[1].split('// END independent_set',1)[0]
     includes = '#include <algorithm>\n#include <cassert>\n#include <queue>\n#include <utility>\n#include <vector>\n#include <iostream>\n#include <string>\nusing namespace std;\n'
     core = includes+matching+helper

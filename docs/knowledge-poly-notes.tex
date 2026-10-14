@@ -19,7 +19,7 @@ $R_i\leftarrow R_i-qR_j$，再交换 $R_i,R_j$。
 正规化后单个乘积小于 $2^{126}$，行更新差值和结果乘积都放入有符号 128 位。
 空矩阵按约定返回 $1\bmod m$；模 1 的所有返回值为零。
 时间上界 $O(n^3\log m)$，矩阵副本占 $O(n^2)$ 空间。
-本节可以用于合数模的拉普拉斯余子式，但第~\ref{compact-MatrixTree}~节（第~\pageref{compact-MatrixTree}~页）的 \texttt{MatrixTree<mod>}
+
 接口仍使用素数模高斯，不能仅把其模板参数改成合数；合数模使用第~\ref{compact-MatrixTreeMod}~节（第~\pageref{compact-MatrixTreeMod}~页）的独立接口。
 
 测试用排列定义穷举所有元素属于 $\{-1,0,1\}$ 的三阶矩阵，

@@ -1,5 +1,6 @@
 #pragma once
-#include "det_prime.hpp"
+#include "number_theory.hpp"
+#include "determinant_mod.hpp"
 #include <optional>
 
 // BEGIN dag_path_determinant
@@ -33,16 +34,16 @@ dag_path_determinant(const vector<vector<pair<int, ModInt<mod>>>> &g,
         for (auto [v, w] : g[order[i]])
             if (!--in[v]) order.push_back(v);
     if ((int)order.size() != n) return nullopt;
-    vector<vector<Z>> a(k, vector<Z>(k));
+    vector<vector<long long>> a(k, vector<long long>(k));
     for (int i = 0; i < k; i++)
     {
         vector<Z> dp(n);
         dp[sources[i]] = 1;
         for (int u : order)
             for (auto [v, w] : g[u]) dp[v] = dp[v] + dp[u] * w;
-        for (int j = 0; j < k; j++) a[i][j] = dp[sinks[j]];
+        for (int j = 0; j < k; j++) a[i][j] = dp[sinks[j]].v;
     }
-    return det_prime<mod>(move(a));
+    return Z(determinant_mod(move(a), mod));
 }
 
 // END dag_path_determinant

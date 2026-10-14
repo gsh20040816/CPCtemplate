@@ -1,12 +1,29 @@
 #include "../src/compact/tree.hpp"
 #include "../src/classic/tree.hpp"
-#include "../src/compact/affine_segment_tree.hpp"
 #include "../src/classic/affine_segment_tree.hpp"
 #include "../src/compact/graph.hpp"
 #include "../src/classic/graph.hpp"
 #include <iostream>
 #include <random>
 #include <pthread.h>
+
+// Brute range affine/sum oracle on 1..n; issue #21 removed the separate AffineSegTree.
+struct BruteAffine
+{
+    std::vector<long long> v;
+    long long mod;
+    BruteAffine(int n, long long mod) : v(n + 1), mod(mod) {}
+    void update(int l, int r, long long a, long long b)
+    {
+        for (int i = l; i <= r; i++) v[i] = (v[i] * a + b) % mod;
+    }
+    long long query(int l, int r)
+    {
+        long long s = 0;
+        for (int i = l; i <= r; i++) s = (s + v[i]) % mod;
+        return s;
+    }
+};
 
 void test_all()
 {
@@ -111,7 +128,7 @@ void test_all()
                     }
                 }
             }
-            AffineSegTree sa(std::vector<long long>(n), 97);
+            BruteAffine sa(n, 97);
             sb.Init(std::vector<long long>(n), 97);
             std::vector<long long> values(n + 1);
             for (int step = 0; step < 100; step++)

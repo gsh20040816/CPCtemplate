@@ -74,8 +74,6 @@ def hull(p):
 probe = compile('tests/polygon_probe.cpp', 'polygon-probe', False)
 aoj = compile('verify/aoj/CGL_3_C.compact.cpp', 'polygon-aoj')
 war = compile('verify/luogu/P4557.compact.cpp', 'polygon-war')
-closest = compile('verify/library_checker/closest_pair.compact.cpp', 'closest-driver')
-squared = compile('verify/luogu/P7883.compact.cpp', 'closest-squared')
 core, wants = [], []
 
 
@@ -154,35 +152,3 @@ qs=[(-10001+dx,-10001+dy) for dx,dy in [(0,0),(998,398),(999,0),(0,399),(-998,-3
 qs=(qs*20000)
 assert run(war,'100000 100000 100000\n'+points(a)+points(b)+points(qs))==['1','1','0','0','1']*20000
 print('Minkowski difference full P4557 driver: 180 independent translated-hull intersection cases including boundary differences, 100000+100000 distinct points and 100000 queries PASS',flush=True)
-
-
-def cp(cases, known=None):
-    out=list(map(int,run(closest,str(len(cases))+'\n'+''.join(str(len(p))+'\n'+points(p) for p in cases))))
-    assert len(out)==2*len(cases)
-    for t,p in enumerate(cases):
-        i,j=out[2*t:2*t+2]
-        assert 0<=i<len(p) and 0<=j<len(p) and i!=j
-        dist=lambda a,b:sum((a[k]-b[k])**2 for k in (0,1))
-        best=known[t] if known is not None else min(dist(a,b) for a,b in combinations(p,2))
-        assert dist(p[i],p[j])==best
-
-
-cases=[]
-for t in range(1600):
-    bound=20 if t%2 else 10**9
-    cases.append([(rng.randint(-bound,bound),rng.randint(-bound,bound)) for _ in range(rng.randrange(2,36))])
-cp(cases)
-cp([[(0,0)]*500000],[0])
-cp([[(1000000000,-1000000000+3*i) for i in range(500000)]],[9])
-cp([[(-10**9,-10**9),(10**9,10**9)]]*100000,[8*10**18]*100000)
-print('Closest-pair complete driver: 1600 Python integer pair-enumeration cases, 500000 duplicates/collinear points, 100000-case reset and extreme coordinates PASS',flush=True)
-
-for _ in range(200):
-    p = rng.sample([(x,y) for x in range(-10,11) for y in range(-10,11)],rng.randrange(2,40))
-    want = min(sum((a[k]-b[k])**2 for k in (0,1)) for a,b in combinations(p,2))
-    assert run(squared,str(len(p))+'\n'+points(p))==[str(want)]
-p=[(-10000000,-10000000),(10000000,10000000)]
-assert run(squared,'2\n'+points(p))==['800000000000000']
-p=[(10000000,-10000000+3*i) for i in range(400000)]
-assert run(squared,'400000\n'+points(p))==['9']
-print('Existing P7883 full driver: 200 unique-point pair-enumeration inputs, 400000-point maximum and 8e14 squared-distance boundary PASS',flush=True)

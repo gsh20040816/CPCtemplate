@@ -13,6 +13,15 @@ import tempfile
 root = Path(__file__).resolve().parents[1]
 formatter = os.environ.get('CLANG_FORMAT', 'clang-format')
 rows = json.loads((root / 'verification/oj.json').read_text())
+removed = json.loads((root / 'docs/issue21-removed.json').read_text())
+
+
+def retired_driver(path):
+    # Issue 21 removed the template, so this driver is a historical archive only.
+    text = (root / path).read_text()
+    if set(re.findall(r'(\w+)\.hpp', text)) & set(removed['files']):
+        return True
+    return any(re.search(r'\b' + re.escape(s) + r'\b', text) for s in removed['symbols'] if s[0].isupper())
 report = []
 
 def digest(data):
@@ -40,6 +49,11 @@ for row in rows:
         report.append(dict(problem=row['problem'], style=row['style'], record=row['record'],
                            submitted_sha256=digest(archived), retired=True,
                            scope_note='Historical AC archive only; static style retired from the current library.'))
+        continue
+    if retired_driver(row['source_driver']):
+        report.append(dict(problem=row['problem'], style=row['style'], record=row['record'],
+                           submitted_sha256=digest(archived), retired=True,
+                           scope_note='Template removed from the current library by issue #21; historical AC archive only.'))
         continue
     with tempfile.NamedTemporaryFile(suffix='.cpp') as tmp:
         subprocess.run(['python3', str(root / 'tools/bundle.py'),
@@ -111,7 +125,7 @@ if heading not in pending_text:
 history = heading + pending_text.split(heading, 1)[1]
 accepted_drivers = {row['source_driver'] for row in rows if row['verdict'] == 'Accepted'}
 drivers = sorted(str(p.relative_to(root)) for p in (root / 'verify').rglob('*.cpp'))
-queue = [p for p in drivers if p not in accepted_drivers]
+queue = [p for p in drivers if p not in accepted_drivers and not retired_driver(p)]
 pending_path.write_text(
     '# 待在线评测\n\n'
     '以下提交驱动尚无本库的新 AC 记录；列表由当前 verify/ 与 oj.json 对照生成。\n\n'

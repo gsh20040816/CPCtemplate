@@ -11,11 +11,6 @@ int main() {
       a.push_back({int(rng() % 41) - 20, int(rng() % 41) - 20});
     for (int i = 0, n = 1 + rng() % 30; i < n; i++)
       b.push_back({int(rng() % 41) - 20, int(rng() % 41) - 20});
-    __int128 best = __int128(1) << 120;
-    for (int i = 0; i < (int)a.size(); i++)
-      for (int j = 0; j < i; j++)
-        best = std::min(best, G::dist2(a[i], a[j]));
-    assert(*E::closest_pair(a) == best);
     auto h = G::hull(a), k = G::hull(b);
     std::vector<G::Point> sum;
     for (auto u : a)

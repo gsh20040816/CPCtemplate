@@ -1,11 +1,11 @@
 #pragma once
 #include "flow.hpp"
-#include "tarjan.hpp"
+#include "graph.hpp"
 
 // BEGIN mincut_edges
 vector<array<bool, 2>> mincut_edges(const Dinic &g, int s, int t)
 {
-    TarjanSCC d(g.n);
+    SCC d(g.n);
     for (auto e : g.e)
         if (e.cap) d.add(e.from, e.to);
     d.run();

@@ -1,5 +1,6 @@
 #include "../src/compact/inverse_table.hpp"
 #include "../src/compact/number_theory.hpp"
+#include "compat_number_theory.hpp"
 #include <iostream>
 
 void check(int n, int p)

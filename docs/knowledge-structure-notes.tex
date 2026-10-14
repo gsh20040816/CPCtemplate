@@ -34,7 +34,7 @@ F(u)=\sum_{v\in V}\prod_{x\in\operatorname{path}(u,v)}w_x.
 \]
 包括单点路径，所以一个孤立点的答案是其点权，而不是 1。
 固定根后，递推为 $F(u)=w_u(1+\sum_{v\text{ 为子节点}}F(v))$。
-使用第~\pageref{compact-TreePathProducts}~页的 \texttt{TreePathProducts}，
+
 可以单点修改并动态选取查询根。它维护固定树，不包含连边、删边。
 
 辅助树按实链顺序维护三项：整条链点权积 $P$、从链首出发的贡献 $L$、
@@ -86,7 +86,7 @@ R=R_r+P_rw(1+G+R_l).
 附件缺少完整牛客题号和主程序，因此新增使用例只作为本地接口示例。
 
 \section{替罪羊树：重复计数与墓碑清理}\label{knowledge-scapegoat}\index{替罪羊树}
-第~\pageref{compact-ScapegoatTree}~页使用三个不同的量：
+
 \texttt{size} 计元素副本总数，\texttt{nodes} 计物理节点数，
 \texttt{live} 计仍有副本的不同键数。重复值增加计数，删除最后一个副本后保留墓碑。
 查询排名只累计副本数，不能用物理节点数代替。

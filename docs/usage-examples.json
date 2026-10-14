@@ -11,17 +11,6 @@
     ]
   },
   {
-    "id": "example-2",
-    "symbol": "TarjanSCC",
-    "problem": "Library Checker scc",
-    "url": "https://judge.yosupo.jp/problem/scc",
-    "summary": "把有向图分成强连通分量，并按缩点图的拓扑顺序输出各分量。题目点号为 0..n-1，调用时加 1，输出时减 1。",
-    "driver": "verify/library_checker/scc.compact.cpp",
-    "requires": [
-      "TarjanSCC"
-    ]
-  },
-  {
     "id": "example-3",
     "symbol": "TwoSAT",
     "problem": "Library Checker two_sat",
@@ -108,28 +97,6 @@
     "driver": "verify/luogu/P3391.compact.cpp",
     "requires": [
       "SequenceTreap"
-    ]
-  },
-  {
-    "id": "example-11",
-    "symbol": "PersistentArray",
-    "problem": "Luogu P3919",
-    "url": "https://www.luogu.com.cn/problem/P3919",
-    "summary": "从指定历史版本修改单点或查询单点，每次操作都创建新版本。查询后也要 copy 原版本；版本号从 0 开始，位置为 1-based。",
-    "driver": "verify/luogu/P3919.compact.cpp",
-    "requires": [
-      "PersistentArray"
-    ]
-  },
-  {
-    "id": "example-12",
-    "symbol": "AffineSegTree",
-    "problem": "Luogu P3373",
-    "url": "https://www.luogu.com.cn/problem/P3373",
-    "summary": "对数组执行区间乘、区间加和区间求和，结果对给定模数取模。区间为 1-based 闭区间；update 的两个参数表示先乘再加。",
-    "driver": "verify/luogu/P3373.compact.cpp",
-    "requires": [
-      "AffineSegTree"
     ]
   },
   {
@@ -272,18 +239,6 @@
     ]
   },
   {
-    "id": "example-25",
-    "symbol": "det_prime",
-    "problem": "Library Checker matrix_det",
-    "url": "https://judge.yosupo.jp/problem/matrix_det",
-    "summary": "求方阵行列式，模 998244353。输入元素已取模；函数按值接收矩阵，示例用 move 交出矩阵避免额外复制。",
-    "driver": "verify/library_checker/matrix_det.compact.cpp",
-    "requires": [
-      "ModInt",
-      "det_prime"
-    ]
-  },
-  {
     "id": "example-26",
     "symbol": "ModMatrix",
     "problem": "Library Checker matrix_product",
@@ -362,28 +317,6 @@
     ]
   },
   {
-    "id": "example-32",
-    "symbol": "OfflineLCA",
-    "problem": "Luogu P3379",
-    "url": "https://www.luogu.com.cn/problem/P3379",
-    "summary": "给定以 root 为根的树，回答两点的最近公共祖先。先登记全部查询，再 run(root)，answer 按查询加入顺序输出；点号为 1..n。",
-    "driver": "verify/luogu/P3379.offline.compact.cpp",
-    "requires": [
-      "OfflineLCA"
-    ]
-  },
-  {
-    "id": "example-33",
-    "symbol": "EulerLCA",
-    "problem": "Luogu P3379",
-    "url": "https://www.luogu.com.cn/problem/P3379",
-    "summary": "给定以 root 为根的树，回答两点的最近公共祖先。加完所有边后 build(root)，再逐条调用 lca；点号为 1..n。此题只使用无权 LCA 接口。",
-    "driver": "verify/luogu/P3379.euler.compact.cpp",
-    "requires": [
-      "EulerLCA"
-    ]
-  },
-  {
     "id": "example-34",
     "symbol": "LiftingLCA",
     "problem": "Luogu P3379",
@@ -426,18 +359,6 @@
     "driver": "verify/luogu/P3834.compact.cpp",
     "requires": [
       "PersistentKth"
-    ],
-    "kind": "template"
-  },
-  {
-    "id": "example-38",
-    "symbol": "TreePathKth",
-    "problem": "Luogu P2633",
-    "url": "https://www.luogu.com.cn/problem/P2633",
-    "summary": "给点权树，查询路径上第 k 小的点权，包含两个端点。构造传入 0-based 权值数组，点号为 1..n；每次先将输入的第一个端点与上次答案异或解码，初始 last=0。",
-    "driver": "verify/luogu/P2633.compact.cpp",
-    "requires": [
-      "TreePathKth"
     ],
     "kind": "template"
   },
@@ -500,19 +421,6 @@
     ]
   },
   {
-    "id": "example-44",
-    "symbol": "HLD",
-    "problem": "Luogu P3384",
-    "url": "https://www.luogu.com.cn/problem/P3384",
-    "summary": "给定有根点权树，支持路径加、路径和、子树加、子树和，答案模 mod。先按 dfn 重排初值再构造线段树；path 回调给出 1-based 闭区间，子树区间为 [dfn[u],dfn[u]+siz[u]-1]。",
-    "driver": "verify/luogu/P3384.compact.cpp",
-    "requires": [
-      "HLD",
-      "AffineSegTree"
-    ],
-    "kind": "template"
-  },
-  {
     "id": "example-45",
     "symbol": "LinkCutTree",
     "problem": "Luogu P3690",
@@ -523,18 +431,6 @@
       "LinkCutTree"
     ],
     "kind": "template"
-  },
-  {
-    "id": "example-46",
-    "symbol": "PersistentDistinct",
-    "problem": "Luogu P1972",
-    "url": "https://www.luogu.com.cn/problem/P1972",
-    "summary": "给定固定数组，查询闭区间 [l,r] 内不同值的个数。构造传入 0-based vector，查询使用 1-based 闭区间；重复出现的同一值只计一次。",
-    "driver": "verify/luogu/P1972.compact.cpp",
-    "requires": [
-      "PersistentDistinct"
-    ],
-    "kind": "application"
   },
   {
     "id": "example-47",
@@ -601,19 +497,6 @@
     ]
   },
   {
-    "id": "example-52",
-    "symbol": "convolution_i64",
-    "problem": "Luogu P3803",
-    "url": "https://www.luogu.com.cn/problem/P3803",
-    "summary": "求两个整数多项式的乘积，系数按升幂输入。首行 n、m 是次数，系数个数分别为 n+1、m+1；输出精确整数，不能取模。本题系数在 0..9，满足 signed64 结果范围。",
-    "driver": "verify/luogu/P3803.i64.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "convolution_i64"
-    ]
-  },
-  {
     "id": "example-53",
     "symbol": "stirling_second_row",
     "problem": "Luogu P5395",
@@ -659,11 +542,7 @@
     "driver": "verify/luogu/P4897.compact.cpp",
     "requires": [
       "Dinic",
-      "gomory_hu",
-      "cut_tree_values"
-    ],
-    "also_covers": [
-      "cut_tree_values"
+      "gomory_hu"
     ]
   },
   {
@@ -675,17 +554,6 @@
     "driver": "verify/luogu/P7771.compact.cpp",
     "requires": [
       "DirectedEuler"
-    ]
-  },
-  {
-    "id": "example-58",
-    "symbol": "Lowlink",
-    "problem": "Luogu P3388",
-    "url": "https://www.luogu.com.cn/problem/P3388",
-    "summary": "给无向图，按编号递增输出全部割点。图可以不连通；run 后读取 cut[u] 标记。不要把 bridge 的边编号当作顶点标记。点号 1..n。",
-    "driver": "verify/luogu/P3388.compact.cpp",
-    "requires": [
-      "Lowlink"
     ]
   },
   {
@@ -720,18 +588,6 @@
     "requires": [
       "RealPlane",
       "EnclosingCircle"
-    ]
-  },
-  {
-    "id": "example-62",
-    "symbol": "closest_pair_i64",
-    "problem": "Luogu P7883",
-    "url": "https://www.luogu.com.cn/problem/P7883",
-    "summary": "求整数点集最近距离的平方，全程不取平方根。题目保证至少两点，坐标绝对值不超过 10^7，平方距离不超过 8×10^14，可将 int128 转为 long long；模板完整范围内不能无条件照搬转换。",
-    "driver": "verify/luogu/P7883.compact.cpp",
-    "requires": [
-      "IntegerPlane",
-      "closest_pair_i64"
     ]
   },
   {
@@ -848,53 +704,6 @@
     "driver": "verify/library_checker/general_matching.compact.cpp",
     "requires": [
       "Blossom"
-    ]
-  },
-  {
-    "id": "example-73",
-    "symbol": "WeightedMatching",
-    "problem": "Luogu P6577",
-    "url": "https://www.luogu.com.cn/problem/P6577",
-    "summary": "求二分图最大权完美匹配，两侧均为 n 点，题目保证存在完美匹配。输出 r[j]，即右部 j 对应的左部编号，均为 1-based；题目权值与规模保证总权值可转为 long long。",
-    "driver": "verify/luogu/P6577.compact.cpp",
-    "requires": [
-      "WeightedMatching"
-    ]
-  },
-  {
-    "id": "example-74",
-    "symbol": "Johnson",
-    "problem": "Luogu P5905",
-    "url": "https://www.luogu.com.cn/problem/P5905",
-    "summary": "有向图可能有负边，若任意位置存在负环输出 -1。否则逐源求距离，按题意把不可达距离换为 10^9，再求编号加权和。题目规模和边权界保证最终和可转为 long long。",
-    "driver": "verify/luogu/P5905.compact.cpp",
-    "requires": [
-      "Johnson"
-    ]
-  },
-  {
-    "id": "example-75",
-    "symbol": "linear_equation",
-    "problem": "Luogu P5656",
-    "url": "https://www.luogu.com.cn/problem/P5656",
-    "summary": "解 ax+by=c，题目 a、b、c 均为正数。无整数解输出 -1；有正整数解则输出数量及 x、y 的最小/最大值，否则输出 x、y 各自的最小正值，它们不一定构成同一组解。正整数不含 0。",
-    "driver": "verify/luogu/P5656.compact.cpp",
-    "requires": [
-      "extended_gcd",
-      "linear_equation"
-    ]
-  },
-  {
-    "id": "example-76",
-    "symbol": "MatrixTree",
-    "problem": "Luogu P6178",
-    "url": "https://www.luogu.com.cn/problem/P6178",
-    "summary": "求所有生成树边权乘积之和，模 1000000007。type=0 为无向图，type=1 为以输入点 1 为根的外向树；输入点号减 1 后根为 0。重边分别计数，自环不贡献。",
-    "driver": "verify/luogu/P6178.compact.cpp",
-    "requires": [
-      "ModInt",
-      "det_prime",
-      "MatrixTree"
     ]
   },
   {
@@ -1088,19 +897,6 @@
     ]
   },
   {
-    "id": "example-92",
-    "symbol": "ac_shortest",
-    "problem": "AC 最短后缀匹配（本地接口示例）",
-    "url": "https://oi-wiki.org/string/ac-automaton/",
-    "summary": "输入模式数、各个非空小写模式串及文本，逐位置输出以该位置结尾的最短模式长度，无匹配输出 0。先登记终止节点与长度，再 build 和传播。示例对应附件 min_len 变体，只作本地接口演示，不是 OJ 提交记录。",
-    "driver": "verify/examples/ac_shortest.compact.cpp",
-    "requires": [
-      "AhoCorasick",
-      "ac_shortest"
-    ],
-    "kind": "application"
-  },
-  {
     "id": "example-93",
     "symbol": "BoundedMaxFlow",
     "problem": "Luogu P5192 Shoot the Bullet",
@@ -1123,7 +919,7 @@
     "driver": "verify/luogu/P4126.compact.cpp",
     "requires": [
       "Dinic",
-      "TarjanSCC",
+      "SCC",
       "mincut_edges"
     ],
     "kind": "application"
@@ -1137,49 +933,10 @@
     "driver": "verify/examples/matching_edges.compact.cpp",
     "requires": [
       "BipartiteMatching",
-      "TarjanSCC",
+      "SCC",
       "matching_edges"
     ],
     "kind": "application"
-  },
-  {
-    "id": "example-96",
-    "symbol": "odd_induced_partition",
-    "problem": "奇度诱导子图划分（本地接口示例）",
-    "url": "https://people.maths.ox.ac.uk/scott/Papers/odds2.pdf",
-    "summary": "输入无向简单图，点号减 1 后调用；输出同组顶点的诱导子图全部为奇度的顶点分组，无解输出 -1。组号本身无唯一答案，验证时按原图所有同组边计算度数。本例是本地接口演示，链接为存在性定理来源，不是 OJ 记录。",
-    "driver": "verify/examples/odd_induced_partition.compact.cpp",
-    "requires": [
-      "dsu",
-      "odd_induced_partition"
-    ],
-    "kind": "application"
-  },
-  {
-    "id": "example-97",
-    "symbol": "unit_flow_edges",
-    "problem": "最大流单位边 Y/N/?（本地接口示例）",
-    "url": "https://github.com/gsh20040816/CPCtemplate/issues/11",
-    "summary": "输入 n、m、s、t、q，随后 m 条有向容量边和 q 个原边序号；被询问边容量须为 1。先输出最大流值，再输出 Y（所有方案取 1）、N（没有方案取 1）、?（两种都可能）。用 add 返回值保存残量边号。本地示例对应附件 2.14 的分类内核，不代替原比赛题的排列约束建图。",
-    "driver": "verify/examples/unit_flow_edges.compact.cpp",
-    "requires": [
-      "Dinic",
-      "TarjanSCC",
-      "unit_flow_edges"
-    ],
-    "kind": "application"
-  },
-  {
-    "id": "example-98",
-    "symbol": "NegativeCostFlow",
-    "problem": "Luogu P7173",
-    "url": "https://www.luogu.com.cn/problem/P7173",
-    "summary": "求允许负费用环的最小费用最大流，独立于源汇的负环也计入费用。无额外流量上限时调用 solve(s,t)。题目容量和费用界保证最终费用可转为 long long；一般模板返回 int128，不能任意照搬此转换。",
-    "driver": "verify/luogu/P7173.compact.cpp",
-    "requires": [
-      "MinCostFlow",
-      "NegativeCostFlow"
-    ]
   },
   {
     "id": "example-99",
@@ -1217,28 +974,6 @@
     "requires": [
       "ModInt",
       "matrix_inverse"
-    ]
-  },
-  {
-    "id": "example-102",
-    "symbol": "matrix_inverse_mod2",
-    "problem": "Library Checker inverse_matrix_mod_2",
-    "url": "https://judge.yosupo.jp/problem/inverse_matrix_mod_2",
-    "summary": "输入 n 阶模 2 方阵，每行是无空格的 01 字符串。求逆矩阵，按同样形式逐行输出；奇异则输出 -1。",
-    "driver": "verify/library_checker/inverse_matrix_mod_2.compact.cpp",
-    "requires": [
-      "matrix_inverse_mod2"
-    ]
-  },
-  {
-    "id": "example-103",
-    "symbol": "prime_count",
-    "problem": "Library Checker counting_primes",
-    "url": "https://judge.yosupo.jp/problem/counting_primes",
-    "summary": "输入 n，输出不大于 n 的素数个数，不取模。题目 n≤10^11。",
-    "driver": "verify/library_checker/counting_primes.compact.cpp",
-    "requires": [
-      "prime_count"
     ]
   },
   {
@@ -1292,21 +1027,8 @@
     "driver": "verify/examples/dag_path_determinant.compact.cpp",
     "requires": [
       "ModInt",
-      "det_prime",
+      "determinant_mod",
       "dag_path_determinant"
-    ],
-    "kind": "application"
-  },
-  {
-    "id": "example-108",
-    "symbol": "TreePathProducts",
-    "problem": "附件爱莲说接口（本地应用示例）",
-    "url": "https://github.com/gsh20040816/CPCtemplate/issues/11",
-    "summary": "沿用附件输入：n,q，n 个 x，n-1 条 1-based 无向边；1 u x 修改参数，2 u 查询。主程序把每个 x 转为点权 1-x，并把顶点转为 0-based。输出所有从 u 出发路径的点权乘积总和。原题外部地址和线上结果尚未核验。",
-    "driver": "verify/examples/tree_path_products.compact.cpp",
-    "requires": [
-      "ModInt",
-      "TreePathProducts"
     ],
     "kind": "application"
   },
@@ -1321,18 +1043,6 @@
       "SequenceTreap"
     ],
     "kind": "application"
-  },
-  {
-    "id": "example-110",
-    "symbol": "ScapegoatTree",
-    "problem": "Luogu P3369（替罪羊树）",
-    "url": "https://www.luogu.com.cn/problem/P3369",
-    "summary": "维护可重集合，操作 1..6 分别为插入、删除一个副本、排名、第 k 小、严格前驱、严格后继。排名查询键不一定存在；题目保证第 k 小和前驱后继的答案存在，因此可解引用 optional。该驱动单独调用替罪羊树，不沿用其他平衡树的 AC。",
-    "driver": "verify/luogu/P3369.scapegoat.compact.cpp",
-    "requires": [
-      "ScapegoatTree"
-    ],
-    "kind": "template"
   },
   {
     "id": "example-111",
@@ -1477,18 +1187,6 @@
     "kind": "template"
   },
   {
-    "id": "example-121",
-    "symbol": "convolution_fft",
-    "problem": "Luogu P3803",
-    "url": "https://www.luogu.com.cn/problem/P3803",
-    "summary": "输入两个多项式的次数与升幂系数，输出整数乘积。次数最多一百万，系数 0..9，满足本浮点入口的范数限制；输出用 long long。此处实际调用复数 FFT，原精确整数卷积入口另行保留。",
-    "driver": "verify/luogu/P3803.fft.compact.cpp",
-    "requires": [
-      "ComplexFFT",
-      "convolution_fft"
-    ]
-  },
-  {
     "id": "example-122",
     "symbol": "convolution_mod_fft",
     "problem": "Luogu P4245",
@@ -1551,17 +1249,6 @@
     ]
   },
   {
-    "id": "example-127",
-    "symbol": "SpfaFlow",
-    "problem": "Luogu P3381",
-    "url": "https://www.luogu.com.cn/problem/P3381",
-    "summary": "求最小费用最大流。点号 1..n，输入容量与费用均为 0..1000，最多5000点、50000边；本题保证最大流及最小费用≤2³¹-1，可把返回费用转 long long 输出。这里实际使用SPFA增广，通用接口允许负边但禁止负环；有负环的费用流须用另一套算法。",
-    "driver": "verify/luogu/P3381.spfa.compact.cpp",
-    "requires": [
-      "SpfaFlow"
-    ]
-  },
-  {
     "id": "example-128",
     "symbol": "TwoSAT",
     "problem": "Luogu P4782",
@@ -1615,35 +1302,6 @@
     "driver": "verify/luogu/P6139.compact.cpp",
     "requires": [
       "GeneralSAM"
-    ]
-  },
-  {
-    "id": "example-133",
-    "symbol": "unit_flow_edges",
-    "problem": "QOJ 10424 / NERC 2024 K",
-    "url": "https://qoj.ac/problem/10424",
-    "summary": "两套排列各给出同一k元素集合的部分子序列，-1表示未知；输出每个元素必选Y、必不选N或可选?，无解输出Inconsistent。已知元素切分两侧容量组，每个元素对应一条单位边；最大流必须等于k，再作残量SCC分类。n及所有测试的n之和至2000。比赛应用，不计作独立模板题覆盖。",
-    "driver": "verify/qoj/10424.compact.cpp",
-    "requires": [
-      "Dinic",
-      "TarjanSCC",
-      "unit_flow_edges"
-    ],
-    "configuration_functions": [
-      "blocks"
-    ],
-    "kind": "application"
-  },
-  {
-    "id": "example-134",
-    "symbol": "closest_pair_i64",
-    "problem": "Library Checker closest_pair",
-    "url": "https://judge.yosupo.jp/problem/closest_pair",
-    "summary": "多组整数点集，输出一对不同的原输入0-based下标，使欧氏距离最小；最优解任选，重复坐标仍须返回不同下标。每组至少2点，总点数至50万，坐标绝对值至10⁹。直接传入端点指针，无需开方或重建坐标到编号的映射。",
-    "driver": "verify/library_checker/closest_pair.compact.cpp",
-    "requires": [
-      "IntegerPlane",
-      "closest_pair_i64"
     ]
   },
   {
@@ -1713,39 +1371,6 @@
     "kind": "application"
   },
   {
-    "id": "example-140",
-    "symbol": "WaveletMatrix",
-    "problem": "Library Checker range_kth_smallest",
-    "url": "https://judge.yosupo.jp/problem/range_kth_smallest",
-    "summary": "静态数组，查询半开区间[l,r)内第k小，l/r/k均按题面0-based；直接调用kth。n、q至20万，值在0..10⁹。",
-    "driver": "verify/library_checker/range_kth_smallest.wavelet.compact.cpp",
-    "requires": [
-      "WaveletMatrix"
-    ]
-  },
-  {
-    "id": "example-141",
-    "symbol": "WaveletMatrix",
-    "problem": "Library Checker static_range_frequency",
-    "url": "https://judge.yosupo.jp/problem/static_range_frequency",
-    "summary": "静态数组，统计半开区间[l,r)中x的出现次数；允许空数组、空查询区间、q=0和未出现的x。n、q至50万，值在0..10⁹。",
-    "driver": "verify/library_checker/static_range_frequency.wavelet.compact.cpp",
-    "requires": [
-      "WaveletMatrix"
-    ]
-  },
-  {
-    "id": "example-142",
-    "symbol": "WaveletMatrix",
-    "problem": "Luogu P3834",
-    "url": "https://www.luogu.com.cn/problem/P3834",
-    "summary": "静态区间第k小；题目为1-based闭区间和1-based k，调用时转换成kth(l-1,r,k-1)。n、q至20万，题面值在0..10⁹；本程序采用小波矩阵，不建立历史版本。",
-    "driver": "verify/luogu/P3834.wavelet.compact.cpp",
-    "requires": [
-      "WaveletMatrix"
-    ]
-  },
-  {
     "id": "example-143",
     "symbol": "GaussXor",
     "problem": "Library Checker system_of_linear_equations_mod_2",
@@ -1781,28 +1406,6 @@
     ],
     "kind": "application",
     "page_break_before": "        string x = sol.particular;"
-  },
-  {
-    "id": "example-146",
-    "symbol": "DivisionTree",
-    "problem": "Luogu P3834",
-    "url": "https://www.luogu.com.cn/problem/P3834",
-    "summary": "静态区间第k小；n、q至20万，非负值至10⁹。输入为1-based闭区间与排名，调用kth(l-1,r,k-1)。本程序使用中位数划分树，重复数仍按出现次数排名。",
-    "driver": "verify/luogu/P3834.division.compact.cpp",
-    "requires": [
-      "DivisionTree"
-    ]
-  },
-  {
-    "id": "example-147",
-    "symbol": "DivisionTree",
-    "problem": "Library Checker range_kth_smallest",
-    "url": "https://judge.yosupo.jp/problem/range_kth_smallest",
-    "summary": "半开区间[l,r)内第k小，位置和k均为0-based，直接调用kth；n、q至20万，值在0..10⁹。",
-    "driver": "verify/library_checker/range_kth_smallest.division.compact.cpp",
-    "requires": [
-      "DivisionTree"
-    ]
   },
   {
     "id": "example-148",
@@ -1902,19 +1505,6 @@
     ]
   },
   {
-    "id": "example-156",
-    "symbol": "IntegerTangents",
-    "problem": "AOJ CGL_7_G",
-    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G",
-    "summary": "不同整数圆的公切线，输出第一圆上的全部切点。坐标绝对值≤1000，半径1..1000；可能0..4条，同心不等圆需空输出。整数版已精确排序，直接顺序输出line.a，不再按舍入值排序；绝对误差小于1e-5。",
-    "driver": "verify/aoj/CGL_7_G.compact.cpp",
-    "requires": [
-      "IntegerPlane",
-      "RealPlane",
-      "IntegerTangents"
-    ]
-  },
-  {
     "id": "example-157",
     "symbol": "floor_moments",
     "problem": "Luogu P5170",
@@ -1976,44 +1566,6 @@
     ]
   },
   {
-    "id": "example-162",
-    "symbol": "removal_components",
-    "problem": "AOJ GRL_3_A",
-    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A&lang=en",
-    "summary": "连通无向简单图，按编号升序输出所有割点，N、M≤100000。输入零基转一基；BiconnectedCore.run后取(before,after)，仅当after[u]>before才输出u-1。本例展示已有点双结果的复用；只求割点优先用更短的Lowlink。时间、空间O(N+M)，递归DFS。该题只核验割点集合，完整删点数量另见UVA10765应用。",
-    "driver": "verify/aoj/GRL_3_A.removal.compact.cpp",
-    "requires": [
-      "BiconnectedCore",
-      "removal_components"
-    ]
-  },
-  {
-    "id": "example-163",
-    "symbol": "removal_components",
-    "problem": "UVA 10765 Doves and Bombs",
-    "url": "https://onlinejudge.org/external/107/10765.pdf",
-    "summary": "分别删去每个站点，按剩余连通块数降序、原编号升序输出前m名；n≤10000，原图连通。m是输出名额而非边数，边表以-1 -1结束，多测以0 0结束，每组末尾空行。after是剩余总块数而非增量，不重复加before。O(n log n+E)时间、O(n+E)空间。应用题不计正式模板覆盖。",
-    "driver": "verify/uva/10765.compact.cpp",
-    "requires": [
-      "BiconnectedCore",
-      "removal_components"
-    ],
-    "kind": "application"
-  },
-  {
-    "id": "example-164",
-    "symbol": "orient_edges",
-    "problem": "Codeforces 118E Bertown roads",
-    "url": "https://codeforces.com/problemset/problem/118/E",
-    "summary": "给连通无向简单图，把每条边定向使整图强连通，无解输出0。n≤100000、m≤300000。先用Lowlink.run确认连通且无桥，再调用orient_edges；返回数组与add的原边编号逐项对应，每条逻辑边只加一次。任意可行方向均可。O(n+m)时间、空间，DFS递归；比赛应用不替代正式模板题。",
-    "driver": "verify/luogu/CF118E.compact.cpp",
-    "requires": [
-      "Lowlink",
-      "orient_edges"
-    ],
-    "kind": "application"
-  },
-  {
     "id": "example-165",
     "symbol": "block_cut_forest",
     "problem": "Luogu P4630",
@@ -2041,20 +1593,6 @@
     "kind": "application"
   },
   {
-    "id": "example-167",
-    "symbol": "bridge_augmentation",
-    "problem": "Luogu P2860 (construct augmentation)",
-    "url": "https://www.luogu.com.cn/problem/P2860",
-    "summary": "同题的构造接口：连通非空图run后调用bridge_augmentation，返回最少补边方案的原点端点对，点号1..n，可直接逐对使用；题目只输出方案长度。已有边和新增边都允许平行边。接口不修改graph，若需更新原图须自行add并重新run。O(n+m)时间、空间；DFS顺序收集桥树叶子后对半配对，奇数叶子补首叶。",
-    "driver": "verify/luogu/P2860.compact.cpp",
-    "requires": [
-      "BiconnectedCore",
-      "bridge_component_forest",
-      "bridge_augmentation"
-    ],
-    "kind": "application"
-  },
-  {
     "id": "example-168",
     "symbol": "ModifiedMo",
     "problem": "Luogu P1903",
@@ -2065,19 +1603,6 @@
       "ModifiedMo"
     ],
     "listing_new_page": true
-  },
-  {
-    "id": "example-169",
-    "symbol": "path_intersection",
-    "problem": "Luogu P3398",
-    "url": "https://www.luogu.com.cn/problem/P3398",
-    "summary": "树上两条路径是否有公共顶点，n,q≤100000。点号1..n，EulerLCA的depth与lca必须来自同一根，depth是边数而非带权距离。vertices非零输出Y，否则N；此题只使用是否相交，交集端点和顶点数另由本地路径点集验证。EulerLCA预处理O(n log n)，每次查询O(1)，DFS递归。",
-    "driver": "verify/luogu/P3398.compact.cpp",
-    "requires": [
-      "EulerLCA",
-      "path_intersection"
-    ],
-    "kind": "application"
   },
   {
     "id": "example-170",
@@ -2151,19 +1676,6 @@
     ],
     "kind": "application",
     "listing_new_page": true
-  },
-  {
-    "id": "example-176",
-    "symbol": "XorWalk",
-    "problem": "Luogu P4151",
-    "url": "https://www.luogu.com.cn/problem/P4151",
-    "summary": "无向连通带权图，求1到n可重复经过点边的最大异或和；n≤50000，m≤100000，权值≤10^18，允许重边、自环。点号保留1-based，build(1)后query(1,n)。题目保证连通才可直接解引用；通用图先检查optional。此题验证行走，不能改成简单路径。O((n+m)·64)，DFS递归。",
-    "driver": "verify/luogu/P4151.compact.cpp",
-    "requires": [
-      "XorBasis",
-      "XorWalk"
-    ],
-    "kind": "application"
   },
   {
     "id": "example-177",
@@ -2335,87 +1847,6 @@
     "page_break_before": "    if (d[t] == inf)"
   },
   {
-    "id": "example-191",
-    "symbol": "divisor_sum_power",
-    "problem": "Luogu P1593 因子和",
-    "url": "https://www.luogu.com.cn/problem/P1593",
-    "summary": "给定1≤a≤50000000、0≤b≤50000000，求a^b的所有正约数之和模9901。只分解a，质因子重数e对应e*b+1项几何级数，无需构造a^b或求逆元。a=1或b=0输出1。PollardRho可复用；本题模数固定，但核心允许任意正uint64模数，长度以uint128计算。",
-    "driver": "verify/luogu/P1593.compact.cpp",
-    "requires": [
-      "Mod64",
-      "Prime64",
-      "PollardRho",
-      "power_sum",
-      "divisor_sum_power"
-    ]
-  },
-  {
-    "id": "example-192",
-    "symbol": "carmichael",
-    "problem": "UVa 10006 Carmichael Numbers",
-    "url": "https://onlinejudge.org/external/100/10006.pdf",
-    "kind": "application",
-    "summary": "多组3≤n<65000，输入0结束，判定n是否为Carmichael数：必须为合数，并且对所有整数a满足a^n≡a(mod n)。这里先排除素数，再判断λ(n)是否整除n-1；等价性包含非互素底数，不要直接拿λ(n)给任意底数降幂。输出必须完全符合题面两种句式。该题只检查判定，不能替代λ(n)数值及最小性的接口测试，亦不计独立模板题覆盖。",
-    "driver": "verify/uva/10006.compact.cpp",
-    "requires": [
-      "Mod64",
-      "Prime64",
-      "carmichael"
-    ]
-  },
-  {
-    "id": "example-193",
-    "symbol": "power_sum",
-    "problem": "AtCoder ABC293 E Geometric Progression",
-    "url": "https://atcoder.jp/contests/abc293/tasks/abc293_e",
-    "kind": "application",
-    "summary": "给定1≤A,M≤10^9、1≤X≤10^12，求Σ(i=0..X-1) A^i mod M。直接读取power_sum(A,X,M).second；M可能是合数，A-1不一定可逆，不能无条件使用几何级数除法。M=1输出0，A=1时结果X mod M。第一分量为A^X，本题不输出。此为比赛应用题，不计独立模板题覆盖。",
-    "driver": "verify/atcoder/abc293_e.compact.cpp",
-    "requires": [
-      "power_sum"
-    ]
-  },
-  {
-    "id": "example-194",
-    "symbol": "CompositeRoots",
-    "also_covers": [
-      "root_factors",
-      "KthResidue",
-      "PrimePowerRoots"
-    ],
-    "problem": "Luogu P5668 【模板】N 次剩余",
-    "url": "https://www.luogu.com.cn/problem/P5668",
-    "summary": "T≤100，每组按n,m,k读入，求x^n≡k(mod m)在0..m-1的所有解，先输出解数，非零时下一行升序输出全部根。1≤n≤10^9、0≤k<m≤10^9；所有组总解数≤10^6，每个素数幂上的根数亦≤10^6。root_factors准备分解和原根：素数走KthResidue（p=2用原根1），素数幂走PrimePowerRoots，一般合数走CompositeRoots。m=1对应空因子列表，唯一根0；无解只输出0一行。各入口原始顺序不保证升序，最后统一排序，不去重来掩盖重复根。枚举会占O(c)空间；大根族应仅在题目输出界内展开。",
-    "driver": "verify/luogu/P5668.compact.cpp",
-    "requires": [
-      "Mod64",
-      "Prime64",
-      "PollardRho",
-      "extended_gcd",
-      "mod_inverse",
-      "DiscreteLog",
-      "linear_congruence",
-      "KthResidue",
-      "PrimePowerRoots",
-      "root_factors",
-      "CompositeRoots"
-    ],
-    "page_break_before": "        else"
-  },
-  {
-    "id": "example-195",
-    "symbol": "CoprimePairs",
-    "problem": "Luogu P2522 [HAOI2011] Problem b",
-    "url": "https://www.luogu.com.cn/problem/P2522",
-    "kind": "application",
-    "summary": "给出最多50000组闭区间[a,b]、[c,d]和k，统计gcd(x,y)=k的数对，所有端点及k在1..50000。只初始化一次CoprimePairs(50000)，每组调用rectangle(a,b,c,d,k)，返回long long。它先除以k，再用四个互质前缀容斥；k超过区间端点时零前缀自动处理。一般调用count(A,B)须预处理到min(A,B)，本题固定50000即可。此为比赛应用题，不计独立模板题覆盖。",
-    "driver": "verify/luogu/P2522.compact.cpp",
-    "requires": [
-      "LinearSieve",
-      "CoprimePairs"
-    ]
-  },
-  {
     "id": "example-196",
     "symbol": "inverse_table",
     "problem": "Luogu P3811 【模板】模意义下的乘法逆元",
@@ -2450,15 +1881,10 @@
     "summary": "输入1≤n≤5000000、2≤k<p≤10^9、1≤a_i<p且p为素数，求Σk^i/a_i模p。先设置mint的模数p，再构造数组；传move(a)调用batch_units，只求一次总积逆元。权重从1开始，每项先乘k再累加。read与main一起抄；move后不再读取a。更换同tag模数后旧对象失效，计算期间不能切换。核心支持合数单位，本题只覆盖素数；动态模数、构造、乘法及累加、v输出在此直接使用，合数求逆接口另由核心测试核验。",
     "driver": "verify/luogu/P5431.mint.compact.cpp",
     "requires": [
-      "Barrett32",
-      "mint",
-      "batch_units"
+      "mint"
     ],
     "utility_functions": [
       "read"
-    ],
-    "also_covers": [
-      "batch_units"
     ]
   },
   {
@@ -2505,32 +1931,6 @@
     "requires": [
       "rectangle_union_area"
     ]
-  },
-  {
-    "id": "example-203",
-    "symbol": "LexTwoSAT",
-    "problem": "HDU 1814 Peaceful Commission",
-    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=1814",
-    "summary": "每党两名候选人编号2x-1、2x，恰选一人且冲突双方不能同时入选，输出字典序最小代表序列。候选人u转为变量x=(u+1)/2，偶号对应值1；冲突(u,v)转为(x≠a) OR (y≠b)，即add(x,!a,y,!b)。变量与answer均为1-based；按党号输出2*x-1+answer[x]，每人一行。无解只输出NIE，不能读取失败后的answer。多组读至EOF，每组重新构造，无0 0结束标记。原站题面本次不可达，题意与格式依据现有驱动及独立枚举测试，不声称已复核官方限制或线上AC。",
-    "driver": "verify/hdu/1814.compact.cpp",
-    "requires": [
-      "LexTwoSAT"
-    ],
-    "kind": "application"
-  },
-  {
-    "id": "example-204",
-    "symbol": "odd_cycle_vertices",
-    "problem": "POJ 2942 Knights of the Round Table",
-    "url": "https://poj.org/problem?id=2942",
-    "summary": "互相憎恨的骑士不能相邻，合法圆桌至少3人且人数为奇数；求无法参加任何合法圆桌的人数。输入憎恨关系，顶点1..n；对u<v且不憎恨的二人建补图边，不能把憎恨边直接加入。每组新建矩阵和BiconnectedCore，先run再调用odd_cycle_vertices，统计odd[1..n]中的0，每组输出一行；0 0终止且不输出。函数只返回各点能否出现在某个简单奇环，不给圆桌座次；无合法圆桌时输出n，不是失败。POJ原站本次不可达；输入格式和样例另与同题UVA1364官方PDF核对，未据此声称POJ限制或线上AC已复核。",
-    "driver": "verify/poj/2942.compact.cpp",
-    "requires": [
-      "BiconnectedCore",
-      "block_cut_forest",
-      "odd_cycle_vertices"
-    ],
-    "kind": "application"
   },
   {
     "id": "example-205",
@@ -2670,31 +2070,6 @@
     ]
   },
   {
-    "id": "example-214",
-    "symbol": "AffineSequenceTreap",
-    "kind": "template",
-    "problem": "Library Checker Dynamic Sequence Range Affine Range Sum",
-    "url": "https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum",
-    "summary": "维护模998244353的动态序列，支持按位置插入、删除单项、顺序翻转、仿射修改和区间和。初始长度与操作数各至多500000，乘数可以为0。题目区间为0-based半开，转成模板的闭区间[l+1,r]；插入位置不偏移，删除位置加1。预留N+Q+1个节点，删除不回收。",
-    "driver": "verify/library_checker/dynamic_sequence_range_affine_range_sum.compact.cpp",
-    "requires": [
-      "ModInt",
-      "AffineSequenceTreap"
-    ]
-  },
-  {
-    "id": "example-215",
-    "symbol": "release_bfs",
-    "kind": "application",
-    "problem": "QOJ 8236 / ICPC 2023 Hangzhou G — Snake Move",
-    "url": "https://codeforces.com/gym/104976/attachments/download/24253/hangzhou(en).pdf",
-    "summary": "蛇可移动或缩尾，求蛇头到各格最少步数的平方和，模2^64。初始身体按0-based i（不含头）设open=k-i，尾格为1；源点时间0，障碍不连边。n,m至多3000，k至多min(nm,100000)。不可达不计，使用unsigned long long自然回绕；这是比赛应用，不是独立模板题。",
-    "driver": "verify/qoj/8236.compact.cpp",
-    "requires": [
-      "release_bfs"
-    ]
-  },
-  {
     "id": "example-216",
     "symbol": "Binomial",
     "also_covers": [
@@ -2708,19 +2083,6 @@
     "requires": [
       "ModInt",
       "Binomial"
-    ]
-  },
-  {
-    "id": "example-217",
-    "symbol": "word_chain",
-    "kind": "application",
-    "problem": "UVA 10441 Catenyms",
-    "url": "https://onlinejudge.org/external/104/10441.pdf",
-    "summary": "多组给出3..1000个互不相同的小写单词，长度1..20。每词恰用一次，后词首字母等于前词尾字母，输出字典序最小的点分隔词链；无解输出***。返回原输入的0-based编号，按编号取词输出，末尾不加点。单词排序不可换成按终点排序。重复词和空输入仅属更宽接口范围，不在本题范围内。",
-    "driver": "verify/poj/2337.compact.cpp",
-    "requires": [
-      "DirectedEuler",
-      "word_chain"
     ]
   },
   {
@@ -2785,18 +2147,6 @@
     ]
   },
   {
-    "id": "example-224",
-    "symbol": "GcdSequenceTreap",
-    "kind": "api",
-    "problem": "自定义带标签 GCD 序列操作",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/gcd_sequence.hpp",
-    "summary": "自定义协议，非OJ题；n≤200000、q≤100000均可为0，是本演示约定。先读n组(value,tag)，值为非负unsigned long long，标签0或1。I k v t在前k项后插入；E l r删1-based闭区间；S k v改单值；T k翻单标签；Q l r t查询该标签GCD，无该标签输出NONE，全零输出0。位置必须合法，可删空再插入，不支持翻转或负值。",
-    "driver": "docs/usage-drivers/tagged-gcd-demo.cpp",
-    "requires": [
-      "GcdSequenceTreap"
-    ]
-  },
-  {
     "id": "example-225",
     "symbol": "IntegerGeometry3D",
     "kind": "api",
@@ -2807,35 +2157,6 @@
     "requires": [
       "IntegerGeometry3D"
     ]
-  },
-  {
-    "id": "example-226",
-    "symbol": "SupportHull",
-    "kind": "api",
-    "problem": "自定义静态下凸链支撑查询",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/support_hull.hpp",
-    "summary": "自定义协议，非OJ题：0≤n≤2000，0≤q≤200000；点和方向坐标绝对值≤10^18，查询b≤0。先输出严格下凸链长度及坐标，再输出max(a*x+b*y)及字典序最小的最大点；空集每次输出EMPTY。用最左/最右横坐标上的最低点和全点集精确扫描oracle调用build，再二分首个最大顶点；同x只留最低y，不承诺原下标或向上查询。扫描回调使构造O(n²)、存储/递归O(n)，查询O(q log(max(2,n)))；显式点云通常用普通单调链更合适，本例演示隐式点集的oracle适配。生成方向≤2×10^18，回调点积≤4×10^36、叉积≤8×10^36，以128位精确运算；不扩展到完整signed64域。",
-    "driver": "docs/usage-drivers/lower-support-demo.cpp",
-    "requires": [
-      "SupportHull"
-    ],
-    "page_break_before": "    while (q--)"
-  },
-  {
-    "id": "example-227",
-    "symbol": "EdgeCompression",
-    "kind": "application",
-    "problem": "Codeforces 732F Tourist Reform",
-    "url": "https://codeforces.com/problemset/problem/732/F",
-    "summary": "连通无向简单图，2≤n≤400000、1≤m≤400000，给每条边定向，使各点可达点数的最小值最大（含自身）。输出最优值和按原输入顺序的m条有向边。先求边双缩点，选size最大的块为根；orient_edges定向块内边，再按edges中的原边编号把桥全部朝根定向。答案是最大块大小，不把缩点边端点顺序当成父子关系。O(n+m)时间/空间；保留递归核心，需足够大栈，局部8 MiB栈在最大链上溢出，评测栈未知。本题是应用，不是正式缩点模板题。",
-    "driver": "verify/codeforces/732F.compact.cpp",
-    "requires": [
-      "BiconnectedCore",
-      "EdgeCompression",
-      "Lowlink",
-      "orient_edges"
-    ],
-    "page_break_before": "    vector<int> parent(compressed.n + 1), order{root};"
   },
   {
     "id": "example-228",
@@ -2905,7 +2226,6 @@
     "driver": "verify/library_checker/unionfind_with_potential.compact.cpp",
     "requires": [
       "PotentialDSU",
-      "Barrett32",
       "mint"
     ]
   },
@@ -3057,29 +2377,6 @@
     "kind": "api"
   },
   {
-    "id": "example-245",
-    "symbol": "CentroidNearest",
-    "kind": "application",
-    "problem": "SPOJ QTREE5 / Query on a tree V（Luogu SP2939）",
-    "url": "https://www.spoj.com/problems/QTREE5/",
-    "summary": "N,Q≤100000，单位边树点号1..N，初始全黑；先N和N-1条边，再Q条操作。0 u翻转黑白，1 u输出最近白点距离（可为自身），没有白点输出-1。内部转换为0-based，白点对应活动点。原站注明modified from ZJOI07，按应用用法收录；非独立非比赛模板题。",
-    "driver": "verify/luogu/SP2939.compact.cpp",
-    "requires": [
-      "CentroidNearest"
-    ]
-  },
-  {
-    "id": "example-246",
-    "symbol": "Fenwick2D",
-    "problem": "Library Checker point_add_rectangle_sum",
-    "url": "https://judge.yosupo.jp/problem/point_add_rectangle_sum",
-    "summary": "N,Q≤100000，初始N个带权平面点。0 x y w加入点权，重合点累加；1 l d r u查询[l,r)×[d,u)内总权。坐标和权值0..10^9，查询边界严格递增。先读完所有操作，预登记初始与未来增加点的坐标，再按原顺序执行；这不改变原题操作语义。",
-    "driver": "verify/library_checker/point_add_rectangle_sum.compact.cpp",
-    "requires": [
-      "Fenwick2D"
-    ]
-  },
-  {
     "id": "example-247",
     "symbol": "RectangleFenwick",
     "problem": "Luogu P4514 / 上帝造题的七分钟",
@@ -3122,18 +2419,6 @@
     "requires": [
       "z_function",
       "exkmp"
-    ]
-  },
-  {
-    "id": "example-251",
-    "symbol": "order_match",
-    "kind": "application",
-    "problem": "Luogu P6080 / Cow Patterns",
-    "url": "https://www.luogu.com.cn/problem/P6080",
-    "summary": "N≤100000、K≤25000、S≤25，值在1..S；输出匹配的个数与升序1-based起点，逐行输出。保持相等和严格大小关系，允许重叠；S无需用于算法。应用补充，未在线AC。",
-    "driver": "verify/luogu/P6080.compact.cpp",
-    "requires": [
-      "order_match"
     ]
   },
   {
@@ -3192,18 +2477,6 @@
     ]
   },
   {
-    "id": "example-256",
-    "symbol": "OnlineSAM",
-    "kind": "api",
-    "problem": "在线分支扩展 / API示例",
-    "url": "https://github.com/gsh20040816/CPCtemplate",
-    "summary": "q次操作，每次给历史版本parent（0≤parent<i）和小写字符c；将该版本的完整串接c作为新版本，版本0为空。保存返回状态号，每次输出当前全部版本的不同非空子串并集大小。这是添加路径，不是持久化SAM：所有查询读取累计语言。",
-    "driver": "verify/api/online_sam.compact.cpp",
-    "requires": [
-      "OnlineSAM"
-    ]
-  },
-  {
     "id": "example-257",
     "symbol": "GeneralSAM",
     "kind": "api",
@@ -3214,17 +2487,6 @@
     "requires": [
       "GeneralSAM",
       "SAMLex"
-    ]
-  },
-  {
-    "id": "example-258",
-    "symbol": "OnlineSAM",
-    "problem": "Luogu P6139 / 在线扩展版本",
-    "url": "https://www.luogu.com.cn/problem/P6139",
-    "summary": "每个文档从根重新扩展，输出不同非空子串数和含根endpos状态数；题面最多40万串、总长至100万。与已有GeneralSAM相同的状态口径，不做后缀语言DFA最小化；本地验证，线上待补。任意父状态API的最坏复杂度不能据此称线性。",
-    "driver": "verify/luogu/online_sam/P6139.compact.cpp",
-    "requires": [
-      "OnlineSAM"
     ]
   },
   {
@@ -3278,33 +2540,6 @@
     "driver": "verify/luogu/P3808.compact.cpp",
     "requires": [
       "AhoCorasick"
-    ]
-  },
-  {
-    "id": "example-263",
-    "symbol": "ACWeighted",
-    "kind": "api",
-    "problem": "静态带权多模式查询（接口演示）",
-    "url": "https://oi-wiki.org/string/ac-automaton/",
-    "summary": "输入n,q，随后n组带引号模式串及有符号权重，再读q个带引号文本。双引号允许表示空串。输出全部重叠匹配的权重和；空模式在每个边界匹配。",
-    "driver": "verify/ac_weighted_demo.cpp",
-    "requires": [
-      "AhoCorasick",
-      "ACWeighted"
-    ]
-  },
-  {
-    "id": "example-264",
-    "symbol": "DynamicAC",
-    "kind": "application",
-    "problem": "Codeforces 710F / String Set Queries",
-    "url": "https://codeforces.com/problemset/problem/710/F",
-    "summary": "在线维护字符串集合。1插入，2删除，3询问文本中所有集合模式的总出现次数。题目保证新增串从未加入、删除串存在；每次回答必须endl刷新后再读下一条，不能预读全部操作。用+1/-1更新权重。",
-    "driver": "verify/codeforces/710F.compact.cpp",
-    "requires": [
-      "AhoCorasick",
-      "ACWeighted",
-      "DynamicAC"
     ]
   },
   {
@@ -3368,138 +2603,6 @@
     ]
   },
   {
-    "id": "example-270",
-    "symbol": "KDRange",
-    "kind": "api",
-    "problem": "动态矩形取点与删除（接口演示）",
-    "url": "https://oi-wiki.org/ds/kdt/",
-    "summary": "输入n,m和n条(x,y,id)。操作1 x y id新增记录；操作2 x1 y1 x2 y2取出并删除闭矩形中的全部记录，输出数量和递增排序后的编号。允许坐标及编号重复，重复记录分别保留；空矩形输出0。坐标为完整有符号64位整数。",
-    "driver": "verify/api/kd_range.compact.cpp",
-    "requires": [
-      "KDRange"
-    ]
-  },
-  {
-    "id": "example-271",
-    "symbol": "KDRange",
-    "kind": "api",
-    "problem": "曼哈顿邻域同步搬移（kuangbin源码模型）",
-    "url": "https://github.com/kuangbin/ACM-ICPC",
-    "summary": "输入n,q,W,H及n个点；每次给X,Y,E,a,b,c,d,f,g，把操作开始时曼哈顿距离≤E的点同步改为((a*x+b*y+(id+1)*c)%W,(d*x+f*y+(id+1)*g)%H)。输入点在[0,W)×[0,H)，W,H为1..10^9，系数和E为0..10^9，中心坐标绝对值≤10^9，n≤10^5；编号为输入次序0-based。最后按原序输出坐标。使用(x+y,x-y)转闭矩形；128位乘加。只核对源码模型，不冒充UVALive6045原题协议；原文小于与源码闭边界存在差异，待原题确认。",
-    "driver": "verify/api/kd_move.compact.cpp",
-    "requires": [
-      "KDRange"
-    ]
-  },
-  {
-    "id": "example-272",
-    "symbol": "Chain3D",
-    "kind": "api",
-    "problem": "三维最长链与原编号方案（接口演示）",
-    "url": "https://oi-wiki.org/misc/cdq-divide/",
-    "summary": "输入n,mod,strict及n个三维整数点。strict=1为三维都严格增加；strict=0为三维不减，重合点按原编号串联，不重复计算它们的排列。输出全局长度/模方案数、一条原编号路径，以及各原输入点的结尾长度/模方案数/前驱编号。空输入全局为0和1%mod，路径为空；mod=1时计数0也能恢复路径。",
-    "driver": "verify/api/chain_3d.compact.cpp",
-    "requires": [
-      "Chain3D"
-    ]
-  },
-  {
-    "id": "example-273",
-    "symbol": "Chain3D",
-    "kind": "application",
-    "problem": "HDU4742 Pinball Game 3D",
-    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4742",
-    "summary": "T≤3组，每组1≤n≤10^5个互不重合的三维点，坐标0..2^30。命中顺序要求三维均不减，按命中点集计数；输出最长长度及方案数模2^30。调用Chain3D的弱偏序模式；无重合点使每个可行点集只有一个规范顺序。5秒、32768K，当前最小抄写版已AC。严格模式、重合点及其他模数仍属本地验证范围。",
-    "driver": "verify/api/chain3d_source.compact.cpp",
-    "requires": [
-      "Chain3D"
-    ]
-  },
-  {
-    "id": "example-274",
-    "symbol": "KDMin",
-    "kind": "api",
-    "problem": "矩形最小权与按编号删除（接口演示）",
-    "url": "https://oi-wiki.org/ds/kdt/",
-    "summary": "输入n,q和n条x,y,key记录；操作1 id删除0-based原编号，操作2 xl yl xr yr查询闭矩形内(key,编号)最小的活记录编号，无解输出-1。支持重复坐标/权、重复删除、反向矩形与空点集。",
-    "driver": "verify/api/kd_min.compact.cpp",
-    "requires": [
-      "KDMin"
-    ]
-  },
-  {
-    "id": "example-275",
-    "symbol": "KDMin",
-    "kind": "application",
-    "problem": "Codeforces 44G Shooting Gallery",
-    "url": "https://codeforces.com/problemset/problem/44/G",
-    "summary": "按顺序发射子弹，每发击碎最近尚存靶子，边界也算命中；输出每发击中的1-based靶子编号或0。n,m≤10^5，坐标0..10^7，矩形严格非退化，z互异且为1..10^7。把子弹时间作为key，按z从近到远处理靶子，查询靶面内最早未用子弹并删除。比赛应用，非正式模板题；本地验证不等于在线AC。",
-    "driver": "verify/codeforces/44G.compact.cpp",
-    "requires": [
-      "KDMin"
-    ]
-  },
-  {
-    "id": "example-276",
-    "symbol": "StaticRMQ",
-    "kind": "template",
-    "problem": "Library Checker Static RMQ",
-    "url": "https://judge.yosupo.jp/problem/staticrmq",
-    "summary": "静态数组上查询0-based半开区间[l,r)最小值；n,q≤500000，值为0..10^9。模板返回最左最小值位置，通过rmq.a[位置]输出值。",
-    "driver": "verify/library_checker/staticrmq.compact.cpp",
-    "requires": [
-      "StaticRMQ"
-    ]
-  },
-  {
-    "id": "example-277",
-    "symbol": "StaticRMQ",
-    "kind": "template",
-    "problem": "Luogu P3865 【模板】ST 表 && RMQ 问题",
-    "url": "https://www.luogu.com.cn/problem/P3865",
-    "summary": "静态区间最大值；输入1-based闭区间[l,r]，转换为query(l-1,r)。用greater<int>选择最大值，再由返回位置读取值。",
-    "driver": "verify/luogu/P3865.compact.cpp",
-    "requires": [
-      "StaticRMQ"
-    ]
-  },
-  {
-    "id": "example-278",
-    "symbol": "StaticRMQ",
-    "kind": "api",
-    "problem": "静态区间最左最小/最大位置（接口演示）",
-    "url": "https://oi-wiki.org/ds/sparse-table/",
-    "summary": "输入n,q、signed64数组和q个非空0-based半开区间，分别输出最左最小与最左最大位置。允许重复值；n=0时要求q=0。",
-    "driver": "verify/api/static_rmq.compact.cpp",
-    "requires": [
-      "StaticRMQ"
-    ]
-  },
-  {
-    "id": "example-279",
-    "symbol": "StaticRMQ2D",
-    "kind": "api",
-    "problem": "二维矩形最小/最大位置（接口演示）",
-    "url": "https://oi-wiki.org/ds/sparse-table/",
-    "summary": "输入n,m,q、矩阵与q个0-based非空半开矩形，依次输出最小值的行列和最大值的行列；并列按行再列取最小。值支持signed64；空矩阵或零列时q必须为0。",
-    "driver": "verify/api/static_rmq_2d.compact.cpp",
-    "requires": [
-      "StaticRMQ2D"
-    ]
-  },
-  {
-    "id": "example-280",
-    "symbol": "StaticRMQ2D",
-    "kind": "api",
-    "problem": "矩形最大值是否出现在四角（kuangbin源码模型）",
-    "url": "https://github.com/kuangbin/ACM-ICPC",
-    "summary": "读到EOF，每组n,m、矩阵、q和q个1-based闭矩形端点，分别交换逆序的行/列端点。输出最大值与yes/no，表示四个角是否至少有一个等于最大值。演示n,m为1..305，值为signed64；不是已核验的原OJ协议、资源或正式模板题。",
-    "driver": "verify/api/rmq_corners.compact.cpp",
-    "requires": [
-      "StaticRMQ2D"
-    ]
-  },
-  {
     "id": "example-281",
     "symbol": "HLD",
     "kind": "api",
@@ -3543,66 +2646,6 @@
     "listing_new_page": true
   },
   {
-    "id": "example-284",
-    "symbol": "CentroidDiameter",
-    "kind": "application",
-    "problem": "SPOJ QTREE4 / 有符号边权动态白点直径",
-    "url": "https://www.spoj.com/problems/QTREE4/",
-    "summary": "n,q≤100000，边权−1000..1000，初始全白；C u反色，A查白点对的最大距离，两端允许相同。无白点输出They have disappeared.。题目1-based，传入模板时减1；query()非空时取get<0>。固定树且允许负边，不能改用只支持非负权的TreeDiameter摘要。",
-    "driver": "verify/spoj/QTREE4.compact.cpp",
-    "requires": [
-      "CentroidDiameter"
-    ]
-  },
-  {
-    "id": "example-285",
-    "symbol": "CentroidDiameter",
-    "kind": "api",
-    "problem": "活动点最大距离与端点方案（接口演示）",
-    "url": "https://oi-wiki.org/graph/tree-divide/",
-    "summary": "输入n,q、n−1条0-based带权树边，初始全不活动。0 u on设置状态（重复设置不变）；1查询，空集输出−1，否则输出最大距离d及任意最优活动点u,v。允许负边和u=v，并列不指定点号；所有简单路径和须在signed64内。",
-    "driver": "verify/api/centroid_diameter.compact.cpp",
-    "requires": [
-      "CentroidDiameter"
-    ]
-  },
-  {
-    "id": "example-286",
-    "symbol": "SequenceSplay",
-    "kind": "template",
-    "problem": "Luogu P3391 / Splay 区间翻转",
-    "url": "https://www.luogu.com.cn/problem/P3391",
-    "summary": "初始序列1..n，m次翻转1-based闭区间[l,r]，输出最终序列；转为reverse(l−1,r)，order()中的原编号加1。n,m≤100000。",
-    "driver": "verify/luogu/P3391.splay.compact.cpp",
-    "requires": [
-      "SequenceSplay"
-    ]
-  },
-  {
-    "id": "example-287",
-    "symbol": "SequenceSplay",
-    "kind": "application",
-    "problem": "Luogu P3165 / 排序机械臂",
-    "url": "https://www.luogu.com.cn/problem/P3165",
-    "summary": "按(值,原编号)排序确定稳定目标次序，第i步定位该元素当前0-based位置p，输出p+1，再翻转[i,p+1)。重复高度按原编号打破并列，不能按翻转后的次序重新判定。n≤100000；与kuangbin3.4.1的固定编号定位、反转操作模型对应。",
-    "driver": "verify/luogu/P3165.compact.cpp",
-    "requires": [
-      "SequenceSplay"
-    ]
-  },
-  {
-    "id": "example-288",
-    "symbol": "SequenceSplay",
-    "kind": "api",
-    "problem": "原编号与当前位置互查（接口演示）",
-    "url": "https://oi-wiki.org/ds/splay/",
-    "summary": "输入n,q，初始编号0..n−1；0 l r翻转半开区间；1 id查原编号的当前位置；2 k查当前位置的原编号；3输出完整顺序。允许空序列与空翻转；空序列不允许pos/at。",
-    "driver": "verify/api/sequence_splay.compact.cpp",
-    "requires": [
-      "SequenceSplay"
-    ]
-  },
-  {
     "id": "example-289",
     "symbol": "MergeSplitTree",
     "kind": "application",
@@ -3618,46 +2661,6 @@
       "Op"
     ],
     "page_break_before": "        sort(values.begin(), values.end());"
-  },
-  {
-    "id": "example-290",
-    "symbol": "MergeSplay",
-    "kind": "application",
-    "problem": "UVA1479 / 可合并Splay与离线图查询",
-    "url": "https://onlinejudge.org/external/14/1479.pdf",
-    "summary": "D e删边、C x v改点权、Q x k查连通块第k大，非法k贡献0且计入均值；E结束组，0 0结束输入。读入C时保存旧值，最终图按未删除边合并，倒序将D还原为merge、C还原为set。kth返回元素编号，value取权值；第k大换算先转long long，避免INT_MIN溢出。无需额外dsu和离散化；输出各组查询均值六位小数。",
-    "driver": "verify/uva/1479.splay.compact.cpp",
-    "requires": [
-      "MergeSplay"
-    ],
-    "helper_types": [
-      "Op"
-    ],
-    "page_break_before": "        MergeSplay t(a);"
-  },
-  {
-    "id": "example-291",
-    "symbol": "MergeSplay",
-    "kind": "application",
-    "problem": "Luogu P3224 / 永无乡",
-    "url": "https://www.luogu.com.cn/problem/P3224",
-    "summary": "n个岛的重要度为1..n排列，初始m条桥；B x y连桥，Q x k输出连通块中第k小重要度的岛编号，不存在输出−1。merge以元素原编号为入口，kth结果加1转换为题目编号；不能误输出重要度。n,m≤100000，q≤300000。",
-    "driver": "verify/luogu/P3224.compact.cpp",
-    "requires": [
-      "MergeSplay"
-    ]
-  },
-  {
-    "id": "example-292",
-    "symbol": "MergeSplay",
-    "kind": "api",
-    "problem": "可合并有序集合与元素改值（接口演示）",
-    "url": "https://oi-wiki.org/ds/splay/",
-    "summary": "输入n,q及n个signed64值，初始各为单点集合，编号0-based。0 x y合并集合并输出是否改变；1 x v改值；2 x k输出第k小元素的原编号和值，非法k输出−1；3 x输出集合大小与x的1-based名次。并列按原编号升序；合并与修改之后编号仍有效。",
-    "driver": "verify/api/merge_splay.compact.cpp",
-    "requires": [
-      "MergeSplay"
-    ]
   },
   {
     "id": "example-293",
@@ -3746,56 +2749,6 @@
     "page_break_before": "    for (int u = 1; u <= n; u++)"
   },
   {
-    "id": "example-300",
-    "symbol": "TarjanSCC",
-    "kind": "application",
-    "problem": "Luogu P3275 / 糖果",
-    "url": "https://www.luogu.com.cn/problem/P3275",
-    "summary": "每人至少1颗，五类关系转成x_v≥x_u+w，w只取0/1。强连通分量内出现权1边即无解−1；其余按Tarjan分量编号从大到小递推最长路，每分量初值1，按原顶点累加最小糖果总量。n,k≤100000，O(n+k)，总量用long long；不能把每分量只计一次。",
-    "driver": "verify/luogu/P3275.compact.cpp",
-    "requires": [
-      "TarjanSCC"
-    ],
-    "page_break_before": "    t.run();"
-  },
-  {
-    "id": "example-301",
-    "symbol": "DagLongest",
-    "kind": "application",
-    "problem": "Luogu P1807 / 最长路",
-    "url": "https://www.luogu.com.cn/problem/P1807",
-    "summary": "有符号权DAG中求1到n的最长路，不可达输出−1。n≤1500，m≤50000，|w|≤100000，有限结果可转long long；负数也可能是合法答案，不能以dis<0判不可达。",
-    "driver": "verify/luogu/P1807.compact.cpp",
-    "requires": [
-      "DagLongest"
-    ]
-  },
-  {
-    "id": "example-302",
-    "symbol": "DagLongest",
-    "kind": "application",
-    "problem": "CSES 1680 / Longest Flight Route",
-    "url": "https://cses.fi/problemset/task/1680/",
-    "summary": "DAG中求从1到n经过城市数最多的路线；每条航线加权1，path返回原边号，依次输出边终点。不可达输出IMPOSSIBLE；城市数为边数+1。n≤100000，m≤200000。",
-    "driver": "verify/cses/1680.compact.cpp",
-    "requires": [
-      "DagLongest"
-    ]
-  },
-  {
-    "id": "example-303",
-    "symbol": "DagLongest",
-    "kind": "api",
-    "problem": "DAG最长距离、全图判环与原边路径（接口演示）",
-    "url": "https://oi-wiki.org/graph/topo/",
-    "summary": "输入n,m,s及signed64有向边；s=0允许任意起点。整图有环输出CYCLIC，否则逐点输出INF或“int128最长距离 边数 正向原边号”。INF表示不可达，负数距离有效，边号从0计。",
-    "driver": "verify/api/dag_longest.compact.cpp",
-    "requires": [
-      "DagLongest"
-    ],
-    "page_break_before": "    for (int u = 1; u <= n; u++)"
-  },
-  {
     "id": "example-304",
     "symbol": "Floyd",
     "kind": "template",
@@ -3834,31 +2787,6 @@
     "page_break_before": "    while (q--)"
   },
   {
-    "id": "example-307",
-    "symbol": "ShortestPathTree",
-    "kind": "application",
-    "problem": "Codeforces 545E / Paths and Trees",
-    "url": "https://codeforces.com/problemset/problem/545/E",
-    "summary": "连通无向正权图，给定源点，输出总边权最小的最短路树：先输出weight，再输出ids加1。n,m≤300000，w≤10^9，总树权可转long long。题面不含零权、自环和重边，额外接口范围另由API验证。",
-    "driver": "verify/codeforces/545E.compact.cpp",
-    "requires": [
-      "ShortestPathTree"
-    ]
-  },
-  {
-    "id": "example-308",
-    "symbol": "ShortestPathTree",
-    "kind": "api",
-    "problem": "零权最短路树、断开图与原边路径（接口演示）",
-    "url": "https://oi-wiki.org/graph/shortest-path/",
-    "summary": "输入n,m,s及无向非负signed64边，每条仅add一次。首行输出“可达点数 最小总边权 树边数 原边号”；随后逐点输出INF或“最短距离 路径边数 正向无向原边号”。所有权和用int128打印，原边号从0计。",
-    "driver": "verify/api/shortest_path_tree.compact.cpp",
-    "requires": [
-      "ShortestPathTree"
-    ],
-    "page_break_before": "    cout << reached << ' ';"
-  },
-  {
     "id": "example-309",
     "symbol": "independent_set",
     "kind": "application",
@@ -3895,32 +2823,6 @@
     "driver": "verify/cses/1709.compact.cpp",
     "requires": [
       "BipartiteMatching"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-312",
-    "symbol": "DenseDijkstra",
-    "kind": "template",
-    "problem": "AOJ ALDS1_12_B / Single Source Shortest Path",
-    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_B&lang=en",
-    "summary": "输入n和n行“0-based点号 出度 邻点 权值…”，求0到各点距离，按原点号顺序逐行输出“点号 距离”。n≤100，m≤10000，0≤w≤100000，题面保证从0全部可达，距离可转long long。",
-    "driver": "verify/aoj/ALDS1_12_B.compact.cpp",
-    "requires": [
-      "DenseDijkstra"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-313",
-    "symbol": "DenseDijkstra",
-    "kind": "api",
-    "problem": "矩阵Dijkstra距离与顶点路径（接口演示）",
-    "url": "https://oi-wiki.org/graph/shortest-path/",
-    "summary": "输入n,m,s及1-based有向非负signed64边，逐点输出INF或“int128距离 路径顶点数 正向顶点列表”。重边合并为最小权；源点路径有一个点，与不可达空路径不同。",
-    "driver": "verify/api/dense_dijkstra.compact.cpp",
-    "requires": [
-      "DenseDijkstra"
     ],
     "start_new_page": true
   },
@@ -4004,59 +2906,6 @@
     "start_new_page": true
   },
   {
-    "id": "example-320",
-    "symbol": "flow_unique",
-    "kind": "api",
-    "problem": "最大流方案唯一性（接口演示）",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/FLOW-UNIQUE.md",
-    "url_label": "最大流唯一性的合同与证明",
-    "summary": "输入n,m,s,t及1-based有向边(u,v,非负long long容量)，先求最大流，再输出流值、UNIQUE或MULTIPLE，以及按输入顺序的各原边流量。包括所有独立环流，重边分别计量；不是最小割唯一性。s≠t，总最大流≤LLONG_MAX。仅接口示例，尚无在线判题记录。",
-    "driver": "verify/api/flow_unique.compact.cpp",
-    "requires": [
-      "Dinic",
-      "TarjanSCC",
-      "flow_unique"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-321",
-    "symbol": "Isap",
-    "problem": "Luogu P3376",
-    "url": "https://www.luogu.com.cn/problem/P3376",
-    "summary": "给定n,m,s,t和1-based有向容量边，输出最大流。n≤200、m≤5000、0≤容量<2^31；s≠t，重边逐条加入。总流可能超int，使用long long。这里只验证正式题目add/flow入口，限流、方案及cut另有独立本地核验。",
-    "driver": "verify/luogu/P3376-isap.compact.cpp",
-    "requires": [
-      "Isap"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-322",
-    "symbol": "ZkwFlow",
-    "problem": "Luogu P3381",
-    "url": "https://www.luogu.com.cn/problem/P3381",
-    "summary": "有向网络，输入n,m,s,t和每条边的起终点、容量、单位费用，输出最大流及其最小费用。点号1..n，s≠t；n≤5000、m≤50000、容量/费用均0..1000且无自环，题面保证流量和费用≤2^31−1，因此此驱动可将int128费用转换输出。负边、续流与used由独立本地测试覆盖，不把它们算作本题验证范围。",
-    "driver": "verify/luogu/P3381.zkw.compact.cpp",
-    "requires": [
-      "ZkwFlow"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-323",
-    "symbol": "TreeMarket",
-    "kind": "api",
-    "problem": "树上新增市场（来源模型接口演示）",
-    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=5016",
-    "summary": "按kuangbin来源模型：每组输入n、n-1条1-based非负边权树边和n个0/1市场标记，读到EOF。新增市场只能选原来没有市场的点，按距离、市场编号字典序分配顶点，输出最多可支配的顶点数；无候选点输出0，无原有市场输出n。调用时点号减一，编号相对顺序保持。官方HDU5016题面和资源限制尚未核验，此处只是来源模型/API演示，不登记正式题目AC。",
-    "driver": "verify/api/tree_market.compact.cpp",
-    "requires": [
-      "TreeMarket"
-    ],
-    "start_new_page": true
-  },
-  {
     "id": "example-324",
     "symbol": "HLD",
     "kind": "api",
@@ -4092,249 +2941,6 @@
     "start_new_page": true
   },
   {
-    "id": "example-326",
-    "symbol": "SequenceScapegoat",
-    "kind": "application",
-    "problem": "Codeforces 455D / Serega and Fun",
-    "url": "https://codeforces.com/problemset/problem/455/D",
-    "summary": "n,q≤100000，初值和原始参数均1..n。操作1把解码区间的末项移至开头，操作2计区间中等于解码k的项数。每个参数先用(v+lastans-1)%n+1解码，再交换逆序端点；lastans只在查询后更新。比赛应用，不代替独立模板题；插入/删除等额外接口另有独立测试，尚无线上AC或资源通过声明。",
-    "driver": "verify/codeforces/455D.compact.cpp",
-    "requires": [
-      "SequenceScapegoat"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-327",
-    "symbol": "SequenceKth",
-    "kind": "api",
-    "problem": "带插入区间第k小（kuangbin BZOJ3065模型）",
-    "url": "https://www.lydsy.com/JudgeOnline/problem.php?id=3065",
-    "summary": "来源协议：EOF多组，每组n、初值、q及Q/M/I操作，值域0..100000。所有整数参数与上次查询答案异或；Q x y k查闭区间第k小，M x val修改第x项，I x val在第x项前插入（调用insert(x-1,val)）。仅Q更新lastans，解码后端点有序且合法。核心可用signed64，协议答案限定来源值域后转int。官方题面与资源限制未核验，只登记来源模型/API用法。",
-    "driver": "verify/api/sequence_kth.compact.cpp",
-    "requires": [
-      "ost",
-      "SequenceKth"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-328",
-    "symbol": "DynamicPathMax",
-    "kind": "api",
-    "problem": "动态森林路径加最大值（kuangbin HDU4010模型）",
-    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4010",
-    "summary": "EOF多组：读n、n-1条边、点权和q。1 x y连边；2 x y以x为根删y的父边；3 w x y路径加；4 x y路径最大值。非法输出-1，成功修改不输出，组末空行。来源模型/API，官方题面、资源限制及线上AC未核验。",
-    "driver": "verify/api/dynamic_path_max.compact.cpp",
-    "requires": [
-      "DynamicPathMax"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-329",
-    "symbol": "determinant_exact",
-    "kind": "api",
-    "problem": "精确整数行列式",
-    "url": "https://www.boost.org/doc/libs/release/libs/multiprecision/doc/html/boost_multiprecision/tut/ints/cpp_int.html",
-    "summary": "T组；每组n及n²个有符号十进制整数，输出精确行列式。n=0输出1。cpp_int为Boost任意精度有符号整数，输入与中间结果受可用内存和时间限制；此处为API用法，无线上AC声明。",
-    "driver": "verify/api/determinant_exact.compact.cpp",
-    "requires": [
-      "determinant_exact"
-    ],
-    "extra_headers": [
-      "boost/multiprecision/cpp_int.hpp"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-330",
-    "symbol": "MatrixTreeExact",
-    "kind": "api",
-    "problem": "带权矩阵树的精确整数答案",
-    "url": "https://oi-wiki.org/graph/matrix-tree/",
-    "summary": "T组；每组n,m,root,type及m条0-based边u,v,w。type=0无向、1朝根、2离根。权值为有符号十进制整数；输出各树权积之和。重边独立、自环忽略、单点为1；负权可抵消成0。仅API用法。",
-    "driver": "verify/api/matrix_tree_exact.compact.cpp",
-    "requires": [
-      "determinant_exact",
-      "MatrixTreeExact"
-    ],
-    "extra_headers": [
-      "boost/multiprecision/cpp_int.hpp"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-331",
-    "symbol": "MatrixTreeExact",
-    "kind": "api",
-    "problem": "不取模生成树计数（kuangbin来源模型）",
-    "url": "https://www.spoj.com/problems/HIGH/",
-    "summary": "T组；每组n,m及m条1-based无向边。按原稿布尔邻接语义去掉自环、合并重复和反向边，再输出精确树数。核心接口本身不合并重边。原稿标注SPOJ104，但完整官方题面及资源约束未核验，故仅登记来源模型/API，不声称正式题目或线上AC。",
-    "driver": "verify/api/kuangbin_tree_count.compact.cpp",
-    "requires": [
-      "determinant_exact",
-      "MatrixTreeExact"
-    ],
-    "extra_headers": [
-      "boost/multiprecision/cpp_int.hpp"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-332",
-    "symbol": "AssignmentSpectrum",
-    "kind": "api",
-    "problem": "按基数匹配与对偶证书",
-    "url": "https://github.com/hh2048/XCPC",
-    "summary": "输入n,m,e,limit与e条0-based边x,y,w，输出实际基数k、best[0..k]、左侧配对l（-1未匹配）、level、lx、ly。本演示限定两侧≤1000且|w|≤10^9，输出可安全转long long；核心支持全signed64输入及int128结果。证书仅对应最后基数；没有正式题目或线上AC声明。",
-    "driver": "verify/api/assignment_spectrum.compact.cpp",
-    "requires": [
-      "AssignmentSpectrum"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-333",
-    "symbol": "AssignmentSpectrum",
-    "kind": "application",
-    "problem": "AtCoder ABC247 G / Dream Team",
-    "url": "https://atcoder.jp/contests/abc247/tasks/abc247_g",
-    "summary": "N≤30000，每人有1..150的大学A和学科B、1..10^9的强度C。选人须使A、B各不重复，输出最大人数k与每种人数1..k的最大总强度。同属性对保留最大权；答案≤150×10^9，可转long long。缺边不能填0，各基数答案可能下降。比赛应用，已核对官方题面与样例，尚无本项目线上AC或排名。",
-    "driver": "verify/atcoder/abc247_g.compact.cpp",
-    "requires": [
-      "AssignmentSpectrum"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-334",
-    "symbol": "AssignmentSpectrum",
-    "kind": "template",
-    "problem": "Luogu P6577 / 二分图最大权完美匹配",
-    "url": "https://www.luogu.com.cn/problem/P6577",
-    "summary": "左右均n≤500点，m≤n²，无重边，权值范围[-19980731,19980731]，保证完美匹配。输出最大总权及每个右点对应的左点编号；调用前点号减一，输出r加一。答案绝对值≤500×19980731，可转long long。该题只验证最终完美匹配，不能代替中间基数和顶标检查；新驱动尚无线上AC。",
-    "driver": "verify/luogu/P6577.spectrum.compact.cpp",
-    "requires": [
-      "AssignmentSpectrum"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-335",
-    "symbol": "FibonacciPeriod",
-    "kind": "template",
-    "problem": "Luogu P4994 / 终于结束的起点",
-    "url": "https://www.luogu.com.cn/problem/P4994",
-    "summary": "输入单个模数2≤M≤706150，输出最小n>0使F_n=0、F_(n+1)=1（模M）。π(M)≤6M，题目范围内可安全转unsigned long long。独立模板问题；题面与样例已核对，无本项目线上AC或排名。",
-    "driver": "verify/luogu/P4994.compact.cpp",
-    "requires": [
-      "Mod64",
-      "Prime64",
-      "PollardRho",
-      "FibonacciPeriod"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-336",
-    "symbol": "FibonacciPeriod",
-    "kind": "api",
-    "problem": "完整64位模数与128位最小周期",
-    "url": "https://oi-wiki.org/math/combinatorics/fibonacci/",
-    "summary": "输入T与T个正unsigned64模数，逐行输出精确最小周期，使用128位十进制转换。包含m=1的约定；m=2*5^27时答案89406967163085937500超过64位。API演示，不是线上通过记录。",
-    "driver": "verify/api/fibonacci_period.compact.cpp",
-    "requires": [
-      "Mod64",
-      "Prime64",
-      "PollardRho",
-      "FibonacciPeriod"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-337",
-    "symbol": "FibonacciPeriod",
-    "kind": "api",
-    "problem": "kuangbin HDU3977来源程序协议",
-    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=3977",
-    "summary": "按完整来源程序输入T及正int模数，输出Case #k: 周期。来源初值(1,1)与标准(0,1)仅相差一次可逆转移，周期相同。原PDF的注释吞掉左括号、旧MSVC输出格式须显式兼容修改；官方题面不可访问，故仅归为来源协议API，不声称正式题目或AC。",
-    "driver": "verify/api/fibonacci_period_hdu3977.compact.cpp",
-    "requires": [
-      "Mod64",
-      "Prime64",
-      "PollardRho",
-      "FibonacciPeriod"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-338",
-    "symbol": "DagDominator",
-    "kind": "api",
-    "problem": "DAG直接支配点与全图环检查",
-    "url": "https://oi-wiki.org/graph/dominator-tree/",
-    "summary": "输入n,m,root与m条1-based有向边。若任意分量有环，输出-1；否则输出每点idom，根指向自身，不可达为0。本例演示纯DAG接口，成功仅表示全图无环，不能说明每点都从root可达。",
-    "driver": "verify/api/dag_dominator.compact.cpp",
-    "requires": [
-      "DagDominator"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-339",
-    "symbol": "DagDominator",
-    "kind": "template",
-    "problem": "Library Checker dominatortree（DAG/LT组合）",
-    "url": "https://judge.yosupo.jp/problem/dominatortree",
-    "summary": "一般有向图指定起点求直接支配点，n,m≤200000，输入输出0-based；根指向自身，不可达输出-1。先调用DagDominator，若非DAG则把图移交DominatorTree求解。本用法验证两种算法组合，不能声称DAG算法单独支持有环图，既有LT线上记录不转移到新程序。",
-    "driver": "verify/library_checker/dominatortree.dag.compact.cpp",
-    "requires": [
-      "DagDominator",
-      "DominatorTree"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-340",
-    "symbol": "DagDominator",
-    "kind": "application",
-    "problem": "Luogu P2597 / ZJOI2012 灾难",
-    "url": "https://www.luogu.com.cn/problem/P2597",
-    "summary": "输入无环食物网，n≤65534，每行列出该生物的食物，0结束；食物向捕食者连边。为所有生产者添加虚拟根n+1，build后逆拓扑累加支配树子树大小。输出每种生物灭绝后额外灭绝的数量，不含自身。竞赛应用，不能替代独立模板题；尚无本项目线上AC。",
-    "driver": "verify/luogu/P2597.compact.cpp",
-    "requires": [
-      "DagDominator"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-341",
-    "symbol": "DC3",
-    "kind": "template",
-    "problem": "Library Checker suffixarray（DC3）",
-    "url": "https://judge.yosupo.jp/problem/suffixarray",
-    "summary": "输入长度1..500000的小写字符串，输出所有非空后缀按字典序排列的0-based起点。DC3独立程序，无需附加哨兵；原倍增或SA-IS用法的线上记录不转移到本程序。",
-    "driver": "verify/library_checker/suffixarray.dc3.compact.cpp",
-    "requires": [
-      "DC3"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-342",
-    "symbol": "DC3",
-    "kind": "api",
-    "problem": "稠密整数后缀数组、逆排名及LCP",
-    "url": "https://oi-wiki.org/string/sa/",
-    "summary": "输入n,alphabet与n个[0,alphabet)整数，分别输出sa、rk、lcp三行。允许n=0，此时仍输出三个空行。lcp[0]=0，其余对当前排名与前一名后缀比较；输入符号0可用，不应手工插入空后缀哨兵。API演示，不是线上题目或AC。",
-    "driver": "verify/api/dc3.compact.cpp",
-    "requires": [
-      "DC3"
-    ],
-    "start_new_page": true
-  },
-  {
     "id": "example-343",
     "symbol": "SuffixLCP",
     "kind": "api",
@@ -4361,52 +2967,6 @@
     ],
     "start_new_page": true,
     "page_break_before": "        vector<int> positions;"
-  },
-  {
-    "id": "example-345",
-    "symbol": "convolution_mod",
-    "kind": "template",
-    "problem": "Luogu P4245 任意模数多项式乘法（三模NTT）",
-    "url": "https://www.luogu.com.cn/problem/P4245",
-    "summary": "输入两多项式次数n,m≤100000和模数2≤p≤1000000009，系数0..10^9，输出n+m+1个模p系数。独立精确三模版本，不继承浮点版的提交记录。",
-    "driver": "verify/luogu/P4245.crt.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "convolution_mod"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-346",
-    "symbol": "convolution_mod",
-    "kind": "api",
-    "problem": "精确模卷积：空数组、负数和合数模",
-    "url": "https://www.luogu.com.cn/problem/P4245",
-    "summary": "多组直到EOF，输入两个数组长度n,m和1≤mod≤INT_MAX，再输入signed int系数。每组输出标准模数代表；任一数组为空输出空行，mod=1输出对应数量的0。非空结果长度≤2^24，实际还须满足内存限制。API扩展不属于P4245正式输入范围。",
-    "driver": "verify/api/convolution_mod.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "convolution_mod"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-347",
-    "symbol": "convolution_mod",
-    "kind": "application",
-    "problem": "HDU4656 Evaluation：移位等比点求值",
-    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4656",
-    "summary": "官方仅一组，n为1..100000；b、c、d为1..1000000，n个升幂系数为0..1000000。按k=0..n−1输出F(b * c^(2k) + d)，结果模1000003。两次精确卷积，O(n log n)时间、O(n)空间；3秒、65536K，当前最小抄写版已AC。代码兼容EOF多组、signed int参数及c=0，扩展边界只由本地测试验证。",
-    "driver": "verify/source-model/shift_geometric.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "convolution_mod"
-    ],
-    "start_new_page": true,
-    "page_break_before": "        vector<Z> fact(n, 1), inv(n, 1);"
   },
   {
     "id": "example-348",
@@ -4873,42 +3433,6 @@
     ]
   },
   {
-    "id": "example-385",
-    "symbol": "TreeBlockDistinct",
-    "kind": "template",
-    "problem": "P6177 【模板】树分块 / Count on a tree II",
-    "url": "https://www.luogu.com.cn/problem/P6177",
-    "summary": "静态点颜色，u与上次答案异或解码；在线输出闭路径颜色种数。",
-    "driver": "verify/luogu/P6177.compact.cpp",
-    "requires": [
-      "TreeBlockDistinct"
-    ]
-  },
-  {
-    "id": "example-386",
-    "symbol": "Dominance4D",
-    "kind": "template",
-    "problem": "QOJ21566 四维偏序",
-    "url": "https://qoj.ac/problem/21566",
-    "summary": "四个坐标各为1..n的排列，统计四维全部严格小于的有向点对数；64位汇总。",
-    "driver": "verify/qoj/21566.compact.cpp",
-    "requires": [
-      "Dominance4D"
-    ]
-  },
-  {
-    "id": "example-387",
-    "symbol": "Dominance4D",
-    "kind": "api",
-    "problem": "API 四维逐点支配计数",
-    "url": "https://qoj.ac/problem/21566",
-    "summary": "输入n和strict(0/1)，再输入n个四维点；按原顺序逐行输出每点答案，排除自身。",
-    "driver": "verify/api/dominance_4d.compact.cpp",
-    "requires": [
-      "Dominance4D"
-    ]
-  },
-  {
     "id": "example-388",
     "symbol": "DynamicDiameter",
     "kind": "template",
@@ -4991,18 +3515,6 @@
     "driver": "verify/luogu/P2709.compact.cpp",
     "requires": [
       "Mo"
-    ]
-  },
-  {
-    "id": "example-395",
-    "symbol": "digit_count",
-    "kind": "application",
-    "problem": "P2602 [ZJOI2010] 数字计数",
-    "url": "https://www.luogu.com.cn/problem/P2602",
-    "summary": "输入1≤a≤b≤10^12，输出区间中0..9的出现次数；前缀相减，前导零不计，两个上界独立记忆化。该题范围内每个计数可转long long。",
-    "driver": "verify/luogu/P2602.compact.cpp",
-    "requires": [
-      "digit_count"
     ]
   },
   {
@@ -5143,90 +3655,6 @@
     "start_new_page": false
   },
   {
-    "id": "example-406",
-    "symbol": "ColorComponents",
-    "kind": "application",
-    "problem": "SPOJ QTREE6 / SP16549 树上同色连通块",
-    "url": "https://www.luogu.com.cn/problem/SP16549",
-    "summary": "n,q≤100000，初始全黑。0 u输出同色连通块大小；1 u翻色。单组输入；记录302642339当前Waiting，本地验证通过，不推断远端AC。",
-    "driver": "verify/spoj/QTREE6.compact.cpp",
-    "requires": [
-      "HLD",
-      "ColorComponents"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-407",
-    "symbol": "ColorComponents",
-    "kind": "api",
-    "problem": "任意初始颜色与根的翻色接口",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/COLOR-COMPONENTS.md",
-    "summary": "输入n、root、q，再读n个0/1初始颜色、n−1条边、q个操作。0 u查询，1 u翻色；根只影响内部表示。",
-    "driver": "verify/api/color_components.compact.cpp",
-    "requires": [
-      "HLD",
-      "ColorComponents"
-    ],
-    "start_new_page": false
-  },
-  {
-    "id": "example-408",
-    "symbol": "ColorMax",
-    "kind": "application",
-    "problem": "SPOJ QTREE7 / SP16580 同色连通块最大权",
-    "url": "https://www.luogu.com.cn/problem/SP16580",
-    "summary": "输入n、n−1条边、初始颜色数组、权值数组、q及操作；0 u查询、1 u翻色、2 u w改权。驱动兼容EOF多组。镜像数值约束残缺，未推断上界；当前记录302644732为Waiting，本地验证通过。",
-    "driver": "verify/spoj/QTREE7.compact.cpp",
-    "requires": [
-      "HLD",
-      "ColorMax"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-409",
-    "symbol": "Hull3DMetrics",
-    "kind": "application",
-    "problem": "HDU4273 Rescue：重心到表面距离",
-    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=4273",
-    "summary": "EOF多组，4≤n≤100，整数坐标绝对值≤10000，输入均为非退化凸多面体顶点。输出三位小数。使用非负顶点质量直接积分各平面距离，避免薄凸包相减。",
-    "driver": "verify/hdu/4273.compact.cpp",
-    "requires": [
-      "Hull3D",
-      "Hull3DMetrics"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-410",
-    "symbol": "Hull3DMetrics",
-    "kind": "api",
-    "problem": "体积重心、代表面和原点到面平面的距离",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/HULL3D-METRICS.md",
-    "summary": "输入n及n个整数点。输出重心和表面距离（低维输出NO VOLUME），再输出各几何平面的三角面编号、原输入顶点编号及原点到无限平面的距离。全部下标从0开始。",
-    "driver": "verify/api/hull3d_metrics.compact.cpp",
-    "requires": [
-      "Hull3D",
-      "Hull3DMetrics"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-411",
-    "symbol": "convolution_fft",
-    "kind": "application",
-    "problem": "HDU1402 十进制高精度乘法",
-    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=1402",
-    "summary": "EOF读两个至多50000位整数，支持可选正负号和前导零。逐位卷积后进位，零不带负号。范数乘积≤4050000；同FFT数值前提下舍入误差小于0.000001。",
-    "driver": "verify/hdu/1402.compact.cpp",
-    "requires": [
-      "ComplexFFT",
-      "convolution_fft"
-    ],
-    "start_new_page": true
-  },
-  {
     "id": "example-412",
     "symbol": "ComplexFFT",
     "kind": "application",
@@ -5236,19 +3664,6 @@
     "driver": "verify/hdu/4609.compact.cpp",
     "requires": [
       "ComplexFFT"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-413",
-    "symbol": "EightPuzzle",
-    "kind": "application",
-    "problem": "HDU1043 八数码路径",
-    "url": "https://acm.hdu.edu.cn/showproblem.php?pid=1043",
-    "summary": "EOF读若干3×3排列，x为空格；输出空格移动方向u/d/l/r或unsolvable，目标状态输出空行。题面只要求任意合法方案，本实现保证最短，不按官方样例字符串逐字比较。",
-    "driver": "verify/hdu/1043.compact.cpp",
-    "requires": [
-      "EightPuzzle"
     ],
     "start_new_page": true
   },
@@ -5295,20 +3710,6 @@
     ],
     "start_new_page": true,
     "page_break_before": "        auto save = [&](int id, long long len)"
-  },
-  {
-    "id": "example-417",
-    "symbol": "circle_coverage_area",
-    "kind": "template",
-    "problem": "SP8119 CIRUT 圆覆盖重数面积",
-    "url": "https://www.luogu.com.cn/problem/SP8119",
-    "summary": "n≤1000，互异圆，整数圆心坐标绝对值≤1000、0<r≤1000；输出恰被k个圆覆盖的面积，保留三位小数。核心额外支持同圆及零半径，另由本地独立验证覆盖。末端max仅避免舍入负零，不改变核心结果。已提交记录302660709，仍Waiting，不记AC。",
-    "driver": "verify/luogu/SP8119.compact.cpp",
-    "requires": [
-      "RealPlane",
-      "circle_coverage_area"
-    ],
-    "start_new_page": false
   },
   {
     "id": "example-418",
@@ -5434,136 +3835,6 @@
     "start_new_page": true
   },
   {
-    "id": "example-427",
-    "symbol": "det_prime",
-    "kind": "application",
-    "problem": "Luogu P4336 黑暗前的幻想乡：公司集合容斥",
-    "url": "https://www.luogu.com.cn/problem/P4336",
-    "summary": "n点、n-1家公司，每家恰选一边成树；不同公司的同端点边分别计数。公司集合容斥配合矩阵树；Gray码每步增删一家。2<=n<=17，模1000000007，时间O(2^(n-1)n^3)，空间O(n^3)。删去末点；lap后续仍需使用，勿move。空集贡献为0。本地验证通过，线上待验证。",
-    "driver": "verify/luogu/P4336.compact.cpp",
-    "requires": [
-      "ModInt",
-      "det_prime"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-428",
-    "symbol": "MatrixTree",
-    "kind": "application",
-    "problem": "Luogu P4455 社交网络：根1内向树",
-    "url": "https://www.luogu.com.cn/problem/P4455",
-    "summary": "输入a b表示a能看见b；选择b为a的消息来源，对应a指向b的父边，所有非根点沿父边最终到达1。因此按原输入方向调用toward_root，不能选away_from_root；点号减1，根为0，模10007。n不超过250，时间O(n^3+m)，空间O(n^2)。按朋友关系去重，自环忽略；重复关系不视为不同传播方案。不统计转发时间顺序。单点约定空树1。 官方题面已核对，完整协议本地验证；尚无本实现在线记录。",
-    "driver": "verify/luogu/P4455.compact.cpp",
-    "requires": [
-      "ModInt",
-      "det_prime",
-      "MatrixTree"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-429",
-    "symbol": "tree_probability",
-    "kind": "application",
-    "problem": "Luogu P3317 重建",
-    "url": "https://www.luogu.com.cn/problem/P3317",
-    "summary": "输入对称概率矩阵，最多两位小数，转为整数百分数；2<=n<=50。求独立保留边恰好构成树的概率，非零答案保证>=1e-4，相对误差限1e-4。固定12位输出足够覆盖该下界，不能把相同格式直接用于任意小概率。完整协议本地验证，线上待验证。",
-    "driver": "verify/luogu/P3317.compact.cpp",
-    "requires": [
-      "tree_probability"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-430",
-    "symbol": "ShiftSplay",
-    "kind": "api",
-    "problem": "按值分裂与整体平移 Splay API",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WIDA-SHIFT-SPLAY.md",
-    "summary": "输入q，初始树槽0为空。1 r v插入并输出节点ID；2 r key把槽r保留<key部分，新建槽存>=key部分并输出槽号；3 r delta全树平移；4 r s有序合并到r并清空s（r!=s，且左侧所有值<=右侧）；5 r id输出该槽节点当前值。槽号0-based，ID从1递增，空槽可复用。仅合法操作，所有中间加法需适配signed64。本地API例子，不是OJ判定。",
-    "driver": "verify/api/shift_splay.compact.cpp",
-    "requires": [
-      "ShiftSplay"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-431",
-    "symbol": "PersistentWeightedIndex",
-    "kind": "api",
-    "problem": "持久化计数与权值索引 API",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WIDA-SHIFT-SPLAY.md",
-    "summary": "输入n q，位置域[0,n)、初始版本0为空。1 version pos weight从该版本新增元素并输出新版本号；2 version l r输出[l,r)内count和sum；3 before after key输出版本差中>=key的首位置或-1，4 before after key输出版本差中严格<key的末位置或-1；操作3/4要求逐位置计数差非负。旧版本不变，允许分叉和负权。本地API例子，不是OJ判定。",
-    "driver": "verify/api/persistent_weighted_index.compact.cpp",
-    "requires": [
-      "PersistentWeightedIndex"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-432",
-    "symbol": "PersistentWeightedIndex",
-    "kind": "template",
-    "problem": "Library Checker Rectangle Sum",
-    "url": "https://judge.yosupo.jp/problem/rectangle_sum",
-    "summary": "N个带权点，Q次查询[l,r)×[d,u)内权值和；1<=N,Q<=200000，坐标及权值在[0,1e9]。按x排序建立前缀版本，y离散化；两个版本相减，重复点与零权合法，答案用signed64。预处理O(NlogN)，每次查询O(logN)，空间O(NlogN)。Library Checker C++20线上AC 410009，1072ms、101.38MiB。",
-    "driver": "verify/library_checker/rectangle_sum.compact.cpp",
-    "requires": [
-      "PersistentWeightedIndex"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-433",
-    "symbol": "stirling_first_column",
-    "kind": "template",
-    "problem": "Library Checker Signed First Stirling Fixed K",
-    "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind_fixed_k",
-    "summary": "输入N K，0<=K<=N<=500000，模998244353；只输出n=K..N的有符号第一类s(n,K)。库函数返回无符号c(n,K)，逐项乘(-1)^(n-K)，勿遗漏符号。",
-    "driver": "verify/library_checker/stirling_number_of_the_first_kind_fixed_k.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "FpsInverse",
-      "FpsFunctions",
-      "FpsPower",
-      "stirling_first_column"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-434",
-    "symbol": "stirling_second_column",
-    "kind": "template",
-    "problem": "Library Checker Second Stirling Fixed K",
-    "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k",
-    "summary": "输入N K，0<=K<=N<=500000，模998244353；只输出n=K..N的第二类S(n,K)。K=0时输出首项1、其余0；不输出n<K的前导零。",
-    "driver": "verify/library_checker/stirling_number_of_the_second_kind_fixed_k.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "FpsInverse",
-      "FpsFunctions",
-      "FpsPower",
-      "stirling_second_column"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-435",
-    "symbol": "SequenceMaxTreap",
-    "kind": "template",
-    "problem": "Codeforces 38G Queue",
-    "url": "https://codeforces.com/problemset/problem/38/G",
-    "summary": "n<=100000；重要度是1..n的排列，0<=c_i<=n。每人先入队尾，最多c_i次与重要度更低的前一个人交换，输出最终输入编号。最右重要度更大的位置是不可越过的屏障，插入位置max(i-c_i,barrier+1)。期望O(nlogn)、空间O(n)。三组题面样例、独立逐次交换及最大规模边界通过；尚无线上AC。",
-    "driver": "verify/codeforces/CF38G.compact.cpp",
-    "requires": [
-      "SequenceMaxTreap"
-    ],
-    "start_new_page": true
-  },
-  {
     "id": "example-436",
     "symbol": "offline_rectangle_sum",
     "kind": "template",
@@ -5578,19 +3849,6 @@
     "start_new_page": true
   },
   {
-    "id": "example-437",
-    "symbol": "PersistentParityIndex",
-    "kind": "api",
-    "problem": "持久化奇偶计数与降序选择 API",
-    "url": "",
-    "summary": "读n q，初始版本0。1 v x delta在v上增减位置x重数，输出新版本号；2 before after k输出stop；3 before after k输出odd_kth三元组；4 before after输出总重数差与奇数重数差。操作2/3要求逐位置版本差非负，k>=0；原值域[0,n)，下标0-based，重数与k使用signed64。自定义API协议，非OJ判定。",
-    "driver": "verify/api/persistent_parity_index.compact.cpp",
-    "requires": [
-      "PersistentParityIndex"
-    ],
-    "start_new_page": true
-  },
-  {
     "id": "example-438",
     "symbol": "MergeSplitTree",
     "kind": "api",
@@ -5600,153 +3858,6 @@
     "driver": "verify/api/rank_split.compact.cpp",
     "requires": [
       "MergeSplitTree"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-439",
-    "symbol": "XorPathSum",
-    "kind": "api",
-    "problem": "点权修改与全树路径异或和 API",
-    "url": "",
-    "summary": "读n q，接着n个0-based父亲编号（唯一根为-1）与n个27位非负点权；输出初始所有无序端点简单路径的点权异或和，包含单点路径。随后q行x value，每次修改点x并输出新总和。固定树，1≤n≤200000；输出signed64。自定义API协议，非原比赛题判定。",
-    "driver": "verify/api/xor_path_sum.compact.cpp",
-    "requires": [
-      "XorPathSum"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-440",
-    "symbol": "DynamicPeachTree",
-    "kind": "application",
-    "problem": "CF1942H Farmer John's Favorite Intern",
-    "url": "https://codeforces.com/problemset/problem/1942/H",
-    "summary": "完整CF1942H协议：t组，每组n q，节点2..n的1-based父亲，n个最低需求，q行type x value；输出每个独立前缀是否存在可行事件分配。1≤n,q≤200000，总n及总q各≤200000，b≤10^6，1≤value≤10^6。当前仅本地验证，非新线上AC。",
-    "driver": "verify/cf/1942H.compact.cpp",
-    "requires": [
-      "DynamicPeachTree"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-441",
-    "symbol": "Rational",
-    "kind": "template",
-    "problem": "P1572 计算分数",
-    "url": "https://www.luogu.com.cn/problem/P1572",
-    "summary": "读取只含分数、加减号的表达式，输出最简分数或整数；用输入流直接读带符号分子。原题保证逐项约分后的中间结果在int范围内，故默认64位版足够。本地已验证，尚无本次线上AC。",
-    "driver": "verify/luogu/P1572.compact.cpp",
-    "requires": [
-      "Rational"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-442",
-    "symbol": "Rational",
-    "kind": "api",
-    "problem": "任意精度分数 API",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/FRACTION.md",
-    "summary": "先读q，随后每行an ad op bn bd；分母非零，op为+、-、*、/或<，除法要求bn非零。前四种输出最简结果，<输出比较值-1/0/1。需要额外抄入Boost头文件，cpp_int不依赖本书BigInteger。整数长度不受64位限制，时间与内存随位数增长。",
-    "driver": "verify/api/fraction.compact.cpp",
-    "requires": [
-      "Rational"
-    ],
-    "extra_headers": [
-      "boost/multiprecision/cpp_int.hpp"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-443",
-    "symbol": "q_binomial",
-    "kind": "api",
-    "problem": "Gaussian 二项式 API",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/Q-BINOMIAL.md",
-    "summary": "读测试组数，每组n k q p，n/k为非负64位无符号整数，q为int，p是[2,INT_MAX]内的素数；输出Gaussian二项式模p。k>n输出0。注意乘法阶及Lucas各位的乘积循环成本，详见接口说明。",
-    "driver": "verify/api/q_binomial.compact.cpp",
-    "requires": [
-      "q_binomial"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-444",
-    "symbol": "q_binomial",
-    "kind": "application",
-    "problem": "QOJ 4281 Subspace",
-    "url": "https://qoj.ac/contest/1341/problem/4281",
-    "summary": "输入素数q、维数n、子空间维数k、素数p，求F_q^n中k维子空间个数模p。原题q,n≤10^9，1≤k≤n，p≤200000。按有序线性无关向量组数除以每个子空间的有序基数，得到Gaussian二项式；单位根处用q-Lucas，不能直接除零。QOJ提交3166447已AC（1ms）。",
-    "driver": "verify/qoj/4281.compact.cpp",
-    "requires": [
-      "q_binomial"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-445",
-    "symbol": "CompositeBinomial",
-    "kind": "api",
-    "problem": "有界上标合数模数组合数 API",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/COMPOSITE-BINOMIAL.md",
-    "summary": "输入预处理上界N、正int模数mod和询问数；每组n k输出C(n,k)模mod。负n、负k或k>n为0，否则必须n≤N。数组按N开，支持大合数或大素数模数。",
-    "driver": "verify/api/composite_binomial.compact.cpp",
-    "requires": [
-      "CompositeBinomial"
-    ],
-    "start_new_page": false
-  },
-  {
-    "id": "example-446",
-    "symbol": "CompositeBinomial",
-    "kind": "application",
-    "problem": "CF 896D Nephren Runs a Cinema",
-    "url": "https://codeforces.com/problemset/problem/896/D",
-    "summary": "输入n、mod、l、r，统计长度n、步长为-1/0/1、所有前缀和非负且末尾高度在[l,r]的序列数。n≤10^5，1≤mod≤2×10^9。设S(h)为不限制前缀的末尾高度h计数，反射原理给出合法数S(h)-S(h+2)，区间和只需四项S；按向下步数枚举两个组合数乘积求S。总时间O(√mod+s(n+log mod))、空间O(s(n+1))，s为不同素因子数。",
-    "driver": "verify/cf/896D.compact.cpp",
-    "requires": [
-      "CompositeBinomial"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-447",
-    "symbol": "Barrett32",
-    "kind": "api",
-    "problem": "Barrett 规范余数模乘 API",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BARRETT32.md",
-    "summary": "输入非零uint32模数m与询问数，每组a b满足0≤a,b<m，输出a*b模m。支持m=1和大于INT_MAX的模数；输入本身不正规化。",
-    "driver": "verify/api/barrett32.compact.cpp",
-    "requires": [
-      "Barrett32"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-448",
-    "symbol": "Montgomery",
-    "kind": "api",
-    "problem": "Montgomery 固定模整数 API",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/MONTGOMERY.md",
-    "summary": "固定模998244353。每组输入signed64整数a、b与uint64非负指数k，依次输出a+b、a-b、a*b、a^k、b逆元，均正规化；b不可逆输出-1。内部v不能直接输出，须get()。",
-    "driver": "verify/api/montgomery.compact.cpp",
-    "requires": [
-      "Montgomery"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-449",
-    "symbol": "StaticMod64",
-    "kind": "api",
-    "problem": "完整64位模整数与合数逆元 API",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/STATIC-MOD64.md",
-    "summary": "固定合数模UINT64_MAX。每组输入signed64整数a、uint64整数b和非负指数k，输出a、b规范余数及a+b、a-b、a*b、a^k、b逆元；b不可逆输出-1。大余数直接输出uint64成员v，不能先转signed64。",
-    "driver": "verify/api/static_mod64.compact.cpp",
-    "requires": [
-      "Mod64",
-      "StaticMod64"
     ],
     "start_new_page": true
   },
@@ -5768,71 +3879,6 @@
     "start_new_page": true
   },
   {
-    "id": "example-451",
-    "symbol": "Ntt2D",
-    "kind": "api",
-    "problem": "二维卷积完整输入输出",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BIVARIATE.md",
-    "summary": "输入n m h w及n×m、h×w两个系数矩形，按行读取，允许有符号系数。输出结果行列数，再逐行输出普通二元卷积；空维度输出0 0。",
-    "driver": "verify/api/convolution_2d.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "Ntt2D"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-452",
-    "symbol": "BivariateInverse",
-    "kind": "api",
-    "problem": "二元逆级数完整输入输出",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/BIVARIATE.md",
-    "summary": "输入目标精度n m、输入尺寸h w及h×w系数，按行读取。常数项为0或输入为空输出-1，否则输出n×m项二元逆级数；尺寸须满足模板契约，超出目标的输入系数不参与。",
-    "driver": "verify/api/bivariate_inverse.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "Ntt2D",
-      "FpsInverse",
-      "BivariateInverse"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-453",
-    "symbol": "BivariateInverse",
-    "kind": "template",
-    "problem": "Library Checker Inv of Bivariate Formal Power Series",
-    "url": "https://judge.yosupo.jp/problem/inv_of_formal_power_series_2d",
-    "summary": "官方模板题：输入N M及N×M系数，NM≤500000、常数项非零，模998244353。输出相同矩形精度的二元逆级数，逐行输出；输入形状既可极窄也可接近正方形。",
-    "driver": "verify/library_checker/inv_of_formal_power_series_2d.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "Ntt2D",
-      "FpsInverse",
-      "BivariateInverse"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-454",
-    "symbol": "shifted_power_sum",
-    "kind": "api",
-    "problem": "平移幂和多项式完整输入输出",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/WIDA-POLY-MULTIPLY.md",
-    "summary": "输入n和无符号64位m，输出Σ(k=1..m)(x+k)^n的n+1个系数，从常数项开始，模998244353。0≤n≤2^22-1；m=0和n=0均可用。",
-    "driver": "verify/api/shifted_power_sum.compact.cpp",
-    "requires": [
-      "ModInt",
-      "NttConvolution",
-      "FpsInverse",
-      "shifted_power_sum"
-    ],
-    "start_new_page": true
-  },
-  {
     "id": "example-455",
     "symbol": "NttConvolution",
     "kind": "api",
@@ -5843,73 +3889,6 @@
     "requires": [
       "ModInt",
       "NttConvolution"
-    ],
-    "start_new_page": true
-  },
-  {
-    "symbol": "XorAffine64",
-    "kind": "api",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/XOR-AFFINE64.md",
-    "requires": [
-      "XorAffine64"
-    ],
-    "start_new_page": true,
-    "id": "example-456",
-    "problem": "64位异或仿射变换的迭代",
-    "summary": "输入bias和64个col，再输入q组x k。每组输出同一变换应用k次的结果；输入均为unsigned64，k=0保持x不变。每组单独求幂，适合少量询问；大量查询可自行预存64层倍增变换。",
-    "driver": "verify/api/xor_affine64.compact.cpp"
-  },
-  {
-    "symbol": "XorAffine64",
-    "kind": "api",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/XOR-AFFINE64.md",
-    "requires": [
-      "XorAffine64"
-    ],
-    "start_new_page": true,
-    "id": "example-457",
-    "problem": "旋转与AND/OR表达式的复合迭代",
-    "summary": "输入m组shift operation mask，0≤shift<64，operation=0表示rotl(x,shift) OR mask，1表示AND mask；把各项异或，再异或constant得到f(x)。最后输入constant x exponent，输出f迭代exponent次的值。各项都作用于同一个x，不是逐项更新x；属于完整API例子，不冒充原题协议。",
-    "driver": "verify/api/xor_affine_rotations.compact.cpp"
-  },
-  {
-    "id": "example-458",
-    "symbol": "DivideSegmentTree",
-    "kind": "api",
-    "problem": "区间加、赋值、整除与求和",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/docs/DIVIDE-SEGMENT-TREE.md",
-    "summary": "输入n q和n个非负初值；0 l r x区间加，1 l r x赋值，2 l r x向下整除，3 l r输出和。全部区间0-based半开，可为空；修改后点值须在[0,10^12]内，除数为正signed64。内部剪枝不是任意混合操作的对数时间保证。",
-    "driver": "verify/api/divide_segment_tree.compact.cpp",
-    "requires": [
-      "DivideSegmentTree"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-459",
-    "symbol": "DivideSegmentTree",
-    "kind": "application",
-    "problem": "ABC256 Ex：I like Query Problem",
-    "url": "https://atcoder.jp/contests/abc256/tasks/abc256_h",
-    "summary": "完整原题协议：输入N Q、数组与Q个操作；1 L R x整除，2 L R y赋值，3 L R求和。题面是一基闭区间，仅将L减一即可转换。N≤500000，Q≤100000，题面值与赋值≤100000，除数≥2；本用法不包含区间加。官方样例及随机朴素数组本地核验，没有新在线AC。",
-    "driver": "verify/atcoder/abc256_h.compact.cpp",
-    "requires": [
-      "DivideSegmentTree"
-    ],
-    "start_new_page": true
-  },
-  {
-    "id": "example-460",
-    "symbol": "good_number_sum",
-    "kind": "application",
-    "problem": "CF1598G：The Sum of Good Numbers",
-    "url": "https://codeforces.com/contest/1598/problem/G",
-    "summary": "输入仅含1..9的字符串s和目标整数x，题面保证有解。输出相邻两个子串的一基闭区间，使对应整数之和为x；直接把返回{l,k,r}写成[l+1,k]和[k+1,r]。余数碰撞后仍逐位验证，避免错误方案。此驱动另外以-1表示无解，但正式题目不出现无解。",
-    "driver": "verify/codeforces/1598G.compact.cpp",
-    "requires": [
-      "z_function",
-      "exkmp",
-      "good_number_sum"
     ],
     "start_new_page": true
   }

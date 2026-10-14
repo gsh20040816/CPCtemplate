@@ -11,14 +11,28 @@ int main()
         edges.push_back({u, v, w});
     }
     auto tree = gomory_hu(n + 1, edges);
-    auto answer = cut_tree_values(n + 1, tree);
+    vector<vector<pair<int, long long>>> g(n + 1);
+    for (auto [u, v, w] : tree)
+    {
+        g[u].push_back({v, w});
+        g[v].push_back({u, w});
+    }
     int q;
     scanf("%d", &q);
     while (q--)
     {
         int u, v;
         scanf("%d%d", &u, &v);
-        printf("%lld\n", answer[u][v]);
+        // Minimum cut = minimum edge on the tree path.
+        long long answer = LLONG_MAX;
+        auto dfs = [&](auto &&self, int x, int parent, long long value) -> void
+        {
+            if (x == v) answer = value;
+            for (auto [y, w] : g[x])
+                if (y != parent) self(self, y, x, min(value, w));
+        };
+        dfs(dfs, u, -1, LLONG_MAX);
+        printf("%lld\n", answer);
     }
     return 0;
 }

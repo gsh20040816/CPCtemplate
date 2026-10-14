@@ -321,6 +321,9 @@ cases['example-264'] = [('5\n1 abc\n3 abcabc\n2 abc\n1 aba\n3 abababc\n','2 2')]
 cases['example-265'] = [('3 2 -3\n1 -3\n2 -3 -3\n0\n3 -3 -3 -3\n0\n','1 2 0 3 2 4 0 0 1')]
 cases['example-266'] = [('3 2 A\n"A"\n"AA"\n""\n"AAA"\n""\n','3 2 4 0 0 1')]
 
+# Issue 21 removed the usages of deleted templates; their cases are not registered any more.
+registered = {r['id'] for r in json.loads((root / 'docs/usage-examples.json').read_text())}
+cases = {k: v for k, v in cases.items() if k in registered}
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
 cases['example-251'] = [('9 6 10\n5 6 2 10 10 7 3 2 9\n1 4 4 3 2 1\n', '1 3'), ('4 2 2\n1 1 1 1\n2 2\n', '3 1 2 3')]

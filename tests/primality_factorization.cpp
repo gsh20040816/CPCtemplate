@@ -1,4 +1,5 @@
 #include "../src/compact/number_theory.hpp"
+#include "compat_number_theory.hpp"
 #include "../src/classic/number_theory.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 #include <cassert>
