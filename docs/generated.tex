@@ -5305,7 +5305,7 @@ CentroidDiameter(n)，固定连通无向树、0-based点号，n>0且2n不溢出i
 
 \lstinputlisting[firstline=126,lastline=165,firstnumber=114]{../src/compact/centroid_diameter.hpp}
 
-\Needspace{672pt}
+\Needspace{680pt}
 
 \section{树哈希}
 
@@ -5315,13 +5315,13 @@ CentroidDiameter(n)，固定连通无向树、0-based点号，n>0且2n不溢出i
 
 TreeIsomorphism iso；rooted(g,root)返回有根树编号，unrooted(g)返回无根树pair编号。g是0-based非空简单无向连通树，邻接表双向各存一次；root在0..n-1。递归DFS，不验证非法图。所有待比较的树必须共用同一个iso；编号依赖插入次序，不同对象或清空codes前后的编号不能直接比较。对子节点编号排序并用map精确驻留，无随机哈希碰撞。无根树取重心：单重心返回(code,0)，双重心分别以两点为根编码并排序。支持单点；不考虑点/边标签，也不返回顶点映射。codes只读，编号数须<INT\_MAX，n<=INT\_MAX。S为本次结束时驻留签名数，一次n点调用O(n log(n+1)+n log(S+1))，临时O(n)，跨调用累计存储至多O(T)，T为累计编码遍历的顶点数。
 
-\lstinputlisting[firstline=8,lastline=29,firstnumber=1]{../src/compact/tree_isomorphism.hpp}
+\lstinputlisting[firstline=9,lastline=30,firstnumber=1]{../src/compact/tree_isomorphism.hpp}
 
 \newpage
 
 \noindent 继续求解（接上页同一结构体）：
 
-\lstinputlisting[firstline=30,lastline=56,firstnumber=23]{../src/compact/tree_isomorphism.hpp}
+\lstinputlisting[firstline=31,lastline=58,firstnumber=23]{../src/compact/tree_isomorphism.hpp}
 
 \Needspace{462pt}
 
@@ -5336,6 +5336,40 @@ TreeIsomorphism iso；rooted(g,root)返回有根树编号，unrooted(g)返回无
 题目：\url{https://www.luogu.com.cn/problem/P5043}
 
 \lstinputlisting{usage/example-357.cpp}
+
+\Needspace{403pt}
+
+\noindent 相关应用：Deterministic sorted-child interning and centroid rooting; exact alternative to randomized tree hashing.
+
+\subsection{双 64 位随机树哈希（Mix13）}\label{compact-tree_hash}\index{tree\_hash}
+
+tree\_hash(g,root,s1,s2) 对 0-based 树 g（非空、连通、简单无向）以 root 为根，返回每个点 u 的有根子树哈希对 h[u]：h[u]=(s1,s2)+各儿子 v 的 (mix13(h[v].first),mix13(h[v].second)) 之和，全部模 2\textasciicircum{}64 自然溢出；叶子为 (s1,s2)。儿子顺序无关、不需要排序。种子为非零且互异的随机 64 位数，由调用方生成（如 mt19937\_64 以时间为种子），需要互相比较的所有树必须共用同一对种子。h[u] 相等当且仅当两子树同构（概率意义，128 位哈希，非确定性证明）；统计不同子树种类时对 h 排序去重。BFS 序非递归，O(n) 时间、O(n) 空间，百万点长链不会爆栈。需要确定性结论时用 TreeIsomorphism。
+
+\lstinputlisting[firstline=60,lastline=85]{../src/compact/tree_isomorphism.hpp}
+
+\Needspace{365pt}
+
+\subsection*{模板题使用：UOJ \#763 树哈希}
+
+\label{usage-example-456}
+
+题意：n$\le$10\textasciicircum{}6 个点的树以 1 为根，求互不同构的有根子树种类数。点号减一转为 0-based，以时间为种子生成两枚 64 位种子，对所有 h[u] 排序去重计数。
+
+所需模板：\hyperref[compact-tree_hash]{tree\_\allowbreak{}hash}（第~\pageref{compact-tree_hash}~页，\ref{compact-tree_hash}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://uoj.ac/problem/763}
+
+\lstinputlisting{usage/example-456.cpp}
+
+\Needspace{310pt}
+
+\noindent 相关应用：Deterministic sorted-child interning and centroid rooting; exact alternative to randomized tree hashing.
+
+\subsection{树哈希 O(n) 换根}\label{compact-tree_hash_reroot}\index{tree\_hash\_reroot}
+
+tree\_hash\_reroot(g,root,h) 由同一根的 h=tree\_hash(g,root,s1,s2) 求 f[u]：以 u 为根时整棵树的哈希。父方向子树的哈希为 f[p]-mix13(h[u])，故 f[u]=h[u]+mix13(f[p]-mix13(h[u]))，两分量分别计算。无根树比较取所有 f[u] 的最小值（或按重心）作为整树代表。O(n) 时间与空间，非递归。
+
+\lstinputlisting[firstline=89,lastline=107]{../src/compact/tree_isomorphism.hpp}
 
 \Needspace{680pt}
 

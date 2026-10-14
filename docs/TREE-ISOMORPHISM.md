@@ -35,3 +35,9 @@ S为本次调用结束时驻留签名总数。孩子排序总计O(n log(n+1))。
 本次提交 [301887481](https://www.luogu.com.cn/record/301887481)：C++20 O2、100分、10点全AC，最慢单点5ms、峰值860KB，页面总用时42ms。归档的是本次最小抄写源码；未核验速度排名。
 
 删除孩子编号排序、删除双重心编号排序两个错误变体均被重标号/括号真值检查检出，见 `verification/overall-kth-isomorphism-mutations.json`。
+
+## 随机树哈希（issue #24）
+
+`tree_hash(g, root, s1, s2)` 是双 64 位随机树哈希：每个点的值为同一随机初值加上各儿子哈希经 Mix13（SplitMix64 末端混合）后的和，模 2^64 自然溢出，非递归 O(n)。它与上面的 `TreeIsomorphism` 区别在于：`TreeIsomorphism` 按儿子编号排序后驻留，结论确定但需要排序和 map；`tree_hash` 不排序、O(n)，结论是概率性的（128 位，同构必相等，不同构相等的概率极小但不为零）。需要互相比较的树必须共用同一对种子。`tree_hash_reroot` 在 O(n) 内求出以每个点为根的整树哈希，无根树取最小值作代表。
+
+UOJ #763 的完整驱动见 `verify/uoj/763.compact.cpp`；`tests/tree_hash.cpp` 以 AHU 规范括号串为判据检查无碰撞、重标号与换根一致，`tests/tree_hash_application.py` 检查完整驱动及百万点长链/星形的时限。尚未在线提交，不宣称 AC。

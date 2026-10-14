@@ -197,7 +197,9 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | TreeMo | [example-354（应用补充）](usage/example-354.cpp) | generated_unverified |
 | RollbackMo | [example-355](usage/example-355.cpp) | generated_unverified |
 | OverallKth | [example-356（应用补充）](usage/example-356.cpp) | generated_unverified |
-| TreeIsomorphism | [example-357](usage/example-357.cpp) | locally_checked_example |
+| TreeIsomorphism | [example-357](usage/example-357.cpp) | generated_unverified |
+| tree_hash | [example-456](usage/example-456.cpp) | generated_unverified |
+| tree_hash_reroot | 待补 | pending_example |
 | StrictSecondShortest | [example-358（应用补充）](usage/example-358.cpp) | locally_checked_application |
 | KShortestWalks | [example-359（应用补充）](usage/example-359.cpp) | locally_checked_application |
 | MonotoneHull | [example-360（应用补充）](usage/example-360.cpp) | locally_checked_application |

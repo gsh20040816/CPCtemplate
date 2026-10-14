@@ -3971,5 +3971,17 @@
       "NttConvolution"
     ],
     "start_new_page": true
+  },
+  {
+    "id": "example-456",
+    "symbol": "tree_hash",
+    "kind": "template",
+    "problem": "UOJ #763 树哈希",
+    "url": "https://uoj.ac/problem/763",
+    "summary": "n≤10^6 个点的树以 1 为根，求互不同构的有根子树种类数。点号减一转为 0-based，以时间为种子生成两枚 64 位种子，对所有 h[u] 排序去重计数。",
+    "driver": "verify/uoj/763.compact.cpp",
+    "requires": [
+      "tree_hash"
+    ]
   }
 ]

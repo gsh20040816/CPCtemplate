@@ -242,6 +242,9 @@ build/dujiao
 
 "$CXX" "${flags[@]}" tests/partitions.cpp -o build/partitions
 build/partitions
+"$CXX" "${flags[@]}" tests/tree_hash.cpp -o build/tree_hash
+build/tree_hash
+python3 tests/tree_hash_application.py
 "$CXX" "${flags[@]}" tests/ball_box.cpp -o build/ball_box
 build/ball_box
 
