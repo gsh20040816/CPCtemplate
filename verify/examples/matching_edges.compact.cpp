@@ -1,4 +1,4 @@
-#include "../../src/compact/matching_edges.hpp"
+#include "../../src/compact/graph.hpp"
 #include <iostream>
 using namespace std;
 

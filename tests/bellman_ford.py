@@ -119,7 +119,7 @@ def main():
     env = os.environ.copy()
     if mode == 'sanitizer':
         env.update(ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1')
-    header = (ROOT/'src/compact/bellman_ford.hpp').read_text().replace('#pragma once\n','')
+    header = (ROOT/'src/compact/graph.hpp').read_text().replace('#pragma once\n','')
     probe = (ROOT/'tests/bellman_ford_probe.cpp').read_text()
     copied = header+'\n'+'\n'.join(l for l in probe.splitlines() if not l.startswith('#include "'))
     sha = lambda data: hashlib.sha256(data).hexdigest()

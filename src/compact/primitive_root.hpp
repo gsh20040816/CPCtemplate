@@ -1,5 +1,5 @@
 #pragma once
-#include "mod64.hpp"
+#include "number_theory.hpp"
 
 struct PrimitiveRoot
 {

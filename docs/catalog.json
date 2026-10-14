@@ -30,7 +30,7 @@
     "Dinic(n)，点号 1..n；add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新增流；used(id) 查询原边净流，cut(s) 返回残量可达点集。允许重边、自环，容量非负，s≠t；重复求流须使用相同源汇。只有求尽最大流后 cut 才是最小割。一般 O(V²E)，递归增广深度 O(V)。总流不得超过 long long 上限。 get_edge(id) 返回 tuple(起点,终点,总容量,当前流)，change_edge(id,cap,f) 修改总容量与流，要求 id 为 add 返回的偶数原边编号且 0≤f≤cap；正向残量变为 cap-f，反向为 f。仅保证此残量对一致，不自动维持所有顶点的流量守恒；继续 flow 前必须由调用方保证全局可行流及同源汇。增容且保留 f 合法，缩容低于已有流时不能只截断该边。要从零重算须将所有原边一起重置为零流。两个新接口为 O(1)，尚只有本地验证。 可选容量缩放：按源码各处 Scaling 注释同步修改 BFS、DFS、递归调用和外层循环，不能只取消一处注释。阈值从不超过当前最大残量 mx 的最大二次幂降到 1，mx=0 直接返回；用 lim≤mx/2 再翻倍避免溢出。bfs/dfs 的 lim 默认 1，cut 仍检查全部正残量；flow 仍返回新增流且支持限流续流。缩放一般 O(VE log(U+1))，U 为本次初始最大残量；不保证比普通版快，大 INF 可能增加空阶段。"
   ],
   [
-    "maximum_closure",
+    "flow",
     "maximum_closure",
     "最大权闭合子图与选点方案",
     "maximum_closure(weight,dependencies) 返回 (最大权值,选中点列表)，weight 为 0-based vector<long long>，图中点号 1..n。依赖边 (u,v) 表示选 u 必须选 v，允许环、自环与重边；允许空选集，因此答案不小于 0。依赖 flow.hpp 中的 Dinic。正权连源、负权连汇，依赖边容量取正权总和加 1；要求所有正权之和严格小于 LLONG_MAX。负权先提升到 int128 再取负，并截断到依赖边容量，因此 LLONG_MIN 也可处理。返回残量图源点可达的原顶点，权值为正权总和减最小割；超大负权边不会出现在最优割中，截断不改变原问题最优值。每次调用重建网络。复杂度沿用 Dinic：一般 O(V²E)，空间 O(V+E)，增广保持递归。返回一种最优闭合集，不承诺最大或最小选点个数。"
@@ -45,7 +45,7 @@
     "graph",
     "Dijkstra",
     "非负权最短路",
-    "add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。不可达用 LLONG_MAX；要求所有有限最短距离严格小于该哨兵，w≥0。懒删除堆在多重边图中按O(n+m log(m+1))计，空间O(n+m)；简单图常写O((n+m)log(n+1))。"
+    "add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。不可达用 LLONG_MAX；要求所有有限最短距离严格小于该哨兵，w≥0。懒删除堆在多重边图中按O(n+m log(m+1))计，空间O(n+m)；简单图常写O((n+m)log(n+1))。 最短路树：run 后每个 v≠s 的 pre 入边构成一棵最短路树；要总边权最小，就在满足 dis[u]+w=dis[v] 的入边中选 w 最小者。Johnson 全源最短路：加超级源以 0 权连所有点，用 BellmanFord 求势 h，把边权改成 w+h[u]-h[v]≥0 后对每个起点跑 Dijkstra，真实距离为 d+h[t]-h[s]，O(nm log m)。"
   ],
   [
     "graph",
@@ -120,31 +120,31 @@
     "extend(c) 接收整数0..25，每次追加一个小写字符；last为整串状态，a[0]为根，根link=-1。a[u].len为状态最大长度，非根代表(len[link[u]],len[u]]且具有同一endpos集合。occ是原始种子：真实扩展为1、克隆为0，不能直接当出现次数。counts()按长度倒序汇总后返回副本，不改结构，重复查询及查询后继续追加安全；根计数为n，非空子串只看u>0。distinct()为不同非空子串数。重赋值SuffixAutomaton()清空；固定26字母表构建O(n)，counts/distinct为O(n)，空间O(26n)。如需前缀位置对应状态，在每次extend后保存last；本结构不输出广义SAM或最小DFA状态数。"
   ],
   [
-    "mod64",
+    "number_theory",
     "Mod64",
     "无符号64位模乘与模幂",
     "Mod64::mul(a,b,m) 与 power(a,e,m)，a、b、e 支持完整 unsigned long long，m 为非零无符号64位模数。乘积用 uint128 后取模，不通过浮点近似；m=1 返回0，e=0 返回1 mod m。mul 为 O(1)，power 为 O(log(e+1)) 次模乘、O(1) 空间。它也是64位判素的底层组件。"
   ],
   [
-    "prime64",
+    "number_theory",
     "Prime64",
     "确定性64位 Miller–Rabin 判素",
     "Prime64::prime(n) 接收完整 unsigned long long，n<2 返回 false。先试除小素数，再使用2、325、9375、28178、450775、9780504、1795265022七个底数，结果在64位输入范围内确定。继承 Mod64，模乘用 uint128；O(log n) 次模乘，O(1) 空间，不包含因数分解。"
   ],
   [
-    "extended_gcd",
+    "number_theory",
     "extended_gcd",
     "扩展欧几里得与 Bézout 系数",
-    "extended_gcd(a,b,x,y) 约定0≤a,b≤2^63，参数和输出系数为 int128，返回非负 gcd 并满足 ax+by=gcd(a,b)。a=b=0 返回0、x=1、y=0；有符号线性方程用 linear_equation。递归实现，中间乘加为 int128；O(log(min(a,b)+1)) 时间与递归空间。"
+    "extended_gcd(a,b,x,y) 约定0≤a,b≤2^63，参数和输出系数为 int128，返回非负 gcd 并满足 ax+by=gcd(a,b)。a=b=0 返回0、x=1、y=0；递归实现，中间乘加为 int128；O(log(min(a,b)+1)) 时间与递归空间。 解 ax+by=c：令 g=gcd(a,b)，g∤c 时无解；否则 x0=x·c/g、y0=y·c/g，通解 x=x0+k·b/g、y=y0-k·a/g；最小非负 x 为 x0 对 b/g 取非负余数。乘 c/g 时注意 int128 范围。"
   ],
   [
-    "mod_inverse",
+    "number_theory",
     "mod_inverse",
     "任意正模数的单个逆元",
     "mod_inverse(a,m) 支持完整 long long a 和正 long long m，将 a 规范化后用 extended_gcd 求逆。不可逆返回-1，可逆返回0..m-1内的代表；模数1返回0。允许合数模数，不使用费马小定理。O(log m) 时间与递归空间。"
   ],
   [
-    "crt_merge",
+    "number_theory",
     "crt_merge",
     "广义 CRT：逐项合并同余",
     "crt_merge(r,m,b,n) 合并 x≡r (mod m) 与 x≡b (mod n)，m,n>0，r、m须为不同变量。从r=0、m=1开始逐项合并；成功后r为最小非负解、m为最小正周期。余数支持完整long long。无解返回false；有解但新周期超过LLONG_MAX抛overflow_error。两种失败都会先规范化r，m不变，失败后不能视为完整解。依赖 extended_gcd，中间量用int128；O(log min(m,n)) 时间与递归空间。"
@@ -156,25 +156,25 @@
     "floor_sum(n,m,a,b) 返回 i=0..n-1 的 floor((ai+b)/m) 之和，结果为 int128。要求0≤n≤10^9、1≤m≤10^9，a、b支持完整long long；n=0返回0。先按数学向下取整规范化负系数，再迭代交换分母和余数；不能把C++负数截零除法当作floor。O(log m) 时间、O(1) 空间，不依赖完整数论模块。"
   ],
   [
-    "linear_congruence",
+    "number_theory",
     "linear_congruence",
     "线性同余方程",
     "linear_congruence(a,b,m) 求 a*x+b≡0 (mod m)，返回 {最小非负解,最小正周期}，无解返回 {-1,-1}。m 为正 long long，a、b 支持完整 long long。若 g=gcd(a,m) 整除 b，周期为 m/g；包括 a=0 和 m=1，所有整数均满足时返回 {0,1}。先归一化 a，并在 int128 中对 b 取相反数和乘法。依赖 extended_gcd；递归时间、空间 O(log(m+1))。注意本接口的常数项是 +b，若题目写 a*x≡c，应传 -c；c 为 LLONG_MIN 时须避免在 64 位中取负。"
   ],
   [
-    "segmented_sieve",
+    "number_theory",
     "segmented_primes",
     "区间筛素数",
     "segmented_primes(l,r) 返回闭区间内递增的全部素数，0≤l≤r≤INT_MAX；区间长度须能分配内存。独立函数，每次重建底筛；不依赖预存素数表。令 W=r-l+1，时间 O((√r+W)log log(r+3))，空间 O(√r+W)。倍数起点、递增变量均用 long long，避免 INT_MAX 端点溢出；0 和 1 不进入结果。"
   ],
   [
-    "batch_inverse",
+    "number_theory",
     "batch_inverse",
     "任意数组的批量逆元",
     "batch_inverse(a,mod) 返回与 a 同序的逆元向量。要求 mod 为正 long long，每个输入可为完整 long long；只要某一项与 mod 不互素，整个结果返回 nullopt，不输出部分逆元。空输入返回有效的空向量；模数 1 约定返回全零，与单个逆元接口一致。模数可以是合数。函数按值接收数组并归一化；不再需要原数组时传 move(a) 可避免输入副本。依赖 mod_inverse 和 extended_gcd。仅求一次逆元，时间 O(n+log mod)，空间 O(n)；128 位中间乘法防止溢出。"
   ],
   [
-    "inverse_table",
+    "number_theory",
     "inverse_table",
     "连续整数的线性逆元表",
     "inverse_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p 的逆元，1≤i≤n。位置 0 固定为 0，仅为占位，不表示零有逆元；n=0 返回单个占位项。要求 p 为素数、2≤p≤INT_MAX 且 0≤n<p，不检测素性。时间和空间均 O(n)，中间乘法用 long long；独立可抄，不依赖其他模板。不能将同一递推直接用于合数模数，即使当前 i 与模数互素；一般模数使用扩展欧几里得或任意数组批量逆元。"
@@ -222,7 +222,7 @@
     "floor_moments(n,m,a,b) 对 i=0..n-1，令 y_i=floor((a*i+b)/m)，返回 {Σy_i, Σi*y_i, Σy_i²}，元素为 ModInt<998244353>，取整数用 .v。0≤n≤1000000001，1≤m≤10⁹；a、b 支持完整 long long。n=0 返回全零。时间与递归空间 O(log(m+1))；模数固定，499122177 与 166374059 分别是 2、6 的逆元。P5170 输入上限为闭区间，驱动传 n+1，输出索引顺序 0、2、1。"
   ],
   [
-    "euler_phi",
+    "number_theory",
     "euler_phi",
     "单个数的欧拉函数",
     "euler_phi(n) 使用试除，O(√n) 时间、O(1) 额外空间；euler_phi(n,solver) 复用 PollardRho，时间由随机分解主导，分解结果与递归占 O(log n) 空间。1≤n≤ULLONG_MAX，phi(1)=1。大素数或平衡大半素数应选分解器入口，不要用试除穷扫平方根；批量求 1..N 用 LinearSieve。先除质因子再乘 p-1，结果及中间乘积均不超过原 n。只抄试除函数时不需要 Prime64/PollardRho。"
@@ -360,25 +360,25 @@
     "integer_hull(points) 按值接收 IntegerPlane::Point 序列，输出严格逆时针凸包，不重复首点、不保留共线边内点。自动排序去重；全共线时保留两个端点，空集及单点直接返回。坐标范围同 IntegerPlane。O(n log n) 时间、O(n) 空间；供凸包包含、直径与 Minkowski 和调用。"
   ],
   [
-    "polygon_area2",
+    "integer_plane",
     "polygon_area2",
     "整数多边形有向面积",
     "polygon_area2(p) 返回 __int128_t 的有向面积两倍；逆时针为正，反向为负。输入按边界顺序排列，隐式闭合；空集或不足三个点返回 0。单个多边形点数不超过 10⁵、坐标绝对值不超过 10¹²，确保求和在有符号 128 位内。时间 O(n)，额外空间 O(1)。"
   ],
   [
-    "polygon_contains",
+    "integer_plane",
     "polygon_contains",
     "点在整数简单多边形内",
     "polygon_contains(p,q) 返回 0 外部、1 边界、2 内部，输入简单多边形，可顺时针或逆时针，不重复首点。空多边形返回 0；单点与线段按闭集判断边界。绕数算法先判线段，再按半开纵坐标区间累计，避免顶点重复计数。坐标范围同 IntegerPlane，O(n) 时间、O(1) 空间。"
   ],
   [
-    "convex_contains_i64",
+    "integer_plane",
     "convex_contains_i64",
     "点在整数凸包内（二分）",
     "convex_contains_i64(p,q) 返回 0 外部、1 边界、2 内部。要求严格逆时针凸包，无共线边内点、不重复首点，例如 integer_hull 的输出；允许循环旋转起点。空集、单点、线段转用 polygon_contains。坐标范围同 IntegerPlane，O(log n) 时间、O(1) 空间。"
   ],
   [
-    "convex_diameter2",
+    "integer_plane",
     "convex_diameter2",
     "整数凸包直径：旋转卡壳",
     "convex_diameter2(p,endpoints=nullptr) 返回最远两点距离平方，类型 __int128_t；不足两点返回 0。输入须为严格逆时针凸包，不重复首点，例如 integer_hull 的输出。坐标范围同 IntegerPlane；旋转卡壳 O(n) 时间、O(1) 额外空间。可传 pair<int,int> 的地址，接收凸包内的 0-based 端点下标；空集为 {-1,-1}，单点为 {0,0}，至少两点时端点不同。不保证并列最优端点的顺序。映射到原始输入编号由调用者完成。"
@@ -396,37 +396,37 @@
     "RealPolarLess{}(a,b) 沿用RealPlane::Point存储，输入为实际已存入的有限二进制long double，尾数≤64位且uint128可用；禁fast-math及FTZ/DAZ。原点最前，正x轴起逆时针[0,2π)，同向按长度递增，同点及±0等价，满足严格弱序。用frexp/ldexp拆尾数并以uint128精确比较乘积，不做浮点叉乘、不用epsilon。每次O(1)，无分配。十进制输入先舍入；不修复调用前的坐标差，不替代其他浮点几何谓词。product/cross_sign是有限输入下的内部辅助。"
   ],
   [
-    "line_projection",
+    "real_plane",
     "line_projection",
     "点在直线上的投影",
     "line_projection(p,a,b) 返回 p 在过 a、b 直线上的正交投影；若 a=b，则约定返回 a。类型为 RealPlane::Point。输入有限且尺度适当，平方和与点积须能可靠表示；不使用 epsilon 把短线段自动视为零。O(1) 时间和空间。"
   ],
   [
-    "segment_distance_real",
+    "real_plane",
     "segment_distance_real",
     "点到闭线段的距离",
     "segment_distance_real(p,a,b) 返回点 p 到闭线段 ab 的 long double 距离。a=b 时返回到端点的距离；否则把投影参数截断至 [0,1]。要求有限且尺度适当的输入；O(1) 时间和空间。"
   ],
   [
-    "line_intersection_real",
+    "real_plane",
     "line_intersection_real",
     "浮点两直线交点",
     "line_intersection_real(a,b,c,d,eps=1e-12L) 返回 RealPlane::Result；eps 必须为正。端点重合使任一直线退化时返回 degenerate。按方向叉积与方向长度乘积的相对阈值判断平行，再按位置阈值区分 none 与 infinite；唯一交点返回 one。输入有限且尺度适当；近似分类不等同于精确共线判定。O(1)。"
   ],
   [
-    "line_circle_intersections",
+    "real_plane",
     "line_circle_intersections",
     "浮点直线与圆交点",
     "line_circle_intersections(a,b,c,eps=1e-12L) 返回 Result；c 为 RealPlane::Circle，半径非负，eps 非负；以下相对阈值描述适用于 eps>0。a=b 返回 degenerate；按投影点到圆心的距离和半径的相对阈值区分 none、one、two。点圆允许；只有正半径同心圆才涉及无限交点，本函数不会返回 infinite。依赖 line_projection，O(1)。输入有限且尺度适当，接近相切时按容差归类。 默认容差不能直接满足 AOJ CGL_7_D 的所有合法输入；近切时归并交点可能超出坐标误差限。 eps=0为显式无容差模式：直接计算平方判别式，不主动合并近切点；一般实数仍可能发生舍入误判、溢出或下溢。整数坐标绝对值≤10000、整数半径0..10000，二进制long double尾数≥64位且正常最近舍入、禁用fast-math时，中间整数精确。交点坐标仍为浮点近似；其他输入不继承这一保证。"
   ],
   [
-    "circle_intersections",
+    "real_plane",
     "circle_intersections",
     "浮点两圆交点",
     "circle_intersections(a,b,eps=1e-12L) 返回 Result；半径非负，eps 非负；以下相对阈值描述适用于 eps>0。两个完全相同的正半径圆返回 infinite；同位置两个点圆返回 one；同心不同半径返回 none。其余用距离和半径的相对阈值分类，点圆单独处理，接近相切可返回 one。输入有限且尺度适当，O(1) 时间空间；返回的有限交点仍受浮点构造误差影响。 默认容差不能直接满足 AOJ CGL_7_E 的所有合法输入；近切时归并交点可能超出坐标误差限。 eps=0为显式无容差模式：直接计算平方判别式，不主动合并近切点；一般实数仍可能发生舍入误判、溢出或下溢。整数坐标绝对值≤10000、整数半径0..10000，二进制long double尾数≥64位且正常最近舍入、禁用fast-math时，中间整数精确。交点坐标仍为浮点近似；其他输入不继承这一保证。"
   ],
   [
-    "circle_overlap_area",
+    "real_plane",
     "circle_overlap_area",
     "两圆交面积",
     "circle_overlap_area(a,b) 返回 long double 面积，半径非负。分离或外切返回 0；内含时返回小圆面积，含点圆和同心圆。部分相交计算两个圆弓形面积，小角度使用展开式减轻相消；acos 入参截断至 [-1,1]。不使用交点分类容差；要求有限且尺度适当的输入。O(1) 时间空间，不把浮点输出视为精确面积。"
@@ -447,7 +447,7 @@
     "optimization",
     "PersistentKth",
     "主席树：静态区间第 k 小",
-    "构造传入 0-based 数组，kth(l,r,k) 的区间使用 1-based 闭区间；要求 1≤k≤r-l+1。离散化后每个前缀一个版本，单次 O(log n)，总空间 O(n log n)。"
+    "构造传入 0-based 数组，kth(l,r,k) 的区间使用 1-based 闭区间；要求 1≤k≤r-l+1。离散化后每个前缀一个版本，单次 O(log n)，总空间 O(n log n)。 树上路径第 k 小：每个点在父版本上插入点权，路径 (u,v) 用 root[u]+root[v]-root[lca]-root[fa[lca]] 四个版本同步二分。区间不同数个数：位置 i 在 pre[i]（上一次出现位置）处插入，查询 [l,r] 统计版本 r 减版本 l-1 中 pre<l 的个数。"
   ],
   [
     "dynamic_kth",
@@ -483,7 +483,7 @@
     "flow",
     "BoundedCirculation",
     "上下界可行循环流",
-    "BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0≤lo≤hi≤LLONG_MAX，所有下界总和须≤LLONG_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。"
+    "BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0≤lo≤hi≤LLONG_MAX，所有下界总和须≤LLONG_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。 含负环的最小费用流：先把每条负费用边满流（等价于下界=上界的强制流，残量反向边费用为正），再用本结构求可行循环，最后在残量网络上用 MinCostFlow 补齐。"
   ],
   [
     "halfplanes",
@@ -522,7 +522,7 @@
     "minkowski_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返回空集，点和线段允许作为退化凸包。\n\n点类型 IntegerPlane::Point；输入坐标及两集合坐标和的绝对值不超过 10¹²。结果不重复首点，非退化时沿逆时针边方向合并，平行同向边同时推进；O(n+m) 时间。\n\n退化输入枚举与另一凸包各点的和再求凸包，O((n+m) log(n+m))。按值传入，内部旋转不修改调用方；依赖 IntegerPlane 的 integer_hull/cross。"
   ],
   [
-    "real_space",
+    "space3",
     "IntegerGeometry3D",
     "整数三维共线、共面与方向",
     "坐标绝对值≤10⁹；orient(a,b,c,d) 为有向六倍四面体体积，0 表示共面；collinear 判三点共线，on_segment 支持退化线段。int128 精确判定，不包含三维凸包构造。"
@@ -531,13 +531,13 @@
     "dynamic_tree",
     "LinkCutTree",
     "Link-cut tree：动态森林与路径异或",
-    "构造 LinkCutTree(n)，点号 1..n，初始权值为零。set(x,value) 修改点权；link(x,y) 仅在不同连通块之间连边并返回是否成功；cut(x,y) 只删除真实存在的边，否则返回 false。connected 查询连通性；query(x,y) 返回路径点权异或，要求两点连通，支持 x=y。make_root/find_root 维护与查询当前表示树根。每次操作均摊 O(log n)，O(n) 空间，splay 下传使用显式栈，支持长链。权值为 unsigned long long。仅维护路径异或，不包含虚子树聚合或动态直径。"
+    "构造 LinkCutTree(n)，点号 1..n，初始权值为零。set(x,value) 修改点权；link(x,y) 仅在不同连通块之间连边并返回是否成功；cut(x,y) 只删除真实存在的边，否则返回 false。connected 查询连通性；query(x,y) 返回路径点权异或，要求两点连通，支持 x=y。make_root/find_root 维护与查询当前表示树根。每次操作均摊 O(log n)，O(n) 空间，splay 下传使用显式栈，支持长链。权值为 unsigned long long。仅维护路径异或，不包含虚子树聚合或动态直径。 路径最值或路径和：把异或聚合换成对应运算（如 max），在 pull 中合并左右子树与自身；路径加等标记须在 splay 前沿路径下传，与翻转标记一起在 push 中下传。"
   ],
   [
     "treap",
     "OrderedTreap",
     "FHQ Treap：可重集合与顺序统计",
-    "insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在；rank(x) 为严格小于 x 的元素数加一，x 不必存在；kth(k) 要求 1≤k≤size()。prev/next 为严格前驱/后继，不存在时返回 nullopt。支持重复值、LLONG_MIN 和 LLONG_MAX，分裂不使用 x-1。随机优先级下单次期望 O(log n)，并非确定性最坏界。节点池不回收已删除节点，空间按累计插入次数计算；可在构造时指定随机种子。"
+    "insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在；rank(x) 为严格小于 x 的元素数加一，x 不必存在；kth(k) 要求 1≤k≤size()。prev/next 为严格前驱/后继，不存在时返回 nullopt。支持重复值、LLONG_MIN 和 LLONG_MAX，分裂不使用 x-1。随机优先级下单次期望 O(log n)，并非确定性最坏界。节点池不回收已删除节点，空间按累计插入次数计算；可在构造时指定随机种子。 可合并平衡树：合并两棵树时把较小的一棵逐个 insert 进较大的一棵（启发式合并），每个元素至多移动 O(log n) 次，总 O(n log² n)。"
   ],
   [
     "persistent_ordered_treap",
@@ -630,22 +630,10 @@
     "VirtualTree(n)，n≥1，点号 1..n；add(u,v,w=1) 建非负权连通树，无环和重边。prepare(root=1) 递归预处理，可换根重建；根到任一点距离须在 long long 范围内。build(keys) 自动去重并补齐必要 LCA，返回 vertices 和 edges；全部编号沿用原树，vertices 按 DFS 序排列，非空时首项即虚树根。edges 为 (from,to,distance,minimum)，分别是祖先到后代的虚边、压缩路径长度和路径最小边权。空关键点返回空结果，单点返回单节点；原树根不会强制加入，需要时由调用者加入 keys。边按后代 DFS 序排列，可逆序做自底向上的 DP。不分配或清空 n 个查询邻接表；每次仅返回 O(k) 结果。预处理 O(n log n) 时间空间，单次 O(k log k+k log n)。lca、ancestor 也可直接使用，要求有效点号且已经 prepare。构造用的祖先链栈属于虚树算法，原树 DFS 保持递归。"
   ],
   [
-    "suffix_lcp",
+    "string",
     "SuffixLCP",
     "后缀 LCP 与子串比较",
-    "先构造 SuffixArray，再构造 SuffixLCP(sa)。重新赋值 SuffixLCP(sa) 可建新表。复制所需排名与 LCP 数据，不保存原字符串或源对象引用，源对象可销毁或重建。query(x,y) 返回 s[x..n) 与 s[y..n) 的最长公共前缀，0≤x,y≤n，允许空后缀；同起点返回 n-x。compare(l1,r1,l2,r2) 比较两个 0-based 半开子串，允许空串，返回 -1/0/1。若公共前缀覆盖较短子串，按长度比较，否则原后缀排名给出首个不同字符的顺序。字节排序及整数字母表约束继承 SuffixArray。预处理稀疏表 O(n log n) 时间、空间，每次查询 O(1)，无需哈希和原串。n、rk、lg、st 可读，禁止调用方破坏。"
-  ],
-  [
-    "suffix_lcp",
-    "prefix_lcs",
-    "两个前缀的最长公共后缀",
-    "prefix_lcs(reversed,x,y) 返回原序列 s[0..x) 与 s[0..y) 的最长公共后缀，端点满足 0≤x,y≤n。reversed 必须在原序列的反转序列上构造 SuffixLCP，不能传正向对象；转换为 reversed.query(n-x,n-y)，单次 O(1)。只需前向 LCP 时不必构造反向对象；该接口中的 LCS 是最长公共后缀，不是最长公共子序列。对于两个任意子串，以右端点查询后还需截断到两个子串长度的最小值。"
-  ],
-  [
-    "suffix_lcp",
-    "square_counts",
-    "重复子串 AA 的起止位置计数",
-    "square_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long long 数组，start[i]/finish[i] 为开始/结束于位置 i 的非空 AA 型子串个数；结束位置是最后一个字符下标，均 0-based。两对象必须分别对应同一原序列及其反序列，长度相同，允许空序列。枚举半长 len，并以其整数倍 i 为锚点；向左匹配截断为 len-1，向右截断为 len，由 LCP/LCS 得出合法起点连续区间，差分累计。左侧不能放宽到 len，否则相邻锚点会重复计数。预处理查询器后，此函数 O(n log n) 时间、O(n) 额外空间。不同出现位置、不同半长分别计数；不要求 A 为最小周期。P1117 的 AABB 拆分数为所有分界点 finish[i]*start[i+1] 之和，累加类型需按题目范围选择，函数本身只返回起止计数。"
+    "先构造 SuffixArray，再构造 SuffixLCP(sa)。重新赋值 SuffixLCP(sa) 可建新表。复制所需排名与 LCP 数据，不保存原字符串或源对象引用，源对象可销毁或重建。query(x,y) 返回 s[x..n) 与 s[y..n) 的最长公共前缀，0≤x,y≤n，允许空后缀；同起点返回 n-x。compare(l1,r1,l2,r2) 比较两个 0-based 半开子串，允许空串，返回 -1/0/1。若公共前缀覆盖较短子串，按长度比较，否则原后缀排名给出首个不同字符的顺序。字节排序及整数字母表约束继承 SuffixArray。预处理稀疏表 O(n log n) 时间、空间，每次查询 O(1)，无需哈希和原串。n、rk、lg、st 可读，禁止调用方破坏。 前缀的最长公共后缀：在反串上构造 SuffixLCP rev，s[0..x) 与 s[0..y) 的最长公共后缀为 rev.query(n-x,n-y)。重复子串（AA 型）计数：枚举半长 len 与锚点 i,i+len，用正反两个 SuffixLCP 求向右、向左可延伸长度，再按区间差分累加。"
   ],
   [
     "position_basis",
@@ -672,7 +660,7 @@
     "构造 LiftingLCA(n)，add(u,v,w=1) 加边，build(root=1) 预处理非空无向树，点号 1..n。jump(u,k) 返回 k 级祖先，k 非负，超过根返回 0；lca(u,v) 求最近公共祖先；distance 返回路径边数，不是权值和；max_edge 返回路径最大边权，同点返回 nullopt，其他情况返回有值的 optional<long long>。支持负权和 LLONG_MIN，LOW 只是最大值合并的单位元，不表示空路径。DFS 递归，根深度为 0；up[k][u] 与 mx[k][u] 是 2 的 k 次方长度向上段的祖先与最大边权，0 号节点为哨兵。可重复 build 换根；修改图后必须重建。预处理 O(n log n) 时间与空间，各查询 O(log n)。不需要边权最值时，可删去 mx 和 max_edge 相关部分。全小树点对/根、极值权重及 50 万点负权链本地验证；P3379、POJ1330 驱动只验证 LCA，最大边权仍是本地证据。"
   ],
   [
-    "path_intersection",
+    "tree",
     "path_intersection",
     "两条树路径的交集",
     "path_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径，字段 u、v 是交集端点，vertices 是公共顶点数；空交返回 {0,0,0}，单点交的 u=v。点号从 1 开始，depth 数组与 lca 回调必须来自同一棵非空树、同一个根，深度按边数计算，不能传带权根距离。支持数组或 vector 深度表，回调接收两个点并返回 LCA。将 c、d 分别投影到 a-b 得 p、q；投影是 lca(a,b)、lca(a,x)、lca(b,x) 中最深者。若 p≠q，c-d 必经过 p-q；若 p=q，检验 p 是否在 c-d 上即可区分单点交与空交。不依赖顶点编号大小。常数次 LCA 调用、O(1) 额外空间；使用 EulerLCA 时为 O(1)，HLD/倍增时为 O(log n)。公共边数为 max(0,vertices-1)。全小树根与四端点、随机换号树用路径点集独立验证；P3398 完整程序只检查是否相交，端点及数量由本地验证覆盖。"
@@ -750,25 +738,25 @@
     "FunctionalGraph(to) 或 build(to) 重建，每个点恰有一条出边，to[u] 为后继，点号 0..n-1；空图允许，但不能查询。advance(u,k) 返回第 k 步到达的点，k 为完整 unsigned long long；steps(u,v) 返回首次到达 v 的最少步数，无法到达返回 -1，自身为 0。component[u] 为所在环的编号；cycles[id] 按后继方向保存环；entry[u] 为首次入环点；depth[u] 为入环步数；position 仅在环点上有效，非环点为 -1。order 为入度剥离顺序，逆序可用于从后继向入环树传播状态；up 是倍增表。所有字段只读。O(n log n) 预处理及空间，入环前查询 O(log n)，入环后取模 O(1)，不为 64 位步数分配 64 层表。默认构造为空图，支持自环、多个分量及重建。n≤INT_MAX，实际规模须满足内存。"
   ],
   [
-    "modified_mo",
+    "mo",
     "ModifiedMo",
     "带修改的莫队",
     "ModifiedMo(n,m) 保存离线询问，n>0，m 为修改总数。add(l,r,t) 登记第 t 次修改完成后的 [l,r)，返回从 0 开始的询问编号；0≤l≤r≤n，0≤t≤m，询问数小于 INT_MAX。run(add,del,chg,ans,block=0) 排序并移动三个指针。add(p)/del(p) 按下标更新当前区间统计；chg(i,forward,l,r) 将编号 i 的修改前进或回退，并同步修正当前 [l,r) 内的贡献；ans(id) 记录结果。修改编号从 0 开始，前进第 i 次修改时原时间为 i，回退时原时间为 i+1。回调初始状态必须为原数组、空区间、时间 0；重复 run 前由调用方重置状态。状态不会自动恢复，原询问顺序不变。仅适用于可增删维护的区间统计，需区分左右端操作时另行拆分回调。默认块长约 n^(2/3)，也可显式指定正块长。n、询问数、修改数同阶且回调 O(1) 时总时间 O(n^(5/3))，调度器空间 O(q)。"
   ],
   [
-    "hash_table",
+    "gnu",
     "gp_map",
     "GNU gp_hash_table 与 cc_hash_table",
     "GNU libstdc++ 扩展，包含 ext/pb_ds/assoc_container.hpp。gp_map<K,V> 为探测哈希表，cc_map<K,V> 为碰撞链接哈希表；K 为不超过64位的整数，复用下方 hash64。两者支持 operator[]、find、insert、erase(key)、clear、size、empty；insert 不覆盖已有键，operator[] 对不存在的键插入默认值。只查询时用 find 判断 end。通常查改摊还 O(1)，最坏 O(n)，空间 O(n)，不支持排名或有序前驱。纯键值查改可先试 gp_map；需要在插入/删除其他键后保留找到的元素引用时可考虑 cc_map，其节点分配和链接有成本，速度仍须按题实测。gp_map 修改后重新 find；cc_map 的点迭代器不等于可递增的遍历迭代器，删除该元素、clear 或销毁后不能保留引用。默认策略不直接调用 resize，也不照搬 unordered_map::reserve。hash64 使用进程内固定随机种子，无符号回绕；只针对整数键，不保证已知种子下的最坏碰撞。历史 associative_array AC 仅覆盖 gp_map，cc_map 另行验证。"
   ],
   [
-    "ordered_set",
+    "gnu",
     "ost",
     "PBDS 有序树与顺序统计",
     "GNU libstdc++ 扩展，包含 ext/pb_ds/assoc_container.hpp 和 ext/pb_ds/tree_policy.hpp。ost<T> 为去重有序集合；insert(x)、erase(x)、find(x)、lower_bound(x)、upper_bound(x) 沿用集合接口。order_of_key(x) 为严格小于 x 的元素数，find_by_order(k) 返回 0-based 第 k 个的迭代器，越界返回 end。默认 less<T>；改用其他严格弱序比较器时，排名和边界均按该比较器解释。单次 O(log n)，空间 O(n)，假设比较为 O(1)。重复值使用 ost<pair<T,int>>，插入 {x,id} 且 id 全局唯一、1≤id<INT_MAX。order_of_key({x,0}) 统计小于 x，order_of_key({x,INT_MAX}) 统计不大于 x；find_by_order(k)->first 取值，须先检查 end。删除一个 x：it=lower_bound({x,0})，检查 it!=end 且 it->first==x 后 erase(it)。不可用 less_equal 模拟多重集合。前驱先检查迭代器是否为 begin，再递减；空集合和无解不得解引用 end。"
   ],
   [
-    "rope",
+    "gnu",
     "rp",
     "GNU rope 与版本共享",
     "实际类型为 __gnu_cxx::rope<T>，不是 std::rope；它是 GNU 扩展序列，包含 ext/rope。本工具链随后重新包含 cassert，保留断言接口。rp<int>、rp<char> 表示序列，默认空。size()、empty()、push_back(x)、insert(p,x)、erase(p,len)、replace(p,x)、substr(p,len) 直接沿用 rope；位置为 0-based，len 是长度而非右端点。约定 0≤p≤size，删除/截取要求 len≤size-p，读写单点要求 p<size。r[i] 读取第 i 项；substr 返回新序列。rp<T> b=a 共享底层树，随后通过容器接口修改 b 不影响 a，可用 vector<rp<int>> 保存分支版本。复制构造共享根为 O(1)；随机访问沿树路径，正常平衡时 O(log n)。插入/删除/截取涉及路径、叶块复制和可能的再平衡，不能把每次操作都写成严格最坏 O(log n)；释放最后引用可能递归回收整棵子树。长期保留所有版本的内存不能按单个序列 O(n) 估计。不可缓存修改前的迭代器或使用可变代理跨版本写入。仅使用默认内存分配器及普通整数/字符值；函数生成型 rope 不在本模板范围。 可持久化队列已通过定长构造加头尾下标版本：Q 个零单元，复制根与 l/r，入队 replace(r++,x)，出队读取 [l++]；直接 push_back/erase 版本在针对数据上耗尽内存。线上 942 ms、591.26 MiB，具体失败与通过范围见 docs/ROPE-NOTES.md。 适合需要序列中间插删、截取和少量分支快照的场景；只按下标读写通常使用 vector 更直接。需要区间和、翻转等懒标记聚合时使用隐式 Treap，rope 本身不提供这些接口。下方示例通过修改 b 演示 a 保持原版本。"
@@ -792,7 +780,7 @@
     "mint<tag> 按 tag 独立保存运行时模数，默认 998244353。先 set_mod(p)，1≤p≤INT_MAX，再构造该模数下的所有对象；更换同 tag 的模数后，旧对象、容器元素和缓存全部失效，必须重建，不能跨模混算。构造支持 long long 全范围，v 为规范余数；加减乘及复合赋值、相等比较为 O(1)，加减只作一次区间校正，乘法使用Barrett32，不依赖素数。pow(k) 的 k 为 uint64_t 非负指数，0 次幂为 1 mod p。try_inv() 以扩展欧几里得求逆，gcd(v,p)≠1 返回 nullopt；inv() 与除法要求可逆，否则违反断言前提。p=1 时唯一余数为 0，乘法单位元也为 0，try_inv 返回 0。幂和求逆为 O(log p) 或 O(log k)，除法包含求逆。可与 Fenwick 区间和组合，不能用于模数和的 kth。mod、reducer只读，必须通过set_mod同步切换；Barrett32本身支持完整uint32，但此包装仍受int上界保护；不支持超过 INT_MAX 的模数，也不提供线程间安全切换模数。"
   ],
   [
-    "pbds_heap",
+    "gnu",
     "pheap",
     "PBDS 可修改、可合并优先队列",
     "pheap<T,C> 默认比较器为 less<T>，固定 pairing_heap_tag，形成大根堆；小根堆用 greater<T>。\n\n包含 ext/pb_ds/priority_queue.hpp。push(x) 返回 point_iterator 句柄；modify(h,x) 改值，erase(h) 删除指定元素。top/pop 要求非空，size/empty/clear 沿用容器接口。a.join(b) 把 b 全部移入 a，b 变空；原 b 元素句柄仍指向同一元素，此后应交给 a。a.swap(b) 后句柄随元素交换归属。split(pred,b) 将满足谓词的元素移入 b，本模板约定 b 原先为空。join/split 两个堆须不同，比较规则一致。删除元素、pop 对应堆顶、clear 或销毁后，相应句柄失效；不要把原堆句柄用于深复制的副本。top、push、join 为 O(1)；pop 摊还 O(log n)，modify/erase 的单次最坏可达 O(n)，不当作最坏常数。split/复制/clear 可能扫描整个堆。适合需要修改已入堆元素或合并的任务；只要普通入队出队时可用 std::priority_queue。 复杂度按比较、复制标量或编号对为常数计，T 须满足容器的复制要求。"
@@ -834,13 +822,13 @@
     "BoundedMaxFlow(n)，点号 1..n；add(u,v,lo,hi) 返回从 0 开始的原边编号，0≤lo≤hi，所有原边上界总和≤LLONG_MAX。solve(s,t) 求最大净流，minimum(s,t) 求最小净流；同一对象只能任选其一调用一次，s≠t。minimum 交换源汇求最大值后取反，原边方向及 used 不变；返回 optional<long long>，nullopt 表示无可行流。目标为源点流出减流入的净流量，两种查询都允许负答案，不能把 -1 直接当无解；minimum 不额外强制净流量非负。只在成功后读取 used(id) 的原边方案。先加 t→s 与 s→t 两条辅助边兼容负净流，再求可行循环流；保存净值后清空全部辅助残量边，最后在原图从 s 到 t 增广。最优值与增加量均受原边上界总和控制。允许自环、重边；构建和清理 O(n+m)，主体为两次 Dinic，额外空间 O(n+m)。依赖 BoundedCirculation 与 Dinic，二者内部字段只读，不应在求解后再加边或改流。"
   ],
   [
-    "matching_edges",
+    "graph",
     "matching_edges",
     "二分图最大匹配的可行边与必选边",
     "matching_edges(n,m,edges) 接收左右两侧点号各为 1..n、1..m 的边表，返回 (最大匹配大小,逐边分类)。每项为 {possible,forced}：是否属于至少一个/每一个最大匹配；分类保持输入顺序，平行边作为不同边处理。允许空侧、空图和非完备匹配。先用 BipartiteMatching 求解，再建含源汇的残量图跑 TarjanSCC；已匹配或两端同 SCC 为可行，已匹配且两端不同 SCC 为必选。不能在非完备匹配时省略源汇，也不能把可行条件写成已匹配且同 SCC。时间 O(E√(n+m)+n+m)，空间 O(n+m+E)，节点与残量边数须可用 int 表示。HK 与 SCC 都保留递归，栈深可为 O(n+m)。"
   ],
   [
-    "mincut_edges",
+    "flow",
     "mincut_edges",
     "正容量最小割的可行边与必选边",
     "mincut_edges(g,s,t) 只读分析 Dinic 已经完整求出的普通 s→t 最大流；不得传入限流提前停止或人为修改过的残量网络。所有原边初始容量必须严格为正，最大流值须可由 long long 表示。返回逐条原边的 {possible,forced}，对应 Dinic 原始偶数边号 id 的结果是 ans[id/2]。只有饱和边可能属于最小割：两端残量 SCC 不同则可行；起点与 s 同 SCC、终点与 t 同 SCC 则必选。支持平行边和自环，源汇不同，点号 1..g.n。O(n+m) 时间与空间，Tarjan 递归栈 O(n)。零容量边没有正流对应的反向残量边，不能套用本函数的同 SCC 简化条件。每次修改图或重新增广后都需重新分析。"
@@ -918,13 +906,13 @@
     "SecondMST(n)，n≥1，点号0..n-1。add(u,v,w)返回0-based边号；允许自环、重边、完整signed64位权。solve(strict=true)返回connected、128位MST总权weight、所选边号tree，以及可选128位次小权next和换入/换出边号in/out。strict=true要求权值严格增大；false要求边集与返回的MST不同，可同权。不连通返回默认空结果；无次小树时next为空且in/out=-1。存在时将tree中的out删去并加入in即得方案。可加边后重算；每次solve重建。依赖dsu，沿用路径减半及y根挂x根；不用按秩合并。时间O((n+m)log(n+m))，空间O(m+n log n)，DFS递归深度O(n)。merge/dfs/path与工作数组为内部实现；原始e只读。"
   ],
   [
-    "line_circle_i64",
+    "integer_plane",
     "line_circle_i64",
     "整数输入直线与圆交点",
     "line_circle_i64(a,b,o,r)：a、b定直线，o为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值≤10⁹，半径在0..10⁹；先用int128精确判定交点数，再用long double构造坐标。a=b返回degenerate；相离none、相切one、相交two。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10⁹尺度不承诺绝对1e-6。AOJ整数范围10⁴内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。"
   ],
   [
-    "circle_intersections_i64",
+    "integer_plane",
     "circle_intersections_i64",
     "整数输入两圆交点",
     "circle_intersections_i64(a,r,b,s)：a、b为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值≤10⁹，半径在0..10⁹；先用int128精确判定交点数，再用long double构造坐标。相离或严格内含返回none、相切one、相交two；同心等正半径返回infinite，同心零半径返回one。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10⁹尺度不承诺绝对1e-6。AOJ整数范围10⁴内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。"
@@ -1062,55 +1050,55 @@
     "KDNearest<D>(points)，D>0，Point=array<int,D>，坐标为有符号32位整数，输入编号0..n-1且允许重合点。query(q,k,far=false)返回最近k个原编号；far=true改为最远k个。结果按距离优先、等距编号小者优先排列，0≤k≤n；k=0返回空，包含与查询重合的点，不自动排除自身。平方距离用128位整数精确计算。p保留输入顺序；p/a/root仅供读取，重建请重新赋值。递归中位数建树，平均O(Dn log(n+1))，空间O(Dn)；包围盒剪枝没有对任意数据的次线性保证，单次最坏O(Dn+n log(k+1))，额外O(k+log(n+1))空间。search/build/bound为内部辅助，不直接调用。"
   ],
   [
-    "bellman_ford",
+    "graph",
     "BellmanFord",
     "Bellman–Ford：负环影响与路径方案",
     "BellmanFord(n)，点号1..n，0<n<INT_MAX。add(u,v,w)加有向边并返回0-based原边号，允许重边、自环和完整signed64边权，总边数≤INT_MAX。run(s)返回是否不存在从s可达的负环；run(0)把全体点初值设0，等价于超级源点，用于查全图负环。每次run重置状态；add后旧结果失效，须重新run。\n\n运行后dis[v]==inf表示不可达；neg[v]为真表示从起点可达的负环能到达v，距离为负无穷（这时不可读取dis作为答案）；其他点的dis为有限int128最短距离。path(v)返回有限最短路的正向原边号；不可达、负无穷或空路径都返回空vector，须结合dis/neg判定。cycle为空表示无相关负环，否则是一个相关负环的正向原边号，可通过e[id].u/v/w还原顶点和权值。run(0)的有限距离是从任意起点出发的最小值，允许零边路径，不是某个固定单源距离。\n\nO(nm+n+m)时间、O(n+m)空间；path输出O(路径长)。inf=2^126，全过程int128累加，不能无条件转为long long。在给定n,m的int边界内，n轮最多nm次更新，标签对应游走至多nm条边，绝对值<2^125，不碰inf也不溢出。e/g/dis/pre/neg/cycle和ready只读，不手改。"
   ],
   [
-    "spfa",
+    "graph",
     "Spfa",
     "SPFA：队列松弛、负环判定与有限路径",
     "Spfa(n)，点号1..n，0<n<INT_MAX。add(u,v,w)返回0-based原边号，允许重边、自环、完整signed64权值，边数≤INT_MAX；加边令valid=false。run(s)查从s可达的负环，s=0同时初始化所有点为0以查全图。返回false时valid=false，全部dis/pre均为未完成状态，不能读取为最短路或恢复路径；需要负环方案或逐点负无穷分类用BellmanFord。\n\nrun返回true时valid=true，dis[v]==inf为不可达，其余为int128最短距离；run(0)距离为任意起点出发的最小值，且本身就是全部约束x_v−x_u≤w的一个可行解。path(v)返回正向原边号；不可达与零边路径均为空，结合dis区分。每次run重置临时队列/标记/路径边数，支持反复改起点与对象复制。\n\nFIFO队列，最坏O(nm+n+m)时间，O(n+m)空间，不保证近线性；队列去重不等于永久访问标记。严格松弛后维护标签所代表游走的边数，达到n立即判负环。停止前标签最多n条边，绝对值≤n·2^63<2^94，int128与inf=2^126足够。不要无条件转long long；e/g/dis/pre/valid只读，其余按接口使用。"
   ],
   [
-    "floyd",
+    "graph",
     "Floyd",
     "Floyd全源最短路与原边方案",
     "Floyd(n)，点号1..n，0<n<INT_MAX；add(u,v,w)返回0-based原边号，有向边，允许重边、自环及完整signed64权值，边数≤INT_MAX。无向图需分别加入双向边。run()重新建立矩阵；存在任何负环返回false，valid=false，全部结果不可读，不能只取未受负环影响的点对。\n\n成功时dis[u][v]==inf为不可达，其他为int128最短距离，dis[u][u]=0。path(u,v)返回正向原边号，并列任选；不可达和u=v均为空，结合dis区分。nxt为恢复路径的首条原边号矩阵，通常只需调用path；e/dis/nxt/valid只读。add清除valid，支持重复运行、加边后重跑与独立值拷贝。\n\nrun时间O(n³+m)，空间O(n²+m)，path时间与输出空间O(路径长)。每次处理k之前检查dis[k][k]<0，立即拒绝，不能延后到所有松弛结束，否则负环下中间量可指数增长。通过的枢轴不含负环；有限标签取简单路径或闭合路径，拼接候选绝对值<2n·2^63<2^95，int128与inf=2^126足够。两段都有限才相加；不要无条件转long long。矩阵占用约20(n+1)²字节，另计vector和原边表，n应按时间/内存选择。"
   ],
   [
-    "independent_set",
+    "graph",
     "independent_set",
     "二分图最大独立集方案",
     "independent_set(g)接收已建好的BipartiteMatching，内部调用solve再取最小点覆盖的补集，返回左右两侧的原点号列表，分别从1计、升序排列。允许空侧、孤立点、重边与断开图；返回一种最大基数独立集，不保证字典序或最大权。只适用于已知左右划分的二分图，不能直接输入一般图或同侧边。\n\n调用会更新g的匹配与搜索状态，保留合法旧匹配并继续增广；调用后可立即读g.cover()。允许继续add后再次调用，不可删除边或手改匹配。n,m非负且小于INT_MAX，内存足够。最大独立集大小等于n+m减最大匹配数；只求数量可直接使用该式，求和时先转long long。\n\n依赖BipartiteMatching；总时间O((V+E)√(V+1))，V=n+m，额外时间与空间O(V)。HK增广保持递归，深度最坏O(V)。骑士攻击使格子黑白染色反转，故可应用此函数；障碍格不要建成孤立点。"
   ],
   [
-    "kruskal",
+    "graph",
     "Kruskal",
     "Kruskal 最小生成树与生成森林",
     "Kruskal(n)，0≤n≤INT_MAX，点号0..n-1；add(u,v,w)加入无向边并返回0-based原边号，边权为完整signed64，支持重边、自环和负权，边数≤INT_MAX。run()每次从全部原边重建最小生成森林，返回连通块数；n>0时返回1表示存在MST，空图返回0。weight为int128总权，ids为所选原边号，按(权值,原编号)排序；e保持插入顺序。加边后必须重新run，旧结果不代表新图。支持重复运行和独立值复制。\n\n依赖普通dsu，调用方先把较大根放在前，保留dsu的fa[y]=x语义。时间O(n+m log(m+1)+m α(n+1))，空间O(n+m)；add均摊O(1)。总权绝对值<2^94，不能无条件转long long。自环不入树，断开图仍返回各块最小树；不使用−1总权判断失败，合法MST总权也可为−1。成员只读，n和e不直接修改。"
   ],
   [
-    "prim",
+    "graph",
     "Prim",
     "稠密图 Prim 最小生成森林",
     "Prim(n)，0≤n≤INT_MAX，点号0..n-1；add(u,v,w)自动加无向边，允许完整signed64权、零权、负权、自环，重边只保留最小权。不保存原边编号；cost为int128矩阵，inf=2^126表示缺边，−1和LLONG_MAX均为合法边权。\n\nrun()每次重建最小生成森林，返回原图连通块数。n>0时返回1表示MST，空图返回0。weight为int128总权；pre[v]为父点，根为−1，非根选边权为cost[pre[v]][v]。父点森林无环，支持断连和孤立点；同权任选，不承诺字典序。加边后须重新run，支持重复运行与独立复制；成员只读。\n\n构造和存储O(n²)，add为O(1)，run为O(n²)，矩阵约16n²字节，按实际内存选择n；稀疏图优先Kruskal。每步选到已选点集的最轻边；所有剩余点均无跨边时开启新树，不把inf计入总权。只向未选点严格更新父点，负自环不入树。总权绝对值<2^94，可为−1或超出long long，不能用权值判断断连。"
   ],
   [
-    "real_space",
+    "space3",
     "RealSpace",
     "实数三维向量与夹角",
     "Point 为 long double 三坐标，支持加减、数乘/除和精确字典序；排序禁用 epsilon。dot、cross、norm 为点积、叉积、长度；unit 和 angle 要求非零向量，angle 返回0..π的有向向量夹角，弧度制。unit(a)*r 变换长度；点间距离为 norm(a-b)。有限输入且中间量不溢出/下溢，极端尺度须预缩放；浮点不是精确共面判定。O(1)时间空间。"
   ],
   [
-    "line3",
+    "space3",
     "Line3",
     "三维直线投影、线段距离与绕轴旋转",
     "Line3(p,d) 表示 p+t*d，注意第二参数是方向；through(a,b) 从两个端点构造。线段限制0≤t≤1。projection/segment_projection 返回最近点，distance/segment_distance 返回距离，on_segment(q,eps) 使用绝对距离容差。d=0 时这些操作按点p处理；rotate(q,rad) 必须d非零，绕p+t*d按右手法则旋转，角度单位弧度。公开p,d。依赖RealSpace；O(1)。近退化浮点运算须按输入尺度分析误差。"
   ],
   [
-    "plane3",
+    "space3",
     "Plane3",
     "三维平面投影与分类求交",
     "Plane3(p,normal) 要求非零法向量并单位化；through(a,b,c) 要求三点不共线；equation(n,h) 表示n点乘x=h。signed_distance保留法向符号，projection返回垂足。intersect(line,q,eps,ang) 返回1单点、0无交、-1整条非退化线在面上，退化线按点处理。intersect(plane,line,eps,ang) 返回1交线、0平行不同、-1重合。仅返回1时写输出参数；交线d为单位向量。eps为距离容差，ang为单位方向的正弦容差；默认1e-10和1e-12。近乎平行按容差分类，非精确拓扑判定；近乎平行求交误差会放大。公开p和单位n，勿破坏单位不变量。依赖RealSpace/Line3；O(1)。"
@@ -1122,13 +1110,13 @@
     "TimeConnectivity(n,q)，点号0..n（1-based图不使用0），时间0..q-1。add(l,r,u,v)登记边在半开区间[l,r)有效，允许空区间、重叠区间、重边和自环。run(visit)按时间递增调用visit(t,const RollbackDSU &d)，可用find判断连通、siz[find(u)]取分量大小；只在回调内读取，不保留引用，不在遍历中改图。每次run重新建并查集，可重复调用，也可在两次run间加区间。q=0不调用回调。n>=0且n<INT_MAX，0<=q<=INT_MAX/4，并须满足内存限制。K个非空区间：存储O(n+q+K log(q+1))；建区间O(K log(q+1))，遍历O(n+q+K log(q+1) log(n+2))，另加回调代价。依赖RollbackDSU，不做路径压缩；DFS保持递归。"
   ],
   [
-    "tree_mo",
+    "mo",
     "TreeMo",
     "树上莫队：点权与边权",
     "先对非空连通树HLD.build(root)，再TreeMo(tree)；tree须活到run结束且不能修改。点号1..n，双欧拉序长2n，n<=INT_MAX/2；DFS递归。add(u,v,edge=false)返回0-based查询ID；默认点权，edge=true把父边权记在子点并排除LCA。run(add,del,ans,block=0)的add/del参数是顶点，ans参数是查询ID；只适合与集合排列无关且可增删的统计。调用前统计为空，结束恢复空；不可在回调内修改树/查询，可重复运行。混用点边查询时回调须有一致的数据解释。默认块长max(1,2n/sqrt(m))；自定B>0。m>0时调度O(m log(m+1)+mB+n²/B+n)，查询转换另需O(m log n)，回调代价另计。空间O(n+m)，复用HLD；整数大小另须满足内存限制。"
   ],
   [
-    "rollback_mo",
+    "mo",
     "RollbackMo",
     "回滚莫队",
     "RollbackMo(n)，n>=0；add(l,r)登记0-based半开区间[l,r)，允许空区间，返回0-based查询ID。run(add,snapshot,rollback,ans,block=0)：add接收位置，snapshot返回当前快照，rollback恢复该祖先快照，ans接收查询ID。开始时统计必须为空；结束恢复初始快照。每次add都须可撤销，包含长期右段；不保留失效快照、不修改查询。只支持与插入次序无关的区间统计。默认B=max(1,n/sqrt(m))；m>0时调度与O(1)增删总计O(m log(m+1)+mB+n²/B+n)，空间O(m)加回调状态/历史O(n)。可重复run，n=0只允许空查询；无查询不调用回调。"
@@ -1278,10 +1266,10 @@
     "cartesian_tree(a)返回CartesianTree {root,left,right}，下标0..n-1，缺失孩子及空树根为-1。中序遍历为原下标顺序，按值为小根堆；相等值保留较小下标在上方，即区间最左最小值为根。输入不修改，n须能用int表示，元素比较须构成严格弱序，浮点NaN不适用。\n\n比较O(1)时，构造O(n)，结果数组及辅助单调栈均O(n)。每点入栈一次、出栈至多一次；单调栈维护树的最右路径，不模拟DFS。弹出节点中最后一个成为新节点的左孩子，剩余栈顶的右孩子改成新节点。P5854用1..n排列，n≤10^7；P5854已用C++14 GCC9满分通过，排名未核验。"
   ],
   [
-    "ordinary_mo",
+    "mo",
     "Mo",
     "普通莫队：静态区间统计",
-    "Mo(n)，n≥0；add(l,r)登记0-based半开区间并返回查询编号，允许空区间。run(add,del,ans,block=0)中加删回调接收下标，答案回调接收原查询编号。开始时统计状态须为空，结束后删除剩余点恢复空状态；可重复run，运行期间不能修改查询表。适用于加删任意位置语义相同的集合统计；逆序对等顺序敏感统计需另外区分左右端点。\n\n查询按左端块号、右端蛇形排序；先扩张再收缩，保证删除位置仍在当前区间。回调O(1)时，正块长B的时间O(q log(q+1)+qB+n²/B+n)，额外空间O(q)。默认B=max(1,floor(n/sqrt(q)))，q=0直接返回。n和q须能用int表示。P2709频次平方和须用long long，最大n²=10^10。P2709 当前代码已 AC（30 个测试点，单点最大 69ms）；运行时间排名未核查。"
+    "Mo(n)，n≥0；add(l,r)登记0-based半开区间并返回查询编号，允许空区间。run(add,del,ans,block=0)中加删回调接收下标，答案回调接收原查询编号。开始时统计状态须为空，结束后删除剩余点恢复空状态；可重复run，运行期间不能修改查询表。适用于加删任意位置语义相同的集合统计；逆序对等顺序敏感统计需另外区分左右端点。\n\n查询按左端块号、右端蛇形排序；先扩张再收缩，保证删除位置仍在当前区间。回调O(1)时，正块长B的时间O(q log(q+1)+qB+n²/B+n)，额外空间O(q)。默认B=max(1,floor(n/sqrt(q)))，q=0直接返回。n和q须能用int表示。P2709频次平方和须用long long，最大n²=10^10。P2709 当前代码已 AC（30 个测试点，单点最大 69ms）；运行时间排名未核查。 曼哈顿最小生成树排序：把查询 [l,r) 看作点 (l,r)，用 ManhattanMST 建树后按 DFS 先序处理查询，相邻查询的指针移动总和不超过 2 倍 MST 权；不保证比分块排序更快，一般题直接用默认分块。"
   ],
   [
     "plug_cycle",
@@ -1338,19 +1326,19 @@
     "minimum_rectangle(p) 返回pair(area,box)，box是array<Point,4>，非退化时按逆时针列出最优矩形四角；并列时不指定首点或方向。输入RealPlane::Point严格逆时针凸包，不重复首点、不保留共线中间点，不能直接传散点或顺时针多边形。空集返回0和四个原点；单点重复四次，线段返回a,b,b,a；原输入不变。\n\n沿每条凸包边维护前后投影极值与最大高度，恢复四条支撑线的交点。精确支撑比较下O(n)时间、O(1)额外空间；n≤INT_MAX，输入及所有中间运算须有限可表示。浮点版不使用eps或扰动，近退化符号及角点精度仍受舍入影响；steps<n是异常平坦比较的终止保护，不能修复舍入错误（异常时最坏O(n²)）。有界整数/定点题优先精确构造凸包，再传实数坐标。"
   ],
   [
-    "convex_cut",
+    "real_plane",
     "convex_cut",
     "凸多边形裁剪：保留有向直线左侧",
     "convex_cut(p,a,b) 返回凸多边形与有向直线a→b左侧闭半平面的交。a≠b；输入按边界顺序，顺/逆时针均可，允许共线中间点；空集、点和线段也可。原输入不变，输出保留原方向，但可能有共线点或重复边界点，不能直接当作严格凸包传入minimum_rectangle。\n\n逐边保留左侧顶点，仅在两端严格异侧时加入交点，过顶点及沿边切割不作重复求交。O(n)时间和输出空间。n须能用int表示，输入及中间运算有限可表示。不使用eps；任意近退化实数的符号受舍入影响，不保证精确拓扑。AOJ整数范围内输入侧向叉积可精确表示，交点与面积仍舍入。"
   ],
   [
-    "polygon_centroid",
+    "real_plane",
     "polygon_centroid",
     "简单多边形面积重心",
     "polygon_centroid(p) 返回optional<RealPlane::Point>，表示均匀密度简单多边形的面积重心；可凹，顺/逆时针均可。少于三点或计算有向面积恰为0返回nullopt，不把原点作为失败标记。不用于自交、多环带孔多边形，也不是顶点平均或边界线重心。\n\n相对p[0]作三角扇，有向面积与一阶矩补偿求和；除以总有向面积恢复坐标。O(n)时间、O(1)额外空间，原输入不变。n须能用int表示，输入与中间运算有限可表示；不使用eps。实数近退化时面积符号和零判定仍可能舍入错误，巨大平移也限制最终坐标精度；long double不保证比double精度高。"
   ],
   [
-    "triangle_incircle",
+    "real_plane",
     "triangle_incircle",
     "三角形内切圆：边长加权内心",
     "triangle_incircle(a,b,c)返回optional<RealPlane::Circle>，圆心为内心、半径为面积除以半周长。顺逆时针均可，不改变输入；计算叉积恰为0或三点全重合返回nullopt，不把原点作为失败标志。用对边长加权顶点，避免三角函数；O(1)时间和空间。\n\n先相对a平移，边向量按最大分量归一化再求边长；面积叉积在归一化前计算，保留AOJ整数域内精确零判定。要求输入、相减、叉积及输出等中间值有限可表示且不发生影响结果的下溢；任意近共线实数的零判定仍可能舍入错误，不是精确拓扑接口。AOJ整数坐标绝对值<=10000、三点不共线；叉积精确，圆心半径仍为浮点近似。long double不保证比double精度高。"

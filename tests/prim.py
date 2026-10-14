@@ -143,9 +143,9 @@ def main():
         p = subprocess.run([str(exe),*args],input=raw.encode(),capture_output=True,env=env,timeout=300)
         assert p.returncode == 0 and not p.stderr,(exe,p.returncode,p.stdout[:500],p.stderr[-1000:])
         return p.stdout.decode()
-    header=(ROOT/'src/compact/prim.hpp').read_text().replace('#pragma once\n','')
+    header=(ROOT/'src/compact/graph.hpp').read_text().replace('#pragma once\n','')
     probe=(ROOT/'tests/prim_probe.cpp').read_text()
-    copied=header+'\n'+probe.replace('#include "../src/compact/prim.hpp"','')
+    copied=header+'\n'+probe.replace('#include "../src/compact/graph.hpp"','')
     copied=copied.replace('"fixtures/prim_sources/','"'+str(ROOT/'tests/fixtures/prim_sources')+'/')
     for form,source in [('header','#include "'+str(ROOT/'tests/prim_probe.cpp')+'"\n'),('copied',copied)]:
         for release in (False,True):

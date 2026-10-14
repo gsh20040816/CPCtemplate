@@ -1,5 +1,5 @@
 #include "../../src/compact/euler_lca.hpp"
-#include "../../src/compact/path_intersection.hpp"
+#include "../../src/compact/tree.hpp"
 #include <iostream>
 
 int main()

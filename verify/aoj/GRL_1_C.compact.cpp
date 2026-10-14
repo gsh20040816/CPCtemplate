@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "../../src/compact/floyd.hpp"
+#include "../../src/compact/graph.hpp"
 using namespace std;
 
 int main()

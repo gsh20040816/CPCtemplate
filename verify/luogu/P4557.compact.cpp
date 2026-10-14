@@ -1,5 +1,5 @@
 #include "../../src/compact/minkowski_sum.hpp"
-#include "../../src/compact/convex_contains_i64.hpp"
+#include "../../src/compact/integer_plane.hpp"
 using namespace std;
 
 int main()

@@ -1,4 +1,4 @@
-#include "../../src/compact/convex_cut.hpp"
+#include "../../src/compact/real_plane.hpp"
 
 int main()
 {

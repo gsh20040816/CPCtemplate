@@ -1,5 +1,5 @@
 #include "../src/compact/integer_hull.hpp"
-#include "../src/compact/convex_diameter2.hpp"
+#include "../src/compact/integer_plane.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 #include <iostream>
 #include <random>

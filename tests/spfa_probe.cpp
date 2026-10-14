@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "../src/compact/spfa.hpp"
+#include "../src/compact/graph.hpp"
 using namespace std;
 using I = __int128_t;
 long long checks = 0, runs = 0;

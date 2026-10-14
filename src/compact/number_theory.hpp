@@ -1,13 +1,195 @@
 #pragma once
-#include <cassert>
 #include <bits/stdc++.h>
+#include <cassert>
 using namespace std;
 
-#include "prime64.hpp"
-#include "extended_gcd.hpp"
-#include "mod_inverse.hpp"
-#include "crt_merge.hpp"
 #include "floor_sum.hpp"
+
+struct Mod64
+{
+    using ull = unsigned long long;
+    using u128 = __uint128_t;
+
+    static ull mul(ull a, ull b, ull m) { return u128(a) * b % m; }
+
+    static ull power(ull a, ull b, ull m)
+    {
+        assert(m);
+        ull r = 1 % m;
+        a %= m;
+        for (; b; b >>= 1, a = mul(a, a, m))
+            if (b & 1) r = mul(r, a, m);
+        return r;
+    }
+};
+
+struct Prime64 : Mod64
+{
+    static bool prime(ull n)
+    {
+        if (n < 2) return false;
+        for (ull p : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37})
+            if (n % p == 0) return n == p;
+        ull d = n - 1;
+        int s = 0;
+        while (!(d & 1))
+        {
+            d >>= 1;
+            ++s;
+        }
+        for (ull a :
+             {2ULL, 325ULL, 9375ULL, 28178ULL, 450775ULL, 9780504ULL, 1795265022ULL})
+        {
+            if (a % n == 0) continue;
+            ull x = power(a, d, n);
+            if (x == 1 || x == n - 1) continue;
+            bool ok = false;
+            for (int j = 1; j < s; j++)
+            {
+                x = mul(x, x, n);
+                if (x == n - 1)
+                {
+                    ok = true;
+                    break;
+                }
+            }
+            if (!ok) return false;
+        }
+        return true;
+    }
+};
+
+// BEGIN extended_gcd
+__int128_t extended_gcd(__int128_t a, __int128_t b, __int128_t &x, __int128_t &y)
+{
+    using i128 = __int128_t;
+    if (!b)
+    {
+        x = 1;
+        y = 0;
+        return a;
+    }
+    i128 d = extended_gcd(b, a % b, y, x);
+    y -= a / b * x;
+    return d;
+}
+
+// END extended_gcd
+
+// BEGIN mod_inverse
+long long mod_inverse(long long a, long long m)
+{
+    using i128 = __int128_t;
+    assert(m > 0);
+    a %= m;
+    if (a < 0) a += m;
+    i128 x, y;
+    if (extended_gcd(a, m, x, y) != 1) return -1;
+    return (x % m + m) % m;
+}
+
+// END mod_inverse
+
+// BEGIN linear_congruence
+pair<long long, long long> linear_congruence(long long a, long long b, long long m)
+{
+    assert(m > 0);
+    using i128 = __int128_t;
+    a %= m;
+    if (a < 0) a += m;
+    i128 x, y;
+    i128 g = extended_gcd(a, m, x, y);
+    if (i128(b) % g) return {-1, -1};
+    i128 period = m / g;
+    x = x * (-i128(b) / g) % period;
+    if (x < 0) x += period;
+    return {(long long)x, (long long)period};
+}
+
+// END linear_congruence
+
+// BEGIN crt_merge
+bool crt_merge(long long &r, long long &m, long long b, long long n)
+{
+    using ll = long long;
+    using i128 = __int128_t;
+    assert(m > 0 && n > 0);
+    r %= m;
+    if (r < 0) r += m;
+    b %= n;
+    if (b < 0) b += n;
+    i128 x, y;
+    ll g = (ll)extended_gcd(m, n, x, y);
+    i128 diff = i128(b) - r;
+    if (diff % g) return false;
+    i128 q = n / g, k = (diff / g * x % q + q) % q, mod = i128(m) * q;
+    if (mod > LLONG_MAX) throw overflow_error("CRT modulus");
+    r = (r + i128(m) * k) % mod;
+    m = (ll)mod;
+    return true;
+}
+
+// END crt_merge
+
+// BEGIN segmented_primes
+vector<int> segmented_primes(int l, int r)
+{
+    assert(0 <= l && l <= r);
+    int limit = 0;
+    while (1LL * (limit + 1) * (limit + 1) <= r) limit++;
+    vector<char> composite(limit + 1);
+    vector<char> removed(1LL * r - l + 1);
+    for (int p = 2; p <= limit; p++)
+        if (!composite[p])
+        {
+            for (long long j = 1LL * p * p; j <= limit; j += p) composite[j] = true;
+            long long start = max(1LL * p * p, (l + 1LL * p - 1) / p * p);
+            for (long long j = start; j <= r; j += p) removed[j - l] = true;
+        }
+    vector<int> primes;
+    for (long long x = max(l, 2); x <= r; x++)
+        if (!removed[x - l]) primes.push_back(x);
+    return primes;
+}
+
+// END segmented_primes
+
+// BEGIN inverse_table
+vector<int> inverse_table(int n, int p)
+{
+    assert(p >= 2 && 0 <= n && n < p);
+    vector<int> inverse(n + 1);
+    if (n) inverse[1] = 1;
+    for (int i = 2; i <= n; i++) inverse[i] = p - 1LL * (p / i) * inverse[p % i] % p;
+    return inverse;
+}
+
+// END inverse_table
+
+// BEGIN batch_inverse
+optional<vector<long long>> batch_inverse(vector<long long> a, long long mod)
+{
+    assert(mod > 0);
+    int n = a.size();
+    vector<long long> prefix(n + 1, 1 % mod);
+    for (int i = 0; i < n; i++)
+    {
+        a[i] %= mod;
+        if (a[i] < 0) a[i] += mod;
+        prefix[i + 1] = __int128_t(prefix[i]) * a[i] % mod;
+    }
+    long long inverse = mod_inverse(prefix[n], mod);
+    if (inverse == -1) return nullopt;
+    for (int i = n - 1; i >= 0; i--)
+    {
+        long long value = a[i];
+        a[i] = __int128_t(inverse) * prefix[i] % mod;
+        inverse = __int128_t(inverse) * value % mod;
+    }
+    return a;
+}
+
+// END batch_inverse
 
 struct PollardRho
 {
@@ -60,6 +242,38 @@ struct PollardRho
         return a;
     }
 };
+
+// BEGIN euler_phi
+unsigned long long euler_phi(unsigned long long n)
+{
+    assert(n >= 1);
+    unsigned long long answer = n;
+    for (unsigned long long p = 2; p <= n / p; p++)
+        if (n % p == 0)
+        {
+            answer = answer / p * (p - 1);
+            while (n % p == 0) n /= p;
+        }
+    if (n > 1) answer = answer / n * (n - 1);
+    return answer;
+}
+
+unsigned long long euler_phi(unsigned long long n, PollardRho &solver)
+{
+    assert(n >= 1);
+    auto factors = solver.factor(n);
+    unsigned long long answer = n;
+    unsigned long long previous = 0;
+    for (auto p : factors)
+        if (p != previous)
+        {
+            answer = answer / p * (p - 1);
+            previous = p;
+        }
+    return answer;
+}
+
+// END euler_phi
 
 struct LinearSieve
 {

@@ -6,10 +6,10 @@ import subprocess
 root = Path(__file__).resolve().parents[1]
 build = root / 'build/ordinary-mo'
 build.mkdir(parents=True, exist_ok=True)
-header = root / 'src/compact/ordinary_mo.hpp'
+header = root / 'src/compact/mo.hpp'
 test = root / 'tests/ordinary_mo.cpp'
 copied = build / 'copied.cpp'
-copied.write_text(test.read_text().replace('#include "../src/compact/ordinary_mo.hpp"', header.read_text().replace('#pragma once\n', '')))
+copied.write_text(test.read_text().replace('#include "../src/compact/mo.hpp"', header.read_text().replace('#pragma once\n', '')))
 report = {'source_sha256': hashlib.sha256(header.read_bytes()).hexdigest(), 'oracle': 'exact active position set at every answer, legal add/delete transitions and final empty state', 'checks': {}}
 for mode in ['normal', 'sanitizer']:
     flags = ['-O2'] if mode == 'normal' else ['-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']

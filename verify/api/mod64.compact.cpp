@@ -1,4 +1,4 @@
-#include "../../src/compact/mod64.hpp"
+#include "../../src/compact/number_theory.hpp"
 
 int main()
 {

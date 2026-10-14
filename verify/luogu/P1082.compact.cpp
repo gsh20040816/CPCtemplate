@@ -1,4 +1,4 @@
-#include "../../src/compact/mod_inverse.hpp"
+#include "../../src/compact/number_theory.hpp"
 #include <cstdio>
 
 int main()

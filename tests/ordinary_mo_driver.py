@@ -9,10 +9,10 @@ import subprocess
 root = Path(__file__).resolve().parents[1]
 build = root / 'build/ordinary-mo'
 build.mkdir(parents=True, exist_ok=True)
-header = root / 'src/compact/ordinary_mo.hpp'
+header = root / 'src/compact/mo.hpp'
 driver = root / 'verify/luogu/P2709.compact.cpp'
 source = build / 'P2709.cpp'
-source.write_text(driver.read_text().replace('#include "../../src/compact/ordinary_mo.hpp"', header.read_text().replace('#pragma once\n', '')))
+source.write_text(driver.read_text().replace('#include "../../src/compact/mo.hpp"', header.read_text().replace('#pragma once\n', '')))
 cases = [('6 4 3\n1 3 2 1 1 3\n1 4\n2 6\n3 5\n5 6\n', '6 9 5 2')]
 rng = random.Random(2709)
 for test in range(100):

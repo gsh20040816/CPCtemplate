@@ -28,9 +28,9 @@ from usage_examples import records
 
 EXAMPLES = {'example-207': 'verify/luogu/P1516.compact.cpp',
             'example-208': 'verify/poj/2689.compact.cpp'}
-HEADERS = {'extended_gcd': 'src/compact/extended_gcd.hpp',
-           'linear_congruence': 'src/compact/linear_congruence.hpp',
-           'segmented_primes': 'src/compact/segmented_sieve.hpp'}
+HEADERS = {'extended_gcd': 'src/compact/number_theory.hpp',
+           'linear_congruence': 'src/compact/number_theory.hpp',
+           'segmented_primes': 'src/compact/number_theory.hpp'}
 SOURCES = ['docs/usage-examples.json', 'docs/catalog.json',
            'tests/math_application_usages.py', 'tests/usage_examples.py',
            'tests/compiler_config.py', 'tools/usage_examples.py',

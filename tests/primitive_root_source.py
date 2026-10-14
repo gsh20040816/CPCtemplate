@@ -55,7 +55,7 @@ def main():
     out=ROOT/'build/primitive-source'/mode;out.mkdir(parents=True,exist_ok=True)
     row=next(r for r in records() if r['id']=='example-48')
     sha=lambda b:hashlib.sha256(b).hexdigest()
-    paths=['src/compact/primitive_root.hpp','src/compact/mod64.hpp','tests/primitive_root_source.py','tests/fixtures/primitive_root_sources/issue11.cpp','verify/luogu/P6091.compact.cpp','tools/usage_examples.py','tools/audit_copy_context.py']
+    paths=['src/compact/primitive_root.hpp','src/compact/number_theory.hpp','tests/primitive_root_source.py','tests/fixtures/primitive_root_sources/issue11.cpp','verify/luogu/P6091.compact.cpp','tools/usage_examples.py','tools/audit_copy_context.py']
     snapshot={p:sha((ROOT/p).read_bytes()) for p in paths}
     roots={n:cycle_roots(n) for n in range(2,601)}
     large=[999983,999979,10**6,531441,354294,524288,390625,781250,999999]

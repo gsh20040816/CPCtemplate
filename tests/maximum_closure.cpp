@@ -1,4 +1,4 @@
-#include "../src/compact/maximum_closure.hpp"
+#include "../src/compact/flow.hpp"
 #include "../src/classic/maximum_closure.hpp"
 #include <iostream>
 #include <random>

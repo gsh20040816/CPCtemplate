@@ -1,4 +1,4 @@
-#include "../../src/compact/polygon_contains.hpp"
+#include "../../src/compact/integer_plane.hpp"
 using namespace std;
 
 int main()

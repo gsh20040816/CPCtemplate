@@ -1,4 +1,4 @@
-#include "../../src/compact/kruskal.hpp"
+#include "../../src/compact/graph.hpp"
 
 int main()
 {

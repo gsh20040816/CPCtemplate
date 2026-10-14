@@ -1,9 +1,9 @@
-#include "../src/compact/line_projection.hpp"
-#include "../src/compact/segment_distance_real.hpp"
-#include "../src/compact/line_intersection_real.hpp"
-#include "../src/compact/line_circle_intersections.hpp"
-#include "../src/compact/circle_intersections.hpp"
-#include "../src/compact/circle_overlap_area.hpp"
+#include "../src/compact/real_plane.hpp"
+#include "../src/compact/real_plane.hpp"
+#include "../src/compact/real_plane.hpp"
+#include "../src/compact/real_plane.hpp"
+#include "../src/compact/real_plane.hpp"
+#include "../src/compact/real_plane.hpp"
 
 int main()
 {

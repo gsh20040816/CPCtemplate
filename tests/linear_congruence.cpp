@@ -1,4 +1,4 @@
-#include "../src/compact/linear_congruence.hpp"
+#include "../src/compact/number_theory.hpp"
 #include "../src/classic/linear_congruence.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 #include <random>

@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HERE = ROOT / 'tests/fixtures/integer-3d-demo'
 DRIVER = ROOT / 'docs/usage-drivers/integer-3d-demo.cpp'
 CORE_TEST = ROOT / 'tests/integer_3d_demo_core.cpp'
-HEADER = ROOT / 'src/compact/real_space.hpp'
+HEADER = ROOT / 'src/compact/space3.hpp'
 EXAMPLE = 'example-225'
 PRINTED = ROOT / f'docs/usage/{EXAMPLE}.cpp'
 

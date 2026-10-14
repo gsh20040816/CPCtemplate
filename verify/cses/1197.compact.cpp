@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "../../src/compact/bellman_ford.hpp"
+#include "../../src/compact/graph.hpp"
 using namespace std;
 
 int main()

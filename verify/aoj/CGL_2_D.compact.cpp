@@ -1,5 +1,5 @@
 #include "../../src/compact/integer_plane.hpp"
-#include "../../src/compact/segment_distance_real.hpp"
+#include "../../src/compact/real_plane.hpp"
 
 int main()
 {

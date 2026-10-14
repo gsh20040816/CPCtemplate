@@ -1,4 +1,4 @@
-#include "../../src/compact/line_projection.hpp"
+#include "../../src/compact/real_plane.hpp"
 
 int main()
 {

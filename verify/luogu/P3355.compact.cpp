@@ -1,4 +1,4 @@
-#include "../../src/compact/independent_set.hpp"
+#include "../../src/compact/graph.hpp"
 
 int main()
 {

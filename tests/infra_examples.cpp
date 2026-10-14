@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include <cassert>
-#include "../src/compact/pbds_heap.hpp"
+#include "../src/compact/gnu.hpp"
 using namespace std;
 
 struct Trace

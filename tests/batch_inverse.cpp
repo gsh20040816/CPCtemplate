@@ -1,4 +1,4 @@
-#include "../src/compact/batch_inverse.hpp"
+#include "../src/compact/number_theory.hpp"
 #include <iostream>
 
 void check(vector<long long> a, long long mod)

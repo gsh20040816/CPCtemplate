@@ -83,7 +83,7 @@ env = dict(os.environ, ASAN_OPTIONS='detect_leaks=0:halt_on_error=1', UBSAN_OPTI
 for mode in ('normal', 'sanitizer'):
     flags = ['-O2'] if mode == 'normal' else ['-O1', '-g', '-fsanitize=address,undefined', '-fno-sanitize-recover=all']
     for form in ('header', 'ndebug', 'copied'):
-        current = copied if form == 'copied' else f'#include "{root}/src/compact/euler_phi.hpp"\n'
+        current = copied if form == 'copied' else f'#include "{root}/src/compact/number_theory.hpp"\n'
         program = build / f'{mode}-{form}.cpp'
         program.write_text(prelude + current + originals + harness)
         exe = program.with_suffix('')
@@ -105,8 +105,8 @@ assert result.returncode != 0 and 'signed integer overflow' in result.stderr and
 report['upstream_square_overflow'] = {'n': 2147483647, 'stderr': result.stderr, 'returncode': result.returncode}
 report['upstream_narrow_accumulator'] = {'caller_n': 4294967296, 'observed_result': 0, 'correct_result': 2147483648,
     'scope': 'Outside int accumulator domain; observed compiler conversion, not claimed signed-overflow diagnostic'}
-paths = ['tests/phi_source_audit.py', 'tests/phi_source_audit.cpp', 'src/compact/euler_phi.hpp',
-         'src/compact/number_theory.hpp', 'src/compact/prime64.hpp', 'src/compact/mod64.hpp']
+paths = ['tests/phi_source_audit.py', 'tests/phi_source_audit.cpp', 'src/compact/number_theory.hpp',
+         'src/compact/number_theory.hpp', 'src/compact/number_theory.hpp', 'src/compact/number_theory.hpp']
 report['current_sha256'] = {p: sha(root / p) for p in paths}
 (root / 'verification/phi-source-audit.json').write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n')
 print('source overflow detected; all comparisons PASS', flush=True)

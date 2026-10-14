@@ -1,4 +1,4 @@
-#include "../src/compact/ordinary_mo.hpp"
+#include "../src/compact/mo.hpp"
 
 int main()
 {

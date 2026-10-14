@@ -5,7 +5,7 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
 (root/'build/ordinary-mo').mkdir(parents=True, exist_ok=True)
-header = (root/'src/compact/ordinary_mo.hpp').read_text().replace('#pragma once\n','')
+header = (root/'src/compact/mo.hpp').read_text().replace('#pragma once\n','')
 test = (root/'tests/ordinary_mo.cpp').read_text()
 mutants = {
     'missing_left_expansion': ('while (l > a.l) add(--l);', 'while (l > a.l) --l;'),
@@ -16,7 +16,7 @@ report = {}
 for name,(old,new) in mutants.items():
     assert old in header
     source=root/'build/ordinary-mo'/('mutant-'+name+'.cpp')
-    source.write_text(test.replace('#include "../src/compact/ordinary_mo.hpp"',header.replace(old,new)))
+    source.write_text(test.replace('#include "../src/compact/mo.hpp"',header.replace(old,new)))
     exe=source.with_suffix('')
     subprocess.run(['/opt/homebrew/bin/g++-16','-std=c++20','-O2',str(source),'-o',str(exe)],check=True)
     p=subprocess.run([str(exe)],capture_output=True,timeout=30)

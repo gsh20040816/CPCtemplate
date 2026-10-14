@@ -1,4 +1,4 @@
-#include "../src/compact/kruskal.hpp"
+#include "../src/compact/graph.hpp"
 using I = __int128_t;
 using E = Kruskal::Edge;
 namespace kb

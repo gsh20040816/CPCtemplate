@@ -1,4 +1,4 @@
-#include "../../src/compact/polygon_area2.hpp"
+#include "../../src/compact/integer_plane.hpp"
 
 int main()
 {

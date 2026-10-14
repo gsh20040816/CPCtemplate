@@ -1,6 +1,6 @@
 #pragma once
 #include "algebra.hpp"
-#include "linear_congruence.hpp"
+#include "number_theory.hpp"
 
 struct KthResidue
 {

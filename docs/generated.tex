@@ -412,33 +412,13 @@ SAIS(s,alphabet)：整数符号0..alphabet-1，1$\le$alphabet<INT\_MAX，长度n
 
 代码依赖：\hyperref[compact-SuffixArray]{SuffixArray}（第~\pageref{compact-SuffixArray}~页，\ref{compact-SuffixArray}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-先构造 SuffixArray，再构造 SuffixLCP(sa)。重新赋值 SuffixLCP(sa) 可建新表。复制所需排名与 LCP 数据，不保存原字符串或源对象引用，源对象可销毁或重建。query(x,y) 返回 s[x..n) 与 s[y..n) 的最长公共前缀，0$\le$x,y$\le$n，允许空后缀；同起点返回 n-x。compare(l1,r1,l2,r2) 比较两个 0-based 半开子串，允许空串，返回 -1/0/1。若公共前缀覆盖较短子串，按长度比较，否则原后缀排名给出首个不同字符的顺序。字节排序及整数字母表约束继承 SuffixArray。预处理稀疏表 O(n log n) 时间、空间，每次查询 O(1)，无需哈希和原串。n、rk、lg、st 可读，禁止调用方破坏。
+先构造 SuffixArray，再构造 SuffixLCP(sa)。重新赋值 SuffixLCP(sa) 可建新表。复制所需排名与 LCP 数据，不保存原字符串或源对象引用，源对象可销毁或重建。query(x,y) 返回 s[x..n) 与 s[y..n) 的最长公共前缀，0$\le$x,y$\le$n，允许空后缀；同起点返回 n-x。compare(l1,r1,l2,r2) 比较两个 0-based 半开子串，允许空串，返回 -1/0/1。若公共前缀覆盖较短子串，按长度比较，否则原后缀排名给出首个不同字符的顺序。字节排序及整数字母表约束继承 SuffixArray。预处理稀疏表 O(n log n) 时间、空间，每次查询 O(1)，无需哈希和原串。n、rk、lg、st 可读，禁止调用方破坏。 前缀的最长公共后缀：在反串上构造 SuffixLCP rev，s[0..x) 与 s[0..y) 的最长公共后缀为 rev.query(n-x,n-y)。重复子串（AA 型）计数：枚举半长 len 与锚点 i,i+len，用正反两个 SuffixLCP 求向右、向左可延伸长度，再按区间差分累加。
 
-\lstinputlisting[firstline=5,lastline=27]{../src/compact/suffix_lcp.hpp}
+\lstinputlisting[firstline=364,lastline=386]{../src/compact/string.hpp}
 
 \Needspace{253pt}
 
-\lstinputlisting[firstline=28,lastline=48,firstnumber=24]{../src/compact/suffix_lcp.hpp}
-
-\Needspace{183pt}
-
-\subsection{两个前缀的最长公共后缀}\label{compact-prefix_lcs}\index{prefix\_lcs}
-
-代码依赖：\hyperref[compact-SuffixLCP]{SuffixLCP}（第~\pageref{compact-SuffixLCP}~页，\ref{compact-SuffixLCP}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-prefix\_lcs(reversed,x,y) 返回原序列 s[0..x) 与 s[0..y) 的最长公共后缀，端点满足 0$\le$x,y$\le$n。reversed 必须在原序列的反转序列上构造 SuffixLCP，不能传正向对象；转换为 reversed.query(n-x,n-y)，单次 O(1)。只需前向 LCP 时不必构造反向对象；该接口中的 LCS 是最长公共后缀，不是最长公共子序列。对于两个任意子串，以右端点查询后还需截断到两个子串长度的最小值。
-
-\lstinputlisting[firstline=52,lastline=58]{../src/compact/suffix_lcp.hpp}
-
-\Needspace{450pt}
-
-\subsection{重复子串 AA 的起止位置计数}\label{compact-square_counts}\index{square\_counts}
-
-代码依赖：\hyperref[compact-SuffixLCP]{SuffixLCP}（第~\pageref{compact-SuffixLCP}~页，\ref{compact-SuffixLCP}~节）、\hyperref[compact-prefix_lcs]{prefix\_\allowbreak{}lcs}（第~\pageref{compact-prefix_lcs}~页，\ref{compact-prefix_lcs}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-square\_counts(forward,reversed) 返回 (start,finish) 两个长度 n 的 long long 数组，start[i]/finish[i] 为开始/结束于位置 i 的非空 AA 型子串个数；结束位置是最后一个字符下标，均 0-based。两对象必须分别对应同一原序列及其反序列，长度相同，允许空序列。枚举半长 len，并以其整数倍 i 为锚点；向左匹配截断为 len-1，向右截断为 len，由 LCP/LCS 得出合法起点连续区间，差分累计。左侧不能放宽到 len，否则相邻锚点会重复计数。预处理查询器后，此函数 O(n log n) 时间、O(n) 额外空间。不同出现位置、不同半长分别计数；不要求 A 为最小周期。P1117 的 AABB 拆分数为所有分界点 finish[i]*start[i+1] 之和，累加类型需按题目范围选择，函数本身只返回起止计数。
-
-\lstinputlisting[firstline=62,lastline=91]{../src/compact/suffix_lcp.hpp}
+\lstinputlisting[firstline=387,lastline=407,firstnumber=24]{../src/compact/string.hpp}
 
 \subsection{整数后缀数组的边界与 SAM 次数}\label{knowledge-suffix-bounds}
 SuffixArray 的整数入口要求 $0\le a[i]<alphabet$；稀疏大整数先保序离散化。
@@ -485,7 +465,7 @@ extend(c) 接收整数0..25，每次追加一个小写字符；last为整串状�
 
 \noindent 接上页同一结构体：
 
-\lstinputlisting[firstline=339,lastline=361,firstnumber=51]{../src/compact/string.hpp}
+\lstinputlisting[firstline=339,lastline=362,firstnumber=51]{../src/compact/string.hpp}
 
 \Needspace{277pt}
 
@@ -777,7 +757,7 @@ d是低位在前的10$^{9}$进制绝对值，sign为±1；零为空d且sign=1，
 
 \lstinputlisting{usage/example-421.cpp}
 
-\Needspace{312pt}
+\Needspace{322pt}
 
 \chapter{快速幂}
 
@@ -785,7 +765,7 @@ d是低位在前的10$^{9}$进制绝对值，sign为±1；零为空d且sign=1，
 
 Mod64::mul(a,b,m) 与 power(a,e,m)，a、b、e 支持完整 unsigned long long，m 为非零无符号64位模数。乘积用 uint128 后取模，不通过浮点近似；m=1 返回0，e=0 返回1 mod m。mul 为 O(1)，power 为 O(log(e+1)) 次模乘、O(1) 空间。它也是64位判素的底层组件。
 
-\lstinputlisting[firstline=6,lastline=22]{../src/compact/mod64.hpp}
+\lstinputlisting[firstline=8,lastline=25]{../src/compact/number_theory.hpp}
 
 \newpage
 
@@ -831,19 +811,19 @@ mint<tag> 按 tag 独立保存运行时模数，默认 998244353。先 set\_mod(
 
 固定int模数1$\le$mod$\le$INT\_MAX，可为合数。构造接受signed64并正规化，v保持0..mod-1；不要手动破坏正规化。加减乘O(1)，pow非负signed64指数、时间O(log(e+1))。try\_inv用欧几里得求逆：gcd(v,mod)=1时返回optional值，否则nullopt；mod=1返回代表0。inv、/、/=要求分母可逆；断言开启时诊断违反前提，关闭断言不承诺拒绝非法除法。逆元O(log(mod+1))、额外空间O(1)，只用long long，不新增辅助模板依赖。+=、-=、*=、/=返回自身引用，支持自赋值与链式运算，可作为Fenwick区间和值类型。类型的扩展不放宽Binomial、NTT、高斯或FPS自身的素数等前提。
 
-\lstinputlisting[firstline=98,lastline=136,firstnumber=1]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=312,lastline=350,firstnumber=1]{../src/compact/number_theory.hpp}
 
 \newpage
 
 \noindent 模整数（接上页同一结构体）：
 
-\lstinputlisting[firstline=137,lastline=173,firstnumber=40]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=351,lastline=387,firstnumber=40]{../src/compact/number_theory.hpp}
 
 \newpage
 
 \noindent 模整数（接上页同一结构体）：
 
-\lstinputlisting[firstline=174,lastline=199,firstnumber=77]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=388,lastline=413,firstnumber=77]{../src/compact/number_theory.hpp}
 
 \newpage
 
@@ -948,7 +928,7 @@ $b<\phi$ 时保留原指数，不需要讨论何时进入周期。
 这里的非互质阈值和升模整除附有独立推导，不借用素数模API扩大适用范围。
 
 
-\Needspace{494pt}
+\Needspace{505pt}
 
 \section{素数}
 
@@ -958,7 +938,7 @@ $b<\phi$ 时保留原指数，不需要讨论何时进入周期。
 
 Prime64::prime(n) 接收完整 unsigned long long，n<2 返回 false。先试除小素数，再使用2、325、9375、28178、450775、9780504、1795265022七个底数，结果在64位输入范围内确定。继承 Mod64，模乘用 uint128；O(log n) 次模乘，O(1) 空间，不包含因数分解。
 
-\lstinputlisting[firstline=4,lastline=38]{../src/compact/prime64.hpp}
+\lstinputlisting[firstline=26,lastline=61]{../src/compact/number_theory.hpp}
 
 \Needspace{302pt}
 
@@ -1022,7 +1002,7 @@ P4718 压力批次含 300 个接近 $10^{18}$ 的平衡半素数，本机普通�
 
 euler\_phi(n) 使用试除，O($\sqrt{\vphantom x}$n) 时间、O(1) 额外空间；euler\_phi(n,solver) 复用 PollardRho，时间由随机分解主导，分解结果与递归占 O(log n) 空间。1$\le$n$\le$ULLONG\_MAX，phi(1)=1。大素数或平衡大半素数应选分解器入口，不要用试除穷扫平方根；批量求 1..N 用 LinearSieve。先除质因子再乘 p-1，结果及中间乘积均不超过原 n。只抄试除函数时不需要 Prime64/PollardRho。
 
-\lstinputlisting[firstline=5,lastline=33]{../src/compact/euler_phi.hpp}
+\lstinputlisting[firstline=247,lastline=275]{../src/compact/number_theory.hpp}
 
 联合使用示例见第~\pageref{usage-example-106}~页（Luogu P5091），其中直接调用本模板。
 
@@ -1048,23 +1028,23 @@ $\varphi(1)=1$，两个入口均接受完整的正无符号 64 位输入；0 不
 
 
 
-\Needspace{494pt}
+\Needspace{342pt}
 
 \section{筛法}
-
-\subsection{线性筛、欧拉函数与 Möbius 函数}\label{compact-LinearSieve}\index{LinearSieve}
-
-构造参数 0$\le$n<INT\_MAX，且数组须能分配内存。prime为递增质数表；lp/phi/mu 为 0..n 数组。x$\ge$2 时 lp[x] 是最小质因子，lp[x]==x 等价于 x 为素数；反复除以 lp[x] 可分解质因数。lp[0]=lp[1]=0，不能直接用 lp[x]==x 判断 0。n$\ge$1 时 phi[1]=mu[1]=1；第 0 项均为占位 0。O(n) 时间和空间，分解单个表内正整数耗时 O(log x)。n=0 不可访问下标 1。
-
-\lstinputlisting[firstline=64,lastline=97]{../src/compact/number_theory.hpp}
-
-\Needspace{307pt}
 
 \subsection{区间筛素数}\label{compact-segmented_primes}\index{segmented\_primes}
 
 segmented\_primes(l,r) 返回闭区间内递增的全部素数，0$\le$l$\le$r$\le$INT\_MAX；区间长度须能分配内存。独立函数，每次重建底筛；不依赖预存素数表。令 W=r-l+1，时间 O(($\sqrt{\vphantom x}$r+W)log log(r+3))，空间 O($\sqrt{\vphantom x}$r+W)。倍数起点、递增变量均用 long long，避免 INT\_MAX 端点溢出；0 和 1 不进入结果。
 
-\lstinputlisting[firstline=8,lastline=27]{../src/compact/segmented_sieve.hpp}
+\lstinputlisting[firstline=135,lastline=154]{../src/compact/number_theory.hpp}
+
+\Needspace{459pt}
+
+\subsection{线性筛、欧拉函数与 Möbius 函数}\label{compact-LinearSieve}\index{LinearSieve}
+
+构造参数 0$\le$n<INT\_MAX，且数组须能分配内存。prime为递增质数表；lp/phi/mu 为 0..n 数组。x$\ge$2 时 lp[x] 是最小质因子，lp[x]==x 等价于 x 为素数；反复除以 lp[x] 可分解质因数。lp[0]=lp[1]=0，不能直接用 lp[x]==x 判断 0。n$\ge$1 时 phi[1]=mu[1]=1；第 0 项均为占位 0。O(n) 时间和空间，分解单个表内正整数耗时 O(log x)。n=0 不可访问下标 1。
+
+\lstinputlisting[firstline=278,lastline=311]{../src/compact/number_theory.hpp}
 
 \subsection{线性筛：三张表的约定}\label{knowledge-linear-sieve}\index{linear sieve}
 \texttt{LinearSieve} 同时构造最小质因子、欧拉函数和莫比乌斯函数。
@@ -1137,7 +1117,7 @@ POJ 2689 与 UVa 10140 的驱动读到 EOF，扫描相邻素数差。
 
 factor(n) 返回升序质因子（含重数），1$\le$n$\le$ULLONG\_MAX。n=1 返回空数组；n$\ge$2 时 size()==1 等价于 n 为素数，否则 front()/back() 分别取最小/最大质因子。依赖 Mod64 与 Prime64。公开使用 factor；rho/split 为内部辅助，rho 只接受大于 1 的合数，不能直接传素数。Las Vegas 随机运行时间，固定默认种子方便复现，可由构造参数更换；无确定性最坏时间保证。每次 rho 尝试最多 200000 轮，失败后换随机参数重试，不将失败当作素数。递归仅沿真因子拆分，深度 O(log n)。
 
-\lstinputlisting[firstline=12,lastline=63]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=194,lastline=245]{../src/compact/number_theory.hpp}
 
 \Needspace{356pt}
 
@@ -1153,15 +1133,15 @@ factor(n) 返回升序质因子（含重数），1$\le$n$\le$ULLONG\_MAX。n=1 �
 
 \lstinputlisting{usage/example-43.cpp}
 
-\Needspace{279pt}
+\Needspace{297pt}
 
 \section{裴蜀定理 \& 一次不定方程}
 
 \subsection{扩展欧几里得与 Bézout 系数}\label{compact-extended_gcd}\index{extended\_gcd}
 
-extended\_gcd(a,b,x,y) 约定0$\le$a,b$\le$2\textasciicircum{}63，参数和输出系数为 int128，返回非负 gcd 并满足 ax+by=gcd(a,b)。a=b=0 返回0、x=1、y=0；有符号线性方程用 linear\_equation。递归实现，中间乘加为 int128；O(log(min(a,b)+1)) 时间与递归空间。
+extended\_gcd(a,b,x,y) 约定0$\le$a,b$\le$2\textasciicircum{}63，参数和输出系数为 int128，返回非负 gcd 并满足 ax+by=gcd(a,b)。a=b=0 返回0、x=1、y=0；递归实现，中间乘加为 int128；O(log(min(a,b)+1)) 时间与递归空间。 解 ax+by=c：令 g=gcd(a,b)，g∤c 时无解；否则 x0=x·c/g、y0=y·c/g，通解 x=x0+k·b/g、y=y0-k·a/g；最小非负 x 为 x0 对 b/g 取非负余数。乘 c/g 时注意 int128 范围。
 
-\lstinputlisting[firstline=7,lastline=20]{../src/compact/extended_gcd.hpp}
+\lstinputlisting[firstline=63,lastline=76]{../src/compact/number_theory.hpp}
 
 \Needspace{302pt}
 
@@ -1344,7 +1324,7 @@ UVa10006 完整程序对全部合法输入进行本地 Korselt 对拍；在线 A
 
 mod\_inverse(a,m) 支持完整 long long a 和正 long long m，将 a 规范化后用 extended\_gcd 求逆。不可逆返回-1，可逆返回0..m-1内的代表；模数1返回0。允许合数模数，不使用费马小定理。O(log m) 时间与递归空间。
 
-\lstinputlisting[firstline=6,lastline=16]{../src/compact/mod_inverse.hpp}
+\lstinputlisting[firstline=80,lastline=90]{../src/compact/number_theory.hpp}
 
 \Needspace{344pt}
 
@@ -1354,7 +1334,7 @@ mod\_inverse(a,m) 支持完整 long long a 和正 long long m，将 a 规范化�
 
 batch\_inverse(a,mod) 返回与 a 同序的逆元向量。要求 mod 为正 long long，每个输入可为完整 long long；只要某一项与 mod 不互素，整个结果返回 nullopt，不输出部分逆元。空输入返回有效的空向量；模数 1 约定返回全零，与单个逆元接口一致。模数可以是合数。函数按值接收数组并归一化；不再需要原数组时传 move(a) 可避免输入副本。依赖 mod\_inverse 和 extended\_gcd。仅求一次逆元，时间 O(n+log mod)，空间 O(n)；128 位中间乘法防止溢出。
 
-\lstinputlisting[firstline=5,lastline=26]{../src/compact/batch_inverse.hpp}
+\lstinputlisting[firstline=170,lastline=191]{../src/compact/number_theory.hpp}
 
 \Needspace{570pt}
 
@@ -1376,7 +1356,7 @@ batch\_inverse(a,mod) 返回与 a 同序的逆元向量。要求 mod 为正 long
 
 inverse\_table(n,p) 返回长度 n+1 的 int 向量，位置 i 保存 i 模 p 的逆元，1$\le$i$\le$n。位置 0 固定为 0，仅为占位，不表示零有逆元；n=0 返回单个占位项。要求 p 为素数、2$\le$p$\le$INT\_MAX 且 0$\le$n<p，不检测素性。时间和空间均 O(n)，中间乘法用 long long；独立可抄，不依赖其他模板。不能将同一递推直接用于合数模数，即使当前 i 与模数互素；一般模数使用扩展欧几里得或任意数组批量逆元。
 
-\lstinputlisting[firstline=7,lastline=15]{../src/compact/inverse_table.hpp}
+\lstinputlisting[firstline=158,lastline=166]{../src/compact/number_theory.hpp}
 
 \Needspace{267pt}
 
@@ -1457,7 +1437,7 @@ P3811 双版本均通过全部 6 个测试点，单点最长分别为 221 ms 与
 
 linear\_congruence(a,b,m) 求 a*x+b$\equiv$0 (mod m)，返回 \{最小非负解,最小正周期\}，无解返回 \{-1,-1\}。m 为正 long long，a、b 支持完整 long long。若 g=gcd(a,m) 整除 b，周期为 m/g；包括 a=0 和 m=1，所有整数均满足时返回 \{0,1\}。先归一化 a，并在 int128 中对 b 取相反数和乘法。依赖 extended\_gcd；递归时间、空间 O(log(m+1))。注意本接口的常数项是 +b，若题目写 a*x$\equiv$c，应传 -c；c 为 LLONG\_MIN 时须避免在 64 位中取负。
 
-\lstinputlisting[firstline=5,lastline=19]{../src/compact/linear_congruence.hpp}
+\lstinputlisting[firstline=94,lastline=108]{../src/compact/number_theory.hpp}
 
 \subsection{线性同余：最小解与最小周期}\label{knowledge-linear-congruence}\index{linear congruence}\index{线性同余方程}
 实现见第~\pageref{compact-linear_congruence}~页，接口约定为 $ax+b\equiv0\pmod m$。
@@ -1497,7 +1477,7 @@ P1516 中相遇条件为 $(m-n)t+(x-y)\equiv0\pmod L$。
 
 crt\_merge(r,m,b,n) 合并 x$\equiv$r (mod m) 与 x$\equiv$b (mod n)，m,n>0，r、m须为不同变量。从r=0、m=1开始逐项合并；成功后r为最小非负解、m为最小正周期。余数支持完整long long。无解返回false；有解但新周期超过LLONG\_MAX抛overflow\_error。两种失败都会先规范化r，m不变，失败后不能视为完整解。依赖 extended\_gcd，中间量用int128；O(log min(m,n)) 时间与递归空间。
 
-\lstinputlisting[firstline=6,lastline=25]{../src/compact/crt_merge.hpp}
+\lstinputlisting[firstline=112,lastline=131]{../src/compact/number_theory.hpp}
 
 \Needspace{381pt}
 
@@ -3784,11 +3764,11 @@ BM 从样本得到最短线性递推。要对未来项使用，必须另外证�
 
 Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。init(n) 只扩大当前上限，较小或相同的 n 不改变表；choose(n,k) 返回 C(n,k)，permute(n,k) 返回 n!/(n-k)!。查询前显式预处理到 n，查询本身不扩表。n<0、k<0 或 k>n 返回 0，C(0,0)=P(0,0)=1。fac、ifac 为可直接读取的阶乘与逆阶乘表，增长可能使旧引用失效。单次查询 O(1)；从 old 扩到 n 新增 O(n-old+log prime) 次域运算，重分配还可能复制旧表。首次预处理 O(n+log prime)，空间 O(n)。超过模数不能使用阶乘除法：小素数用 Lucas，小合数用 exLucas。
 
-\lstinputlisting[firstline=200,lastline=218]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=414,lastline=432]{../src/compact/number_theory.hpp}
 
 \Needspace{220pt}
 
-\lstinputlisting[firstline=219,lastline=232,firstnumber=20]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=433,lastline=446,firstnumber=20]{../src/compact/number_theory.hpp}
 
 \subsection{计数建模：先确认哪些对象被区分}\label{knowledge-counting-model}
 \index{计数建模}\index{OGF}\index{EGF}
@@ -5610,7 +5590,7 @@ GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp。gp\_map<K,V> 为
 
 \index{gp\_hash\_table}\index{cc\_hash\_table}需要排名与有序前驱时，PBDS 平衡树见第~\pageref{compact-ost}~页。
 
-\lstinputlisting[firstline=7,lastline=26]{../src/compact/hash_table.hpp}
+\lstinputlisting[firstline=29,lastline=48]{../src/compact/gnu.hpp}
 
 \Needspace{433pt}
 
@@ -5755,7 +5735,7 @@ pheap<T,C> 默认比较器为 less<T>，固定 pairing\_heap\_tag，形成大根
 
 包含 ext/pb\_ds/priority\_queue.hpp。push(x) 返回 point\_iterator 句柄；modify(h,x) 改值，erase(h) 删除指定元素。top/pop 要求非空，size/empty/clear 沿用容器接口。a.join(b) 把 b 全部移入 a，b 变空；原 b 元素句柄仍指向同一元素，此后应交给 a。a.swap(b) 后句柄随元素交换归属。split(pred,b) 将满足谓词的元素移入 b，本模板约定 b 原先为空。join/split 两个堆须不同，比较规则一致。删除元素、pop 对应堆顶、clear 或销毁后，相应句柄失效；不要把原堆句柄用于深复制的副本。top、push、join 为 O(1)；pop 摊还 O(log n)，modify/erase 的单次最坏可达 O(n)，不当作最坏常数。split/复制/clear 可能扫描整个堆。适合需要修改已入堆元素或合并的任务；只要普通入队出队时可用 std::priority\_queue。 复杂度按比较、复制标量或编号对为常数计，T 须满足容器的复制要求。
 
-\lstinputlisting[firstline=8,lastline=9]{../src/compact/pbds_heap.hpp}
+\lstinputlisting[firstline=15,lastline=16]{../src/compact/gnu.hpp}
 
 \begin{lstlisting}
 pheap<int> a, b;
@@ -6196,11 +6176,39 @@ SegmentBeats(a) 接受0-based数组，chmin/chmax/add(l,r,x)、sum(l,r)均用半
 
 \lstinputlisting{usage/example-200.cpp}
 
-\Needspace{301pt}
+\newpage
+
+\Needspace{309pt}
 
 \chapter{二叉搜索树 \& 平衡树}
 
 \section{二叉搜索树 \& 平衡树}
+
+\subsection{PBDS 有序树与顺序统计}\label{compact-ost}\index{ost}
+
+GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp 和 ext/pb\_ds/tree\_policy.hpp。ost<T> 为去重有序集合；insert(x)、erase(x)、find(x)、lower\_bound(x)、upper\_bound(x) 沿用集合接口。order\_of\_key(x) 为严格小于 x 的元素数，find\_by\_order(k) 返回 0-based 第 k 个的迭代器，越界返回 end。默认 less<T>；改用其他严格弱序比较器时，排名和边界均按该比较器解释。单次 O(log n)，空间 O(n)，假设比较为 O(1)。重复值使用 ost<pair<T,int>>，插入 \{x,id\} 且 id 全局唯一、1$\le$id<INT\_MAX。order\_of\_key(\{x,0\}) 统计小于 x，order\_of\_key(\{x,INT\_MAX\}) 统计不大于 x；find\_by\_order(k)->first 取值，须先检查 end。删除一个 x：it=lower\_bound(\{x,0\})，检查 it!=end 且 it->first==x 后 erase(it)。不可用 less\_equal 模拟多重集合。前驱先检查迭代器是否为 begin，再递减；空集合和无解不得解引用 end。
+
+只需键值查改而不需要有序排名时，gp\_hash\_table / cc\_hash\_table 及选型建议见第~\pageref{compact-gp_map}~页。
+
+序列中间插删、截取与版本共享的 GNU rope 见第~\pageref{compact-rp}~页。
+
+\lstinputlisting[firstline=20,lastline=25]{../src/compact/gnu.hpp}
+
+\Needspace{573pt}
+
+\subsection*{模板题使用：Library Checker ordered\_set}
+
+\label{usage-example-67}
+
+题意：维护无重复整数集合，支持第 k 小、计数及含等号的前驱/后继。find\_by\_order 使用 0-based 排名；order\_of\_key 只计严格小于 x，故不大于 x 的数量需补上相等元素。越界查询按题意输出 -1。
+
+所需模板：\hyperref[compact-ost]{ost}（第~\pageref{compact-ost}~页，\ref{compact-ost}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.yosupo.jp/problem/ordered_set}
+
+\lstinputlisting{usage/example-67.cpp}
+
+\Needspace{231pt}
 
 \subsection{GNU rope 与版本共享}\label{compact-rp}\index{rp}
 
@@ -6208,7 +6216,7 @@ SegmentBeats(a) 接受0-based数组，chmin/chmax/add(l,r,x)、sum(l,r)均用半
 
 只需键值查改而不需要有序排名时，gp\_hash\_table / cc\_hash\_table 及选型建议见第~\pageref{compact-gp_map}~页。
 
-\lstinputlisting[firstline=8,lastline=8]{../src/compact/rope.hpp}
+\lstinputlisting[firstline=11,lastline=11]{../src/compact/gnu.hpp}
 
 \begin{lstlisting}
 rp<int> a;
@@ -6235,41 +6243,13 @@ int x = a[1];
 
 \lstinputlisting{usage/example-66.cpp}
 
-\newpage
-
-\Needspace{239pt}
-
-\subsection{PBDS 有序树与顺序统计}\label{compact-ost}\index{ost}
-
-GNU libstdc++ 扩展，包含 ext/pb\_ds/assoc\_container.hpp 和 ext/pb\_ds/tree\_policy.hpp。ost<T> 为去重有序集合；insert(x)、erase(x)、find(x)、lower\_bound(x)、upper\_bound(x) 沿用集合接口。order\_of\_key(x) 为严格小于 x 的元素数，find\_by\_order(k) 返回 0-based 第 k 个的迭代器，越界返回 end。默认 less<T>；改用其他严格弱序比较器时，排名和边界均按该比较器解释。单次 O(log n)，空间 O(n)，假设比较为 O(1)。重复值使用 ost<pair<T,int>>，插入 \{x,id\} 且 id 全局唯一、1$\le$id<INT\_MAX。order\_of\_key(\{x,0\}) 统计小于 x，order\_of\_key(\{x,INT\_MAX\}) 统计不大于 x；find\_by\_order(k)->first 取值，须先检查 end。删除一个 x：it=lower\_bound(\{x,0\})，检查 it!=end 且 it->first==x 后 erase(it)。不可用 less\_equal 模拟多重集合。前驱先检查迭代器是否为 begin，再递减；空集合和无解不得解引用 end。
-
-只需键值查改而不需要有序排名时，gp\_hash\_table / cc\_hash\_table 及选型建议见第~\pageref{compact-gp_map}~页。
-
-序列中间插删、截取与版本共享的 GNU rope 见第~\pageref{compact-rp}~页。
-
-\lstinputlisting[firstline=8,lastline=13]{../src/compact/ordered_set.hpp}
-
-\Needspace{573pt}
-
-\subsection*{模板题使用：Library Checker ordered\_set}
-
-\label{usage-example-67}
-
-题意：维护无重复整数集合，支持第 k 小、计数及含等号的前驱/后继。find\_by\_order 使用 0-based 排名；order\_of\_key 只计严格小于 x，故不大于 x 的数量需补上相等元素。越界查询按题意输出 -1。
-
-所需模板：\hyperref[compact-ost]{ost}（第~\pageref{compact-ost}~页，\ref{compact-ost}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://judge.yosupo.jp/problem/ordered_set}
-
-\lstinputlisting{usage/example-67.cpp}
-
 \Needspace{180pt}
 
 \section{Treap}
 
 \subsection{FHQ Treap：可重集合与顺序统计}\label{compact-OrderedTreap}\index{OrderedTreap}
 
-insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在；rank(x) 为严格小于 x 的元素数加一，x 不必存在；kth(k) 要求 1$\le$k$\le$size()。prev/next 为严格前驱/后继，不存在时返回 nullopt。支持重复值、LLONG\_MIN 和 LLONG\_MAX，分裂不使用 x-1。随机优先级下单次期望 O(log n)，并非确定性最坏界。节点池不回收已删除节点，空间按累计插入次数计算；可在构造时指定随机种子。
+insert(x) 插入一个副本，erase(x) 删除一个副本并返回是否存在；rank(x) 为严格小于 x 的元素数加一，x 不必存在；kth(k) 要求 1$\le$k$\le$size()。prev/next 为严格前驱/后继，不存在时返回 nullopt。支持重复值、LLONG\_MIN 和 LLONG\_MAX，分裂不使用 x-1。随机优先级下单次期望 O(log n)，并非确定性最坏界。节点池不回收已删除节点，空间按累计插入次数计算；可在构造时指定随机种子。 可合并平衡树：合并两棵树时把较小的一棵逐个 insert 进较大的一棵（启发式合并），每个元素至多移动 O(log n) 次，总 O(n log$^{2}$ n)。
 
 \lstinputlisting[firstline=8,lastline=139]{../src/compact/treap.hpp}
 
@@ -6465,7 +6445,7 @@ cartesian\_tree(a)返回CartesianTree \{root,left,right\}，下标0..n-1，缺�
 
 \subsection{主席树：静态区间第 k 小}\label{compact-PersistentKth}\index{PersistentKth}
 
-构造传入 0-based 数组，kth(l,r,k) 的区间使用 1-based 闭区间；要求 1$\le$k$\le$r-l+1。离散化后每个前缀一个版本，单次 O(log n)，总空间 O(n log n)。
+构造传入 0-based 数组，kth(l,r,k) 的区间使用 1-based 闭区间；要求 1$\le$k$\le$r-l+1。离散化后每个前缀一个版本，单次 O(log n)，总空间 O(n log n)。 树上路径第 k 小：每个点在父版本上插入点权，路径 (u,v) 用 root[u]+root[v]-root[lca]-root[fa[lca]] 四个版本同步二分。区间不同数个数：位置 i 在 pre[i]（上一次出现位置）处插入，查询 [l,r] 统计版本 r 减版本 l-1 中 pre<l 的个数。
 
 \lstinputlisting[firstline=133,lastline=201]{../src/compact/optimization.hpp}
 
@@ -6786,7 +6766,7 @@ P4148 的在线输入需逐参数 XOR 上次答案，驱动预留二十万个节
 
 \subsection{Link-cut tree：动态森林与路径异或}\label{compact-LinkCutTree}\index{LinkCutTree}
 
-构造 LinkCutTree(n)，点号 1..n，初始权值为零。set(x,value) 修改点权；link(x,y) 仅在不同连通块之间连边并返回是否成功；cut(x,y) 只删除真实存在的边，否则返回 false。connected 查询连通性；query(x,y) 返回路径点权异或，要求两点连通，支持 x=y。make\_root/find\_root 维护与查询当前表示树根。每次操作均摊 O(log n)，O(n) 空间，splay 下传使用显式栈，支持长链。权值为 unsigned long long。仅维护路径异或，不包含虚子树聚合或动态直径。
+构造 LinkCutTree(n)，点号 1..n，初始权值为零。set(x,value) 修改点权；link(x,y) 仅在不同连通块之间连边并返回是否成功；cut(x,y) 只删除真实存在的边，否则返回 false。connected 查询连通性；query(x,y) 返回路径点权异或，要求两点连通，支持 x=y。make\_root/find\_root 维护与查询当前表示树根。每次操作均摊 O(log n)，O(n) 空间，splay 下传使用显式栈，支持长链。权值为 unsigned long long。仅维护路径异或，不包含虚子树聚合或动态直径。 路径最值或路径和：把异或聚合换成对应运算（如 max），在 pull 中合并左右子树与自身；路径加等标记须在 splay 前沿路径下传，与翻转标记一起在 push 中下传。
 
 \lstinputlisting[firstline=6,lastline=44,firstnumber=1]{../src/compact/dynamic_tree.hpp}
 
@@ -7033,9 +7013,17 @@ OJ 验证题面正权边、前缀插入和最远距离判定；零权边、完�
 \clearpage
 
 
-\Needspace{474pt}
+\Needspace{464pt}
 
 \section{最近公共祖先}
+
+\subsection{两条树路径的交集}\label{compact-path_intersection}\index{path\_intersection}
+
+path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径，字段 u、v 是交集端点，vertices 是公共顶点数；空交返回 \{0,0,0\}，单点交的 u=v。点号从 1 开始，depth 数组与 lca 回调必须来自同一棵非空树、同一个根，深度按边数计算，不能传带权根距离。支持数组或 vector 深度表，回调接收两个点并返回 LCA。将 c、d 分别投影到 a-b 得 p、q；投影是 lca(a,b)、lca(a,x)、lca(b,x) 中最深者。若 p$\ne$q，c-d 必经过 p-q；若 p=q，检验 p 是否在 c-d 上即可区分单点交与空交。不依赖顶点编号大小。常数次 LCA 调用、O(1) 额外空间；使用 EulerLCA 时为 O(1)，HLD/倍增时为 O(log n)。公共边数为 max(0,vertices-1)。全小树根与四端点、随机换号树用路径点集独立验证；P3398 完整程序只检查是否相交，端点及数量由本地验证覆盖。
+
+\lstinputlisting[firstline=120,lastline=146]{../src/compact/tree.hpp}
+
+\Needspace{439pt}
 
 \subsection{倍增 LCA、祖先与最大边权}\label{compact-LiftingLCA}\index{LiftingLCA}
 
@@ -7064,14 +7052,6 @@ OJ 验证题面正权边、前缀插入和最远距离判定；零权边、完�
 题目：\url{https://www.luogu.com.cn/problem/P3379}
 
 \lstinputlisting{usage/example-34.cpp}
-
-\Needspace{429pt}
-
-\subsection{两条树路径的交集}\label{compact-path_intersection}\index{path\_intersection}
-
-path\_intersection(a,b,c,d,depth,lca) 返回路径 a-b 与 c-d 的公共路径，字段 u、v 是交集端点，vertices 是公共顶点数；空交返回 \{0,0,0\}，单点交的 u=v。点号从 1 开始，depth 数组与 lca 回调必须来自同一棵非空树、同一个根，深度按边数计算，不能传带权根距离。支持数组或 vector 深度表，回调接收两个点并返回 LCA。将 c、d 分别投影到 a-b 得 p、q；投影是 lca(a,b)、lca(a,x)、lca(b,x) 中最深者。若 p$\ne$q，c-d 必经过 p-q；若 p=q，检验 p 是否在 c-d 上即可区分单点交与空交。不依赖顶点编号大小。常数次 LCA 调用、O(1) 额外空间；使用 EulerLCA 时为 O(1)，HLD/倍增时为 O(log n)。公共边数为 max(0,vertices-1)。全小树根与四端点、随机换号树用路径点集独立验证；P3398 完整程序只检查是否相交，端点及数量由本地验证覆盖。
-
-\lstinputlisting[firstline=7,lastline=33]{../src/compact/path_intersection.hpp}
 
 \subsection{树路径交：投影与单点交}\label{knowledge-path-intersection}
 \index{树上路径交}
@@ -7153,7 +7133,7 @@ add(u,v) 建无向树；build(root) 后读取 fa、dep、siz、son、top、dfn�
 
 \noindent 按真实方向分解路径（接上页同一结构体）：
 
-\lstinputlisting[firstline=92,lastline=117,firstnumber=87]{../src/compact/tree.hpp}
+\lstinputlisting[firstline=92,lastline=118,firstnumber=87]{../src/compact/tree.hpp}
 
 \Needspace{647pt}
 
@@ -7352,7 +7332,7 @@ TreeIsomorphism iso；rooted(g,root)返回有根树编号，unrooted(g)返回无
 
 \newpage
 
-\Needspace{666pt}
+\Needspace{680pt}
 
 \chapter{最短路问题}
 
@@ -7360,9 +7340,9 @@ TreeIsomorphism iso；rooted(g,root)返回有根树编号，unrooted(g)返回无
 
 \subsection{非负权最短路}\label{compact-Dijkstra}\index{Dijkstra}
 
-add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。不可达用 LLONG\_MAX；要求所有有限最短距离严格小于该哨兵，w$\ge$0。懒删除堆在多重边图中按O(n+m log(m+1))计，空间O(n+m)；简单图常写O((n+m)log(n+1))。
+add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。不可达用 LLONG\_MAX；要求所有有限最短距离严格小于该哨兵，w$\ge$0。懒删除堆在多重边图中按O(n+m log(m+1))计，空间O(n+m)；简单图常写O((n+m)log(n+1))。 最短路树：run 后每个 v$\ne$s 的 pre 入边构成一棵最短路树；要总边权最小，就在满足 dis[u]+w=dis[v] 的入边中选 w 最小者。Johnson 全源最短路：加超级源以 0 权连所有点，用 BellmanFord 求势 h，把边权改成 w+h[u]-h[v]$\ge$0 后对每个起点跑 Dijkstra，真实距离为 d+h[t]-h[s]，O(nm log m)。
 
-\lstinputlisting[firstline=6,lastline=54]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=8,lastline=56]{../src/compact/graph.hpp}
 
 \Needspace{356pt}
 
@@ -7382,43 +7362,29 @@ add(u,v,w)、run(s)，dis 为距离，pre 为前驱，path(t) 返回点序列。
 
 \Needspace{650pt}
 
-\subsection{Floyd全源最短路与原边方案}\label{compact-Floyd}\index{Floyd}
+\subsection{Bellman--Ford：负环影响与路径方案}\label{compact-BellmanFord}\index{BellmanFord}
 
-Floyd(n)，点号1..n，0<n<INT\_MAX；add(u,v,w)返回0-based原边号，有向边，允许重边、自环及完整signed64权值，边数$\le$INT\_MAX。无向图需分别加入双向边。run()重新建立矩阵；存在任何负环返回false，valid=false，全部结果不可读，不能只取未受负环影响的点对。
+BellmanFord(n)，点号1..n，0<n<INT\_MAX。add(u,v,w)加有向边并返回0-based原边号，允许重边、自环和完整signed64边权，总边数$\le$INT\_MAX。run(s)返回是否不存在从s可达的负环；run(0)把全体点初值设0，等价于超级源点，用于查全图负环。每次run重置状态；add后旧结果失效，须重新run。
 
-成功时dis[u][v]==inf为不可达，其他为int128最短距离，dis[u][u]=0。path(u,v)返回正向原边号，并列任选；不可达和u=v均为空，结合dis区分。nxt为恢复路径的首条原边号矩阵，通常只需调用path；e/dis/nxt/valid只读。add清除valid，支持重复运行、加边后重跑与独立值拷贝。
+运行后dis[v]==inf表示不可达；neg[v]为真表示从起点可达的负环能到达v，距离为负无穷（这时不可读取dis作为答案）；其他点的dis为有限int128最短距离。path(v)返回有限最短路的正向原边号；不可达、负无穷或空路径都返回空vector，须结合dis/neg判定。cycle为空表示无相关负环，否则是一个相关负环的正向原边号，可通过e[id].u/v/w还原顶点和权值。run(0)的有限距离是从任意起点出发的最小值，允许零边路径，不是某个固定单源距离。
 
-run时间O(n$^{3}$+m)，空间O(n$^{2}$+m)，path时间与输出空间O(路径长)。每次处理k之前检查dis[k][k]<0，立即拒绝，不能延后到所有松弛结束，否则负环下中间量可指数增长。通过的枢轴不含负环；有限标签取简单路径或闭合路径，拼接候选绝对值<2n·2\textasciicircum{}63<2\textasciicircum{}95，int128与inf=2\textasciicircum{}126足够。两段都有限才相加；不要无条件转long long。矩阵占用约20(n+1)$^{2}$字节，另计vector和原边表，n应按时间/内存选择。
+O(nm+n+m)时间、O(n+m)空间；path输出O(路径长)。inf=2\textasciicircum{}126，全过程int128累加，不能无条件转为long long。在给定n,m的int边界内，n轮最多nm次更新，标签对应游走至多nm条边，绝对值<2\textasciicircum{}125，不碰inf也不溢出。e/g/dis/pre/neg/cycle和ready只读，不手改。
 
-\lstinputlisting[firstline=7,lastline=36,firstnumber=1]{../src/compact/floyd.hpp}
+\lstinputlisting[firstline=427,lastline=495]{../src/compact/graph.hpp}
 
-\newpage
+\Needspace{419pt}
 
-\noindent 矩阵初始化与Floyd松弛（接上页同一结构体）：
+\subsection*{模板题使用：AOJ GRL\_1\_B / 含负边的单源最短路}
 
-\lstinputlisting[firstline=37,lastline=71,firstnumber=31]{../src/compact/floyd.hpp}
+\label{usage-example-293}
 
-\newpage
+题意：0-based有向图，n$\le$1000、m$\le$2000、边权绝对值$\le$10000。从r可达负环时输出NEGATIVE CYCLE，否则逐点输出距离，不可达输出INF。转成模板1-based编号；本题有限距离在signed64内，故可显式转long long输出。不可达位置的负环不影响此题判断。
 
-\noindent 成功运行后的原边路径（接上页同一结构体）：
+所需模板：\hyperref[compact-BellmanFord]{BellmanFord}（第~\pageref{compact-BellmanFord}~页，\ref{compact-BellmanFord}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
-\lstinputlisting[firstline=72,lastline=86,firstnumber=66]{../src/compact/floyd.hpp}
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B}
 
-\newpage
-
-\Needspace{510pt}
-
-\subsection*{模板题使用：AOJ GRL\_1\_C / All Pairs Shortest Path}
-
-\label{usage-example-304}
-
-题意：0-based有向图输入转换为1-based；整图有负环输出NEGATIVE CYCLE，否则逐行输出距离矩阵，不可达为INF。n$\le$100、m$\le$9900、|w|$\le$20000000，有限结果可转long long。题面无自环重边，模板额外支持。
-
-所需模板：\hyperref[compact-Floyd]{Floyd}（第~\pageref{compact-Floyd}~页，\ref{compact-Floyd}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C&lang=en}
-
-\lstinputlisting{usage/example-304.cpp}
+\lstinputlisting{usage/example-293.cpp}
 
 \newpage
 
@@ -7432,19 +7398,7 @@ run返回true时valid=true，dis[v]==inf为不可达，其余为int128最短距�
 
 FIFO队列，最坏O(nm+n+m)时间，O(n+m)空间，不保证近线性；队列去重不等于永久访问标记。严格松弛后维护标签所代表游走的边数，达到n立即判负环。停止前标签最多n条边，绝对值$\le$n·2\textasciicircum{}63<2\textasciicircum{}94，int128与inf=2\textasciicircum{}126足够。不要无条件转long long；e/g/dis/pre/valid只读，其余按接口使用。
 
-\lstinputlisting[firstline=9,lastline=40,firstnumber=1]{../src/compact/spfa.hpp}
-
-\newpage
-
-\noindent FIFO队列与负环判定（接上页同一结构体）：
-
-\lstinputlisting[firstline=41,lastline=80,firstnumber=33]{../src/compact/spfa.hpp}
-
-\newpage
-
-\noindent 成功运行后的有限路径（接上页同一结构体）：
-
-\lstinputlisting[firstline=81,lastline=95,firstnumber=73]{../src/compact/spfa.hpp}
+\lstinputlisting[firstline=367,lastline=426]{../src/compact/graph.hpp}
 
 \Needspace{398pt}
 
@@ -7464,41 +7418,31 @@ FIFO队列，最坏O(nm+n+m)时间，O(n+m)空间，不保证近线性；队列�
 
 \Needspace{650pt}
 
-\subsection{Bellman--Ford：负环影响与路径方案}\label{compact-BellmanFord}\index{BellmanFord}
+\subsection{Floyd全源最短路与原边方案}\label{compact-Floyd}\index{Floyd}
 
-BellmanFord(n)，点号1..n，0<n<INT\_MAX。add(u,v,w)加有向边并返回0-based原边号，允许重边、自环和完整signed64边权，总边数$\le$INT\_MAX。run(s)返回是否不存在从s可达的负环；run(0)把全体点初值设0，等价于超级源点，用于查全图负环。每次run重置状态；add后旧结果失效，须重新run。
+Floyd(n)，点号1..n，0<n<INT\_MAX；add(u,v,w)返回0-based原边号，有向边，允许重边、自环及完整signed64权值，边数$\le$INT\_MAX。无向图需分别加入双向边。run()重新建立矩阵；存在任何负环返回false，valid=false，全部结果不可读，不能只取未受负环影响的点对。
 
-运行后dis[v]==inf表示不可达；neg[v]为真表示从起点可达的负环能到达v，距离为负无穷（这时不可读取dis作为答案）；其他点的dis为有限int128最短距离。path(v)返回有限最短路的正向原边号；不可达、负无穷或空路径都返回空vector，须结合dis/neg判定。cycle为空表示无相关负环，否则是一个相关负环的正向原边号，可通过e[id].u/v/w还原顶点和权值。run(0)的有限距离是从任意起点出发的最小值，允许零边路径，不是某个固定单源距离。
+成功时dis[u][v]==inf为不可达，其他为int128最短距离，dis[u][u]=0。path(u,v)返回正向原边号，并列任选；不可达和u=v均为空，结合dis区分。nxt为恢复路径的首条原边号矩阵，通常只需调用path；e/dis/nxt/valid只读。add清除valid，支持重复运行、加边后重跑与独立值拷贝。
 
-O(nm+n+m)时间、O(n+m)空间；path输出O(路径长)。inf=2\textasciicircum{}126，全过程int128累加，不能无条件转为long long。在给定n,m的int边界内，n轮最多nm次更新，标签对应游走至多nm条边，绝对值<2\textasciicircum{}125，不碰inf也不溢出。e/g/dis/pre/neg/cycle和ready只读，不手改。
+run时间O(n$^{3}$+m)，空间O(n$^{2}$+m)，path时间与输出空间O(路径长)。每次处理k之前检查dis[k][k]<0，立即拒绝，不能延后到所有松弛结束，否则负环下中间量可指数增长。通过的枢轴不含负环；有限标签取简单路径或闭合路径，拼接候选绝对值<2n·2\textasciicircum{}63<2\textasciicircum{}95，int128与inf=2\textasciicircum{}126足够。两段都有限才相加；不要无条件转long long。矩阵占用约20(n+1)$^{2}$字节，另计vector和原边表，n应按时间/内存选择。
 
-\lstinputlisting[firstline=9,lastline=41,firstnumber=1]{../src/compact/bellman_ford.hpp}
-
-\newpage
-
-\noindent run：逐轮松弛与负环种子（接上页同一结构体）：
-
-\lstinputlisting[firstline=42,lastline=70,firstnumber=34]{../src/compact/bellman_ford.hpp}
+\lstinputlisting[firstline=313,lastline=366]{../src/compact/graph.hpp}
 
 \newpage
 
-\noindent 继续 run：恢复负环并传播；随后为 path（接上页同一结构体）：
+\Needspace{510pt}
 
-\lstinputlisting[firstline=71,lastline=112,firstnumber=63]{../src/compact/bellman_ford.hpp}
+\subsection*{模板题使用：AOJ GRL\_1\_C / All Pairs Shortest Path}
 
-\Needspace{419pt}
+\label{usage-example-304}
 
-\subsection*{模板题使用：AOJ GRL\_1\_B / 含负边的单源最短路}
+题意：0-based有向图输入转换为1-based；整图有负环输出NEGATIVE CYCLE，否则逐行输出距离矩阵，不可达为INF。n$\le$100、m$\le$9900、|w|$\le$20000000，有限结果可转long long。题面无自环重边，模板额外支持。
 
-\label{usage-example-293}
+所需模板：\hyperref[compact-Floyd]{Floyd}（第~\pageref{compact-Floyd}~页，\ref{compact-Floyd}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
-题意：0-based有向图，n$\le$1000、m$\le$2000、边权绝对值$\le$10000。从r可达负环时输出NEGATIVE CYCLE，否则逐点输出距离，不可达输出INF。转成模板1-based编号；本题有限距离在signed64内，故可显式转long long输出。不可达位置的负环不影响此题判断。
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C&lang=en}
 
-所需模板：\hyperref[compact-BellmanFord]{BellmanFord}（第~\pageref{compact-BellmanFord}~页，\ref{compact-BellmanFord}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B}
-
-\lstinputlisting{usage/example-293.cpp}
+\lstinputlisting{usage/example-304.cpp}
 
 \subsection{杭州 2023 G：开放时间的单位边最短路}\label{knowledge-hangzhou-g}
 \label{app:hangzhou2023g}
@@ -7671,42 +7615,6 @@ SecondMST(n)，n$\ge$1，点号0..n-1。add(u,v,w)返回0-based边号；允许�
 
 \Needspace{650pt}
 
-\subsection{稠密图 Prim 最小生成森林}\label{compact-Prim}\index{Prim}
-
-Prim(n)，0$\le$n$\le$INT\_MAX，点号0..n-1；add(u,v,w)自动加无向边，允许完整signed64权、零权、负权、自环，重边只保留最小权。不保存原边编号；cost为int128矩阵，inf=2\textasciicircum{}126表示缺边，−1和LLONG\_MAX均为合法边权。
-
-run()每次重建最小生成森林，返回原图连通块数。n>0时返回1表示MST，空图返回0。weight为int128总权；pre[v]为父点，根为−1，非根选边权为cost[pre[v]][v]。父点森林无环，支持断连和孤立点；同权任选，不承诺字典序。加边后须重新run，支持重复运行与独立复制；成员只读。
-
-构造和存储O(n$^{2}$)，add为O(1)，run为O(n$^{2}$)，矩阵约16n$^{2}$字节，按实际内存选择n；稀疏图优先Kruskal。每步选到已选点集的最轻边；所有剩余点均无跨边时开启新树，不把inf计入总权。只向未选点严格更新父点，负自环不入树。总权绝对值<2\textasciicircum{}94，可为−1或超出long long，不能用权值判断断连。
-
-\lstinputlisting[firstline=7,lastline=26,firstnumber=1]{../src/compact/prim.hpp}
-
-\newpage
-
-\noindent 矩阵扫描、割边松弛与父点森林（接上页同一结构体）：
-
-\lstinputlisting[firstline=27,lastline=60,firstnumber=21]{../src/compact/prim.hpp}
-
-\newpage
-
-\Needspace{363pt}
-
-\subsection*{模板题使用：AOJ ALDS1\_12\_A / Minimum Spanning Tree}
-
-\label{usage-example-316}
-
-题意：输入n及n×n对称邻接矩阵，−1表示缺边，其余为0..2000；n$\le$100且保证连通。只读取上三角的有效边，输出MST总权；本题可安全转long long。注意输入−1缺边是题目约定，Prim.add的−1是合法负权。
-
-所需模板：\hyperref[compact-Prim]{Prim}（第~\pageref{compact-Prim}~页，\ref{compact-Prim}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_A&lang=en}
-
-\lstinputlisting{usage/example-316.cpp}
-
-\newpage
-
-\Needspace{650pt}
-
 \subsection{Kruskal 最小生成树与生成森林}\label{compact-Kruskal}\index{Kruskal}
 
 代码依赖：\hyperref[compact-dsu]{dsu}（第~\pageref{compact-dsu}~页，\ref{compact-dsu}~节）。抄写时一并准备；标准库类型不列入算法依赖。
@@ -7715,13 +7623,7 @@ Kruskal(n)，0$\le$n$\le$INT\_MAX，点号0..n-1；add(u,v,w)加入无向边并�
 
 依赖普通dsu，调用方先把较大根放在前，保留dsu的fa[y]=x语义。时间O(n+m log(m+1)+m $\alpha$(n+1))，空间O(n+m)；add均摊O(1)。总权绝对值<2\textasciicircum{}94，不能无条件转long long。自环不入树，断开图仍返回各块最小树；不使用−1总权判断失败，合法MST总权也可为−1。成员只读，n和e不直接修改。
 
-\lstinputlisting[firstline=4,lastline=30,firstnumber=1]{../src/compact/kruskal.hpp}
-
-\newpage
-
-\noindent 边排序、合并与原边方案（接上页同一结构体）：
-
-\lstinputlisting[firstline=31,lastline=58,firstnumber=28]{../src/compact/kruskal.hpp}
+\lstinputlisting[firstline=235,lastline=275]{../src/compact/graph.hpp}
 
 \newpage
 
@@ -7738,6 +7640,36 @@ Kruskal(n)，0$\le$n$\le$INT\_MAX，点号0..n-1；add(u,v,w)加入无向边并�
 题目：\url{https://www.luogu.com.cn/problem/P3366}
 
 \lstinputlisting{usage/example-314.cpp}
+
+\newpage
+
+\Needspace{650pt}
+
+\subsection{稠密图 Prim 最小生成森林}\label{compact-Prim}\index{Prim}
+
+Prim(n)，0$\le$n$\le$INT\_MAX，点号0..n-1；add(u,v,w)自动加无向边，允许完整signed64权、零权、负权、自环，重边只保留最小权。不保存原边编号；cost为int128矩阵，inf=2\textasciicircum{}126表示缺边，−1和LLONG\_MAX均为合法边权。
+
+run()每次重建最小生成森林，返回原图连通块数。n>0时返回1表示MST，空图返回0。weight为int128总权；pre[v]为父点，根为−1，非根选边权为cost[pre[v]][v]。父点森林无环，支持断连和孤立点；同权任选，不承诺字典序。加边后须重新run，支持重复运行与独立复制；成员只读。
+
+构造和存储O(n$^{2}$)，add为O(1)，run为O(n$^{2}$)，矩阵约16n$^{2}$字节，按实际内存选择n；稀疏图优先Kruskal。每步选到已选点集的最轻边；所有剩余点均无跨边时开启新树，不把inf计入总权。只向未选点严格更新父点，负自环不入树。总权绝对值<2\textasciicircum{}94，可为−1或超出long long，不能用权值判断断连。
+
+\lstinputlisting[firstline=276,lastline=312]{../src/compact/graph.hpp}
+
+\newpage
+
+\Needspace{363pt}
+
+\subsection*{模板题使用：AOJ ALDS1\_12\_A / Minimum Spanning Tree}
+
+\label{usage-example-316}
+
+题意：输入n及n×n对称邻接矩阵，−1表示缺边，其余为0..2000；n$\le$100且保证连通。只读取上三角的有效边，输出MST总权；本题可安全转long long。注意输入−1缺边是题目约定，Prim.add的−1是合法负权。
+
+所需模板：\hyperref[compact-Prim]{Prim}（第~\pageref{compact-Prim}~页，\ref{compact-Prim}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_A&lang=en}
+
+\lstinputlisting{usage/example-316.cpp}
 
 \newpage
 
@@ -7935,13 +7867,13 @@ FunctionalGraph(to) 或 build(to) 重建，每个点恰有一条出边，to[u] �
 
 add(u,v)、run()，bel[1..n] 为分量编号，cnt 为数量；分量编号按缩点图拓扑序递增。递归 Kosaraju，按用户要求保留 DFS 写法；O(V+E)，同时存正反图。
 
-\lstinputlisting[firstline=55,lastline=87]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=57,lastline=89]{../src/compact/graph.hpp}
 
 \newpage
 
 \noindent 重算入口与拓扑编号（接上页同一结构体）：
 
-\lstinputlisting[firstline=88,lastline=109,firstnumber=34]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=90,lastline=111,firstnumber=34]{../src/compact/graph.hpp}
 
 \Needspace{446pt}
 
@@ -8211,7 +8143,7 @@ MinCycle(n)，n$\ge$0，点0..n-1。add(u,v,w)返回从0开始的原边号，边
 
 TwoSAT(n)，变量 1..n；add(x,a,y,b) 添加 (x=a) 或 (y=b)，强制值写 add(x,a,x,a)，蕴含 (x=a)=>(y=b) 写 add(x,!a,y,b)。solve() 返回可满足性，仅成功时读取 ans[1..n]；可重复求解和追加子句后重算，空公式可满足。不保证字典序最小。依赖同文件 SCC：Kosaraju 编号为拓扑序，故真值分量编号较大时取真；不能直接套用 Tarjan 逆拓扑编号的不等号。O(n+m) 时间和空间，DFS 递归。
 
-\lstinputlisting[firstline=110,lastline=138]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=112,lastline=140]{../src/compact/graph.hpp}
 
 \Needspace{418pt}
 
@@ -8432,15 +8364,15 @@ HLPP(n)，2$\le$n<INT\_MAX/2，点1..n。add(u,v,cap)返回偶数残量边号id�
 
 Dinic(n)，点号 1..n；add(u,v,c) 返回偶数原边编号；flow(s,t,limit) 返回本次新增流；used(id) 查询原边净流，cut(s) 返回残量可达点集。允许重边、自环，容量非负，s$\ne$t；重复求流须使用相同源汇。只有求尽最大流后 cut 才是最小割。一般 O(V$^{2}$E)，递归增广深度 O(V)。总流不得超过 long long 上限。 get\_edge(id) 返回 tuple(起点,终点,总容量,当前流)，change\_edge(id,cap,f) 修改总容量与流，要求 id 为 add 返回的偶数原边编号且 0$\le$f$\le$cap；正向残量变为 cap-f，反向为 f。仅保证此残量对一致，不自动维持所有顶点的流量守恒；继续 flow 前必须由调用方保证全局可行流及同源汇。增容且保留 f 合法，缩容低于已有流时不能只截断该边。要从零重算须将所有原边一起重置为零流。两个新接口为 O(1)，尚只有本地验证。 可选容量缩放：按源码各处 Scaling 注释同步修改 BFS、DFS、递归调用和外层循环，不能只取消一处注释。阈值从不超过当前最大残量 mx 的最大二次幂降到 1，mx=0 直接返回；用 lim$\le$mx/2 再翻倍避免溢出。bfs/dfs 的 lim 默认 1，cut 仍检查全部正残量；flow 仍返回新增流且支持限流续流。缩放一般 O(VE log(U+1))，U 为本次初始最大残量；不保证比普通版快，大 INF 可能增加空阶段。
 
-\lstinputlisting[firstline=6,lastline=33,firstnumber=1]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=8,lastline=35,firstnumber=1]{../src/compact/flow.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=34,lastline=73,firstnumber=29]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=36,lastline=75,firstnumber=29]{../src/compact/flow.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=74,lastline=124,firstnumber=69]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=76,lastline=126,firstnumber=69]{../src/compact/flow.hpp}
 
 \Needspace{329pt}
 
@@ -8477,19 +8409,9 @@ NERC 2024 K（QOJ 10424）给两套排列与同一大小为 k 的集合所形成
 细节见仓库 docs/KNOWNS-UNKNOWNS.md。
 
 
-\Needspace{350pt}
+\Needspace{492pt}
 
 \section{最小割}
-
-\subsection{正容量最小割的可行边与必选边}\label{compact-mincut_edges}\index{mincut\_edges}
-
-代码依赖：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-SCC]{SCC}（第~\pageref{compact-SCC}~页，\ref{compact-SCC}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-mincut\_edges(g,s,t) 只读分析 Dinic 已经完整求出的普通 s→t 最大流；不得传入限流提前停止或人为修改过的残量网络。所有原边初始容量必须严格为正，最大流值须可由 long long 表示。返回逐条原边的 \{possible,forced\}，对应 Dinic 原始偶数边号 id 的结果是 ans[id/2]。只有饱和边可能属于最小割：两端残量 SCC 不同则可行；起点与 s 同 SCC、终点与 t 同 SCC 则必选。支持平行边和自环，源汇不同，点号 1..g.n。O(n+m) 时间与空间，Tarjan 递归栈 O(n)。零容量边没有正流对应的反向残量边，不能套用本函数的同 SCC 简化条件。每次修改图或重新增广后都需重新分析。
-
-\lstinputlisting[firstline=6,lastline=23]{../src/compact/mincut_edges.hpp}
-
-\Needspace{457pt}
 
 \subsection{最大权闭合子图与选点方案}\label{compact-maximum_closure}\index{maximum\_closure}
 
@@ -8497,7 +8419,17 @@ mincut\_edges(g,s,t) 只读分析 Dinic 已经完整求出的普通 s→t 最大
 
 maximum\_closure(weight,dependencies) 返回 (最大权值,选中点列表)，weight 为 0-based vector<long long>，图中点号 1..n。依赖边 (u,v) 表示选 u 必须选 v，允许环、自环与重边；允许空选集，因此答案不小于 0。依赖 flow.hpp 中的 Dinic。正权连源、负权连汇，依赖边容量取正权总和加 1；要求所有正权之和严格小于 LLONG\_MAX。负权先提升到 int128 再取负，并截断到依赖边容量，因此 LLONG\_MIN 也可处理。返回残量图源点可达的原顶点，权值为正权总和减最小割；超大负权边不会出现在最优割中，截断不改变原问题最优值。每次调用重建网络。复杂度沿用 Dinic：一般 O(V$^{2}$E)，空间 O(V+E)，增广保持递归。返回一种最优闭合集，不承诺最大或最小选点个数。
 
-\lstinputlisting[firstline=5,lastline=35]{../src/compact/maximum_closure.hpp}
+\lstinputlisting[firstline=310,lastline=340]{../src/compact/flow.hpp}
+
+\Needspace{315pt}
+
+\subsection{正容量最小割的可行边与必选边}\label{compact-mincut_edges}\index{mincut\_edges}
+
+代码依赖：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-SCC]{SCC}（第~\pageref{compact-SCC}~页，\ref{compact-SCC}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+mincut\_edges(g,s,t) 只读分析 Dinic 已经完整求出的普通 s→t 最大流；不得传入限流提前停止或人为修改过的残量网络。所有原边初始容量必须严格为正，最大流值须可由 long long 表示。返回逐条原边的 \{possible,forced\}，对应 Dinic 原始偶数边号 id 的结果是 ans[id/2]。只有饱和边可能属于最小割：两端残量 SCC 不同则可行；起点与 s 同 SCC、终点与 t 同 SCC 则必选。支持平行边和自环，源汇不同，点号 1..g.n。O(n+m) 时间与空间，Tarjan 递归栈 O(n)。零容量边没有正流对应的反向残量边，不能套用本函数的同 SCC 简化条件。每次修改图或重新增广后都需重新分析。
+
+\lstinputlisting[firstline=289,lastline=306]{../src/compact/flow.hpp}
 
 \Needspace{490pt}
 
@@ -8550,15 +8482,15 @@ P2762 为应用，P4716/P5632 为正式模板题；本地验证不等于线上 A
 
 MinCostFlow(n)，点号 1..n；add(u,v,cap,cost) 返回边编号，flow(s,t,limit) 返回新增流量及 128 位费用，used(id) 返回原边流量。允许负费用，初始残量网络必须没有负环；检测到负环抛异常。Bellman-Ford 初始化 O(VE)，每次增广 O(E log V)；增广次数不能简单假设为 O(V)。 另要求 $\sum$(cap×|cost|)<2\textasciicircum{}120，防止总费用超过 int128。 slope(s,t,limit) 返回从 (0,0) 开始的本次新增流量/费用折点，相邻同斜率段合并，费用为 int128。无增广时只返回起点；每个整数流量的费用可在线性段内插值。重复调用仍用同源汇，返回值不是历史累计值。flow 不存储曲线；slope 额外空间为折点数。内部 run 不是用户接口。新曲线接口仅本地验证，P3381 驱动只输出终点，不能据此验证全部中间折点。
 
-\lstinputlisting[firstline=125,lastline=154,firstnumber=1]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=127,lastline=156,firstnumber=1]{../src/compact/flow.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=155,lastline=203,firstnumber=31]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=157,lastline=205,firstnumber=31]{../src/compact/flow.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=204,lastline=240,firstnumber=80]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=206,lastline=242,firstnumber=80]{../src/compact/flow.hpp}
 
 \Needspace{365pt}
 
@@ -8597,7 +8529,7 @@ SPFA 版实际增广 $A$ 次的复杂度为 $O((A+1)VE)$，不能假设 $A=O(V)$
 
 
 
-\Needspace{598pt}
+\Needspace{623pt}
 
 \section{上下界网络流}
 
@@ -8605,9 +8537,9 @@ SPFA 版实际增广 $A$ 次的复杂度为 $O((A+1)VE)$，不能假设 $A=O(V)$
 
 代码依赖：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0$\le$lo$\le$hi$\le$LLONG\_MAX，所有下界总和须$\le$LLONG\_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。
+BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0$\le$lo$\le$hi$\le$LLONG\_MAX，所有下界总和须$\le$LLONG\_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。 含负环的最小费用流：先把每条负费用边满流（等价于下界=上界的强制流，残量反向边费用为正），再用本结构求可行循环，最后在残量网络上用 MinCostFlow 补齐。
 
-\lstinputlisting[firstline=241,lastline=284]{../src/compact/flow.hpp}
+\lstinputlisting[firstline=243,lastline=287]{../src/compact/flow.hpp}
 
 \Needspace{435pt}
 
@@ -8719,11 +8651,11 @@ regular\_matching(g, seed)返回左侧各点的右侧匹配点，均为0..n-1；
 
 左右两侧分别编号 1..n、1..m，可有空侧及重边；add(u,v) 加边，solve() 返回最大匹配总数，l[u] 与 r[v] 为匹配端点，0 表示未匹配。保留已有合法匹配，可加边后再次 solve；不支持删边或手动更改匹配数组。BFS 用 dep[0] 记录最短终点层，递归 DFS 只沿最短层增广，并使用当前弧。V=n+m，单次 solve 最坏 O((V+E)$\sqrt{\vphantom x}$V)，空间 O(V+E)。cover() 在 solve 后、下一次改图前调用，返回 (左侧点列表,右侧点列表)，为最小点覆盖；其补集是最大独立集。覆盖与匹配方案均可直接输出。
 
-\lstinputlisting[firstline=139,lastline=184,firstnumber=1]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=141,lastline=186,firstnumber=1]{../src/compact/graph.hpp}
 
 \newpage\noindent 增广、求解与最小点覆盖（接上页结构体）：
 
-\lstinputlisting[firstline=185,lastline=232,firstnumber=47]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=187,lastline=234,firstnumber=47]{../src/compact/graph.hpp}
 
 \Needspace{333pt}
 
@@ -8747,7 +8679,7 @@ regular\_matching(g, seed)返回左侧各点的右侧匹配点，均为0..n-1；
 
 matching\_edges(n,m,edges) 接收左右两侧点号各为 1..n、1..m 的边表，返回 (最大匹配大小,逐边分类)。每项为 \{possible,forced\}：是否属于至少一个/每一个最大匹配；分类保持输入顺序，平行边作为不同边处理。允许空侧、空图和非完备匹配。先用 BipartiteMatching 求解，再建含源汇的残量图跑 TarjanSCC；已匹配或两端同 SCC 为可行，已匹配且两端不同 SCC 为必选。不能在非完备匹配时省略源汇，也不能把可行条件写成已匹配且同 SCC。时间 O(E$\sqrt{\vphantom x}$(n+m)+n+m)，空间 O(n+m+E)，节点与残量边数须可用 int 表示。HK 与 SCC 都保留递归，栈深可为 O(n+m)。
 
-\lstinputlisting[firstline=5,lastline=49]{../src/compact/matching_edges.hpp}
+\lstinputlisting[firstline=497,lastline=541]{../src/compact/graph.hpp}
 
 \Needspace{338pt}
 
@@ -8761,7 +8693,7 @@ independent\_set(g)接收已建好的BipartiteMatching，内部调用solve再取
 
 依赖BipartiteMatching；总时间O((V+E)$\sqrt{\vphantom x}$(V+1))，V=n+m，额外时间与空间O(V)。HK增广保持递归，深度最坏O(V)。骑士攻击使格子黑白染色反转，故可应用此函数；障碍格不要建成孤立点。
 
-\lstinputlisting[firstline=5,lastline=23]{../src/compact/independent_set.hpp}
+\lstinputlisting[firstline=545,lastline=563]{../src/compact/graph.hpp}
 
 \Needspace{180pt}
 
@@ -9190,7 +9122,7 @@ DominatorTree(n)，点号 1..n；add(u,v) 加有向边，允许重边、自环�
 
 \part{计算几何}
 
-\Needspace{603pt}
+\Needspace{613pt}
 
 \chapter{二维计算几何基础}
 
@@ -9202,7 +9134,7 @@ R 为 long double；Point 支持向量加减、数乘和数除（除数非零）
 
 \Needspace{310pt}
 
-\lstinputlisting[firstline=28,lastline=50,firstnumber=23]{../src/compact/real_plane.hpp}
+\lstinputlisting[firstline=28,lastline=51,firstnumber=23]{../src/compact/real_plane.hpp}
 
 \Needspace{389pt}
 
@@ -9218,22 +9150,6 @@ R 为 long double；Point 支持向量加减、数乘和数除（除数非零）
 
 \lstinputlisting{usage/example-180.cpp}
 
-\Needspace{629pt}
-
-\section{有限二进制浮点极角精确排序}\label{compact-RealPolarLess}\index{RealPolarLess}
-
-代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-RealPolarLess\{\}(a,b) 沿用RealPlane::Point存储，输入为实际已存入的有限二进制long double，尾数$\le$64位且uint128可用；禁fast-math及FTZ/DAZ。原点最前，正x轴起逆时针[0,2$\pi$)，同向按长度递增，同点及±0等价，满足严格弱序。用frexp/ldexp拆尾数并以uint128精确比较乘积，不做浮点叉乘、不用epsilon。每次O(1)，无分配。十进制输入先舍入；不修复调用前的坐标差，不替代其他浮点几何谓词。product/cross\_sign是有限输入下的内部辅助。
-
-\lstinputlisting[firstline=4,lastline=41]{../src/compact/real_polar.hpp}
-
-\newpage
-
-\noindent 接上页同一结构体：极角比较接口。
-
-\lstinputlisting[firstline=42,lastline=53,firstnumber=39]{../src/compact/real_polar.hpp}
-
 \Needspace{217pt}
 
 \section{点在直线上的投影}\label{compact-line_projection}\index{line\_projection}
@@ -9242,7 +9158,7 @@ RealPolarLess\{\}(a,b) 沿用RealPlane::Point存储，输入为实际已存入�
 
 line\_projection(p,a,b) 返回 p 在过 a、b 直线上的正交投影；若 a=b，则约定返回 a。类型为 RealPlane::Point。输入有限且尺度适当，平方和与点积须能可靠表示；不使用 epsilon 把短线段自动视为零。O(1) 时间和空间。
 
-\lstinputlisting[firstline=5,lastline=16]{../src/compact/line_projection.hpp}
+\lstinputlisting[firstline=53,lastline=64]{../src/compact/real_plane.hpp}
 
 \Needspace{351pt}
 
@@ -9266,7 +9182,7 @@ line\_projection(p,a,b) 返回 p 在过 a、b 直线上的正交投影；若 a=b
 
 line\_intersection\_real(a,b,c,d,eps=1e-12L) 返回 RealPlane::Result；eps 必须为正。端点重合使任一直线退化时返回 degenerate。按方向叉积与方向长度乘积的相对阈值判断平行，再按位置阈值区分 none 与 infinite；唯一交点返回 one。输入有限且尺度适当；近似分类不等同于精确共线判定。O(1)。
 
-\lstinputlisting[firstline=5,lastline=27]{../src/compact/line_intersection_real.hpp}
+\lstinputlisting[firstline=84,lastline=106]{../src/compact/real_plane.hpp}
 
 \Needspace{358pt}
 
@@ -9292,7 +9208,7 @@ line\_intersection\_real(a,b,c,d,eps=1e-12L) 返回 RealPlane::Result；eps 必�
 
 line\_circle\_intersections(a,b,c,eps=1e-12L) 返回 Result；c 为 RealPlane::Circle，半径非负，eps 非负；以下相对阈值描述适用于 eps>0。a=b 返回 degenerate；按投影点到圆心的距离和半径的相对阈值区分 none、one、two。点圆允许；只有正半径同心圆才涉及无限交点，本函数不会返回 infinite。依赖 line\_projection，O(1)。输入有限且尺度适当，接近相切时按容差归类。 默认容差不能直接满足 AOJ CGL\_7\_D 的所有合法输入；近切时归并交点可能超出坐标误差限。 eps=0为显式无容差模式：直接计算平方判别式，不主动合并近切点；一般实数仍可能发生舍入误判、溢出或下溢。整数坐标绝对值$\le$10000、整数半径0..10000，二进制long double尾数$\ge$64位且正常最近舍入、禁用fast-math时，中间整数精确。交点坐标仍为浮点近似；其他输入不继承这一保证。
 
-\lstinputlisting[firstline=5,lastline=39]{../src/compact/line_circle_intersections.hpp}
+\lstinputlisting[firstline=110,lastline=144]{../src/compact/real_plane.hpp}
 
 \Needspace{510pt}
 
@@ -9318,13 +9234,13 @@ line\_circle\_intersections(a,b,c,eps=1e-12L) 返回 Result；c 为 RealPlane::C
 
 circle\_intersections(a,b,eps=1e-12L) 返回 Result；半径非负，eps 非负；以下相对阈值描述适用于 eps>0。两个完全相同的正半径圆返回 infinite；同位置两个点圆返回 one；同心不同半径返回 none。其余用距离和半径的相对阈值分类，点圆单独处理，接近相切可返回 one。输入有限且尺度适当，O(1) 时间空间；返回的有限交点仍受浮点构造误差影响。 默认容差不能直接满足 AOJ CGL\_7\_E 的所有合法输入；近切时归并交点可能超出坐标误差限。 eps=0为显式无容差模式：直接计算平方判别式，不主动合并近切点；一般实数仍可能发生舍入误判、溢出或下溢。整数坐标绝对值$\le$10000、整数半径0..10000，二进制long double尾数$\ge$64位且正常最近舍入、禁用fast-math时，中间整数精确。交点坐标仍为浮点近似；其他输入不继承这一保证。
 
-\lstinputlisting[firstline=5,lastline=31]{../src/compact/circle_intersections.hpp}
+\lstinputlisting[firstline=148,lastline=174]{../src/compact/real_plane.hpp}
 
 \newpage
 
 \noindent 默认正容差分支（接上页同一函数）：
 
-\lstinputlisting[firstline=32,lastline=58,firstnumber=28]{../src/compact/circle_intersections.hpp}
+\lstinputlisting[firstline=175,lastline=201,firstnumber=28]{../src/compact/real_plane.hpp}
 
 \Needspace{429pt}
 
@@ -9348,7 +9264,7 @@ circle\_intersections(a,b,eps=1e-12L) 返回 Result；半径非负，eps 非负�
 
 circle\_overlap\_area(a,b) 返回 long double 面积，半径非负。分离或外切返回 0；内含时返回小圆面积，含点圆和同心圆。部分相交计算两个圆弓形面积，小角度使用展开式减轻相消；acos 入参截断至 [-1,1]。不使用交点分类容差；要求有限且尺度适当的输入。O(1) 时间空间，不把浮点输出视为精确面积。
 
-\lstinputlisting[firstline=5,lastline=27]{../src/compact/circle_overlap_area.hpp}
+\lstinputlisting[firstline=205,lastline=227]{../src/compact/real_plane.hpp}
 
 \Needspace{249pt}
 
@@ -9366,19 +9282,115 @@ circle\_overlap\_area(a,b) 返回 long double 面积，半径非负。分离或�
 
 \newpage
 
+\Needspace{334pt}
+
+\noindent 相关应用：凸多边形裁剪：保留有向直线左侧；几何基础上的独立补充接口。
+
+\section{凸多边形裁剪：保留有向直线左侧}\label{compact-convex_cut}\index{convex\_cut}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+convex\_cut(p,a,b) 返回凸多边形与有向直线a→b左侧闭半平面的交。a$\ne$b；输入按边界顺序，顺/逆时针均可，允许共线中间点；空集、点和线段也可。原输入不变，输出保留原方向，但可能有共线点或重复边界点，不能直接当作严格凸包传入minimum\_rectangle。
+
+逐边保留左侧顶点，仅在两端严格异侧时加入交点，过顶点及沿边切割不作重复求交。O(n)时间和输出空间。n须能用int表示，输入及中间运算有限可表示。不使用eps；任意近退化实数的符号受舍入影响，不保证精确拓扑。AOJ整数范围内输入侧向叉积可精确表示，交点与面积仍舍入。
+
+\lstinputlisting[firstline=287,lastline=307]{../src/compact/real_plane.hpp}
+
+\newpage
+
+\Needspace{485pt}
+
+\subsection*{模板题使用：AOJ CGL\_4\_C Convex Cut}
+
+\label{usage-example-419}
+
+题意：n,q$\le$100，整数坐标绝对值$\le$10000，输入逆时针凸多边形可含共线点。每条查询均裁剪原多边形，输出左侧面积12位小数，要求绝对误差小于1e-5。已核对官方题面与本地精确模型；AOJ未登录且无已保存账号，尚无在线提交。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-convex_cut]{convex\_\allowbreak{}cut}（第~\pageref{compact-convex_cut}~页，\ref{compact-convex_cut}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C&lang=en}
+
+\lstinputlisting{usage/example-419.cpp}
+
+\newpage
+
+\Needspace{430pt}
+
+\noindent 相关应用：简单多边形面积重心；几何基础上的独立补充接口。
+
+\section{简单多边形面积重心}\label{compact-polygon_centroid}\index{polygon\_centroid}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+polygon\_centroid(p) 返回optional<RealPlane::Point>，表示均匀密度简单多边形的面积重心；可凹，顺/逆时针均可。少于三点或计算有向面积恰为0返回nullopt，不把原点作为失败标记。不用于自交、多环带孔多边形，也不是顶点平均或边界线重心。
+
+相对p[0]作三角扇，有向面积与一阶矩补偿求和；除以总有向面积恢复坐标。O(n)时间、O(1)额外空间，原输入不变。n须能用int表示，输入与中间运算有限可表示；不使用eps。实数近退化时面积符号和零判定仍可能舍入错误，巨大平移也限制最终坐标精度；long double不保证比double精度高。
+
+\lstinputlisting[firstline=254,lastline=283]{../src/compact/real_plane.hpp}
+
+\newpage
+
+\Needspace{334pt}
+
+\noindent 相关应用：三角形内心与内切圆，非完整二维几何来源覆盖
+
+\section{三角形内切圆：边长加权内心}\label{compact-triangle_incircle}\index{triangle\_incircle}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+triangle\_incircle(a,b,c)返回optional<RealPlane::Circle>，圆心为内心、半径为面积除以半周长。顺逆时针均可，不改变输入；计算叉积恰为0或三点全重合返回nullopt，不把原点作为失败标志。用对边长加权顶点，避免三角函数；O(1)时间和空间。
+
+先相对a平移，边向量按最大分量归一化再求边长；面积叉积在归一化前计算，保留AOJ整数域内精确零判定。要求输入、相减、叉积及输出等中间值有限可表示且不发生影响结果的下溢；任意近共线实数的零判定仍可能舍入错误，不是精确拓扑接口。AOJ整数坐标绝对值<=10000、三点不共线；叉积精确，圆心半径仍为浮点近似。long double不保证比double精度高。
+
+\lstinputlisting[firstline=231,lastline=250]{../src/compact/real_plane.hpp}
+
+\newpage
+
+\Needspace{263pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_B 三角形内切圆}
+
+\label{usage-example-426}
+
+题意：输入三个非共线整点，坐标绝对值不超过10000，输出内心坐标与半径；要求误差小于1e-6。官方题面已核对，完整协议本地验证，尚无本实现在线记录。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-triangle_incircle]{triangle\_\allowbreak{}incircle}（第~\pageref{compact-triangle_incircle}~页，\ref{compact-triangle_incircle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_B&lang=en}
+
+\lstinputlisting{usage/example-426.cpp}
+
+\Needspace{629pt}
+
+\section{有限二进制浮点极角精确排序}\label{compact-RealPolarLess}\index{RealPolarLess}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+RealPolarLess\{\}(a,b) 沿用RealPlane::Point存储，输入为实际已存入的有限二进制long double，尾数$\le$64位且uint128可用；禁fast-math及FTZ/DAZ。原点最前，正x轴起逆时针[0,2$\pi$)，同向按长度递增，同点及±0等价，满足严格弱序。用frexp/ldexp拆尾数并以uint128精确比较乘积，不做浮点叉乘、不用epsilon。每次O(1)，无分配。十进制输入先舍入；不修复调用前的坐标差，不替代其他浮点几何谓词。product/cross\_sign是有限输入下的内部辅助。
+
+\lstinputlisting[firstline=4,lastline=41]{../src/compact/real_polar.hpp}
+
+\newpage
+
+\noindent 接上页同一结构体：极角比较接口。
+
+\lstinputlisting[firstline=42,lastline=53,firstnumber=39]{../src/compact/real_polar.hpp}
+
+\newpage
+
 \Needspace{581pt}
 
 \section{整数点向量与线段判定}\label{compact-IntegerPlane}\index{IntegerPlane}
 
 坐标绝对值不超过 10$^{12}$，使用 long long 存点、\_\_int128\_t 计算叉积、点积与距离平方。Point 按 x、y 字典序比较；cross(a,b,c) 为 ab 与 ac 的叉积，dot 为点积。on\_segment 包含端点及退化线段；intersect 判断闭线段有交点。PolarLess 从正 x 轴按 [0,2$\pi$) 逆时针极角排序，同向按长度平方递增；零向量排在最前。同点等价，比较器满足严格弱序。按其他起点排序应整体循环移动，LC 的 (-$\pi$,$\pi$] 顺序仅将 y<0 后缀移到前面。全部单次运算 O(1)，不使用 epsilon。
 
-\lstinputlisting[firstline=6,lastline=50]{../src/compact/integer_plane.hpp}
+\lstinputlisting[firstline=8,lastline=52]{../src/compact/integer_plane.hpp}
 
 \newpage
 
 \noindent 极角比较器（接上页同一结构体）：
 
-\lstinputlisting[firstline=51,lastline=63,firstnumber=46]{../src/compact/integer_plane.hpp}
+\lstinputlisting[firstline=53,lastline=66,firstnumber=46]{../src/compact/integer_plane.hpp}
 
 \Needspace{329pt}
 
@@ -9394,54 +9406,6 @@ circle\_overlap\_area(a,b) 返回 long double 面积，半径非负。分离或�
 
 \lstinputlisting{usage/example-126.cpp}
 
-\Needspace{383pt}
-
-\section{整数输入直线与圆交点}\label{compact-line_circle_i64}\index{line\_circle\_i64}
-
-代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-line\_circle\_i64(a,b,o,r)：a、b定直线，o为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值$\le$10$^{9}$，半径在0..10$^{9}$；先用int128精确判定交点数，再用long double构造坐标。a=b返回degenerate；相离none、相切one、相交two。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10$^{9}$尺度不承诺绝对1e-6。AOJ整数范围10$^{4}$内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。
-
-\lstinputlisting[firstline=6,lastline=30]{../src/compact/line_circle_i64.hpp}
-
-\Needspace{414pt}
-
-\subsection*{模板题使用：AOJ CGL\_7\_D}
-
-\label{usage-example-151}
-
-题意：整数圆心/半径及直线，坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$，q$\le$1000。题目保证直线非退化且至少一个交点；精确分类后构造坐标，按x/y字典序输出，相切点复制一次。绝对误差要求小于1e-6。
-
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_circle_i64]{line\_\allowbreak{}circle\_\allowbreak{}i64}（第~\pageref{compact-line_circle_i64}~页，\ref{compact-line_circle_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D}
-
-\lstinputlisting{usage/example-151.cpp}
-
-\Needspace{438pt}
-
-\section{整数输入两圆交点}\label{compact-circle_intersections_i64}\index{circle\_intersections\_i64}
-
-代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-circle\_intersections\_i64(a,r,b,s)：a、b为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值$\le$10$^{9}$，半径在0..10$^{9}$；先用int128精确判定交点数，再用long double构造坐标。相离或严格内含返回none、相切one、相交two；同心等正半径返回infinite，同心零半径返回one。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10$^{9}$尺度不承诺绝对1e-6。AOJ整数范围10$^{4}$内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。
-
-\lstinputlisting[firstline=6,lastline=35]{../src/compact/circle_intersections_i64.hpp}
-
-\Needspace{331pt}
-
-\subsection*{模板题使用：AOJ CGL\_7\_E}
-
-\label{usage-example-152}
-
-题意：整数圆心/半径，坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$；不同圆心且至少一个交点。按x/y字典序输出，相切点复制一次；不使用eps排序。绝对误差要求小于1e-6。
-
-所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_intersections_i64]{circle\_\allowbreak{}intersections\_\allowbreak{}i64}（第~\pageref{compact-circle_intersections_i64}~页，\ref{compact-circle_intersections_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E}
-
-\lstinputlisting{usage/example-152.cpp}
-
 \Needspace{208pt}
 
 \section{整数多边形有向面积}\label{compact-polygon_area2}\index{polygon\_area2}
@@ -9450,7 +9414,7 @@ circle\_intersections\_i64(a,r,b,s)：a、b为圆心。依赖IntegerPlane::Point
 
 polygon\_area2(p) 返回 \_\_int128\_t 的有向面积两倍；逆时针为正，反向为负。输入按边界顺序排列，隐式闭合；空集或不足三个点返回 0。单个多边形点数不超过 10$^{5}$、坐标绝对值不超过 10$^{12}$，确保求和在有符号 128 位内。时间 O(n)，额外空间 O(1)。
 
-\lstinputlisting[firstline=5,lastline=15]{../src/compact/polygon_area2.hpp}
+\lstinputlisting[firstline=68,lastline=78]{../src/compact/integer_plane.hpp}
 
 \Needspace{316pt}
 
@@ -9474,7 +9438,7 @@ polygon\_area2(p) 返回 \_\_int128\_t 的有向面积两倍；逆时针为正�
 
 polygon\_contains(p,q) 返回 0 外部、1 边界、2 内部，输入简单多边形，可顺时针或逆时针，不重复首点。空多边形返回 0；单点与线段按闭集判断边界。绕数算法先判线段，再按半开纵坐标区间累计，避免顶点重复计数。坐标范围同 IntegerPlane，O(n) 时间、O(1) 空间。
 
-\lstinputlisting[firstline=5,lastline=21]{../src/compact/polygon_contains.hpp}
+\lstinputlisting[firstline=82,lastline=98]{../src/compact/integer_plane.hpp}
 
 \Needspace{347pt}
 
@@ -9489,6 +9453,54 @@ polygon\_contains(p,q) 返回 0 外部、1 边界、2 内部，输入简单多�
 题目：\url{https://onlinejudge.u-aizu.ac.jp/problems/CGL_3_C}
 
 \lstinputlisting{usage/example-135.cpp}
+
+\Needspace{383pt}
+
+\section{整数输入直线与圆交点}\label{compact-line_circle_i64}\index{line\_circle\_i64}
+
+代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+line\_circle\_i64(a,b,o,r)：a、b定直线，o为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值$\le$10$^{9}$，半径在0..10$^{9}$；先用int128精确判定交点数，再用long double构造坐标。a=b返回degenerate；相离none、相切one、相交two。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10$^{9}$尺度不承诺绝对1e-6。AOJ整数范围10$^{4}$内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。
+
+\lstinputlisting[firstline=162,lastline=186]{../src/compact/integer_plane.hpp}
+
+\Needspace{414pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_D}
+
+\label{usage-example-151}
+
+题意：整数圆心/半径及直线，坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$，q$\le$1000。题目保证直线非退化且至少一个交点；精确分类后构造坐标，按x/y字典序输出，相切点复制一次。绝对误差要求小于1e-6。
+
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-line_circle_i64]{line\_\allowbreak{}circle\_\allowbreak{}i64}（第~\pageref{compact-line_circle_i64}~页，\ref{compact-line_circle_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D}
+
+\lstinputlisting{usage/example-151.cpp}
+
+\Needspace{438pt}
+
+\section{整数输入两圆交点}\label{compact-circle_intersections_i64}\index{circle\_intersections\_i64}
+
+代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+circle\_intersections\_i64(a,r,b,s)：a、b为圆心。依赖IntegerPlane::Point及RealPlane::Result。所有输入坐标绝对值$\le$10$^{9}$，半径在0..10$^{9}$；先用int128精确判定交点数，再用long double构造坐标。相离或严格内含返回none、相切one、相交two；同心等正半径返回infinite，同心零半径返回one。结果p不排序，one只含一个点，none/infinite/degenerate为空。零半径按点圆处理。O(1)时间和空间。精确的是分类，坐标仍有舍入误差；在10$^{9}$尺度不承诺绝对1e-6。AOJ整数范围10$^{4}$内的驱动按字典序输出，相切点重复一次。本地高精度与消毒器测试不等于线上AC。
+
+\lstinputlisting[firstline=190,lastline=219]{../src/compact/integer_plane.hpp}
+
+\Needspace{331pt}
+
+\subsection*{模板题使用：AOJ CGL\_7\_E}
+
+\label{usage-example-152}
+
+题意：整数圆心/半径，坐标绝对值$\le$10$^{4}$、半径1..10$^{4}$；不同圆心且至少一个交点。按x/y字典序输出，相切点复制一次；不使用eps排序。绝对误差要求小于1e-6。
+
+所需模板：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_intersections_i64]{circle\_\allowbreak{}intersections\_\allowbreak{}i64}（第~\pageref{compact-circle_intersections_i64}~页，\ref{compact-circle_intersections_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E}
+
+\lstinputlisting{usage/example-152.cpp}
 
 \Needspace{426pt}
 
@@ -9660,86 +9672,6 @@ circle\_union\_area(a) 求闭圆盘的面积并，输入vector<RealPlane::Circle
 
 \newpage
 
-\Needspace{334pt}
-
-\noindent 相关应用：凸多边形裁剪：保留有向直线左侧；几何基础上的独立补充接口。
-
-\section{凸多边形裁剪：保留有向直线左侧}\label{compact-convex_cut}\index{convex\_cut}
-
-代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-convex\_cut(p,a,b) 返回凸多边形与有向直线a→b左侧闭半平面的交。a$\ne$b；输入按边界顺序，顺/逆时针均可，允许共线中间点；空集、点和线段也可。原输入不变，输出保留原方向，但可能有共线点或重复边界点，不能直接当作严格凸包传入minimum\_rectangle。
-
-逐边保留左侧顶点，仅在两端严格异侧时加入交点，过顶点及沿边切割不作重复求交。O(n)时间和输出空间。n须能用int表示，输入及中间运算有限可表示。不使用eps；任意近退化实数的符号受舍入影响，不保证精确拓扑。AOJ整数范围内输入侧向叉积可精确表示，交点与面积仍舍入。
-
-\lstinputlisting[firstline=5,lastline=25]{../src/compact/convex_cut.hpp}
-
-\newpage
-
-\Needspace{485pt}
-
-\subsection*{模板题使用：AOJ CGL\_4\_C Convex Cut}
-
-\label{usage-example-419}
-
-题意：n,q$\le$100，整数坐标绝对值$\le$10000，输入逆时针凸多边形可含共线点。每条查询均裁剪原多边形，输出左侧面积12位小数，要求绝对误差小于1e-5。已核对官方题面与本地精确模型；AOJ未登录且无已保存账号，尚无在线提交。
-
-所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-convex_cut]{convex\_\allowbreak{}cut}（第~\pageref{compact-convex_cut}~页，\ref{compact-convex_cut}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_C&lang=en}
-
-\lstinputlisting{usage/example-419.cpp}
-
-\newpage
-
-\Needspace{430pt}
-
-\noindent 相关应用：简单多边形面积重心；几何基础上的独立补充接口。
-
-\section{简单多边形面积重心}\label{compact-polygon_centroid}\index{polygon\_centroid}
-
-代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-polygon\_centroid(p) 返回optional<RealPlane::Point>，表示均匀密度简单多边形的面积重心；可凹，顺/逆时针均可。少于三点或计算有向面积恰为0返回nullopt，不把原点作为失败标记。不用于自交、多环带孔多边形，也不是顶点平均或边界线重心。
-
-相对p[0]作三角扇，有向面积与一阶矩补偿求和；除以总有向面积恢复坐标。O(n)时间、O(1)额外空间，原输入不变。n须能用int表示，输入与中间运算有限可表示；不使用eps。实数近退化时面积符号和零判定仍可能舍入错误，巨大平移也限制最终坐标精度；long double不保证比double精度高。
-
-\lstinputlisting[firstline=5,lastline=34]{../src/compact/polygon_centroid.hpp}
-
-\newpage
-
-\Needspace{334pt}
-
-\noindent 相关应用：三角形内心与内切圆，非完整二维几何来源覆盖
-
-\section{三角形内切圆：边长加权内心}\label{compact-triangle_incircle}\index{triangle\_incircle}
-
-代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-triangle\_incircle(a,b,c)返回optional<RealPlane::Circle>，圆心为内心、半径为面积除以半周长。顺逆时针均可，不改变输入；计算叉积恰为0或三点全重合返回nullopt，不把原点作为失败标志。用对边长加权顶点，避免三角函数；O(1)时间和空间。
-
-先相对a平移，边向量按最大分量归一化再求边长；面积叉积在归一化前计算，保留AOJ整数域内精确零判定。要求输入、相减、叉积及输出等中间值有限可表示且不发生影响结果的下溢；任意近共线实数的零判定仍可能舍入错误，不是精确拓扑接口。AOJ整数坐标绝对值<=10000、三点不共线；叉积精确，圆心半径仍为浮点近似。long double不保证比double精度高。
-
-\lstinputlisting[firstline=5,lastline=24]{../src/compact/triangle_incircle.hpp}
-
-\newpage
-
-\Needspace{263pt}
-
-\subsection*{模板题使用：AOJ CGL\_7\_B 三角形内切圆}
-
-\label{usage-example-426}
-
-题意：输入三个非共线整点，坐标绝对值不超过10000，输出内心坐标与半径；要求误差小于1e-6。官方题面已核对，完整协议本地验证，尚无本实现在线记录。
-
-所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-triangle_incircle]{triangle\_\allowbreak{}incircle}（第~\pageref{compact-triangle_incircle}~页，\ref{compact-triangle_incircle}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_B&lang=en}
-
-\lstinputlisting{usage/example-426.cpp}
-
-\newpage
-
 \chapter{三维计算几何基础}
 
 \noindent 相关应用：不扰动增量凸包，精确方向符号、低维退化输出、面积及六倍体积。
@@ -9830,13 +9762,13 @@ Hull3D<T>(points)，T只取long long或long double（默认）。输入编号从
 
 \newpage
 
-\Needspace{527pt}
+\Needspace{537pt}
 
 \section{整数三维共线、共面与方向}\label{compact-IntegerGeometry3D}\index{IntegerGeometry3D}
 
 坐标绝对值$\le$10$^{9}$；orient(a,b,c,d) 为有向六倍四面体体积，0 表示共面；collinear 判三点共线，on\_segment 支持退化线段。int128 精确判定，不包含三维凸包构造。
 
-\lstinputlisting[firstline=75,lastline=117]{../src/compact/real_space.hpp}
+\lstinputlisting[firstline=73,lastline=116]{../src/compact/space3.hpp}
 
 \newpage
 
@@ -9846,13 +9778,13 @@ Hull3D<T>(points)，T只取long long或long double（默认）。输入编号从
 
 Point 为 long double 三坐标，支持加减、数乘/除和精确字典序；排序禁用 epsilon。dot、cross、norm 为点积、叉积、长度；unit 和 angle 要求非零向量，angle 返回0..$\pi$的有向向量夹角，弧度制。unit(a)*r 变换长度；点间距离为 norm(a-b)。有限输入且中间量不溢出/下溢，极端尺度须预缩放；浮点不是精确共面判定。O(1)时间空间。
 
-\lstinputlisting[firstline=8,lastline=41]{../src/compact/real_space.hpp}
+\lstinputlisting[firstline=6,lastline=39]{../src/compact/space3.hpp}
 
 \newpage
 
 \noindent 继续三维运算（接上页同一结构体）：
 
-\lstinputlisting[firstline=42,firstnumber=35]{../src/compact/real_space.hpp}
+\lstinputlisting[firstline=40,firstnumber=35]{../src/compact/space3.hpp}
 
 \newpage
 
@@ -9866,13 +9798,13 @@ Point 为 long double 三坐标，支持加减、数乘/除和精确字典序；
 
 Line3(p,d) 表示 p+t*d，注意第二参数是方向；through(a,b) 从两个端点构造。线段限制0$\le$t$\le$1。projection/segment\_projection 返回最近点，distance/segment\_distance 返回距离，on\_segment(q,eps) 使用绝对距离容差。d=0 时这些操作按点p处理；rotate(q,rad) 必须d非零，绕p+t*d按右手法则旋转，角度单位弧度。公开p,d。依赖RealSpace；O(1)。近退化浮点运算须按输入尺度分析误差。
 
-\lstinputlisting[firstline=4,lastline=32]{../src/compact/line3.hpp}
+\lstinputlisting[firstline=117,lastline=145]{../src/compact/space3.hpp}
 
 \newpage
 
 \noindent 继续三维运算（接上页同一结构体）：
 
-\lstinputlisting[firstline=33,firstnumber=30]{../src/compact/line3.hpp}
+\lstinputlisting[firstline=146,firstnumber=30]{../src/compact/space3.hpp}
 
 \newpage
 
@@ -9886,13 +9818,13 @@ Line3(p,d) 表示 p+t*d，注意第二参数是方向；through(a,b) 从两个�
 
 Plane3(p,normal) 要求非零法向量并单位化；through(a,b,c) 要求三点不共线；equation(n,h) 表示n点乘x=h。signed\_distance保留法向符号，projection返回垂足。intersect(line,q,eps,ang) 返回1单点、0无交、-1整条非退化线在面上，退化线按点处理。intersect(plane,line,eps,ang) 返回1交线、0平行不同、-1重合。仅返回1时写输出参数；交线d为单位向量。eps为距离容差，ang为单位方向的正弦容差；默认1e-10和1e-12。近乎平行按容差分类，非精确拓扑判定；近乎平行求交误差会放大。公开p和单位n，勿破坏单位不变量。依赖RealSpace/Line3；O(1)。
 
-\lstinputlisting[firstline=4,lastline=33]{../src/compact/plane3.hpp}
+\lstinputlisting[firstline=172,lastline=201]{../src/compact/space3.hpp}
 
 \newpage
 
 \noindent 继续三维运算（接上页同一结构体）：
 
-\lstinputlisting[firstline=34,firstnumber=31]{../src/compact/plane3.hpp}
+\lstinputlisting[firstline=202,firstnumber=31]{../src/compact/space3.hpp}
 
 \newpage
 
@@ -9906,7 +9838,7 @@ Plane3(p,normal) 要求非零法向量并单位化；through(a,b,c) 要求三点
 
 segment\_distance\_real(p,a,b) 返回点 p 到闭线段 ab 的 long double 距离。a=b 时返回到端点的距离；否则把投影参数截断至 [0,1]。要求有限且尺度适当的输入；O(1) 时间和空间。
 
-\lstinputlisting[firstline=5,lastline=17]{../src/compact/segment_distance_real.hpp}
+\lstinputlisting[firstline=68,lastline=80]{../src/compact/real_plane.hpp}
 
 \Needspace{457pt}
 
@@ -10021,6 +9953,16 @@ p须为严格凸、逆时针的整数多边形，无重复末点或共线边界�
 
 \lstinputlisting[firstline=28,lastline=62,firstnumber=24]{../src/compact/convex_tangents_i64.hpp}
 
+\Needspace{335pt}
+
+\section{点在整数凸包内（二分）}\label{compact-convex_contains_i64}\index{convex\_contains\_i64}
+
+代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-polygon_contains]{polygon\_\allowbreak{}contains}（第~\pageref{compact-polygon_contains}~页，\ref{compact-polygon_contains}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+convex\_contains\_i64(p,q) 返回 0 外部、1 边界、2 内部。要求严格逆时针凸包，无共线边内点、不重复首点，例如 integer\_hull 的输出；允许循环旋转起点。空集、单点、线段转用 polygon\_contains。坐标范围同 IntegerPlane，O(log n) 时间、O(1) 空间。
+
+\lstinputlisting[firstline=102,lastline=124]{../src/compact/integer_plane.hpp}
+
 \Needspace{366pt}
 
 \section{整数凸包：单调链}\label{compact-integer_hull}\index{integer\_hull}
@@ -10044,16 +9986,6 @@ integer\_hull(points) 按值接收 IntegerPlane::Point 序列，输出严格逆�
 题目：\url{https://judge.yosupo.jp/problem/static_convex_hull}
 
 \lstinputlisting{usage/example-64.cpp}
-
-\Needspace{335pt}
-
-\section{点在整数凸包内（二分）}\label{compact-convex_contains_i64}\index{convex\_contains\_i64}
-
-代码依赖：\hyperref[compact-IntegerPlane]{IntegerPlane}（第~\pageref{compact-IntegerPlane}~页，\ref{compact-IntegerPlane}~节）、\hyperref[compact-polygon_contains]{polygon\_\allowbreak{}contains}（第~\pageref{compact-polygon_contains}~页，\ref{compact-polygon_contains}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-convex\_contains\_i64(p,q) 返回 0 外部、1 边界、2 内部。要求严格逆时针凸包，无共线边内点、不重复首点，例如 integer\_hull 的输出；允许循环旋转起点。空集、单点、线段转用 polygon\_contains。坐标范围同 IntegerPlane，O(log n) 时间、O(1) 空间。
-
-\lstinputlisting[firstline=5,lastline=27]{../src/compact/convex_contains_i64.hpp}
 
 \Needspace{624pt}
 
@@ -10119,7 +10051,7 @@ minkowski\_sum(a,b) 接受不重复首点的严格逆时针凸包；空输入返
 
 convex\_diameter2(p,endpoints=nullptr) 返回最远两点距离平方，类型 \_\_int128\_t；不足两点返回 0。输入须为严格逆时针凸包，不重复首点，例如 integer\_hull 的输出。坐标范围同 IntegerPlane；旋转卡壳 O(n) 时间、O(1) 额外空间。可传 pair<int,int> 的地址，接收凸包内的 0-based 端点下标；空集为 \{-1,-1\}，单点为 \{0,0\}，至少两点时端点不同。不保证并列最优端点的顺序。映射到原始输入编号由调用者完成。
 
-\lstinputlisting[firstline=5,lastline=35]{../src/compact/convex_diameter2.hpp}
+\lstinputlisting[firstline=128,lastline=158]{../src/compact/integer_plane.hpp}
 
 \Needspace{485pt}
 
@@ -10348,21 +10280,35 @@ OverallKth(a)读取0-based非空初始数组；后续位置用1..n。set(pos,val
 
 \newpage
 
-\Needspace{680pt}
+\newpage
+
+\Needspace{476pt}
 
 \section{莫队算法}
 
 \subsection{普通莫队算法}
 
+\subsubsection{曼哈顿 MST 的递归 DFS 查询顺序}\label{compact-manhattan_order}\index{manhattan\_order}
+
+代码依赖：\hyperref[compact-ManhattanMST]{ManhattanMST}（第~\pageref{compact-ManhattanMST}~页，\ref{compact-ManhattanMST}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+输入二维整数点，返回从原编号0开始的DFS先序排列；空输入返回空序列，重复点分别保留。可把静态区间[l,r)看作点(l,r)，按返回编号移动莫队双指针。只负责排序，统计和答案由调用处维护。
+
+复用ManhattanMST构造树，递归DFS，每个点恰好一次。设MST权值为T，由DFS往返及三角不等式，相邻访问点的L1距离之和$\le$2T。起始空区间到首个查询的移动另计；排序O(q log(q+1))时间、O(q)空间与最坏O(q)递归栈。不保证比普通分块更快，也不保证最短访问顺序。点坐标可为signed64，距离界用int128。查询数须$\le$INT\_MAX；输入不变。 P1494当前实现已100分AC，10点单点最大113ms、峰值10.49MB；排名未核查。
+
+\lstinputlisting[firstline=5,lastline=31]{../src/compact/manhattan_order.hpp}
+
+\Needspace{651pt}
+
 \subsubsection{普通莫队：静态区间统计}\label{compact-Mo}\index{Mo}
 
-\lstinputlisting[firstline=6,lastline=52]{../src/compact/ordinary_mo.hpp}
+\lstinputlisting[firstline=8,lastline=55]{../src/compact/mo.hpp}
 
 \newpage
 
 Mo(n)，n$\ge$0；add(l,r)登记0-based半开区间并返回查询编号，允许空区间。run(add,del,ans,block=0)中加删回调接收下标，答案回调接收原查询编号。开始时统计状态须为空，结束后删除剩余点恢复空状态；可重复run，运行期间不能修改查询表。适用于加删任意位置语义相同的集合统计；逆序对等顺序敏感统计需另外区分左右端点。
 
-查询按左端块号、右端蛇形排序；先扩张再收缩，保证删除位置仍在当前区间。回调O(1)时，正块长B的时间O(q log(q+1)+qB+n$^{2}$/B+n)，额外空间O(q)。默认B=max(1,floor(n/sqrt(q)))，q=0直接返回。n和q须能用int表示。P2709频次平方和须用long long，最大n$^{2}$=10\textasciicircum{}10。P2709 当前代码已 AC（30 个测试点，单点最大 69ms）；运行时间排名未核查。
+查询按左端块号、右端蛇形排序；先扩张再收缩，保证删除位置仍在当前区间。回调O(1)时，正块长B的时间O(q log(q+1)+qB+n$^{2}$/B+n)，额外空间O(q)。默认B=max(1,floor(n/sqrt(q)))，q=0直接返回。n和q须能用int表示。P2709频次平方和须用long long，最大n$^{2}$=10\textasciicircum{}10。P2709 当前代码已 AC（30 个测试点，单点最大 69ms）；运行时间排名未核查。 曼哈顿最小生成树排序：把查询 [l,r) 看作点 (l,r)，用 ManhattanMST 建树后按 DFS 先序处理查询，相邻查询的指针移动总和不超过 2 倍 MST 权；不保证比分块排序更快，一般题直接用默认分块。
 
 \Needspace{546pt}
 
@@ -10380,20 +10326,6 @@ Mo(n)，n$\ge$0；add(l,r)登记0-based半开区间并返回查询编号，允�
 
 \newpage
 
-\Needspace{406pt}
-
-\subsubsection{曼哈顿 MST 的递归 DFS 查询顺序}\label{compact-manhattan_order}\index{manhattan\_order}
-
-代码依赖：\hyperref[compact-ManhattanMST]{ManhattanMST}（第~\pageref{compact-ManhattanMST}~页，\ref{compact-ManhattanMST}~节）。抄写时一并准备；标准库类型不列入算法依赖。
-
-输入二维整数点，返回从原编号0开始的DFS先序排列；空输入返回空序列，重复点分别保留。可把静态区间[l,r)看作点(l,r)，按返回编号移动莫队双指针。只负责排序，统计和答案由调用处维护。
-
-复用ManhattanMST构造树，递归DFS，每个点恰好一次。设MST权值为T，由DFS往返及三角不等式，相邻访问点的L1距离之和$\le$2T。起始空区间到首个查询的移动另计；排序O(q log(q+1))时间、O(q)空间与最坏O(q)递归栈。不保证比普通分块更快，也不保证最短访问顺序。点坐标可为signed64，距离界用int128。查询数须$\le$INT\_MAX；输入不变。 P1494当前实现已100分AC，10点单点最大113ms、峰值10.49MB；排名未核查。
-
-\lstinputlisting[firstline=5,lastline=31]{../src/compact/manhattan_order.hpp}
-
-\newpage
-
 \Needspace{680pt}
 
 \subsection{带修改莫队}
@@ -10402,11 +10334,11 @@ Mo(n)，n$\ge$0；add(l,r)登记0-based半开区间并返回查询编号，允�
 
 ModifiedMo(n,m) 保存离线询问，n>0，m 为修改总数。add(l,r,t) 登记第 t 次修改完成后的 [l,r)，返回从 0 开始的询问编号；0$\le$l$\le$r$\le$n，0$\le$t$\le$m，询问数小于 INT\_MAX。run(add,del,chg,ans,block=0) 排序并移动三个指针。add(p)/del(p) 按下标更新当前区间统计；chg(i,forward,l,r) 将编号 i 的修改前进或回退，并同步修正当前 [l,r) 内的贡献；ans(id) 记录结果。修改编号从 0 开始，前进第 i 次修改时原时间为 i，回退时原时间为 i+1。回调初始状态必须为原数组、空区间、时间 0；重复 run 前由调用方重置状态。状态不会自动恢复，原询问顺序不变。仅适用于可增删维护的区间统计，需区分左右端操作时另行拆分回调。默认块长约 n\textasciicircum{}(2/3)，也可显式指定正块长。n、询问数、修改数同阶且回调 O(1) 时总时间 O(n\textasciicircum{}(5/3))，调度器空间 O(q)。
 
-\lstinputlisting[firstline=8,lastline=28]{../src/compact/modified_mo.hpp}
+\lstinputlisting[firstline=56,lastline=76]{../src/compact/mo.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=29,lastline=65,firstnumber=22]{../src/compact/modified_mo.hpp}
+\lstinputlisting[firstline=77,lastline=114,firstnumber=22]{../src/compact/mo.hpp}
 
 \Needspace{200pt}
 
@@ -10474,13 +10406,13 @@ O\left(QB+\frac{n^2}{B}+U\min\left(Q,(\lfloor n/B\rfloor+1)^2\right)\right).
 
 先对非空连通树HLD.build(root)，再TreeMo(tree)；tree须活到run结束且不能修改。点号1..n，双欧拉序长2n，n<=INT\_MAX/2；DFS递归。add(u,v,edge=false)返回0-based查询ID；默认点权，edge=true把父边权记在子点并排除LCA。run(add,del,ans,block=0)的add/del参数是顶点，ans参数是查询ID；只适合与集合排列无关且可增删的统计。调用前统计为空，结束恢复空；不可在回调内修改树/查询，可重复运行。混用点边查询时回调须有一致的数据解释。默认块长max(1,2n/sqrt(m))；自定B>0。m>0时调度O(m log(m+1)+mB+n$^{2}$/B+n)，查询转换另需O(m log n)，回调代价另计。空间O(n+m)，复用HLD；整数大小另须满足内存限制。
 
-\lstinputlisting[firstline=4,lastline=46]{../src/compact/tree_mo.hpp}
+\lstinputlisting[firstline=181,lastline=223]{../src/compact/mo.hpp}
 
 \newpage
 
 \noindent 查询调度与状态恢复（接上页同一结构体）：
 
-\lstinputlisting[firstline=47,firstnumber=44]{../src/compact/tree_mo.hpp}
+\lstinputlisting[firstline=224,firstnumber=44]{../src/compact/mo.hpp}
 
 \newpage
 
@@ -10494,13 +10426,13 @@ O\left(QB+\frac{n^2}{B}+U\min\left(Q,(\lfloor n/B\rfloor+1)^2\right)\right).
 
 RollbackMo(n)，n>=0；add(l,r)登记0-based半开区间[l,r)，允许空区间，返回0-based查询ID。run(add, snapshot, rollback, ans, block=0)：add接收位置，snapshot返回当前快照，rollback恢复该祖先快照，ans接收查询ID。开始时统计必须为空；结束恢复初始快照。每次add都须可撤销，包含长期右段；不保留失效快照、不修改查询。只支持与插入次序无关的区间统计。默认B=max(1,n/sqrt(m))；m>0时调度与O(1)增删总计O(m log(m+1)+mB+n$^{2}$/B+n)，空间O(m)加回调状态/历史O(n)。可重复run，n=0只允许空查询；无查询不调用回调。
 
-\lstinputlisting[firstline=8,lastline=43]{../src/compact/rollback_mo.hpp}
+\lstinputlisting[firstline=115,lastline=150]{../src/compact/mo.hpp}
 
 \newpage
 
 \noindent 查询调度与状态恢复（接上页同一结构体）：
 
-\lstinputlisting[firstline=44,firstnumber=37]{../src/compact/rollback_mo.hpp}
+\lstinputlisting[firstline=151,firstnumber=37]{../src/compact/mo.hpp}
 
 \Needspace{431pt}
 

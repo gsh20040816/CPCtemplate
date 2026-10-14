@@ -26,7 +26,7 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     fixture = ROOT / 'tests/fixtures/prime_sources'
     paths = [ROOT / 'tests/prime_source_audit.py', ROOT / 'tests/prime_distance_application.py',
-             ROOT / 'src/compact/number_theory.hpp', ROOT / 'src/compact/segmented_sieve.hpp',
+             ROOT / 'src/compact/number_theory.hpp', ROOT / 'src/compact/number_theory.hpp',
              ROOT / 'verify/poj/2689.compact.cpp', *sorted(fixture.glob('*.cpp'))]
     digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
     snapshot = {str(p.relative_to(ROOT)): digest(p) for p in paths}

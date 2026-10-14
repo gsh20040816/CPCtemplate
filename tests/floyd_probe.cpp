@@ -1,4 +1,4 @@
-#include "../src/compact/floyd.hpp"
+#include "../src/compact/graph.hpp"
 #include <algorithm>
 #include <iostream>
 #include <random>

@@ -1,5 +1,5 @@
-#include "../src/compact/tree_mo.hpp"
-#include "../src/compact/rollback_mo.hpp"
+#include "../src/compact/mo.hpp"
+#include "../src/compact/mo.hpp"
 
 void need(bool ok)
 {

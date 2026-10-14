@@ -40,7 +40,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     row = next(r for r in records() if r['id'] == 'example-343')
     sha = lambda data: hashlib.sha256(data).hexdigest()
-    paths = ['src/compact/string.hpp', 'src/compact/suffix_lcp.hpp', row['driver'],
+    paths = ['src/compact/string.hpp', 'src/compact/string.hpp', row['driver'],
              'tests/da_palindrome_source.py', 'tests/fixtures/da_palindrome_sources/kuangbin.cpp',
              'docs/catalog.json', 'docs/usage-examples.json', 'tools/usage_examples.py',
              'tools/audit_copy_context.py']

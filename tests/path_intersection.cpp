@@ -1,4 +1,4 @@
-#include "../src/compact/path_intersection.hpp"
+#include "../src/compact/tree.hpp"
 #include "../src/classic/path_intersection.hpp"
 #include "../src/compact/tree.hpp"
 #include "../src/classic/tree.hpp"

@@ -1,4 +1,4 @@
-#include "../src/compact/ordered_set.hpp"
+#include "../src/compact/gnu.hpp"
 
 int main()
 {

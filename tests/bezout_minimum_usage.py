@@ -12,7 +12,7 @@ import subprocess, sys, tempfile, time
 
 ROOT = next(p for p in Path(__file__).resolve().parents
             if (p / 'tools/usage_examples.py').is_file()
-            and (p / 'src/compact/extended_gcd.hpp').is_file())
+            and (p / 'src/compact/number_theory.hpp').is_file())
 sys.path.insert(0, str(ROOT / 'tests'))
 from compiler_config import CXX
 sys.path.insert(0, str(ROOT / 'tools'))
@@ -21,7 +21,7 @@ from usage_examples import records
 DRIVER = 'verify/aoj/NTL_1_E.compact.cpp'
 CONTRACT = 'tests/fixtures/bezout-minimum/contract.json'
 EXAMPLE = 'example-221'
-HEADERS = ['src/compact/extended_gcd.hpp']
+HEADERS = ['src/compact/number_theory.hpp']
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()

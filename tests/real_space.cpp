@@ -1,4 +1,4 @@
-#include "../src/compact/plane3.hpp"
+#include "../src/compact/space3.hpp"
 #include <bits/stdc++.h>
 #include <cassert>
 using namespace std;

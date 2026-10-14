@@ -1,5 +1,5 @@
 // https://judge.yosupo.jp/problem/ordered_set
-#include "../../src/compact/ordered_set.hpp"
+#include "../../src/compact/gnu.hpp"
 
 int main()
 {

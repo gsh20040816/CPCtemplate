@@ -1,4 +1,4 @@
-#include "../src/compact/rope.hpp"
+#include "../src/compact/gnu.hpp"
 
 int main()
 {

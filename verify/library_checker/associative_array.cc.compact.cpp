@@ -1,5 +1,5 @@
 // https://judge.yosupo.jp/problem/associative_array
-#include "../../src/compact/hash_table.hpp"
+#include "../../src/compact/gnu.hpp"
 
 int main()
 {

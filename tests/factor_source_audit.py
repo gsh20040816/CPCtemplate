@@ -39,7 +39,7 @@ def main():
     output = ROOT / 'build/factor-source-audit' / mode
     output.mkdir(parents=True, exist_ok=True)
     paths = [ROOT / 'tests/factor_source_audit.py', ROOT / 'tests/fixtures/factor_source/kuangbin.cpp',
-             ROOT / 'src/compact/number_theory.hpp', ROOT / 'src/compact/prime64.hpp', ROOT / 'src/compact/mod64.hpp']
+             ROOT / 'src/compact/number_theory.hpp', ROOT / 'src/compact/number_theory.hpp', ROOT / 'src/compact/number_theory.hpp']
     digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
     snapshot = {str(p.relative_to(ROOT)): digest(p) for p in paths}
     prelude = '#include <bits/stdc++.h>\n#include <cassert>\nusing namespace std;\n'

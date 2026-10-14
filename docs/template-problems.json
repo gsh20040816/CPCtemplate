@@ -206,7 +206,7 @@
     {
       "symbol": "maximum_closure",
       "title": "最大权闭合子图与选点方案",
-      "source": "src/compact/maximum_closure.hpp",
+      "source": "src/compact/flow.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -688,7 +688,7 @@
     {
       "symbol": "Mod64",
       "title": "无符号64位模乘与模幂",
-      "source": "src/compact/mod64.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [],
       "qoj_tag_candidate": null,
@@ -703,7 +703,7 @@
     {
       "symbol": "Prime64",
       "title": "确定性64位 Miller–Rabin 判素",
-      "source": "src/compact/prime64.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -731,7 +731,7 @@
     {
       "symbol": "extended_gcd",
       "title": "扩展欧几里得与 Bézout 系数",
-      "source": "src/compact/extended_gcd.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -753,7 +753,7 @@
     {
       "symbol": "mod_inverse",
       "title": "任意正模数的单个逆元",
-      "source": "src/compact/mod_inverse.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -775,7 +775,7 @@
     {
       "symbol": "crt_merge",
       "title": "广义 CRT：逐项合并同余",
-      "source": "src/compact/crt_merge.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -821,7 +821,7 @@
     {
       "symbol": "linear_congruence",
       "title": "线性同余方程",
-      "source": "src/compact/linear_congruence.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -843,7 +843,7 @@
     {
       "symbol": "segmented_primes",
       "title": "区间筛素数",
-      "source": "src/compact/segmented_sieve.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -865,7 +865,7 @@
     {
       "symbol": "batch_inverse",
       "title": "任意数组的批量逆元",
-      "source": "src/compact/batch_inverse.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -889,7 +889,7 @@
     {
       "symbol": "inverse_table",
       "title": "连续整数的线性逆元表",
-      "source": "src/compact/inverse_table.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -1193,7 +1193,7 @@
     {
       "symbol": "euler_phi",
       "title": "单个数的欧拉函数",
-      "source": "src/compact/euler_phi.hpp",
+      "source": "src/compact/number_theory.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -1909,7 +1909,7 @@
     {
       "symbol": "polygon_area2",
       "title": "整数多边形有向面积",
-      "source": "src/compact/polygon_area2.hpp",
+      "source": "src/compact/integer_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -1937,7 +1937,7 @@
     {
       "symbol": "polygon_contains",
       "title": "点在整数简单多边形内",
-      "source": "src/compact/polygon_contains.hpp",
+      "source": "src/compact/integer_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -1959,7 +1959,7 @@
     {
       "symbol": "convex_contains_i64",
       "title": "点在整数凸包内（二分）",
-      "source": "src/compact/convex_contains_i64.hpp",
+      "source": "src/compact/integer_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -1981,7 +1981,7 @@
     {
       "symbol": "convex_diameter2",
       "title": "整数凸包直径：旋转卡壳",
-      "source": "src/compact/convex_diameter2.hpp",
+      "source": "src/compact/integer_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -2130,7 +2130,7 @@
     {
       "symbol": "line_projection",
       "title": "点在直线上的投影",
-      "source": "src/compact/line_projection.hpp",
+      "source": "src/compact/real_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -2152,7 +2152,7 @@
     {
       "symbol": "segment_distance_real",
       "title": "点到闭线段的距离",
-      "source": "src/compact/segment_distance_real.hpp",
+      "source": "src/compact/real_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -2174,7 +2174,7 @@
     {
       "symbol": "line_intersection_real",
       "title": "浮点两直线交点",
-      "source": "src/compact/line_intersection_real.hpp",
+      "source": "src/compact/real_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -2196,7 +2196,7 @@
     {
       "symbol": "line_circle_intersections",
       "title": "浮点直线与圆交点",
-      "source": "src/compact/line_circle_intersections.hpp",
+      "source": "src/compact/real_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -2218,7 +2218,7 @@
     {
       "symbol": "circle_intersections",
       "title": "浮点两圆交点",
-      "source": "src/compact/circle_intersections.hpp",
+      "source": "src/compact/real_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -2240,7 +2240,7 @@
     {
       "symbol": "circle_overlap_area",
       "title": "两圆交面积",
-      "source": "src/compact/circle_overlap_area.hpp",
+      "source": "src/compact/real_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -2600,7 +2600,7 @@
     {
       "symbol": "IntegerGeometry3D",
       "title": "整数三维共线、共面与方向",
-      "source": "src/compact/real_space.hpp",
+      "source": "src/compact/space3.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [],
       "qoj_tag_candidate": null,
@@ -3091,7 +3091,7 @@
     {
       "symbol": "SuffixLCP",
       "title": "后缀 LCP 与子串比较",
-      "source": "src/compact/suffix_lcp.hpp",
+      "source": "src/compact/string.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -3103,43 +3103,6 @@
         {
           "driver": "verify/source-model/da_palindrome.compact.cpp",
           "url": "",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        }
-      ],
-      "qoj_tag_candidate": null,
-      "ranking": {
-        "status": "not_checked",
-        "rank": null,
-        "total": null,
-        "checked_at": null,
-        "scope": null
-      }
-    },
-    {
-      "symbol": "prefix_lcs",
-      "title": "两个前缀的最长公共后缀",
-      "source": "src/compact/suffix_lcp.hpp",
-      "status": "needs_template_problem_review",
-      "candidate_drivers": [],
-      "qoj_tag_candidate": null,
-      "ranking": {
-        "status": "not_checked",
-        "rank": null,
-        "total": null,
-        "checked_at": null,
-        "scope": null
-      }
-    },
-    {
-      "symbol": "square_counts",
-      "title": "重复子串 AA 的起止位置计数",
-      "source": "src/compact/suffix_lcp.hpp",
-      "status": "needs_template_problem_review",
-      "candidate_drivers": [
-        {
-          "driver": "verify/luogu/P1117.compact.cpp",
-          "url": "https://www.luogu.com.cn/problem/P1117",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }
@@ -3262,7 +3225,7 @@
     {
       "symbol": "path_intersection",
       "title": "两条树路径的交集",
-      "source": "src/compact/path_intersection.hpp",
+      "source": "src/compact/tree.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -3629,7 +3592,7 @@
     {
       "symbol": "ModifiedMo",
       "title": "带修改的莫队",
-      "source": "src/compact/modified_mo.hpp",
+      "source": "src/compact/mo.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -3653,7 +3616,7 @@
     {
       "symbol": "gp_map",
       "title": "GNU gp_hash_table 与 cc_hash_table",
-      "source": "src/compact/hash_table.hpp",
+      "source": "src/compact/gnu.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -3677,7 +3640,7 @@
     {
       "symbol": "ost",
       "title": "PBDS 有序树与顺序统计",
-      "source": "src/compact/ordered_set.hpp",
+      "source": "src/compact/gnu.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -3715,7 +3678,7 @@
     {
       "symbol": "rp",
       "title": "GNU rope 与版本共享",
-      "source": "src/compact/rope.hpp",
+      "source": "src/compact/gnu.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -3833,7 +3796,7 @@
     {
       "symbol": "pheap",
       "title": "PBDS 可修改、可合并优先队列",
-      "source": "src/compact/pbds_heap.hpp",
+      "source": "src/compact/gnu.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -4035,7 +3998,7 @@
     {
       "symbol": "matching_edges",
       "title": "二分图最大匹配的可行边与必选边",
-      "source": "src/compact/matching_edges.hpp",
+      "source": "src/compact/graph.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -4057,7 +4020,7 @@
     {
       "symbol": "mincut_edges",
       "title": "正容量最小割的可行边与必选边",
-      "source": "src/compact/mincut_edges.hpp",
+      "source": "src/compact/flow.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -4385,7 +4348,7 @@
     {
       "symbol": "line_circle_i64",
       "title": "整数输入直线与圆交点",
-      "source": "src/compact/line_circle_i64.hpp",
+      "source": "src/compact/integer_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -4407,7 +4370,7 @@
     {
       "symbol": "circle_intersections_i64",
       "title": "整数输入两圆交点",
-      "source": "src/compact/circle_intersections_i64.hpp",
+      "source": "src/compact/integer_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -4910,7 +4873,7 @@
     {
       "symbol": "BellmanFord",
       "title": "Bellman–Ford：负环影响与路径方案",
-      "source": "src/compact/bellman_ford.hpp",
+      "source": "src/compact/graph.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -4938,7 +4901,7 @@
     {
       "symbol": "Spfa",
       "title": "SPFA：队列松弛、负环判定与有限路径",
-      "source": "src/compact/spfa.hpp",
+      "source": "src/compact/graph.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -4972,7 +4935,7 @@
     {
       "symbol": "Floyd",
       "title": "Floyd全源最短路与原边方案",
-      "source": "src/compact/floyd.hpp",
+      "source": "src/compact/graph.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -5000,7 +4963,7 @@
     {
       "symbol": "independent_set",
       "title": "二分图最大独立集方案",
-      "source": "src/compact/independent_set.hpp",
+      "source": "src/compact/graph.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -5022,7 +4985,7 @@
     {
       "symbol": "Kruskal",
       "title": "Kruskal 最小生成树与生成森林",
-      "source": "src/compact/kruskal.hpp",
+      "source": "src/compact/graph.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -5044,7 +5007,7 @@
     {
       "symbol": "Prim",
       "title": "稠密图 Prim 最小生成森林",
-      "source": "src/compact/prim.hpp",
+      "source": "src/compact/graph.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -5066,7 +5029,7 @@
     {
       "symbol": "RealSpace",
       "title": "实数三维向量与夹角",
-      "source": "src/compact/real_space.hpp",
+      "source": "src/compact/space3.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [],
       "qoj_tag_candidate": null,
@@ -5081,7 +5044,7 @@
     {
       "symbol": "Line3",
       "title": "三维直线投影、线段距离与绕轴旋转",
-      "source": "src/compact/line3.hpp",
+      "source": "src/compact/space3.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [],
       "qoj_tag_candidate": null,
@@ -5096,7 +5059,7 @@
     {
       "symbol": "Plane3",
       "title": "三维平面投影与分类求交",
-      "source": "src/compact/plane3.hpp",
+      "source": "src/compact/space3.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [],
       "qoj_tag_candidate": null,
@@ -5141,7 +5104,7 @@
     {
       "symbol": "TreeMo",
       "title": "树上莫队：点权与边权",
-      "source": "src/compact/tree_mo.hpp",
+      "source": "src/compact/mo.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -5169,7 +5132,7 @@
     {
       "symbol": "RollbackMo",
       "title": "回滚莫队",
-      "source": "src/compact/rollback_mo.hpp",
+      "source": "src/compact/mo.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -5748,7 +5711,7 @@
     {
       "symbol": "Mo",
       "title": "普通莫队：静态区间统计",
-      "source": "src/compact/ordinary_mo.hpp",
+      "source": "src/compact/mo.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -5975,7 +5938,7 @@
     {
       "symbol": "convex_cut",
       "title": "凸多边形裁剪：保留有向直线左侧",
-      "source": "src/compact/convex_cut.hpp",
+      "source": "src/compact/real_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
@@ -5997,7 +5960,7 @@
     {
       "symbol": "polygon_centroid",
       "title": "简单多边形面积重心",
-      "source": "src/compact/polygon_centroid.hpp",
+      "source": "src/compact/real_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [],
       "qoj_tag_candidate": null,
@@ -6012,7 +5975,7 @@
     {
       "symbol": "triangle_incircle",
       "title": "三角形内切圆：边长加权内心",
-      "source": "src/compact/triangle_incircle.hpp",
+      "source": "src/compact/real_plane.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {

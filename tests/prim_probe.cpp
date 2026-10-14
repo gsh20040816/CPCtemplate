@@ -1,4 +1,4 @@
-#include "../src/compact/prim.hpp"
+#include "../src/compact/graph.hpp"
 #include <bits/stdc++.h>
 using I = __int128_t;
 struct E

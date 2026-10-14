@@ -141,7 +141,7 @@ def main():
     def compile(name,text,ndebug=False):
         cpp,exe=out/(name+'.cpp'),out/name;cpp.write_text(text);cmd=[CXX,*flags,*(['-DNDEBUG'] if ndebug else []),str(cpp),'-o',str(exe)];subprocess.run(cmd,check=True,capture_output=True)
         return exe,dict(name=name,compile_command=cmd,source_sha256=sha(cpp.read_bytes()),binary_sha256=sha(exe.read_bytes()))
-    for form,text in [('header','#include "'+str(ROOT/'src/compact/polygon_area2.hpp')+'"\n'+bulk),('copied',prelude+core+bulk)]:
+    for form,text in [('header','#include "'+str(ROOT/'src/compact/integer_plane.hpp')+'"\n'+bulk),('copied',prelude+core+bulk)]:
         for nd in [False,True]:
             exe,entry=compile(form+('-ndebug' if nd else '-assert'),text,nd);run=subprocess.run([str(exe)],input=data,capture_output=True,env=env,timeout=120);assert run.returncode==0 and not run.stderr,run.stderr[-1000:];check(run.stdout,cases);(out/(entry['name']+'.out')).write_bytes(run.stdout);entry.update(cases=len(cases),output_sha256=sha(run.stdout),adapter='exact registered main wrapped in a batch loop');report['programs'].append(entry)
     formal=[t for t in cases if max(abs(v) for p in t['p'] for v in p)<=10**9]

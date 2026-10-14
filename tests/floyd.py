@@ -148,7 +148,7 @@ def main():
         p = subprocess.run([str(exe),*args],input=raw.encode(),capture_output=True,env=env,timeout=300)
         assert p.returncode == 0 and not p.stderr,(exe,p.returncode,p.stdout[:500],p.stderr[-1000:])
         return p.stdout.decode()
-    header = (ROOT/'src/compact/floyd.hpp').read_text().replace('#pragma once\n','')
+    header = (ROOT/'src/compact/graph.hpp').read_text().replace('#pragma once\n','')
     probe = (ROOT/'tests/floyd_probe.cpp').read_text()
     copied = header+'\n'+'\n'.join(l for l in probe.splitlines() if not l.startswith('#include "'))
     for form,source in [('header','#include "'+str(ROOT/'tests/floyd_probe.cpp')+'"\n'),('copied',copied)]:

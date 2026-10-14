@@ -124,11 +124,11 @@ def main():
         p = subprocess.run([str(exe),*args],input=raw.encode(),capture_output=True,env=env,timeout=300)
         assert p.returncode == 0 and not p.stderr,(exe,p.returncode,p.stdout[:500],p.stderr[-1000:])
         return p.stdout.decode()
-    core=(ROOT/'src/compact/kruskal.hpp').read_text().replace('#pragma once\n','')
+    core=(ROOT/'src/compact/graph.hpp').read_text().replace('#pragma once\n','')
     ds=(ROOT/'src/compact/data_structure.hpp').read_text().split('struct RollbackDSU')[0].replace('#pragma once\n','')
     header=ds+'\n'+core.replace('#include "data_structure.hpp"','')
     probe=(ROOT/'tests/kruskal_probe.cpp').read_text()
-    copied=header+'\n'+probe.replace('#include "../src/compact/kruskal.hpp"','')
+    copied=header+'\n'+probe.replace('#include "../src/compact/graph.hpp"','')
     copied=copied.replace('"fixtures/kruskal_sources/','"'+str(ROOT/'tests/fixtures/kruskal_sources')+'/')
     for form,source in [('header','#include "'+str(ROOT/'tests/kruskal_probe.cpp')+'"\n'),('copied',copied)]:
         for release in (False,True):

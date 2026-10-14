@@ -1,4 +1,4 @@
-#include "../../src/compact/line3.hpp"
+#include "../../src/compact/space3.hpp"
 #include <iomanip>
 #include <iostream>
 

@@ -1,4 +1,4 @@
-#include "../../src/compact/suffix_lcp.hpp"
+#include "../../src/compact/string.hpp"
 #include <iostream>
 
 int main()

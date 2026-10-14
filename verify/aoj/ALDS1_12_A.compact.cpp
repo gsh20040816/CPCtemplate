@@ -1,4 +1,4 @@
-#include "../../src/compact/prim.hpp"
+#include "../../src/compact/graph.hpp"
 #include <iostream>
 
 int main()

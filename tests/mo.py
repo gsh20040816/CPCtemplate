@@ -15,7 +15,7 @@ if sys.platform == 'darwin': flags += ['-Wl,-stack_size,0x10000000']
 if san: flags+=['-fsanitize=address,undefined','-fno-omit-frame-pointer','-g']
 env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1')
 rows=[r for r in records() if r['symbol'] in ['TreeMo','RollbackMo']]
-paths=['src/compact/tree_mo.hpp','src/compact/rollback_mo.hpp','src/compact/tree.hpp','tests/mo.cpp','tests/mo.py','docs/catalog.json','docs/usage-examples.json']+[r['driver'] for r in rows]
+paths=['src/compact/mo.hpp','src/compact/mo.hpp','src/compact/tree.hpp','tests/mo.cpp','tests/mo.py','docs/catalog.json','docs/usage-examples.json']+[r['driver'] for r in rows]
 sha=lambda b:hashlib.sha256(b).hexdigest()
 hashes={p:sha((ROOT/p).read_bytes()) for p in paths}
 components={r['symbol']:r for r in extract_components(json.loads((ROOT/'docs/catalog.json').read_text()))}
@@ -34,7 +34,7 @@ for form in ['header','ndebug','copied']:
   src=out/'core.cpp'
   a=candidate(rows[0],rows[0]['requires'],components)['program'].split('int main()')[0]
   b=candidate(rows[1],rows[1]['requires'],components)['program'].split('int main()')[0]
-  src.write_text((ROOT/'tests/mo.cpp').read_text().replace('#include "../src/compact/tree_mo.hpp"',a).replace('#include "../src/compact/rollback_mo.hpp"',b))
+  src.write_text((ROOT/'tests/mo.cpp').read_text().replace('#include "../src/compact/mo.hpp"',a).replace('#include "../src/compact/mo.hpp"',b))
  exe=out/('core-'+form)
  compile(src,exe,['-DNDEBUG'] if form=='ndebug' else [])
  core[form]=run(exe).strip()

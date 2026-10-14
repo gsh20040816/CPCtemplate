@@ -1,5 +1,5 @@
-#include "../src/compact/line_circle_i64.hpp"
-#include "../src/compact/circle_intersections_i64.hpp"
+#include "../src/compact/integer_plane.hpp"
+#include "../src/compact/integer_plane.hpp"
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 

@@ -1,4 +1,4 @@
-#include "../../src/compact/mincut_edges.hpp"
+#include "../../src/compact/flow.hpp"
 #include <iostream>
 using namespace std;
 

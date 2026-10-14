@@ -1,8 +1,8 @@
 #include "../src/compact/integer_hull.hpp"
-#include "../src/compact/polygon_area2.hpp"
-#include "../src/compact/polygon_contains.hpp"
-#include "../src/compact/convex_contains_i64.hpp"
-#include "../src/compact/convex_diameter2.hpp"
+#include "../src/compact/integer_plane.hpp"
+#include "../src/compact/integer_plane.hpp"
+#include "../src/compact/integer_plane.hpp"
+#include "../src/compact/integer_plane.hpp"
 
 int main()
 {

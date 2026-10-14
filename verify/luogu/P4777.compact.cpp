@@ -1,4 +1,4 @@
-#include "../../src/compact/crt_merge.hpp"
+#include "../../src/compact/number_theory.hpp"
 #include <iostream>
 
 int main()

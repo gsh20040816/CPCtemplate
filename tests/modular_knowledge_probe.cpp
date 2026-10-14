@@ -1,6 +1,6 @@
-#include "../src/compact/mod_inverse.hpp"
-#include "../src/compact/linear_congruence.hpp"
-#include "../src/compact/crt_merge.hpp"
+#include "../src/compact/number_theory.hpp"
+#include "../src/compact/number_theory.hpp"
+#include "../src/compact/number_theory.hpp"
 #include "../src/compact/euler_power.hpp"
 #include "../src/compact/lucas.hpp"
 

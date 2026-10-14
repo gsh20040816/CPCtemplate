@@ -1,6 +1,51 @@
-#include "../src/compact/suffix_lcp.hpp"
+#include "../src/compact/string.hpp"
 #include <iostream>
 #include <random>
+
+// Test-local helpers; issue #21 removed them from the library.
+// was prefix_lcs
+// reversed must be built on the reversed original sequence.
+int prefix_lcs(const SuffixLCP &reversed, int x, int y)
+{
+    assert(0 <= x && x <= reversed.n && 0 <= y && y <= reversed.n);
+    return reversed.query(reversed.n - x, reversed.n - y);
+}
+
+// end prefix_lcs
+
+// was square_counts
+// Count nonempty squares AA by their starting and ending positions.
+pair<vector<long long>, vector<long long>> square_counts(const SuffixLCP &forward,
+                                                         const SuffixLCP &reversed)
+{
+    int n = forward.n;
+    assert(reversed.n == n);
+    vector<long long> start(n + 1), finish(n + 1);
+    for (int len = 1; len <= n / 2; len++)
+        for (int i = 0; i < n - len; i += len)
+        {
+            int j = i + len;
+            int left = min(len - 1, prefix_lcs(reversed, i, j));
+            int right = min(len, forward.query(i, j));
+            if (left + right < len) continue;
+            int l = i - left, r = i + right - len;
+            start[l]++;
+            start[r + 1]--;
+            finish[l + 2 * len - 1]++;
+            finish[r + 2 * len]--;
+        }
+    for (int i = 1; i < n; i++)
+    {
+        start[i] += start[i - 1];
+        finish[i] += finish[i - 1];
+    }
+    start.resize(n);
+    finish.resize(n);
+    return {start, finish};
+}
+
+// end square_counts
+
 
 void check(const vector<int> &s, int alphabet)
 {

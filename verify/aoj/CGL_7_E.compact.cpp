@@ -1,4 +1,4 @@
-#include "../../src/compact/circle_intersections_i64.hpp"
+#include "../../src/compact/integer_plane.hpp"
 
 int main()
 {

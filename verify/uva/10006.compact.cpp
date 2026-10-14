@@ -1,5 +1,5 @@
 #include "../../src/compact/carmichael.hpp"
-#include "../../src/compact/prime64.hpp"
+#include "../../src/compact/number_theory.hpp"
 #include <iostream>
 
 int main()

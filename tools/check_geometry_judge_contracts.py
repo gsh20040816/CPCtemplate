@@ -17,10 +17,10 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-HEADERS = ['src/compact/line_circle_intersections.hpp', 'src/compact/circle_intersections.hpp']
+HEADERS = ['src/compact/real_plane.hpp', 'src/compact/real_plane.hpp']
 SOURCE = '''#include <bits/stdc++.h>
-#include "src/compact/line_circle_intersections.hpp"
-#include "src/compact/circle_intersections.hpp"
+#include "src/compact/real_plane.hpp"
+#include "src/compact/real_plane.hpp"
 int main() {
     std::cout << std::setprecision(30);
     std::cout << "precision " << std::numeric_limits<long double>::digits << '\\n';

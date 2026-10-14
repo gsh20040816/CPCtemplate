@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "../../src/compact/rollback_mo.hpp"
+#include "../../src/compact/mo.hpp"
 using namespace std;
 
 int main()

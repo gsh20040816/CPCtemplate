@@ -60,7 +60,7 @@ def main():
     mode = 'sanitizer' if args.sanitize else 'normal'
     out = ROOT / 'build/real-space' / mode
     out.mkdir(parents=True, exist_ok=True)
-    paths = [ROOT / p for p in ['src/compact/real_space.hpp', 'src/compact/line3.hpp', 'src/compact/plane3.hpp',
+    paths = [ROOT / p for p in ['src/compact/space3.hpp', 'src/compact/space3.hpp', 'src/compact/space3.hpp',
              'tests/real_space.cpp', 'tests/real_space.py', 'tests/fixtures/real_space_sources/kuangbin.cpp',
              'docs/catalog.json', 'docs/usage-examples.json', 'tools/audit_copy_context.py', 'tools/usage_examples.py']]
     rows = [r for r in records() if r['id'] in ['example-348', 'example-349', 'example-350', 'example-351']]
@@ -88,10 +88,10 @@ def main():
 
     components = {r['symbol']: r for r in extract_components(json.loads((ROOT / 'docs/catalog.json').read_text()))}
     body = (ROOT / 'tests/real_space.cpp').read_text()
-    body = body.replace('#include "../src/compact/plane3.hpp"', '#include "' + str(ROOT / 'src/compact/plane3.hpp') + '"')
+    body = body.replace('#include "../src/compact/space3.hpp"', '#include "' + str(ROOT / 'src/compact/space3.hpp') + '"')
     body = body.replace('"fixtures/real_space_sources/kuangbin.cpp"', '"' + str(ROOT / 'tests/fixtures/real_space_sources/kuangbin.cpp') + '"')
     core = '#include <bits/stdc++.h>\n#include <cassert>\nusing namespace std;\n' + '\n'.join(components[n]['code'] for n in ['RealSpace', 'Line3', 'Plane3'])
-    copied_body = body.replace('#include "' + str(ROOT / 'src/compact/plane3.hpp') + '"', core)
+    copied_body = body.replace('#include "' + str(ROOT / 'src/compact/space3.hpp') + '"', core)
     core_results = {}
     for name, code, extra in [('header', body, ()), ('ndebug', body, ('-DNDEBUG',)), ('copied', copied_body, ())]:
         core_results[name] = run(compile_program('core-' + name, code, extra)).strip()

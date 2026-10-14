@@ -1,6 +1,6 @@
-#include "../src/compact/hash_table.hpp"
-#include "../src/compact/ordered_set.hpp"
-#include "../src/compact/rope.hpp"
+#include "../src/compact/gnu.hpp"
+#include "../src/compact/gnu.hpp"
+#include "../src/compact/gnu.hpp"
 int main()
 {
     rp<int> a;

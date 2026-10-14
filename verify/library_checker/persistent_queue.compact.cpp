@@ -1,5 +1,5 @@
 // https://judge.yosupo.jp/problem/persistent_queue
-#include "../../src/compact/rope.hpp"
+#include "../../src/compact/gnu.hpp"
 
 int main()
 {

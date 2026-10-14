@@ -97,7 +97,7 @@ for m in [1, 2, 2**63 - 1]:
 
 paths = ['tests/wida_factor.cpp', 'tests/wida_factor.py',
          'tests/fixtures/wida_factor/factor.cpp', 'src/compact/number_theory.hpp',
-         'src/compact/prime64.hpp', 'src/compact/mod64.hpp']
+         'src/compact/number_theory.hpp', 'src/compact/number_theory.hpp']
 digests = {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in paths}
 report = dict(scope='Exact WIDA17 modular helpers, bounded primality and factorization, certified false-positive and unsigned replacement cases. No original application or new online AC.',
               cases=counts, witness=dict(n=witness, factors=witness_factors), files=digests, runs=[])

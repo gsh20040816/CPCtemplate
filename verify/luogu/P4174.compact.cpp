@@ -1,4 +1,4 @@
-#include "../../src/compact/maximum_closure.hpp"
+#include "../../src/compact/flow.hpp"
 #include <iostream>
 
 int main()

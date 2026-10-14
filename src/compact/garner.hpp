@@ -1,5 +1,5 @@
 #pragma once
-#include "mod_inverse.hpp"
+#include "number_theory.hpp"
 
 // BEGIN garner
 // Pairwise coprime positive moduli. Digits use the input order.

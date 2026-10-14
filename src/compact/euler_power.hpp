@@ -1,5 +1,5 @@
 #pragma once
-#include "mod64.hpp"
+#include "number_theory.hpp"
 
 // BEGIN euler_power
 unsigned long long euler_power(unsigned long long a,

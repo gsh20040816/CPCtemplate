@@ -1,4 +1,4 @@
-#include "../../src/compact/polygon_centroid.hpp"
+#include "../../src/compact/real_plane.hpp"
 
 int main()
 {

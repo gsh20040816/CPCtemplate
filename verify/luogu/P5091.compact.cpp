@@ -1,4 +1,4 @@
-#include "../../src/compact/euler_phi.hpp"
+#include "../../src/compact/number_theory.hpp"
 #include "../../src/compact/euler_power.hpp"
 
 int main()

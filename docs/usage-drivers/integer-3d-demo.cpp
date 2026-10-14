@@ -5,7 +5,7 @@
 // zero need not mean that a,b,c define a unique plane.
 #include <bits/stdc++.h>
 using namespace std;
-#include "../../src/compact/real_space.hpp"
+#include "../../src/compact/space3.hpp"
 
 int main()
 {

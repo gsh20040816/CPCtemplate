@@ -1,4 +1,4 @@
-#include "../../src/compact/line_circle_i64.hpp"
+#include "../../src/compact/integer_plane.hpp"
 
 int main()
 {

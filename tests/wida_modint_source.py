@@ -16,5 +16,5 @@ for mode,flags in [('normal',['-O2']),('sanitizer',['-O1','-g','-fsanitize=addre
     assert r.returncode==0 and not r.stderr,r.stderr
     report['runs'].append(dict(mode=mode,output=r.stdout.strip()))
     print(mode,r.stdout,flush=True)
-report['files']={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in ['src/compact/mod64.hpp','tests/wida_modint_source.cpp','tests/wida_modint_source.py','tests/fixtures/wida_mod_reduction/07E.cpp']}
+report['files']={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in ['src/compact/number_theory.hpp','tests/wida_modint_source.cpp','tests/wida_modint_source.py','tests/fixtures/wida_mod_reduction/07E.cpp']}
 (root/'verification/wida-modint-source.json').write_text(json.dumps(report,indent=2)+'\n')

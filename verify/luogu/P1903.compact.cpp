@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <array>
-#include "../../src/compact/modified_mo.hpp"
+#include "../../src/compact/mo.hpp"
 
 int main()
 {

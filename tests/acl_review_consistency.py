@@ -50,8 +50,8 @@ for item, line in zip(audit['modules'], table):
 # correctness test or permission to inherit another component's AC evidence.
 expected_paths = {
     'lazysegtree': ['src/compact/lazy_segtree.hpp'],
-    'math': ['src/compact/mod64.hpp', 'src/compact/extended_gcd.hpp',
-             'src/compact/mod_inverse.hpp', 'src/compact/crt_merge.hpp',
+    'math': ['src/compact/number_theory.hpp', 'src/compact/number_theory.hpp',
+             'src/compact/number_theory.hpp', 'src/compact/number_theory.hpp',
              'src/compact/floor_sum.hpp'],
     'modint': ['src/compact/number_theory.hpp', 'src/compact/dynamic_modint.hpp'],
     'convolution': ['src/compact/ntt_convolution.hpp', 'src/compact/convolution_mod_fft.hpp'],

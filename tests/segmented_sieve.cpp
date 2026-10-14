@@ -1,4 +1,4 @@
-#include "../src/compact/segmented_sieve.hpp"
+#include "../src/compact/number_theory.hpp"
 #include "../src/classic/segmented_sieve.hpp"
 #include "../src/compact/number_theory.hpp"
 #include "compat_number_theory.hpp"

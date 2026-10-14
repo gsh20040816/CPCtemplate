@@ -1,5 +1,5 @@
-#include "../src/compact/matching_edges.hpp"
-#include "../src/compact/mincut_edges.hpp"
+#include "../src/compact/graph.hpp"
+#include "../src/compact/flow.hpp"
 #include <iostream>
 #include <random>
 using namespace std;

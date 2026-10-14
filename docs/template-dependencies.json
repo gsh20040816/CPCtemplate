@@ -67,9 +67,6 @@
   ],
   "enumerate_triangles": [],
   "RealPlane": [],
-  "RealPolarLess": [
-    "RealPlane"
-  ],
   "line_projection": [
     "RealPlane"
   ],
@@ -89,18 +86,19 @@
   "circle_overlap_area": [
     "RealPlane"
   ],
+  "convex_cut": [
+    "RealPlane"
+  ],
+  "polygon_centroid": [
+    "RealPlane"
+  ],
+  "triangle_incircle": [
+    "RealPlane"
+  ],
+  "RealPolarLess": [
+    "RealPlane"
+  ],
   "IntegerPlane": [],
-  "line_circle_i64": [
-    "IntegerPlane",
-    "RealPlane"
-  ],
-  "circle_intersections_i64": [
-    "IntegerPlane",
-    "RealPlane"
-  ],
-  "integer_hull": [
-    "IntegerPlane"
-  ],
   "polygon_area2": [
     "IntegerPlane"
   ],
@@ -114,23 +112,29 @@
   "convex_diameter2": [
     "IntegerPlane"
   ],
+  "line_circle_i64": [
+    "IntegerPlane",
+    "RealPlane"
+  ],
+  "circle_intersections_i64": [
+    "IntegerPlane",
+    "RealPlane"
+  ],
+  "integer_hull": [
+    "IntegerPlane"
+  ],
   "minkowski_sum": [
     "IntegerPlane",
     "integer_hull"
   ],
-  "pheap": [],
   "mint": [],
   "lazy_segtree": [],
   "segtree": [],
-  "rp": [],
-  "ost": [],
-  "gp_map": [],
   "FunctionalGraph": [],
   "dsu": [],
   "RollbackDSU": [],
   "Fenwick": [],
   "XorBasis": [],
-  "ModifiedMo": [],
   "PositionBasis": [],
   "basis_intersection": [
     "XorBasis"
@@ -139,6 +143,9 @@
     "XorBasis"
   ],
   "Dinic": [],
+  "maximum_closure": [
+    "Dinic"
+  ],
   "MinCostFlow": [],
   "BoundedCirculation": [
     "Dinic"
@@ -150,9 +157,6 @@
   "BoundedMaxFlow": [
     "BoundedCirculation"
   ],
-  "maximum_closure": [
-    "Dinic"
-  ],
   "Dijkstra": [],
   "SCC": [],
   "TwoSAT": [
@@ -163,6 +167,16 @@
     "BipartiteMatching",
     "SCC"
   ],
+  "BellmanFord": [],
+  "Spfa": [],
+  "Floyd": [],
+  "independent_set": [
+    "BipartiteMatching"
+  ],
+  "Kruskal": [
+    "dsu"
+  ],
+  "Prim": [],
   "DirectedEuler": [],
   "UndirectedEuler": [],
   "mixed_euler_orientation": [
@@ -172,9 +186,9 @@
     "mixed_euler_orientation"
   ],
   "HLD": [],
+  "path_intersection": [],
   "TreeDiameter": [],
   "LiftingLCA": [],
-  "path_intersection": [],
   "CentroidPairs": [],
   "SubtreeColors": [],
   "VirtualTree": [],
@@ -191,14 +205,8 @@
   "SuffixLCP": [
     "SuffixArray"
   ],
-  "prefix_lcs": [
-    "SuffixLCP"
-  ],
-  "square_counts": [
-    "SuffixLCP",
-    "prefix_lcs"
-  ],
   "PalindromicTree": [],
+  "floor_sum": [],
   "Mod64": [],
   "Prime64": [
     "Mod64"
@@ -210,7 +218,14 @@
   "crt_merge": [
     "extended_gcd"
   ],
-  "floor_sum": [],
+  "linear_congruence": [
+    "extended_gcd"
+  ],
+  "segmented_primes": [],
+  "batch_inverse": [
+    "mod_inverse"
+  ],
+  "inverse_table": [],
   "PollardRho": [
     "Mod64",
     "Prime64"
@@ -220,14 +235,9 @@
   "Binomial": [
     "ModInt"
   ],
-  "linear_congruence": [
-    "extended_gcd"
+  "euler_phi": [
+    "PollardRho"
   ],
-  "segmented_primes": [],
-  "batch_inverse": [
-    "mod_inverse"
-  ],
-  "inverse_table": [],
   "garner": [
     "mod_inverse"
   ],
@@ -236,9 +246,6 @@
   ],
   "floor_moments": [
     "ModInt"
-  ],
-  "euler_phi": [
-    "PollardRho"
   ],
   "Partitions": [],
   "Lucas": [],
@@ -367,16 +374,6 @@
   "offline_rectangle_sum": [
     "Fenwick"
   ],
-  "Floyd": [],
-  "independent_set": [
-    "BipartiteMatching"
-  ],
-  "Prim": [],
-  "Kruskal": [
-    "dsu"
-  ],
-  "Spfa": [],
-  "BellmanFord": [],
   "PersistentDSU": [],
   "MergeSplitTree": [],
   "PotentialDSU": [],
@@ -407,30 +404,17 @@
   "minimum_rectangle": [
     "RealPlane"
   ],
-  "convex_cut": [
-    "RealPlane"
-  ],
-  "polygon_centroid": [
-    "RealPlane"
-  ],
-  "triangle_incircle": [
-    "RealPlane"
-  ],
   "BigInteger": [],
   "Simplex": [],
   "grid_cycle": [],
   "grid_cycles": [],
-  "Mo": [],
   "manhattan_order": [
     "ManhattanMST"
   ],
-  "TreeMo": [
-    "HLD"
-  ],
-  "RollbackMo": [],
   "TimeConnectivity": [
     "RollbackDSU"
   ],
+  "AdaptiveSimpson": [],
   "IntegerGeometry3D": [],
   "RealSpace": [],
   "Line3": [
@@ -440,5 +424,14 @@
     "Line3",
     "RealSpace"
   ],
-  "AdaptiveSimpson": []
+  "gp_map": [],
+  "ost": [],
+  "rp": [],
+  "pheap": [],
+  "ModifiedMo": [],
+  "TreeMo": [
+    "HLD"
+  ],
+  "RollbackMo": [],
+  "Mo": []
 }

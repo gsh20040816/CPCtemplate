@@ -1,7 +1,9 @@
 #pragma once
-#include <cassert>
 #include <bits/stdc++.h>
+#include <cassert>
 using namespace std;
+
+#include "graph.hpp"
 
 struct Dinic
 {
@@ -282,3 +284,58 @@ struct BoundedCirculation
         return lower[id] + g.used(ids[id]);
     }
 };
+
+// BEGIN mincut_edges
+vector<array<bool, 2>> mincut_edges(const Dinic &g, int s, int t)
+{
+    SCC d(g.n);
+    for (auto e : g.e)
+        if (e.cap) d.add(e.from, e.to);
+    d.run();
+    vector<array<bool, 2>> ans(g.e.size() / 2);
+    for (int id = 0; id < (int)g.e.size(); id += 2)
+    {
+        auto e = g.e[id];
+        assert(e.initial > 0);
+        if (e.cap) continue;
+        ans[id / 2][0] = d.bel[e.from] != d.bel[e.to];
+        ans[id / 2][1] = d.bel[e.from] == d.bel[s] && d.bel[e.to] == d.bel[t];
+    }
+    return ans;
+}
+
+// END mincut_edges
+
+// BEGIN maximum_closure
+pair<long long, vector<int>> maximum_closure(const vector<long long> &weight,
+                                             const vector<pair<int, int>> &dependencies)
+{
+    using I = __int128_t;
+    int n = weight.size(), s = n + 1, t = n + 2;
+    I positive = 0;
+    for (long long w : weight)
+        if (w > 0) positive += w;
+    assert(positive < LLONG_MAX);
+    long long inf = (long long)positive + 1;
+    Dinic graph(n + 2);
+    for (int u = 1; u <= n; u++)
+    {
+        long long w = weight[u - 1];
+        if (w > 0)
+            graph.add(s, u, w);
+        else if (w < 0)
+            graph.add(u, t, (long long)min(-I(w), I(inf)));
+    }
+    for (auto [u, v] : dependencies)
+    {
+        assert(1 <= u && u <= n && 1 <= v && v <= n);
+        graph.add(u, v, inf);
+    }
+    long long answer = (long long)positive - graph.flow(s, t);
+    vector<int> selected;
+    for (int u : graph.cut(s))
+        if (u <= n) selected.push_back(u);
+    return {answer, selected};
+}
+
+// END maximum_closure

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include <cassert>
-#include "../src/compact/mod64.hpp"
+#include "../src/compact/number_theory.hpp"
 namespace original
 {
 using u32 = uint32_t;

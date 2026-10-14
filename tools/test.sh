@@ -587,8 +587,6 @@ python3 tests/rectangle_union_application.py
 "$CXX" "${flags[@]}" tests/rectangle_union_wide.cpp -o build/rectangle-union-wide
 build/rectangle-union-wide
 
-python3 tests/static_suffix_demo.py
-
 if [[ "${SANITIZE:-0}" == 1 ]]; then
     python3 tests/mixed_euler_demo.py --mode sanitizer
 else

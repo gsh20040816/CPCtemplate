@@ -36,7 +36,7 @@ def oracle(p):
   return [rows[i][3] for i in range(3)]
 wants=[oracle(p) for p in cases]
 data=''.join(' '.join(str(x) for q in p for x in q)+'\n' for p in cases)
-harness='''#include "../../src/compact/triangle_incircle.hpp"
+harness='''#include "../../src/compact/real_plane.hpp"
 int main()
 {
  RealPlane::Point a,b,c;
@@ -49,8 +49,8 @@ int main()
 }
 '''
 (out/'test.cpp').write_text(harness)
-real=(root/'src/compact/real_plane.hpp').read_text();core=(root/'src/compact/triangle_incircle.hpp').read_text().split('// BEGIN triangle_incircle')[1].split('// END')[0]
-(out/'copied.cpp').write_text(harness.replace('#include "../../src/compact/triangle_incircle.hpp"',real+'\n'+core))
+real=(root/'src/compact/real_plane.hpp').read_text();core=(root/'src/compact/real_plane.hpp').read_text().split('// BEGIN triangle_incircle')[1].split('// END')[0]
+(out/'copied.cpp').write_text(harness.replace('#include "../../src/compact/real_plane.hpp"',real+'\n'+core))
 env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1')
 result={}
 for mode in ['normal','sanitizer']:
@@ -112,5 +112,5 @@ for mode in ['normal','sanitizer']:
    failures.append(dict(points=[[str(x) for x in q] for q in p],error=str(err)))
  assert maxerr>Decimal('0.001'), 'known skinny-triangle precision regression not reproduced'
  result['source-'+mode]=dict(cases=len(valid),max_absolute_error=str(maxerr),outside_1e6_tolerance=failures)
-report=dict(status='pass',results=result,oracle='90-digit Decimal intersection of three inward unit-offset lines; independent of weighted-center implementation',source_sha256=hashlib.sha256((root/'src/compact/triangle_incircle.hpp').read_bytes()).hexdigest(),source_geometry_sha256=hashlib.sha256((root/'build/circle-coverage/original.cpp').read_bytes()).hexdigest(),scope='All permutations, AOJ integer bounds, collinear/repeated, powers-of-two scale; finite tests are not an exact real-predicate guarantee; online pending')
+report=dict(status='pass',results=result,oracle='90-digit Decimal intersection of three inward unit-offset lines; independent of weighted-center implementation',source_sha256=hashlib.sha256((root/'src/compact/real_plane.hpp').read_bytes()).hexdigest(),source_geometry_sha256=hashlib.sha256((root/'build/circle-coverage/original.cpp').read_bytes()).hexdigest(),scope='All permutations, AOJ integer bounds, collinear/repeated, powers-of-two scale; finite tests are not an exact real-predicate guarantee; online pending')
 (root/'verification/triangle-incircle.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
