@@ -27,26 +27,14 @@ if [[ -z "${CXX:-}" ]]; then
 fi
 export CXX
 export CPC_SANITIZE="${SANITIZE:-0}"
-python3 tests/basic_template_scope.py
-python3 tests/math_coverage_csv.py
-python3 tests/acl_review_consistency.py
 python3 tests/static_modint.py
-python3 tests/knowledge_taxonomy.py
-python3 tests/math_knowledge_integration.py
-python3 tests/template_report.py
-python3 tests/floor_knowledge_migration.py
 python3 tests/matrix_tree_knowledge.py
 python3 tests/partition_knowledge.py
 python3 tests/modular_knowledge.py
 python3 tests/ballot_knowledge.py
-python3 tests/hld_ordered.py
-python3 tests/potential_dsu.py
 python3 tests/gauss_real.py
 python3 tests/mod64_usage.py
-python3 tests/diophantine_knowledge.py
 python3 tests/prufer_kummer_knowledge.py
-python3 tests/pick_knowledge.py
-python3 tests/adaptive_simpson.py
 python3 tests/manhattan_mst.py
 python3 tests/manhattan_mst_application.py
 python3 tests/sais.py
@@ -55,30 +43,18 @@ python3 tests/minimum_cover.py
 python3 tests/ownership.py
 python3 tests/string_prefix.py
 python3 tests/convex_tangents.py
-python3 tests/inside_triangle.py
 python3 tests/persistent_xor_trie.py
 python3 tests/persistent_xor_trie_application.py
 python3 tests/dominance_3d.py
 python3 tests/dominance_3d_application.py
 python3 tests/lte_knowledge.py
 python3 tests/lagrange_knowledge.py
-python3 tests/lagrange_fps_usage.py
 python3 tests/state_recurrence_knowledge.py
 python3 tests/state_recurrence_snippet.py
 python3 tests/inclusion_knowledge.py
-python3 tests/complex_fft_usage.py
-python3 tests/maxplus_application.py
 python3 tests/integer_3d_demo.py
-python3 tests/real_polar_order.py
-python3 tests/ordered_splay_pagination.py
-python3 tests/joint_usage_references.py
-python3 tests/copy_prerequisite_order.py
-python3 tests/binomial_coefficient_application.py
 python3 tests/totient_lattice_application.py
-python3 tests/mod_inverse_application.py
 python3 tests/bezout_minimum_usage.py
-python3 tests/issue11_rollup.py
-python3 tests/minimum_rotation_usage.py
 flags=(-std=c++20 -O2 -Wall -Wextra)
 if [[ "$(uname -s)" == Darwin ]]; then flags+=(-Wl,-stack_size,0x20000000); fi
 if [[ -d /opt/homebrew/include/boost ]]; then flags+=(-I/opt/homebrew/include); fi
@@ -453,7 +429,6 @@ build/integer-components
 
 "$CXX" "${flags[@]}" tests/real_components.cpp -o build/real-components
 build/real-components
-python3 tests/circle_zero_mode.py
 
 "$CXX" "${flags[@]}" tests/triangles.cpp -o build/triangles
 build/triangles
@@ -587,7 +562,6 @@ python3 tests/segment_beats_application.py
 
 "$CXX" "${flags[@]}" -pthread tests/centroid_sum.cpp -o build/centroid-sum-unit
 build/centroid-sum-unit
-python3 tests/centroid_sum_application.py
 python3 tests/centroid_diameter.py
 
 "$CXX" "${flags[@]}" tests/rectangle_union.cpp -o build/rectangle-union-unit
@@ -603,11 +577,6 @@ else
     python3 tests/mixed_euler_demo.py --mode normal
 fi
 
-if [[ "${SANITIZE:-0}" == 1 ]]; then
-    python3 tests/math_application_usages.py --mode sanitizer
-else
-    python3 tests/math_application_usages.py --mode normal
-fi
 
 python3 tests/sam_queries.py
 

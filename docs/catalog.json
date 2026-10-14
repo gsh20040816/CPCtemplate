@@ -237,7 +237,7 @@
     "partitions",
     "parts_at_most_fps",
     "至多 m 个部分的分拆表（生成函数）",
-    "parts_at_most_fps(n,m) 返回与 parts_at_most 相同的表，模 998244353。取 ln∏_{i≤m}1/(1-x^i)=Σ_{i≤m}Σ_{j≥1}x^{ij}/j，再用 FpsFunctions::exp 求前 n+1 项。要求 0≤n、n+1≤2^22、m≥0；m≥n 时即无限制分拆数。构造对数 O(n log n)，exp 为 O(n log n) 时间、O(n) 空间；依赖 FpsFunctions。"
+    "parts_at_most_fps(n,m) 返回与 parts_at_most 相同的表，模 998244353。生成函数为 1/(1-x)(1-x^2)…(1-x^m)，其对数等于对所有 i≤m、j≥1 累加 x^(ij)/j，再用 FpsFunctions::exp 求前 n+1 项。要求 0≤n、n+1≤2^22、m≥0；m≥n 时即无限制分拆数。构造对数 O(n log n)，exp 为 O(n log n) 时间、O(n) 空间；依赖 FpsFunctions。"
   ],
   [
     "lucas",

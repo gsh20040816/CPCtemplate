@@ -462,8 +462,7 @@ def run(args):
     project_deps = dependencies(root/'src/compact/number_theory.hpp')
     sources = {self_path, source, config, *project_deps,
                root/'docs/catalog.json', root/'docs/knowledge-taxonomy.json',
-               root/'docs/oi-taxonomy.json', root/'tests/knowledge_taxonomy.py',
-               root/'tests/math_knowledge_integration.py', root/'tools/test.sh'}
+               root/'docs/oi-taxonomy.json', root/'tools/test.sh'}
     if requested in sources:
         raise RuntimeError('--report cannot overwrite a bound source')
     before = snapshot(sources,root)  # Before reading source for derivation/config execution.

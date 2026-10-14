@@ -2965,13 +2965,13 @@ parts\_at\_most(n,m,mod) 返回 f[0..n]，f[s] 为把 s 拆成至多 m 个正整
 
 \lstinputlisting[firstline=52,lastline=61]{../src/compact/partitions.hpp}
 
-\Needspace{234pt}
+\Needspace{237pt}
 
 \subsection{至多 m 个部分的分拆表（生成函数）}\label{compact-parts_at_most_fps}\index{parts\_at\_most\_fps}
 
 代码依赖：\hyperref[compact-FpsFunctions]{FpsFunctions}（第~\pageref{compact-FpsFunctions}~页，\ref{compact-FpsFunctions}~节）、\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-parts\_at\_most\_fps(n,m) 返回与 parts\_at\_most 相同的表，模 998244353。取 ln∏\_\{i$\le$m\}1/(1-x\textasciicircum{}i)=$\sum$\_\{i$\le$m\}$\sum$\_\{j$\ge$1\}x\textasciicircum{}\{ij\}/j，再用 FpsFunctions::exp 求前 n+1 项。要求 0$\le$n、n+1$\le$2\textasciicircum{}22、m$\ge$0；m$\ge$n 时即无限制分拆数。构造对数 O(n log n)，exp 为 O(n log n) 时间、O(n) 空间；依赖 FpsFunctions。
+parts\_at\_most\_fps(n,m) 返回与 parts\_at\_most 相同的表，模 998244353。生成函数为 1/(1-x)(1-x\textasciicircum{}2)…(1-x\textasciicircum{}m)，其对数等于对所有 i$\le$m、j$\ge$1 累加 x\textasciicircum{}(ij)/j，再用 FpsFunctions::exp 求前 n+1 项。要求 0$\le$n、n+1$\le$2\textasciicircum{}22、m$\ge$0；m$\ge$n 时即无限制分拆数。构造对数 O(n log n)，exp 为 O(n log n) 时间、O(n) 空间；依赖 FpsFunctions。
 
 \lstinputlisting[firstline=65,lastline=76]{../src/compact/partitions.hpp}
 
