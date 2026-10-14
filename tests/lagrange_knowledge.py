@@ -169,7 +169,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--report', type=Path, default=ROOT / 'build/lagrange-knowledge.json')
     args = parser.parse_args()
-    paths = [Path(__file__).resolve(), ROOT / 'docs/knowledge-lagrange.tex']
+    paths = [Path(__file__).resolve(), ROOT / 'docs/knowledge-full/knowledge-lagrange.tex']
     sources_before = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
     checks = divisibility = 0
     phis = set()

@@ -92,24 +92,17 @@ for style in ['compact']:
             estimate = sum((max(1, (len(line.expandtabs(4)) + 109) // 110) for line in lines[start:end])) * 10.2 + 70 + len(info) / 65 * 12
             if name.startswith('stirling_'):
                 body.append('\\newpage')
-            if name == 'ac_shortest':
-                estimate = max(estimate, 380)
             if name == 'HLD':
                 split = next(i for i in range(start, end) if 'void dfs2(' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'SCC':
                 split = next(i for i in range(start, end) if '// Recursive Kosaraju' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
-            if name == 'orient_edges':
-                estimate = 650
             if name == 'PalindromicTree':
                 split = next(i for i in range(start, end) if '// Append a lowercase letter' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'SuffixAutomaton':
                 split = next(i for i in range(start, end) if 'void extend(' in lines[i])
-                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
-            if name == 'SpfaFlow':
-                split = next(i for i in range(start, end) if '// Internal:' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'ComplexFFT':
                 split = next(i for i in range(start, end) if 'void transform(' in lines[i])
@@ -118,42 +111,24 @@ for style in ['compact']:
                 body.append('\\newpage')
                 split = next(i for i in range(start, end) if 'struct PolarLess' in lines[i])
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name in ('convolution_fft', 'cdq_convolution', 'manhattan_order'):
+            if name in ('cdq_convolution', 'manhattan_order'):
                 body.append('\\newpage')
-            if name in ('TreePathProducts', 'DynamicPeachTree', 'Rational', 'q_binomial', 'CompositeBinomial', 'Montgomery', 'Barrett32', 'StaticMod64'):
-                body.append('\\newpage')
-                estimate = 650
-            if name in ('SteinerTree', 'tutte', 'BipartiteMatching', 'regular_matching', 'DynamicDiameter', 'Dominance4D', 'TreeBlockDistinct', 'HLPP', 'Cactus', 'minimum_mean_cycle', 'count_four_cycles', 'LongChain', 'MinCycle', 'lyndon', 'KruskalTree', 'StringHash', 'BurnsideAverage', 'permutation_cycles', 'necklace_colorings', 'MonotoneHull', 'monotone_dp_layer', 'wqs_independent_set', 'StrictSecondShortest', 'KShortestWalks', 'OverallKth', 'TreeIsomorphism', 'TreeMo', 'RollbackMo', 'TimeConnectivity', 'RealSpace', 'Line3', 'Plane3', 'rectangle_union_area', 'convolution_mod', 'DC3', 'DagDominator', 'FibonacciPeriod', 'AssignmentSpectrum', 'DynamicPathMax', 'SequenceKth', 'SequenceScapegoat', 'ScapegoatTree', 'PersistentOrderedTreap', 'SegmentBeats', 'CentroidSum', 'CentroidNearest', 'CentroidDiameter', 'SequenceSplay', 'MergeSplay', 'BellmanFord', 'Spfa', 'DagLongest', 'Floyd', 'ShortestPathTree', 'DenseDijkstra', 'Kruskal', 'Prim', 'Fenwick2D', 'RectangleFenwick', 'PersistentDSU', 'MergeSplitTree', 'SAMLex', 'xor_hamming_pairs', 'MonotoneStackSeg', 'KDTreeSum', 'KDNearest', 'KDRange', 'Chain3D', 'ModifiedMo', 'KDMin', 'StaticRMQ', 'StaticRMQ2D', 'Isap', 'flow_unique', 'ZkwFlow', 'TreeMarket'):
-                body.append('\\newpage')
-                estimate = 650
             if name == 'Min25':
                 split = next(i for i in range(start, end) if 'array<Z, 3> prefix{};' in lines[i])
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
             if name == 'dag_path_determinant':
                 split = next(i for i in range(start, end) if 'vector<vector<long long>> a(' in lines[i])
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name == 'LexTwoSAT':
-                split = next((i for i in range(start, end) if re.match('    bool (paint|Paint)\\(', lines[i])))
-                estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name == 'odd_cycle_vertices':
-                split = next((i for i in range(start, end) if 'edges(graph.blocks.size())' in lines[i]))
-                estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
             if name == 'mixed_euler_orientation':
                 split = next((i for i in range(start, end) if '!edges.empty()' in lines[i]))
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name in ('release_bfs', 'MinCostFlow', 'LiChao', 'matrix_inverse', 'matrix_inverse_mod2', 'MaxPlusMatrix', 'Min25', 'dag_path_determinant'):
+            if name in ('MinCostFlow', 'LiChao', 'matrix_inverse', 'MaxPlusMatrix', 'Min25', 'dag_path_determinant'):
                 body.append('\\newpage')
             if name in ('DirectedEuler', 'UndirectedEuler'):
                 split = next((i for i in range(start, end) if re.match('    bool (run|Run)\\(', lines[i]))) - 1
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name in ('Johnson', 'DominatorTree'):
-                split = next(i for i in range(start, end) if ('bool build()' if name == 'Johnson' else 'int eval(') in lines[i])
-                estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name == 'odd_induced_partition':
-                split = next(i for i in range(start, end) if 'dsu d(n);' in lines[i])
-                estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name == 'NegativeCostFlow':
-                split = next(i for i in range(start, end) if 'pair<ll, I> solve(' in lines[i])
+            if name in ('DominatorTree',):
+                split = next(i for i in range(start, end) if 'int eval(' in lines[i])
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
             if name == 'GeneralSAM':
                 split = next(i for i in range(start, end) if 'void build()' in lines[i])
@@ -167,22 +142,10 @@ for style in ['compact']:
             if name == 'LiftingLCA':
                 split = next((i for i in range(start, end) if re.match('    void (dfs|Dfs)\\(', lines[i])))
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name == 'EulerLCA':
-                split = next((i for i in range(start, end) if re.match('    void (dfs|Dfs)\\(', lines[i])))
-                estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name == 'OfflineLCA':
-                split = next((i for i in range(start, end) if re.match('    int (find|Find)\\(', lines[i])))
-                estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name == 'Lowlink':
-                split = next((i for i in range(start, end) if re.match('    void (dfs|Dfs)\\(', lines[i])))
-                estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
-            if name == 'XorWalk':
-                split = next(i for i in range(start, end) if 'void add(' in lines[i])
-                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
-            if name in ('SequenceTreap', 'AffineSequenceTreap', 'GcdSequenceTreap', 'OrderedSplay'):
+            if name in ('SequenceTreap', 'OrderedSplay'):
                 body.append('\\newpage')
                 estimate = 650
-            if name in ('SubtreeColors', 'VirtualTree', 'CentroidPairs', 'WaveletMatrix', 'GaussXor', 'SecondMST', 'DivisionTree'):
+            if name in ('SubtreeColors', 'VirtualTree', 'CentroidPairs', 'GaussXor', 'SecondMST'):
                 estimate = 650
             if name == 'block_cut_forest':
                 estimate = 650
@@ -233,8 +196,6 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'SuffixLCP':
                 estimate = 670
-            if name == 'divisor_sum_power':
-                body.append('\\newpage')
             if name == 'Arborescence':
                 split = next((i for i in range(start, end) if lines[i].strip() == 'int cnt = 0;'))
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
@@ -247,9 +208,6 @@ for style in ['compact']:
             if name == 'ClosestPair':
                 split = next((i for i in range(start, end) if lines[i].strip() == 'int m = (l + r) / 2;'))
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
-            if name == 'IntegerTangents':
-                split = next(i for i in range(start, end) if '// |coordinates|' in lines[i])
-                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'CircleTangents':
                 split = next((i for i in range(start, end) if lines[i].strip() == 'Result answer;'))
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
@@ -259,12 +217,6 @@ for style in ['compact']:
             if name == 'CirclePolygon':
                 split = next((i for i in range(start, end) if lines[i].strip() == 'R answer = 0;'))
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
-            if name == 'PrimePowerRoots':
-                split = next((i for i in range(start, end) if 'static optional<Prime' in lines[i]))
-                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
-            if name == 'CompositeRoots':
-                split = next((i for i in range(start, end) if 'static optional<Composite' in lines[i]))
-                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'NttConvolution':
                 split = next((i for i in range(start, end) if 'for (int half = 1;' in lines[i]))
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
@@ -273,7 +225,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('Hull3DMetrics', 'ColorMax', 'ColorComponents', 'grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'triangle_incircle', 'tree_probability', 'ShiftSplay', 'PersistentWeightedIndex', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'TreePathKth', 'LeftistHeap', 'ModInt', 'mint', 'CoprimePairs', 'linear_congruence', 'FpsSqrt', 'Ntt2D', 'BivariateInverse', 'shifted_power_sum', 'XorAffine64', 'DivideSegmentTree', 'good_number_sum'):
+            if name in ('grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'triangle_incircle', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'LeftistHeap', 'ModInt', 'mint', 'linear_congruence', 'FpsSqrt'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -303,31 +255,6 @@ for style in ['compact']:
                 body.append(r'\paragraph{来源及MIT许可} 改编自Shahjalal Shohag的带权带花树，固定提交0884be6ab81f（完整提交号见仓库来源记录）。以下许可随本实现保留：')
                 notice = (root / 'docs/weighted-blossom-LICENSE.txt').read_text()
                 body.append(esc(notice))
-            elif name in ('ShiftSplay', 'PersistentWeightedIndex'):
-                tokens = ['void rotate(', 'pair<int, int> split('] if name == 'ShiftSplay' else ['int add(']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
-                    if j:
-                        body.append(r'\newpage')
-                        body.append(r'\noindent 接上页同一结构体：')
-                    body.append(r'\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'tree_probability':
-                split = next(i for i in range(start, end) if 'vector<vector<long double>> a(' in lines[i])
-                body.append('必选森林与分量编号（同一函数连续抄写）：')
-                body.append(r'\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ',firstnumber=1]{../src/' + style + '/' + filename + '.hpp}')
-                body.append(r'\newpage')
-                body.append('缩点拉普拉斯、连通性与对数行列式（续）：')
-                body.append(r'\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'Hull3DMetrics':
-                tokens = ('    // Uniform volume centroid', '    // Distance from the volume centroid')
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                for part in range(3):
-                    if part:
-                        body.append(r'\newpage')
-                    body.append(('字段与非负四面体质量：', '体积重心与整数点到平面距离（接同一结构体）：', '重心到表面距离及几何面分组（接同一结构体）：')[part])
-                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append(r'\paragraph{精度约定} 取凸包点p[0]作公共四面体顶点，各外向面的六倍体积v非负，四顶点各加v，total为四倍六倍体积。坐标界M下total不超过$192M^3$，128位安全。各坐标先减最小值后非负求和；距离则对面行列式作非负质量积分，不用近似重心相减。浮点乘除和范数仍有舍入，重心接近零时不保证相对误差。')
-                body.append(r'\paragraph{验证范围} 509组精确有理矩与支撑平面真值，六种构建通过；含行列式1的极薄整数四面体。原kuangbin完整246行与驱动、最小抄写版各102组EOF对拍。HDU4273记录41022769已AC，15MS、1844K；原题是整数坐标比赛应用，不据此声明任意实数测量已覆盖。')
             elif name == 'Hull3D':
                 tokens = ('    // Exact signs', '    static int turn_sign', '    static int orient_sign', '    explicit Hull3D', '        int n = p.size();', '            order.resize(n);', '        dimension = 3;', '    long double area()')
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
@@ -369,22 +296,17 @@ for style in ['compact']:
                 body.append(r'\lstinputlisting[firstline=' + str(cut + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(cut - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append(r'\paragraph{正确性} 最小面积包围矩形至少有一条边与凸包边共线。固定此方向，左右和上方支撑线由投影最小、投影最大和叉积最大三点决定。严格凸包边方向依次旋转，三个最优支撑点只向前移动；相同投影推进到末端，以跨过平行边。第一条边完整扫描初始化，避免从错误局部极值开始。')
                 body.append(r'\paragraph{恢复公式与边界} 设底边方向e、长度平方d，最小/最大投影l,r，最大叉积h。面积为(r-l)h/d，底边两端为p+el/d、p+er/d，上边统一加perp(e)h/d。不要求首角纵坐标最小。输入必须是严格逆时针凸包；任意实数判向和极薄模型不能由通过有界整数题保证。')
-            elif name in ('circle_union_area', 'circle_coverage_area'):
+            elif name in ('circle_union_area',):
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('        for (int j = 0; j < n; j++)', '        auto add =')] + [end]
                 for part in range(3):
                     if part:
                         body.append(r'\newpage')
-                        body.append(('两圆关系及覆盖角区间（接上页函数）：', ('分层圆弧积分与补偿求和（接上页函数）：' if name == 'circle_coverage_area' else '未覆盖圆弧积分与补偿求和（接上页函数）：'))[part - 1])
+                        body.append(('两圆关系及覆盖角区间（接上页函数）：', '未覆盖圆弧积分与补偿求和（接上页函数）：')[part - 1])
                     body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append(r'\newpage')
-                if name == 'circle_coverage_area':
-                    body.append(r'\paragraph{覆盖分层} 当前圆弧左侧包含自身，另有count-1个圆覆盖；它是至少count次覆盖区域的正向边界。分别积分到对应层后，按k递增作answer[k]-answer[k+1]得到恰好k次。重合的m个圆按编号让第t个额外计入前t-1个同圆，从而每个阈值恰贡献一次边界；不能去重。ans[0]只是占位。')
-                    body.append(r'\paragraph{数值与验证} 各连通块平移、严格角排序、补偿累加；仍有浮点分类和相邻层相减的消去误差，小面积可能有微小负误差。466组70位竖条截面积分及解析压力例，在O2、NDEBUG、抄写版与ASan/UBSan下通过；不据此承诺任意实数精确。')
-                else:
-                    body.append(r'\paragraph{为什么只算未覆盖弧} 删去重合边界后，圆盘并边界恰是没有落在其他圆内部的圆弧。各圆逆时针方向的内部位于左侧，所以外边界和孔洞边界自动获得正确符号；不能对每条弧单独取绝对值。相切点面积为零，内含圆无需贡献。')
+                body.append(r'\paragraph{为什么只算未覆盖弧} 删去重合边界后，圆盘并边界恰是没有落在其他圆内部的圆弧。各圆逆时针方向的内部位于左侧，所以外边界和孔洞边界自动获得正确符号；不能对每条弧单独取绝对值。相切点面积为零，内含圆无需贡献。')
                 body.append(r'\paragraph{积分公式} 对相对连通块原点的圆心$(x,y)$，半径$r$，弧角从$l$到$u$，令$h=(u-l)/2$、$t=(u+l)/2$。格林公式给出贡献$r^2h+r\sin h(x\cos t+y\sin t)$。整圆直接用$\pi r^2$，避免$\sin\pi$舍入误差；补偿求和减少大量正负弧贡献相加的损失。连通块分别平移不改变闭合边界积分。')
-                if name == 'circle_union_area':
-                    body.append(r'\paragraph{数值与验证} 角度排序使用严格原值比较，同圆按编号去重，不以eps合并不同圆。半角通过缩放后的Heron乘积与atan2求出，避免acos靠近正负1时的敏感性；仍不是精确几何。独立70位高精度验证沿竖直截面、在全部交点横坐标处分段解析积分，另有孔洞、相切、远平移和千圆压力例。线上AC状态见验证记录，不能由本地通过推断。')
+                body.append(r'\paragraph{数值与验证} 角度排序使用严格原值比较，同圆按编号去重，不以eps合并不同圆。半角通过缩放后的Heron乘积与atan2求出，避免acos靠近正负1时的敏感性；仍不是精确几何。独立70位高精度验证沿竖直截面、在全部交点横坐标处分段解析积分，另有孔洞、相切、远平移和千圆压力例。线上AC状态见验证记录，不能由本地通过推断。')
             elif name == 'Simplex':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('void pivot(', 'bool improve(', 'Result solve(')] + [end]
                 for part in range(4):
@@ -397,22 +319,6 @@ for style in ['compact']:
                         body.append(r'\paragraph{人工变量与两阶段} 对每条约束引入同一个人工变量t，系数为-1。从最负的右端行让t入基即得到可行起点，第一阶段最大化-t。最优值小于零说明原问题无解；为零时把仍在基内的人工变量换出，零冗余行可以保留。原目标行始终参加换基，第二阶段禁止人工变量入基，直接优化原目标。')
                     if part == 3:
                         body.append(r'\paragraph{退化与数值} 在精确运算下，入基选最小变量编号，最小比值并列时选最小基本变量编号，是Bland防循环规则。这里按eps判断约化系数和比值并列，所以不承诺浮点下严格防循环。极小系数、严重消去或尺度悬殊都可能改变分类；先对模型缩放，并用原输入复核返回方案。需要精确判定时应使用有理数算法，不能仅缩小eps。')
-            elif name == 'ColorMax':
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('long long base(', 'void change(')] + [end]
-                for part in range(3):
-                    if part:
-                        body.append(r'\newpage')
-                        body.append(('重链区间最大值与连通块最高点（接上页结构体）：', '修改并向轻边父亲传播（接上页结构体）：')[part - 1])
-                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append(r'\paragraph{维护不变量} light[u][c]保存每个颜色c的轻儿子向下同色连通块最大值，保留重复项。线段树在u处存本点权与同色轻儿子贡献的最大值；down取重链上从u开始的连续同色区间。更新前保存旧链头颜色和贡献，更新后删旧加新传给链头父亲，每次跨轻边，最多O(log n)层。')
-            elif name == 'ColorComponents':
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('void add(', 'void change(')] + [end]
-                for part in range(3):
-                    if part:
-                        body.append(r'\newpage')
-                        body.append(('差分树状数组与同色链顶（接上页结构体）：', '贡献传播与公开操作（接上页结构体）：')[part - 1])
-                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append(r'\paragraph{维护不变量} f[u][c]为把u假定为颜色c时，其向下同色连通块大小。翻转u时，减去旧色贡献、加入新色贡献，更新从父亲起的同色祖先链，并包含首个异色祖先；它自身虽阻止继续传播，其假定颜色c的值仍需更新。query从同色连通块最高点读取f。')
             elif name == 'grid_cycles':
                 init = next(i for i in range(start, end) if 'dp[0][0]' in lines[i])
                 cuts = [start, next(i for i in range(init, end) if 'for (int i = 0; i < n; i++)' in lines[i]), next(i for i in range(start, end) if 'else if (!x || !y)' in lines[i]), end]
@@ -457,29 +363,6 @@ for style in ['compact']:
                 for part in range(3):
                     body.append(r'\newpage\noindent ' + ('字段、加边与五项合并：', '递归欧拉遍历与建树（接上页结构体）：', '区间加与原边修改（接上页结构体）：')[part])
                     body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'Dominance4D':
-                cuts = [start, next(i for i in range(start, end) if 'auto add =' in lines[i]), next(i for i in range(start, end) if 'auto inner =' in lines[i]), end]
-                body.append(r'\newpage\noindent 坐标压缩与x序事件：')
-                for part in range(3):
-                    if part:
-                        body.append(r'\newpage\noindent ' + ('Fenwick与外层CDQ', '内层CDQ、回滚与结果')[part - 1] + '（接上页同一函数）：')
-                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-                    if part == 1:
-                        body.append(r'\paragraph{两次唯一分离} 每个合法更新--查询对在x事件序中有先后顺序，恰好在外层递归的一处分到左右两半。只提取左更新和右查询后，再按y排序并递归，恰好在内层的一处分离。z双指针与w前缀和检查余下两维，因此既不漏计也不重复计数。')
-                        body.append(r'\paragraph{相等坐标} x、y相等时，严格模式将查询放在更新前面，阻止这一对进入贡献方向；弱模式反过来。z的比较和w的前缀下标也必须一起切换。弱模式每个点的自身恰被算一次，最后减一；重复点仍按不同编号保留。')
-            elif name == 'TreeBlockDistinct':
-                body.append(r'\newpage\noindent 结构与关键点选择：')
-                cuts = [start, next(i for i in range(start, end) if 'void mark(' in lines[i]), next(i for i in range(start, end) if 'void build(' in lines[i]), next(i for i in range(start, end) if 'int jump(' in lines[i]), next(i for i in range(start, end) if 'void leg(' in lines[i]), end]
-                for part in range(5):
-                    if part:
-                        body.append(r'\newpage\noindent ' + ('最近关键祖先与路径位集', '离散化与从零重建', '倍增祖先与LCA', '拼接路径与在线查询')[part - 1] + '（接上页同一结构体）：')
-                    body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-                    if part == 1:
-                        body.append(r'\paragraph{分块界} 每个按残余大小选出的关键点消耗至少B个尚未归入更深关键点的点，故数量不超过floor(n/B)，补根后至多再加1。连续B个非关键祖先会使其中最高点的残余大小至少B，矛盾；因此near距离严格小于B。')
-                        body.append(r'\paragraph{重复颜色} collect沿当前简单路径维护颜色出现次数，回溯时只有计数归零才能清除对应位。每个关键点作为源递归遍历整棵树，遇到另一个关键点就保存当前位集。')
-                    if part == 3:
-                        body.append(r'\paragraph{上端关键点不能越过LCA} 设当前祖先链终点为p。长链中x在p下方B-1层，near[x]距x至多B-1，所以b=near[x]仍在p的子树内；a=near[u]位于b下方或等于b。关键路径a至b之外，两端各不足B步，枚举这些短段即可。短链直接枚举，最后补上p的颜色。')
-                        body.append(r'\paragraph{空间选型} 令W=ceil(C/64)。K个源的遍历需O(Kn)，保存K平方份位集需O(K²W)时间和空间；另有倍增表。默认B=512针对四万点量级，不能把B任意缩小后仍假定线性内存。')
             elif name == 'HLPP':
                 cuts = [start, next(i for i in range(start, end) if 'void activate(' in lines[i]), next(i for i in range(start, end) if '// Recompute from zero' in lines[i]), next(i for i in range(start, end) if 'while (top >= 0)' in lines[i]), next(i for i in range(start, end) if 'll used(' in lines[i]), end]
                 for part in range(5):
@@ -594,12 +477,6 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 构建失败链接与统计出现次数（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'OnlineSAM':
-                split = next(i for i in range(start, end) if '// Append c' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 指定状态在线扩展（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'PersistentXorTrie':
                 split = next(i for i in range(start, end) if 'bool append(' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
@@ -647,11 +524,11 @@ for style in ['compact']:
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name in ('Johnson', 'DominatorTree'):
-                split = next(i for i in range(start, end) if ('bool build()' if name == 'Johnson' else 'int eval(') in lines[i])
+            elif name in ('DominatorTree',):
+                split = next(i for i in range(start, end) if 'int eval(' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
-                body.append('\\noindent ' + ('势能预处理、单源查询与距离还原' if name == 'Johnson' else '路径查询、半支配点与直接支配点计算') + '（接上页同一结构体）：')
+                body.append('\\noindent ' + '路径查询、半支配点与直接支配点计算' + '（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'Arborescence':
                 split = next((i for i in range(start, end) if lines[i].strip() == 'int cnt = 0;'))
@@ -709,8 +586,8 @@ for style in ['compact']:
                         body.append('\\newpage')
                         body.append('\\noindent ' + cn + '（接上页同一结构体）：')
                     body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name in ('Fenwick2D', 'RectangleFenwick'):
-                token = 'void add(' if name == 'Fenwick2D' else 'T prefix('
+            elif name in ('RectangleFenwick',):
+                token = 'T prefix('
                 split = next(i for i in range(start, end) if token in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
@@ -757,105 +634,6 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 继续三维运算（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(cut + 1) + ',firstnumber=' + str(cut - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'DC3':
-                tokens = ['private:', '        vector<int> rank(n + 3);']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '采样三元组排序与递归命名', '恢复采样排名并合并']
-                for part in range(3):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'convolution_mod':
-                tokens = ['    const long long p = 167772161']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '三模卷积与固定逆元CRT重构']
-                for part in range(2):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一函数）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'DagDominator':
-                tokens = ['    bool build(']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '全图拓扑检查与逐点构建支配树']
-                for part in range(2):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'FibonacciPeriod':
-                tokens = ['    u128 prime_period(']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '素数候选缩减、素数幂逐层检查与互素lcm']
-                for part in range(2):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'AssignmentSpectrum':
-                tokens = ['int solve(', '            int y;']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '重置状态与多源松弛', '继续solve：调整顶标与翻转增广路径']
-                for part in range(3):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'DynamicPathMax':
-                tokens = ['void apply(', 'void splay(', 'bool expose(']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '递归下传与旋转', '伸展、访问与换根', '连边、两种删边与路径操作']
-                for part in range(4):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'SequenceKth':
-                tokens = ['void pull(', 'int insert(int u,', 'int less(int u,']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '内树合并与递归重建', '按位置插入与修改', '区间秩与第k小查询']
-                for part in range(4):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'SequenceScapegoat':
-                tokens = ['int make(', 'void collect(', 'int insert(int u,', 'int count(int u,']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '节点复用与频次维护', '递归收集、重建与平衡', '按位置插入与删除', '区间等值计数与右移']
-                for part in range(5):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'SequenceSplay':
-                tokens = ['void flip(', '// Internal rank', 'void reverse(']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '翻转下传与伸展旋转', '位置和原编号互查', '区间翻转与完整顺序']
-                for part in range(4):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'CentroidDiameter':
-                tokens = ['void size_dfs(', '// Fixed tree', 'void set(']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '递归分解与不同分支的距离', '清空重建与重心候选', '活动点设置与端点查询']
-                for part in range(4):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'CentroidNearest':
-                tokens = ['void collect(', '// Fixed connected']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                captions = ['', '重心距离与递归分解', '清空重建、活动点增删与最近点查询']
-                for part in range(3):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'CentroidSum':
                 tokens = ['void size_dfs(', '// Raw distance d', '// Rebuild resets']
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
@@ -899,16 +677,6 @@ for style in ['compact']:
                         body.append('\\newpage')
                         body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
                     body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'ScapegoatTree':
-                first = next(i for i in range(start, end) if 'int balance(' in lines[i])
-                second = next(i for i in range(first, end) if 'int less(' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(first) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 重建与插入删除（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(first + 1) + ',lastline=' + str(second) + ',firstnumber=' + str(first - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 排名、第 k 小与严格前驱后继（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(second + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(second - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'SequenceTreap':
                 cuts = [start,
                         next(i for i in range(start, end) if 'void apply_reverse(' in lines[i]),
@@ -916,48 +684,6 @@ for style in ['compact']:
                         next(i for i in range(start, end) if '// Requires every value' in lines[i]), end]
                 captions = ['', '顺序反转、懒标记下传与分裂', '合并、插入、删除与顺序反转', '位翻转、加法、查询与输出']
                 for part in range(4):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'AffineSequenceTreap':
-                cuts = [start,
-                        next(i for i in range(start, end) if 'void flip(' in lines[i]),
-                        next(i for i in range(start, end) if 'int merge(' in lines[i]),
-                        next(i for i in range(start, end) if 'void reverse(' in lines[i]), end]
-                captions = ['', '反转、仿射下传与递归分裂', '合并、插入与删除', '区间操作与递归输出']
-                for part in range(4):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'GcdSequenceTreap':
-                cuts = [start,
-                        next(i for i in range(start, end) if 'void pull(' in lines[i]),
-                        next(i for i in range(start, end) if 'void rebuild(' in lines[i]),
-                        next(i for i in range(start, end) if '// Insert after' in lines[i]), end]
-                captions = ['', '聚合与递归分裂合并', '构建、重算与节点回收', '插删、单点修改与分组查询']
-                for part in range(4):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'TreePathProducts':
-                first = next(i for i in range(start, end) if 'bool is_root(' in lines[i])
-                second = next(i for i in range(first, end) if 'void splay(' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(first) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 聚合、翻转、递归下传与旋转（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(first + 1) + ',lastline=' + str(second) + ',firstnumber=' + str(first - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent Splay、虚实边切换与公开接口（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(second + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(second - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'TreePathKth':
-                cuts = [start,
-                        next(i for i in range(start, end) if 'int insert(' in lines[i]),
-                        next(i for i in range(start, end) if 'int lca(' in lines[i]), end]
-                captions = ['', '版本插入与递归建树', '最近公共祖先与路径第 k 小']
-                for part in range(3):
                     if part:
                         body.append('\\newpage')
                         body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
@@ -984,16 +710,6 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 合并与最远点查询（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'EulerLCA':
-                first = next((i for i in range(start, end) if re.match('    void (dfs|Dfs)\\(', lines[i])))
-                second = next((i for i in range(first, end) if re.match('    int (lca|Lca)\\(', lines[i])))
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(first) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 递归欧拉序与 RMQ（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(first + 1) + ',lastline=' + str(second) + ',firstnumber=' + str(first - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent LCA、边数距离与带权距离（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(second + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(second - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'PersistentRange':
                 first = next((i for i in range(start, end) if re.match('    int (change|Change)\\(', lines[i])))
                 second = next((i for i in range(first, end) if re.match('    ll (get|Get)\\(', lines[i])))
@@ -1004,7 +720,7 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 只读查询与对外接口（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(second + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(second - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name in ('SubtreeColors', 'VirtualTree', 'CentroidPairs', 'WaveletMatrix', 'GaussXor', 'SecondMST', 'DivisionTree'):
+            elif name in ('SubtreeColors', 'VirtualTree', 'CentroidPairs', 'GaussXor', 'SecondMST'):
                 tokens = {'DivisionTree': ['    void build('], 'SecondMST': ['    // Keep edge IDs', '    Pair path(', '    Result solve('], 'GaussXor': ['        Solution ans{'], 'WaveletMatrix': ['        for (int d = h - 1;', '// Count values'], 'SubtreeColors': ['void solve('],
                           'VirtualTree': ['void dfs(', 'Edge path('],
                           'CentroidPairs': ['int centroid(', '// Input must be a forest.']}[name]
@@ -1023,52 +739,12 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 合并凸包边（接上页同一函数）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'closest_pair_i64':
-                split = next(i for i in range(start, end) if 'function<I(int, int)> solve' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 递归分治（接上页同一函数）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'MultipointEvaluation':
                 split = next(i for i in range(start, end) if 'void eval(' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\noindent 余式下传与求值入口（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'StaticRMQ2D':
-                split = next(i for i in range(start, end) if '        for (int k = 0;' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 层表递推、位置比较与四块查询（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'StaticRMQ':
-                split = next(i for i in range(start, end) if '        int m = st[0].size();' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 块间表构建、最优位置合并与查询（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'KDMin':
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['    int build(', '    void erase(']] + [end]
-                for part, (left, right) in enumerate(zip(cuts, cuts[1:])):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + ['', '中位数建树与固定包围盒', '按编号删除与矩形查询'][part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(left + 1) + ',lastline=' + str(right) + ',firstnumber=' + str(left - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'Chain3D':
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['        vector<int> order(', '        auto cdq =', '        cdq(cdq,']] + [end]
-                captions = ['', '坐标顺序、分组与状态合并', '先转移再右递归（同一构造函数内）', '汇总答案与路径恢复']
-                for part, (left, right) in enumerate(zip(cuts, cuts[1:])):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(left + 1) + ',lastline=' + str(right) + ',firstnumber=' + str(left - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'KDRange':
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['    bool less(', '    int build(', '    void take(']] + [end]
-                for part, (left, right) in enumerate(zip(cuts, cuts[1:])):
-                    if part:
-                        body.append('\\newpage')
-                        body.append('\\noindent ' + ['', '节点复用与子树维护', '建树、回收与插入', '矩形取出与删除入口'][part] + '（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(left + 1) + ',lastline=' + str(right) + ',firstnumber=' + str(left - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'KDNearest':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['    int build(', '    void search(']] + [end]
                 for part, (left, right) in enumerate(zip(cuts, cuts[1:])):
@@ -1100,61 +776,12 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 蝶形变换与卷积（接上页同一结构体与函数）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'good_number_sum':
-                tokens = ['auto valid =']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
-                    if j:
-                        body.append(r'\newpage')
-                        body.append(r'\noindent 接上页同一函数：')
-                    body.append(r'\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'DivideSegmentTree':
-                tokens = ['void shift(', '// kind:', 'void update(']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
-                    if j:
-                        body.append(r'\newpage')
-                        body.append(r'\noindent 接上页同一结构体：')
-                    body.append(r'\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'XorAffine64':
-                split = next(i for i in range(start, end) if 'XorAffine64 power(' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 重复应用的二进制幂（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'BivariateInverse':
-                split = next(i for i in range(start, end) if '// Keep only the high x-half' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 截断误差并更新新行（接上页同一结构体、函数与循环）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'Ntt2D':
-                split = next(i for i in range(start, end) if 'static Matrix multiply(' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 二维普通卷积（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'FpsSqrt':
                 split = next(i for i in range(start, end) if 'static optional<Poly> sqrt(' in lines[i])
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\noindent 平方根与前导零处理（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'CompositeRoots':
-                split = next((i for i in range(start, end) if 'static optional<Composite' in lines[i]))
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 局部求根与 CRT 系数（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'PrimePowerRoots':
-                first = next((i for i in range(start, end) if 'static optional<Prime' in lines[i]))
-                second = next((i for i in range(first, end) if lines[i].strip().startswith('ll scale =')))
-                cuts = [start, first, second, end]
-                for j in range(3):
-                    if j:
-                        body.append('\\newpage')
-                        body.append('\\noindent 接上页同一结构体（第三页继续同一函数）：')
-                    body.append('\\lstinputlisting[firstline=' + str(cuts[j] + 1) + ',lastline=' + str(cuts[j + 1]) + ',firstnumber=' + str(cuts[j] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'CirclePolygon':
                 split = next((i for i in range(start, end) if lines[i].strip() == 'R answer = 0;'))
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
@@ -1167,12 +794,6 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 随机增量主过程（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'IntegerTangents':
-                split = next(i for i in range(start, end) if '// |coordinates|' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 公切线枚举与精确切点排序（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'CircleTangents':
                 split = next((i for i in range(start, end) if lines[i].strip() == 'Result answer;'))
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
@@ -1184,18 +805,6 @@ for style in ['compact']:
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\noindent 分治、归并与跨分界线点对（接上页同一函数）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'odd_induced_partition':
-                split = next(i for i in range(start, end) if 'dsu d(n);' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 合并未完成分组（接上页同一函数）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'NegativeCostFlow':
-                split = next(i for i in range(start, end) if 'pair<ll, I> solve(' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 需求修复、增广与原边流量还原（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'GeneralSAM':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['void build()', 'long long distinct()']] + [end]
@@ -1283,33 +892,19 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
-            elif name in ('ExLucas', 'DynamicKth', 'SupportHull', 'SuffixLCP', 'PositionBasis', 'XorWalk', 'Lowlink', 'OfflineLCA', 'EulerLCA', 'DirectedEuler', 'UndirectedEuler', 'mixed_euler_orientation', 'odd_cycle_vertices', 'LexTwoSAT'):
-                if name == 'LexTwoSAT':
-                    split = next((i for i in range(start, end) if re.match('    bool (paint|Paint)\\(', lines[i])))
-                elif name == 'odd_cycle_vertices':
-                    split = next((i for i in range(start, end) if 'edges(graph.blocks.size())' in lines[i]))
-                elif name == 'mixed_euler_orientation':
+            elif name in ('ExLucas', 'DynamicKth', 'SuffixLCP', 'PositionBasis', 'DirectedEuler', 'UndirectedEuler', 'mixed_euler_orientation'):
+                if name == 'mixed_euler_orientation':
                     split = next((i for i in range(start, end) if '!edges.empty()' in lines[i]))
                 elif name in ('DirectedEuler', 'UndirectedEuler'):
                     split = next((i for i in range(start, end) if re.match('    bool (run|Run)\\(', lines[i]))) - 1
-                elif name == 'EulerLCA':
-                    split = next((i for i in range(start, end) if re.match('    void (dfs|Dfs)\\(', lines[i])))
-                elif name == 'OfflineLCA':
-                    split = next((i for i in range(start, end) if re.match('    int (find|Find)\\(', lines[i])))
-                elif name == 'Lowlink':
-                    split = next((i for i in range(start, end) if re.match('    void (dfs|Dfs)\\(', lines[i])))
-                elif name == 'XorWalk':
-                    split = next((i for i in range(start, end) if re.match('    void (add|Insert)\\(', lines[i])))
                 elif name == 'PositionBasis':
                     split = next((i for i in range(start, end) if re.match('    void (insert|Insert)\\(', lines[i])))
                 elif name == 'SuffixLCP':
                     split = next((i for i in range(start, end) if re.match('    int (query|Query)\\(', lines[i])))
-                elif name == 'SupportHull':
-                    split = next((i for i in range(start, end) if 'template <class Oracle>' in lines[i])) - 2
                 else:
                     split = next((i for i in range(start, end) if re.match('    (?:int (?:choose|Choose)|void (?:set|Set))\\(', lines[i])))
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                if name in ('SupportHull', 'PositionBasis', 'XorWalk', 'Lowlink', 'OfflineLCA', 'EulerLCA', 'DirectedEuler', 'UndirectedEuler', 'mixed_euler_orientation', 'odd_cycle_vertices', 'LexTwoSAT'):
+                if name in ('PositionBasis', 'DirectedEuler', 'UndirectedEuler', 'mixed_euler_orientation'):
                     body.append('\\newpage')
                 else:
                     body.append('\\Needspace{' + str((end - split + 2) * 11) + 'pt}')
@@ -1326,15 +921,7 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 默认正容差分支（接上页同一函数）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'StaticMod64':
-                tokens = ['StaticMod64 operator-()', 'optional<StaticMod64> try_inv']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
-                    if j:
-                        body.append('\\newpage')
-                        body.append('\\noindent 64位模整数（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name in ('mint', 'Montgomery'):
+            elif name in ('mint',):
                 tokens = ['mint operator-(mint b)', 'optional<mint> try_inv'] if name == 'mint' else ['Montgomery operator+(Montgomery b)', 'Montgomery pow(uint64_t k)']
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
@@ -1356,12 +943,8 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 接上页同一结构体：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name in ('SpfaFlow', 'SuffixAutomaton', 'Isap', 'ZkwFlow', 'TreeMarket'):
-                tokens = (['void collect(', '// Existing markets'] if name == 'TreeMarket' else
-                          ['// Internal:', 'bool relabel('] if name == 'ZkwFlow' else
-                          ['void bfs(', '// Returns additional'] if name == 'Isap' else
-                          ['// Internal:', '// Returns additional'] if name == 'SpfaFlow' else
-                          ['void extend(', 'vector<long long> counts()'])
+            elif name in ('SuffixAutomaton',):
+                tokens = ['void extend(', 'vector<long long> counts()']
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
                     if j:
@@ -1379,12 +962,6 @@ for style in ['compact']:
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\noindent 极角比较器（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'EightPuzzle':
-                split = next(i for i in range(start, end) if 'EightPuzzle()' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 反向预处理与最短方案（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'ComplexFFT':
                 split = next(i for i in range(start, end) if 'void transform(' in lines[i])
@@ -1412,44 +989,6 @@ for style in ['compact']:
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'CompositeBinomial':
-                tokens = ['CompositeBinomial(int n', 'int choose(int n']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
-                    if j:
-                        body.append('\\newpage')
-                        body.append('\\noindent 有界上标组合数（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'q_binomial':
-                split = next(i for i in range(start, end) if 'int a = n % order' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent Gaussian 二项式（接上页同一函数）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'Rational':
-                tokens = ['Rational(T n', 'Rational &operator*=']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
-                    if j:
-                        body.append('\\newpage')
-                        body.append('\\noindent 精确分数（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'DynamicPeachTree':
-                tokens = ['static Matrix join(', 'int init(', 'bool isroot(', '// type 1: growth']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
-                    if j:
-                        body.append('\\newpage')
-                        body.append('\\noindent 动态树上供需判定（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'XorPathSum':
-                tokens = ['// sign = +1', '// parent/value', 'void splay(']
-                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
-                for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
-                    if j:
-                        body.append('\\newpage')
-                        body.append('\\noindent 全树路径异或和（接上页同一结构体）：')
-                    body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'LinkCutTree':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['void rotate(', 'void access(', 'bool connected(']] + [end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):
@@ -1480,7 +1019,7 @@ for style in ['compact']:
                 body.append(r'\begin{lstlisting}' + '\n' + 'rp<int> a;\na.push_back(3);\na.insert(0, 7);\nrp<int> b = a;\nb.replace(1, 9);\nb.erase(0, 1);\nauto c = a.substr(0, 1);\nint x = a[1];\n' + r'\end{lstlisting}')
             if name == 'pheap':
                 body.append(r'\begin{lstlisting}' + '\n' + 'pheap<int> a, b;\nauto h = a.push(7);\na.modify(h, 2);\nb.join(a);\nb.erase(h);\n' + r'\end{lstlisting}')
-            if name in ('Mo', 'digit_count'):
+            if name in ('Mo',):
                 body.append(r'\newpage')
                 body.append(esc(info))
             if name == 'grid_cycle':
@@ -1550,8 +1089,6 @@ for style in ['compact']:
                         body.append('\\lstinputlisting[firstline=' + str(split_lines + 1) + ',firstnumber=' + str(split_lines + 1) + ']{' + listing + '}')
                 else:
                     body.append('\\lstinputlisting{' + listing + '}')
-            if name in ('StringHash', 'BurnsideAverage', 'permutation_cycles', 'necklace_colorings', 'MonotoneHull', 'monotone_dp_layer', 'wqs_independent_set', 'StrictSecondShortest', 'KShortestWalks', 'OverallKth', 'TreeIsomorphism', 'TreeMo', 'RollbackMo', 'TimeConnectivity', 'RealSpace', 'Line3', 'Plane3', 'AffineSequenceTreap', 'TarjanSCC', 'AssignmentSpectrum', 'FibonacciPeriod', 'DagDominator', 'DC3', 'convolution_mod'):
-                body.append('\\newpage')
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 assert {r['symbol'] for r in records} == {r[1] for r in cat}, 'Catalog contains an unprinted module'
 (root / 'build').mkdir(exist_ok=True)

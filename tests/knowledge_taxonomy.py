@@ -180,7 +180,8 @@ class KnowledgeTaxonomyTests(unittest.TestCase):
         legacy = (ROOT / 'docs/mathematics.tex').read_text()
         for source in SOURCE_FILES:
             self.assertEqual(legacy.count(r'\input{' + Path(source).name + '}'), 1)
-        self.assertTrue(SECTION.search(legacy), 'legacy unclassified sections still exist')
+        # Issue 21 removed the last unclassified legacy section (the deleted wavelet matrix).
+        self.assertFalse(SECTION.search(legacy), 'legacy unclassified sections must be mapped')
         self.assertFalse(LABEL.search(legacy), 'legacy source is outside this bounded map')
 
     def test_readme_matches_current_knowledge_counts(self):

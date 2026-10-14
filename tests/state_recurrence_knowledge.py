@@ -140,7 +140,7 @@ def run_bound(args, prepare):
     dependencies=set()
     expand(cpp.read_text(),cpp.parent,dependencies)
     sources={SELF,ROOT/'tests/state_recurrence_snippet.py',cpp,
-             ROOT/'docs/knowledge-state-recurrence.tex',ROOT/'tests/compiler_config.py',
+             ROOT/'docs/knowledge-full/knowledge-state-recurrence.tex',ROOT/'tests/compiler_config.py',
              ROOT/'tools/usage_examples.py',*dependencies}
     compiler=Path(shutil.which(CXX) or CXX).resolve()
     def snapshot():

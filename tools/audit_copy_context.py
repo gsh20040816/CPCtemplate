@@ -59,6 +59,7 @@ def extract_components(catalog):
             index = next(i for i, value in enumerate(starts) if value[1] == symbol)
             start = starts[index][0]
             end = starts[index + 1][0] if index + 1 < len(starts) else len(lines)
+            end = next((i for i in range(start, end) if lines[i].startswith('// BEGIN ')), end)
             if start and lines[start - 1].startswith('template'):
                 start -= 1
             if end and lines[end - 1].startswith('template'):

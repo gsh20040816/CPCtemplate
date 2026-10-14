@@ -21,7 +21,7 @@ def main():
     for change in data['changes']:
         assert expected.count(change['old']) == 1
         expected = expected.replace(change['old'], change['new'])
-    actual = (root / 'docs/knowledge-floor-sums.tex').read_text()
+    actual = (root / 'docs/knowledge-full/knowledge-floor-sums.tex').read_text()
     assert actual == expected
     assert hashlib.sha256(actual.encode()).hexdigest() == data['candidate_sha256']
     labels = re.findall(r'\\label\{(knowledge-[^}]+)\}', actual)
@@ -33,7 +33,7 @@ def main():
     mapping = json.loads((root / 'docs/knowledge-taxonomy.json').read_text())
     rows = [row for row in mapping['entries'] if row['label'] in labels]
     assert [row['label'] for row in rows] == labels
-    assert all(row['source'] == 'docs/knowledge-floor-sums.tex' and
+    assert all(row['source'] == 'docs/knowledge-full/knowledge-floor-sums.tex' and
                row['path'] == 'math/number-theory/euclidean.md' for row in rows)
     for target in ('compact-floor_sum', 'compact-floor_moments', 'usage-example-157'):
         assert r'\ref{' + target + '}' in actual

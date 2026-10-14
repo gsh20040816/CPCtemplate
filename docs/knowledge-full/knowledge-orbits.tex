@@ -1,0 +1,212 @@
+% Standalone knowledge supplement; no generic group-action class is needed.
+\section{群作用计数：先确定什么算同一个方案}\label{knowledge-orbits-model}
+\index{Burnside}\index{Polya}\index{群作用}
+把有标号的合法对象组成有限集合 $X$，把题目允许的等价变换组成有限群 $G$。
+作用必须把 $X$ 映回 $X$，恒等变换不改变对象，复合变换与逐次操作一致。
+一个轨道 $Gx=\{gx:g\in G\}$ 就是一个最终方案。
+先确定对象与变换，再计算；不能因为题目出现“圆环”就除以长度。
+
+\begin{itemize}
+\item \textbf{只允许改变起点：}长度 $n\ge1$ 的项链商去 $n$ 个旋转，群为 $C_n$。
+\item \textbf{还允许翻面：}手链商去旋转与反射；$n\ge3$ 时是阶 $2n$ 的二面体群。
+反射是否等价必须由题意决定，不能把项链答案再机械除以 2。
+\item \textbf{颜色仍有名字：}红、蓝互换通常是不同方案；若颜色也可重命名，
+作用已经改变，不能沿用本节的 $k$ 种具名颜色公式。
+\item \textbf{标记与约束也要保留：}指定位置、位置权值或障碍可能破坏旋转对称。
+只有保持整个合法对象集合的变换，才能直接在这个集合上使用 Burnside。
+\end{itemize}
+
+记稳定子 $G_x=\{g:gx=x\}$，不动点集 $\operatorname{Fix}_X(g)=\{x:gx=x\}$。
+轨道--稳定子公式与 Burnside 引理为
+\[
+|Gx|=\frac{|G|}{|G_x|},\qquad
+|X/G|=\frac1{|G|}\sum_{g\in G}|\operatorname{Fix}_X(g)|.
+\]
+证明只需双计数 $(g,x)$ 且 $gx=x$ 的配对：一个轨道贡献
+$\sum_{x\in Gx}|G_x|=|G|$，于是所有不动点数之和等于轨道数乘群阶。
+只有每个对象的稳定子都平凡时，才可直接用 $|X|/|G|$。
+例如 4 位二进制项链有 6 类，代表为
+$0000$、$1111$、$0001$、$0111$、$0011$、$0101$；
+轨道大小依次为 $1,1,4,4,4,2$，
+所以 $2^4/4=4$ 并非答案。
+理论说明可参见 \href{https://theory.stanford.edu/~blynn/polya/burnside.html}{Ben Lynn：Burnside's Lemma}。
+
+\section{项链与手链：从置换循环推公式}\label{knowledge-orbits-dihedral}
+位置暂用 $0,\ldots,n-1$，所有下标模 $n$，$n\ge1$、$k\ge1$。
+若位置置换 $g$ 有 $c(g)$ 个循环，不动染色在每个循环上必须同色，
+不同循环独立选色，故不动染色数为 $k^{c(g)}$。
+
+\textbf{旋转。}旋转 $t$ 步为 $i\mapsto i+t$，有 $\gcd(n,t)$ 个循环，
+每个循环长度为 $n/\gcd(n,t)$；约定 $\gcd(n,0)=n$。
+按循环长度 $d\mid n$ 归类，有 $\varphi(d)$ 个旋转，故旋转不动点总和与项链数为
+\[
+R(n,k)=\sum_{t=0}^{n-1}k^{\gcd(n,t)}
+      =\sum_{d\mid n}\varphi(d)k^{n/d},\qquad N(n,k)=R(n,k)/n.
+\]
+规模不大时逐个枚举 $t$ 最容易抄；规模大时分解 $n$，枚举约数并计算各自的
+$\varphi(d)$，减少求幂次数，别把 $O(n)$ 循环误当成约数枚举。
+
+\textbf{反射。}写成 $i\mapsto t-i$；单点循环满足 $2i\equiv t\pmod n$，
+其余位置组成二元循环。这直接给出奇偶分类：
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+长度与反射类型 & 个数 & 单点、二元循环数 & 每个反射的不动染色数\\
+\midrule
+$n$ 奇数 & $n$ & $1,\ (n-1)/2$ & $k^{(n+1)/2}$\\
+$n$ 偶数，穿过对顶点 & $n/2$ & $2,\ (n-2)/2$ & $k^{n/2+1}$\\
+$n$ 偶数，穿过对边中点 & $n/2$ & $0,\ n/2$ & $k^{n/2}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+于是手链数为
+\[
+B(n,k)=\frac{R(n,k)+F(n,k)}{2n},\qquad
+F(n,k)=\begin{cases}
+nk^{(n+1)/2},&n\text{ 奇数},\\
+\dfrac n2\bigl(k^{n/2+1}+k^{n/2}\bigr),&n\text{ 偶数}.
+\end{cases}
+\]
+循环分类亦可参见 \href{https://theory.stanford.edu/~blynn/polya/cycleindex.html}{Ben Lynn：The Cycle Index Polynomial}。
+
+\textbf{偶数例：6 个位置、2 色。}
+$R=2^6+2^3+2\cdot2^2+2\cdot2=84$，项链数为 $14$。
+反射贡献为 $3\cdot2^4+3\cdot2^3=72$，手链数为 $(84+72)/12=13$。
+\textbf{奇数例：5 个位置、3 色。}
+$R=3^5+4\cdot3=255$，项链数为 $51$；
+5 个反射各贡献 $3^3$，手链数为 $(255+135)/10=39$。
+
+\textbf{退化长度不能偷换分母。}
+$n=1$ 时答案均为 $k$；$n=2$ 时均为 $k(k+1)/2$，即选一个允许重复的无序颜色对。
+上述公式仍成立：把旋转与反射保留为 $2n$ 个形式群元素时，不同元素可能诱导同一位置置换，
+这是非忠实作用，重复置换必须连同权重保留。
+也可以把置换去重后对像群求平均，但分母必须同步改为不同置换的个数；
+不能分子去重而仍除以 $2n$。本节不定义空环 $n=0$；若 $n>0,k=0$，没有染色，答案为 0。
+
+\section{指定颜色库存：给每个循环分配整份颜色}\label{knowledge-orbits-inventory}
+设颜色 $1,\ldots,k$ 的数量为 $a_1,\ldots,a_k\ge0$，总和为 $n$。
+固定库存对位置置换不变，可以在这个合法子集上取轨道。
+若 $g$ 的循环长度依次为 $\ell_1,\ldots,\ell_c$，则
+\[
+|\operatorname{Fix}_{\boldsymbol a}(g)|=
+[x_1^{a_1}\cdots x_k^{a_k}]
+\prod_{j=1}^{c}\bigl(x_1^{\ell_j}+\cdots+x_k^{\ell_j}\bigr).
+\]
+每个因子给一个完整循环选颜色；各循环仍是不同的位置集合，即使长度相同也不能再除阶乘。
+把各个 $g$ 的系数相加，最后除以 $|G|$。
+这也是循环指标代换 $z_\ell\leftarrow\sum_i x_i^\ell$ 的含义，
+不必为了使用 P\'olya 再写通用群类。
+加权推导参见 \href{https://theory.stanford.edu/~blynn/polya/polya.html}{Ben Lynn：P\'olya's Inventory Theorem}。
+
+\textbf{等长旋转循环可直接化成多项式系数。}
+循环长度为 $d$ 时，若存在 $d\nmid a_i$，不动点数为 0；否则为
+\[
+\frac{(n/d)!}{\prod_i(a_i/d)!}.
+\]
+实际计算可依次选每种颜色所占的循环：从 $r=n/d$ 开始，累乘
+$\binom{r}{a_i/d}$ 后令 $r\leftarrow r-a_i/d$。
+小于素数模数的预处理范围内可用
+\texttt{Binomial<p> c(n)} 与 \texttt{c.choose(r,a[i]/d)}，
+见第~\ref{compact-Binomial}~节（第~\pageref{compact-Binomial}~页）。
+若随后需要在 $M|G|$ 下算总和，这个模数通常是合数，不能继续用素数阶乘逆元；
+按第~\ref{knowledge-binomial-choice}~节（第~\pageref{knowledge-binomial-choice}~页）选组合数算法，
+或使用以下只加法的 DP。
+
+\textbf{二色恰有 $r$ 个红色：}取 $[x^r]\prod_j(1+x^{\ell_j})$。
+初始化 $f_0(0)=1$，其他项为 0；加入一个长度 $\ell$ 的循环时
+\[
+f_{j+1}(s)=f_j(s)+[s\ge\ell]f_j(s-\ell),\qquad 0\le s\le r.
+\]
+可用一维数组从 $r$ 降序更新到 $\ell$，时间 $O(c(r+1))$、空间 $O(r+1)$；
+加法后取模，对任意正模数都适用。$r\notin[0,n]$ 时答案为 0。
+多色可维护前 $k-1$ 色的库存，最后一色由已处理总长度确定；
+任何一色超出库存就丢弃状态；状态数至多 $\prod_{i<k}(a_i+1)$，
+每个循环最多 $k$ 个转移，先估内存再选它。
+
+\textbf{例：6 个位置，3 红 3 蓝。}
+恒等旋转贡献 $\binom63=20$；旋转 2、4 步各有两个长度 3 的循环，各贡献 2；
+其他非恒等旋转贡献 0。项链数为 $(20+2+2)/6=4$。
+穿顶点反射的多项式为 $(1+x)^2(1+x^2)^2$，$x^3$ 系数为 4；
+穿边反射为 $(1+x^2)^3$，$x^3$ 系数为 0。
+手链数为 $(24+3\cdot4)/12=3$。
+
+\textbf{额外约束须重新数不动点。}
+“相邻位置异色”对旋转反射不变，Burnside 仍成立，但循环不能独立选色：
+应把每个循环缩成一个点，原相邻关系变成约束边；出现自环就无解，再数该约束图的染色。
+“位置 0 必须红色”则通常不对旋转封闭，不能在该子集上直接平均。
+若问题要求统计哪些完整轨道\emph{存在}满足条件的代表，须另建模，不能把存在性条件当成不变库存。
+
+\section{群阶不可逆：先提升模数，再作整数除法}\label{knowledge-orbits-modular}
+设不动点数总和为整数 $S$，群阶为 $h$，已知 $h\mid S$，目标是 $(S/h)\bmod M$，$M\ge1$。
+只有 $\gcd(h,M)=1$ 时，才能乘模逆元；仅检查 $M\nmid h$ 不够。
+通用办法是在模 $L=Mh$ 下算出标准余数 $s=S\bmod L$，然后做普通整数除法：
+\[
+S=qMh+s\quad\Longrightarrow\quad
+h\mid s,\qquad S/h\equiv s/h\pmod M,\qquad 0\le s/h<M.
+\]
+必须先合计所有项，再除以 $h$；每个不动点数通常不单独被 $h$ 整除。
+例如 4 位二进制项链，$S=24,h=4,M=8$：先模 8 得到 0 已丢失信息；
+先模 32 得到 24，再除以 4 才得到正确的 6。
+
+\Needspace{490pt}
+\textbf{可直接编译的无库存限制示例。}
+输入每行 \texttt{n k M flip}，\texttt{flip=0} 只计旋转，\texttt{flip=1} 还计反射，输出轨道数模 $M$。
+使用第~\ref{compact-Mod64}~节（第~\pageref{compact-Mod64}~页）的
+\texttt{Mod64::mul} 与 \texttt{Mod64::power}；赛时把下面的仓库 include 换为所抄的 \texttt{Mod64}。
+% BEGIN orbit-counting-example
+\begin{lstlisting}
+#include "src/compact/mod64.hpp"
+
+using ull = unsigned long long;
+using u128 = __uint128_t;
+
+ull color_orbits(int n, ull k, ull m, bool flip)
+{
+    assert(n >= 1 && m >= 1);
+    ull h = (flip ? 2ULL : 1ULL) * n;
+    u128 wide = u128(m) * h;
+    assert(wide <= numeric_limits<ull>::max());
+    ull mod = (ull)wide, sum = 0;
+    auto add = [&](ull count, ull cycles)
+    {
+        ull term = Mod64::mul(count, Mod64::power(k, cycles, mod), mod);
+        sum = (ull)((u128(sum) + term) % mod);
+    };
+    for (int t = 0; t < n; t++) add(1, gcd(n, t));
+    if (flip)
+    {
+        if (n & 1) add(n, n / 2 + 1);
+        else
+        {
+            add(n / 2, n / 2 + 1);
+            add(n / 2, n / 2);
+        }
+    }
+    assert(sum % h == 0);
+    return sum / h;
+}
+
+int main()
+{
+    int n, flip;
+    ull k, m;
+    while (cin >> n >> k >> m >> flip)
+        cout << color_orbits(n, k, m, flip != 0) << '\n';
+}
+\end{lstlisting}
+% END orbit-counting-example
+该示例要求 $1\le n\le\mathrm{INT\_MAX}$，$k$ 为无符号 64 位整数，
+$1\le M$ 且 $Mh\le2^{64}-1$；运行预算还须容纳 $O(n\log(n+1))$ 时间，额外空间 $O(1)$。
+没有跨测试状态，支持多测与 $M=1$。先转宽类型再算 $Mh$，加法也在 128 位中进行；
+单有安全模乘并不能防止模数乘积或求和溢出。
+若 $Mh>2^{64}-1$，本函数不适用；不可截断后再传给 \texttt{Mod64}。
+可改用多精度整数在 $Mh$ 下计算，或在预算允许时精确算出 $S$ 后整除；
+仅把模数类型改成 128 位，仍不能保证两个 128 位数的乘积不溢出。
+
+配套 \path{tests/math_knowledge_orbits.py} 从本节直接抽取 C++ 示例编译，
+对照小染色的规范轨道枚举；另用循环库存 DP 对照按库存分类的轨道，
+检查奇偶反射、$n=1,2$、零色、复合模数与 64 位边界。
+运行 \texttt{python3 tests/math\_knowledge\_orbits.py}，
+加 \texttt{--sanitize} 可在 AddressSanitizer/UndefinedBehaviorSanitizer 下运行同一批 C++ 案例。
+这是本地知识示例验证，不是新增 OJ AC，也不替代底层模板的完整回归。
+\label{end-orbits-supplement}

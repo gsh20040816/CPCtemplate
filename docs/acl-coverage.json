@@ -78,10 +78,7 @@
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp",
       "reference_sha256": "ddb92d513c1e0b1eb5bdb5479e6c697aa3b37da8a753cd9ec6102af27d389f68",
       "local": [
-        "src/compact/mod64.hpp",
-        "src/compact/extended_gcd.hpp",
-        "src/compact/mod_inverse.hpp",
-        "src/compact/crt_merge.hpp",
+        "src/compact/number_theory.hpp",
         "src/compact/floor_sum.hpp"
       ],
       "notes": "独立组件为 Mod64::power、extended_gcd、mod_inverse、crt_merge、floor_sum；number_theory.hpp 中的 NumberTheory 仅为兼容入口。ACL crt批量返回pair，本库逐式原位合并，周期超signed64时抛异常；mod_inverse不可逆返回-1。floor_sum文档契约为0<=n<=10^9、1<=m<=10^9、a/b为signed64，返回精确int128；ACL接受n/m<2^32并在溢出时取模2^64，不能宣称相同契约。",
@@ -182,7 +179,6 @@
       "reference_sha256": "e7ffe101a268208d63c17374e970f781a1a828feb6cc6010ead78c2a709cda86",
       "local": [
         "src/compact/string.hpp",
-        "src/compact/suffix_lcp.hpp",
         "src/compact/sais.hpp"
       ],
       "notes": "后缀数组、LCP和Z已有；新增独立SAIS诱导排序，与倍增SuffixArray并列。整数已知字母表为O(n+alphabet)，离散化另计。ACL LCP长n-1，本库长n且首项0；两者Z[0]取n。旧倍增线上记录不迁移给新实现，SuffixLCP仍只直接接受SuffixArray。",

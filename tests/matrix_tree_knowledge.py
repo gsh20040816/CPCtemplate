@@ -67,7 +67,7 @@ def main():
     manifest = json.loads((fixture / 'manifest.json').read_text())
     for i, digest in enumerate(manifest['original_sections_sha256']):
         assert hashlib.sha256((fixture / f'original-{i}.tex').read_bytes()).hexdigest() == digest
-    text = (root / 'docs/knowledge-matrix-tree.tex').read_text()
+    text = (root / 'docs/knowledge-full/knowledge-matrix-tree.tex').read_text()
     candidate = re.split(r'(?=\\section\{)', text)[1:]
     assert len(candidate) == 2
     for i, amendments in enumerate(manifest['explicit_line_amendments']):

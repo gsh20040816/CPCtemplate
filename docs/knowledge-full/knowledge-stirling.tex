@@ -1,0 +1,112 @@
+\section{定义与性质}\label{knowledge-stirling-definitions}
+\index{斯特林数}\index{Stirling numbers}\index{上升阶乘}\index{下降阶乘}
+设 $n,k\ge0$。无符号第一类 $c(n,k)$ 计数 $n$ 个带标号元素的排列中，
+恰有 $k$ 个不区分顺序的循环的方案数；循环内只忽略起点，方向不等同。
+第二类 $S(n,k)$ 计数把 $n$ 个带标号元素划分为 $k$ 个无标号非空集合的方案数。
+有符号第一类定义为 $s(n,k)=(-1)^{n-k}c(n,k)$。
+例如 $c(3,1)=2$、$c(3,2)=3$，而 $S(3,1)=1$、$S(3,2)=3$。
+
+加入第 $n$ 个元素：第一类可以自成一圈，或者插在已有 $n-1$ 个元素后；
+第二类可以自成一个块，或者加入已有 $k$ 个块。因此
+\[
+ c(n,k)=c(n-1,k-1)+(n-1)c(n-1,k),\qquad
+ S(n,k)=S(n-1,k-1)+kS(n-1,k),
+\]
+\[
+ s(n,k)=s(n-1,k-1)-(n-1)s(n-1,k).
+\]
+三者的 $(0,0)$ 项均为 1；$n>0$ 的第零列为 0；$k>n$ 或任一下标为负时为 0。
+特别地 $c(n,n)=S(n,n)=1$，$n\ge1$ 时 $c(n,1)=(n-1)!$、$S(n,1)=1$。
+
+记 $x^{\underline{k}}=x(x-1)\cdots(x-k+1)$，
+$x^{\overline{k}}=x(x+1)\cdots(x+k-1)$，零次幂均为 1。
+三种基底转换是
+\[
+ x^{\overline n}=\sum_{k=0}^n c(n,k)x^k,\qquad
+ x^{\underline n}=\sum_{k=0}^n s(n,k)x^k,\qquad
+ x^n=\sum_{k=0}^n S(n,k)x^{\underline k}
+     =\sum_{k=0}^n(-1)^{n-k}S(n,k)x^{\overline k}.
+\]
+固定列的指数生成函数为
+\[
+ \sum_{n\ge k}c(n,k)\frac{x^n}{n!}=\frac{(-\log(1-x))^k}{k!},\quad
+ \sum_{n\ge k}s(n,k)\frac{x^n}{n!}=\frac{(\log(1+x))^k}{k!},\quad
+ \sum_{n\ge k}S(n,k)\frac{x^n}{n!}=\frac{(e^x-1)^k}{k!}.
+\]
+按循环/非空集合的标号集合构造可分别得到前后两式。
+第二类还有普通生成函数
+$\sum_{n\ge k}S(n,k)x^n=x^k/\prod_{j=1}^k(1-jx)$。
+双变量指数生成函数分别为
+$\sum c(n,k)y^k x^n/n!=(1-x)^{-y}$、
+$\sum S(n,k)y^k x^n/n!=\exp(y(e^x-1))$。
+这些等式先在有理数形式幂级数中成立；模素数 $p$ 计算到 $N$ 次时需 $N<p$，
+确保出现的整数和阶乘可逆。以下快速实现还须满足 NTT 长度限制。
+
+\subsection{行列算法的选择与推导}
+第一类整行用 $F_n(x)=x^{\overline n}$，递归一次求 $F_m$，
+再用 $F_{2m}(x)=F_m(x)F_m(x+m)$；奇数长度额外乘 $x+2m$。
+泰勒平移用逆阶乘卷积，递推 $T(n)=T(\lfloor n/2\rfloor)+O(n\log n)$，
+所以时间 $O(n\log n)$、空间 $O(n)$。
+第二类整行使用容斥
+$S(n,k)=\sum_{i=0}^k(i^n/i!)((-1)^{k-i}/(k-i)!)$，一次卷积获得前缀。
+$0^0=1$ 单独处理，正底数的指数才对 $p-1$ 取模。
+
+整列先取出最低次 $x^k$，只算 $m=N-k+1$ 项：
+第一类的单位常数项级数 $A(x)=\sum_{j\ge0}x^j/(j+1)$，
+第二类为 $A(x)=\sum_{j\ge0}x^j/(j+1)!$。
+用 $A^k=\exp(k\log A)$ 求幂，再令
+$c(n,k)$ 或 $S(n,k)=[x^{n-k}]A^k\cdot n!/k!$。
+从 $n=k$ 的倍率 1 逐次乘 $n+1$，无需另求 $k!$。
+时间 $O(N+m\log m)$、空间 $O(N)$；$k=0$ 和 $k>N$ 直接按边界返回。
+
+\section{斯特林反演与应用}\label{knowledge-stirling-inversion}
+\index{斯特林反演}
+对下标从 0 开始的任意序列，
+\[
+ b_n=\sum_{k=0}^n S(n,k)a_k
+ \quad\Longleftrightarrow\quad
+ a_n=\sum_{k=0}^n s(n,k)b_k
+     =\sum_{k=0}^n(-1)^{n-k}c(n,k)b_k.
+\]
+若正变换使用无符号第一类，则相应逆变换为
+\[
+ b_n=\sum_{k=0}^n c(n,k)a_k
+ \quad\Longleftrightarrow\quad
+ a_n=\sum_{k=0}^n(-1)^{n-k}S(n,k)b_k.
+\]
+符号不能省略，也不能把正逆公式中的 $n,k$ 对调。
+将 $x^n=\sum_k S(n,k)x^{\underline k}$ 再展开下降阶乘并比较 $x^j$ 系数，得到
+$\sum_{k=j}^n S(n,k)s(k,j)=\delta_{n,j}$。
+两矩阵均为单位下三角矩阵，故这个右逆也是左逆，即
+$\sum_{k=j}^n s(n,k)S(k,j)=\delta_{n,j}$，证明上述第一对公式。
+用对角矩阵 $D_{n,n}=(-1)^n$，有 $s=DcD$，得到第二对公式。
+这些逆关系在整数上成立，取任意模数仍成立；只有快速行列算法的实现要求素数和逆元。
+
+\subsection{手算检查与建模用法}
+取 $a_0,a_1,a_2,a_3=(1,2,3,4)$，第二类变换为
+$b=(1,2,5,15)$。逆变换检查
+$a_2=b_2-b_1=3$，$a_3=b_3-3b_2+2b_1=4$。
+以 $k$ 为块数的无标号集合划分，若给一个含 $k$ 块的划分赋权 $a_k$，
+总权即 $b_n=\sum_k S(n,k)a_k$；已知这些总权时，可以用带符号第一类恢复 $a_n$。
+例如 $a_k=1$ 得到 Bell 数 $b_n$，逆变换应恢复全 1 序列。
+若每个块还要独立涂一种颜色，则取 $a_k=q^k$。
+
+在指数生成函数层面，令 $A(x)=\sum a_nx^n/n!$、$B(x)=\sum b_nx^n/n!$，
+第一对公式等价于 $B(x)=A(e^x-1)$ 与 $A(x)=B(\log(1+x))$。
+这是形式复合，不能把它误写成逐项乘积或一次普通卷积。
+四种快速行列模板不自动给出任意整个序列的快速斯特林变换；
+逐行点积适合少量行或小规模示例，不能冒称 $O(N\log N)$ 的完整变换。
+
+\subsection{题目协议与验证范围}
+整行的洛谷 P5408/P5395 使用素数 167772161；本节整列函数固定 998244353，
+不能只改调用处的类型就用于 P5409/P5396。
+Library Checker 第一类 fixed-k 题要求\textbf{有符号} $s(n,k)$，
+第二类要求 $S(n,k)$；两题只输出 $n=k,\ldots,N$。
+紧随各函数的完整用法分别展示这些差异。
+原整行实现的洛谷历史AC：\href{https://www.luogu.com.cn/record/297627360}{第一类P5408}与\href{https://www.luogu.com.cn/record/297626422}{第二类P5395}。
+新增整列已在Library Checker以C++20实际AC：\href{https://judge.yosupo.jp/submission/409999}{第一类409999}（4457ms）、\href{https://judge.yosupo.jp/submission/410000}{第二类410000}（4407ms），均14点全过，时限10秒。
+递推对拍69158项、反演矩阵恒等式与50万规模边界通过，头文件及精确抄写版本均通过普通与ASan/UBSan检查。
+本轮整行也以当前源码通过Library Checker：\href{https://judge.yosupo.jp/submission/410002}{第一类410002}（589ms）、\href{https://judge.yosupo.jp/submission/410001}{第二类410001}（392ms）。
+性能提醒：本地同编译器C++17/O2、最大规模小k输入交替各3次，整列中位耗时约为官方参考的6.06倍（第一类）与4.92倍（第二类），超过80\%慢速提醒线。复用通用幂级数便于抄写，但常数较大；此比较不是OJ排名。
+算法及公式参考\href{https://oi-wiki.org/math/combinatorics/stirling/}{OI Wiki 斯特林数}，
+本库完整状态见 issue 18 与 verification/stirling-columns*.json。

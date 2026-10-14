@@ -99,7 +99,7 @@ def main():
         counts['documented_seven_power_divisibility'] += 1
     report={'scope':'Finite exact-integer checks; mathematical proof and hypotheses are in the knowledge text. No C++ runtime, sanitizer or online AC claim.',
             'passed':True,'checked_at':datetime.now(timezone.utc).isoformat(),'domains':{'a_b':[1,24],'n':[1,18],'primes':primes,'arithmetic_x_y':[1,64]},'checks':dict(counts),'hypothesis_counterexamples':negatives,
-            'sources':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__).resolve(),ROOT/'docs/knowledge-lte.tex']}}
+            'sources':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__).resolve(),ROOT/'docs/knowledge-full/knowledge-lte.tex']}}
     args.report.parent.mkdir(parents=True,exist_ok=True)
     args.report.write_text(json.dumps(report,indent=2)+'\n')
     print('LTE exact-integer identities and hypothesis counterexamples PASS:',dict(counts))

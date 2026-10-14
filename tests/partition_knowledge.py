@@ -49,7 +49,7 @@ def main():
         a, b = patch['start'], patch['end']
         assert ''.join(lines[a:b]) == patch['old']
         lines[a:b] = patch['new'].splitlines(keepends=True)
-    text = (root / 'docs/knowledge-partitions.tex').read_text()
+    text = (root / 'docs/knowledge-full/knowledge-partitions.tex').read_text()
     assert text == ''.join(lines), 'unlisted migration amendment'
     for target in ['compact-Partitions', 'usage-example-158', 'usage-example-159']:
         assert r'\ref{' + target + '}' in text and r'\pageref{' + target + '}' in text

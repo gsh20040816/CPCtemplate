@@ -57,7 +57,7 @@ def main():
     san = args.sanitizer or os.environ.get('SANITIZE') == '1' or os.environ.get('CPC_SANITIZE') == '1'
     mode = 'sanitizer' if san else 'normal'; before = snapshot(ROOT)
     sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
-    text = (ROOT / 'docs/knowledge-ballot.tex').read_text()
+    text = (ROOT / 'docs/knowledge-full/knowledge-ballot.tex').read_text()
     assert text.count(r'\label{knowledge-ballot-reflection}') == 1
     assert (ROOT / 'docs/mathematics.tex').read_text().count(r'\input{knowledge-ballot.tex}') == 1
     data = json.loads((ROOT / 'docs/knowledge-taxonomy.json').read_text())

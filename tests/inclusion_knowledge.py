@@ -30,7 +30,7 @@ MOD = 998244353
 MODULI = (1, 2, 3, 5, 7, 97, 998244353, 4, 6, 8, 9, 12, 1000)
 MAX_LL = 2**63-1
 LABEL = 'knowledge-inclusion-exact'
-CANONICAL_SOURCE = 'docs/knowledge-inclusion.tex'
+CANONICAL_SOURCE = 'docs/knowledge-full/knowledge-inclusion.tex'
 CANONICAL_RUNNER = 'tests/inclusion_knowledge.py'
 
 

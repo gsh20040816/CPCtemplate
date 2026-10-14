@@ -71,7 +71,7 @@ def main():
     for change in manifest['changes']:
         assert preserved.count(change['old']) == 1
         preserved = preserved.replace(change['old'],change['new'])
-    source = (ROOT/'docs/knowledge-diophantine.tex').read_text()
+    source = (ROOT/'docs/knowledge-full/knowledge-diophantine.tex').read_text()
     assert source.startswith(preserved)
     assert 'knowledge-diophantine-bounds' in source
     assert len(re.findall(r'^\\section\{', (ROOT/'docs/mathematics-legacy.tex').read_text(),re.M)) == 70

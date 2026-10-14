@@ -1,170 +1,73 @@
 % 从旧数学附录迁出的行列式与多项式说明；不新增算法。
 \section{任意正模数行列式}\label{knowledge-det-mod}
 实现见第~\pageref{compact-determinant_mod}~页。
-素数模高斯消元可以除以任意非零主元，合数模数没有这个性质。
-本节只使用倍加行和交换行，不求逆元。
-先把元素正规化到 $[0,m)$，对第 $i$ 列的两个元素 $a,b$，
-用整数商 $q=\lfloor a/b\rfloor$ 执行
-$R_i\leftarrow R_i-qR_j$，再交换 $R_i,R_j$。
-该列的新数对为 $(b,a\bmod b)$，所以循环按欧几里得算法终止。
-其余元素每步对 $m$ 取模，只改变整数代表，不改变行列式模 $m$ 的值。
-
-倍加行不改变行列式；交换行改变符号。
-消去所有下三角元素后，乘上对角元素及累计符号即得结果。
-剩余部分的该列全零时直接返回零，不需要判断某个非零元素是否与模数互素。
-例如 $\operatorname{diag}(2,3)$ 在模 8 下的行列式为 6，
-不能因为第一个主元没有逆元就判定失败。
-
-支持任意正 signed 64 位模数与完整 signed 64 位输入元素。
-正规化后单个乘积小于 $2^{126}$，行更新差值和结果乘积都放入有符号 128 位。
-空矩阵按约定返回 $1\bmod m$；模 1 的所有返回值为零。
-时间上界 $O(n^3\log m)$，矩阵副本占 $O(n^2)$ 空间。
-
-接口仍使用素数模高斯，不能仅把其模板参数改成合数；合数模使用第~\ref{compact-MatrixTreeMod}~节（第~\pageref{compact-MatrixTreeMod}~页）的独立接口。
-
-测试用排列定义穷举所有元素属于 $\{-1,0,1\}$ 的三阶矩阵，
-并用任意精度 Bareiss 消元验证随机矩阵。
-覆盖不可逆主元、奇异矩阵、模 1、有符号 64 位边界、Fibonacci 长欧几里得过程，
-以及 300 阶对角矩阵和完全图余子式的 Cayley 公式。
-两套版本普通与 ASan/UBSan 均通过；尚无专门在线 AC。
-行变换依据可参考 \href{https://oi-wiki.org/math/linear-algebra/determinant/}{OI Wiki 行列式}。
+合数模不能除以任意非零主元；只用倍加行与交换行：对第 $i$ 列两元素 $a,b$，
+$R_i\leftarrow R_i-\lfloor a/b\rfloor R_j$ 后交换，按欧几里得终止；交换改变符号。
+消成上三角后乘对角元与符号；某列剩余全零直接返回零。
+支持任意正 signed 64 位模数与输入，中间量用有符号 128 位。
+空矩阵返回 $1\bmod m$；模 1 返回零。时间 $O(n^3\log m)$，空间 $O(n^2)$。
+合数模的矩阵树使用第~\ref{compact-MatrixTreeMod}~节（第~\pageref{compact-MatrixTreeMod}~页）的接口。
 
 \clearpage
 \section{参数化 NTT 与模数适配}\label{knowledge-ntt-moduli}
 实现见第~\pageref{compact-NttConvolution}~页。
-传入素数 $p$ 和原根 $g$；长度 $n$ 必须为二次幂且整除 $p-1$。
-代码自动计算 $L=2^{v_2(p-1)}$ 作为长度上限，不代表分配这个长度的数组没有成本。
-两个非空数组的普通卷积需要补齐到不小于长度和减一的二次幂。
-模 998244353 的 $L=2^{23}$，模 167772161 的 $L=2^{25}$，两者均可用原根 3。
-不能只改模数而忽略原根和长度条件；接口只检查基本范围，不检查素性或原根的阶。
-
-正变换按 $g$ 的相应单位根计算，逆变换使用逆单位根并乘 $n^{-1}$。
-模数支持 int 范围内的素数，模整数的加减和乘积使用 64 位中间量。
-蝶形层以半长度递增，避免最后一层之后的有符号整数溢出。
-
-独立参考用任意精度整数直接计算 DFT 和朴素卷积，
-同时验证正逆变换复原。已检查七组素数和原根，包括模 2、3、17、97，
-斯特林数的默认模数与洛谷题目模数，以及 2013265921、原根 31。
-这些测试中的素性及原根条件另用试除和乘法阶证书确认。
-大规模全一数组卷积逐项比较已知三角形系数，检查补齐长度的边界。
-两套实现普通与 ASan/UBSan 均通过。
-
+传入素数 $p$ 与原根 $g$；长度 $n$ 为二次幂且整除 $p-1$，上限 $L=2^{v_2(p-1)}$。
+普通卷积补齐到不小于长度和减一的二次幂。
+998244353 的 $L=2^{23}$，167772161 的 $L=2^{25}$，原根均为 3。
+接口不检查素性或原根的阶；模数限 int 范围内的素数，乘积用 64 位。
+逆变换用逆单位根并乘 $n^{-1}$。
 
 \clearpage
 \section{Bostan--Mori 与快速递推单项}\label{knowledge-bostan-mori}
 代码见第~\pageref{compact-BostanMori}~页。
-对于 $a_i=\sum_{j=1}^k c_{j-1}a_{i-j}$，令
+对 $a_i=\sum_{j=1}^k c_{j-1}a_{i-j}$，令
 $Q(x)=1-\sum_{j=1}^k c_{j-1}x^j$，
-$P(x)=(Q(x)\sum_{i=0}^{k-1}a_ix^i)\bmod x^k$，则 $[x^n]P/Q=a_n$。
-注意系数按前一项、前两项的顺序给出，初值从 $a_0$ 开始。
-
+$P(x)=(Q(x)\sum_{i=0}^{k-1}a_ix^i)\bmod x^k$，则 $a_n=[x^n]P/Q$。
+系数按前一项、前两项顺序给出，初值从 $a_0$ 开始。
 \[
  \frac{P(x)}{Q(x)}=\frac{P(x)Q(-x)}{Q(x)Q(-x)}
- =\frac{U_0(x^2)+xU_1(x^2)}{V(x^2)}.
+ =\frac{U_0(x^2)+xU_1(x^2)}{V(x^2)},
 \]
-分母的奇数次项抵消，因此只保留分子与 $n$ 同奇偶的项，
-分母保留偶数项，再将 $n$ 右移一位。
-最终 $n=0$ 时答案是 $P(0)/Q(0)$。
-实现不需要分子次数小于分母次数，空分子直接返回零；分母常数项必须非零。
-每轮系数长度不增加，初始最大长度 $d$ 必须满足 $2d-1$ 不超过 NTT 容量。
-总时间 $O(d\log d\log(n+1))$，空间 $O(d)$；$n=0$ 直接取常数项。
-
-独立验证包括按定义做形式幂级数除法、友矩阵快速幂，以及
-$(1-x)^{-32000}$ 的二项式系数闭式；覆盖完整无符号 64 位下标、
-常数分母、不等于 1 的非零常数项、空分子、不真分式、零递推系数和多种 NTT 素数。
-\href{https://www.luogu.com.cn/problem/P4723}{P4723} 驱动读取有符号系数并归一化；
-两套版本均获在线 AC：
-\href{https://www.luogu.com.cn/record/297628790}{动态版}与
-\href{https://www.luogu.com.cn/record/297629192}{传统版}各 5 个测试点全部通过，
-最慢单点分别为 907 ms、905 ms。OJ 覆盖模 998244353、$n\le10^9$、$k\le32000$；
-其他模数、完整 64 位下标与通用有理函数接口的扩展范围由本地测试支持。
-\href{https://oi-wiki.org/math/poly/linear-recurrence/}{OI Wiki 线性递推}
-中的连续区间取项与其他快速算法仍待补，不将单项算法视为整页覆盖。
+保留与 $n$ 同奇偶的分子项、分母偶数项，$n$ 右移一位；$n=0$ 时答案为 $P(0)/Q(0)$。
+分母常数项须非零；不要求真分式，空分子返回零。初始最大长度 $d$ 须满足 $2d-1$ 不超过 NTT 容量。
+时间 $O(d\log d\log(n+1))$，空间 $O(d)$；下标可达完整无符号 64 位。
 
 \clearpage
 \section{集合变换与不相交子集卷积}\label{knowledge-subset-conv}
 代码见第~\pageref{compact-SetConvolution}~页与
 第~\pageref{compact-subset_convolution}~页。
-长度 $N=2^m$ 确定全集的位数，数组第 $s$ 项对应集合 $s$。
-OR 变换计算 $\widehat a_s=\sum_{t\subseteq s}a_t$，
-AND 变换计算所有超集的和；逆变换将逐位加法改成减法。
-XOR 变换的系数是 $(-1)^{\operatorname{popcount}(s\mathbin{\&}t)}$，
-蝶形将 $(u,v)$ 变为 $(u+v,u-v)$，逆变换每层再除以 2。
-因此 OR、AND 可用于任意模数，XOR 需要 2 可逆；本实现限制为奇数模数，
-使用 $(\mathrm{mod}+1)/2$，不对合数模数使用费马小定理。
-三类卷积均是变换后逐项相乘，再逆变换。
-
+长度 $N=2^m$，第 $s$ 项对应集合 $s$。
+OR 变换 $\widehat a_s=\sum_{t\subseteq s}a_t$，AND 变换求超集和，逆变换改加为减。
+XOR 变换系数 $(-1)^{\operatorname{popcount}(s\mathbin{\&}t)}$，蝶形 $(u,v)\to(u+v,u-v)$，逆变换每层除以 2。
+OR、AND 可用任意模数；XOR 需 2 可逆，本实现限奇数模数并用 $(\mathrm{mod}+1)/2$。
+三类卷积均为变换、逐项相乘、逆变换。
 \[
  c_s=\sum_{t\subseteq s}a_t b_{s\setminus t}
- \qquad\text{要求两个集合不相交。}
+ \qquad\text{（两集合不相交）}
 \]
-普通 OR 卷积允许重叠，不能直接用于上式。
-将输入按集合大小分层，$A_{i,s}=[|s|=i]a_s$，$B$ 同理。
-每层 OR 变换后，对层数做卷积：
-$H_{k,s}=\sum_{i=0}^k\widehat A_{i,s}\widehat B_{k-i,s}$。
-对每个 $k$ 逆 OR 变换，得到并集恰为 $s$、两集合大小之和为 $k$ 的贡献。
-取 $k=|s|$，由 $|u|+|v|=|u\cup v|+|u\cap v|$ 得到交集为空。
-时间 $O(m^22^m)$，空间 $O(m2^m)$；本实现逐层复用结果缓冲区，
-不用第三组二维数组。$m=20$ 时两组分层数组本身占 168 MiB，另计输入和线性缓冲。
-
-验证独立枚举变换系数、所有下标对与子掩码，并检查复合模数与
-\texttt{INT\_MAX} 模数。
-大规模使用 $a_s=x^{|s|}$、$b_s=y^{|s|}$ 的逐位乘积恒等式：
-OR 为 $(x+y+xy)^{|s|}$，AND 为 $(xy)^{|s|}(1+x+y)^{m-|s|}$，
-XOR 为 $(x+y)^{|s|}(1+xy)^{m-|s|}$，不相交子集卷积为 $(x+y)^{|s|}$。
-\href{https://www.luogu.com.cn/problem/P4717}{P4717} 两套版本各 10 点在线 AC：
-\href{https://www.luogu.com.cn/record/297630491}{动态版}和
-\href{https://www.luogu.com.cn/record/297630911}{传统版}，最慢单点 84 ms、81 ms。
-
-\href{https://www.luogu.com.cn/problem/P6097}{P6097} 两套版本各 5 点在线 AC：
-\href{https://www.luogu.com.cn/record/297631186}{动态版}和
-\href{https://www.luogu.com.cn/record/297631585}{传统版}，最大测试点显示 2.70 s、2.69 s，
-内存 188.83 MB、189.00 MB。两题 OJ 仅验证各自题面模数和长度范围，
-其他模数及长度 1 仍由本地独立测试覆盖。
-\href{https://oi-wiki.org/math/poly/fwt/}{OI Wiki FWT} 的其他运算及更广泛应用仍待覆盖。
+按大小分层 $A_{i,s}=[|s|=i]a_s$，各层 OR 变换后
+$H_{k,s}=\sum_{i=0}^k\widehat A_{i,s}\widehat B_{k-i,s}$，逆变换后取 $k=|s|$。
+时间 $O(m^22^m)$，空间 $O(m2^m)$；$m=20$ 时两组分层数组占 168 MiB。
 
 \clearpage
 \section{Taylor 平移与等比点求值}\label{knowledge-poly-shift}
 代码见第~\pageref{compact-polynomial_shift}~页和
 第~\pageref{compact-chirp_z}~页。
-多项式使用升幂系数，输入长度 $n$ 表示次数小于 $n$，允许末尾零。
-平移输出的第 $i$ 项满足
+升幂系数，长度 $n$ 表示次数小于 $n$。
 \[
  [x^i]f(x+c)=\frac1{i!}\sum_{j=i}^{n-1} f_jj!\frac{c^{j-i}}{(j-i)!}.
 \]
-倒序 $f_jj!$，与 $c^j/j!$ 卷积，再取第 $n-1-i$ 项并乘 $1/i!$。
-保留原数组长度；零多项式可以用空数组表示，返回空数组。
-使用 NTT 素数及原根，要求 $2n-1$ 不超过变换容量；此时所需阶乘非零。
-时间 $O(n\log n)$、空间 $O(n)$。
-这与给出 $f(0),f(1),\ldots$ 后平移点值的任务不同，后者尚待补充。
+倒序 $f_jj!$ 与 $c^j/j!$ 卷积，取第 $n-1-i$ 项乘 $1/i!$。
+要求 NTT 素数且 $2n-1$ 不超过变换容量；空数组返回空数组。时间 $O(n\log n)$、空间 $O(n)$。
+这不是点值平移。
 
-Chirp Z 返回 $f(ar^i)$，$0\le i<m$。
-设 $T_j=j(j-1)/2$，由 $ij=T_{i+j}-T_i-T_j$ 得
+Chirp Z 返回 $f(ar^i)$，$0\le i<m$。设 $T_j=j(j-1)/2$，
 \[
  f(ar^i)=r^{-T_i}\sum_{j=0}^{n-1}
         f_ja^jr^{-T_j}r^{T_{i+j}}.
 \]
-将第一项数组倒序，与 $r^{T_j}$ 卷积，抽取第 $n-1+i$ 项。
-三角数幂通过累乘生成，不计算可能溢出的 $j(j-1)$。
-令 $L$ 为不小于 $n+m-1$ 的最小二次幂，直接做模 $x^L-1$ 的循环卷积。
-普通乘积最高次数为 $2n+m-3$，而所需区间任意下标 $t\ge n-1$
-满足 $t+L\ge2n+m-2$，因此不会收到高次项回卷，所取系数仍然精确。
-要求 $n+m-1$ 不超过 NTT 容量，总时间 $O((n+m)\log(n+m))$、空间 $O(n+m)$。
-
-约定 $r^0=1$，故 $r=0$ 时第一项为 $f(a)$，余项均为 $f(0)$；
-$a=0$ 时所有点为零，$r=1$ 时所有点相同。这些情况单独计算，避免对零求逆。
-$m=0$ 返回空数组，空输入返回 $m$ 个零。
-同一份算法支持小阶公比、重复点与有限域中多次绕回，输出保持原顺序。
-
-独立验证采用 Pascal 二项式展开和 Horner 求值，涵盖 7 种 NTT 素数、
-零公比与单位公比、小素数完整容量边界。
-大规模平移用 $(x+b)^d$ 检查每个系数；等比点求值用几何级数闭式逐点检查。
-普通与 ASan/UBSan 均通过。
-Library Checker 的
-\href{https://judge.yosupo.jp/problem/polynomial_taylor_shift}{Polynomial Taylor Shift} 和
-\href{https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence}{等比点求值}
-已准备 vector 完整驱动；本地检查各题 $524288$ 的最大规模，尚无在线 AC。
-参考\href{https://oi-wiki.org/math/poly/shift/}{OI Wiki 平移}及
-\href{https://oi-wiki.org/math/poly/czt/}{Chirp Z}，更广泛的点值平移和应用另行覆盖。
+倒序第一项数组与 $r^{T_j}$ 卷积，取第 $n-1+i$ 项；循环卷积长度取不小于 $n+m-1$ 的二次幂即可。
+要求 $n+m-1$ 不超过 NTT 容量，时间 $O((n+m)\log(n+m))$、空间 $O(n+m)$。
+$r=0$（约定 $r^0=1$）、$a=0$、$r=1$ 单独处理；$m=0$ 返回空，空输入返回 $m$ 个零。
 
 \clearpage

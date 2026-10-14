@@ -20,7 +20,7 @@ def main():
     expected=old
     for change in meta['prefix_changes']:
         assert expected.count(change['old'])==1;expected=expected.replace(change['old'],change['new'])
-    actual=(ROOT/'docs/knowledge-modular-conditions.tex').read_text()
+    actual=(ROOT/'docs/knowledge-full/knowledge-modular-conditions.tex').read_text()
     assert actual.split(meta['extension_marker'],1)[0]==expected
     mathtext=(ROOT/'docs/mathematics.tex').read_text()
     assert mathtext.count(r'\input{knowledge-modular-conditions.tex}')==1 and r'\section{模运算的适用条件}' not in mathtext
@@ -28,7 +28,7 @@ def main():
     row=[r for r in mapping['entries'] if r['label']=='knowledge-modular-conditions'];assert len(row)==1 and row[0]['path']=='math/number-theory/mod-arithmetic.md'
     for target in ['compact-mod_inverse','compact-linear_congruence','compact-ModInt','compact-Binomial','compact-euler_power']:
         assert r'\ref{'+target+'}' in actual and r'\pageref{'+target+'}' in actual
-    assert '一次逆元快速幂' not in (ROOT/'docs/knowledge-combinatorics.tex').read_text()
+    assert '一次逆元快速幂' not in (ROOT/'docs/knowledge-full/knowledge-combinatorics.tex').read_text()
     inputs=[];answers=[];counts=Counter()
     def add(op, values, answer):
         inputs.append(op+' '+' '.join(map(str,values)));answers.append(' '.join(map(str,answer)));counts[op]+=1

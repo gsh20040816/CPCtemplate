@@ -17,6 +17,12 @@ for text in ['using Z = ModInt<10007>;', 'Binomial<10007> c(k);',
     assert not explicitly_calls('ModInt', text)
 
 usages = json.loads((root / 'docs/usage-examples.json').read_text())
+# Issue 21: only the first template-kind example per symbol is printed.
+printed = {}
+for usage in usages:
+    if usage.get('kind', 'template') == 'template':
+        printed.setdefault(usage['symbol'], usage)
+usages = list(printed.values())
 volumes = json.loads((root / 'docs/volumes.json').read_text())
 
 def validate(volume):
@@ -28,11 +34,10 @@ def validate(volume):
 for volume in volumes:
     validate(volume)
 # Prove that dropping the cross-class owner is rejected, not silently ignored.
-for name in ['data-structures', 'graphs']:
-    volume = next(v for v in volumes if v['id'] == name)
-    assert 'ModInt' in volume['dependencies'] and 'Binomial' in volume['dependencies']
-    broken = copy.deepcopy(volume)
-    broken['dependencies'].remove('Binomial')
+joint = [u for u in usages if u.get('also_covers')]
+assert joint, 'no printed joint usage left to control'
+for usage in joint:
+    broken = {'id': 'synthetic', 'entries': list(usage['also_covers']), 'dependencies': []}
     try:
         validate(broken)
     except AssertionError:
@@ -42,5 +47,5 @@ for name in ['data-structures', 'graphs']:
 all_primary = [s for v in volumes for s in v['entries']]
 assert len(all_primary) == len(set(all_primary))
 assert set(all_primary) == {r[1] for r in json.loads((root / 'docs/catalog.json').read_text())}
-assert len(records()) == len(usages)
+assert len(records()) == len(json.loads((root / 'docs/usage-examples.json').read_text()))
 print('Joint uses: direct-call checks, owner closure, negative controls and unique primary categories PASS')

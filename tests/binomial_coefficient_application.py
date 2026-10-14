@@ -110,6 +110,7 @@ def minimal_program(row):
         idx = next(i for i, item in enumerate(starts) if item[1] == symbol)
         start = starts[idx][0]
         end = starts[idx + 1][0] if idx + 1 < len(starts) else len(lines)
+        end = next((i for i in range(start, end) if lines[i].startswith('// BEGIN ')), end)
         if start and lines[start - 1].startswith('template'):
             start -= 1
         if end and lines[end - 1].startswith('template'):

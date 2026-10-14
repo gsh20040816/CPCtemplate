@@ -4,10 +4,6 @@
 
 **建设中，尚未达到完整覆盖或全部 OJ 验证要求。** 不把参考目录、原版代码、仅编译通过的模板标记为已完成。
 
-后续按[编写优先级](docs/PRIORITIES.md)补齐高频且易错的模板，以平衡树、Tarjan 等为难度参照；已完成高级模板保留。
-
-执行顺序见 [issue #1 计划](docs/ISSUE-1.md)，码风与待确认移除名单见 [issue #2](docs/ISSUE-2.md)，ACL 结构与缺项见 [issue #3 对照](docs/ACL-REVIEW.md)；已审题入口见 [模板题表](docs/TEMPLATE-PROBLEMS.md)，完整候选见 [映射清单](docs/template-problems.json)。
-
 ## 范围
 
 1. kuangbin 2018 ACM 模板的完整目录。
@@ -15,47 +11,16 @@
 3. 2023–2025 中国 ICPC/CCPC 赛题使用的缺项，追加已公开的 2026 场次。
 4. OI Wiki 有价值的数学：数论、组合、代数、多项式、概率与数值算法。
 
-完整来源条目见 [coverage.csv](docs/coverage.csv)，来源见 [SOURCES.md](docs/SOURCES.md)。中国赛站的逐题需求与缺口另见 [赛题审计](docs/CONTESTS.md)。原始目录中的重复实现与旧版本须逐项注明替代关系，不能静默遗漏。
+目标是贴近队伍码风、封装后易抄写、覆盖赛事常用算法。每个算法只保留有独立价值的一份实现，简单算法并入所属家族的头文件，单题解法不作为模板收录；删减原则见 [编写优先级](docs/PRIORITIES.md)，删除与替代关系见 [issue #21 记录](docs/ISSUE-21.md) 与 [issue21-removed.json](docs/issue21-removed.json)。
 
-数学配套知识补充见 [计数建模、生成函数、概率与博弈](docs/MATH-KNOWLEDGE-COMPLETION.md)：包含选型条件、推导、例子和误用反例，并与数学分册同源生成；知识补全不等同于新增算法或线上 AC。
-
-任意点多项式求值的乘积树、重复点约定及独立验证见 [多点求值](docs/MULTIPOINT-EVALUATION.md)。互异点的快速系数插值见 [快速插值](docs/POLYNOMIAL-INTERPOLATION.md)，两者的重复点约定不同。
-
-后续补充见 [整除反演与对称计数](docs/MATH-COUNTING-MODELS.md)：GCD 建模、整除分块、Burnside/Pólya、固定库存与非可逆群阶除法。
-
-当前有 102 个分类知识节（数学 70、图论 16、计算几何 1、数据结构 9、杂项 3、字符串 3），按固定 OI Wiki 导航纳入总册和所属分册；包括上述主题以及 LTE、Lagrange 反演、递推、容斥、类欧几里德、矩阵树、整数分拆、模运算条件、Catalan／投票反射建模、一次不定方程范围计数、数值积分、曼哈顿最小生成树证明、Pick格点计数、Prüfer树计数、Legendre／Kummer赋值判据以及斯特林数定义和反演。映射与尚未分类的旧附录范围见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)，不把这些节数当作完整知识体系的覆盖比例。
-
-线性诱导排序后缀数组见 [SA-IS](docs/SAIS.md)，与既有倍增版并列，保留相同 sa/rk/lcp 下标约定；不继承旧版线上成绩。
-
-成都2025 I 的完整三角形包含计数应用见 [Inside Triangle](docs/INSIDE-TRIANGLE.md)：包含贴边的精确判定与单调区间计数；本地应用验证不替代线上AC。
-
-精确覆盖的稀疏建模、可重复求解及完整恢复见 [Dancing Links](docs/EXACT-COVER.md)，配套 P4929 完整用法。
-
-树上莫队的点/边路径语义与回滚莫队的快照约定见 [莫队补充](docs/MO.md)，配套 COT2 和 P5906 完整用法。
-
-整体二分的时间序与撤销见 [离线动态第k小](docs/OVERALL-KTH.md)；有根/无根树的确定性编号见 [树同构](docs/TREE-ISOMORPHISM.md)，配套P2617、P5043完整用法。
-
-单环与恰好K环覆盖分别见 [单环插头DP](docs/PLUG-CYCLE.md)、[多环与禁止嵌套](docs/PLUG-CYCLES.md)。HDU4285已有实际AC，完整AC速度排名及差距见 [运行核对](docs/RUNTIME-HDU4285.md)。
-
-[欧拉函数来源审计](docs/PHI-SOURCE-AUDIT.md)记录完整四段原稿、整数范围与千万项独立恒等式验证。
-
-有向最小平均环、精确整数分数和实数精度说明见 [最小平均环](docs/MINIMUM-MEAN-CYCLE.md)。
-
-简单无向图四元环计数、非诱导定义与本地穷举验证见 [四元环](docs/FOUR-CYCLES.md)。
-
-递归长链剖分、常数时间祖先查询及50万点深链验证见 [长链剖分](docs/LONG-CHAIN.md)。
-
-非负权无向图最小环、原边方案与严格三点约束见 [最小环](docs/MIN-CYCLE.md)。
-
-Kruskal重构森林与升降序阈值连通块见 [重构树](docs/KRUSKAL-TREE.md)，配套 P4768 归程完整用法与实际AC记录。
+完整来源条目见 [coverage.csv](docs/coverage.csv)，来源见 [SOURCES.md](docs/SOURCES.md)，中国赛站的逐题需求与缺口见 [赛题审计](docs/CONTESTS.md)。原始目录中的重复实现与旧版本须逐项注明替代关系，不能静默遗漏。
 
 ## 码风
 
 - `src/compact/`：基于队伍实际提交，`vector`、小写短名、清晰分行；目录名不表示压缩代码。
+- 不为统一接口添加代理层；简单条目以函数或轻量 struct 写在家族头文件中。
 
 [码风证据](docs/STYLE.md)。共享队号不能直接推断每份代码的个人作者。
-
-只保留 `src/compact/` 的 vector 实现。历史静态版已从当前源码与驱动中移除；历史 AC 快照仍保留原样。
 
 ## 验证
 
@@ -71,169 +36,12 @@ SANITIZE=1 tools/test.sh
 前两步生成文档集成检查所需的分册 TeX，不需要安装 LaTeX；新克隆后也要执行。
 需要 GCC、C++20、Boost（独立精确几何参考）及 Python mpmath（高精度数值参考）。每份可提交代码与测试及打印代码同源。
 
-- [OJ 记录与实际受测接口](verification/oj.json)：保留原始提交源码和 SHA256，不把同文件未调用模块算作通过评测。
-- [当前源码与 AC 快照对照](verification/oj-source-audit.json)：完整文件相同或受测结构的排版归一化比对结果。
-- [已归档提交用时](docs/ONLINE-RUNTIMES.md)：区分总计、最慢单点和旧字段口径；[P4980 差距核查](docs/RUNTIME-P4980.md)。
+- [OJ 记录与实际受测接口](verification/oj.json)：保留原始提交源码和 SHA256，不把同文件未调用模块算作通过评测；已删除模板的记录在 [源码对照](verification/oj-source-audit.json) 中标为 retired。
 - [待评测队列](verification/pending-oj.md)：尚未提交、网站错误与未完成验证的接口。
+- 使用示例：每个模板最多印一份模板题用法；应用题与接口演示驱动只作为本地测试，见 [使用示例覆盖表](docs/USAGE-COVERAGE.md)。
 
-覆盖表中的 `pending` 表示对应项尚未完成迁移和验证；当前仍未达到完整覆盖要求。
+## 构建
 
-区间不同子串的完整来源审计见 [HDU4622 来源模型](docs/INTERVAL-SUBSTRING-SOURCE-AUDIT.md)：复现原稿负下标问题，并用现有 SAM 给出不依赖哈希碰撞的精确适配，完整用法325已纳入总册和字符串册。
+运行 `tools/build_pdf.sh`（需要 XeLaTeX、latexmk），生成 `output/pdf/` 下的总册、六本分册（字符串、数学、数据结构、图论、计算几何、杂项）与 Infra 册，见 [分册说明](docs/VOLUMES.md)。
 
-## LaTeX
-
-运行 `tools/build_pdf.sh`（需要 XeLaTeX、latexmk）。[当前 PDF](output/pdf/xcpc-template.pdf) 含 vector 版源码、目录、接口索引与数学速查；为建设稿。
-
-所有模板以赛时快速抄写为先：允许适度合并短语句，复杂控制流保持清晰，按算法需要选择函数或轻量 struct。见 [码风规范](docs/STYLE.md)。
-
-## 分册
-
-总册与字符串、数学、数据结构、图论、计算几何、杂项六本独立 PDF 一并生成，见 [分册说明](docs/VOLUMES.md) 与 [输出目录](output/pdf/)。各册有独立目录、页码引用和算法索引；几何知识随几何代码收录。
-
-Library Checker 的完整逐题队列见 [LIBRARY-CHECKER.md](docs/LIBRARY-CHECKER.md)，包含官方分类之外的待核对题目；清单登记不代表已实现或 AC。
-
-固定版本官方数据的本地复验与报告口径见 [OFFICIAL-TESTS.md](docs/OFFICIAL-TESTS.md)。它与线上 AC 档案分开记录。
-
-环境和标准库速查见 [Infra说明](docs/INFRA.md)，构建时另生成 `output/pdf/xcpc-infra.pdf`，集中提供到算法分册的页码跳转。
-
-标准库实际使用点、复数、前缀和累加类型、tuple 引用、shuffle 和位操作的验证边界见 [Infra 补充审计](docs/INFRA-STL-AUDIT.md)。
-
-各模板的“最简题意＋使用代码”补齐进度见 [使用示例覆盖表](docs/USAGE-COVERAGE.md)，生成与执行检查方式见 [使用示例说明](docs/USAGE-EXAMPLES.md)。正式模板题、应用用法与接口演示分开标记，不以有示例代替线上验证。
-
-最小表示法 [P13270 用法](docs/MINIMUM-ROTATION-USAGE.md)与保留的 Fenwick 第 k 小 [P3369 用法](docs/fenwick-selection.md)均有独立本地验证；不恢复已排除的基础树状数组题。
-
-压位小波矩阵的接口、来源范围和本地证据见 [WAVELET-MATRIX.md](docs/WAVELET-MATRIX.md)；模2压位消元、特解和零空间基见 [GAUSS-XOR.md](docs/GAUSS-XOR.md)。
-
-划分树的重复值配额与区间转换见 [DIVISION-TREE.md](docs/DIVISION-TREE.md)。
-
-次小生成树的两种定义与换边方案见 [SECOND-MST.md](docs/SECOND-MST.md)；模2消元的最少开关应用见 [SWITCH-MINIMUM.md](docs/SWITCH-MINIMUM.md)。
-
-闭合集选点、最小树形图和全局最小割的完整调用见 [CUT-APPLICATIONS.md](docs/CUT-APPLICATIONS.md)。
-
-kuangbin HK 源体、最短层与增量调用差异见 [HOPCROFT-SOURCE-AUDIT.md](docs/HOPCROFT-SOURCE-AUDIT.md)。
-
-完整无符号64位模乘/模幂的保留组件见 [Mod64接口用法](docs/MOD64-USAGE.md)，不恢复已排除的基础快速幂题。
-
-自适应积分的资源上限、采样混叠及误差估计边界见 [Adaptive Simpson说明](docs/ADAPTIVE-SIMPSON.md)。
-
-前缀可持久化01 Trie及P4735区间异或转化见 [接口、证明与容量约定](docs/PERSISTENT-XOR-TRIE.md)。
-
-严格凸多边形外点的两条切线、最近接触端点和可见边链证明见 [整数凸多边形切线](docs/CONVEX-POLYGON-TANGENTS.md)。
-
-无权最少行重复覆盖的方案接口、下界与恢复证明见 [MINIMUM-COVER.md](docs/MINIMUM-COVER.md)；用法为本地接口演示，未新增线上AC。
-
-活动点启用/停用后的最近距离与最小点号见 [动态点分树最近点](docs/CENTROID-NEAREST.md)；包含 QTREE5 完整应用，线上验证待补。
-
-稀疏坐标点加／矩形和，以及稠密矩形加／矩形和见 [二维Fenwick的接口与四矩证明](docs/FENWICK2D.md)。
-
-可持久化并查集的版本语义，以及线段树合并／分裂的独占节点与回收约定见 [历史版本与集合所有权](docs/OWNERSHIP-TREES.md)；包含 P3402、P5494 完整用法，本地验证不等于在线 AC。
-
-两串扩展KMP及KMP/Z/Manacher的10项来源核对见 [接口、索引转换与剩余缺口](docs/STRING-PREFIX-AUDIT.md)。
-
-固定编号、集合合并与改值的 [可合并 Splay](docs/MERGE-SPLAY.md)，以及三态距离、原边路径和负环方案的 [Bellman–Ford](docs/BELLMAN-FORD.md)均附完整用法与独立本地验证记录。
-
-队列 [SPFA 与差分约束](docs/SPFA-CONSTRAINTS.md)包含源点负环、全图可行解、三类不等式及递归 Tarjan 缩点后的最少糖果应用；明确区分一般负权图与0/1约束的复杂度。
-
-DAG最长路、原边方案与重复运行约定见 [DAG-LONGEST](docs/DAG-LONGEST.md)。
-
-Floyd全源最短路、负环提前退出与路径约定见 [FLOYD](docs/FLOYD.md)。
-
-最小总边权最短路树、零权块与原边方案见 [SHORTEST-PATH-TREE](docs/SHORTEST-PATH-TREE.md)。
-
-二分图最大独立集、最小点覆盖方案与棋盘应用见 [BIPARTITE-INDEPENDENT-SET](docs/BIPARTITE-INDEPENDENT-SET.md)。
-
-稠密图矩阵最短路、堆复杂度与三份来源核对见 [DENSE-DIJKSTRA](docs/DENSE-DIJKSTRA.md)。
-
-Kruskal生成森林、原边方案及三份来源差异见 [KRUSKAL](docs/KRUSKAL.md)。
-
-矩阵Prim、父点森林及两份来源核对见 [PRIM](docs/PRIM.md)。
-
-无权二分图匹配的五份原实现、重跑语义与独立验证见 [MATCHING-SOURCE-AUDIT](docs/MATCHING-SOURCE-AUDIT.md)。
-
-右侧容量匹配的 Dinic 建图、方案还原及原稿数组边界核验见 [CAPACITATED-MATCHING-SOURCE-AUDIT](docs/CAPACITATED-MATCHING-SOURCE-AUDIT.md)。
-
-最大流边流量方案唯一性、独立环流及原稿漏判核验见 [FLOW-UNIQUE](docs/FLOW-UNIQUE.md)。
-
-kuangbin曼哈顿MST的完整原程序、第k大边和数值范围映射见 [MANHATTAN-SOURCE-AUDIT](docs/MANHATTAN-SOURCE-AUDIT.md)。
-
-kuangbin SPFA费用流的残量接口、负环前提与int边界见 [SPFA-FLOW-SOURCE-AUDIT](docs/SPFA-FLOW-SOURCE-AUDIT.md)。
-
-递归ISAP、gap正确性及两份邻接表来源边界见 [ISAP](docs/ISAP.md)。
-
-两种矩阵SAP的重复调用、反对称净流和原稿边界见 [MATRIX-SAP-SOURCE-AUDIT](docs/MATRIX-SAP-SOURCE-AUDIT.md)。
-
-kuangbin Dinic的瓶颈/点数边界及最大流父节范围见 [DINIC-SOURCE-AUDIT](docs/DINIC-SOURCE-AUDIT.md)。
-
-zkw费用流的可行势、递归调标和来源前提见 [ZKW-FLOW](docs/ZKW-FLOW.md)。
-
-动态点分治HDU4918来源协议和整数边界见 [CENTROID-SUM-SOURCE-AUDIT](docs/CENTROID-SUM-SOURCE-AUDIT.md)。
-
-树上新增市场的距离/编号规则、点分治证明及来源边界见 [TREE-MARKET](docs/TREE-MARKET.md)。
-
-树边翻转、奇路径计数及树分治父节范围见 [TREE-PATH-PARITY](docs/TREE-PATH-PARITY.md)。
-
-按位置插删、区间等值计数及CF455D在线解码见 [序列替罪羊树](docs/SEQUENCE-SCAPEGOAT.md)，与按值排序的替罪羊树分开。
-
-带插入区间第k小的来源协议及不伸展Splay查询退化反例见 [树套树来源审计](docs/SEQUENCE-KTH-SOURCE-AUDIT.md)；对应[SequenceKth实现](docs/SEQUENCE-KTH.md)和用法327已完成本地验证，官方题面及线上评测待核实。
-
-自适应 Simpson 的 [kuangbin 来源核验](docs/SIMPSON-SOURCE-AUDIT.md)已覆盖原稿13行，保留光滑函数漏采样反例；数值估计满足不代表严格误差保证。
-
-[动态森林路径加与最大值](docs/DYNAMIC-PATH-MAX.md)提供独立DynamicPathMax与来源协议用法328，区分直接边删除和换根后的父边删除；完整原稿与新实现均有本地BFS对照证据。
-
-[浮点高斯消元来源审计](docs/GAUSS-REAL-SOURCE-AUDIT.md)记录原稿“有解/无解”注释在奇异、矩形和缩放系统上的反例，并与现有GaussReal的数值合同区分。
-
-[精确整数行列式与生成树计数](docs/EXACT-INTEGER.md)：Bareiss整除消元、三方向带权矩阵树，以及保留布尔邻接语义的kuangbin来源用法；大整数依赖与来源精度边界明确登记。
-
-[按匹配基数最大权与顶标证书](docs/ASSIGNMENT-SPECTRUM.md)：多源增广覆盖全部可行基数，提供P6577独立模板题、ABC247G比赛应用与证书API用法，支持缺边和signed64负权。
-
-[斐波那契最小循环节](docs/FIBONACCI-PERIOD.md)：完整unsigned64模数、128位结果、逐层验证素数幂，附P4994模板用法与来源程序审计。
-
-[DAG支配树](docs/DAG-DOMINATOR.md)：拓扑序合并可达前驱LCA，附环检测、通用LT组合模板题及P2597食物网应用。
-
-[原根附件来源审计](docs/PRIMITIVE-ROOT-SOURCE.md)：完整123行程序与已有P6091用法对照，核对排序采样及空行协议，避免重复添加同功能模板。
-
-[DC3后缀数组](docs/DC3.md)：线性skew构造，明确零哨兵与虚拟采样点，提供独立后缀数组模板题和整数sa/rk/lcp用法。
-
-[DA最长回文来源程序](docs/DA-PALINDROME.md)：完整复现EOF协议，组合后缀数组与LCP，核对空后缀、奇偶中心和最靠左答案。
-
-[KMP优化失败表](docs/KMP-NEXTVAL.md)：由前缀函数推导nextval，明确末尾border与重叠匹配，支持零字节并给出两页抄写用法。
-
-[精确任意模数卷积](docs/CONVOLUTION-MOD.md)：三模NTT与固定CRT重构，支持signed int系数、合数与模数1，附独立P4245驱动。
-
-[移位等比点求值](docs/SHIFT-GEOMETRIC.md)：两次精确卷积组合，完整HDU4656来源程序审计，披露原模乘溢出及c=0扩展。
-
-三维点线面的浮点接口与原稿缺陷说明见 [REAL-SPACE.md](docs/REAL-SPACE.md)：投影、线段距离、右手绕轴旋转和分类求交已配用法；近乎平行的容差分类不替代精确整数谓词。
-
-新增时间线段树分治与离线动态连通性，复用回滚并查集，附森林竞赛应用和带初始重边的完整接口用法；见[接口及验证](docs/TIME-CONNECTIVITY.md)。
-
-严格次短路与 K 短行走的接口、适用范围和验证：[说明](docs/SHORTEST-WALKS.md)。
-
-单调斜率、分治决策单调性与 WQS：[使用条件和证明](docs/DP-OPTIMIZATION.md)。
-
-Burnside/Pólya 的群作用、模除法与验证范围见 [计数说明](docs/POLYA.md)。
-
-Lyndon 分解的端点接口、证明与验证见 [Lyndon](docs/LYNDON.md)。
-
-子串、反串与拼接双哈希的接口、碰撞概率和确定性替代见 [字符串哈希](docs/STRING-HASH.md)。
-
-静态仙人掌森林最短路：接口、正确性与验证见 [CACTUS](docs/CACTUS.md)。
-
-HLPP 最大流与流方案：接口、证明及证据见 [HLPP](docs/HLPP.md)。
-
-树分块与在线路径去重：接口、分块界及验证见 [TREE-BLOCK](docs/TREE-BLOCK.md)。
-
-四维偏序：严格/弱偏序接口、双层 CDQ 证明及验证见 [DOMINANCE4D](docs/DOMINANCE4D.md)。
-
-边权修改动态树直径：接口、欧拉序证明与本地验证见 [DYNAMIC-DIAMETER](docs/DYNAMIC-DIAMETER.md)，线上提交待完成。
-
-正则二分图匹配：随机游走、重边与期望界见 [REGULAR-MATCHING](docs/REGULAR-MATCHING.md)，线上提交待完成。
-
-Tutte多项式：子集指数递推、特殊取值与独立验证见 [TUTTE](docs/TUTTE.md)，QOJ45 已满分通过，排名待核验。
-
-最小斯坦纳树：子集DP、多源最短路与原边方案见 [STEINER-TREE](docs/STEINER-TREE.md)。
-
-笛卡尔树：线性构造、相等值约定与验证见 [CARTESIAN-TREE](docs/CARTESIAN-TREE.md)。
-
-[HDU4742与HDU4656线上核验](docs/RUNTIME-HDU-SOURCE.md)：官方题面歧义已解，两题实际AC；完整排名与缺项榜单分别记录。
-
-[斯特林数与斯特林反演](docs/ISSUE-18.md)：四种快速行列求解、生成函数、两类符号约定与反演推导；本轮四种当前实现均获Library Checker AC，整列常数差距单独披露。
+当前有 102 个分类知识节（数学 70、图论 16、计算几何 1、数据结构 9、杂项 3、字符串 3），按固定 OI Wiki 导航纳入总册和所属分册，映射见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)；不把这些节数当作完整知识体系的覆盖比例。PDF 中的知识节只保留公式、适用条件和复杂度；推导、反例与验证范围见 [知识节完整说明](docs/KNOWLEDGE-DETAILS.md)，由 `python3 tools/knowledge_markdown.py` 从 `docs/knowledge-full/` 生成。

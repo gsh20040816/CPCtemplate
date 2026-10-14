@@ -14,14 +14,14 @@
 | [fenwicktree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/fenwicktree.hpp) | 数据结构 | 基础功能已有，组合约束不同 | [data_structure.hpp](../src/compact/data_structure.hpp)、[number_theory.hpp](../src/compact/number_theory.hpp) |
 | [segtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/segtree.hpp) | 数据结构 | 已实现，函数复合与边界搜索有历史线上记录 | [segtree.hpp](../src/compact/segtree.hpp) |
 | [lazysegtree](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/lazysegtree.hpp) | 数据结构 | 通用递归实现已完成，本地验证通过 | [lazy_segtree.hpp](../src/compact/lazy_segtree.hpp) |
-| [math](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp) | 数学 | 核心功能已有，范围需适配 | [mod64.hpp](../src/compact/mod64.hpp)、[extended_gcd.hpp](../src/compact/extended_gcd.hpp)、[mod_inverse.hpp](../src/compact/mod_inverse.hpp)、[crt_merge.hpp](../src/compact/crt_merge.hpp)、[floor_sum.hpp](../src/compact/floor_sum.hpp) |
+| [math](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/math.hpp) | 数学 | 核心功能已有，范围需适配 | [number_theory.hpp](../src/compact/number_theory.hpp)、[floor_sum.hpp](../src/compact/floor_sum.hpp) |
 | [modint](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/modint.hpp) | 数学 | 静态与动态实现已有，支持合数单位元求逆 | [number_theory.hpp](../src/compact/number_theory.hpp)、[dynamic_modint.hpp](../src/compact/dynamic_modint.hpp) |
 | [convolution](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/convolution.hpp) | 数学 | 模卷积与拆系数任意模卷积已有，本地验证 | [ntt_convolution.hpp](../src/compact/ntt_convolution.hpp)、[convolution_mod_fft.hpp](../src/compact/convolution_mod_fft.hpp) |
 | [maxflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/maxflow.hpp) | 图论 | 边状态接口已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
 | [mincostflow](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/mincostflow.hpp) | 图论 | 费用曲线已补，本地验证 | [flow.hpp](../src/compact/flow.hpp) |
 | [scc](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/scc.hpp) | 图论 | 核心功能已有 | [graph.hpp](../src/compact/graph.hpp) |
 | [twosat](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/twosat.hpp) | 图论 | 核心功能已有 | [graph.hpp](../src/compact/graph.hpp) |
-| [string](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/string.hpp) | 字符串 | SA-IS与倍增并列，LCP表示不同 | [string.hpp](../src/compact/string.hpp)、[suffix_lcp.hpp](../src/compact/suffix_lcp.hpp)、[sais.hpp](../src/compact/sais.hpp) |
+| [string](https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/string.hpp) | 字符串 | SA-IS与倍增并列，LCP表示不同 | [string.hpp](../src/compact/string.hpp)、[sais.hpp](../src/compact/sais.hpp) |
 
 ## 结构配合
 

@@ -1,0 +1,156 @@
+% 有限状态计数的递推阶数证明；知识补充，不新增矩阵最小多项式实现。
+\section{有限状态计数到线性递推：先证明阶数，再用 BM}\label{knowledge-state-recurrence}
+\index{有限状态计数}\index{Cayley--Hamilton}\index{线性递推}\index{Berlekamp--Massey}
+当题目只问极大长度 $N$ 的一个计数，有限状态 DP 可以先生成少量项，再用标量递推求远项。
+关键不是“样本看起来有规律”，而是先证明无限序列的递推阶数上界。
+本节给出从固定转移矩阵到该上界、再到可靠外推的完整链条。
+
+\subsection{先把状态、方向和输出写清楚}
+设状态数 $d\ge1$ 固定，$v_n\in R^d$ 是长度 $n$ 时各状态的计数\textbf{列向量}。
+令 $A_{ij}$ 为一步从状态 $j$ 到状态 $i$ 的方案数，重边或不同字符走向同一状态时须累加，
+不是只填一个 1。若每步规则相同，就有
+\[
+v_{n+1}=Av_n,\qquad v_n=A^nv_0,\qquad a_n=u^{\mathsf T}v_n.
+\]
+$u$ 可以是终态的 $0/1$ 指示向量，也可以是固定权重；$a_0=u^{\mathsf T}v_0$ 必须保留。
+这里 $R$ 可取整数环或模 $m$ 的交换环。若按行向量建模，矩阵方向须整体转置。
+
+\textbf{三个前提缺一不可：}状态维数有限且不随 $n$ 增长，转移矩阵固定，更新与输出均为线性。
+最短路的 min-plus 更新不是这里的环上线性运算；随位置任意变化的 $A_n$ 也不能直接套一个 $A$。
+固定周期转移可加“相位”状态，固定仿射项可加一个恒为 1 的坐标，但阶数上界须按扩充后的维数重算。
+
+\subsection{Cayley--Hamilton 给出阶数至多 d}
+写特征多项式为
+\[
+\chi_A(t)=\det(tI-A)=t^d+q_{d-1}t^{d-1}+\cdots+q_0.
+\]
+Cayley--Hamilton 定理说 $\chi_A(A)=0$。给出一个不依赖特征值或可对角化性的证明：
+由伴随矩阵恒等式，令 $B(t)=\operatorname{adj}(tI-A)=\sum_{i=0}^{d-1}B_it^i$，有
+$(tI-A)B(t)=\chi_A(t)I$。
+取 $B_{-1}=B_d=0$、$q_d=1$，比较 $t^i$ 的系数得
+$B_{i-1}-AB_i=q_iI$（$0\le i\le d$）。分别左乘 $A^i$ 后求和，得到
+\[
+\sum_{i=0}^d q_iA^i
+=\sum_{i=0}^d\bigl(A^iB_{i-1}-A^{i+1}B_i\bigr)=0.
+\]
+中间项逐个抵消，两端为零。这才是矩阵多项式求值的证明；
+不能把标量行列式里的 $t$ 直接换成矩阵，写成“$\det(AI-A)=0$”。
+整个证明没有除法，因此对交换环同样成立。
+
+把 $\chi_A(A)=0$ 左乘 $u^{\mathsf T}A^n$、右乘 $v_0$，便有
+\[
+\boxed{a_{n+d}=-\sum_{i=0}^{d-1}q_i a_{n+i}\quad(n\ge0).}
+\]
+故从下标 $d$ 起就有一个至多 $d$ 阶的递推，不必等到状态分布“稳定”。
+若接口约定 $a_n=\sum_{j=1}^k c_{j-1}a_{n-j}$，直接用特征多项式时取
+$k=d$、$c_j=-q_{d-1-j}$。这里只需存在性和上界，\textbf{不必先算出整个特征多项式}才能调用 BM。
+
+\subsection{为什么前 2d 项足以恢复这个标量序列}
+现在限定在素数域 $\mathbb F_p$ 中。取精确的前 $2d$ 项
+$a_0,\ldots,a_{2d-1}$，BM 返回该前缀的最短递推，阶数记为 $k$。
+已知 $d$ 阶递推存在，故 $k\le d$。按返回系数及前 $k$ 个初值延伸出无限序列 $b$，
+它与 $a$ 的前 $2d$ 项相同。
+
+令前移算子 $E$ 满足 $(Ea)_n=a_{n+1}$，并令
+$g(t)=t^k-c_0t^{k-1}-\cdots-c_{k-1}$。
+则 $\chi_A(E)a=0$、$g(E)b=0$ 都从 $n=0$ 成立。
+多项式算子可交换，因而差序列 $h=a-b$ 满足
+\[
+\chi_A(E)g(E)h=0,\qquad \deg(\chi_Ag)=d+k\le2d.
+\]
+这是一个\textbf{首一}递推；$h$ 的前 $2d$ 项全零，依次递推便知所有项全零。
+所以外推正确。不能无依据地说“两个至多 $d$ 阶序列之差仍至多 $d$ 阶”；
+此处用乘积得到的上界是 $2d$。
+$k=0$ 时约定 $b$ 为全零序列、$g=1$，同一论证仍成立。
+
+\textbf{恢复的是指定输入与输出的标量递推。}
+例如 $A=\operatorname{diag}(1,2)$、$u=v_0=(1,0)^{\mathsf T}$，则 $a_n=1$，BM 只需返回 $[1]$；
+但 $A-I\ne0$，矩阵最小多项式仍是 $(t-1)(t-2)$。
+在域上，标量最小消去多项式整除矩阵最小多项式，后者整除 $\chi_A$；
+不能凭一次投影把标量递推当成对所有向量都有效的矩阵恒等式。
+
+\subsection{模型：不含连续子串 101 的二进制串}
+状态保存末尾与禁串前缀的最长匹配，依次为 $\varepsilon,1,10$。
+三者都是合法终态；到达完整 $101$ 的转移丢弃。追加字符的转移为
+\[
+\begin{array}{c|cc}
+\text{当前状态}&0&1\\\hline
+\varepsilon&\varepsilon&1\\
+1&10&1\\
+10&\varepsilon&\text{丢弃}
+\end{array}
+\qquad
+A=\begin{pmatrix}1&0&1\\1&1&0\\0&1&0\end{pmatrix},\quad
+v_0=\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+u=\begin{pmatrix}1\\1\\1\end{pmatrix}.
+\]
+这里 $10$ 后接 $0$ 变为状态 $\varepsilon$，后接 $1$ 才违法；$1$ 后接 $1$ 仍在状态 $1$。
+直接算得
+\[
+\chi_A(t)=t(t-1)^2-1=t^3-2t^2+t-1,\qquad
+(a_0,\ldots,a_5)=(1,2,4,7,12,21),
+\]
+于是 $a_n=2a_{n-1}-a_{n-2}+a_{n-3}$（$n\ge3$）。
+模 $p=998244353$ 的现有接口可按下列方向衔接；调用者用 \texttt{unsigned long long} 声明目标零基下标 $N$：
+\begin{lstlisting}
+constexpr int p = 998244353;
+vector<int> s{1, 2, 4, 7, 12, 21}; // a[0..2*d-1], d = 3
+vector<int> c = berlekamp_massey(s, p); // {2, p-1, 1}
+vector<int> init(s.begin(), s.begin() + c.size());
+int answer = recurrence_nth(init, c, N, p);
+\end{lstlisting}
+若模数改变，应先对样本及系数正规化到 $[0,p)$，并在\textbf{目标素数域}内恢复递推；
+模一个素数得到的短递推，不保证在整数或另一个模数下有效。
+
+\subsection{按目标选算法，并把采样成本算进去}
+设 $e$ 是存储的非零转移数，采样用稀疏边表更新、清零长度 $d$ 的向量并做一次点积。
+前 $2d$ 项需要 $O(d(e+d))$ 时间、$O(e+d)$ 空间；稠密矩阵采样为 $O(d^3)$。
+本库 BM 在每个非零偏差处用二进制幂求逆，因此这段采样的 BM 后处理为
+$O(d^2+d\log p)$ 时间、$O(d)$ 额外空间，不能把求逆无条件写成常数时间。
+
+\textbf{直接 DP。}$N$ 不大或要整个前缀时，稀疏实现为 $O(N(e+d))$。
+
+\textbf{矩阵幂。}要完整 $v_N$，或复用多种初值/输出时，考虑
+第~\ref{compact-ModMatrix}~节（第~\pageref{compact-ModMatrix}~页）的
+\texttt{ModMatrix<p>::power(A,N)}。当前稠密实现为 $O(d^3\log(N+1))$ 时间、$O(d^2)$ 空间；
+求出矩阵幂后，可复用于不同初值。标量 BM 的系数一般不能如此复用。
+
+\textbf{小阶标量递推。}只要固定 $u,v_0$ 的远项时，先采样与 BM，再调用
+第~\ref{compact-recurrence_nth}~节（第~\pageref{compact-recurrence_nth}~页）的
+\texttt{recurrence\_nth(\allowbreak{}init,c,N,p)}，单次 $O(k^2\log(N+1))$ 时间、$O(k)$ 额外空间。
+
+\textbf{大阶快速求项。}$k$ 较大时，第~\ref{compact-BostanMori}~节
+（第~\pageref{compact-BostanMori}~页）提供 \texttt{BostanMori<p,g>} 的 \texttt{recurrence(init,c,N)}，
+在固定模数下为 $O(k\log(k+1)\log(N+1))$ 时间、$O(k)$ 空间。
+参数须转换为其 \texttt{Poly}，$p$ 为素数、$g$ 为原根；非初值查询要求
+$2k+1\le\texttt{NttConvolution<p,g>::max\_size}$，不能对任意素数不加检查地使用。
+
+
+BM 接口见第~\ref{compact-berlekamp_massey}~节
+（第~\pageref{compact-berlekamp_massey}~页）。两种远项接口都要求初值\textbf{恰好}有 $k$ 项，
+使用 \texttt{unsigned long long} 下标；$k=0$ 返回 0，$N<k$ 返回初值。
+Bostan--Mori 的快速求项不会消掉前面的采样和 BM 成本。
+
+\textbf{合数模数分清存在性与恢复算法。}
+模 $m$ 时，Cayley--Hamilton 仍保证递推存在，但本库 BM 用 $x^{p-2}$ 求逆，只支持素数模数。
+若已独立得知正确递推，\texttt{recurrence\_nth} 只用加乘及首一多项式约减，支持
+$2\le m\le\texttt{INT\_MAX}$ 的合数模数；初值和系数仍须在 $[0,m)$。
+\texttt{ModMatrix} 的乘法和非负次幂也不需要逆元。不要把这个结论扩展到求逆矩阵或当前 NTT 版 Bostan--Mori。
+
+\textbf{少取一项与删除末尾零的反例。}
+取 $A_\lambda=\begin{pmatrix}0&\lambda\\1&0\end{pmatrix}$、$v_0=(1,0)^{\mathsf T}$、$u=(0,1)^{\mathsf T}$。
+$\lambda=0,1$ 的两种二状态模型都有前三项 $0,1,0$，第四项却分别为 0、1；
+即使知道 $d=2$，$2d-1$ 项也不能普遍保证唯一外推。
+$\lambda=0$ 时矩阵幂零，序列为 $0,1,0,0,\ldots$，BM 的长度 2 系数 $[0,0]$ 不能删成空数组：
+它保留了从下标 2 才开始适用的递推，空数组会错误抹掉初始的 1。
+额外保留若干未参与 BM 的项做交叉检查很有用，但\textbf{检查通过不代替阶数证明}。
+
+\textbf{来源。}定理与中文导航核对
+\href{https://oi-wiki.org/math/linear-algebra/char-poly/}{OI Wiki：特征多项式}；
+伴随矩阵系数证明参照
+\href{https://home.iitk.ac.in/~rksr/html/02MAT3.htm}{IIT Kanpur：Eigenvalues and Eigenvectors} 的 Cayley--Hamilton 第二证明。
+算法概念另核对 OI Wiki 的
+\href{https://oi-wiki.org/math/berlekamp-massey/}{BM}、
+\href{https://oi-wiki.org/math/poly/linear-recurrence/}{常系数齐次线性递推}及
+\href{https://oi-wiki.org/math/linear-algebra/matrix/}{矩阵}。
+模型、外推论证与接口成本按本库重新整理；本节不新增矩阵最小多项式实现或在线 AC 覆盖。

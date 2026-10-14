@@ -1,0 +1,126 @@
+% 交集的重数统计与恰好/至少反演；不新增算法或OJ覆盖。
+\section{容斥与二项式反演：恰好与至少}\label{knowledge-inclusion-exact}
+\index{容斥原理}\index{二项式反演}\index{恰好计数}\index{满射}
+容斥不只求并集。题目若能算出若干性质的交集，往往可以先求交集和，
+再恢复“恰好满足几个性质”的分布。关键是\textbf{交集和带有重数}，
+不能把它直接当成“至少”的数量；性质之间也不要求独立。
+
+\subsection{从交集和恢复恰好数量}
+设有限全集为 $\Omega$，性质对应集合为 $A_1,\ldots,A_m$。
+记 $q(x)=|\{i:x\in A_i\}|$，以及
+\[
+N_t=|\{x\in\Omega:q(x)=t\}|,\qquad
+S_j=\sum_{\substack{J\subseteq\{1,\ldots,m\}\\|J|=j}}
+\left|\bigcap_{i\in J}A_i\right|,\quad S_0=|\Omega|.
+\]
+空指标集的交集是全集。满足 $t$ 个性质的对象在 $S_j$ 中出现 $\binom tj$ 次，故
+\[
+\boxed{S_j=\sum_{t=j}^m\binom tjN_t,\qquad
+N_r=\sum_{j=r}^m(-1)^{j-r}\binom jrS_j.}
+\]
+第二式适用于 $0\le r\le m$；范围外的恰好数量为0。
+\textbf{证明。}代入第一式，$N_t$ 的系数为
+\[
+\sum_{j=r}^t(-1)^{j-r}\binom jr\binom tj
+=\binom tr\sum_{h=0}^{t-r}(-1)^h\binom{t-r}h
+=\begin{cases}1,&t=r,\\0,&t>r.\end{cases}
+\]
+因此其他重数全部抵消。取 $r=0$ 即没有任何性质的数量；普通并集容斥是
+$|\bigcup_iA_i|=S_0-N_0=\sum_{j=1}^m(-1)^{j-1}S_j$。
+
+\textbf{最小反例。}全集只有一个对象且它同时满足两个性质，则
+$(S_0,S_1,S_2)=(1,2,1)$，但 $(N_0,N_1,N_2)=(0,0,1)$。
+$S_1=2$ 不是并集大小，$S_1-S_2=1$ 也不是恰好满足一个性质的数量；
+正确式为 $N_1=S_1-2S_2=0$。
+
+\subsection{至少数量与变换方向}
+对 $1\le r\le m$，将上述 $N_t$ 从 $t=r$ 到 $m$ 求和，得到
+\[
+\boxed{|\{x:q(x)\ge r\}|=
+\sum_{j=r}^m(-1)^{j-r}\binom{j-1}{r-1}S_j.}
+\]
+其中 $S_j$ 的系数是
+$\sum_{t=r}^j(-1)^{j-t}\binom jt=(-1)^{j-r}\binom{j-1}{r-1}$，
+可用 Pascal 恒等式逐项相消证明。注意系数不再是 $\binom jr$。
+$r=0$ 时直接返回 $S_0$，$r>m$ 时返回0，不能把负下标交给组合数公式。
+
+\textbf{不要抄反方向。}上面的 $S_j=\sum_{t\ge j}\binom tjN_t$ 是有限上三角变换。
+常见的另一种二项式反演是
+\[
+b_n=\sum_{k=0}^n\binom nk a_k
+\quad\Longleftrightarrow\quad
+ a_n=\sum_{k=0}^n(-1)^{n-k}\binom nk b_k.
+\]
+它是下三角变换：待求第 $n$ 项只需 $b_0,\ldots,b_n$；
+前者恢复 $N_r$ 却需要 $S_r,\ldots,S_m$。可用同一系数消去证明，
+但下标、符号和求和范围必须随对象含义重新确定。
+
+\textbf{适用范围。}这些等式只有整数乘加减，没有除法，
+先在整数中成立，再对任意正模数取模都成立；不要求模数为素数。
+给每个对象一个权重也可用同样的逐对象线性证明。
+但模意义下的答案为0不表示实际对象不存在，且选用阶乘逆元实现组合数时另有条件。
+计算全部一般 $S_j$ 可能需要枚举 $2^m$ 个子集及各自交集，
+反演公式本身不会自动消除这个成本。
+只有证明交集大小仅依赖子集大小 $j$ 后，才能用 $\binom mj$ 乘一个代表值。
+例如 $A_1=A_2=\{1,2\},A_3=\{3,4\}$ 的各集合都等大，
+但三个两两交集大小为 $2,0,0$，不能仅凭单集等大作此压缩。
+
+\subsection{例：有标号球放入有标号盒}
+$n$ 个互异球各选择 $m$ 个互异盒之一，计恰好 $r$ 个非空盒的方案数；
+盒内不计顺序。不等同于无标号球的插板模型，也不额外乘 $n!$ 或除以 $m!$。
+先选出非空盒，再对其中的空盒做容斥，得到
+\[
+\boxed{\binom mr\sum_{j=0}^r(-1)^j\binom rj(r-j)^n
+=\binom mr\,r!\,\genfrac{\{}{\}}{0pt}{}{n}{r}.}
+\]
+也可把原来 $m$ 个盒的“为空”当作性质，此时
+$S_j=\binom mj(m-j)^n$，恰好 $r$ 个\textbf{非空}盒对应 $N_{m-r}$，不是 $N_r$。
+将它代入前式，并用
+$\binom j{m-r}\binom mj=\binom mr\binom r{j-(m-r)}$
+即得到同一答案。右侧 Stirling 写法只是同一模型的交叉解释，不新增算法。
+
+例如 $n=3,m=4$，恰好占用1、2、3个盒的数量分别为 $4,36,24$，合计 $4^3=64$。
+空盒性质的交集和为 $(64,108,48,4,0)$；恰好两个空盒是 $48-3\cdot4=36$，
+至少两个空盒却是 $48-2\cdot4=40$。这同时展示了“恰好”和“至少”的系数区别。
+
+\textbf{边界。}$r<0$、$r>m$ 或 $r>n$ 时答案为0。
+$n=0$ 时只有一个空映射，恰好 $r=0$ 才为1，包括 $m=0$；
+$n>0,m=0$ 时无解。统一公式中的 $0^0=1$ 是空映射约定，不是浮点极限。
+
+\subsection{直接使用现有组合数与模整数}
+已给非负 \texttt{long long n} 和非负 \texttt{int m}、整数 \texttt{r}，
+固定 $p=998244353$，要求 $m<p$ 且能容纳长度 $m+1$ 的阶乘表。
+第~\ref{compact-ModInt}~节（第~\pageref{compact-ModInt}~页）和
+第~\ref{compact-Binomial}~节（第~\pageref{compact-Binomial}~页）可直接组合：
+\begin{lstlisting}
+using Z = ModInt<998244353>;
+Z answer = 0;
+if (0 <= r && r <= m && r <= n)
+{
+    Binomial<998244353> c(m);
+    for (int j = 0; j <= r; j++)
+    {
+        Z term = c.choose(r, j) * Z(r - j).pow(n);
+        if (j & 1) answer -= term;
+        else answer += term;
+    }
+    answer *= c.choose(m, r);
+}
+\end{lstlisting}
+只需建到 $m$，不需要 $n!$；$n$ 可以远大于 $p$，但必须在非负signed-long-long范围内，
+因为当前 \texttt{pow} 的指数类型不是 \texttt{unsigned long long}。
+单次建表与计算总耗时 $O(m+\log p+(r+1)\log(n+2))$、空间 $O(m)$；
+其中 $\log p$ 计入一次阶乘求逆，$\log(n+2)$ 包括 $n=0$ 的常数工作。
+不合法 $r$ 的分支不建表。多询问可复用已建表，但要另行说明统一上界。
+
+这里的素数限制来自 \texttt{Binomial} 用费马逆元，不来自容斥。
+合数模数不可直接替换该模板参数；$m\ge p$ 也不能继续使用此阶乘逆元表。
+应根据实际规模改用已有 Pascal、Lucas 或扩展 Lucas 路线，并重新检查各自条件。
+取模前后都应使用带符号的模运算处理交错和，不依赖无符号下溢。
+
+\textbf{来源与范围。}恰好/至少性质数的两式核对
+\href{https://math.mit.edu/~rstan/ec/ec1.pdf}{Richard P. Stanley, \emph{Enumerative Combinatorics}, Volume 1}
+第2章习题3，式(2.39)--(2.40)；本节系数推导、反例、盒模型和接口衔接重新组织。
+基础容斥与概念导航参见
+\href{https://oi-wiki.org/math/combinatorics/inclusion-exclusion-principle/}{OI Wiki：容斥原理}。
+本节不声称覆盖该来源页面的所有计数主题，也不计作新模板或在线评测通过。

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent finite enumeration for docs/knowledge-mobius.tex and current APIs.
+"""Independent finite enumeration for docs/knowledge-full/knowledge-mobius.tex and current APIs.
 
 Run with Python 3 and C++20. SANITIZE=1 enables ASan+UBSan.
 Sanitized child processes default to ASAN_OPTIONS=detect_leaks=0 because
@@ -190,7 +190,7 @@ def main():
         add(f'C {a} {b}', 0 if min(a, b) == 0 else max(a, b))
     add('E', 6)
 
-    document = (ROOT / 'docs/knowledge-mobius.tex').read_text()
+    document = (ROOT / 'docs/knowledge-full/knowledge-mobius.tex').read_text()
     example = re.search(r'% BEGIN mobius-rectangle-example\s*\\begin\{lstlisting\}\n(.*?)'
                         r'\\end\{lstlisting\}', document, re.S).group(1)
     source = r'''

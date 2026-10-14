@@ -190,7 +190,7 @@ def main():
     # The additive lifting claim uses ordinary integer division after reduction.
     assert (24 % 32) // 4 == 6 and (24 % 8) // 4 != 6
 
-    text = (ROOT / "docs/knowledge-orbits.tex").read_text()
+    text = (ROOT / "docs/knowledge-full/knowledge-orbits.tex").read_text()
     snippets = re.findall(
         r"% BEGIN orbit-counting-example\s*\\begin\{lstlisting\}\n(.*?)"
         r"\\end\{lstlisting\}\s*% END orbit-counting-example", text, flags=re.S)

@@ -7,7 +7,7 @@ from state_recurrence_knowledge import ROOT, expand, nth, options, run_bound, se
 
 
 def prepare_snippet(out):
-    tex=ROOT/'docs/knowledge-state-recurrence.tex'
+    tex=ROOT/'docs/knowledge-full/knowledge-state-recurrence.tex'
     snippets=re.findall(r'\\begin\{lstlisting\}\n(.*?)\\end\{lstlisting\}',tex.read_text(),re.S)
     assert len(snippets)==1,'Expected exactly one unmodified mathematical usage listing'
     deps=set()

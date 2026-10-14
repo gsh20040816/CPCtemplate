@@ -107,7 +107,7 @@ def main():
     parser.add_argument('--report', type=Path, default=ROOT / f'build/lagrange-fps-{mode}.json')
     args = parser.parse_args()
     compiler = Path(shutil.which(CXX) or CXX).resolve()
-    doc = ROOT / 'docs/knowledge-lagrange.tex'
+    doc = ROOT / 'docs/knowledge-full/knowledge-lagrange.tex'
     paths = local_headers(ROOT / 'src/compact/fps_power.hpp')
     paths.update((Path(__file__).resolve(), ROOT / 'tests/lagrange_knowledge.py',
                   ROOT / 'tests/compiler_config.py', doc, compiler))

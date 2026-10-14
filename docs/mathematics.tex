@@ -1,5 +1,4 @@
-\chapter{数学速查：条件先于公式}
-\noindent 本附录保留历史评测证据；其中传统版 AC 为归档记录，当前只提供 vector 模板。
+% Knowledge sections are printed in their OI Wiki category; this file only lists the sources.
 
 \input{knowledge-mobius.tex}
 \input{knowledge-lte.tex}
@@ -31,7 +30,7 @@
 \input{knowledge-manhattan-mst.tex}
 \input{knowledge-pick.tex}
 
-\clearpage
+
 \input{knowledge-higher-residues.tex}
 
 \input{knowledge-poly-notes.tex}
@@ -51,24 +50,6 @@
 
 \input{knowledge-query-notes.tex}
 \input{knowledge-application-notes.tex}
-
-\section{压位小波矩阵与区间顺序统计}
-\texttt{WaveletMatrix} 先将值离散化，再从高位到低位稳定地把当前序列的零位元素放前面、一位元素放后面。
-同一路径下的原区间始终对应当前层的连续区间。记左右端点的一位前缀数为 $a,b$，则区间内零位数为 $z=r-l-b+a$。
-第 $k$ 小若 $k<z$，下一层区间为 $[l-a,r-b)$；否则减去 $z$，进入 $[mid+a,mid+b)$，并设置答案的当前位。
-每层按 64 位存储，配一份整字前缀计数；末尾多留一个字，保证 $r=n$ 且 $n$ 为 64 的倍数时仍可查询。
-掩码移位量用位置模 64，不会移位 64。
-
-\texttt{kth(l,r,k)} 的区间和排名都为 0-based；P3834 的闭区间调用应为 \texttt{kth(l-1,r,k-1)}。
-第 $k$ 大（$k$ 从零开始）为 \texttt{kth(l,r,r-l-1-k)}；两者都要求 $0\le k<r-l$。
-\texttt{less(l,r,x)} 严格小于 $x$；\texttt{freq(l,r,x)} 直接沿 $x$ 所在路径计数，不能用 $x+1$ 来规避等值查询，否则在最大有符号整数处溢出。
-空数组、空区间可计数，但不能求第 $k$ 小；单一值域的层数为零，直接返回唯一值或区间长度。
-核心支持完整有符号 64 位值，三份正式题驱动按各题实际非负值范围验证。
-
-该结构适合静态查询，不支持修改或历史版本。与持久化线段树的功能重叠不意味着来源中的每份划分树实现都已完成审计。
-WIDA 条目的压位查询功能已落实；kuangbin 划分树已另行实现为 DivisionTree，逐层保存值和前缀，空间为 $O(n\log(n+1))$。重复中位数按左半容量分配，详见 \path{docs/DIVISION-TREE.md}。
-独立子区间排序、直接计数、字边界和最大规模验证，以及两个 Library Checker 题目的官方本地 checker 报告见 \path{docs/WAVELET-MATRIX.md}。
-这些记录不是线上 AC，也不是最快提交榜排名。
 
 \input{knowledge-matrix-tree.tex}\input{knowledge-prufer.tex}\input{knowledge-valuations.tex}
 

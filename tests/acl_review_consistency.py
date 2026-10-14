@@ -50,27 +50,25 @@ for item, line in zip(audit['modules'], table):
 # correctness test or permission to inherit another component's AC evidence.
 expected_paths = {
     'lazysegtree': ['src/compact/lazy_segtree.hpp'],
-    'math': ['src/compact/number_theory.hpp', 'src/compact/number_theory.hpp',
-             'src/compact/number_theory.hpp', 'src/compact/number_theory.hpp',
-             'src/compact/floor_sum.hpp'],
+    'math': ['src/compact/number_theory.hpp', 'src/compact/floor_sum.hpp'],
     'modint': ['src/compact/number_theory.hpp', 'src/compact/dynamic_modint.hpp'],
     'convolution': ['src/compact/ntt_convolution.hpp', 'src/compact/convolution_mod_fft.hpp'],
 }
 for name, paths in expected_paths.items():
     assert modules[name]['local'] == paths, name
-declarations = {
-    'lazy_segtree.hpp': r'struct\s+lazy_segtree\b',
-    'mod64.hpp': r'struct\s+Mod64\b',
-    'extended_gcd.hpp': r'__int128_t\s+extended_gcd\(',
-    'mod_inverse.hpp': r'long long\s+mod_inverse\(',
-    'crt_merge.hpp': r'bool\s+crt_merge\(',
-    'floor_sum.hpp': r'__int128_t\s+floor_sum\(',
-    'number_theory.hpp': r'struct\s+ModInt\b',
-    'dynamic_modint.hpp': r'struct\s+mint\b',
-    'ntt_convolution.hpp': r'struct\s+NttConvolution\b',
-    'convolution_mod_fft.hpp': r'\bconvolution_mod_fft\(',
-}
-for name, pattern in declarations.items():
+declarations = [
+    ('lazy_segtree.hpp', r'struct\s+lazy_segtree\b'),
+    ('number_theory.hpp', r'struct\s+Mod64\b'),
+    ('number_theory.hpp', r'__int128_t\s+extended_gcd\('),
+    ('number_theory.hpp', r'long long\s+mod_inverse\('),
+    ('number_theory.hpp', r'bool\s+crt_merge\('),
+    ('floor_sum.hpp', r'__int128_t\s+floor_sum\('),
+    ('number_theory.hpp', r'struct\s+ModInt\b'),
+    ('dynamic_modint.hpp', r'struct\s+mint\b'),
+    ('ntt_convolution.hpp', r'struct\s+NttConvolution\b'),
+    ('convolution_mod_fft.hpp', r'\bconvolution_mod_fft\('),
+]
+for name, pattern in declarations:
     assert re.search(pattern, (ROOT / 'src/compact' / name).read_text()), name
 
 assert audit['composition_probe_result'] == 'fixed_local_regression_recorded'
