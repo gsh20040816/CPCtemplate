@@ -1,5 +1,5 @@
 #include "../src/compact/algebra.hpp"
-#include "../src/compact/polynomial.hpp"
+#include "compat_layers.hpp"
 #include <iostream>
 int main() {
   using A = LinearAlgebra<101>;

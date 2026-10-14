@@ -3,7 +3,7 @@
 namespace isolated
 {
 #include "../src/compact/number_theory.hpp"
-#include "../src/compact/polynomial.hpp"
+#include "compat_layers.hpp"
 }
 int main()
 {

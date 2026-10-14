@@ -2749,18 +2749,6 @@
     "id": "example-219"
   },
   {
-    "id": "example-220",
-    "symbol": "LazySeg",
-    "kind": "template",
-    "problem": "Luogu P3372 【模板】线段树 1",
-    "url": "https://www.luogu.com.cn/problem/P3372",
-    "summary": "给出长度 n 的正整数序列与 m 次操作，1≤n,m≤100000，支持闭区间加正整数 k 与闭区间求和；任意时刻全序列之和不超过 2×10^18。LazySeg(n) 零初始化后用 n 次单点 add(i,i,a) 装入初值；修改调用 add(l,r,k)，询问调用 query(l,r)。初始化 O(n log n)，每次操作 O(log n)，空间 O(n)；初值、增量、区间和均用 long long。",
-    "driver": "verify/luogu/P3372.compact.cpp",
-    "requires": [
-      "LazySeg"
-    ]
-  },
-  {
     "id": "example-221",
     "symbol": "extended_gcd",
     "kind": "template",
@@ -2813,7 +2801,7 @@
     "symbol": "IntegerGeometry3D",
     "kind": "api",
     "problem": "自定义整数三维谓词",
-    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/geometry_extra.hpp",
+    "url": "https://github.com/gsh20040816/CPCtemplate/blob/main/src/compact/real_space.hpp",
     "summary": "自定义协议，非OJ题：0≤Q≤200000，每次给a,b,c,d四个整数点，各坐标绝对值≤10^9。输出orient(a,b,c,d)、collinear(a,b,c)、on_segment(d,a,b)，后两项为0/1。第一项是有向六倍体积，用128位整数精确输出，不能整除6后冒充体积；为0也不保证前三点确定唯一平面。允许重复点、退化和闭线段端点。此点域的安全界不扩展到任意Vector参数或反复组合运算。",
     "driver": "docs/usage-drivers/integer-3d-demo.cpp",
     "requires": [

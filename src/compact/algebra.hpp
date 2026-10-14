@@ -1,34 +1,5 @@
 #pragma once
-#include "gauss_mod.hpp"
-#include "det_prime.hpp"
-#include "mod_matrix.hpp"
-
-// Compatibility entry for existing drivers; the handbook uses separate modules.
-template <int mod> struct LinearAlgebra : GaussMod<mod>, ModMatrix<mod>
-{
-    using Z = ModInt<mod>;
-    using Matrix = vector<vector<Z>>;
-
-    static Z determinant(Matrix a) { return det_prime<mod>(move(a)); }
-
-    // Undirected multigraph, vertices 0..n-1; loops ignored.
-    static Z spanning_trees(int n, const vector<pair<int, int>> &edges)
-    {
-        assert(n > 0);
-        Matrix lap(n, vector<Z>(n));
-        for (auto [u, v] : edges)
-            if (u != v)
-            {
-                lap[u][u] = lap[u][u] + 1;
-                lap[v][v] = lap[v][v] + 1;
-                lap[u][v] = lap[u][v] - 1;
-                lap[v][u] = lap[v][u] - 1;
-            }
-        lap.pop_back();
-        for (auto &row : lap) row.pop_back();
-        return determinant(lap);
-    }
-};
+#include "number_theory.hpp"
 
 struct DuJiao
 {

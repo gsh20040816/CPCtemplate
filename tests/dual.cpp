@@ -2,7 +2,7 @@
 #include <cassert>
 namespace compact {
 #include "../src/compact/flow.hpp"
-#include "../src/compact/geometry_extra.hpp"
+#include "compat_layers.hpp"
 #include "../src/compact/graph_advanced.hpp"
 #include "../src/compact/optimization.hpp"
 } // namespace compact

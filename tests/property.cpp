@@ -3,10 +3,10 @@
 #include "../src/classic/string.hpp"
 #include "../src/compact/data_structure.hpp"
 #include "../src/compact/flow.hpp"
-#include "../src/compact/geometry.hpp"
+#include "compat_layers.hpp"
 #include "../src/compact/graph.hpp"
 #include "../src/compact/number_theory.hpp"
-#include "../src/compact/polynomial.hpp"
+#include "compat_layers.hpp"
 #include "../src/compact/string.hpp"
 #include "../src/compact/tree.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
@@ -17,7 +17,6 @@ void structures() {
   for (int it = 0; it < 500; it++) {
     int n = 1 + rnd(50);
     Fenwick<> f(n);
-    LazySeg s(n);
     dsu d(n + 1);
     Binary_Indexed_Tree<50> F;
     F.Init(n);
@@ -46,7 +45,6 @@ void structures() {
         sum += a[pos++];
       assert(f.kth(k) == pos && F.Kth(k) == pos);
       v -= 15;
-      s.add(l, r, v);
       S.Insert(l, r, v);
       for (int x = l; x <= r; x++)
         b[x] += v;
@@ -55,7 +53,7 @@ void structures() {
       if (l > r)
         swap(l, r);
       auto want = accumulate(b.begin() + l, b.begin() + r + 1, 0LL);
-      assert(s.query(l, r) == want && S.Query(l, r) == want);
+      assert(S.Query(l, r) == want);
       bool same = c[l] == c[r];
       assert(d.merge(l, r) == !same && D.Merge(l, r) == !same);
       int old = c[r], to = c[l];

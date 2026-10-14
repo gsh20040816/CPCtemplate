@@ -1,4 +1,4 @@
-#include "../src/compact/geometry.hpp"
+#include "compat_layers.hpp"
 #include "../src/classic/geometry.hpp"
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <iostream>

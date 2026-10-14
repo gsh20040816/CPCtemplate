@@ -1,4 +1,4 @@
-#include "../src/compact/geometry_extra.hpp"
+#include "compat_layers.hpp"
 #include "../src/compact/flow.hpp"
 #include <iostream>
 int main() {

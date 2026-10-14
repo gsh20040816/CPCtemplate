@@ -1,5 +1,5 @@
 #include "../src/classic/geometry_extra.hpp"
-#include "../src/compact/geometry_extra.hpp"
+#include "compat_layers.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 using B = boost::multiprecision::cpp_int;
 using G = IntegerGeometry3D;

@@ -1077,19 +1077,19 @@ mint<tag> 按 tag 独立保存运行时模数，默认 998244353。先 set\_mod(
 
 固定int模数1$\le$mod$\le$INT\_MAX，可为合数。构造接受signed64并正规化，v保持0..mod-1；不要手动破坏正规化。加减乘O(1)，pow非负signed64指数、时间O(log(e+1))。try\_inv用欧几里得求逆：gcd(v,mod)=1时返回optional值，否则nullopt；mod=1返回代表0。inv、/、/=要求分母可逆；断言开启时诊断违反前提，关闭断言不承诺拒绝非法除法。逆元O(log(mod+1))、额外空间O(1)，只用long long，不新增辅助模板依赖。+=、-=、*=、/=返回自身引用，支持自赋值与链式运算，可作为Fenwick区间和值类型。类型的扩展不放宽Binomial、NTT、高斯或FPS自身的素数等前提。
 
-\lstinputlisting[firstline=124,lastline=162,firstnumber=1]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=98,lastline=136,firstnumber=1]{../src/compact/number_theory.hpp}
 
 \newpage
 
 \noindent 模整数（接上页同一结构体）：
 
-\lstinputlisting[firstline=163,lastline=199,firstnumber=40]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=137,lastline=173,firstnumber=40]{../src/compact/number_theory.hpp}
 
 \newpage
 
 \noindent 模整数（接上页同一结构体）：
 
-\lstinputlisting[firstline=200,lastline=225,firstnumber=77]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=174,lastline=199,firstnumber=77]{../src/compact/number_theory.hpp}
 
 \newpage
 
@@ -1370,7 +1370,7 @@ $\varphi(1)=1$，两个入口均接受完整的正无符号 64 位输入；0 不
 
 构造参数 0$\le$n<INT\_MAX，且数组须能分配内存。prime为递增质数表；lp/phi/mu 为 0..n 数组。x$\ge$2 时 lp[x] 是最小质因子，lp[x]==x 等价于 x 为素数；反复除以 lp[x] 可分解质因数。lp[0]=lp[1]=0，不能直接用 lp[x]==x 判断 0。n$\ge$1 时 phi[1]=mu[1]=1；第 0 项均为占位 0。O(n) 时间和空间，分解单个表内正整数耗时 O(log x)。n=0 不可访问下标 1。
 
-\lstinputlisting[firstline=90,lastline=123]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=64,lastline=97]{../src/compact/number_theory.hpp}
 
 \Needspace{307pt}
 
@@ -1451,7 +1451,7 @@ POJ 2689 与 UVa 10140 的驱动读到 EOF，扫描相邻素数差。
 
 factor(n) 返回升序质因子（含重数），1$\le$n$\le$ULLONG\_MAX。n=1 返回空数组；n$\ge$2 时 size()==1 等价于 n 为素数，否则 front()/back() 分别取最小/最大质因子。依赖 Mod64 与 Prime64。公开使用 factor；rho/split 为内部辅助，rho 只接受大于 1 的合数，不能直接传素数。Las Vegas 随机运行时间，固定默认种子方便复现，可由构造参数更换；无确定性最坏时间保证。每次 rho 尝试最多 200000 轮，失败后换随机参数重试，不将失败当作素数。递归仅沿真因子拆分，深度 O(log n)。
 
-\lstinputlisting[firstline=38,lastline=89]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=12,lastline=63]{../src/compact/number_theory.hpp}
 
 \Needspace{356pt}
 
@@ -2482,7 +2482,7 @@ p\nmid g,\qquad g^{\varphi/q}\not\equiv1\pmod m
 
 依赖 number\_theory.hpp 的求逆与快速幂。solve(a,b,m) 返回最小 x$\ge$0 使 a\textasciicircum{}x$\equiv$b (mod m)，无解返回 -1；1$\le$m$\le$10$^{12}$，a、b 可为完整 long long 范围，入口归一化，约定 0\textasciicircum{}0=1。先剥离 gcd 并逐次检查较小指数，再在互质剩余问题上 BSGS。baby 表对同余幂保留最小指数 j，按递增大步 i 检查区间，因此首个命中即最小解。单次期望时间 O($\sqrt{\vphantom x}$m+log m)，空间 O($\sqrt{\vphantom x}$m)，哈希表先 reserve；基于 unordered\_map 的界为期望界。每次调用独立建表；底数 1 及零指数解直接返回。
 
-\lstinputlisting[firstline=80,lastline=122]{../src/compact/algebra.hpp}
+\lstinputlisting[firstline=51,lastline=93]{../src/compact/algebra.hpp}
 
 \Needspace{339pt}
 
@@ -3006,7 +3006,7 @@ P2522 双版本完整程序验证五万次查询，包括缩放、窄边和无�
 
 构造预筛上限 1$\le$B<INT\_MAX，内存须可用；mertens(n) 返回 $\mu$ 的前缀和，totient\_sum(n) 返回 $\varphi$ 的前缀和（int128）。约定 0$\le$n$\le$10$^{11}$，n=0 返回 0。按整除分块递归并写入 mmu/mphi 缓存；重复查询复用结果，清空缓存可重算，不可修改 pmu/pphi/limit。单次最大参数 N 的常用均摊分析为 O(B+N/$\sqrt{\vphantom x}$B)（哈希按期望常数计算），B 约 N\textasciicircum{}(2/3) 时为 O(N\textasciicircum{}(2/3))；小 B 不构成大输入性能保证。多次不同 N 可能新增缓存，空间随实际缓存增长；递归深度 O(log N)。
 
-\lstinputlisting[firstline=33,lastline=79]{../src/compact/algebra.hpp}
+\lstinputlisting[firstline=4,lastline=50]{../src/compact/algebra.hpp}
 
 \Needspace{325pt}
 
@@ -4448,11 +4448,11 @@ shifted\_power\_sum(n,m) 返回 $\sum$(k=1..m)(x+k)\textasciicircum{}n 的 n+1 �
 
 Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。init(n) 只扩大当前上限，较小或相同的 n 不改变表；choose(n,k) 返回 C(n,k)，permute(n,k) 返回 n!/(n-k)!。查询前显式预处理到 n，查询本身不扩表。n<0、k<0 或 k>n 返回 0，C(0,0)=P(0,0)=1。fac、ifac 为可直接读取的阶乘与逆阶乘表，增长可能使旧引用失效。单次查询 O(1)；从 old 扩到 n 新增 O(n-old+log prime) 次域运算，重分配还可能复制旧表。首次预处理 O(n+log prime)，空间 O(n)。超过模数不能使用阶乘除法：小素数用 Lucas，小合数用 exLucas。
 
-\lstinputlisting[firstline=226,lastline=244]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=200,lastline=218]{../src/compact/number_theory.hpp}
 
 \Needspace{220pt}
 
-\lstinputlisting[firstline=245,lastline=258,firstnumber=20]{../src/compact/number_theory.hpp}
+\lstinputlisting[firstline=219,lastline=232,firstnumber=20]{../src/compact/number_theory.hpp}
 
 \subsection{计数建模：先确认哪些对象被区分}\label{knowledge-counting-model}
 \index{计数建模}\index{OGF}\index{EGF}
@@ -5651,15 +5651,15 @@ $R_i\leftarrow R_i-qR_j$，再交换 $R_i,R_j$。
 
 值类型 U 为 unsigned long long，完整支持 64 位。默认空基；重新赋值 XorBasis() 清空。insert/Insert 返回是否增秩；contains/Contains 判断可表示性（允许空子集，所以 0 总可表示）。query/Query(x=0) 返回 x 与所张成空间异或后的最大无符号值。kth/Kth(k,nonempty=true) 返回第 k 小的不同异或值，1-based，参数 k 为 \_\_uint128\_t，非法序号返回 nullopt。默认只允许非空输入子集，0 仅在 dependent 为真时出现；传 false 则包括空子集所得的 0。minimum/Minimum 同此约定，空输入的非空最小值不存在。merge/Merge 将另一基所代表的输入多重集并入；重复元素和自合并可新增异或为 0 的非空方案。rank 是维数，dependent 表示存在非空零异或子集。插入、成员判断、最大值为 O(64)；合并 O(64$^{2}$)。kth 会在需要时 rebuild/Rebuild 规范化缓存，首次有效查询 O(64$^{2}$)，后续 O(64)；仅新增独立向量使缓存失效。所有成员仅供只读，不要直接改数组或标志。
 
-\lstinputlisting[firstline=170,lastline=196,firstnumber=1]{../src/compact/data_structure.hpp}
+\lstinputlisting[firstline=119,lastline=145,firstnumber=1]{../src/compact/data_structure.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=197,lastline=222,firstnumber=28]{../src/compact/data_structure.hpp}
+\lstinputlisting[firstline=146,lastline=171,firstnumber=28]{../src/compact/data_structure.hpp}
 
 \newpage
 
-\lstinputlisting[firstline=223,lastline=245,firstnumber=54]{../src/compact/data_structure.hpp}
+\lstinputlisting[firstline=172,lastline=194,firstnumber=54]{../src/compact/data_structure.hpp}
 
 \Needspace{330pt}
 
@@ -6946,28 +6946,6 @@ segtree<S,op,e>(a) 从 0-based vector 构建，或 segtree(n) 初始化为单位
 题目：\url{https://judge.yosupo.jp/problem/point_set_range_composite}
 
 \lstinputlisting{usage/example-78.cpp}
-
-\Needspace{607pt}
-
-\subsection{区间加与区间和}\label{compact-LazySeg}\index{LazySeg}
-
-初值全零；add(l,r,v)、query(l,r)，1$\le$l$\le$r$\le$n。维护 sum 与加法 tag；所有中间和与长度乘积须在 long long 范围内。单次 O(log n)。
-
-\lstinputlisting[firstline=119,lastline=169]{../src/compact/data_structure.hpp}
-
-\Needspace{505pt}
-
-\subsection*{模板题使用：Luogu P3372 【模板】线段树 1}
-
-\label{usage-example-220}
-
-题意：给出长度 n 的正整数序列与 m 次操作，1$\le$n,m$\le$100000，支持闭区间加正整数 k 与闭区间求和；任意时刻全序列之和不超过 2×10\textasciicircum{}18。LazySeg(n) 零初始化后用 n 次单点 add(i,i,a) 装入初值；修改调用 add(l,r,k)，询问调用 query(l,r)。初始化 O(n log n)，每次操作 O(log n)，空间 O(n)；初值、增量、区间和均用 long long。
-
-所需模板：\hyperref[compact-LazySeg]{LazySeg}（第~\pageref{compact-LazySeg}~页，\ref{compact-LazySeg}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://www.luogu.com.cn/problem/P3372}
-
-\lstinputlisting{usage/example-220.cpp}
 
 \subsection{线段树：区间乘、加、赋值与模意义求和}\label{compact-AffineSegTree}\index{AffineSegTree}
 
@@ -12308,17 +12286,7 @@ triangle\_incircle(a,b,c)返回optional<RealPlane::Circle>，圆心为内心、�
 
 \newpage
 
-\Needspace{562pt}
-
 \chapter{三维计算几何基础}
-
-\section{整数三维共线、共面与方向}\label{compact-IntegerGeometry3D}\index{IntegerGeometry3D}
-
-坐标绝对值$\le$10$^{9}$；orient(a,b,c,d) 为有向六倍四面体体积，0 表示共面；collinear 判三点共线，on\_segment 支持退化线段。int128 精确判定，不包含三维凸包构造。
-
-\lstinputlisting[firstline=20,lastline=62]{../src/compact/geometry_extra.hpp}
-
-\newpage
 
 \noindent 相关应用：不扰动增量凸包，精确方向符号、低维退化输出、面积及六倍体积。
 
@@ -12435,6 +12403,16 @@ Hull3D<T>(points)，T只取long long或long double（默认）。输入编号从
 \paragraph{精度约定} 取凸包点p[0]作公共四面体顶点，各外向面的六倍体积v非负，四顶点各加v，total为四倍六倍体积。坐标界M下total不超过$192M^3$，128位安全。各坐标先减最小值后非负求和；距离则对面行列式作非负质量积分，不用近似重心相减。浮点乘除和范数仍有舍入，重心接近零时不保证相对误差。
 
 \paragraph{验证范围} 509组精确有理矩与支撑平面真值，六种构建通过；含行列式1的极薄整数四面体。原kuangbin完整246行与驱动、最小抄写版各102组EOF对拍。HDU4273记录41022769已AC，15MS、1844K；原题是整数坐标比赛应用，不据此声明任意实数测量已覆盖。
+
+\newpage
+
+\Needspace{527pt}
+
+\section{整数三维共线、共面与方向}\label{compact-IntegerGeometry3D}\index{IntegerGeometry3D}
+
+坐标绝对值$\le$10$^{9}$；orient(a,b,c,d) 为有向六倍四面体体积，0 表示共面；collinear 判三点共线，on\_segment 支持退化线段。int128 精确判定，不包含三维凸包构造。
+
+\lstinputlisting[firstline=75,lastline=117]{../src/compact/real_space.hpp}
 
 \newpage
 

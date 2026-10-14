@@ -1,7 +1,7 @@
 // Direct public primitives on point differences, never arbitrary int128 vectors.
 #include <bits/stdc++.h>
 using namespace std;
-#include "../src/compact/geometry_extra.hpp"
+#include "compat_layers.hpp"
 int main()
 {
     auto print = [](__int128_t x) {

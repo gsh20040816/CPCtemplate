@@ -1,6 +1,6 @@
 #include "../src/classic/data_structure.hpp"
 #include "../src/compact/data_structure.hpp"
-#include "../src/compact/geometry.hpp"
+#include "compat_layers.hpp"
 #include "../src/compact/number_theory.hpp"
 #include "../src/compact/string.hpp"
 #include <iostream>

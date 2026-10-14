@@ -116,57 +116,6 @@ template <class T = long long> struct Fenwick
     }
 };
 
-struct LazySeg
-{
-    int n;
-    vector<long long> sum, tag;
-
-    LazySeg(int n) : n(n), sum(4 * n + 4), tag(4 * n + 4) { assert(n > 0); }
-
-    void apply(int p, int l, int r, long long v)
-    {
-        sum[p] += (r - l + 1) * v;
-        tag[p] += v;
-    }
-
-    void push(int p, int l, int r)
-    {
-        int m = (l + r) / 2;
-        apply(p * 2, l, m, tag[p]);
-        apply(p * 2 + 1, m + 1, r, tag[p]);
-        tag[p] = 0;
-    }
-
-    void add(int l, int r, long long v) { add(1, 1, n, l, r, v); }
-
-    void add(int p, int l, int r, int ql, int qr, long long v)
-    {
-        if (ql <= l && r <= qr)
-        {
-            apply(p, l, r, v);
-            return;
-        }
-        push(p, l, r);
-        int m = (l + r) / 2;
-        if (ql <= m) add(p * 2, l, m, ql, qr, v);
-        if (qr > m) add(p * 2 + 1, m + 1, r, ql, qr, v);
-        sum[p] = sum[p * 2] + sum[p * 2 + 1];
-    }
-
-    long long query(int l, int r) { return query(1, 1, n, l, r); }
-
-    long long query(int p, int l, int r, int ql, int qr)
-    {
-        if (ql <= l && r <= qr) return sum[p];
-        push(p, l, r);
-        int m = (l + r) / 2;
-        long long ans = 0;
-        if (ql <= m) ans += query(p * 2, l, m, ql, qr);
-        if (qr > m) ans += query(p * 2 + 1, m + 1, r, ql, qr);
-        return ans;
-    }
-};
-
 struct XorBasis
 {
     using U = unsigned long long;

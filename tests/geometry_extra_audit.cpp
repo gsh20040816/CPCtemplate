@@ -1,4 +1,4 @@
-#include "../src/compact/geometry_extra.hpp"
+#include "compat_layers.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 using B = boost::multiprecision::cpp_int;
 using P = IntegerGeometry::Point;

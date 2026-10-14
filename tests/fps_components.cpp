@@ -1,5 +1,5 @@
 #include "../src/compact/fps_functions.hpp"
-#include "../src/compact/polynomial.hpp"
+#include "compat_layers.hpp"
 #include <iostream>
 using F = FpsFunctions;
 using Z = F::Z;
