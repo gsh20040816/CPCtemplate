@@ -242,3 +242,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | circle_coverage_area | [example-417](usage/example-417.cpp) | generated_unverified |
 | TarjanSCC | [example-2](usage/example-2.cpp), [example-300（应用补充）](usage/example-300.cpp) | generated_unverified |
 | StaticRMQ | [example-276](usage/example-276.cpp), [example-277](usage/example-277.cpp), [example-278（接口演示）](usage/example-278.cpp) | locally_checked_example |
+| ODT | 待补 | pending_example |
+| DynamicDP | [example-457](usage/example-457.cpp) | generated_unverified |
+| Expression | 待补 | pending_example |
+| dinkelbach | 待补 | pending_example |
+| bernoulli | 待补 | pending_example |

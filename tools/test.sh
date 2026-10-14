@@ -31,6 +31,15 @@ python3 tests/static_modint.py
 python3 tests/matrix_tree_knowledge.py
 python3 tests/partition_knowledge.py
 python3 tests/game_classics.py
+"$CXX" "${flags[@]}" tests/odt.cpp -o build/odt
+build/odt
+"$CXX" "${flags[@]}" tests/dynamic_dp.cpp -o build/dynamic_dp
+build/dynamic_dp
+python3 tests/dynamic_dp_application.py
+python3 tests/expression.py
+"$CXX" "${flags[@]}" tests/frac_programming.cpp -o build/frac_programming
+build/frac_programming
+python3 tests/combinatorics_sequences.py
 python3 tests/modular_knowledge.py
 python3 tests/ballot_knowledge.py
 python3 tests/gauss_real.py

@@ -59,6 +59,11 @@ chapters['centroid_diameter'] = '有符号边权活动点直径'
 chapters['negative_cost_flow'] = '允许负环的费用流'
 chapters['circle_coverage'] = '圆覆盖重数面积'
 chapters['static_rmq'] = '位掩码静态RMQ'
+chapters['odt'] = '珂朵莉树'
+chapters['dynamic_dp'] = '动态 DP'
+chapters['expression'] = '表达式求值'
+chapters['frac_programming'] = '分数规划'
+chapters['bernoulli'] = '伯努利数'
 body = []
 records = []
 for style in ['compact']:

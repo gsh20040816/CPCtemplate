@@ -138,6 +138,32 @@ Count需支持0/1构造、默认构造为0、复制和+=；所有中间计数均
 
 \lstinputlisting[firstline=87,lastline=120,firstnumber=81]{../src/compact/plug_cycles.hpp}
 
+\Needspace{180pt}
+
+\chapter{动态 DP}
+
+\section{动态 DP：树上最大权独立集带修改}\label{compact-DynamicDP}\index{DynamicDP}
+
+代码依赖：\hyperref[compact-HLD]{HLD}（第~\pageref{compact-HLD}~页，\ref{compact-HLD}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+DynamicDP(h,w) 接收已 build 的 HLD h（点号 1..n，根任意，须比本对象活得久）与点权 w[1..n]；set(u,val) 修改点权，answer() 返回全树最大权独立集（允许空集）。每个点维护轻儿子贡献 g0=$\sum$max(f0,f1)、g1=w+$\sum$f0，对应 (max,+) 矩阵 [[g0,g0],[g1,-inf]]；线段树按 dfn 维护矩阵积，重链自顶向下连乘，再乘 (0,-inf) 得链顶 (f0,f1)。修改时沿重链上跳，用链顶新旧值之差更新父亲的 g0、g1。构造 O(n)，每次修改 O(log$^{2}$ n)，查询 O(log n)；HLD 的 DFS 为递归。换成其他树形 DP：把转移写成 f\_u 等于 M\_u 乘 f\_重儿子 的半环矩阵乘法，矩阵只依赖 u 自身与轻儿子信息即可套用。
+
+\lstinputlisting[firstline=5,lastline=115]{../src/compact/dynamic_dp.hpp}
+
+\Needspace{431pt}
+
+\subsection*{模板题使用：Luogu P4719 【模板】动态 DP}
+
+\label{usage-example-457}
+
+题意：n,m$\le$10\textasciicircum{}5 的树，每次把一个点的权改为 y，输出全树最大权独立集。以 1 为根建 HLD 后构造 DynamicDP，每次 set 后输出 answer。
+
+所需模板：\hyperref[compact-HLD]{HLD}（第~\pageref{compact-HLD}~页，\ref{compact-HLD}~节）、\hyperref[compact-DynamicDP]{DynamicDP}（第~\pageref{compact-DynamicDP}~页，\ref{compact-DynamicDP}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P4719}
+
+\lstinputlisting{usage/example-457.cpp}
+
 \Needspace{680pt}
 
 \chapter{DP 优化}
@@ -2771,6 +2797,19 @@ C_n=\binom{2n}n-\binom{2n}{n+1}.
 
 \Needspace{180pt}
 
+\section{错位排列}
+
+\subsection{错位排列}\label{knowledge-derangement}\index{错位排列}
+$D_n$ 为没有不动点的 $n$ 元排列数：
+\[
+D_0=1,\ D_1=0,\quad D_n=(n-1)(D_{n-1}+D_{n-2}),\qquad D_n=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}=nD_{n-1}+(-1)^n.
+\]
+恰有 $k$ 个不动点：$\binom nk D_{n-k}$。$n\ge1$ 时 $D_n$ 是最接近 $n!/e$ 的整数，只用于估计，取模时用递推。$O(n)$ 打表。
+
+
+
+\Needspace{180pt}
+
 \section{卡特兰数}
 
 \subsection{Catalan 与投票问题：把前缀限制变成反射双射}\label{knowledge-ballot-reflection}
@@ -2933,6 +2972,56 @@ EGF 层面第一对公式等价于 $B(x)=A(e^x-1)$ 与 $A(x)=B(\log(1+x))$，是
 逐行点积只适合少量行，不是 $O(N\log N)$ 的完整变换。
 
 
+\Needspace{180pt}
+
+\section{贝尔数}
+
+\subsection{贝尔数}\label{knowledge-bell}\index{贝尔数}
+$B_n$ 为 $n$ 元集合的划分数，$B_0=1$：
+\[
+B_{n+1}=\sum_{k=0}^{n}\binom nk B_k,\qquad B_n=\sum_{k=0}^{n}S(n,k),\qquad \sum_{n\ge0}B_n\frac{x^n}{n!}=e^{e^x-1}.
+\]
+小范围用递推 $O(n^2)$，或贝尔三角：首列 $a_{n,0}=a_{n-1,n-1}$，$a_{n,k}=a_{n,k-1}+a_{n-1,k-1}$，$B_n=a_{n,0}$。
+批量模 998244353 用第~\pageref{compact-FpsFunctions}~页 \texttt{FpsFunctions::exp} 对 $e^x-1$ 取 exp，$O(n\log n)$；单个 $B_n$ 也可由第~\pageref{compact-stirling_second_row}~页的斯特林数整行求和。
+素数 $p$ 下有 Touchard 同余 $B_{n+p}\equiv B_n+B_{n+1}\pmod p$。
+
+
+
+\Needspace{286pt}
+
+\section{伯努利数}
+
+\subsection{伯努利数批量计算}\label{compact-bernoulli}\index{bernoulli}
+
+代码依赖：\hyperref[compact-FpsInverse]{FpsInverse}（第~\pageref{compact-FpsInverse}~页，\ref{compact-FpsInverse}~节）、\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+bernoulli(n) 返回 B\_0..B\_n 模 998244353，约定 B\_1=-1/2（生成函数 x/(e\textasciicircum{}x-1)）。对 (e\textasciicircum{}x-1)/x 的前 n+1 项求逆再乘阶乘，O(n log n) 时间、O(n) 空间，要求 n+2$\le$2\textasciicircum{}23；依赖 FpsInverse。自然数幂和公式见知识节。
+
+\lstinputlisting[firstline=5,lastline=19]{../src/compact/bernoulli.hpp}
+
+\subsection{伯努利数与自然数幂和}\label{knowledge-bernoulli}\index{伯努利数}\index{自然数幂和}
+约定 $B_1=-\tfrac12$：$\displaystyle\sum_{k\ge0}B_k\frac{x^k}{k!}=\frac{x}{e^x-1}$，等价于 $B_0=1$，$\sum_{j=0}^{m}\binom{m+1}{j}B_j=0$（$m\ge1$）；$k\ge3$ 为奇数时 $B_k=0$。
+\[
+\sum_{i=0}^{n-1}i^k=\frac{1}{k+1}\sum_{j=0}^{k}\binom{k+1}{j}B_j\,n^{k+1-j}.
+\]
+批量 $B_0..B_n$（模 998244353）用第~\pageref{compact-bernoulli}~页 \texttt{bernoulli(n)}，$O(n\log n)$。只求一个 $k$ 的幂和时，用第~\pageref{compact-lagrange_consecutive}~页连续点拉格朗日插值 $O(k)$ 更简单；需要对很多 $k$ 求、或要多项式系数时用伯努利数。模数需大于 $k+1$ 以便除法。
+
+
+
+\Needspace{180pt}
+
+\section{Eulerian Number}
+
+\subsection{欧拉数（Eulerian number）}\label{knowledge-eulerian}\index{欧拉数}
+$\genfrac{\langle}{\rangle}{0pt}{}{n}{k}$ 为恰有 $k$ 个下降（$p_i>p_{i+1}$）的 $n$ 元排列数，$\genfrac{\langle}{\rangle}{0pt}{}{0}{0}=1$：
+\[
+\genfrac{\langle}{\rangle}{0pt}{}{n}{k}=(k+1)\genfrac{\langle}{\rangle}{0pt}{}{n-1}{k}+(n-k)\genfrac{\langle}{\rangle}{0pt}{}{n-1}{k-1}
+=\sum_{i=0}^{k}(-1)^i\binom{n+1}{i}(k+1-i)^n.
+\]
+Worpitzky 恒等式：$x^n=\sum_{k}\genfrac{\langle}{\rangle}{0pt}{}{n}{k}\binom{x+k}{n}$。按行和为 $n!$，且关于 $k\leftrightarrow n-1-k$ 对称。递推 $O(n^2)$，单项用求和式 $O(k\log n)$。
+
+
+
 \Needspace{567pt}
 
 \section{分拆数}
@@ -3004,6 +3093,20 @@ $d=k+1\ge1$ 时
 =\prod_{\substack{i\ge1\\d\nmid i}}\frac1{1-z^i},
 \]
 即每值至多 $k$ 次等价于禁用 $d$ 的倍数，可用完全背包核对；$k=1$ 时互异分拆数等于奇数部分分拆数；$k\ge n$ 时无限制。
+
+
+\Needspace{180pt}
+
+\section{范德蒙德卷积}
+
+\subsection{范德蒙德卷积及常用变形}\label{knowledge-vandermonde}\index{范德蒙德卷积}
+\[
+\sum_{i}\binom ni\binom m{k-i}=\binom{n+m}k,\qquad \sum_i\binom ni^2=\binom{2n}n,\qquad \sum_i\binom ni\binom mi=\binom{n+m}n,
+\]
+\[
+\sum_{i=0}^{n}\binom ia\binom{n-i}b=\binom{n+1}{a+b+1}.
+\]
+组合解释：从两组中共选 $k$ 个，按第一组选了几个分类；最后一式按第 $a+1$ 个被选元素的位置分类。遇到“对某个分界点求和的两个组合数之积”时先尝试化成一个组合数，可把 $O(n)$ 的求和变成 $O(1)$。
 
 
 \Needspace{547pt}
@@ -8161,3 +8264,48 @@ $t(i)=\sum_{j<i}H(i,j)$，$T(p,i)=\sum_{j<p}H(i,j)-[k=0\land i<p]$；
 0-based 半开区间，允许空区间；位宽默认 14，$k$ 超位宽答案全零。
 $C=\binom bk$，时间 $O(2^b+nC+m\log(m+1)+n\sqrt m+m)$，空间 $O(2^b+n+m)$；答案用 long long。
 
+
+\Needspace{271pt}
+
+\chapter{分数规划}
+
+\section{0/1 分数规划：Dinkelbach}\label{compact-dinkelbach}\index{dinkelbach}
+
+dinkelbach(best,lambda,eps=1e-10) 求可行方案中 $\sum$A/$\sum$B 的最大值，要求所有可行方案 $\sum$B>0。best($\lambda$) 返回使 A-$\lambda$B 最大的方案的 \{A,B\}（double）；初值 lambda 取任一可行方案的比值，不能随意取 0（所有比值为负时会出错）。每轮 $\lambda$←A/B 单调上升，A-$\lambda$B$\le$eps·max(1,|B|) 时返回。迭代次数一般远少于二分；最小化比值时把 a 取负或回调改为求最小并反转比较。原理、二分写法与常见组合见知识节。
+
+\lstinputlisting[firstline=6,lastline=17]{../src/compact/frac_programming.hpp}
+
+\section{0/1 分数规划}\label{knowledge-frac-programming}\index{分数规划}\index{Dinkelbach}
+\textbf{问题}：在可行方案集合中最大化 $\dfrac{\sum a_i x_i}{\sum b_i x_i}$，$x_i\in\{0,1\}$，要求所有可行方案 $\sum b_ix_i>0$。\\
+\textbf{转化}：令 $F(\lambda)=\max\bigl(\sum a_ix_i-\lambda\sum b_ix_i\bigr)$，它关于 $\lambda$ 严格单调递减，最优比值 $\lambda^*$ 恰为 $F(\lambda)=0$ 的根：$F(\lambda)\ge0\iff\lambda\le\lambda^*$。求最小比值时把 $\max$ 换成 $\min$、不等号反向。\\
+\textbf{二分}：在答案范围内二分 $\lambda$，每次求一次 $F(\lambda)$ 判断正负；实数二分固定 60 到 100 轮，或按题目精度停止。总复杂度为轮数乘一次判定。\\
+\textbf{Dinkelbach}：从任一可行方案的比值出发，取使 $F(\lambda)$ 达到最大的方案 $(A,B)$，令 $\lambda\gets A/B$；$\lambda$ 单调上升，$F(\lambda)\le$ 精度时即为最优，迭代次数通常远少于二分。模板见第~\pageref{compact-dinkelbach}~页，回调只需返回该方案的 $(A,B)$。\\
+\textbf{常见组合}：
+\begin{itemize}
+\item 恰选 $k$ 个：按 $a_i-\lambda b_i$ 排序取前 $k$ 个，$O(n\log n)$ 判定。
+\item 最优比率生成树：边权取 $a_e-\lambda b_e$，求最大（或最小）生成树。
+\item 最优比率环（最小化环上 $\sum a/\sum b$）：边权取 $a_e-\lambda b_e$，存在负环 $\iff\lambda>$ 最优比值，用第~\pageref{compact-Spfa}~页 SPFA 判负环后二分；Dinkelbach 需要求出最负的环，通常直接二分。
+\item 带上界约束的选择（背包、树上连通块）：判定内部换成对应 DP，DP 的目标改成 $\sum(a-\lambda b)$。
+\end{itemize}
+\textbf{注意}：$b_i$ 可正可负时单调性不成立，不能直接套用；判定必须求出“该 $\lambda$ 下的最优方案”，不能用贪心近似。整数数据要精确答案时，可在最终方案上用分数 $A/B$ 输出。
+
+
+\Needspace{180pt}
+
+\chapter{表达式求值}
+
+\section{整数表达式求值}\label{compact-Expression}\index{Expression}
+
+Expression(s).eval() 计算整数表达式 s 的值（long long）。支持非负整数字面量、+ - * / \% \textasciicircum{}、括号与一元正负号，空格忽略。优先级从高到低：\textasciicircum{}（右结合，指数须非负，0\textasciicircum{}0=1）、一元正负、* / \%、+ -，同级左结合；/ 和 \% 按 C++ 截断，除数不能为 0。递归下降，O(|s|) 时间，递归深度等于括号与一元符号的嵌套深度。所有中间结果须在 long long 内；需要取模时把各运算改成模运算即可。非法输入触发 assert。
+
+\lstinputlisting[firstline=7,lastline=99]{../src/compact/expression.hpp}
+
+\Needspace{520pt}
+
+\chapter{珂朵莉树/颜色段均摊}
+
+\section{珂朵莉树（颜色段均摊）}\label{compact-ODT}\index{ODT}
+
+ODT<T>(lo,hi,v) 维护半开区间 [lo,hi) 上的分段常值序列，初值 v；mp 的键为段起点，键 hi 为哨兵。split(x) 使 x（lo$\le$x$\le$hi）成为段起点并返回其迭代器；assign(l,r,v) 把 [l,r) 推平为 v（l$\le$r，空区间不变）；each(l,r,f) 依次对 [l,r) 内每段调用 f(段起点,段终点,值引用)，可在 f 中修改值、统计和、收集 (值,长度) 求第 k 小或幂和。map 插入不使已有迭代器失效，故 split 的先后无关；经典 set 写法（删除旧段再插入两段）必须先 split(r) 再 split(l)。复杂度依赖推平操作：数据随机且推平占常数比例时段数期望 O(log n)，总复杂度约 O(m log n)；没有推平或被构造数据卡时会退化为 O(n) 每次。
+
+\lstinputlisting[firstline=7,lastline=40]{../src/compact/odt.hpp}

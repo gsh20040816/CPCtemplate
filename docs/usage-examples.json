@@ -3983,5 +3983,18 @@
     "requires": [
       "tree_hash"
     ]
+  },
+  {
+    "id": "example-457",
+    "symbol": "DynamicDP",
+    "kind": "template",
+    "problem": "Luogu P4719 【模板】动态 DP",
+    "url": "https://www.luogu.com.cn/problem/P4719",
+    "summary": "n,m≤10^5 的树，每次把一个点的权改为 y，输出全树最大权独立集。以 1 为根建 HLD 后构造 DynamicDP，每次 set 后输出 answer。",
+    "driver": "verify/luogu/P4719.compact.cpp",
+    "requires": [
+      "HLD",
+      "DynamicDP"
+    ]
   }
 ]

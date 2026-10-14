@@ -44,4 +44,4 @@ SANITIZE=1 tools/test.sh
 
 运行 `tools/build_pdf.sh`（需要 XeLaTeX、latexmk），生成 `output/pdf/` 下的总册、六本分册（字符串、数学、数据结构、图论、计算几何、杂项）与 Infra 册，见 [分册说明](docs/VOLUMES.md)。
 
-当前有 114 个分类知识节（数学 82、图论 16、计算几何 1、数据结构 9、杂项 3、字符串 3），按固定 OI Wiki 导航纳入总册和所属分册，映射见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)；不把这些节数当作完整知识体系的覆盖比例。PDF 中的知识节只保留公式、适用条件和复杂度；推导、反例与验证范围见 [知识节完整说明](docs/KNOWLEDGE-DETAILS.md)，由 `python3 tools/knowledge_markdown.py` 从 `docs/knowledge-full/` 生成。
+当前有 120 个分类知识节（数学 87、图论 16、计算几何 1、数据结构 9、杂项 4、字符串 3），按固定 OI Wiki 导航纳入总册和所属分册，映射见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)；不把这些节数当作完整知识体系的覆盖比例。PDF 中的知识节只保留公式、适用条件和复杂度；推导、反例与验证范围见 [知识节完整说明](docs/KNOWLEDGE-DETAILS.md)，由 `python3 tools/knowledge_markdown.py` 从 `docs/knowledge-full/` 生成。

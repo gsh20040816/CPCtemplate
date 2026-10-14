@@ -1264,6 +1264,21 @@ P5170 完整输入输出见第  节（）；本题多组数量至 $10^5$。
 
 来源与题目：<https://www.luogu.com.cn/problem/P5170>。
 
+## knowledge-frac-programming
+
+### 0/1 分数规划
+**问题**：在可行方案集合中最大化 $\dfrac{\sum a_i x_i}{\sum b_i x_i}$，$x_i\in\{0,1\}$，要求所有可行方案 $\sum b_ix_i>0$。\\
+**转化**：令 $F(\lambda)=\max\bigl(\sum a_ix_i-\lambda\sum b_ix_i\bigr)$，它关于 $\lambda$ 严格单调递减，最优比值 $\lambda^*$ 恰为 $F(\lambda)=0$ 的根：$F(\lambda)\ge0\iff\lambda\le\lambda^*$。求最小比值时把 $\max$ 换成 $\min$、不等号反向。\\
+**二分**：在答案范围内二分 $\lambda$，每次求一次 $F(\lambda)$ 判断正负；实数二分固定 60 到 100 轮，或按题目精度停止。总复杂度为轮数乘一次判定。\\
+**Dinkelbach**：从任一可行方案的比值出发，取使 $F(\lambda)$ 达到最大的方案 $(A,B)$，令 $\lambda\gets A/B$；$\lambda$ 单调上升，$F(\lambda)\le$ 精度时即为最优，迭代次数通常远少于二分。模板见，回调只需返回该方案的 $(A,B)$。\\
+**常见组合**：
+- 恰选 $k$ 个：按 $a_i-\lambda b_i$ 排序取前 $k$ 个，$O(n\log n)$ 判定。
+- 最优比率生成树：边权取 $a_e-\lambda b_e$，求最大（或最小）生成树。
+- 最优比率环（最小化环上 $\sum a/\sum b$）：边权取 $a_e-\lambda b_e$，存在负环 $\iff\lambda>$ 最优比值，用 SPFA 判负环后二分；Dinkelbach 需要求出最负的环，通常直接二分。
+- 带上界约束的选择（背包、树上连通块）：判定内部换成对应 DP，DP 的目标改成 $\sum(a-\lambda b)$。
+
+**注意**：$b_i$ 可正可负时单调性不成立，不能直接套用；判定必须求出“该 $\lambda$ 下的最优方案”，不能用贪心近似。整数数据要精确答案时，可在最终方案上用分数 $A/B$ 输出。
+
 ## knowledge-functional-notes
 
 ### 函数图的入环链与到达查询
@@ -3883,6 +3898,48 @@ WIDA 的“组合数 (Lucas)”文件实际提供的是普通阶乘、逆阶乘�
 没有逐位 Lucas 递推。本书以此节覆盖该文件的数学功能，
 用显式扩表取代查询时自动扩表，适用范围仍须限制在模数以内。
 验证使用独立 Pascal 三角和下降阶乘，另检查百万项表及扩表前后的原查询结果。
+
+## knowledge-sequences
+
+### 错位排列
+$D_n$ 为没有不动点的 $n$ 元排列数：
+\[
+D_0=1,\ D_1=0,\quad D_n=(n-1)(D_{n-1}+D_{n-2}),\qquad D_n=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}=nD_{n-1}+(-1)^n.
+\]
+恰有 $k$ 个不动点：$\binom nk D_{n-k}$。$n\ge1$ 时 $D_n$ 是最接近 $n!/e$ 的整数，只用于估计，取模时用递推。$O(n)$ 打表。
+
+### 贝尔数
+$B_n$ 为 $n$ 元集合的划分数，$B_0=1$：
+\[
+B_{n+1}=\sum_{k=0}^{n}\binom nk B_k,\qquad B_n=\sum_{k=0}^{n}S(n,k),\qquad \sum_{n\ge0}B_n\frac{x^n}{n!}=e^{e^x-1}.
+\]
+小范围用递推 $O(n^2)$，或贝尔三角：首列 $a_{n,0}=a_{n-1,n-1}$，$a_{n,k}=a_{n,k-1}+a_{n-1,k-1}$，$B_n=a_{n,0}$。
+批量模 998244353 用 `FpsFunctions::exp` 对 $e^x-1$ 取 exp，$O(n\log n)$；单个 $B_n$ 也可由的斯特林数整行求和。
+素数 $p$ 下有 Touchard 同余 $B_{n+p}\equiv B_n+B_{n+1}\pmod p$。
+
+### 伯努利数与自然数幂和
+约定 $B_1=-\tfrac12$：$\displaystyle\sum_{k\ge0}B_k\frac{x^k}{k!}=\frac{x}{e^x-1}$，等价于 $B_0=1$，$\sum_{j=0}^{m}\binom{m+1}{j}B_j=0$（$m\ge1$）；$k\ge3$ 为奇数时 $B_k=0$。
+\[
+\sum_{i=0}^{n-1}i^k=\frac{1}{k+1}\sum_{j=0}^{k}\binom{k+1}{j}B_j\,n^{k+1-j}.
+\]
+批量 $B_0..B_n$（模 998244353）用 `bernoulli(n)`，$O(n\log n)$。只求一个 $k$ 的幂和时，用连续点拉格朗日插值 $O(k)$ 更简单；需要对很多 $k$ 求、或要多项式系数时用伯努利数。模数需大于 $k+1$ 以便除法。
+
+### 欧拉数（Eulerian number）
+$\genfrac{\langle}{\rangle}{0pt}{}{n}{k}$ 为恰有 $k$ 个下降（$p_i>p_{i+1}$）的 $n$ 元排列数，$\genfrac{\langle}{\rangle}{0pt}{}{0}{0}=1$：
+\[
+\genfrac{\langle}{\rangle}{0pt}{}{n}{k}=(k+1)\genfrac{\langle}{\rangle}{0pt}{}{n-1}{k}+(n-k)\genfrac{\langle}{\rangle}{0pt}{}{n-1}{k-1}
+=\sum_{i=0}^{k}(-1)^i\binom{n+1}{i}(k+1-i)^n.
+\]
+Worpitzky 恒等式：$x^n=\sum_{k}\genfrac{\langle}{\rangle}{0pt}{}{n}{k}\binom{x+k}{n}$。按行和为 $n!$，且关于 $k\leftrightarrow n-1-k$ 对称。递推 $O(n^2)$，单项用求和式 $O(k\log n)$。
+
+### 范德蒙德卷积及常用变形
+\[
+\sum_{i}\binom ni\binom m{k-i}=\binom{n+m}k,\qquad \sum_i\binom ni^2=\binom{2n}n,\qquad \sum_i\binom ni\binom mi=\binom{n+m}n,
+\]
+\[
+\sum_{i=0}^{n}\binom ia\binom{n-i}b=\binom{n+1}{a+b+1}.
+\]
+组合解释：从两组中共选 $k$ 个，按第一组选了几个分类；最后一式按第 $a+1$ 个被选元素的位置分类。遇到“对某个分界点求和的两个组合数之积”时先尝试化成一个组合数，可把 $O(n)$ 的求和变成 $O(1)$。
 
 ## knowledge-sieve-notes
 

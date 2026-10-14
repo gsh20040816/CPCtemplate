@@ -1,0 +1,40 @@
+% Common counting sequences (issue #25); every identity is checked by tests/combinatorics_sequences.py.
+\section{错位排列}\label{knowledge-derangement}\index{错位排列}
+$D_n$ 为没有不动点的 $n$ 元排列数：
+\[
+D_0=1,\ D_1=0,\quad D_n=(n-1)(D_{n-1}+D_{n-2}),\qquad D_n=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}=nD_{n-1}+(-1)^n.
+\]
+恰有 $k$ 个不动点：$\binom nk D_{n-k}$。$n\ge1$ 时 $D_n$ 是最接近 $n!/e$ 的整数，只用于估计，取模时用递推。$O(n)$ 打表。
+
+\section{贝尔数}\label{knowledge-bell}\index{贝尔数}
+$B_n$ 为 $n$ 元集合的划分数，$B_0=1$：
+\[
+B_{n+1}=\sum_{k=0}^{n}\binom nk B_k,\qquad B_n=\sum_{k=0}^{n}S(n,k),\qquad \sum_{n\ge0}B_n\frac{x^n}{n!}=e^{e^x-1}.
+\]
+小范围用递推 $O(n^2)$，或贝尔三角：首列 $a_{n,0}=a_{n-1,n-1}$，$a_{n,k}=a_{n,k-1}+a_{n-1,k-1}$，$B_n=a_{n,0}$。
+批量模 998244353 用第~\pageref{compact-FpsFunctions}~页 \texttt{FpsFunctions::exp} 对 $e^x-1$ 取 exp，$O(n\log n)$；单个 $B_n$ 也可由第~\pageref{compact-stirling_second_row}~页的斯特林数整行求和。
+素数 $p$ 下有 Touchard 同余 $B_{n+p}\equiv B_n+B_{n+1}\pmod p$。
+
+\section{伯努利数与自然数幂和}\label{knowledge-bernoulli}\index{伯努利数}\index{自然数幂和}
+约定 $B_1=-\tfrac12$：$\displaystyle\sum_{k\ge0}B_k\frac{x^k}{k!}=\frac{x}{e^x-1}$，等价于 $B_0=1$，$\sum_{j=0}^{m}\binom{m+1}{j}B_j=0$（$m\ge1$）；$k\ge3$ 为奇数时 $B_k=0$。
+\[
+\sum_{i=0}^{n-1}i^k=\frac{1}{k+1}\sum_{j=0}^{k}\binom{k+1}{j}B_j\,n^{k+1-j}.
+\]
+批量 $B_0..B_n$（模 998244353）用第~\pageref{compact-bernoulli}~页 \texttt{bernoulli(n)}，$O(n\log n)$。只求一个 $k$ 的幂和时，用第~\pageref{compact-lagrange_consecutive}~页连续点拉格朗日插值 $O(k)$ 更简单；需要对很多 $k$ 求、或要多项式系数时用伯努利数。模数需大于 $k+1$ 以便除法。
+
+\section{欧拉数（Eulerian number）}\label{knowledge-eulerian}\index{欧拉数}
+$\genfrac{\langle}{\rangle}{0pt}{}{n}{k}$ 为恰有 $k$ 个下降（$p_i>p_{i+1}$）的 $n$ 元排列数，$\genfrac{\langle}{\rangle}{0pt}{}{0}{0}=1$：
+\[
+\genfrac{\langle}{\rangle}{0pt}{}{n}{k}=(k+1)\genfrac{\langle}{\rangle}{0pt}{}{n-1}{k}+(n-k)\genfrac{\langle}{\rangle}{0pt}{}{n-1}{k-1}
+=\sum_{i=0}^{k}(-1)^i\binom{n+1}{i}(k+1-i)^n.
+\]
+Worpitzky 恒等式：$x^n=\sum_{k}\genfrac{\langle}{\rangle}{0pt}{}{n}{k}\binom{x+k}{n}$。按行和为 $n!$，且关于 $k\leftrightarrow n-1-k$ 对称。递推 $O(n^2)$，单项用求和式 $O(k\log n)$。
+
+\section{范德蒙德卷积及常用变形}\label{knowledge-vandermonde}\index{范德蒙德卷积}
+\[
+\sum_{i}\binom ni\binom m{k-i}=\binom{n+m}k,\qquad \sum_i\binom ni^2=\binom{2n}n,\qquad \sum_i\binom ni\binom mi=\binom{n+m}n,
+\]
+\[
+\sum_{i=0}^{n}\binom ia\binom{n-i}b=\binom{n+1}{a+b+1}.
+\]
+组合解释：从两组中共选 $k$ 个，按第一组选了几个分类；最后一式按第 $a+1$ 个被选元素的位置分类。遇到“对某个分界点求和的两个组合数之积”时先尝试化成一个组合数，可把 $O(n)$ 的求和变成 $O(1)$。

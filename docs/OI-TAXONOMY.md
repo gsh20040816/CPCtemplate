@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 179，application 32，composite 4，related 20。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 184，application 32，composite 4，related 20。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -14,6 +14,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | MinimumCover | 搜索 → Dancing Links | direct | 无权最少行重复覆盖及方案；不含带权、多重次数与解计数。 |
 | grid_cycle | 动态规划 → 插头 DP | direct | 轮廓线连通性最小编号表示，单个闭环覆盖所有可用格子，Count可取精确或模计数。 |
 | grid_cycles | 动态规划 → 插头 DP | direct | 恰好K个回路，默认禁止嵌套；与单闭环模板分开保留。 |
+| DynamicDP | 动态规划 → 动态 DP | direct |  |
 | MonotoneHull | 动态规划 → DP 优化 → 斜率优化 | direct | Monotonicity and exact arithmetic contracts; complete partition or path-selection application. |
 | monotone_dp_layer | 动态规划 → DP 优化 → 四边形不等式优化 | direct | Monotonicity and exact arithmetic contracts; complete partition or path-selection application. |
 | wqs_independent_set | 动态规划 → DP 优化 → WQS 二分 | direct | Monotonicity and exact arithmetic contracts; complete partition or path-selection application. |
@@ -83,6 +84,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | Binomial | 数学 → 组合数学 → 排列组合 | direct |  |
 | stirling_first_row | 数学 → 组合数学 → 斯特林数 | direct |  |
 | stirling_second_row | 数学 → 组合数学 → 斯特林数 | direct |  |
+| bernoulli | 数学 → 组合数学 → 伯努利数 | direct |  |
 | Partitions | 数学 → 组合数学 → 分拆数 | direct |  |
 | parts_at_most | 数学 → 组合数学 → 分拆数 | direct |  |
 | parts_at_most_fps | 数学 → 组合数学 → 分拆数 | direct |  |
@@ -245,3 +247,6 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | TreeMo | 杂项 → 离线算法 → 莫队算法 → 树上莫队 | direct | Static offline Mo template; recursive tree Euler tour or rollback-only interval state. |
 | RollbackMo | 杂项 → 离线算法 → 莫队算法 → 回滚莫队 | direct | Static offline Mo template; recursive tree Euler tour or rollback-only interval state. |
 | xor_hamming_pairs | 杂项 → 离线算法 → 莫队算法 → 莫队二次离线 | direct | 附件及 P4887 的异或 popcount 配对应用；不声称任意问题可直接代入。 |
+| dinkelbach | 杂项 → 分数规划 | direct |  |
+| Expression | 杂项 → 表达式求值 | direct |  |
+| ODT | 杂项 → 珂朵莉树/颜色段均摊 | direct |  |

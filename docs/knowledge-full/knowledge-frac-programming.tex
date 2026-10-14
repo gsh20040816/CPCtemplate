@@ -1,0 +1,14 @@
+% 0/1 fractional programming (issue #25); checked by tests/frac_programming.cpp.
+\section{0/1 分数规划}\label{knowledge-frac-programming}\index{分数规划}\index{Dinkelbach}
+\textbf{问题}：在可行方案集合中最大化 $\dfrac{\sum a_i x_i}{\sum b_i x_i}$，$x_i\in\{0,1\}$，要求所有可行方案 $\sum b_ix_i>0$。\\
+\textbf{转化}：令 $F(\lambda)=\max\bigl(\sum a_ix_i-\lambda\sum b_ix_i\bigr)$，它关于 $\lambda$ 严格单调递减，最优比值 $\lambda^*$ 恰为 $F(\lambda)=0$ 的根：$F(\lambda)\ge0\iff\lambda\le\lambda^*$。求最小比值时把 $\max$ 换成 $\min$、不等号反向。\\
+\textbf{二分}：在答案范围内二分 $\lambda$，每次求一次 $F(\lambda)$ 判断正负；实数二分固定 60 到 100 轮，或按题目精度停止。总复杂度为轮数乘一次判定。\\
+\textbf{Dinkelbach}：从任一可行方案的比值出发，取使 $F(\lambda)$ 达到最大的方案 $(A,B)$，令 $\lambda\gets A/B$；$\lambda$ 单调上升，$F(\lambda)\le$ 精度时即为最优，迭代次数通常远少于二分。模板见第~\pageref{compact-dinkelbach}~页，回调只需返回该方案的 $(A,B)$。\\
+\textbf{常见组合}：
+\begin{itemize}
+\item 恰选 $k$ 个：按 $a_i-\lambda b_i$ 排序取前 $k$ 个，$O(n\log n)$ 判定。
+\item 最优比率生成树：边权取 $a_e-\lambda b_e$，求最大（或最小）生成树。
+\item 最优比率环（最小化环上 $\sum a/\sum b$）：边权取 $a_e-\lambda b_e$，存在负环 $\iff\lambda>$ 最优比值，用第~\pageref{compact-Spfa}~页 SPFA 判负环后二分；Dinkelbach 需要求出最负的环，通常直接二分。
+\item 带上界约束的选择（背包、树上连通块）：判定内部换成对应 DP，DP 的目标改成 $\sum(a-\lambda b)$。
+\end{itemize}
+\textbf{注意}：$b_i$ 可正可负时单调性不成立，不能直接套用；判定必须求出“该 $\lambda$ 下的最优方案”，不能用贪心近似。整数数据要精确答案时，可在最终方案上用分数 $A/B$ 输出。
