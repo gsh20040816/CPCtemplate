@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 176，application 32，composite 3，related 18。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 177，application 32，composite 4，related 18。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -109,6 +109,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | dsu | 数据结构 → 并查集 → 并查集 | direct |  |
 | pheap | 数据结构 → 堆 → 配对堆 | application | GNU pairing_heap_tag 实现，按实际数据结构归堆；另在infra语言基础索引中登记。 |
 | LeftistHeap | 数据结构 → 堆 → 左偏树 | direct |  |
+| StaticRMQ | 数据结构 → ST 表 | composite | 块间ST表与块内单调栈位掩码组合；与专题RMQ相关，主分类保持数据结构。 |
 | Fenwick | 数据结构 → 树状数组 | direct |  |
 | RectangleFenwick | 数据结构 → 树状数组 | direct | 稠密二维差分四矩，矩形加与矩形和；不是基础一维独立模板。 |
 | offline_rectangle_sum | 数据结构 → 树状数组 | related | 离线二维扫描线应用，不代表整页覆盖 |
@@ -161,6 +162,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | SteinerTree | 图论 → 斯坦纳树 | direct | 小终端数子集DP与多源Dijkstra，附原边方案。 |
 | FunctionalGraph | 图论 → 连通性相关 → 强连通分量 | related | 函数图包含尾链与环分解，导航无独立页；需正文定位，不应等同一般 SCC 算法。 |
 | SCC | 图论 → 连通性相关 → 强连通分量 | direct |  |
+| TarjanSCC | 图论 → 连通性相关 → 强连通分量 | direct |  |
 | BiconnectedCore | 图论 → 连通性相关 → 双连通分量 | direct |  |
 | bridge_component_forest | 图论 → 连通性相关 → 双连通分量 | direct |  |
 | Cactus | 图论 → 连通性相关 → 圆方树 | direct | 仙人掌专用环虚点森林，非负权最短路，LCA在虚点时修正环上距离。 |

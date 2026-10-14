@@ -236,3 +236,5 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | NegativeCostFlow | [example-98](usage/example-98.cpp) | generated_unverified |
 | CentroidDiameter | [example-284（应用补充）](usage/example-284.cpp), [example-285（接口演示）](usage/example-285.cpp) | locally_checked_application |
 | circle_coverage_area | [example-417](usage/example-417.cpp) | generated_unverified |
+| TarjanSCC | [example-2](usage/example-2.cpp), [example-300（应用补充）](usage/example-300.cpp) | locally_checked_example |
+| StaticRMQ | [example-276](usage/example-276.cpp), [example-277](usage/example-277.cpp), [example-278（接口演示）](usage/example-278.cpp) | locally_checked_example |

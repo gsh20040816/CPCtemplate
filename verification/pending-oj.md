@@ -59,6 +59,7 @@
 - `verify/api/real_space.compact.cpp`
 - `verify/api/sam_documents.compact.cpp`
 - `verify/api/spfa.compact.cpp`
+- `verify/api/static_rmq.compact.cpp`
 - `verify/api/string_hash.compact.cpp`
 - `verify/api/time_connectivity.compact.cpp`
 - `verify/api/transposed_convolution.compact.cpp`
@@ -131,6 +132,7 @@
 - `verify/library_checker/sort_points_by_argument.compact.cpp`
 - `verify/library_checker/sqrt_of_formal_power_series.compact.cpp`
 - `verify/library_checker/static_convex_hull.compact.cpp`
+- `verify/library_checker/staticrmq.compact.cpp`
 - `verify/library_checker/stirling_number_of_the_first_kind.compact.cpp`
 - `verify/library_checker/stirling_number_of_the_second_kind.compact.cpp`
 - `verify/library_checker/suffixarray.compact.cpp`
@@ -180,6 +182,7 @@
 - `verify/luogu/P2865.compact.cpp`
 - `verify/luogu/P2901.compact.cpp`
 - `verify/luogu/P3187.compact.cpp`
+- `verify/luogu/P3275.compact.cpp`
 - `verify/luogu/P3355.compact.cpp`
 - `verify/luogu/P3366.compact.cpp`
 - `verify/luogu/P3369.fenwick-selection.compact.cpp`
@@ -202,6 +205,7 @@
 - `verify/luogu/P3810.compact.cpp`
 - `verify/luogu/P3812.compact.cpp`
 - `verify/luogu/P3835.compact.cpp`
+- `verify/luogu/P3865.compact.cpp`
 - `verify/luogu/P3975.compact.cpp`
 - `verify/luogu/P4097.compact.cpp`
 - `verify/luogu/P4126.compact.cpp`

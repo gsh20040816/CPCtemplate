@@ -58,6 +58,8 @@ chapters['convolution_i64'] = '精确整数卷积'
 chapters['centroid_diameter'] = '有符号边权活动点直径'
 chapters['negative_cost_flow'] = '允许负环的费用流'
 chapters['circle_coverage'] = '圆覆盖重数面积'
+chapters['tarjan'] = 'Tarjan 与缩点'
+chapters['static_rmq'] = '位掩码静态RMQ'
 body = []
 records = []
 for style in ['compact']:
@@ -978,6 +980,12 @@ for style in ['compact']:
                         body.append('\\newpage')
                         body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
                     body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'StaticRMQ':
+                split = next(i for i in range(start, end) if '        int m = st[0].size();' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 块间表构建、最优位置合并与查询（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'MinCostFlow':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['// Negative costs allowed', 'if (d[t] == inf)']] + [end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):

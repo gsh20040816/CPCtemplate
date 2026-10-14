@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "../../src/compact/graph.hpp"
+#include "../../src/compact/tarjan.hpp"
 using namespace std;
 
 int main()
@@ -8,18 +8,18 @@ int main()
     cin.tie(nullptr);
     int n, m;
     cin >> n >> m;
-    SCC g(n);
+    TarjanSCC g(n);
     for (int i = 0; i < m; i++)
     {
         int u, v;
         cin >> u >> v;
         g.add(u + 1, v + 1);
     }
-    g.run(); // component ids 1..cnt are already in topological order
+    g.run();
     vector<vector<int>> c(g.cnt + 1);
     for (int u = 1; u <= n; u++) c[g.bel[u]].push_back(u - 1);
     cout << g.cnt << '\n';
-    for (int i = 1; i <= g.cnt; i++)
+    for (int i = g.cnt; i >= 1; i--)
     {
         cout << c[i].size();
         for (int u : c[i]) cout << ' ' << u;

@@ -1,6 +1,6 @@
 % 从旧数学附录迁出的连通性与动态树说明；不新增算法。
 \section{SCC 模板题与速度榜口径}\label{knowledge-scc-template}
-QOJ906 要求按拓扑序输出强连通分量；第~\pageref{compact-SCC}~页 \texttt{SCC} 的 \texttt{bel[1..n]} 为 1-based，0-based 输入点号先加一、输出时减一。
+QOJ906 要求按拓扑序输出强连通分量。第~\pageref{compact-TarjanSCC}~页 \texttt{TarjanSCC} 的分量编号为逆拓扑序，按 cnt 到 1 输出；第~\pageref{compact-SCC}~页 Kosaraju \texttt{SCC} 的编号即拓扑序。两者 \texttt{bel[1..n]} 均为 1-based，0-based 输入点号先加一、输出时减一。
 
 \section{并查集模板题的接口范围}\label{knowledge-dsu-template}
 P3367 输入点号为 1-based，统一减一后调用第~\pageref{compact-dsu}~页的 \texttt{dsu}（merge、same）。

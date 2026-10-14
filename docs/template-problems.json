@@ -298,12 +298,6 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
-          "driver": "verify/library_checker/scc.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/scc",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
           "driver": "verify/library_checker/scc.kosaraju.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/scc",
           "existing_ac": [
@@ -6131,6 +6125,70 @@
         {
           "driver": "verify/luogu/SP8119.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/SP8119",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "TarjanSCC",
+      "title": "Tarjan 强连通分量与缩点",
+      "source": "src/compact/tarjan.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/scc.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/scc",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/qoj/906.compact.cpp",
+          "url": "https://qoj.ac/problem/906",
+          "existing_ac": [
+            "https://qoj.ac/submission/2940638"
+          ],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3275.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3275",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": "https://qoj.ac/problem/906",
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "StaticRMQ",
+      "title": "位掩码静态区间最值与位置",
+      "source": "src/compact/static_rmq.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/library_checker/staticrmq.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/staticrmq",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3865.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3865",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }

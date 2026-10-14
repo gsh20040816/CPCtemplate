@@ -154,9 +154,10 @@
       "reference": "https://github.com/atcoder/ac-library/blob/864245a00b00dd008d1abfdc239618fdb7d139da/atcoder/scc.hpp",
       "reference_sha256": "2b534e50f7fb5117e86fbde22c5a3284ecf6b6089df864b835dacd55ab5694e2",
       "local": [
+        "src/compact/tarjan.hpp",
         "src/compact/graph.hpp"
       ],
-      "notes": "ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库保留 graph.hpp 中正向拓扑编号的 Kosaraju SCC；issue #21 删除了重复的逆拓扑编号 Tarjan 版，组合时按 SCC 的编号方向使用。",
+      "notes": "ACL 通过 internal_scc 共享实现并输出拓扑顺序分组。本库有逆拓扑编号的 Tarjan 与正向编号的 Kosaraju，已对 QOJ906 适配；编号方向必须保留在组合说明中。",
       "gaps": []
     },
     {
