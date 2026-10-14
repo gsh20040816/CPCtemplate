@@ -1,7 +1,7 @@
 % 从旧数学附录迁出的函数图与单位边最短路说明；不新增算法。
 \section{函数图的入环链与到达查询}\label{knowledge-functional-graph}
 代码见第~\pageref{compact-FunctionalGraph}~页。
-三份完整用法分别见第~\pageref{usage-example-171}~页（CSES1750跳转）、第~\pageref{usage-example-172}~页（CSES1160最少步数）、第~\pageref{usage-example-173}~页（P2921不同访问点数）。
+
 题目点号均从1开始，构造时统一减1；只有跳转返回的顶点需要加1，最少步数的0和不可达的-1应原样输出。
 P2921只需 depth 加环长，不代表它测试了跳转或两点可达查询。
 本轮完整驱动穷举至四点的全部288个后继映射，独立沿后继走到首次重复，核验步数、跳转与访问数；另验随机映射和题目最大规模。

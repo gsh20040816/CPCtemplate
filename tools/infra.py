@@ -18,7 +18,7 @@ for title,symbol in links:
  v=owner[symbol];label='ext-'+v['id']+'-compact-'+symbol
  intro.append(escape(title)+' & '+escape(v['title'])+r'，第~\pageref{'+label+r'}~页\\')
  records.append(dict(symbol=symbol,volume=v['id'],file='xcpc-'+v['id']+'.pdf',label=label))
-for title, usage, symbol in [('PBDS 句柄删除：双端优先队列', 'example-189', 'pheap'), ('PBDS modify 降键：最短路与路径', 'example-190', 'pheap'), ('move 数组：批量逆元与动态模数', 'example-198', 'mint')]:
+for title, usage, symbol in [('PBDS 句柄删除：双端优先队列', 'example-189', 'pheap'), ('move 数组：批量逆元与动态模数', 'example-198', 'mint')]:
  v=owner[symbol];target='usage-'+usage;label='ext-'+v['id']+'-'+target
  intro.append(escape(title)+' & '+escape(v['title'])+r'，第~\pageref{'+label+r'}~页\\')
  records.append(dict(symbol=symbol,usage=usage,target_label=target,volume=v['id'],file='xcpc-'+v['id']+'.pdf',label=label))

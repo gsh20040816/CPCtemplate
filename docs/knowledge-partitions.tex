@@ -30,7 +30,7 @@ HDU 原题页面本次无法读取，不能由这条注释推断原题措辞。
 Library Checker 的分拆函数要求输出 $p(0),\ldots,p(N)$，$N\le500000$，
 完整用法见第~\ref{usage-example-158}~节（第~\pageref{usage-example-158}~页）；固定官方11组数据的本地checker已通过。
 P6189 将非增跑步距离序列对应到无序分拆，模数不保证素数，
-用法见第~\ref{usage-example-159}~节（第~\pageref{usage-example-159}~页）。它是比赛应用，不替代正式模板题。
+它是比赛应用，不替代正式模板题。
 额外独立参考将部分分成不超过 $B$ 与大于 $B$ 两组：前者完全背包，
 后者按恰好 $j$ 个部分维护 $g_j(s)=g_j(s-j)+g_{j-1}(s-B-1)$，再卷积。
 取 $B=\lfloor\sqrt N\rfloor$，时间 $O(N\sqrt N)$、滚动数组空间 $O(N)$，

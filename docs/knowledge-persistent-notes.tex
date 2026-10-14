@@ -32,7 +32,7 @@ offset 为零时直接共享源节点；没有覆盖时保留目标节点。
 第 24--26 页的 K 题，完整驱动及验证见下节。
 
 \paragraph{回退时间与追加版本编号。}
-\href{https://www.luogu.com.cn/problem/SP11470}{SP11470 To the moon} 完整用法见第~\pageref{usage-example-174}~页。
+
 模板 add 返回不断追加的版本编号，而题目的时间戳在 B 操作后可能减小，二者不能直接混用。
 用 ver[t] 保存时间戳 t 对应的模板版本；C 从 ver[t] 更新，再令 ver[t+1] 指向新版本并推进时间。
 再次经过同一时间戳时替换映射，不能写入原来版本的节点。Q、H 读取对应映射；B 只移动当前时间。
@@ -42,7 +42,7 @@ offset 为零时直接共享源节点；没有覆盖时保留目标节点。
 
 \clearpage
 \section{杭州 2023 K：跨版本拼接应用}\label{knowledge-hangzhou-k}
-\href{https://qoj.ac/problem/8240}{Card Game} 完整用法见第~\pageref{usage-example-175}~页，使用前节的可持久化区间模板。
+
 
 将下标转为从 0 开始，设 $F_i(r)$ 为区间 $[i,r]$ 的剩余牌数，
 $p$ 为 $i$ 之后第一张与 $a_i$ 相同的牌，若不存在则 $p=n$。

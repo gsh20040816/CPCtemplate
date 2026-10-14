@@ -5,6 +5,12 @@ root = Path(__file__).resolve().parents[1]
 cat = json.loads((root / 'docs/catalog.json').read_text())
 from usage_examples import generate as generate_usage
 usage_rows = generate_usage()
+# Issue 21: print one template-kind example per symbol; application/api drivers stay local tests.
+printed_usage = {}
+for usage in usage_rows:
+    if usage.get('kind', 'template') == 'template':
+        printed_usage.setdefault(usage['symbol'], usage)
+usage_rows = list(printed_usage.values())
 
 def esc(s):
     for a, b in [('\\', '\\textbackslash{}'), ('&', '\\&'), ('%', '\\%'), ('$', '\\$'), ('#', '\\#'), ('_', '\\_'), ('{', '\\{'), ('}', '\\}')]:
