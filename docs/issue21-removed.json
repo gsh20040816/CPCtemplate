@@ -11,17 +11,14 @@
     "bivariate_inverse": "",
     "bridge_augmentation": "bridge_component_forest.hpp",
     "carmichael": "",
-    "centroid_diameter": "centroid.hpp",
     "centroid_nearest": "centroid_sum.hpp",
     "chain_3d": "dominance_3d.hpp",
-    "circle_coverage": "circle_union.hpp",
     "closest_pair_i64": "closest_pair.hpp",
     "color_components": "dynamic_tree.hpp",
     "color_max": "dynamic_tree.hpp",
     "composite_binomial": "exlucas.hpp",
     "composite_roots": "kth_residue.hpp",
     "convolution_fft": "fft.hpp",
-    "convolution_i64": "convolution_mod_fft.hpp",
     "convolution_mod": "convolution_mod_fft.hpp",
     "coprime_pairs": "",
     "cut_tree_queries": "gomory_hu.hpp",
@@ -60,7 +57,6 @@
     "matrix_tree_exact": "matrix_tree_mod.hpp",
     "merge_splay": "treap.hpp#OrderedTreap",
     "montgomery_modint": "number_theory.hpp#ModInt",
-    "negative_cost_flow": "flow.hpp#BoundedCirculation",
     "ntt_2d": "ntt_convolution.hpp",
     "odd_cycle_vertices": "block_cut_forest.hpp",
     "odd_induced_partition": "",
@@ -130,10 +126,6 @@
     "BivariateInverse": {
       "file": "bivariate_inverse",
       "replacement": ""
-    },
-    "CentroidDiameter": {
-      "file": "centroid_diameter",
-      "replacement": "centroid.hpp"
     },
     "CentroidNearest": {
       "file": "centroid_nearest",
@@ -279,10 +271,6 @@
       "file": "montgomery_modint",
       "replacement": "number_theory.hpp#ModInt"
     },
-    "NegativeCostFlow": {
-      "file": "negative_cost_flow",
-      "replacement": "flow.hpp#BoundedCirculation"
-    },
     "Ntt2D": {
       "file": "ntt_2d",
       "replacement": "ntt_convolution.hpp"
@@ -427,10 +415,6 @@
       "file": "carmichael",
       "replacement": ""
     },
-    "circle_coverage_area": {
-      "file": "circle_coverage",
-      "replacement": "circle_union.hpp"
-    },
     "closest_pair_i64": {
       "file": "closest_pair_i64",
       "replacement": "closest_pair.hpp"
@@ -438,10 +422,6 @@
     "convolution_fft": {
       "file": "convolution_fft",
       "replacement": "fft.hpp"
-    },
-    "convolution_i64": {
-      "file": "convolution_i64",
-      "replacement": "convolution_mod_fft.hpp"
     },
     "convolution_mod": {
       "file": "convolution_mod",

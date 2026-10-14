@@ -27,6 +27,7 @@
 - `verify/api/bellman_ford.compact.cpp`
 - `verify/api/burnside_colorings.compact.cpp`
 - `verify/api/capacitated_matching.compact.cpp`
+- `verify/api/centroid_diameter.compact.cpp`
 - `verify/api/convex_tangents.compact.cpp`
 - `verify/api/floyd.compact.cpp`
 - `verify/api/four_cycles.compact.cpp`
@@ -192,6 +193,7 @@
 - `verify/luogu/P3386.compact.cpp`
 - `verify/luogu/P3402.compact.cpp`
 - `verify/luogu/P3649.compact.cpp`
+- `verify/luogu/P3803.i64.compact.cpp`
 - `verify/luogu/P3803.transform.compact.cpp`
 - `verify/luogu/P3804.compact.cpp`
 - `verify/luogu/P3805.compact.cpp`
@@ -246,11 +248,13 @@
 - `verify/luogu/P6192.compact.cpp`
 - `verify/luogu/P6329.compact.cpp`
 - `verify/luogu/P6699.compact.cpp`
+- `verify/luogu/P7173.compact.cpp`
 - `verify/luogu/P7771.compact.cpp`
 - `verify/luogu/SP10707.compact.cpp`
 - `verify/luogu/SP11470.compact.cpp`
 - `verify/luogu/SP1811.compact.cpp`
 - `verify/luogu/SP8073.compact.cpp`
+- `verify/luogu/SP8119.compact.cpp`
 - `verify/luogu/U104310.compact.cpp`
 - `verify/luogu/U106005.compact.cpp`
 - `verify/poj/1330.lifting.compact.cpp`
@@ -266,6 +270,7 @@
 - `verify/source-model/da_palindrome.compact.cpp`
 - `verify/spoj/QTREE.compact.cpp`
 - `verify/spoj/QTREE2.compact.cpp`
+- `verify/spoj/QTREE4.compact.cpp`
 - `verify/uva/1479.compact.cpp`
 
 ## 已解决的提交异常

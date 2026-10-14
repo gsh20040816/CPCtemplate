@@ -1977,6 +1977,30 @@ cdq\_convolution<mod=998244353,primitive=3>(kernel,initial) 求 f[i]=initial[i]+
 
 \lstinputlisting{usage/example-16.cpp}
 
+\Needspace{509pt}
+
+\subsection{精确有符号整数卷积}\label{compact-convolution_i64}\index{convolution\_i64}
+
+代码依赖：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+convolution\_i64(a,b) 返回 signed64 整数卷积，空输入返回空。非空结果长度$\le$2\textasciicircum{}24，所有真实系数必须在 signed64 范围内。依赖 NttConvolution，三个素数模卷积后用 int128 CRT 重构中心代表。断言不能检测任意越界结果的模数别名。O(L log L) 时间、O(L) 空间，L 为补齐的二次幂长度。负数与极值已通过 cpp\_int 参考验证；P3803 最大次数驱动本地通过，线上性能待验证。
+
+\lstinputlisting[firstline=5,lastline=43]{../src/compact/convolution_i64.hpp}
+
+\Needspace{312pt}
+
+\subsection*{模板题使用：Luogu P3803}
+
+\label{usage-example-52}
+
+题意：求两个整数多项式的乘积，系数按升幂输入。首行 n、m 是次数，系数个数分别为 n+1、m+1；输出精确整数，不能取模。本题系数在 0..9，满足 signed64 结果范围。
+
+所需模板：\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）、\hyperref[compact-NttConvolution]{NttConvolution}（第~\pageref{compact-NttConvolution}~页，\ref{compact-NttConvolution}~节）、\hyperref[compact-convolution_i64]{convolution\_\allowbreak{}i64}（第~\pageref{compact-convolution_i64}~页，\ref{compact-convolution_i64}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P3803}
+
+\lstinputlisting{usage/example-52.cpp}
+
 \subsection{参数化 NTT 与模数适配}\label{knowledge-ntt-moduli}
 实现见第~\pageref{compact-NttConvolution}~页。
 传入素数 $p$ 与原根 $g$；长度 $n$ 为二次幂且整除 $p-1$，上限 $L=2^{v_2(p-1)}$。
@@ -5095,6 +5119,30 @@ CentroidPairs(n)，点号 1..n；add(u,v,w) 建树，允许森林但禁止环、
 
 \lstinputlisting{usage/example-201.cpp}
 
+\subsection{动态点分树：有符号边权活动点直径与端点}\label{compact-CentroidDiameter}\index{CentroidDiameter}
+
+CentroidDiameter(n)，固定连通无向树、0-based点号，n>0且2n不溢出int。add(u,v,w)仅在首次build前；允许负边权，所有简单路径权值和必须能用long long表示。build()递归分解并清空活动集，可反复重建；set(u,on)幂等启停点。query()返回optional<tuple<long long,int,int>>，内容为最大距离与任意一对达到最优值的活动端点，允许两端相同，所以非空集答案至少0；空集nullopt。各重心按不同分支取最大距离，只合并跨分支真实路径，不能套用非负权直径端点摘要；并列不承诺最小编号。空集预处理O(n log n)、set O(log$^{2}$ n)、query O(1)，空间O(n log n)；逐点激活全树O(n log$^{2}$ n)。支持值拷贝；active只读用于反色，其余字段与sum/size\_dfs/centroid/collect/decompose/candidate为内部状态。DFS保持递归，树输入合法性与足够栈空间由调用方保证。
+
+\lstinputlisting[firstline=13,lastline=51,firstnumber=1]{../src/compact/centroid_diameter.hpp}
+
+\newpage
+
+\noindent 递归分解与不同分支的距离（接上页同一结构体）：
+
+\lstinputlisting[firstline=52,lastline=98,firstnumber=40]{../src/compact/centroid_diameter.hpp}
+
+\newpage
+
+\noindent 清空重建与重心候选（接上页同一结构体）：
+
+\lstinputlisting[firstline=99,lastline=125,firstnumber=87]{../src/compact/centroid_diameter.hpp}
+
+\newpage
+
+\noindent 活动点设置与端点查询（接上页同一结构体）：
+
+\lstinputlisting[firstline=126,lastline=165,firstnumber=114]{../src/compact/centroid_diameter.hpp}
+
 \Needspace{672pt}
 
 \section{树哈希}
@@ -6099,6 +6147,36 @@ MinCostFlow(n)，点号 1..n；add(u,v,cap,cost) 返回边编号，flow(s,t,limi
 
 \lstinputlisting{usage/example-55.cpp}
 
+\Needspace{515pt}
+
+\subsection{允许负环的最小费用最大流}\label{compact-NegativeCostFlow}\index{NegativeCostFlow}
+
+代码依赖：\hyperref[compact-MinCostFlow]{MinCostFlow}（第~\pageref{compact-MinCostFlow}~页，\ref{compact-MinCostFlow}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+NegativeCostFlow(n)，点号 1..n；add(u,v,cap,cost) 返回从 0 开始的原边编号。容量非负，所有原边容量总和$\le$LLONG\_MAX；费用为 long long 且不等于 LLONG\_MIN。允许重边、自环及任意位置的负环。solve(s, t, limit) 只调用一次，limit 默认 LLONG\_MAX，s$\ne$t、limit$\ge$0，返回 (不超过 limit 的最大流量,该流量下的最小费用)，费用为 int128。limit=0 可求最小费用循环流；不足 limit 时返回实际最大流。成功后 used(id) 返回原边流量，自动还原负边退流。先满流负费用边并建立反向正费用退流边，再用超级源汇修复平衡；初始残量费用非负，修复后无负环。删除辅助边后继续最短增广，包含不经过源汇的负环收益。依赖 MinCostFlow，使用两次势能预处理；若总增广次数为 K，时间 O(VE + K(E log(E+1) + V))，空间 O(V+E)，整数容量下为伪多项式，不是费用缩放算法。节点和残量边数须可由 int 表示。
+
+\lstinputlisting[firstline=4,lastline=38]{../src/compact/negative_cost_flow.hpp}
+
+\newpage
+
+\noindent 需求修复、增广与原边流量还原（接上页同一结构体）：
+
+\lstinputlisting[firstline=39,lastline=70,firstnumber=36]{../src/compact/negative_cost_flow.hpp}
+
+\Needspace{362pt}
+
+\subsection*{模板题使用：Luogu P7173}
+
+\label{usage-example-98}
+
+题意：求允许负费用环的最小费用最大流，独立于源汇的负环也计入费用。无额外流量上限时调用 solve(s,t)。题目容量和费用界保证最终费用可转为 long long；一般模板返回 int128，不能任意照搬此转换。
+
+所需模板：\hyperref[compact-MinCostFlow]{MinCostFlow}（第~\pageref{compact-MinCostFlow}~页，\ref{compact-MinCostFlow}~节）、\hyperref[compact-NegativeCostFlow]{NegativeCostFlow}（第~\pageref{compact-NegativeCostFlow}~页，\ref{compact-NegativeCostFlow}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/P7173}
+
+\lstinputlisting{usage/example-98.cpp}
+
 \subsection{SPFA 费用流与残量方案}\label{knowledge-spfa-cost}
 SPFA 版允许负边，\textbf{不允许负环}：每次调用先全点零距离入队检查（含不可达负环），发现即抛异常。
 最终方案按原边编号查询 used；flow 返回本次新增流量与费用，重复调用须同源汇。
@@ -6107,7 +6185,7 @@ SPFA 版允许负边，\textbf{不允许负环}：每次调用先全点零距离
 
 
 
-\Needspace{623pt}
+\Needspace{614pt}
 
 \section{上下界网络流}
 
@@ -6115,7 +6193,7 @@ SPFA 版允许负边，\textbf{不允许负环}：每次调用先全点零距离
 
 代码依赖：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0$\le$lo$\le$hi$\le$LLONG\_MAX，所有下界总和须$\le$LLONG\_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。 含负环的最小费用流：先把每条负费用边满流（等价于下界=上界的强制流，残量反向边费用为正），再用本结构求可行循环，最后在残量网络上用 MinCostFlow 补齐。
+BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0$\le$lo$\le$hi$\le$LLONG\_MAX，所有下界总和须$\le$LLONG\_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。 含负费用环、要求费用最优时用 NegativeCostFlow。
 
 \lstinputlisting[firstline=243,lastline=287]{../src/compact/flow.hpp}
 
@@ -7139,6 +7217,54 @@ circle\_union\_area(a) 求闭圆盘的面积并，输入vector<RealPlane::Circle
 题目：\url{https://www.luogu.com.cn/problem/SP8073}
 
 \lstinputlisting{usage/example-398.cpp}
+
+\newpage
+
+\noindent 相关应用：分层圆弧积分求每个精确覆盖重数的面积，重复圆按编号分层；有独立高精度截面积分验证。
+
+\section{圆覆盖重数面积：恰好覆盖 k 次}\label{compact-circle_coverage_area}\index{circle\_coverage\_area}
+
+代码依赖：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+circle\_coverage\_area(a) 返回长n+1的数组，ans[k]为恰被k个闭圆盘覆盖的面积（1$\le$k$\le$n）；ans[0]=0仅为占位，不表示无界平面面积。输入vector<RealPlane::Circle>，圆心和半径long double，半径$\ge$0，n$\le$INT\_MAX-2；按值传参不改原数组。支持重复圆、零半径、包含、相切和孔洞。
+
+圆弧按覆盖层数积分得到至少k次面积，再相邻作差；同圆按编号依次归入不同层，不能去重。O(n$^{2}$ log n)时间、O(n)额外空间，并查集递归最深O(n)。输入和中间运算须有限可表示；严格原值排序、分块平移及补偿求和不能消除近退化与小面积差分的浮点误差。不对核心结果强制取绝对值或截零。
+
+\lstinputlisting[firstline=5,lastline=38,firstnumber=1]{../src/compact/circle_coverage.hpp}
+
+\newpage
+
+两圆关系及覆盖角区间（接上页函数）：
+
+\lstinputlisting[firstline=39,lastline=84,firstnumber=35]{../src/compact/circle_coverage.hpp}
+
+\newpage
+
+分层圆弧积分与补偿求和（接上页函数）：
+
+\lstinputlisting[firstline=85,lastline=111,firstnumber=81]{../src/compact/circle_coverage.hpp}
+
+\newpage
+
+\paragraph{覆盖分层} 当前圆弧左侧包含自身，另有count-1个圆覆盖；它是至少count次覆盖区域的正向边界。分别积分到对应层后，按k递增作answer[k]-answer[k+1]得到恰好k次。重合的m个圆按编号让第t个额外计入前t-1个同圆，从而每个阈值恰贡献一次边界；不能去重。ans[0]只是占位。
+
+\paragraph{数值与验证} 各连通块平移、严格角排序、补偿累加；仍有浮点分类和相邻层相减的消去误差，小面积可能有微小负误差。466组70位竖条截面积分及解析压力例，在O2、NDEBUG、抄写版与ASan/UBSan下通过；不据此承诺任意实数精确。
+
+\paragraph{积分公式} 对相对连通块原点的圆心$(x,y)$，半径$r$，弧角从$l$到$u$，令$h=(u-l)/2$、$t=(u+l)/2$。格林公式给出贡献$r^2h+r\sin h(x\cos t+y\sin t)$。整圆直接用$\pi r^2$，避免$\sin\pi$舍入误差；补偿求和减少大量正负弧贡献相加的损失。连通块分别平移不改变闭合边界积分。
+
+\Needspace{337pt}
+
+\subsection*{模板题使用：SP8119 CIRUT 圆覆盖重数面积}
+
+\label{usage-example-417}
+
+题意：n$\le$1000，互异圆，整数圆心坐标绝对值$\le$1000、0<r$\le$1000；输出恰被k个圆覆盖的面积，保留三位小数。核心额外支持同圆及零半径，另由本地独立验证覆盖。末端max仅避免舍入负零，不改变核心结果。已提交记录302660709，仍Waiting，不记AC。
+
+所需模板：\hyperref[compact-RealPlane]{RealPlane}（第~\pageref{compact-RealPlane}~页，\ref{compact-RealPlane}~节）、\hyperref[compact-circle_coverage_area]{circle\_\allowbreak{}coverage\_\allowbreak{}area}（第~\pageref{compact-circle_coverage_area}~页，\ref{compact-circle_coverage_area}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+
+题目：\url{https://www.luogu.com.cn/problem/SP8119}
+
+\lstinputlisting{usage/example-417.cpp}
 
 \newpage
 

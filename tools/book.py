@@ -54,6 +54,10 @@ chapters['adaptive_simpson'] = '自适应Simpson积分'
 chapters['space3'] = '三维几何'
 chapters['gnu'] = 'GNU 扩展'
 chapters['mo'] = '莫队'
+chapters['convolution_i64'] = '精确整数卷积'
+chapters['centroid_diameter'] = '有符号边权活动点直径'
+chapters['negative_cost_flow'] = '允许负环的费用流'
+chapters['circle_coverage'] = '圆覆盖重数面积'
 body = []
 records = []
 for style in ['compact']:
@@ -129,6 +133,9 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
             if name in ('DominatorTree',):
                 split = next(i for i in range(start, end) if 'int eval(' in lines[i])
+                estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
+            if name == 'NegativeCostFlow':
+                split = next(i for i in range(start, end) if 'pair<ll, I> solve(' in lines[i])
                 estimate = (split - start) * 10.2 + 70 + len(info) / 65 * 12
             if name == 'GeneralSAM':
                 split = next(i for i in range(start, end) if 'void build()' in lines[i])
@@ -225,7 +232,7 @@ for style in ['compact']:
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
-            if name in ('grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'triangle_incircle', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'LeftistHeap', 'ModInt', 'mint', 'linear_congruence', 'FpsSqrt'):
+            if name in ('grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'triangle_incircle', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'LeftistHeap', 'ModInt', 'mint', 'linear_congruence', 'FpsSqrt'):
                 body.append('\\newpage')
             body.append('\\section{' + esc(cn) + '}\\label{' + style + '-' + name + '}\\index{' + target.replace('_', '\\_') + '}')
             if name == 'RollbackMo':
@@ -296,17 +303,22 @@ for style in ['compact']:
                 body.append(r'\lstinputlisting[firstline=' + str(cut + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(cut - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append(r'\paragraph{正确性} 最小面积包围矩形至少有一条边与凸包边共线。固定此方向，左右和上方支撑线由投影最小、投影最大和叉积最大三点决定。严格凸包边方向依次旋转，三个最优支撑点只向前移动；相同投影推进到末端，以跨过平行边。第一条边完整扫描初始化，避免从错误局部极值开始。')
                 body.append(r'\paragraph{恢复公式与边界} 设底边方向e、长度平方d，最小/最大投影l,r，最大叉积h。面积为(r-l)h/d，底边两端为p+el/d、p+er/d，上边统一加perp(e)h/d。不要求首角纵坐标最小。输入必须是严格逆时针凸包；任意实数判向和极薄模型不能由通过有界整数题保证。')
-            elif name in ('circle_union_area',):
+            elif name in ('circle_union_area', 'circle_coverage_area'):
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('        for (int j = 0; j < n; j++)', '        auto add =')] + [end]
                 for part in range(3):
                     if part:
                         body.append(r'\newpage')
-                        body.append(('两圆关系及覆盖角区间（接上页函数）：', '未覆盖圆弧积分与补偿求和（接上页函数）：')[part - 1])
+                        body.append(('两圆关系及覆盖角区间（接上页函数）：', ('分层圆弧积分与补偿求和（接上页函数）：' if name == 'circle_coverage_area' else '未覆盖圆弧积分与补偿求和（接上页函数）：'))[part - 1])
                     body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append(r'\newpage')
-                body.append(r'\paragraph{为什么只算未覆盖弧} 删去重合边界后，圆盘并边界恰是没有落在其他圆内部的圆弧。各圆逆时针方向的内部位于左侧，所以外边界和孔洞边界自动获得正确符号；不能对每条弧单独取绝对值。相切点面积为零，内含圆无需贡献。')
+                if name == 'circle_coverage_area':
+                    body.append(r'\paragraph{覆盖分层} 当前圆弧左侧包含自身，另有count-1个圆覆盖；它是至少count次覆盖区域的正向边界。分别积分到对应层后，按k递增作answer[k]-answer[k+1]得到恰好k次。重合的m个圆按编号让第t个额外计入前t-1个同圆，从而每个阈值恰贡献一次边界；不能去重。ans[0]只是占位。')
+                    body.append(r'\paragraph{数值与验证} 各连通块平移、严格角排序、补偿累加；仍有浮点分类和相邻层相减的消去误差，小面积可能有微小负误差。466组70位竖条截面积分及解析压力例，在O2、NDEBUG、抄写版与ASan/UBSan下通过；不据此承诺任意实数精确。')
+                else:
+                    body.append(r'\paragraph{为什么只算未覆盖弧} 删去重合边界后，圆盘并边界恰是没有落在其他圆内部的圆弧。各圆逆时针方向的内部位于左侧，所以外边界和孔洞边界自动获得正确符号；不能对每条弧单独取绝对值。相切点面积为零，内含圆无需贡献。')
                 body.append(r'\paragraph{积分公式} 对相对连通块原点的圆心$(x,y)$，半径$r$，弧角从$l$到$u$，令$h=(u-l)/2$、$t=(u+l)/2$。格林公式给出贡献$r^2h+r\sin h(x\cos t+y\sin t)$。整圆直接用$\pi r^2$，避免$\sin\pi$舍入误差；补偿求和减少大量正负弧贡献相加的损失。连通块分别平移不改变闭合边界积分。')
-                body.append(r'\paragraph{数值与验证} 角度排序使用严格原值比较，同圆按编号去重，不以eps合并不同圆。半角通过缩放后的Heron乘积与atan2求出，避免acos靠近正负1时的敏感性；仍不是精确几何。独立70位高精度验证沿竖直截面、在全部交点横坐标处分段解析积分，另有孔洞、相切、远平移和千圆压力例。线上AC状态见验证记录，不能由本地通过推断。')
+                if name == 'circle_union_area':
+                    body.append(r'\paragraph{数值与验证} 角度排序使用严格原值比较，同圆按编号去重，不以eps合并不同圆。半角通过缩放后的Heron乘积与atan2求出，避免acos靠近正负1时的敏感性；仍不是精确几何。独立70位高精度验证沿竖直截面、在全部交点横坐标处分段解析积分，另有孔洞、相切、远平移和千圆压力例。线上AC状态见验证记录，不能由本地通过推断。')
             elif name == 'Simplex':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ('void pivot(', 'bool improve(', 'Result solve(')] + [end]
                 for part in range(4):
@@ -806,6 +818,12 @@ for style in ['compact']:
                 body.append('\\newpage')
                 body.append('\\noindent 分治、归并与跨分界线点对（接上页同一函数）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'NegativeCostFlow':
+                split = next(i for i in range(start, end) if 'pair<ll, I> solve(' in lines[i])
+                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
+                body.append('\\newpage')
+                body.append('\\noindent 需求修复、增广与原边流量还原（接上页同一结构体）：')
+                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'GeneralSAM':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['void build()', 'long long distinct()']] + [end]
                 for j in range(3):
@@ -951,6 +969,15 @@ for style in ['compact']:
                         body.append('\\newpage')
                         body.append('\\noindent 接上页同一结构体：')
                     body.append('\\lstinputlisting[firstline=' + str(lo + 1) + ',lastline=' + str(hi) + ',firstnumber=' + str(lo - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
+            elif name == 'CentroidDiameter':
+                tokens = ['void size_dfs(', '// Fixed tree', 'void set(']
+                cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in tokens] + [end]
+                captions = ['', '递归分解与不同分支的距离', '清空重建与重心候选', '活动点设置与端点查询']
+                for part in range(4):
+                    if part:
+                        body.append('\\newpage')
+                        body.append('\\noindent ' + captions[part] + '（接上页同一结构体）：')
+                    body.append('\\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'MinCostFlow':
                 cuts = [start] + [next(i for i in range(start, end) if token in lines[i]) for token in ['// Negative costs allowed', 'if (d[t] == inf)']] + [end]
                 for j, (lo, hi) in enumerate(zip(cuts, cuts[1:])):

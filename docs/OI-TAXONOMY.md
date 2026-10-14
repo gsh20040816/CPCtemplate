@@ -4,7 +4,7 @@
 
 issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采用 OI Wiki 官方仓库，不声称已核验该域名与官方导航相同。
 
-当前代码映射：direct 174，application 31，composite 3，related 17。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
+当前代码映射：direct 176，application 32，composite 3，related 18。这些是分类关系，不是模板题用法、算法完成度或线上AC计数。
 
 此表驱动 PDF 的导航层级。direct 表示直接知识点，application 表示应用，composite 表示一个代码条目横跨多个页面，related 表示仅有相关挂靠。按各行说明核对适用范围；分类不代表上游整页内容已实现或验证。
 
@@ -66,6 +66,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | cdq_convolution | 数学 → 多项式与生成函数 → 快速傅里叶变换 | related | CDQ 分治配合 NTT 的卷积递推，附件标题为分治 FFT；算法不做浮点变换。 |
 | convolution_mod_fft | 数学 → 多项式与生成函数 → 快速傅里叶变换 | direct | 复数FFT及三块拆系数卷积；明确长度、范数与单位根精度前提，不能用随机通过代替最坏误差界。 |
 | NttConvolution | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
+| convolution_i64 | 数学 → 多项式与生成函数 → 快速数论变换 | application | NTT 卷积及三模重构扩展；整数范围契约保留。 |
 | SetConvolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |
 | subset_convolution | 数学 → 多项式与生成函数 → 快速沃尔什变换 | application | 按位卷积及分层子集卷积；分别说明运算规则。 |
 | chirp_z | 数学 → 多项式与生成函数 → Chirp Z 变换 | direct |  |
@@ -142,6 +143,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | SubtreeColors | 图论 → 树上问题 → 树上启发式合并 | direct |  |
 | VirtualTree | 图论 → 树上问题 → 虚树 | direct |  |
 | CentroidPairs | 图论 → 树上问题 → 树分治 | direct |  |
+| CentroidDiameter | 图论 → 树上问题 → 动态树分治 | direct | 固定有符号边权树，动态启停点；不同重心分支组合直径与端点，非动态拓扑。 |
 | CentroidSum | 图论 → 树上问题 → 动态树分治 | direct | 固定单位边树上的点权修改和距离范围求和；不是动态拓扑。 |
 | TreeIsomorphism | 图论 → 树上问题 → 树哈希 | related | Deterministic sorted-child interning and centroid rooting; exact alternative to randomized tree hashing. |
 | BellmanFord | 图论 → 最短路问题 → 最短路 | direct |  |
@@ -178,6 +180,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | maximum_closure | 图论 → 网络流 → 最小割 | application | 最小割的应用或查询；需在对应小节下保留本库名称。 |
 | mincut_edges | 图论 → 网络流 → 最小割 | direct |  |
 | MinCostFlow | 图论 → 网络流 → 费用流 | direct |  |
+| NegativeCostFlow | 图论 → 网络流 → 费用流 | direct | 通过负边预流与需求修复处理负环，随后继续最短增广。 |
 | BoundedCirculation | 图论 → 网络流 → 上下界网络流 | direct |  |
 | BoundedMaxFlow | 图论 → 网络流 → 上下界网络流 | direct |  |
 | StoerWagner | 图论 → 网络流 → Stoer–Wagner 算法 | direct |  |
@@ -197,6 +200,7 @@ issue #7 指定的 oi-wiki.com 未能通过网页工具访问；此处明确采�
 | IntegerPlane | 计算几何 → 二维计算几何基础 | direct |  |
 | RealPlane | 计算几何 → 二维计算几何基础 | direct |  |
 | RealPolarLess | 计算几何 → 二维计算几何基础 | direct | 对已存储的有限二进制浮点向量精确比较极角；尾数≤64位，原点/同向约定明确，不替代一般稳健几何构造。 |
+| circle_coverage_area | 计算几何 → 二维计算几何基础 | related | 分层圆弧积分求每个精确覆盖重数的面积，重复圆按编号分层；有独立高精度截面积分验证。 |
 | circle_intersections | 计算几何 → 二维计算几何基础 | direct |  |
 | circle_intersections_i64 | 计算几何 → 二维计算几何基础 | direct | 整数输入的精确判别式变体，坐标构造仍为浮点。 |
 | circle_overlap_area | 计算几何 → 二维计算几何基础 | direct |  |

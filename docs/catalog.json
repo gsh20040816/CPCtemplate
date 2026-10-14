@@ -483,7 +483,7 @@
     "flow",
     "BoundedCirculation",
     "上下界可行循环流",
-    "BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0≤lo≤hi≤LLONG_MAX，所有下界总和须≤LLONG_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。 含负环的最小费用流：先把每条负费用边满流（等价于下界=上界的强制流，残量反向边费用为正），再用本结构求可行循环，最后在残量网络上用 MinCostFlow 补齐。"
+    "BoundedCirculation(n)，点号 1..n。add(u,v,lo,hi) 返回原边编号，0≤lo≤hi≤LLONG_MAX，所有下界总和须≤LLONG_MAX。solve() 仅调用一次，返回可行性；成功后 used(id) 读取边流量。每点要求流量守恒，属于循环流；带源汇最大流用 BoundedMaxFlow。hi-lo 是残量容量，下界引起 balance；各边上界不必求和，只要求下界总和保证 balance 和超级源总需求不溢出。依赖 Dinic。 含负费用环、要求费用最优时用 NegativeCostFlow。"
   ],
   [
     "halfplanes",
@@ -1348,5 +1348,29 @@
     "BigInteger",
     "高精度整数：有符号加减乘与小整数除法",
     "BigInteger(x)接收long long，BigInteger(s)接收可带正负号及前导零的非空十进制串；str()返回规范化十进制，cmp(b)返回−1/0/1。支持一元负号、加减乘，divmod(int b)返回商和余数，b≠0；商向零截断，余数与被除数同号或为0。pow(unsigned e)计算非负整数幂，约定0的0次方为1。\n\nd是低位在前的10⁹进制绝对值，sign为±1；零为空d且sign=1，勿直接修改。n,m为分节数：加减比较O(n+m)，乘法O(nm+n+m)，小整数除法O(n)，结果空间O(n+m)；幂执行O(log(e+1))次乘法，位数增长另计。字符串长度、所有中间分节数及两操作数长度之和须小于INT_MAX并留进位空间。不含大整数除大整数；不用浮点或Boost。"
+  ],
+  [
+    "convolution_i64",
+    "convolution_i64",
+    "精确有符号整数卷积",
+    "convolution_i64(a,b) 返回 signed64 整数卷积，空输入返回空。非空结果长度≤2^24，所有真实系数必须在 signed64 范围内。依赖 NttConvolution，三个素数模卷积后用 int128 CRT 重构中心代表。断言不能检测任意越界结果的模数别名。O(L log L) 时间、O(L) 空间，L 为补齐的二次幂长度。负数与极值已通过 cpp_int 参考验证；P3803 最大次数驱动本地通过，线上性能待验证。"
+  ],
+  [
+    "negative_cost_flow",
+    "NegativeCostFlow",
+    "允许负环的最小费用最大流",
+    "NegativeCostFlow(n)，点号 1..n；add(u,v,cap,cost) 返回从 0 开始的原边编号。容量非负，所有原边容量总和≤LLONG_MAX；费用为 long long 且不等于 LLONG_MIN。允许重边、自环及任意位置的负环。solve(s, t, limit) 只调用一次，limit 默认 LLONG_MAX，s≠t、limit≥0，返回 (不超过 limit 的最大流量,该流量下的最小费用)，费用为 int128。limit=0 可求最小费用循环流；不足 limit 时返回实际最大流。成功后 used(id) 返回原边流量，自动还原负边退流。先满流负费用边并建立反向正费用退流边，再用超级源汇修复平衡；初始残量费用非负，修复后无负环。删除辅助边后继续最短增广，包含不经过源汇的负环收益。依赖 MinCostFlow，使用两次势能预处理；若总增广次数为 K，时间 O(VE + K(E log(E+1) + V))，空间 O(V+E)，整数容量下为伪多项式，不是费用缩放算法。节点和残量边数须可由 int 表示。"
+  ],
+  [
+    "centroid_diameter",
+    "CentroidDiameter",
+    "动态点分树：有符号边权活动点直径与端点",
+    "CentroidDiameter(n)，固定连通无向树、0-based点号，n>0且2n不溢出int。add(u,v,w)仅在首次build前；允许负边权，所有简单路径权值和必须能用long long表示。build()递归分解并清空活动集，可反复重建；set(u,on)幂等启停点。query()返回optional<tuple<long long,int,int>>，内容为最大距离与任意一对达到最优值的活动端点，允许两端相同，所以非空集答案至少0；空集nullopt。各重心按不同分支取最大距离，只合并跨分支真实路径，不能套用非负权直径端点摘要；并列不承诺最小编号。空集预处理O(n log n)、set O(log² n)、query O(1)，空间O(n log n)；逐点激活全树O(n log² n)。支持值拷贝；active只读用于反色，其余字段与sum/size_dfs/centroid/collect/decompose/candidate为内部状态。DFS保持递归，树输入合法性与足够栈空间由调用方保证。"
+  ],
+  [
+    "circle_coverage",
+    "circle_coverage_area",
+    "圆覆盖重数面积：恰好覆盖 k 次",
+    "circle_coverage_area(a) 返回长n+1的数组，ans[k]为恰被k个闭圆盘覆盖的面积（1≤k≤n）；ans[0]=0仅为占位，不表示无界平面面积。输入vector<RealPlane::Circle>，圆心和半径long double，半径≥0，n≤INT_MAX-2；按值传参不改原数组。支持重复圆、零半径、包含、相切和孔洞。\n\n圆弧按覆盖层数积分得到至少k次面积，再相邻作差；同圆按编号依次归入不同层，不能去重。O(n² log n)时间、O(n)额外空间，并查集递归最深O(n)。输入和中间运算须有限可表示；严格原值排序、分块平移及补偿求和不能消除近退化与小面积差分的浮点误差。不对核心结果强制取绝对值或截零。"
   ]
 ]

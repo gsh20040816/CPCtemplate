@@ -404,6 +404,10 @@ build/flow_edges
 build/flow_slope
 python3 tests/flow_slope_application.py
 
+"$CXX" "${flags[@]}" tests/convolution_i64.cpp -o build/convolution_i64
+build/convolution_i64
+python3 tests/convolution_i64_application.py
+
 python3 tests/scc_sat_application.py
 
 python3 tests/lc_convolution_application.py
@@ -480,6 +484,10 @@ python3 tests/bounded_maxflow_application.py
 "$CXX" "${flags[@]}" tests/optimal_edge_classes.cpp -o build/optimal-edge-classes
 build/optimal-edge-classes
 python3 tests/mincut_application.py
+
+"$CXX" "${flags[@]}" tests/negative_cost_flow.cpp -o build/negative-cost-flow
+build/negative-cost-flow
+python3 tests/negative_cost_application.py
 
 "$CXX" "${flags[@]}" tests/matrix_inverse.cpp -o build/matrix-inverse
 build/matrix-inverse
@@ -573,6 +581,7 @@ python3 tests/segment_beats_application.py
 "$CXX" "${flags[@]}" -pthread tests/centroid_sum.cpp -o build/centroid-sum-unit
 build/centroid-sum-unit
 python3 tests/centroid_sum_application.py
+python3 tests/centroid_diameter.py
 
 "$CXX" "${flags[@]}" tests/rectangle_union.cpp -o build/rectangle-union-unit
 build/rectangle-union-unit

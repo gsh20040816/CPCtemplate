@@ -497,6 +497,19 @@
     ]
   },
   {
+    "id": "example-52",
+    "symbol": "convolution_i64",
+    "problem": "Luogu P3803",
+    "url": "https://www.luogu.com.cn/problem/P3803",
+    "summary": "求两个整数多项式的乘积，系数按升幂输入。首行 n、m 是次数，系数个数分别为 n+1、m+1；输出精确整数，不能取模。本题系数在 0..9，满足 signed64 结果范围。",
+    "driver": "verify/luogu/P3803.i64.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "convolution_i64"
+    ]
+  },
+  {
     "id": "example-53",
     "symbol": "stirling_second_row",
     "problem": "Luogu P5395",
@@ -937,6 +950,18 @@
       "matching_edges"
     ],
     "kind": "application"
+  },
+  {
+    "id": "example-98",
+    "symbol": "NegativeCostFlow",
+    "problem": "Luogu P7173",
+    "url": "https://www.luogu.com.cn/problem/P7173",
+    "summary": "求允许负费用环的最小费用最大流，独立于源汇的负环也计入费用。无额外流量上限时调用 solve(s,t)。题目容量和费用界保证最终费用可转为 long long；一般模板返回 int128，不能任意照搬此转换。",
+    "driver": "verify/luogu/P7173.compact.cpp",
+    "requires": [
+      "MinCostFlow",
+      "NegativeCostFlow"
+    ]
   },
   {
     "id": "example-99",
@@ -2614,6 +2639,30 @@
     "listing_new_page": true
   },
   {
+    "id": "example-284",
+    "symbol": "CentroidDiameter",
+    "kind": "application",
+    "problem": "SPOJ QTREE4 / 有符号边权动态白点直径",
+    "url": "https://www.spoj.com/problems/QTREE4/",
+    "summary": "n,q≤100000，边权−1000..1000，初始全白；C u反色，A查白点对的最大距离，两端允许相同。无白点输出They have disappeared.。题目1-based，传入模板时减1；query()非空时取get<0>。固定树且允许负边，不能改用只支持非负权的TreeDiameter摘要。",
+    "driver": "verify/spoj/QTREE4.compact.cpp",
+    "requires": [
+      "CentroidDiameter"
+    ]
+  },
+  {
+    "id": "example-285",
+    "symbol": "CentroidDiameter",
+    "kind": "api",
+    "problem": "活动点最大距离与端点方案（接口演示）",
+    "url": "https://oi-wiki.org/graph/tree-divide/",
+    "summary": "输入n,q、n−1条0-based带权树边，初始全不活动。0 u on设置状态（重复设置不变）；1查询，空集输出−1，否则输出最大距离d及任意最优活动点u,v。允许负边和u=v，并列不指定点号；所有简单路径和须在signed64内。",
+    "driver": "verify/api/centroid_diameter.compact.cpp",
+    "requires": [
+      "CentroidDiameter"
+    ]
+  },
+  {
     "id": "example-289",
     "symbol": "MergeSplitTree",
     "kind": "application",
@@ -3678,6 +3727,20 @@
     ],
     "start_new_page": true,
     "page_break_before": "        auto save = [&](int id, long long len)"
+  },
+  {
+    "id": "example-417",
+    "symbol": "circle_coverage_area",
+    "kind": "template",
+    "problem": "SP8119 CIRUT 圆覆盖重数面积",
+    "url": "https://www.luogu.com.cn/problem/SP8119",
+    "summary": "n≤1000，互异圆，整数圆心坐标绝对值≤1000、0<r≤1000；输出恰被k个圆覆盖的面积，保留三位小数。核心额外支持同圆及零半径，另由本地独立验证覆盖。末端max仅避免舍入负零，不改变核心结果。已提交记录302660709，仍Waiting，不记AC。",
+    "driver": "verify/luogu/SP8119.compact.cpp",
+    "requires": [
+      "RealPlane",
+      "circle_coverage_area"
+    ],
+    "start_new_page": false
   },
   {
     "id": "example-418",

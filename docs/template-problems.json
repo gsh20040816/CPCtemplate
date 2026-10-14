@@ -298,6 +298,12 @@
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {
+          "driver": "verify/library_checker/scc.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/scc",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/library_checker/scc.kosaraju.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/scc",
           "existing_ac": [
@@ -411,6 +417,14 @@
           "driver": "verify/library_checker/vertex_set_path_composite.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/vertex_set_path_composite",
           "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/qoj/8235.compact.cpp",
+          "url": "https://qoj.ac/problem/8235",
+          "existing_ac": [
+            "https://qoj.ac/submission/2939493"
+          ],
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
@@ -1055,12 +1069,6 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
-          "driver": "verify/library_checker/matrix_det.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/matrix_det",
-          "existing_ac": [],
-          "review": "candidate: audit full statement and exclude competition applications"
-        },
-        {
           "driver": "verify/qoj/8237.compact.cpp",
           "url": "https://qoj.ac/problem/8237",
           "existing_ac": [
@@ -1639,6 +1647,12 @@
           "url": "https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/library_checker/matrix_det.compact.cpp",
+          "url": "https://judge.yosupo.jp/problem/matrix_det",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
       "qoj_tag_candidate": null,
@@ -1666,6 +1680,14 @@
           "driver": "verify/library_checker/counting_spanning_tree_directed.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/counting_spanning_tree_directed",
           "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P6178.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P6178",
+          "existing_ac": [
+            "https://www.luogu.com.cn/record/297619886"
+          ],
           "review": "candidate: audit full statement and exclude competition applications"
         }
       ],
@@ -6021,6 +6043,94 @@
         {
           "driver": "verify/luogu/P1480.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P1480",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "convolution_i64",
+      "title": "精确有符号整数卷积",
+      "source": "src/compact/convolution_i64.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P3803.i64.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3803",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "NegativeCostFlow",
+      "title": "允许负环的最小费用最大流",
+      "source": "src/compact/negative_cost_flow.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/P7173.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P7173",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "CentroidDiameter",
+      "title": "动态点分树：有符号边权活动点直径与端点",
+      "source": "src/compact/centroid_diameter.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/spoj/QTREE4.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        }
+      ],
+      "qoj_tag_candidate": null,
+      "ranking": {
+        "status": "not_checked",
+        "rank": null,
+        "total": null,
+        "checked_at": null,
+        "scope": null
+      }
+    },
+    {
+      "symbol": "circle_coverage_area",
+      "title": "圆覆盖重数面积：恰好覆盖 k 次",
+      "source": "src/compact/circle_coverage.hpp",
+      "status": "needs_template_problem_review",
+      "candidate_drivers": [
+        {
+          "driver": "verify/luogu/SP8119.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/SP8119",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         }

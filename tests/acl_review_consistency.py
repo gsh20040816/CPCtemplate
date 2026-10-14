@@ -52,7 +52,7 @@ expected_paths = {
     'lazysegtree': ['src/compact/lazy_segtree.hpp'],
     'math': ['src/compact/number_theory.hpp', 'src/compact/floor_sum.hpp'],
     'modint': ['src/compact/number_theory.hpp', 'src/compact/dynamic_modint.hpp'],
-    'convolution': ['src/compact/ntt_convolution.hpp', 'src/compact/convolution_mod_fft.hpp'],
+    'convolution': ['src/compact/ntt_convolution.hpp', 'src/compact/convolution_i64.hpp'],
 }
 for name, paths in expected_paths.items():
     assert modules[name]['local'] == paths, name
@@ -66,7 +66,7 @@ declarations = [
     ('number_theory.hpp', r'struct\s+ModInt\b'),
     ('dynamic_modint.hpp', r'struct\s+mint\b'),
     ('ntt_convolution.hpp', r'struct\s+NttConvolution\b'),
-    ('convolution_mod_fft.hpp', r'\bconvolution_mod_fft\('),
+    ('convolution_i64.hpp', r'\bconvolution_i64\('),
 ]
 for name, pattern in declarations:
     assert re.search(pattern, (ROOT / 'src/compact' / name).read_text()), name

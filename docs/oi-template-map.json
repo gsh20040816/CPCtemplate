@@ -1371,6 +1371,33 @@
       "additional": [],
       "relation": "related",
       "note": "离线二维扫描线应用，不代表整页覆盖"
+    },
+    "convolution_i64": {
+      "primary": "math/poly/ntt.md",
+      "relation": "application",
+      "note": "NTT 卷积及三模重构扩展；整数范围契约保留。",
+      "additional": []
+    },
+    "NegativeCostFlow": {
+      "primary": "graph/flow/min-cost.md",
+      "relation": "direct",
+      "note": "通过负边预流与需求修复处理负环，随后继续最短增广。",
+      "additional": []
+    },
+    "CentroidDiameter": {
+      "primary": "graph/dynamic-tree-divide.md",
+      "relation": "direct",
+      "note": "固定有符号边权树，动态启停点；不同重心分支组合直径与端点，非动态拓扑。",
+      "additional": [
+        "graph/tree-divide.md",
+        "graph/tree-diameter.md"
+      ]
+    },
+    "circle_coverage_area": {
+      "primary": "geometry/2d.md",
+      "additional": [],
+      "relation": "related",
+      "note": "分层圆弧积分求每个精确覆盖重数的面积，重复圆按编号分层；有独立高精度截面积分验证。"
     }
   },
   "reference_source_sha256": "de5d096840edf7d9e28e8b79fa25ccbb53ce2621d888bc0d09380fbb07c26806"

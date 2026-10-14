@@ -232,3 +232,7 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | polygon_centroid | [example-420（接口演示）](usage/example-420.cpp) | generated_unverified |
 | triangle_incircle | [example-426](usage/example-426.cpp) | generated_unverified |
 | BigInteger | [example-421](usage/example-421.cpp), [example-422](usage/example-422.cpp), [example-423](usage/example-423.cpp), [example-424（接口演示）](usage/example-424.cpp), [example-425（接口演示）](usage/example-425.cpp) | locally_checked_example |
+| convolution_i64 | [example-52](usage/example-52.cpp) | generated_unverified |
+| NegativeCostFlow | [example-98](usage/example-98.cpp) | generated_unverified |
+| CentroidDiameter | [example-284（应用补充）](usage/example-284.cpp), [example-285（接口演示）](usage/example-285.cpp) | locally_checked_application |
+| circle_coverage_area | [example-417](usage/example-417.cpp) | generated_unverified |
