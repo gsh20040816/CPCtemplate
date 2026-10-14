@@ -88,3 +88,18 @@ F(x)=\exp B(x),\qquad a_n=n![x^n]F(x).
 表预处理至 $\max(n,k)<p$；先判 $k\le n\le2k$，$(n,k)=(0,0)$ 为 1。盒子带标号时不除以 $k!$；允许空盒时单盒因子添 1。
 
 \label{end-combinatorics-supplement}
+
+\section{球盒问题：八种情形}\label{knowledge-ball-box}
+\index{球盒问题}\index{十二重计数}
+$n$ 个球放入 $m$ 个盒子，$S(n,k)$ 为第二类斯特林数，$f_m(s)$ 为把 $s$ 拆成至多 $m$ 个部分的分拆数（第~\pageref{compact-parts_at_most}~页）。
+\begin{center}
+\begin{tabular}{llll}
+球 & 盒 & 允许空盒 & 不允许空盒\\
+不同 & 不同 & $m^n$ & $m!\,S(n,m)$\\
+不同 & 相同 & $\sum_{k=0}^{m}S(n,k)$ & $S(n,m)$\\
+相同 & 不同 & $\binom{n+m-1}{m-1}$ & $\binom{n-1}{m-1}$\\
+相同 & 相同 & $f_m(n)$ & $f_m(n-m)$（$n\ge m$）\\
+\end{tabular}
+\end{center}
+$S(n,0..m)$ 一次取第~\pageref{compact-stirling_second_row}~页整行；$m\ge n$ 时第二行左列即贝尔数。组合数用第~\pageref{compact-Binomial}~页 \texttt{Binomial}，负下标返回 0 正好给出 $n<m$ 时的 0。
+边界：$m=0$ 时八种都为 $[n=0]$；$n=0$、$m\ge1$ 时允许空盒为 1、不允许空盒为 0。$f_m$ 小数据用 $O(nm)$ 的 \texttt{parts\_at\_most}，模 998244353 且规模大时用 $O(n\log n)$ 的 \texttt{parts\_at\_most\_fps}。

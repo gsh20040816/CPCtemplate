@@ -228,6 +228,18 @@
     "Partitions(N,mod) 求无序正整数分拆，0≤N<INT_MAX、1≤mod≤INT_MAX，p[n] 为不限制重数的分拆数；p[0]=1%mod。预处理 O(N√N) 时间、O(N) 空间；模数不要求素数。limited(n,k) 限制每个正整数最多出现 k 次，0≤n≤N、0≤k≤INT_MAX；k=0 时仅空分拆存在，k=1 为互异分拆。单次 O(1+√(n/(k+1)))，额外空间 O(1)。p/mod 只读；中间五边形数与累加采用 long long。"
   ],
   [
+    "partitions",
+    "parts_at_most",
+    "至多 m 个部分的分拆表",
+    "parts_at_most(n,m,mod) 返回 f[0..n]，f[s] 为把 s 拆成至多 m 个正整数之和（不计顺序）的方案数，等价于每部分不超过 m（共轭）。0≤n、0≤m、1≤mod≤INT_MAX，模数不要求素数；f[0]=1%mod，m=0 时仅 f[0] 非零。恰好 m 个部分：n≥m 时为 f[n-m]，否则为 0（m=0 时为 [n=0]）。完全背包逐个加入部分大小 1..min(m,n)，O(n·min(m,n)) 时间、O(n) 空间；n·m 大时用 parts_at_most_fps。"
+  ],
+  [
+    "partitions",
+    "parts_at_most_fps",
+    "至多 m 个部分的分拆表（生成函数）",
+    "parts_at_most_fps(n,m) 返回与 parts_at_most 相同的表，模 998244353。取 ln∏_{i≤m}1/(1-x^i)=Σ_{i≤m}Σ_{j≥1}x^{ij}/j，再用 FpsFunctions::exp 求前 n+1 项。要求 0≤n、n+1≤2^22、m≥0；m≥n 时即无限制分拆数。构造对数 O(n log n)，exp 为 O(n log n) 时间、O(n) 空间；依赖 FpsFunctions。"
+  ],
+  [
     "lucas",
     "Lucas",
     "Lucas：小素数模的大下标组合数",

@@ -1086,6 +1086,21 @@ EGF 输入是否已乘逆阶乘，输出是否已乘阶乘。
 运行命令为 `python3 tests/math_knowledge_combinatorics.py`。
 这是本地建模与接口集成验证，不是新增在线评测 AC，也不取代各模板的完整回归。
 
+### 球盒问题：八种情形
+
+$n$ 个球放入 $m$ 个盒子，$S(n,k)$ 为第二类斯特林数，$f_m(s)$ 为把 $s$ 拆成至多 $m$ 个部分的分拆数（）。
+\begin{center}
+\begin{tabular}{llll}
+球 & 盒 & 允许空盒 & 不允许空盒\\
+不同 & 不同 & $m^n$ & $m!\,S(n,m)$\\
+不同 & 相同 & $\sum_{k=0}^{m}S(n,k)$ & $S(n,m)$\\
+相同 & 不同 & $\binom{n+m-1}{m-1}$ & $\binom{n-1}{m-1}$\\
+相同 & 相同 & $f_m(n)$ & $f_m(n-m)$（$n\ge m$）\\
+\end{tabular}
+\end{center}
+$S(n,0..m)$ 一次取整行；$m\ge n$ 时第二行左列即贝尔数。组合数用 `Binomial`，负下标返回 0 正好给出 $n<m$ 时的 0。
+边界：$m=0$ 时八种都为 $[n=0]$；$n=0$、$m\ge1$ 时允许空盒为 1、不允许空盒为 0。$f_m$ 小数据用 $O(nm)$ 的 `parts_at_most`，模 998244353 且规模大时用 $O(n\log n)$ 的 `parts_at_most_fps`。
+
 ## knowledge-diophantine
 
 ### 一次不定方程：特解与正整数解范围

@@ -2533,6 +2533,7 @@ F(x)=\exp B(x),\qquad a_n=n![x^n]F(x).
 \label{end-combinatorics-supplement}
 
 
+
 \newpage
 
 \section{Lagrange 反演}
@@ -2639,6 +2640,22 @@ Binomial<prime>(n=0) 预处理 0..n，要求 prime 为素数且 0$\le$n<prime。
 \textbf{卷积模板始终计算普通数组卷积，不会补上 EGF 的阶乘。}
 非空带标号块的 EGF 为 $B(x)$ 时，有序块序列是 $1/(1-B(x))$，无序块集合是 $\exp B(x)$；二者都要求 $B(0)=0$。
 
+
+
+\subsection{球盒问题：八种情形}\label{knowledge-ball-box}
+\index{球盒问题}\index{十二重计数}
+$n$ 个球放入 $m$ 个盒子，$S(n,k)$ 为第二类斯特林数，$f_m(s)$ 为把 $s$ 拆成至多 $m$ 个部分的分拆数（第~\pageref{compact-parts_at_most}~页）。
+\begin{center}
+\begin{tabular}{llll}
+球 & 盒 & 允许空盒 & 不允许空盒\\
+不同 & 不同 & $m^n$ & $m!\,S(n,m)$\\
+不同 & 相同 & $\sum_{k=0}^{m}S(n,k)$ & $S(n,m)$\\
+相同 & 不同 & $\binom{n+m-1}{m-1}$ & $\binom{n-1}{m-1}$\\
+相同 & 相同 & $f_m(n)$ & $f_m(n-m)$（$n\ge m$）\\
+\end{tabular}
+\end{center}
+$S(n,0..m)$ 一次取第~\pageref{compact-stirling_second_row}~页整行；$m\ge n$ 时第二行左列即贝尔数。组合数用第~\pageref{compact-Binomial}~页 \texttt{Binomial}，负下标返回 0 正好给出 $n<m$ 时的 0。
+边界：$m=0$ 时八种都为 $[n=0]$；$n=0$、$m\ge1$ 时允许空盒为 1、不允许空盒为 0。$f_m$ 小数据用 $O(nm)$ 的 \texttt{parts\_at\_most}，模 998244353 且规模大时用 $O(n\log n)$ 的 \texttt{parts\_at\_most\_fps}。
 
 
 \subsection{组合数选型：先看模数，再看下标与预算}\label{knowledge-binomial-choice}
@@ -2924,7 +2941,7 @@ EGF 层面第一对公式等价于 $B(x)=A(e^x-1)$ 与 $A(x)=B(\log(1+x))$，是
 
 Partitions(N,mod) 求无序正整数分拆，0$\le$N<INT\_MAX、1$\le$mod$\le$INT\_MAX，p[n] 为不限制重数的分拆数；p[0]=1\%mod。预处理 O(N$\sqrt{\vphantom x}$N) 时间、O(N) 空间；模数不要求素数。limited(n,k) 限制每个正整数最多出现 k 次，0$\le$n$\le$N、0$\le$k$\le$INT\_MAX；k=0 时仅空分拆存在，k=1 为互异分拆。单次 O(1+$\sqrt{\vphantom x}$(n/(k+1)))，额外空间 O(1)。p/mod 只读；中间五边形数与累加采用 long long。
 
-\lstinputlisting[firstline=7,lastline=47]{../src/compact/partitions.hpp}
+\lstinputlisting[firstline=8,lastline=48]{../src/compact/partitions.hpp}
 
 \Needspace{275pt}
 
@@ -2939,6 +2956,24 @@ Partitions(N,mod) 求无序正整数分拆，0$\le$N<INT\_MAX、1$\le$mod$\le$IN
 题目：\url{https://judge.yosupo.jp/problem/partition_function}
 
 \lstinputlisting{usage/example-158.cpp}
+
+\Needspace{220pt}
+
+\subsection{至多 m 个部分的分拆表}\label{compact-parts_at_most}\index{parts\_at\_most}
+
+parts\_at\_most(n,m,mod) 返回 f[0..n]，f[s] 为把 s 拆成至多 m 个正整数之和（不计顺序）的方案数，等价于每部分不超过 m（共轭）。0$\le$n、0$\le$m、1$\le$mod$\le$INT\_MAX，模数不要求素数；f[0]=1\%mod，m=0 时仅 f[0] 非零。恰好 m 个部分：n$\ge$m 时为 f[n-m]，否则为 0（m=0 时为 [n=0]）。完全背包逐个加入部分大小 1..min(m,n)，O(n·min(m,n)) 时间、O(n) 空间；n·m 大时用 parts\_at\_most\_fps。
+
+\lstinputlisting[firstline=52,lastline=61]{../src/compact/partitions.hpp}
+
+\Needspace{234pt}
+
+\subsection{至多 m 个部分的分拆表（生成函数）}\label{compact-parts_at_most_fps}\index{parts\_at\_most\_fps}
+
+代码依赖：\hyperref[compact-FpsFunctions]{FpsFunctions}（第~\pageref{compact-FpsFunctions}~页，\ref{compact-FpsFunctions}~节）、\hyperref[compact-ModInt]{ModInt}（第~\pageref{compact-ModInt}~页，\ref{compact-ModInt}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+
+parts\_at\_most\_fps(n,m) 返回与 parts\_at\_most 相同的表，模 998244353。取 ln∏\_\{i$\le$m\}1/(1-x\textasciicircum{}i)=$\sum$\_\{i$\le$m\}$\sum$\_\{j$\ge$1\}x\textasciicircum{}\{ij\}/j，再用 FpsFunctions::exp 求前 n+1 项。要求 0$\le$n、n+1$\le$2\textasciicircum{}22、m$\ge$0；m$\ge$n 时即无限制分拆数。构造对数 O(n log n)，exp 为 O(n log n) 时间、O(n) 空间；依赖 FpsFunctions。
+
+\lstinputlisting[firstline=65,lastline=76]{../src/compact/partitions.hpp}
 
 \newpage
 

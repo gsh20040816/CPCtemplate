@@ -263,6 +263,8 @@ build/dujiao
 
 "$CXX" "${flags[@]}" tests/partitions.cpp -o build/partitions
 build/partitions
+"$CXX" "${flags[@]}" tests/ball_box.cpp -o build/ball_box
+build/ball_box
 
 "$CXX" "${flags[@]}" tests/floor_sum.cpp -o build/floor_sum
 build/floor_sum

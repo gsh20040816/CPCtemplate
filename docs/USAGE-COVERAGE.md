@@ -44,7 +44,9 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | PrimitiveRoot | [example-48](usage/example-48.cpp) | generated_unverified |
 | floor_moments | [example-157](usage/example-157.cpp) | generated_unverified |
 | euler_phi | [example-106](usage/example-106.cpp) | generated_unverified |
-| Partitions | [example-158](usage/example-158.cpp), [example-159（应用补充）](usage/example-159.cpp) | locally_checked_example |
+| Partitions | [example-158](usage/example-158.cpp), [example-159（应用补充）](usage/example-159.cpp) | generated_unverified |
+| parts_at_most | 待补 | pending_example |
+| parts_at_most_fps | 待补 | pending_example |
 | Lucas | [example-40](usage/example-40.cpp) | locally_checked_example |
 | ExLucas | [example-41](usage/example-41.cpp) | locally_checked_example |
 | mod_sqrt | [example-42](usage/example-42.cpp) | locally_checked_example |
