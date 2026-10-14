@@ -69,8 +69,11 @@ $d_0(0)=1$、负下标为 0，$O(k(R+1))$ 时间、$O(R+1)$ 空间，任意模�
 组合数接口见第~\pageref{knowledge-binomial-choice}~页。$k=0$ 单独返回 $[N=0]$。
 
 \subsection{例二：步长 1、2 的有序序列（OGF 求逆）}
-单步 OGF $B(x)=\sum b_sx^s$（$s\ge1$），有序序列 $F=(1-B)^{-1}\bmod x^{N+1}$，如步长 1、2 时
-\texttt{FpsInverse::inverse(\{1,-1,-1\},N+1)}；$O(M(N+1))$ 时间、$O(N+1)$ 空间。
+单步 OGF $B(x)=\sum b_sx^s$（$s\ge1$），有序序列 $F=(1-B)^{-1}\bmod x^{N+1}$，$O(M(N+1))$ 时间、$O(N+1)$ 空间。步长 1、2 时调用：
+
+\noindent\texttt{FpsInverse::inverse(\{1,-1,-1\},N+1)}
+
+
 要求 $B(0)=0$；只区分各长度使用次数时应改为 $\prod_s(1-x^s)^{-1}$。$N$ 巨大且步长有界时改用远项算法。
 
 \subsection{例三：不同元素分成单点与无序对（EGF 指数）}

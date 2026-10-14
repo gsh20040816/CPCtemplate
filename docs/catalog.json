@@ -135,7 +135,7 @@
     "number_theory",
     "extended_gcd",
     "扩展欧几里得与 Bézout 系数",
-    "extended_gcd(a,b,x,y) 约定0≤a,b≤2^63，参数和输出系数为 int128，返回非负 gcd 并满足 ax+by=gcd(a,b)。a=b=0 返回0、x=1、y=0；递归实现，中间乘加为 int128；O(log(min(a,b)+1)) 时间与递归空间。 解 ax+by=c：令 g=gcd(a,b)，g∤c 时无解；否则 x0=x·c/g、y0=y·c/g，通解 x=x0+k·b/g、y=y0-k·a/g；最小非负 x 为 x0 对 b/g 取非负余数。乘 c/g 时注意 int128 范围。"
+    "extended_gcd(a,b,x,y) 约定0≤a,b≤2^63，参数和输出系数为 int128，返回非负 gcd 并满足 ax+by=gcd(a,b)。a=b=0 返回0、x=1、y=0；递归实现，中间乘加为 int128；O(log(min(a,b)+1)) 时间与递归空间。 解 ax+by=c：令 g=gcd(a,b)，c 不是 g 的倍数时无解；否则 x0=x·c/g、y0=y·c/g，通解 x=x0+k·b/g、y=y0-k·a/g；最小非负 x 为 x0 对 b/g 取非负余数。乘 c/g 时注意 int128 范围。"
   ],
   [
     "number_theory",
