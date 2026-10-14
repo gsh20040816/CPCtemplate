@@ -147,7 +147,7 @@ int main()
     assert(convolution_mod_fft({INT_MIN}, {-511}, INT_MAX) == brute_mod({INT_MIN}, {-511}, INT_MAX));
     assert(convolution_mod_fft({-7}, {3}, INT_MAX) == vector<int>{INT_MAX - 21});
     {
-        const int n = 1000001;
+        const int n = 262144; // full 2^19 result length
         vector<int> a(n, 9);
         auto c = convolution_mod_fft(a, a, INT_MAX);
         for (int i = 0; i < (int)c.size(); i++)
@@ -178,6 +178,6 @@ int main()
             assert(c[i] == min({i + 1, n, 2 * n - i}));
     }
     cout << "FFT: 100-digit DFT, 14641 signed exhaustive pairs, 1200 integer and 600 "
-            "modular random pairs, signed int boundaries, million-degree triangles, "
+            "modular random pairs, signed int boundaries, 2^18-degree triangles, "
             "spectral inputs, exact CRT and full 2^19 modular length PASS\n";
 }

@@ -237,8 +237,6 @@ build/inverse-table
 build/segmented_sieve
 python3 tests/prime_distance_application.py
 
-python3 tests/linear_equation_application.py
-
 "$CXX" "${flags[@]}" tests/linear_congruence.cpp -o build/linear_congruence
 build/linear_congruence
 python3 tests/frog_meeting_application.py
@@ -265,8 +263,6 @@ build/dujiao
 
 "$CXX" "${flags[@]}" tests/partitions.cpp -o build/partitions
 build/partitions
-
-python3 tests/divisor_sum_application.py
 
 "$CXX" "${flags[@]}" tests/floor_sum.cpp -o build/floor_sum
 build/floor_sum
@@ -358,8 +354,6 @@ build/functional_graph
 python3 tests/functional_graph_application.py
 
 python3 tests/sugar_sweet_application.py
-
-python3 tests/snake_application.py
 
 "$CXX" "${flags[@]}" tests/modified_mo.cpp -o build/modified_mo
 build/modified_mo

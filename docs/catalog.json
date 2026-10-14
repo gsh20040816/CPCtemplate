@@ -333,7 +333,7 @@
     "matrix_tree_mod",
     "MatrixTreeMod",
     "任意正模数带权矩阵树",
-    "count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小非负余数。mod 为任意正 signed 64 位数，边权支持完整 signed 64 位。Kind 的 undirected、toward_root、away_from_root 分别表示无向、内向和外向树；点号 0..n-1。自环忽略，重边按不同边计数，单点返回 1%mod，mod=1 返回零。先在 128 位中构造模拉普拉斯余子式，再调用 determinant_mod；O(n³ log mod + m) 时间、O(n²) 额外空间。不使用模逆元。已知模数是素数时一般优先使用 MatrixTree<mod>。"
+    "count(n, edges, root, kind, mod) 返回树的边权乘积之和对 mod 的最小非负余数。mod 为任意正 signed 64 位数，边权支持完整 signed 64 位。Kind 的 undirected、toward_root、away_from_root 分别表示无向、内向和外向树；点号 0..n-1。自环忽略，重边按不同边计数，单点返回 1%mod，mod=1 返回零。先在 128 位中构造模拉普拉斯余子式，再调用 determinant_mod；O(n³ log mod + m) 时间、O(n²) 额外空间。不使用模逆元，素数与合数模数通用。"
   ],
   [
     "algebra",

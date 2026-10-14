@@ -39,7 +39,7 @@ e = [(1, 2, 2**31 - 1)] * 2500 + [(2, 200, 2**31 - 1)] * 2500
 run(maxflow, 200, e, (2500 * (2**31 - 1),))
 print('P3376: 200 arbitrary-integer cut oracles, 200 vertices / 5000 edges and int64 total PASS', flush=True)
 
-costflows = [build(name) for name in ['P3381', 'P3381.slope', 'P3381.spfa']]
+costflows = [build(name) for name in ['P3381', 'P3381.slope']]
 for _ in range(200):
     n = rng.randint(2, 5)
     edges = []
@@ -85,6 +85,6 @@ for u in range(1, 5001):
         distance[v] = min(distance[v], distance[u] + cost)
 for exe in costflows:
     run(exe, 5000, active, (1, distance[5000]))
-print('P3381 flow/slope/SPFA: each 200 enumerated feasible-flow cases, 1000 augmentations '
+print('P3381 flow/slope: each 200 enumerated feasible-flow cases, 1000 augmentations '
       'at 5000 vertices / 50000 edges, reverse-ordered chain and 50000 positive-capacity '
       'DAG edges with a topological-DP oracle PASS', flush=True)

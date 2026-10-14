@@ -11,7 +11,7 @@ if os.environ.get('SANITIZE') == '1' or os.environ.get('CPC_SANITIZE') == '1':
     flags += ['-O1', '-g', '-fsanitize=address,undefined', '-fno-omit-frame-pointer']
 rng = random.Random(42453803)
 
-for problem, name in [('P3803', 'P3803.fft'), ('P4245', 'P4245')]:
+for problem, name in [('P3803', 'P3803.transform'), ('P4245', 'P4245')]:
     exe = root / f'build/{name}-fft-driver'
     subprocess.run([CXX, *flags, str(root / f'verify/luogu/{name}.compact.cpp'), '-o', str(exe)], check=True)
 

@@ -1,8 +1,8 @@
-#include "../../src/compact/matrix_tree.hpp"
+#include "../../src/compact/matrix_tree_mod.hpp"
 
 int main()
 {
-    using M = MatrixTree<1000000007>;
+    using M = MatrixTreeMod;
     int n, m, type;
     scanf("%d%d%d", &n, &m, &type);
     vector<M::Edge> edges;
@@ -14,5 +14,5 @@ int main()
         edges.push_back({u - 1, v - 1, w});
     }
     auto kind = type ? M::Kind::away_from_root : M::Kind::undirected;
-    printf("%d\n", M::count(n, edges, 0, kind).v);
+    printf("%lld\n", M::count(n, edges, 0, kind, 1000000007));
 }

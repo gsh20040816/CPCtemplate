@@ -109,6 +109,7 @@
 - `verify/library_checker/log_of_formal_power_series.compact.cpp`
 - `verify/library_checker/longest_common_substring.compact.cpp`
 - `verify/library_checker/manhattanmst.compact.cpp`
+- `verify/library_checker/matrix_det.compact.cpp`
 - `verify/library_checker/matrix_det_arbitrary_mod.compact.cpp`
 - `verify/library_checker/matrix_product.compact.cpp`
 - `verify/library_checker/multipoint_evaluation.compact.cpp`
@@ -123,6 +124,7 @@
 - `verify/library_checker/range_affine_range_sum.compact.cpp`
 - `verify/library_checker/range_chmin_chmax_add_range_sum.compact.cpp`
 - `verify/library_checker/rectangle_sum_offline.compact.cpp`
+- `verify/library_checker/scc.compact.cpp`
 - `verify/library_checker/segment_add_get_min.compact.cpp`
 - `verify/library_checker/shortest_path.compact.cpp`
 - `verify/library_checker/sort_points_by_argument.compact.cpp`

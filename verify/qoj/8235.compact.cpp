@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "../../src/compact/euler_lca.hpp"
+#include "../../src/compact/tree.hpp"
 #include "../../src/compact/tree_diameter.hpp"
 
 int main()
@@ -13,18 +13,27 @@ int main()
         scanf("%d", &w);
         if (w <= n) position[w] = u;
     }
-    EulerLCA lca(n);
+    HLD lca(n);
+    vector<vector<pair<int, long long>>> g(n + 1);
     for (int i = 1; i < n; i++)
     {
         int u, v;
         long long w;
         scanf("%d%d%lld", &u, &v, &w);
-        lca.add(u, v, w);
+        lca.add(u, v);
+        g[u].push_back({v, w});
+        g[v].push_back({u, w});
     }
-    lca.build();
+    lca.build(1);
+    vector<long long> depth(n + 1, -1);
+    vector<int> order{1};
+    depth[1] = 0;
+    for (int i = 0; i < (int)order.size(); i++)
+        for (auto [v, w] : g[order[i]])
+            if (depth[v] < 0) depth[v] = depth[order[i]] + w, order.push_back(v);
     auto distance = [&](int u, int v)
     {
-        return lca.weighted_distance(u, v);
+        return depth[u] + depth[v] - 2 * depth[lca.lca(u, v)];
     };
     int mex = 0;
     while (position[mex] != -1) mex++;
