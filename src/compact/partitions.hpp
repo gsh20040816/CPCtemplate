@@ -56,7 +56,7 @@ vector<int> parts_at_most(int n, int m, int mod)
     vector<int> f(n + 1);
     f[0] = 1 % mod;
     for (int i = 1; i <= min(m, n); i++)
-        for (int s = i; s <= n; s++) f[s] = (f[s] + f[s - i]) % mod;
+        for (int s = i; s <= n; s++) f[s] = (0LL + f[s] + f[s - i]) % mod;
     return f;
 }
 // END parts_at_most

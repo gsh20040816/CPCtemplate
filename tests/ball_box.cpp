@@ -17,6 +17,17 @@ long long brute_parts(int s, int cap)
     return total;
 }
 
+// same count reduced modulo mod with 64-bit sums, independent of the template's loop order
+long long brute_mod(int n, int m, long long mod)
+{
+    vector<vector<long long>> dp(n + 1, vector<long long>(m + 1));
+    for (int k = 0; k <= m; k++) dp[0][k] = 1 % mod;
+    for (int s = 1; s <= n; s++)
+        for (int k = 1; k <= m; k++)
+            dp[s][k] = (dp[s][k - 1] + (s >= k ? dp[s - k][k] : 0)) % mod;
+    return m ? dp[n][m] : (n == 0 ? 1 % mod : 0);
+}
+
 // enumerate all m^n placements and count classes under the chosen equivalence
 array<long long, 8> brute_cases(int n, int m)
 {
@@ -99,6 +110,13 @@ int main()
         auto f = parts_at_most(40, m, 7), one = parts_at_most(40, m, 1);
         for (int s = 0; s <= 40; s++) assert(f[s] == brute_parts(s, m) % 7 && one[s] == 0);
     }
+    // moduli near INT_MAX: sums of two residues must not overflow int
+    for (int mod : {INT_MAX, INT_MAX - 1, 1 << 30})
+        for (int m : {5, 40, 200})
+        {
+            auto f = parts_at_most(200, m, mod);
+            for (int s = 0; s <= 200; s++) assert(f[s] == (long long)(brute_mod(s, m, mod)));
+        }
     // large table against the O(nm) recurrence
     for (int m : {1, 2, 17, 300, 3000, 5000})
     {
