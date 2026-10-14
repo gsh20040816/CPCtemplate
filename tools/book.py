@@ -58,7 +58,6 @@ chapters['convolution_i64'] = '精确整数卷积'
 chapters['centroid_diameter'] = '有符号边权活动点直径'
 chapters['negative_cost_flow'] = '允许负环的费用流'
 chapters['circle_coverage'] = '圆覆盖重数面积'
-chapters['tarjan'] = 'Tarjan 与缩点'
 chapters['static_rmq'] = '位掩码静态RMQ'
 body = []
 records = []
@@ -100,9 +99,6 @@ for style in ['compact']:
                 body.append('\\newpage')
             if name == 'HLD':
                 split = next(i for i in range(start, end) if 'void dfs2(' in lines[i])
-                estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
-            if name == 'SCC':
-                split = next(i for i in range(start, end) if '// Recursive Kosaraju' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
             if name == 'PalindromicTree':
                 split = next(i for i in range(start, end) if '// Append a lowercase letter' in lines[i])
@@ -434,12 +430,6 @@ for style in ['compact']:
                 body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
                 body.append('\\newpage')
                 body.append('\\noindent 子串、反串与拼接（接上页同一结构体）：')
-                body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
-            elif name == 'SCC':
-                split = next(i for i in range(start, end) if '// Recursive Kosaraju' in lines[i])
-                body.append('\\lstinputlisting[firstline=' + str(start + 1) + ',lastline=' + str(split) + ']{../src/' + style + '/' + filename + '.hpp}')
-                body.append('\\newpage')
-                body.append('\\noindent 重算入口与拓扑编号（接上页同一结构体）：')
                 body.append('\\lstinputlisting[firstline=' + str(split + 1) + ',lastline=' + str(end) + ',firstnumber=' + str(split - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'HLD':
                 cuts = [start,

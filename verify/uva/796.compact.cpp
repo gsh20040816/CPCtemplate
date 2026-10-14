@@ -1,4 +1,4 @@
-#include "../../src/compact/graph.hpp"
+#include "../../src/compact/biconnected_core.hpp"
 #include <iostream>
 
 int main()
@@ -8,7 +8,7 @@ int main()
     int n;
     while (std::cin >> n)
     {
-        Lowlink graph(n);
+        BiconnectedCore graph(n);
         std::vector<std::pair<int, int>> edges;
         for (int i = 0; i < n; i++)
         {

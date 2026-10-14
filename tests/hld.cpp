@@ -208,7 +208,7 @@ void test_all()
         assert(a.siz[root] == n && large.siz[root] == n);
         assert(a.lca(1, n) == root && large.Lca(1, n) == root);
     }
-    SCC c(n);
+    TarjanSCC c(n);
     Strong_Component d(n);
     for (int u = 1; u < n; u++)
     {

@@ -413,6 +413,7 @@ python3 tests/scc_sat_application.py
 "$CXX" "${flags[@]}" -pthread tests/tarjan.cpp -o build/tarjan
 build/tarjan
 python3 tests/scc_template_application.py
+python3 tests/lowlink_application.py
 
 python3 tests/lc_convolution_application.py
 

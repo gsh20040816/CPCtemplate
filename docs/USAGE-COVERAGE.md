@@ -15,7 +15,6 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | maximum_closure | [example-148（应用补充）](usage/example-148.cpp) | generated_unverified |
 | MinCostFlow | [example-55](usage/example-55.cpp) | generated_unverified |
 | Dijkstra | [example-59](usage/example-59.cpp) | generated_unverified |
-| SCC | [example-161](usage/example-161.cpp) | generated_unverified |
 | TwoSAT | [example-3](usage/example-3.cpp), [example-128](usage/example-128.cpp) | generated_unverified |
 | BipartiteMatching | [example-35](usage/example-35.cpp), [example-311（应用补充）](usage/example-311.cpp) | generated_unverified |
 | HLD | [example-231](usage/example-231.cpp), [example-281（接口演示）](usage/example-281.cpp), [example-282（应用补充）](usage/example-282.cpp), [example-324（接口演示）](usage/example-324.cpp) | generated_unverified |
@@ -236,5 +235,5 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | NegativeCostFlow | [example-98](usage/example-98.cpp) | generated_unverified |
 | CentroidDiameter | [example-284（应用补充）](usage/example-284.cpp), [example-285（接口演示）](usage/example-285.cpp) | locally_checked_application |
 | circle_coverage_area | [example-417](usage/example-417.cpp) | generated_unverified |
-| TarjanSCC | [example-2](usage/example-2.cpp), [example-300（应用补充）](usage/example-300.cpp) | locally_checked_example |
+| TarjanSCC | [example-2](usage/example-2.cpp), [example-300（应用补充）](usage/example-300.cpp) | generated_unverified |
 | StaticRMQ | [example-276](usage/example-276.cpp), [example-277](usage/example-277.cpp), [example-278（接口演示）](usage/example-278.cpp) | locally_checked_example |

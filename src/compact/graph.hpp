@@ -54,65 +54,80 @@ struct Dijkstra
     }
 };
 
-struct SCC
+struct TarjanSCC
 {
-    int n, cnt = 0;
-    vector<vector<int>> g, rg;
-    vector<int> bel;
+    int n, timer = 0, cnt = 0;
+    vector<vector<int>> g;
+    vector<int> dfn, low, bel, st;
 
-    SCC(int n) : n(n), g(n + 1), rg(n + 1) {}
+    TarjanSCC(int n) : n(n), g(n + 1) {}
 
     void add(int u, int v)
     {
+        assert(1 <= u && u <= n && 1 <= v && v <= n);
         g[u].push_back(v);
-        rg[v].push_back(u);
     }
 
-    void dfs1(int u, vector<int> &vis, vector<int> &order)
+    void dfs(int u)
     {
-        vis[u] = 1;
+        dfn[u] = low[u] = ++timer;
+        st.push_back(u);
         for (int v : g[u])
         {
-            if (!vis[v]) dfs1(v, vis, order);
-        }
-        order.push_back(u);
-    }
-
-    void dfs2(int u)
-    {
-        bel[u] = cnt;
-        for (int v : rg[u])
-        {
-            if (!bel[v]) dfs2(v);
-        }
-    }
-
-    // Recursive Kosaraju; component IDs are in topological order, 1..cnt.
-    void run()
-    {
-        vector<int> vis(n + 1), order;
-        cnt = 0;
-        bel.assign(n + 1, 0);
-        for (int s = 1; s <= n; s++)
-        {
-            if (!vis[s]) dfs1(s, vis, order);
-        }
-        reverse(order.begin(), order.end());
-        for (int s : order)
-        {
-            if (!bel[s])
+            if (!dfn[v])
             {
-                ++cnt;
-                dfs2(s);
+                dfs(v);
+                low[u] = min(low[u], low[v]);
+            }
+            else if (!bel[v])
+                low[u] = min(low[u], dfn[v]);
+        }
+        if (low[u] == dfn[u])
+        {
+            ++cnt;
+            while (true)
+            {
+                int v = st.back();
+                st.pop_back();
+                bel[v] = cnt;
+                if (v == u) break;
             }
         }
+    }
+
+    // IDs 1..cnt are in reverse topological order. Recursive DFS needs O(n) stack.
+    void run()
+    {
+        timer = cnt = 0;
+        dfn.assign(n + 1, 0);
+        low = dfn;
+        bel = dfn;
+        st.clear();
+        for (int u = 1; u <= n; u++)
+        {
+            if (!dfn[u]) dfs(u);
+        }
+    }
+
+    // Retains parallel edges. Use after run().
+    vector<vector<int>> dag() const
+    {
+        vector<vector<int>> result(cnt + 1);
+        for (int u = 1; u <= n; u++)
+        {
+            for (int v : g[u])
+            {
+                if (bel[u] != bel[v]) result[bel[u]].push_back(bel[v]);
+            }
+        }
+        return result;
     }
 };
 
 struct TwoSAT
 {
     int n;
-    SCC g;
+    TarjanSCC g;
     vector<int> ans;
 
     TwoSAT(int n) : n(n), g(2 * n) {}
@@ -132,7 +147,7 @@ struct TwoSAT
         for (int x = 1; x <= n; x++)
         {
             if (g.bel[id(x, 0)] == g.bel[id(x, 1)]) return false;
-            ans[x] = g.bel[id(x, 1)] > g.bel[id(x, 0)];
+            ans[x] = g.bel[id(x, 1)] < g.bel[id(x, 0)]; // Tarjan ids are reverse topological
         }
         return true;
     }
@@ -504,7 +519,7 @@ matching_edges(int n, int m, const vector<pair<int, int>> &edges)
         b.add(u, v);
     }
     int size = b.solve(), s = n + m + 1, t = s + 1;
-    SCC d(t);
+    TarjanSCC d(t);
     for (int u = 1; u <= n; u++)
         if (b.l[u])
             d.add(u, s);

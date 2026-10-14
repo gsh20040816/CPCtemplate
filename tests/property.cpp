@@ -172,7 +172,7 @@ void flows() {
 void graphs() {
   for (int it = 0; it < 500; it++) {
     int n = 2 + rnd(7);
-    SCC s(n);
+    TarjanSCC s(n);
     Dijkstra d(n);
     vector<vector<long long>> a(n + 1, vector<long long>(n + 1, 1000000));
     for (int i = 1; i <= n; i++)

@@ -27,7 +27,7 @@ def validate(row):
 for row in rows:
     validate(row)
 for ident, mutate in [
-    ('example-3', lambda r: r['requires'].remove('SCC')),
+    ('example-3', lambda r: r['requires'].remove('TarjanSCC')),
     ('example-94', lambda r: r['requires'].reverse()),
     ('example-216', lambda r: r['requires'].append('ModInt')),
 ]:

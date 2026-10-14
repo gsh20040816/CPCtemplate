@@ -6,11 +6,11 @@
 
 | 项目 | 之前（b930c4d1） | 之后 |
 |---|---|---|
-| 头文件 | 303 | 154 |
-| 头文件行数 | 约 25000 | 15748 |
-| 目录条目（catalog） | 337 | 231 |
-| 登记使用示例 | 460 | 314（只印 169 份模板题用法） |
-| 总册页数 | 1237 | 665 |
+| 头文件 | 303 | 153 |
+| 头文件行数 | 约 25000 | 15688 |
+| 目录条目（catalog） | 337 | 230 |
+| 登记使用示例 | 460 | 313（只印 168 份模板题用法） |
+| 总册页数 | 1237 | 662 |
 
 ## 做了什么
 
@@ -39,10 +39,12 @@
 | centroid_diameter 动态点集直径 | 树固定、点反复开关，查询当前最远点对（QTREE4 型） | 静态点分治不能直接回答，需要维护分支最优值、删除与全局答案 |
 | negative_cost_flow 允许负环的最小费用流 | 建模后有负费用环，循环流也能改善费用 | MinCostFlow 拒绝初始负环；上下界可行流不保证费用最优 |
 | circle_coverage 圆的多重覆盖面积 | 求至少／恰好被 k 个圆覆盖的面积 | 圆并只保留未覆盖弧；按层积分还要处理重圆、包含与角度事件 |
-| tarjan 的 TarjanSCC | Tarjan 系列（SCC、割点、割边、点双、边双）不可省略 | 割点、割边、点双、边双由 BiconnectedCore 的一次 lowlink DFS 给出；SCC 原只剩 Kosaraju，现与 TarjanSCC 并存 |
+| TarjanSCC 强连通分量 | Tarjan 系列（SCC、割点、割边、点双、边双）不可省略 | 割点、割边、点双、边双由 BiconnectedCore 的一次 lowlink DFS 给出；SCC 只保留 Tarjan，并入 graph.hpp，Kosaraju SCC 删除，TwoSAT 与边分类改用 TarjanSCC |
 | static_rmq 静态 RMQ | 区间最值位置查询 | 删除后库内没有任何 RMQ；位掩码版 O(n) 预处理、O(1) 查询，赛时不易写对 |
 
 对照 WIDA 后确认不恢复的条目：分数类、DAG 最长路（太简单）；q-二项式、二维 RMQ、稀疏二维树状数组、动态/带权 AC（太偏）；KM 由 Hungarian 覆盖并补缺边建模说明；Montgomery/Barrett/64 位静态模的功能由 ModInt、mint、Mod64 覆盖；Lowlink、旧 biconnected、edge_components 由 BiconnectedCore 覆盖。
+
+割点模板 P3388 与桥模板 UVa 796 的驱动改用 BiconnectedCore（cut、bridge），P3388 的删点连通块判据测试加回 test.sh。TwoSAT 改用 TarjanSCC 后取真条件为真文字分量编号更小，2500 组真值表判据通过。
 
 coverage.csv 中被删模板所在行以删减前映射为准重写：被删项换成替代项、被合并文件换成目标头文件、保留项原样保留（此前的脚本曾误删 48 行中的保留项）。
 
@@ -60,4 +62,4 @@ coverage.csv 中被删模板所在行以删减前映射为准重写：被删项�
 - 本 issue 中被删模块的专属测试随模块删除；保留模块的测试改用保留实现或测试内适配。中途对照中新出现的失败均已逐个修复并单独复跑通过：ACL 映射、凸多边形切线、联合用法引用、矩阵树/整数分拆知识、FFT、费用流、行列式、SCC、矩阵树与 QOJ8235 应用。
 - 最终完整运行（a01d1b8b）与改动前对照：没有算法测试新增失败；唯一新增的 inclusion_knowledge 是知识原文迁移后映射路径未同步，已修复并复跑通过。改动前失败的 22 步中，6 步随被删模块或改写的驱动消失，其余仍为原有问题。
 - 恢复后 convolution_i64、negative_cost_flow、centroid_diameter、circle_coverage 的单元与应用测试均通过，前三者及其应用测试已加回 test.sh；TarjanSCC 单元与 QOJ906 应用测试加回 test.sh，StaticRMQ 另做约 299 万次随机区间最值位置对拍（static_rmq.py 依赖仓库外的 WIDA 原始源码，与删除前一样不在 test.sh 中）（circle_coverage 依赖 mpmath，与删除前一样不在 test.sh 中）。
-- `tools/build_pdf.sh` 生成全部 PDF，`pdf_audit` 与 `infra_audit` 通过，总册 665 页，无未定义引用。
+- `tools/build_pdf.sh` 生成全部 PDF，`pdf_audit` 与 `infra_audit` 通过，总册 662 页，无未定义引用。

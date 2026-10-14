@@ -34,7 +34,7 @@ SPFA 版允许负边，\textbf{不允许负环}：每次调用先全点零距离
 \section{2-SAT 编号方向与双连通定义}\label{knowledge-twosat-bcc}
 TwoSAT 的 add(x,a,y,b) 表示 $(x=a)\lor(y=b)$；强制值 add(x,a,x,a)，
 蕴含 $(x=a)\Rightarrow(y=b)$ 写 add(x,!a,y,b)。
-Kosaraju 拓扑编号下真文字分量编号更大时取真；换 SCC 实现须检查不等号。
+Tarjan 逆拓扑编号下真文字分量编号更小时取真；换 SCC 实现须检查不等号。
 solve 仅成功时读 ans，$O(n+m)$，不保证字典序最小。
 
 点双：连通且无割点；桥两端成块，孤立点单独成块，割点可属多块；自环不产生点双、不标桥。

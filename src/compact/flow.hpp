@@ -288,7 +288,7 @@ struct BoundedCirculation
 // BEGIN mincut_edges
 vector<array<bool, 2>> mincut_edges(const Dinic &g, int s, int t)
 {
-    SCC d(g.n);
+    TarjanSCC d(g.n);
     for (auto e : g.e)
         if (e.cap) d.add(e.from, e.to);
     d.run();

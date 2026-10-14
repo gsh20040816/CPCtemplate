@@ -194,6 +194,7 @@
 - `verify/luogu/P3381.slope.compact.cpp`
 - `verify/luogu/P3385.compact.cpp`
 - `verify/luogu/P3386.compact.cpp`
+- `verify/luogu/P3388.compact.cpp`
 - `verify/luogu/P3402.compact.cpp`
 - `verify/luogu/P3649.compact.cpp`
 - `verify/luogu/P3803.i64.compact.cpp`
@@ -276,6 +277,7 @@
 - `verify/spoj/QTREE2.compact.cpp`
 - `verify/spoj/QTREE4.compact.cpp`
 - `verify/uva/1479.compact.cpp`
+- `verify/uva/796.compact.cpp`
 
 ## 已解决的提交异常
 

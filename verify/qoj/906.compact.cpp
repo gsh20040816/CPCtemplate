@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "../../src/compact/tarjan.hpp"
+#include "../../src/compact/graph.hpp"
 
 int main()
 {

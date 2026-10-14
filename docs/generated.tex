@@ -5241,7 +5241,7 @@ BellmanFord(n)，点号1..n，0<n<INT\_MAX。add(u,v,w)加有向边并返回0-ba
 
 O(nm+n+m)时间、O(n+m)空间；path输出O(路径长)。inf=2\textasciicircum{}126，全过程int128累加，不能无条件转为long long。在给定n,m的int边界内，n轮最多nm次更新，标签对应游走至多nm条边，绝对值<2\textasciicircum{}125，不碰inf也不溢出。e/g/dis/pre/neg/cycle和ready只读，不手改。
 
-\lstinputlisting[firstline=427,lastline=495]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=442,lastline=510]{../src/compact/graph.hpp}
 
 \Needspace{419pt}
 
@@ -5265,7 +5265,7 @@ run返回true时valid=true，dis[v]==inf为不可达，其余为int128最短距�
 
 FIFO队列，最坏O(nm+n+m)时间，O(n+m)空间，不保证近线性；队列去重不等于永久访问标记。严格松弛后维护标签所代表游走的边数，达到n立即判负环。停止前标签最多n条边，绝对值$\le$n·2\textasciicircum{}63<2\textasciicircum{}94，int128与inf=2\textasciicircum{}126足够。不要无条件转long long；e/g/dis/pre/valid只读，其余按接口使用。
 
-\lstinputlisting[firstline=367,lastline=426]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=382,lastline=441]{../src/compact/graph.hpp}
 
 \Needspace{398pt}
 
@@ -5289,7 +5289,7 @@ Floyd(n)，点号1..n，0<n<INT\_MAX；add(u,v,w)返回0-based原边号，有向
 
 run时间O(n$^{3}$+m)，空间O(n$^{2}$+m)，path时间与输出空间O(路径长)。每次处理k之前检查dis[k][k]<0，立即拒绝，不能延后到所有松弛结束，否则负环下中间量可指数增长。通过的枢轴不含负环；有限标签取简单路径或闭合路径，拼接候选绝对值<2n·2\textasciicircum{}63<2\textasciicircum{}95，int128与inf=2\textasciicircum{}126足够。两段都有限才相加；不要无条件转long long。矩阵占用约20(n+1)$^{2}$字节，另计vector和原边表，n应按时间/内存选择。
 
-\lstinputlisting[firstline=313,lastline=366]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=328,lastline=381]{../src/compact/graph.hpp}
 
 \newpage
 
@@ -5451,7 +5451,7 @@ Kruskal(n)，0$\le$n$\le$INT\_MAX，点号0..n-1；add(u,v,w)加入无向边并�
 
 依赖普通dsu，调用方先把较大根放在前，保留dsu的fa[y]=x语义。时间O(n+m log(m+1)+m $\alpha$(n+1))，空间O(n+m)；add均摊O(1)。总权绝对值<2\textasciicircum{}94，不能无条件转long long。自环不入树，断开图仍返回各块最小树；不使用−1总权判断失败，合法MST总权也可为−1。成员只读，n和e不直接修改。
 
-\lstinputlisting[firstline=235,lastline=275]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=250,lastline=290]{../src/compact/graph.hpp}
 
 \newpage
 
@@ -5479,7 +5479,7 @@ run()每次重建最小生成森林，返回原图连通块数。n>0时返回1�
 
 构造和存储O(n$^{2}$)，add为O(1)，run为O(n$^{2}$)，矩阵约16n$^{2}$字节，按实际内存选择n；稀疏图优先Kruskal。每步选到已选点集的最轻边；所有剩余点均无跨边时开启新树，不把inf计入总权。只向未选点严格更新父点，负自环不入树。总权绝对值<2\textasciicircum{}94，可为−1或超出long long，不能用权值判断断连。
 
-\lstinputlisting[firstline=276,lastline=312]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=291,lastline=327]{../src/compact/graph.hpp}
 
 \newpage
 
@@ -5632,39 +5632,11 @@ FunctionalGraph(to) 或 build(to) 重建，每个点恰有一条出边，to[u] �
 
 \lstinputlisting{usage/example-171.cpp}
 
-\Needspace{457pt}
-
-\subsection{强连通分量}\label{compact-SCC}\index{SCC}
-
-add(u,v)、run()，bel[1..n] 为分量编号，cnt 为数量；分量编号按缩点图拓扑序递增。递归 Kosaraju，按用户要求保留 DFS 写法；O(V+E)，同时存正反图。
-
-\lstinputlisting[firstline=57,lastline=89]{../src/compact/graph.hpp}
-
-\newpage
-
-\noindent 重算入口与拓扑编号（接上页同一结构体）：
-
-\lstinputlisting[firstline=90,lastline=111,firstnumber=34]{../src/compact/graph.hpp}
-
-\Needspace{446pt}
-
-\subsection*{模板题使用：Library Checker scc (Kosaraju)}
-
-\label{usage-example-161}
-
-题意：给有向图，输出强连通分量并按缩点拓扑序排列；N、M$\le$500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。
-
-所需模板：\hyperref[compact-SCC]{SCC}（第~\pageref{compact-SCC}~页，\ref{compact-SCC}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
-
-题目：\url{https://judge.yosupo.jp/problem/scc}
-
-\lstinputlisting{usage/example-161.cpp}
-
 \subsection{Tarjan 强连通分量与缩点}\label{compact-TarjanSCC}\index{TarjanSCC}
 
 TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u] 为 1..cnt 的强连通分量编号，跨分量边总从大编号指向小编号，可按 cnt..1 做拓扑 DP。dag() 返回缩点邻接表，保留重边；若 DP 需要对不同邻点去重，调用者应排序去重。支持自环、重边、不连通图和重复 run。时间及图存储 O(n+m)，递归 DFS 另需 O(n) 调用栈；本地验证应配置足够栈内存。注意已有 SCC 模板的编号方向与本模板相反。
 
-\lstinputlisting[firstline=7,lastline=75]{../src/compact/tarjan.hpp}
+\lstinputlisting[firstline=57,lastline=126]{../src/compact/graph.hpp}
 
 \Needspace{422pt}
 
@@ -5681,7 +5653,7 @@ TarjanSCC(n)，点号 1..n；add(u,v) 加有向边，run() 从头计算。bel[u]
 \lstinputlisting{usage/example-2.cpp}
 
 \subsection{SCC 模板题与速度榜口径}\label{knowledge-scc-template}
-QOJ906 要求按拓扑序输出强连通分量。第~\pageref{compact-TarjanSCC}~页 \texttt{TarjanSCC} 的分量编号为逆拓扑序，按 cnt 到 1 输出；第~\pageref{compact-SCC}~页 Kosaraju \texttt{SCC} 的编号即拓扑序。两者 \texttt{bel[1..n]} 均为 1-based，0-based 输入点号先加一、输出时减一。
+QOJ906 要求按拓扑序输出强连通分量。第~\pageref{compact-TarjanSCC}~页 \texttt{TarjanSCC} 的分量编号为逆拓扑序，按 cnt 到 1 输出；\texttt{bel[1..n]} 为 1-based，0-based 输入点号先加一、输出时减一。
 
 
 
@@ -5901,17 +5873,17 @@ MinCycle(n)，n$\ge$0，点0..n-1。add(u,v,w)返回从0开始的原边号，边
 
 \lstinputlisting{usage/example-374.cpp}
 
-\Needspace{446pt}
+\Needspace{444pt}
 
 \chapter{2-SAT}
 
 \section{2-SAT 与任意可行方案}\label{compact-TwoSAT}\index{TwoSAT}
 
-代码依赖：\hyperref[compact-SCC]{SCC}（第~\pageref{compact-SCC}~页，\ref{compact-SCC}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
-TwoSAT(n)，变量 1..n；add(x,a,y,b) 添加 (x=a) 或 (y=b)，强制值写 add(x,a,x,a)，蕴含 (x=a)=>(y=b) 写 add(x,!a,y,b)。solve() 返回可满足性，仅成功时读取 ans[1..n]；可重复求解和追加子句后重算，空公式可满足。不保证字典序最小。依赖同文件 SCC：Kosaraju 编号为拓扑序，故真值分量编号较大时取真；不能直接套用 Tarjan 逆拓扑编号的不等号。O(n+m) 时间和空间，DFS 递归。
+TwoSAT(n)，变量 1..n；add(x,a,y,b) 添加 (x=a) 或 (y=b)，强制值写 add(x,a,x,a)，蕴含 (x=a)=>(y=b) 写 add(x,!a,y,b)。solve() 返回可满足性，仅成功时读取 ans[1..n]；可重复求解和追加子句后重算，空公式可满足。不保证字典序最小。依赖同文件 TarjanSCC：分量编号为逆拓扑序，故真值分量编号较小时取真；换用拓扑序编号的实现须反转不等号。O(n+m) 时间和空间，DFS 递归。
 
-\lstinputlisting[firstline=112,lastline=140]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=127,lastline=155]{../src/compact/graph.hpp}
 
 \Needspace{418pt}
 
@@ -5921,7 +5893,7 @@ TwoSAT(n)，变量 1..n；add(x,a,y,b) 添加 (x=a) 或 (y=b)，强制值写 add
 
 题意：每个子句是两个文字的或，判断是否可满足并输出一组赋值。输入为 DIMACS：首行 p cnf n m，正数表示变量，负数表示取反，每个子句末尾为 0。
 
-所需模板：\hyperref[compact-SCC]{SCC}（第~\pageref{compact-SCC}~页，\ref{compact-SCC}~节）、\hyperref[compact-TwoSAT]{TwoSAT}（第~\pageref{compact-TwoSAT}~页，\ref{compact-TwoSAT}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
+所需模板：\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）、\hyperref[compact-TwoSAT]{TwoSAT}（第~\pageref{compact-TwoSAT}~页，\ref{compact-TwoSAT}~节）。以下仅含使用代码，默认已粘贴所需模板并包含标准头文件、使用 std 命名空间。
 
 题目：\url{https://judge.yosupo.jp/problem/two_sat}
 
@@ -5930,7 +5902,7 @@ TwoSAT(n)，变量 1..n；add(x,a,y,b) 添加 (x=a) 或 (y=b)，强制值写 add
 \section{2-SAT 编号方向与双连通定义}\label{knowledge-twosat-bcc}
 TwoSAT 的 add(x,a,y,b) 表示 $(x=a)\lor(y=b)$；强制值 add(x,a,x,a)，
 蕴含 $(x=a)\Rightarrow(y=b)$ 写 add(x,!a,y,b)。
-Kosaraju 拓扑编号下真文字分量编号更大时取真；换 SCC 实现须检查不等号。
+Tarjan 逆拓扑编号下真文字分量编号更小时取真；换 SCC 实现须检查不等号。
 solve 仅成功时读 ans，$O(n+m)$，不保证字典序最小。
 
 点双：连通且无割点；桥两端成块，孤立点单独成块，割点可属多块；自环不产生点双、不标桥。
@@ -6128,7 +6100,7 @@ maximum\_closure(weight,dependencies) 返回 (最大权值,选中点列表)，we
 
 \subsection{正容量最小割的可行边与必选边}\label{compact-mincut_edges}\index{mincut\_edges}
 
-代码依赖：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-SCC]{SCC}（第~\pageref{compact-SCC}~页，\ref{compact-SCC}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-Dinic]{Dinic}（第~\pageref{compact-Dinic}~页，\ref{compact-Dinic}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 mincut\_edges(g,s,t) 只读分析 Dinic 已经完整求出的普通 s→t 最大流；不得传入限流提前停止或人为修改过的残量网络。所有原边初始容量必须严格为正，最大流值须可由 long long 表示。返回逐条原边的 \{possible,forced\}，对应 Dinic 原始偶数边号 id 的结果是 ans[id/2]。只有饱和边可能属于最小割：两端残量 SCC 不同则可行；起点与 s 同 SCC、终点与 t 同 SCC 则必选。支持平行边和自环，源汇不同，点号 1..g.n。O(n+m) 时间与空间，Tarjan 递归栈 O(n)。零容量边没有正流对应的反向残量边，不能套用本函数的同 SCC 简化条件。每次修改图或重新增广后都需重新分析。
 
@@ -6353,11 +6325,11 @@ regular\_matching(g, seed)返回左侧各点的右侧匹配点，均为0..n-1；
 
 左右两侧分别编号 1..n、1..m，可有空侧及重边；add(u,v) 加边，solve() 返回最大匹配总数，l[u] 与 r[v] 为匹配端点，0 表示未匹配。保留已有合法匹配，可加边后再次 solve；不支持删边或手动更改匹配数组。BFS 用 dep[0] 记录最短终点层，递归 DFS 只沿最短层增广，并使用当前弧。V=n+m，单次 solve 最坏 O((V+E)$\sqrt{\vphantom x}$V)，空间 O(V+E)。cover() 在 solve 后、下一次改图前调用，返回 (左侧点列表,右侧点列表)，为最小点覆盖；其补集是最大独立集。覆盖与匹配方案均可直接输出。
 
-\lstinputlisting[firstline=141,lastline=186,firstnumber=1]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=156,lastline=201,firstnumber=1]{../src/compact/graph.hpp}
 
 \newpage\noindent 增广、求解与最小点覆盖（接上页结构体）：
 
-\lstinputlisting[firstline=187,lastline=234,firstnumber=47]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=202,lastline=249,firstnumber=47]{../src/compact/graph.hpp}
 
 \Needspace{333pt}
 
@@ -6377,11 +6349,11 @@ regular\_matching(g, seed)返回左侧各点的右侧匹配点，均为0..n-1；
 
 \subsection{二分图最大匹配的可行边与必选边}\label{compact-matching_edges}\index{matching\_edges}
 
-代码依赖：\hyperref[compact-BipartiteMatching]{BipartiteMatching}（第~\pageref{compact-BipartiteMatching}~页，\ref{compact-BipartiteMatching}~节）、\hyperref[compact-SCC]{SCC}（第~\pageref{compact-SCC}~页，\ref{compact-SCC}~节）。抄写时一并准备；标准库类型不列入算法依赖。
+代码依赖：\hyperref[compact-BipartiteMatching]{BipartiteMatching}（第~\pageref{compact-BipartiteMatching}~页，\ref{compact-BipartiteMatching}~节）、\hyperref[compact-TarjanSCC]{TarjanSCC}（第~\pageref{compact-TarjanSCC}~页，\ref{compact-TarjanSCC}~节）。抄写时一并准备；标准库类型不列入算法依赖。
 
 matching\_edges(n,m,edges) 接收左右两侧点号各为 1..n、1..m 的边表，返回 (最大匹配大小,逐边分类)。每项为 \{possible,forced\}：是否属于至少一个/每一个最大匹配；分类保持输入顺序，平行边作为不同边处理。允许空侧、空图和非完备匹配。先用 BipartiteMatching 求解，再建含源汇的残量图跑 TarjanSCC；已匹配或两端同 SCC 为可行，已匹配且两端不同 SCC 为必选。不能在非完备匹配时省略源汇，也不能把可行条件写成已匹配且同 SCC。时间 O(E$\sqrt{\vphantom x}$(n+m)+n+m)，空间 O(n+m+E)，节点与残量边数须可用 int 表示。HK 与 SCC 都保留递归，栈深可为 O(n+m)。
 
-\lstinputlisting[firstline=497,lastline=541]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=512,lastline=556]{../src/compact/graph.hpp}
 
 \Needspace{338pt}
 
@@ -6395,7 +6367,7 @@ independent\_set(g)接收已建好的BipartiteMatching，内部调用solve再取
 
 依赖BipartiteMatching；总时间O((V+E)$\sqrt{\vphantom x}$(V+1))，V=n+m，额外时间与空间O(V)。HK增广保持递归，深度最坏O(V)。骑士攻击使格子黑白染色反转，故可应用此函数；障碍格不要建成孤立点。
 
-\lstinputlisting[firstline=545,lastline=563]{../src/compact/graph.hpp}
+\lstinputlisting[firstline=560,lastline=578]{../src/compact/graph.hpp}
 
 \Needspace{180pt}
 

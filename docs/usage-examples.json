@@ -29,7 +29,7 @@
     "summary": "每个子句是两个文字的或，判断是否可满足并输出一组赋值。输入为 DIMACS：首行 p cnf n m，正数表示变量，负数表示取反，每个子句末尾为 0。",
     "driver": "verify/library_checker/two_sat.compact.cpp",
     "requires": [
-      "SCC",
+      "TarjanSCC",
       "TwoSAT"
     ]
   },
@@ -943,7 +943,7 @@
     "driver": "verify/luogu/P4126.compact.cpp",
     "requires": [
       "Dinic",
-      "SCC",
+      "TarjanSCC",
       "mincut_edges"
     ],
     "kind": "application"
@@ -957,7 +957,7 @@
     "driver": "verify/examples/matching_edges.compact.cpp",
     "requires": [
       "BipartiteMatching",
-      "SCC",
+      "TarjanSCC",
       "matching_edges"
     ],
     "kind": "application"
@@ -1292,7 +1292,7 @@
     "summary": "n 个布尔变量，m 个 (x=a) 或 (y=b) 子句，输出任意满足全部子句的赋值或 IMPOSSIBLE。变量号 1..n；n,m≤10^6。同一变量的重复文字照常 add，成功后才读取 ans。",
     "driver": "verify/luogu/P4782.compact.cpp",
     "requires": [
-      "SCC",
+      "TarjanSCC",
       "TwoSAT"
     ]
   },
@@ -1588,17 +1588,6 @@
     ],
     "also_covers": [
       "berlekamp_massey"
-    ]
-  },
-  {
-    "id": "example-161",
-    "symbol": "SCC",
-    "problem": "Library Checker scc (Kosaraju)",
-    "url": "https://judge.yosupo.jp/problem/scc",
-    "summary": "给有向图，输出强连通分量并按缩点拓扑序排列；N、M≤500000，可有重边和自环。题面零基点号先加1；SCC.bel为1..cnt且沿跨分量边递增，按1..cnt输出并将点号减1。不要照搬TarjanSCC的逆序循环。时间、空间O(N+M)，DFS递归。",
-    "driver": "verify/library_checker/scc.kosaraju.compact.cpp",
-    "requires": [
-      "SCC"
     ]
   },
   {

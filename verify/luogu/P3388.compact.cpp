@@ -1,4 +1,4 @@
-#include "../../src/compact/graph.hpp"
+#include "../../src/compact/biconnected_core.hpp"
 #include <iostream>
 
 int main()
@@ -7,7 +7,7 @@ int main()
     cin.tie(nullptr);
     int n, m;
     cin >> n >> m;
-    Lowlink graph(n);
+    BiconnectedCore graph(n);
     while (m--)
     {
         int u, v;

@@ -292,30 +292,6 @@
       }
     },
     {
-      "symbol": "SCC",
-      "title": "强连通分量",
-      "source": "src/compact/graph.hpp",
-      "status": "needs_template_problem_review",
-      "candidate_drivers": [
-        {
-          "driver": "verify/library_checker/scc.kosaraju.compact.cpp",
-          "url": "https://judge.yosupo.jp/problem/scc",
-          "existing_ac": [
-            "https://qoj.ac/submission/3061625"
-          ],
-          "review": "candidate: audit full statement and exclude competition applications"
-        }
-      ],
-      "qoj_tag_candidate": null,
-      "ranking": {
-        "status": "not_checked",
-        "rank": null,
-        "total": null,
-        "checked_at": null,
-        "scope": null
-      }
-    },
-    {
       "symbol": "TwoSAT",
       "title": "2-SAT 与任意可行方案",
       "source": "src/compact/graph.hpp",
@@ -2861,6 +2837,12 @@
           "review": "candidate: audit full statement and exclude competition applications"
         },
         {
+          "driver": "verify/uva/796.compact.cpp",
+          "url": "",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
           "driver": "verify/library_checker/biconnected_components.compact.cpp",
           "url": "https://judge.yosupo.jp/problem/biconnected_components",
           "existing_ac": [],
@@ -2877,6 +2859,12 @@
         {
           "driver": "verify/luogu/P4630.compact.cpp",
           "url": "https://www.luogu.com.cn/problem/P4630",
+          "existing_ac": [],
+          "review": "candidate: audit full statement and exclude competition applications"
+        },
+        {
+          "driver": "verify/luogu/P3388.compact.cpp",
+          "url": "https://www.luogu.com.cn/problem/P3388",
           "existing_ac": [],
           "review": "candidate: audit full statement and exclude competition applications"
         },
@@ -6141,7 +6129,7 @@
     {
       "symbol": "TarjanSCC",
       "title": "Tarjan 强连通分量与缩点",
-      "source": "src/compact/tarjan.hpp",
+      "source": "src/compact/graph.hpp",
       "status": "needs_template_problem_review",
       "candidate_drivers": [
         {

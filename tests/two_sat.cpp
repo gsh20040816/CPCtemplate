@@ -32,10 +32,10 @@ int main()
             for (int repeat = 0; repeat < 2; repeat++)
             {
                 assert(sat.solve() == expected);
-                // Kosaraju labels are topological; the assignment inequality depends on
+                // Tarjan labels are reverse topological; the assignment inequality depends on
                 // this.
                 for (int u = 1; u <= 2 * n; u++)
-                    for (int v : sat.g.g[u]) assert(sat.g.bel[u] <= sat.g.bel[v]);
+                    for (int v : sat.g.g[u]) assert(sat.g.bel[u] >= sat.g.bel[v]);
                 if (!expected) continue;
                 assert(sat.ans.size() == n + 1);
                 int mask = 0;
