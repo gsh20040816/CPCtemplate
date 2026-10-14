@@ -31,6 +31,8 @@ MODULI = (1, 2, 3, 5, 7, 97, 998244353, 4, 6, 8, 9, 12, 1000)
 MAX_LL = 2**63-1
 LABEL = 'knowledge-inclusion-exact'
 CANONICAL_SOURCE = 'docs/knowledge-full/knowledge-inclusion.tex'
+# Issue 21: the full text is checked; the taxonomy maps the condensed printed copy.
+PRINTED_SOURCE = 'docs/knowledge-inclusion.tex'
 CANONICAL_RUNNER = 'tests/inclusion_knowledge.py'
 
 
@@ -365,8 +367,8 @@ def integration_snapshot(root, source, prototype):
         record['note'] = 'Existing taxonomy/catalog bytes are bound, but no future mapping is fabricated or claimed validated'
         return record
     assert source == root/CANONICAL_SOURCE
-    assert len(mappings) == 1 and mappings[0]['source'] == CANONICAL_SOURCE
-    assert CANONICAL_SOURCE in taxonomy['scope']['source_files']
+    assert len(mappings) == 1 and mappings[0]['source'] == PRINTED_SOURCE
+    assert PRINTED_SOURCE in taxonomy['scope']['source_files']
     assert taxonomy['scope']['new_algorithm_coverage'] is False
     assert taxonomy['scope']['new_oj_verification'] is False
     known = {row['path'] for row in navigation['navigation']}
