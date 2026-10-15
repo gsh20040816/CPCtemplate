@@ -1888,7 +1888,7 @@
     "symbol": "mint",
     "problem": "Luogu P5431 【模板】模意义下的乘法逆元 2",
     "url": "https://www.luogu.com.cn/problem/P5431",
-    "summary": "输入1≤n≤5000000、2≤k<p≤10^9、1≤a_i<p且p为素数，求Σk^i/a_i模p。先设置mint的模数p，再构造数组；传move(a)调用batch_units，只求一次总积逆元。权重从1开始，每项先乘k再累加。read与main一起抄；move后不再读取a。更换同tag模数后旧对象失效，计算期间不能切换。核心支持合数单位，本题只覆盖素数；动态模数、构造、乘法及累加、v输出在此直接使用，合数求逆接口另由核心测试核验。",
+    "summary": "输入1≤n≤5000000、2≤k<p≤10^9、1≤a_i<p且p为素数，求Σk^i/a_i模p。先设置mint的模数p，再构造数组；求前缀积后只对总积求一次逆（try_inv），倒序乘出各项逆元。权重从1开始，每项先乘k再累加。read与main一起抄。更换同tag模数后旧对象失效，计算期间不能切换。核心支持合数单位，本题只覆盖素数；动态模数、构造、乘法及累加、v输出在此直接使用，合数求逆接口另由核心测试核验。",
     "driver": "verify/luogu/P5431.mint.compact.cpp",
     "requires": [
       "mint"
@@ -3229,10 +3229,10 @@
   {
     "id": "example-363",
     "symbol": "monotone_dp_layer",
-    "kind": "application",
+    "kind": "template",
     "problem": "P4767 [IOI 2000] 邮局 加强版",
     "url": "https://www.luogu.com.cn/problem/P4767",
-    "summary": "n<=3000个村庄，k<=300个邮局，坐标1..10000；最小化到最近邮局距离之和。先排序；每个连续组在中位数处建邮局，前缀和O(1)求组代价。该代价满足四边形不等式，使用恰分k组DP。",
+    "summary": "n≤3000 个村庄、k≤300 个邮局，坐标 1..10000，最小化各村到最近邮局距离和。排序后每个邮局服务一段连续村庄，邮局放在段中位数；f_g(i)=min f_{g-1}(j)+w(j+1,i)，w 由前缀和 O(1) 求。左端每左移一格的增量 x[(a+r)/2 下取整]-x[a-1] 随 r 增大不减，故 w 满足四边形不等式，逐层调用 monotone_dp_layer，第 g 层 first=g；总 O(kn log n)。",
     "driver": "verify/luogu/P4767.compact.cpp",
     "requires": [
       "monotone_dp_layer"
@@ -3995,6 +3995,50 @@
     "requires": [
       "HLD",
       "DynamicDP"
+    ]
+  },
+  {
+    "id": "example-433",
+    "symbol": "stirling_first_column",
+    "kind": "template",
+    "problem": "Library Checker Stirling Number of the First Kind (Fixed K)",
+    "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind_fixed_k",
+    "summary": "输入 N K，0≤K≤N≤500000，模 998244353；只输出 n=K..N 的有符号 s(n,K)。库函数返回无符号 c(n,K)，逐项乘 (-1)^(n-K)；不输出 n<K 的前导零。",
+    "driver": "verify/library_checker/stirling_number_of_the_first_kind_fixed_k.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "FpsFunctions",
+      "stirling_first_column"
+    ]
+  },
+  {
+    "id": "example-434",
+    "symbol": "stirling_second_column",
+    "kind": "template",
+    "problem": "Library Checker Stirling Number of the Second Kind (Fixed K)",
+    "url": "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k",
+    "summary": "输入 N K，0≤K≤N≤500000，模 998244353；只输出 n=K..N 的 S(n,K)。K=0 时输出首项 1、其余 0。",
+    "driver": "verify/library_checker/stirling_number_of_the_second_kind_fixed_k.compact.cpp",
+    "requires": [
+      "ModInt",
+      "NttConvolution",
+      "FpsInverse",
+      "FpsFunctions",
+      "stirling_second_column"
+    ]
+  },
+  {
+    "id": "example-461",
+    "symbol": "knuth_interval_dp",
+    "kind": "template",
+    "problem": "AtCoder AWC0100 O Joining of Circular Tablets（环形石板合并）",
+    "url": "https://atcoder.jp/contests/awc0100/tasks/awc0100_o",
+    "summary": "2≤N≤3000 块石板成环，重量 1≤A_i≤10^9；每次合并相邻两块，代价为新块重量，求合成一块的最小总代价。复制成长 2N-1 的链，f(l,r)=w(l,r)+min f(l,k)+f(k+1,r)，w 为区间和：四边形不等式取等、区间越大和越大，满足 Knuth 条件。答案取 min f(i,i+N-1)；O(N^2) 时间，表约 432MB（限 1024MB），答案 <10^16。",
+    "driver": "verify/atcoder/awc0100_o.compact.cpp",
+    "requires": [
+      "knuth_interval_dp"
     ]
   }
 ]

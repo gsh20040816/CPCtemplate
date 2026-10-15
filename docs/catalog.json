@@ -301,9 +301,21 @@
   ],
   [
     "stirling",
+    "stirling_second_column",
+    "第二类斯特林数：同一列",
+    "stirling_second_column(N,k) 返回 S(0..N,k)，固定模 998244353。0≤N<2^22，k≥0；k>N 返回全零，k=0 仅第零项为 1。令 A=(e^x-1)/x=Σx^j/(j+1)!（常数项 1），则 S(n,k)=n!/k!·[x^(n-k)]A^k；用 exp(k·log A) 求前 m=N-k+1 项，再逐项乘 n!/k!。时间 O(N+m log m)，空间 O(N)。依赖 FpsFunctions（及 FpsInverse、NttConvolution、ModInt）；不能直接改模 167772161。"
+  ],
+  [
+    "stirling",
     "stirling_first_row",
     "无符号第一类斯特林数：同一行",
     "stirling_first_row<mod,primitive>(n) 返回无符号 c(n,0..n)，默认模 998244353、原根 3。c(n,k) 为 n 元排列恰有 k 个循环的个数。n≥0，n+1≤NTT 的 max_size；n=0 返回 {1}。倍增配合多项式平移计算 x(x+1)…(x+n-1)，O(n log n) 时间、O(n) 空间。带符号版本再乘 (-1)^(n-k)。依赖 NttConvolution；模 167772161 可用 <167772161>。"
+  ],
+  [
+    "stirling",
+    "stirling_first_column",
+    "无符号第一类斯特林数：同一列",
+    "stirling_first_column(N,k) 返回无符号 c(0..N,k)，固定模 998244353。0≤N<2^22，k≥0；k>N 返回全零，k=0 仅第零项为 1。令 A=-log(1-x)/x=Σx^j/(j+1)（常数项 1），则 c(n,k)=n!/k!·[x^(n-k)]A^k；用 exp(k·log A) 求前 m=N-k+1 项，再从 n=k 起逐项乘 n+1 得 n!/k!。有符号 s(n,k) 另乘 (-1)^(n-k)。时间 O(N+m log m)，空间 O(N)。依赖 FpsFunctions（及 FpsInverse、NttConvolution、ModInt）；分母都小于模数，不能直接改模 167772161。"
   ],
   [
     "fps_inverse",
@@ -1182,6 +1194,12 @@
     "monotone_dp_layer(prev,first,cost,opt)返回cur，prev下标0..n，1<=first<=n<INT_MAX。对i=first..n求min(prev[j]+cost(j+1,i))，j在first-1..i-1，cost是闭区间代价；用于第g组时first=g。inf=LLONG_MAX/4；prev[first-1]必须可达，其他inf跳过，cost对全部合法区间有限。所有有限prev、cost及转移和须严格在(-inf,inf)，保证long long加法安全。cur[0..first-1]=inf，opt对应为-1；其余opt返回最小最优j。调用方须证明该并列规则下opt[i]非减，本函数不会检查，任意DP不能套用。cost须无副作用且O(1)才能得O(n log(n+1))单层时间；递归深度O(log n)，输出与辅助O(n)。"
   ],
   [
+    "monotone_dp",
+    "knuth_interval_dp",
+    "Knuth 优化：区间合并DP",
+    "knuth_interval_dp(n,cost,opt) 返回 f，下标 1..n：f[i][i]=0，l<r 时 f[l][r]=cost(l,r)+min(f[l][k]+f[k+1][r])，k 取 l..r-1；其余位置为 inf=LLONG_MAX/4。opt[i][i]=i，l<r 时 opt[l][r] 为最小最优 k，只在 [opt[l][r-1],opt[l+1][r]] 内枚举。调用方须证明对长度≥2 的区间 cost 满足四边形不等式与区间包含单调性（见上文），本函数不检查。1≤n，n+1 个 vector 各 n+1 项须可分配；cost 只对 l<r 调用、无副作用；所有 f、cost 及候选和须严格在 (-inf,inf) 内。时间 O(n^2) 次 cost 与转移，空间 O(n^2)（f 为 long long，opt 为 int）。"
+  ],
+  [
     "wqs_independent_set",
     "wqs_independent_set",
     "WQS二分：至多k个不相邻位置",
@@ -1299,7 +1317,7 @@
     "plug_cycle",
     "grid_cycle",
     "插头DP：网格单闭环计数",
-    "grid_cycle<Count>(a) 统计覆盖所有可用格子的单个无向简单环；矩形网格中 . 必须经过、* 不能经过，仅上下左右相邻。空网格/全障碍返回0。自动转置到较窄方向，宽度m≤15，尺寸须可用int表示。状态每槽4位，同编号表示同一路径的两个端点，按首次出现规范化；闭环只允许发生在最后一个可用格子且无其他插头时。\n\nCount支持0/1构造和+=；固定整数必须保证所有中间计数不溢出，可改模整数或cpp_int。S为最多可达状态数，固定宽度计数的期望时间O(n*m²*S)、状态表O(S)，另有网格O(nm)。S随宽度指数增长；cpp_int还需计入位复杂度。"
+    "grid_cycle<Count>(a) 统计覆盖所有可用格子的单个无向简单环；矩形网格中 . 必须经过、* 不能经过，仅上下左右相邻。空网格/全障碍返回0。自动转置到较窄方向，宽度m≤15，尺寸须可用int表示。每个未闭合连通块是一条路径，在轮廓上恰有两个同编号端点；宽度≤15 时最多 8 条路径，临时编号 15 不与规范编号冲突。每个边集唯一对应逐格选择，不按起点或方向重复计数。\n\nCount支持0/1构造和+=；固定整数必须保证所有中间计数不溢出，可改模整数或cpp_int。S为最多可达状态数，固定宽度计数的期望时间O(n*m²*S)、状态表O(S)，另有网格O(nm)。S随宽度指数增长；cpp_int还需计入位复杂度。"
   ],
   [
     "simplex",

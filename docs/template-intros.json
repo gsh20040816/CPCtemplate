@@ -1,0 +1,2327 @@
+{
+  "dsu": {
+    "kind": "component",
+    "problem": "维护 $n$ 个点的不相交集合，支持合并两个集合、判断两点是否同集合、查询集合大小以及列出所有集合。",
+    "idea": "每个集合是一棵以根为代表的树，\\texttt{fa} 存父亲，\\texttt{sz} 在根处存集合大小。\\texttt{find} 用路径减半：沿父链上走时把每个点的父亲改成祖父。\\texttt{merge} 找到两根后把 $y$ 的根接到 $x$ 的根下并累加大小。\\texttt{groups} 按根把点分桶，再删去空桶。"
+  },
+  "RollbackDSU": {
+    "kind": "component",
+    "problem": "支持撤销的并查集：合并两个集合、查询代表元，并能把结构恢复到之前某个快照时的状态，常用于离线版本树 DFS 或线段树分治。",
+    "idea": "不做路径压缩，只按集合大小把小根接到大根下，树高为对数级，因此每次成功合并只改动一个 \\texttt{fa[y]} 和一个 \\texttt{siz[x]}。合并时把被接上的根 $y$ 与 $x$ 合并前的大小压入栈 \\texttt{his}；快照就是栈长，\\texttt{rollback(t)} 不断弹栈，恢复 \\texttt{siz[fa[y]]} 并令 $y$ 重新成为根。"
+  },
+  "Fenwick": {
+    "kind": "component",
+    "problem": "维护长度为 $n$ 的数组，支持单点加、前缀和与区间和；元素表示频数（均非负）时还能求“前缀和首次达到 $k$ 的位置”，即可重集合的第 $k$ 小。",
+    "idea": "\\texttt{a[x]} 存原数组在 $(x-\\mathrm{lowbit}(x),x]$ 上的和。前缀和沿 $x\\leftarrow x-\\mathrm{lowbit}(x)$ 累加，单点修改沿 $x\\leftarrow x+\\mathrm{lowbit}(x)$ 更新所有覆盖它的节点，各 $O(\\log n)$。第 $k$ 小从高位到低位倍增：若跳过下一段后累计仍小于 $k$ 就跳过去。"
+  },
+  "XorBasis": {
+    "kind": "component",
+    "problem": "维护一组 64 位无符号整数的异或线性基，支持插入、判断某数能否由若干元素异或得到、求 $x$ 与任意子集异或的最大值、第 $k$ 小的异或值与最小值，以及合并两组线性基。",
+    "idea": "\\texttt{a[i]} 保存最高位为 $i$ 的基向量。插入时从高位到低位，该位已有基就异或消去，遇到空位就落户；消成 0 说明线性相关，置 \\texttt{dependent}（存在异或为 0 的非空子集）。最大值从高到低贪心取 $\\max(x,x\\oplus a_i)$。第 $k$ 小先由 \\texttt{rebuild} 化成简化阶梯形（每个主元位只在自己的向量中为 1），按主元升序存入 \\texttt{p}，则把序号的各二进制位对应的 \\texttt{p[i]} 异或起来就是答案；能得到 0 时 0 占第 1 名，序号先减一。"
+  },
+  "Dinic": {
+    "kind": "problem",
+    "problem": "给定有向容量网络和源汇 $s,t$，求最大流（可限制本次最多增广的流量），并能读取每条原边的流量以及残量网络中源点可达的点集（最小割）。",
+    "idea": "每条边与其反向残量边编号相邻（$id$ 与 $id\\oplus1$）。每个阶段先 \\texttt{bfs} 在残量网络上从 $s$ 分层得到 \\texttt{dep}；若 $t$ 可达，就在分层图上反复 \\texttt{dfs}，只沿层数加一的残量边前进，当前弧 \\texttt{cur} 跳过已无用的边，每找到一条增广路就沿途扣减残量、加到反向边。直到 $t$ 不可达或达到 \\texttt{limit}。\\texttt{used(id)} 为初始容量减剩余残量，\\texttt{cut} 复用 BFS 求 $s$ 可达的点。注释中的 Scaling 改法把“残量为正”换成“残量不小于阈值”，阈值从大到小减半。"
+  },
+  "maximum_closure": {
+    "kind": "problem",
+    "problem": "给定点权（可正可负）和依赖关系“选 $u$ 则必须选 $v$”，选出满足所有依赖的点集（闭合子图）使点权和最大，返回最大值和一个选点方案。",
+    "idea": "最小割建模：源点向正权点连容量为权值的边，负权点向汇点连容量为 $-w$ 的边，依赖 $u\\to v$ 连容量“无穷”（正权总和加一）的边。割的源侧就是选中的点集：无穷边保证不会出现选 $u$ 不选 $v$；被割的边恰是放弃的正权点和选中的负权点，所以最大权等于正权总和减最小割。用 \\texttt{Dinic} 求最大流，残量网络中源点可达的原点即为方案。"
+  },
+  "MinCostFlow": {
+    "kind": "problem",
+    "problem": "给定有向网络，每条边有容量和单位费用（可为负，但初始无负环），求 $s$ 到 $t$ 的最小费用最大流（可限制流量上限），并可给出最小费用关于流量的分段线性函数的折点。",
+    "idea": "逐次最短路增广配合势能。先以全 0 为初值做 Bellman–Ford（等价于加超级源），得到满足 $h_v\\le h_u+c$ 的势 \\texttt{h}；之后用约化费用 $c+h_u-h_v\\ge0$ 跑 Dijkstra，并把距离加进 \\texttt{h}，使下一轮约化费用仍非负。每轮沿 \\texttt{pre} 取 $s$ 到 $t$ 的最短路，以路径瓶颈（不超过剩余限额）增广并累计费用。这一轮的单位费用为 $h_t-h_s$；\\texttt{slope} 记录每轮后的 (流量, 费用)，单位费用与上一段相同时合并为一段。"
+  },
+  "Dijkstra": {
+    "kind": "problem",
+    "problem": "给定非负边权有向图和源点 $s$，求 $s$ 到所有点的最短距离，并可沿前驱 \\texttt{pre} 恢复到某点的最短路径。",
+    "idea": "小根堆按距离取点，懒删除：弹出的 $(d,u)$ 若 $d$ 不等于当前 \\texttt{dis[u]} 说明已过期，直接跳过；否则 $u$ 的距离已确定，用它松弛所有出边，更新 \\texttt{dis} 和 \\texttt{pre} 并把新距离入堆。\\texttt{path(t)} 从 $t$ 沿 \\texttt{pre} 走回 $s$ 后反转。"
+  },
+  "TwoSAT": {
+    "kind": "problem",
+    "problem": "给定 $n$ 个布尔变量和若干形如 $(x=a)\\lor(y=b)$ 的子句，判断能否同时满足所有子句，并给出一组可行赋值。",
+    "idea": "每个变量拆成“取假” $2x-1$ 和“取真” $2x$ 两个文字节点。子句 $(x=a)\\lor(y=b)$ 等价于两条蕴含 $\\lnot(x=a)\\Rightarrow(y=b)$ 与 $\\lnot(y=b)\\Rightarrow(x=a)$，各连一条边。用 \\texttt{TarjanSCC} 缩点：若 $x$ 的两个文字在同一 SCC 中则无解；否则取拓扑序靠后的文字为真。Tarjan 的分量编号是逆拓扑序，所以选 \\texttt{bel} 编号较小的那个。"
+  },
+  "BipartiteMatching": {
+    "kind": "problem",
+    "problem": "给定二分图，用 Hopcroft–Karp 求最大匹配并给出每个点的匹配对象；求完后还能构造最小点覆盖（其补集为最大独立集）。",
+    "idea": "每个阶段 \\texttt{bfs} 从所有未匹配左点出发，按“左点、右点、该右点的匹配左点”分层，未匹配的右点用虚点 0 表示，\\texttt{dep[0]} 即最短增广路的层数，更深的层不再扩展。随后对每个未匹配左点 \\texttt{dfs}，只走层数加一的方向并使用当前弧，找到增广路就沿途翻转匹配；搜索失败的点把 \\texttt{dep} 设为无效，不再进入。由 König 定理，最后一次 BFS 后，未被交替路径到达的左点与已匹配且其匹配左点被到达的右点构成最小点覆盖。"
+  },
+  "HLD": {
+    "kind": "component",
+    "problem": "对一棵树做重链剖分：给出 DFS 序 \\texttt{dfn}，使每棵子树、每条重链都是连续区间；支持求 LCA，以及把 $u$--$v$ 路径拆成 $O(\\log n)$ 个 \\texttt{dfn} 区间回调（可只取边对应的位置，也可按 $u$ 到 $v$ 的真实顺序给出），便于套线段树做路径修改与查询。",
+    "idea": "\\texttt{dfs1} 求父亲、深度、子树大小和重儿子 \\texttt{son}（子树最大的儿子）；\\texttt{dfs2} 先递归重儿子，使同一重链的 \\texttt{dfn} 连续，\\texttt{top} 为链顶。查询时每次让链顶更深的一端整段跳过本链（上报区间 $[\\mathrm{dfn}[\\mathrm{top}[u]],\\mathrm{dfn}[u]]$）并跳到链顶的父亲，直到两点同链，再上报二者之间的一段；边模式下边权存在深的一端，最后一段跳过较浅点即 LCA。\\texttt{path\\_ordered} 中 $u$ 侧的段是自下而上走的，立即以 \\texttt{rev=true} 回调；$v$ 侧的段先存入 \\texttt{down}，最后逆序以正向回调。"
+  },
+  "prefix_function": {
+    "kind": "problem",
+    "problem": "对字符串 $s$ 求前缀函数：$\\pi_i$ 为前缀 $s[0..i]$ 的最长真 border（既是真前缀又是后缀的串）的长度。例如 \\texttt{abab} 的前缀函数为 $0,0,1,2$。",
+    "idea": "$s[0..i]$ 的 border 去掉末字符后必是 $s[0..i-1]$ 的 border，而后者的全部 border 长度依次为 $\\pi_{i-1},\\pi_{\\pi_{i-1}-1},\\dots$。代码从 \\texttt{j = p[i-1]} 开始，失配就跳到 \\texttt{p[j-1]}，直到 $s_i=s_j$ 或 \\texttt{j} 为 0；匹配则长度为 $j+1$。每步 \\texttt{j} 至多加一，跳转总次数线性。"
+  },
+  "kmp_match": {
+    "kind": "problem",
+    "problem": "在文本 $s$ 中找出模式串 $t$ 的全部出现（允许重叠），返回各次出现的起点。",
+    "idea": "先求 $t$ 的前缀函数 \\texttt{p}。扫描文本时 \\texttt{j} 是当前已匹配的 $t$ 的前缀长度：失配时沿 \\texttt{j = p[j-1]} 退到更短的 border 再比较，字符相等则 \\texttt{j} 加一。\\texttt{j} 等于 $|t|$ 时记录起点 $i-|t|+1$，再退到 \\texttt{p[j-1]} 继续匹配，因此不会漏掉重叠的出现。"
+  },
+  "z_function": {
+    "kind": "problem",
+    "problem": "对字符串 $s$ 求 Z 数组：$z_i$ 为后缀 $s[i..]$ 与 $s$ 本身的最长公共前缀长度。例如 \\texttt{aaba} 的 Z 数组为 $4,1,0,1$。",
+    "idea": "维护右端最远的已知匹配段 $[l,r)$，满足 $s[l..r)=s[0..r-l)$。对 $i<r$，$s[i..r)$ 与 $s[i-l..r-l)$ 相同，所以 $z_i$ 至少为 $\\min(r-i,z_{i-l})$；之后逐字符向右比较延长，若越过 $r$ 就把匹配段更新为 $[i,i+z_i)$。$r$ 只增不减，总比较次数线性。"
+  },
+  "manacher": {
+    "kind": "problem",
+    "problem": "对序列求每个位置的最长回文半径：\\texttt{odd[i]} 为以 $i$ 为中心的最长奇回文的半径（含中心），\\texttt{even[i]} 为中心在 $i-1$ 与 $i$ 之间的最长偶回文的半长。由此可得最长回文子串与回文子串总数。",
+    "idea": "奇、偶两遍独立扫描，各维护右端最远的已知回文 $[l,r]$。若 $i\\le r$，$i$ 关于该回文中心的镜像位置（奇回文为 $l+r-i$，偶回文为 $l+r-i+1$）的半径就是初值，但不超过 $r-i+1$；否则奇回文从 1、偶回文从 0 开始。然后带边界检查地向两侧逐字符扩展，若扩展到 $r$ 之外就更新 $[l,r]$。$r$ 单调右移，总时间线性，不需要插入分隔符或哨兵。"
+  },
+  "minimum_rotation": {
+    "kind": "problem",
+    "problem": "求字符串所有循环位移中字典序最小者的起点（最小表示法）。例如 \\texttt{bca} 的最小循环表示为 \\texttt{abc}，起点为 2。",
+    "idea": "双指针：\\texttt{i}、\\texttt{j} 是两个候选起点，\\texttt{k} 是二者从头起已相等的长度。第 $k$ 个字符相等则 \\texttt{k} 加一；若从 \\texttt{i} 起的较大，那么起点 $i,i+1,\\dots,i+k$ 分别不优于 $j,\\dots,j+k$，全部淘汰，\\texttt{i} 跳到 $i+k+1$（与 \\texttt{j} 重合时再加一），反之同理移动 \\texttt{j}，然后 \\texttt{k} 清零。有指针越过末尾或 $k=n$ 时停止，较小的指针即为答案。"
+  },
+  "AhoCorasick": {
+    "kind": "component",
+    "problem": "多模式串匹配：插入若干模式串建成 AC 自动机后，对给定文本一次求出每个 Trie 节点所代表的串（含每个模式）在文本中的出现次数，允许重叠。",
+    "idea": "\\texttt{add} 把模式插入 Trie，返回终止节点。\\texttt{build} 按 BFS 序求失配指针 \\texttt{fail}（当前串在 Trie 中的最长真后缀节点），同时把缺失的转移补成 \\texttt{fail} 节点的同字符转移，得到完整的自动机，BFS 序存入 \\texttt{order}。\\texttt{count} 让文本在自动机上走，每到一个状态计数加一，表示该位置以此状态的串结尾（根计入空前缀一次）；再按 BFS 逆序把计数沿 \\texttt{fail} 累加给后缀节点，每个节点的计数就成为其串的出现次数。"
+  },
+  "SuffixArray": {
+    "kind": "component",
+    "problem": "对字节串或整数序列构造后缀数组：\\texttt{sa[k]} 为字典序第 $k$ 小的后缀起点，\\texttt{rk} 为其逆排列，\\texttt{lcp[k]} 为排名相邻两后缀的最长公共前缀。",
+    "idea": "倍增：已知每个后缀前 $k$ 个字符的排名 \\texttt{rk}，按二元组 $(\\mathrm{rk}_i,\\mathrm{rk}_{i+k})$ 排序即得前 $2k$ 个字符的顺序，越界的第二关键字记为 0（最小）。第二关键字的顺序无需排序：先放 $i\\ge n-k$ 的位置，再按上一轮 \\texttt{sa} 的顺序放 $i-k$，得到 \\texttt{order}；随后按第一关键字稳定计数排序并重新编号，排名两两不同时提前结束。最后用 Kasai 算法按原串位置顺序求 \\texttt{lcp}：相邻起点的 LCP 至多减一，总计线性。"
+  },
+  "SuffixAutomaton": {
+    "kind": "component",
+    "problem": "逐字符在线构建字符串的后缀自动机，可判定子串，并求不同非空子串数（\\texttt{distinct}）与每个状态中子串的出现次数（\\texttt{counts}）。",
+    "idea": "每个状态是一个 endpos 等价类，\\texttt{len} 为类中最长串长，\\texttt{link} 指向不同类的最长后缀所在状态。\\texttt{extend(c)} 新建整串状态 \\texttt{cur}，从 \\texttt{last} 沿后缀链接为缺 $c$ 转移的状态补边到 \\texttt{cur}；遇到 $c$ 转移指向 $q$ 的 $p$ 时，若 $q$ 的长度恰为 $p$ 的长度加一就以 $q$ 为后缀链接，否则克隆一个这样长度的 $q$ 并把链上指向 $q$ 的转移改指克隆。\\texttt{counts} 以 \\texttt{occ}（真实状态 1、克隆 0）为初值，按 \\texttt{len} 从大到小沿 \\texttt{link} 累加；不同子串数为各状态与其 \\texttt{link} 的 \\texttt{len} 之差的和。"
+  },
+  "Mod64": {
+    "kind": "component",
+    "problem": "64 位无符号整数的模乘 \\texttt{mul} 与快速幂 \\texttt{power}，供判素、分解等数论模板使用。",
+    "idea": "\\texttt{mul} 把乘数提升到 \\texttt{\\_\\_uint128\\_t} 再取模，乘积不会溢出且结果精确；\\texttt{power} 是普通二进制快速幂，从低位到高位扫描指数，底数逐次平方。"
+  },
+  "Prime64": {
+    "kind": "problem",
+    "problem": "判断一个 64 位无符号整数 $n$ 是否为素数，结果是确定的而不是概率性的。",
+    "idea": "先用 $2\\sim37$ 的小素数试除，整除时只有 $n$ 恰为该素数才是素数。否则写 $n-1=d\\cdot2^s$（$d$ 为奇数），对 7 个固定底数做 Miller--Rabin：$x=a^d$ 为 $1$ 或 $n-1$ 则该底数通过；否则再平方至多 $s-1$ 次，途中出现 $n-1$ 才通过，否则 $n$ 是合数。这组底数在 64 位范围内没有反例；底数是 $n$ 的倍数时跳过。"
+  },
+  "extended_gcd": {
+    "kind": "problem",
+    "problem": "给定非负整数 $a,b$，求 $g=\\gcd(a,b)$ 以及一组整数 $x,y$ 使 $ax+by=g$（Bézout 系数），据此可解一般的一次不定方程。",
+    "idea": "按欧几里得算法递归：$b=0$ 时取 $(x,y)=(1,0)$。否则对 $(b,a\\bmod b)$ 递归，并把 \\texttt{y}、\\texttt{x} 交换位置传入，得到 $bx'+(a\\bmod b)y'=g$，此时 \\texttt{x} 中已是 $y'$、\\texttt{y} 中是 $x'$。由 $a\\bmod b=a-\\lfloor a/b\\rfloor b$ 得 $x=y'$、$y=x'-\\lfloor a/b\\rfloor y'$，只需再执行 \\texttt{y -= a / b * x}。"
+  },
+  "mod_inverse": {
+    "kind": "problem",
+    "problem": "给定整数 $a$ 和正整数 $m$（可为合数），求 $a$ 模 $m$ 的乘法逆元；$\\gcd(a,m)\\ne1$ 时逆元不存在。",
+    "idea": "逆元 $x$ 满足 $ax+my=1$。先把 $a$ 规范到 $[0,m)$，调用 \\texttt{extended\\_gcd} 求 Bézout 系数；gcd 不为 1 则不可逆，否则把系数 $x$ 调整到 $[0,m)$ 返回。不使用费马小定理，因此不要求 $m$ 为素数。"
+  },
+  "crt_merge": {
+    "kind": "problem",
+    "problem": "求同时满足若干同余式 $x\\equiv r_i\\pmod{m_i}$ 的最小非负整数，模数不必两两互素，或判断无解。函数每次把一个新同余式合并进当前解 $x\\equiv r\\pmod m$。",
+    "idea": "合并 $x\\equiv r\\pmod m$ 与 $x\\equiv b\\pmod n$：设 $x=r+mk$，需 $mk\\equiv b-r\\pmod n$。令 $g=\\gcd(m,n)$，由 \\texttt{extended\\_gcd} 得 $mx_0+ny_0=g$；$g\\nmid(b-r)$ 时无解，否则 $k\\equiv\\frac{b-r}{g}x_0\\pmod{n/g}$，取最小非负值。新模数为 $\\mathrm{lcm}=m\\cdot n/g$，新余数 $r+mk$ 对它取模，原地写回 \\texttt{r}、\\texttt{m}。"
+  },
+  "floor_sum": {
+    "kind": "problem",
+    "problem": "给定 $n,m,a,b$（$a,b$ 可以为负），求 $\\sum_{i=0}^{n-1}\\lfloor(ai+b)/m\\rfloor$。",
+    "idea": "先把 $a,b$ 按数学向下取整规范到 $[0,m)$，分离出的商 $q_a,q_b$ 贡献 $q_a\\cdot n(n-1)/2+q_b\\cdot n$。之后循环（类欧几里得）：每轮先把 $a,b$ 中不小于 $m$ 的整商部分直接累加并取余；若 $y=an+b<m$，剩下各项全为 0，结束。否则把和看成直线 $(ax+b)/m$ 下方的格点数并交换坐标轴，问题化为项数 $\\lfloor y/m\\rfloor$、常数 $y\\bmod m$、并交换 $a$ 与 $m$ 的同形和式，$(a,m)$ 像欧几里得算法一样迅速缩小。"
+  },
+  "linear_congruence": {
+    "kind": "problem",
+    "problem": "求解线性同余方程 $ax+b\\equiv0\\pmod m$：给出最小非负解与解的周期，或判断无解。",
+    "idea": "方程等价于 $ax\\equiv-b\\pmod m$。规范化 $a$ 后用 \\texttt{extended\\_gcd} 求 $g=\\gcd(a,m)$ 及满足 $ax_0\\equiv g\\pmod m$ 的 $x_0$。$g\\nmid b$ 时无解；否则 $x\\equiv x_0\\cdot(-b/g)\\pmod{m/g}$，周期为 $m/g$，取模后调成非负。"
+  },
+  "segmented_primes": {
+    "kind": "problem",
+    "problem": "给定区间 $[l,r]$，列出其中全部素数；$r$ 可以很大，只要区间长度可承受。",
+    "idea": "区间内的合数必有不超过 $\\sqrt r$ 的质因子。先用埃氏筛（\\texttt{composite}）求出 $[2,\\lfloor\\sqrt r\\rfloor]$ 的素数，同时对每个素数 $p$，从 $\\max(p^2,\\lceil l/p\\rceil p)$ 开始，在区间数组 \\texttt{removed} 上按步长 $p$ 标记倍数（下标偏移 $j-l$）。最后从 $\\max(l,2)$ 起收集未被标记的数。"
+  },
+  "batch_inverse": {
+    "kind": "problem",
+    "problem": "给定 $n$ 个整数和模数（可为合数），一次求出它们各自的模逆元；只要有一个不可逆就整体判定失败。",
+    "idea": "前缀积技巧：\\texttt{prefix[i]} 为前 $i$ 个数之积。只对总积 \\texttt{prefix[n]} 调用一次 \\texttt{mod\\_inverse}（总积不可逆当且仅当某一项不可逆）。再从后往前扫：当前 \\texttt{inverse} 是前 $i+1$ 项积的逆，乘 \\texttt{prefix[i]} 得到 $a_i^{-1}$，乘 $a_i$ 得到前 $i$ 项积的逆。结果原地写回数组。"
+  },
+  "inverse_table": {
+    "kind": "problem",
+    "problem": "给定素数 $p$ 和 $n<p$，线性时间求出 $1,2,\\dots,n$ 模 $p$ 的逆元表。",
+    "idea": "设 $p=qi+r$，$q=\\lfloor p/i\\rfloor$，$r=p\\bmod i<i$。由 $qi+r\\equiv0\\pmod p$，两边乘 $i^{-1}r^{-1}$ 得 $i^{-1}\\equiv-q\\cdot r^{-1}\\pmod p$。因为 $r<i$，$r^{-1}$ 已经算出，按 $i$ 递增一次递推即可；代码写成 $p-(q\\cdot r^{-1}\\bmod p)$，使结果落在 $[1,p)$。"
+  },
+  "garner": {
+    "kind": "problem",
+    "problem": "给定两两互素的模数 $m_0,\\dots,m_{k-1}$ 与余数 $b_i$，求满足全部同余式的最小非负整数 $x$（可能远超 64 位）对任意目标模数的余数，或求出 $x$ 的混合进制各位。常用于三模数 NTT 的结果合并。",
+    "idea": "把 $x$ 写成混合进制 $x=d_0+d_1m_0+d_2m_0m_1+\\cdots$，$0\\le d_i<m_i$，按顺序求各位。\\texttt{value[j]} 维护已确定各位之和模 $m_j$，\\texttt{coefficient[j]} 维护 $m_0\\cdots m_{j-1}\\bmod m_j$。第 $i$ 位须满足 $\\mathrm{value}_i+\\mathrm{coef}_i\\cdot d_i\\equiv b_i\\pmod{m_i}$，故 $d_i=(b_i-\\mathrm{value}_i)\\cdot\\mathrm{coef}_i^{-1}\\bmod m_i$，系数不可逆说明模数不互素；随后更新后面各 $j$ 的两个数组。\\texttt{garner} 再从高位到低位用秦九韶法在目标模数下求出 $x$。"
+  },
+  "PollardRho": {
+    "kind": "problem",
+    "problem": "把 64 位正整数 $n$ 分解质因数，返回升序且含重数的质因子列表。",
+    "idea": "\\texttt{split} 递归：$n$ 为素数（\\texttt{Prime64}）就记为一个因子，否则用 \\texttt{rho} 找一个非平凡因子 $d$，分别递归 $d$ 与 $n/d$，最后排序。\\texttt{rho} 对偶数直接返回 2；否则随机取 $c$ 和起点，迭代 $f(v)=v^2+c\\bmod n$，用 Floyd 判圈（\\texttt{x} 走一步、\\texttt{y} 走两步），每步计算 $\\gcd(|x-y|,n)$。得到 $1<d<n$ 即返回；得到 $n$ 或轮数用尽，就换一组随机参数重试。"
+  },
+  "LinearSieve": {
+    "kind": "component",
+    "problem": "一次预处理 $0..n$，得到递增素数表 \\texttt{prime}、最小质因子 \\texttt{lp}、欧拉函数 \\texttt{phi} 和 Möbius 函数 \\texttt{mu}；反复除以 \\texttt{lp} 可快速分解表内的数。",
+    "idea": "欧拉筛：每个合数 $j=i\\cdot p$ 只被它的最小质因子 $p$ 筛一次。外层枚举 $i$，内层从小到大枚举已有素数 $p$ 并令 \\texttt{lp[j]}$=p$；一旦 $p\\mid i$，更大的素数就不再是 $i\\cdot p$ 的最小质因子，立即 \\texttt{break}。积性函数同步转移：$p\\mid i$ 时 $\\varphi(ip)=\\varphi(i)\\,p$、$\\mu(ip)=0$；否则 $\\varphi(ip)=\\varphi(i)(p-1)$、$\\mu(ip)=-\\mu(i)$。"
+  },
+  "ModInt": {
+    "kind": "component",
+    "problem": "编译期固定模数的取模整数（模数可为合数），支持加、减、乘、快速幂；与模数互素时可求逆、做除法，不可逆时 \\texttt{try\\_inv} 返回空。",
+    "idea": "成员 \\texttt{v} 始终保存 $[0,\\mathrm{mod})$ 内的规范代表，构造时把负余数调正。加减各做一次条件校正，乘法用 \\texttt{long long} 乘积取模，快速幂按二进制拆分指数。求逆不依赖费马小定理：对 $(v,\\mathrm{mod})$ 做迭代扩展欧几里得并维护 $v$ 的系数 \\texttt{x}，结束时 gcd 为 1 则该系数就是逆元。"
+  },
+  "Binomial": {
+    "kind": "component",
+    "problem": "在素数模数下预处理阶乘与逆阶乘，快速回答组合数 $\\binom nk$ 与排列数 $n!/(n-k)!$；表的上限可以按需扩大。",
+    "idea": "\\texttt{fac[i]}$=i!$，\\texttt{ifac[i]}$=(i!)^{-1}$。\\texttt{init} 扩表时先顺推新增的阶乘，只对最大的 \\texttt{fac[n]} 求一次逆元，再用 $((i-1)!)^{-1}=(i!)^{-1}\\cdot i$ 倒推回旧上限。查询时 $\\binom nk=n!\\,(k!)^{-1}((n-k)!)^{-1}$，$k$ 越界返回 0。"
+  },
+  "PrimitiveRoot": {
+    "kind": "problem",
+    "problem": "给定模数 $n$，求剩余类 $a$ 的乘法阶，判断 $a$ 是否为原根，求最小原根，或升序列出全部原根。",
+    "idea": "构造时试除分解求 $\\varphi(n)$ 及其不同素因子 \\texttt{factors}，并按“$n$ 为 $2,4,p^k,2p^k$（$p$ 为奇素数）”判断原根是否存在。阶：从 $\\varphi(n)$ 出发，对每个素因子 $p$，只要 $a^{\\mathrm{result}/p}\\equiv1$ 就把 \\texttt{result} 除以 $p$。原根判定：$a$ 与 $n$ 互素，且对每个 $p$ 都有 $a^{\\varphi/p}\\not\\equiv1$。最小原根从 1 起逐个试；全部原根是 $g^k$（$\\gcd(k,\\varphi)=1$），按 $k$ 累乘枚举后排序。"
+  },
+  "floor_moments": {
+    "kind": "problem",
+    "problem": "对 $i=0..n-1$ 令 $y_i=\\lfloor(ai+b)/m\\rfloor$，同时求 $\\sum y_i$、$\\sum i\\,y_i$、$\\sum y_i^2$（模 $998244353$）。",
+    "idea": "先把 $a,b$ 规范到 $[0,m)$，商为 $x,y$，则 $y_i=xi+y+z_i$，展开后只需 $z_i$ 的三种和 $f,g,h$ 及 $\\sum i$、$\\sum i^2$（\\texttt{s1}、\\texttt{s2}）。求 $f,g,h$ 时令 $t$ 为最大值 \\texttt{height}，交换求和次序：$z_i\\ge j$ 当且仅当 $i\\ge c_j$，而 $c_{j+1}=\\lfloor(mj+m+a-b-1)/a\\rfloor$ 仍是同形的整除式，于是以参数 $(t,a,m,m+a-b-1)$ 递归（$a$ 与 $m$ 互换，类欧几里得）得到 $u=\\sum c$、$v=\\sum j\\,c$、$w=\\sum c^2$，再由 $f=nt-u$、$g=t\\,s_1-(w-u)/2$、$h=nt^2-2v-u$ 还原。"
+  },
+  "euler_phi": {
+    "kind": "problem",
+    "problem": "求单个正整数 $n$ 的欧拉函数 $\\varphi(n)$。提供两个入口：试除法，以及借助 \\texttt{PollardRho} 分解后计算（适合含大质因子的 $n$）。",
+    "idea": "公式 $\\varphi(n)=n\\prod_{p\\mid n}(1-1/p)$。试除版从 $p=2$ 枚举到 $\\sqrt n$，遇到质因子就把答案改为 $\\mathrm{answer}/p\\cdot(p-1)$ 并把 $n$ 中的 $p$ 除尽，最后剩下的 $n>1$ 是唯一的大质因子。分解版对升序质因子列表去重后做同样的乘法。先除后乘，中间值不超过原数。"
+  },
+  "Partitions": {
+    "kind": "problem",
+    "problem": "求 $0..N$ 每个数的无序整数分拆数 $p(n)$（模任意正整数），并能查询“每个正整数至多出现 $k$ 次”的分拆个数。",
+    "idea": "五边形数定理 $\\prod_{i\\ge1}(1-x^i)=\\sum_j(-1)^jx^{j(3j\\mp1)/2}$ 给出递推 $p(i)=\\sum_{j\\ge1}(-1)^{j+1}\\bigl[p(i-\\tfrac{j(3j-1)}2)+p(i-\\tfrac{j(3j+1)}2)\\bigr]$，每个 $i$ 只有 $O(\\sqrt i)$ 项。重数不超过 $k$ 的生成函数为 $\\prod_i\\frac{1-x^{(k+1)i}}{1-x^i}=P(x)\\prod_i(1-x^{(k+1)i})$，后者就是把五边形数级数中的 $x$ 换成 $x^{k+1}$，因此 \\texttt{limited} 只需在 $p(n)$ 上加减 $p(n-(k+1)\\cdot\\text{五边形数})$。"
+  },
+  "parts_at_most": {
+    "kind": "problem",
+    "problem": "求 $0..n$ 每个数分拆成至多 $m$ 个正整数之和（不计顺序）的方案数，模任意正整数。",
+    "idea": "由 Ferrers 图共轭，“至多 $m$ 个部分”等价于“每部分不超过 $m$”。于是做完全背包：物品是大小 $1..\\min(m,n)$ 的部分，每种可取任意多个，按大小逐个加入，正序遍历 $s$ 执行 \\texttt{f[s] += f[s - i]}。"
+  },
+  "parts_at_most_fps": {
+    "kind": "problem",
+    "problem": "与 \\texttt{parts\\_at\\_most} 相同，求 $0..n$ 每个数分拆成至多 $m$ 个部分的方案数，但模数固定为 $998244353$，适合 $n,m$ 都很大的情形。",
+    "idea": "所求生成函数为 $\\prod_{i=1}^{m}\\frac1{1-x^i}$。取对数：$\\ln\\frac1{1-x^i}=\\sum_{j\\ge1}x^{ij}/j$，所以对每个 $i\\le\\min(m,n)$ 枚举 $j$，把 $1/j$ 加到 \\texttt{g[i*j]}，总共调和级数次加法；$1/j$ 由线性逆元递推表 \\texttt{inv} 给出。最后调用 \\texttt{FpsFunctions::exp} 求出前 $n+1$ 项。"
+  },
+  "Lucas": {
+    "kind": "problem",
+    "problem": "给定较小的素数 $p$ 和很大的 $n,k$，求 $\\binom nk\\bmod p$。",
+    "idea": "Lucas 定理：把 $n,k$ 写成 $p$ 进制，$\\binom nk\\equiv\\prod_i\\binom{n_i}{k_i}\\pmod p$，某一位 $k_i>n_i$ 时整体为 0。构造时预处理 $0..p-1$ 的阶乘 \\texttt{fac}，用费马小定理求 $(p-1)!$ 的逆，再倒推逆阶乘 \\texttt{ifac}。\\texttt{choose} 每轮取最低位 $a=n\\bmod p$、$b=k\\bmod p$，乘上 $\\binom ab$，再把 $n,k$ 除以 $p$。"
+  },
+  "ExLucas": {
+    "kind": "problem",
+    "problem": "给定任意正整数模数 $M$（可为合数，规模约 $10^6$）和很大的 $n,k$，求 $\\binom nk\\bmod M$。",
+    "idea": "把 $M$ 分解为互素的素数幂 $q=p^e$，分别求 $\\binom nk\\bmod q$ 后用 CRT 合并。模 $q$ 时把 $n!$ 写成 $p^{v(n)}u(n)$，$u(n)$ 与 $p$ 互素：$v$ 用 Legendre 公式；$n!$ 中不被 $p$ 整除的因子模 $q$ 以 $q$ 为周期，故 $u(n)=(\\text{整段积})^{\\lfloor n/q\\rfloor}\\cdot(\\text{零头积})\\cdot u(\\lfloor n/p\\rfloor)$。于是 $\\binom nk\\equiv p^{v}\\,u(n)\\,u(k)^{-1}u(n-k)^{-1}\\pmod q$，其中 $v=v(n)-v(k)-v(n-k)$，$v\\ge e$ 时该分量为 0。",
+    "steps": [
+      {
+        "case": "分解模数",
+        "code": "试除得到每个素数幂 $q=p^e$",
+        "find": "add_factor(p, q, e);"
+      },
+      {
+        "case": "段内前缀积",
+        "code": "\\texttt{fac} 中该因子的一段：$0..q-1$ 内不被 $p$ 整除的数之积，末尾多存一份整段积",
+        "find": "(i % p ? i : 1)"
+      },
+      {
+        "case": "CRT 系数",
+        "code": "$c_q=(M/q)\\cdot((M/q)^{-1}\\bmod q)$，模 $q$ 为 1、模其他素数幂为 0",
+        "find": "int crt = ll(mod / q)"
+      },
+      {
+        "case": "$n!$ 中 $p$ 的指数",
+        "code": "Legendre 公式 $\\sum_{i\\ge1}\\lfloor n/p^i\\rfloor$",
+        "find": "result += n;"
+      },
+      {
+        "case": "去掉 $p$ 后的 $n!$",
+        "code": "整段积的 $\\lfloor n/q\\rfloor$ 次幂乘零头，再对 $\\lfloor n/p\\rfloor$ 迭代",
+        "find": "result = result * power(fac[f.start + f.q]"
+      },
+      {
+        "case": "$p$ 的指数不少于 $e$",
+        "code": "该分量为 0，跳过",
+        "find": "if (e >= ull(f.exponent)) continue;"
+      },
+      {
+        "case": "合并分量",
+        "code": "分母单位部分用欧拉定理求逆，乘 $p^v$ 后按 CRT 系数累加",
+        "find": "answer = (answer + residue * f.crt) % mod;"
+      }
+    ]
+  },
+  "mod_sqrt": {
+    "kind": "problem",
+    "problem": "给定素数 $p$ 与整数 $n$，求方程 $x^2\\equiv n\\pmod p$ 的全部解。",
+    "idea": "$n\\equiv0$ 或 $p=2$ 时唯一解就是 $n$。否则用 Euler 判别法，$n^{(p-1)/2}\\ne1$ 时无解。$p\\equiv3\\pmod4$ 时 $n^{(p+1)/4}$ 直接是一个根。其余情况用 Cipolla：随机找 $a$ 使 $w=a^2-n$ 为非二次剩余，在扩域 $\\mathbb{F}_p[\\sqrt w]$ 中计算 $(a+\\sqrt w)^{(p+1)/2}$，元素用（实部，虚部）表示，乘法中 $(\\sqrt w)^2=w$，结果的实部就是一个根。另一个根为 $p-x$，排序后一并返回。",
+    "steps": [
+      {
+        "case": "$n\\equiv0$ 或 $p=2$",
+        "code": "只有一个根 $n$",
+        "find": "if (n == 0 || p == 2) return {n};"
+      },
+      {
+        "case": "Euler 判别",
+        "code": "$n$ 不是二次剩余则返回空",
+        "find": "if (power(n, (p - 1) / 2) != 1) return {};"
+      },
+      {
+        "case": "$p\\equiv3\\pmod4$",
+        "code": "根为 $n^{(p+1)/4}$",
+        "find": "answer = power(n, (ll(p) + 1) / 4);"
+      },
+      {
+        "case": "找非剩余 $w$",
+        "code": "随机 $a$ 直到 $w^{(p-1)/2}=p-1$",
+        "find": "} while (power(w, (p - 1) / 2) != p - 1);"
+      },
+      {
+        "case": "扩域乘法",
+        "code": "$(x_1+y_1\\sqrt w)(x_2+y_2\\sqrt w)$ 的实部与虚部",
+        "find": "auto mul = [p, w](P x, P y)"
+      },
+      {
+        "case": "两个根",
+        "code": "$x$ 与 $p-x$ 按大小排序返回",
+        "find": "ll other = p - answer;"
+      }
+    ]
+  },
+  "KthResidue": {
+    "kind": "problem",
+    "problem": "给定素数 $p$ 及其原根 $g$、正整数 $k$ 与整数 $a$，求同余方程 $x^k\\equiv a\\pmod p$ 的全部解。解集以首项 \\texttt{first}、公比 \\texttt{ratio}、个数 \\texttt{count} 的等比数列形式返回，不必展开即可得知解数。",
+    "idea": "令 $x=g^y$，并用 \\texttt{DiscreteLog} 求出 $a=g^L$ 中的 $L$，原方程化为指数上的线性同余 $ky\\equiv L\\pmod{p-1}$。\\texttt{linear\\_congruence} 给出最小解 $y_0$ 与周期 $T=(p-1)/\\gcd(k,p-1)$，同余无解则原方程无解。于是全部根为 $g^{y_0}(g^T)^i$，$0\\le i<\\gcd(k,p-1)$，即 \\texttt{first} 取 $g^{y_0}$、\\texttt{ratio} 取 $g^T$、\\texttt{count} 取 $(p-1)/T$。$a\\equiv0$ 时唯一根为 0，单独返回。"
+  },
+  "Lagrange": {
+    "kind": "problem",
+    "problem": "已知 $n$ 个横坐标两两不同的点 $(x_i,y_i)$，求唯一的次数小于 $n$ 的多项式 $f$ 在给定 $k$ 处的值（模素数 $p$）。预处理一次后可多次查询；横坐标恰为 $0,1,\\dots,n-1$ 时有更快的专用构造。",
+    "idea": "拉格朗日公式写成 $f(k)=\\sum_i w_i\\prod_{j\\ne i}(k-x_j)$，其中 $w_i=y_i/\\prod_{j\\ne i}(x_i-x_j)$ 只与样本有关，构造时存入 \\texttt{w}：任意横坐标逐对相乘后求一次逆；横坐标连续时分母为 $i!\\,(n-1-i)!$ 并带符号 $(-1)^{n-1-i}$，用逆阶乘表直接得到。\\texttt{query} 先求前缀积 \\texttt{pre}，再从右往左维护后缀积 \\texttt{suffix}，两者相乘即去掉第 $i$ 个因子的乘积。全程不对 $k-x_i$ 求逆，所以 $k$ 恰为样本点时也正确。"
+  },
+  "lagrange_consecutive": {
+    "kind": "problem",
+    "problem": "已知次数小于 $n$ 的多项式 $f$ 在 $0,1,\\dots,n-1$ 处的值，求单点值 $f(k)\\bmod p$。常用于 $\\sum_{i=1}^{k}i^d$ 这类关于 $k$ 是多项式的量：先暴力算出前若干项，再插值到很大的 $k$。",
+    "idea": "$f(k)=\\sum_i y_i\\prod_{j\\ne i}\\frac{k-j}{i-j}$。分子用前缀积 \\texttt{pre} 与后缀积 \\texttt{suf} 拼出 $\\prod_{j\\ne i}(k-j)$；分母 $\\prod_{j\\ne i}(i-j)=i!\\,(n-1-i)!\\,(-1)^{n-1-i}$，只用一次快速幂求 $(n-1)!$ 的逆，再递推出逆阶乘表 \\texttt{ifac}，按 $n-1-i$ 的奇偶决定加或减该项。分子不做除法，因此 $k$ 落在插值点上无需特判。"
+  },
+  "ComplexFFT": {
+    "kind": "component",
+    "problem": "对长度为 $n$（二次幂）的复数数组做原地离散傅里叶变换及逆变换；单位根表在构造时一次算好，可供多次变换复用，是浮点多项式乘法、拆系数任意模卷积等的底层工具。",
+    "idea": "构造时直接按角度用 $\\cos,\\sin$ 算出 $\\omega^i=e^{2\\pi\\mathrm{i}\\,i/n}$（$i<n/2$），不靠连乘，避免误差累积。\\texttt{transform} 先做位逆序重排（\\texttt{j} 是 \\texttt{i} 的二进制反转，增量维护），再自底向上合并：两段长度为 \\texttt{half} 的子结果用单位根 \\texttt{roots[j*step]} 做蝴蝶 $u\\pm\\omega v$。逆变换把单位根取共轭，最后整体除以 $n$。"
+  },
+  "convolution_mod_fft": {
+    "kind": "component",
+    "problem": "计算两个整数多项式乘积的系数模任意给定整数 $M$，即 $c_k=\\sum_{i+j=k}a_ib_j\\bmod M$；$M$ 可以是合数或不支持 NTT 的素数。",
+    "idea": "每个系数先归一化到 $[0,M)$，再拆成三个 11 位块 $v=v_0+v_1B+v_2B^2$（$B=2^{11}$），这样任意两块卷积的真实系数都足够小，浮点 FFT 后四舍五入即可精确还原。对 $a,b$ 的三个块各做一次正变换（共六次），再对每对块 $(i,j)$ 逐点相乘、逆变换、\\texttt{llroundl} 取整，乘上 $B^{i+j}\\bmod M$（预存于 \\texttt{weight}）累加进结果，共九次逆变换。"
+  },
+  "NttConvolution": {
+    "kind": "component",
+    "problem": "给定两个模素数 $p$ 的多项式（系数数组）$a,b$，求乘积 $c_k=\\sum_{i+j=k}a_ib_j \\bmod p$；同时提供原地数论变换 \\texttt{ntt} 供其他多项式算法复用。",
+    "idea": "取 $p-1$ 的二次幂因子中的长度 $n$ 与 $n$ 次单位根 $\\omega=g^{(p-1)/n}$，把系数表示变成 $n$ 个点值：位逆序重排后自底向上做蝴蝶合并。两个点值逐项相乘后做逆变换（同一正变换后翻转下标 $1..n-1$ 并乘 $n^{-1}$）还原系数。单位根表按层缓存，各长度复用。"
+  },
+  "stirling_second_row": {
+    "kind": "problem",
+    "problem": "固定 $n$（可达 $2^{64}-1$），求第二类斯特林数 $S(n,0),\\dots,S(n,m)$。",
+    "idea": "容斥式 $S(n,k)=\\sum_i\\frac{i^n}{i!}\\cdot\\frac{(-1)^{k-i}}{(k-i)!}$ 是一次卷积：两个序列分别取 $i^n/i!$ 与 $(-1)^i/i!$。"
+  },
+  "stirling_second_column": {
+    "kind": "problem",
+    "problem": "固定 $k$，求第二类斯特林数 $S(0,k),\\dots,S(N,k)$。",
+    "idea": "列的指数生成函数为 $(e^x-1)^k/k!$；提出 $x^k$ 后对 $A(x)=(e^x-1)/x$ 用 $\\exp(k\\log A)$ 求幂，再乘 $n!/k!$（推导见上文）。"
+  },
+  "stirling_first_row": {
+    "kind": "problem",
+    "problem": "固定 $n$，求无符号第一类斯特林数 $c(n,0),\\dots,c(n,n)$，即 $x^{\\overline n}=x(x+1)\\cdots(x+n-1)$ 的全部系数。",
+    "idea": "倍增：$x^{\\overline{2m}}=x^{\\overline m}\\cdot(x+m)^{\\overline m}$，后者由前者泰勒平移一次卷积得到，奇数再乘一个一次因子（推导见上文）。"
+  },
+  "stirling_first_column": {
+    "kind": "problem",
+    "problem": "固定 $k$，求无符号第一类斯特林数 $c(0,k),\\dots,c(N,k)$。",
+    "idea": "列的指数生成函数为 $(-\\log(1-x))^k/k!$；提出 $x^k$ 后对常数项为 1 的 $A(x)$ 用 $\\exp(k\\log A)$ 求 $k$ 次幂，再乘 $n!/k!$（推导见上文）。"
+  },
+  "FpsInverse": {
+    "kind": "component",
+    "problem": "给定常数项非零的形式幂级数 $a(x)$，求 $b(x)$ 使 $a(x)b(x)\\equiv1\\pmod{x^n}$，返回前 $n$ 项（模 998244353）。",
+    "idea": "牛顿迭代：已知 $b\\bmod x^k$ 时，$b\\leftarrow b-b(ab-1)$ 把精度翻倍到 $2k$，初值为 $a_0^{-1}$。实现只计算新增的高半段：取 $a$ 的前 $2k$ 项 \\texttt{f} 与当前 $b$ 做长度 $2k$ 的循环卷积，真实乘积低 $k$ 项为 $1,0,\\dots,0$，而回绕只污染低 $k$ 项，于是清零低半段后剩下的就是 $ab-1$ 的有效部分；再乘一次 $b$（复用其频域值 \\texttt{g}），第 $k$ 到 $m-1$ 项取负即为 $b$ 新增的系数。"
+  },
+  "FpsFunctions": {
+    "kind": "component",
+    "problem": "形式幂级数的基本运算：逐项求导 \\texttt{derivative}、常数项为零的积分 \\texttt{integral}、常数项为 1 时的对数 $\\ln a$，以及常数项为 0 时的指数 $\\exp a$，后两者返回前 $n$ 项（模 998244353）。",
+    "idea": "积分所需的 $1/i$ 用线性递推 $i^{-1}=-\\lfloor p/i\\rfloor\\cdot(p\\bmod i)^{-1}$ 求出。$\\ln a=\\int a'/a$：截取前 $n$ 项，导数乘逆级数（\\texttt{inverse}）后积分。$\\exp$ 用牛顿迭代 $b\\leftarrow b(1-\\ln b+a)$，从 $b=1$ 开始每轮精度翻倍：求 $\\ln b$ 的前 $m$ 项，构造 $a-\\ln b+1$，再与 $b$ 相乘并截断到 $m$ 项。"
+  },
+  "GaussMod": {
+    "kind": "problem",
+    "problem": "求解模素数 $p$ 的线性方程组 $Ax=b$（给出 $m$ 行增广矩阵、$n$ 个未知数）：判断是否有解，有解时给出系数矩阵的秩、一个特解和齐次方程组解空间的一组基，从而描述全部解。",
+    "idea": "高斯—若尔当消元化为简化行阶梯形：逐列找本列非零的行作主元，换到当前行 \\texttt{row}，整行乘主元的逆归一，再消去其他所有行的该列。\\texttt{where[col]} 记录主元列所在的行，没有主元的列是自由变量。消元后秩以下各行若右端非零则无解。特解令自由变量为 0，主元变量取所在行的右端；每个自由变量 $j$ 生成一个基向量：第 $j$ 维为 1，各主元变量取 $-a_{\\mathrm{where}[k],j}$。"
+  },
+  "ModMatrix": {
+    "kind": "component",
+    "problem": "模 \\texttt{mod} 下的矩阵乘法 \\texttt{multiply} 与方阵快速幂 \\texttt{power}，常用于加速常系数线性递推或计数转移。",
+    "idea": "乘法按 $i,t,j$ 的顺序三重循环累加 $c_{ij}\\mathrel{+}=a_{it}b_{tj}$，内层连续访问行，缓存友好。快速幂从单位阵 \\texttt{r} 出发按二进制拆分指数：当前位为 1 时乘上 \\texttt{a}，每轮把 \\texttt{a} 平方。只用加法和乘法，所以模数不必是素数。"
+  },
+  "matrix_inverse": {
+    "kind": "component",
+    "problem": "给定模素数的 $n$ 阶方阵 $A$，判断是否可逆，可逆时求 $A^{-1}$。",
+    "idea": "对增广矩阵 $[A\\mid I]$ 做高斯—若尔当消元：第 $i$ 步从第 $i$ 行往下找第 $i$ 列的非零主元，找不到说明 $A$ 奇异；否则两边同时换行、主元行乘逆元归一，并用它消去其他所有行的第 $i$ 列。左边化为单位阵时，右边的 \\texttt{b} 就是 $A^{-1}$。"
+  },
+  "determinant_mod": {
+    "kind": "problem",
+    "problem": "给定整数方阵 $A$ 与任意正整数模数 $M$（可为合数），求 $\\det A\\bmod M$。",
+    "idea": "合数模下主元未必可逆，因此用辗转相除代替除法：处理第 $i$ 列时，对下方每一行 $j$，只要 $a_{ji}\\ne0$，就让第 $i$ 行减去 $\\lfloor a_{ii}/a_{ji}\\rfloor$ 倍的第 $j$ 行，再交换两行，相当于对 $(a_{ii},a_{ji})$ 做欧几里得算法，直到 $a_{ji}=0$。行相减不改变行列式，每次交换把答案取负。一列消完后若 $a_{ii}=0$ 则行列式为 0，否则乘进答案，最终得到上三角矩阵对角元的乘积。"
+  },
+  "MatrixTreeMod": {
+    "kind": "problem",
+    "problem": "给定带权多重图，求所有生成树（无向）或以指定点为根的内向/外向生成树的边权乘积之和，对任意正整数取模。边权为 1 时即生成树个数。",
+    "idea": "矩阵树定理：构造拉普拉斯矩阵 $L=D-A$（有向时 $D$ 取入度或出度），删去根所在的行和列，余子式的行列式就是答案。合数模数下没有逆元，行列式交给按欧几里得辗转相减消元的 \\texttt{determinant\\_mod}。"
+  },
+  "DuJiao": {
+    "kind": "problem",
+    "problem": "对很大的 $n$（约 $10^{11}$），求莫比乌斯函数前缀和 $M(n)=\\sum_{i\\le n}\\mu(i)$ 与欧拉函数前缀和 $\\Phi(n)=\\sum_{i\\le n}\\varphi(i)$，支持多次查询。",
+    "idea": "利用狄利克雷卷积 $\\mu*1=\\varepsilon$、$\\varphi*1=\\mathrm{id}$ 得 $\\sum_{d=1}^{n}M(\\lfloor n/d\\rfloor)=1$、$\\sum_{d=1}^{n}\\Phi(\\lfloor n/d\\rfloor)=n(n+1)/2$。把 $d=1$ 项移到一边，其余 $d\\ge2$ 按 $\\lfloor n/d\\rfloor$ 相同的区间 $[l,r]$ 整除分块，递归求更小的值。不超过 \\texttt{limit} 的值直接查线性筛预处理的前缀和 \\texttt{pmu}、\\texttt{pphi}，更大的值记忆化在哈希表 \\texttt{mmu}、\\texttt{mphi} 中。"
+  },
+  "DiscreteLog": {
+    "kind": "problem",
+    "problem": "给定 $a,b,m$（$a$ 与 $m$ 不必互质），求最小的非负整数 $x$ 使 $a^x\\equiv b\\pmod m$，无解返回 $-1$。",
+    "idea": "把方程看成 $k\\cdot a^{x-\\mathrm{offset}}\\equiv b$ 逐步化简：只要 $g=\\gcd(a,m)>1$，先检查当前指数 \\texttt{offset} 是否已是解（即 $k\\equiv b$），否则要求 $g\\mid b$，把 $b$ 和模数同除以 $g$，系数 $k$ 乘上 $a/g$，偏移加一。$a$ 与 $m$ 互质后求 $a^y\\equiv bk^{-1}$：baby step 表存 $a^j$（$0\\le j<s$，同值保留最小 $j$），giant step 从目标值出发每次乘 $a^{-s}$，第 $i$ 步命中 $a^j$ 即得 $y=is+j$。$i$ 递增、$j$ 取最小，首个命中就是最小解。",
+    "steps": [
+      {
+        "case": "平凡情形",
+        "code": "$m=1$ 或 $b=1$ 时 $x=0$；底数为 1 而 $b\\ne1$ 时无解",
+        "find": "if (m == 1 || b == 1) return 0;"
+      },
+      {
+        "case": "$\\gcd(a,m)>1$",
+        "code": "循环剥离公因子",
+        "find": "for (ll g; (g = gcd(a, m)) > 1;)"
+      },
+      {
+        "case": "较小指数恰为解",
+        "code": "$k\\equiv b$ 时返回当前 \\texttt{offset}",
+        "find": "if (b == k) return offset;"
+      },
+      {
+        "case": "化为互质问题",
+        "code": "目标值乘 $k^{-1}$",
+        "find": "ll target = (__int128)b * mod_inverse(k, m) % m;"
+      },
+      {
+        "case": "baby step",
+        "code": "记录 $a^j$ 的最小指数",
+        "find": "if (!baby.count(cur)) baby[cur] = j;"
+      },
+      {
+        "case": "giant step 命中",
+        "code": "返回 $\\mathrm{offset}+is+j$",
+        "find": "if (it != baby.end()) return offset + i * step + it->second;"
+      }
+    ]
+  },
+  "IntegerPlane": {
+    "kind": "component",
+    "problem": "整数坐标的二维几何基础：点类型及字典序比较、叉积、点积、距离平方，判断点是否在线段上、两条闭线段是否相交，以及极角比较器 \\texttt{PolarLess}。",
+    "idea": "所有运算先把坐标差扩展到 \\texttt{\\_\\_int128\\_t} 再相乘，全程精确，无需 eps。\\texttt{cross(a,b,c)} 为 $(b-a)\\times(c-a)$，正值表示 $c$ 在 $ab$ 左侧。\\texttt{on\\_segment} 要求三点共线且 $(a-p)\\cdot(b-p)\\le0$。\\texttt{intersect} 先处理某端点与另一线段共线并落在其上的接触情形，否则要求两线段的端点分别严格位于对方直线两侧。\\texttt{PolarLess} 先按半平面分组，组内用叉积比较极角，同向比长度。"
+  },
+  "integer_hull": {
+    "kind": "problem",
+    "problem": "求平面整数点集的凸包，按逆时针输出顶点，去掉重复点和边上的非顶点。",
+    "idea": "Andrew 单调链。点按 $(x,y)$ 排序去重后，从左到右扫描构造下凸壳：栈顶两点与新点不构成严格左转（叉积 $\\le0$）就弹栈；再从右到左扫描构造上凸壳，弹栈时不越过下凸壳的部分（\\texttt{low}）。两条链首尾相接，最后弹出重复的起点。因为叉积为 0 也弹栈，共线点都被删去，全共线时只剩两个端点。"
+  },
+  "polygon_area2": {
+    "kind": "component",
+    "problem": "求按边界顺序给出的整数多边形有向面积的两倍（逆时针为正）。",
+    "idea": "鞋带公式：$2S=\\sum_i p_i\\times p_{i+1}$（下标循环）。每一项是原点与一条边构成的三角形的有向面积两倍，多边形外的部分正负抵消。乘积在 \\texttt{\\_\\_int128\\_t} 中精确计算。"
+  },
+  "polygon_contains": {
+    "kind": "problem",
+    "problem": "判断点 $q$ 在简单多边形（可凹，顺逆时针均可）的外部、边界上还是内部。",
+    "idea": "计算绕数。逐边 $a\\to b$：若 $q$ 在边上直接返回边界。否则用半开纵坐标区间判断边是否穿过过 $q$ 的水平线：向上穿过（$a_y\\le q_y<b_y$）且 $q$ 在边左侧时绕数加一，向下穿过（$b_y\\le q_y<a_y$）且 $q$ 在边右侧时减一。半开区间保证顶点恰在水平线上时只计一次；绕数非零即在内部。"
+  },
+  "convex_contains_i64": {
+    "kind": "problem",
+    "problem": "判断点 $q$ 在严格逆时针凸多边形的外部、边界上还是内部，每次询问对数时间。",
+    "idea": "以 $p_0$ 为中心把凸多边形剖成扇形三角形。先看 $q$ 是否在射线 $p_0p_1$ 与 $p_0p_{n-1}$ 夹成的角内：在角外即为外部；恰在其中一条边所在直线上时，按是否落在对应边上判边界或外部。否则二分出 $q$ 所在扇区，即满足 $(p_l-p_0)\\times(q-p_0)\\ge0$ 的最大 $l$，最后由 $q$ 相对边 $p_lp_{l+1}$ 的叉积符号给出外部、边界或内部。"
+  },
+  "convex_diameter2": {
+    "kind": "problem",
+    "problem": "求凸多边形顶点间最远距离的平方（平面点集的直径，散点先求凸包），可同时给出一对最远点的下标。",
+    "idea": "旋转卡壳。按逆时针枚举每条边 $p_ip_{i+1}$，指针 $j$ 指向离这条边所在直线最远的顶点：只要 $p_{j+1}$ 与该边构成的三角形面积（叉积）更大就前移 $j$。边逆时针转动时 $j$ 也单调前移，总共只绕一圈。最远点对必出现在某条边的端点与其对踵点之间，故每次用 $(p_i,p_j)$、$(p_{i+1},p_j)$ 更新答案。"
+  },
+  "RealPlane": {
+    "kind": "component",
+    "problem": "浮点二维几何的公共基础：点/向量 \\texttt{Point}（加减、数乘、数除），圆 \\texttt{Circle}，以及各求交函数共用的结果类型 \\texttt{Result}（交点类别 \\texttt{Kind} 加有限个交点）。",
+    "idea": "坐标统一用 \\texttt{long double}。\\texttt{dot}、\\texttt{cross} 为点积与叉积，\\texttt{cross(a,b)} $>0$ 表示 $b$ 在 $a$ 的逆时针方向；\\texttt{norm} 用 \\texttt{hypotl} 求长度，避免先平方溢出；\\texttt{perp} 把向量逆时针旋转 $90^\\circ$。其余实数几何函数都建立在这些运算上，交点无穷多或输入退化等情况通过 \\texttt{Kind} 区分。"
+  },
+  "RealPolarLess": {
+    "kind": "component",
+    "problem": "浮点点的极角比较器：从正 $x$ 轴起按逆时针极角排序，同方向按长度递增，原点排在最前；对已存入的浮点数比较结果精确。",
+    "idea": "先按半平面分组（\\texttt{half}：上半平面及正 $x$ 轴在前），同组内看叉积 $a_xb_y-a_yb_x$ 的符号。为避免浮点叉积舍入，\\texttt{product} 用 \\texttt{frexp} 把每个因子拆成 64 位整数尾数和指数，尾数相乘得 128 位整数并左移规格化，于是乘积可按（符号，指数，规格化尾数）精确比较大小；\\texttt{cross\\_sign} 据此比较两个乘积。叉积为 0（同方向）时比较非零坐标分量的绝对值。"
+  },
+  "line_projection": {
+    "kind": "component",
+    "problem": "求点 $p$ 在过 $a$、$b$ 两点的直线上的正交投影（垂足）。",
+    "idea": "设方向 $v=b-a$，投影为 $a+v\\cdot\\frac{(p-a)\\cdot v}{v\\cdot v}$，即从 $a$ 出发沿 $v$ 走 $p-a$ 在 $v$ 上的投影长度。$v\\cdot v=0$（两点重合）时直接返回 $a$。"
+  },
+  "segment_distance_real": {
+    "kind": "component",
+    "problem": "求点 $p$ 到闭线段 $ab$ 的最短距离。",
+    "idea": "把 $p$ 投影到直线 $ab$ 上，得参数 $t=\\frac{(p-a)\\cdot v}{v\\cdot v}$（$v=b-a$），再截断到 $[0,1]$：投影落在线段外时最近点就是较近的端点。返回 $p$ 到 $a+tv$ 的距离；$a=b$ 时退化为到该点的距离。"
+  },
+  "line_intersection_real": {
+    "kind": "component",
+    "problem": "求直线 $ab$ 与直线 $cd$ 的交点，并区分唯一交点、平行不交、重合（无穷多交点）和直线退化四种情况。",
+    "idea": "设 $u=b-a$，$v=d-c$，$\\Delta=u\\times v$。若 $|\\Delta|\\le\\varepsilon|u||v|$（两方向夹角的正弦足够小）视为平行，再看 $c$ 到直线 $ab$ 的距离 $|(c-a)\\times u|/|u|$ 是否在相对容差内，区分重合与平行不交；否则交点为 $a+u\\cdot\\frac{(c-a)\\times v}{\\Delta}$。"
+  },
+  "line_circle_intersections": {
+    "kind": "component",
+    "problem": "求直线 $ab$ 与圆的交点，结果分为相离、相切（一点）、相交（两点）以及直线退化。",
+    "idea": "分两种模式。\\texttt{eps}$=0$ 时只用平方量：$v=b-a$，$z=v\\times(a-o)$，圆心到直线距离为 $|z|/|v|$，判别式 $D=r^2|v|^2-z^2$ 的符号决定交点个数；垂足 $h=o+\\mathrm{perp}(v)\\,z/|v|^2$，两交点为 $h\\mp v\\sqrt D/|v|^2$。\\texttt{eps}$>0$ 时用 \\texttt{line\\_projection} 求圆心垂足 $h$ 及距离 $d$，与半径按相对容差比较，近切时合并为一点，否则从 $h$ 沿直线方向偏移半弦长 $\\sqrt{r^2-d^2}$。"
+  },
+  "circle_intersections": {
+    "kind": "component",
+    "problem": "求两圆的交点，区分相离或内含（无交点）、相切（一点）、相交（两点）以及两圆重合（无穷多）；半径为 0 的圆视为点。",
+    "idea": "设 $v=o_2-o_1$。交点连线与连心线的交点（垂足）为 $h=o_1+v\\cdot\\frac{x}{|v|}$，其中 $x=\\frac{|v|^2+r_1^2-r_2^2}{2|v|}$，两交点为 $h$ 沿 $\\mathrm{perp}(v)$ 方向偏移 $\\pm\\sqrt{r_1^2-x^2}$。\\texttt{eps}$=0$ 时全用平方量：$k=|v|^2+r_1^2-r_2^2$，判别式 $D=4r_1^2|v|^2-k^2$ 的符号决定交点个数。\\texttt{eps}$>0$ 时先单独处理同心与点圆，再把圆心距与 $r_1+r_2$、$|r_1-r_2|$，以及 $|x|$ 与 $r_1$ 按相对容差比较来分类。"
+  },
+  "circle_overlap_area": {
+    "kind": "problem",
+    "problem": "求两个圆公共部分（交集）的面积。",
+    "idea": "圆心距 $d\\ge r_1+r_2$ 时不相交，面积为 0；$d\\le|r_1-r_2|$ 时小圆被包含，面积为小圆面积。否则交集由两个弓形拼成：由余弦定理求出公共弦在每个圆中所对圆心角的一半 $\\alpha$，弓形面积为 $r^2(\\alpha-\\frac12\\sin2\\alpha)$，两者相加。$\\alpha$ 很小时直接相减会严重相消，改用展开式 $\\frac23\\alpha^3-\\frac2{15}\\alpha^5+\\frac4{315}\\alpha^7$。"
+  },
+  "MaxPlusMatrix": {
+    "kind": "component",
+    "problem": "$(\\max,+)$ 半环上的 $n\\times n$ 矩阵乘法与快速幂：$a_{ij}$ 是从状态 $i$ 一步转移到 $j$ 的收益（无此转移为 \\texttt{neg}），\\texttt{power(k)} 的 $(i,j)$ 元即从 $i$ 出发恰好走 $k$ 步到达 $j$ 的最大总收益。",
+    "idea": "把普通矩阵乘法中的乘换成加、加换成取最大：$c_{ij}=\\max_t(a_{it}+b_{tj})$。该运算满足结合律，故可按二进制拆分指数做快速幂。\\texttt{neg} 充当 $-\\infty$，乘法中跳过等于 \\texttt{neg} 的项，避免把不可达状态加成有限值；单位阵对角为 0、其余为 \\texttt{neg}。数值用 \\texttt{\\_\\_int128} 存储。"
+  },
+  "LiChao": {
+    "kind": "component",
+    "problem": "离线给出所有查询横坐标，在线插入整条直线 $y=kx+b$（各带调用者指定的编号），查询某个横坐标处的最小函数值及取到它的直线编号（同值取编号小者）。",
+    "idea": "李超线段树建在排序去重的横坐标 \\texttt{xs} 上，节点按需动态创建。每个节点保存一条在其区间中点 \\texttt{xs[m]} 处最优的直线。插入时若新线在中点更优就与节点的线交换；两条直线至多相交一次，落败的那条只可能在一侧端点处更优，于是只递归进入那一侧（两侧都不优则丢弃）。查询沿根到对应叶子的路径，取路径上所有直线在 $x$ 处的最优者。比较用 \\texttt{\\_\\_int128} 计算 $kx+b$，以 (值, 编号) 字典序决胜。"
+  },
+  "PersistentKth": {
+    "kind": "problem",
+    "problem": "给定不再修改的数组，多次询问区间 $[l,r]$ 内第 $k$ 小的值（重复值按次数计）。",
+    "idea": "值离散化后，对每个前缀 $a_1..a_i$ 建一棵权值线段树版本 \\texttt{root[i]}，节点 \\texttt{sum} 记该值域内的元素个数；版本 $i$ 由版本 $i-1$ 复制一条根到叶的路径得到，其余节点共享。区间 $[l,r]$ 的值域计数等于版本 $r$ 减版本 $l-1$。查询时两版本同步从根下走：左孩子计数差 $c\\ge k$ 就进左子树，否则 $k\\leftarrow k-c$ 进右子树，到叶即答案。"
+  },
+  "DynamicKth": {
+    "kind": "problem",
+    "problem": "给定数组，支持单点修改为新值，以及询问区间 $[l,r]$ 内第 $k$ 小的值。",
+    "idea": "把所有初值和将来的新值一起离散化。按位置建树状数组，第 $i$ 个节点挂一棵动态开点的权值线段树，记录树状数组覆盖的那段位置中每个值出现的次数。修改先在 $O(\\log n)$ 棵树中删去旧值、再插入新值；计数变为 0 的节点挂到 \\texttt{free\\_head} 空闲链上复用。查询时取出前缀 $r$ 与前缀 $l-1$ 对应的两组树根，在值域上同步二分：左孩子计数之和（前一组减后一组）不少于 $k$ 就整体往左走，否则减去后往右走。"
+  },
+  "Hungarian": {
+    "kind": "problem",
+    "problem": "给定 $n\\times m$ 费用矩阵（$n\\le m$），为每一行分配一个互不相同的列，使所选元素的费用和最小（即矩形二分图的最小权完美匹配/指派问题），返回最小费用和每行所选的列。",
+    "idea": "逐行加入匹配，并维护行势 \\texttt{u}、列势 \\texttt{v}，使所有约化费用 $c_{ij}-u_i-v_j\\ge0$。加入第 $i$ 行时，从虚拟列 0 出发（\\texttt{p[0]=i}）做类似 Dijkstra 的搜索：\\texttt{dis[j]} 是到列 $j$ 的最小约化距离，\\texttt{way[j]} 记前一列；每次取 \\texttt{dis} 最小的未访问列 \\texttt{j1}，把差值 \\texttt{delta} 加到已访问行、从已访问列的势中减去，使新边变紧。到达未匹配列后沿 \\texttt{way} 回退，逐个把匹配平移一位完成增广。全部加完后最小费用等于 $-v_0$。"
+  },
+  "Arborescence": {
+    "kind": "problem",
+    "problem": "最小树形图：给定有向带权图和根 $r$，选出一些边，使从 $r$ 出发能到达所有点且每个非根点恰有一条入边，求最小总权；有点不可达时无解。",
+    "idea": "朱–刘算法。每轮为每个非根点选最小入边（忽略自环），先把这些边权全部计入答案；若某点没有入边则无解。沿 \\texttt{pre} 从每个点往回走，若回到本轮已走过的点就找到一个环，给环上点分配同一编号 \\texttt{id}；没有环时所选入边就是最优树形图。有环则把每个环缩成一个点，其余点各占一个新编号，每条边的权减去其原终点所选入边的权（选它进入环就要替换掉环上原来的那条入边），然后在缩小的图上重复。",
+    "steps": [
+      {
+        "case": "每个非根点选最小入边",
+        "code": "记录入边权 \\texttt{in} 与起点 \\texttt{pre}，自环不参与",
+        "find": "if (a.u != a.v && a.w < in[a.v])"
+      },
+      {
+        "case": "计入答案或判无解",
+        "code": "某非根点无入边则返回 \\texttt{nullopt}，否则累加全部 \\texttt{in}",
+        "find": "if (x == inf) return nullopt;"
+      },
+      {
+        "case": "沿入边回溯找环",
+        "code": "用 \\texttt{vis} 标记本次出发点，遇到已标记的点即在环上",
+        "find": "while (vis[u] != i && id[u] == -1 && u != root)"
+      },
+      {
+        "case": "无环",
+        "code": "所选入边构成树形图，直接返回累计答案",
+        "find": "if (!cnt) return ans;"
+      },
+      {
+        "case": "缩环并修改边权",
+        "code": "端点换成新编号，跨分量边减去原终点的 \\texttt{in}",
+        "find": "if (a.u != a.v) a.w -= in[v];"
+      }
+    ]
+  },
+  "StoerWagner": {
+    "kind": "problem",
+    "problem": "给定无向非负权图（邻接矩阵），求全局最小割：把点集分成两个非空部分，使跨越两部分的边权和最小，返回割值和其中一侧的点集。",
+    "idea": "重复 $n-1$ 个阶段。每阶段做“最大邻接序”：从空集开始，每次选出与已选集合连边总权 \\texttt{dis} 最大的点加入。设最后两个加入的点为 \\texttt{prev}、\\texttt{sel}，则最后一点的 \\texttt{dis} 是把 \\texttt{sel} 与其余点分开的一个割，且等于当前（已合并的）图中 \\texttt{prev}、\\texttt{sel} 之间的最小割；用它更新答案，割的一侧为 \\texttt{sel} 代表的原点集 \\texttt{group}。然后把 \\texttt{sel} 合并进 \\texttt{prev}（边权相加），因为之后只需考虑不分开这两点的割。全局最小割是所有阶段割值的最小值。"
+  },
+  "gomory_hu": {
+    "kind": "problem",
+    "problem": "给定无向非负容量图，构造 Gomory–Hu 树（最小割树）：一棵 $n$ 个点的带权树，使原图任意两点 $s,t$ 的最小割等于树上 $s$--$t$ 路径的最小边权。",
+    "idea": "Gusfield 算法：初始所有点的树父亲都是 0。依次对 $s=1..n-1$，取 $t=\\mathrm{parent}[s]$，在原图上用 Dinic 求 $s$--$t$ 最小割，\\texttt{side} 为残量网络中 $s$ 一侧。之后，原本挂在 $t$ 下且位于 $s$ 侧的点改挂到 $s$ 下；若 $t$ 的父亲也在 $s$ 侧，则让 $s$ 取代 $t$ 的位置（$s$ 接到 $t$ 原父亲下，$t$ 改挂到 $s$，割值也相应交换），否则边 $(s,t)$ 的权就是本次割值。最后输出每个点与其父亲的边。"
+  },
+  "BoundedCirculation": {
+    "kind": "problem",
+    "problem": "给定有向图，每条边的流量必须在 $[lo,hi]$ 内，求一个无源汇的可行循环流（每点流入等于流出），判断是否存在并给出每条边的流量。",
+    "idea": "先让每条边强制流满下界 $lo$，余下的自由量作为容量 $hi-lo$ 的边加入 \\texttt{Dinic}。强制流使每个点产生不平衡 \\texttt{balance}（流入下界和减流出下界和）：为正的点由超级源 $n+1$ 补给，为负的点向超级汇 $n+2$ 送出。最大流把超级源出边全部流满时可行，此时每条边的流量为 $lo$ 加上它在 Dinic 中的流量。"
+  },
+  "IntegerHalfplanes": {
+    "kind": "problem",
+    "problem": "给定若干半平面 $ax+by\\le c$（整数系数），已知交集有界，求交集多边形的顶点（逆时针，有理坐标）；交集为空、只是点或线段时返回空。",
+    "idea": "按法向量 $(a,b)$ 的极角排序，法向相同的只保留最紧的一条。用双端队列维护当前交的边界线：加入新半平面前，若队尾（队首）两条线的交点不满足它，就弹出队尾（队首）。全部加入后再用队首、队尾互相清理，相邻两线依次求交得到顶点。交点用 $(x,y,d)$ 表示 $(x/d,y/d)$，所有排序和判定都在 \\texttt{\\_\\_int128\\_t} 中精确完成，不用 eps。",
+    "steps": [
+      {
+        "case": "$0x+0y\\le c$",
+        "code": "$c\\ge0$ 时恒成立直接丢弃，$c<0$ 时交集为空",
+        "find": "if (!u.a && !u.b)"
+      },
+      {
+        "case": "排序",
+        "code": "先按法向半平面 \\texttt{half}，再按叉积比较极角；法向平行同向时比较归一化的 $c$，更紧的在前",
+        "find": "return I(u.c) * y < I(v.c) * x;"
+      },
+      {
+        "case": "同向平行线",
+        "code": "只保留排在前面（最紧）的一条",
+        "find": "if (i && half(u) == half(h[i - 1]) && cross(u, h[i - 1]) == 0) continue;"
+      },
+      {
+        "case": "加入新半平面",
+        "code": "队尾、队首两线的交点在新半平面外（\\texttt{value} $>0$）则弹出",
+        "find": "value(u, meet(q[q.size() - 2]"
+      },
+      {
+        "case": "与队尾反向平行",
+        "code": "交集为空或退化，返回空",
+        "find": "if (!q.empty() && cross(q.back(), u) == 0) return {};"
+      },
+      {
+        "case": "首尾清理",
+        "code": "用队首检查队尾交点、用队尾检查队首交点，删去多余的线",
+        "find": "value(q.front(), meet("
+      },
+      {
+        "case": "输出顶点",
+        "code": "相邻两线求交，用有理数相等判断去掉重合顶点",
+        "find": "Point p = meet(q[i], q[(i + 1) % q.size()]);"
+      }
+    ]
+  },
+  "CirclePolygon": {
+    "kind": "problem",
+    "problem": "求圆与简单多边形（可凹，顺逆时针均可）公共部分的面积。",
+    "idea": "把圆心平移到原点，对多边形每条有向边 $a\\to b$ 计算“原点与该边所成三角形和圆的交”的有向面积，求和取绝对值即为答案（与鞋带公式同理，凹处正负抵消）。\\texttt{edge} 先求边与圆的交点，把边切成至多三段；某段中点在圆内则整段在圆内，贡献三角形面积 $\\frac12\\,p\\times q$，否则贡献扇形面积 $\\frac12r^2\\theta$，有向角 $\\theta$ 由 \\texttt{atan2l} 求出。各边贡献用 Kahan 补偿求和。"
+  },
+  "EnclosingCircle": {
+    "kind": "problem",
+    "problem": "求覆盖平面上所有给定点的最小圆（最小覆盖圆）。",
+    "idea": "随机增量法。先随机打乱点序，依次加入 $p_i$：若它在当前圆外，则前 $i$ 个点的最小圆边界必过 $p_i$，令圆为点圆 $p_i$ 并重扫前面的点；遇到圆外的 $p_j$ 时边界必过 $p_i,p_j$，先取以它们为直径的圆，再扫描更早的点，遇到圆外的 $p_k$ 就取三点外接圆。随机顺序下每层重建的概率很小，期望线性。\\texttt{through} 缩放后解外接圆心，三点共线时退化为最远两点的直径圆；判断点在圆外带相对容差。"
+  },
+  "CircleTangents": {
+    "kind": "problem",
+    "problem": "求两圆的全部公切线（外公切线与内公切线），或过一点作圆的切线；返回每条切线在两圆上的切点和单位法向量，两圆重合时报告无穷多条。",
+    "idea": "设 $u$ 为连心线单位向量，$d$ 为圆心距。切线的单位法向 $n$ 满足 $n\\cdot u=c$：外公切线（\\texttt{side}$=1$）$c=(r_1-r_2)/d$，内公切线（\\texttt{side}$=-1$）$c=(r_1+r_2)/d$；$|c|>1$ 时该类切线不存在。两条切线的法向为 $n=cu\\pm\\sqrt{1-c^2}\\,\\mathrm{perp}(u)$，切点为 $o_1+r_1n$ 与 $o_2+s\\,r_2n$（$s$ 为 \\texttt{side}）。$|c|$ 接近 1 时两圆相切，只输出一条。点视为半径 0 的圆，\\texttt{from\\_point} 直接复用；两点时返回过两点的直线。"
+  },
+  "ClosestPair": {
+    "kind": "problem",
+    "problem": "给定平面上若干点，求最近两点之间的距离。",
+    "idea": "分治。先按 $x$ 排序，若有重复点直接得 0。\\texttt{dfs(l,r)} 返回区间内的最近距离，并把区间按 $y$ 排好序：不超过 3 个点时暴力；否则记下中点横坐标，递归两半后按 $y$ 归并。只有离中线不超过当前答案 \\texttt{best} 的点才可能构成更近的跨中线点对；按 $y$ 顺序把它们放入 \\texttt{strip}，每个点只向前比较 $y$ 差不超过 \\texttt{best} 的点，这样的点只有常数个。"
+  },
+  "minkowski_sum": {
+    "kind": "problem",
+    "problem": "给定两个凸多边形 $A,B$，求 Minkowski 和 $A+B=\\{a+b\\mid a\\in A,b\\in B\\}$ 的顶点（逆时针）。",
+    "idea": "$A+B$ 的边恰是 $A$、$B$ 全部边按极角归并的结果。先把两个多边形各自旋转到以最低（$y$ 最小，其次 $x$ 最小）顶点开头，此时两者的边都从同一极角起逆时针排列；从 $a_0+b_0$ 出发，每步输出当前和点，用叉积比较两条当前边，前进极角较小的一侧，平行时两侧同时前进。点或线段输入不走归并，直接枚举所有和点再调用 \\texttt{integer\\_hull}。"
+  },
+  "IntegerGeometry3D": {
+    "kind": "component",
+    "problem": "整数坐标的三维基础判定：四点有向体积（方向，0 表示共面）、三点共线、点是否在线段上。",
+    "idea": "坐标差扩展到 \\texttt{\\_\\_int128\\_t} 后计算。\\texttt{orient(a,b,c,d)} 为混合积 $((b-a)\\times(c-a))\\cdot(d-a)$，即四面体有向体积的 6 倍，正值表示 $d$ 在 $(b-a)\\times(c-a)$ 所指的一侧。\\texttt{collinear} 判断 $(b-a)\\times(c-a)$ 是否为零向量；\\texttt{on\\_segment} 在共线基础上要求 $(a-p)\\cdot(b-p)\\le0$。"
+  },
+  "LinkCutTree": {
+    "kind": "component",
+    "problem": "维护带点权的动态森林，支持连边、删边、修改点权、判断两点是否连通，以及查询两点间路径上点权的异或和。",
+    "idea": "把每棵树剖成若干条实链，每条实链用一棵按深度为序的 Splay 维护，Splay 根的 \\texttt{fa} 指向链顶在原树中的父亲（虚边），\\texttt{is\\_root} 据此判断。\\texttt{access(x)} 自下而上把根到 $x$ 的路径变成一条实链；\\texttt{make\\_root} 再整体打翻转标记使 $x$ 成为原树根。路径查询先把 $x$ 设为根再 \\texttt{access(y)}，$y$ 所在 Splay 的 \\texttt{sum} 即答案。\\texttt{splay} 前用显式栈自上而下下传翻转标记。",
+    "steps": [
+      {
+        "case": "把根到 $x$ 的路径变成实链",
+        "code": "逐段 \\texttt{splay}，把上一段接为右孩子，原右孩子变为虚边",
+        "find": "void access(int x)"
+      },
+      {
+        "case": "换根",
+        "code": "\\texttt{access} 后翻转整条链，深度顺序颠倒",
+        "find": "void make_root(int x)"
+      },
+      {
+        "case": "找所在树的根",
+        "code": "\\texttt{access} 后一路走左孩子找到深度最小点并伸展",
+        "find": "int find_root(int x)"
+      },
+      {
+        "case": "连边",
+        "code": "$x$ 设为根，若 $y$ 所在树根不是 $x$ 就把 $x$ 的父亲设为 $y$",
+        "find": "if (find_root(y) == x) return false;"
+      },
+      {
+        "case": "删边",
+        "code": "$x$ 为根、\\texttt{access(y)} 后，路径恰为 $x,y$ 两点才是真实的边",
+        "find": "if (a[y].ch[0] != x || a[x].ch[1]) return false;"
+      },
+      {
+        "case": "路径查询",
+        "code": "$x$ 为根、\\texttt{access(y)} 后读 $y$ 的 \\texttt{sum}",
+        "find": "return a[y].sum;"
+      }
+    ]
+  },
+  "OrderedTreap": {
+    "kind": "component",
+    "problem": "维护可重整数集合，支持插入、删除一个值、求排名、求第 $k$ 小、求严格前驱和严格后继。",
+    "idea": "无旋 Treap：节点按值有序、按随机优先级成堆。\\texttt{split(p,x)} 把树分成值小于 $x$（\\texttt{equal} 为真时为不超过 $x$）和其余两部分，\\texttt{merge} 按优先级合并两棵值域有序的树。插入时按 $x$ 分裂后把新节点夹在中间合并；删除时分成小于、等于、大于 $x$ 三段，等于段去掉其根节点（合并它的左右子树）再拼回。排名、第 $k$ 小只沿树下走并用子树大小计数，前驱、后继转化为按排名求第 $k$ 小。"
+  },
+  "PersistentOrderedTreap": {
+    "kind": "component",
+    "problem": "维护可重整数集合的多个历史版本：在任一旧版本上插入或删除一个值得到新版本；在指定版本上查询元素个数、排名、第 $k$ 小、严格前驱与后继。",
+    "idea": "Treap 节点存值、重复次数 \\texttt{cnt} 与子树大小 \\texttt{siz}，修改时沿查找路径复制节点（\\texttt{clone}），未改动的子树在版本间共享。插入递归到位置后，若新孩子优先级更高就把它旋转上来，只旋转新复制的节点。删除时若 $\\texttt{cnt}>1$ 只减计数，否则用 \\texttt{merge} 合并左右子树代替该节点；值不存在时子树原样返回，不产生新节点。查询从 \\texttt{root[v]} 沿树下走：\\texttt{less} 统计小于（或不超过）$x$ 的个数，前驱、后继转成按排名求 \\texttt{kth}。"
+  },
+  "SequenceTreap": {
+    "kind": "component",
+    "problem": "维护一个序列，支持在指定位置插入、删除一段、翻转一段的顺序、对一段加值、把一段 0/1 值逐位取反，以及查询一段的和。",
+    "idea": "隐式 Treap：以子树大小作为下标，\\texttt{split(p,k)} 分出前 $k$ 个元素。每个区间操作都先分成前 $l-1$ 个、$[l,r]$、其余三段，对中段的根打标记后再合并回去。标记有三种：顺序翻转 \\texttt{rev}（交换左右孩子）；值变换写成 $x\\mapsto \\pm x+\\texttt{tag}$，取负时连同已有的 \\texttt{tag} 一起取负，下传时先取负再加。位翻转即 $x\\mapsto 1-x$，用一次取负加一次加 1 实现。\\texttt{split}/\\texttt{merge} 访问节点前先 \\texttt{push}。"
+  },
+  "OrderedSplay": {
+    "kind": "component",
+    "problem": "维护可重整数集合，支持插入、删除一个值、求排名、求第 $k$ 小、求严格前驱和严格后继。",
+    "idea": "Splay 树，相同值存成一个节点并计数 \\texttt{cnt}。每次操作沿二叉搜索树走到目标或最后访问的节点，再把它伸展到根，保证均摊对数。插入时值已存在就增计数，否则新建叶子。删除先 \\texttt{find} 把目标伸展到根；计数多于 1 就减计数，否则断开左右子树，在左子树里把最大节点伸展为根，再把右子树接成它的右孩子。排名、第 $k$ 小、前驱、后继都是一次带计数的下行查找。"
+  },
+  "Blossom": {
+    "kind": "problem",
+    "problem": "一般图（不要求二分）最大匹配：给定无向图，选出尽量多两两不共端点的边，返回匹配边数及每个点的配对点。",
+    "idea": "Edmonds 带花树。依次以每个未匹配点为根做 BFS 建交错树：队列中的点是外点（偶层），\\texttt{pre[v]} 记奇层点 $v$ 是从哪个外点走到的，\\texttt{base} 记点所在花的花根。从外点 $u$ 看边 $u$--$v$：若 $v$ 也是外点，两条到根的交错路径加这条边构成奇环，用 \\texttt{lca} 找花根，\\texttt{mark} 沿环补齐 \\texttt{pre}，把环上各点的 \\texttt{base} 改为花根，环上原内点变为外点入队；若 $v$ 未访问且未匹配，找到增广路，沿 \\texttt{pre}/\\texttt{mate} 交替翻转；若 $v$ 已匹配，$v$ 成为内点，其配偶成为外点入队。某点一次找不到增广路，以后也不会再有，故每点只试一次。",
+    "steps": [
+      {
+        "case": "逐点尝试增广",
+        "code": "对每个仍未匹配的点做一次 BFS",
+        "find": "if (mate[u] == -1 && augment(u)) answer++;"
+      },
+      {
+        "case": "无用的边",
+        "code": "同一朵花内部的边或已是匹配边，跳过",
+        "find": "if (base[u] == base[v] || mate[u] == v) continue;"
+      },
+      {
+        "case": "外点连外点",
+        "code": "出现奇环：求花根、补 \\texttt{pre}、缩花，新外点入队",
+        "find": "if (v == root || (mate[v] != -1 && pre[mate[v]] != -1))"
+      },
+      {
+        "case": "到达未匹配点",
+        "code": "沿 \\texttt{pre} 与 \\texttt{mate} 回溯翻转整条增广路",
+        "find": "if (mate[v] == -1)"
+      },
+      {
+        "case": "到达已匹配点",
+        "code": "$v$ 作内点，其配偶作外点入队",
+        "find": "int x = mate[v];"
+      }
+    ]
+  },
+  "berlekamp_massey": {
+    "kind": "problem",
+    "problem": "给定模素数的有限序列 $s_0,\\dots,s_{N-1}$，求阶数最小的线性递推 $s_i=\\sum_{j=1}^{k}c_{j-1}s_{i-j}$（对所有 $i\\ge k$ 成立）。常与求线性递推第 $n$ 项配合，用于“打表找递推”。",
+    "idea": "维护当前连接多项式 \\texttt{c}（$c_0=1$，满足 $\\sum_{j=0}^{L}c_js_{i-j}=0$，$L$ 即 \\texttt{len}），以及上次长度变化前的多项式 \\texttt{b}、它的失配值 \\texttt{last} 和相对位移 \\texttt{shift}。读入 $s_i$ 时算失配 $d$；$d=0$ 只增加位移。否则令 $c\\leftarrow c-\\frac{d}{\\mathrm{last}}x^{\\mathrm{shift}}b$ 消去本次失配；若 $2L\\le i$，长度必须增长为 $i+1-L$，修改前的 \\texttt{c} 成为新的 \\texttt{b}。最后把 $c_1,\\dots,c_L$ 取负即为递推系数。"
+  },
+  "recurrence_nth": {
+    "kind": "problem",
+    "problem": "已知 $k$ 阶常系数齐次线性递推 $a_i=\\sum_{j=1}^{k}c_{j-1}a_{i-j}$ 及初值 $a_0,\\dots,a_{k-1}$，求第 $n$ 项（$n$ 很大），模数可为合数。",
+    "idea": "设特征多项式 $P(x)=x^k-\\sum_{j=1}^{k}c_{j-1}x^{k-j}$。把 $a_i$ 看作单项式 $x^i$ 的线性函数，递推说明 $x^i$ 可以按 $P$ 降次而值不变，故若 $x^n\\equiv\\sum_{i<k}r_ix^i\\pmod P$，则 $a_n=\\sum_i r_ia_i$。\\texttt{multiply} 做朴素多项式乘法后，从最高次往下用 $x^i=\\sum_j c_{j-1}x^{i-j}$ 消去次数不小于 $k$ 的项；以此快速幂求 $x^n\\bmod P$（$k=1$ 时 $x$ 已降为常数 $c_0$），最后与初值点乘。"
+  },
+  "BiconnectedCore": {
+    "kind": "problem",
+    "problem": "对无向图（可不连通，可有重边、自环）一次求出点双连通分量（各块的顶点集合与割点）和边双连通分量（桥以及每个点所属的边双编号）。",
+    "idea": "一次 Tarjan DFS 维护 \\texttt{dfn} 与 \\texttt{low}，按边编号而不是父点跳过父边，所以重边能正确地阻止成桥。树边 $u\\to v$ 回溯后：若 $low_v>dfn_u$，该边是桥；若 $low_v\\ge dfn_u$，$u$ 是一个点双的最高点，从栈 \\texttt{st} 弹出直到 $v$，连同 $u$ 组成一个块，并且非根点、或有两个以上 DFS 儿子的根是割点。孤立点单独成块。之后用不经过桥的 \\texttt{paint} 做连通染色，每个连通部分就是一个边双，编号存入 \\texttt{bel}。"
+  },
+  "block_cut_forest": {
+    "kind": "component",
+    "problem": "由已运行的 \\texttt{BiconnectedCore} 的点双分解构造圆方树（森林）：原点为圆点，每个点双对应一个方点，返回邻接表。",
+    "idea": "第 $i$ 个点双的方点编号为 $n+i+1$，块内每个原点都与该方点连边。割点属于多个块，因此连向多个方点；原图两点间每条路径都必经的点，恰是它们在圆方树路径上的圆点。"
+  },
+  "bridge_component_forest": {
+    "kind": "component",
+    "problem": "由已运行的 \\texttt{BiconnectedCore} 构造边双缩点森林：每个边双连通分量缩成一个点，桥成为森林的边，邻接项附带原桥编号。",
+    "idea": "遍历全部原边，只保留桥 \\texttt{bridge[id]}，把两个端点换成所属边双编号 \\texttt{bel}，在两个分量之间加一条双向边。删去桥后各边双互不相连，所以缩点后每个连通分量是一棵树。"
+  },
+  "PalindromicTree": {
+    "kind": "component",
+    "problem": "逐字符追加构建回文树，每个节点是一个本质不同的回文子串；可得以当前位置结尾的回文串个数、不同回文子串数及每个回文串的出现次数。",
+    "idea": "0 号根长 0、1 号根长 $-1$，\\texttt{fail} 指向最长真回文后缀。追加字符 $c$ 时，\\texttt{get\\_fail} 从上一位置的最长回文后缀 \\texttt{last} 沿 \\texttt{fail} 跳到第一个前一位字符等于 $c$ 的节点 $u$，两端加 $c$ 即新的最长回文后缀；若该节点不存在就新建，长为 $\\mathrm{len}_u+2$，其 \\texttt{fail} 从 \\texttt{fail[u]} 继续跳并取 $c$ 转移（先求 \\texttt{fail} 再挂边，长 1 的节点才不会指向自己）。\\texttt{suffixes} 为 fail 链上的回文个数，即以该位置结尾的回文数。\\texttt{hits} 记每个节点作为最长回文后缀的次数，\\texttt{occurrences} 按编号倒序沿 \\texttt{fail} 累加得出现次数。"
+  },
+  "CentroidPairs": {
+    "kind": "problem",
+    "problem": "给定非负边权的树（或森林）和阈值 $k$，统计距离不超过 $k$ 的无序点对数，或距离恰好为 $k$ 的点对数（等于“$\\le k$”减“$\\le k-1$”）。",
+    "idea": "点分治：每次在当前连通块取重心 $c$，经过 $c$ 的路径距离等于两端到 $c$ 的距离之和。预处理时对每个重心存下块内所有点到 $c$ 的距离 \\texttt{all[c]}（含 $c$ 自身的 0），以及删去 $c$ 后各子块的距离 \\texttt{part[c]}，都已排序；然后删去 $c$ 递归处理各子块，\\texttt{parent} 记点分树父亲。计数时 \\texttt{pairs} 用双指针统计有序数组中和 $\\le k$ 的对数：\\texttt{all[c]} 中的对数减去每个 \\texttt{part[c]} 内部的对数，就是经过 $c$ 的路径数；对所有重心求和，每对点恰在第一个把它们分开的重心处计入一次。"
+  },
+  "CentroidSum": {
+    "kind": "problem",
+    "problem": "给定单位边权的树和点权，支持单点赋值，以及询问到点 $u$ 距离不超过 $k$ 的所有点的点权和（动态点分治）。",
+    "idea": "点分治时，对重心 $c$ 所在连通块按到 $c$ 的距离把点权放入桶，线性建出 Fenwick \\texttt{all[c]}；对 $c$ 的每个分支 $b$ 另建 \\texttt{part[c][b]}，同样以到 $c$ 的距离为下标。每个点在 \\texttt{path} 中记下各级重心祖先 $c$、到 $c$ 的距离 $d$ 和所在分支 $b$。查询 $u$ 时对每个重心祖先，加上 \\texttt{all[c]} 中距离不超过 $k-d$ 的和，再减去 \\texttt{part[c][b]} 中同样范围的和：与 $u$ 同分支的点到 $u$ 的路径不经过 $c$，它们会在更深的重心处被统计。赋值时把差值加到 \\texttt{path} 上的所有桶中。"
+  },
+  "SubtreeColors": {
+    "kind": "problem",
+    "problem": "给定有根树，每个点有一种颜色。对每个点 $u$，求其子树中出现次数最多的颜色的出现次数，以及所有达到该次数的颜色编号之和。",
+    "idea": "树上启发式合并（dsu on tree）。\\texttt{prepare} 求子树大小、重儿子和 DFS 序，使子树对应 \\texttt{order} 中一段区间。\\texttt{solve(u,keep)} 先处理所有轻儿子并清空它们的统计，再处理重儿子并保留其统计；接着把轻儿子子树的点按区间逐个 \\texttt{insert}，再插入 $u$，此时全局 \\texttt{freq}、最大频次 \\texttt{best} 及对应颜色和 \\texttt{sum} 恰为 $u$ 子树的答案。若 $u$ 不需保留，就把整棵子树的频次减回去并将 \\texttt{best}、\\texttt{sum} 归零，而不是逐个删除时维护众数。每个点只在其到根路径上的轻边处被重新插入，次数为对数级。颜色先离散化。"
+  },
+  "SegmentBeats": {
+    "kind": "component",
+    "problem": "维护整数数组，支持区间对 $x$ 取 $\\min$（$a_i\\leftarrow\\min(a_i,x)$）、区间取 $\\max$、区间加，以及区间求和。",
+    "idea": "每个节点存和、最大值 \\texttt{mx}、严格次大值 \\texttt{mx2}、最大值个数 \\texttt{cmx}，最小值一侧对称，另有加法标记。区间取 $\\min$ 时：若 $\\texttt{mx}\\le x$ 无影响；若 $\\texttt{mx2}<x<\\texttt{mx}$，只有最大值们改变，和减去 $(\\texttt{mx}-x)\\cdot\\texttt{cmx}$ 后打在本节点；否则继续递归（势能分析保证总复杂度）。取 $\\max$ 对称。下传时先下传加法，再用父节点的 \\texttt{mx}/\\texttt{mn} 截断孩子，即父节点的最值本身充当截断标记。只有一两种值时最大值与最小值会互相影响，需要同步修改。",
+    "steps": [
+      {
+        "case": "合并孩子",
+        "code": "求最大、严格次大及个数，最小一侧对称",
+        "find": "u.mx2 = max(a.mx == u.mx ? a.mx2 : a.mx,"
+      },
+      {
+        "case": "节点只需改最大值",
+        "code": "和加 $(x-\\texttt{mx})\\cdot\\texttt{cmx}$；最小值或次小值等于原最大值时一起改",
+        "find": "if (u.mn == u.mx) u.mn = x;"
+      },
+      {
+        "case": "下传",
+        "code": "先给两孩子加父标记，再按父 \\texttt{mx}、\\texttt{mn} 截断孩子",
+        "find": "apply_min(c, t[p].mx);"
+      },
+      {
+        "case": "取 $\\min$ 不影响该节点",
+        "code": "$\\texttt{mx}\\le x$ 时直接返回（剪枝）",
+        "find": "if (type == 0 && t[p].mx <= x) return;"
+      },
+      {
+        "case": "完全覆盖且 $\\texttt{mx2}<x$",
+        "code": "直接打在本节点；否则下传并递归两侧",
+        "find": "if (type == 0 && t[p].mx2 < x)"
+      }
+    ]
+  },
+  "VirtualTree": {
+    "kind": "component",
+    "problem": "给定一棵带非负边权的树，预处理后对每组关键点构建虚树：只保留关键点及它们两两的 LCA，原树中的一段路径压成一条虚边，并给出虚边对应的原路径长度和路径上最小边权，供在虚树上做 DP。",
+    "idea": "预处理一遍 DFS 求入出时间 \\texttt{tin}/\\texttt{tout}（用于 $O(1)$ 判祖先）、根距 \\texttt{dist}，以及倍增祖先 \\texttt{up} 和跳 $2^j$ 步的最小边权 \\texttt{mn}。建树时把关键点按 \\texttt{tin} 排序去重，补上 DFS 序中相邻两点的 LCA，再排序去重，这个点集对 LCA 封闭。然后按 DFS 序扫描，维护一条祖先链栈：弹出不是当前点祖先的栈顶，剩下的栈顶就是当前点在虚树中的父亲，连一条虚边。虚边的长度由 \\texttt{dist} 相减得到，最小边权由 \\texttt{path} 沿倍增上跳求出。"
+  },
+  "SuffixLCP": {
+    "kind": "component",
+    "problem": "在已建好的后缀数组上快速回答任意两个后缀的最长公共前缀，并比较任意两个子串的字典序。",
+    "idea": "后缀 $x,y$ 的 LCP 等于 \\texttt{lcp} 数组在排名区间 $(\\mathrm{rk}_x,\\mathrm{rk}_y]$ 上的最小值，因此对 \\texttt{lcp} 建 ST 表 \\texttt{st}，\\texttt{query} 用两段重叠区间取最小；同起点或空后缀直接返回剩余长度。\\texttt{compare} 先求两子串起点处后缀的 LCP：若它覆盖较短的子串，结果由长度决定；否则第一个不同字符落在两子串内部，直接比较两后缀的排名。"
+  },
+  "PositionBasis": {
+    "kind": "component",
+    "problem": "按标签（如数组下标）插入 64 位整数；查询时给定下界 \\texttt{lower}，只允许使用标签不小于它的元素，判断能否异或出 $x$、求最大异或值或张成空间的维数。常用于按右端点扫描，回答区间内选数异或的问题。",
+    "idea": "仍是按最高位存放的线性基，另用 \\texttt{pos[i]} 记录 \\texttt{a[i]} 的标签。插入时若当前向量的标签大于该位已有基的标签，就交换二者，让标签大的留在该位，换出来的旧向量继续往低位消元。这样每一位都尽量保留标签大的向量，标签不小于 \\texttt{lower} 的那些基恰好张成标签不小于 \\texttt{lower} 的输入所张成的空间；查询时跳过 \\texttt{pos[i]} 小于下界的位，其余与普通线性基相同。"
+  },
+  "basis_intersection": {
+    "kind": "problem",
+    "problem": "给定两个 $\\mathbb{F}_2^{64}$ 子空间 $A,B$ 的线性基（\\texttt{XorBasis}），求交空间 $A\\cap B$ 的一组基。",
+    "idea": "以 $A$ 的基作为初始主元表 \\texttt{pivot}，逐个插入 $B$ 的基向量。每个主元附带 \\texttt{from\\_b}，记录它来自 $B$ 的部分（$A$ 的主元为 0）；当前向量 \\texttt{x} 异或 \\texttt{pivot[i]} 时，\\texttt{part} 同步异或 \\texttt{from\\_b[i]}，始终保持 $\\mathrm{part}\\in B$ 且 $x\\oplus\\mathrm{part}\\in A$。若 \\texttt{x} 被消成 0，则 \\texttt{part} 同属 $A$ 和 $B$，插入结果；否则 \\texttt{x} 成为新主元，并记下它的 \\texttt{part}。"
+  },
+  "basis_sum_intersection": {
+    "kind": "problem",
+    "problem": "给定两个 $\\mathbb{F}_2^{64}$ 子空间 $A,B$ 的线性基，一次求出和空间 $A+B$ 与交空间 $A\\cap B$ 各自的一组基。",
+    "idea": "Zassenhaus 算法：$A$ 的基向量 $x$ 写成 128 位的 $(x,x)$，$B$ 的基向量 $y$ 写成 $(y,0)$（高 64 位在前），全部插入一个按最高位存放的 128 位线性基。任一行形如 $(a\\oplus b,a)$，$a\\in A$、$b\\in B$。主元在高半部的行，其高半部组成 $A+B$ 的基；主元在低 64 位的行高半部为 0，即 $a=b$，其低半部同属两个空间，组成 $A\\cap B$ 的基。"
+  },
+  "LiftingLCA": {
+    "kind": "component",
+    "problem": "对一棵带边权的树做倍增预处理，支持：求 $u$ 的 $k$ 级祖先、两点的 LCA 与路径边数，以及两点之间路径上的最大边权。",
+    "idea": "\\texttt{up[k][u]} 是 $u$ 向上 $2^k$ 步的祖先，\\texttt{mx[k][u]} 是这 $2^k$ 条边的最大权，DFS 进入 $u$ 时由 \\texttt{up[k-1]} 两段拼出。跳 $k$ 级祖先按 $k$ 的二进制位逐位跳。求 LCA 时先把较深点跳到同一深度，若重合即为答案；否则从高位到低位，只要两点的 $2^k$ 级祖先不同就同时上跳，最后父亲即 LCA。\\texttt{max\\_edge} 沿完全相同的跳跃过程，把经过的各段 \\texttt{mx} 取最大。0 号点作哨兵，表示“没有祖先”。"
+  },
+  "path_intersection": {
+    "kind": "problem",
+    "problem": "给定一棵树和两条路径 $a$--$b$、$c$--$d$，求它们的公共部分：公共部分若非空必是一条路径，返回其两个端点和公共顶点数。",
+    "idea": "把点 $x$ 投影到路径 $a$--$b$ 上（路径上离 $x$ 最近的点），投影就是 $\\mathrm{lca}(a,b)$、$\\mathrm{lca}(a,x)$、$\\mathrm{lca}(b,x)$ 中深度最大者。设 $c,d$ 的投影为 $p,q$：若 $p\\ne q$，则 $c$--$d$ 必经过 $p$--$q$，这就是交集；若 $p=q$，交集至多是单点 $p$，用距离判断 $p$ 是否在 $c$--$d$ 上（$\\mathrm{dist}(c,p)+\\mathrm{dist}(p,d)=\\mathrm{dist}(c,d)$），否则交集为空。距离由深度和 LCA 算出。"
+  },
+  "DirectedEuler": {
+    "kind": "problem",
+    "problem": "给定有向图（可含重边、自环），求一条恰好经过每条边一次的路径（欧拉路或欧拉回路），默认要求顶点序列字典序最小；输出顶点序列和对应的边号序列，不存在时返回失败。",
+    "idea": "先检查度数：至多一个点出度比入度大 1（必须作起点），至多一个点入度比出度大 1，其余点出入度相等，且前两者同时有或同时无。起点取该点，否则取指定点或最小的有出边的点。之后用 Hierholzer 算法：\\texttt{next[u]} 是 $u$ 下一条未走出边的下标，DFS 走完 $u$ 的所有出边后才把 $u$ 及进入它的边加入序列，最后整体翻转。邻接表按终点排序后每次走最小的出边，得到字典序最小的方案。若走过的边数少于 $m$，说明有边的部分不连通。"
+  },
+  "UndirectedEuler": {
+    "kind": "problem",
+    "problem": "给定无向图（可含重边、自环），求一条恰好经过每条边一次的路径，默认要求顶点序列字典序最小；同时给出边号序列，可据此得到每条边被走的方向。",
+    "idea": "奇度点只能有 0 个或 2 个；有 2 个时起点必须是其中之一（自动取较小者），否则取指定点或最小的非孤立点。每条无向边在两端各存一份，\\texttt{used[id]} 按边号标记，保证两份只走一次。DFS 用 \\texttt{next[u]} 跳过已检查的邻边，走完所有边后才把 $u$ 加入序列（Hierholzer），最后翻转；邻接表排序后得到字典序最小方案。走过的边数不足 $m$ 即不连通、无解。"
+  },
+  "mixed_euler_orientation": {
+    "kind": "problem",
+    "problem": "混合图欧拉回路/路径：给定若干边，有的方向固定，有的可任选方向，要求给可选边定向，使整张有向图存在欧拉回路，或存在从指定 $s$ 到指定 $t$ 的欧拉路径；输出每条边的最终方向，无解返回空。",
+    "idea": "先把每条边都暂定为 $u\\to v$，\\texttt{balance} 记出度减入度；欧拉回路要求每点为 0，指定端点时 $s$ 应为 $+1$、$t$ 应为 $-1$，代码先从中扣掉这部分目标。把一条可选边反向，会使两端的 \\texttt{balance} 分别变化 $-2$ 和 $+2$，所以每点差值必须为偶数。用最大流决定反转哪些边：每条可选边建容量 1 的 $u\\to v$ 边，有流即表示反转；源点向差值为正的点连容量 $\\mathrm{balance}/2$ 的边，差值为负的点连向汇点。满流即可调平，再用并查集检查有边部分连通，就得到合法定向。"
+  },
+  "mixed_euler_trail": {
+    "kind": "problem",
+    "problem": "混合图（部分边方向固定、部分可任选方向）中，不指定起终点，求一种定向使整图存在欧拉路径或欧拉回路，输出每条边的方向。",
+    "idea": "不论方向，欧拉路径的端点只能是无向度数为奇数的点。代码统计奇度点：没有奇度点就请求欧拉回路；恰有两个奇度点 $a,b$ 时，路径方向未知，依次尝试“$a$ 到 $b$”和“$b$ 到 $a$”两种指定端点的定向；其他情况无解。每次尝试都交给 \\texttt{mixed\\_euler\\_orientation} 求解。"
+  },
+  "BostanMori": {
+    "kind": "problem",
+    "problem": "求有理生成函数的单项系数 $[x^n]\\frac{p(x)}{q(x)}$；以及给定 $k$ 阶常系数齐次线性递推与初值，求第 $n$ 项（模 NTT 素数）。",
+    "idea": "分子分母同乘 $q(-x)$：$\\frac{p(x)}{q(x)}=\\frac{p(x)q(-x)}{q(x)q(-x)}$，新分母只含偶次项，记为 $V(x^2)$，所以只需分子中次数与 $n$ 同奇偶的项，记为 $x^{n\\bmod 2}U(x^2)$，于是 $[x^n]\\frac pq=[x^{\\lfloor n/2\\rfloor}]\\frac{U}{V}$。\\texttt{coefficient} 每轮两次 NTT 乘法后抽取奇偶项、$n$ 减半，直到 $n=0$ 时答案为 $p_0/q_0$。\\texttt{recurrence} 取 $q=1-\\sum_i c_ix^{i+1}$、$p=(\\mathrm{init}\\cdot q)\\bmod x^k$，转化为上述问题。"
+  },
+  "SetConvolution": {
+    "kind": "component",
+    "problem": "给定两个长度为 $2^m$ 的数组，求按下标位运算合并的卷积 $c_s=\\sum_{i\\circ j=s}a_ib_j$，其中 $\\circ$ 为按位或、与、异或之一（模 \\texttt{mod}）；也单独提供原地变换 \\texttt{transform}。",
+    "idea": "三种运算都能逐位独立处理：每层把下标在该位上为 0、1 的一对元素 $u,v$ 做变换。OR 做子集和 $v\\leftarrow v+u$，AND 做超集和 $u\\leftarrow u+v$，逆变换改为减法；XOR 做 Walsh 变换 $(u,v)\\leftarrow(u+v,u-v)$，逆变换每层再乘 $1/2$（取 $(\\mathrm{mod}+1)/2$，故只要求模数为奇数）。\\texttt{multiply} 对两数组正变换、逐点相乘，再逆变换。"
+  },
+  "subset_convolution": {
+    "kind": "component",
+    "problem": "把下标视为集合，求不相交子集卷积 $c_S=\\sum_{T\\subseteq S}a_T\\,b_{S\\setminus T}$，即只统计 $i\\cup j=S$ 且 $i\\cap j=\\varnothing$ 的乘积对（模 \\texttt{mod}）。",
+    "idea": "按集合大小（popcount，存于 \\texttt{rank}）分层：\\texttt{f[k]}、\\texttt{g[k]} 只保留大小为 $k$ 的下标，各自做 OR 变换（子集和）。$i\\cup j=S$ 且 $|i|+|j|=|S|$ 恰等价于 $i,j$ 不相交，所以对每个 $k$ 在变换域逐点累加 $\\sum_t f_t\\cdot g_{k-t}$，逆 OR 变换后只取 $|S|=k$ 的位置写入答案。"
+  },
+  "polynomial_shift": {
+    "kind": "component",
+    "problem": "给定多项式 $f(x)$ 的升幂系数和常数 $c$，求 $f(x+c)$ 的升幂系数（模 NTT 素数）。",
+    "idea": "二项式展开得 $[x^j]f(x+c)=\\frac{1}{j!}\\sum_{i\\ge j}f_i\\,i!\\cdot\\frac{c^{i-j}}{(i-j)!}$，右边是关于差 $i-j$ 的卷积。把 $f_i\\,i!$ 逆序放进 \\texttt{a}（存在 \\texttt{a[n-1-i]}），把 $c^t/t!$ 放进 \\texttt{b}，一次 NTT 乘法后第 $n-1-j$ 项正是上式的求和部分，再乘 $1/j!$ 即得答案。阶乘与逆阶乘先线性预处理。"
+  },
+  "chirp_z": {
+    "kind": "component",
+    "problem": "给定多项式 $f$ 与 $a,r$，一次求出 $f$ 在等比点 $a,ar,ar^2,\\dots,ar^{m-1}$ 处的 $m$ 个值（模 NTT 素数），比逐点秦九韶求值快。",
+    "idea": "关键恒等式 $ij=\\binom{i+j}{2}-\\binom{i}{2}-\\binom{j}{2}$，于是 $f(ar^i)=r^{-\\binom i2}\\sum_j\\bigl(f_ja^jr^{-\\binom j2}\\bigr)r^{\\binom{i+j}{2}}$，成为一次差卷积。\\texttt{inverse[t]} 存 $r^{-\\binom t2}$，三角数指数由连乘递推，不计算平方级指数。把 $f_ja^jr^{-\\binom j2}$ 逆序放入 \\texttt{x}，$r^{\\binom t2}$ 放入 \\texttt{y}，循环卷积后第 $n-1+i$ 项乘 $r^{-\\binom i2}$ 即为答案；循环回绕只落在下标小于 $n-1$ 处，不影响结果。$a=0$、$r=0$ 或 $r=1$ 时点值退化为 $f(a)$ 与 $f(0)$，用秦九韶直接填充。"
+  },
+  "PersistentRange": {
+    "kind": "component",
+    "problem": "维护长度为 $n$ 的数组的多个版本（初始全 0），支持在某版本上区间加得到新版本、把一个版本的某段替换成另一个版本同位置的值得到新版本，以及查询任一版本的区间和。",
+    "idea": "可持久化线段树，按需复制节点，标记永久化：区间加只在完全覆盖的节点上累加 \\texttt{lazy} 并修正 \\texttt{sum}，标记从不下传；节点的真实区间和等于其 \\texttt{sum} 加上所有祖先 \\texttt{lazy} 之和乘区间长度，查询时用 \\texttt{carry} 累计祖先标记。拼接 \\texttt{replace} 同时走目标树 $p$ 与源树 $q$，\\texttt{offset} 累计“源祖先标记和减目标祖先标记和”；到完全覆盖处直接借用源子树 $q$，若 $\\texttt{offset}\\ne0$ 则复制一份把 \\texttt{offset} 补进它的 \\texttt{lazy}，使挂到目标祖先下后数值不变。"
+  },
+  "TreeDiameter": {
+    "kind": "component",
+    "problem": "维护一棵固定非负权树上某个点集的“直径摘要”：支持插入一个点、合并两个点集，并查询点集内距离最远的一对点（直径端点 \\texttt{a}、\\texttt{b} 与长度），以及点集中离给定点 $v$ 最远的点。",
+    "idea": "关键性质：非负权树上，点集 $S$ 的直径端点为 $a,b$ 时，$S\\cup\\{v\\}$ 的直径端点可在 $\\{a,b,v\\}$ 中取到，任意点到 $S$ 中最远点也可取 $a$ 或 $b$。因此插入 $v$ 只需算 $\\mathrm{dist}(a,v)$、$\\mathrm{dist}(b,v)$，若更长就用 $v$ 替换对应端点；合并两个集合等于把对方的两个端点依次插入；最远点查询比较到 $a$、$b$ 的距离。距离由调用方的回调给出。"
+  },
+  "FunctionalGraph": {
+    "kind": "component",
+    "problem": "给定每个点恰有一条出边的函数图（若干基环内向树），分解出所有环，支持查询从 $u$ 出发走 $k$ 步到达的点（$k$ 可达 64 位），以及从 $u$ 首次到达 $v$ 的步数。",
+    "idea": "先按入度剥叶得到 \\texttt{order}，剩下入度非零的点都在环上，沿后继走一圈记下每个环 \\texttt{cycles}、环编号 \\texttt{component} 与环上位置 \\texttt{position}。再逆序遍历 \\texttt{order}，由后继推出树点的入环点 \\texttt{entry} 与入环步数 \\texttt{depth}。走 $k$ 步时，若 $k$ 不小于入环步数，先走到入环点，剩余步数对环长取模直接查环；否则 $k<n$，用倍增表 \\texttt{up} 跳。\\texttt{steps(u,v)}：$v$ 不在环上时，检查 $u$ 走深度差步是否恰好到 $v$；$v$ 在环上时，答案为入环步数加上环上从 \\texttt{entry[u]} 到 $v$ 的距离。"
+  },
+  "ModifiedMo": {
+    "kind": "component",
+    "problem": "带修改莫队的调度器：离线登记“前 $t$ 次修改完成后对区间 $[l,r)$ 的询问”，由调用方提供加点、删点、执行或撤销修改、记录答案四个回调，按优化顺序移动指针回答全部询问。",
+    "idea": "把询问看作三维点 $(l,r,t)$：先按 $l$ 所在块、再按 $r$ 所在块、最后按 $t$ 排序，第二、三关键字按奇偶交替升降（蛇形），减少指针来回跳动；块长默认取 $n^{2/3}$ 量级。处理每个询问时先移动时间指针：前进时执行第 $t$ 次修改、后退时撤销，回调同时拿到当前区间，以便修正区间内的贡献；再先扩张后收缩地移动左右端点，最后调用 \\texttt{ans}。"
+  },
+  "gp_map": {
+    "kind": "component",
+    "problem": "整数键的哈希表：\\texttt{gp\\_map} 是 GNU pb\\_ds 的开放寻址表，\\texttt{cc\\_map} 是链式表，用法与 \\texttt{unordered\\_map} 基本相同（下标访问、查找、插入、删除）。",
+    "idea": "两者只是别名，关键在于自定义哈希 \\texttt{hash64}：先给键加上程序启动时由时钟产生的随机种子，再做 splitmix64 的三轮异或移位与乘法混合，使高低位充分扩散，避免针对固定哈希函数构造的冲突数据卡掉表。"
+  },
+  "ost": {
+    "kind": "component",
+    "problem": "GNU pb\\_ds 红黑树实现的有序集合，在 \\texttt{set} 的接口之外支持按排名访问：\\texttt{find\\_by\\_order(k)} 取第 $k$ 个（从 0 计）元素，\\texttt{order\\_of\\_key(x)} 求严格小于 $x$ 的元素个数。",
+    "idea": "\\texttt{tree\\_order\\_statistics\\_node\\_update} 让每个节点额外维护子树大小，排名查询沿根向下按左子树大小决定走向。集合不允许重复元素，需要可重集合时存 (值, 全局唯一编号) 二元组。"
+  },
+  "rp": {
+    "kind": "component",
+    "problem": "GNU 扩展的 \\texttt{rope}：支持在任意位置插入、删除、截取子串和按下标访问的序列；复制一个 rope 只共享根，修改副本不影响原序列，可用来保存多个历史版本。",
+    "idea": "rope 用平衡二叉树把序列拼接成若干叶子块，节点带引用计数并共享子树。复制只增加根的引用；修改时复制受影响的路径与叶块（写时复制），其余部分继续共享，所以各版本互不干扰。"
+  },
+  "segtree": {
+    "kind": "component",
+    "problem": "对由幺半群 $(S,\\texttt{op},\\texttt{e})$ 元素组成的数组，支持单点赋值、区间按从左到右的顺序合并，以及从一个端点出发求满足单调谓词的最远另一端点。",
+    "idea": "非递归线段树：长度补到 2 的幂 \\texttt{sz}，叶子在 \\texttt{d[sz+i]}，内部节点 $p$ 合并 $2p,2p+1$。\\texttt{prod} 从两端向上爬，左侧结果 \\texttt{a} 在右边追加、右侧结果 \\texttt{b} 在左边追加，保证不交换律也正确。\\texttt{max\\_right} 从 $l$ 起每次跳到当前位置所在的最大完整块，若并入后谓词变假，就在该块内向下二分（能并入左孩子则并入并转向右孩子）；\\texttt{min\\_left} 对称地从右往左，并始终以 $\\texttt{op}(\\texttt{d[r]},a)$ 的顺序合并。"
+  },
+  "lazy_segtree": {
+    "kind": "component",
+    "problem": "对由幺半群 $(S,\\texttt{op},\\texttt{e})$ 元素组成的数组，支持区间作用一个映射 $f\\in F$、区间按序合并、单点读写，以及从某端点出发二分求满足谓词的最远边界。具体问题只需给出 $S$、$F$ 和五个函数。",
+    "idea": "递归线段树，\\texttt{d[p]} 是节点区间的合并结果（已包含本节点标记的作用），\\texttt{tag[p]} 是尚未下传给孩子的映射。区间作用在完全覆盖的节点上调用 \\texttt{act}：用 \\texttt{mapping} 更新 \\texttt{d}，用 \\texttt{composition} 把新映射复合到旧标记外层；进入孩子前 \\texttt{push}，回溯时 \\texttt{pull}。\\texttt{max\\_right} 从左往右累积 $s$，整块合并后仍满足谓词就整块跳过，否则下传并进入该块，先左后右找到第一个使谓词变假的叶子；\\texttt{min\\_left} 方向相反、合并顺序为 $\\texttt{op}(\\texttt{d[p]},s)$。"
+  },
+  "mint": {
+    "kind": "component",
+    "problem": "运行时设定模数的取模整数，模数不要求是素数。支持加、减、乘、快速幂；与模数互素时可求逆、做除法，不可逆时 \\texttt{try\\_inv} 返回空。不同 \\texttt{tag} 各自持有独立的模数。",
+    "idea": "成员 \\texttt{v} 始终是 $[0,p)$ 内的代表，加减只做一次条件校正。乘法用 Barrett 约减代替 64 位除法：\\texttt{set\\_mod} 预存 \\texttt{im}$\\approx\\lceil2^{64}/p\\rceil$，对乘积 $z$ 用 $\\lfloor z\\cdot\\mathrm{im}/2^{64}\\rfloor$ 估计商 $q$，$q$ 至多偏大 1，因此 $z-qp$ 为负时补一个 $p$。求逆对 $(v,p)$ 做迭代扩展欧几里得并维护 $v$ 的系数，最后余数为 1 才可逆，系数即逆元。"
+  },
+  "pheap": {
+    "kind": "component",
+    "problem": "GNU pb\\_ds 的配对堆优先队列（默认大根堆）：除普通的入队、取堆顶、出队外，\\texttt{push} 返回元素句柄，可通过句柄修改或删除任意元素，并能把一个堆整体合并进另一个堆。",
+    "idea": "配对堆是一棵多叉堆序树：插入和合并只把两个根中较劣的挂到较优者下面，均为常数时间；弹出堆顶时把根的所有孩子两两配对合并、再从右往左依次合并成新树，摊还对数。句柄 \\texttt{point\\_iterator} 直接指向树节点，修改或删除时把该节点从树中摘下，调整后再与根合并。"
+  },
+  "enumerate_triangles": {
+    "kind": "problem",
+    "problem": "给定简单无向图，对每个三元环（三个两两相邻的点）恰好调用一次回调 \\texttt{visit(u,v,w)}，可用于计数、求权值和或收集方案。",
+    "idea": "把每条边从 (度数, 编号) 较小的端点指向较大的端点，得到无环有向图，每个三角形恰有一种 $u\\to v\\to w$ 且 $u\\to w$ 的形态。枚举 $u$ 时先把 $u$ 的所有出邻点的 \\texttt{mark} 设为 $u$，再枚举 $u\\to v\\to w$，若 $w$ 带有标记就找到一个三角形。按度数定向保证每个点出度为 $O(\\sqrt m)$。"
+  },
+  "LeftistHeap": {
+    "kind": "component",
+    "problem": "维护多个小根堆，支持新建单元素堆、合并两个堆、删除堆顶，堆以根节点编号表示。",
+    "idea": "左偏树：节点的 \\texttt{dist} 为到最近空孩子的距离，始终保持左孩子 \\texttt{dist} 不小于右孩子，故右链长度为对数级。\\texttt{meld(x,y)} 取 (key, 编号) 较小者为根，把另一堆与它的右子树递归合并，回溯时若左 \\texttt{dist} 更小就交换左右孩子，并令 $\\texttt{dist}=\\texttt{dist}(\\text{右})+1$。\\texttt{pop} 合并根的左右子树并把根重置为孤立点。"
+  },
+  "DominatorTree": {
+    "kind": "problem",
+    "problem": "给定有向图和起点 $r$，对每个从 $r$ 可达的点 $v$ 求直接支配点 $\\mathrm{idom}(v)$：$r$ 到 $v$ 的每条路径都必经的点中（$v$ 除外）离 $v$ 最近的那个。所有 $\\mathrm{idom}$ 边构成以 $r$ 为根的支配树。",
+    "idea": "Lengauer–Tarjan（只带路径压缩的简单版），全部按 DFS 序号运算。半支配点 $\\mathrm{semi}(w)$ 是能经过序号都大于 $w$ 的中间点走到 $w$ 的最小序号点。按序号逆序处理 $w$：由各前驱的 \\texttt{eval} 求出 \\texttt{semi[w]}，把 $w$ 放进 \\texttt{bucket[semi[w]]}，再把 $w$ 挂到 DFS 父亲下；然后处理父亲桶中的点 $v$：$u=\\mathrm{eval}(v)$ 是 $\\mathrm{semi}(v)$ 之下到 $v$ 的树路径上 semi 最小的点，若 $\\mathrm{semi}(u)<\\mathrm{semi}(v)$ 则 $\\mathrm{idom}(v)=\\mathrm{idom}(u)$，暂记 $u$，否则 $\\mathrm{idom}(v)=\\mathrm{semi}(v)$。最后正序修正暂记的值。",
+    "steps": [
+      {
+        "case": "DFS 编号",
+        "code": "记录序号 \\texttt{dfn}、逆映射 \\texttt{vertex} 与 DFS 树父亲（均用序号）",
+        "find": "dfn[u] = ++timer;"
+      },
+      {
+        "case": "带权并查集",
+        "code": "路径压缩时把祖先链上 semi 最小的点传给 \\texttt{label}",
+        "find": "label[v] = label[a];"
+      },
+      {
+        "case": "求半支配点",
+        "code": "对每个前驱取 \\texttt{eval} 的 semi 最小值",
+        "find": "semi[eval(p)]"
+      },
+      {
+        "case": "连接",
+        "code": "把 $w$ 挂到 DFS 父亲下，供之后的 \\texttt{eval} 使用",
+        "find": "ancestor[i] = parent[i];"
+      },
+      {
+        "case": "处理父亲的桶",
+        "code": "由 \\texttt{eval} 判断 $\\mathrm{idom}=\\mathrm{semi}$，或暂记需要继承的点",
+        "find": "dom[v] = semi[u]"
+      },
+      {
+        "case": "正序修正",
+        "code": "暂记的点继承其 \\texttt{dom}，再映射回原点号",
+        "find": "dom[dom[i]]"
+      }
+    ]
+  },
+  "SegmentLiChao": {
+    "kind": "component",
+    "problem": "离线给出所有可能查询的横坐标，在线插入若干条线段（仅在其横坐标范围内有效），查询某个横坐标处纵坐标最大的线段编号；也可取出该线段在此处的精确值。",
+    "idea": "李超线段树建在排序去重的查询横坐标 \\texttt{xs} 上。插入时先把线段的横坐标范围拆成 $O(\\log)$ 个完整节点；在每个节点比较新旧线段在中点 \\texttt{xs[m]} 的值，较优者留在节点，较劣者只可能在一侧更优：左端点处更优就递归左孩子，右端点处更优就递归右孩子。查询从根走到叶，取路径上各节点线段的最优者。线段在 $x$ 处的值写成分数 $\\frac{y_1(x_2-x)+y_2(x-x_1)}{x_2-x_1}$，用 \\texttt{\\_\\_int128} 交叉相乘比较，相等时取编号小者。"
+  },
+  "GeneralSAM": {
+    "kind": "component",
+    "problem": "把多个小写串（或调用方逐边给出的 Trie）建成广义后缀自动机，识别所有输入串的全部子串；\\texttt{distinct()} 给出所有串中不同非空子串的总数。",
+    "idea": "先用 \\texttt{add} 建 Trie，Trie 节点直接作为 SAM 状态。\\texttt{build} 按 BFS 顺序处理每条 Trie 边：以父节点为 last、以已存在的子节点 \\texttt{cur} 为新状态，执行与单串 SAM 相同的扩展——沿后缀链接补上缺失的 $c$ 转移，遇到已有转移的 $q$ 时直接挂链或克隆。\\texttt{len} 为 0 的非根节点表示尚未处理的 Trie 节点，一个节点处理完后把它这样的子节点入队；克隆时把指向未处理节点的转移清零，避免把尚未处理的 Trie 边当作 SAM 转移。不同子串数为 $\\sum_v(\\mathrm{len}_v-\\mathrm{len}_{\\mathrm{link}(v)})$。"
+  },
+  "BoundedMaxFlow": {
+    "kind": "problem",
+    "problem": "给定有向图，每条边流量必须在 $[lo,hi]$ 内，除源汇 $s,t$ 外流量守恒，求 $s$ 净流出量的最大值（\\texttt{minimum} 求最小值）；无可行流时返回空。",
+    "idea": "加两条辅助边 $t\\to s$ 与 $s\\to t$（下界 0、上界为所有上界之和，后者允许净流为负），问题化为 \\texttt{BoundedCirculation} 的可行循环流。可行时 $s$ 的净流出等于 $t\\to s$ 的流量减去 $s\\to t$ 的流量。然后用 \\texttt{change\\_edge} 把从 \\texttt{first} 起新增的辅助边（两条辅助边和超级源汇边）的容量和流全部清零，在剩下的残量网络上从 $s$ 到 $t$ 继续增广，把增量加到答案上；下界已固定在残量中不会被破坏。最小值通过交换源汇求最大值再取反得到。"
+  },
+  "matching_edges": {
+    "kind": "problem",
+    "problem": "给定二分图，判断每条边是否可能属于某个最大匹配（可行边）、是否属于所有最大匹配（必选边），并返回最大匹配大小。",
+    "idea": "先用 \\texttt{BipartiteMatching} 求一个最大匹配，建残量图：非匹配边左到右，匹配边右到左；再加源汇处理非完备匹配：未匹配左点 $s\\to u$、已匹配左点 $u\\to s$，已匹配右点 $t\\to v$、未匹配右点 $v\\to t$。用 \\texttt{TarjanSCC} 缩点后，一条边可行当且仅当它在当前匹配中，或两端在同一 SCC（可沿交替环或经源汇的等长交替路换入）；必选当且仅当它在匹配中且两端不在同一 SCC。平行边只把第一条与匹配一致的边当作匹配边。"
+  },
+  "mincut_edges": {
+    "kind": "problem",
+    "problem": "在已求出最大流的网络上，判断每条原边是否可能出现在某个最小割中（可行边），以及是否出现在所有最小割中（必选边）。",
+    "idea": "在最终残量网络上（只取残量为正的边）用 \\texttt{TarjanSCC} 缩点。属于最小割的边必须满流，非满流边两项均为假。满流边 $u\\to v$ 若 $u,v$ 不在同一 SCC，就存在最小割把它们分开，是可行边；若进一步 $u$ 与 $s$ 同 SCC、$v$ 与 $t$ 同 SCC，每个最小割都必须割它，是必选边。"
+  },
+  "Min25": {
+    "kind": "problem",
+    "problem": "给定积性函数 $f$：$f(p)$ 是素数 $p$ 的至多二次多项式，$f(p^e)$ 由回调给出。求 $\\sum_{i=1}^{n}f(i)$ 模素数，$n$ 可达 $10^{12}$。",
+    "idea": "所有 $\\lfloor n/l\\rfloor$ 只有 $O(\\sqrt n)$ 种，降序存于 \\texttt{w}，经 \\texttt{id} 用 \\texttt{small}、\\texttt{large} 两张表定位。第一阶段对每个 $x\\in w$ 求素数幂和 $g(x,d)=\\sum_{p\\le x}p^d$（$d=0,1,2$）：初值为 $\\sum_{i=2}^{x}i^d$，依次对素数 $p\\le\\sqrt n$ 去掉最小质因子为 $p$ 的合数。第二阶段 \\texttt{dfs(x,k)} 求 $2..x$ 中最小质因子不小于第 $k$ 个素数的数的 $f$ 之和：素数部分由 $g$ 的线性组合减去前 $k$ 个素数的和，合数部分枚举最小质因子及其指数递归。",
+    "steps": [
+      {
+        "case": "枚举所有整除商",
+        "code": "$x=\\lfloor n/l\\rfloor$ 入 \\texttt{w}，按 $x\\le s$ 与否记入 \\texttt{small[x]} 或 \\texttt{large[n/x]}",
+        "find": "for (ll l = 1, r; l <= n; l = r + 1)"
+      },
+      {
+        "case": "$g$ 的初值",
+        "code": "把 $2..x$ 都当作素数：$\\sum_{i=2}^{x}i^0,i^1,i^2$",
+        "find": "g.push_back("
+      },
+      {
+        "case": "判断 $p$ 是否为素数",
+        "code": "此时 $g(p,0)$ 已是精确的素数个数，与 $g(p-1,0)$ 相等说明 $p$ 是合数",
+        "find": "if (g[id(p)][0].v == g[id(p - 1)][0].v) continue;"
+      },
+      {
+        "case": "筛去最小质因子为 $p$ 的合数",
+        "code": "对 $x\\ge p^2$：$g(x)\\mathrel{-}=p^d\\,(g(x/p)-\\sum_{q<p}q^d)$，\\texttt{prefix} 是较小素数的幂和",
+        "find": "g[j][d] = g[j][d] - weight[d] * (g[k][d] - prefix[d]);"
+      },
+      {
+        "case": "\\texttt{dfs} 的素数部分",
+        "code": "$c_0g_0+c_1g_1+c_2g_2$ 减去前 $k$ 个素数的 $f(p)$ 之和",
+        "find": "Z ans = c[0] * a[0]"
+      },
+      {
+        "case": "\\texttt{dfs} 的合数部分",
+        "code": "枚举 $p^e$：加 $f(p^e)\\cdot$\\texttt{dfs}$(x/p^e,i+1)$ 与 $f(p^{e+1})$",
+        "find": "ans = ans + power(p, e, pe)"
+      },
+      {
+        "case": "加上 $f(1)$",
+        "code": "\\texttt{dfs} 只统计 $\\ge2$ 的数，最后补 1",
+        "find": "return dfs(dfs, n, 0) + 1;"
+      }
+    ]
+  },
+  "euler_power": {
+    "kind": "problem",
+    "problem": "给定底数 $a$、模数 $m$ 及 $\\varphi(m)$，以及以十进制字符串给出的超大指数 $b$，求 $a^b\\bmod m$；$a$ 与 $m$ 不必互素。",
+    "idea": "扩展欧拉定理：$b<\\varphi(m)$ 时指数保持 $b$；$b\\ge\\varphi(m)$ 时 $a^b\\equiv a^{(b\\bmod\\varphi(m))+\\varphi(m)}\\pmod m$。逐位扫描字符串，同时维护 \\texttt{rem}$=b\\bmod\\varphi$ 和饱和值 \\texttt{cap}$=\\min(b,\\varphi)$；扫描结束时 \\texttt{cap} 等于 $\\varphi$ 就说明 $b\\ge\\varphi$，指数加上 $\\varphi$。降幂后的指数小于 $2\\varphi$，再用 \\texttt{Mod64::mul} 做快速幂。"
+  },
+  "dag_path_determinant": {
+    "kind": "problem",
+    "problem": "给定带权 DAG 和等长的起点序列 $a_1,\\dots,a_k$、终点序列 $b_1,\\dots,b_k$，求矩阵 $M_{ij}=e(a_i,b_j)$ 的行列式模素数，其中 $e(a,b)$ 是 $a$ 到 $b$ 所有路径边权乘积之和。由 LGV 引理，它等于顶点不交路径组按配对排列的符号加权求和；若只有恒等配对能不交，它就是不交路径组的权值和。",
+    "idea": "Kahn 拓扑排序，同时判断是否有环。对每个起点 $a_i$ 做一次拓扑序 DP：$dp[a_i]=1$，按拓扑序把 $dp[u]\\cdot w$ 累加到后继，读出 $dp[b_j]$ 得到矩阵第 $i$ 行。最后用 \\texttt{determinant\\_mod} 求 $k\\times k$ 行列式。"
+  },
+  "xor_hamming_pairs": {
+    "kind": "problem",
+    "problem": "给定数组 $a$ 和整数 $k$，多次询问区间 $[l,r)$ 内有多少对下标 $i<j$ 满足 $a_i\\oplus a_j$ 的二进制恰有 $k$ 个 1。",
+    "idea": "莫队二次离线。设 $c(i,P)$ 为前缀 $[0,P)$ 中与 $a_i$ 配对成功的下标数。莫队每把端点移过一段下标，答案变化都是若干项 $\\pm\\bigl(c(i,i)-c(i,P)\\bigr)$ 之和，$P$ 为另一端点（左端移动且 $k=0$ 时还要扣掉自身配对）。$c(i,i)$ 与询问无关，用前缀和 \\texttt{prefix} 直接加减；$c(i,P)$ 则作为事件“下标段对前缀 $P$”挂到 \\texttt{events[P]}。第二遍从左到右扫描前缀，\\texttt{count[v]} 为已扫前缀中与 $v$ 配对的个数（每加入一个数，枚举所有含 $k$ 个 1 的掩码更新），逐个回答事件。得到的是莫队顺序下相邻询问的答案差，最后按该顺序求前缀和。",
+    "steps": [
+      {
+        "case": "预处理 $c(i,i)$",
+        "code": "按下标扫描，前缀和 \\texttt{prefix} 累计每个数与前面数的配对数",
+        "find": "prefix[i + 1] = prefix[i] + count[a[i]];"
+      },
+      {
+        "case": "莫队排序",
+        "code": "按左端点分块，块内右端点奇偶交替升降",
+        "find": "int block = max(1, int(n / sqrt(m)));"
+      },
+      {
+        "case": "右端点右移",
+        "code": "加上 \\texttt{prefix} 差，减去事件“新增段对前缀 \\texttt{l}”",
+        "find": "if (r < qr)"
+      },
+      {
+        "case": "左端点左移",
+        "code": "减去 \\texttt{prefix} 差，加上事件“新增段对前缀 \\texttt{r}”",
+        "find": "if (l > ql)"
+      },
+      {
+        "case": "第二次离线扫描",
+        "code": "\\texttt{count} 加入 $a_{p-1}$ 后，回答挂在前缀 $p$ 上的事件",
+        "find": "for (auto e : events[p])"
+      },
+      {
+        "case": "扣除自身配对",
+        "code": "$k=0$ 时 $a_i$ 与自身也满足条件，位于前缀内则减一",
+        "find": "int value = count[a[i]] - (k == 0 && i < p);"
+      },
+      {
+        "case": "还原答案",
+        "code": "按莫队顺序对答案差做前缀和",
+        "find": "total += answer[id];"
+      }
+    ]
+  },
+  "MonotoneStackSeg": {
+    "kind": "component",
+    "problem": "维护高度数组，支持区间加；查询整个数组的接雨水体积 $\\sum_i(\\min(\\text{前缀最大},\\text{后缀最大})-a_i)$，以及从给定初始高度 $h$ 出发向左或向右扫描一段时 $\\sum(\\text{当前最大值}-a_i)$。",
+    "idea": "“线段树维护单调栈”：节点 \\texttt{fill[0]}、\\texttt{fill[1]} 缓存本区间自左（自右）扫描时 $\\sum(\\text{运行最大值}-a_i)$。\\texttt{extra(p,h,dir)} 求以初值 $h$ 扫过节点的同一量：$h$ 不小于整段最大值时为 $h\\cdot\\texttt{len}-\\texttt{sum}$；不小于先扫孩子的最大值时先扫孩子全为 $h$，递归另一孩子；否则递归先扫孩子，另一孩子的贡献只取决于先扫孩子的最大值，等于 $\\texttt{fill}(p)-\\texttt{fill}(\\text{先扫孩子})$。故每次 \\texttt{extra} 只走一条链。由 $\\min(P,S)=P+S-\\max$，\\texttt{water} 为 $\\texttt{fill[0]}+\\texttt{fill[1]}-(n\\cdot\\max-\\sum a)$。"
+  },
+  "KDTreeSum": {
+    "kind": "component",
+    "problem": "在线维护平面上的带权点集，支持给某个坐标的点累加权值（不存在则新建），以及查询闭矩形内所有点的权值和。",
+    "idea": "二维 K-D Tree：按深度交替以 $x$、$y$ 为划分轴（坐标相同时比较另一维），每个节点存自身点与权值，以及子树的包围盒、点数和权值和。插入沿划分方向下行，相同坐标直接累加；回溯时若某个孩子的点数超过子树的 $3/4$，就中序收集该子树所有节点，用 \\texttt{nth\\_element} 取中位数递归重建（替罪羊式重构），保持树高对数级。查询时包围盒与矩形不相交就剪掉，被矩形完全包含就直接返回子树和，否则计入本节点的点后递归两个孩子。"
+  },
+  "cdq_convolution": {
+    "kind": "problem",
+    "problem": "求满足半在线卷积递推 $f_i=\\mathrm{init}_i+\\sum_{j<i}f_j\\,g_{i-j}$ 的前 $n$ 项（核满足 $g_0=0$，模 NTT 素数）。$f_i$ 依赖自身更早的项，不能直接做一次卷积。",
+    "idea": "在区间 $[l,r)$ 上分治：先递归解出左半 $[l,m)$，此时左半的 $f$ 已全部确定；把它与核 $g_0,\\dots,g_{r-l-1}$ 做一次 NTT 乘法，乘积第 $i-l$ 项就是左半对右半位置 $i\\in[m,r)$ 的贡献，累加进 \\texttt{initial[i]}；再递归右半。区间长度为 1 时该位置的所有贡献都已加完（$g_0=0$，无自身项），即为最终值。数组 \\texttt{initial} 原地存放结果。"
+  },
+  "PolynomialDivision": {
+    "kind": "component",
+    "problem": "给定多项式 $a,b$（$b\\ne0$），求商 $q$ 与余式 $r$，使 $a=qb+r$ 且 $\\deg r<\\deg b$（模 998244353）；另附去掉高次零系数的 \\texttt{trim}。",
+    "idea": "设 $\\deg a=n$、$\\deg b=m$，则商的次数为 $n-m$。记系数反转 $a^R(x)=x^na(1/x)$，有 $a^R=q^Rb^R+x^{n-m+1}(\\cdots)$，故 $q^R\\equiv a^R\\,(b^R)^{-1}\\pmod{x^{n-m+1}}$。代码取 $a$ 反转后的前 $k=n-m+1$ 项，与 $b^R$ 的逆级数（\\texttt{inverse}）相乘、截断、再反转得到 $q$；最后 $r=a-qb$ 只保留低 $m$ 项并去高次零。"
+  },
+  "FpsSqrt": {
+    "kind": "component",
+    "problem": "给定形式幂级数 $a(x)$，求 $b(x)$ 使 $b^2\\equiv a\\pmod{x^n}$ 的前 $n$ 项（模 998244353），无解时报告；\\texttt{inverse\\_sqrt} 求 $a^{-1/2}$ 的前 $n$ 项。",
+    "idea": "先求逆平方根：常数项用 \\texttt{mod\\_sqrt} 取一个模平方根再求逆，之后按牛顿迭代 $b\\leftarrow(3b-ab^3)/2$ 倍增。已有 $k$ 项时，在长度 $4k$ 下一次算出 $ab^3$，回绕只落到低 $k$ 项；新 $b$ 的低 $k$ 项不变，高半段等于 $-\\frac12(ab^3)$ 的对应项。\\texttt{sqrt} 先找首个非零项次数 $k$：$k$ 为奇数或该系数不是二次剩余则无解；否则除掉 $x^k$ 得 \\texttt{f}，用 $\\sqrt f=f\\cdot f^{-1/2}$ 求根，最后在前面补 $k/2$ 个零。"
+  },
+  "FpsPower": {
+    "kind": "component",
+    "problem": "给定形式幂级数 $a(x)$ 与以十进制字符串给出的非负整数 $k$（可能极大），求 $a(x)^k\\bmod x^n$ 的前 $n$ 项（模 998244353）。",
+    "idea": "设首个非零项为 $c\\,x^s$，则 $a=c\\,x^s\\,b$ 且 $b$ 的常数项为 1，$a^k=c^kx^{sk}\\exp(k\\ln b)$。读指数时同时保留 $k\\bmod p$（乘进 $\\ln b$）、$k\\bmod(p-1)$（\\texttt{phi}，由费马小定理用于 $c^k$）以及截到 $n$ 的真实值 \\texttt{cap}（判断位移 $sk$ 是否越界）。若 $sk\\ge n$ 结果全零；否则只需 $b$ 的前 $n-sk$ 项，做 log、乘 $k$、exp、乘 $c^k$ 后平移 $sk$ 位。$k=0$ 时直接返回 1。",
+    "steps": [
+      {
+        "case": "读入大指数",
+        "code": "逐位维护 $k\\bmod p$、$k\\bmod(p-1)$ 及饱和于 $n$ 的 \\texttt{cap}",
+        "find": "cap = min(n, cap * 10 + digit);"
+      },
+      {
+        "case": "指数为 0",
+        "code": "返回常数 1",
+        "find": "if (cap == 0)"
+      },
+      {
+        "case": "位移 $sk\\ge n$ 或级数全零",
+        "code": "直接返回全零",
+        "find": "if (first == n || (first && cap > (n - 1) / first)) return result;"
+      },
+      {
+        "case": "提出 $c\\,x^s$",
+        "code": "截取 $b$ 并整体乘 $c^{-1}$，使常数项为 1",
+        "find": "for (auto &x : b) x *= inverse_leading;"
+      },
+      {
+        "case": "计算 $\\exp(k\\ln b)$",
+        "code": "对数乘 $k\\bmod p$ 后取指数",
+        "find": "auto t = exp(f, m);"
+      },
+      {
+        "case": "乘回 $c^k x^{sk}$",
+        "code": "乘 $c^{\\mathrm{phi}}$ 并写到第 \\texttt{shift} 项之后",
+        "find": "result[i + shift] = t[i] * scale;"
+      }
+    ]
+  },
+  "GaussXor": {
+    "kind": "problem",
+    "problem": "给定 $\\mathbb{F}_2$ 上 $m$ 个方程、$n$ 个未知数的线性方程组（每行一个 01 串，末位为右端项），判断是否有解；有解时求出一个特解和齐次方程组解空间的一组基，全部解就是特解异或任意一组基向量。",
+    "idea": "每行按 64 位压成 \\texttt{unsigned long long} 数组后做 Gauss--Jordan 消元：逐列寻找主元行换到当前行 \\texttt{row}，并用它消去\\textbf{所有}其他行在该列的 1，\\texttt{pos[col]} 记下主元所在行。消元后每个主元变量只出现在自己那一行。秩以下的行若右端为 1 则无解。特解令自由变量全为 0，主元变量取所在行的右端值；对每个自由列 $j$，令 $x_j=1$、其余自由变量为 0，主元变量取所在行第 $j$ 列的值，得到一个零空间基向量。",
+    "steps": [
+      {
+        "case": "压位读入",
+        "code": "第 $j$ 个字符写入第 \\texttt{j/64} 个字的第 \\texttt{j\\%64} 位",
+        "find": "b[i][j / 64] |= 1ULL"
+      },
+      {
+        "case": "找主元",
+        "code": "在当前行及以下找该列为 1 的行，找不到则该列是自由列",
+        "find": "while (p < m && !get(p, col)) p++;"
+      },
+      {
+        "case": "消去其他行",
+        "code": "主元行异或进所有该列为 1 的其他行，只需从第 \\texttt{col/64} 个字开始",
+        "find": "if (i != row && get(i, col))"
+      },
+      {
+        "case": "判无解",
+        "code": "零行的右端为 1",
+        "find": "if (get(i, n)) return {false"
+      },
+      {
+        "case": "特解",
+        "code": "主元变量取其行右端值",
+        "find": "ans.particular[j] += get(pos[j], n)"
+      },
+      {
+        "case": "零空间基",
+        "code": "每个自由列生成一个基向量",
+        "find": "v[j] = '1';"
+      }
+    ]
+  },
+  "SecondMST": {
+    "kind": "problem",
+    "problem": "给定带权无向图，求最小生成树，以及次小生成树的权值：严格模式要求权值严格大于 MST，非严格模式只要求边集不同。同时给出由 MST 换一条边得到次小树的方案（换入边 \\texttt{in}、换出边 \\texttt{out}）。",
+    "idea": "次小生成树总能由 MST 加入一条非树边 $(u,v,w)$、删去树上 $u$ 到 $v$ 路径上的一条边得到。先 Kruskal 求出 MST 并建树，倍增表 \\texttt{mx[j][u]} 保存向上 $2^j$ 条边中权值互不相同的最大与次大边编号（\\texttt{merge}）。对每条非树、非自环边，查询路径上的这两条边：非严格时删最大边；严格时若最大边与 $w$ 等权就改删次大边，不存在则跳过。在所有候选中取 $\\text{MST}+w-w_{\\text{out}}$ 的最小值。"
+  },
+  "line_circle_i64": {
+    "kind": "component",
+    "problem": "整数输入的直线与圆求交：直线由两整点给出，圆心为整点、半径为整数，返回交点个数类别与交点坐标。",
+    "idea": "先在 \\texttt{\\_\\_int128\\_t} 中精确分类：$v=b-a$，$c=v\\times(a-o)$，圆心到直线距离为 $|c|/|v|$，判别式 $D=r^2|v|^2-c^2$ 的符号精确决定相离、相切或相交。之后才转成 \\texttt{long double} 构造坐标：垂足 $h=o+\\mathrm{perp}(v)\\,c/|v|^2$，交点为 $h\\mp v\\sqrt D/|v|^2$。"
+  },
+  "circle_intersections_i64": {
+    "kind": "component",
+    "problem": "整数输入的两圆求交：圆心为整点、半径为整数，返回交点个数类别与交点坐标。",
+    "idea": "设 $v=b-a$，$q=|v|^2$。同心时按半径是否相等、是否为 0 区分无交点、一点和无穷多。否则在 \\texttt{\\_\\_int128\\_t} 中计算 $k=q+r^2-s^2$ 与判别式 $D=4r^2q-k^2$，其符号精确决定交点个数；再用浮点构造：连心线上的垂足 $h=a+v\\,k/(2q)$，两交点为 $h\\mp\\mathrm{perp}(v)\\sqrt D/(2q)$。"
+  },
+  "rectangle_union_area": {
+    "kind": "problem",
+    "problem": "给定若干轴对齐矩形（按左、下、右、上给出整数坐标），求它们并集的面积，重叠部分只计一次。",
+    "idea": "扫描线沿 $x$ 方向推进。每个矩形产生进入事件 $(l,d,u,+1)$ 与离开事件 $(r,d,u,-1)$，按横坐标排序；纵坐标离散化后，线段树叶子代表相邻两坐标之间的区间。节点 \\texttt{cover} 记录该区间被整段覆盖的次数（不下传），\\texttt{len} 为区间内被覆盖的总长度：\\texttt{cover} 非零时取整段长度，否则取两孩子之和。处理每个事件前，先把与上一事件的横坐标差乘以根的覆盖长度 \\texttt{len[1]} 累加进面积。"
+  },
+  "MultipointEvaluation": {
+    "kind": "problem",
+    "problem": "给定模 $998244353$ 的多项式 $f$ 和 $m$ 个任意点 $x_0,\\dots,x_{m-1}$（可以重复），求全部 $f(x_i)$。点集固定后，同一棵树可对多个不同的 $f$ 反复求值。",
+    "idea": "利用 $f(x_i)=f\\bmod(X-x_i)$。构造时在线段树形的乘积树上自底向上建出 \\texttt{p[u]}$=\\prod_{l\\le i<r}(X-x_i)$：叶子为 $X-x_l$，内部结点用 \\texttt{multiply} 合并左右儿子。\\texttt{eval} 自顶向下传递余式：进入结点时，若当前多项式次数不低于 \\texttt{p[u]} 就对它取模，再分别递归左右儿子。余式已为零多项式时直接返回（答案数组初值为 0）；只剩常数时把它填进整段点的答案，不再下探。"
+  },
+  "polynomial_interpolation": {
+    "kind": "problem",
+    "problem": "给定 $n$ 个横坐标互异的点 $(x_i,y_i)$，在模 $998244353$ 下求次数小于 $n$ 的唯一多项式 $f$，使 $f(x_i)=y_i$，返回其系数。",
+    "idea": "Lagrange 插值写成 \\[f(X)=\\sum_i\\frac{y_i}{P'(x_i)}\\cdot\\frac{P(X)}{X-x_i},\\] 其中 $P(X)=\\prod_i(X-x_i)$。先用 \\texttt{MultipointEvaluation} 建乘积树，根 \\texttt{tree.p[1]} 就是 $P$；逐项求导得 $P'$，多点求值得到各 $P'(x_i)$（出现 0 说明横坐标重复），权重 $w_i=y_i/P'(x_i)$。然后在同一棵树上自底向上合并：叶子返回常数 $w_l$，内部结点返回“左半结果乘右儿子乘积，加右半结果乘左儿子乘积”，根处即为 $f$。"
+  },
+  "PotentialDSU": {
+    "kind": "component",
+    "problem": "带权（带势）并查集：逐条加入差值约束 $p_u-p_v=w$，判断它与已接受的约束是否矛盾；并查询两点的差值 $p_u-p_v$（不连通时未知）。",
+    "idea": "\\texttt{d[u]} 存 $p_u-p_{\\texttt{fa[u]}}$。\\texttt{find} 递归到根后路径压缩，同时把父亲到根的差值累加进 \\texttt{d[u]}，于是 \\texttt{find} 后 \\texttt{d[u]} 就是 $p_u-p_{\\text{根}}$。加入约束时若 $u,v$ 同根，只需检查 $\\texttt{d[u]}-\\texttt{d[v]}=w$；否则设两根为 $a,b$，由 $p_u-p_v=w$ 得 $p_b-p_a=\\texttt{d[u]}-\\texttt{d[v]}-w$，把 $b$ 挂到 $a$ 下并存这个差（按大小交换方向时取相反数）。查询答案即 $\\texttt{d[u]}-\\texttt{d[v]}$。"
+  },
+  "GaussReal": {
+    "kind": "problem",
+    "problem": "用 \\texttt{long double} 浮点数求解实系数线性方程组 $Ax=b$：在容差 \\texttt{eps} 下判断是否相容，给出数值秩、一个特解和齐次解空间的一组基。",
+    "idea": "先把每行按其系数最大绝对值缩放，使各方程量级一致。然后逐列做部分选主元的高斯—若尔当消元：在未用行中取本列绝对值最大者为主元；若它不超过 \\texttt{eps}，视该列为零，把活动行的这一列清零后跳过（成为自由变量）；否则换行、主元行归一，再消去其他所有行的该列，\\texttt{where} 记录主元所在行。剩余行右端绝对值超过 \\texttt{eps} 判为不相容；特解令自由变量为 0，每个自由变量生成一个基向量，主元变量从对应行读出。"
+  },
+  "AdaptiveSimpson": {
+    "kind": "problem",
+    "problem": "数值计算定积分 $\\int_a^b f(x)\\,\\mathrm dx$：在绝对误差目标 \\texttt{eps} 下自适应地加密采样，同时限制递归深度和总求值次数；返回近似值、误差估计、求值次数，以及是否满足局部误差条件。",
+    "idea": "Simpson 公式 $S(l,r)=\\frac{r-l}{6}\\bigl(f(l)+4f(m)+f(r)\\bigr)$。递归函数 \\texttt{rec} 拿到区间、已算好的三个函数值与整体估计 $s$，只新算两个四分点，得到左右两半的估计 $s_l,s_r$；令 $\\delta=s_l+s_r-s$，若 $|\\delta|/15$ 不超过容差，就接受修正值 $s_l+s_r+\\delta/15$；否则两半各分一半容差、深度减一继续递归。中点无法再分、求值预算将用完或出现非有限值时立即停止并标记未满足。反向区间先交换端点，最后取负。",
+    "steps": [
+      {
+        "case": "零长度区间",
+        "code": "不调用 $f$，直接返回 0",
+        "find": "if (a == b) return {0, 0, 0, true};"
+      },
+      {
+        "case": "整体初值",
+        "code": "求端点与中点的值和整区间估计",
+        "find": "ld whole = area(a, b, fa, fm, fb);"
+      },
+      {
+        "case": "无法细分或预算不足",
+        "code": "停止，返回粗估计且标记未满足",
+        "find": "used > limit - 2)"
+      },
+      {
+        "case": "局部误差达标",
+        "code": "接受修正值",
+        "find": "if (error <= tol) return {value, error, 0, true};"
+      },
+      {
+        "case": "深度用尽或容差下溢",
+        "code": "返回当前修正值但标记未满足",
+        "find": "if (!left || tol / 2 == 0) return {value, error, 0, false};"
+      },
+      {
+        "case": "继续细分",
+        "code": "左右两半各用一半容差递归后相加",
+        "find": "auto p = self(self, l, m, u, fx, v, sl, tol / 2, left - 1);"
+      }
+    ]
+  },
+  "ManhattanMST": {
+    "kind": "problem",
+    "problem": "给定平面上 $n$ 个点，两点间边权为曼哈顿距离 $|x_i-x_j|+|y_i-y_j|$，求完全图的最小生成树（总权与边集）。",
+    "idea": "每个点只需与它周围 8 个 $45^\\circ$ 区域中各自最近的点连边，MST 必在这些候选边中，对称区域合并后共 4 个方向。\\texttt{candidates} 每次处理一个方向：按 $x+y$ 升序扫描点 $i$，\\texttt{sweep} 以 $-y$ 为键保存还没找到最近点的点；取出满足 $y_j\\le y_i$ 且 $x_i-x_j\\ge y_i-y_j$ 的点 $j$（即 $i$ 落在 $j$ 的该区域内），由扫描顺序它就是 $j$ 在该区域里最近的点，连边后删去 $j$。处理完一个方向后交替做交换 $x,y$ 与取负 $x$ 的坐标变换，四次覆盖所有方向，最后对候选边跑 Kruskal。"
+  },
+  "Dominance3D": {
+    "kind": "problem",
+    "problem": "给定 $n$ 个三维点，对每个点求有多少\\textbf{其他}点的三个坐标都不大于它的对应坐标（三维偏序计数；坐标完全相同的点互相计入）。",
+    "idea": "CDQ 分治。先按三维字典序排序，把完全相同的点合并成一组并记重数 \\texttt{w}，第三维离散化。对组序列分治：左半的组在字典序上都排在右半之前，第一维已满足。两半递归返回后各自已按第二维 \\texttt{y} 有序，归并时对右半每个组，把左半中 \\texttt{y} 不超过它的组按第三维以重数加入树状数组，再查第三维前缀和累加到 \\texttt{cnt}；归并完撤销左半贡献，同时完成按 \\texttt{y} 的归并排序。最后每个点的答案为其组的 \\texttt{cnt} 加同组其他点数 $w-1$。"
+  },
+  "PersistentXorTrie": {
+    "kind": "component",
+    "problem": "按顺序追加若干个 \\texttt{bits} 位非负整数，形成序列 $a_0,a_1,\\dots$；查询时给定区间 $[l,r)$ 与整数 $x$，求区间内某个 $a_i$ 与 $x$ 的最大异或值。",
+    "idea": "可持久化 01 字典树：\\texttt{root[k]} 是前 $k$ 个数构成的字典树，每个节点的 \\texttt{cnt} 记经过它的数的个数。追加 $x$ 时从高位到低位复制旧版本的一条路径（共 $\\texttt{bits}+1$ 个新节点），其余子树共享；节点 0 是自环的空节点。查询时从 \\texttt{root[r]} 与 \\texttt{root[l]} 同步下走，每位优先走与 $x$ 该位相反的孩子，两版本在该孩子上 \\texttt{cnt} 之差为正才说明区间内存在这样的数，否则只能走相同位。"
+  },
+  "convex_tangents_i64": {
+    "kind": "problem",
+    "problem": "给定严格凸、逆时针的整数多边形和一点 $q$，若 $q$ 在多边形外，求从 $q$ 向多边形所作两条切线的切点下标（右切点、左切点）；$q$ 在多边形内或边界上时报告无切线。",
+    "idea": "称边 $i$（$p_i\\to p_{i+1}$）可见，若 $q$ 严格在它右侧（\\texttt{visible}）。从 $q$ 看，可见边在环上连成一段，两个切点正是可见与不可见交替处的顶点。代码先借助 $p_0$ 的两条邻边和以 $p_0$ 为中心的扇形二分（\\texttt{sector}），各找出一条可见边 $v$ 与一条不可见边 $h$；于是环上从 $h$ 到 $v$、从 $v$ 到 $h$ 两段的可见性都只切换一次，各用一次二分（\\texttt{boundary}）找到切换处的顶点，即右、左切点。",
+    "steps": [
+      {
+        "case": "边 $0$ 可见",
+        "code": "取 $v=0$；边 $n-1$ 不可见则 $h=n-1$，否则 $q$ 在 $p_0$ 内角的对顶角内，射线 $q\\to p_0$ 穿出多边形的那条边不可见，用 \\texttt{sector(-1)} 二分找到它",
+        "find": "if (a < 0)"
+      },
+      {
+        "case": "只有边 $n-1$ 可见",
+        "code": "$v=n-1$，$h=0$",
+        "find": "else if (b > 0)"
+      },
+      {
+        "case": "两条邻边都不可见",
+        "code": "$q$ 在 $p_0$ 的内角中，\\texttt{sector(1)} 找到包含 $q$ 方向的扇形，其外侧边若不可见则 $q$ 在多边形内或边界上，返回空",
+        "find": "v = sector(1);"
+      },
+      {
+        "case": "二分切换点",
+        "code": "从 \\texttt{start} 沿环二分第一条可见性与 \\texttt{start} 不同的边，返回该边起点",
+        "find": "bool first = visible(start);"
+      },
+      {
+        "case": "输出",
+        "code": "$h\\to v$ 段的切换点为右切点，$v\\to h$ 段的为左切点",
+        "find": "return pair{boundary(h, v), boundary(v, h)};"
+      }
+    ]
+  },
+  "SAIS": {
+    "kind": "component",
+    "problem": "对字节串或整数序列线性构造后缀数组：\\texttt{sa} 为按字典序排列的后缀起点，\\texttt{rk} 为其逆排列，\\texttt{lcp} 为排名相邻两后缀的最长公共前缀。",
+    "idea": "诱导排序。从右往左给位置定类型：后缀小于下一个后缀为 S 型（\\texttt{type} 为真），否则为 L 型，末位视为 L 型，因而不需要哨兵；左邻为 L 型的 S 型位置称为 LMS。每个字符桶分为前部 L 区与后部 S 区。\\texttt{induce} 先把给定顺序的 LMS 放入各桶 S 区，以末位后缀为种子，从左往右由已放好的后缀 $v$ 把 L 型的 $v-1$ 放到桶的 L 区，再从右往左把 S 型的 $v-1$ 放到桶尾。第一次诱导后 LMS 子串已有序，相邻比较得到名字和缩减串，对缩减串递归排序，再按得到的 LMS 顺序第二次诱导即为最终结果。\\texttt{lcp} 用 Kasai 算法按原串位置顺序计算。",
+    "steps": [
+      {
+        "case": "划分 L/S 类型",
+        "code": "自右向左递推，相等字符继承右邻的类型",
+        "find": "type[i] = s[i] == s[i + 1] ? type[i + 1] : s[i] < s[i + 1];"
+      },
+      {
+        "case": "计算桶边界",
+        "code": "\\texttt{lo[c]} 为桶 $c$ 起点，\\texttt{hi[c]} 为桶内 S 区起点",
+        "find": "hi[c] += lo[c];"
+      },
+      {
+        "case": "诱导：放种子",
+        "code": "LMS 已按给定顺序放入 S 区，再把末位后缀放到其桶的 L 区开头",
+        "find": "sa[pos[s[n - 1]]++] = n - 1;"
+      },
+      {
+        "case": "诱导：L 型、S 型",
+        "code": "正向扫描放 L 型，反向扫描从桶尾放 S 型",
+        "find": "if (v > 0 && type[v - 1]) sa[--pos[s[v - 1] + 1]] = v - 1;"
+      },
+      {
+        "case": "给 LMS 子串命名",
+        "code": "按第一次诱导的顺序比较相邻 LMS 子串（长度与逐字符），不同则名字加一",
+        "find": "bool same = x - a == y - b;"
+      },
+      {
+        "case": "递归与第二次诱导",
+        "code": "对缩减串递归求后缀数组，映回 LMS 位置后再诱导一次",
+        "find": "order = sort_suffixes(reduced, names);"
+      },
+      {
+        "case": "求 LCP",
+        "code": "Kasai：相邻原串位置的 LCP 至多减一",
+        "find": "while (k < n - i && k < n - j && s[i + k] == s[j + k]) k++;"
+      }
+    ]
+  },
+  "ExactCover": {
+    "kind": "problem",
+    "problem": "给定 $m$ 列和若干行（每行是一组列号，即稀疏 0/1 矩阵），选出若干行，使每一列\\textbf{恰好}被一个选中行覆盖；求任意一组解的行号，或判定无解。",
+    "idea": "Knuth 的 X 算法加舞蹈链：所有 1 连成十字循环链表，0 号节点是列头链表的表头，\\texttt{s[c]} 是列 $c$ 当前剩余的候选行数。\\texttt{cover(c)} 把列 $c$ 从列头链表摘除，并把含有列 $c$ 的每一行的其余节点从各自列中纵向摘除（这些行与之后选的行冲突）；\\texttt{uncover} 按相反顺序原样接回。\\texttt{dfs} 每次选候选行最少的列，依次尝试其中每一行：记录行号，覆盖该行涉及的其余列后递归，失败则恢复并换下一行。列头链表为空即找到解；成功返回前同样恢复链表，所以可以重复求解。"
+  },
+  "MinimumCover": {
+    "kind": "problem",
+    "problem": "给定 $m$ 列和若干行（每行是一组列号），选出\\textbf{最少}的行，使每一列至少被一个选中行覆盖（允许重复覆盖），返回一组最优解的行号或判定无解。",
+    "idea": "舞蹈链上的分支限界搜索。重复覆盖时行永远不会作废，只需横向摘除：\\texttt{remove(x)} 把 \\texttt{x} 所在列的其他节点（含列头）从各自的行链表中摘下，这一列就从待覆盖列表中消失，而各列的候选行数 \\texttt{s} 保持不变。\\texttt{dfs} 选候选最少的未覆盖列，枚举其中每一行：摘除该行覆盖的所有列，递归后逆序 \\texttt{restore}。剪枝用 \\texttt{lower\\_bound}：贪心选出若干两两不能被同一行同时覆盖的未覆盖列，其个数是至少还需的行数；当前深度加此下界不小于已知最优 \\texttt{best} 时剪掉。\\texttt{best} 初值为 $m+1$，到达全部覆盖时更新答案。"
+  },
+  "offline_rectangle_sum": {
+    "kind": "problem",
+    "problem": "给定平面上若干带权点（不修改），多次询问左闭右开矩形 $[l,r)\\times[d,u)$ 内点的权值和，所有询问一次读入后统一回答。",
+    "idea": "把询问拆成两条竖直扫描线：答案 $=F(r)-F(l)$，其中 $F(X)$ 是横坐标小于 $X$、纵坐标在 $[d,u)$ 内的点权和。点按横坐标排序，事件按扫描位置排序；处理位置为 $X$ 的事件前，把所有横坐标严格小于 $X$ 的点加入按纵坐标离散化的树状数组，再用两次前缀和求纵坐标落在 $[d,u)$ 的权值和，乘上事件的符号 $\\pm1$ 累加到对应询问。"
+  },
+  "RectangleFenwick": {
+    "kind": "component",
+    "problem": "维护 $n\\times m$ 的整数矩阵（初值全 0），支持给一个子矩形整体加 $v$，以及查询一个子矩形的元素和。",
+    "idea": "矩形加在二维差分数组 $D$ 上只改四个角（\\texttt{corner}）。前缀和 $S(x,y)=\\sum_{a<x,b<y}D(a,b)(x-a)(y-b)=xy\\sum D-y\\sum aD-x\\sum bD+\\sum abD$，所以用一棵二维树状数组同时维护 $D,aD,bD,abD$ 四个量（\\texttt{bit[i][j]} 的四个分量），\\texttt{prefix} 求出四个和后按上式组合，矩形和再由四个前缀容斥。落在右边界或上边界的角不影响网格，直接跳过。"
+  },
+  "PersistentDSU": {
+    "kind": "component",
+    "problem": "可持久化并查集：在任一历史版本上合并两个集合得到新版本，并能查询任一版本中两点是否连通、所在集合大小。",
+    "idea": "并查集数组用可持久化线段树保存：叶子值非负表示父亲，负数表示该点是根且值为负的集合大小；空节点读出 $-1$，即初始全是大小为 1 的单点。因不能路径压缩，\\texttt{merge} 按大小合并，把较小集合的根挂到较大集合的根下，树高为对数级；\\texttt{find} 从 $x$ 反复读父亲直到读到负数。一次合并只修改两个叶子（被挂根的父亲、新根的大小），各复制一条路径，作为新版本的根。"
+  },
+  "MergeSplitTree": {
+    "kind": "component",
+    "problem": "维护多个可重集合，元素是值域 $[0,n)$ 内的整数：支持增减某个值的个数、把一个集合并入另一个、按值域区间或按排名（最小或最大的 $k$ 个）分出一个新集合，以及查询值域区间计数与第 $k$ 小。",
+    "idea": "每个集合是一棵动态开点的权值线段树，节点 \\texttt{sum} 为该值域的元素个数，个数变为 0 的节点回收到 \\texttt{free} 复用。合并时两树同步递归，只在双方都有节点处继续，把 $q$ 的计数并入 $p$ 后回收 $q$。分裂时同步构造“留下”与“取走”两棵树：完全落入目标区间的子树整体移交，部分相交的节点为取走部分新建一个节点。按排名分裂时先算出左子树应取走多少个，叶子处可以拆分重数。",
+    "steps": [
+      {
+        "case": "合并",
+        "code": "一方为空就直接用另一方，叶子处累加计数，回收 $q$",
+        "find": "int meld(int p, int q, int l, int r)"
+      },
+      {
+        "case": "值域分裂：子树完全在区间内",
+        "code": "整棵子树移给新集合",
+        "find": "if (a <= l && r <= b) return {0, p};"
+      },
+      {
+        "case": "值域分裂：部分相交",
+        "code": "递归两侧后，原节点空了就回收；取走部分非空才新建节点",
+        "find": "if (u || v)"
+      },
+      {
+        "case": "排名分裂：分配个数",
+        "code": "取最小 $k$ 个时左侧取 $\\min(k,\\text{左计数})$，取最大时左侧只取超出右计数的部分",
+        "find": "take_left = k > right ? k - right : 0;"
+      },
+      {
+        "case": "排名分裂：叶子",
+        "code": "同一值的重数拆成留下与取走两份",
+        "find": "t[p].sum -= k;"
+      },
+      {
+        "case": "第 $k$ 小",
+        "code": "左子树计数不少于 $k$ 走左，否则减去后走右",
+        "find": "if (k <= left) return select(t[p].l, l, m, k);"
+      }
+    ]
+  },
+  "exkmp": {
+    "kind": "problem",
+    "problem": "给定文本 $s$ 和模式 $t$，求 $t$ 的 Z 数组，以及 $s$ 的每个后缀 $s[i..]$ 与 $t$ 的最长公共前缀长度 $p_i$。",
+    "idea": "先用 \\texttt{z\\_function} 求 $t$ 的 Z 数组。再像 Z 函数一样维护右端最远的匹配段 $[l,r)$，满足 $s[l..r)=t[0..r-l)$。对 $i<r$，$s[i..r)$ 等于 $t[i-l..r-l)$，而 $t[i-l..]$ 与 $t$ 的 LCP 为 $z_{i-l}$，故 $p_i$ 的初值取 $\\min(r-i,z_{i-l})$，然后逐字符向右扩展，越过 $r$ 时更新匹配段。两串分开处理，不需要拼接分隔符。"
+  },
+  "SAMLex": {
+    "kind": "component",
+    "problem": "在已建好的（广义）后缀自动机上查询字典序第 $k$ 小的子串：默认每个不同子串计一次；传入各状态出现次数作权重时，相同子串按出现次数重复计入；还可指定字母顺序。",
+    "idea": "从根出发的每条路径对应一个子串，到达状态 $u$ 的每个串计 \\texttt{weight[u]} 份（根为 0）。\\texttt{sum[u]} 为 $u$ 自身权重加上从 $u$ 出发所有路径的权重，按 \\texttt{len} 桶排序后逆序计算（转移总使 \\texttt{len} 增大，这就是拓扑逆序），加法在 \\texttt{LLONG\\_MAX} 处饱和。\\texttt{kth} 从根开始：若 $k$ 不超过当前串自身的权重就停止；否则减去它，按字母顺序枚举出边，$k$ 大于 \\texttt{sum[v]} 就减去并跳过，否则沿该边走一步并记下字符。"
+  },
+  "sam_lcs": {
+    "kind": "problem",
+    "problem": "给定一个串（或一组串）的后缀自动机和文本 $t$，求 $t$ 与自动机中任一串的最长公共子串，返回它在 $t$ 中的起点和长度。",
+    "idea": "让 $t$ 在自动机上匹配，维护状态 \\texttt{p} 与长度 \\texttt{length}，使 $t$ 中以位置 $i$ 结尾、长 \\texttt{length} 的串是能被识别的最长者。读入字符 $c$ 时，若 \\texttt{p} 没有 $c$ 转移就沿 \\texttt{link} 回退并把长度截为回退后状态的 \\texttt{len}，直到有转移或回到根；有转移则走过去、长度加一，否则长度归零。过程中长度的最大值即答案，只在严格更大时更新，所以取最早起点。"
+  },
+  "SAMDocuments": {
+    "kind": "component",
+    "problem": "对一组文档建好的广义后缀自动机，求每个状态的代表串出现在多少篇不同文档中（\\texttt{cnt}）；对给定 $k$，求每个状态最长代表串的、至少出现在 $k$ 篇文档中的最长后缀长度。",
+    "idea": "每篇文档从根逐字符走，经过的状态恰为它各前缀所在的状态，把文档号标记在这些状态上。某子串出现在一篇文档中，当且仅当后缀链接树上其状态的子树内有该文档的标记，所以 \\texttt{cnt[u]} 是子树内不同文档号的个数。DFS 按访问顺序给标记编时间戳，树状数组中每篇文档只保留最近一次时间戳；离开 $u$ 时，子树内出现过的文档的最近时间戳都落在 $u$ 的时间区间内，区间求和即得。\\texttt{lengths} 自根向下传递：\\texttt{cnt} 沿树向下不增，答案是最深的满足 $\\mathrm{cnt}\\ge k$ 的祖先（含自身）的 \\texttt{len}。"
+  },
+  "KDNearest": {
+    "kind": "component",
+    "problem": "给定静态点集，查询离给定点最近（或最远）的 $k$ 个点的编号，按欧氏距离排序，等距时编号小者在前。",
+    "idea": "按深度轮换坐标轴，以中位数递归建树，每个节点记录子树包围盒与子树中的最小编号 \\texttt{first}。查询维护大小至多 $k$ 的大根堆，键为 (平方距离, 编号)；求最远时用负的距离，统一成“越小越好”。\\texttt{bound} 给出子树内可能达到的最好键：最近时是查询点到包围盒的距离，最远时是到包围盒最远角的距离取负，编号取 \\texttt{first}。堆满且该下界不优于堆顶就整棵剪掉；否则用当前点更新堆，并先搜下界更好的孩子。最后把堆依次弹出再反转。"
+  },
+  "BellmanFord": {
+    "kind": "problem",
+    "problem": "给定可含负权的有向图和起点 $s$，求 $s$ 到各点的最短距离及一条最短路的原边序列；若某点可经由从 $s$ 可达的负环到达，则其距离为 $-\\infty$，并给出一个这样的负环。$s=0$ 时视为从所有点同时出发，用于判全图负环。",
+    "idea": "做至多 $n$ 轮“扫描全部边做松弛”，\\texttt{pre[v]} 记最后一次更新 $v$ 的边。无负环时 $n-1$ 轮内收敛；若第 $n$ 轮仍有松弛，被更新的点必受负环影响，标记 \\texttt{neg}。从第 $n$ 轮最后被松弛的点沿 \\texttt{pre} 回退 $n$ 步必落在环上，再绕一圈收集环边。最后把 \\texttt{neg} 沿边反复传播到不动点，凡能从负环到达的点都标为 $-\\infty$。路径方案沿 \\texttt{pre} 倒推后翻转。",
+    "steps": [
+      {
+        "case": "最多 $n$ 轮全边松弛",
+        "code": "某轮无更新即提前结束；\\texttt{last} 记本轮最后被松弛的点",
+        "find": "for (int step = 0; step < n; step++)"
+      },
+      {
+        "case": "第 $n$ 轮仍可松弛",
+        "code": "该点距离为 $-\\infty$，置 \\texttt{neg}",
+        "find": "if (step == n - 1) neg[v] = 1;"
+      },
+      {
+        "case": "进入负环",
+        "code": "从 \\texttt{last} 沿 \\texttt{pre} 回退 $n$ 步",
+        "find": "for (int i = 0; i < n; i++) x = e[pre[x]].u;"
+      },
+      {
+        "case": "收集负环",
+        "code": "从环上点 $x$ 绕回自身，记录边号后翻转为正向",
+        "find": "for (int y = x; cycle.empty()"
+      },
+      {
+        "case": "传播 $-\\infty$",
+        "code": "沿边扩散 \\texttt{neg} 直到不再变化",
+        "find": "if (neg[u] && !neg[v]) neg[v] = 1, changed = true;"
+      }
+    ]
+  },
+  "Spfa": {
+    "kind": "problem",
+    "problem": "给定可含负权的有向图和起点 $s$，判断是否存在从 $s$ 可达的负环；若不存在，求 $s$ 到各点的最短距离与一条最短路的原边序列。$s=0$ 时所有点初始距离为 0，可判全图负环，也可直接求差分约束的一组可行解。",
+    "idea": "队列优化的 Bellman–Ford：只有距离被改小的点才入队，再用它松弛出边；\\texttt{in} 标记点是否已在队中以免重复入队。每次严格松弛时令 \\texttt{len[v]=len[u]+1}，表示当前标签对应行走的边数；无负环时最短路是简单路径，边数不超过 $n-1$，因此一旦 \\texttt{len[v]} 达到 $n$ 就立即报告负环。\\texttt{pre[v]} 记最后更新 $v$ 的边，用于倒推路径。"
+  },
+  "Floyd": {
+    "kind": "problem",
+    "problem": "给定可含负权、重边的有向图，求所有点对之间的最短距离，并能输出任一点对的一条最短路（原边序列）；若图中有负环则报告失败。",
+    "idea": "\\texttt{dis[u][v]} 初值取 $u\\to v$ 重边中的最小权，\\texttt{nxt[u][v]} 记最短路的第一条原边。按 $k=1..n$ 逐个允许 $k$ 作中转点，用 $\\mathrm{dis}[u][k]+\\mathrm{dis}[k][v]$ 更新 $\\mathrm{dis}[u][v]$，更新时第一条边继承 \\texttt{nxt[u][k]}；只有两段都可达才相加。处理 $k$ 前若 $\\mathrm{dis}[k][k]<0$ 说明存在经过 $k$ 的负环，立即返回。输出路径时从 $s$ 反复走 \\texttt{nxt[s][t]} 这条边，直到到达 $t$。"
+  },
+  "independent_set": {
+    "kind": "problem",
+    "problem": "给定已知左右划分的二分图，求一个最大独立集（两两不相邻、点数最多的点集），分左右两侧输出点号。",
+    "idea": "由 König 定理，二分图最小点覆盖大小等于最大匹配数，而独立集恰是点覆盖的补集。代码先调用 \\texttt{solve} 求最大匹配，再用 \\texttt{cover} 取一个最小点覆盖，把覆盖中的点在 \\texttt{x}/\\texttt{y} 中划掉，剩下的左右点就是最大独立集。"
+  },
+  "Kruskal": {
+    "kind": "problem",
+    "problem": "给定无向带权图，求最小生成树；图不连通时求最小生成森林（每个连通块一棵最小生成树），给出总权、所选边号和连通块数。",
+    "idea": "把所有边按权值升序稳定排序（同权按编号），依次考察：若两端点在并查集中不连通，就选这条边并合并，否则跳过（会成环）。每选一条边连通块数减一，因此最终 \\texttt{cnt} 就是连通块数，为 1 表示整图连通、得到的是最小生成树。"
+  },
+  "Prim": {
+    "kind": "problem",
+    "problem": "给定稠密无向带权图（邻接矩阵），求最小生成树或最小生成森林的总权，以及每个点在树中的父点。",
+    "idea": "\\texttt{d[v]} 是未选点 $v$ 到已选点集的最轻边权，\\texttt{pre[v]} 为该边另一端。共 $n$ 步，每步线性扫描选出 \\texttt{d} 最小的未选点 $u$：若 $\\mathrm{d}[u]=\\infty$，说明剩余点与已选点集不连通，$u$ 作为新树的根，连通块数加一；否则把 $\\mathrm{d}[u]$ 计入总权。然后用 $u$ 的邻接矩阵行更新其余未选点的 \\texttt{d} 和 \\texttt{pre}。"
+  },
+  "RealSpace": {
+    "kind": "component",
+    "problem": "浮点三维向量基础：加减、数乘数除、字典序比较，以及点积、叉积、长度、单位化和两向量夹角。",
+    "idea": "\\texttt{norm} 用三参数 \\texttt{hypot} 求长度，避免先平方溢出；\\texttt{unit} 除以长度得单位向量。\\texttt{angle} 先把两向量单位化，再用 $\\operatorname{atan2}(|a\\times b|,a\\cdot b)$ 求夹角，比 $\\arccos$ 在夹角接近 $0$ 或 $\\pi$ 时更稳定。"
+  },
+  "Line3": {
+    "kind": "component",
+    "problem": "三维直线 $p+td$（线段取 $0\\le t\\le1$）：求点到直线或线段的投影与距离，判断点是否在线段上，以及把点绕该直线旋转。",
+    "idea": "投影先把方向单位化为 $u$，取 $p+u\\,((q-p)\\cdot u)$；线段版把投影长度截断到 $[0,|d|]$。点到直线距离为 $|u\\times(q-p)|$，到线段距离为到截断后投影点的距离。\\texttt{rotate} 用 Rodrigues 公式：令 $v=q-p$，旋转后为 $v\\cos\\theta+(u\\times v)\\sin\\theta+u\\,(u\\cdot v)(1-\\cos\\theta)$，再加回 $p$。"
+  },
+  "Plane3": {
+    "kind": "component",
+    "problem": "三维平面（点 $p$ 与单位法向 $n$）：可由三点或方程 $n\\cdot x=h$ 构造，求有符号距离与投影，以及平面与直线、平面与平面的求交和分类。",
+    "idea": "有符号距离为 $n\\cdot(q-p)$，投影为 $q$ 减去该距离乘 $n$。直线求交：方向单位化为 $u$，$t=n\\cdot u$ 是直线与平面夹角的正弦，$|t|$ 不超过 \\texttt{ang} 时视为平行，再按起点到平面的距离区分在面上或无交；否则交点为起点减 $u\\,h/t$（$h$ 为起点的有符号距离）。两平面求交：交线方向 $d=n_1\\times n_2$，过短则平行或重合；否则在本平面内沿垂直于 $d$ 的 $v=d\\times n_1$ 走到另一平面，得到交线上一点。"
+  },
+  "TimeConnectivity": {
+    "kind": "problem",
+    "problem": "离线动态图连通性：已知每条边在哪段时间区间内存在（加边、删边已配成区间），对每个时刻 $t$ 回调一次，回调中可查询此刻的连通性和连通块大小。",
+    "idea": "线段树分治：在时间轴 $[0,q)$ 上建线段树，每条边的存在区间拆成 $O(\\log q)$ 个节点挂入 \\texttt{edges[p]}。DFS 遍历线段树，进入节点时把挂在上面的边并入可撤销并查集 \\texttt{RollbackDSU}，到达叶子 $t$ 时并查集恰好包含此刻存在的全部边，调用 \\texttt{visit}；离开节点时回滚到进入前的快照。"
+  },
+  "TreeMo": {
+    "kind": "component",
+    "problem": "树上莫队调度器：离线回答若干条树上路径 $u$–$v$ 的统计询问（点权；或把边权记在子节点上的边权），调用方提供加点、删点、记录答案三个回调。",
+    "idea": "DFS 生成括号序 \\texttt{euler}（每个点进出各记一次，长 $2n$）。设 $\\mathrm{in}_u\\le\\mathrm{in}_v$：若 $u$ 是 $v$ 的祖先，路径上的点恰是区间 $[\\mathrm{in}_u,\\mathrm{in}_v]$ 中出现奇数次的点；否则取 $[\\mathrm{out}_u,\\mathrm{in}_v]$，其中缺 LCA，记为 \\texttt{extra}。边权询问正好相反：祖先情形要从区间中去掉 LCA，记为 \\texttt{extra}，另一情形无需补。于是化为括号序上的普通莫队，移动端点时用 \\texttt{toggle} 翻转点的在/不在状态，出现两次的点自动抵消；回答前后各翻转一次 \\texttt{extra}。"
+  },
+  "RollbackMo": {
+    "kind": "component",
+    "problem": "回滚莫队调度器：离线回答区间询问，统计信息只需支持插入和整体回滚到快照，不需要删除（例如区间内相同值的最远距离）。",
+    "idea": "询问按左端点所在块分组，组内按右端点升序。对一块，令 \\texttt{end} 为块的右边界，右指针 \\texttt{r} 从 \\texttt{end} 起只向右扩展，维护 $[\\mathrm{end},r)$ 的统计。处理询问时先把 \\texttt{r} 推到询问右端点，拍快照，再从 \\texttt{end} 向左逐个插入到询问左端点，记录答案后回滚到快照，左侧插入因此不会累积。右端点不超出本块的短询问直接暴力插入再回滚；换块时回滚到最初的空快照。",
+    "steps": [
+      {
+        "case": "进入新块",
+        "code": "回滚到空状态，右指针重置为块右边界 \\texttt{end}",
+        "find": "if (b != last)"
+      },
+      {
+        "case": "询问在块内",
+        "code": "拍快照，暴力插入 $[l,r)$，回答后回滚",
+        "find": "if (a.r <= end)"
+      },
+      {
+        "case": "右侧扩展",
+        "code": "右指针单调右移到询问右端点，这部分保留",
+        "find": "while (r < a.r) add(r++);"
+      },
+      {
+        "case": "左侧临时插入",
+        "code": "拍快照后从 \\texttt{end} 向左插入到 $l$，回答后回滚",
+        "find": "for (int i = end; i > a.l; ) add(--i);"
+      }
+    ]
+  },
+  "OverallKth": {
+    "kind": "problem",
+    "problem": "数组支持单点赋值，并多次询问某一时刻闭区间 $[l,r]$ 中第 $k$ 小的值；所有操作先登记，再离线一次求出全部答案。",
+    "idea": "整体二分。初值和修改都拆成按时间排列的事件：在位置 \\texttt{l} 加入某值（\\texttt{k} 为 $+1$）或删去旧值（\\texttt{k} 为 $-1$），询问是另一类事件；值先离散化。\\texttt{solve} 处理答案位于值域 $[lo,hi]$ 的所有事件：按时间顺序扫描，值不超过 $mid$ 的修改在树状数组的对应位置加上 \\texttt{k}，询问查区间内这类值的个数 \\texttt{smaller}；$k$ 不超过它则答案在左半，否则 $k$ 减去它进入右半，修改按值分到两半。扫完撤销树状数组，稳定划分保持时间顺序，再分别递归；值域缩成一点时即为该组询问的答案。"
+  },
+  "TreeIsomorphism": {
+    "kind": "problem",
+    "problem": "判断树同构：为有根树或无根树计算一个编号，两棵树同构当且仅当编号相同（同一对象内比较）；无根树返回一对编号。",
+    "idea": "AHU 方法：有根子树的编号由“儿子编号的有序列表”唯一确定。DFS 求出所有儿子的编号后排序，在 \\texttt{codes} 这个 \\texttt{map} 中查找该列表，没出现过就分配新编号，因此编号相等等价于同构，没有哈希碰撞。无根树先一次 DFS 找重心（最大子树不超过 $n/2$ 的点，至多两个）：只有一个重心时以它为根编码；有两个时分别以两者为根编码，排序后成对返回。"
+  },
+  "tree_hash": {
+    "kind": "component",
+    "problem": "对一棵有根树，求每个点子树的 128 位（两个 64 位）随机哈希值；两棵子树同构时哈希一定相等，不同构时以极高概率不等，可用于统计不同构子树的种类或比较多棵树。",
+    "idea": "哈希定义为 $h(u)=s+\\sum_{v\\in\\mathrm{son}(u)}\\mathrm{mix13}(h(v))$，模 $2^{64}$ 自然溢出，两个分量用不同种子 $s_1,s_2$ 分别计算；求和与儿子顺序无关，因此不需要排序。\\texttt{mix13} 是 64 位整数混淆函数，使不同子树的贡献难以相互抵消。代码先从根 BFS 得到父亲 \\texttt{fa} 和层序 \\texttt{q}，再逆层序把每个点的 \\texttt{mix13} 值加到父亲上，非递归。"
+  },
+  "tree_hash_reroot": {
+    "kind": "component",
+    "problem": "在 \\texttt{tree\\_hash} 的基础上，求以每个点 $u$ 为根时整棵树的哈希 $f(u)$，用于无根树比较（取所有 $f(u)$ 的最小值等作代表）。",
+    "idea": "换根 DP。根处 $f(\\mathrm{root})=h(\\mathrm{root})$。按 BFS 序处理点 $u$（父亲 $p$ 已算好）：以 $p$ 为根的整树哈希 $f(p)$ 去掉儿子 $u$ 的贡献 $\\mathrm{mix13}(h(u))$，就是“以 $u$ 为根时 $p$ 那一侧子树”的哈希；它作为 $u$ 的新儿子，所以 $f(u)=h(u)+\\mathrm{mix13}(f(p)-\\mathrm{mix13}(h(u)))$，两个分量分别计算。"
+  },
+  "StrictSecondShortest": {
+    "kind": "problem",
+    "problem": "给定非负权有向图和起点 $s$，对每个点 $v$ 求 $s$ 到 $v$ 的最短行走长度，以及严格大于它的最小行走长度（严格次短路）；行走可重复经过点和边。",
+    "idea": "Dijkstra 的推广：每个点维护两个标签 \\texttt{dis[v][0]}（最短）和 \\texttt{dis[v][1]}（严格次短），堆中可同时有同一点的两种长度。弹出 $(d,u)$ 后若 $d$ 已大于 \\texttt{dis[u][1]} 就丢弃，否则用 $d+w$ 松弛 $v$：若比最短还小，就与 \\texttt{dis[v][0]} 交换，被替换下来的旧最短值接着作为次短候选；候选值严格介于最短和次短之间时更新次短。每次更新都把新值入堆。"
+  },
+  "KShortestWalks": {
+    "kind": "problem",
+    "problem": "给定正权有向图、起点 $s$、终点 $t$ 和 $k$，按长度从小到大求 $s$ 到 $t$ 的前 $k$ 短行走的长度；行走可重复经过点和边，不同边序列分别计数。",
+    "idea": "对“到达状态”做 Dijkstra：堆中存 $(d,u)$，表示一条长度为 $d$、到达 $u$ 的行走。点 $u$ 第 $i$ 次被弹出时，$d$ 恰为到 $u$ 的第 $i$ 短行走长度，\\texttt{count[u]} 记录已弹出次数。前 $k$ 次弹出 $t$ 即得答案；每个点最多扩展 $k$ 次，超过的弹出直接丢弃（第 $k$ 短以后的行走不会帮助产生前 $k$ 短答案），已满 $k$ 次的点也不再入堆。"
+  },
+  "MonotoneHull": {
+    "kind": "component",
+    "problem": "维护直线集合 $y=mx+b$：直线按斜率非增加入、查询点 $x$ 非减时，求所有直线在 $x$ 处的最小值及取到它的直线编号，用于斜率优化 DP。",
+    "idea": "下凸壳存于数组 \\texttt{q}，有效部分从 \\texttt{head} 开始，斜率依次递减，每条直线在一段连续的 $x$ 上最优。加线时同斜率只保留截距更小者；若队尾直线 $b$ 与前一条 $a$ 的交点不在 $b$ 与新线 $c$ 的交点左侧，$b$ 永远不会最优，弹出（交点比较用 int128 交叉相乘，不做除法）。查询 $x$ 单调增大，最优直线只会往斜率更小的一侧移动，\\texttt{query} 在下一条直线严格更优时推进 \\texttt{head}，被越过的直线以后也不会再最优。"
+  },
+  "monotone_dp_layer": {
+    "kind": "problem",
+    "problem": "把 $1..n$ 分成恰好 $K$ 个非空连续段、段代价 $w(l,r)$ 满足四边形不等式时，求最小总代价；本函数完成其中一层转移 $f_g(i)=\\min_{j}\\{f_{g-1}(j)+w(j+1,i)\\}$。",
+    "idea": "上节已证明最小最优决策 $opt_g(i)$ 随 $i$ 非减。先算中点的最优决策，左半只在不超过它的决策中找、右半只在不小于它的决策中找，每层递归总枚举 $O(n)$。"
+  },
+  "knuth_interval_dp": {
+    "kind": "problem",
+    "problem": "计算区间合并型 DP $f(l,r)=w(l,r)+\\min_{l\\le k<r}\\{f(l,k)+f(k+1,r)\\}$，$f(i,i)=0$，其中 $w$ 满足四边形不等式与区间包含单调性（如石子合并）。",
+    "idea": "按区间长度递增计算；由上节的双侧决策关系，$(l,r)$ 的最小最优分割点只在 $[opt(l,r-1),opt(l+1,r)]$ 内枚举，同一长度的枚举量相消为 $O(n)$，总 $O(n^2)$。"
+  },
+  "wqs_independent_set": {
+    "kind": "problem",
+    "problem": "给定数组 $a$ 和 $k$，选出至多 $k$ 个两两不相邻的位置，使所选元素之和最大。",
+    "idea": "WQS 二分：恰选 $j$ 个时的最优值关于 $j$ 是凹的，于是给每个选中位置扣罚 $\\lambda$，去掉个数限制做线性 DP：\\texttt{solve} 中 \\texttt{cur}、\\texttt{prev} 分别是前 $i$ 个、前 $i-1$ 个位置的最优（权和，个数），权和相同时取个数多者。罚 0 时最优个数已不超过 $k$ 就直接返回；否则二分最大的非负整数 $\\lambda$，使最优个数仍至少为 $k$，此时恰选 $k$ 个也是该罚值下的最优解之一，答案为惩罚后最优值加 $\\lambda k$。"
+  },
+  "BurnsideAverage": {
+    "kind": "component",
+    "problem": "用 Burnside 引理求轨道数 $\\frac{1}{|G|}\\sum_{\\sigma\\in G}|\\mathrm{Fix}(\\sigma)|$ 时的累加器：逐个加入不动点数（可带重数），最后得到除以群阶后的结果模 $p$，即使群阶在模 $p$ 下不可逆也正确。",
+    "idea": "记群阶为 $N$，真实总和 $S$ 必被 $N$ 整除，设 $S=NT$。在模 $Np$ 下累加，得到 $S\\bmod Np=N\\,(T\\bmod p)$，直接整除 $N$ 就是 $T\\bmod p$，无需逆元。因此所有不动点数（如 颜色数$^{\\text{循环数}}$）都必须在模 \\texttt{mod}$=Np$ 下计算，结构内附带同模的快速幂 \\texttt{power}；乘法用 \\texttt{\\_\\_int128} 防溢出。"
+  },
+  "permutation_cycles": {
+    "kind": "component",
+    "problem": "给定 0-based 置换 $p$，求它分解成的各个不交循环的长度。Pólya 计数中，一个置换下的不动染色数为 颜色数$^{\\text{循环数}}$。",
+    "idea": "从每个未访问的位置 $i$ 出发，沿 $u\\leftarrow p_u$ 一直走到回到 $i$，途中标记 \\texttt{seen} 并计数，得到包含 $i$ 的循环长度。每个位置恰被访问一次。"
+  },
+  "necklace_colorings": {
+    "kind": "problem",
+    "problem": "$n$ 个珠子排成环，每颗用 $c$ 种颜色之一染色，旋转（可选再加翻转）后相同的方案视为同一种，求本质不同的方案数模给定模数。例如 $n=4$、$c=2$、只计旋转时答案为 6。",
+    "idea": "Burnside 引理。旋转 $s$ 格的置换有 $\\gcd(s,n)$ 个循环；阶为 $d$（$d\\mid n$）的旋转恰有 $\\varphi(d)$ 个，各有 $n/d$ 个循环，故累加 $\\varphi(d)\\,c^{n/d}$。代码先分解 $n$ 的质因数，再枚举约数 $d$ 并用这些质因子求 $\\varphi(d)$。计翻转时：$n$ 为奇数有 $n$ 条对称轴，各有 $(n+1)/2$ 个循环；$n$ 为偶数时，过顶点的轴与过边中点的轴各 $n/2$ 条，循环数分别为 $n/2+1$ 与 $n/2$。总和交给 \\texttt{BurnsideAverage} 精确除以群阶 $n$ 或 $2n$。"
+  },
+  "StringHash": {
+    "kind": "component",
+    "problem": "对字符串预处理双模多项式哈希，常数时间取任意子串或其反串的哈希值，并能拼接两段哈希；用于子串判等、回文判断等。",
+    "idea": "字符编码为字节值加一，在两个模数下分别维护正串前缀哈希 \\texttt{pre}、反串前缀哈希 \\texttt{rev} 与底数幂 \\texttt{pw}。子串 $[l,r)$ 的哈希为 $\\mathrm{pre}_r-\\mathrm{pre}_l\\cdot B^{r-l}$；取反串时把区间映射为反串上的 $[n-r,n-l)$。\\texttt{join} 计算 $h_a\\cdot B^{\\mathrm{len}_b}+h_b$，即串 $a$ 后接串 $b$ 的哈希。判等时须同时比较长度。"
+  },
+  "KruskalTree": {
+    "kind": "component",
+    "problem": "构建 Kruskal 重构树（森林）：按边权升序（或降序）做 Kruskal，每次成功合并新建一个父节点，权值为该边权。支持查询：只保留权不超过 $w$（降序时不小于 $w$，可改为严格）的边时，点 $u$ 所在连通块对应的重构树节点，其子树叶子恰为该连通块。",
+    "idea": "叶子是原点。排序后逐边用并查集合并，\\texttt{top} 记每个并查集根当前对应的重构树节点；合并时新建节点 $x$，两个儿子是两侧的 \\texttt{top}，\\texttt{val[x]} 为边权。边按顺序处理，所以从叶到根 \\texttt{val} 单调不减（降序时不增）；新节点编号总大于儿子，可按编号顺序自底向上聚合子树信息。查询时在倍增表 \\texttt{up} 上从高位到低位跳：祖先的 \\texttt{val} 满足阈值就跳上去，最终停在满足条件的最高祖先。"
+  },
+  "lyndon": {
+    "kind": "problem",
+    "problem": "把字符串唯一地分解为字典序非递增的 Lyndon 串之积 $s=w_1w_2\\cdots w_k$（Lyndon 串：严格小于自己所有非空真后缀的串），返回各因子的右端点。例如 \\texttt{bab} 分解为 \\texttt{b}、\\texttt{ab}，返回 $1,3$。",
+    "idea": "Duval 算法。\\texttt{i} 是尚未输出部分的起点，从 \\texttt{i} 开始已读入的部分始终形如“若干个相同的 Lyndon 串 $w$，再接 $w$ 的一个真前缀”；\\texttt{j} 是正在读入的字符，\\texttt{k} 是它在周期中对应的位置，$|w|=j-k$。若 $s_k=s_j$，周期延续，\\texttt{k} 加一；若 $s_k<s_j$，已读部分整体成为一个更长的 Lyndon 串，\\texttt{k} 退回 \\texttt{i}；若 $s_k>s_j$ 则停止，把完整的若干个 $w$ 依次输出（每个长 $j-k$），剩下的真前缀从新的 \\texttt{i} 重新扫描。"
+  },
+  "MinCycle": {
+    "kind": "problem",
+    "problem": "给定非负权无向图，求至少含 3 个不同顶点的最小权简单环，并给出环上的顶点序列与对应的原边编号。",
+    "idea": "Floyd 求最小环：外层按中间点 $k$ 递增，在用 $k$ 松弛之前，\\texttt{d[i][j]} 是只经过编号小于 $k$ 的点的最短路。此时枚举 $i<j<k$，若 $i,j$ 都与 $k$ 有边，候选环长为 $d_{ij}+w(i,k)+w(j,k)$；$k$ 是环上编号最大的点，所以每个环都会在其最大点处被考虑到。每轮只记录本轮更优的一对 $(i,j)$，并立刻沿 \\texttt{next} 恢复 $i$ 到 $j$ 的路径得到方案（之后 \\texttt{next} 会被改写）。矩阵 \\texttt{id} 只保存每对点之间最轻的一条边，自环不进入。"
+  },
+  "LongChain": {
+    "kind": "component",
+    "problem": "对有根树做长链剖分，支持在线查询任意点 $u$ 的 $k$ 级祖先。",
+    "idea": "\\texttt{dfs1} 求深度、倍增表 \\texttt{fa} 和子树高度 \\texttt{len}，高度最大的儿子作为长儿子 \\texttt{son}；\\texttt{dfs2} 把树剖成长链，对每个长度为 $L$ 的链顶 $t$ 存下从 $t$ 向下的整条链 \\texttt{down[t]} 和从 $t$ 向上的 $L$ 个祖先 \\texttt{up[t]}，总量 $O(n)$。查询时先用倍增跳 $k$ 的最高二进制位 $2^j$ 到 $u'$；$u'$ 下方至少还有 $2^j$ 层，所以它所在长链在链顶 $t$ 之下至少延伸 $d+2^j$（$d$ 为 $u'$ 到 $t$ 的深度差），而剩余步数小于 $2^j$。剩余 $k\\le d$ 时在 \\texttt{down[t]} 中取，否则在 \\texttt{up[t]} 中取第 $k-d$ 个。"
+  },
+  "count_four_cycles": {
+    "kind": "problem",
+    "problem": "给定简单无向图，统计四元环个数：四个不同点 $a,b,c,d$ 满足 $ab,bc,cd,da$ 都是边（不要求无弦）。例如 $K_4$ 有 3 个四元环。",
+    "idea": "按 (度数, 编号) 给所有点定一个全序，每个四元环只在其中最大的点 $u$ 处计数。对每个 $u$，枚举二步路径 $u\\to v\\to w$，要求 $v,w$ 都排在 $u$ 之前；\\texttt{cnt[w]} 记录已出现的从 $u$ 到 $w$ 的此类路径数，新路径与之前每条配对构成一个以 $u,w$ 为对角的四元环，所以答案加 \\texttt{cnt[w]}。处理完 $u$ 后只清空 \\texttt{touched} 中被访问过的 \\texttt{cnt}。按度数定序保证总枚举量为 $O(m\\sqrt m)$。"
+  },
+  "minimum_mean_cycle": {
+    "kind": "problem",
+    "problem": "给定带权有向图（权可负），求所有有向环中平均边权（环总权除以边数）的最小值，以未约分的分数形式返回；图中无环时返回空。",
+    "idea": "Karp 定理：令 $F_k(v)$ 为恰好走 $k$ 条边到达 $v$ 的最短行走长度，起点任意（$F_0\\equiv0$，相当于超级源），则最小平均权为 $\\min_v\\max_{0\\le k<n}\\frac{F_n(v)-F_k(v)}{n-k}$。为只用 $O(n)$ 空间，先用 \\texttt{step} 滚动 $n$ 轮求出 $F_n$ 存入 \\texttt{last}，再把 \\texttt{d} 清零重新逐轮计算 $F_0,\\dots,F_{n-1}$，同时对每个 $v$ 维护分数最大值 \\texttt{best[v]}，最后取各点中的最小者。分数比较用交叉相乘，整数权用 128 位保存。"
+  },
+  "Cactus": {
+    "kind": "problem",
+    "problem": "给定边权非负的仙人掌森林（每条边至多属于一个简单环），多次询问两点间最短路的长度，不连通时返回 $-1$。",
+    "idea": "建圆方树：DFS 中遇到返祖边 $u\\to v$，就为这个环新建虚点 $b$，环长记为 \\texttt{len[b]}；环的最高点 $v$ 以权 0 连向 $b$，环上其余点 $x$ 以到 $v$ 的较短弧长连向 $b$，\\texttt{pos[x]} 记它沿 DFS 树到 $v$ 的距离。不在环上的树边原样保留。这样树上根距离 \\texttt{dis} 就等于原图中到根的最短距离。询问用倍增求 LCA $p$：$p$ 是原点时答案为 $dis_u+dis_v-2dis_p$；$p$ 是环虚点时，$u,v$ 跳到的两个儿子 $u',v'$ 在同一环上，答案为 $dis_u-dis_{u'}+dis_v-dis_{v'}$ 加上 $u',v'$ 之间的较短弧。",
+    "steps": [
+      {
+        "case": "普通树边",
+        "code": "儿子 $v$ 不属于以上方为顶的环时，直接作为带权树边",
+        "find": "if (!bel[v])"
+      },
+      {
+        "case": "发现环",
+        "code": "返祖边新建环虚点，环长为两端前缀距离差加该边权",
+        "find": "int b = ++cnt;"
+      },
+      {
+        "case": "环上点挂到虚点",
+        "code": "沿 \\texttt{par} 从 $u$ 回走到 $v$，权取两条弧中较短者",
+        "find": "t[b].push_back"
+      },
+      {
+        "case": "LCA 是原点",
+        "code": "根距离之和减去两倍 LCA 根距离",
+        "find": "if (p <= n) return ans - 2 * dis[p];"
+      },
+      {
+        "case": "LCA 是环虚点",
+        "code": "用两个儿子在环上的位置差取较短弧，替换经过虚点的部分",
+        "find": "ll arc = abs(pos[u] - pos[v]);"
+      }
+    ]
+  },
+  "HLPP": {
+    "kind": "problem",
+    "problem": "给定有向容量网络和源汇 $s,t$，求最大流，并能读取每条原边的流量和一个最小割的源侧点集。",
+    "idea": "预流推进：允许点暂存超额流 \\texttt{ex}，高度 \\texttt{h} 保证每条残量边 $u\\to v$ 有 $h_u\\le h_v+1$，只沿 $h_u=h_v+1$ 的边推流。初始高度由汇点反向 BFS 得到，$h_s=n$，源点出边全部推满。每次取高度最高的活跃点，用当前弧不断推流，弧用完就重标号为 $1+\\min h_v$。某个低于 $n$ 的高度层被清空（gap）时，高于它且低于 $n$ 的点都已无法到达汇点，直接抬到 $n+1$，它们的超额流最终退回源点。没有活跃点时 \\texttt{ex[t]} 即最大流。",
+    "steps": [
+      {
+        "case": "初始高度",
+        "code": "从 $t$ 沿反向残量边 BFS，不可达点保持 $n+1$，再令源点高度为 $n$",
+        "find": "h[t] = 0;"
+      },
+      {
+        "case": "源点推满",
+        "code": "源点所有出边按容量推出，终点变为活跃点入桶",
+        "find": "push(id, e[id].cap)"
+      },
+      {
+        "case": "选最高活跃点",
+        "code": "桶链表 \\texttt{head}/\\texttt{next} 按高度分层，\\texttt{top} 为最高非空层",
+        "find": "int u = head[top];"
+      },
+      {
+        "case": "推流",
+        "code": "当前弧可推时推 $\\min(ex_u,\\text{残量})$，否则当前弧后移",
+        "find": "if (e[id].cap && h[u] == h[e[id].to] + 1)"
+      },
+      {
+        "case": "重标号",
+        "code": "当前弧走到末尾时重新取最小邻居高度加一",
+        "find": "relabel(u);"
+      },
+      {
+        "case": "gap 优化",
+        "code": "原层仍有点或原高度 $\\ge n$ 时返回；否则抬高断层以上的点并重建活跃桶",
+        "find": "if (old >= n || count[old]) return;"
+      }
+    ]
+  },
+  "DynamicDiameter": {
+    "kind": "problem",
+    "problem": "给定一棵非负边权树，支持修改某条边的权值，并在每次修改后查询树的直径（最长路径的长度）。",
+    "idea": "DFS 进入点时以及每个孩子返回后各记一次当前点的根距离，得到长 $2n-1$ 的序列 $d$。对 $i\\le j\\le k$，$d_i-2d_j+d_k$ 的最大值就是直径：$j$ 取在两点的 LCA 处时恰为路径长。线段树节点维护 \\texttt{high}$=\\max d$、\\texttt{low}$=\\max(-2d)$、\\texttt{left}$=\\max(d_i-2d_j)$、\\texttt{right}$=\\max(-2d_j+d_k)$ 和三项最大值 \\texttt{best}，\\texttt{merge} 枚举跨左右儿子的拼法。修改边权相当于把下端点 \\texttt{child[id]} 的子树在序列中的区间 \\texttt{first}..\\texttt{last} 整体加 $\\Delta$，懒标记下这五个量分别变化 $+\\Delta,-2\\Delta,-\\Delta,-\\Delta,0$。"
+  },
+  "regular_matching": {
+    "kind": "problem",
+    "problem": "给定 $d$-正则二分图（两侧各 $n$ 个点，每点度数都为 $d\\ge1$，可含重边），求一个完美匹配。由 Hall 定理，正则二分图一定存在完美匹配。",
+    "idea": "随机游走找增广路。每轮随机取一个未匹配左点 $u$，反复：从 $u$ 的邻接表均匀随机取一项得到右点 $v$；若 $v$ 未匹配，则沿记录的路径倒序把每个左点改配到它这一步取到的右点，完成增广并结束本轮；否则走到 $v$ 的匹配左点 \\texttt{next} 继续。\\texttt{path} 保存当前交替路径上的左点，\\texttt{pos} 为其下标；再次走到路径上的左点时把它之后的部分弹出，消去环，保持路径简单。步数超过 \\texttt{limit} 时放弃该路径重来，匹配不变。"
+  },
+  "tutte": {
+    "kind": "problem",
+    "problem": "给定简单无向图 $G=(V,E)$ 与 $x,y$，求 Tutte 多项式的值 $T_G(x,y)=\\sum_{A\\subseteq E}(x-1)^{k(A)-k(E)}(y-1)^{k(A)+|A|-|V|}$ 模 998244353，其中 $k(A)$ 是生成子图 $(V,A)$ 的连通块数。生成树（森林）计数、色多项式、可靠性多项式等都是它的特例。",
+    "idea": "各连通分量的值相乘。对一个连通分量，令 $c[S]$ 为 $S$ 上所有连通生成子图按 $(y-1)^{\\text{环秩}}$ 计权之和。按 $S$ 的最小顶点 $r$ 从大到小计算：删去 $r$ 后 $S\\setminus\\{r\\}$ 分成若干连通块 $T$，块内贡献 $c[T]$；$r$ 连向 $T$ 的 $h$ 条边至少选一条，权为 $\\sum_{j\\ge1}\\binom{h}{j}(y-1)^{j-1}=1+y+\\dots+y^{h-1}$（\\texttt{geometric}）。于是 $c[S]$ 是集合幂级数 $a[T]=c[T]\\cdot\\mathrm{geometric}[h]$ 的 exp。最后把顶点集划分成若干连通块，顶点 0 所在块以外每块乘 $(x-1)$，再做一次 exp 求和。",
+    "steps": [
+      {
+        "case": "拆连通分量",
+        "code": "DFS 找出分量并重编号为位掩码图，结果逐个相乘",
+        "find": "answer = answer * connected(g) % mod;"
+      },
+      {
+        "case": "按最小点 $r$ 求 $c$",
+        "code": "$r$ 从大到小，只涉及编号大于 $r$ 的子集，所需 $c$ 已算好",
+        "find": "for (int root = m - 1; root >= 0; root--)"
+      },
+      {
+        "case": "$r$ 与块 $T$ 的连接权",
+        "code": "$c[T]$ 乘上 $1+y+\\dots+y^{h-1}$，$h$ 为 $r$ 到 $T$ 的边数",
+        "find": "a[s] = (long long)c[t] * geometric"
+      },
+      {
+        "case": "集合幂级数 exp",
+        "code": "按 popcount 分层做子集和变换，每个位置做形式幂级数 exp（$g_i=\\frac1i\\sum_j j a_j g_{i-j}$），再反演",
+        "find": "g[i] = sum * inv[i] % mod;"
+      },
+      {
+        "case": "$x=1$",
+        "code": "只有单块划分有贡献，直接返回整个分量的 $c$",
+        "find": "if (x == 1) return c.back();"
+      },
+      {
+        "case": "划分顶点集",
+        "code": "其余块乘 $x-1$ 后做 exp，与顶点 0 所在块 $c$ 配对求和",
+        "find": "answer = (answer + (long long)c[(size - 1)"
+      }
+    ]
+  },
+  "SteinerTree": {
+    "kind": "problem",
+    "problem": "给定非负权无向图和若干关键点（终端），求连通全部关键点的边权和最小的边集（最小斯坦纳树），并给出所选原边编号。",
+    "idea": "状态 $dp[S][v]$ 为连通终端子集 $S$、且包含点 $v$（视为根）的树的最小代价，初值为单个终端在自身处代价 0。按 \\texttt{mask} 从小到大处理：先在同一点 $v$ 合并 $S$ 的两个互补非空子集 $T$ 与 $S\\setminus T$（每对只枚举一次）；再以全部 $dp[S][\\cdot]$ 为初值做多源 Dijkstra，让根沿边移动。转移来源分别记在 \\texttt{split}（合并用的子集）与 \\texttt{last}（最后走的边）。答案为 $\\min_v dp[\\text{全集}][v]$，从该根递归回溯标记用到的边，\\texttt{seen} 防止重复展开同一状态。",
+    "steps": [
+      {
+        "case": "子集合并",
+        "code": "枚举真子集 \\texttt{sub}，只处理 \\texttt{sub} 不大于补集的一半，逐点相加更新并记 \\texttt{split}",
+        "find": "int other = mask ^ sub;"
+      },
+      {
+        "case": "移动根",
+        "code": "多源 Dijkstra 沿边松弛同一 \\texttt{mask} 层，记下最后一条边 \\texttt{last}",
+        "find": "last[mask][v] = id;"
+      },
+      {
+        "case": "选最优根",
+        "code": "全集层取最小值，等于 \\texttt{inf} 说明终端不连通",
+        "find": "int root = min_element"
+      },
+      {
+        "case": "回溯合并状态",
+        "code": "拆成两个子集分别在同一点继续回溯",
+        "find": "self(self, sub, u);"
+      },
+      {
+        "case": "回溯移动状态",
+        "code": "标记边 \\texttt{id}，走到边的另一端继续回溯",
+        "find": "used[id] = 1;"
+      }
+    ]
+  },
+  "CartesianTree": {
+    "kind": "component",
+    "problem": "给定数组 $a$，构造它的笛卡尔树：按下标是二叉搜索树（中序遍历即原顺序），按值是小根堆，因此子树恰好对应一段区间，根是该区间的最小值。常用于把“区间最小值”问题转成树上问题。",
+    "idea": "从左到右加入元素，单调栈 \\texttt{st} 自底向上保存当前树的最右链，栈中值单调不降。加入 $a_i$ 时弹出所有严格大于 $a_i$ 的栈顶，最后弹出的那个（整条被弹链的顶端）成为 $i$ 的左孩子；若栈非空，则 $i$ 接为新栈顶的右孩子，替换其原右孩子，然后 $i$ 入栈。相等值不弹出，故较早的相等元素留在上方。处理完后栈底即根。"
+  },
+  "Mo": {
+    "kind": "component",
+    "problem": "普通莫队调度器：离线回答静态数组上的区间询问 $[l,r)$，调用方提供加入位置、删除位置、记录答案三个回调，适用于能快速增删一个元素的统计。",
+    "idea": "按左端点分块，块号小者在前；同块内右端点按块号奇偶交替升序、降序（蛇形），避免右指针每换一块都从头回跳。依次处理询问时，当前区间 $[l,r)$ 先向外扩张两端再向内收缩，保证删除的位置一定仍在区间内。全部结束后删除剩余元素，使统计回到空状态。"
+  },
+  "grid_cycle": {
+    "kind": "problem",
+    "problem": "给定由 \\texttt{.} 和 \\texttt{*} 组成的矩形网格，\\texttt{.} 是必须经过的格子，\\texttt{*} 不能经过，只能在上下左右相邻的格子间移动。求有多少种方法，用\\textbf{恰好一条}闭合回路经过所有 \\texttt{.}，且每个 \\texttt{.} 恰好经过一次；回路不区分起点和行走方向。例如四个格子都是 \\texttt{.} 的 $2\\times2$ 网格，答案为 1。",
+    "idea": "按行逐格扫描。已处理部分是若干条尚未闭合的路径，只需记录它们穿过当前扫描轮廓（已处理格的下边与当前格左侧）的位置，以及哪两个端点属于同一条路径：轮廓上第 $j$ 个槽用 4 位编号，同编号的两个槽是同一路径的两端，0 表示无插头。处理格 $(i,j)$ 时，槽 $j$、$j+1$ 分别是来自左侧、上方的插头，转移后变为向下、向右的插头。每个 \\texttt{.} 度数恰为 2，根据左、上插头决定新建、延伸、合并路径或闭环；目标只有一个覆盖全部格子的环，所以只在最后一个 \\texttt{.} 且没有其他插头时允许闭环计数。每行开始时整体左移一槽，右边界插头恒为 0。",
+    "steps": [
+      {
+        "case": "取出左、上插头",
+        "code": "解码状态，\\texttt{x}、\\texttt{y} 为左、上插头编号，并把两槽清零",
+        "find": "int x = p[j];"
+      },
+      {
+        "case": "遇到 \\texttt{*}",
+        "code": "不能有来自左、上的插头，原样保留状态，跳过该格",
+        "find": "if (a[i][j] == '*')"
+      },
+      {
+        "case": "左、上都没有插头",
+        "code": "下、右两格都可用时新建一条路径，向下、向右各一个端点（临时编号 15）",
+        "find": "else if (!x && !y)"
+      },
+      {
+        "case": "恰有一个插头",
+        "code": "把这条路径向下或向右延伸（两种选择分别计数）",
+        "find": "else if (!x || !y)"
+      },
+      {
+        "case": "两个插头属于不同路径",
+        "code": "合并两条路径：把编号 \\texttt{y} 全部改成 \\texttt{x}",
+        "find": "else if (x != y)"
+      },
+      {
+        "case": "两个插头属于同一路径",
+        "code": "形成闭环；只有在最后一个 \\texttt{.} 且其余槽全为 0 时计入答案",
+        "find": "else if (make_pair(i, j) == last)"
+      },
+      {
+        "case": "不同编号表示相同连接关系",
+        "code": "\\texttt{add} 按首次出现重新编号后再存入哈希表，避免重复状态",
+        "find": "auto add = [&]()"
+      },
+      {
+        "case": "换行",
+        "code": "所有状态左移一槽（4 位），对齐下一行的轮廓",
+        "find": "next[s << 4] += ways;"
+      }
+    ]
+  },
+  "Simplex": {
+    "kind": "problem",
+    "problem": "线性规划：在约束 $Ax\\le b$、$x\\ge0$ 下最大化 $c^{\\mathsf T}x$，判断有最优解、不可行或无界；有最优解时给出最优值与一组最优解。",
+    "idea": "单纯形表 \\texttt{d} 的前 $m$ 行是约束（初始以松弛变量为基，最后一列为右端），第 $m$ 行是目标 $-c$，第 $m+1$ 行是第一阶段目标；第 $n$ 列是唯一的人工变量（编号 $n+m$），系数为 $-1$。若有 $b_i<0$，先把人工变量与右端最小的行换基，使所有右端非负，再让人工变量尽量取 0：做不到就不可行，否则若它仍在基中则换出。第二阶段在原目标行上 \\texttt{improve}。\\texttt{improve} 选编号最小的负检验数列入基（Bland 规则），按最小比值、平局取基变量编号最小的行出基，找不到出基行即无界。",
+    "steps": [
+      {
+        "case": "建表",
+        "code": "约束行写入 $A$、人工变量列 $-1$ 与右端 $b$",
+        "find": "d[i][n] = -1;"
+      },
+      {
+        "case": "存在负右端",
+        "code": "人工变量与右端最小的行换基",
+        "find": "if (r != -1 && d[r][n + 1] < -eps)"
+      },
+      {
+        "case": "第一阶段结束",
+        "code": "人工变量无法降为 0，判不可行",
+        "find": "if (d[m + 1][n + 1] < -eps) return {infeasible, 0, {}};"
+      },
+      {
+        "case": "人工变量仍在基中",
+        "code": "在该行找非零列换出",
+        "find": "if (basic[i] != n + m) continue;"
+      },
+      {
+        "case": "第二阶段",
+        "code": "优化原目标，失败即无界",
+        "find": "if (!improve(m)) return {unbounded, 0, {}};"
+      },
+      {
+        "case": "选入基列",
+        "code": "负检验数中取变量编号最小者",
+        "find": "if (s == -1 || nonbasic[j] < nonbasic[s]) s = j;"
+      },
+      {
+        "case": "选出基行",
+        "code": "最小比值，平局取基变量编号最小",
+        "find": "if (x < y - eps || (abs(x - y) <= eps && basic[i] < basic[r]))"
+      }
+    ]
+  },
+  "circle_union_area": {
+    "kind": "problem",
+    "problem": "求若干圆（闭圆盘）并集的面积。",
+    "idea": "用格林公式：并集面积等于沿并集边界的积分 $\\frac12\\oint(x\\,dy-y\\,dx)$，而边界由每个圆上不被其他圆覆盖的圆弧组成。对每个圆，若被另一个圆包含（相同的圆只保留编号最小者）就跳过；否则求出每个相交圆在它上面覆盖的角区间，跨越 $0$ 或 $2\\pi$ 时拆成两段，排序合并后对未覆盖的弧段累加闭式积分。",
+    "steps": [
+      {
+        "case": "删点圆、分块",
+        "code": "零半径圆无贡献；相交的圆用并查集合并，每块以代表圆心为原点，减小积分中的平移误差",
+        "find": "auto o = c.o - a[find(find, i)].o;"
+      },
+      {
+        "case": "被包含",
+        "code": "另一圆更大且包含它，或与它完全相同且编号更小，则该圆无边界贡献",
+        "find": "if (s >= r && d <= s - r && (s > r || j < i))"
+      },
+      {
+        "case": "覆盖角区间",
+        "code": "由三边长求交点对应的半角 $\\alpha$（\\texttt{atan2l} 配合海伦式），区间为 $[\\theta-\\alpha,\\theta+\\alpha]$",
+        "find": "R angle = atan2l(sqrtl(max(R(0), h)), d * d + (r - s) * (r + s));"
+      },
+      {
+        "case": "弧段积分",
+        "code": "半角 $h$、中点角 $m$ 的弧贡献 $r^2h+r\\sin h\\,(o_x\\cos m+o_y\\sin m)$",
+        "find": "value += c.r * sinl(h)"
+      },
+      {
+        "case": "合并区间",
+        "code": "排序后维护已覆盖右端 \\texttt{right}，空隙即未覆盖弧",
+        "find": "if (l > right) add(right, l);"
+      }
+    ]
+  },
+  "polygon_union_area": {
+    "kind": "problem",
+    "problem": "给定若干整数顶点的简单多边形（可凹，彼此可交叉、重叠），求它们并集的面积。",
+    "idea": "并集边界由各多边形的边中不被其他多边形覆盖的部分组成，面积等于对这些部分用鞋带公式求和。先把每个多边形统一成逆时针。对每条边 $pq$，枚举其他多边形的每条边，求其穿过直线 $pq$ 处的参数 $t$（分数精确表示，截到 $[0,1]$），按穿越方向记 $\\pm1$ 覆盖事件；排序后扫描，覆盖数为 0 的参数区间按长度比例计入 $\\frac12(p-o)\\times(q-o)$。两边共线同向时只让编号小的多边形计入，避免重合边界算两次。",
+    "steps": [
+      {
+        "case": "规范化",
+        "code": "删去连续重复点和末尾重复首点，零面积多边形丢弃，顺时针的翻转为逆时针",
+        "find": "if (area < 0) reverse(p.begin(), p.end());"
+      },
+      {
+        "case": "选局部原点",
+        "code": "包围盒相交的多边形用并查集合并，同一块共用一个原点 $o$ 以减小浮点误差",
+        "find": "parent[find(find, i)] = find(find, j);"
+      },
+      {
+        "case": "别的边穿过直线 $pq$",
+        "code": "交点参数为 $\\frac{(d-c)\\times(p-c)}{y-x}$，从右向左穿越记 $-1$（离开），反之记 $+1$",
+        "find": "add(Fraction(G::cross(c, d, p), y - x), x < 0 ? -1 : 1);"
+      },
+      {
+        "case": "共线重合边",
+        "code": "同向重叠部分只在编号较小的多边形中计一次：对编号大者把重叠区间标为已覆盖",
+        "find": "if (x == 0 && y == 0 && j < i)"
+      },
+      {
+        "case": "扫描参数",
+        "code": "覆盖数为 0 的区间对应并集边界，按比例累加面积（Kahan 补偿）",
+        "find": "if (cover == 0)"
+      }
+    ]
+  },
+  "Hull3D": {
+    "kind": "problem",
+    "problem": "求三维点集的凸包：给出外向三角面片，可计算表面积和体积；点集退化为点、线段或平面时也给出相应的边界。坐标可为整数或浮点数，方向判定精确。",
+    "idea": "点按字典序排序去重后，依次找与 $p_0,p_1$ 不共线的 $p_c$、与三者不共面的 $p_d$，由此确定维数。共面时丢掉法向第一个非零分量对应的坐标，投影成二维点，用单调链求二维凸包作 \\texttt{boundary}，再扇形三角化。三维时以这四点建初始四面体（各面朝外），再逐点增量：删去新点能看到（方向为正）的面，被删面中反向边未被删的有向边构成地平线，与新点连成新面。方向符号整数用 \\texttt{\\_\\_int128} 精确算；浮点先用误差界过滤，不确定时改用浮点展开式精确求符号。",
+    "steps": [
+      {
+        "case": "排序去重",
+        "code": "按坐标字典序排序，相同点只保留编号最小者，\\texttt{id} 记原编号",
+        "find": "if (p.empty() || key(input[i]) != key(p.back()))"
+      },
+      {
+        "case": "找不共线的第三点",
+        "code": "\\texttt{normal\\_sign} 三个分量全为 0 表示共线；找不到则维数为 1",
+        "find": "while (c < n && normal_sign(p[0], p[1], p[c]) == array<int, 3>{}) c++;"
+      },
+      {
+        "case": "找不共面的第四点",
+        "code": "找不到则所有点共面，进入平面情形",
+        "find": "while (d < n && orient_sign(p[0], p[1], p[c], p[d]) == 0) d++;"
+      },
+      {
+        "case": "平面情形",
+        "code": "丢掉法向第一个非零分量对应的坐标做投影，两遍单调链得逆时针边界，再扇形三角化成 \\texttt{faces}",
+        "find": "while (axis[drop] == 0) drop++;"
+      },
+      {
+        "case": "初始四面体",
+        "code": "若第四点在面的正侧就交换两顶点，使各面法向朝外",
+        "find": "swap(f[1], f[2]);"
+      },
+      {
+        "case": "增量加点",
+        "code": "可见面被删除，其有向边若反向边也被删则抵消，剩下的就是地平线",
+        "find": "if (!horizon.erase({b, a})) horizon.insert({a, b});"
+      },
+      {
+        "case": "浮点精确符号",
+        "code": "行列式值超过误差界直接取符号，否则用 \\texttt{grow}/\\texttt{product} 的展开式精确计算",
+        "find": "long double bound = 128 *"
+      }
+    ]
+  },
+  "WeightedBlossom": {
+    "kind": "problem",
+    "problem": "一般图最大权匹配：给定无向带权图，选出两两不共端点的边集使边权和最大（可以不是完美匹配）；也可选择先使匹配边数最多、再使权和最大，用于求最大权完美匹配。返回总权、匹配边数和每个点的配对点。",
+    "idea": "带权带花树（原始–对偶）。每个点和每朵花有顶标 \\texttt{label}，边的松弛量 $\\mathrm{gap}=\\ell_u+\\ell_v-2w$，为 0 的是紧边；只沿紧边扩展交错森林。\\texttt{state} 为 0、1、$-1$ 分别表示外点、内点、未标记。外点经紧边连到未标记点就把它标为内点、其配偶标为外点；两外点相连时，在同一棵树中则缩花（\\texttt{shrink}），在不同树中则沿两侧增广。无紧边可用时按 \\texttt{slack} 求 \\texttt{delta}，外点顶标减 $\\delta$、内点顶标加 $\\delta$，外花顶标加 $2\\delta$、内花减 $2\\delta$；外点顶标降为 0 时再增广不会增加权值，结束；内花顶标为 0 时展开。基数优先模式给每条边加足够大的 \\texttt{bonus}；只保留正权边，初始顶标取最大边权并贪心匹配最大权紧边。",
+    "steps": [
+      {
+        "case": "建图",
+        "code": "基数优先时每条边加 \\texttt{bonus}，只保留加后为正的边",
+        "find": "I bonus = cardinality_first ? n * bound + 1 : 0;"
+      },
+      {
+        "case": "新一轮搜索",
+        "code": "所有未匹配的外层点（或花）作为交错森林的根入队",
+        "find": "if (base[x] == x && !match[x])"
+      },
+      {
+        "case": "紧边连到未标记点",
+        "code": "标为内点，其配偶标为外点入队",
+        "find": "if (state[v] == -1)"
+      },
+      {
+        "case": "紧边连接两个外点",
+        "code": "同树则缩花，不同树则两侧增广",
+        "find": "if (root) shrink(u, root, v);"
+      },
+      {
+        "case": "没有可用紧边",
+        "code": "取各类松弛量的最小值作为 \\texttt{delta} 并调整顶标",
+        "find": "I delta = INF;"
+      },
+      {
+        "case": "外点顶标降为 0",
+        "code": "当前匹配已最优，本轮返回失败",
+        "find": "if (label[u] == 0) finished = true;"
+      },
+      {
+        "case": "内花顶标为 0",
+        "code": "展开该花，恢复内部点的标记",
+        "find": "if (base[b] == b && state[b] == 1 && label[b] == 0) expand(b);"
+      }
+    ]
+  },
+  "grid_cycles": {
+    "kind": "problem",
+    "problem": "给定由 \\texttt{.} 和 \\texttt{*} 组成的网格，只能在上下左右相邻格之间走，求用\\textbf{恰好 $k$ 个}闭合回路经过所有 \\texttt{.} 且每格恰好一次的方案数（回路不区分起点和方向）；默认要求任何回路不包含另一回路，也可允许嵌套。",
+    "idea": "与单回路插头 DP 一样逐格扫描（宽大于高时先转置），轮廓每槽 4 位存路径编号，同编号两槽为同一条未闭合路径的两端，0 表示无插头；状态再按已闭合的环数 $c$ 分开存于 \\texttt{dp[c]}。每格取出左插头 \\texttt{x}、上插头 \\texttt{y} 分情况转移，\\texttt{add} 规范化编号后存入目标环数的哈希表。左、上为同一路径的两端时闭合成环，环数加一；不允许嵌套时要求当前格左边的插头数为偶数，否则新环落在另一条路径内部。扫完所有格后取 \\texttt{dp[k]} 中的空状态。",
+    "steps": [
+      {
+        "case": "换行",
+        "code": "所有状态左移一槽（4 位），对齐下一行的轮廓",
+        "find": "next[c][s << 4] += ways;"
+      },
+      {
+        "case": "取出左、上插头",
+        "code": "解码状态，\\texttt{x}、\\texttt{y} 为左、上插头编号，并把两槽清零",
+        "find": "int x = p[j];"
+      },
+      {
+        "case": "遇到 \\texttt{*}",
+        "code": "不能有插头进入，原样保留状态",
+        "find": "if (a[i][j] == '*')"
+      },
+      {
+        "case": "左、上都没有插头",
+        "code": "下、右两格都可用时新建一条路径（临时编号 15）",
+        "find": "else if (!x && !y)"
+      },
+      {
+        "case": "恰有一个插头",
+        "code": "把这条路径向下或向右延伸，两种选择分别计数",
+        "find": "else if (!x || !y)"
+      },
+      {
+        "case": "两个插头属于不同路径",
+        "code": "合并两条路径：把编号 \\texttt{y} 全部改成 \\texttt{x}",
+        "find": "else if (x != y)"
+      },
+      {
+        "case": "两个插头属于同一路径",
+        "code": "闭合成环，环数加一；禁止嵌套时检查左侧插头数的奇偶",
+        "find": "else if (c < k)"
+      }
+    ]
+  },
+  "manhattan_order": {
+    "kind": "component",
+    "problem": "给定平面整数点（例如把莫队询问 $[l,r)$ 看作点 $(l,r)$），返回一个访问顺序，使相邻两点的曼哈顿距离之和不超过曼哈顿最小生成树权值的两倍，可作为莫队处理询问的顺序。",
+    "idea": "先用 \\texttt{ManhattanMST::solve} 求曼哈顿最小生成树并建邻接表，再从 0 号点递归 DFS，按先序输出。DFS 沿每条树边恰好往返一次，由三角不等式，先序中相邻两点的距离不超过它们在树上路径的长度，总和至多为树权的两倍。"
+  },
+  "minimum_rectangle": {
+    "kind": "problem",
+    "problem": "给定凸多边形（严格逆时针凸包），求面积最小的包围矩形，返回面积与四个角点。",
+    "idea": "最优矩形必有一边与凸包某条边共线。枚举每条边 $p_ip_{i+1}$ 作底边方向 $e$，维护三个随边单调前移的指针：沿 $e$ 投影最大的 \\texttt{hi}、最小的 \\texttt{lo}，以及离底边最远的 \\texttt{top}。设 $l,r$ 为两端的投影、$h$ 为高（都乘了 $|e|$），矩形面积为 $(r-l)h/|e|^2$。更新最优解时，两个底角为 $p_i+e\\,l/|e|^2$、$p_i+e\\,r/|e|^2$，再加上高向量 $\\mathrm{perp}(e)\\,h/|e|^2$ 得另两角。首条边的三个指针先线性扫描初始化。"
+  },
+  "convex_cut": {
+    "kind": "component",
+    "problem": "用有向直线 $a\\to b$ 切割凸多边形，返回多边形在直线左侧（含直线上）的部分，顶点保持原边界顺序。",
+    "idea": "单条直线的 Sutherland--Hodgman 裁剪：令 $e=b-a$，依次考察每条边 $u\\to v$，用 $s=e\\times(u-a)$、$t=e\\times(v-a)$ 判断两端在直线哪一侧。$s\\ge0$ 时保留顶点 $u$；两端严格异侧时再加入边与直线的交点 $u+(v-u)\\frac{s}{s-t}$。端点恰在直线上时不求交，避免重复点。"
+  },
+  "polygon_centroid": {
+    "kind": "problem",
+    "problem": "求均匀密度简单多边形（可凹）的面积重心。",
+    "idea": "以 $p_0$ 为公共顶点把多边形剖成三角扇 $(p_0,p_i,p_{i+1})$。设 $a,b$ 为相对 $p_0$ 的向量，三角形有向面积的两倍为 $s=a\\times b$，重心为 $(a+b)/3$；凹多边形中各三角形面积有正有负，恰好抵消多算的部分。累加 $\\sum s$ 与 $\\sum(a+b)s$，重心为 $p_0+\\frac{\\sum(a+b)s}{3\\sum s}$。三个累加量都用 Kahan 补偿求和（\\texttt{add}）减小舍入误差。"
+  },
+  "triangle_incircle": {
+    "kind": "problem",
+    "problem": "给定三角形的三个顶点，求其内切圆的圆心（内心）和半径。",
+    "idea": "内心是三个顶点以各自对边长为权的加权平均。相对 $a$ 平移得 $u=b-a$，$v=c-a$，三顶点的对边长分别为 $|v-u|$、$|v|$、$|u|$，于是内心为 $a+\\frac{|v|u+|u|v}{|u|+|v|+|v-u|}$；半径为面积除以半周长，即 $|u\\times v|$ 除以周长。代码先用原坐标求叉积判断退化，再把 $u,v$ 除以最大分量 \\texttt{scale} 后求边长，最后乘回，避免溢出。"
+  },
+  "BigInteger": {
+    "kind": "component",
+    "problem": "有符号任意精度整数：可由 \\texttt{long long} 或十进制字符串构造并转回字符串，支持比较、取负、加、减、乘，除以一个 \\texttt{int} 得商和余数，以及非负整数次幂。",
+    "idea": "绝对值按 $10^9$ 进制、低位在前存于 \\texttt{d}，符号单独存于 \\texttt{sign}；零为空数组且符号为正，运算后用 \\texttt{trim} 去掉高位零保持规范。同号加法逐节进位；异号加法化为绝对值大者减小者，结果取绝对值较大者的符号；减法即加相反数。乘法是逐节竖式，用 \\texttt{long long} 携带进位。除以小整数从高节往低节做长除法，商向零截断，余数随被除数的符号。幂用二进制快速幂。",
+    "steps": [
+      {
+        "case": "由字符串构造",
+        "code": "从末尾起每 9 位数字一组转成一节",
+        "find": "for (int r = int(s.size()); r > first; r -= 9)"
+      },
+      {
+        "case": "转为字符串",
+        "code": "最高节原样输出，其余节补足 9 位前导零",
+        "find": "s += string(9 - t.size(), '0') + t;"
+      },
+      {
+        "case": "异号相加",
+        "code": "若本数绝对值较小则交换两数，再逐节借位相减",
+        "find": "if (abs_cmp(b) < 0)"
+      },
+      {
+        "case": "同号相加",
+        "code": "逐节相加并进位",
+        "find": "for (int i = 0; i < n || carry; i++)"
+      },
+      {
+        "case": "乘法",
+        "code": "第 $i$ 节乘以 $b$ 的每一节，累加到第 $i+j$ 节并进位",
+        "find": "long long v = 1LL * d[i] * b.d[j] + c.d[i + j] + carry;"
+      },
+      {
+        "case": "除以小整数",
+        "code": "高节到低节长除法，\\texttt{rem} 为当前余数",
+        "find": "rem = rem * base + d[i];"
+      }
+    ]
+  },
+  "convolution_i64": {
+    "kind": "component",
+    "problem": "计算两个 \\texttt{long long} 整数系数（可为负）多项式乘积的精确系数，要求结果系数本身落在有符号 64 位范围内。",
+    "idea": "用三个 NTT 友好素数 $p,q,r$（乘积约 $2^{86}$）分别做模卷积（\\texttt{convolution\\_residue}），再用 Garner 算法合并：先由模 $p$、$q$ 的余数求出 $v\\equiv c\\pmod{pq}$，再求 $u$ 使 $v+pq\\,u\\equiv c\\pmod r$，得到 $[0,pqr)$ 中的唯一代表。它超过 $pqr/2$ 时减去 $pqr$ 取中心代表，从而还原负系数。Garner 所需的两个逆元只计算一次。"
+  },
+  "NegativeCostFlow": {
+    "kind": "problem",
+    "problem": "带负费用（可含负环）的最小费用最大流：在流量不超过上限的前提下求 $s$ 到 $t$ 的最大流，并在此流量下使总费用最小；与源汇无关的负环也可以被利用来降低费用。可得每条原边的流量。",
+    "idea": "普通最短路增广不能处理负环，因此先把所有负费用边直接流满：总费用加上 $c\\cdot w$，残量图中只留费用为 $-w>0$ 的反向“退流”边，这样所有边的费用都非负，但各点出现流量不平衡 \\texttt{balance}。再加一条 $t\\to s$、费用 0 的边，从超级源向盈余点、从亏空点向超级汇连边，用最小费用流修复平衡；其中经过 $t\\to s$ 的流量就是已经得到的 $s$--$t$ 流量 \\texttt{base}。随后关闭所有辅助边，从 $s$ 到 $t$ 继续最短路增广剩余流量。负费用边的实际流量为容量减去退流边上的流量。",
+    "steps": [
+      {
+        "case": "负费用边",
+        "code": "预先流满，计入费用，只建正费用的反向退流边",
+        "find": "if (w < 0)"
+      },
+      {
+        "case": "允许已有流经过源汇",
+        "code": "加 $t\\to s$ 的零费用边",
+        "find": "back = g.add(t, s, min(total, limit), 0);"
+      },
+      {
+        "case": "修复流量平衡",
+        "code": "超级源汇间求满流最小费用流，\\texttt{base} 为 $t\\to s$ 上的流量",
+        "find": "auto [sent, correction] = g.flow(n + 1, n + 2, need);"
+      },
+      {
+        "case": "关闭辅助边",
+        "code": "把 \\texttt{first} 之后添加的边容量清零",
+        "find": "for (int id = first; id < (int)g.e.size(); id++) g.e[id].cap = 0;"
+      },
+      {
+        "case": "继续增广",
+        "code": "从 $s$ 到 $t$ 补足剩余流量",
+        "find": "auto [more, extra] = g.flow(s, t, limit - base);"
+      },
+      {
+        "case": "还原原边流量",
+        "code": "负费用边的流量为容量减退流量",
+        "find": "return reversed[id] ? cap[id] - f : f;"
+      }
+    ]
+  },
+  "CentroidDiameter": {
+    "kind": "problem",
+    "problem": "固定的一棵树，边权可正可负；维护一个“活动点”集合，支持单点激活/取消，并随时查询活动点之间的最大路径权值（允许两端为同一点，此时为 0）及一对取到最大值的端点。",
+    "idea": "建点分树。对重心 $c$，它自身和删去 $c$ 后的每个分支各对应一个桶 \\texttt{bag}，桶中存该部分活动点到 $c$ 的距离；\\texttt{path[u]} 记录 $u$ 在每层重心下的（重心、桶号、距离）。\\texttt{top[c]} 保存 $c$ 的每个非空桶的最大值，取不同桶的前两名相加，就是经过 $c$ 且两端位于不同分支的最长真实路径（\\texttt{candidate}），所有重心的候选放在全局集合 \\texttt{best} 中。修改点 $u$ 时沿 \\texttt{path[u]} 逐层：先删掉旧候选和旧桶顶，更新桶，再放回新桶顶和新候选。查询取 \\texttt{best} 最大值，若不为正则返回任一活动点自身、距离 0。",
+    "steps": [
+      {
+        "case": "重心自身的桶",
+        "code": "重心 $c$ 以距离 0 放入自己的桶",
+        "find": "path[c].push_back({c, (int)bag.size(), 0});"
+      },
+      {
+        "case": "每个分支一个桶",
+        "code": "DFS 记下分支内各点到 $c$ 的距离与桶号",
+        "find": "collect(v, c, w, c, b);"
+      },
+      {
+        "case": "修改前撤销",
+        "code": "从 \\texttt{best} 删去 $c$ 的旧候选，从 \\texttt{top[c]} 删去旧桶顶",
+        "find": "if (auto old = candidate(c)) best.erase(*old);"
+      },
+      {
+        "case": "更新桶并恢复",
+        "code": "插入或删除 $(d,u)$，再放回新桶顶和新候选",
+        "find": "if (on) bag[b].insert({d, u});"
+      },
+      {
+        "case": "重心候选",
+        "code": "\\texttt{top[c]} 中来自不同桶的前两名距离相加",
+        "find": "return Best{sum(x, y), u, v, c};"
+      },
+      {
+        "case": "查询",
+        "code": "最大候选不为正时，取单个活动点，答案 0",
+        "find": "return Item{0, u, u};"
+      }
+    ]
+  },
+  "circle_coverage_area": {
+    "kind": "problem",
+    "problem": "给定若干圆，对每个 $k$ 求平面上恰好被 $k$ 个圆覆盖的区域面积。",
+    "idea": "与圆面积并一样用格林公式，但按覆盖层数分别积分。设 $S_k$ 为至少被 $k$ 个圆覆盖的面积。圆上一段弧若恰被 $c$ 个圆覆盖（含自身），它就是“至少 $c$ 层”区域的边界，于是把这段弧的积分计入 \\texttt{answer[c]}。对每个圆，包含它的圆让基础层数 \\texttt{count} 加一，相交的圆在角度上产生 $+1$/$-1$ 事件，排序扫描即得每段弧的层数。最后作差 $S_k-S_{k+1}$ 得到恰好 $k$ 层的面积。",
+    "steps": [
+      {
+        "case": "基础层数",
+        "code": "自身计 1；被更大的圆包含、或与编号更小的同圆重合时再加 1，同圆因此落在不同层",
+        "find": "count++;"
+      },
+      {
+        "case": "相交圆",
+        "code": "覆盖角区间 $[\\theta-\\alpha,\\theta+\\alpha]$ 转成 $+1$、$-1$ 事件，跨越 $0$ 时拆为两段；预置 $0$、$2\\pi$ 两个哨兵",
+        "find": "vector<pair<R, int>> events = {{0, 0}, {tau, 0}};"
+      },
+      {
+        "case": "扫描事件",
+        "code": "相邻事件之间的弧段按当前层数积分，然后更新层数",
+        "find": "count += delta;"
+      },
+      {
+        "case": "按层累加",
+        "code": "弧段积分计入 \\texttt{answer[count]}，每层独立做 Kahan 补偿",
+        "find": "R y = value - error[count];"
+      },
+      {
+        "case": "作差",
+        "code": "由至少 $k$ 层面积得到恰好 $k$ 层面积",
+        "find": "answer[k] -= answer[k + 1];"
+      }
+    ]
+  },
+  "TarjanSCC": {
+    "kind": "problem",
+    "problem": "给定有向图，求每个点所属的强连通分量编号，并构造缩点后的 DAG（邻接表）。",
+    "idea": "DFS 时记录时间戳 \\texttt{dfn} 与 \\texttt{low}（能回溯到的仍在栈中的最小时间戳），访问过的点压入栈 \\texttt{st}。树边用子节点的 \\texttt{low} 更新；指向已访问且尚未分配分量的点的边，用其 \\texttt{dfn} 更新。回溯时若 $\\mathrm{low}[u]=\\mathrm{dfn}[u]$，$u$ 是分量的根，弹栈到 $u$ 为止得到一个分量。分量按完成先后编号，先完成者无出边指向后完成者，因此跨分量边总从大编号指向小编号，编号即逆拓扑序。"
+  },
+  "StaticRMQ": {
+    "kind": "component",
+    "problem": "静态数组上的区间最值查询：给定 $[l,r)$，返回区间内最优（默认最小）元素的位置，并列取最左。可传入比较器改为最大值或其他严格弱序。",
+    "idea": "按长度 $b$（约 $\\log_2 n$）分块。块内从左到右维护单调栈，并用位掩码表示：\\texttt{mask[i]} 的第 $j$ 位为 1 表示块内位置 $j$ 在“块首到 $i$”的单调栈中，即它之后到 $i$ 没有严格更优的元素。于是块内区间 $[l,r)$ 的答案是 \\texttt{mask[r-1]} 中不低于 $l$ 的最低位。每块的最优位置组成数组，再建 ST 表。跨块询问拆成左块后缀、右块前缀和中间整块三部分，用 \\texttt{better} 取优（相等取下标小者）。",
+    "steps": [
+      {
+        "case": "块内单调栈",
+        "code": "新元素严格更优时弹掉掩码最高位（栈顶）",
+        "find": "while (s && cmp(a[i], a[start + bit_width(s) - 1]))"
+      },
+      {
+        "case": "块最优值",
+        "code": "块末掩码的最低位即整块最左最优位置",
+        "find": "st[0].push_back(start + countr_zero(s));"
+      },
+      {
+        "case": "块间 ST 表",
+        "code": "倍增合并相邻两段的最优位置",
+        "find": "st[k][i] = better(st[k - 1][i], st[k - 1][i + (1 << (k - 1))]);"
+      },
+      {
+        "case": "块内询问",
+        "code": "掩码右移掉 $l$ 之前的位后取最低位",
+        "find": "return l + countr_zero(mask[r - 1] >> (l % b));"
+      },
+      {
+        "case": "跨块询问",
+        "code": "左块后缀与右块前缀先比较，中间整块查 ST 表",
+        "find": "int ans = better(small(l, (x + 1) * b), small(y * b, r));"
+      }
+    ]
+  },
+  "ODT": {
+    "kind": "component",
+    "problem": "珂朵莉树：维护分段常值的序列，支持把区间推平为同一值，以及按段遍历区间（在回调中修改段值、求和、求第 $k$ 小等）。",
+    "idea": "\\texttt{mp} 以段起点为键、段值为值，键 $hi$ 作哨兵结束最后一段。\\texttt{split(x)} 找到包含 $x$ 的段，若 $x$ 不是段起点就插入一个以 $x$ 为起点、值相同的新段，使 $x$ 成为分界。\\texttt{assign} 先切出 $r$ 与 $l$，删除其间所有段后插入一个新段；\\texttt{each} 切出区间后逐段调用回调。推平不断把多段合成一段，随机数据下段数保持很少。"
+  },
+  "DynamicDP": {
+    "kind": "problem",
+    "problem": "给定点带权的树，支持修改单点权值，每次修改后求全树的最大权独立集（所选点两两不相邻，可为空集）。",
+    "idea": "设 $f_0,f_1$ 为不选、选 $u$ 时子树的最优值，只把轻儿子的贡献汇总为 $g_0=\\sum\\max(f_0,f_1)$、$g_1=w_u+\\sum f_0$，则 $u$ 的 $(f_0,f_1)$ 等于 $(\\max,+)$ 矩阵 $[[g_0,g_0],[g_1,-\\infty]]$ 乘重儿子的向量。线段树按 \\texttt{dfn} 存各点矩阵，把重链从链顶到链底连乘，再作用于 $(0,-\\infty)$ 就得到链顶的 DP 值（\\texttt{chain}）。修改时更新本点矩阵并沿重链上跳：每到一条链，求出链顶新旧 DP 值，用其差修正链顶父亲的 $g_0,g_1$，再更新父亲的矩阵；根链链顶的 $\\max(f_0,f_1)$ 即答案。"
+  },
+  "Expression": {
+    "kind": "problem",
+    "problem": "给定含非负整数、加减乘除、取模、乘方、括号与一元正负号的表达式字符串，按通常的优先级和结合性计算其整数值。",
+    "idea": "递归下降，每一级优先级对应一个函数：\\texttt{expr} 处理加减、\\texttt{term} 处理乘除模，都用循环实现左结合；\\texttt{unary} 处理一元正负号；\\texttt{power} 先读一个 \\texttt{atom}（数字或括号内的 \\texttt{expr}），遇到乘方号再以 \\texttt{unary} 读指数，由此乘方右结合，且比一元负号结合更紧（$-2^2=-4$），指数用快速幂计算。\\texttt{peek} 跳过空格看下一个字符，决定进入哪个分支。"
+  },
+  "dinkelbach": {
+    "kind": "problem",
+    "problem": "0/1 分数规划：在所有可行方案中最大化 $\\sum A/\\sum B$（要求 $\\sum B>0$）；方案的结构由调用方的回调 \\texttt{best} 描述。",
+    "idea": "对给定 $\\lambda$，$\\max(A-\\lambda B)>0$ 当且仅当最优比值大于 $\\lambda$。Dinkelbach 迭代：用 \\texttt{best} 求出使 $A-\\lambda B$ 最大的方案，若该值已不超过（相对的）\\texttt{eps}，当前 $\\lambda$ 就是最优比值；否则令 $\\lambda$ 为这个方案的比值 $A/B$，它严格大于旧的 $\\lambda$，继续迭代。"
+  },
+  "bernoulli": {
+    "kind": "problem",
+    "problem": "批量求伯努利数 $B_0,B_1,\\dots,B_n$ 模 998244353，取 $B_1=-\\frac12$ 的约定，常用于自然数幂和公式。",
+    "idea": "伯努利数的指数生成函数为 $\\frac{x}{e^x-1}=\\sum_kB_k\\frac{x^k}{k!}$，它是 $\\frac{e^x-1}{x}=\\sum_k\\frac{x^k}{(k+1)!}$ 的逆级数。代码预处理阶乘与逆阶乘，构造后者的前 $n+1$ 项 \\texttt{d}，用 \\texttt{FpsInverse} 求逆，再把第 $k$ 项乘 $k!$ 得到 $B_k$。"
+  }
+}

@@ -56,8 +56,10 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | ComplexFFT | [example-222](usage/example-222.cpp), [example-412（应用补充）](usage/example-412.cpp) | locally_checked_example |
 | convolution_mod_fft | [example-122](usage/example-122.cpp) | locally_checked_example |
 | NttConvolution | [example-16](usage/example-16.cpp), [example-455（接口演示）](usage/example-455.cpp) | generated_unverified |
-| stirling_second_row | [example-53](usage/example-53.cpp) | generated_unverified |
-| stirling_first_row | [example-54](usage/example-54.cpp) | generated_unverified |
+| stirling_second_row | [example-53](usage/example-53.cpp) | locally_checked_example |
+| stirling_second_column | [example-434](usage/example-434.cpp) | locally_checked_example |
+| stirling_first_row | [example-54](usage/example-54.cpp) | locally_checked_example |
+| stirling_first_column | [example-433](usage/example-433.cpp) | locally_checked_example |
 | FpsInverse | [example-18](usage/example-18.cpp) | generated_unverified |
 | FpsFunctions | [example-28](usage/example-28.cpp), [example-29](usage/example-29.cpp) | generated_unverified |
 | GaussMod | [example-24](usage/example-24.cpp), [example-414（应用补充）](usage/example-414.cpp) | generated_unverified |
@@ -203,7 +205,8 @@ locally_checked_example 表示至少有一份正式模板题用法；locally_che
 | StrictSecondShortest | [example-358（应用补充）](usage/example-358.cpp) | locally_checked_application |
 | KShortestWalks | [example-359（应用补充）](usage/example-359.cpp) | locally_checked_application |
 | MonotoneHull | [example-360（应用补充）](usage/example-360.cpp) | locally_checked_application |
-| monotone_dp_layer | [example-361（应用补充）](usage/example-361.cpp), [example-363（应用补充）](usage/example-363.cpp) | locally_checked_application |
+| monotone_dp_layer | [example-361（应用补充）](usage/example-361.cpp), [example-363](usage/example-363.cpp) | locally_checked_example |
+| knuth_interval_dp | [example-461](usage/example-461.cpp) | locally_checked_example |
 | wqs_independent_set | [example-362（应用补充）](usage/example-362.cpp) | locally_checked_application |
 | BurnsideAverage | [example-365（应用补充）](usage/example-365.cpp) | locally_checked_application |
 | permutation_cycles | [example-367（接口演示）](usage/example-367.cpp) | locally_checked_api |

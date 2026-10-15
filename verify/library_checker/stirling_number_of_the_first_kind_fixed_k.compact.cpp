@@ -1,5 +1,5 @@
 // https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind_fixed_k
-#include "../../src/compact/stirling_column.hpp"
+#include "../../src/compact/stirling.hpp"
 #include <iostream>
 
 int main()

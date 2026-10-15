@@ -11,6 +11,27 @@ for usage in usage_rows:
     if usage.get('kind', 'template') == 'template':
         printed_usage.setdefault(usage['symbol'], usage)
 usage_rows = list(printed_usage.values())
+# Issue 28: problem/function statement and core idea before the contract and code.
+intros = json.loads((root / 'docs/template-intros.json').read_text())
+
+
+def render_intro(name, intro, lines, start, end):
+    assert set(intro) <= {'kind', 'problem', 'idea', 'steps'}, name
+    assert intro['kind'] in ('problem', 'component'), name
+    label = '问题描述' if intro['kind'] == 'problem' else '功能'
+    out = [r'\noindent\textbf{' + label + r'：}\allowbreak ' + intro['problem'], r'\textbf{核心思路：}\allowbreak ' + intro['idea']]
+    if intro.get('steps'):
+        rows = []
+        for step in intro['steps']:
+            assert set(step) == {'case', 'code', 'find'}, (name, step)
+            hits = [i for i in range(start, end) if step['find'] in lines[i]]
+            assert len(hits) == 1, (name, step['find'], len(hits))
+            rows.append(step['case'] + ' & ' + step['code'] + ' & ' + str(hits[0] - start + 1) + r'\\')
+        out.append('\n'.join([r'\begin{center}\small', r'\begin{tabular}{@{}p{0.30\linewidth}p{0.55\linewidth}r@{}}',
+                              r'\toprule', r'思路中的情况 & 代码中的处理 & 行\\', r'\midrule'] + rows +
+                             [r'\bottomrule', r'\end{tabular}', r'\end{center}']))
+    out.append('%CODE-DEPS')
+    return out
 
 def esc(s):
     for a, b in [('\\', '\\textbackslash{}'), ('&', '\\&'), ('%', '\\%'), ('$', '\\$'), ('#', '\\#'), ('_', '\\_'), ('{', '\\{'), ('}', '\\}')]:
@@ -100,8 +121,6 @@ for style in ['compact']:
                 if end and lines[end - 1].startswith('template'):
                     end -= 1
             estimate = sum((max(1, (len(line.expandtabs(4)) + 109) // 110) for line in lines[start:end])) * 10.2 + 70 + len(info) / 65 * 12
-            if name.startswith('stirling_'):
-                body.append('\\newpage')
             if name == 'HLD':
                 split = next(i for i in range(start, end) if 'void dfs2(' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
@@ -233,6 +252,10 @@ for style in ['compact']:
             if name == 'MultipointEvaluation':
                 split = next(i for i in range(start, end) if 'void eval(' in lines[i])
                 estimate = (split - start) * 10.2 + 100 + len(info) / 55 * 12
+            if name in intros:
+                # Issue 28: the intro is printed between the heading and the code.
+                intro = intros[name]
+                estimate += (len(intro['problem']) + len(intro['idea'])) / 52 * 12 + 24 + len(intro.get('steps', [])) * 13 + (40 if intro.get('steps') else 0)
             if estimate < 680:
                 body.append('\\Needspace{' + str(round(estimate)) + 'pt}')
             if name in ('grid_cycles', 'WeightedBlossom', 'Hull3D', 'polygon_union_area', 'circle_union_area', 'circle_coverage_area', 'BigInteger', 'minimum_rectangle', 'convex_cut', 'polygon_centroid', 'triangle_incircle', 'SuffixArray', 'XorBasis', 'IntegerGeometry3D', 'ost', 'LeftistHeap', 'ModInt', 'mint', 'linear_congruence', 'FpsSqrt'):
@@ -242,8 +265,12 @@ for style in ['compact']:
                 info = info.replace('run(add,snapshot,rollback,ans,block=0)', 'run(add, snapshot, rollback, ans, block=0)')
             if name == 'StringHash':
                 info = info.replace('StringHash(s,base)', 'StringHash(s, base)').replace('get(l,r,rev=false)', 'get(l, r, rev=false)').replace('join(a,b,len_b)', 'join(a, b, len_b)')
+            intro = intros.get(name)
+            if intro:
+                body.extend(render_intro(name, intro, lines, start, end))
+            contract = ('{\\sloppy\\hbadness=10000\\noindent\\textbf{接口契约：}' + esc(info) + '\\par}') if intro else esc(info)
             if name not in ('Mo', 'digit_count'):
-                body.append(esc(info))
+                body.append(contract)
             if name in ('ost', 'rp'):
                 body.append(r'只需键值查改而不需要有序排名时，gp\_hash\_table / cc\_hash\_table 及选型建议见第~\pageref{compact-gp_map}~页。')
             if name == 'ost':
@@ -347,7 +374,7 @@ for style in ['compact']:
                 for part in range(3):
                     if part:
                         body.append(r'\newpage')
-                        body.append('轮廓转移（接上页同一函数）：' if part == 1 else '延伸、合并与最终闭环（接上页同一函数）：')
+                        body.append('轮廓转移：解码左、上插头，重编号，障碍格与新建路径（接上页同一函数）：' if part == 1 else '延伸、合并与最终闭环（接上页同一函数）：')
                     body.append(r'\lstinputlisting[firstline=' + str(cuts[part] + 1) + ',lastline=' + str(cuts[part + 1]) + ',firstnumber=' + str(cuts[part] - start + 1) + ']{../src/' + style + '/' + filename + '.hpp}')
             elif name == 'SteinerTree':
                 cuts = [start, next(i for i in range(start, end) if 'Result solve(' in lines[i]), next(i for i in range(start, end) if 'priority_queue<pair<ll' in lines[i]), next(i for i in range(start, end) if 'int root = min_element' in lines[i]), end]
@@ -1051,11 +1078,9 @@ for style in ['compact']:
                 body.append(r'\begin{lstlisting}' + '\n' + 'pheap<int> a, b;\nauto h = a.push(7);\na.modify(h, 2);\nb.join(a);\nb.erase(h);\n' + r'\end{lstlisting}')
             if name in ('Mo',):
                 body.append(r'\newpage')
-                body.append(esc(info))
+                body.append(contract)
             if name == 'grid_cycle':
                 body.append(r'\newpage')
-                body.append(r'\paragraph{轮廓与不变量} 槽j、j+1是当前格的左、上插头，转移后成为下、右插头。处理过的可用点度数固定为2，每个未闭合连通块是一条路径，在轮廓上恰有两个同编号端点。行首左移4位；右边界插头恒为0，所以移位不丢有效信息。最多8条路径，临时编号15不会与规范编号冲突。')
-                body.append(r'\paragraph{转移与去重} 无入边时必须创建下、右两条出边；单入边选择延伸方向；不同编号的双入边合并路径并统一编号；相同编号表示闭环，只能在最后一个可用点且其他槽全零时接收。按首次出现重编号使相同连通关系唯一。每个边集唯一对应逐格选择，不按起点或方向重复计数。')
                 body.append(r'\paragraph{数值与验证} 固定整数要保证所有中间计数可表示，不能只检查最后答案。P5056仅内部(n-1)(m-1)个格子可能二选一，其余转移至多一个。所有中间计数不超过2的121次方，因此下面用128位整数仍能保证精确计数。已穷举74954个小障碍网格并与独立递归环搜索核对；完整2至14阶偶数方格与OEIS A003763核对。输入超过题目范围时状态数仍可能很大。')
             for usage in usage_rows:
                 if usage['symbol'] != name:
@@ -1119,6 +1144,17 @@ for style in ['compact']:
                         body.append('\\lstinputlisting[firstline=' + str(split_lines + 1) + ',firstnumber=' + str(split_lines + 1) + ']{' + listing + '}')
                 else:
                     body.append('\\lstinputlisting{' + listing + '}')
+            if name in intros:
+                # Issue 28: the intro precedes split listings; keep the first chunk whole so the
+                # forced break before the next chunk cannot leave a nearly empty page.
+                listing = re.compile(r'\\lstinputlisting\[firstline=(\d+),lastline=(\d+)')
+                parts = [i for i in range(begin, len(body)) if listing.match(body[i]) and 'src/' in body[i]]
+                split = len(parts) > 1 and any(body[j] == '\\newpage' for j in range(parts[0], parts[1]))
+                if split:
+                    m = listing.match(body[parts[0]])
+                    # Measured listing pitch is 13.21pt (10.2pt baseline times ctex's 1.3 spread).
+                    height = round((int(m[2]) - int(m[1]) + 1) * 13.21 + 30)
+                    body.insert(parts[0], '\\Needspace{' + str(min(720, height)) + 'pt}')
             records.append(dict(module=file, symbol=name, title=cn, chapter=title, code='\n'.join(lines[start:end]), latex='\n\n'.join(body[begin:])))
 assert {r['symbol'] for r in records} == {r[1] for r in cat}, 'Catalog contains an unprinted module'
 (root / 'build').mkdir(exist_ok=True)
@@ -1127,10 +1163,14 @@ copy_dependencies = dependencies(records)
 for row in records:
     deps = copy_dependencies[row['symbol']]
     row['dependencies'] = deps
-    if deps:
+    text = '代码依赖：' + references(deps) + '。抄写时一并准备；标准库类型不列入算法依赖。' if deps else ''
+    if '%CODE-DEPS' in row['latex']:
+        assert row['latex'].count('%CODE-DEPS') == 1, row['symbol']
+        row['latex'] = row['latex'].replace('%CODE-DEPS', text, 1)
+    elif deps:
         marker = r'\index{' + row['symbol'].replace('_', r'\_') + '}'
         assert row['latex'].count(marker) == 1, row['symbol']
-        row['latex'] = row['latex'].replace(marker, marker + '\n\n' + '代码依赖：' + references(deps) + '。抄写时一并准备；标准库类型不列入算法依赖。', 1)
+        row['latex'] = row['latex'].replace(marker, marker + '\n\n' + text, 1)
 (root / 'build/book-sections.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')
 (root / 'docs/template-dependencies.json').write_text(json.dumps(copy_dependencies, ensure_ascii=False, indent=2) + '\n')
 from taxonomy_layout import render

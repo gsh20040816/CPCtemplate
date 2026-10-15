@@ -326,6 +326,8 @@ registered = {r['id'] for r in json.loads((root / 'docs/usage-examples.json').re
 cases = {k: v for k, v in cases.items() if k in registered}
 ap = argparse.ArgumentParser()
 ap.add_argument('--only', nargs='+')
+# With --only: rerun the named examples and keep the other records unchanged, stale or not.
+ap.add_argument('--refresh', action='store_true')
 cases['example-251'] = [('9 6 10\n5 6 2 10 10 7 3 2 9\n1 4 4 3 2 1\n', '1 3'), ('4 2 2\n1 1 1 1\n2 2\n', '3 1 2 3')]
 cases['example-252'] = [('4\n9223372036854775807 -9223372036854775808 -9223372036854775808 9223372036854775807\n', '1 1 1 1 0 0 2 0'), ('0\n', '')]
 args = ap.parse_args()
@@ -510,6 +512,10 @@ cases['example-410'].append(('4\n0 0 0\n1 0 0\n0 1 0\n0 0 1\n', '0.250000000000 
 cases['example-411'] = [('1\n2\n1000\n2\n', '2 2000'), ('-000 19\n-012 +03\n-9 -9\n', '0 -36 81')]
 cases['example-412'] = [('2\n4\n1 3 3 4\n4\n2 3 3 4\n', '0.5000000 1.0000000'), ('3\n3\n1 1 2\n3\n3 3 3\n3\n1 2 3\n', '0.0000000 1.0000000 0.0000000')]
 cases['example-413'] = [('1 2 3 4 5 6 7 x 8\n1 2 3 4 5 6 8 7 x\n', 'r unsolvable')]
+# Issue 27: brute-force partition answers for the monotone-layer usages (n<=10).
+cases['example-361'] = [('5 2\n0 9 4 8 3\n9 0 5 0 0\n4 5 0 7 2\n8 0 7 0 1\n3 0 2 1 0\n', '15'), ('6 3\n0 5 7 6 9 6\n5 0 3 8 3 4\n7 3 0 1 0 2\n6 8 1 0 3 6\n9 3 0 3 0 2\n6 4 2 6 2 0\n', '8'), ('1 1\n0\n', '0'), ('4 4\n0 1 2 9\n1 0 9 7\n2 9 0 2\n9 7 2 0\n', '0')]
+cases['example-363'] = [('10 5\n1 2 3 6 7 9 11 22 44 50\n', '9'), ('3 1\n5 1 9\n', '8'), ('4 4\n3 3 7 1\n', '0'), ('6 2\n10 1 1 20 30 2\n', '20')]
+cases['example-461'] = [('4\n3 1 4 1\n', '18'), ('3\n10 20 30\n', '90'), ('8\n7 2 9 4 6 3 8 5\n', '132'), ('2\n1000000000 1000000000\n', '2000000000')]
 if args.only:
     assert set(args.only) <= {r['id'] for r in rows} & set(cases)
 else:
@@ -523,6 +529,8 @@ completed = set()
 for row in rows:
     assert (root / row['snippet_file']).read_text() == row['snippet'], 'Regenerate printed usage first'
     if row['id'] not in selected:
+        if args.refresh:
+            continue
         assert proof.get(row['id'], {}).get('program_sha256') == row['program_sha256'], 'Unselected example became stale'
         assert proof[row['id']].get('modes') == ['normal', 'sanitizer']
         continue

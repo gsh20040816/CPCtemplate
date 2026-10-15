@@ -1,0 +1,119 @@
+\section{定义与性质}\label{knowledge-quadrangle-definitions}
+\index{四边形不等式}\index{quadrangle inequality}\index{Monge}\index{决策单调性}
+本节代价 $w(l,r)$ 只对闭区间 $1\le l\le r\le n$ 定义，DP 求\textbf{最小值}；求最大值时把下列不等号全部反向。
+
+\paragraph{四边形不等式} 对所有 $a\le b\le c\le d$，
+\[
+ w(a,c)+w(b,d)\le w(a,d)+w(b,c),
+\]
+即“两段交叉区间的代价和”不超过“外层区间加内层区间的代价和”。
+把 $M_{l,r}=w(l,r)$ 看作上三角矩阵，这正是 \textbf{Monge 性质}：任取两行 $a<b$、两列 $c<d$（且 $b\le c$），主对角线之和不超过副对角线之和。
+\textbf{只需验证相邻格}：若对所有 $i+1\le j$ 有 $w(i,j)+w(i+1,j+1)\le w(i,j+1)+w(i+1,j)$，
+把 $a\le i<b$、$c\le j<d$ 的这些不等式全部相加，中间项相消即得一般形式（$b\le c$ 保证每格都有定义）。
+相邻形式等价于“右端扩一格的增量 $w(l,r+1)-w(l,r)$ 随左端 $l$ 右移而不增”。
+
+\paragraph{区间包含单调性} 对所有 $a\le b\le c\le d$，$w(b,c)\le w(a,d)$，即大区间代价不小于其子区间。
+它与四边形不等式\textbf{互不蕴含}：$w(l,r)=-[l=1]$ 使四边形不等式取等号，却有 $w(2,3)=0>w(1,4)=-1$；
+$w(l,r)=[l<r]$ 满足包含单调性，却有 $w(1,2)+w(2,3)=2>w(1,3)+w(2,2)=1$。
+
+\paragraph{最优决策单调性} 它是 \textbf{DP 的最优转移点}的性质，不是代价函数的性质：
+某一转移把 $i$ 的最优决策记为 $opt(i)$，若 $i<i'$ 时 $opt(i)\le opt(i')$，称决策单调。
+多个决策并列最优时，$opt$ 必须按统一规则取（本节一律取\textbf{最小}的最优决策），否则单调性可能不成立，代码也不能按单调性剪枝。
+以下两种 DP 形式分别说明：四边形不等式（及 Knuth 情形下的包含单调性）\textbf{推出}哪一种决策单调性；
+没有这些条件时决策也可能单调，但必须另行证明。
+
+\paragraph{常见满足条件的代价} 非负权的区间和 $w=\sum_{i=l}^r x_i$：四边形不等式取等号且包含单调。
+$w=g(S_r-S_{l-1})$，其中 $S$ 为非降前缀和、$g$ 凸：满足四边形不等式；$g$ 再非降则包含单调。
+区间内所有无序对的非负权和 $w=\sum_{l\le i<j\le r}e_{ij}$：右减左恰为 $[a,b-1]$ 与 $[c+1,d]$ 之间的点对权，两条件都满足。
+满足条件的代价的非负线性组合仍满足相应条件。
+
+\section{分组 DP 的分治优化}\label{knowledge-quadrangle-layer}
+\index{分治优化}\index{决策单调性!分治}
+\paragraph{转移形式} 把 $1..n$ 分成恰好 $K$ 个非空连续段，段 $[l,r]$ 的代价为 $w(l,r)$，最小化总代价。
+令 $f_g(i)$ 表示前 $i$ 个元素恰分成 $g$ 段的最小代价，$j$ 为前一段的结束位置：
+\[
+ f_g(i)=\min_{g-1\le j<i}\bigl\{f_{g-1}(j)+w(j+1,i)\bigr\},\qquad g\le i\le n.
+\]
+初值 $f_0(0)=0$，$f_0(i)=+\infty\ (i>0)$；$i<g$ 时 $f_g(i)=+\infty$（不可达），答案 $f_K(n)$。
+
+\paragraph{条件与结论} 若 $w$ 满足四边形不等式，则对\textbf{任意}给定的上一层 $f_{g-1}$，
+取最小最优决策 $opt_g(i)$ 时有 $opt_g(i)\le opt_g(i+1)$。不需要包含单调性。
+
+\textit{证明.} 设 $i<i'$，$j=opt_g(i)$，若 $j'=opt_g(i')<j$。则 $j'$ 对 $i$ 合法、$j$ 对 $i'$ 合法（$j<i<i'$），且两者的 $f_{g-1}$ 有限。
+取 $(a,b,c,d)=(j'+1,j+1,i,i')$，四边形不等式给出
+\[
+ \bigl[f_{g-1}(j)+w(j+1,i')\bigr]-\bigl[f_{g-1}(j')+w(j'+1,i')\bigr]
+ \le\bigl[f_{g-1}(j)+w(j+1,i)\bigr]-\bigl[f_{g-1}(j')+w(j'+1,i)\bigr]<0,
+\]
+最后的严格号来自“$j$ 是 $i$ 的\textbf{最小}最优决策而 $j'<j$”。于是 $j$ 对 $i'$ 严格优于 $j'$，矛盾。$\square$
+
+\paragraph{分治} 求 $f_g$ 在 $[l,r]$ 上的值且已知决策落在 $[lo,hi]$ 时，取中点 $mid$，
+枚举 $j\in[lo,\min(hi,mid-1)]$ 求出 $opt(mid)$（严格小于才更新，得最小最优决策）；
+左半递归用 $[lo,opt(mid)]$，右半用 $[opt(mid),hi]$。由上述结论，左右两半的最小最优决策确实落在这两个范围内。
+同一递归深度各区间的枚举范围首尾相接，总量 $O(n)$，深度 $O(\log n)$，所以一层 $O(n\log n)$、$K$ 层 $O(Kn\log n)$（$w$ 须 $O(1)$ 求值）。
+
+\paragraph{对应接口} \texttt{monotone\_dp\_layer(prev,first,cost,opt)} 计算一层：
+\texttt{prev} 即 $f_{g-1}(0..n)$，\texttt{first}$=g$，\texttt{cost(j+1,i)} 即 $w(j+1,i)$，返回 $f_g(0..n)$，\texttt{opt[i]} 即 $opt_g(i)$；
+$i<g$ 时返回 \texttt{inf}、\texttt{opt} 为 $-1$。\texttt{prev[first-1]}$=f_{g-1}(g-1)$ 必须有限，保证每个 $i\ge g$ 至少有决策 $j=g-1$。
+分治要求整层 \texttt{prev} 事先算完，\textbf{不能}直接用于依赖同层未计算状态的转移，例如不限段数的 $f(i)=\min_j\{f(j)+w(j+1,i)\}$：
+中点处的 $f(j)$ 尚未求出。这类转移需改用 CDQ 分治套分治、单调队列加二分等其他写法。
+
+\section{区间 DP 的 Knuth 优化}\label{knowledge-quadrangle-knuth}
+\index{Knuth 优化}\index{决策单调性!区间}
+\paragraph{转移形式} 典型如石子合并：
+\[
+ f(l,r)=w(l,r)+\min_{l\le k<r}\bigl\{f(l,k)+f(k+1,r)\bigr\}\ (l<r),\qquad f(i,i)=0.
+\]
+$w(l,r)$ 只在 $l<r$ 时使用，$w(i,i)$ 无意义。若题目给叶子代价 $f(i,i)=e_i$，每个叶子恰出现一次，可先按 0 计算再加 $\sum_{i=l}^re_i$。
+记 $opt(l,r)$ 为最小最优分割点，约定 $opt(i,i)=i$。
+
+\paragraph{充分条件} 对长度至少为 2 的区间，$w$ 同时满足\textbf{四边形不等式}与\textbf{区间包含单调性}：
+\[
+ w(a,c)+w(b,d)\le w(a,d)+w(b,c),\qquad w(b,c)\le w(a,d),\qquad a\le b\le c\le d.
+\]
+结论：$opt(l,r-1)\le opt(l,r)\le opt(l+1,r)$（$r-l\ge2$），于是只枚举 $k\in[opt(l,r-1),opt(l+1,r)]$。
+
+\paragraph{引理（$f$ 也满足四边形不等式）} 对 $d-a$ 归纳证 $f(a,c)+f(b,d)\le f(a,d)+f(b,c)$。
+$a=b$ 或 $c=d$ 时两边相同。否则 $a<b$、$c<d$，令 $z=opt(a,d)$。
+若 $b=c$：当 $z<c$ 时，$f(a,c)\le w(a,c)+f(a,z)+f(z+1,c)$，对较短的 $[z+1,d]$ 用归纳得 $f(z+1,c)+f(c,d)\le f(z+1,d)+f(c,c)$，
+再用 $w(a,c)\le w(a,d)$ 即得 $f(a,c)+f(c,d)\le f(a,d)+f(c,c)$；$z\ge c$ 对称（拆 $f(c,d)$，对 $[a,z]$ 归纳，用 $w(c,d)\le w(a,d)$）。
+若 $b<c$：令 $y=opt(b,c)$。当 $z\le y$ 时，用 $z$ 拆 $f(a,c)$、用 $y$ 拆 $f(b,d)$，
+由 $w$ 的四边形不等式与归纳式 $f(z+1,c)+f(y+1,d)\le f(z+1,d)+f(y+1,c)$ 相加即得；
+当 $z>y$ 时，用 $y$ 拆 $f(a,c)$、用 $z$ 拆 $f(b,d)$，配合归纳式 $f(a,y)+f(b,z)\le f(a,z)+f(b,y)$ 同理。$\square$
+（包含单调性只在 $b=c$ 一步使用，前面的反例 $w=-[l=1]$ 正好在这里失效。）
+
+\paragraph{决策范围的推导} 记 $g_k(l,r)=f(l,k)+f(k+1,r)$，比较两个分割点时 $w(l,r)$ 抵消。
+\textit{左界}：对 $k<k'\le r-2$，引理用于 $(k+1,k'+1,r-1,r)$ 得
+$g_k(l,r)-g_{k'}(l,r)\ge g_k(l,r-1)-g_{k'}(l,r-1)$。取 $k'=K=opt(l,r-1)$，对任意 $k<K$ 右边 $>0$（$K$ 是最小最优），故 $k$ 不是 $(l,r)$ 的最优，$opt(l,r)\ge K$。
+\textit{右界}：令 $K=opt(l+1,r)\ge l+1$，对 $k'>K$，引理用于 $(l,l+1,K,k')$ 得
+$g_K(l,r)-g_{k'}(l,r)\le g_K(l+1,r)-g_{k'}(l+1,r)\le0$，所以 $K$ 不劣于更大的分割点，最小最优决策 $\le K$。
+左界用到严格不等号、右界只用到非严格不等号，两者在“取最小最优决策”下同时成立；若改为都取最大最优决策也成立，但不能混用。
+
+\paragraph{复杂度} 按区间长度递增计算。固定长度 $L$ 时，各 $l$ 的枚举量
+$\sum_l\bigl(opt(l+1,r)-opt(l,r-1)+1\bigr)$ 相邻项相消，不超过 $2n$；共 $n$ 种长度，时间 $O(n^2)$，表 $O(n^2)$，比朴素 $O(n^3)$ 少一个 $n$。
+长度为 2 时 $[opt(l,l),opt(l+1,l+1)]=[l,l+1]$，须截到 $r-1=l$。
+
+\paragraph{与分组 DP 分治优化的区别}
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+& 分组 DP 分治优化 & 区间 DP Knuth 优化\\
+\midrule
+转移 & $f_g(i)$ 只依赖已算完的上一层 & $f(l,r)$ 依赖同一张表的更短区间\\
+代价条件 & 仅四边形不等式 & 四边形不等式 $+$ 区间包含单调性\\
+决策关系 & 单侧：$opt_g(i)\le opt_g(i+1)$ & 双侧：$opt(l,r-1)\le opt(l,r)\le opt(l+1,r)$\\
+证明对象 & 只用 $w$，与上一层取值无关 & 先证 $f$ 满足四边形不等式\\
+实现与复杂度 & 中点分治，每层 $O(n\log n)$ & 按长度递推，总 $O(n^2)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+反例 $n=4$、$w(l,r)=-[l=1]$：四边形不等式取等号但不满足包含单调性。真值 $f(1,4)=-3$（$k=3$），
+而 $opt(1,3)=2$、$opt(2,4)=2$，Knuth 只枚举 $k=2$ 得 $-2$。
+环形问题（如环形石子合并）复制成长 $2n-1$ 的链，答案取 $\min_i f(i,i+n-1)$。
+
+\subsection{验证范围}
+\texttt{tests/knuth\_interval\_dp.cpp} 在 600 组随机代价（非负点对权、凸函数套区间和、区间和的组合，$n\le40$）上，
+与直接 $O(n^3)$ 区间 DP 逐格比较 $f$ 与最小最优分割点，检查双侧决策关系和 $f$ 的四边形不等式；
+另以 300 组 $n\le8$ 的石子合并枚举全部合并顺序作独立真值，并以 $w=-[l=1]$ 作反例对照，确认缺少包含单调性时 Knuth 会出错。
+AtCoder AWC0100 O 的完整用法通过 5 组官方样例、300 组 $N\le8$ 环形全合并顺序枚举与 $N=3000$ 计时（约 0.3 秒、457MB）。
+分组 DP 的 \texttt{monotone\_dp\_layer} 沿用 issue 14 的测试与洛谷 P4767 在线 AC 记录。

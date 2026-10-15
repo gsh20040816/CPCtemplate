@@ -1,7 +1,12 @@
 \section{定义与性质}\label{knowledge-stirling-definitions}
 \index{斯特林数}\index{Stirling numbers}\index{上升阶乘}\index{下降阶乘}
-无符号第一类 $c(n,k)$：$n$ 个带标号元素的排列恰有 $k$ 个循环的方案数；
-第二类 $S(n,k)$：$n$ 个带标号元素划分为 $k$ 个无标号非空集合的方案数；$s(n,k)=(-1)^{n-k}c(n,k)$。
+设 $n,k\ge0$。\textbf{无符号第一类} $c(n,k)$：$n$ 个带标号元素的排列中，
+恰有 $k$ 个循环的方案数；循环之间无序，循环内只忽略起点。
+\textbf{第二类} $S(n,k)$：把 $n$ 个带标号元素划分为 $k$ 个无标号非空集合的方案数。
+\textbf{有符号第一类} $s(n,k)=(-1)^{n-k}c(n,k)$。例：$c(3,1)=2$、$c(3,2)=3$；$S(3,1)=1$、$S(3,2)=3$。
+
+\paragraph{递推与边界} 考虑第 $n$ 个元素：第一类可自成一个循环，或插在已有 $n-1$ 个元素之一的后面；
+第二类可自成一块，或加入已有 $k$ 块之一。故
 \[
  c(n,k)=c(n-1,k-1)+(n-1)c(n-1,k),\qquad
  S(n,k)=S(n-1,k-1)+kS(n-1,k),
@@ -9,46 +14,118 @@
 \[
  s(n,k)=s(n-1,k-1)-(n-1)s(n-1,k).
 \]
-$(0,0)$ 项为 1；$n>0$ 的第零列、$k>n$ 或负下标为 0。记 $x^{\underline{k}}=x(x-1)\cdots(x-k+1)$，
-$x^{\overline{k}}=x(x+1)\cdots(x+k-1)$，
+三者 $(0,0)$ 项为 1；$n>0$ 时第 0 列为 0；$k>n$ 或下标为负时为 0。
+$c(n,n)=S(n,n)=1$；$n\ge1$ 时 $c(n,1)=(n-1)!$、$S(n,1)=1$；$\sum_k c(n,k)=n!$，$\sum_k S(n,k)$ 为 Bell 数。
+
+\paragraph{三种幂的转换} 记下降幂 $x^{\underline{k}}=x(x-1)\cdots(x-k+1)$、上升幂 $x^{\overline{k}}=x(x+1)\cdots(x+k-1)$，零次幂为 1，
+且 $x^{\underline n}=(-1)^n(-x)^{\overline n}$。普通幂 $x^n$ 与两种阶乘幂互相展开：
 \[
  x^{\overline n}=\sum_{k=0}^n c(n,k)x^k,\qquad
  x^{\underline n}=\sum_{k=0}^n s(n,k)x^k,\qquad
  x^n=\sum_{k=0}^n S(n,k)x^{\underline k}
      =\sum_{k=0}^n(-1)^{n-k}S(n,k)x^{\overline k}.
 \]
+第一式按“每个因子 $x+i$ 取 $x$ 还是取 $i$”对应排列的循环结构；第三式在 $x$ 为正整数时数 $n$ 元素到 $x$ 种颜色的映射，按同色类划分后给 $k$ 块分配互异颜色。
+其余两式由 $x\to-x$ 得到。所以 $c$、$s$ 分别把上升幂、下降幂展开成普通幂；$S$ 反过来把普通幂展开成下降幂，带符号 $(-1)^{n-k}S$ 展开成上升幂。
+
+\paragraph{生成函数} 固定列的指数生成函数（按循环/非空块的标号集合构造）为
 \[
- \sum_{n\ge k}c(n,k)\frac{x^n}{n!}=\frac{(-\log(1-x))^k}{k!},\quad
- \sum_{n\ge k}s(n,k)\frac{x^n}{n!}=\frac{(\log(1+x))^k}{k!},\quad
+ \sum_{n\ge k}c(n,k)\frac{x^n}{n!}=\frac{(-\log(1-x))^k}{k!},\qquad
+ \sum_{n\ge k}s(n,k)\frac{x^n}{n!}=\frac{(\log(1+x))^k}{k!},
+\]
+\[
  \sum_{n\ge k}S(n,k)\frac{x^n}{n!}=\frac{(e^x-1)^k}{k!}.
 \]
-$\sum_{n\ge k}S(n,k)x^n=x^k/\prod_{j=1}^k(1-jx)$；
-$\sum c(n,k)y^k x^n/n!=(1-x)^{-y}$，$\sum S(n,k)y^k x^n/n!=\exp(y(e^x-1))$。
-模素数 $p$ 算到 $N$ 次需 $N<p$，快速实现还受 NTT 长度限制。
+第二类的普通生成函数与两类的双变量指数生成函数为
+\[
+ \sum_{n\ge k}S(n,k)x^n=\frac{x^k}{\prod_{j=1}^k(1-jx)},\qquad
+ \sum_{n,k}c(n,k)y^k\frac{x^n}{n!}=(1-x)^{-y},\qquad
+ \sum_{n,k}S(n,k)y^k\frac{x^n}{n!}=e^{y(e^x-1)}.
+\]
+模素数 $p$ 算到 $N$ 次需 $N<p$，使出现的整数与阶乘可逆；快速实现另受 NTT 长度限制。
 
-\subsection{行列算法的选择与推导}
-第一类整行：$F_{2m}(x)=F_m(x)F_m(x+m)$（奇数再乘 $x+2m$），泰勒平移，$O(n\log n)$ 时间、$O(n)$ 空间。
-第二类整行：$S(n,k)=\sum_{i=0}^k(i^n/i!)((-1)^{k-i}/(k-i)!)$ 一次卷积；$0^0=1$ 单独处理。
-整列：取第一类 $A(x)=\sum_{j\ge0}x^j/(j+1)$ 或第二类 $A(x)=\sum_{j\ge0}x^j/(j+1)!$，
-$[x^{n-k}]A^k\cdot n!/k!$ 即所求，$A^k=\exp(k\log A)$，时间 $O(N+m\log m)$，$m=N-k+1$。
+\subsection{行列快速求解：推导与选择}
+\begin{center}\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+需求 & 函数 & 方法 & 复杂度\\
+\midrule
+第一类整行 $c(n,0..n)$ & \texttt{stirling\_first\_row} & 倍增 $+$ 泰勒平移 & $O(n\log n)$\\
+第一类整列 $c(0..N,k)$ & \texttt{stirling\_first\_column} & $\exp(k\log A)$ & $O(N+m\log m)$\\
+第二类整行 $S(n,0..m)$ & \texttt{stirling\_second\_row} & 容斥一次卷积 & $O(m\log m+m\log p)$\\
+第二类整列 $S(0..N,k)$ & \texttt{stirling\_second\_column} & $\exp(k\log A)$ & $O(N+m\log m)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{第一类整行。}$F_n(x)=x^{\overline n}$ 的系数即所求。若已知 $F_m$，则 $F_{2m}(x)=F_m(x)\,F_m(x+m)$，奇数长度再乘 $x+2m$。
+$F_m(x+m)$ 用泰勒平移：$[x^i]F(x+m)=\frac1{i!}\sum_{j\ge i}(j!f_j)\frac{m^{j-i}}{(j-i)!}$，为一次卷积。
+$T(n)=T(\lfloor n/2\rfloor)+O(n\log n)$，故 $O(n\log n)$ 时间、$O(n)$ 空间。
+
+\textbf{第二类整行。}由容斥（$i^n$ 为 $n$ 元到 $i$ 色的映射数，再要求每色非空并除以 $k!$），
+$S(n,k)=\sum_{i=0}^k\frac{i^n}{i!}\cdot\frac{(-1)^{k-i}}{(k-i)!}$，一次卷积得 $k=0..m$；$0^0=1$ 单独处理，正底数的指数才对 $p-1$ 取模。
+
+\textbf{两种整列。}列生成函数 $(-\log(1-x))^k$、$(e^x-1)^k$ 都以 $x^k$ 开头，常数项为 0，不能直接取对数。
+先提出 $x^k$：第一类 $A(x)=-\log(1-x)/x=\sum_{j\ge0}\frac{x^j}{j+1}$，第二类 $A(x)=(e^x-1)/x=\sum_{j\ge0}\frac{x^j}{(j+1)!}$，二者常数项都是 1，于是
+\[
+ c(n,k)\ \text{或}\ S(n,k)=\frac{n!}{k!}\,[x^{n-k}]A(x)^k,\qquad A^k=\exp(k\log A).
+\]
+只需 $A$ 的前 $m=N-k+1$ 项；倍率 $n!/k!$ 从 $n=k$ 时的 1 起逐次乘 $n+1$。
+$k=0$ 时列为 $(1,0,\dots,0)$，$k>N$ 时全零，均直接返回。有符号列再乘 $(-1)^{n-k}$。
+整行模板可传素数模参数（如 $167772161$）；整列依赖固定 $998244353$ 的 \texttt{FpsFunctions}，不能只改调用处换模数。
 
 \section{斯特林反演与应用}\label{knowledge-stirling-inversion}
 \index{斯特林反演}
-对下标从 0 开始的任意序列，
+\paragraph{公式} 对下标从 0 开始的任意序列 $a_0,a_1,\dots$ 与 $b_0,b_1,\dots$（求和均为 $0\le k\le n$）：
 \[
  b_n=\sum_{k=0}^n S(n,k)a_k
  \quad\Longleftrightarrow\quad
- a_n=\sum_{k=0}^n s(n,k)b_k
-     =\sum_{k=0}^n(-1)^{n-k}c(n,k)b_k,
+ a_n=\sum_{k=0}^n s(n,k)b_k=\sum_{k=0}^n(-1)^{n-k}c(n,k)b_k;
 \]
 \[
  b_n=\sum_{k=0}^n c(n,k)a_k
  \quad\Longleftrightarrow\quad
  a_n=\sum_{k=0}^n(-1)^{n-k}S(n,k)b_k.
 \]
-符号不能省略，$n,k$ 不能对调；逆关系在整数及任意模数下成立。
+即“第二类正变换 $\leftrightarrow$ 有符号第一类逆变换”“无符号第一类正变换 $\leftrightarrow$ 带 $(-1)^{n-k}$ 的第二类逆变换”。
+符号不能省略，$S(n,k)$ 的行标 $n$ 与列标 $k$ 不能对调；两边都必须对 $k$ 从 0 求和（$n\ge1$ 时 $k=0$ 项系数为 0，可省）。
 
-\subsection{手算检查与建模用法}
-给含 $k$ 块的划分赋权 $a_k$，总权即 $b_n=\sum_k S(n,k)a_k$。
-EGF 层面第一对公式等价于 $B(x)=A(e^x-1)$ 与 $A(x)=B(\log(1+x))$，是形式复合而非卷积。
-逐行点积只适合少量行，不是 $O(N\log N)$ 的完整变换。
+\paragraph{推导} 把 $x^n=\sum_k S(n,k)x^{\underline k}$ 中的 $x^{\underline k}$ 再按 $x^{\underline k}=\sum_j s(k,j)x^j$ 展开，比较 $x^j$ 的系数得
+$\sum_{k=j}^n S(n,k)s(k,j)=[n=j]$。矩阵 $\mathbf S=(S(n,k))$ 与 $\mathbf s=(s(n,k))$ 都是对角线为 1 的下三角矩阵，
+右逆即左逆，故 $\mathbf s\mathbf S=\mathbf S\mathbf s=I$，$\mathbf b=\mathbf S\mathbf a\iff\mathbf a=\mathbf s\mathbf b$，得到第一对。
+令对角矩阵 $D=\mathrm{diag}((-1)^n)$，则 $\mathbf s=D\mathbf cD$，$\mathbf c^{-1}=D\mathbf SD$，得到第二对。
+两对关系是整数恒等式，取任意模数仍成立；只有快速行列算法需要素数模和逆元。
+在指数生成函数层面（$A=\sum a_nx^n/n!$，$B=\sum b_nx^n/n!$），第一对等价于 $B(x)=A(e^x-1)$ 与 $A(x)=B(\log(1+x))$，
+是形式复合，不是逐项乘积或普通卷积。
+
+\paragraph{手算检查} 取 $a=(1,2,3,4)$，第二类正变换得 $b_0=1$，$b_1=2$，$b_2=S(2,1)\cdot2+S(2,2)\cdot3=5$，
+$b_3=1\cdot2+3\cdot3+1\cdot4=15$。逆变换用 $s(2,\cdot)=(0,-1,1)$、$s(3,\cdot)=(0,2,-3,1)$：
+$a_2=-b_1+b_2=3$，$a_3=2b_1-3b_2+b_3=4$，恢复原序列。
+
+\paragraph{建模：“按块数赋权”} 若对 $n$ 个带标号元素的每种集合划分，给含 $k$ 块的划分赋权 $a_k$，
+则总权 $b_n=\sum_kS(n,k)a_k$；若 $b_n$ 容易直接计数，就用有符号第一类恢复“恰好 $k$ 块”的量 $a_n$。
+例如 $n$ 个元素各染 $q$ 色之一共 $q^n$ 种，按同色类划分后各块颜色互异，有 $q^{\underline k}$ 种，
+即 $b_n=q^n$、$a_k=q^{\underline k}$；反演得 $q^{\underline n}=\sum_ks(n,k)q^k$，正是“下降幂 $\to$ 普通幂”的转换。
+$a_k\equiv1$ 时 $b_n$ 为 Bell 数，逆变换应恢复全 1。排列按循环数赋权时同理使用第二对。
+只需少数几个 $a_n$ 时，用整行模板求 $s(n,\cdot)$ 后做点积；四种行列模板不提供任意序列的整段快速斯特林变换。
+
+\paragraph{应用：自然数幂和（普通幂 $\to$ 下降幂）} 因为 $\sum_{i=0}^{n}i^{\underline j}=\frac{(n+1)^{\underline{j+1}}}{j+1}$，
+\[
+ \sum_{i=0}^{n}i^k=\sum_{j=0}^{k}S(k,j)\frac{(n+1)^{\underline{j+1}}}{j+1}.
+\]
+例：$n=3,k=2$ 时 $S(2,1)=S(2,2)=1$，得 $\frac{4\cdot3}{2}+\frac{4\cdot3\cdot2}{3}=14=0+1+4+9$。
+模 998244353 时，用一次整行 $O(k\log k)$ 求出系数，$n$ 可达 $10^{18}$（需 $k+1<p$ 以除以 $j+1$）：
+\begin{lstlisting}
+using Z = ModInt<998244353>;
+Z power_sum(unsigned long long n, int k) // sum of i^k for i = 0..n
+{
+    auto S = stirling_second_row(k, k);
+    Z answer = 0, falling = Z((n + 1) % 998244353);
+    for (int j = 0; j <= k; j++)
+    {
+        answer += S[j] * falling / Z(j + 1);
+        falling *= Z(n % 998244353) - Z(j);
+    }
+    return answer;
+}
+\end{lstlisting}
+\texttt{falling} 依次为 $(n+1)^{\underline{j+1}}$；$n<j$ 时乘到因子 0 后保持为 0，与真实值一致。

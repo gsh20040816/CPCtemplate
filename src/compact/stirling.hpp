@@ -1,5 +1,5 @@
 #pragma once
-#include "ntt_convolution.hpp"
+#include "fps_functions.hpp"
 
 // BEGIN stirling_second_row
 template <int mod = 998244353, int primitive = 3>
@@ -67,3 +67,71 @@ vector<ModInt<mod>> stirling_first_row(int n)
 }
 
 // END stirling_first_row
+
+// BEGIN stirling_first_column
+vector<ModInt<998244353>> stirling_first_column(int n, int k)
+{
+    using F = FpsFunctions;
+    using Z = F::Z;
+    assert(n >= 0 && n < F::max_size / 2 && k >= 0);
+    vector<Z> answer(n + 1);
+    if (k > n) return answer;
+    if (k == 0)
+    {
+        answer[0] = 1;
+        return answer;
+    }
+    // A = -log(1-x)/x, c(n,k) = n!/k! [x^(n-k)] A^k.
+    int m = n - k + 1;
+    F::Poly a(m), inv(m + 1);
+    inv[1] = 1;
+    for (int i = 2; i <= m; i++) inv[i] = Z(F::mod - F::mod / i) * inv[F::mod % i];
+    for (int i = 0; i < m; i++) a[i] = inv[i + 1];
+    auto f = F::log(a, m);
+    for (auto &x : f) x *= k;
+    f = F::exp(f, m);
+    Z scale = 1;
+    for (int i = k; i <= n; i++)
+    {
+        answer[i] = f[i - k] * scale;
+        scale *= i + 1;
+    }
+    return answer;
+}
+
+// END stirling_first_column
+
+// BEGIN stirling_second_column
+vector<ModInt<998244353>> stirling_second_column(int n, int k)
+{
+    using F = FpsFunctions;
+    using Z = F::Z;
+    assert(n >= 0 && n < F::max_size / 2 && k >= 0);
+    vector<Z> answer(n + 1);
+    if (k > n) return answer;
+    if (k == 0)
+    {
+        answer[0] = 1;
+        return answer;
+    }
+    // A = (e^x-1)/x, S(n,k) = n!/k! [x^(n-k)] A^k.
+    int m = n - k + 1;
+    F::Poly a(m), inv_fact(m + 1);
+    inv_fact[0] = 1;
+    for (int i = 1; i <= m; i++) inv_fact[i] = inv_fact[i - 1] * i;
+    inv_fact[m] = inv_fact[m].inv();
+    for (int i = m; i > 0; i--) inv_fact[i - 1] = inv_fact[i] * i;
+    for (int i = 0; i < m; i++) a[i] = inv_fact[i + 1];
+    auto f = F::log(a, m);
+    for (auto &x : f) x *= k;
+    f = F::exp(f, m);
+    Z scale = 1;
+    for (int i = k; i <= n; i++)
+    {
+        answer[i] = f[i - k] * scale;
+        scale *= i + 1;
+    }
+    return answer;
+}
+
+// END stirling_second_column

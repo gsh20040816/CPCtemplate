@@ -3,16 +3,17 @@
   "mode": "normal",
   "source_sha256": {
     "src/compact/monotone_hull.hpp": "225bc10d5fa2d2624900a5d7b035c9a82ee16ec7c72678896544ab1fb4d273ce",
-    "src/compact/monotone_dp.hpp": "f1b3de58bd129ca01c0490c58a97a0c82d01b7bdc8305bc3073c591540733845",
+    "src/compact/monotone_dp.hpp": "28267c92e3bfba32febdbb42c81362069e1077ceb78e347bbaf35ab207c07963",
     "src/compact/wqs_independent_set.hpp": "9ac4e09d7dc2fb615e874df0e8e9a740a082cc8facf4f5da4659e732d151ac42",
     "tests/dp_optimization.cpp": "ba6c3c37f888ef1b0b04a36d73f02f68933610a4d4bf7923498cd2f7a2e8f8e2",
-    "tests/dp_optimization.py": "0b47fe188ead4d49cc8ad0341c2265f8eca15a5ac73e6c563a6d2957522934fb",
-    "docs/catalog.json": "d32fabb0210e94e796155ae26ce2c14442b3c2fca44b014b48fcafce0317e1f1",
-    "docs/usage-examples.json": "21d7c86117ddda7398d6f823ec5aa74f0ec6ee21b614a75c9df861f787b6b17d",
+    "tests/dp_optimization.py": "171f9b17791d43a71b48176564aefc48d31a0c5d2b6f34ac4dc18c5bf87bc582",
+    "docs/catalog.json": "b1e9941aa73eaac3a63322063ced15990682b09373b1a2d4680d67ccfccee17c",
+    "docs/usage-examples.json": "7e4bfd36c4910e2e39c1d7c29cdaf77f032ea8abacfa50af911843575342b664",
     "verify/luogu/P2365.compact.cpp": "5e425e7dfd9a79e4a0fa8013b34b313f1d332e184ec31061478cc3c00b6e6d6c",
     "verify/luogu/CF321E.compact.cpp": "32b5bb13bf967b5f0c034b6cdbfb7f096fc11db276fa3b8b04f9afd04d6bc6df",
     "verify/luogu/P1484.wqs.compact.cpp": "0dd0fe4dbfc004f9e29960201ec5f825d1acd64392e9dbb55bf41ecabb6b1ec7",
-    "verify/luogu/P4767.compact.cpp": "9092cd33519e1e1440793bfc4a16ce7d65f8c840819b3baf47d89cbaaaa8f512"
+    "verify/luogu/P4767.compact.cpp": "9092cd33519e1e1440793bfc4a16ce7d65f8c840819b3baf47d89cbaaaa8f512",
+    "verify/atcoder/awc0100_o.compact.cpp": "6492d052273a9af4a376fd4838d3904e9b2cea4e015bf97f55e085646139d69c"
   },
   "core": {
     "header": "PASS hull streams, all partition layers and exhaustive path independent sets",
@@ -30,7 +31,7 @@
       }
     },
     "example-361": {
-      "program_sha256": "84dd2eb850c2bd3336b5b8c85cebd9cc88bbf767b10654c52f4a9831abbfb604",
+      "program_sha256": "d7f056301875480a946442328e20c9629c499c3fdd920c950ca2fa86c394c7cc",
       "forms": {
         "header": 101,
         "ndebug": 101,
@@ -48,7 +49,16 @@
       }
     },
     "example-363": {
-      "program_sha256": "8e64cfa7acca441bfa48c37d9e8249cf6c2c5e232b38eeddcc07abb3d6be0d04",
+      "program_sha256": "401542f3dc7d05946a3dd72798b9d540dc6de3af13432790efa9a193fb30468d",
+      "forms": {
+        "header": 101,
+        "ndebug": 101,
+        "expanded": 101,
+        "copied": 101
+      }
+    },
+    "example-461": {
+      "program_sha256": "5850d514de31af0363d22b678bc7dcd60230458739dc2219013302d59515cac3",
       "forms": {
         "header": 101,
         "ndebug": 101,

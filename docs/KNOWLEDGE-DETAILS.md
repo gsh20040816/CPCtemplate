@@ -3611,6 +3611,128 @@ $k=1$ 时无需加边，答案为1，不计算负指数。原图的内部边固�
 [固定版本 OI Wiki Prüfer 序列](https://github.com/OI-wiki/OI-wiki/blob/bc070e827180fbd75c2e27a16c1212f1d671d949/docs/graph/prufer.md)。
 以上用最小叶子的一致约定推导；不将本节计数说明当作整个上游页面的实现覆盖。
 
+## knowledge-quadrangle
+
+### 定义与性质
+
+本节代价 $w(l,r)$ 只对闭区间 $1\le l\le r\le n$ 定义，DP 求**最小值**；求最大值时把下列不等号全部反向。
+
+**四边形不等式** 对所有 $a\le b\le c\le d$，
+\[
+ w(a,c)+w(b,d)\le w(a,d)+w(b,c),
+\]
+即“两段交叉区间的代价和”不超过“外层区间加内层区间的代价和”。
+把 $M_{l,r}=w(l,r)$ 看作上三角矩阵，这正是 **Monge 性质**：任取两行 $a<b$、两列 $c<d$（且 $b\le c$），主对角线之和不超过副对角线之和。
+**只需验证相邻格**：若对所有 $i+1\le j$ 有 $w(i,j)+w(i+1,j+1)\le w(i,j+1)+w(i+1,j)$，
+把 $a\le i<b$、$c\le j<d$ 的这些不等式全部相加，中间项相消即得一般形式（$b\le c$ 保证每格都有定义）。
+相邻形式等价于“右端扩一格的增量 $w(l,r+1)-w(l,r)$ 随左端 $l$ 右移而不增”。
+
+**区间包含单调性** 对所有 $a\le b\le c\le d$，$w(b,c)\le w(a,d)$，即大区间代价不小于其子区间。
+它与四边形不等式**互不蕴含**：$w(l,r)=-[l=1]$ 使四边形不等式取等号，却有 $w(2,3)=0>w(1,4)=-1$；
+$w(l,r)=[l<r]$ 满足包含单调性，却有 $w(1,2)+w(2,3)=2>w(1,3)+w(2,2)=1$。
+
+**最优决策单调性** 它是 **DP 的最优转移点**的性质，不是代价函数的性质：
+某一转移把 $i$ 的最优决策记为 $opt(i)$，若 $i<i'$ 时 $opt(i)\le opt(i')$，称决策单调。
+多个决策并列最优时，$opt$ 必须按统一规则取（本节一律取**最小**的最优决策），否则单调性可能不成立，代码也不能按单调性剪枝。
+以下两种 DP 形式分别说明：四边形不等式（及 Knuth 情形下的包含单调性）**推出**哪一种决策单调性；
+没有这些条件时决策也可能单调，但必须另行证明。
+
+**常见满足条件的代价** 非负权的区间和 $w=\sum_{i=l}^r x_i$：四边形不等式取等号且包含单调。
+$w=g(S_r-S_{l-1})$，其中 $S$ 为非降前缀和、$g$ 凸：满足四边形不等式；$g$ 再非降则包含单调。
+区间内所有无序对的非负权和 $w=\sum_{l\le i<j\le r}e_{ij}$：右减左恰为 $[a,b-1]$ 与 $[c+1,d]$ 之间的点对权，两条件都满足。
+满足条件的代价的非负线性组合仍满足相应条件。
+
+### 分组 DP 的分治优化
+
+**转移形式** 把 $1..n$ 分成恰好 $K$ 个非空连续段，段 $[l,r]$ 的代价为 $w(l,r)$，最小化总代价。
+令 $f_g(i)$ 表示前 $i$ 个元素恰分成 $g$ 段的最小代价，$j$ 为前一段的结束位置：
+\[
+ f_g(i)=\min_{g-1\le j<i}\bigl\{f_{g-1}(j)+w(j+1,i)\bigr\},\qquad g\le i\le n.
+\]
+初值 $f_0(0)=0$，$f_0(i)=+\infty\ (i>0)$；$i<g$ 时 $f_g(i)=+\infty$（不可达），答案 $f_K(n)$。
+
+**条件与结论** 若 $w$ 满足四边形不等式，则对**任意**给定的上一层 $f_{g-1}$，
+取最小最优决策 $opt_g(i)$ 时有 $opt_g(i)\le opt_g(i+1)$。不需要包含单调性。
+
+\textit{证明.} 设 $i<i'$，$j=opt_g(i)$，若 $j'=opt_g(i')<j$。则 $j'$ 对 $i$ 合法、$j$ 对 $i'$ 合法（$j<i<i'$），且两者的 $f_{g-1}$ 有限。
+取 $(a,b,c,d)=(j'+1,j+1,i,i')$，四边形不等式给出
+\[
+ \bigl[f_{g-1}(j)+w(j+1,i')\bigr]-\bigl[f_{g-1}(j')+w(j'+1,i')\bigr]
+ \le\bigl[f_{g-1}(j)+w(j+1,i)\bigr]-\bigl[f_{g-1}(j')+w(j'+1,i)\bigr]<0,
+\]
+最后的严格号来自“$j$ 是 $i$ 的**最小**最优决策而 $j'<j$”。于是 $j$ 对 $i'$ 严格优于 $j'$，矛盾。$\square$
+
+**分治** 求 $f_g$ 在 $[l,r]$ 上的值且已知决策落在 $[lo,hi]$ 时，取中点 $mid$，
+枚举 $j\in[lo,\min(hi,mid-1)]$ 求出 $opt(mid)$（严格小于才更新，得最小最优决策）；
+左半递归用 $[lo,opt(mid)]$，右半用 $[opt(mid),hi]$。由上述结论，左右两半的最小最优决策确实落在这两个范围内。
+同一递归深度各区间的枚举范围首尾相接，总量 $O(n)$，深度 $O(\log n)$，所以一层 $O(n\log n)$、$K$ 层 $O(Kn\log n)$（$w$ 须 $O(1)$ 求值）。
+
+**对应接口** `monotone_dp_layer(prev,first,cost,opt)` 计算一层：
+`prev` 即 $f_{g-1}(0..n)$，`first`$=g$，`cost(j+1,i)` 即 $w(j+1,i)$，返回 $f_g(0..n)$，`opt[i]` 即 $opt_g(i)$；
+$i<g$ 时返回 `inf`、`opt` 为 $-1$。`prev[first-1]`$=f_{g-1}(g-1)$ 必须有限，保证每个 $i\ge g$ 至少有决策 $j=g-1$。
+分治要求整层 `prev` 事先算完，**不能**直接用于依赖同层未计算状态的转移，例如不限段数的 $f(i)=\min_j\{f(j)+w(j+1,i)\}$：
+中点处的 $f(j)$ 尚未求出。这类转移需改用 CDQ 分治套分治、单调队列加二分等其他写法。
+
+### 区间 DP 的 Knuth 优化
+
+**转移形式** 典型如石子合并：
+\[
+ f(l,r)=w(l,r)+\min_{l\le k<r}\bigl\{f(l,k)+f(k+1,r)\bigr\}\ (l<r),\qquad f(i,i)=0.
+\]
+$w(l,r)$ 只在 $l<r$ 时使用，$w(i,i)$ 无意义。若题目给叶子代价 $f(i,i)=e_i$，每个叶子恰出现一次，可先按 0 计算再加 $\sum_{i=l}^re_i$。
+记 $opt(l,r)$ 为最小最优分割点，约定 $opt(i,i)=i$。
+
+**充分条件** 对长度至少为 2 的区间，$w$ 同时满足**四边形不等式**与**区间包含单调性**：
+\[
+ w(a,c)+w(b,d)\le w(a,d)+w(b,c),\qquad w(b,c)\le w(a,d),\qquad a\le b\le c\le d.
+\]
+结论：$opt(l,r-1)\le opt(l,r)\le opt(l+1,r)$（$r-l\ge2$），于是只枚举 $k\in[opt(l,r-1),opt(l+1,r)]$。
+
+**引理（$f$ 也满足四边形不等式）** 对 $d-a$ 归纳证 $f(a,c)+f(b,d)\le f(a,d)+f(b,c)$。
+$a=b$ 或 $c=d$ 时两边相同。否则 $a<b$、$c<d$，令 $z=opt(a,d)$。
+若 $b=c$：当 $z<c$ 时，$f(a,c)\le w(a,c)+f(a,z)+f(z+1,c)$，对较短的 $[z+1,d]$ 用归纳得 $f(z+1,c)+f(c,d)\le f(z+1,d)+f(c,c)$，
+再用 $w(a,c)\le w(a,d)$ 即得 $f(a,c)+f(c,d)\le f(a,d)+f(c,c)$；$z\ge c$ 对称（拆 $f(c,d)$，对 $[a,z]$ 归纳，用 $w(c,d)\le w(a,d)$）。
+若 $b<c$：令 $y=opt(b,c)$。当 $z\le y$ 时，用 $z$ 拆 $f(a,c)$、用 $y$ 拆 $f(b,d)$，
+由 $w$ 的四边形不等式与归纳式 $f(z+1,c)+f(y+1,d)\le f(z+1,d)+f(y+1,c)$ 相加即得；
+当 $z>y$ 时，用 $y$ 拆 $f(a,c)$、用 $z$ 拆 $f(b,d)$，配合归纳式 $f(a,y)+f(b,z)\le f(a,z)+f(b,y)$ 同理。$\square$
+（包含单调性只在 $b=c$ 一步使用，前面的反例 $w=-[l=1]$ 正好在这里失效。）
+
+**决策范围的推导** 记 $g_k(l,r)=f(l,k)+f(k+1,r)$，比较两个分割点时 $w(l,r)$ 抵消。
+\textit{左界}：对 $k<k'\le r-2$，引理用于 $(k+1,k'+1,r-1,r)$ 得
+$g_k(l,r)-g_{k'}(l,r)\ge g_k(l,r-1)-g_{k'}(l,r-1)$。取 $k'=K=opt(l,r-1)$，对任意 $k<K$ 右边 $>0$（$K$ 是最小最优），故 $k$ 不是 $(l,r)$ 的最优，$opt(l,r)\ge K$。
+\textit{右界}：令 $K=opt(l+1,r)\ge l+1$，对 $k'>K$，引理用于 $(l,l+1,K,k')$ 得
+$g_K(l,r)-g_{k'}(l,r)\le g_K(l+1,r)-g_{k'}(l+1,r)\le0$，所以 $K$ 不劣于更大的分割点，最小最优决策 $\le K$。
+左界用到严格不等号、右界只用到非严格不等号，两者在“取最小最优决策”下同时成立；若改为都取最大最优决策也成立，但不能混用。
+
+**复杂度** 按区间长度递增计算。固定长度 $L$ 时，各 $l$ 的枚举量
+$\sum_l\bigl(opt(l+1,r)-opt(l,r-1)+1\bigr)$ 相邻项相消，不超过 $2n$；共 $n$ 种长度，时间 $O(n^2)$，表 $O(n^2)$，比朴素 $O(n^3)$ 少一个 $n$。
+长度为 2 时 $[opt(l,l),opt(l+1,l+1)]=[l,l+1]$，须截到 $r-1=l$。
+
+**与分组 DP 分治优化的区别**
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+& 分组 DP 分治优化 & 区间 DP Knuth 优化\\
+\midrule
+转移 & $f_g(i)$ 只依赖已算完的上一层 & $f(l,r)$ 依赖同一张表的更短区间\\
+代价条件 & 仅四边形不等式 & 四边形不等式 $+$ 区间包含单调性\\
+决策关系 & 单侧：$opt_g(i)\le opt_g(i+1)$ & 双侧：$opt(l,r-1)\le opt(l,r)\le opt(l+1,r)$\\
+证明对象 & 只用 $w$，与上一层取值无关 & 先证 $f$ 满足四边形不等式\\
+实现与复杂度 & 中点分治，每层 $O(n\log n)$ & 按长度递推，总 $O(n^2)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+反例 $n=4$、$w(l,r)=-[l=1]$：四边形不等式取等号但不满足包含单调性。真值 $f(1,4)=-3$（$k=3$），
+而 $opt(1,3)=2$、$opt(2,4)=2$，Knuth 只枚举 $k=2$ 得 $-2$。
+环形问题（如环形石子合并）复制成长 $2n-1$ 的链，答案取 $\min_i f(i,i+n-1)$。
+
+#### 验证范围
+`tests/knuth_interval_dp.cpp` 在 600 组随机代价（非负点对权、凸函数套区间和、区间和的组合，$n\le40$）上，
+与直接 $O(n^3)$ 区间 DP 逐格比较 $f$ 与最小最优分割点，检查双侧决策关系和 $f$ 的四边形不等式；
+另以 300 组 $n\le8$ 的石子合并枚举全部合并顺序作独立真值，并以 $w=-[l=1]$ 作反例对照，确认缺少包含单调性时 Knuth 会出错。
+AtCoder AWC0100 O 的完整用法通过 5 组官方样例、300 组 $N\le8$ 环形全合并顺序枚举与 $N=3000$ 计时（约 0.3 秒、457MB）。
+分组 DP 的 `monotone_dp_layer` 沿用 issue 14 的测试与洛谷 P4767 在线 AC 记录。
+
 ## knowledge-query-notes
 
 ### 线段树维护单调栈：双向扫描与接雨水
@@ -4239,14 +4361,13 @@ $\lambda=0$ 时矩阵幂零，序列为 $0,1,0,0,\ldots$，BM 的长度 2 系数
 
 ### 定义与性质
 
-设 $n,k\ge0$。无符号第一类 $c(n,k)$ 计数 $n$ 个带标号元素的排列中，
-恰有 $k$ 个不区分顺序的循环的方案数；循环内只忽略起点，方向不等同。
-第二类 $S(n,k)$ 计数把 $n$ 个带标号元素划分为 $k$ 个无标号非空集合的方案数。
-有符号第一类定义为 $s(n,k)=(-1)^{n-k}c(n,k)$。
-例如 $c(3,1)=2$、$c(3,2)=3$，而 $S(3,1)=1$、$S(3,2)=3$。
+设 $n,k\ge0$。**无符号第一类** $c(n,k)$：$n$ 个带标号元素的排列中，
+恰有 $k$ 个循环的方案数；循环之间无序，循环内只忽略起点。
+**第二类** $S(n,k)$：把 $n$ 个带标号元素划分为 $k$ 个无标号非空集合的方案数。
+**有符号第一类** $s(n,k)=(-1)^{n-k}c(n,k)$。例：$c(3,1)=2$、$c(3,2)=3$；$S(3,1)=1$、$S(3,2)=3$。
 
-加入第 $n$ 个元素：第一类可以自成一圈，或者插在已有 $n-1$ 个元素后；
-第二类可以自成一个块，或者加入已有 $k$ 个块。因此
+**递推与边界** 考虑第 $n$ 个元素：第一类可自成一个循环，或插在已有 $n-1$ 个元素之一的后面；
+第二类可自成一块，或加入已有 $k$ 块之一。故
 \[
  c(n,k)=c(n-1,k-1)+(n-1)c(n-1,k),\qquad
  S(n,k)=S(n-1,k-1)+kS(n-1,k),
@@ -4254,87 +4375,115 @@ $\lambda=0$ 时矩阵幂零，序列为 $0,1,0,0,\ldots$，BM 的长度 2 系数
 \[
  s(n,k)=s(n-1,k-1)-(n-1)s(n-1,k).
 \]
-三者的 $(0,0)$ 项均为 1；$n>0$ 的第零列为 0；$k>n$ 或任一下标为负时为 0。
-特别地 $c(n,n)=S(n,n)=1$，$n\ge1$ 时 $c(n,1)=(n-1)!$、$S(n,1)=1$。
+三者 $(0,0)$ 项为 1；$n>0$ 时第 0 列为 0；$k>n$ 或下标为负时为 0。
+$c(n,n)=S(n,n)=1$；$n\ge1$ 时 $c(n,1)=(n-1)!$、$S(n,1)=1$；$\sum_k c(n,k)=n!$，$\sum_k S(n,k)$ 为 Bell 数。
 
-记 $x^{\underline{k}}=x(x-1)\cdots(x-k+1)$，
-$x^{\overline{k}}=x(x+1)\cdots(x+k-1)$，零次幂均为 1。
-三种基底转换是
+**三种幂的转换** 记下降幂 $x^{\underline{k}}=x(x-1)\cdots(x-k+1)$、上升幂 $x^{\overline{k}}=x(x+1)\cdots(x+k-1)$，零次幂为 1，
+且 $x^{\underline n}=(-1)^n(-x)^{\overline n}$。普通幂 $x^n$ 与两种阶乘幂互相展开：
 \[
  x^{\overline n}=\sum_{k=0}^n c(n,k)x^k,\qquad
  x^{\underline n}=\sum_{k=0}^n s(n,k)x^k,\qquad
  x^n=\sum_{k=0}^n S(n,k)x^{\underline k}
      =\sum_{k=0}^n(-1)^{n-k}S(n,k)x^{\overline k}.
 \]
-固定列的指数生成函数为
+第一式按“每个因子 $x+i$ 取 $x$ 还是取 $i$”对应排列的循环结构；第三式在 $x$ 为正整数时数 $n$ 元素到 $x$ 种颜色的映射，按同色类划分后给 $k$ 块分配互异颜色。
+其余两式由 $x\to-x$ 得到。所以 $c$、$s$ 分别把上升幂、下降幂展开成普通幂；$S$ 反过来把普通幂展开成下降幂，带符号 $(-1)^{n-k}S$ 展开成上升幂。
+
+**生成函数** 固定列的指数生成函数（按循环/非空块的标号集合构造）为
 \[
  \sum_{n\ge k}c(n,k)\frac{x^n}{n!}=\frac{(-\log(1-x))^k}{k!},\quad
  \sum_{n\ge k}s(n,k)\frac{x^n}{n!}=\frac{(\log(1+x))^k}{k!},\quad
  \sum_{n\ge k}S(n,k)\frac{x^n}{n!}=\frac{(e^x-1)^k}{k!}.
 \]
-按循环/非空集合的标号集合构造可分别得到前后两式。
-第二类还有普通生成函数
-$\sum_{n\ge k}S(n,k)x^n=x^k/\prod_{j=1}^k(1-jx)$。
-双变量指数生成函数分别为
-$\sum c(n,k)y^k x^n/n!=(1-x)^{-y}$、
-$\sum S(n,k)y^k x^n/n!=\exp(y(e^x-1))$。
-这些等式先在有理数形式幂级数中成立；模素数 $p$ 计算到 $N$ 次时需 $N<p$，
-确保出现的整数和阶乘可逆。以下快速实现还须满足 NTT 长度限制。
+第二类的普通生成函数 $\sum_{n\ge k}S(n,k)x^n=x^k/\prod_{j=1}^k(1-jx)$；
+双变量形式 $\sum c(n,k)y^kx^n/n!=(1-x)^{-y}$、$\sum S(n,k)y^kx^n/n!=\exp(y(e^x-1))$。
+模素数 $p$ 算到 $N$ 次需 $N<p$，使出现的整数与阶乘可逆；快速实现另受 NTT 长度限制。
 
-#### 行列算法的选择与推导
-第一类整行用 $F_n(x)=x^{\overline n}$，递归一次求 $F_m$，
-再用 $F_{2m}(x)=F_m(x)F_m(x+m)$；奇数长度额外乘 $x+2m$。
-泰勒平移用逆阶乘卷积，递推 $T(n)=T(\lfloor n/2\rfloor)+O(n\log n)$，
-所以时间 $O(n\log n)$、空间 $O(n)$。
-第二类整行使用容斥
-$S(n,k)=\sum_{i=0}^k(i^n/i!)((-1)^{k-i}/(k-i)!)$，一次卷积获得前缀。
-$0^0=1$ 单独处理，正底数的指数才对 $p-1$ 取模。
+#### 行列快速求解：推导与选择
+\begin{center}\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+需求 & 函数 & 方法 & 复杂度\\
+\midrule
+第一类整行 $c(n,0..n)$ & `stirling_first_row` & 倍增 $+$ 泰勒平移 & $O(n\log n)$\\
+第一类整列 $c(0..N,k)$ & `stirling_first_column` & $\exp(k\log A)$ & $O(N+m\log m)$\\
+第二类整行 $S(n,0..m)$ & `stirling_second_row` & 容斥一次卷积 & $O(m\log m+m\log p)$\\
+第二类整列 $S(0..N,k)$ & `stirling_second_column` & $\exp(k\log A)$ & $O(N+m\log m)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+**第一类整行。**$F_n(x)=x^{\overline n}$ 的系数即所求。若已知 $F_m$，则 $F_{2m}(x)=F_m(x)\,F_m(x+m)$，奇数长度再乘 $x+2m$。
+$F_m(x+m)$ 用泰勒平移：$[x^i]F(x+m)=\frac1{i!}\sum_{j\ge i}(j!f_j)\frac{m^{j-i}}{(j-i)!}$，为一次卷积。
+$T(n)=T(\lfloor n/2\rfloor)+O(n\log n)$，故 $O(n\log n)$ 时间、$O(n)$ 空间。
 
-整列先取出最低次 $x^k$，只算 $m=N-k+1$ 项：
-第一类的单位常数项级数 $A(x)=\sum_{j\ge0}x^j/(j+1)$，
-第二类为 $A(x)=\sum_{j\ge0}x^j/(j+1)!$。
-用 $A^k=\exp(k\log A)$ 求幂，再令
-$c(n,k)$ 或 $S(n,k)=[x^{n-k}]A^k\cdot n!/k!$。
-从 $n=k$ 的倍率 1 逐次乘 $n+1$，无需另求 $k!$。
-时间 $O(N+m\log m)$、空间 $O(N)$；$k=0$ 和 $k>N$ 直接按边界返回。
+**第二类整行。**由容斥（$i^n$ 为 $n$ 元到 $i$ 色的映射数，再要求每色非空并除以 $k!$），
+$S(n,k)=\sum_{i=0}^k\frac{i^n}{i!}\cdot\frac{(-1)^{k-i}}{(k-i)!}$，一次卷积得 $k=0..m$；$0^0=1$ 单独处理，正底数的指数才对 $p-1$ 取模。
+
+**两种整列。**列生成函数 $(-\log(1-x))^k$、$(e^x-1)^k$ 都以 $x^k$ 开头，常数项为 0，不能直接取对数。
+先提出 $x^k$：第一类 $A(x)=-\log(1-x)/x=\sum_{j\ge0}\frac{x^j}{j+1}$，第二类 $A(x)=(e^x-1)/x=\sum_{j\ge0}\frac{x^j}{(j+1)!}$，二者常数项都是 1，于是
+\[
+ c(n,k)\ \text{或}\ S(n,k)=\frac{n!}{k!}\,[x^{n-k}]A(x)^k,\qquad A^k=\exp(k\log A).
+\]
+只需 $A$ 的前 $m=N-k+1$ 项；倍率 $n!/k!$ 从 $n=k$ 时的 1 起逐次乘 $n+1$。
+$k=0$ 时列为 $(1,0,\dots,0)$，$k>N$ 时全零，均直接返回。有符号列再乘 $(-1)^{n-k}$。
+整行模板可传素数模参数（如 $167772161$）；整列依赖固定 $998244353$ 的 `FpsFunctions`，不能只改调用处换模数。
 
 ### 斯特林反演与应用
 
-对下标从 0 开始的任意序列，
+**公式** 对下标从 0 开始的任意序列 $a_0,a_1,\dots$ 与 $b_0,b_1,\dots$（求和均为 $0\le k\le n$）：
 \[
  b_n=\sum_{k=0}^n S(n,k)a_k
  \quad\Longleftrightarrow\quad
- a_n=\sum_{k=0}^n s(n,k)b_k
-     =\sum_{k=0}^n(-1)^{n-k}c(n,k)b_k.
+ a_n=\sum_{k=0}^n s(n,k)b_k=\sum_{k=0}^n(-1)^{n-k}c(n,k)b_k;
 \]
-若正变换使用无符号第一类，则相应逆变换为
 \[
  b_n=\sum_{k=0}^n c(n,k)a_k
  \quad\Longleftrightarrow\quad
  a_n=\sum_{k=0}^n(-1)^{n-k}S(n,k)b_k.
 \]
-符号不能省略，也不能把正逆公式中的 $n,k$ 对调。
-将 $x^n=\sum_k S(n,k)x^{\underline k}$ 再展开下降阶乘并比较 $x^j$ 系数，得到
-$\sum_{k=j}^n S(n,k)s(k,j)=\delta_{n,j}$。
-两矩阵均为单位下三角矩阵，故这个右逆也是左逆，即
-$\sum_{k=j}^n s(n,k)S(k,j)=\delta_{n,j}$，证明上述第一对公式。
-用对角矩阵 $D_{n,n}=(-1)^n$，有 $s=DcD$，得到第二对公式。
-这些逆关系在整数上成立，取任意模数仍成立；只有快速行列算法的实现要求素数和逆元。
+即“第二类正变换 $\leftrightarrow$ 有符号第一类逆变换”“无符号第一类正变换 $\leftrightarrow$ 带 $(-1)^{n-k}$ 的第二类逆变换”。
+符号不能省略，$S(n,k)$ 的行标 $n$ 与列标 $k$ 不能对调；两边都必须对 $k$ 从 0 求和（$n\ge1$ 时 $k=0$ 项系数为 0，可省）。
 
-#### 手算检查与建模用法
-取 $a_0,a_1,a_2,a_3=(1,2,3,4)$，第二类变换为
-$b=(1,2,5,15)$。逆变换检查
-$a_2=b_2-b_1=3$，$a_3=b_3-3b_2+2b_1=4$。
-以 $k$ 为块数的无标号集合划分，若给一个含 $k$ 块的划分赋权 $a_k$，
-总权即 $b_n=\sum_k S(n,k)a_k$；已知这些总权时，可以用带符号第一类恢复 $a_n$。
-例如 $a_k=1$ 得到 Bell 数 $b_n$，逆变换应恢复全 1 序列。
-若每个块还要独立涂一种颜色，则取 $a_k=q^k$。
+**推导** 把 $x^n=\sum_k S(n,k)x^{\underline k}$ 中的 $x^{\underline k}$ 再按 $x^{\underline k}=\sum_j s(k,j)x^j$ 展开，比较 $x^j$ 的系数得
+$\sum_{k=j}^n S(n,k)s(k,j)=[n=j]$。矩阵 $\mathbf S=(S(n,k))$ 与 $\mathbf s=(s(n,k))$ 都是对角线为 1 的下三角矩阵，
+右逆即左逆，故 $\mathbf s\mathbf S=\mathbf S\mathbf s=I$，$\mathbf b=\mathbf S\mathbf a\iff\mathbf a=\mathbf s\mathbf b$，得到第一对。
+令对角矩阵 $D=\mathrm{diag}((-1)^n)$，则 $\mathbf s=D\mathbf cD$，$\mathbf c^{-1}=D\mathbf SD$，得到第二对。
+两对关系是整数恒等式，取任意模数仍成立；只有快速行列算法需要素数模和逆元。
+在指数生成函数层面（$A=\sum a_nx^n/n!$，$B=\sum b_nx^n/n!$），第一对等价于 $B(x)=A(e^x-1)$ 与 $A(x)=B(\log(1+x))$，
+是形式复合，不是逐项乘积或普通卷积。
 
-在指数生成函数层面，令 $A(x)=\sum a_nx^n/n!$、$B(x)=\sum b_nx^n/n!$，
-第一对公式等价于 $B(x)=A(e^x-1)$ 与 $A(x)=B(\log(1+x))$。
-这是形式复合，不能把它误写成逐项乘积或一次普通卷积。
-四种快速行列模板不自动给出任意整个序列的快速斯特林变换；
-逐行点积适合少量行或小规模示例，不能冒称 $O(N\log N)$ 的完整变换。
+**手算检查** 取 $a=(1,2,3,4)$，第二类正变换得 $b_0=1$，$b_1=2$，$b_2=S(2,1)\cdot2+S(2,2)\cdot3=5$，
+$b_3=1\cdot2+3\cdot3+1\cdot4=15$。逆变换用 $s(2,\cdot)=(0,-1,1)$、$s(3,\cdot)=(0,2,-3,1)$：
+$a_2=-b_1+b_2=3$，$a_3=2b_1-3b_2+b_3=4$，恢复原序列。
+
+**建模：“按块数赋权”** 若对 $n$ 个带标号元素的每种集合划分，给含 $k$ 块的划分赋权 $a_k$，
+则总权 $b_n=\sum_kS(n,k)a_k$；若 $b_n$ 容易直接计数，就用有符号第一类恢复“恰好 $k$ 块”的量 $a_n$。
+例如 $n$ 个元素各染 $q$ 色之一共 $q^n$ 种，按同色类划分后各块颜色互异，有 $q^{\underline k}$ 种，
+即 $b_n=q^n$、$a_k=q^{\underline k}$；反演得 $q^{\underline n}=\sum_ks(n,k)q^k$，正是“下降幂 $\to$ 普通幂”的转换。
+$a_k\equiv1$ 时 $b_n$ 为 Bell 数，逆变换应恢复全 1。排列按循环数赋权时同理使用第二对。
+只需少数几个 $a_n$ 时，用整行模板求 $s(n,\cdot)$ 后做点积；四种行列模板不提供任意序列的整段快速斯特林变换。
+
+**应用：自然数幂和（普通幂 $\to$ 下降幂）** 因为 $\sum_{i=0}^{n}i^{\underline j}=\frac{(n+1)^{\underline{j+1}}}{j+1}$，
+\[
+ \sum_{i=0}^{n}i^k=\sum_{j=0}^{k}S(k,j)\frac{(n+1)^{\underline{j+1}}}{j+1}.
+\]
+例：$n=3,k=2$ 时 $S(2,1)=S(2,2)=1$，得 $\frac{4\cdot3}{2}+\frac{4\cdot3\cdot2}{3}=14=0+1+4+9$。
+模 998244353 时，用一次整行 $O(k\log k)$ 求出系数，$n$ 可达 $10^{18}$（需 $k+1<p$ 以除以 $j+1$）：
+\begin{lstlisting}
+using Z = ModInt<998244353>;
+Z power_sum(unsigned long long n, int k) // sum of i^k for i = 0..n
+{
+    auto S = stirling_second_row(k, k);
+    Z answer = 0, falling = Z((n + 1) % 998244353);
+    for (int j = 0; j <= k; j++)
+    {
+        answer += S[j] * falling / Z(j + 1);
+        falling *= Z(n % 998244353) - Z(j);
+    }
+    return answer;
+}
+\end{lstlisting}
+`falling` 依次为 $(n+1)^{\underline{j+1}}$；$n<j$ 时乘到因子 0 后保持为 0，与真实值一致。
 
 #### 题目协议与验证范围
 整行的洛谷 P5408/P5395 使用素数 167772161；本节整列函数固定 998244353，
@@ -4342,13 +4491,14 @@ $a_2=b_2-b_1=3$，$a_3=b_3-3b_2+2b_1=4$。
 Library Checker 第一类 fixed-k 题要求**有符号** $s(n,k)$，
 第二类要求 $S(n,k)$；两题只输出 $n=k,\ldots,N$。
 紧随各函数的完整用法分别展示这些差异。
-原整行实现的洛谷历史AC：[第一类P5408](https://www.luogu.com.cn/record/297627360)与[第二类P5395](https://www.luogu.com.cn/record/297626422)。
-新增整列已在Library Checker以C++20实际AC：[第一类409999](https://judge.yosupo.jp/submission/409999)（4457ms）、[第二类410000](https://judge.yosupo.jp/submission/410000)（4407ms），均14点全过，时限10秒。
-递推对拍69158项、反演矩阵恒等式与50万规模边界通过，头文件及精确抄写版本均通过普通与ASan/UBSan检查。
-本轮整行也以当前源码通过Library Checker：[第一类410002](https://judge.yosupo.jp/submission/410002)（589ms）、[第二类410001](https://judge.yosupo.jp/submission/410001)（392ms）。
-性能提醒：本地同编译器C++17/O2、最大规模小k输入交替各3次，整列中位耗时约为官方参考的6.06倍（第一类）与4.92倍（第二类），超过80%慢速提醒线。复用通用幂级数便于抄写，但常数较大；此比较不是OJ排名。
-算法及公式参考[OI Wiki 斯特林数](https://oi-wiki.org/math/combinatorics/stirling/)，
-本库完整状态见 issue 18 与 verification/stirling-columns*.json。
+原整行实现的洛谷历史AC：[第一类P5408](https://www.luogu.com.cn/record/297627360)与[第二类P5395](https://www.luogu.com.cn/record/297626422)；
+整行以当前源码通过Library Checker：[第一类410002](https://judge.yosupo.jp/submission/410002)（589ms）、[第二类410001](https://judge.yosupo.jp/submission/410001)（392ms）。
+
+issue 21 曾把整列从打印目录删去；issue 26 将其恢复到 `stirling.hpp`，改为直接调用 `FpsFunctions` 的 log/exp，不再经 `FpsPower`。
+旧版整列的 Library Checker AC（[第一类409999](https://judge.yosupo.jp/submission/409999)、[第二类410000](https://judge.yosupo.jp/submission/410000)）属于已退役的 FpsPower 版本，不作为当前源码的在线证据；
+当前版本已用固定提交 e6466056 的 14 组官方生成数据及官方 checker 在本地普通与 ASan/UBSan 构建全部接受（最大单点约 0.43 秒），在线提交见 `verification/pending-oj.md`。
+递推对拍 69158 项、反演矩阵恒等式与 50 万规模边界通过；反演两对公式在 $n\le40$ 随机序列上双向核对，打印的 `power_sum` 与直接求和及 $k\le3$ 的闭式核对。
+算法及公式参考[OI Wiki 斯特林数](https://oi-wiki.org/math/combinatorics/stirling/)。
 
 ## knowledge-structure-notes
 

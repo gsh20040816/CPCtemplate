@@ -66,6 +66,7 @@
 - `verify/api/tree_path_parity.compact.cpp`
 - `verify/api/trie_sam.compact.cpp`
 - `verify/api/weighted_blossom_cardinality.compact.cpp`
+- `verify/atcoder/awc0100_o.compact.cpp`
 - `verify/codechef/TSUBSTR.compact.cpp`
 - `verify/codeforces/106161I.compact.cpp`
 - `verify/cses/1160.compact.cpp`
@@ -134,7 +135,9 @@
 - `verify/library_checker/static_convex_hull.compact.cpp`
 - `verify/library_checker/staticrmq.compact.cpp`
 - `verify/library_checker/stirling_number_of_the_first_kind.compact.cpp`
+- `verify/library_checker/stirling_number_of_the_first_kind_fixed_k.compact.cpp`
 - `verify/library_checker/stirling_number_of_the_second_kind.compact.cpp`
+- `verify/library_checker/stirling_number_of_the_second_kind_fixed_k.compact.cpp`
 - `verify/library_checker/suffixarray.compact.cpp`
 - `verify/library_checker/suffixarray_sais.compact.cpp`
 - `verify/library_checker/sum_of_floor_of_linear.compact.cpp`
@@ -220,6 +223,7 @@
 - `verify/luogu/P4557.compact.cpp`
 - `verify/luogu/P4630.compact.cpp`
 - `verify/luogu/P4716.compact.cpp`
+- `verify/luogu/P4719.compact.cpp`
 - `verify/luogu/P4721.compact.cpp`
 - `verify/luogu/P4724.compact.cpp`
 - `verify/luogu/P4735.compact.cpp`
@@ -276,6 +280,7 @@
 - `verify/spoj/QTREE.compact.cpp`
 - `verify/spoj/QTREE2.compact.cpp`
 - `verify/spoj/QTREE4.compact.cpp`
+- `verify/uoj/763.compact.cpp`
 - `verify/uva/1479.compact.cpp`
 - `verify/uva/796.compact.cpp`
 

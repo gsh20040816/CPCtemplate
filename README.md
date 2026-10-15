@@ -38,10 +38,12 @@ SANITIZE=1 tools/test.sh
 - [待评测队列](verification/pending-oj.md)：尚未提交、网站错误与未完成验证的接口。
 - 使用示例：每个模板最多印一份模板题用法；应用题与接口演示驱动只作为本地测试，见 [使用示例覆盖表](docs/USAGE-COVERAGE.md)。
 
+每个模板节在代码前先印“问题描述／功能”与“核心思路”（[template-intros.json](docs/template-intros.json)，issue 28），复杂分支另附“思路中的情况 → 代码行号”对照表，随后才是接口契约与代码；见 [issue #28 记录](docs/ISSUE-28.md)。
+
 ## 构建
 
 运行 `tools/build_pdf.sh`（需要 XeLaTeX、latexmk），生成 `output/pdf/` 下的总册、六本分册（字符串、数学、数据结构、图论、计算几何、杂项）与 Infra 册，见 [分册说明](docs/VOLUMES.md)。
 
 单面打印另生成数学、图论的 `-upper.pdf`／`-lower.pdf` 上下册，沿用原页码，不因拆册复制依赖模板；打印这四本时不必再打印对应完整分册。
 
-当前有 120 个分类知识节（数学 87、图论 16、计算几何 1、数据结构 9、杂项 4、字符串 3），按固定 OI Wiki 导航纳入总册和所属分册，映射见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)；不把这些节数当作完整知识体系的覆盖比例。PDF 中的知识节只保留公式、适用条件和复杂度；推导、反例与验证范围见 [知识节完整说明](docs/KNOWLEDGE-DETAILS.md)，由 `python3 tools/knowledge_markdown.py` 从 `docs/knowledge-full/` 生成。
+当前有 123 个分类知识节（数学 87、图论 16、计算几何 1、数据结构 9、杂项 7、字符串 3），按固定 OI Wiki 导航纳入总册和所属分册，映射见 [知识分类](docs/KNOWLEDGE-TAXONOMY.md)；不把这些节数当作完整知识体系的覆盖比例。PDF 中的知识节以公式、适用条件和复杂度为主，斯特林数（issue 26）与四边形不等式（issue 27）两节按议题要求印出推导与示例；推导、反例与验证范围见 [知识节完整说明](docs/KNOWLEDGE-DETAILS.md)，由 `python3 tools/knowledge_markdown.py` 从 `docs/knowledge-full/` 生成。

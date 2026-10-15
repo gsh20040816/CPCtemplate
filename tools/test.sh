@@ -27,6 +27,11 @@ if [[ -z "${CXX:-}" ]]; then
 fi
 export CXX
 export CPC_SANITIZE="${SANITIZE:-0}"
+# Every compile below, including the earliest tests, uses the same flags.
+flags=(-std=c++20 -O2 -Wall -Wextra)
+if [[ "$(uname -s)" == Darwin ]]; then flags+=(-Wl,-stack_size,0x20000000); fi
+if [[ -d /opt/homebrew/include/boost ]]; then flags+=(-I/opt/homebrew/include); fi
+if [[ "${SANITIZE:-0}" == 1 ]]; then flags+=(-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer); fi
 python3 tests/static_modint.py
 python3 tests/matrix_tree_knowledge.py
 python3 tests/partition_knowledge.py
@@ -65,10 +70,6 @@ python3 tests/inclusion_knowledge.py
 python3 tests/integer_3d_demo.py
 python3 tests/totient_lattice_application.py
 python3 tests/bezout_minimum_usage.py
-flags=(-std=c++20 -O2 -Wall -Wextra)
-if [[ "$(uname -s)" == Darwin ]]; then flags+=(-Wl,-stack_size,0x20000000); fi
-if [[ -d /opt/homebrew/include/boost ]]; then flags+=(-I/opt/homebrew/include); fi
-if [[ "${SANITIZE:-0}" == 1 ]]; then flags+=(-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer); fi
 "$CXX" "${flags[@]}" tests/fenwick-selection.cpp -o build/fenwick-selection-core
 build/fenwick-selection-core
 "$CXX" "${flags[@]}" tests/multipoint_evaluation.cpp -o build/multipoint-evaluation-core
@@ -314,6 +315,12 @@ build/matrix_tree_mod
 
 "$CXX" "${flags[@]}" tests/stirling.cpp -o build/stirling
 build/stirling
+"$CXX" "${flags[@]}" tests/stirling_columns.cpp -o build/stirling_columns
+build/stirling_columns
+python3 tests/stirling_inversion.py
+python3 tests/stirling_layout.py
+python3 tests/quadrangle_layout.py
+python3 tests/template_intros.py
 
 "$CXX" "${flags[@]}" tests/ntt_convolution.cpp -o build/ntt_convolution
 build/ntt_convolution
@@ -513,6 +520,9 @@ python3 tests/mo_secondary_application.py
 "$CXX" "${flags[@]}" tests/monotone_stack_seg.cpp -o build/monotone-stack-seg
 build/monotone-stack-seg
 python3 tests/monotone_stack_application.py
+"$CXX" "${flags[@]}" tests/knuth_interval_dp.cpp -o build/knuth_interval_dp
+build/knuth_interval_dp
+python3 tests/knuth_application.py
 
 "$CXX" "${flags[@]}" tests/kd_tree_sum.cpp -o build/kd-tree-sum
 build/kd-tree-sum

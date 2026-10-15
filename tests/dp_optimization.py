@@ -13,7 +13,7 @@ out.mkdir(parents=True,exist_ok=True)
 flags=['-std=c++20','-O1' if san else '-O2']
 if san:flags+=['-fsanitize=address,undefined','-fno-omit-frame-pointer','-g']
 env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1')
-rows=[r for r in records() if r['symbol'] in ['MonotoneHull','monotone_dp_layer','wqs_independent_set']]
+rows=[r for r in records() if r['symbol'] in ['MonotoneHull','monotone_dp_layer','wqs_independent_set','knuth_interval_dp']]
 paths=['src/compact/monotone_hull.hpp','src/compact/monotone_dp.hpp','src/compact/wqs_independent_set.hpp','tests/dp_optimization.cpp','tests/dp_optimization.py','docs/catalog.json','docs/usage-examples.json']+[r['driver'] for r in rows]
 sha=lambda b:hashlib.sha256(b).hexdigest()
 hashes={p:sha((ROOT/p).read_bytes()) for p in paths}
@@ -31,7 +31,7 @@ for form in ['header','ndebug','copied']:
  src=ROOT/'tests/dp_optimization.cpp';exe=out/('core-'+form)
  if form=='copied':
   text=src.read_text()
-  for row,stem in zip(rows,['monotone_hull','monotone_dp','wqs_independent_set']):
+  for row,stem in zip([r for r in rows if r['symbol']!='knuth_interval_dp'],['monotone_hull','monotone_dp','wqs_independent_set']):
    prefix=candidate(row,row['requires'],components)['program'].split('int main()')[0]
    text=text.replace('#include "../src/compact/'+stem+'.hpp"',prefix)
   src=exe.with_suffix('.cpp');src.write_text(text)
@@ -75,6 +75,21 @@ for _ in range(100):
  cases['example-363'].append((f'{n} {k}\n'+' '.join(map(str,x))+'\n',[best]))
 n=3000;k=300
 cases['example-363'].append((f'{n} {k}\n'+' '.join(map(str,range(1,n+1)))+'\n',[7500]))
+# Issue 27: circular stone merging, exhaustive merge orders as truth.
+def circle(a):
+ if len(a)==1:return 0
+ best=None
+ for i in range(len(a)):
+  j=(i+1)%len(a);m=a[i]+a[j]
+  b=(m,)+a[1:-1] if j==0 else a[:i]+(m,)+a[j+1:]
+  v=m+circle(b);best=v if best is None else min(best,v)
+ return best
+for _ in range(100):
+ n=rng.randrange(2,8);a=tuple(rng.randrange(1,50) for i in range(n))
+ cases['example-461'].append((f'{n}\n'+' '.join(map(str,a))+'\n',[circle(a)]))
+n=3000
+# Equal weights: optimal external path length n*floor(log2 n)+2(n-2^floor(log2 n)) = 34904.
+cases['example-461'].append((f'{n}\n'+'1000000000 '*n+'\n',[34904*10**9]))
 usage={}
 for row in rows:
  forms={}

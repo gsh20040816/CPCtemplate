@@ -38,3 +38,37 @@ vector<long long> monotone_dp_layer(const vector<long long> &prev, int first,
     return cur;
 }
 // END monotone_dp_layer
+
+// BEGIN knuth_interval_dp
+template<class Cost>
+vector<vector<long long>> knuth_interval_dp(int n, Cost cost,
+                                            vector<vector<int>> &opt)
+{
+    using ll = long long;
+    constexpr ll inf = LLONG_MAX / 4;
+    assert(n >= 1);
+    vector<vector<ll>> f(n + 1, vector<ll>(n + 1, inf));
+    opt.assign(n + 1, vector<int>(n + 1, -1));
+    for (int i = 1; i <= n; i++)
+    {
+        f[i][i] = 0;
+        opt[i][i] = i;
+    }
+    for (int len = 2; len <= n; len++)
+        for (int l = 1, r = len; r <= n; l++, r++)
+        {
+            ll w = cost(l, r);
+            int hi = min(opt[l + 1][r], r - 1);
+            for (int k = opt[l][r - 1]; k <= hi; k++)
+            {
+                ll value = f[l][k] + f[k + 1][r] + w;
+                if (value < f[l][r])
+                {
+                    f[l][r] = value;
+                    opt[l][r] = k;
+                }
+            }
+        }
+    return f;
+}
+// END knuth_interval_dp
