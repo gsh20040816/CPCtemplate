@@ -23,6 +23,8 @@ cd ..
 python3 tools/pdf_audit.py
 if [[ -x build/tools-env/bin/python ]]; then
     build/tools-env/bin/python tools/infra_audit.py
+    build/tools-env/bin/python tools/split_print_volumes.py
 else
     python3 tools/infra_audit.py
+    python3 tools/split_print_volumes.py
 fi
