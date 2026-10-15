@@ -13,20 +13,10 @@
 \vspace{14mm}
 {\LARGE Morning Flower\par and Evening Oath\par}
 \vspace{12mm}{\large Tongji University\par}
-\vspace{24mm}{\Large vector 算法模板与数学速查\par}
-\vspace{10mm}{\large 建设稿 · 2026-09-12\par}
 \vfill
 \end{titlepage}
 \hypersetup{pageanchor=true}
 \frontmatter\tableofcontents
-\chapter{使用与验证}
-代码采用 C++20，只保留 vector 实现；默认已包含 \texttt{bits/stdc++.h}、\texttt{cassert} 并使用 std 命名空间，抄写单个函数或结构体时同时抄写条目列出的代码依赖。
-点号除特别注明外为 1-based，字符串和多项式为 0-based；区间、数值上限与退化约定以条目说明为准。
-
-每个模板最多印一份模板题使用示例，只含配置与 main 调用部分；其余应用题与接口演示驱动保留在仓库中作为本地测试。
-测试位于 \texttt{tests/}，包含独立暴力参考、边界案例与 AddressSanitizer/UndefinedBehaviorSanitizer；在线 AC 记录、源码摘要与受测接口见 \texttt{verification/oj.json}，同文件中未受测的接口不能由他者通过推断为通过。
-本地对拍通过不代表对所有输入的绝对正确性证明。
-
 \mainmatter
 \input{generated.tex}
 \input{mathematics-legacy.tex}
